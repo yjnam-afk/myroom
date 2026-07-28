@@ -1,11 +1,27 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AuthNav from "@/components/AuthNav";
+import AuthGate from "@/components/AuthGate";
+import ProgressSync from "@/components/ProgressSync";
+import DeployBanner from "@/components/DeployBanner";
+import GlobalAudioPlayer from "@/components/GlobalAudioPlayer";
+import CursorTrail from "@/components/CursorTrail";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  // TODO: Vercel 배포 후 실제 주소로 변경
+  metadataBase: new URL("https://myroom.vercel.app"),
   title: "나의 공간",
   description:
-    "나만의 방을 꾸미고, 일기·할 일·즐겨찾기를 담는 개인 홈 — 모든 기록은 내 브라우저에만 저장돼요.",
+    "기술사 답안은 '소설'이다 — 내 페이스대로 키워드 암기(두음신공)와 답안 쓰기를 훈련하는 나만의 정보관리기술사 학습 공간",
+  openGraph: {
+    title: "나의 공간",
+    description:
+      "기술사 답안은 소설이다 ✍️ 두음신공 암기 + 키워드 답안쓰기 — 나만의 학습 아지트",
+    siteName: "나의 공간",
+    images: [{ url: "/api/og", width: 1200, height: 630 }],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -17,36 +33,39 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <header className="sticky top-0 z-10 border-b border-slate-200 bg-white/80 backdrop-blur">
-          <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">
-            <Link
-              href="/"
-              className="flex items-center gap-2 whitespace-nowrap font-bold text-slate-900"
-            >
+          <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+            <Link href="/" className="flex items-center gap-2 whitespace-nowrap font-bold text-slate-900 shrink-0">
               <span className="grid h-8 w-8 place-items-center rounded-2xl bg-gradient-to-br from-brand-400 to-brand-500 text-base shadow-sm">
                 🏠
               </span>
               나의 공간
             </Link>
-            <nav className="flex gap-3 text-sm font-medium text-slate-600 sm:gap-4">
-              <Link href="/" className="hover:text-brand-600">
-                🛋️ 마이룸
-              </Link>
-              <Link href="/diary" className="hover:text-brand-600">
-                📔 다이어리
-              </Link>
-              <Link href="/todo" className="hover:text-brand-600">
-                ✅ 할 일
-              </Link>
-              <Link href="/links" className="hover:text-brand-600">
-                🔖 즐겨찾기
-              </Link>
-            </nav>
+            <div className="flex items-center gap-4">
+              <nav className="hidden gap-4 text-sm font-medium text-slate-600 xl:flex">
+                <Link href="/plan" className="font-semibold text-brand-600 hover:text-brand-700">🗓️ 계획</Link>
+                <Link href="/mnemonic" className="hover:text-brand-600">두음신공</Link>
+                <Link href="/commute" className="hover:text-brand-600">🚇 지하철</Link>
+                <Link href="/answer" className="font-semibold text-brand-600 hover:text-brand-700">답안쓰기</Link>
+                <Link href="/exam" className="hover:text-brand-600">기출문제</Link>
+                <Link href="/bank" className="hover:text-brand-600">🏦 문제은행</Link>
+                <Link href="/map" className="hover:text-brand-600">🗺️ 토픽지도</Link>
+                <Link href="/guide" className="hover:text-brand-600">🧠 학습법</Link>
+                <Link href="/room" className="hover:text-brand-600">🛋️ 마이룸</Link>
+              </nav>
+              <AuthNav />
+            </div>
           </div>
         </header>
-        <main className="mx-auto max-w-4xl px-4 py-8">{children}</main>
-        <footer className="mx-auto max-w-4xl px-4 pb-8 text-center text-xs text-slate-400">
-          모든 기록은 이 브라우저에만 저장돼요 · 나의 공간
+        <ProgressSync />
+        <DeployBanner />
+        <main className="mx-auto max-w-5xl px-4 py-8">
+          <AuthGate>{children}</AuthGate>
+        </main>
+        <footer className="mx-auto max-w-5xl px-4 py-10 text-center text-xs text-slate-400">
+          나의 공간 · 정보관리기술사 학습 · AI 응답은 참고용이며 실제 채점 기준과 다를 수 있습니다.
         </footer>
+        <GlobalAudioPlayer />
+        <CursorTrail />
       </body>
     </html>
   );

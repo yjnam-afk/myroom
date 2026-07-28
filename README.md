@@ -1,48 +1,106 @@
-# 나의 공간 (My Room)
+# 나의 공간 — 나만의 정보관리기술사 학습 앱
 
-나만의 방을 꾸미고, 하루를 기록하는 개인 홈 웹앱입니다. Next.js(App Router) + TypeScript + Tailwind CSS로 만들어졌고, 모든 기록은 **브라우저(localStorage)에만 저장**됩니다 — 서버·계정이 필요 없어요.
+`yjnam-afk/study`(다 같이 스파르타)의 **개인 에디션**입니다. 같은 기능을 그대로 담되, 단체용 요소(선언 배너·랭킹 메뉴)를 걷어내고 나만의 아지트로 꾸몄어요. 보너스로 🛋️ **마이룸 꾸미기**(`/room`) 페이지가 있습니다.
 
-학습 앱 [다 같이 스파르타](https://study-teal-eight.vercel.app)와 같은 기술 스택·디자인 감성을 공유합니다.
+Next.js(App Router) + TypeScript + Tailwind CSS로 만들어졌고, 무료 AI(Google Gemini / Groq)를 연동합니다.
 
-## 주요 기능 (4개 메뉴)
+## 주요 기능 (7개 메뉴)
 
 | 메뉴 | 경로 | 설명 |
 | --- | --- | --- |
-| 🛋️ 마이룸 | `/` | 인사 배너(이름·기분·오늘의 한 줄) + 디데이 카운터 + **이모지 스티커로 방 꾸미기** + 오늘 요약·바로가기 |
-| 📔 다이어리 | `/diary` | 하루 한 줄 일기 + 기분 이모지 기록 |
-| ✅ 할 일 | `/todo` | 할 일 체크리스트 + 진행률 바 |
-| 🔖 즐겨찾기 | `/links` | 자주 가는 링크 모음 (홈 화면에도 노출) |
+| 📝 답안지 생성 | `/answer` | 1교시(용어형)·2교시(서술형) 문제에 대한 시험 답안지를 AI가 작성 |
+| ✅ AI 자가채점 | `/grade` | 내가 쓴 답안을 채점위원 관점에서 점수·항목별 피드백·보완점 제시 |
+| 💡 토픽 설명 | `/explain` | 어려운 토픽을 비유와 도식으로 이해하기 쉽게 설명 (눈높이 선택) |
+| 🧠 암기 | `/memorize` | 토픽 기반 플래시카드 + 4지선다 퀴즈 생성 (오답은 자동으로 오답노트에 저장) |
+| 📕 오답노트 | `/notes` | 퀴즈에서 틀린 문제를 자동 수집해 약점만 골라 복습 (브라우저 저장) |
+| 🔁 회독 관리 | `/review` | 토픽별 회독 횟수·진도 기록 (3회독 시 완료, 브라우저 저장) |
+| 📊 학습 대시보드 | `/dashboard` | 회독 진도·퀴즈 정답률·분야별 완료 현황·오답 수를 한눈에 확인 |
 
 ## 시작하기
 
+### 1. 의존성 설치
+
 ```bash
 npm install
+```
+
+### 2. AI API 키 설정 (무료)
+
+`.env.example`을 복사해 `.env.local`을 만들고 키를 채웁니다.
+
+```bash
+cp .env.example .env.local
+```
+
+**추천: Google Gemini 무료 등급**
+1. https://aistudio.google.com/apikey 에서 무료 API 키 발급
+2. `.env.local`에 `GEMINI_API_KEY=발급받은키` 입력
+
+**대안: Groq 무료 등급** (속도가 빠른 Llama 모델)
+1. https://console.groq.com/keys 에서 무료 API 키 발급
+2. `.env.local`에서 `AI_PROVIDER=groq`, `GROQ_API_KEY=발급받은키` 입력
+
+> AI 제공자는 `src/lib/ai.ts`에서 추상화되어 있어 다른 모델로 쉽게 교체할 수 있습니다.
+
+### 3. 개발 서버 실행
+
+```bash
 npm run dev
 ```
 
 http://localhost:3000 에서 확인합니다.
 
-## 배포 (Vercel)
+## 배포 (Vercel) — 브라우저로 바로 쓰는 공개 URL 만들기
+
+로컬 서버를 띄우지 않고도, 배포하면 어디서나 접속 가능한 주소가 생깁니다.
 
 1. https://vercel.com 에 GitHub 계정으로 로그인
 2. **"Add New… → Project"** → 이 저장소(`yjnam-afk/myroom`) 선택 → Import
-3. 환경변수 없이 바로 **Deploy** — 1~2분 후 `https://....vercel.app` 주소 생성
+3. **Environment Variables** 에 아래 3개 추가:
+   | Name | Value |
+   | --- | --- |
+   | `AI_PROVIDER` | `groq` |
+   | `GROQ_API_KEY` | (본인 `gsk_...` 키) |
+   | `GROQ_MODEL` | `llama-3.3-70b-versatile` |
+4. **Deploy** 클릭 → 1~2분 후 `https://....vercel.app` 주소 생성
+
+> Vercel 서버에서 실행되므로 Groq 호출이 정상 동작합니다(로컬·샌드박스 네트워크 제약 없음).
+> 키는 Vercel 환경변수로만 저장되어 코드에 노출되지 않습니다.
 
 ## 구조
 
 ```
 src/
 ├─ app/
-│  ├─ page.tsx          # 마이룸 홈 (프로필·디데이·방 꾸미기·요약·바로가기)
-│  ├─ diary/page.tsx    # 다이어리
-│  ├─ todo/page.tsx     # 할 일
-│  ├─ links/page.tsx    # 즐겨찾기
-│  └─ layout.tsx        # 공통 헤더·네비게이션
-└─ lib/
-   └─ storage.ts        # localStorage 헬퍼 (프로필·디데이·방·일기·할일·링크)
+│  ├─ page.tsx              # 홈 (메뉴 4개)
+│  ├─ answer/page.tsx       # 답안지 생성
+│  ├─ grade/page.tsx        # AI 자가채점
+│  ├─ explain/page.tsx      # 토픽 설명
+│  ├─ memorize/page.tsx     # 플래시카드 · 퀴즈
+│  ├─ notes/page.tsx        # 오답노트
+│  ├─ review/page.tsx       # 회독 관리
+│  ├─ dashboard/page.tsx    # 학습 대시보드
+│  └─ api/                  # 서버 라우트 (API 키는 서버에서만 사용)
+│     ├─ answer/route.ts
+│     ├─ grade/route.ts
+│     ├─ explain/route.ts
+│     ├─ flashcards/route.ts
+│     └─ quiz/route.ts
+├─ lib/
+│  ├─ ai.ts                 # AI 제공자 추상화 (Gemini/Groq)
+│  ├─ prompts.ts            # 기술사 시험 특화 프롬프트 (답안·채점·설명·암기)
+│  ├─ storage.ts            # 회독 진도 (localStorage)
+│  └─ notes.ts              # 오답노트 · 퀴즈 통계 (localStorage)
+├─ components/              # 공용 UI
+└─ data/
+   ├─ topics.json           # 샘플 토픽
+   └─ questions.json        # 샘플 기출 문제
 ```
 
-## 참고
+## 콘텐츠 확장
 
-- 데이터는 이 브라우저에만 저장되므로, 다른 기기·시크릿 창에서는 보이지 않습니다.
-- 브라우저 데이터를 지우면 기록도 사라져요.
+`src/data/topics.json`과 `src/data/questions.json`에 항목을 추가하면 추천 토픽/샘플 문제가 늘어납니다.
+
+## 참고
+- AI 응답은 학습 참고용이며 실제 채점 기준과 다를 수 있습니다.
+- API 키는 서버 측 라우트에서만 사용되어 클라이언트에 노출되지 않습니다.

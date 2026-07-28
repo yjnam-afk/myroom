@@ -14,7 +14,104 @@ body {
     "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;
 }
 
-/* 방에 붙인 스티커 — 살짝 떠 있는 느낌 */
+/* 쿠로미풍 캐릭터가 마우스를 멀찌감치 쫓아옴(포인터 이벤트 없음) */
+.cursor-kuromi {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  will-change: transform, opacity;
+  transition: opacity 0.3s ease;
+  filter: drop-shadow(0 3px 4px rgba(124, 58, 137, 0.35));
+}
+
+/* react-markdown 결과물에 적용할 기본 타이포그래피 */
+.prose-answer h1 {
+  @apply text-xl font-bold mt-6 mb-3 text-slate-900 border-b border-slate-200 pb-1;
+}
+.prose-answer h2 {
+  @apply text-lg font-semibold mt-5 mb-2 text-slate-900;
+}
+.prose-answer h3 {
+  @apply text-base font-semibold mt-4 mb-2 text-slate-800;
+}
+.prose-answer p {
+  @apply my-2 leading-relaxed;
+}
+.prose-answer ul {
+  @apply list-disc pl-6 my-2 space-y-1;
+}
+.prose-answer ol {
+  @apply list-decimal pl-6 my-2 space-y-1;
+}
+.prose-answer strong {
+  @apply font-semibold text-brand-700;
+}
+.prose-answer table {
+  @apply w-full my-4 border-collapse text-sm;
+}
+.prose-answer th,
+.prose-answer td {
+  @apply border border-slate-300 px-3 py-2 text-left align-top;
+}
+.prose-answer th {
+  @apply bg-slate-100 font-semibold;
+}
+.prose-answer code {
+  @apply bg-slate-100 px-1 py-0.5 rounded text-sm;
+}
+.prose-answer pre {
+  @apply bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto my-4 text-sm leading-relaxed;
+}
+.prose-answer pre code {
+  @apply bg-transparent p-0 text-slate-100;
+}
+.prose-answer blockquote {
+  @apply border-l-4 border-brand-300 pl-4 italic text-slate-600 my-3;
+}
+
+/* 접기/펼치기 화살표 — details가 열림/접힘인지 한눈에(다시 접기 affordance) */
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details > summary::after {
+  content: "▾";
+  display: inline-block;
+  margin-left: 6px;
+  color: #cbd5e1;
+  transition: transform 0.2s ease;
+}
+details[open] > summary::after {
+  transform: rotate(180deg);
+  color: #2563eb;
+}
+
+/* 커서 버디(이미지) — 마우스를 멀찌감치 따라옴. 파일 없으면 렌더 안 됨 */
+.cursor-buddy-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  will-change: transform, opacity;
+  transition: opacity 0.3s ease;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.25));
+}
+.cursor-buddy-img img {
+  display: block;
+  width: 56px;
+  height: 56px;
+  border-radius: 9999px;
+  object-fit: cover;
+  user-select: none;
+}
+
+/* 마이룸(/room)에 붙인 스티커 — 살짝 떠 있는 느낌 */
 .sticker {
   filter: drop-shadow(0 2px 3px rgba(15, 23, 42, 0.25));
   user-select: none;

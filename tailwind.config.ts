@@ -5,7 +5,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // 스터디 앱('다 같이 스파르타')과 같은 브랜드 블루 — 두 앱을 오가도 이질감 없게
+        // 모노 + 블루 원포인트. brand = 블루(#2563eb 중심). 600/700은 흰 글씨 대비(AA) 확보.
         brand: {
           50: "#eff6ff",
           100: "#dbeafe",

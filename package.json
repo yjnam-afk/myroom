@@ -2,22 +2,30 @@
   "name": "myroom",
   "version": "0.1.0",
   "private": true,
-  "description": "나의 공간 — 나만의 방을 꾸미고, 일기·할 일·즐겨찾기를 담는 개인 홈",
+  "description": "나의 공간 — 나만의 정보관리기술사 학습 아지트 (study 앱 개인 에디션)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prebuild": "node scripts/build-flashcards.mjs"
   },
   "dependencies": {
+    "@breezystack/lamejs": "^1.2.7",
+    "https-proxy-agent": "^9.1.0",
+    "mermaid": "^11.15.0",
     "next": "^14.2.35",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "react-markdown": "9.0.1",
+    "remark-gfm": "4.0.0",
+    "ws": "^8.21.0"
   },
   "devDependencies": {
     "@types/node": "20.14.10",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
+    "@types/ws": "^8.18.1",
     "autoprefixer": "10.4.19",
     "postcss": "^8.5.15",
     "tailwindcss": "3.4.6",

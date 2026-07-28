@@ -2,379 +2,630 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import topics from "@/data/topics.json";
+import { ReviewItem, loadReview, getItem, isDue } from "@/lib/storage";
+import { QuizStats, loadStats, loadNotes } from "@/lib/notes";
+import { loadSession } from "@/lib/auth";
+import { CoachPlan, buildPlan, mnemonicLink, explainLink } from "@/lib/coach";
+import ShareButton from "@/components/ShareButton";
 import {
-  Profile,
-  Dday,
-  RoomState,
-  loadProfile,
-  saveProfile,
-  loadDday,
-  saveDday,
-  ddayCount,
-  loadRoom,
-  saveRoom,
-  loadTodos,
-  loadDiary,
-  loadLinks,
-  LinkItem,
-  uid,
-  todayStr,
-} from "@/lib/storage";
+  PlanTopic,
+  orderedTopics,
+  todayIndex,
+  effectiveTopicsForDay,
+  getSchedule,
+  loadTopicDone,
+  saveTopicDone,
+  loadOverrides,
+  isRestDay,
+  PLAN_TOTAL_DAYS,
+} from "@/lib/plan";
 
-const MOODS = ["😊", "🔥", "😴", "🥲", "😤", "🤓", "🎉"];
-
-const THEMES: Record<string, { label: string; wall: string; floor: string }> = {
-  sky: {
-    label: "☁️ 하늘",
-    wall: "from-sky-100 via-blue-50 to-indigo-100",
-    floor: "from-amber-100 to-orange-100",
-  },
-  night: {
-    label: "🌙 밤",
-    wall: "from-indigo-900 via-slate-900 to-violet-950",
-    floor: "from-slate-700 to-slate-800",
-  },
-  forest: {
-    label: "🌿 숲",
-    wall: "from-emerald-100 via-green-50 to-teal-100",
-    floor: "from-lime-100 to-emerald-200",
-  },
-  pink: {
-    label: "🌸 벚꽃",
-    wall: "from-pink-100 via-rose-50 to-fuchsia-100",
-    floor: "from-rose-100 to-pink-200",
-  },
+const toneClass: Record<string, string> = {
+  rose: "border-slate-200 bg-slate-50 hover:border-slate-300",
+  amber: "border-amber-200 bg-amber-50 hover:border-amber-300",
+  violet: "border-slate-200 bg-slate-50 hover:border-slate-300",
+  emerald: "border-amber-200 bg-amber-50 hover:border-amber-300",
+  sky: "border-sky-200 bg-sky-50 hover:border-sky-300",
 };
 
-// 방에 붙일 수 있는 스티커 팔레트
-const PALETTE = [
-  "🛏️", "🪴", "📚", "💻", "☕", "🧸", "🎧", "🖼️", "🕯️", "🐱",
-  "🐶", "⭐", "🌙", "💡", "🎹", "🏆", "📷", "🍀", "❤️", "✏️",
+const menuGroups = [
+  {
+    group: "🧠 1단계 · 키워드 암기 (소설의 재료)",
+    items: [
+      {
+        href: "/mnemonic",
+        emoji: "🥷",
+        title: "두음신공",
+        desc: "핵심 키워드를 두음으로 암기 → 객관식·주관식 확인",
+        color: "from-brand-600 to-brand-800",
+      },
+      {
+        href: "/plan",
+        emoji: "🗓️",
+        title: "데일리 계획 (달력)",
+        desc: "내일~8월 말, 매일 배정되는 토픽을 달력으로",
+        color: "from-brand-500 to-brand-600",
+      },
+      {
+        href: "/commute",
+        emoji: "🚇",
+        title: "지하철 모드 (틈새 두음)",
+        desc: "한 손으로 넘기는 두음 카드 · AI 없이 즉시 · 통신 약해도 OK",
+        color: "from-slate-500 to-gray-600",
+      },
+      {
+        href: "/memorize",
+        emoji: "🧠",
+        title: "암기 (카드·퀴즈)",
+        desc: "플래시카드·퀴즈로 키워드 반복 암기",
+        color: "from-amber-500 to-orange-600",
+      },
+      {
+        href: "/notes",
+        emoji: "📕",
+        title: "오답노트",
+        desc: "자주 틀린 키워드 집중 복습",
+        color: "from-slate-400 to-brand-500",
+      },
+    ],
+  },
+  {
+    group: "✍️ 2단계 · 소설 쓰기 (키워드로 답안 작성)",
+    items: [
+      {
+        href: "/answer",
+        emoji: "📝",
+        title: "답안지 작성",
+        desc: "키워드로 답안 '소설' 작성 + 키워드·두음 힌트 + 소설 쓰는 법",
+        color: "from-brand-500 to-brand-600",
+      },
+      {
+        href: "/exam",
+        emoji: "📜",
+        title: "기출문제",
+        desc: "실제 기출문제로 답안 연습 (회차·교시별)",
+        color: "from-amber-500 to-yellow-600",
+      },
+      {
+        href: "/bank",
+        emoji: "🏦",
+        title: "문제은행",
+        desc: "교시·문항 수 선택 → 기출·모의·셀테에서 랜덤 출제",
+        color: "from-brand-600 to-brand-800",
+      },
+    ],
+  },
+  {
+    group: "📚 보조 · 개념 이해 · 복습",
+    items: [
+      {
+        href: "/map",
+        emoji: "🗺️",
+        title: "토픽 지도",
+        desc: "서로 연관된 토픽을 묶음으로 모아 한눈에",
+        color: "from-brand-600 to-brand-800",
+      },
+      {
+        href: "/explain",
+        emoji: "💡",
+        title: "토픽 설명",
+        desc: "어려운 개념을 비유·도식으로 이해",
+        color: "from-amber-500 to-amber-600",
+      },
+      {
+        href: "/review",
+        emoji: "🔁",
+        title: "회독 관리",
+        desc: "망각곡선 간격으로 오늘 복습 추천",
+        color: "from-brand-500 to-brand-600",
+      },
+      {
+        href: "/room",
+        emoji: "🛋️",
+        title: "마이룸 꾸미기",
+        desc: "공부 쉬는 시간, 이모지 스티커로 내 방 꾸미기",
+        color: "from-yellow-500 to-amber-600",
+      },
+    ],
+  },
 ];
 
 export default function Home() {
-  const [profile, setProfile] = useState<Profile>({ name: "", motto: "", mood: "" });
-  const [dday, setDday] = useState<Dday>({ label: "", date: "" });
-  const [room, setRoom] = useState<RoomState>({ theme: "sky", stickers: [] });
-  const [selected, setSelected] = useState<string | null>(null);
-  const [editName, setEditName] = useState(false);
-  const [editDday, setEditDday] = useState(false);
-  const [todoStat, setTodoStat] = useState({ done: 0, total: 0 });
-  const [diaryToday, setDiaryToday] = useState(false);
-  const [links, setLinks] = useState<LinkItem[]>([]);
-  const [loaded, setLoaded] = useState(false);
+  const [review, setReview] = useState<Record<string, ReviewItem>>({});
+  const [stats, setStats] = useState<QuizStats>({
+    total: 0,
+    correct: 0,
+    lastAt: null,
+  });
+  const [notesCount, setNotesCount] = useState(0);
+  const [plan, setPlan] = useState<CoachPlan | null>(null);
+  const [userName, setUserName] = useState("");
+
+  // 데일리 계획 — 오늘의 토픽(메인)
+  const [dayIdx, setDayIdx] = useState(-1);
+  const [todayTopics, setTodayTopics] = useState<PlanTopic[]>([]);
+  const [topicDone, setTopicDone] = useState<Set<string>>(new Set());
 
   useEffect(() => {
-    setProfile(loadProfile());
-    setDday(loadDday());
-    setRoom(loadRoom());
-    const todos = loadTodos();
-    setTodoStat({ done: todos.filter((t) => t.done).length, total: todos.length });
-    setDiaryToday(loadDiary().some((e) => e.date === todayStr()));
-    setLinks(loadLinks().slice(0, 4));
-    setLoaded(true);
+    const ti = todayIndex();
+    setDayIdx(ti);
+    if (ti >= 0 && ti < PLAN_TOTAL_DAYS) {
+      setTodayTopics(
+        effectiveTopicsForDay(orderedTopics(), ti, getSchedule(), loadOverrides()),
+      );
+    }
+    setTopicDone(loadTopicDone());
   }, []);
 
-  function updateProfile(patch: Partial<Profile>) {
-    const next = { ...profile, ...patch };
-    setProfile(next);
-    saveProfile(next);
+  function toggleTopicDone(id: string) {
+    const next = new Set(topicDone);
+    next.has(id) ? next.delete(id) : next.add(id);
+    setTopicDone(next);
+    saveTopicDone(next);
   }
+  const todayDoneN = todayTopics.filter((t) => topicDone.has(t.id)).length;
+  const todayAllDone =
+    todayTopics.length > 0 && todayDoneN === todayTopics.length;
 
-  function updateDday(patch: Partial<Dday>) {
-    const next = { ...dday, ...patch };
-    setDday(next);
-    saveDday(next);
-  }
+  useEffect(() => {
+    const refresh = () => {
+      const rev = loadReview();
+      const st = loadStats();
+      const notes = loadNotes();
+      setReview(rev);
+      setStats(st);
+      setNotesCount(notes.length);
+      // 오늘의 데일리 계획 토픽을 코치에 넘겨 "오늘의 학습"을 "오늘의 토픽"과 동일하게 맞춘다.
+      const ti = todayIndex();
+      const planToday =
+        ti >= 0 && ti < PLAN_TOTAL_DAYS
+          ? effectiveTopicsForDay(orderedTopics(), ti, getSchedule(), loadOverrides())
+          : undefined;
+      setPlan(buildPlan(rev, notes, st, Date.now(), planToday));
+      setUserName(loadSession()?.name || "");
+    };
+    refresh();
+    // 계정 동기화가 끝나면 코치를 다시 계산(다른 기기 진도 반영)
+    window.addEventListener("progress-synced", refresh);
+    return () => window.removeEventListener("progress-synced", refresh);
+  }, []);
 
-  function updateRoom(next: RoomState) {
-    setRoom(next);
-    saveRoom(next);
-  }
+  const total = topics.length;
+  const doneCount = topics.filter(
+    (t) => getItem(review, t.id).status === "done",
+  ).length;
+  const learningCount = topics.filter(
+    (t) => getItem(review, t.id).status === "learning",
+  ).length;
+  const totalRounds = topics.reduce(
+    (sum, t) => sum + getItem(review, t.id).rounds,
+    0,
+  );
+  const progress = total ? Math.round((doneCount / total) * 100) : 0;
+  const accuracy =
+    stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0;
+  const dueCount = topics.filter((t) => isDue(getItem(review, t.id))).length;
 
-  // 팔레트에서 스티커를 고른 뒤 방을 클릭하면 그 자리에 붙는다
-  function placeSticker(e: React.MouseEvent<HTMLDivElement>) {
-    if (!selected) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = Math.round(((e.clientX - rect.left) / rect.width) * 100);
-    const y = Math.round(((e.clientY - rect.top) / rect.height) * 100);
-    updateRoom({
-      ...room,
-      stickers: [
-        ...room.stickers,
-        { id: uid(), emoji: selected, x: Math.min(96, Math.max(4, x)), y: Math.min(94, Math.max(6, y)) },
-      ],
-    });
-  }
-
-  function removeSticker(id: string) {
-    updateRoom({ ...room, stickers: room.stickers.filter((s) => s.id !== id) });
-  }
-
-  const d = ddayCount(dday);
-  const theme = THEMES[room.theme] ?? THEMES.sky;
+  const categories = Array.from(new Set(topics.map((t) => t.category)));
+  const byCategory = categories.map((cat) => {
+    const items = topics.filter((t) => t.category === cat);
+    const done = items.filter(
+      (t) => getItem(review, t.id).status === "done",
+    ).length;
+    return { cat, done, total: items.length };
+  });
 
   return (
     <div>
-      {/* 인사 배너 */}
-      <section className="mb-6 overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-500 via-brand-600 to-indigo-700 p-7 text-white shadow-lg sm:p-9">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold ring-1 ring-white/20">
-          🏠 나만의 아지트
+      {/* 나의 공간 — 개인 아지트 선언 배너 */}
+      <section className="mb-6 overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-500 via-brand-600 to-indigo-700 p-7 text-white shadow-lg ring-1 ring-brand-900/40 sm:p-9">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-slate-100 ring-1 ring-white/20">
+          🏠 나만의 학습 아지트
         </span>
-        <h1 className="mt-3 text-3xl font-extrabold leading-tight sm:text-4xl">
-          {loaded && profile.name ? (
+        <h1 className="mt-3 text-3xl font-extrabold leading-tight text-white sm:text-4xl">
+          {userName ? (
             <>
               어서 와요,{" "}
               <span className="underline decoration-amber-200 decoration-4 underline-offset-4">
-                {profile.name}
+                {userName}
               </span>{" "}
-              님 {profile.mood || "👋"}
+              님 👋
             </>
           ) : (
             <>나의 공간에 어서 와요 👋</>
           )}
         </h1>
-        <p className="mt-2 text-sm text-blue-100 sm:text-base">
-          방을 꾸미고, 하루를 기록하고, 할 일을 정리하는 나만의 자리예요.
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-blue-100 sm:text-base">
+          기술사 답안은 <b className="font-bold text-white">&lsquo;소설&rsquo;</b>이다 ✍️
+          <br />
+          내 페이스대로, 꾸준히. 오늘도 한 걸음 나아가요.
         </p>
-
-        {/* 이름 · 기분 */}
-        <div className="mt-4 flex flex-wrap items-center gap-2">
-          {editName || (loaded && !profile.name) ? (
-            <form
-              className="flex items-center gap-2"
-              onSubmit={(e) => {
-                e.preventDefault();
-                setEditName(false);
-              }}
-            >
-              <input
-                value={profile.name}
-                onChange={(e) => updateProfile({ name: e.target.value })}
-                placeholder="이름 또는 별명"
-                className="rounded-lg border-0 bg-white/90 px-3 py-1.5 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-300"
-              />
-              <button className="rounded-lg bg-amber-400 px-3 py-1.5 text-sm font-bold text-slate-900 hover:bg-amber-300">
-                저장
-              </button>
-            </form>
-          ) : (
-            <button
-              onClick={() => setEditName(true)}
-              className="rounded-lg bg-white/15 px-3 py-1.5 text-xs font-medium ring-1 ring-white/20 hover:bg-white/25"
-            >
-              ✏️ 이름 바꾸기
-            </button>
-          )}
-          <div className="flex items-center gap-1 rounded-lg bg-white/15 px-2 py-1 ring-1 ring-white/20">
-            <span className="px-1 text-xs">오늘 기분</span>
-            {MOODS.map((m) => (
-              <button
-                key={m}
-                onClick={() => updateProfile({ mood: profile.mood === m ? "" : m })}
-                className={`rounded-md px-1 text-lg transition ${
-                  profile.mood === m ? "bg-white/30 ring-1 ring-amber-200" : "hover:bg-white/20"
-                }`}
-                aria-label={`기분 ${m}`}
-              >
-                {m}
-              </button>
-            ))}
-          </div>
+        <div className="mt-4 flex flex-wrap gap-2">
+          <span className="rounded-lg bg-white/15 px-3 py-1.5 text-xs font-medium text-white ring-1 ring-white/15">
+            🥷 1단계 · 키워드 암기(두음신공)
+          </span>
+          <span className="rounded-lg bg-white/15 px-3 py-1.5 text-xs font-medium text-white ring-1 ring-white/15">
+            ✍️ 2단계 · 키워드로 답안 쓰기
+          </span>
         </div>
 
-        {/* 오늘의 한 줄 */}
-        <input
-          value={profile.motto}
-          onChange={(e) => updateProfile({ motto: e.target.value })}
-          placeholder="오늘의 한 줄 — 다짐이나 기분을 적어 두세요 ✍️"
-          className="mt-4 w-full max-w-xl rounded-xl border-0 bg-white/90 px-4 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-300"
-        />
-      </section>
-
-      {/* D-day */}
-      <section className="mb-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div>
-            <h2 className="text-sm font-bold text-slate-800">⏳ 디데이</h2>
-            {d === null ? (
-              <p className="mt-1 text-sm text-slate-500">
-                목표 날짜를 정하면 남은 날을 세어 드려요.
-              </p>
-            ) : (
-              <p className="mt-1 text-sm text-slate-600">
-                <b className="text-slate-900">{dday.label || "목표"}</b>까지{" "}
-                <b className={`text-2xl font-extrabold ${d <= 7 ? "text-red-600" : "text-brand-600"}`}>
-                  {d > 0 ? `D-${d}` : d === 0 ? "D-DAY 🔥" : `D+${-d}`}
-                </b>
-              </p>
-            )}
-          </div>
-          {editDday ? (
-            <form
-              className="flex flex-wrap items-center gap-2"
-              onSubmit={(e) => {
-                e.preventDefault();
-                setEditDday(false);
-              }}
-            >
-              <input
-                value={dday.label}
-                onChange={(e) => updateDday({ label: e.target.value })}
-                placeholder="목표 이름"
-                className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm focus:border-brand-400 focus:outline-none"
-              />
-              <input
-                type="date"
-                value={dday.date}
-                onChange={(e) => updateDday({ date: e.target.value })}
-                className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm focus:border-brand-400 focus:outline-none"
-              />
-              <button className="rounded-lg bg-brand-600 px-3 py-1.5 text-sm font-bold text-white hover:bg-brand-700">
-                완료
-              </button>
-            </form>
-          ) : (
-            <button
-              onClick={() => setEditDday(true)}
-              className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-50"
-            >
-              {d === null ? "🎯 목표 정하기" : "✏️ 수정"}
-            </button>
-          )}
-        </div>
-      </section>
-
-      {/* 마이룸 꾸미기 */}
-      <section className="mb-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-        <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-          <h2 className="text-sm font-bold text-slate-800">🛋️ 마이룸 꾸미기</h2>
-          <div className="flex gap-1.5">
-            {Object.entries(THEMES).map(([key, t]) => (
-              <button
-                key={key}
-                onClick={() => updateRoom({ ...room, theme: key })}
-                className={`rounded-lg px-2.5 py-1 text-xs font-medium transition ${
-                  room.theme === key
-                    ? "bg-brand-600 text-white"
-                    : "border border-slate-200 text-slate-600 hover:bg-slate-50"
-                }`}
-              >
-                {t.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* 방 — 벽 + 바닥. 스티커를 고르고 원하는 곳을 클릭 */}
-        <div
-          onClick={placeSticker}
-          className={`relative h-72 w-full overflow-hidden rounded-xl border border-slate-200 shadow-inner sm:h-80 ${
-            selected ? "cursor-crosshair" : ""
-          }`}
-        >
-          <div className={`absolute inset-x-0 top-0 h-[72%] bg-gradient-to-br ${theme.wall}`} />
-          <div className={`absolute inset-x-0 bottom-0 h-[28%] bg-gradient-to-b ${theme.floor}`} />
-          {room.stickers.length === 0 && !selected && (
-            <p className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center text-sm text-slate-500/80">
-              아래에서 스티커를 고르고, 방 안 원하는 곳을 클릭해 붙여 보세요!
+        {/* 개인화 코치 — 소개 아래에 자연스럽게 */}
+        <div className="mt-5 rounded-xl bg-white/95 p-4 shadow-sm">
+          <p className="text-sm font-semibold text-slate-800">
+            {userName ? `${userName} 님 — ` : ""}
+            {plan ? plan.headline : "오늘부터 시작해 볼까요? 🚀"}
+          </p>
+          {plan?.subline && (
+            <p className="mt-1 text-xs leading-relaxed text-slate-500">
+              {plan.subline}
             </p>
           )}
-          {room.stickers.map((s) => (
-            <button
-              key={s.id}
-              onClick={(e) => {
-                e.stopPropagation();
-                removeSticker(s.id);
-              }}
-              title="클릭하면 떼어져요"
-              className="sticker absolute -translate-x-1/2 -translate-y-1/2 text-3xl transition sm:text-4xl"
-              style={{ left: `${s.x}%`, top: `${s.y}%` }}
+          {plan?.primary && (
+            <Link
+              href={plan.primary.href}
+              className="mt-3 inline-flex items-center gap-1.5 rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-700"
             >
-              {s.emoji}
-            </button>
-          ))}
-        </div>
-
-        {/* 스티커 팔레트 */}
-        <div className="mt-3 flex flex-wrap items-center gap-1.5">
-          {PALETTE.map((emoji) => (
-            <button
-              key={emoji}
-              onClick={() => setSelected(selected === emoji ? null : emoji)}
-              className={`grid h-9 w-9 place-items-center rounded-lg text-xl transition ${
-                selected === emoji
-                  ? "bg-brand-100 ring-2 ring-brand-500"
-                  : "border border-slate-200 bg-white hover:bg-slate-50"
-              }`}
-              aria-label={`스티커 ${emoji}`}
-            >
-              {emoji}
-            </button>
-          ))}
-          {room.stickers.length > 0 && (
-            <button
-              onClick={() => updateRoom({ ...room, stickers: [] })}
-              className="ml-auto rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs text-slate-500 hover:bg-slate-50"
-            >
-              🧹 모두 치우기
-            </button>
+              지금 시작하기 →
+            </Link>
           )}
         </div>
-        <p className="mt-2 text-xs text-slate-400">
-          붙인 스티커를 클릭하면 떼어져요 · 꾸민 방은 자동 저장돼요
-        </p>
       </section>
 
-      {/* 오늘 요약 + 바로가기 */}
-      <div className="grid gap-6 sm:grid-cols-2">
-        <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h2 className="mb-3 text-sm font-bold text-slate-800">📌 오늘 요약</h2>
-          <ul className="space-y-2 text-sm">
-            <li className="flex items-center justify-between rounded-lg bg-slate-50 p-3">
-              <span className="text-slate-600">✅ 할 일</span>
-              <Link href="/todo" className="font-semibold text-brand-600 hover:underline">
-                {todoStat.total === 0
-                  ? "아직 없음 — 추가하기 →"
-                  : `${todoStat.done}/${todoStat.total} 완료 →`}
-              </Link>
-            </li>
-            <li className="flex items-center justify-between rounded-lg bg-slate-50 p-3">
-              <span className="text-slate-600">📔 오늘 일기</span>
-              <Link href="/diary" className="font-semibold text-brand-600 hover:underline">
-                {diaryToday ? "작성 완료 🌟" : "아직 안 씀 — 쓰러 가기 →"}
-              </Link>
-            </li>
-          </ul>
-        </section>
+      {/* 메인 — 오늘의 데일리 계획 토픽 */}
+      <div className="mb-6 rounded-2xl border-2 border-slate-200 bg-white p-5 shadow-sm">
+        <div className="mb-3 flex items-center justify-between">
+          <h2 className="text-sm font-bold text-slate-800">
+            🗓️ 오늘의 토픽{" "}
+            {dayIdx >= 0 && dayIdx < PLAN_TOTAL_DAYS && (
+              <span className="text-brand-500">· Day {dayIdx + 1}</span>
+            )}
+          </h2>
+          <Link href="/plan" className="text-xs font-medium text-brand-600 hover:underline">
+            전체 달력 →
+          </Link>
+        </div>
 
-        <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div className="mb-3 flex items-center justify-between">
-            <h2 className="text-sm font-bold text-slate-800">🔖 바로가기</h2>
-            <Link href="/links" className="text-xs font-medium text-brand-600 hover:underline">
-              전체 관리 →
-            </Link>
+        {dayIdx < 0 ? (
+          <p className="rounded-lg bg-slate-50 p-4 text-sm text-slate-600">
+            데일리 계획은 <b>6/29부터</b> 시작돼요. 그 전엔 두음신공·지하철 모드로
+            예열하세요!
+          </p>
+        ) : dayIdx >= PLAN_TOTAL_DAYS ? (
+          <p className="rounded-lg bg-amber-50 p-4 text-sm text-amber-700">
+            🎉 8월 말 계획을 모두 마쳤어요! 복습·기출로 마무리하세요.
+          </p>
+        ) : isRestDay(dayIdx) ? (
+          <div className="rounded-xl bg-gradient-to-br from-indigo-50 to-slate-50 p-5 text-center">
+            <p className="text-2xl">🌙</p>
+            <p className="mt-1 text-sm font-bold text-indigo-700">일요일은 쉬어가요</p>
+            <p className="mt-1 text-xs leading-relaxed text-slate-500">
+              푹 쉬는 것도 공부의 일부예요. 지치지 않아야 오래 갑니다.
+              <br />
+              생각나면 <Link href="/commute" className="font-medium text-brand-600 hover:underline">지하철 모드</Link>로 가볍게 복습만 해도 충분해요.
+            </p>
           </div>
-          <ul className="space-y-2 text-sm">
-            {links.map((l) => (
-              <li key={l.id}>
-                <a
-                  href={l.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-2 rounded-lg border border-slate-100 bg-slate-50 p-3 transition hover:border-brand-300 hover:bg-white"
+        ) : todayTopics.length === 0 ? (
+          <p className="text-sm text-slate-500">오늘 배정된 토픽이 없습니다.</p>
+        ) : (
+          <>
+            <div className="mb-2 flex items-center justify-between">
+              <span className="text-xs font-semibold text-slate-500">
+                학습한 토픽을 체크하세요 · {todayDoneN}/{todayTopics.length} 완료
+              </span>
+              {todayAllDone && (
+                <span className="inline-flex items-center gap-1 rounded-full bg-slate-50 px-2.5 py-1 text-xs font-bold text-brand-600">
+                  🌟 참 잘했어요!
+                </span>
+              )}
+            </div>
+            <ol className="space-y-2">
+              {todayTopics.map((t, i) => {
+                const checked = topicDone.has(t.id);
+                return (
+                  <li
+                    key={t.id}
+                    className={`flex items-center gap-2 rounded-lg border p-2 ${
+                      checked
+                        ? "border-amber-200 bg-amber-50"
+                        : "border-slate-100 bg-slate-50"
+                    }`}
+                  >
+                    <span
+                      className={`grid h-5 w-5 shrink-0 place-items-center rounded-full text-[11px] font-bold tabular-nums ${
+                        checked
+                          ? "bg-amber-200 text-amber-700"
+                          : "bg-slate-200 text-slate-500"
+                      }`}
+                    >
+                      {i + 1}
+                    </span>
+                    <button
+                      onClick={() => toggleTopicDone(t.id)}
+                      aria-label="완료"
+                      className={`grid h-6 w-6 shrink-0 place-items-center rounded-md border text-xs font-bold transition ${
+                        checked
+                          ? "border-amber-400 bg-amber-500 text-white"
+                          : "border-slate-300 bg-white text-transparent hover:border-amber-400"
+                      }`}
+                    >
+                      ✓
+                    </button>
+                    <span className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-bold text-brand-700">
+                      {t.importance}
+                    </span>
+                    <span
+                      className={`min-w-0 flex-1 truncate text-sm ${
+                        checked ? "text-slate-400 line-through" : "text-slate-800"
+                      }`}
+                    >
+                      {t.title}
+                    </span>
+                    <span className="hidden text-[10px] text-slate-400 sm:inline">
+                      {t.category}
+                    </span>
+                    <Link
+                      href={mnemonicLink(t, true)}
+                      className="shrink-0 rounded-md bg-brand-600 px-2.5 py-1 text-xs font-medium text-white hover:bg-brand-700"
+                    >
+                      🥷 학습
+                    </Link>
+                    <Link
+                      href={explainLink(t)}
+                      className="shrink-0 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 hover:bg-slate-100"
+                    >
+                      💡 설명
+                    </Link>
+                  </li>
+                );
+              })}
+            </ol>
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <Link
+                href="/commute"
+                className="rounded-lg bg-slate-700 px-3 py-2 text-xs font-semibold text-white hover:bg-slate-800"
+              >
+                🚇 지하철 모드로 카드 넘기기
+              </Link>
+              <ShareButton
+                title="오늘의 학습 토픽 — 나의 공간"
+                text={
+                  `🗓️ 오늘의 토픽 · Day ${dayIdx + 1}\n` +
+                  todayTopics
+                    .map((t, i) => `${i + 1}. [${t.importance}] ${t.title}`)
+                    .join("\n") +
+                  `\n\n나의 공간 — 기술사 답안은 소설이다 ✍️`
+                }
+              />
+            </div>
+          </>
+        )}
+      </div>
+
+      {plan && plan.tasks.length > 0 && (
+        <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="mb-3 flex items-center justify-between">
+            <h2 className="text-sm font-bold text-slate-800">
+              ✅ 오늘의 학습 순서
+            </h2>
+            <span className="text-xs text-slate-400">
+              코치가 급한 순으로 정렬했어요
+            </span>
+          </div>
+
+          {plan.goal.target > 0 && (
+            <div className="mb-4">
+              <div className="mb-1 flex justify-between text-xs">
+                <span className="font-medium text-slate-600">
+                  🎯 오늘의 목표 {plan.goal.done}/{plan.goal.target} 회독
+                </span>
+                <span className="text-slate-400">
+                  {Math.round((plan.goal.done / plan.goal.target) * 100)}%
+                </span>
+              </div>
+              <div className="h-2.5 w-full overflow-hidden rounded-full bg-slate-100">
+                <div
+                  className="h-full rounded-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all"
+                  style={{
+                    width: `${Math.min(100, Math.round((plan.goal.done / plan.goal.target) * 100))}%`,
+                  }}
+                />
+              </div>
+              {plan.goal.done >= plan.goal.target && (
+                <p className="mt-1 text-xs font-medium text-amber-600">
+                  🎉 오늘 목표 달성! 새 토픽으로 더 나아가도 좋아요.
+                </p>
+              )}
+            </div>
+          )}
+
+          <ol className="space-y-2">
+            {plan.tasks.map((t, i) => (
+              <li key={t.kind + i}>
+                <Link
+                  href={t.href}
+                  className={`flex items-center gap-3 rounded-xl border p-3 transition hover:shadow-sm ${toneClass[t.tone]}`}
                 >
-                  <span className="text-lg">{l.emoji}</span>
-                  <span className="min-w-0 flex-1 truncate font-medium text-slate-700">
-                    {l.title}
+                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-white/70 text-xs font-bold text-slate-500">
+                    {i + 1}
                   </span>
-                  <span className="text-slate-400">↗</span>
-                </a>
+                  <span className="text-lg">{t.emoji}</span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-semibold text-slate-800">
+                      {t.title}
+                    </span>
+                    <span className="block truncate text-xs text-slate-500">
+                      {t.detail}
+                    </span>
+                  </span>
+                  <span className="shrink-0 text-slate-400">→</span>
+                </Link>
               </li>
             ))}
-          </ul>
-        </section>
+          </ol>
+        </div>
+      )}
+
+      <h2 className="mb-3 mt-10 text-lg font-bold text-slate-900">
+        📊 내 학습 현황
+      </h2>
+      <div className="mb-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <Stat label="완료 진도" value={`${progress}%`} accent />
+        <Stat label="퀴즈 정답률" value={stats.total > 0 ? `${accuracy}%` : "—"} />
+        <Stat label="총 회독 수" value={`${totalRounds}회`} />
+        <Stat label="오늘 복습" value={`${dueCount}개`} />
       </div>
+
+      <div className="mb-6 grid gap-6 lg:grid-cols-2">
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="mb-2 flex justify-between text-sm">
+            <span className="font-medium text-slate-700">
+              토픽 완료 ({doneCount}/{total})
+            </span>
+            <span className="text-slate-500">{progress}%</span>
+          </div>
+          <div className="h-3 w-full overflow-hidden rounded-full bg-slate-100">
+            <div
+              className="h-full rounded-full bg-gradient-to-r from-brand-500 to-brand-600 transition-all"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+          <p className="mt-3 text-xs text-slate-500">
+            학습 중 {learningCount}개 · 시작 전{" "}
+            {total - doneCount - learningCount}개
+          </p>
+
+          <div className="mt-4 border-t border-slate-100 pt-4 text-sm text-slate-600">
+            {stats.total > 0 ? (
+              <>
+                퀴즈 <span className="font-semibold">{stats.total}</span>문제 중{" "}
+                <span className="font-semibold text-amber-600">
+                  {stats.correct}
+                </span>
+                문제 정답 (정답률 {accuracy}%).
+                {notesCount > 0 && (
+                  <>
+                    {" "}
+                    <Link
+                      href="/notes"
+                      className="font-medium text-brand-600 hover:underline"
+                    >
+                      오답노트
+                    </Link>
+                    에서 복습하세요.
+                  </>
+                )}
+              </>
+            ) : (
+              <>
+                아직 푼 퀴즈가 없습니다.{" "}
+                <Link
+                  href="/memorize"
+                  className="font-medium text-brand-600 hover:underline"
+                >
+                  암기 퀴즈
+                </Link>
+                를 풀면 정답률이 기록됩니다.
+              </>
+            )}
+          </div>
+        </div>
+
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <h3 className="mb-4 text-sm font-semibold text-slate-700">
+            분야별 완료 현황
+          </h3>
+          <div className="space-y-3">
+            {byCategory.map((c) => {
+              const pct = c.total ? Math.round((c.done / c.total) * 100) : 0;
+              return (
+                <div key={c.cat}>
+                  <div className="mb-1 flex justify-between text-xs">
+                    <span className="text-slate-600">{c.cat}</span>
+                    <span className="text-slate-400">
+                      {c.done}/{c.total}
+                    </span>
+                  </div>
+                  <div className="h-2 w-full overflow-hidden rounded-full bg-slate-100">
+                    <div
+                      className="h-full rounded-full bg-brand-500 transition-all"
+                      style={{ width: `${pct}%` }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      <h2 className="mb-1 mt-10 text-lg font-bold text-slate-900">메뉴</h2>
+      <p className="mb-4 text-sm text-slate-500">
+        이해 → 암기 → 답안 → 복습 순서로 학습하면 효과적입니다.
+      </p>
+      <div className="space-y-6">
+        {menuGroups.map((g) => (
+          <section key={g.group}>
+            <h3 className="mb-2 text-sm font-semibold text-slate-600">
+              {g.group}
+            </h3>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {g.items.map((m) => (
+                <Link
+                  key={m.href}
+                  href={m.href}
+                  className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-brand-300 hover:shadow-md"
+                >
+                  <div
+                    className={`grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-gradient-to-br ${m.color} text-xl`}
+                  >
+                    {m.emoji}
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="font-semibold text-slate-900 group-hover:text-brand-600">
+                      {m.title}
+                    </h4>
+                    <p className="truncate text-xs text-slate-500">{m.desc}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+
+      <div className="mt-10 flex flex-col items-center gap-2 rounded-2xl border border-slate-200 bg-slate-50 p-5 text-center sm:flex-row sm:justify-between sm:text-left">
+        <p className="text-sm text-slate-600">
+          🛋️ 공부하다 지치면 <b>마이룸</b>에서 잠깐 쉬어 가요.
+        </p>
+        <Link
+          href="/room"
+          className="inline-flex items-center gap-1.5 rounded-xl bg-brand-600 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-brand-700"
+        >
+          내 방 꾸미러 가기 →
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function Stat({
+  label,
+  value,
+  accent,
+}: {
+  label: string;
+  value: string;
+  accent?: boolean;
+}) {
+  return (
+    <div className="rounded-2xl border border-slate-200 bg-white p-4 text-center shadow-sm">
+      <div
+        className={`text-2xl font-bold ${accent ? "text-brand-600" : "text-slate-900"}`}
+      >
+        {value}
+      </div>
+      <div className="mt-1 text-xs text-slate-500">{label}</div>
     </div>
   );
 }
