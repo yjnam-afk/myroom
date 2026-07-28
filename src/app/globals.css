@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-slate-50/60 text-slate-700 antialiased;
+  font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;
+}
+
+/* 방에 붙인 스티커 — 살짝 떠 있는 느낌 */
+.sticker {
+  filter: drop-shadow(0 2px 3px rgba(15, 23, 42, 0.25));
+  user-select: none;
+}
+.sticker:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+}
