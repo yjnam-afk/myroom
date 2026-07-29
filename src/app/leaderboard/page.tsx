@@ -8,6 +8,7 @@ import {
   submitScore,
   buildMyStats,
   computeScore,
+  isLocalSession,
   Session,
 } from "@/lib/auth";
 import type { LeaderboardRow } from "@/app/api/leaderboard/route";
@@ -53,13 +54,45 @@ export default function LeaderboardPage() {
   useEffect(() => {
     const s = loadSession();
     setSession(s);
-    if (s) {
+    if (s && isLocalSession(s)) {
+      // 개인 모드: 서버 랭킹 없이 내 점수만 보여준다
+      setMyScore(computeScore(buildMyStats()));
+      setLoading(false);
+    } else if (s) {
       setMyScore(computeScore(buildMyStats()));
       void sync(s); // 로그인 상태면 내 최신 기록을 올리고 랭킹 갱신
     } else {
       void fetchBoard();
     }
   }, [sync, fetchBoard]);
+
+  if (session && isLocalSession(session)) {
+    return (
+      <div>
+        <PageHeader
+          title="🏆 학습 랭킹"
+          desc="지금은 개인 모드로 이용 중이에요."
+        />
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 text-sm shadow-sm">
+          <p className="text-slate-700">
+            내 점수:{" "}
+            <b className="text-xl text-brand-600">{myScore ?? 0}점</b>
+            <span className="ml-2 text-xs text-slate-400">
+              (완료토픽×100 + 회독수×10 + 퀴즈정답×5)
+            </span>
+          </p>
+          <p className="mt-3 leading-relaxed text-slate-500">
+            다른 사람들과의 랭킹 경쟁은 서버 DB(Upstash Redis)가 연결된 배포에서
+            동작해요. Vercel 프로젝트에{" "}
+            <code className="rounded bg-slate-100 px-1">UPSTASH_REDIS_REST_URL</code>{" "}
+            /{" "}
+            <code className="rounded bg-slate-100 px-1">UPSTASH_REDIS_REST_TOKEN</code>{" "}
+            환경변수를 추가하면 자동으로 켜집니다.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>

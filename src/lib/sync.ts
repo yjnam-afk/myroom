@@ -15,7 +15,7 @@ import {
   replaceNotes,
   setStats,
 } from "@/lib/notes";
-import type { Session } from "@/lib/auth";
+import { isLocalSession, type Session } from "@/lib/auth";
 
 type ProgressBlob = {
   review: Record<string, ReviewItem>;
@@ -86,6 +86,8 @@ function mergeStats(local: QuizStats, server: QuizStats): QuizStats {
 }
 
 async function post(session: Session, data?: ProgressBlob) {
+  // 개인 모드(DB 미설정): 서버 계정이 없으므로 동기화 요청을 보내지 않는다
+  if (isLocalSession(session)) return { data: null };
   const res = await fetch("/api/progress", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

@@ -188,7 +188,7 @@ export default function LoginPage() {
     <div>
       <PageHeader
         title="🔐 로그인 / 회원가입"
-        desc="이름과 비밀번호로 입장하면 다른 사람들과 학습 랭킹으로 경쟁할 수 있습니다."
+        desc="이름과 비밀번호로 입장하세요. (서버 DB가 없는 배포에서는 자동으로 개인 모드로 입장돼요)"
       />
 
       <div className="mx-auto max-w-md rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
