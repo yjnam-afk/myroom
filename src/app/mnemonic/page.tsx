@@ -581,7 +581,11 @@ function SectionCard({
         </span>
         <div className="flex items-center gap-2">
           <span className="text-lg font-extrabold tracking-wide text-amber-700">
-            {section.mnemonic}
+            {section.mnemonic || (
+              <span className="text-xs font-semibold text-amber-600/70">
+                {section.keywords.length}개 키워드
+              </span>
+            )}
           </span>
           <button
             onClick={toggleHide}

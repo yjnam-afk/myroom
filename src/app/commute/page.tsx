@@ -11,6 +11,8 @@ type Card = {
   category: string;
   importance: string;
   definition: string;
+  /** 두음이 없는 토픽의 연상 문장(암기 팁). */
+  memo?: string;
   /** 교재 구획별 두음(빌드 시 topicDetails에서 자동 추출). */
   sections: { label: string; mnemonic: string; keywords: string[] }[];
   mnemonic: string;
@@ -152,11 +154,17 @@ export default function CommutePage() {
                     <div key={si} className={si > 0 ? "mt-4" : ""}>
                       <div className="rounded-2xl bg-gradient-to-br from-brand-50 to-slate-50 p-4 text-center">
                         <div className="text-xs font-medium text-brand-500">
-                          {s.label || "두음신공"}
+                          {s.label || (s.mnemonic ? "두음신공" : "핵심 키워드")}
                         </div>
-                        <div className="mt-1 text-3xl font-extrabold tracking-wide text-brand-700">
-                          {s.mnemonic}
-                        </div>
+                        {s.mnemonic ? (
+                          <div className="mt-1 text-3xl font-extrabold tracking-wide text-brand-700">
+                            {s.mnemonic}
+                          </div>
+                        ) : (
+                          <div className="mt-1 text-sm font-semibold text-slate-500">
+                            {s.keywords.length}개 키워드 — 순서대로 떠올리기
+                          </div>
+                        )}
                       </div>
                       {s.keywords.length > 0 && (
                         <ul className="mt-3 space-y-1.5">
@@ -173,6 +181,16 @@ export default function CommutePage() {
                     </div>
                   );
                 })}
+                {card.memo && (
+                  <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-3">
+                    <div className="text-xs font-semibold text-slate-500">
+                      💡 연상 팁
+                    </div>
+                    <p className="mt-1 text-sm leading-relaxed text-slate-700">
+                      {card.memo}
+                    </p>
+                  </div>
+                )}
               </div>
             )}
           </div>

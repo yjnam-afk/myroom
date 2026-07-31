@@ -121,6 +121,13 @@ export function groundingFrom(topicId?: string): string {
         `교재 두음신공(★설명·시험포인트에서 이 두음을 그대로 소개하라. 새 두음을 만들지 말 것★):\n${lines.join("\n")}`,
       );
   }
+  // 두음이 없는 토픽의 대체 암기 장치(연상 문장). 억지 두음을 새로 만들지 않게 한다.
+  const memo = (d.memo || "").trim();
+  if (memo) {
+    parts.push(
+      `서브노트 연상 팁(두음이 없는 항목은 ★새 두음을 지어내지 말고★ 이 연상으로 소개하라): ${memo}`,
+    );
+  }
   const cmap = (d.conceptMap || "").trim();
   if (cmap) {
     parts.push(

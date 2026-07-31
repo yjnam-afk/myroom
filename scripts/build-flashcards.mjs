@@ -55,24 +55,24 @@ function cleanDefinition(detail, summary) {
 const cards = [];
 for (const t of topics) {
   const d = details[t.id] || {};
+  // 두음이 없는 섹션도 살린다. 억지 두음(첫 글자 기계 조합)보다 키워드 + 연상 문장이
+  // 외우기 쉬워, 두음은 "자연스러울 때만" 붙이고 없으면 빈 문자열로 둔다.
   let sections = Array.isArray(d.sections)
-    ? d.sections.filter((s) => s?.mnemonic && s.keywords?.length)
+    ? d.sections.filter((s) => s?.keywords?.length || s?.mnemonic)
     : [];
   // 섹션이 없어도 두음·키워드가 있으면 단일 섹션으로 구성(구버전 호환).
   if (!sections.length) {
     const kws = (d.featureKeywords || []).filter(Boolean);
     const stored = (d.mnemonic || "").replace(/\s/g, "");
     if (kws.length >= 2) {
-      const mnem =
-        stored && [...stored].length === kws.length
-          ? stored
-          : kws.map(firstCh).join("");
+      // 저장된 두음이 키워드 수와 맞을 때만 사용(맞지 않으면 두음 없이 키워드만).
+      const mnem = stored && [...stored].length === kws.length ? stored : "";
       sections = [{ label: "핵심 키워드", mnemonic: mnem, keywords: kws }];
     } else if (stored) {
       sections = [{ label: "두음", mnemonic: stored, keywords: [] }];
     }
   }
-  if (!sections.length) continue; // 외울 두음이 없는 토픽은 카드 제외
+  if (!sections.length) continue; // 외울 내용이 없는 토픽은 카드 제외
 
   cards.push({
     id: t.id,
@@ -80,6 +80,8 @@ for (const t of topics) {
     category: t.category,
     importance: t.importance,
     definition: cleanDefinition(d.detail, t.summary) || t.summary || "",
+    // 두음이 없는 토픽의 대체 암기 장치(연상 문장). 카드 하단에 노출한다.
+    memo: (d.memo || "").trim(),
     sections,
     // 구버전 필드(다른 소비처 호환): 첫 섹션 기준.
     mnemonic: sections[0].mnemonic,
