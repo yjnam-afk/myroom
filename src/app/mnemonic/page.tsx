@@ -990,7 +990,7 @@ function TextbookExtra({
   title?: string;
 }) {
   const extra = subnoteExtraFor(topicId, title);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true); // 교재 원본은 기본으로 펼쳐 둔다
   if (!extra?.easy && !extra?.image) return null;
   return (
     <div className="mb-4 overflow-hidden rounded-2xl border border-amber-200 bg-amber-50/60">

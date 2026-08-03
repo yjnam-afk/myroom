@@ -325,8 +325,9 @@ function ExplainInner() {
                 url={`https://study-teal-eight.vercel.app/explain?topic=${encodeURIComponent(topic.trim())}&auto=1`}
               />
             </div>
-            {/* 개념도 — 실제 교재 이미지(public/concept/<id>.svg|png)만 표시 */}
-            <ConceptDiagram topicId={conceptTopicId} />
+            {/* 개념도 — 교재 슬라이드 원본이 있으면(위에 이미 떠 있음) 중복이므로 생략.
+                교재 슬라이드가 없는 토픽만 기존 개념도 이미지를 쓴다. */}
+            {!extra?.image && <ConceptDiagram topicId={conceptTopicId} />}
             <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
               <Markdown>{result}</Markdown>
             </article>
