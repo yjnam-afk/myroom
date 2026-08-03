@@ -133,15 +133,32 @@ export const WEEKS: CurriculumWeek[] = [
 
 const DAY_NAMES = ["월", "화", "수", "목", "금", "토", "일"];
 
-/** YYYY-MM-DD → 로컬 자정 Date */
+/**
+ * 기준 시간대 — ★한국 시간 고정★.
+ * 기기(폰·PC·해외)의 시간대에 따라 "오늘"이 달라지면 같은 계획인데도
+ * 화면마다 오늘의 토픽이 달라진다. 그래서 항상 KST로 오늘을 계산한다.
+ */
+const TZ = "Asia/Seoul";
+
+/** YYYY-MM-DD → 로컬 자정 Date (날짜 차이 계산용. 비교 대상끼리 같은 방식이면 안전) */
 function parseDate(s: string): Date {
   const [y, m, d] = s.split("-").map(Number);
   return new Date(y, m - 1, d);
 }
 
+/** 한국 시간 기준 오늘 날짜 문자열(YYYY-MM-DD) */
+function todayStrKST(now: number): string {
+  // en-CA 로케일은 YYYY-MM-DD 형식을 준다.
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: TZ,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date(now));
+}
+
 function startOfToday(now: number): Date {
-  const n = new Date(now);
-  return new Date(n.getFullYear(), n.getMonth(), n.getDate());
+  return parseDate(todayStrKST(now));
 }
 
 export type TodayPlan = {
@@ -150,24 +167,65 @@ export type TodayPlan = {
   dayIndex: number;
   dayName: string;
   day: CurriculumDay;
+  /** 진짜 오늘인지. false 면 커리큘럼 밖이라 가장 가까운 학습일로 대신 채운 것. */
+  isToday: boolean;
+  /** 이 계획 칸의 날짜(YYYY-MM-DD) */
+  date: string;
 };
 
-/** 오늘이 속한 주차/요일의 계획을 찾는다. 커리큘럼에 없는 날이면 null. */
-export function planForToday(now: number = Date.now()): TodayPlan | null {
-  const today = startOfToday(now);
+/** YYYY-MM-DD + n일 → YYYY-MM-DD */
+function addDays(startISO: string, n: number): string {
+  const d = parseDate(startISO);
+  const x = new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
+  const p = (v: number) => String(v).padStart(2, "0");
+  return `${x.getFullYear()}-${p(x.getMonth() + 1)}-${p(x.getDate())}`;
+}
+
+/** 커리큘럼의 모든 칸을 날짜순으로 편다. */
+function flatDays() {
+  const out: { week: CurriculumWeek; dayIndex: number; date: string }[] = [];
   for (const week of WEEKS) {
-    const start = parseDate(week.start);
-    const diff = Math.round((today.getTime() - start.getTime()) / 86400000);
-    if (diff >= 0 && diff < week.days.length) {
-      return {
-        week,
-        dayIndex: diff,
-        dayName: DAY_NAMES[diff] ?? "",
-        day: week.days[diff],
-      };
+    for (let i = 0; i < week.days.length; i++) {
+      out.push({ week, dayIndex: i, date: addDays(week.start, i) });
     }
   }
-  return null;
+  return out.sort((a, b) => a.date.localeCompare(b.date));
+}
+
+/**
+ * 오늘의 계획을 찾는다 — ★어디에서 보든 같은 결과★.
+ *  - 기준은 항상 한국 시간(기기 시간대와 무관).
+ *  - 오늘이 커리큘럼 밖이면 null 을 주지 않고, 가장 가까운 학습일로 고정해 준다
+ *    (앞으로 올 학습일 우선, 없으면 마지막 학습일). isToday=false 로 표시된다.
+ */
+export function planForToday(now: number = Date.now()): TodayPlan | null {
+  const todayStr = todayStrKST(now);
+  const days = flatDays();
+
+  const exact = days.find((d) => d.date === todayStr);
+  if (exact) {
+    return {
+      week: exact.week,
+      dayIndex: exact.dayIndex,
+      dayName: DAY_NAMES[exact.dayIndex] ?? "",
+      day: exact.week.days[exact.dayIndex],
+      isToday: true,
+      date: exact.date,
+    };
+  }
+
+  // 커리큘럼 밖 — 가장 가까운 "학습일"로 고정한다(빈 화면 방지).
+  const study = days.filter((d) => d.week.days[d.dayIndex].kind === "study");
+  if (!study.length) return null;
+  const pick = study.find((d) => d.date >= todayStr) ?? study[study.length - 1];
+  return {
+    week: pick.week,
+    dayIndex: pick.dayIndex,
+    dayName: DAY_NAMES[pick.dayIndex] ?? "",
+    day: pick.week.days[pick.dayIndex],
+    isToday: false,
+    date: pick.date,
+  };
 }
 
 // ── 달력 ────────────────────────────────────────────────────────────
@@ -225,9 +283,9 @@ export function monthGrid(ym: string): CalendarCell[] {
   return cells;
 }
 
-/** 오늘 날짜(YYYY-MM-DD, 로컬). */
+/** 오늘 날짜(YYYY-MM-DD) — 기기 시간대와 무관하게 한국 시간 기준. */
 export function todayISO(now: number = Date.now()): string {
-  return iso(startOfToday(now));
+  return todayStrKST(now);
 }
 
 /** 커리큘럼에 들어 있는 모든 학습 토픽(회독 대상). */

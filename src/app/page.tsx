@@ -272,11 +272,19 @@ export default function Home() {
       {today && (
         <div className="mb-6 rounded-2xl border-2 border-slate-200 bg-white p-5 shadow-sm">
           <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-            <h2 className="text-sm font-bold text-slate-800">
+            <h2 className="flex flex-wrap items-center gap-x-1 text-sm font-bold text-slate-800">
               🗓️ 오늘의 토픽{" "}
               <span className="text-brand-500">
                 · {today.dayName}요일 · {today.day.label}
               </span>
+              {!today.isToday && (
+                <span
+                  className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-medium text-slate-500"
+                  title="오늘 날짜가 계획에 없어 가장 가까운 학습일을 보여줍니다"
+                >
+                  {today.date} 분량
+                </span>
+              )}
             </h2>
             <Link
               href="/plan"

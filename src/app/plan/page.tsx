@@ -205,7 +205,8 @@ export default function PlanPage() {
     setDone(loadDone());
     setToday(todayISO());
     const t = planForToday();
-    if (t) setTodayKey(`${t.week.start}#${t.dayIndex}`);
+    // "오늘" 강조는 진짜 오늘일 때만. 커리큘럼 밖이라 대신 채운 날은 강조하지 않는다.
+    if (t?.isToday) setTodayKey(`${t.week.start}#${t.dayIndex}`);
   }, []);
 
   function toggle(weekStart: string, title: string) {
