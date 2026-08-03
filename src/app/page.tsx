@@ -57,6 +57,13 @@ const menuGroups = [
         color: "from-brand-600 to-brand-800",
       },
       {
+        href: "/plan",
+        emoji: "🗓️",
+        title: "학습 계획",
+        desc: "심화반 커리큘럼 — 주차별 토픽·중요도·진도",
+        color: "from-brand-500 to-brand-600",
+      },
+      {
         href: "/commute",
         emoji: "🚇",
         title: "지하철 모드 (틈새 두음)",
@@ -277,7 +284,12 @@ export default function Home() {
                 · {today.dayName}요일 · {today.day.label}
               </span>
             </h2>
-            <span className="text-xs text-slate-400">{today.week.title}</span>
+            <Link
+              href="/plan"
+              className="text-xs font-medium text-brand-600 hover:underline"
+            >
+              전체 계획 →
+            </Link>
           </div>
 
           {today.day.kind === "study" ? (
