@@ -4,6 +4,7 @@ import { readJsonSafe } from "@/lib/safeJson";
 import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { subnoteByTitle, subnoteByTopicId } from "@/data/textbookSubnotes";
 import { PageHeader, Spinner, ErrorBox, Button } from "@/components/ui";
 import Markdown from "@/components/Markdown";
 import ConceptDiagram from "@/components/ConceptDiagram";
@@ -26,6 +27,11 @@ function ExplainInner() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [autoPending, setAutoPending] = useState(false);
+
+  // 내 교재(심화반) 서브노트 원본 — 있으면 AI 없이 바로 보여준다.
+  const textbook =
+    subnoteByTitle(topic.trim()) ||
+    subnoteByTopicId(topics.find((x) => x.title === topic.trim())?.id);
 
   // 학습 코치 등에서 ?topic=&auto= 으로 들어오면 미리 채우고 auto=1이면 즉시 생성.
   // SPA 이동으로 쿼리만 바뀌어도 반응하도록 searchParams 의존.
@@ -167,6 +173,99 @@ function ExplainInner() {
       </div>
 
       <div className="mt-6">
+        {/* 교재 원본 서브노트 — AI 호출 없이 즉시 표시(무료 AI 한도와 무관) */}
+        {textbook && (
+          <section className="mb-6 overflow-hidden rounded-2xl border-2 border-emerald-200 bg-white shadow-sm">
+            <div className="flex items-center justify-between gap-2 bg-emerald-50 px-5 py-3">
+              <h3 className="text-sm font-bold text-emerald-800">
+                📖 교재 서브노트 원본 — {textbook.title}
+              </h3>
+              <span className="rounded bg-emerald-600 px-2 py-0.5 text-[10px] font-bold text-white">
+                심화반 {textbook.course}
+              </span>
+            </div>
+            <div className="space-y-5 p-5">
+              <div>
+                <div className="text-xs font-bold text-slate-500">■ 정의</div>
+                <p className="mt-1 text-sm font-medium leading-relaxed text-slate-800">
+                  {textbook.definition}
+                </p>
+              </div>
+              {textbook.keywords.length > 0 && (
+                <div>
+                  <div className="text-xs font-bold text-slate-500">■ 키워드</div>
+                  <div className="mt-1.5 flex flex-wrap gap-1.5">
+                    {textbook.keywords.map((k) => (
+                      <span
+                        key={k}
+                        className="rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-blue-100"
+                      >
+                        {k}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {textbook.tables.map((tb) => (
+                <div key={tb.caption}>
+                  <div className="text-xs font-bold text-slate-500">
+                    ■ {tb.caption}
+                  </div>
+                  <div className="mt-1.5 overflow-x-auto">
+                    <table className="w-full border-collapse text-xs">
+                      <thead>
+                        <tr>
+                          {tb.headers.map((h) => (
+                            <th
+                              key={h}
+                              className="border border-slate-300 bg-slate-100 px-2 py-1.5 text-left font-bold text-slate-700"
+                            >
+                              {h}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {tb.rows.map((r, ri) => (
+                          <tr key={ri}>
+                            {r.map((c, ci) => (
+                              <td
+                                key={ci}
+                                className={`border border-slate-300 px-2 py-1.5 align-top leading-relaxed ${
+                                  ci === 0
+                                    ? "whitespace-nowrap font-semibold text-slate-800"
+                                    : "text-slate-600"
+                                }`}
+                              >
+                                {c}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              ))}
+              {textbook.notes?.length ? (
+                <div className="rounded-lg bg-slate-50 p-3">
+                  <div className="text-xs font-bold text-slate-500">■ 비고</div>
+                  <ul className="mt-1 space-y-1">
+                    {textbook.notes.map((n, i) => (
+                      <li key={i} className="text-xs leading-relaxed text-slate-600">
+                        · {n}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+            </div>
+            <p className="border-t border-emerald-100 bg-emerald-50/50 px-5 py-2 text-[11px] text-emerald-700">
+              내 교재 원본이라 AI 없이도 항상 열려요. 아래 &ldquo;설명 보기&rdquo;를 누르면 AI가 이
+              내용을 근거로 더 풀어서 설명해 줍니다.
+            </p>
+          </section>
+        )}
         {loading && <Spinner label="이해하기 쉽게 정리하고 있습니다…" />}
         {error && <ErrorBox message={error} />}
         {result && (

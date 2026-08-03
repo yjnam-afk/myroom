@@ -8,6 +8,34 @@ import { QuizStats, loadStats, loadNotes } from "@/lib/notes";
 import { loadSession } from "@/lib/auth";
 import { CoachPlan, buildPlan } from "@/lib/coach";
 import ShareButton from "@/components/ShareButton";
+import {
+  Priority,
+  TodayPlan,
+  planForToday,
+  loadDone,
+  saveDone,
+} from "@/data/curriculum";
+import { subnoteByTopicId, subnoteByTitle } from "@/data/textbookSubnotes";
+
+/** 교재 Priority 뱃지 — ★★★=상(빨강), ★★=중(파랑), ★=하(회색) */
+const PRIORITY_STYLE: Record<Priority, { cls: string; star: string }> = {
+  상: { cls: "bg-red-100 text-red-700 ring-red-200", star: "★★★" },
+  중: { cls: "bg-blue-100 text-blue-700 ring-blue-200", star: "★★" },
+  하: { cls: "bg-slate-100 text-slate-600 ring-slate-200", star: "★" },
+};
+
+function PriorityBadge({ p }: { p: Priority }) {
+  const s = PRIORITY_STYLE[p];
+  return (
+    <span
+      className={`inline-flex shrink-0 items-center gap-1 rounded px-1.5 py-0.5 text-[10px] font-bold ring-1 ${s.cls}`}
+      title={`중요도 ${p}`}
+    >
+      {p}
+      <span className="text-[8px] leading-none">{s.star}</span>
+    </span>
+  );
+}
 
 const toneClass: Record<string, string> = {
   rose: "border-slate-200 bg-slate-50 hover:border-slate-300",
@@ -123,6 +151,22 @@ export default function Home() {
   const [plan, setPlan] = useState<CoachPlan | null>(null);
   const [userName, setUserName] = useState("");
 
+  // 심화반 커리큘럼 — 오늘의 토픽(내가 정한 계획)
+  const [today, setToday] = useState<TodayPlan | null>(null);
+  const [done, setDone] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    setToday(planForToday());
+    setDone(loadDone());
+  }, []);
+
+  function toggleDone(key: string) {
+    const next = new Set(done);
+    next.has(key) ? next.delete(key) : next.add(key);
+    setDone(next);
+    saveDone(next);
+  }
+
   useEffect(() => {
     const refresh = () => {
       const rev = loadReview();
@@ -222,6 +266,142 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* 오늘의 토픽 — 심화반 커리큘럼(내가 정한 계획)에서 가져온다 */}
+      {today && (
+        <div className="mb-6 rounded-2xl border-2 border-slate-200 bg-white p-5 shadow-sm">
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+            <h2 className="text-sm font-bold text-slate-800">
+              🗓️ 오늘의 토픽{" "}
+              <span className="text-brand-500">
+                · {today.dayName}요일 · {today.day.label}
+              </span>
+            </h2>
+            <span className="text-xs text-slate-400">{today.week.title}</span>
+          </div>
+
+          {today.day.kind === "study" ? (
+            <>
+              <div className="mb-2 flex items-center justify-between">
+                <span className="text-xs font-semibold text-slate-500">
+                  학습한 토픽을 체크하세요 ·{" "}
+                  {today.day.topics.filter((t) => done.has(t.title)).length}/
+                  {today.day.topics.length} 완료
+                </span>
+                <span className="text-[11px] text-slate-400">
+                  중요도 <b className="text-red-600">상★★★</b>{" "}
+                  <b className="text-blue-600">중★★</b>{" "}
+                  <b className="text-slate-500">하★</b>
+                </span>
+              </div>
+              <ol className="space-y-2">
+                {today.day.topics.map((t, i) => {
+                  const checked = done.has(t.title);
+                  // 교재 원본 서브노트가 있으면 AI 없이 바로 볼 수 있다
+                  const sub =
+                    subnoteByTopicId(t.topicId) || subnoteByTitle(t.title);
+                  return (
+                    <li
+                      key={t.title}
+                      className={`flex items-center gap-2 rounded-lg border p-2 ${
+                        checked
+                          ? "border-amber-200 bg-amber-50"
+                          : "border-slate-100 bg-slate-50"
+                      }`}
+                    >
+                      <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-slate-200 text-[11px] font-bold tabular-nums text-slate-500">
+                        {i + 1}
+                      </span>
+                      <button
+                        onClick={() => toggleDone(t.title)}
+                        aria-label="완료"
+                        className={`grid h-6 w-6 shrink-0 place-items-center rounded-md border text-xs font-bold transition ${
+                          checked
+                            ? "border-amber-400 bg-amber-500 text-white"
+                            : "border-slate-300 bg-white text-transparent hover:border-amber-400"
+                        }`}
+                      >
+                        ✓
+                      </button>
+                      <PriorityBadge p={t.priority} />
+                      <span
+                        className={`min-w-0 flex-1 truncate text-sm ${
+                          checked ? "text-slate-400 line-through" : "text-slate-800"
+                        }`}
+                      >
+                        {t.title}
+                      </span>
+                      {sub && (
+                        <span
+                          className="shrink-0 rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700"
+                          title="교재 서브노트 원본이 있어요"
+                        >
+                          📖 교재
+                        </span>
+                      )}
+                      {t.topicId ? (
+                        <>
+                          <Link
+                            href={`/mnemonic?topic=${encodeURIComponent(t.title)}&topicId=${t.topicId}`}
+                            className="shrink-0 rounded-md bg-brand-600 px-2.5 py-1 text-xs font-medium text-white hover:bg-brand-700"
+                          >
+                            🥷 학습
+                          </Link>
+                          <Link
+                            href={`/explain?topic=${encodeURIComponent(t.title)}&topicId=${t.topicId}`}
+                            className="shrink-0 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 hover:bg-slate-100"
+                          >
+                            💡 설명
+                          </Link>
+                        </>
+                      ) : (
+                        <Link
+                          href={`/explain?topic=${encodeURIComponent(t.title)}`}
+                          className="shrink-0 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 hover:bg-slate-100"
+                        >
+                          💡 설명
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })}
+              </ol>
+            </>
+          ) : today.day.kind === "review" ? (
+            <div className="rounded-xl bg-gradient-to-br from-amber-50 to-slate-50 p-5">
+              <p className="text-2xl">🔁</p>
+              <p className="mt-1 text-sm font-bold text-amber-700">회독하는 날</p>
+              <p className="mt-1 text-xs leading-relaxed text-slate-500">
+                {today.day.note}
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <Link
+                  href="/commute"
+                  className="rounded-lg bg-slate-700 px-3 py-2 text-xs font-semibold text-white hover:bg-slate-800"
+                >
+                  🚇 지하철 모드로 카드 넘기기
+                </Link>
+                <Link
+                  href="/review"
+                  className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50"
+                >
+                  🔁 회독 관리
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <div className="rounded-xl bg-gradient-to-br from-indigo-50 to-slate-50 p-5 text-center">
+              <p className="text-2xl">🌙</p>
+              <p className="mt-1 text-sm font-bold text-indigo-700">
+                {today.day.label}
+              </p>
+              <p className="mt-1 text-xs leading-relaxed text-slate-500">
+                {today.day.note}
+              </p>
+            </div>
+          )}
+        </div>
+      )}
 
       {plan && plan.tasks.length > 0 && (
         <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">

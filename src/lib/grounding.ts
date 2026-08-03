@@ -4,6 +4,7 @@
  */
 import topics from "@/data/topics.json";
 import topicDetails from "@/data/topicDetails.json";
+import { subnoteByTopicId, subnoteAsText } from "@/data/textbookSubnotes";
 
 export type SubnoteSection = {
   label: string;
@@ -94,8 +95,16 @@ export function findIdByTitle(title?: string): string | undefined {
 export function groundingFrom(topicId?: string): string {
   if (!topicId) return "";
   const d = DETAILS[topicId];
-  if (!d) return "";
+  // 내 교재(심화반) 서브노트가 있으면 ★최우선★ 근거로 맨 앞에 붙인다.
+  const book = subnoteByTopicId(topicId);
+  if (!d && !book) return "";
   const parts: string[] = [];
+  if (book) {
+    parts.push(
+      `★★★내 교재 서브노트 원본 — 아래 내용을 최우선 정답 근거로 삼고, 정의·키워드·표 항목을 그대로 사용하라(임의 변경·추가 금지)★★★\n${subnoteAsText(book)}\n`,
+    );
+  }
+  if (!d) return parts.join("\n");
   if (d.detail) parts.push(d.detail.slice(0, 900));
   // 서론(정의)용과 본론(구성요소)용 키워드를 분리해 제시 → 서론·본론이 같아지지 않게
   const def = Array.from(new Set(d.defKeywords || []));
