@@ -6,6 +6,7 @@ import {
   subnoteFor,
   findIdByTitle,
   mnemonicFromData,
+  mnemonicFromTextbook,
 } from "@/lib/grounding";
 import { cached, hashKey } from "@/lib/cache";
 
@@ -72,13 +73,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "토픽을 입력하세요." }, { status: 400 });
     }
 
-    // 데이터-우선: 교재 섹션 두음이 완비된 토픽은 AI 없이 즉시 생성(토큰 0).
+    // 데이터-우선: AI 없이 즉시 생성(토큰 0). 무료 AI 한도와 무관하게 항상 동작한다.
     // 단, 사용자가 별도 교재(reference)를 붙여넣으면 그 근거로 새로 생성한다.
     const resolvedId = topicId || findIdByTitle(topic);
     if (!reference?.trim()) {
-      const dataSet = mnemonicFromData(resolvedId);
+      // ① 심화반 교재 서브노트 원본이 있으면 최우선.
+      // ② 없으면 엑셀 서브노트 섹션 두음.
+      const dataSet =
+        mnemonicFromTextbook(resolvedId, topic) || mnemonicFromData(resolvedId);
       if (dataSet) {
-        const subnote = subnoteFor({ topicId, topicTitle: topic });
+        const subnote = subnoteFor({ topicId: resolvedId, topicTitle: topic });
         return NextResponse.json({ set: dataSet, subnote });
       }
     }

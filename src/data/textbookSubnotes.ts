@@ -2231,6 +2231,700 @@ export const SUBNOTES: TextbookSubnote[] = [
       "② EDF → '마감 시간이 가장 임박한 작업부터 실행', CPU 활용을 최대로 할 수 있으나 구현이 복잡하고 오버헤드 큼",
     ],
   },
+  {
+    topicId: "os-36",
+    title: "교착상태(Deadlock)",
+    course: "OS",
+    definition:
+      "다중 프로그램 환경에서 두 개 이상의 프로세스가 다른 프로세스가 점유한 자원을 기다리면서 무한 대기하는 상태",
+    keywords: [
+      "상호배제",
+      "점유 대기",
+      "비선점",
+      "환형 대기(상점비환)",
+      "예방",
+      "회피",
+      "발견",
+      "복구(예피발복)",
+    ],
+    tables: [
+      {
+        caption: "교착 상태 발생 조건",
+        headers: ["기법", "설명"],
+        rows: [
+          [
+            "상호 배제 (Mutual Exclusion)",
+            "프로세스들이 필요로 하는 자원에 대한 배타적 통제권 요구 (필요 하는 자원을 다른 Process가 점유시 반드시 대기)",
+          ],
+          [
+            "점유 대기 (Hold and wait)",
+            "프로세스가 이미 자원을 할당 받아 배타적 점유 하는 상황에서 다른 프로세스가 점유하고 있는 다른 자원이 해제되기를 대기 상황",
+          ],
+          [
+            "비선점 (Non-preemption)",
+            "프로세스에 할당된 자원은 그 프로세스가 사용을 마치고 스스로 반환 전까지 제거 불가",
+          ],
+          [
+            "환형 대기 (Circular wait)",
+            "프로세스 자원 점유 및 점유된 자원의 요구 관계가 환형을 이루며 대기",
+          ],
+        ],
+      },
+      {
+        caption: "교착상태 해결 방안",
+        headers: ["해결방안", "핵심 내용"],
+        rows: [
+          [
+            "예방 (Prevention)",
+            "상호배제, 점유대기, 비선점, 환형의 4가지 조건 중 하나라도 발생하지 않도록 처리",
+          ],
+          [
+            "회피 (Avoidance)",
+            "안전 상태 유지(불안정 상태 회피) / ⓐ 단일 유형 여러 자원: 은행원 알고리즘, 안전 알고리즘 / ⓑ 각 유형의 단일 자원: 선언간선 추가한 자원할당 그래프 / Banker's Algorithm(은행가 알고리즘) / Wait-die, wound-wait 알고리즘",
+          ],
+          [
+            "발견 (Detection)",
+            "시스템의 상태를 감시 알고리즘 통해 교착상태 검사 / 쇼샤니와 포크만 제시 알고리즘(가용자원, 할당 자원, 요구자원) / 자원할당 그래프, Wait for Graph",
+          ],
+          [
+            "회복 (Recovery)",
+            "Deadlock이 없어질 때까지 프로세스를 순차적으로 Kill하여 제거 / 프로세스 종료비용 최소화: 우선순위, 진행비용, 복귀비용 등 / 모든 프로세스 종료",
+          ],
+        ],
+      },
+    ],
+    notes: [
+      "4가지 조건 모두 동시 발생 할 경우 교착 상태 발생",
+      "개념도: Process 1 →(Waiting for)→ Resource 2 →(Assigned to)→ Process 2 →(Waiting for)→ Resource 1 →(Assigned to)→ Process 1 — 환형 구조",
+    ],
+  },
+  {
+    topicId: "os-39",
+    title: "자원할당 그래프(Resource Allocation Graph)",
+    course: "OS",
+    definition:
+      "정점(vertex)들과 정점을 연결하는 간선(edge)들로 이루어져, 프로세스와 자원 간의 관계를 나타내는 방향성 그래프",
+    keywords: [
+      "정점(Vertex)",
+      "프로세스",
+      "자원",
+      "간선(Edge)",
+      "요청 간선",
+      "할당 간선",
+      "교착상태",
+      "사이클",
+    ],
+    tables: [
+      {
+        caption: "자원할당 그래프 구성 요소",
+        headers: ["구성 요소", "세부 요소", "설명"],
+        rows: [
+          [
+            "정점(Vertex)",
+            "프로세스(Process)",
+            "원 내에 Process pi로 표시 / 자원을 요청하는 Process / 정점 V = {P, R} 표현",
+          ],
+          [
+            "정점(Vertex)",
+            "자원(Resource)",
+            "사각형 내 단위 자원 수 만큼 원으로 표시하고 사각형 외부에 rj로 표시 / Process가 사용할 공유 자원",
+          ],
+          [
+            "간선(Edge)",
+            "요청 간선(Request edge)",
+            "프로세스에서 자원 방향으로 연결한 선 / 프로세스가 자원의 한 형태를 요청 / Pi→Rj (P가 R형태의 자원을 요청하고 대기 중)",
+          ],
+          [
+            "간선(Edge)",
+            "할당 간선(Assignment edge)",
+            "자원에서 프로세스 방향으로 연결한 선 / 자원이 프로세스에 할당 / Rj→Pi (R형태의 자원 하나가 P에 할당된 상태)",
+          ],
+        ],
+      },
+      {
+        caption: "교착상태 탐지 방법",
+        headers: ["번호", "설명"],
+        rows: [
+          [
+            "1",
+            "자원 할당 그래프 내에 Cycle이 존재하는지 확인. 존재하지 않으면 교착 상태 없음",
+          ],
+          [
+            "2",
+            "사이클(cycle)이 존재하고 각 자원 형태가 한 개의 자원만을 가지면 교착 상태 → 필요충분조건",
+          ],
+          [
+            "3",
+            "Cycle이 존재하고 자원 유형에 여러 개의 Instance가 있으면 교착 상태 가능성 존재 → 필요조건이나 충분조건은 아님",
+          ],
+        ],
+      },
+    ],
+    notes: [
+      "작성 사례 — 집합 P, R, E: ① P = {P1, P2, P3} ② R = {r1, r2, r3, r4} ③ E = {(P1, r1), (P2, r3), (r1, P2), (r2, P2), (r2, P1), (r3, P3)}",
+      "단위 자원의 수: ① r1, r3: 1개 ② r2: 2개 ③ r3: 3개",
+    ],
+  },
+  {
+    topicId: "os-41",
+    title: "Banker's 알고리즘(은행가 알고리즘)",
+    course: "OS",
+    definition:
+      "프로세스가 자원을 요구할 때 시스템은 자원을 할당한 후에도 안정 상태로 남아있게 되는 지를 사전에 검사하여 교착상태의 발생을 회피하는 기법",
+    keywords: ["안정상태", "Available", "Max", "Need", "Allocation", "Request"],
+    tables: [
+      {
+        caption: "은행가 알고리즘의 자료 구조",
+        headers: ["항목", "구성", "내용"],
+        rows: [
+          ["Available", "길이가 m인 벡터", "available[j]=k / 자원 유형 Rj에 k개의 자원 사용 가능"],
+          [
+            "Max",
+            "n X m 행렬",
+            "Max[i, j]=k / 프로세스 Pi는 자원 유형 Rj에 최대 k개의 자원 요청할 수 있음",
+          ],
+          [
+            "Need",
+            "n X m 행렬",
+            "Need[i, j]=k / 프로세스 Pi는 작업을 끝내기 위해 자원 유형 Rj의 자원을 k개 필요함 / Need[i, j] = Max[i, j] − Allocation[i, j]",
+          ],
+          [
+            "Allocation",
+            "n X m 행렬",
+            "Allocation[i, j]=k / 프로세스 Pi는 현재 자원 유형 Rj의 자원을 k개 할당 받음",
+          ],
+        ],
+      },
+      {
+        caption: "안정상태",
+        headers: ["번호", "설명"],
+        rows: [
+          [
+            "①",
+            "프로세스들의 순서는, 모든 Pi에 대해서 Pi가 요청하는 자원들이 현재 사용가능한 자원들과 j < i인 Pj가 점유하는 자원으로서 만족된다면 안정상태",
+          ],
+          ["②", "이때 Pi가 필요한 자원들을 즉시 사용할 수 없다면, Pi는 Pj가 끝날때까지 대기"],
+          [
+            "③",
+            "Pj가 끝나면, Pi는 필요한 자원을 획득하고, 작업을 수행한 후 모든 점유하는 자원을 해제하고 종료",
+          ],
+          ["④", "Pi가 종료하면, Pi+1이 필요한 자원을 확보하고 계속 처리를 진행"],
+        ],
+      },
+    ],
+    notes: [
+      "개념도: 준비(자원 상황과 최대 사용량들을 미리 파악) → 자원 할당 요청(프로세스의 자원 할당 요구) → 안정? (안정 알고리즘에 의한 상황 점검) → YES: 자원 할당 / NO: 할당 거부",
+      "안정 상태이면 할당 / 불안정 상태이면 승인 거부",
+      "n = 프로세스 개수, m = 자원 유형의 개수",
+      "안정상태 정의: 특정한 순서대로 각 프로세스에 자원을 할당할 수 있고, 교착상태를 방지할 수 있는 경우",
+    ],
+  },
+  {
+    topicId: "os-38",
+    title: "Wait-Die와 Wound-Wait",
+    course: "OS",
+    definition:
+      "[Wait-Die] 자원 요청 프로세스와 보유 프로세스의 타임 스템프를 비교하여 대기하거나 롤백하는 비선점 기반 DeadLock 회피 기법 / [Wound-Wait] 자원 요청 프로세스와 보유 프로세스의 타임 스템프를 비교하여 대기하거나 강제 종료하는 선점 기반 DeadLock 회피 기법",
+    keywords: ["타임스템프", "Old", "Young", "롤백", "강제종료", "선점", "비선점"],
+    tables: [
+      {
+        caption: "Wait-Die와 Wound-Wait의 비교",
+        headers: [
+          "기법",
+          "동작 방식",
+          "요청 프로세스가 오래된 프로세스(Timestamp가 작은 경우, 우선순위가 높은 경우)",
+          "요청 프로세스가 젊은 프로세스(Timestamp가 큰 경우, 우선순위가 낮은 경우)",
+        ],
+        rows: [
+          ["Wait-Die", "늙은 프로세스는 기다리고 젊은 프로세스는 종료", "Wait (기다림 허용)", "Die (롤백)"],
+          [
+            "Wound-Wait",
+            "늙은 프로세스는 젊은 프로세스를 종료하고 자원을 선점",
+            "Wound (강제 종료)",
+            "Wait (기다림 허용)",
+          ],
+        ],
+      },
+    ],
+    notes: [
+      "Wait-Die 동작: 낮은 Timestamp(Old Tr) T1 → T2(자원 점유) ← T3(높은 Timestamp, Young TR) — T1은 Wait, T3는 Die / Young(젊은) 트랜잭션(프로세스)는 롤백을 수행하고, 여러 번 발생 가능",
+      "Wound-Wait 동작: T1은 Wound(강제 종료 수행), T3는 Wait / Old(늙은) 트랜잭션(프로세스)는 Young(젊은) 트랜잭션(프로세스)를 강제로 죽이고(Wound) 자원을 획득",
+    ],
+  },
+  {
+    topicId: "os-63",
+    title: "인터럽트(Interrupt)",
+    course: "OS",
+    definition:
+      "CPU가 현재 실행 프로그램의 처리를 강제적으로 중단시키고, 특정 주소에 위치한 프로그램을 수행하는 절차 혹은 제어 신호",
+    keywords: [
+      "인터럽트 서비스 루틴",
+      "인터럽트 소스",
+      "인터럽트 벡터",
+      "인터럽트 우선순위",
+      "기계 착오",
+      "재시작",
+      "외부",
+      "입출력",
+      "프로그램 검사",
+      "슈퍼바이저 호출",
+    ],
+    tables: [
+      {
+        caption: "인터럽트 처리 절차",
+        headers: ["구성 모듈", "세부 동작 절차", "설명"],
+        rows: [
+          ["인터럽트 벡터 테이블(IVT)", "인터럽트 발생", "인터럽트 요청 신호 모니터링, 검출"],
+          [
+            "인터럽트 벡터 테이블(IVT)",
+            "인터럽트 벡터 조회",
+            "IVT에 인터럽트ID 조회 / 인터럽트ID에 대응하는 인터럽트 처리 루틴 분기",
+          ],
+          ["인터럽트 서비스 루틴(ISR)", "인터럽트 금지", "인터럽트 처리 루틴 진입 후 상호 배제(Lock)"],
+          ["인터럽트 서비스 루틴(ISR)", "프로세스 상태 저장", "이전 프로세스 정보 저장 (Context Switching)"],
+          ["인터럽트 서비스 루틴(ISR)", "인터럽트 처리", "인터럽트의 요청 작업 수행"],
+          ["인터럽트 서비스 루틴(ISR)", "프로세스 상태 복구", "이전 프로세스 정보 복구 (Context Switching)"],
+          ["인터럽트 서비스 루틴(ISR)", "인터럽트 허용", "상호배제 자원 반납(Unlock), 인터럽트 루틴 종료"],
+        ],
+      },
+      {
+        caption: "인터럽트 발생 원인과 종류",
+        headers: ["구분", "종류", "설명"],
+        rows: [
+          ["H/W 인터럽트", "기계 착오 인터럽트", "정전, 컴퓨터 자체 내의 기계적 문제"],
+          [
+            "H/W 인터럽트",
+            "재시작 인터럽트(Restart Interrupt)",
+            "오퍼레이터 및 다른 프로세서에 의해 재시작 명령 도착",
+          ],
+          [
+            "H/W 인터럽트",
+            "외부 인터럽트(External Interrupt)",
+            "Operator, Timer에 의한 의도적 프로그램 중단",
+          ],
+          [
+            "H/W 인터럽트",
+            "입출력 인터럽트(I/O Interrupt)",
+            "입출력의 종료나 입출력 오류에 의한 중앙처리장치의 기능 요청",
+          ],
+          [
+            "S/W 인터럽트",
+            "프로그램 검사 인터럽트(Program Check Interrupt)",
+            "보호 기억공간 내 접근, 불법적 명령 수행과 같은 프로그램 문제",
+          ],
+          [
+            "S/W 인터럽트",
+            "슈퍼바이저 호출 인터럽트(Supervisor Call Interrupt)",
+            "사용자 입출력 같은 서비스 받기 위해 슈퍼바이저 호출(SVC)를 통해 운영체제 서비스 요청",
+          ],
+        ],
+      },
+      {
+        caption: "인터럽트 중첩",
+        headers: ["구분", "설명"],
+        rows: [
+          [
+            "정의",
+            "하나의 인터럽트 요청신호를 받고 해당 Interrupt Service Routine(ISR)을 실행하고 있는 중에 다시 또 다른 인터럽트 요청신호가 발생하는 경우",
+          ],
+          ["Priority-based Preemption", "우선순위에 따른 중첩 인터럽트"],
+          ["Interrupt Pending", "순차적인 다중 인터럽트"],
+        ],
+      },
+    ],
+  },
+  {
+    topicId: "os-53",
+    title: "프로세스(Process)와 스레드(Thread) 비교",
+    course: "OS",
+    definition:
+      "[프로세스] 운영체제에서 프로세서(CPU)에 의해 실행되는 프로그램 단위 / [스레드] 하나의 프로세스 내에서 제어 흐름으로 프로세스의 실행 부분을 담당하는 일관된 실행의 기본 단위의 경량 프로세스",
+    keywords: ["자원 할당 기본 단위", "프로세스 내 여러 Thread"],
+    tables: [
+      {
+        caption: "프로세스와 스레드 비교",
+        headers: ["구분", "프로세스", "스레드"],
+        rows: [
+          ["개념", "자원 할당을 위한 기본 구분 단위", "CPU 이용 기본 작업 단위"],
+          [
+            "구성 요소",
+            "Code, data, Heap, Stack으로 구성 / 각 memory space 차지",
+            "Code, data, heap 영역은 공유 / Stack만 별도로 memory space 차지",
+          ],
+          [
+            "역할",
+            "강력한 보호 요구 / 각 프로세스는 독립적 실행, 별개의 메모리를 할당",
+            "강력한 보호는 요구되지 않으며, 프로세스 내 메모리 공유",
+          ],
+          ["Context Switching", "전환 속도 느림, PCB 전환", "전환 속도 빠름"],
+          ["상호 통신", "System Call / Call 종료까지 전체 Blocking", "Library Call / 요청 Thread만 Blocking"],
+          ["다중 처리", "여러 프로그램을 동시 수행", "하나의 프로그램에서 여러 작업 수행"],
+          [
+            "장점",
+            "문맥 전환을 통해 프로세스 간 전환 발생 / 높은 시스템 부하 / 순차적 실행으로 실행 순서 예측 가능",
+            "경량화된 문맥 전환, 낮은 부하 / 응답성, 자원 효율성, 경제성",
+          ],
+          ["단점", "성능 부하", "비순차적 실행, 실행 순서 예측 어려움"],
+        ],
+      },
+      {
+        caption: "PCB와 TCB의 비교",
+        headers: ["구분", "PCB", "TCB"],
+        rows: [
+          [
+            "개념",
+            "프로세스 관리를 위해 유지되는 데이터 블록, 또는 레코드의 데이터 구조",
+            "Thread 실행 동안 상태 정보를 유지하기 위해 관리되는 데이터 구조",
+          ],
+          [
+            "역할",
+            "프로세스 정보 저장 / 모든 Thread에 공유되는 정보",
+            "Thread 정보 저장 / Thread 내에서 사용되는 정보",
+          ],
+          [
+            "주요 구성 요소",
+            "Owner, PID, Heap Pointer, Priority, Active Thread",
+            "Stack Pointer, PC, Thread State, Register",
+          ],
+          ["상호 연계 정보", "하나 이상의 TCB 정보", "Thread가 속한 PCB 링크 정보"],
+          ["Context 관점", "실행 환경 정보 교환", "실행 관련 정보 교환"],
+          [
+            "관리 데이터 양",
+            "관리 Data가 많음 / TCB에서 공유한 정보 포함 / Linux 기준 약 106개 필드",
+            "PCB에 연결 Pointer로 적은 data만 관리 / Linux 기준 24개 필드",
+          ],
+        ],
+      },
+    ],
+    notes: [
+      "개념도: 프로세스는 코드·데이터·힙·스택을 각각 독립적으로 소유 / 스레드는 코드·데이터·힙을 공유하고 스택만 별도 소유",
+    ],
+  },
+  {
+    topicId: "os-48",
+    title: "PCB(Process Control Block)",
+    course: "OS",
+    definition:
+      "프로세스가 실행될 때마다 프로세스의 정보를 기록하여 프로세스를 관리할 수 있는 특별한 자료구조",
+    keywords: [
+      "PID(프로세스 식별자)",
+      "프로세스 상태",
+      "프로그램 카운터",
+      "레지스터 저장 영역",
+      "프로세서 스케줄링 정보",
+      "계정 정보",
+      "입출력 상태 정보",
+      "메모리 관리 정보",
+    ],
+    tables: [
+      {
+        caption: "PCB 구성 정보 (식상카레스계입메)",
+        headers: ["항목", "내용", "비고"],
+        rows: [
+          ["PID(프로세스 식별자)", "각 프로세스에 대한 고유 식별자", "숫자, 색인 항목"],
+          ["프로세스 상태", "생성, 준비, 실행, 대기, 중단 등의 프로세스 상태", "Process Status Register"],
+          ["프로그램 카운터", "프로세스 실행을 위한 다음 명령의 주소 표시", "PC Register / Jump"],
+          [
+            "레지스터 저장 영역",
+            "누산기, 인덱스 레지스터, 범용 레지스터, 조건 코드 등에 관한 정보 / 컴퓨터 구조에 따라 다른 형태 / 인터럽트가 발생 시 프로그램 카운터와 함께 저장, 다시 실행 시 원상 복귀",
+            "AC, ISR, MBR, MAR, AX, CX",
+          ],
+          ["프로세서 스케줄링 정보", "우선순위, 스케줄링 큐 포인터, 스케줄 매개변수", ""],
+          [
+            "계정 정보",
+            "프로세서 사용시간, 실제 사용시간, 사용 상한시간, 계정 정보, 작업이나 프로세스 번호 등",
+            "AC",
+          ],
+          [
+            "입출력 상태 정보",
+            "입출력 요구 프로세스에 할당된 입출력 장치, 개방된 파일 목록",
+            "I/O 장치 리스트 / Open된 파일정보",
+          ],
+          [
+            "메모리 관리 정보",
+            "메모리 영역 정의에 필요한 상한/하한 레지스터(경계 레지스터) 또는 페이지 테이블 정보",
+            "Page, Segment Table / Cache address",
+          ],
+        ],
+      },
+    ],
+    notes: [
+      "Program이 실행되면 Process가 생성되며, Process Address Space에 'code', 'data', 'stack'이 만들어짐",
+      "이 Process의 Metadata들은 PCB에 저장됨",
+      "Process Management란 말은 곧 PCB Management말과 의미가 일치",
+      "PCB 구조: Pointer | Process state / Process ID(Unique ID) / Program counter(Next program that run) / Registers / Memory Limits / Accounting(Log INFO about process) / List of open file",
+    ],
+  },
+  {
+    topicId: "os-54",
+    title: "멀티 쓰레드(Multi-Thread)",
+    course: "OS",
+    definition:
+      "하나의 Processor 내에서 둘 이상의 흐름(Thread)이 동시에 존재하며 독립적으로 실행될 수 있는 구조",
+    keywords: [
+      "Single Thread",
+      "Interleaved Multithreading(IMT)",
+      "Blocked Multithreading(BMT)",
+      "Simultaneous Multithreading(SMT)",
+      "Chip Multiprocessing(CMP)",
+    ],
+    tables: [
+      {
+        caption: "멀티 쓰레드 종류",
+        headers: ["Thread 종류", "정의", "특징"],
+        rows: [
+          ["Single Thread", "하나의 쓰레드만 실행", "한 번에 한 명령어 흐름만 수행, CPU 활용률 낮음"],
+          [
+            "Interleaved Multithreading (IMT)",
+            "여러 쓰레드의 명령어를 시간 단위로 번갈아 실행",
+            "하나의 클록 사이클마다 다른 쓰레드 명령어 선택, 쓰레드가 CPU를 나눠 사용, 한 사이클에 하나의 명령만 실행",
+          ],
+          [
+            "Blocked Multithreading (BMT)",
+            "한 쓰레드가 메모리 지연 등으로 블록되면 다른 쓰레드 실행",
+            "CPU가 블록될 때만 다른 쓰레드 실행, IMT보다 CPU 활용률 낮음",
+          ],
+          [
+            "Simultaneous Multithreading (SMT)",
+            "여러 쓰레드의 명령어를 같은 클록 사이클에 동시에 실행",
+            "파이프라인과 실행 유닛 공유, CPU 활용률 극대화, Hyper-Threading이 대표적",
+          ],
+          [
+            "Chip Multiprocessing (CMP)",
+            "하나의 칩에 다수의 독립적인 코어가 존재, 각각 쓰레드 독립 실행",
+            "물리적 코어 여러 개, 완전히 병렬 처리 가능, SMT와 달리 각 코어 별 실행 유닛 독립",
+          ],
+        ],
+      },
+    ],
+    notes: [
+      "프로세스 내에서 독립적으로 실행될 수 있는 최소 실행 단위",
+      "Thread는 병렬 처리, 응답성 향상, 자원 효율적 사용을 위해 사용",
+      "동일 메모리 공간과 자원을 사용하지만, 자신의 실행 흐름과 레지스터(Registers), 스택(Stack)을 소유",
+      "단일 쓰레드: code·data·files 공유, Registers/Stack 1개 / 멀티 쓰레드: code·data·files 공유, Registers/Stack을 쓰레드마다 별도 소유",
+    ],
+  },
+  {
+    topicId: "os-58",
+    title: "파일 시스템(유닉스 파일시스템)",
+    course: "OS",
+    definition:
+      "파일과 디렉터리를 계층적인 트리 구조로 조직하며, 모든 데이터를 저장하고 관리하는 구조",
+    keywords: [
+      "루트파일시스템",
+      "일반 파일",
+      "디렉토리 파일",
+      "특수 파일",
+      "부트 블록(Boot Block)",
+      "슈퍼 블록(Super Block)",
+      "아이노드",
+      "데이터 블록",
+    ],
+    tables: [
+      {
+        caption: "유닉스 파일시스템의 구조",
+        headers: ["구조", "설명"],
+        rows: [
+          ["부트 블록(Boot Block)", "운영체제 부트 또는 초기화 Bootstrap 코드를 저장하는 공간"],
+          [
+            "슈퍼 블록(Super Block)",
+            "파일 시스템 크기, 블록 수 등 파일 시스템을 기술하는 정보(메타데이터)를 저장 / 슈퍼 블록의 자료 구조, 파일 시스템의 크기, 블록의 수, 이용가능한 빈 블록 목록, 빈 블록 목록에서 그 다음의 빈 블록을 가리키는 인덱스 등의 정보",
+          ],
+          ["아이노드 (i-node)", "파일이나 디렉토리에 대한 모든 정보를 가지고 있는 구조"],
+          ["데이터 블록 (Data Block)", "실제 데이터가 저장되어 있는 파일 형태"],
+        ],
+      },
+      {
+        caption: "유닉스 파일의 종류",
+        headers: ["종류", "설명"],
+        rows: [
+          [
+            "루트 파일 시스템",
+            "하드디스크 상에 적어도 하나의 파일 시스템 존재 / 시스템 프로그램과 디렉토리들이 포함",
+          ],
+          [
+            "일반 파일",
+            "컴퓨터가 수행 가능한 프로그램 파일이나, 원시 프로그램 파일, 텍스트, 데이터 파일 등",
+          ],
+          [
+            "디렉토리 파일",
+            "다른 파일과 디렉토리 들에 관한 정보를 저장하는 논리적 단위 / 파일명인 문자열과 inode 번호를 연결하는 부분",
+          ],
+          ["특수 파일", "주변 장치에 연결된 파일로 하나 이상의 특수 파일을 소유"],
+        ],
+      },
+    ],
+    notes: [
+      "구조도: Hard Disk → Hard Disk Record + Partition 1/2/3 / Partition → Boot Blocks + Super Blocks + Inode List + Data(files and directories) (Cylinder Group 반복)",
+      "Inode List Table ↔ Directory List Table(Inum, Filename) ↔ Data Block Reference ↔ Meta Data",
+    ],
+  },
+  {
+    topicId: "os-57",
+    title: "유닉스의 inode",
+    course: "OS",
+    definition: "UNIX 파일 시스템에서 파일의 속성과 저장 위치를 관리하는 메타데이터 구조체",
+    keywords: [
+      "i-node 소유 정보",
+      "i-node number",
+      "state",
+      "owner ID",
+      "group ID",
+      "TimeStamp(Create, Modify, Access time)",
+      "size block count",
+      "Direct Block",
+      "Double/Triple Indirect",
+    ],
+    tables: [
+      {
+        caption: "i-node 구성 요소",
+        headers: ["구성요소", "세부 요소"],
+        rows: [
+          [
+            "Attribute(기본 정보)",
+            "mode, 소유자 식별자, 그룹소유자 식별자, 파일접근 허가권한, Disk 실 주소, 파일 크기, 최초 생성 시기, 최종 사용 시기, 최종 수정 시기, 파일 링크 수, 파일 종류",
+          ],
+          [
+            "Index(data 정보)",
+            "direct blocks(직접 블록), single indirect block(단일 간접 블록), double indirect block(이중 간접 블록), triple indirect block",
+          ],
+        ],
+      },
+      {
+        caption: "새로운 파일에 i-node를 할당하는 과정",
+        headers: ["구분", "설명"],
+        rows: [
+          [
+            "자유 i-node 할당",
+            "① 가장 마지막으로 슈퍼블록에 저장된 i-node를 기억된 i-node라고 함 ② 커널은 디스크 i-node를 할당할 때마다 슈퍼블록의 자유 i-node 계수(인덱스)를 감소 ③ i-node에 대한 인덱스를 19로 감소시키고 다음 i-node 48을 반환",
+          ],
+          [
+            "자유 i-node 저장 (자유 i-node가 빈 경우)",
+            "① 자유 i-node 목록이 비어있는 경우, 기억된 i-node의 470부터 디스크를 탐색하여 자유 i-node 목록을 채움 ② 마지막 i-node 번호(535)를 기억함(기억된 i-node) ③ 커널은 가져온 i-node(471)을 배정하고 계속 진행",
+          ],
+        ],
+      },
+      {
+        caption: "i-node를 반납하는 과정",
+        headers: ["번호", "설명"],
+        rows: [
+          ["①", "파일시스템에서 사용 가능한 i-node의 수를 증가"],
+          [
+            "②",
+            "반납된 i-node와 기억된 i-node번호를 비교하여 반납된 i-node 번호가 기억된 i-node 번호보다 낮은 경우는 반납된 i-node 번호를 기억하고 이전에 기억된 i-node 번호를 슈퍼블록에서 제거(커널은 항상 리스트의 제일 마지막 i-node가 기억된 i-node가 되도록 슈퍼 블록의 리스트를 유지)",
+          ],
+          [
+            "③",
+            "(a) 자유 i-node 목록에 공간이 없으면 반납된 i-node 번호와 다음의 디스크 탐색을 시작할 기억된 i-node 비교",
+          ],
+          ["④", "(b) i-node 499를 반납하면 499를 기억하는 i-node로 만들고 535를 i-node 목록에서 제거함"],
+          [
+            "⑤",
+            "(c) 자유 i-node 목록이 모두 소진되고 커널이 i-node 601을 반납하면 자유 i-node 목록에는 변함이 없음(커널이 나중에 슈퍼블록의 자유 i-node목록을 모두 사용하면 499에서부터 다시 디스크를 검색하며 535와 601을 찾음)",
+          ],
+        ],
+      },
+    ],
+    notes: [
+      "i-node 구조도: Attribute(mode, owner info, size, timestamps, size block count) + index(Direct blocks, Single Indirect, Double Indirect, Triple Indirect) → data 블록",
+      "direct block pointers: 4KB / 4byte = 1024 → 1024 x 4KB = 4096KB 크기 저장",
+    ],
+  },
+  {
+    topicId: "os-59",
+    title: "프로세스간 통신(IPC)",
+    course: "OS",
+    definition:
+      "운영체제(OS)에서 실행 중인 프로세스들 간 상호 데이터를 교환할 수 있도록 하는 메커니즘",
+    keywords: [
+      "공유 메모리 방식",
+      "공유 메모리(Shared Memory)",
+      "메모리 맵(mmap)",
+      "메시지 전달 방식",
+      "파이프(Pipe)",
+      "네임드 파이프(Named Pipe, FIFO)",
+      "메시지 큐(Message Queue)",
+      "소켓(Socket)",
+      "시그널(Signal)",
+    ],
+    tables: [
+      {
+        caption: "공유 메모리 방식",
+        headers: ["기법", "설명"],
+        rows: [
+          [
+            "공유 메모리(Shared Memory)",
+            "커널이 관리하는 공유 메모리 영역을 여러 프로세스가 자신의 주소 공간에 매핑하여 직접 읽고 쓰는 방식. 커널을 거치지 않으므로 가장 빠르나, 동시 접근 시 동기화(세마포어 등) 처리가 반드시 필요",
+          ],
+          [
+            "메모리 맵(Map Memory, mmap)",
+            "파일을 프로세스의 가상 메모리 주소 공간에 매핑하여, 파일 I/O 대신 메모리 접근으로 데이터를 공유하는 방식. 대용량 데이터 공유에 유리",
+          ],
+        ],
+      },
+      {
+        caption: "메시지 전달 방식",
+        headers: ["기법", "설명"],
+        rows: [
+          [
+            "파이프(Pipe)",
+            "부모-자식처럼 혈연 관계가 있는 프로세스 간 단방향 통신. 커널이 제공하는 버퍼를 통해 한쪽은 쓰고 한쪽은 읽음",
+          ],
+          [
+            "네임드 파이프(Named Pipe, FIFO)",
+            "파일 시스템에 이름을 가진 특수 파일로 생성되어, 혈연 관계가 없는 프로세스 간에도 통신 가능. 기본은 단방향",
+          ],
+          [
+            "메시지 큐(Message Queue)",
+            "커널이 관리하는 큐에 메시지를 타입과 함께 넣고 꺼내는 방식. 비동기 통신이 가능하며 메시지 단위로 구분되어 처리",
+          ],
+          [
+            "소켓(Socket)",
+            "네트워크 프로토콜(TCP/UDP) 기반의 양방향 통신. 동일 호스트뿐 아니라 원격 호스트의 프로세스와도 통신 가능",
+          ],
+          [
+            "시그널(Signal)",
+            "특정 이벤트 발생을 프로세스에 비동기적으로 알리는 소프트웨어 인터럽트. 데이터 전달이 아닌 이벤트 통지 용도",
+          ],
+        ],
+      },
+      {
+        caption: "공유 메모리와 메시지 전달 방식의 비교",
+        headers: ["구분", "공유 메모리 방식", "메시지 전달 방식"],
+        rows: [
+          [
+            "개념",
+            "여러 프로세스가 동일한 메모리 영역을 공유하여 직접 데이터 교환",
+            "커널이 제공하는 통신 채널을 통해 메시지를 주고받아 데이터 교환",
+          ],
+          [
+            "대표 기법",
+            "공유 메모리, 메모리 맵(mmap)",
+            "파이프, 네임드 파이프, 메시지 큐, 소켓, 시그널",
+          ],
+          [
+            "속도",
+            "빠름 (커널 개입 없이 메모리에 직접 접근)",
+            "상대적으로 느림 (커널을 경유하며 복사 발생)",
+          ],
+          [
+            "충돌",
+            "동시 접근에 의한 충돌 가능 → 동기화 기법 필수",
+            "커널이 순서를 보장하므로 충돌 위험 낮음",
+          ],
+          [
+            "크기",
+            "대용량 데이터 교환에 적합",
+            "비교적 소량의 메시지 교환에 적합",
+          ],
+        ],
+      },
+    ],
+    notes: [
+      "IPC 분류 두음: 공유 메모리 방식(공·맵) / 메시지 전달 방식(파·네·메·소·시)",
+      "속도가 필요하면 공유 메모리 + 동기화, 안전·원격이 필요하면 메시지 전달(소켓)",
+    ],
+  },
 ];
 
 /** topicId 로 교재 서브노트를 찾는다. */

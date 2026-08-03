@@ -267,7 +267,18 @@ function ExplainInner() {
           </section>
         )}
         {loading && <Spinner label="이해하기 쉽게 정리하고 있습니다…" />}
-        {error && <ErrorBox message={error} />}
+        {error &&
+          (textbook ? (
+            // 교재 서브노트 원본이 이미 위에 떠 있으므로, AI 실패는 "추가 해설만 못 만든 것".
+            // 빨간 오류 박스 대신 담담한 안내로 낮춘다.
+            <p className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm leading-relaxed text-slate-600">
+              📖 위 <strong>교재 서브노트 원본</strong>이 정답 근거입니다. AI 추가 해설은 지금
+              생성하지 못했어요({error}) — 교재 내용만으로도 암기·답안 작성은 그대로
+              하시면 됩니다.
+            </p>
+          ) : (
+            <ErrorBox message={error} />
+          ))}
         {result && (
           <>
             {/* 오디오 강의·공유 — 두음신공 페이지와 동일하게 결과 상단(카드 밖) */}

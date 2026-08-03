@@ -4,7 +4,11 @@
  */
 import topics from "@/data/topics.json";
 import topicDetails from "@/data/topicDetails.json";
-import { subnoteByTopicId, subnoteAsText } from "@/data/textbookSubnotes";
+import {
+  subnoteByTopicId,
+  subnoteByTitle,
+  subnoteAsText,
+} from "@/data/textbookSubnotes";
 
 export type SubnoteSection = {
   label: string;
@@ -270,6 +274,150 @@ export function cleanDefinition(detail?: string, summary?: string): string {
   return fromDetail || fromSummary;
 }
 
+/**
+ * 섹션들로 객관식 4지선다를 결정적으로 만든다(난수 미사용 → 캐시 일관성).
+ * 같은 분야의 헷갈리는 오답을 우선 쓰고, 가능하면 "해당하지 않는 것은?"(전부 알아야 푸는) 형태로.
+ */
+function buildMc(
+  topicId: string | undefined,
+  title: string,
+  sections: SubnoteSection[],
+): DataMnemonicSet["mc"] {
+  const cat = (topics as { id: string; category?: string }[]).find(
+    (x) => x.id === topicId,
+  )?.category;
+  const pool = distractorPool(topicId, cat);
+  const ownSet = new Set(sections.flatMap((s) => s.keywords));
+  const pickDistractor = (salt: number, used: Set<string>): string | null => {
+    for (const bucket of [pool.same, pool.other]) {
+      for (let j = 0; j < bucket.length; j++) {
+        const cand = bucket[(salt * 13 + j * 7 + 5) % bucket.length];
+        if (!ownSet.has(cand) && !used.has(cand)) return cand;
+      }
+    }
+    return null;
+  };
+  const mc: DataMnemonicSet["mc"] = [];
+  for (let i = 0; i < sections.length && mc.length < 4; i++) {
+    const s = sections[i];
+    const used = new Set<string>();
+    if (s.keywords.length >= 3) {
+      // "해당하지 않는 것은?" — 정답(=오답 키워드) 1 + 진짜 구성요소 3
+      const d = pickDistractor(i + 1, used);
+      if (!d) continue;
+      const reals = s.keywords.slice(0, 3);
+      const options = [...reals, d];
+      const pos = (i * 3 + 1) % 4;
+      [options[options.length - 1], options[pos]] = [
+        options[pos],
+        options[options.length - 1],
+      ];
+      mc.push({
+        question: `다음 중 '${title}'의 [${s.label}](두음 ${s.mnemonic}) 구성요소가 "아닌" 것은?`,
+        options,
+        answer: options.indexOf(d),
+        explanation: `'${d}'은(는) 이 토픽 항목이 아닙니다. ${s.label}: ${s.keywords.join(", ")}`,
+      });
+    } else {
+      // 항목이 적으면 "해당하는 것은?" — 정답 1 + 헷갈리는 오답 3
+      const correct = s.keywords[0];
+      const distractors: string[] = [];
+      for (let k = 0; k < 6 && distractors.length < 3; k++) {
+        const d = pickDistractor(i * 10 + k, used);
+        if (!d) break;
+        used.add(d);
+        distractors.push(d);
+      }
+      if (distractors.length < 3) continue;
+      const options = [correct, ...distractors];
+      const pos = (i + 1) % 4;
+      [options[0], options[pos]] = [options[pos], options[0]];
+      mc.push({
+        question: `'${title}'의 [${s.label}](두음 ${s.mnemonic})에 해당하는 것은?`,
+        options,
+        answer: options.indexOf(correct),
+        explanation: `${s.label}: ${s.keywords.join(", ")}`,
+      });
+    }
+  }
+  return mc;
+}
+
+/**
+ * ★교재 서브노트 우선★ — 심화반 교재 원본이 있으면 AI 없이 그 내용만으로 두음신공을 만든다.
+ * 표의 첫 열(항목명)을 섹션 키워드로 쓰고, 캡션을 라벨로 삼는다.
+ * 비교표(구분|A|B 형태)는 두음 대상이 아니므로 2열 표를 우선 사용한다.
+ */
+export function mnemonicFromTextbook(
+  topicId?: string,
+  topicTitle?: string,
+): DataMnemonicSet | null {
+  const book =
+    subnoteByTopicId(topicId) ||
+    (topicTitle ? subnoteByTitle(topicTitle) : undefined);
+  if (!book) return null;
+
+  const twoCol = book.tables.filter((tb) => tb.headers.length <= 2);
+  const usable = (twoCol.length ? twoCol : book.tables).filter(
+    (tb) => tb.rows.length >= 2,
+  );
+
+  const sections: SubnoteSection[] = [];
+  // 교재 '■ 키워드'가 최우선 두음 대상.
+  if (book.keywords.length >= 2) {
+    const kws = book.keywords.slice(0, 8);
+    sections.push({
+      label: "교재 키워드",
+      mnemonic: kws.map(firstCh).join(""),
+      keywords: kws,
+    });
+  }
+  for (const tb of usable.slice(0, 4)) {
+    // 절차/시점 나열표(①②…, t0·t1, 1·2·3)는 두음 대상이 아니다.
+    const items = tb.rows
+      .map((r) => (r[0] || "").trim())
+      .filter((s) => s && !/^[①-⑳]+$/.test(s) && !/^[a-zA-Z]?\d+$/.test(s));
+    if (items.length < 2) continue;
+    // 캡션에 교재가 적어둔 두음이 있으면(예: "PCB 구성 정보 (식상카레스계입메)")
+    // 그것을 그대로 쓴다 — 내가 계산한 첫 글자보다 교재 두음이 항상 우선.
+    const cap = tb.caption.match(/^(.*?)\s*[(（]\s*([가-힣]{3,})\s*[)）]\s*$/);
+    sections.push({
+      label: cap ? cap[1].trim() : tb.caption,
+      mnemonic: cap ? cap[2] : items.map(firstCh).join(""),
+      keywords: items,
+    });
+  }
+  // 두음 품질 필터: 모든 항목의 첫 글자가 같으면(예: t0·t1·t2 → "ttt") 암기 장치가 아니다.
+  const good = sections.filter(
+    (s) => new Set(s.mnemonic.split("")).size > 1 && s.mnemonic.length >= 2,
+  );
+  if (!good.length) return null;
+
+  const first = good[0];
+  const body = good[1] || first;
+  return {
+    topic: book.title,
+    intro: {
+      items: toItems(first.keywords.slice(0, 6)),
+      mnemonic: first.keywords.slice(0, 6).map(firstCh).join(""),
+      mnemonicHow: "교재 서브노트 키워드의 첫 글자를 모았어요.",
+      definition: book.definition,
+      features: (book.notes || []).slice(0, 3),
+    },
+    body: {
+      items: toItems(body.keywords),
+      mnemonic: body.mnemonic,
+      mnemonicHow: `교재 [${body.label}]의 두음`,
+    },
+    mc: buildMc(topicId, book.title, good),
+    recall: {
+      prompt: `[${body.label}] 두음 '${body.mnemonic}'이 의미하는 키워드를 모두 쓰시오.`,
+      answers: body.keywords,
+    },
+    fromData: true,
+  };
+}
+
 export function mnemonicFromData(topicId?: string): DataMnemonicSet | null {
   if (!topicId) return null;
   const d = DETAILS[topicId];
@@ -347,68 +495,7 @@ export function mnemonicFromData(topicId?: string): DataMnemonicSet | null {
     mnemonicHow: curated.length ? `${first.label}의 두음` : "핵심 키워드의 두음",
   };
 
-  // 객관식: 같은 분야의 헷갈리는 오답을 쓰고, 가능하면 "해당하지 않는 것은?"(전부 알아야 푸는) 형태로.
-  const cat = (
-    topics as { id: string; category?: string }[]
-  ).find((x) => x.id === topicId)?.category;
-  const pool = distractorPool(topicId, cat);
-  const ownSet = new Set(sections.flatMap((s) => s.keywords));
-  // 결정적으로 오답 후보를 뽑는다(같은 분야 우선 → 그 외). 난수 미사용(캐시 일관성).
-  const pickDistractor = (
-    salt: number,
-    used: Set<string>,
-  ): string | null => {
-    for (const bucket of [pool.same, pool.other]) {
-      for (let j = 0; j < bucket.length; j++) {
-        const cand = bucket[(salt * 13 + j * 7 + 5) % bucket.length];
-        if (!ownSet.has(cand) && !used.has(cand)) return cand;
-      }
-    }
-    return null;
-  };
-  const mc: DataMnemonicSet["mc"] = [];
-  for (let i = 0; i < sections.length && mc.length < 4; i++) {
-    const s = sections[i];
-    const used = new Set<string>();
-    if (s.keywords.length >= 3) {
-      // "해당하지 않는 것은?" — 정답(=오답 키워드) 1 + 진짜 구성요소 3
-      const d = pickDistractor(i + 1, used);
-      if (!d) continue;
-      const reals = s.keywords.slice(0, 3);
-      const options = [...reals, d];
-      const pos = (i * 3 + 1) % 4;
-      [options[options.length - 1], options[pos]] = [
-        options[pos],
-        options[options.length - 1],
-      ];
-      mc.push({
-        question: `다음 중 '${t.title}'의 [${s.label}](두음 ${s.mnemonic}) 구성요소가 "아닌" 것은?`,
-        options,
-        answer: options.indexOf(d),
-        explanation: `'${d}'은(는) 이 토픽 항목이 아닙니다. ${s.label}: ${s.keywords.join(", ")}`,
-      });
-    } else {
-      // 항목이 적으면 "해당하는 것은?" — 정답 1 + 헷갈리는 오답 3
-      const correct = s.keywords[0];
-      const distractors: string[] = [];
-      for (let k = 0; k < 6 && distractors.length < 3; k++) {
-        const d = pickDistractor(i * 10 + k, used);
-        if (!d) break;
-        used.add(d);
-        distractors.push(d);
-      }
-      if (distractors.length < 3) continue;
-      const options = [correct, ...distractors];
-      const pos = (i + 1) % 4;
-      [options[0], options[pos]] = [options[pos], options[0]];
-      mc.push({
-        question: `'${t.title}'의 [${s.label}](두음 ${s.mnemonic})에 해당하는 것은?`,
-        options,
-        answer: options.indexOf(correct),
-        explanation: `${s.label}: ${s.keywords.join(", ")}`,
-      });
-    }
-  }
+  const mc = buildMc(topicId, t.title, sections);
 
   const recall = {
     prompt: `[${first.label}] 두음 '${first.mnemonic}'이 의미하는 키워드를 모두 쓰시오.`,
