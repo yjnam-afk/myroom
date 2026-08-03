@@ -8,6 +8,8 @@
  * key 는 topicId(있으면) 또는 제목 슬러그. subnoteExtrasFor() 가 둘 다 찾아준다.
  */
 
+import { subnoteByTitle } from "./textbookSubnotes";
+
 export type SubnoteExtra = {
   /** 교재 슬라이드 원본 이미지 경로 */
   image?: string;
@@ -248,17 +250,39 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
 
 const norm = (s: string) => s.trim().toLowerCase().replace(/[\s()·,\-_/]/g, "");
 
-/** topicId 우선, 없으면 제목으로 부가 자료를 찾는다. */
+/** 제목 → TITLE_SLUG 조회(정규화 비교) */
+function slugByTitle(title: string): string | undefined {
+  const t = norm(title);
+  for (const [k, slug] of Object.entries(TITLE_SLUG)) {
+    if (norm(k) === t) return slug;
+  }
+  return undefined;
+}
+
+/**
+ * topicId 또는 제목으로 부가 자료를 찾는다.
+ *
+ * ★주의★ topics.json 의 제목과 교재 서브노트 제목은 상당수 다르다
+ * (예: "커널" ↔ "커널(Kernel)", "RAID" ↔ "RAID (Redundant Array…)").
+ * 그래서 호출부에서 topics.json 으로 id 를 찾아 넘기면 대부분 실패한다.
+ * 제목이 오면 subnoteByTitle 로 교재 서브노트를 먼저 확정하고, 그 서브노트의
+ * topicId(없으면 제목 슬러그)로 조회한다.
+ */
 export function subnoteExtraFor(
   topicId?: string,
   title?: string,
 ): SubnoteExtra | undefined {
   if (topicId && EXTRAS[topicId]) return EXTRAS[topicId];
-  if (title) {
-    const t = norm(title);
-    for (const [k, slug] of Object.entries(TITLE_SLUG)) {
-      if (norm(k) === t && EXTRAS[slug]) return EXTRAS[slug];
-    }
-  }
-  return undefined;
+  if (!title) return undefined;
+
+  // ① 제목 슬러그 직접 조회(topicId 가 없는 교재 전용 토픽)
+  const direct = slugByTitle(title);
+  if (direct && EXTRAS[direct]) return EXTRAS[direct];
+
+  // ② 교재 서브노트를 제목으로 확정한 뒤 그 id/제목으로 조회
+  const book = subnoteByTitle(title);
+  if (!book) return undefined;
+  if (book.topicId && EXTRAS[book.topicId]) return EXTRAS[book.topicId];
+  const slug = slugByTitle(book.title);
+  return slug ? EXTRAS[slug] : undefined;
 }
