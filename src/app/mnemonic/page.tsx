@@ -9,6 +9,7 @@ import ShareButton from "@/components/ShareButton";
 import AudioLecture from "@/components/AudioLecture";
 import TopicAutocomplete from "@/components/TopicAutocomplete";
 import MyDiagrams from "@/components/MyDiagrams";
+import { subnoteExtraFor } from "@/data/subnoteExtras";
 import topics from "@/data/topics.json";
 import { loadReview, saveReview, markReviewed } from "@/lib/storage";
 
@@ -304,6 +305,8 @@ function MnemonicInner() {
                 </p>
               </div>
             )}
+            {/* 교재 슬라이드 원본 + 쉬운 설명 (AI 호출 없음) */}
+            <TextbookExtra topicId={topicId || undefined} title={set.topic} />
             {/* 내 도식 — 교재 도식 사진/캡처를 이 토픽에 붙여 둔다 */}
             <MyDiagrams topicId={topicId || undefined} title={set.topic} />
             <Stepper step={step} onStep={setStep} />
@@ -975,5 +978,48 @@ export default function MnemonicPage() {
     <Suspense fallback={null}>
       <MnemonicInner />
     </Suspense>
+  );
+}
+
+/** 교재 슬라이드 원본 + 쉬운 설명 — 접었다 펼 수 있게. */
+function TextbookExtra({
+  topicId,
+  title,
+}: {
+  topicId?: string;
+  title?: string;
+}) {
+  const extra = subnoteExtraFor(topicId, title);
+  const [open, setOpen] = useState(false);
+  if (!extra?.easy && !extra?.image) return null;
+  return (
+    <div className="mb-4 overflow-hidden rounded-2xl border border-amber-200 bg-amber-50/60">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="flex w-full items-center justify-between gap-2 px-4 py-3 text-left"
+      >
+        <span className="text-sm font-bold text-amber-800">
+          🍯 쉬운 설명 · 교재 슬라이드 원본
+        </span>
+        <span className="text-xs text-amber-700">{open ? "접기 ▲" : "펼치기 ▼"}</span>
+      </button>
+      {open && (
+        <div className="space-y-3 border-t border-amber-200 bg-white p-4">
+          {extra.easy && (
+            <p className="whitespace-pre-line text-[15px] leading-[1.9] text-slate-800">
+              {extra.easy}
+            </p>
+          )}
+          {extra.image && (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              src={extra.image}
+              alt={`${title ?? ""} 교재 슬라이드`}
+              className="w-full rounded-lg border border-slate-200 bg-white"
+            />
+          )}
+        </div>
+      )}
+    </div>
   );
 }

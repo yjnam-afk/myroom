@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { subnoteByTitle, subnoteByTopicId } from "@/data/textbookSubnotes";
 import MyDiagrams from "@/components/MyDiagrams";
+import { subnoteExtraFor } from "@/data/subnoteExtras";
 import { PageHeader, Spinner, ErrorBox, Button } from "@/components/ui";
 import Markdown from "@/components/Markdown";
 import ConceptDiagram from "@/components/ConceptDiagram";
@@ -14,20 +15,23 @@ import AudioLecture from "@/components/AudioLecture";
 import TopicAutocomplete from "@/components/TopicAutocomplete";
 import topics from "@/data/topics.json";
 
-const levels = ["입문자", "수험생", "실무자"];
-
 const CATS = Array.from(new Set(topics.map((t) => t.category)));
 const IMP_ORDER: Record<string, number> = { 상: 0, 중: 1, 하: 2, 출제예상: 3 };
 
 function ExplainInner() {
   const [topic, setTopic] = useState("");
   const [recCat, setRecCat] = useState(CATS[0]);
-  const [level, setLevel] = useState("수험생");
   const [result, setResult] = useState("");
   const [conceptTopicId, setConceptTopicId] = useState<string | undefined>();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [autoPending, setAutoPending] = useState(false);
+
+  // 교재 슬라이드 원본 이미지 + 쉬운 설명 (AI 호출 없음)
+  const extra = subnoteExtraFor(
+    topics.find((x) => x.title === topic.trim())?.id,
+    topic.trim(),
+  );
 
   // 내 교재(심화반) 서브노트 원본 — 있으면 AI 없이 바로 보여준다.
   const textbook =
@@ -70,7 +74,7 @@ function ExplainInner() {
       const res = await fetch("/api/explain", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ topic, level, topicId: matched?.id }),
+        body: JSON.stringify({ topic, topicId: matched?.id }),
       });
       const { ok, data } = await readJsonSafe(res);
       if (!ok) throw new Error((data.error as string) || "생성 실패");
@@ -99,23 +103,6 @@ function ExplainInner() {
           }}
           placeholder="토픽/키워드 입력 — 비슷한 토픽이 떠요"
         />
-
-        <div className="mt-3 flex items-center gap-2">
-          <span className="text-xs text-slate-400">눈높이:</span>
-          {levels.map((l) => (
-            <button
-              key={l}
-              onClick={() => setLevel(l)}
-              className={`rounded-full px-3 py-1 text-xs font-medium transition ${
-                level === l
-                  ? "bg-brand-600 text-white"
-                  : "border border-slate-200 text-slate-600 hover:bg-slate-100"
-              }`}
-            >
-              {l}
-            </button>
-          ))}
-        </div>
 
         <div className="mt-3 flex flex-wrap items-center gap-2">
           <span className="text-xs text-slate-400">토픽 선택:</span>
@@ -268,6 +255,43 @@ function ExplainInner() {
           </section>
         )}
 
+        {/* 쉬운 설명 — "이게 무슨 소리냐"를 풀어 쓴 것. AI 호출 없이 항상 뜬다. */}
+        {extra?.easy && (
+          <section className="mb-6 rounded-2xl border-2 border-amber-200 bg-amber-50/60 p-5">
+            <h3 className="mb-2 text-sm font-bold text-amber-800">
+              🍯 쉬운 설명 — 이게 무슨 소리냐면
+            </h3>
+            <p className="whitespace-pre-line text-[15px] leading-[1.9] text-slate-800">
+              {extra.easy}
+            </p>
+          </section>
+        )}
+
+        {/* 교재 슬라이드 원본 — 도식을 다시 그리지 않고 교재 그림 그대로 */}
+        {extra?.image && (
+          <section className="mb-6 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+            <div className="flex items-center justify-between gap-2 border-b border-slate-100 px-4 py-2">
+              <span className="text-xs font-bold text-slate-600">
+                📊 교재 슬라이드 원본 (도식 포함)
+              </span>
+              <a
+                href={extra.image}
+                target="_blank"
+                rel="noreferrer"
+                className="text-[11px] font-medium text-brand-600 hover:underline"
+              >
+                크게 보기 ↗
+              </a>
+            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={extra.image}
+              alt={`${topic.trim()} 교재 슬라이드`}
+              className="w-full bg-white"
+            />
+          </section>
+        )}
+
         {/* 내 도식 — 교재 도식을 사진/캡처로 직접 넣어 둔다(AI가 그린 그림 대신 원본) */}
         {topic.trim() && (
           <MyDiagrams
@@ -279,12 +303,10 @@ function ExplainInner() {
         {loading && <Spinner label="이해하기 쉽게 정리하고 있습니다…" />}
         {error &&
           (textbook ? (
-            // 교재 서브노트 원본이 이미 위에 떠 있으므로, AI 실패는 "추가 해설만 못 만든 것".
-            // 빨간 오류 박스 대신 담담한 안내로 낮춘다.
-            <p className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm leading-relaxed text-slate-600">
-              📖 위 <strong>교재 서브노트 원본</strong>이 정답 근거입니다. AI 추가 해설은 지금
-              생성하지 못했어요({error}) — 교재 내용만으로도 암기·답안 작성은 그대로
-              하시면 됩니다.
+            // 교재 원본·쉬운 설명·슬라이드가 이미 위에 다 떠 있다.
+            // AI는 "덤"이므로 실패를 오류처럼 보여주지 않는다.
+            <p className="rounded-xl bg-slate-50 px-4 py-3 text-xs text-slate-500">
+              AI 추가 해설은 지금 한도가 차서 못 만들었어요. 위 내용만으로 충분합니다.
             </p>
           ) : (
             <ErrorBox message={error} />

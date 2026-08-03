@@ -2950,10 +2950,14 @@ export function subnoteByTitle(title?: string): TextbookSubnote | undefined {
   return (
     SUBNOTES.find((s) => norm(s.title) === t) ||
     (tb ? SUBNOTES.find((s) => bare(s.title) === tb) : undefined) ||
-    SUBNOTES.find((s) => {
-      const n = norm(s.title);
-      return n.includes(t) || t.includes(n);
-    })
+    // 느슨한 포함 매칭은 짧은 문자열에서 오탐이 크다("x" 가 "context"에 걸리는 식).
+    // 4글자 이상일 때만 허용한다.
+    (t.length >= 4
+      ? SUBNOTES.find((s) => {
+          const n = norm(s.title);
+          return n.includes(t) || t.includes(n);
+        })
+      : undefined)
   );
 }
 

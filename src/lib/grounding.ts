@@ -198,7 +198,17 @@ export type DataMnemonicSet = {
   fromData: true;
 };
 
-const firstCh = (s: string) => (s || "").trim().charAt(0);
+/**
+ * 키워드의 "두음" = 진짜 첫 글자.
+ * 교재 키워드가 "① 프로세스 관리", "- 스트라이핑", "1) 분할" 처럼 번호·기호로
+ * 시작하는 경우가 많아, 그것들을 먼저 벗겨내지 않으면 두음이 "①①②" 가 된다.
+ */
+const firstCh = (s: string) =>
+  (s || "")
+    .replace(/^[\s\-–—·•▶▷※★☆①-⓿ㄱ-ㆎ]+/, "")
+    .replace(/^\(?\d+\)?[.)]?\s*/, "")
+    .trim()
+    .charAt(0);
 const toItems = (kws: string[]): DItem[] =>
   kws.map((k) => ({ term: k, initial: firstCh(k), desc: "" }));
 
