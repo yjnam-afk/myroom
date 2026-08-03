@@ -8,6 +8,7 @@ import { PageHeader, Spinner, ErrorBox, Button } from "@/components/ui";
 import ShareButton from "@/components/ShareButton";
 import AudioLecture from "@/components/AudioLecture";
 import TopicAutocomplete from "@/components/TopicAutocomplete";
+import MyDiagrams from "@/components/MyDiagrams";
 import topics from "@/data/topics.json";
 import { loadReview, saveReview, markReviewed } from "@/lib/storage";
 
@@ -303,6 +304,8 @@ function MnemonicInner() {
                 </p>
               </div>
             )}
+            {/* 내 도식 — 교재 도식 사진/캡처를 이 토픽에 붙여 둔다 */}
+            <MyDiagrams topicId={topicId || undefined} title={set.topic} />
             <Stepper step={step} onStep={setStep} />
             {step === "learn" && (
               <Learn

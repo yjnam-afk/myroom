@@ -5,6 +5,7 @@ import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { subnoteByTitle, subnoteByTopicId } from "@/data/textbookSubnotes";
+import MyDiagrams from "@/components/MyDiagrams";
 import { PageHeader, Spinner, ErrorBox, Button } from "@/components/ui";
 import Markdown from "@/components/Markdown";
 import ConceptDiagram from "@/components/ConceptDiagram";
@@ -266,6 +267,15 @@ function ExplainInner() {
             </p>
           </section>
         )}
+
+        {/* 내 도식 — 교재 도식을 사진/캡처로 직접 넣어 둔다(AI가 그린 그림 대신 원본) */}
+        {topic.trim() && (
+          <MyDiagrams
+            topicId={topics.find((x) => x.title === topic.trim())?.id}
+            title={topic.trim()}
+          />
+        )}
+
         {loading && <Spinner label="이해하기 쉽게 정리하고 있습니다…" />}
         {error &&
           (textbook ? (
