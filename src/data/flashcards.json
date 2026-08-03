@@ -1303,17 +1303,29 @@
   "title": "AHP",
   "category": "경영전략",
   "importance": "하",
-  "definition": "AHP(Analytic Hierarchy Process)/1970년대/_x000B_분석적 계층 프로세스 다기준분석(Multi-criteria decision Making), 쌍대비교(이원비교), 행렬 계쌍우일최",
-  "memo": "계쌍우일최",
+  "definition": "복잡한 의사결정 문제를 목표-평가기준-대안의 계층으로 구조화하고 쌍대비교를 통해 상대적 중요도를 도출하는 다기준 의사결정 기법(1970년대 Saaty 제안)",
+  "memo": "계쌍가일최 — 계층 세우고 쌍대비교해 가중치 내고 일관성 보고 최적을 고른다. CR 0.1이 합격선.",
   "sections": [
    {
-    "label": "두음",
-    "mnemonic": "계쌍우일최",
-    "keywords": []
+    "label": "절차",
+    "mnemonic": "계쌍가일최",
+    "keywords": [
+     "계층구조화",
+     "쌍대비교",
+     "가중치산출",
+     "일관성검증",
+     "최적대안선정"
+    ]
    }
   ],
-  "mnemonic": "계쌍우일최",
-  "keywords": []
+  "mnemonic": "계쌍가일최",
+  "keywords": [
+   "계층구조화",
+   "쌍대비교",
+   "가중치산출",
+   "일관성검증",
+   "최적대안선정"
+  ]
  },
  {
   "id": "gj-41",
@@ -1601,6 +1613,33 @@
   ]
  },
  {
+  "id": "gj-50",
+  "title": "VRM",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "고객(개인)이 자신의 데이터와 거래 조건을 주도적으로 보유·통제하며 공급자와의 관계를 스스로 관리하는 고객 주도형 관계관리 체계(Vendor Relationship Management)",
+  "memo": "개의요신 — 개인저장소·의도표명·요구조건·신뢰동의. CRM을 거울에 비추면 VRM.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "개의요신",
+    "keywords": [
+     "개인데이터저장소(PDS)",
+     "의도표명(Intent Casting)",
+     "요구조건관리",
+     "신뢰동의관리"
+    ]
+   }
+  ],
+  "mnemonic": "개의요신",
+  "keywords": [
+   "개인데이터저장소(PDS)",
+   "의도표명(Intent Casting)",
+   "요구조건관리",
+   "신뢰동의관리"
+  ]
+ },
+ {
   "id": "gj-51",
   "title": "ERP",
   "category": "경영전략",
@@ -1625,6 +1664,31 @@
    "실시간 처리",
    "표준 프로세스",
    "개방형 구조"
+  ]
+ },
+ {
+  "id": "gj-52",
+  "title": "BI, 2.0, 3.0",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "기업 내외부 데이터를 수집·분석하여 의사결정을 지원하는 체계로, 정형 리포팅 중심의 1.0에서 실시간·모바일의 2.0, AI 기반 자동 인사이트의 3.0으로 진화한 의사결정지원 기술",
+  "memo": "리모지 — 리포팅(1.0) → 모바일·실시간(2.0) → 지능형(3.0). 리모컨을 지금 누른다로 순서 기억.",
+  "sections": [
+   {
+    "label": "유형",
+    "mnemonic": "리모지",
+    "keywords": [
+     "리포팅형 BI 1.0",
+     "모바일실시간 BI 2.0",
+     "지능형 BI 3.0"
+    ]
+   }
+  ],
+  "mnemonic": "리모지",
+  "keywords": [
+   "리포팅형 BI 1.0",
+   "모바일실시간 BI 2.0",
+   "지능형 BI 3.0"
   ]
  },
  {
@@ -1686,6 +1750,81 @@
    "ROLAP",
    "MOLAP",
    "HOLAP"
+  ]
+ },
+ {
+  "id": "gj-55",
+  "title": "RTE",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "기업 내외부에서 발생하는 사건을 지연 없이 감지·분석·실행하여 경영 의사결정과 업무 처리를 실시간으로 수행하는 기업 경영 전략 체계(Real Time Enterprise)",
+  "memo": "감분실 — 감이 오면 분석하고 실행한다. SLA·BCP·DRS 활동의 종착역이 RTE.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "감분실",
+    "keywords": [
+     "감지(Monitoring)",
+     "분석(Analysis)",
+     "실행(Action)"
+    ]
+   }
+  ],
+  "mnemonic": "감분실",
+  "keywords": [
+   "감지(Monitoring)",
+   "분석(Analysis)",
+   "실행(Action)"
+  ]
+ },
+ {
+  "id": "gj-56",
+  "title": "Cyclone Model",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "실시간 기업(RTE) 실현을 위해 경영 활동을 지휘(Lead)·관리(Manage)·운영(Operate) 3계층으로 나누고 계층별 순환 활동을 10개 사이클로 정의한 RTE 실행 참조 모델",
+  "memo": "지관운 — 지휘·관리·운영 3계층이 각각 사이클로 돌아 총 10개. 사이클론(태풍)처럼 층층이 회전한다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "지관운",
+    "keywords": [
+     "지휘(Lead)",
+     "관리(Manage)",
+     "운영(Operate)"
+    ]
+   }
+  ],
+  "mnemonic": "지관운",
+  "keywords": [
+   "지휘(Lead)",
+   "관리(Manage)",
+   "운영(Operate)"
+  ]
+ },
+ {
+  "id": "gj-57",
+  "title": "EDA",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "시스템 상태 변화를 나타내는 이벤트의 발생·전달·처리를 중심으로 컴포넌트를 느슨하게 결합하여 실시간 반응성과 확장성을 확보하는 소프트웨어 아키텍처(Event Driven Architecture)",
+  "memo": "생채처 — 이벤트는 만들고(생) 나르고(채) 처리한다(처). SOA는 동기, EDA는 비동기.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "생채처",
+    "keywords": [
+     "생성자(Event Producer)",
+     "채널(Event Channel)",
+     "처리자(Event Consumer)"
+    ]
+   }
+  ],
+  "mnemonic": "생채처",
+  "keywords": [
+   "생성자(Event Producer)",
+   "채널(Event Channel)",
+   "처리자(Event Consumer)"
   ]
  },
  {
@@ -1822,6 +1961,33 @@
   ]
  },
  {
+  "id": "gj-60",
+  "title": "BCG Matrix",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "시장성장률과 상대적 시장점유율 2개 축으로 사업 포트폴리오를 4분면에 배치하여 자원 배분 우선순위를 결정하는 포트폴리오 분석 기법(Boston Consulting Group Matrix)",
+  "memo": "물별젖개 — 물음표에서 별이 되고 젖소로 늙어 개가 된다. 사업의 일생 순서 그대로 암기.",
+  "sections": [
+   {
+    "label": "유형",
+    "mnemonic": "물별젖개",
+    "keywords": [
+     "물음표(Question Mark)",
+     "별(Star)",
+     "젖소(Cash Cow)",
+     "개(Dog)"
+    ]
+   }
+  ],
+  "mnemonic": "물별젖개",
+  "keywords": [
+   "물음표(Question Mark)",
+   "별(Star)",
+   "젖소(Cash Cow)",
+   "개(Dog)"
+  ]
+ },
+ {
   "id": "gj-61",
   "title": "Value Chain",
   "category": "경영전략",
@@ -1915,30 +2081,132 @@
   ]
  },
  {
+  "id": "gj-64",
+  "title": "데스밸리",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "기술 개발에 성공한 창업 기업이 사업화 자금 부족으로 시제품 양산과 상용화에 실패해 도산하는 창업 중기의 위기 구간(Death Valley, 죽음의 계곡)",
+  "memo": "악죽다 — 강 건너 계곡 지나 바다에서 살아남기. 계곡은 기술은 됐는데 돈이 없어 죽는 구간.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "악죽다",
+    "keywords": [
+     "악마의 강",
+     "죽음의 계곡",
+     "다윈의 바다"
+    ]
+   }
+  ],
+  "mnemonic": "악죽다",
+  "keywords": [
+   "악마의 강",
+   "죽음의 계곡",
+   "다윈의 바다"
+  ]
+ },
+ {
+  "id": "gj-65",
+  "title": "악마의 강",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "창업 초기 기업이 연구개발 자금과 인력 확보에 실패하여 기술 개발 단계 자체를 넘지 못하고 좌초하는 창업 최초 관문의 위기 구간(Devil's River)",
+  "memo": "악죽다 — 강은 기술에서, 계곡은 자금에서, 바다는 시장에서 죽는다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "악죽다",
+    "keywords": [
+     "악마의 강",
+     "죽음의 계곡",
+     "다윈의 바다"
+    ]
+   }
+  ],
+  "mnemonic": "악죽다",
+  "keywords": [
+   "악마의 강",
+   "죽음의 계곡",
+   "다윈의 바다"
+  ]
+ },
+ {
+  "id": "gj-66",
+  "title": "추격자전략, 선도자전략",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "기술·시장 진입 시점과 대응 방식에 따라 기업의 혁신 전략을 선도자·추격자·병행자로 구분하는 기술 경쟁 전략 유형",
+  "memo": "선추병 — 선도자·추격자·병행자. 선착순 추가 병행으로 세 갈래를 기억.",
+  "sections": [
+   {
+    "label": "유형",
+    "mnemonic": "선추병",
+    "keywords": [
+     "선도자(First Mover)",
+     "추격자(Fast Follower)",
+     "병행자(Parallel Mover)"
+    ]
+   }
+  ],
+  "mnemonic": "선추병",
+  "keywords": [
+   "선도자(First Mover)",
+   "추격자(Fast Follower)",
+   "병행자(Parallel Mover)"
+  ]
+ },
+ {
+  "id": "gj-67",
+  "title": "Inside-out 전략",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "기업이 내부에서 확보한 기술·지식·지식재산을 외부로 내보내 자사 기존 비즈니스 모델이 아닌 다른 경로의 상업화를 모색하는 개방형 혁신 전략(Inside-Out)",
+  "memo": "라스스프 — 라이선싱아웃·스핀아웃·스핀오프·프로젝트공개. 안에서 밖으로 나가는 네 가지 통로.",
+  "sections": [
+   {
+    "label": "유형",
+    "mnemonic": "라스스프",
+    "keywords": [
+     "라이선싱아웃(Licensing-Out)",
+     "스핀아웃(Spin-Out)",
+     "스핀오프(Spin-Off)",
+     "프로젝트공개"
+    ]
+   }
+  ],
+  "mnemonic": "라스스프",
+  "keywords": [
+   "라이선싱아웃(Licensing-Out)",
+   "스핀아웃(Spin-Out)",
+   "스핀오프(Spin-Off)",
+   "프로젝트공개"
+  ]
+ },
+ {
   "id": "gj-68",
   "title": "Outside-in 전략",
   "category": "경영전략",
   "importance": "하",
-  "definition": "- 외부 및 환경을 통해, 자사 사업을 성공하기 위한 관점 및 전략",
-  "memo": "구공벤엠 (기술구매·공동연구·합작벤처설립·M&A)",
+  "definition": "외부의 기술·자원·시장 관점을 내부로 받아들여 자사 사업의 성공 가능성을 높이는 개방형 혁신 전략으로, 고객의 눈으로 기업 활동을 바라보는 관점을 포함(Outside-In)",
+  "memo": "구공벤엠 — 구매·공동연구·벤처합작·엠앤에이. 밖에서 안으로 들여오는 네 가지 방법.",
   "sections": [
    {
     "label": "유형",
     "mnemonic": "구공벤엠",
     "keywords": [
-     "기술구매",
+     "구매(기술구매)",
      "공동연구",
-     "합작벤처설립",
-     "M&A"
+     "벤처합작(조인트벤처)",
+     "엠앤에이(M&A)"
     ]
    }
   ],
   "mnemonic": "구공벤엠",
   "keywords": [
-   "기술구매",
+   "구매(기술구매)",
    "공동연구",
-   "합작벤처설립",
-   "M&A"
+   "벤처합작(조인트벤처)",
+   "엠앤에이(M&A)"
   ]
  },
  {
@@ -1971,30 +2239,140 @@
   ]
  },
  {
+  "id": "gj-70",
+  "title": "EAMS",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "EA(전사아키텍처) 산출물과 정보자원 현황을 등록·저장·연계 활용하고 변경 이력을 관리하는 EA 관리 시스템(EA Management System)",
+  "memo": "저산활연 — 저장소에 산출물 넣고 활용하며 연계한다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "저산활연",
+    "keywords": [
+     "저장소(Repository)",
+     "산출물관리",
+     "활용서비스",
+     "연계관리"
+    ]
+   }
+  ],
+  "mnemonic": "저산활연",
+  "keywords": [
+   "저장소(Repository)",
+   "산출물관리",
+   "활용서비스",
+   "연계관리"
+  ]
+ },
+ {
+  "id": "gj-71",
+  "title": "RM(참조 모델, Reference Model)",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "EA 아키텍처 구성요소를 식별·분류하여 표준화한 추상 모델로, 기관이나 기업이 EA 수립 시 공통 기준으로 참조하는 표준 분류 체계(Reference Model)",
+  "memo": "성업서데기 — 성과·업무·서비스·데이터·기술. 성업 중인 서데기로 5대 참조모델 순서 암기.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "성업서데기",
+    "keywords": [
+     "성과참조모델(PRM)",
+     "업무참조모델(BRM)",
+     "서비스컴포넌트참조모델(SRM)",
+     "데이터참조모델(DRM)",
+     "기술참조모델(TRM)"
+    ]
+   }
+  ],
+  "mnemonic": "성업서데기",
+  "keywords": [
+   "성과참조모델(PRM)",
+   "업무참조모델(BRM)",
+   "서비스컴포넌트참조모델(SRM)",
+   "데이터참조모델(DRM)",
+   "기술참조모델(TRM)"
+  ]
+ },
+ {
+  "id": "gj-72",
+  "title": "IRM",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "조직의 정보와 이를 다루는 시스템·인력·예산 등 정보자원을 경영 자산으로 보고 계획·획득·활용·폐기 전 과정을 통합 관리하는 정보자원관리 체계(Information Resource Management)",
+  "memo": "정시인예 — 정보·시스템·인력·예산. 정보자원 관리의 네 축.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "정시인예",
+    "keywords": [
+     "정보자원",
+     "시스템인프라",
+     "인력조직",
+     "예산계획"
+    ]
+   }
+  ],
+  "mnemonic": "정시인예",
+  "keywords": [
+   "정보자원",
+   "시스템인프라",
+   "인력조직",
+   "예산계획"
+  ]
+ },
+ {
   "id": "gj-73",
   "title": "SEM",
   "category": "경영전략",
   "importance": "하",
-  "definition": "SEM(Strategic Enterprise Management) 가치중심 경영을 전사적으로 구현할 수 있도록 통합된 전략경영 분석 지원시스템",
-  "memo": "",
+  "definition": "가치 중심 경영을 전사적으로 구현할 수 있도록 전략 수립부터 실행·성과 평가까지를 통합 지원하는 전략적 기업 경영 관리 시스템(Strategic Enterprise Management)",
+  "memo": "가활성지 — 가치·활동·성과·지표. VBM·ABM·BSC·KPI 네 기둥이 SEM을 떠받친다.",
   "sections": [
    {
-    "label": "핵심 키워드",
-    "mnemonic": "",
+    "label": "구성요소",
+    "mnemonic": "가활성지",
     "keywords": [
-     "VBM",
-     "ABM",
-     "BSC",
-     "KPI"
+     "가치중심경영(VBM)",
+     "활동기준경영(ABM)",
+     "성과관리(BSC)",
+     "지표관리(KPI)"
     ]
    }
   ],
-  "mnemonic": "",
+  "mnemonic": "가활성지",
   "keywords": [
-   "VBM",
-   "ABM",
-   "BSC",
-   "KPI"
+   "가치중심경영(VBM)",
+   "활동기준경영(ABM)",
+   "성과관리(BSC)",
+   "지표관리(KPI)"
+  ]
+ },
+ {
+  "id": "gj-74",
+  "title": "VBM",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "기업의 모든 의사결정을 가치 창출 기준으로 정렬하고 가치 동인을 관리하여 기업 가치를 극대화하는 가치 기반 경영 기법(Value Based Management)",
+  "memo": "측동실보 — 측정하고 동인 찾아 실행하고 보상한다. VBM은 SEM의 가치 축.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "측동실보",
+    "keywords": [
+     "측정(가치 측정)",
+     "동인도출(Value Driver)",
+     "실행체계",
+     "보상연계"
+    ]
+   }
+  ],
+  "mnemonic": "측동실보",
+  "keywords": [
+   "측정(가치 측정)",
+   "동인도출(Value Driver)",
+   "실행체계",
+   "보상연계"
   ]
  },
  {
@@ -2122,6 +2500,87 @@
    "자동화",
    "최적화",
    "통합화"
+  ]
+ },
+ {
+  "id": "gj-79",
+  "title": "BPR",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "비용·품질·서비스·속도의 획기적 향상을 위해 기존 업무 프로세스를 근본적으로 재검토하고 근원적으로 재설계하는 경영 혁신 기법(Business Process Reengineering)",
+  "memo": "착분설전 — 착수·분석·설계·전환. BPR의 4대 키워드는 근본적·급진적·프로세스 중심·극적 개선.",
+  "sections": [
+   {
+    "label": "절차",
+    "mnemonic": "착분설전",
+    "keywords": [
+     "착수비전",
+     "분석(As-Is)",
+     "설계(To-Be)",
+     "전환실행"
+    ]
+   }
+  ],
+  "mnemonic": "착분설전",
+  "keywords": [
+   "착수비전",
+   "분석(As-Is)",
+   "설계(To-Be)",
+   "전환실행"
+  ]
+ },
+ {
+  "id": "gj-80",
+  "title": "BAM",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "기업의 업무 활동과 프로세스 실행 상태를 실시간으로 수집·분석하여 KPI 대시보드와 경보로 제공함으로써 즉각적 의사결정을 지원하는 실시간 업무활동 모니터링 체계(Business Activity Monitoring)",
+  "memo": "수분표대 — 수집·분석·표출·대시보드. BI는 사후, BAM은 실시간.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "수분표대",
+    "keywords": [
+     "수집",
+     "분석",
+     "표출",
+     "대시보드"
+    ]
+   }
+  ],
+  "mnemonic": "수분표대",
+  "keywords": [
+   "수집",
+   "분석",
+   "표출",
+   "대시보드"
+  ]
+ },
+ {
+  "id": "gj-81",
+  "title": "BRE",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "업무 규칙(Business Rule)을 애플리케이션 코드에서 분리하여 별도로 정의·저장하고 실행 시점에 추론·적용하는 규칙 처리 엔진(Business Rule Engine)",
+  "memo": "저편추실 — 저장소·편집기·추론엔진·실행연계. 규칙은 코드 밖에 두고 현업이 고친다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "저편추실",
+    "keywords": [
+     "저장소(Rule Repository)",
+     "편집기(Rule Authoring)",
+     "추론엔진(Inference Engine)",
+     "실행연계(Runtime)"
+    ]
+   }
+  ],
+  "mnemonic": "저편추실",
+  "keywords": [
+   "저장소(Rule Repository)",
+   "편집기(Rule Authoring)",
+   "추론엔진(Inference Engine)",
+   "실행연계(Runtime)"
   ]
  },
  {
@@ -2269,6 +2728,60 @@
   ]
  },
  {
+  "id": "gj-87",
+  "title": "POP(Point Of Production)",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "생산 활동이 이루어질 때 발생하는 정보를 그 시점에 직접 획득하고 관리에 필요한 각종 정보로 가공하여 제공하는 생산시점관리 시스템(Point Of Production)",
+  "memo": "수집가전 — 수집·집계·가공·전달. 수집가의 전자제품처럼 읽고, POP는 MES의 눈이라고 기억.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "수집가전",
+    "keywords": [
+     "수집단말",
+     "집계설비연계",
+     "가공분석",
+     "전달연계"
+    ]
+   }
+  ],
+  "mnemonic": "수집가전",
+  "keywords": [
+   "수집단말",
+   "집계설비연계",
+   "가공분석",
+   "전달연계"
+  ]
+ },
+ {
+  "id": "gj-88",
+  "title": "PRM",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "기업이 협력업체·유통 파트너 등 외부 파트너와의 관계를 전 생애주기에 걸쳐 체계적으로 관리하여 채널 성과와 상생을 극대화하는 파트너 관계관리 체계(Partner Relationship Management)",
+  "memo": "발육협성 — 발굴·육성·협업·성과. 파트너도 사람처럼 발굴해서 키운다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "발육협성",
+    "keywords": [
+     "발굴선정",
+     "육성교육",
+     "협업지원",
+     "성과관리"
+    ]
+   }
+  ],
+  "mnemonic": "발육협성",
+  "keywords": [
+   "발굴선정",
+   "육성교육",
+   "협업지원",
+   "성과관리"
+  ]
+ },
+ {
   "id": "gj-89",
   "title": "PLM",
   "category": "경영전략",
@@ -2304,47 +2817,113 @@
   "title": "ALM",
   "category": "경영전략",
   "importance": "하",
-  "definition": "1. 소프트웨어 개발 프로세스 개선을 위한 ALM의 개요 가. ALM(Application Lifecycle Management)의 정의 - 소프트웨어 개발의 전체 주기, 즉 요구 사항 수집에서부터 모델링, 프로그래밍(개발), 형상관리 그리고 테스트 및 프로젝트 관리에",
-  "memo": "이개소빌",
+  "definition": "요구사항 수집부터 설계·개발·형상관리·테스트·배포·운영까지 애플리케이션 전 생명주기(SDLC)를 통합 도구 체계로 연결하고 가시화하여 관리하는 방법론이자 솔루션(Application Lifecycle Management)",
+  "memo": "이개소빌 — 이슈관리·개발환경·소스관리·빌드자동화. 도구는 레드마인·이클립스·깃&게릿·젠킨스·소나큐브.",
   "sections": [
    {
-    "label": "두음",
+    "label": "구성요소",
     "mnemonic": "이개소빌",
-    "keywords": []
+    "keywords": [
+     "이슈관리",
+     "개발환경",
+     "소스관리",
+     "빌드테스트자동화"
+    ]
    }
   ],
   "mnemonic": "이개소빌",
-  "keywords": []
+  "keywords": [
+   "이슈관리",
+   "개발환경",
+   "소스관리",
+   "빌드테스트자동화"
+  ]
  },
  {
   "id": "gj-91",
   "title": "ILM",
   "category": "경영전략",
   "importance": "하",
-  "definition": "Information Lifecycle Management",
-  "memo": "",
+  "definition": "데이터의 생성부터 활용·보관·폐기까지 정보 가치와 접근 빈도의 변화에 따라 저장 등급과 관리 정책을 차등 적용하는 정보 생명주기 관리 기법(Information Lifecycle Management)",
+  "memo": "가데저아풀보 — 가상화·데이터보호·저장장치·아카이브·풀링·보존기간. 뜨거운 데이터는 빠른 곳, 식으면 싼 곳으로.",
   "sections": [
    {
-    "label": "핵심 키워드",
-    "mnemonic": "",
+    "label": "기술요소",
+    "mnemonic": "가데저아풀보",
     "keywords": [
      "가상화기술",
      "데이터보호기술",
      "저장장치기술",
-     "아카이브 매니저",
-     "스토리지 풀링",
-     "Data Retention"
+     "아카이브매니저",
+     "풀링(스토리지 풀링)",
+     "보존기간관리(Data Retention)"
     ]
    }
   ],
-  "mnemonic": "",
+  "mnemonic": "가데저아풀보",
   "keywords": [
    "가상화기술",
    "데이터보호기술",
    "저장장치기술",
-   "아카이브 매니저",
-   "스토리지 풀링",
-   "Data Retention"
+   "아카이브매니저",
+   "풀링(스토리지 풀링)",
+   "보존기간관리(Data Retention)"
+  ]
+ },
+ {
+  "id": "gj-92",
+  "title": "EIP",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "기업 내외부에 분산된 정보·애플리케이션·업무 서비스를 단일 웹 창구에서 개인화된 형태로 통합 제공하는 기업 정보 포털(Enterprise Information Portal)",
+  "memo": "통검개인 — 통합·검색·개인화·인증. 포털은 한 문으로 다 들어간다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "통검개인",
+    "keywords": [
+     "통합",
+     "검색",
+     "개인화",
+     "인증권한(SSO)"
+    ]
+   }
+  ],
+  "mnemonic": "통검개인",
+  "keywords": [
+   "통합",
+   "검색",
+   "개인화",
+   "인증권한(SSO)"
+  ]
+ },
+ {
+  "id": "gj-93",
+  "title": "EIP",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "느슨한 결합의 메시지 기반 아키텍처로 기업 애플리케이션 통합 시 반복되는 문제의 해법을 정형화한 통합 패턴 카탈로그(Enterprise Integration Pattern)",
+  "memo": "채라시변엔 — 채널·라우팅·시스템관리·변환·엔드포인트. 같은 EIP라도 포털(Portal)과 통합패턴(Pattern)을 구분할 것.",
+  "sections": [
+   {
+    "label": "유형",
+    "mnemonic": "채라시변엔",
+    "keywords": [
+     "채널(Messaging Channel)",
+     "라우팅(Message Routing)",
+     "시스템관리(System Management)",
+     "변환(Message Translator)",
+     "엔드포인트(Messaging Endpoint)"
+    ]
+   }
+  ],
+  "mnemonic": "채라시변엔",
+  "keywords": [
+   "채널(Messaging Channel)",
+   "라우팅(Message Routing)",
+   "시스템관리(System Management)",
+   "변환(Message Translator)",
+   "엔드포인트(Messaging Endpoint)"
   ]
  },
  {
@@ -2473,17 +3052,40 @@
   "title": "eSCM",
   "category": "경영전략",
   "importance": "하",
-  "definition": "아웃소싱 전체 절차에 관한 93개 Best Practice를 체계화하여 업무 개선 지침으로 적용하고 제공업자의 능력수준을 평가 할 수 있도록 만든 모델",
-  "memo": "조인기사지\n최고측혁우",
+  "definition": "아웃소싱 전체 절차에 관한 93개 Best Practice를 체계화하여 업무 개선 지침으로 제공하고 서비스 제공자의 역량 수준을 평가할 수 있도록 만든 아웃소싱 역량 성숙도 모델(e-Sourcing Capability Model)",
+  "memo": "조인기사지 — 조직·인원·기술·사업운영·지식 5개 관점. 성숙도는 최고측혁우(최초→고객요구→측정→혁신→우수).",
   "sections": [
    {
-    "label": "두음",
+    "label": "구성요소",
     "mnemonic": "조인기사지",
-    "keywords": []
+    "keywords": [
+     "조직관리",
+     "인원관리",
+     "기술관리",
+     "사업운영관리",
+     "지식관리"
+    ]
+   },
+   {
+    "label": "5단계평가모델",
+    "mnemonic": "최고측혁우",
+    "keywords": [
+     "최초",
+     "고객요구사항이행",
+     "측정을위한관리",
+     "혁신을통한발전",
+     "우수성유지"
+    ]
    }
   ],
   "mnemonic": "조인기사지",
-  "keywords": []
+  "keywords": [
+   "조직관리",
+   "인원관리",
+   "기술관리",
+   "사업운영관리",
+   "지식관리"
+  ]
  },
  {
   "id": "gj-98",
@@ -2519,9 +3121,19 @@
   "title": "MSP",
   "category": "경영전략",
   "importance": "하",
-  "definition": "I. 기업의 전산 자원의 토탈 아웃소싱 서비스, MSP의 개요 가. MSP(Management Service Provider)의 정의 - 기업들이 업무용 시스템을 지속적으로 구성하고 관리할 수 있도록 정보기술 서비스를 제공하는 사업 - 사용자 기업이 IDC에 설치된 서",
-  "memo": "풀싱호인 (풀서비스·싱글펑션·호스팅·MSP Enablers)",
+  "definition": "고객 기업이 업무용 시스템을 지속적으로 구성·관리할 수 있도록 IT 자원의 운영·관리 서비스를 원격에서 제공하는 관리형 서비스 사업자(Managed Service Provider)",
+  "memo": "모매오컨 — 모니터링·매니지먼트·오퍼레이션·컨설팅. 사업모델은 풀싱호인(풀서비스·싱글펑션·호스팅·인에이블러).",
   "sections": [
+   {
+    "label": "주요기능",
+    "mnemonic": "모매오컨",
+    "keywords": [
+     "모니터링(Monitoring)",
+     "매니지먼트(Management)",
+     "오퍼레이션(Operation)",
+     "컨설팅(Consulting)"
+    ]
+   },
    {
     "label": "사업모델",
     "mnemonic": "풀싱호인",
@@ -2529,16 +3141,68 @@
      "풀서비스",
      "싱글펑션",
      "호스팅",
-     "MSP Enablers"
+     "인에이블러(MSP Enablers)"
     ]
    }
   ],
-  "mnemonic": "풀싱호인",
+  "mnemonic": "모매오컨",
   "keywords": [
-   "풀서비스",
-   "싱글펑션",
-   "호스팅",
-   "MSP Enablers"
+   "모니터링(Monitoring)",
+   "매니지먼트(Management)",
+   "오퍼레이션(Operation)",
+   "컨설팅(Consulting)"
+  ]
+ },
+ {
+  "id": "gj-100",
+  "title": "MRO",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "생산에 직접 투입되지 않는 유지·보수·운영용 소모성 자재의 구매·재고·공급 전 과정을 전자적으로 통합 관리하는 기업 간 간접자재 구매 아웃소싱 체계.",
+  "memo": "물이 흐르듯 '유수운' — 유지하고 수리하고 운영한다. 생산 자재가 아니라 회사를 굴러가게 하는 소모품이라는 점이 구별 포인트.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "유수운",
+    "keywords": [
+     "유지(Maintenance)",
+     "수리(Repair)",
+     "운영(Operation)"
+    ]
+   }
+  ],
+  "mnemonic": "유수운",
+  "keywords": [
+   "유지(Maintenance)",
+   "수리(Repair)",
+   "운영(Operation)"
+  ]
+ },
+ {
+  "id": "gj-101",
+  "title": "SSC",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "계열사·사업부에 중복 분산된 인사·재무·구매·IT 등 지원 업무를 별도 조직으로 통합해 표준화된 서비스를 내부 고객에게 제공하는 운영 모델.",
+  "memo": "계열사끼리 '협조'해야 SSC가 산다 — 협약·조직·프로세스·시스템(협조프시). 아웃소싱과 달리 통제권은 내부에 남는다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "협조프시",
+    "keywords": [
+     "협약(SLA·과금)",
+     "조직(전담 센터)",
+     "프로세스(표준화)",
+     "시스템(공통 플랫폼)"
+    ]
+   }
+  ],
+  "mnemonic": "협조프시",
+  "keywords": [
+   "협약(SLA·과금)",
+   "조직(전담 센터)",
+   "프로세스(표준화)",
+   "시스템(공통 플랫폼)"
   ]
  },
  {
@@ -2656,6 +3320,31 @@
   ]
  },
  {
+  "id": "gj-105",
+  "title": "Val IT",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "IT 투자로부터 실현되는 비즈니스 가치를 극대화하기 위해 ISACA(ITGI)가 COBIT을 보완해 제시한 IT 투자 거버넌스 프레임워크.",
+  "memo": "'가포투' = 가치·포트폴리오·투자. COBIT이 통제라면 Val IT는 돈값(가치)을 묻는 프레임워크.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "가포투",
+    "keywords": [
+     "가치 거버넌스(VG)",
+     "포트폴리오 관리(PM)",
+     "투자 관리(IM)"
+    ]
+   }
+  ],
+  "mnemonic": "가포투",
+  "keywords": [
+   "가치 거버넌스(VG)",
+   "포트폴리오 관리(PM)",
+   "투자 관리(IM)"
+  ]
+ },
+ {
   "id": "gj-106",
   "title": "ISO/IEC 38500",
   "category": "경영전략",
@@ -2736,6 +3425,132 @@
   ]
  },
  {
+  "id": "gj-108",
+  "title": "ICO(가상화폐공개)",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "블록체인 프로젝트가 백서를 공개하고 자체 발행한 코인·토큰을 투자자에게 직접 판매해 초기 개발 자금을 조달하는 가상자산 기반 자금조달 방식.",
+  "memo": "'백토판배' — 백서 쓰고 토큰 만들고 판매하고 배분한다. ICO는 지분이 아니라 토큰을 준다는 점이 IPO와의 결정적 차이.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "백토판배",
+    "keywords": [
+     "백서(White Paper)",
+     "토큰 설계",
+     "판매(pre-sale·공개판매)",
+     "배분(pre-allocation)"
+    ]
+   }
+  ],
+  "mnemonic": "백토판배",
+  "keywords": [
+   "백서(White Paper)",
+   "토큰 설계",
+   "판매(pre-sale·공개판매)",
+   "배분(pre-allocation)"
+  ]
+ },
+ {
+  "id": "gj-109",
+  "title": "암호화폐 거래소(Cryptocurrency exchange)",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "암호화폐와 법정화폐 또는 암호화폐 상호 간의 매매를 중개하고 주문 체결·자산 보관·정산을 제공하는 가상자산 거래 플랫폼.",
+  "memo": "'체보정인' — 체결하고 보관하고 정산하고 인증한다. 거래소 사고의 대부분은 '보관(지갑)'에서 터진다는 점을 함께 기억.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "체보정인",
+    "keywords": [
+     "체결(매칭 엔진)",
+     "보관(핫·콜드월렛)",
+     "정산(입출금·수수료)",
+     "인증(KYC/AML)"
+    ]
+   }
+  ],
+  "mnemonic": "체보정인",
+  "keywords": [
+   "체결(매칭 엔진)",
+   "보관(핫·콜드월렛)",
+   "정산(입출금·수수료)",
+   "인증(KYC/AML)"
+  ]
+ },
+ {
+  "id": "gj-110",
+  "title": "Crowd Funding(크라우드",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "온라인 플랫폼을 매개로 다수의 대중(crowd)에게서 소액 자금을 모아 프로젝트나 기업에 공급하는 개방형 자금조달(funding) 방식.",
+  "memo": "주체는 '기플투'(기업·플랫폼·투자자), 유형은 '기후대지'(기부·후원·대출·지분) — 기후와 대지처럼 붙여서 외운다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "기플투",
+    "keywords": [
+     "기업(자금 수요자)",
+     "플랫폼(중개업자)",
+     "투자자(대중)"
+    ]
+   },
+   {
+    "label": "유형",
+    "mnemonic": "기후대지",
+    "keywords": [
+     "기부형",
+     "후원형",
+     "대출형",
+     "지분투자형"
+    ]
+   }
+  ],
+  "mnemonic": "기플투",
+  "keywords": [
+   "기업(자금 수요자)",
+   "플랫폼(중개업자)",
+   "투자자(대중)"
+  ]
+ },
+ {
+  "id": "gj-111",
+  "title": "IPO(Initial Public Offering)",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "비상장기업이 유가증권시장·코스닥 등에 상장하기 위해 법정 절차에 따라 주식을 불특정 다수 투자자에게 공개 매각하고 기업 내용을 공시하는 제도.",
+  "memo": "참여자는 '발주거투'(발행회사·주관사·거래소·투자자), 절차는 심판이 보는 '주심공상' — 주관사·심사·공모·상장.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "발주거투",
+    "keywords": [
+     "발행회사",
+     "주관사",
+     "거래소",
+     "투자자"
+    ]
+   },
+   {
+    "label": "절차",
+    "mnemonic": "주심공상",
+    "keywords": [
+     "주관사 선정",
+     "심사(상장예비심사)",
+     "공모(수요예측·청약)",
+     "상장(매매 개시)"
+    ]
+   }
+  ],
+  "mnemonic": "발주거투",
+  "keywords": [
+   "발행회사",
+   "주관사",
+   "거래소",
+   "투자자"
+  ]
+ },
+ {
   "id": "gj-112",
   "title": "IT-Compliance",
   "category": "경영전략",
@@ -2781,6 +3596,31 @@
   ]
  },
  {
+  "id": "gj-113",
+  "title": "IFRS",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "국제회계기준위원회(IASB)가 제정한, 재무정보의 국제적 비교가능성 확보를 목적으로 하는 원칙 중심(Principle-based)의 국제 회계보고 기준.",
+  "memo": "'원연공' = 원칙·연결·공정가치. 규정(Rule) 중심의 US-GAAP과 대비해 '판단의 여지'가 크다는 점이 핵심.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "원연공",
+    "keywords": [
+     "원칙 중심",
+     "연결 중심",
+     "공정가치 평가"
+    ]
+   }
+  ],
+  "mnemonic": "원연공",
+  "keywords": [
+   "원칙 중심",
+   "연결 중심",
+   "공정가치 평가"
+  ]
+ },
+ {
   "id": "gj-114",
   "title": "규제 샌드박스",
   "category": "경영전략",
@@ -2822,21 +3662,11 @@
   "title": "린 스타트업",
   "category": "경영전략",
   "importance": "하",
-  "definition": "아이디어를 빠르게 최소기능제품으로 개발한 뒤 시장의 반응을 통해 다음 제품 개선에 반영하는 경영전략",
-  "memo": "프CC린 (프로토타입·CI·CD·린프로세스)\nBML (Build·Measure·Learn)\nMPA (MVP·Pivoting·Agile 프로세스)",
+  "definition": "아이디어를 최소기능제품(MVP)으로 신속히 구현해 고객 반응을 계량 측정하고 학습 결과를 다음 제품에 반영하는 반복 주기로 사업 불확실성을 줄이는 창업 경영전략.",
+  "memo": "사이클은 BML(만들고-재고-배운다), 기법은 MPA(MVP·Pivoting·Agile). '빨리 실패하고 싸게 배운다'가 한 줄 요약.",
   "sections": [
    {
-    "label": "특징",
-    "mnemonic": "프CC린",
-    "keywords": [
-     "프로토타입",
-     "CI",
-     "CD",
-     "린프로세스"
-    ]
-   },
-   {
-    "label": "개발 Cycle",
+    "label": "구성요소",
     "mnemonic": "BML",
     "keywords": [
      "Build",
@@ -2854,12 +3684,11 @@
     ]
    }
   ],
-  "mnemonic": "프CC린",
+  "mnemonic": "BML",
   "keywords": [
-   "프로토타입",
-   "CI",
-   "CD",
-   "린프로세스"
+   "Build",
+   "Measure",
+   "Learn"
   ]
  },
  {
@@ -3042,6 +3871,33 @@
    "문서 자동작성",
    "판결 예측",
    "계약 관리"
+  ]
+ },
+ {
+  "id": "gj-122",
+  "title": "인슈어테크(InsurTech)",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "보험(Insurance)과 기술(Technology)의 결합으로 AI·빅데이터·IoT를 활용해 상품개발부터 보험금 지급까지 보험 가치사슬 전반을 혁신하는 서비스 모델.",
+  "memo": "'상인계보' — 상인의 계보를 잇듯 상품→인수→계약→보상 순으로 가치사슬을 따라간다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "상인계보",
+    "keywords": [
+     "상품(개인화 설계)",
+     "인수(언더라이팅 자동화)",
+     "계약(디지털 청약)",
+     "보상(자동 지급)"
+    ]
+   }
+  ],
+  "mnemonic": "상인계보",
+  "keywords": [
+   "상품(개인화 설계)",
+   "인수(언더라이팅 자동화)",
+   "계약(디지털 청약)",
+   "보상(자동 지급)"
   ]
  },
  {
@@ -3446,6 +4302,75 @@
   ]
  },
  {
+  "id": "gj-137",
+  "title": "ISO 26000",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "조직의 사회적 책임(SR) 이행 원칙과 핵심 주제를 제시한 국제 가이던스 표준으로, 인증용이 아닌 자발적 실행 지침 성격의 규격.",
+  "memo": "'조인노환공소지' — 조직이 인권·노동·환경을 지키고 공정하게 소통하며 지역과 함께한다. 7대 핵심주제, 인증 표준이 아니라는 점을 꼭 언급.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "조인노환공소지",
+    "keywords": [
+     "조직 거버넌스",
+     "인권",
+     "노동 관행",
+     "환경",
+     "공정 운영 관행",
+     "소비자 이슈",
+     "지역사회 참여와 발전"
+    ]
+   }
+  ],
+  "mnemonic": "조인노환공소지",
+  "keywords": [
+   "조직 거버넌스",
+   "인권",
+   "노동 관행",
+   "환경",
+   "공정 운영 관행",
+   "소비자 이슈",
+   "지역사회 참여와 발전"
+  ]
+ },
+ {
+  "id": "gj-138",
+  "title": "ISO 31000",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "조직의 모든 활동에 내재된 리스크를 체계적으로 관리하기 위한 원칙·프레임워크·프로세스를 제시한 리스크관리 국제 표준(가이드라인).",
+  "memo": "뼈대는 '원프프'(원칙·프레임워크·프로세스), 절차는 '상식분평처' — 리스크관리는 결국 상식(상황설정·식별·분석·평가·처리)이다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "원프프",
+    "keywords": [
+     "원칙(Principles)",
+     "프레임워크(Framework)",
+     "프로세스(Process)"
+    ]
+   },
+   {
+    "label": "프로세스",
+    "mnemonic": "상식분평처",
+    "keywords": [
+     "상황설정",
+     "식별",
+     "분석",
+     "평가",
+     "처리"
+    ]
+   }
+  ],
+  "mnemonic": "원프프",
+  "keywords": [
+   "원칙(Principles)",
+   "프레임워크(Framework)",
+   "프로세스(Process)"
+  ]
+ },
+ {
   "id": "gj-140",
   "title": "ESG 경영",
   "category": "경영전략",
@@ -3535,6 +4460,33 @@
    "모니터링",
    "공시",
    "구제"
+  ]
+ },
+ {
+  "id": "gj-142",
+  "title": "IT 생산성 Paradox",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "IT 투자 규모가 지속적으로 증가함에도 조직·국가 차원에서 측정된 생산성 향상은 나타나지 않는 현상을 설명하는 개념(솔로우 패러독스).",
+  "memo": "성과를 제대로 '관측'하지 못한 탓 — 관리부실·측정오류·시차·재분배(관측시재). 답안에서는 원인 4가지와 해결책(BPR 동반)을 짝지어 쓴다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "관측시재",
+    "keywords": [
+     "관리 부실",
+     "측정 오류",
+     "시차",
+     "재분배"
+    ]
+   }
+  ],
+  "mnemonic": "관측시재",
+  "keywords": [
+   "관리 부실",
+   "측정 오류",
+   "시차",
+   "재분배"
   ]
  },
  {
@@ -3674,6 +4626,320 @@
    "권리성 분석",
    "시장성 분석",
    "사업성 분석"
+  ]
+ },
+ {
+  "id": "gj-147",
+  "title": "TAM;Total Available Market)",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "특정 제품·서비스가 속한 산업 전체를 100% 점유했을 때 달성 가능한 이론적 최대 매출 규모를 나타내는 전체 시장 지표.",
+  "memo": "산정법은 '상하가'(상향식·하향식·가치이론). 시장 크기는 TAM > SAM > SOM 순으로 좁아진다는 계층을 항상 함께 그린다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "상하가",
+    "keywords": [
+     "상향식(Bottom-up)",
+     "하향식(Top-down)",
+     "가치이론(Value-theory)"
+    ]
+   }
+  ],
+  "mnemonic": "상하가",
+  "keywords": [
+   "상향식(Bottom-up)",
+   "하향식(Top-down)",
+   "가치이론(Value-theory)"
+  ]
+ },
+ {
+  "id": "gj-148",
+  "title": "SAM;Serviceable Available Market",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "TAM 중 자사의 비즈니스 모델·기술 역량·지리적 범위 등 제약 조건을 반영했을 때 실제로 도달 가능한 유효 시장 규모.",
+  "memo": "우리 '기지'가 닿는 곳까지가 SAM — 기술·지리·경쟁·규제(기지경규)로 TAM을 깎아 내린 시장.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "기지경규",
+    "keywords": [
+     "기술 범위",
+     "지리적 범위",
+     "경쟁 구도",
+     "규제 제약"
+    ]
+   }
+  ],
+  "mnemonic": "기지경규",
+  "keywords": [
+   "기술 범위",
+   "지리적 범위",
+   "경쟁 구도",
+   "규제 제약"
+  ]
+ },
+ {
+  "id": "gj-149",
+  "title": "SOM;Serviceable Obtainable Market",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "SAM 중 가격 정책과 시장 확보 전략을 반영해 단기간 내 실제로 확보 가능한 수익 시장 규모.",
+  "memo": "SOM은 '단가'부터 따진다 — 단기·가격·채널·점유(단가채점). 근거 없는 목표 점유율은 감점 요인.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "단가채점",
+    "keywords": [
+     "단기 기간",
+     "가격 정책",
+     "채널 커버리지",
+     "점유율 목표"
+    ]
+   }
+  ],
+  "mnemonic": "단가채점",
+  "keywords": [
+   "단기 기간",
+   "가격 정책",
+   "채널 커버리지",
+   "점유율 목표"
+  ]
+ },
+ {
+  "id": "gj-150",
+  "title": "ISO 9000",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "조직이 일관된 품질의 제품·서비스를 제공하도록 품질경영시스템(QMS)의 기본 개념과 요구사항을 규정한 국제 표준 시리즈.",
+  "memo": "'기요성' = 기본(9000)·요구사항(9001)·성과개선(9004). 실제 인증을 받는 것은 9001 하나뿐이라는 점이 자주 묻는 포인트.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "기요성",
+    "keywords": [
+     "기본사항·용어(ISO 9000)",
+     "요구사항(ISO 9001)",
+     "성과개선 지침(ISO 9004)"
+    ]
+   }
+  ],
+  "mnemonic": "기요성",
+  "keywords": [
+   "기본사항·용어(ISO 9000)",
+   "요구사항(ISO 9001)",
+   "성과개선 지침(ISO 9004)"
+  ]
+ },
+ {
+  "id": "gj-151",
+  "title": "6 Sigma",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "통계적 기법으로 프로세스의 산포와 결함을 줄여 100만 기회당 3.4개(3.4 DPMO) 수준의 품질을 목표로 하는 전사적 품질혁신 방법론.",
+  "memo": "DMAIC은 '정측분개관'(정의·측정·분석·개선·관리). 신규 설계는 DMADV, 목표는 3.4 DPMO 숫자로 기억.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "정측분개관",
+    "keywords": [
+     "정의(Define)",
+     "측정(Measure)",
+     "분석(Analyze)",
+     "개선(Improve)",
+     "관리(Control)"
+    ]
+   },
+   {
+    "label": "추진조직",
+    "mnemonic": "",
+    "keywords": [
+     "챔피언",
+     "MBB",
+     "BB",
+     "GB"
+    ]
+   }
+  ],
+  "mnemonic": "정측분개관",
+  "keywords": [
+   "정의(Define)",
+   "측정(Measure)",
+   "분석(Analyze)",
+   "개선(Improve)",
+   "관리(Control)"
+  ]
+ },
+ {
+  "id": "gj-152",
+  "title": "Commerce",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "정보통신 기술을 매개로 재화·서비스의 거래가 이루어지는 전자상거래의 총칭으로, 접속 단말과 참여 주체에 따라 다양한 형태로 분화된 거래 방식.",
+  "memo": "'모티협게' — 모바일·TV·협업·게임 커머스. 주체별(B2B/B2C/C2C/B2G) 분류와 단말별 분류를 구분해서 답안에 쓴다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "모티협게",
+    "keywords": [
+     "모바일 커머스(m-Commerce)",
+     "티커머스(t-Commerce)",
+     "협업 커머스(c-Commerce)",
+     "게임 커머스(G-Commerce)"
+    ]
+   }
+  ],
+  "mnemonic": "모티협게",
+  "keywords": [
+   "모바일 커머스(m-Commerce)",
+   "티커머스(t-Commerce)",
+   "협업 커머스(c-Commerce)",
+   "게임 커머스(G-Commerce)"
+  ]
+ },
+ {
+  "id": "gj-153",
+  "title": "e-Marketplace",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "다수의 구매자와 판매자가 인터넷상의 가상 시장에 참여해 상품 정보 탐색부터 계약·결제·정산까지 수행하는 전자거래 중개 플랫폼.",
+  "memo": "'상거결신' — 상거래는 결국 '신뢰'다(상품·거래·결제·신뢰). 신뢰를 담보하는 대표 장치가 에스크로.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "상거결신",
+    "keywords": [
+     "상품(전자 카탈로그)",
+     "거래(매칭·입찰)",
+     "결제(정산·에스크로)",
+     "신뢰(인증·평판)"
+    ]
+   }
+  ],
+  "mnemonic": "상거결신",
+  "keywords": [
+   "상품(전자 카탈로그)",
+   "거래(매칭·입찰)",
+   "결제(정산·에스크로)",
+   "신뢰(인증·평판)"
+  ]
+ },
+ {
+  "id": "gj-154",
+  "title": "매매 임치 제도",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "거래 당사자 간 신뢰 부족을 보완하기 위해 신뢰할 수 있는 제3자가 대금이나 핵심 자산을 보관했다가 계약 조건 충족 시 이전해 주는 안전거래 제도.",
+  "memo": "참여자는 '구판제조'(구매자·판매자·제3자·조건), 유형은 '매키소'(매매·키·소스코드 임치). 무엇을 맡기느냐로 유형이 갈린다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "구판제조",
+    "keywords": [
+     "구매자",
+     "판매자",
+     "제3자(임치기관)",
+     "조건(지급·인도)"
+    ]
+   },
+   {
+    "label": "유형",
+    "mnemonic": "매키소",
+    "keywords": [
+     "매매 임치",
+     "키 임치(Key Escrow)",
+     "소스코드 임치(SW 임치)"
+    ]
+   }
+  ],
+  "mnemonic": "구판제조",
+  "keywords": [
+   "구매자",
+   "판매자",
+   "제3자(임치기관)",
+   "조건(지급·인도)"
+  ]
+ },
+ {
+  "id": "gj-155",
+  "title": "소셜 커머스",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "SNS의 관계망과 입소문 확산 효과를 활용해 공동구매·추천 기반으로 상품을 판매하는 전자상거래 모델.",
+  "memo": "'공관추플' — 공관(公館)에 추천이 붙는다: 공동구매·관계망·추천·플랫폼. 핵심 동력은 가격 할인보다 '관계망 확산'.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "공관추플",
+    "keywords": [
+     "공동구매",
+     "관계망(SNS)",
+     "추천·평판",
+     "플랫폼"
+    ]
+   }
+  ],
+  "mnemonic": "공관추플",
+  "keywords": [
+   "공동구매",
+   "관계망(SNS)",
+   "추천·평판",
+   "플랫폼"
+  ]
+ },
+ {
+  "id": "gj-156",
+  "title": "온라인 광고비",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "온라인 매체에 광고를 게재하고 노출·클릭·행동 등 성과 단위를 기준으로 비용을 산정·과금하는 디지털 광고비 체계.",
+  "memo": "'노클행판' — 노출→클릭→행동→판매 순으로 과금 기준이 깊어진다. 뒤로 갈수록 광고주 위험은 줄고 매체 위험은 커진다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "노클행판",
+    "keywords": [
+     "노출당 과금(CPM)",
+     "클릭당 과금(CPC)",
+     "행동당 과금(CPA)",
+     "판매당 과금(CPS)"
+    ]
+   }
+  ],
+  "mnemonic": "노클행판",
+  "keywords": [
+   "노출당 과금(CPM)",
+   "클릭당 과금(CPC)",
+   "행동당 과금(CPA)",
+   "판매당 과금(CPS)"
+  ]
+ },
+ {
+  "id": "gj-157",
+  "title": "Programmatic Buying",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "광고주가 설정한 타깃과 조건에 따라 시스템이 실시간 경매로 광고 지면을 자동 구매·집행하는 프로그램 기반 광고 거래 방식.",
+  "memo": "이제 광고는 사람이 手工으로 사지 않는다 — '수공데광'(수요측·공급측·데이터·광고거래소). 흐름은 SSP 요청 → DSP 입찰 → 낙찰 노출.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "수공데광",
+    "keywords": [
+     "수요측 플랫폼(DSP)",
+     "공급측 플랫폼(SSP)",
+     "데이터 관리 플랫폼(DMP)",
+     "광고 거래소(Ad Exchange)"
+    ]
+   }
+  ],
+  "mnemonic": "수공데광",
+  "keywords": [
+   "수요측 플랫폼(DSP)",
+   "공급측 플랫폼(SSP)",
+   "데이터 관리 플랫폼(DMP)",
+   "광고 거래소(Ad Exchange)"
   ]
  },
  {
@@ -3878,6 +5144,87 @@
    "영상통화 확인",
    "현금카드·OTP 전달",
    "기존계좌 활용"
+  ]
+ },
+ {
+  "id": "gj-165",
+  "title": "오픈 뱅킹",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "은행이 보유한 계좌 조회·이체 등 금융 기능을 표준 API로 개방해 핀테크 기업 등 제3자가 동일 조건으로 이용하도록 한 공동 금융결제 인프라.",
+  "memo": "'오참중보' — 오픈 API에 참가기관이 중계 인프라로 붙고 보안이 받친다. Small License·MyPayment는 오픈뱅킹을 떠받치는 제도 세트로 함께 암기.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "오참중보",
+    "keywords": [
+     "오픈 API",
+     "참가기관",
+     "중계 인프라",
+     "보안·인증"
+    ]
+   }
+  ],
+  "mnemonic": "오참중보",
+  "keywords": [
+   "오픈 API",
+   "참가기관",
+   "중계 인프라",
+   "보안·인증"
+  ]
+ },
+ {
+  "id": "gj-166",
+  "title": "테크핀(TechFin)",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "IT·플랫폼 기업이 자사의 기술과 데이터, 대규모 고객 기반을 토대로 금융 서비스를 직접 제공하는 기술 주도형 금융 사업 모델.",
+  "memo": "'기데플신' — 기술·데이터·플랫폼·신뢰. 핀테크는 금융사가 주어, 테크핀은 IT 기업이 주어라는 한 문장으로 구분한다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "기데플신",
+    "keywords": [
+     "기술(AI·클라우드)",
+     "데이터(대안신용평가)",
+     "플랫폼(고객 기반)",
+     "신뢰(라이선스·규제준수)"
+    ]
+   }
+  ],
+  "mnemonic": "기데플신",
+  "keywords": [
+   "기술(AI·클라우드)",
+   "데이터(대안신용평가)",
+   "플랫폼(고객 기반)",
+   "신뢰(라이선스·규제준수)"
+  ]
+ },
+ {
+  "id": "gj-172",
+  "title": "에듀테크",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "교육(Education)과 기술(Technology)의 결합으로 AI·빅데이터·XR 등 ICT를 활용해 학습 경험을 개인화하고 교육 효과를 높이는 차세대 교육 서비스.",
+  "memo": "'콘플데분' — 콘텐츠를 플랫폼에 올려 데이터를 분석한다. 그대로 문장이 되므로 순서까지 그대로 외운다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "콘플데분",
+    "keywords": [
+     "콘텐츠",
+     "플랫폼(LMS·LXP)",
+     "데이터(학습이력)",
+     "분석(학습분석)"
+    ]
+   }
+  ],
+  "mnemonic": "콘플데분",
+  "keywords": [
+   "콘텐츠",
+   "플랫폼(LMS·LXP)",
+   "데이터(학습이력)",
+   "분석(학습분석)"
   ]
  },
  {
@@ -4089,6 +5436,33 @@
   ]
  },
  {
+  "id": "gj-180",
+  "title": "Process Thinking",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "부서·기능 단위의 결과가 아니라 고객 가치를 만들어 내는 업무의 흐름(프로세스) 단위로 문제를 인식하고 지속 개선하는 경영 사고 방식.",
+  "memo": "화가 '고흐'로 외운다 — 고객가치·흐름·측정·개선. 기능(부서)이 아니라 흐름을 본다는 것이 한 줄 핵심.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "고흐측개",
+    "keywords": [
+     "고객 가치",
+     "흐름(End-to-End)",
+     "측정(프로세스 지표)",
+     "개선(지속적 개선)"
+    ]
+   }
+  ],
+  "mnemonic": "고흐측개",
+  "keywords": [
+   "고객 가치",
+   "흐름(End-to-End)",
+   "측정(프로세스 지표)",
+   "개선(지속적 개선)"
+  ]
+ },
+ {
   "id": "gj-181",
   "title": "프로세스 맵",
   "category": "경영전략",
@@ -4118,21 +5492,95 @@
   ]
  },
  {
+  "id": "gj-182",
+  "title": "Backcasting(백캐스팅)",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "바람직한 미래상을 먼저 설정하고 그 미래에서 현재로 거슬러 오며 필요한 조치와 경로를 도출하는 규범적(Normative) 미래예측 기법.",
+  "memo": "'미현격로' — 미래에서 현재로, 격차를 재고 로드맵을 깐다. 순서 자체가 백캐스팅의 방향(미래→현재)을 보여준다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "미현격로",
+    "keywords": [
+     "미래상 설정",
+     "현재 진단",
+     "격차 분석",
+     "로드맵 수립"
+    ]
+   }
+  ],
+  "mnemonic": "미현격로",
+  "keywords": [
+   "미래상 설정",
+   "현재 진단",
+   "격차 분석",
+   "로드맵 수립"
+  ]
+ },
+ {
   "id": "gj-183",
   "title": "SMART",
   "category": "경영전략",
   "importance": "하",
-  "definition": "Specific(구체적인) Measurable(측정할 수 있는) Attainable(얻을 수 있는) or Achievable(달성 가능한) Result-oriented(결과 지향적인) Time-bounded(시간이 정해져 있는)",
-  "memo": "구측실결완",
+  "definition": "목표를 구체성·측정가능성·달성가능성·결과지향성·기한명시의 다섯 기준으로 설정해 실행력과 평가 가능성을 확보하는 목표설정 기법.",
+  "memo": "두음은 그대로 'SMART'. 한글로는 구체·측정·달성·결과·기한(구측달결기)로 받아 적으면 답안에서 바로 풀어 쓸 수 있다.",
   "sections": [
    {
-    "label": "두음",
-    "mnemonic": "구측실결완",
-    "keywords": []
+    "label": "구성요소",
+    "mnemonic": "SMART",
+    "keywords": [
+     "Specific(구체성)",
+     "Measurable(측정가능성)",
+     "Attainable(달성가능성)",
+     "Result-oriented(결과지향성)",
+     "Time-bounded(기한명시)"
+    ]
    }
   ],
-  "mnemonic": "구측실결완",
-  "keywords": []
+  "mnemonic": "SMART",
+  "keywords": [
+   "Specific(구체성)",
+   "Measurable(측정가능성)",
+   "Attainable(달성가능성)",
+   "Result-oriented(결과지향성)",
+   "Time-bounded(기한명시)"
+  ]
+ },
+ {
+  "id": "gj-184",
+  "title": "기술경영(MOT)",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "기술을 기업의 전략적 자산으로 보고 R&D부터 제품화·사업화까지 전 과정을 공학과 경영학 관점에서 통합 관리하여 기술혁신을 수익으로 연결하는 경영 기법.",
+  "memo": "획보활 — 기술을 획득하고 보호하고 활용한다.\n기개사평 — 기획·개발·사업화·평가로 죽음의 계곡을 건넌다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "획보활",
+    "keywords": [
+     "획득",
+     "보호",
+     "활용"
+    ]
+   },
+   {
+    "label": "절차",
+    "mnemonic": "기개사평",
+    "keywords": [
+     "기획",
+     "개발",
+     "사업화",
+     "평가"
+    ]
+   }
+  ],
+  "mnemonic": "획보활",
+  "keywords": [
+   "획득",
+   "보호",
+   "활용"
+  ]
  },
  {
   "id": "gj-185",
@@ -4543,6 +5991,31 @@
   ]
  },
  {
+  "id": "gj-199",
+  "title": "화이트 레이블 마케팅(White Label Marketing)",
+  "category": "경영전략",
+  "importance": "하",
+  "definition": "제조사가 생산한 제품·서비스에 유통사 등 제3자가 자사 브랜드(라벨)를 붙여 판매하도록 하는, 생산과 브랜드를 분리한 마케팅 기법.",
+  "memo": "제유소 — 제조사가 만들고 유통사가 라벨을 붙여 소비자에게 판다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "제유소",
+    "keywords": [
+     "제조사",
+     "유통사",
+     "소비자"
+    ]
+   }
+  ],
+  "mnemonic": "제유소",
+  "keywords": [
+   "제조사",
+   "유통사",
+   "소비자"
+  ]
+ },
+ {
   "id": "pm-1",
   "title": "비용편익분석",
   "category": "프로젝트관리",
@@ -4939,17 +6412,70 @@
   "title": "PMBOK 7판",
   "category": "프로젝트관리",
   "importance": "출제예상",
-  "definition": "1. 기존 프로세스 그룹 5개에서 -> 가치전달 시스템 + 프로젝트 관리 원칙 2. 프로젝트 관리 지식 체계 10개에서 -> 프로젝트 성과도메인 + 테일러링 + 모델, 기법, 아티팩트로 변경(성테모) 1)프로젝트 성과 도메인 (Project Performance Dom",
-  "memo": "성테모\n가조기환고\n스팀이가 생리 테품 보리 적변\n이팀접계 프산측불\n이팀개기작인측불",
+  "definition": "프로세스 중심에서 원칙과 성과 중심으로 전환해, 가치 인도를 목표로 12개 관리 원칙과 8개 성과영역, 테일러링을 제시한 프로젝트 관리 지식체계 표준.",
+  "memo": "'가원성테모' — 가치인도시스템에서 출발해 원칙·성과영역·테일러링·모델로 내려온다. 성과영역 8개는 '이팀개기 작인측불'로 통으로 외운다.",
   "sections": [
    {
-    "label": "두음",
-    "mnemonic": "성테모",
-    "keywords": []
+    "label": "구성요소",
+    "mnemonic": "가원성테모",
+    "keywords": [
+     "가치인도시스템",
+     "원칙",
+     "성과영역",
+     "테일러링",
+     "모델·방법·산출물"
+    ]
+   },
+   {
+    "label": "8대 성과영역",
+    "mnemonic": "이팀개기작인측불",
+    "keywords": [
+     "이해관계자",
+     "팀",
+     "개발방식과 생애주기",
+     "기획",
+     "작업",
+     "인도",
+     "측정",
+     "불확실성"
+    ]
    }
   ],
-  "mnemonic": "성테모",
-  "keywords": []
+  "mnemonic": "가원성테모",
+  "keywords": [
+   "가치인도시스템",
+   "원칙",
+   "성과영역",
+   "테일러링",
+   "모델·방법·산출물"
+  ]
+ },
+ {
+  "id": "pm-15",
+  "title": "PMBOK 8판",
+  "category": "프로젝트관리",
+  "importance": "출제예상",
+  "definition": "7판의 원칙과 성과영역 기반 구조를 계승하면서 실무자가 요구한 프로세스·도구 수준의 구체적 지침을 다시 보강하는 방향으로 개정이 추진되는 프로젝트 관리 지식체계 표준의 차기 판.",
+  "memo": "'계보(系譜)를 잇고 통·확한다' → 계승·보강·통합·확장. 7판이 '왜'에 답했다면 8판은 '어떻게'를 다시 채워 넣는 방향이라고 기억.",
+  "sections": [
+   {
+    "label": "개정 방향",
+    "mnemonic": "계보통확",
+    "keywords": [
+     "계승",
+     "보강",
+     "통합",
+     "확장"
+    ]
+   }
+  ],
+  "mnemonic": "계보통확",
+  "keywords": [
+   "계승",
+   "보강",
+   "통합",
+   "확장"
+  ]
  },
  {
   "id": "pm-17",
@@ -5409,28 +6935,38 @@
   "title": "통제되지 않는 범위 추가(Scope Creep)",
   "category": "프로젝트관리",
   "importance": "출제예상",
-  "definition": "고객이나 이해관계자의 요구사항의 관리오류로 인해서 프로젝트의 시간, 비용, 자원을 증가시키는 현상",
-  "memo": "초관이정변 (초기대응 미비·관리자역량 미흡·이해관계자·정형화된 프로젝트·변경관리체계)",
+  "definition": "공식적인 변경통제 절차를 거치지 않은 요구사항이 지속적으로 추가되어 범위가 통제 없이 확대되고 일정·원가·자원이 잠식되는 현상.",
+  "memo": "원인은 초·관·이·정·변(초기도출-관리자-이해관계자-절차-변경관리), 대응은 범·변·요·형(범위기술서-변경통제-추적매트릭스-형상관리). 원인 순서대로 대응이 짝을 이룬다.",
   "sections": [
    {
-    "label": "원인",
+    "label": "발생원인",
     "mnemonic": "초관이정변",
     "keywords": [
-     "초기대응 미비",
-     "관리자역량 미흡",
-     "이해관계자",
-     "정형화된 프로젝트",
-     "변경관리체계"
+     "초기 요구사항 도출 미흡",
+     "관리자 역량 부족",
+     "이해관계자 소통 부재",
+     "정형화된 절차 부재",
+     "변경관리체계 미흡"
+    ]
+   },
+   {
+    "label": "대응방안",
+    "mnemonic": "범변요형",
+    "keywords": [
+     "범위기술서",
+     "변경통제위원회",
+     "요구사항 추적매트릭스",
+     "형상관리"
     ]
    }
   ],
   "mnemonic": "초관이정변",
   "keywords": [
-   "초기대응 미비",
-   "관리자역량 미흡",
-   "이해관계자",
-   "정형화된 프로젝트",
-   "변경관리체계"
+   "초기 요구사항 도출 미흡",
+   "관리자 역량 부족",
+   "이해관계자 소통 부재",
+   "정형화된 절차 부재",
+   "변경관리체계 미흡"
   ]
  },
  {
@@ -5438,29 +6974,25 @@
   "title": "Gold-plating",
   "category": "프로젝트관리",
   "importance": "출제예상",
-  "definition": "품질관리 시 고객이 요구한 것 이상으로 원하지도 않고 필요로 하지 않은 범위 이외의 기능이나 특성을 추가하여 비용과 일정을 초과하는 불필요한 SW 개발",
-  "memo": "초현명워구시 (제안서 작성시 초과 제안 금지·일정 현실화·기능 명확화·WalkThrough·구조기반테스트·시각화)",
+  "definition": "고객이 요구하지 않은 기능이나 품질 수준을 수행조직이 자발적으로 추가해 원가와 일정을 초과시키는 불필요한 범위 초과 현상.",
+  "memo": "'명검(名劍)으로 통시한다' → 명확한 범위정의·검수기준·통제·시각화로 금도금을 잘라낸다. Scope Creep이 '밖에서 밀고 들어오는 것'이라면 Gold Plating은 '안에서 얹어주는 것'.",
   "sections": [
    {
     "label": "방지방안",
-    "mnemonic": "초현명워구시",
+    "mnemonic": "명검통시",
     "keywords": [
-     "제안서 작성시 초과 제안 금지",
-     "일정 현실화",
-     "기능 명확화",
-     "WalkThrough",
-     "구조기반테스트",
+     "명확한 범위정의",
+     "검수기준",
+     "통제",
      "시각화"
     ]
    }
   ],
-  "mnemonic": "초현명워구시",
+  "mnemonic": "명검통시",
   "keywords": [
-   "제안서 작성시 초과 제안 금지",
-   "일정 현실화",
-   "기능 명확화",
-   "WalkThrough",
-   "구조기반테스트",
+   "명확한 범위정의",
+   "검수기준",
+   "통제",
    "시각화"
   ]
  },
@@ -5606,21 +7138,118 @@
   ]
  },
  {
+  "id": "pm-38",
+  "title": "Free float",
+  "category": "프로젝트관리",
+  "importance": "출제예상",
+  "definition": "후행 활동의 가장 빠른 개시일을 지연시키지 않으면서 특정 활동이 가질 수 있는 여유시간.",
+  "memo": "한 줄 정의: '내 뒤 사람 출발을 안 늦추는 만큼만 논다'. 계산은 FF = min(후행 ES) − 나의 EF, 항상 FF ≤ TF이고 주공정에서는 둘 다 0.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "빠른 개시일",
+     "빠른 종료일",
+     "후행활동 빠른 개시일",
+     "자유여유"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "빠른 개시일",
+   "빠른 종료일",
+   "후행활동 빠른 개시일",
+   "자유여유"
+  ]
+ },
+ {
+  "id": "pm-39",
+  "title": "Total float",
+  "category": "프로젝트관리",
+  "importance": "출제예상",
+  "definition": "프로젝트 종료일이나 일정 제약을 지연시키지 않으면서 특정 활동이 가질 수 있는 총 여유시간.",
+  "memo": "'주일(週日) 자리' → 주공정 식별·일정단축·자원배분·리스크완충에 쓴다. 공식은 TF = LS − ES = LF − EF, TF=0이면 주공정.",
+  "sections": [
+   {
+    "label": "활용",
+    "mnemonic": "주일자리",
+    "keywords": [
+     "주공정 식별",
+     "일정 단축 대상 선정",
+     "자원 배분 우선순위",
+     "리스크 완충"
+    ]
+   }
+  ],
+  "mnemonic": "주일자리",
+  "keywords": [
+   "주공정 식별",
+   "일정 단축 대상 선정",
+   "자원 배분 우선순위",
+   "리스크 완충"
+  ]
+ },
+ {
+  "id": "pm-40",
+  "title": "자원 최적화",
+  "category": "프로젝트관리",
+  "importance": "출제예상",
+  "definition": "자원의 가용량과 수요 사이의 불균형을 조정해 과부하 없이 일정과 자원 투입을 안정화하는 일정 개발 기법.",
+  "memo": "평준화는 '자원이 왕' → 일정이 밀려도 자원 한도를 지킨다. 평활화는 '일정이 왕' → 여유시간 안에서만 부드럽게 다듬는다. 준(準)은 자원 기준, 활(滑)은 여유 안에서 미끄러지듯.",
+  "sections": [
+   {
+    "label": "기법",
+    "mnemonic": "",
+    "keywords": [
+     "자원 평준화",
+     "자원 평활화"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "자원 평준화",
+   "자원 평활화"
+  ]
+ },
+ {
   "id": "pm-41",
   "title": "프로젝트 일정 단축기법",
   "category": "프로젝트관리",
   "importance": "출제예상",
-  "definition": "일정계획에 근거하여 실적을 모니터링하여 일정이 지연될 경우 납기준수를 위한 활동 파자후학 - 크자패병",
-  "memo": "파자후학\n크자패병",
+  "definition": "프로젝트 범위와 품질을 유지한 채 주공정을 압축해 납기를 앞당기거나 발생한 지연을 만회하는 일정 관리 기법.",
+  "memo": "지연 원인은 '파자후학' — 파킨슨·자기방어·후행공정·학생증후군. 단축은 '돈 쓰면 크래싱, 겹치면 패스트트래킹'으로 대비해 외운다.",
   "sections": [
    {
-    "label": "두음",
+    "label": "지연 원인",
     "mnemonic": "파자후학",
-    "keywords": []
+    "keywords": [
+     "파킨슨의 법칙",
+     "자기방어",
+     "후행공정 준비 미흡",
+     "학생 증후군"
+    ]
+   },
+   {
+    "label": "단축기법",
+    "mnemonic": "",
+    "keywords": [
+     "크래싱",
+     "패스트트래킹",
+     "자원 최적화",
+     "범위 조정"
+    ]
    }
   ],
   "mnemonic": "파자후학",
-  "keywords": []
+  "keywords": [
+   "파킨슨의 법칙",
+   "자기방어",
+   "후행공정 준비 미흡",
+   "학생 증후군"
+  ]
  },
  {
   "id": "pm-42",
@@ -5658,17 +7287,35 @@
   "title": "브룩스 법칙",
   "category": "프로젝트관리",
   "importance": "출제예상",
-  "definition": "지연된 플젝에 추가인력을 투입하는 것은 오히려 딜레이를 초래한다는 법칙. 기존 인력들과의 의사소통 및 교육문제로 인해 딜레이",
-  "memo": "편측관산",
+  "definition": "지연된 소프트웨어 프로젝트에 인력을 추가로 투입하면 오히려 일정이 더 지연된다는 소프트웨어 공학의 경험 법칙.",
+  "memo": "원인 세 가지는 의·교·분 — 의사소통·교육·분할한계. 핵심 이미지는 n(n-1)/2, 사람이 늘면 말길이 제곱으로 폭증한다. 대응은 편·측·관·산.",
   "sections": [
    {
-    "label": "두음",
+    "label": "발생원인",
+    "mnemonic": "의교분",
+    "keywords": [
+     "의사소통 비용 증가",
+     "교육·적응 비용",
+     "분할 불가 작업"
+    ]
+   },
+   {
+    "label": "대응방안",
     "mnemonic": "편측관산",
-    "keywords": []
+    "keywords": [
+     "편성",
+     "측정",
+     "관리자",
+     "산출물"
+    ]
    }
   ],
-  "mnemonic": "편측관산",
-  "keywords": []
+  "mnemonic": "의교분",
+  "keywords": [
+   "의사소통 비용 증가",
+   "교육·적응 비용",
+   "분할 불가 작업"
+  ]
  },
  {
   "id": "pm-44",
@@ -5840,16 +7487,29 @@
   "title": "품질통제(QC)",
   "category": "프로젝트관리",
   "importance": "출제예상",
-  "definition": "프로젝트 결과가 관련 품질 기준을 준수하는지를 결정하기 위해 감시하고 기록하면서 성과를 평가하고 권고안을 제시하는 활동",
-  "memo": "현원자 (현상분석·원인분석·자료분석)",
+  "definition": "프로젝트 인도물과 작업 결과가 품질 요구사항에 부합하는지 측정·검사하고 결과를 기록해 시정조치를 권고하는 품질관리 프로세스.",
+  "memo": "관점은 현·원·자(현상-원인-자료), 도구는 '체파히 / 특산흐 / 관'으로 3-3-1로 끊어 외우면 어느 도구가 어느 분석에 속하는지까지 함께 기억된다.",
   "sections": [
    {
-    "label": "QC7도구",
+    "label": "구성요소",
     "mnemonic": "현원자",
     "keywords": [
      "현상분석",
      "원인분석",
      "자료분석"
+    ]
+   },
+   {
+    "label": "QC 7가지 도구",
+    "mnemonic": "체파히특산흐관",
+    "keywords": [
+     "체크시트",
+     "파레토차트",
+     "히스토그램",
+     "특성요인도",
+     "산점도",
+     "흐름도",
+     "관리도"
     ]
    }
   ],
@@ -5982,24 +7642,44 @@
   "title": "동기부여이론",
   "category": "프로젝트관리",
   "importance": "출제예상",
-  "definition": "조직원들이 어떤 욕구나 보상에 의해 어떠한 행동을 보이고, 그 성과가 어떠한지 분석하는 이론",
-  "memo": "심조개 (심리학적·조직·개별적)",
+  "definition": "조직 구성원이 특정 행동을 하게 만드는 욕구와 기대, 보상의 작동 원리를 설명하고 이를 성과 향상에 활용하는 이론 체계.",
+  "memo": "큰 분류는 '내과강'(내용-과정-강화). 내용이론은 '매앨허맥맥', 과정이론은 '기공목'(기대-공정-목표). 내용은 '무엇이', 과정은 '어떻게'를 묻는다고 구분한다.",
   "sections": [
    {
-    "label": "특징",
-    "mnemonic": "심조개",
+    "label": "구성요소",
+    "mnemonic": "내과강",
     "keywords": [
-     "심리학적",
-     "조직",
-     "개별적"
+     "내용이론",
+     "과정이론",
+     "강화이론"
+    ]
+   },
+   {
+    "label": "내용이론",
+    "mnemonic": "매앨허맥맥",
+    "keywords": [
+     "매슬로우 욕구계층이론",
+     "앨더퍼 ERG이론",
+     "허즈버그 2요인이론",
+     "맥클리랜드 성취동기이론",
+     "맥그리거 X-Y이론"
+    ]
+   },
+   {
+    "label": "과정이론",
+    "mnemonic": "기공목",
+    "keywords": [
+     "기대이론",
+     "공정성이론",
+     "목표설정이론"
     ]
    }
   ],
-  "mnemonic": "심조개",
+  "mnemonic": "내과강",
   "keywords": [
-   "심리학적",
-   "조직",
-   "개별적"
+   "내용이론",
+   "과정이론",
+   "강화이론"
   ]
  },
  {
@@ -6402,19 +8082,11 @@
   "title": "이해관계자 참여 수준 평가 매트릭스",
   "category": "프로젝트관리",
   "importance": "출제예상",
-  "definition": "모든 이해관계자들에 대한 계획하는 참여 수준과 현재의 실제 참여 수준을 비교하기 위한 분석적 기법",
-  "memo": "CD (C·D)\n무저중지주 (무인식·저항·중립·지원·주도)\n요밀동정 (요구만족·밀착관리·동향감시·정보공유)",
+  "definition": "이해관계자별 현재 참여 수준과 목표 참여 수준을 한 표에 표시해 격차를 식별하고 관리 전략을 수립하는 이해관계자 분석 기법.",
+  "memo": "참여 수준 5단계는 '무저중지주'(무인식-저항-중립-지원-주도), 권력-관심은 '요밀동정'. 표에 C와 D를 찍고 둘이 다른 줄만 관리하면 된다.",
   "sections": [
    {
-    "label": "이해관계자 상태",
-    "mnemonic": "CD",
-    "keywords": [
-     "C",
-     "D"
-    ]
-   },
-   {
-    "label": "이해관계자 참여수준",
+    "label": "참여 수준",
     "mnemonic": "무저중지주",
     "keywords": [
      "무인식",
@@ -6425,20 +8097,23 @@
     ]
    },
    {
-    "label": "Power-Interest 모델",
+    "label": "권력-관심 그리드",
     "mnemonic": "요밀동정",
     "keywords": [
      "요구만족",
      "밀착관리",
      "동향감시",
-     "정보공유"
+     "정보제공"
     ]
    }
   ],
-  "mnemonic": "CD",
+  "mnemonic": "무저중지주",
   "keywords": [
-   "C",
-   "D"
+   "무인식",
+   "저항",
+   "중립",
+   "지원",
+   "주도"
   ]
  },
  {
@@ -6446,34 +8121,56 @@
   "title": "애자일 프로세스",
   "category": "프로젝트관리",
   "importance": "출제예상",
-  "definition": "절차보다 사람이 중심 되어 변화에 유연하고 신속하게 적응해 효율적으로 개발 할 수 있는 방법론",
-  "memo": "",
+  "definition": "계획과 문서보다 사람과 협업을 중시하고 짧은 반복 주기로 작동하는 소프트웨어를 인도하며 변화에 신속히 적응하는 개발 방법론 체계.",
+  "memo": "선언문 4대 가치는 '개작고변' — 개인·작동SW·고객협력·변화대응. 왼쪽 항목도 가치가 있으나 오른쪽 항목에 '더' 가치를 둔다는 문장 구조를 함께 기억한다.",
   "sections": [
    {
-    "label": "두음",
-    "mnemonic": "개변동고",
-    "keywords": []
+    "label": "애자일 선언 4대 가치",
+    "mnemonic": "개작고변",
+    "keywords": [
+     "개인과 상호작용",
+     "작동하는 소프트웨어",
+     "고객과의 협력",
+     "변화 대응"
+    ]
    }
   ],
-  "mnemonic": "개변동고",
-  "keywords": []
+  "mnemonic": "개작고변",
+  "keywords": [
+   "개인과 상호작용",
+   "작동하는 소프트웨어",
+   "고객과의 협력",
+   "변화 대응"
+  ]
  },
  {
   "id": "pm-71",
   "title": "12개 원칙",
   "category": "프로젝트관리",
   "importance": "출제예상",
-  "definition": "고객만족 추구, 요구변경 수용, 짧은 배포주기, 일일의사소통, 동기부여, 면대면대화, 작동하는 SW가 척도, 지속 가능개발, 좋은 설계 관심, 단순성 추구, 자기조직적팀, 효율성 제고",
-  "memo": "고요배의동\n대SW지좋단자효",
+  "definition": "애자일 선언의 4대 가치를 실천 수준으로 구체화해 조기·지속 인도, 변화 수용, 자기조직화 팀 등을 제시한 12개의 실행 원칙.",
+  "memo": "12개를 낱개로 외우지 말고 5개 축 '고변사기성'(고객가치-변화수용-사람중심-기술우수-성찰개선)으로 묶어 각 축에 2~4개 원칙을 매단다.",
   "sections": [
    {
-    "label": "두음",
-    "mnemonic": "고요배의동",
-    "keywords": []
+    "label": "12원칙 5대 축",
+    "mnemonic": "고변사기성",
+    "keywords": [
+     "고객가치 인도",
+     "변화 수용",
+     "사람·팀 중심",
+     "기술적 우수성",
+     "성찰·개선"
+    ]
    }
   ],
-  "mnemonic": "고요배의동",
-  "keywords": []
+  "mnemonic": "고변사기성",
+  "keywords": [
+   "고객가치 인도",
+   "변화 수용",
+   "사람·팀 중심",
+   "기술적 우수성",
+   "성찰·개선"
+  ]
  },
  {
   "id": "pm-73",
@@ -6664,22 +8361,14 @@
   "title": "Pair programming",
   "category": "프로젝트관리",
   "importance": "출제예상",
-  "definition": "두 사람이 한 컴퓨터를 사용해서 Pair Work로 프로그래밍을 하는 기법",
-  "memo": "DP (Driver·Partner)\n집버동높 (집중력향상·버그 감소·동반 성장·높은 만족도)\n생압팀 (생산성 문제·압박감과 스트레스·팀원과의 관계)",
+  "definition": "두 개발자가 하나의 작업 공간에서 드라이버와 내비게이터 역할을 교대하며 실시간으로 코드를 작성하고 검토하는 XP의 핵심 실천법.",
+  "memo": "장점은 '집버동높'(집중력-버그감소-동반성장-높은만족도), 단점은 '생압팀'(생산성-압박감-팀워크). 역할은 운전자와 길잡이로 그림을 그려 기억한다.",
   "sections": [
-   {
-    "label": "구성원",
-    "mnemonic": "DP",
-    "keywords": [
-     "Driver",
-     "Partner"
-    ]
-   },
    {
     "label": "장점",
     "mnemonic": "집버동높",
     "keywords": [
-     "집중력향상",
+     "집중력 향상",
      "버그 감소",
      "동반 성장",
      "높은 만족도"
@@ -6689,16 +8378,26 @@
     "label": "단점",
     "mnemonic": "생압팀",
     "keywords": [
-     "생산성 문제",
-     "압박감과 스트레스",
-     "팀원과의 관계"
+     "생산성 부담",
+     "압박감",
+     "팀워크 갈등"
+    ]
+   },
+   {
+    "label": "구성원",
+    "mnemonic": "",
+    "keywords": [
+     "드라이버",
+     "내비게이터"
     ]
    }
   ],
-  "mnemonic": "DP",
+  "mnemonic": "집버동높",
   "keywords": [
-   "Driver",
-   "Partner"
+   "집중력 향상",
+   "버그 감소",
+   "동반 성장",
+   "높은 만족도"
   ]
  },
  {
@@ -6706,30 +8405,40 @@
   "title": "CI, CD",
   "category": "프로젝트관리",
   "importance": "출제예상",
-  "definition": "- 개발자 별로 소스코드를 지속적/연속적 통합하여 자동화된 빌드, 테스트 및 배포 기능을 통하여 단기간에 고품질의 SW를 획득하는 기술 (형상관리 필수적용)",
-  "memo": "버통빌테인커\n앱보스",
+  "definition": "소스 변경을 빈번히 통합해 자동 빌드와 테스트로 검증하고, 검증된 산출물을 릴리즈 가능 상태 또는 운영 환경까지 자동 배포하는 개발·운영 자동화 체계.",
+  "memo": "파이프라인 순서 그대로 '소·빌·테·배·모'(소스-빌드-테스트-배포-모니터링). 도구는 '버통빌테인커'. CD는 Delivery(승인 후 배포)와 Deployment(자동 배포)를 반드시 구분한다.",
   "sections": [
    {
-    "label": "핵심 키워드",
+    "label": "파이프라인 구성",
+    "mnemonic": "소빌테배모",
+    "keywords": [
+     "소스 관리",
+     "빌드 자동화",
+     "테스트 자동화",
+     "배포 자동화",
+     "모니터링"
+    ]
+   },
+   {
+    "label": "CI 도구",
     "mnemonic": "버통빌테인커",
     "keywords": [
-     "CPA",
-     "playbook 자동화 스크립트",
-     "ansible",
-     "puppet",
-     "ssh-keygen",
-     "YAML"
+     "버전관리",
+     "통합서버",
+     "빌드툴",
+     "테스트툴",
+     "인스펙션 도구",
+     "커버리지 도구"
     ]
    }
   ],
-  "mnemonic": "버통빌테인커",
+  "mnemonic": "소빌테배모",
   "keywords": [
-   "CPA",
-   "playbook 자동화 스크립트",
-   "ansible",
-   "puppet",
-   "ssh-keygen",
-   "YAML"
+   "소스 관리",
+   "빌드 자동화",
+   "테스트 자동화",
+   "배포 자동화",
+   "모니터링"
   ]
  },
  {
@@ -6787,28 +8496,24 @@
   "title": "MVP",
   "category": "프로젝트관리",
   "importance": "출제예상",
-  "definition": "최소한의 핵심 기능만으로 핵심 가치 가설을 빠르게 검증하는 최소 실행가능 제품",
-  "memo": "",
+  "definition": "최소한의 핵심 기능만으로 고객의 핵심 가치 가설을 최단 시간에 검증하여 학습을 극대화하는 최소 실행가능 제품(Minimum Viable Product)",
+  "memo": "구측학 — 구슬을 측정해 학습한다. 결과는 Pivot이냐 Persevere냐 두 갈래로 갈린다.",
   "sections": [
    {
-    "label": "핵심 키워드",
-    "mnemonic": "",
+    "label": "구성요소",
+    "mnemonic": "구측학",
     "keywords": [
      "구축(Build)",
      "측정(Measure)",
-     "학습(Learn)",
-     "가설 검증",
-     "피드백 반영"
+     "학습(Learn)"
     ]
    }
   ],
-  "mnemonic": "",
+  "mnemonic": "구측학",
   "keywords": [
    "구축(Build)",
    "측정(Measure)",
-   "학습(Learn)",
-   "가설 검증",
-   "피드백 반영"
+   "학습(Learn)"
   ]
  },
  {
@@ -6832,6 +8537,33 @@
   "keywords": [
    "플래닝 포커",
    "삼각측정"
+  ]
+ },
+ {
+  "id": "pm-86",
+  "title": "번다운차트",
+  "category": "프로젝트관리",
+  "importance": "출제예상",
+  "definition": "스프린트·릴리즈 기간 동안 남은 작업량(Story Point)을 시간축에 따라 표시하여 계획 대비 진척과 완료 시점을 가시화하는 애자일 진척관리 차트",
+  "memo": "잔이실속 — 잔여·이상·실적·속도. 실적선이 이상선 위에 있으면 지연, 아래면 선행.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "잔이실속",
+    "keywords": [
+     "잔여작업(Y축)",
+     "이상선(Ideal Line)",
+     "실적선(Actual Line)",
+     "속도(Velocity)"
+    ]
+   }
+  ],
+  "mnemonic": "잔이실속",
+  "keywords": [
+   "잔여작업(Y축)",
+   "이상선(Ideal Line)",
+   "실적선(Actual Line)",
+   "속도(Velocity)"
   ]
  },
  {
@@ -15738,17 +17470,25 @@
   "title": "Web 2.0",
   "category": "디지털서비스",
   "importance": "하",
-  "definition": "참여, 공유, 개방이라는 개념하에 데이터의 소유자나 독점자 없이 누구나 데이터를 생산하고 인터넷에 공유할 수 있도록 한 사용자 참여 중심의 웹 플랫폼 'AJAX, 웹 접근성(WA), SNS, Mashup Service, REST, RIA, X-internet",
-  "memo": "",
+  "definition": "개방·공유·참여를 원칙으로 특정 소유자나 독점자 없이 누구나 데이터를 생산하고 공유할 수 있도록 한 사용자 참여 중심의 웹 플랫폼 패러다임.",
+  "memo": "개공참 (개방·공유·참여) — 수험가 통용 두음. 기술은 AJAX·REST·Mashup으로 묶어 함께 암기.",
   "sections": [
    {
-    "label": "두음",
+    "label": "구성요소",
     "mnemonic": "개공참",
-    "keywords": []
+    "keywords": [
+     "개방(Openness)",
+     "공유(Sharing)",
+     "참여(Participation)"
+    ]
    }
   ],
   "mnemonic": "개공참",
-  "keywords": []
+  "keywords": [
+   "개방(Openness)",
+   "공유(Sharing)",
+   "참여(Participation)"
+  ]
  },
  {
   "id": "ds-2",
@@ -15813,22 +17553,76 @@
   "title": "Cookie",
   "category": "디지털서비스",
   "importance": "하",
-  "definition": "인터넷 사용자가 어떠한 웹사이트를 방문할 경우 그 사이트가 사용하고 있는 서버를 통해 인터넷 사용자의 컴퓨터에 설치되는 작은 기록 정보 파일",
-  "memo": "세p (세션 session·persistence)",
+  "definition": "웹사이트 방문 시 해당 서버가 사용자 브라우저(컴퓨터)에 저장하는 소용량(4KB 이하) 텍스트 기반 상태 정보 파일로, 무상태(Stateless)인 HTTP에서 사용자 상태를 유지하는 수단.",
+  "memo": "세션 쿠키는 '창 닫으면 사라지는 임시 출입증', 영속 쿠키는 '만료일 있는 정기권'. 2개뿐이라 두음 대신 대비로 암기.",
   "sections": [
    {
     "label": "유형",
-    "mnemonic": "세p",
+    "mnemonic": "",
     "keywords": [
-     "세션 session",
-     "persistence"
+     "세션 쿠키(Session Cookie)",
+     "영속 쿠키(Persistent Cookie)"
     ]
    }
   ],
-  "mnemonic": "세p",
+  "mnemonic": "",
   "keywords": [
-   "세션 session",
-   "persistence"
+   "세션 쿠키(Session Cookie)",
+   "영속 쿠키(Persistent Cookie)"
+  ]
+ },
+ {
+  "id": "ds-7",
+  "title": "Second Life",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "린든랩이 운영하는, 이용자가 아바타로 접속해 가상 토지 위에 콘텐츠를 직접 제작·거래하는 3차원 개방형 가상세계 서비스.",
+  "memo": "'아바타가 랜드에서 린든달러 벌어 창작한다' → 아·랜·린·창. 게임이 아니라 UGC 기반 가상경제 플랫폼이라는 점이 채점 포인트.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "아랜린창",
+    "keywords": [
+     "아바타",
+     "랜드",
+     "린든달러",
+     "창작도구"
+    ]
+   }
+  ],
+  "mnemonic": "아랜린창",
+  "keywords": [
+   "아바타",
+   "랜드",
+   "린든달러",
+   "창작도구"
+  ]
+ },
+ {
+  "id": "ds-8",
+  "title": "SNS",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "이용자가 프로필을 기반으로 온라인 인맥을 형성하고 콘텐츠를 공유·확산하는 관계 중심의 소셜 네트워크 서비스.",
+  "memo": "'프로필 만들고 관계 맺어 콘텐츠 올리고 상호작용' → 프·관·콘·상. 버티컬 SNS는 관심사·직군 특화형이라는 점만 따로 기억.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "프관콘상",
+    "keywords": [
+     "프로필",
+     "관계망",
+     "콘텐츠",
+     "상호작용"
+    ]
+   }
+  ],
+  "mnemonic": "프관콘상",
+  "keywords": [
+   "프로필",
+   "관계망",
+   "콘텐츠",
+   "상호작용"
   ]
  },
  {
@@ -15836,26 +17630,53 @@
   "title": "Metaverse",
   "category": "디지털서비스",
   "importance": "하",
-  "definition": "다감각 3차원 환경에서 사용자가 아바타를 통해 의사소통하고 정화/재화를 교환하면서 현실세계와 소통하는 세계",
-  "memo": "증라가미 (증강-AR·라이프로깅·시뮬레이션-미러월드·가상세계)",
+  "definition": "3차원 가상공간에서 아바타를 매개로 소통·창작·경제활동을 수행하며 현실세계와 상호작용하는 다감각 융합 세계.",
+  "memo": "ASF 4범주 → 증·라·거·가. 증강 축은 증강현실·라이프로깅, 시뮬레이션 축은 거울세계·가상세계로 2x2 배치.",
   "sections": [
    {
     "label": "범주",
-    "mnemonic": "증라가미",
+    "mnemonic": "증라거가",
     "keywords": [
-     "증강-AR",
+     "증강현실",
      "라이프로깅",
-     "시뮬레이션-미러월드",
+     "거울세계",
      "가상세계"
     ]
    }
   ],
-  "mnemonic": "증라가미",
+  "mnemonic": "증라거가",
   "keywords": [
-   "증강-AR",
+   "증강현실",
    "라이프로깅",
-   "시뮬레이션-미러월드",
+   "거울세계",
    "가상세계"
+  ]
+ },
+ {
+  "id": "ds-10",
+  "title": "스크래핑(Scraping)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "웹 페이지나 화면에 표시된 데이터를 프로그램이 자동으로 수집·해석해 구조화된 데이터로 변환하는 데이터 획득 기술.",
+  "memo": "'수파추적' — 수집·파싱·추출·적재를 추적한다고 외우면 순서까지 잡힌다. 마이데이터에서는 API 방식이 원칙임을 함께 서술.",
+  "sections": [
+   {
+    "label": "절차",
+    "mnemonic": "수파추적",
+    "keywords": [
+     "수집",
+     "파싱",
+     "추출",
+     "적재"
+    ]
+   }
+  ],
+  "mnemonic": "수파추적",
+  "keywords": [
+   "수집",
+   "파싱",
+   "추출",
+   "적재"
   ]
  },
  {
@@ -15938,6 +17759,33 @@
   ]
  },
  {
+  "id": "ds-15",
+  "title": "RIA",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "웹 브라우저에서 데스크톱 애플리케이션 수준의 반응성과 풍부한 사용자 인터페이스를 제공하는 인터넷 애플리케이션 기술.",
+  "memo": "'클라이언트가 비동기로 리치하게 로컬처리' → 클·비·리·로. 오늘날 RIA의 계보는 SPA·PWA로 이어진다고 마무리하면 좋다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "클비리로",
+    "keywords": [
+     "클라이언트 엔진",
+     "비동기 통신",
+     "리치 UI",
+     "로컬 캐시"
+    ]
+   }
+  ],
+  "mnemonic": "클비리로",
+  "keywords": [
+   "클라이언트 엔진",
+   "비동기 통신",
+   "리치 UI",
+   "로컬 캐시"
+  ]
+ },
+ {
   "id": "ds-16",
   "title": "Enterprise 2.0",
   "category": "디지털서비스",
@@ -16009,6 +17857,31 @@
   ]
  },
  {
+  "id": "ds-18",
+  "title": "반응형 웹",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "하나의 소스로 다양한 화면 크기·해상도에 맞춰 레이아웃이 자동으로 재구성되도록 하는 웹 디자인 기법.",
+  "memo": "반응형 3요소 = 유동형 그리드·유연한 이미지·미디어 쿼리 → '유유미'. 적응형(고정 레이아웃 선택)과의 차이를 한 줄로 대비.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "유유미",
+    "keywords": [
+     "유동형 그리드",
+     "유연한 이미지",
+     "미디어 쿼리"
+    ]
+   }
+  ],
+  "mnemonic": "유유미",
+  "keywords": [
+   "유동형 그리드",
+   "유연한 이미지",
+   "미디어 쿼리"
+  ]
+ },
+ {
   "id": "ds-20",
   "title": "SPA",
   "category": "디지털서비스",
@@ -16031,6 +17904,62 @@
    "비동기 데이터 통신",
    "동적 페이지 전환",
    "응답성 향상"
+  ]
+ },
+ {
+  "id": "ds-21",
+  "title": "웹서비스",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "네트워크상에서 XML·JSON 기반 표준 프로토콜을 통해 이기종 시스템 간 기능을 호출·연동하는 서비스 지향 통합 기술.",
+  "memo": "'통신(SOAP)·명세(WSDL)·등록(UDDI)·전송(XML/HTTP)' → 통·명·등·전. SOAP=말하기, WSDL=설명서, UDDI=전화번호부로 연상.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "통명등전",
+    "keywords": [
+     "통신(SOAP)",
+     "명세(WSDL)",
+     "등록·검색(UDDI)",
+     "전송(XML/HTTP)"
+    ]
+   }
+  ],
+  "mnemonic": "통명등전",
+  "keywords": [
+   "통신(SOAP)",
+   "명세(WSDL)",
+   "등록·검색(UDDI)",
+   "전송(XML/HTTP)"
+  ]
+ },
+ {
+  "id": "ds-22",
+  "title": "WSDL",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "웹서비스가 제공하는 기능과 메시지 형식, 접근 위치를 XML로 기술하는 서비스 인터페이스 명세 언어.",
+  "memo": "'타메포바서' — 타입·메시지·포트타입·바인딩·서비스. 추상(타입·메시지·포트타입) → 구체(바인딩·서비스) 순서로 내려간다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "타메포바서",
+    "keywords": [
+     "타입",
+     "메시지",
+     "포트타입",
+     "바인딩",
+     "서비스"
+    ]
+   }
+  ],
+  "mnemonic": "타메포바서",
+  "keywords": [
+   "타입",
+   "메시지",
+   "포트타입",
+   "바인딩",
+   "서비스"
   ]
  },
  {
@@ -16098,6 +18027,139 @@
   ]
  },
  {
+  "id": "ds-25",
+  "title": "UDDI",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "웹서비스 제공자가 서비스를 등록하고 이용자가 이를 검색·바인딩할 수 있도록 지원하는 XML 기반 서비스 레지스트리 표준.",
+  "memo": "두음 대신 색으로 외운다: 화이트=명함(누구인지), 옐로=업종별 전화번호부(무슨 업종인지), 그린=기술설명서(어떻게 부르는지).",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "화이트 페이지",
+     "옐로 페이지",
+     "그린 페이지"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "화이트 페이지",
+   "옐로 페이지",
+   "그린 페이지"
+  ]
+ },
+ {
+  "id": "ds-26",
+  "title": "OAS(OpenAPI Specification)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "REST API의 엔드포인트·파라미터·응답·보안 방식을 언어 중립적이고 기계 판독 가능한 형식으로 기술하는 API 명세 표준(구 Swagger 명세).",
+  "memo": "'정보→서버→경로→컴포넌트' → 정·서·경·컴. 위에서 아래로 좁혀 들어가는 문서 구조라고 생각하면 순서가 헷갈리지 않는다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "정서경컴",
+    "keywords": [
+     "정보(info)",
+     "서버(servers)",
+     "경로(paths)",
+     "컴포넌트(components)"
+    ]
+   }
+  ],
+  "mnemonic": "정서경컴",
+  "keywords": [
+   "정보(info)",
+   "서버(servers)",
+   "경로(paths)",
+   "컴포넌트(components)"
+  ]
+ },
+ {
+  "id": "ds-27",
+  "title": "Push Technology",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "이용자의 개별 요청 없이 서버가 능동적으로 데이터를 단말에 전달하는 서버 주도형 정보 전송 기술.",
+  "memo": "'푸시 서버가 채널로 구독자에게 전송한다' → 푸·채·구·전. Pull과의 대비, 그리고 마케팅의 Push 전략과는 다른 개념임을 한 줄 붙이면 감점이 없다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "푸채구전",
+    "keywords": [
+     "푸시 서버",
+     "채널",
+     "구독자",
+     "전송 프로토콜"
+    ]
+   }
+  ],
+  "mnemonic": "푸채구전",
+  "keywords": [
+   "푸시 서버",
+   "채널",
+   "구독자",
+   "전송 프로토콜"
+  ]
+ },
+ {
+  "id": "ds-28",
+  "title": "Web Casting",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "인터넷망을 통해 음성·영상 콘텐츠를 다수 이용자에게 실시간 또는 주문형으로 전송하는 인터넷 방송 기술.",
+  "memo": "'압축해서 스트리밍 서버가 멀티캐스트로 보내면 재생' → 압·스·멀·재. 흐름 순서 그대로라 답안 목차로 쓰기 좋다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "압스멀재",
+    "keywords": [
+     "압축·인코딩",
+     "스트리밍 서버",
+     "멀티캐스트 전송",
+     "재생 플레이어"
+    ]
+   }
+  ],
+  "mnemonic": "압스멀재",
+  "keywords": [
+   "압축·인코딩",
+   "스트리밍 서버",
+   "멀티캐스트 전송",
+   "재생 플레이어"
+  ]
+ },
+ {
+  "id": "ds-29",
+  "title": "웹 신디케이션(Web Syndication)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "웹사이트가 보유한 콘텐츠의 일부 또는 전부를 표준 피드 형식으로 배포해 다른 사이트·서비스가 재사용할 수 있게 하는 콘텐츠 유통 방식.",
+  "memo": "'발행 → 피드 → 구독 → 갱신' → 발·피·구·갱. 푸시 기술과 묶어 '콘텐츠를 밀어 보내는 방식'으로 함께 정리.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "발피구갱",
+    "keywords": [
+     "발행자",
+     "피드 포맷",
+     "구독자",
+     "갱신 알림"
+    ]
+   }
+  ],
+  "mnemonic": "발피구갱",
+  "keywords": [
+   "발행자",
+   "피드 포맷",
+   "구독자",
+   "갱신 알림"
+  ]
+ },
+ {
   "id": "ds-30",
   "title": "클라우드 컴퓨팅",
   "category": "디지털서비스",
@@ -16143,6 +18205,64 @@
    "자원 풀링",
    "신속한 탄력성",
    "측정 가능 서비스"
+  ]
+ },
+ {
+  "id": "ds-31",
+  "title": "IT 자원 대상/전략",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "기존 IT 자원을 클라우드로 전환할 때 업무 특성·비용·리스크를 평가해 이전 대상과 방식을 결정하는 클라우드 마이그레이션 전략 체계.",
+  "memo": "널리 쓰이는 약어 그대로 '6R'. 옮긴다(Rehost)–바꾼다(Replatform·Repurchase)–다시 짓는다(Refactor)–버린다(Retire)–남긴다(Retain) 5동사로 묶으면 빠짐없이 나온다.",
+  "sections": [
+   {
+    "label": "전략",
+    "mnemonic": "6R",
+    "keywords": [
+     "Rehost",
+     "Replatform",
+     "Repurchase",
+     "Refactor",
+     "Retire",
+     "Retain"
+    ]
+   }
+  ],
+  "mnemonic": "6R",
+  "keywords": [
+   "Rehost",
+   "Replatform",
+   "Repurchase",
+   "Refactor",
+   "Retire",
+   "Retain"
+  ]
+ },
+ {
+  "id": "ds-32",
+  "title": "Utility Computing",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "전기·수도처럼 컴퓨팅 자원을 필요한 만큼 제공하고 사용량에 비례해 과금하는 공공재형 컴퓨팅 서비스 모델.",
+  "memo": "'종량제로 자원 풀을 미터링해 온디맨드로' → 종·자·미·온. 개념(유틸리티) vs 구현(클라우드) 대비를 반드시 한 줄 넣는다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "종자미온",
+    "keywords": [
+     "종량 과금",
+     "자원 풀",
+     "미터링",
+     "온디맨드"
+    ]
+   }
+  ],
+  "mnemonic": "종자미온",
+  "keywords": [
+   "종량 과금",
+   "자원 풀",
+   "미터링",
+   "온디맨드"
   ]
  },
  {
@@ -16245,32 +18365,55 @@
   "title": "CSB",
   "category": "디지털서비스",
   "importance": "하",
-  "definition": "클라우드 서비스를 결합해 소비자의 요구에 맞는 맞춤형 서비스를 구성 및 중개",
-  "memo": "거규리모SB컴 (거버넌스·규칙·리포팅·모니터링·SLA·Biz·컴플라이언스)",
+  "definition": "다수의 클라우드 서비스를 결합·중개해 소비자 요구에 맞는 맞춤형 서비스로 구성·제공하고 운영까지 지원하는 중개 사업자 또는 플랫폼.",
+  "memo": "'거통관개커' — 거버넌스·통합·관리·개발·커뮤니티. 역할 유형은 집성/통합/맞춤화 3가지로 따로 묶어둔다.",
   "sections": [
    {
     "label": "구현기술",
-    "mnemonic": "거규리모SB컴",
+    "mnemonic": "거통관개커",
     "keywords": [
      "거버넌스",
-     "규칙",
-     "리포팅",
-     "모니터링",
-     "SLA",
-     "Biz",
-     "컴플라이언스"
+     "통합",
+     "관리",
+     "개발",
+     "커뮤니티"
     ]
    }
   ],
-  "mnemonic": "거규리모SB컴",
+  "mnemonic": "거통관개커",
   "keywords": [
    "거버넌스",
-   "규칙",
-   "리포팅",
-   "모니터링",
-   "SLA",
-   "Biz",
-   "컴플라이언스"
+   "통합",
+   "관리",
+   "개발",
+   "커뮤니티"
+  ]
+ },
+ {
+  "id": "ds-37",
+  "title": "Personal Cloud",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "개인의 데이터와 콘텐츠를 클라우드에 저장하고 어떤 기기에서든 동기화·재생·공유할 수 있게 하는 개인 중심 클라우드 서비스.",
+  "memo": "'개인 저장소를 동기화해 스트리밍하고 보안한다' → 개·동·스·보. Cloud PVR은 스트리밍 축의 대표 사례로 기억.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "개동스보",
+    "keywords": [
+     "개인 스토리지",
+     "동기화",
+     "스트리밍",
+     "보안 접근제어"
+    ]
+   }
+  ],
+  "mnemonic": "개동스보",
+  "keywords": [
+   "개인 스토리지",
+   "동기화",
+   "스트리밍",
+   "보안 접근제어"
   ]
  },
  {
@@ -16355,22 +18498,26 @@
   "title": "클라우드 스토리지 가상화",
   "category": "디지털서비스",
   "importance": "하",
-  "definition": "복잡하게 구성되어 있는 스토리지 자원들 사용하기 편하고 간단한 파일이나 볼륨 등으로 보이도록 해주는 기술",
-  "memo": "",
+  "definition": "물리적으로 분산된 이기종 스토리지 자원을 논리적으로 통합해 단일 파일·볼륨처럼 사용할 수 있게 하는 스토리지 추상화 기술.",
+  "memo": "'가상화 계층이 매핑으로 자원 풀을 관리' → 가·매·자·관. 구현 방식은 위치 3가지(서버·네트워크·스토리지) x 처리 2가지(In/Out-of-band)로 표를 그려 답안화.",
   "sections": [
    {
-    "label": "핵심 키워드",
-    "mnemonic": "",
+    "label": "구성요소",
+    "mnemonic": "가매자관",
     "keywords": [
-     "RAID구성",
-     "블록단위 가상화"
+     "가상화 계층",
+     "매핑 테이블",
+     "자원 풀",
+     "관리 콘솔"
     ]
    }
   ],
-  "mnemonic": "",
+  "mnemonic": "가매자관",
   "keywords": [
-   "RAID구성",
-   "블록단위 가상화"
+   "가상화 계층",
+   "매핑 테이블",
+   "자원 풀",
+   "관리 콘솔"
   ]
  },
  {
@@ -16612,6 +18759,33 @@
   ]
  },
  {
+  "id": "ds-50",
+  "title": "Saas 이용 가이드라인",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "이용기관이 SaaS를 도입·운영할 때 지켜야 할 공통 보안 원칙과 SaaS 환경 추가 원칙을 제시한 클라우드 보안 기준 지침.",
+  "memo": "'위험 보고 데이터 지키고 접근 막고 연속성 확보' → 위·데·접·연. 책임공유모델에서 SaaS는 이용기관 통제폭이 가장 좁다는 점이 핵심.",
+  "sections": [
+   {
+    "label": "보안 원칙",
+    "mnemonic": "위데접연",
+    "keywords": [
+     "위험관리",
+     "데이터 보호",
+     "접근통제",
+     "연속성 확보"
+    ]
+   }
+  ],
+  "mnemonic": "위데접연",
+  "keywords": [
+   "위험관리",
+   "데이터 보호",
+   "접근통제",
+   "연속성 확보"
+  ]
+ },
+ {
   "id": "ds-51",
   "title": "SecaaS(서비스 분류)",
   "category": "디지털서비스",
@@ -16720,26 +18894,53 @@
   ]
  },
  {
+  "id": "ds-56",
+  "title": "민간 클라우드 이용",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "행정·공공기관이 보유한 정보자원의 중요도 등급을 산정해 민간 클라우드 이용 가능 여부와 조건을 판단하는 전자정부법 기반 절차.",
+  "memo": "'사전검토–본검토–정책협의체–등급판정' → 사·본·정·등. 숫자는 1.6 미만이면 OK, 2.4 초과면 NO, 사이는 판단으로 외운다.",
+  "sections": [
+   {
+    "label": "절차",
+    "mnemonic": "사본정등",
+    "keywords": [
+     "사전검토",
+     "본검토",
+     "정책협의체",
+     "등급판정"
+    ]
+   }
+  ],
+  "mnemonic": "사본정등",
+  "keywords": [
+   "사전검토",
+   "본검토",
+   "정책협의체",
+   "등급판정"
+  ]
+ },
+ {
   "id": "ds-57",
   "title": "Metacloud",
   "category": "디지털서비스",
   "importance": "하",
-  "definition": "클라우드 서비스를 사용자(개발자)에 맞게 개발, 실행환경, 환경설정 등을 개발자의 요구에 맞게, 자유롭게 구성할 수 있도록 제시하는 통합 클라우드 시스템 모델",
-  "memo": "",
+  "definition": "서로 다른 클라우드를 추상화해 개발·실행환경과 환경설정을 개발자 요구에 맞게 자유롭게 구성하도록 지원하는 통합 클라우드 시스템 모델.",
+  "memo": "축이 개발/실행 2개뿐이라 두음 대신 '개발은 API와 템플릿, 실행은 프로비저닝·모니터링·프록시'로 통째 암기. CSB(중개)와의 관점 차이가 변별 포인트.",
   "sections": [
    {
-    "label": "핵심 키워드",
+    "label": "기술요소",
     "mnemonic": "",
     "keywords": [
-     "Development",
-     "Runtime"
+     "개발(Development)",
+     "실행(Runtime)"
     ]
    }
   ],
   "mnemonic": "",
   "keywords": [
-   "Development",
-   "Runtime"
+   "개발(Development)",
+   "실행(Runtime)"
   ]
  },
  {
@@ -16769,6 +18970,35 @@
    "하이브리드 클라우드",
    "프래그머틱 하이브리드 클라우드",
    "멀티 퍼블릭 클라우드"
+  ]
+ },
+ {
+  "id": "ds-59",
+  "title": "파스타(PaaS-TA)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "과학기술정보통신부와 NIA 주도로 국내 SW 기업이 참여해 개발한 개방형 오픈소스 클라우드 플랫폼(PaaS).",
+  "memo": "'인프라–실행–개발–서비스–운영' → 인·실·개·서·운. 아래(인프라)에서 위(운영)로 쌓아 올리는 스택 순서 그대로.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "인실개서운",
+    "keywords": [
+     "인프라 제어·관리",
+     "실행 환경",
+     "개발 환경",
+     "서비스 환경",
+     "운영 관리"
+    ]
+   }
+  ],
+  "mnemonic": "인실개서운",
+  "keywords": [
+   "인프라 제어·관리",
+   "실행 환경",
+   "개발 환경",
+   "서비스 환경",
+   "운영 관리"
   ]
  },
  {
@@ -17095,6 +19325,195 @@
   ]
  },
  {
+  "id": "ds-74",
+  "title": "공공부문 SaaS 이용가이드라인",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "행정·공공기관이 정보시스템을 직접 구축·구매하지 않고 민간 SaaS를 이용료 기반으로 도입·이용하도록 절차와 기준을 정리한 지침.",
+  "memo": "'기계이종' — 기획·계약·이용·종료. 세부적으로는 이용기획→이용계약준비→이용계약→이용→이용종료 5단계로 펼쳐 쓰면 된다.",
+  "sections": [
+   {
+    "label": "절차",
+    "mnemonic": "기계이종",
+    "keywords": [
+     "기획",
+     "계약",
+     "이용",
+     "종료"
+    ]
+   }
+  ],
+  "mnemonic": "기계이종",
+  "keywords": [
+   "기획",
+   "계약",
+   "이용",
+   "종료"
+  ]
+ },
+ {
+  "id": "ds-75",
+  "title": "RaaS",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "로봇 하드웨어와 제어 소프트웨어를 클라우드 기반으로 통합해 구독형·온디맨드로 제공하는 서비스형 로봇 활용 모델.",
+  "memo": "'로봇을 클라우드로 통제하고 구독한다' → 로·클·통·구. 답안 첫 줄에 Robot-as-a-Service임을 밝혀 랜섬웨어 RaaS와 구분.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "로클통구",
+    "keywords": [
+     "로봇 하드웨어",
+     "클라우드 플랫폼",
+     "통신 네트워크",
+     "구독 과금"
+    ]
+   }
+  ],
+  "mnemonic": "로클통구",
+  "keywords": [
+   "로봇 하드웨어",
+   "클라우드 플랫폼",
+   "통신 네트워크",
+   "구독 과금"
+  ]
+ },
+ {
+  "id": "ds-76",
+  "title": "주권 클라우드",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "특정 국가·지역의 법률과 규정을 준수하며 데이터에 대한 통제권을 데이터 생성 국가에 귀속시키는 클라우드 컴퓨팅 아키텍처.",
+  "memo": "'데운소' — 데이터·운영·소프트웨어 주권 3축. 통제 관점(지역·법률·접근·규제)은 3축을 떠받치는 세부 수단으로 붙여 쓴다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "데운소",
+    "keywords": [
+     "데이터 주권",
+     "운영 주권",
+     "소프트웨어 주권"
+    ]
+   }
+  ],
+  "mnemonic": "데운소",
+  "keywords": [
+   "데이터 주권",
+   "운영 주권",
+   "소프트웨어 주권"
+  ]
+ },
+ {
+  "id": "ds-77",
+  "title": "클라우드의 랜딩존",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "클라우드 도입 초기에 계정 구조·네트워크·보안·정책을 표준화해 자동 구성함으로써 확장 가능한 운영 기반을 마련하는 설계 프레임워크.",
+  "memo": "'계정–네트워크–보안–거버넌스–로깅' → 계·네·보·거·로. 집을 짓기 전 터를 닦는 작업이라는 비유로 정의를 시작하면 좋다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "계네보거로",
+    "keywords": [
+     "계정 구조",
+     "네트워크",
+     "보안",
+     "거버넌스",
+     "로깅·모니터링"
+    ]
+   }
+  ],
+  "mnemonic": "계네보거로",
+  "keywords": [
+   "계정 구조",
+   "네트워크",
+   "보안",
+   "거버넌스",
+   "로깅·모니터링"
+  ]
+ },
+ {
+  "id": "ds-78",
+  "title": "Grid Computing",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "지리적으로 분산된 이기종 컴퓨팅 자원을 네트워크로 결합해 하나의 고성능 가상 컴퓨터처럼 사용하는 분산 컴퓨팅 기술.",
+  "memo": "'가자미보' — 가상조직·자원관리·미들웨어·보안. 그리드 그물에 가자미가 걸렸다고 그림으로 기억.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "가자미보",
+    "keywords": [
+     "가상조직",
+     "자원 관리",
+     "미들웨어",
+     "보안"
+    ]
+   }
+  ],
+  "mnemonic": "가자미보",
+  "keywords": [
+   "가상조직",
+   "자원 관리",
+   "미들웨어",
+   "보안"
+  ]
+ },
+ {
+  "id": "ds-79",
+  "title": "Fabric Computing",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "서버·스토리지·네트워크를 고속 인터커넥트로 촘촘히 연결해 하나의 자원 풀처럼 유연하게 구성·운영하는 컴퓨팅 아키텍처.",
+  "memo": "'서버–스토리지–연결망–가상화' → 서·스·연·가. 그리드는 넓게 묶고 패브릭은 촘촘히 짠다(fabric=직물)로 대비하면 정의가 안 흔들린다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "서스연가",
+    "keywords": [
+     "서버 자원",
+     "스토리지",
+     "연결망",
+     "가상화 SW"
+    ]
+   }
+  ],
+  "mnemonic": "서스연가",
+  "keywords": [
+   "서버 자원",
+   "스토리지",
+   "연결망",
+   "가상화 SW"
+  ]
+ },
+ {
+  "id": "ds-80",
+  "title": "Utility Computing",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "컴퓨팅 자원을 공공 유틸리티처럼 온디맨드로 제공하고 사용량 기준으로 과금하는 컴퓨팅 패러다임.",
+  "memo": "'미터링해서 종량제로 온디맨드, 운영은 자율' → 미·종·온·자. 그리드(결합)–유틸리티(과금)–클라우드(구현) 삼각 비교를 함께 준비.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "미종온자",
+    "keywords": [
+     "미터링",
+     "종량 과금",
+     "온디맨드 제공",
+     "자율 컴퓨팅"
+    ]
+   }
+  ],
+  "mnemonic": "미종온자",
+  "keywords": [
+   "미터링",
+   "종량 과금",
+   "온디맨드 제공",
+   "자율 컴퓨팅"
+  ]
+ },
+ {
   "id": "ds-81",
   "title": "상황인식컴퓨팅",
   "category": "디지털서비스",
@@ -17132,6 +19551,33 @@
    "추론(정보 융합·추론)",
    "발견(서비스 매칭·발견)",
    "구조(미들웨어·프로토콜)"
+  ]
+ },
+ {
+  "id": "ds-82",
+  "title": "Ubiquitous Computing",
+  "category": "디지털서비스",
+  "importance": "하",
+  "definition": "사용자가 의식하지 않아도 언제 어디서나 컴퓨팅 자원과 네트워크에 접근해 서비스를 제공받는 환경 융합형 컴퓨팅 패러다임.",
+  "memo": "'센서–네트워크–미들웨어–응용' → 센·네·미·응. IoT 3계층(디바이스–네트워크–플랫폼/서비스)과 같은 골격이라 함께 외우면 두 토픽이 동시에 정리된다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "센네미응",
+    "keywords": [
+     "센서·태그",
+     "네트워크",
+     "미들웨어",
+     "응용 서비스"
+    ]
+   }
+  ],
+  "mnemonic": "센네미응",
+  "keywords": [
+   "센서·태그",
+   "네트워크",
+   "미들웨어",
+   "응용 서비스"
   ]
  },
  {
@@ -24773,22 +27219,32 @@
   "title": "베이스밴드(Baseband)",
   "category": "네트워크",
   "importance": "하",
-  "definition": "디지털 데이터를 변조하지 않고, 직류 펄수 형태로 그대로 전송하는 신호(Singnal). '기저대역 전송 이라고 부르며, 원래 정보 신호들이 있는 저주파 영역 f = 0을 포함하는",
-  "memo": "NR (NRZ·RZ)",
+  "definition": "디지털 데이터를 반송파로 변조하지 않고 직류 펄스 형태 그대로 전송하는 기저대역 전송 방식으로, f=0을 포함하는 저주파 대역을 그대로 사용한다.",
+  "memo": "유폴바 — 단극(유니폴라), 양음(폴라), 3레벨(바이폴라) 순으로 전압 레벨이 늘어난다.\n맨체스터는 비트 '중앙', 차분 맨체스터는 비트 '시작'에서 전이한다.",
   "sections": [
    {
-    "label": "Unipolar",
-    "mnemonic": "NR",
+    "label": "구성요소",
+    "mnemonic": "유폴바",
     "keywords": [
-     "NRZ",
-     "RZ"
+     "유니폴라",
+     "폴라",
+     "바이폴라"
+    ]
+   },
+   {
+    "label": "동작원리",
+    "mnemonic": "",
+    "keywords": [
+     "맨체스터",
+     "차분 맨체스터"
     ]
    }
   ],
-  "mnemonic": "NR",
+  "mnemonic": "유폴바",
   "keywords": [
-   "NRZ",
-   "RZ"
+   "유니폴라",
+   "폴라",
+   "바이폴라"
   ]
  },
  {
@@ -24907,24 +27363,101 @@
   "title": "변조(Modulation)",
   "category": "네트워크",
   "importance": "하",
-  "definition": "신호 정보를 전송 매체의 채널 특성에 맞게끔 신호(정보)의 세기나 변위, 주파수를 적절한 파형 형태로 변환하는 수정 작업",
-  "memo": "디아 베CA SK M",
+  "definition": "정보 신호를 전송매체의 채널 특성에 맞도록 반송파의 진폭·주파수·위상을 변화시켜 전송에 적합한 파형으로 바꾸는 신호 변환 기법(역과정은 복조).",
+  "memo": "아디펄 — 아날로그·디지털·펄스 세 갈래로 변조를 나눈다.\n변환 방향 4가지는 '디디·아디·디아·아아'로 짝지어 외운다.",
   "sections": [
    {
-    "label": "핵심 키워드",
-    "mnemonic": "",
+    "label": "구성요소",
+    "mnemonic": "아디펄",
     "keywords": [
      "아날로그변조",
      "디지털변조",
      "펄스변조"
     ]
+   },
+   {
+    "label": "유형",
+    "mnemonic": "",
+    "keywords": [
+     "디지털→디지털",
+     "아날로그→디지털",
+     "디지털→아날로그",
+     "아날로그→아날로그"
+    ]
    }
   ],
-  "mnemonic": "",
+  "mnemonic": "아디펄",
   "keywords": [
    "아날로그변조",
    "디지털변조",
    "펄스변조"
+  ]
+ },
+ {
+  "id": "net-8",
+  "title": "ASK",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "반송파의 진폭을 디지털 비트값에 따라 두 단계 이상으로 변화시켜 정보를 전달하는 진폭 편이 변조(Amplitude Shift Keying) 기법.",
+  "memo": "반변포 — 반송파를 변조기로 흔들고 포락선으로 되찾는다.\nASK는 '높이(진폭)', FSK는 '빠르기(주파수)', PSK는 '각도(위상)'.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "반변포",
+    "keywords": [
+     "반송파",
+     "변조기",
+     "포락선검파기"
+    ]
+   },
+   {
+    "label": "유형",
+    "mnemonic": "",
+    "keywords": [
+     "OOK",
+     "M-ary ASK"
+    ]
+   }
+  ],
+  "mnemonic": "반변포",
+  "keywords": [
+   "반송파",
+   "변조기",
+   "포락선검파기"
+  ]
+ },
+ {
+  "id": "net-9",
+  "title": "PSK(Phase Shift keying)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "반송파의 위상을 디지털 비트값에 따라 이산적으로 변화시켜 정보를 전달하는 위상 편이 변조(Phase Shift Keying) 기법.",
+  "memo": "반위동 — 반송파의 위상을 매핑하고 동기검파로 되읽는다.\nPSK는 '각도'로 정보를 싣고, QAM은 '각도+높이'를 함께 쓴다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "반위동",
+    "keywords": [
+     "반송파",
+     "위상매핑",
+     "동기검파"
+    ]
+   },
+   {
+    "label": "유형",
+    "mnemonic": "",
+    "keywords": [
+     "BPSK",
+     "QPSK",
+     "DPSK"
+    ]
+   }
+  ],
+  "mnemonic": "반위동",
+  "keywords": [
+   "반송파",
+   "위상매핑",
+   "동기검파"
   ]
  },
  {
@@ -25071,6 +27604,72 @@
   ]
  },
  {
+  "id": "net-15",
+  "title": "패킷 교환 네트워크",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "데이터를 일정 크기의 패킷으로 분할해 각 중계 노드가 저장 후 전달(Store and Forward)하며 회선을 공유해 전달하는 교환 네트워크 방식.",
+  "memo": "저공통 — 저장해서 보내고, 회선은 공유하고, 통계적으로 다중화한다.\n데이터그램은 '그때그때 길', 가상회선은 '미리 정한 길'.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "저공통",
+    "keywords": [
+     "저장 후 전달",
+     "공유",
+     "통계적 다중화"
+    ]
+   },
+   {
+    "label": "유형",
+    "mnemonic": "",
+    "keywords": [
+     "데이터그램",
+     "가상회선"
+    ]
+   }
+  ],
+  "mnemonic": "저공통",
+  "keywords": [
+   "저장 후 전달",
+   "공유",
+   "통계적 다중화"
+  ]
+ },
+ {
+  "id": "net-16",
+  "title": "회선 교환 네트워크",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "통신에 앞서 송수신자 간 전용 경로를 설정하고 통신이 끝날 때까지 그 회선을 독점(dedicated) 점유하는 전화망 기반의 교환 네트워크 방식.",
+  "memo": "설전해 — 설정하고 전송하고 해제한다.\n회선을 나누는 두 칼은 주파수(FDM)와 시간(TDM).",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "설전해",
+    "keywords": [
+     "설정",
+     "전송",
+     "해제"
+    ]
+   },
+   {
+    "label": "기술요소",
+    "mnemonic": "",
+    "keywords": [
+     "FDM",
+     "TDM"
+    ]
+   }
+  ],
+  "mnemonic": "설전해",
+  "keywords": [
+   "설정",
+   "전송",
+   "해제"
+  ]
+ },
+ {
   "id": "net-17",
   "title": "LAN",
   "category": "네트워크",
@@ -25102,22 +27701,32 @@
   "title": "MAN",
   "category": "네트워크",
   "importance": "하",
-  "definition": "대도시를 중심으로 한 통신망을 말하나, 컴퓨터 통신 분야에서 LAN의 발전 형태로서의 MAN 뿐만 아니라, 고속화 기반 기술로서의 MAN, 엑세스망과 백본망 사이의 MAN, 그리고 CATV 와 전기통신을 담당하는 네트워크 구간",
-  "memo": "거속 (전송거리·전송속도)",
+  "definition": "도시 규모(수십 km) 영역에서 다수의 LAN을 고속으로 연결해 액세스망과 백본망 사이를 담당하는 대도시 통신망(Metropolitan Area Network).",
+  "memo": "거속매 — 전송거리·전송속도·전송매체 세 축으로 MAN을 설명한다.\nDQDB는 '분산 큐 이중 버스', 지금은 Metro Ethernet이 그 자리를 대신한다.",
   "sections": [
    {
-    "label": "특징",
-    "mnemonic": "거속",
+    "label": "구성요소",
+    "mnemonic": "거속매",
     "keywords": [
-     "전송거리",
-     "전송속도"
+     "거리",
+     "속도",
+     "매체"
+    ]
+   },
+   {
+    "label": "기술요소",
+    "mnemonic": "",
+    "keywords": [
+     "DQDB",
+     "Metro Ethernet"
     ]
    }
   ],
-  "mnemonic": "거속",
+  "mnemonic": "거속매",
   "keywords": [
-   "전송거리",
-   "전송속도"
+   "거리",
+   "속도",
+   "매체"
   ]
  },
  {
@@ -25125,11 +27734,11 @@
   "title": "WAN",
   "category": "네트워크",
   "importance": "하",
-  "definition": "도시와 도시 사이, 국가와 국가 등 원격지 사이를 연결하는 통신망, 일반적으로 범위가 10km이상",
-  "memo": "전회메패 (전용선·회선교환방식·메시지 교환방식·패킷교환방식)",
+  "definition": "도시와 도시, 국가와 국가처럼 원거리(통상 10km 이상)에 분산된 네트워크를 통신사업자 회선을 통해 연결하는 광역 통신망(Wide Area Network).",
+  "memo": "전회메패 — 전용선·회선교환·메시지교환·패킷교환 순으로 WAN 방식이 발전했다.\n발전선: PSTN에서 시작해 SD-WAN/SASE로 끝난다.",
   "sections": [
    {
-    "label": "유형",
+    "label": "구성요소",
     "mnemonic": "전회메패",
     "keywords": [
      "전용선",
@@ -25145,6 +27754,39 @@
    "회선교환방식",
    "메시지 교환방식",
    "패킷교환방식"
+  ]
+ },
+ {
+  "id": "net-20",
+  "title": "WBAN",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "인체를 중심으로 3m 내외 반경에서 인체 내·외부의 의료용·비의료용 기기를 저전력으로 연결하는 무선 인체통신망(IEEE 802.15.6 기반 WBAN).",
+  "memo": "거속주 — 전송거리·전송속도·사용주파수로 WBAN 스펙을 정리한다.\n몸 '안'은 안전과 수명, 몸 '밖'은 속도가 관건.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "거속주",
+    "keywords": [
+     "거리",
+     "속도",
+     "주파수"
+    ]
+   },
+   {
+    "label": "유형",
+    "mnemonic": "",
+    "keywords": [
+     "이식형(In-body)",
+     "착용형(On-body)"
+    ]
+   }
+  ],
+  "mnemonic": "거속주",
+  "keywords": [
+   "거리",
+   "속도",
+   "주파수"
   ]
  },
  {
@@ -25277,6 +27919,56 @@
    "루트 네임서버",
    "TLD 네임서버",
    "책임 네임서버(Authoritative)"
+  ]
+ },
+ {
+  "id": "net-25",
+  "title": "EoS(Ethernet over Synchronous digital hierarchy)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "기존 SONET/SDH 전송망을 거의 손대지 않고 이더넷 프레임을 SDH 페이로드에 실어 전달하는 NG-SDH 기반 광전송 기술(Ethernet over SDH).",
+  "memo": "담고(GFP) - 묶고(VCAT) - 늘린다(LCAS). 이 세 단계로 SDH 위에 이더넷을 태운다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "GFP",
+     "VCAT",
+     "LCAS"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "GFP",
+   "VCAT",
+   "LCAS"
+  ]
+ },
+ {
+  "id": "net-26",
+  "title": "이더넷 링 보호 절체",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "순수 이더넷 링 구조에서 링크 장애 발생 시 예비 경로로 신속히 절체해 SDH/SONET 수준의 신뢰성을 제공하는 보호 절체 기술(ITU-T G.8032, ERPS).",
+  "memo": "평소엔 RPL을 막아 루프를 없애고, 장애가 나면 R-APS로 알려 RPL을 연다 — '막아두었다 연다'로 기억.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "RPL",
+     "RPL 소유자 노드",
+     "R-APS 메시지"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "RPL",
+   "RPL 소유자 노드",
+   "R-APS 메시지"
   ]
  },
  {
@@ -25450,6 +28142,106 @@
   ]
  },
  {
+  "id": "net-33",
+  "title": "Unicast",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "하나의 송신자가 특정한 하나의 수신자에게만 패킷을 전달하는 1:1 통신 방식으로, 목적지 주소가 단일 인터페이스를 지시한다.",
+  "memo": "송수주 — 송신자와 수신자를 주소 하나로 1:1 연결한다.\n하나-그룹-전체-최근접 = 유니·멀티·브로드·애니.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "송수주",
+    "keywords": [
+     "송신자",
+     "수신자",
+     "주소"
+    ]
+   }
+  ],
+  "mnemonic": "송수주",
+  "keywords": [
+   "송신자",
+   "수신자",
+   "주소"
+  ]
+ },
+ {
+  "id": "net-34",
+  "title": "Broadcast",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "송신자가 자신이 속한 네트워크 세그먼트의 모든 호스트에게 동일한 패킷을 전달하는 1:다(불특정 다수) 통신 방식.",
+  "memo": "제직도 — 제한(255.255.255.255)·직접(호스트비트 전부 1)·도메인(VLAN 경계) 세 가지로 정리.\nARP는 '물어볼 땐 브로드캐스트, 답할 땐 유니캐스트'.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "제직도",
+    "keywords": [
+     "제한 브로드캐스트",
+     "직접 브로드캐스트",
+     "도메인"
+    ]
+   }
+  ],
+  "mnemonic": "제직도",
+  "keywords": [
+   "제한 브로드캐스트",
+   "직접 브로드캐스트",
+   "도메인"
+  ]
+ },
+ {
+  "id": "net-35",
+  "title": "Incast",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "다수의 송신 노드가 하나의 수신 노드로 동시에 응답을 보내 스위치 출력 버퍼가 순간적으로 고갈되고 처리량이 급락하는 다대일 트래픽 패턴 및 성능 저하 현상(TCP Incast).",
+  "memo": "동버타 — 동시에 몰리고(동시전송), 버퍼가 넘치고(오버플로), 타임아웃으로 무너진다.\n원본의 '여러 수신자가 하나의 송신자로부터'는 오류이며, 다대일(다수 송신 → 단일 수신)이 정확하다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "동버타",
+    "keywords": [
+     "동시전송",
+     "버퍼오버플로",
+     "타임아웃"
+    ]
+   }
+  ],
+  "mnemonic": "동버타",
+  "keywords": [
+   "동시전송",
+   "버퍼오버플로",
+   "타임아웃"
+  ]
+ },
+ {
+  "id": "net-36",
+  "title": "Overay Multicast",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "라우터의 IP 멀티캐스트 지원 없이 종단 호스트들이 응용계층에서 논리적 오버레이 트리를 구성하고 유니캐스트 링크로 데이터를 복제·전달하는 멀티캐스트 기법(ALM).",
+  "memo": "노트제 — 노드가 트리를 만들고 제어로 유지한다.\n라우터가 못 해주면 호스트끼리 트리를 짜서 나른다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "노트제",
+    "keywords": [
+     "노드",
+     "트리",
+     "제어"
+    ]
+   }
+  ],
+  "mnemonic": "노트제",
+  "keywords": [
+   "노드",
+   "트리",
+   "제어"
+  ]
+ },
+ {
   "id": "net-37",
   "title": "OSI 7 Layers",
   "category": "네트워크",
@@ -25500,22 +28292,21 @@
   "title": "Application(7)",
   "category": "네트워크",
   "importance": "하",
-  "definition": "사용자, 즉 단말기를 조작하는 사람이나 데이터 통신 서비스를 수행하는 프로그램 등에 여러 서비스를 제공하는 역할",
-  "memo": "사LU입 (사용자 연결·L7스위치·UI·입출력)\nHDSTSD (HTTP·DNS·SMTP·Telnet·SIP·DHCP)",
+  "definition": "OSI 7계층의 최상위로, 사용자·응용 프로그램에 네트워크 서비스 인터페이스를 제공하고 응용 간 데이터 교환 규약을 정의하는 계층.",
+  "memo": "사응입 — 사용자 서비스, 응용 프로토콜, 입출력 인터페이스.\n프로토콜은 웹(HTTP)·이름(DNS)·메일(SMTP)·원격(Telnet)·통화(SIP)·주소할당(DHCP) 순으로 용도별로 외운다.",
   "sections": [
    {
-    "label": "특징",
-    "mnemonic": "사LU입",
+    "label": "구성요소",
+    "mnemonic": "사응입",
     "keywords": [
-     "사용자 연결",
-     "L7스위치",
-     "UI",
-     "입출력"
+     "사용자 서비스",
+     "응용 프로토콜",
+     "입출력 인터페이스"
     ]
    },
    {
     "label": "프로토콜",
-    "mnemonic": "HDSTSD",
+    "mnemonic": "",
     "keywords": [
      "HTTP",
      "DNS",
@@ -25526,12 +28317,11 @@
     ]
    }
   ],
-  "mnemonic": "사LU입",
+  "mnemonic": "사응입",
   "keywords": [
-   "사용자 연결",
-   "L7스위치",
-   "UI",
-   "입출력"
+   "사용자 서비스",
+   "응용 프로토콜",
+   "입출력 인터페이스"
   ]
  },
  {
@@ -25568,26 +28358,36 @@
   "title": "Presentation(6)",
   "category": "네트워크",
   "importance": "하",
-  "definition": "압축,암호화 기능을 하며,응용 계층 간에 전송하는 데이터의 표현을 담당하는 OSI 기본 참조 모델의 7계층 중 6 계층",
-  "memo": "MSIS (MIME·SMTP·IMAP·SSL)",
+  "definition": "응용 계층이 주고받는 데이터의 구문(Syntax)을 상호 이해 가능한 형식으로 변환하고 압축·암호화를 담당하는 OSI 6계층.",
+  "memo": "번암압코 — 번역하고 암호화하고 압축하고 코드변환한다.\n표현 계층은 '어떻게 보이게 할 것인가'를 책임진다.",
   "sections": [
    {
+    "label": "구성요소",
+    "mnemonic": "번암압코",
+    "keywords": [
+     "번역",
+     "암호화",
+     "압축",
+     "코드변환"
+    ]
+   },
+   {
     "label": "프로토콜",
-    "mnemonic": "MSIS",
+    "mnemonic": "",
     "keywords": [
      "MIME",
      "SMTP",
      "IMAP",
-     "SSL"
+     "SSL/TLS"
     ]
    }
   ],
-  "mnemonic": "MSIS",
+  "mnemonic": "번암압코",
   "keywords": [
-   "MIME",
-   "SMTP",
-   "IMAP",
-   "SSL"
+   "번역",
+   "암호화",
+   "압축",
+   "코드변환"
   ]
  },
  {
@@ -25595,20 +28395,22 @@
   "title": "Session(5)",
   "category": "네트워크",
   "importance": "하",
-  "definition": "응용프로그램 간의 대화를 유지하기 위한 구조 제공, 이를 처리하기 위해 프로세서들을 논리적 연결 담당",
-  "memo": "동대 (동기화·대화)\nNRW (NetBIOS·RPC·Winsock)",
+  "definition": "두 응용 프로세스 간 대화(Session)를 설정·유지·동기화·종료하며 논리적 연결을 관리하는 OSI 5계층.",
+  "memo": "설동대종 — 설정하고 동기화하고 대화를 제어하다 종료한다.\n동기점 덕분에 '끊긴 곳부터' 다시 시작한다.",
   "sections": [
    {
-    "label": "특징",
-    "mnemonic": "동대",
+    "label": "구성요소",
+    "mnemonic": "설동대종",
     "keywords": [
+     "설정",
      "동기화",
-     "대화"
+     "대화제어",
+     "종료"
     ]
    },
    {
     "label": "프로토콜",
-    "mnemonic": "NRW",
+    "mnemonic": "",
     "keywords": [
      "NetBIOS",
      "RPC",
@@ -25616,10 +28418,12 @@
     ]
    }
   ],
-  "mnemonic": "동대",
+  "mnemonic": "설동대종",
   "keywords": [
+   "설정",
    "동기화",
-   "대화"
+   "대화제어",
+   "종료"
   ]
  },
  {
@@ -25757,51 +28561,45 @@
   "title": "Physical Layer(물리 계층, 1계층)",
   "category": "네트워크",
   "importance": "하",
-  "definition": "OSI 계층을 타고 내려온 데이터를 전기적 신호로 변환시켜 통신하는 계층 ( Encoding, Decoding 수행)",
-  "memo": "ETEVBBB (EIA·TIA-232·EIA-449·V.35·Base-2·Base-5·Base-T)\nsbrtm (star·bus·ring·tree·mesh)\n허리 (허브·리피터)",
+  "definition": "상위 계층에서 내려온 비트열을 전기·광·전파 신호로 변환해 물리 매체 위로 송수신하는 OSI 최하위 계층(Encoding/Decoding 수행).",
+  "memo": "기전기절 — 기계적·전기적·기능적·절차적 4대 특성.\n성버링트망 — 성형·버스·링·트리·망형 순으로 토폴로지를 훑는다.",
   "sections": [
    {
-    "label": "프로토콜",
-    "mnemonic": "ETEVBBB",
+    "label": "구성요소",
+    "mnemonic": "기전기절",
     "keywords": [
-     "EIA",
-     "TIA-232",
-     "EIA-449",
-     "V.35",
-     "Base-2",
-     "Base-5",
-     "Base-T"
+     "기계적 특성",
+     "전기적 특성",
+     "기능적 특성",
+     "절차적 특성"
     ]
    },
    {
-    "label": "토폴리지",
-    "mnemonic": "sbrtm",
+    "label": "토폴로지",
+    "mnemonic": "성버링트망",
     "keywords": [
-     "star",
-     "bus",
-     "ring",
-     "tree",
-     "mesh"
+     "성형",
+     "버스",
+     "링",
+     "트리",
+     "망형"
     ]
    },
    {
     "label": "장비",
-    "mnemonic": "허리",
+    "mnemonic": "",
     "keywords": [
      "허브",
      "리피터"
     ]
    }
   ],
-  "mnemonic": "ETEVBBB",
+  "mnemonic": "기전기절",
   "keywords": [
-   "EIA",
-   "TIA-232",
-   "EIA-449",
-   "V.35",
-   "Base-2",
-   "Base-5",
-   "Base-T"
+   "기계적 특성",
+   "전기적 특성",
+   "기능적 특성",
+   "절차적 특성"
   ]
  },
  {
@@ -25809,28 +28607,38 @@
   "title": "Service Primitive(프리미티브)",
   "category": "네트워크",
   "importance": "하",
-  "definition": "OSI 기본 참조 모델에서, 서비스 이용자와 제공자간 상호 동작하는 서비스에 주안점을 규정한 추상적인 개념",
-  "memo": "SPPII (SDU·PCI·PDU·ICI·IDU(경계)",
+  "definition": "OSI 참조모델에서 인접 계층의 서비스 이용자와 제공자가 주고받는 상호작용을 추상화해 규정한 최소 단위의 서비스 원시(Primitive) 개념.",
+  "memo": "요지응확 — 요구·지시·응답·확인 4단계로 계층 간 대화가 오간다.\nPDU는 SDU+PCI(수평), IDU는 SDU+ICI(수직 경계)로 구분해 외운다.",
   "sections": [
    {
-    "label": "매커니즘",
-    "mnemonic": "SPPII",
+    "label": "구성요소",
+    "mnemonic": "요지응확",
+    "keywords": [
+     "요구(Request)",
+     "지시(Indication)",
+     "응답(Response)",
+     "확인(Confirm)"
+    ]
+   },
+   {
+    "label": "데이터 단위",
+    "mnemonic": "",
     "keywords": [
      "SDU",
      "PCI",
      "PDU",
      "ICI",
-     "IDU(경계"
+     "IDU",
+     "SAP"
     ]
    }
   ],
-  "mnemonic": "SPPII",
+  "mnemonic": "요지응확",
   "keywords": [
-   "SDU",
-   "PCI",
-   "PDU",
-   "ICI",
-   "IDU(경계"
+   "요구(Request)",
+   "지시(Indication)",
+   "응답(Response)",
+   "확인(Confirm)"
   ]
  },
  {
@@ -26268,32 +29076,67 @@
   ]
  },
  {
+  "id": "net-61",
+  "title": "네이글 알고리즘",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "작은 데이터를 즉시 보내지 않고 버퍼에 모았다가 직전 전송분의 ACK가 도착하면 한 번에 전송해 소형 패킷 남발을 억제하는 TCP 송신측 최적화 알고리즘(RFC 896).",
+  "memo": "축대전 — 축적하고 대기하다 한꺼번에 전송한다.\n지연 ACK와 만나면 서로 기다리다 늦어진다 → TCP_NODELAY.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "축대전",
+    "keywords": [
+     "축적",
+     "대기",
+     "전송"
+    ]
+   }
+  ],
+  "mnemonic": "축대전",
+  "keywords": [
+   "축적",
+   "대기",
+   "전송"
+  ]
+ },
+ {
   "id": "net-62",
   "title": "RTP",
   "category": "네트워크",
   "importance": "하",
-  "definition": "오디오나 비디오 같은 실시간 스트림 데이터를 전송하기 위한 표준화된 End-toEnd 프로토콜",
-  "memo": "S응RRQ (SIP·응용계층·RTP·RTCP·QoS감시)",
+  "definition": "오디오·비디오 같은 실시간 스트림 데이터를 주로 UDP 위에서 순서번호·타임스탬프와 함께 전달하는 종단 간 실시간 전송 프로토콜(RFC 3550).",
+  "memo": "버페순타동 — 버전·페이로드타입·순서번호·타임스탬프·동기화식별자 순으로 RTP 헤더를 읽는다.\n호는 SIP, 전송은 RTP, 감시는 RTCP, 제어는 RTSP.",
   "sections": [
    {
-    "label": "구성",
-    "mnemonic": "S응RRQ",
+    "label": "구성요소",
+    "mnemonic": "버페순타동",
+    "keywords": [
+     "버전",
+     "페이로드타입",
+     "순서번호",
+     "타임스탬프",
+     "동기화식별자"
+    ]
+   },
+   {
+    "label": "관련 프로토콜",
+    "mnemonic": "",
     "keywords": [
      "SIP",
-     "응용계층",
      "RTP",
      "RTCP",
-     "QoS감시"
+     "RTSP"
     ]
    }
   ],
-  "mnemonic": "S응RRQ",
+  "mnemonic": "버페순타동",
   "keywords": [
-   "SIP",
-   "응용계층",
-   "RTP",
-   "RTCP",
-   "QoS감시"
+   "버전",
+   "페이로드타입",
+   "순서번호",
+   "타임스탬프",
+   "동기화식별자"
   ]
  },
  {
@@ -26328,30 +29171,35 @@
   "title": "IGMP",
   "category": "네트워크",
   "importance": "하",
-  "definition": "멀티캐스트 그룹에 대한 가입/탈퇴 기능에 대한 매커니즘을 제공하는 프로토콜",
-  "memo": "가감응탈",
+  "definition": "IPv4 호스트와 인접 멀티캐스트 라우터 간에 멀티캐스트 그룹의 가입·유지·탈퇴를 관리하는 그룹 관리 프로토콜(IGMP).",
+  "memo": "가조연탈 — 가입하고, 조사받고, 연속 유지하다, 탈퇴한다.\n라우터는 Query로 묻고 호스트는 Report로 답한다.",
   "sections": [
    {
-    "label": "핵심 키워드",
+    "label": "구성요소",
+    "mnemonic": "가조연탈",
+    "keywords": [
+     "가입",
+     "조사",
+     "연속",
+     "탈퇴"
+    ]
+   },
+   {
+    "label": "메시지 구조",
     "mnemonic": "",
     "keywords": [
-     "호스트 구성원 보고서",
-     "호스트 구성원 쿼리",
-     "그룹 탈퇴",
      "Type",
-     "Max Resp time",
+     "Max Resp Time",
      "Group Address"
     ]
    }
   ],
-  "mnemonic": "",
+  "mnemonic": "가조연탈",
   "keywords": [
-   "호스트 구성원 보고서",
-   "호스트 구성원 쿼리",
-   "그룹 탈퇴",
-   "Type",
-   "Max Resp time",
-   "Group Address"
+   "가입",
+   "조사",
+   "연속",
+   "탈퇴"
   ]
  },
  {
@@ -26359,22 +29207,22 @@
   "title": "RTP, RTSP, RTCP",
   "category": "네트워크",
   "importance": "하",
-  "definition": "RTP의 송수신과 관련 멀티미디어 세션 참여자들이 QoS관련 정보(패킷지연, 패킷손실, 지터 등)를 주기적으로 교환하도록 하는 프로토콜",
-  "memo": "",
+  "definition": "RTP 세션 참여자들이 패킷 손실·지터·왕복지연 등 QoS 정보를 담은 제어 패킷을 주기적으로 교환해 전송 품질을 감시·조정하는 제어 프로토콜(RFC 3550, 구 RFC 1889).",
+  "memo": "품망흐 — 품질을 보고하고, 망을 제어하고, 흐름을 조절한다.\nRTP는 짝수 포트, RTCP는 홀수 포트, 대역은 5% 이내.",
   "sections": [
    {
-    "label": "핵심 키워드",
-    "mnemonic": "",
+    "label": "구성요소",
+    "mnemonic": "품망흐",
     "keywords": [
-     "주기적 품질정보 멀티캐스팅",
+     "품질보고",
      "망제어",
      "흐름제어"
     ]
    }
   ],
-  "mnemonic": "",
+  "mnemonic": "품망흐",
   "keywords": [
-   "주기적 품질정보 멀티캐스팅",
+   "품질보고",
    "망제어",
    "흐름제어"
   ]
@@ -26825,6 +29673,43 @@
    "임베디드형",
    "테더드형",
    "통합형"
+  ]
+ },
+ {
+  "id": "net-81",
+  "title": "IoV",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "차량을 지능형 통신 노드로 삼아 차량·인프라·보행자·네트워크를 연결하고 주행 데이터를 수집·공유해 지능형 서비스를 제공하는 차량 사물인터넷(Internet of Vehicles).",
+  "memo": "차인통서 — 차량단말·인프라·통신망·서비스플랫폼 네 축.\nV2V·V2I·V2P·V2N을 묶으면 V2X.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "차인통서",
+    "keywords": [
+     "차량단말",
+     "인프라",
+     "통신망",
+     "서비스플랫폼"
+    ]
+   },
+   {
+    "label": "유형",
+    "mnemonic": "",
+    "keywords": [
+     "V2V",
+     "V2I",
+     "V2P",
+     "V2N"
+    ]
+   }
+  ],
+  "mnemonic": "차인통서",
+  "keywords": [
+   "차량단말",
+   "인프라",
+   "통신망",
+   "서비스플랫폼"
   ]
  },
  {
@@ -27875,6 +30760,74 @@
   ]
  },
  {
+  "id": "net-117",
+  "title": "D2D",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "기지국이나 AP를 경유하지 않고 근접한 단말끼리 직접 무선 링크를 맺어 데이터를 주고받는 단말 간 직접 통신 기술(Device to Device).",
+  "memo": "발설통 — 발견하고 설정하고 통신한다.\n기지국이 죽어도 단말끼리 살아남는 통신이 D2D.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "발설통",
+    "keywords": [
+     "발견",
+     "설정",
+     "통신"
+    ]
+   },
+   {
+    "label": "유형",
+    "mnemonic": "",
+    "keywords": [
+     "네트워크 제어형",
+     "자율형"
+    ]
+   }
+  ],
+  "mnemonic": "발설통",
+  "keywords": [
+   "발견",
+   "설정",
+   "통신"
+  ]
+ },
+ {
+  "id": "net-118",
+  "title": "소물인터넷",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "저성능·저전력 소형 기기(소물)가 소량의 데이터를 저비용 광역 무선망으로 주고받도록 구성한 IoT 서비스 형태(Internet of Small Things).",
+  "memo": "저소광 — 저전력으로 소량 데이터를 광역에 보낸다.\n비면허는 LoRa/Sigfox, 면허는 NB-IoT/LTE-M.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "저소광",
+    "keywords": [
+     "저전력",
+     "소량데이터",
+     "광역커버리지"
+    ]
+   },
+   {
+    "label": "기술요소",
+    "mnemonic": "",
+    "keywords": [
+     "LoRa",
+     "Sigfox",
+     "NB-IoT",
+     "LTE-M"
+    ]
+   }
+  ],
+  "mnemonic": "저소광",
+  "keywords": [
+   "저전력",
+   "소량데이터",
+   "광역커버리지"
+  ]
+ },
+ {
   "id": "net-119",
   "title": "V2X",
   "category": "네트워크",
@@ -27961,6 +30914,39 @@
    "TBRPF",
    "DSDV",
    "CGSR"
+  ]
+ },
+ {
+  "id": "net-122",
+  "title": "Itinerary Routing",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "모바일 에이전트가 방문할 센서 노드의 순회 경로(Itinerary)를 결정하고, 그 경로를 따라 이동하며 데이터를 수집·융합하는 무선 센서망 라우팅 기법.",
+  "memo": "에순융 — 에이전트가 순회경로를 돌며 융합한다.\n데이터를 부르는 대신 코드가 찾아간다는 발상이 핵심.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "에순융",
+    "keywords": [
+     "에이전트",
+     "순회경로",
+     "융합"
+    ]
+   },
+   {
+    "label": "유형",
+    "mnemonic": "",
+    "keywords": [
+     "정적 순회계획",
+     "동적 순회계획"
+    ]
+   }
+  ],
+  "mnemonic": "에순융",
+  "keywords": [
+   "에이전트",
+   "순회경로",
+   "융합"
   ]
  },
  {
@@ -28781,6 +31767,33 @@
   ]
  },
  {
+  "id": "net-152",
+  "title": "Wi-Fi Direct",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "AP(무선공유기)를 거치지 않고 Wi-Fi를 탑재한 기기끼리 직접 연결·통신하도록 Wi-Fi Alliance가 정의한 P2P 근거리 무선 접속 기술.",
+  "memo": "'탐색해서 협상하고 보안 걸고 전송한다' → 탐·협·보·전. 선출된 그룹 오너가 소프트AP 노릇을 한다는 점이 핵심.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "탐협보전",
+    "keywords": [
+     "탐색",
+     "협상",
+     "보안",
+     "전송"
+    ]
+   }
+  ],
+  "mnemonic": "탐협보전",
+  "keywords": [
+   "탐색",
+   "협상",
+   "보안",
+   "전송"
+  ]
+ },
+ {
   "id": "net-153",
   "title": "Wi-SUN",
   "category": "네트워크",
@@ -28860,6 +31873,87 @@
   ]
  },
  {
+  "id": "net-156",
+  "title": "펨토셀",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "가정·소규모 사무실에 설치해 기존 유선 인터넷 회선을 백홀로 사용하는 출력 수십 mW급 초소형 이동통신 기지국(스몰셀의 최소 단위).",
+  "memo": "'펨토셀은 백홀 물고 보안 걸고 관리받는다' → 펨·백·보·관. 셀 크기는 매·마·피·펨 순으로 작아진다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "펨백보관",
+    "keywords": [
+     "펨토 기지국",
+     "백홀 회선",
+     "보안 게이트웨이",
+     "관리 시스템"
+    ]
+   }
+  ],
+  "mnemonic": "펨백보관",
+  "keywords": [
+   "펨토 기지국",
+   "백홀 회선",
+   "보안 게이트웨이",
+   "관리 시스템"
+  ]
+ },
+ {
+  "id": "net-157",
+  "title": "CAPEX(Capital expenditures)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "설비·장비·건물 등 내용연수가 긴 자산의 취득·개선에 투입되어 자산으로 계상된 뒤 감가상각으로 비용화되는 자본적 지출.",
+  "memo": "'사면 CAPEX, 쓰면 OPEX' — 사서 자산으로 남으면 자본적 지출, 써서 사라지면 운영비. 클라우드는 CAPEX를 OPEX로 바꾸는 선택이다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "설비 취득비",
+     "구축·설치비",
+     "감가상각",
+     "투자 회수"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "설비 취득비",
+   "구축·설치비",
+   "감가상각",
+   "투자 회수"
+  ]
+ },
+ {
+  "id": "net-158",
+  "title": "FMC",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "유선망과 이동통신망을 하나의 단말·번호·요금체계로 묶어 장소에 관계없이 끊김 없는 통신을 제공하는 유무선 통합 서비스.",
+  "memo": "'단번에 요이(準備)!' → 단말·번호·요금·이동성 네 가지를 하나로 합치면 FMC. 유선을 아예 없애면 FMS.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "단번요이",
+    "keywords": [
+     "단말 통합",
+     "번호 통합",
+     "요금 통합",
+     "이동성 보장"
+    ]
+   }
+  ],
+  "mnemonic": "단번요이",
+  "keywords": [
+   "단말 통합",
+   "번호 통합",
+   "요금 통합",
+   "이동성 보장"
+  ]
+ },
+ {
   "id": "net-159",
   "title": "인지무선기술(CR)",
   "category": "네트워크",
@@ -28884,6 +31978,33 @@
    "관리(Spectrum Management)",
    "공유(Spectrum Sharing)",
    "이동성(Spectrum Mobility)"
+  ]
+ },
+ {
+  "id": "net-160",
+  "title": "3GPP",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "GSM·WCDMA·LTE·5G NR 등 비동기식 계열 이동통신 규격을 제정하기 위해 유럽 ETSI를 포함한 지역 표준화기관들이 결성한 국제 표준화 협력체(1998년 설립).",
+  "memo": "3GPP는 RAN(무선)·SA(서비스)·CT(코어와 단말) 세 TSG가 굴리고, 결과는 Release 번호로 나온다. R8=LTE, R15=5G NR, R18부터 5G-Advanced로 기억.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "TSG RAN",
+     "TSG SA",
+     "TSG CT",
+     "Release 체계"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "TSG RAN",
+   "TSG SA",
+   "TSG CT",
+   "Release 체계"
   ]
  },
  {
@@ -28997,6 +32118,33 @@
   ]
  },
  {
+  "id": "net-165",
+  "title": "Smart Antenna",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "여러 안테나 소자의 진폭·위상을 조절해 원하는 방향으로 빔을 집중하고 간섭 방향은 억제하여 용량과 커버리지를 높이는 지능형 안테나 기술.",
+  "memo": "'안(테나)에서 빔 쏘고 송(신)하고 보(정)한다' → 안·빔·송·보. 보정이 틀어지면 빔이 엉뚱한 데로 간다는 점이 포인트.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "안빔송보",
+    "keywords": [
+     "안테나 어레이",
+     "빔 형성기",
+     "송수신부",
+     "보정부"
+    ]
+   }
+  ],
+  "mnemonic": "안빔송보",
+  "keywords": [
+   "안테나 어레이",
+   "빔 형성기",
+   "송수신부",
+   "보정부"
+  ]
+ },
+ {
   "id": "net-166",
   "title": "멀티캐리어(Multi Carrier)",
   "category": "네트워크",
@@ -29046,6 +32194,31 @@
    "인접결합",
    "비인접결합",
    "대역간결합"
+  ]
+ },
+ {
+  "id": "net-168",
+  "title": "CoMP",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "인접한 다수 전송점(기지국)이 서로 협력해 동일 단말과 송수신함으로써 셀 경계 간섭을 유용한 신호로 전환하는 LTE-A 협력 통신 기술.",
+  "memo": "기지국들의 '협동(協同) 결(속)' → 협력스케줄링·동적점선택·결합전송. 협력의 대가는 백홀 지연과 동기 정밀도다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "협동결",
+    "keywords": [
+     "협력 스케줄링/빔포밍",
+     "동적 점 선택",
+     "결합 전송"
+    ]
+   }
+  ],
+  "mnemonic": "협동결",
+  "keywords": [
+   "협력 스케줄링/빔포밍",
+   "동적 점 선택",
+   "결합 전송"
   ]
  },
  {
@@ -29103,6 +32276,87 @@
   ]
  },
  {
+  "id": "net-171",
+  "title": "VoLTE",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "LTE 패킷망 위에서 IMS를 이용해 음성을 전용 QoS 베어러로 전달하여 통화 품질을 보장하는 All-IP 음성통화 기술.",
+  "memo": "'호응(呼應)해야 코어가 품질을 준다' → 호제어(SIP)·응용(MMTel)·코어(IMS)·품질(전용 베어러). mVoIP와의 결정적 차이는 QoS 보장.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "호응코품",
+    "keywords": [
+     "호 제어",
+     "응용 계층",
+     "코어망",
+     "품질 보장"
+    ]
+   }
+  ],
+  "mnemonic": "호응코품",
+  "keywords": [
+   "호 제어",
+   "응용 계층",
+   "코어망",
+   "품질 보장"
+  ]
+ },
+ {
+  "id": "net-172",
+  "title": "IMS",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "SIP를 기반으로 음성·영상·메시징 등 멀티미디어 서비스를 접속망 종류와 무관하게 제공하는 All-IP 서비스 제어 아키텍처.",
+  "memo": "'호(呼)를 걸면 가(입자) 확인하고 응(용) 붙이고 밖과 연(동)한다' → 호·가·응·연. CSCF는 IMS의 교환기, HSS는 주민등록부.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "호가응연",
+    "keywords": [
+     "호 세션 제어",
+     "가입자 정보",
+     "응용 서버",
+     "연동 게이트웨이"
+    ]
+   }
+  ],
+  "mnemonic": "호가응연",
+  "keywords": [
+   "호 세션 제어",
+   "가입자 정보",
+   "응용 서버",
+   "연동 게이트웨이"
+  ]
+ },
+ {
+  "id": "net-173",
+  "title": "LTE-A(Advance)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "LTE Release 10 이후 반송파 집성과 확장 MIMO 등을 도입해 IMT-Advanced 요구사항을 충족시킨 4세대 고도화 이동통신 기술.",
+  "memo": "'중간에서 주다' → 중계기·간섭조정·주파수집성·다중안테나. 핵심 한 방은 역시 CA(주파수 묶기).",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "중간주다",
+    "keywords": [
+     "중계기",
+     "간섭 조정",
+     "주파수 집성",
+     "다중안테나"
+    ]
+   }
+  ],
+  "mnemonic": "중간주다",
+  "keywords": [
+   "중계기",
+   "간섭 조정",
+   "주파수 집성",
+   "다중안테나"
+  ]
+ },
+ {
   "id": "net-174",
   "title": "LTE-U",
   "category": "네트워크",
@@ -29127,6 +32381,60 @@
    "비면허 보조 캐리어",
    "공존 제어",
    "캐리어 결합(CA)"
+  ]
+ },
+ {
+  "id": "net-175",
+  "title": "LWA",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "LTE 면허대역과 Wi-Fi 비면허대역 링크를 PDCP 계층에서 병합 전송해 사용자 처리율을 높이는 3GPP Release 13 기반 LTE-WiFi 결합 기술.",
+  "memo": "LTE가 주인, Wi-Fi는 보조. PDCP에서 갈라 보내고 단말에서 합친다는 한 줄이 LWA의 전부다. LAA는 아예 Wi-Fi 대역을 LTE로 쓰는 방식이라 구분할 것.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "기지국",
+     "무선랜 종단",
+     "계층 병합",
+     "측정·제어"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "기지국",
+   "무선랜 종단",
+   "계층 병합",
+   "측정·제어"
+  ]
+ },
+ {
+  "id": "net-176",
+  "title": "LTE-LAA = LTE-U 혼용사용",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "면허대역을 앵커로 두고 5GHz 비면허대역을 보조 반송파로 집성해 전송하되, LBT로 Wi-Fi와 공존하도록 규정한 3GPP Release 13 기술(LTE-U의 표준화 형태).",
+  "memo": "'먼저 듣고 말하라(LBT)'가 핵심. 면허대역은 집주인, 5GHz는 세 들어 사는 셋방이라 Wi-Fi와 예의를 지켜야 한다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "면허대역 앵커",
+     "비면허 보조대역",
+     "청취 후 전송",
+     "적응 전송"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "면허대역 앵커",
+   "비면허 보조대역",
+   "청취 후 전송",
+   "적응 전송"
   ]
  },
  {
@@ -29155,6 +32463,33 @@
   ]
  },
  {
+  "id": "net-180",
+  "title": "e내비게이션(e-Navigation)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "선박과 육상의 항해 정보를 디지털로 수집·통합·교환해 해양 사고를 줄이고 항만 운영 효율을 높이는 IMO 주도의 차세대 해양안전 종합관리체계.",
+  "memo": "'선(박)과 육(상)을 통(신)으로 잇고 정(보)을 표준화한다' → 선·육·통·정. 표준의 이름은 S-100으로 외운다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "선육통정",
+    "keywords": [
+     "선박 시스템",
+     "육상 시스템",
+     "통신 인프라",
+     "정보 표준"
+    ]
+   }
+  ],
+  "mnemonic": "선육통정",
+  "keywords": [
+   "선박 시스템",
+   "육상 시스템",
+   "통신 인프라",
+   "정보 표준"
+  ]
+ },
+ {
   "id": "net-181",
   "title": "국가재난안전통신망",
   "category": "네트워크",
@@ -29177,6 +32512,87 @@
    "ProSe(단말 직접통신)",
    "IOPS(고립 기지국 운영)",
    "우선순위·선점"
+  ]
+ },
+ {
+  "id": "net-182",
+  "title": "TRS(TETRA, IDEN)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "한정된 무선 채널을 다수 이용자가 공유하며 그룹통화·즉시통화(PTT)를 제공하는 주파수공용통신 방식의 업무용 무선망.",
+  "memo": "'통제 중단'되면 안 되는 망 → 통화그룹·제어채널·중계국·단말. 지금은 PS-LTE로 넘어가고 TRS는 백업 역할.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "통제중단",
+    "keywords": [
+     "통화그룹",
+     "제어채널",
+     "중계국",
+     "단말"
+    ]
+   }
+  ],
+  "mnemonic": "통제중단",
+  "keywords": [
+   "통화그룹",
+   "제어채널",
+   "중계국",
+   "단말"
+  ]
+ },
+ {
+  "id": "net-183",
+  "title": "상호운용성",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "서로 다른 사업자망·기술방식의 시스템이 표준 인터페이스와 절차를 통해 정보를 교환하고 그 정보를 함께 활용할 수 있는 능력.",
+  "memo": "'기구(機構)의 조(組)립' → 기술·구문·의미·조직 네 층위. 선을 잇는 것은 기술, 말이 통하게 하는 것은 의미다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "기구의조",
+    "keywords": [
+     "기술적",
+     "구문적",
+     "의미적",
+     "조직적"
+    ]
+   }
+  ],
+  "mnemonic": "기구의조",
+  "keywords": [
+   "기술적",
+   "구문적",
+   "의미적",
+   "조직적"
+  ]
+ },
+ {
+  "id": "net-184",
+  "title": "저궤도 위성 기반 재난안전통신망(가칭 PS Satcomm)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "지상 PS-LTE가 닿지 않는 음영·재난 지역을 저궤도(LEO) 위성으로 보완해 공공안전 기관 간 끊김 없는 통신을 제공하는 위성 기반 전용 재난안전통신망.",
+  "memo": "지상망이 끊기면 하늘이 받는다. LEO가 음영을 메우고, 슬라이싱으로 우선순위를 주고, 보안은 양자암호까지 검토한다는 흐름으로 기억.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "저궤도 위성망",
+     "지상 연동",
+     "겸용 단말",
+     "우선순위 보장"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "저궤도 위성망",
+   "지상 연동",
+   "겸용 단말",
+   "우선순위 보장"
   ]
  },
  {
@@ -29520,6 +32936,60 @@
   ]
  },
  {
+  "id": "net-198",
+  "title": "유선통신기술",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "동축·꼬임쌍선·광섬유 등 물리적 전송매체를 통해 신호를 전달하는 통신 기술 체계로, 전송매체·다중화·접근제어·전송제어 기능으로 구성된다.",
+  "memo": "'선으로 보내고(매체), 겹쳐 싣고(다중화), 순서 정하고(접근제어), 틀리면 다시(ARQ)'. CD는 유선·CA는 무선이라는 짝만 헷갈리지 말 것.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "전송매체",
+     "다중화",
+     "매체접근제어",
+     "전송제어"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "전송매체",
+   "다중화",
+   "매체접근제어",
+   "전송제어"
+  ]
+ },
+ {
+  "id": "net-199",
+  "title": "PoE",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "이더넷 UTP 케이블 한 가닥으로 데이터와 직류 전원을 동시에 공급하는 IEEE 802.3af/at/bt 기반 급전 기술.",
+  "memo": "'급수(給水)하듯 전기를 준다' → 급전(PSE)·수전(PD)·협상(클래스)·보호. 표준은 af → at → bt 순으로 전력이 커진다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "급수협보",
+    "keywords": [
+     "급전장비",
+     "수전장치",
+     "협상",
+     "보호"
+    ]
+   }
+  ],
+  "mnemonic": "급수협보",
+  "keywords": [
+   "급전장비",
+   "수전장치",
+   "협상",
+   "보호"
+  ]
+ },
+ {
   "id": "net-200",
   "title": "Network Neutrality",
   "category": "네트워크",
@@ -29610,6 +33080,33 @@
   ]
  },
  {
+  "id": "net-203",
+  "title": "ADN",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "캐싱이 어려운 동적 콘텐츠와 애플리케이션 트래픽을 미들마일 경로 최적화와 프로토콜 가속으로 빠르게 전달하는 애플리케이션 전송 네트워크.",
+  "memo": "'경(로)·연(결)·압(축)·보(안)' 네 가지를 최적화한다. CDN은 캐시로 승부, ADN은 경로와 프로토콜로 승부.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "경연압보",
+    "keywords": [
+     "경로 최적화",
+     "연결 최적화",
+     "압축 전송",
+     "보안 가속"
+    ]
+   }
+  ],
+  "mnemonic": "경연압보",
+  "keywords": [
+   "경로 최적화",
+   "연결 최적화",
+   "압축 전송",
+   "보안 가속"
+  ]
+ },
+ {
   "id": "net-204",
   "title": "라우팅 프로토콜",
   "category": "네트워크",
@@ -29639,6 +33136,31 @@
   "keywords": [
    "IGP(AS 내부)",
    "EGP(AS 간·BGP)"
+  ]
+ },
+ {
+  "id": "net-205",
+  "title": "Routed Protocol",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "라우팅 프로토콜이 결정한 경로를 따라 실제 사용자 데이터를 실어 나르는, 논리 주소 체계를 갖춘 네트워크 계층 피전달 프로토콜(IP, IPX 등).",
+  "memo": "Routing은 '길을 정하는' 프로토콜(OSPF·BGP), Routed는 '길로 다니는' 프로토콜(IP). 지도와 자동차의 관계로 기억.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "논리 주소 체계",
+     "패킷 캡슐화",
+     "종단 전달"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "논리 주소 체계",
+   "패킷 캡슐화",
+   "종단 전달"
   ]
  },
  {
@@ -29792,6 +33314,222 @@
   ]
  },
  {
+  "id": "net-212",
+  "title": "가상 라우팅 및 포워딩",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "하나의 물리 라우터 안에 독립된 라우팅·포워딩 테이블을 여러 개 생성해 트래픽을 논리적으로 완전히 분리하는 라우팅 가상화 기법.",
+  "memo": "'가식(假飾)의 타인' → 가상테이블·식별자(RD)·타깃(RT)·인터페이스. 한 장비 안에 있어도 서로 남남처럼 완전히 분리된다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "가식타인",
+    "keywords": [
+     "가상 라우팅 테이블",
+     "식별자",
+     "타깃",
+     "인터페이스 바인딩"
+    ]
+   }
+  ],
+  "mnemonic": "가식타인",
+  "keywords": [
+   "가상 라우팅 테이블",
+   "식별자",
+   "타깃",
+   "인터페이스 바인딩"
+  ]
+ },
+ {
+  "id": "net-213",
+  "title": "Home PNA",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "가정에 이미 깔려 있는 전화선을 그대로 이용해 홈네트워크를 구성하는 기술 규격이자, 이를 제정하기 위해 1998년 3COM·AMD·루슨트·HP 등이 결성한 표준화 단체.",
+  "memo": "전화선 그대로, 음성은 낮은 대역·데이터는 높은 대역. 배선 재활용 3형제는 전화선(HomePNA)·전력선(PLC)·동축(MoCA)으로 묶어 외운다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "전화선 매체",
+     "주파수 분할",
+     "어댑터/브리지"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "전화선 매체",
+   "주파수 분할",
+   "어댑터/브리지"
+  ]
+ },
+ {
+  "id": "net-214",
+  "title": "IEEE 1394",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "애플의 FireWire를 기반으로 1995년 표준화된, 최대 63개 노드를 연결하고 등시성 전송을 지원하는 고속 직렬 버스 규격.",
+  "memo": "'파이어와이어' — 실시간 영상은 등시성으로 대역폭을 예약하고, 제어 명령은 비동기로 나눠 보낸다. 최대 63개 노드가 단골 숫자.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "직렬 버스",
+     "등시성 전송",
+     "비동기 전송",
+     "플러그앤플레이"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "직렬 버스",
+   "등시성 전송",
+   "비동기 전송",
+   "플러그앤플레이"
+  ]
+ },
+ {
+  "id": "net-215",
+  "title": "PLC",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "기존 전력선에 고주파 통신 신호를 실어 데이터를 전송함으로써 별도 통신 배선 없이 네트워크를 구성하는 전력선 통신 기술.",
+  "memo": "'저·중·고' 세 단계 — 저속은 제어, 중속은 데이터, 고속은 인터넷. 콘센트가 곧 통신 포트라는 발상이 핵심.",
+  "sections": [
+   {
+    "label": "속도별 유형",
+    "mnemonic": "저중고",
+    "keywords": [
+     "저속",
+     "중속",
+     "고속"
+    ]
+   }
+  ],
+  "mnemonic": "저중고",
+  "keywords": [
+   "저속",
+   "중속",
+   "고속"
+  ]
+ },
+ {
+  "id": "net-216",
+  "title": "HAVi",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "Philips·Sony·Sun 등 가전사가 IEEE 1394로 연결된 홈 AV 기기 간 상호 제어와 상호운용을 위해 제정한 자바 기반 홈 AV 미들웨어 규격.",
+  "memo": "핵심은 DCM — 새 기기가 자기 제어 코드를 자바로 들고 와서 다른 기기가 그것으로 자신을 조종하게 한다. 1394 위에서 도는 미들웨어라는 위치만 잡아두면 된다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "통신 미디어 관리자",
+     "이벤트 관리자",
+     "스트림 관리자",
+     "기기제어모듈"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "통신 미디어 관리자",
+   "이벤트 관리자",
+   "스트림 관리자",
+   "기기제어모듈"
+  ]
+ },
+ {
+  "id": "net-217",
+  "title": "JINI",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "자바 RMI를 기반으로 네트워크에 연결된 서비스·기기를 자동으로 발견·등록·이용하게 하는 분산 서비스 미들웨어(Java Intelligent Network Infrastructure).",
+  "memo": "'발등에 불 떨어지면 검색해서 임대받는다' → 발견·등록·검색·임대. 임대(Lease)로 죽은 서비스를 자동 청소하는 것이 JINI의 특징.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "발등검임",
+    "keywords": [
+     "발견",
+     "등록",
+     "검색",
+     "임대"
+    ]
+   }
+  ],
+  "mnemonic": "발등검임",
+  "keywords": [
+   "발견",
+   "등록",
+   "검색",
+   "임대"
+  ]
+ },
+ {
+  "id": "net-218",
+  "title": "UPnP",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "IP 네트워크에 연결된 기기가 별도 설정 없이 서로를 자동 발견하고 서비스를 제어할 수 있게 하는 UPnP 포럼 표준 프로토콜 집합.",
+  "memo": "'주(소)·발(견)·기(술)·제(어)·이(벤트)·표(현)' 6단계로 외운다. 시험에서는 SSDP·SOAP·GENA를 단계와 짝지어 묻는다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "주발기제이표",
+    "keywords": [
+     "주소 지정",
+     "발견",
+     "기술",
+     "제어",
+     "이벤트",
+     "표현"
+    ]
+   }
+  ],
+  "mnemonic": "주발기제이표",
+  "keywords": [
+   "주소 지정",
+   "발견",
+   "기술",
+   "제어",
+   "이벤트",
+   "표현"
+  ]
+ },
+ {
+  "id": "net-219",
+  "title": "OSGi",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "자바 기반 모듈(번들)을 시스템 재기동 없이 설치·시작·갱신·제거할 수 있게 하는 동적 모듈형 서비스 플랫폼 표준 프레임워크.",
+  "memo": "'번(들)이 모(듈)로 격리되어 생(명주기)따라 서(비스)된다' → 번·모·생·서. 재부팅 없이 갈아끼운다는 것이 OSGi의 존재 이유.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "번모생서",
+    "keywords": [
+     "번들",
+     "모듈 계층",
+     "생명주기 계층",
+     "서비스 계층"
+    ]
+   }
+  ],
+  "mnemonic": "번모생서",
+  "keywords": [
+   "번들",
+   "모듈 계층",
+   "생명주기 계층",
+   "서비스 계층"
+  ]
+ },
+ {
   "id": "net-220",
   "title": "Z-Wave",
   "category": "네트워크",
@@ -29873,6 +33611,60 @@
   ]
  },
  {
+  "id": "net-224",
+  "title": "VoIP",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "음성을 디지털 패킷으로 변환해 IP 망을 통해 전달함으로써 기존 회선교환 전화를 대체하는 인터넷 전화 기술.",
+  "memo": "'신부(新婦)가 전(송)하고 연(동)한다' → 신호제어·부호화·전송·연동. 시그널링은 SIP, 미디어는 RTP라는 짝이 시험 포인트.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "신부전연",
+    "keywords": [
+     "신호 제어",
+     "부호화",
+     "전송",
+     "연동"
+    ]
+   }
+  ],
+  "mnemonic": "신부전연",
+  "keywords": [
+   "신호 제어",
+   "부호화",
+   "전송",
+   "연동"
+  ]
+ },
+ {
+  "id": "net-225",
+  "title": "H.323",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "ITU-T가 제정한, 품질이 보장되지 않는 패킷망에서 음성·영상·데이터 회의를 제공하기 위한 멀티미디어 통신 프로토콜 집합(엄브렐러 표준).",
+  "memo": "'단(말)·키(퍼)·웨(이)·다(지점)' 네 요소. 게이트키퍼와 게이트웨이가 헷갈리면 '키퍼는 관리자, 웨이는 통로'로 구분.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "단키웨다",
+    "keywords": [
+     "단말",
+     "게이트키퍼",
+     "게이트웨이",
+     "다지점제어장치"
+    ]
+   }
+  ],
+  "mnemonic": "단키웨다",
+  "keywords": [
+   "단말",
+   "게이트키퍼",
+   "게이트웨이",
+   "다지점제어장치"
+  ]
+ },
+ {
   "id": "net-226",
   "title": "SIP",
   "category": "네트워크",
@@ -29900,6 +33692,33 @@
   ]
  },
  {
+  "id": "net-227",
+  "title": "MCU",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "3자 이상의 영상회의에서 각 단말의 음성·영상 스트림을 한 지점으로 모아 제어·합성한 뒤 재분배하는 다지점 제어 장치.",
+  "memo": "MC는 회의 사회자(Master of Ceremony)처럼 '제어'만, MP는 미디어 프로세서로 실제 영상·음성을 '가공'한다고 나눠 기억.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "제어부(MC)",
+     "처리부(MP)",
+     "코덱 변환부",
+     "관리부"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "제어부(MC)",
+   "처리부(MP)",
+   "코덱 변환부",
+   "관리부"
+  ]
+ },
+ {
   "id": "net-228",
   "title": "IMS",
   "category": "네트워크",
@@ -29922,6 +33741,33 @@
    "접속 계층(Access/Transport)",
    "제어 계층(CSCF·HSS)",
    "서비스 계층(Application Server)"
+  ]
+ },
+ {
+  "id": "net-229",
+  "title": "mVoIP",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "이동통신망이나 무선랜의 데이터 채널을 이용해 음성을 IP 패킷으로 전송하는 모바일 인터넷 전화 기술.",
+  "memo": "'접시에 미코(마이크)를 올린다' → 접속망·시그널링·미디어·코덱. 품질 보장이 필요하면 IMS를 태운 VoLTE.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "접시미코",
+    "keywords": [
+     "접속망",
+     "시그널링",
+     "미디어",
+     "코덱"
+    ]
+   }
+  ],
+  "mnemonic": "접시미코",
+  "keywords": [
+   "접속망",
+   "시그널링",
+   "미디어",
+   "코덱"
   ]
  },
  {
@@ -29972,6 +33818,33 @@
    "단순 재판매형(Reseller)",
    "부분 MVNO(Service Provider)",
    "완전 MVNO(Full MVNO)"
+  ]
+ },
+ {
+  "id": "net-232",
+  "title": "ONVIF",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "IP 기반 물리보안 제품, 특히 네트워크 비디오 장치 간 상호운용성을 보장하기 위해 ONVIF 포럼이 제정한 개방형 인터페이스 표준.",
+  "memo": "'스트리밍(S) → 녹화(G) → 고급영상(T) → 메타데이터(M)' 순으로 프로파일이 늘어났다고 기억하면 순서가 잡힌다.",
+  "sections": [
+   {
+    "label": "주요 프로파일",
+    "mnemonic": "",
+    "keywords": [
+     "Profile S",
+     "Profile G",
+     "Profile T",
+     "Profile M"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "Profile S",
+   "Profile G",
+   "Profile T",
+   "Profile M"
   ]
  },
  {
@@ -30276,6 +34149,33 @@
   ]
  },
  {
+  "id": "net-244",
+  "title": "전자기파",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "마이크로파·RF 대역의 전자기파에 전력을 실어 방사하고 수신 측 렉테나에서 직류로 변환해 원거리로 전력을 전달하는 무선전력전송 기술.",
+  "memo": "'발송(發送)한 마이크로파를 렉테나가 받아 정류한다' → 발·송·렉·정. 렉테나 = Rectifier + Antenna.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "발송렉정",
+    "keywords": [
+     "발진부",
+     "송신 안테나",
+     "렉테나",
+     "정류·변환"
+    ]
+   }
+  ],
+  "mnemonic": "발송렉정",
+  "keywords": [
+   "발진부",
+   "송신 안테나",
+   "렉테나",
+   "정류·변환"
+  ]
+ },
+ {
   "id": "net-245",
   "title": "FEC",
   "category": "네트워크",
@@ -30438,6 +34338,110 @@
   ]
  },
  {
+  "id": "net-251",
+  "title": "네트워크 중심성 평가",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "네트워크(그래프)에서 각 노드가 차지하는 위치적 중요도와 영향력을 지표로 계량화해 핵심 노드를 식별하는 소셜네트워크분석(SNA) 기법.",
+  "memo": "'연근 매워!' → 연결·근접·매개·위세 중심성. 각각 이웃 수·거리·경유·이웃의 격(格)을 본다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "연근매위",
+    "keywords": [
+     "연결중심성",
+     "근접중심성",
+     "매개중심성",
+     "위세중심성"
+    ]
+   }
+  ],
+  "mnemonic": "연근매위",
+  "keywords": [
+   "연결중심성",
+   "근접중심성",
+   "매개중심성",
+   "위세중심성"
+  ]
+ },
+ {
+  "id": "net-252",
+  "title": "연결중심성(Degree Centrality)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "네트워크에서 한 노드에 직접 인접해 연결된 서로 다른 노드의 수로 그 노드의 활동성과 영향력을 나타내는 가장 기본적인 중심성 지표.",
+  "memo": "'몇 명과 직접 아는 사이인가'만 센다. N-1로 나누면 크기가 다른 망끼리도 비교할 수 있다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "연결정도",
+     "정규화",
+     "방향성 구분"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "연결정도",
+   "정규화",
+   "방향성 구분"
+  ]
+ },
+ {
+  "id": "net-253",
+  "title": "인접중심성(Closeness Centrality)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "특정 노드에서 네트워크의 다른 모든 노드까지 도달하는 최단거리의 합이 작을수록 크게 산출되어, 정보 전달의 신속성을 나타내는 중심성 지표(근접중심성과 동의어).",
+  "memo": "원본 노트에 매개중심성 설명이 섞여 있으니 주의. 인접(근접)중심성은 '거리', 매개중심성은 '경유'로 갈라서 외운다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "최단거리 산출",
+     "거리 합의 역수",
+     "정규화",
+     "비연결 보정"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "최단거리 산출",
+   "거리 합의 역수",
+   "정규화",
+   "비연결 보정"
+  ]
+ },
+ {
+  "id": "net-254",
+  "title": "근접중심성",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "하나의 노드에서 연결된 모든 노드까지의 최단거리 합을 기준으로, 그 합이 작을수록 망 전체에 가깝게 위치한다고 평가하는 중심성 지표.",
+  "memo": "'거리는 작을수록 중심' → 그래서 역수를 취한다. 인접중심성과 사실상 같은 지표(Closeness)라는 점을 함께 기억.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "거리 합",
+     "역수 변환",
+     "표준화"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "거리 합",
+   "역수 변환",
+   "표준화"
+  ]
+ },
+ {
   "id": "net-255",
   "title": "사노프의 법칙 (Sarnoff’s law)",
   "category": "네트워크",
@@ -30499,6 +34503,168 @@
   ]
  },
  {
+  "id": "net-257",
+  "title": "TCP Socket",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "전송계층 TCP의 연결지향 통신을 응용이 사용할 수 있도록 IP 주소와 포트를 묶어 제공하는, 세그먼트 단위 양방향 통신 종단점.",
+  "memo": "서버는 '소·바·리·액'(socket-bind-listen-accept), 클라이언트는 '소·커'(socket-connect)만 하면 된다.",
+  "sections": [
+   {
+    "label": "서버 측 절차",
+    "mnemonic": "소바리액",
+    "keywords": [
+     "소켓 생성",
+     "바인딩",
+     "리슨",
+     "액셉트"
+    ]
+   }
+  ],
+  "mnemonic": "소바리액",
+  "keywords": [
+   "소켓 생성",
+   "바인딩",
+   "리슨",
+   "액셉트"
+  ]
+ },
+ {
+  "id": "net-258",
+  "title": "UDP Socket",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "전송계층 UDP의 비연결형 데이터그램 통신을 응용에 제공하는 종단점으로, 연결 설정 없이 매 전송마다 목적지 주소를 지정해 송수신하는 소켓.",
+  "memo": "TCP 소켓에서 listen·accept·connect를 빼고 sendto/recvfrom만 남기면 UDP 소켓이다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "소켓 생성",
+     "바인딩",
+     "송수신",
+     "종료"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "소켓 생성",
+   "바인딩",
+   "송수신",
+   "종료"
+  ]
+ },
+ {
+  "id": "net-259",
+  "title": "Web Socket 기술",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "HTTP 핸드셰이크로 연결을 수립한 뒤 동일 TCP 연결 위에서 서버와 클라이언트가 프레임 단위 메시지를 주고받는 응용계층 전이중 통신 기술.",
+  "memo": "HTTP로 노크(Upgrade)하고, 프레임으로 대화하고, Close 프레임으로 인사하고 끝낸다. 7계층·메시지 단위라는 점이 TCP 소켓과의 차이.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "핸드셰이크",
+     "프레임",
+     "전이중 채널",
+     "종료"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "핸드셰이크",
+   "프레임",
+   "전이중 채널",
+   "종료"
+  ]
+ },
+ {
+  "id": "net-260",
+  "title": "3차원 비디오 부호화(Video Encoding) 기술",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "여러 시점의 컬러 영상과 깊이 정보를 함께 압축해, 전송되지 않은 임의 시점 영상까지 복원할 수 있게 하는 3차원 비디오 부호화 기술.",
+  "memo": "'다시 깊게 중간을 본다' → 다시점·시점간예측·깊이맵·중간시점합성. 깊이맵이 있어야 중간시점 합성이 가능하다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "다시깊중",
+    "keywords": [
+     "다시점 부호화",
+     "시점 간 예측",
+     "깊이맵 생성",
+     "중간시점 합성"
+    ]
+   }
+  ],
+  "mnemonic": "다시깊중",
+  "keywords": [
+   "다시점 부호화",
+   "시점 간 예측",
+   "깊이맵 생성",
+   "중간시점 합성"
+  ]
+ },
+ {
+  "id": "net-261",
+  "title": "BWS MOT Carousel",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "DMB·DAB 방송망으로 웹 콘텐츠를 전달하기 위해 MOT 프로토콜로 객체화한 데이터를 카루셀 방식으로 반복 전송하는 방송형 웹서비스 기술.",
+  "memo": "회전목마(Carousel)처럼 같은 데이터를 계속 돌려 보내니, 늦게 켠 수신기도 다음 바퀴에 받는다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "BWS",
+     "MOT",
+     "데이터 카루셀",
+     "디렉터리·캐시"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "BWS",
+   "MOT",
+   "데이터 카루셀",
+   "디렉터리·캐시"
+  ]
+ },
+ {
+  "id": "net-262",
+  "title": "CCTV",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "특정 구역의 영상을 카메라로 촬영해 지정된 수신자에게만 전용 회선 또는 IP망으로 전송·저장·감시하는 폐쇄회로 텔레비전 시스템.",
+  "memo": "'촬영→전송→저장→관제' 흐름 그대로 촬·전·저·관. 시험에서는 개인정보 보호법상 안내판 의무를 한 줄 붙이면 가점.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "촬전저관",
+    "keywords": [
+     "촬영부",
+     "전송부",
+     "저장부",
+     "관제부"
+    ]
+   }
+  ],
+  "mnemonic": "촬전저관",
+  "keywords": [
+   "촬영부",
+   "전송부",
+   "저장부",
+   "관제부"
+  ]
+ },
+ {
   "id": "net-263",
   "title": "Tor(토르) 네트워크",
   "category": "네트워크",
@@ -30550,6 +34716,287 @@
    "CS(Content Store)",
    "PIT(Pending Interest Table)",
    "FIB(Forwarding Information Base)"
+  ]
+ },
+ {
+  "id": "net-265",
+  "title": "MCN",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "다수의 1인 창작자 채널과 제휴해 콘텐츠 제작·마케팅·저작권 관리·수익화를 지원하고 광고 수익을 배분하는 다중채널네트워크 사업 모델.",
+  "memo": "MCN은 크리에이터의 '소속사'다. 매니지먼트·제작·광고·권리관리를 대신해 주고 수익을 나눈다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "크리에이터 매니지먼트",
+     "콘텐츠 제작 지원",
+     "광고·수익화",
+     "권리 관리"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "크리에이터 매니지먼트",
+   "콘텐츠 제작 지원",
+   "광고·수익화",
+   "권리 관리"
+  ]
+ },
+ {
+  "id": "net-266",
+  "title": "IX정산소",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "인터넷 사업자 간 상호접속 구간의 트래픽을 중립적으로 계량·검증해 접속료 정산 근거를 제공하기 위해 도입된 IX(Internet eXchange) 기반 정산 체계.",
+  "memo": "IX가 '인터넷 교차로'라면 정산소는 그 교차로의 '톨게이트' — 통행량을 재고 요금을 나눈다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "트래픽 측정",
+     "정산 처리",
+     "중립 중계",
+     "검증·투명성"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "트래픽 측정",
+   "정산 처리",
+   "중립 중계",
+   "검증·투명성"
+  ]
+ },
+ {
+  "id": "net-267",
+  "title": "802.15.3e",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "10cm 내외의 근접 거리에서 수 Gbps급 대용량 데이터를 순간 전송하기 위해 IEEE가 표준화한 초고속 근접통신(HRCP) 규격.",
+  "memo": "'갖다 대면 순식간에' — 60GHz를 10cm 안에서만 쓰니 빠르고, 멀리 안 가니 오히려 안전하다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "밀리미터파 대역",
+     "근접 전송",
+     "초고속 MAC",
+     "저전력 설계"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "밀리미터파 대역",
+   "근접 전송",
+   "초고속 MAC",
+   "저전력 설계"
+  ]
+ },
+ {
+  "id": "net-268",
+  "title": "Li-Fi",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "LED 조명의 가시광선을 사람 눈이 인지하지 못할 속도로 점멸시켜 데이터를 실어 보내는 가시광 무선통신(VLC) 기술.",
+  "memo": "'광→변→수→복' 순서 그대로: 빛을 내고(광원) 실어서(변조) 받아(수광) 푼다(복조). 벽을 못 넘는 점이 곧 보안 장점.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "광변수복",
+    "keywords": [
+     "광원",
+     "변조",
+     "수광",
+     "복조"
+    ]
+   }
+  ],
+  "mnemonic": "광변수복",
+  "keywords": [
+   "광원",
+   "변조",
+   "수광",
+   "복조"
+  ]
+ },
+ {
+  "id": "net-269",
+  "title": "리버스 프록시",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "클라이언트 요청을 원 서버 대신 먼저 수신해 내부 서버로 전달하고 그 응답을 대신 반환하는, 서버 앞단에 배치되는 프록시 서버 유형.",
+  "memo": "'부캐(부하분산·캐싱)로 암보(암호화·보안)까지' → 부·캐·암·보. 방향은 '서버를 대신해서 받는다'가 핵심.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "부캐암보",
+    "keywords": [
+     "부하분산",
+     "캐싱",
+     "암호화 종단",
+     "보안 필터링"
+    ]
+   }
+  ],
+  "mnemonic": "부캐암보",
+  "keywords": [
+   "부하분산",
+   "캐싱",
+   "암호화 종단",
+   "보안 필터링"
+  ]
+ },
+ {
+  "id": "net-270",
+  "title": "ASN.1",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "플랫폼과 무관하게 데이터 구조를 정의하고 직렬화·역직렬화할 수 있도록 ITU-T가 X.680 계열로 표준화한 추상 구문 표기 언어.",
+  "memo": "ASN.1의 뼈대는 언제나 TLV(Tag-Length-Value). 규칙은 '기본 BER, 정규 CER, 유일 DER, 압축 PER'로 묶어 외운다.",
+  "sections": [
+   {
+    "label": "인코딩 구조",
+    "mnemonic": "TLV",
+    "keywords": [
+     "Tag",
+     "Length",
+     "Value"
+    ]
+   },
+   {
+    "label": "인코딩 규칙",
+    "mnemonic": "",
+    "keywords": [
+     "BER",
+     "CER",
+     "DER",
+     "PER",
+     "XER"
+    ]
+   }
+  ],
+  "mnemonic": "TLV",
+  "keywords": [
+   "Tag",
+   "Length",
+   "Value"
+  ]
+ },
+ {
+  "id": "net-271",
+  "title": "BER(Basic Encoding Rules)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "ASN.1로 정의된 값을 TLV 구조의 옥텟 스트림으로 부호화하는 기본 인코딩 규칙으로, 동일한 값에 대해 복수의 인코딩 표현을 허용하는 규칙.",
+  "memo": "BER의 B는 Basic이자 '자유분방'. 같은 값도 바이트열이 달라질 수 있어 서명 검증에는 못 쓴다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "다중 표현 허용",
+     "길이 형식",
+     "태그·길이 표현",
+     "구성형 인코딩"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "다중 표현 허용",
+   "길이 형식",
+   "태그·길이 표현",
+   "구성형 인코딩"
+  ]
+ },
+ {
+  "id": "net-272",
+  "title": "DER(Distinguished Encoding Rules)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "BER의 부분집합으로, 하나의 값에 대해 오직 하나의 바이트열만 나오도록 인코딩 선택지를 제거한 정규화 인코딩 규칙.",
+  "memo": "DER의 D는 Distinguished — '단 하나로 구별되는 표현'. 그래서 서명·인증서는 무조건 DER이다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "유일 표현 강제",
+     "한정 길이",
+     "최소 인코딩",
+     "기본값 생략"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "유일 표현 강제",
+   "한정 길이",
+   "최소 인코딩",
+   "기본값 생략"
+  ]
+ },
+ {
+  "id": "net-273",
+  "title": "CER(Canonical Encoding Rules)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "BER의 부분집합으로, 대용량 데이터를 버퍼링 없이 스트리밍 처리할 수 있도록 표현 규칙을 제한한 정규(Canonical) 인코딩 규칙.",
+  "memo": "CER의 C는 Canonical(정규). 정규화는 DER과 같지만 '흘려보내기(스트리밍)'를 위해 Indefinite 길이를 쓴다는 점만 다르다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "정규 표현",
+     "Indefinite Length",
+     "분할 규칙",
+     "최소 표현"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "정규 표현",
+   "Indefinite Length",
+   "분할 규칙",
+   "최소 표현"
+  ]
+ },
+ {
+  "id": "net-274",
+  "title": "X.509인증서",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "공개키와 소유자 신원을 CA의 전자서명으로 결합해 신원을 보증하는 ITU-T X.509 기반 공개키 인증서로, DER 인코딩을 강제해 서명 검증의 일관성을 확보한다.",
+  "memo": "'버일 발주서' 한 장 = 버전·일련번호·발급자·주체공개키·서명값. 인코딩은 반드시 DER이어야 서명이 일관된다.",
+  "sections": [
+   {
+    "label": "주요 필드",
+    "mnemonic": "버일발주서",
+    "keywords": [
+     "버전",
+     "일련번호",
+     "발급자",
+     "주체 공개키",
+     "서명값"
+    ]
+   }
+  ],
+  "mnemonic": "버일발주서",
+  "keywords": [
+   "버전",
+   "일련번호",
+   "발급자",
+   "주체 공개키",
+   "서명값"
   ]
  },
  {
@@ -30682,6 +35129,69 @@
   ]
  },
  {
+  "id": "net-280",
+  "title": "NaaS(Network as a Service)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "네트워크 인프라 하드웨어·소프트웨어와 운영·관리·라이선스를 직접 소유하지 않고 구독형으로 이용하는 클라우드 기반 네트워크 서비스 모델.",
+  "memo": "'네트워크를 사지 말고 구독하라' — 인프라·SW·서비스·관리를 통째로 빌린다. 원자료의 On-Promise/Hybird는 On-Premise/Hybrid의 오기.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "인프라",
+     "소프트웨어",
+     "서비스",
+     "관리·과금"
+    ]
+   },
+   {
+    "label": "유형",
+    "mnemonic": "",
+    "keywords": [
+     "On-Premise형",
+     "Cloud형",
+     "Hybrid형"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "인프라",
+   "소프트웨어",
+   "서비스",
+   "관리·과금"
+  ]
+ },
+ {
+  "id": "net-281",
+  "title": "머신러닝 기반의 SDN(Software Defined Networking)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "SDN 컨트롤러가 수집한 트래픽·운영 데이터를 머신러닝으로 학습해 네트워크 자원 배분과 경로·정책을 자율적으로 최적화하는 지능형 네트워크 기술.",
+  "memo": "'수학 예제' 풀듯 순서대로 — 수집·학습·예측·제어. SDN의 3평면 위에 AI Plane이 한 층 얹힌 구조.",
+  "sections": [
+   {
+    "label": "동작원리",
+    "mnemonic": "수학예제",
+    "keywords": [
+     "수집",
+     "학습",
+     "예측",
+     "제어"
+    ]
+   }
+  ],
+  "mnemonic": "수학예제",
+  "keywords": [
+   "수집",
+   "학습",
+   "예측",
+   "제어"
+  ]
+ },
+ {
   "id": "net-282",
   "title": "IBN(Intent-Based Networking)",
   "category": "네트워크",
@@ -30706,6 +35216,448 @@
    "자동 구현(Automation)",
    "상태 인지(Awareness)",
    "검증·보증(Assurance)"
+  ]
+ },
+ {
+  "id": "net-283",
+  "title": "디지털 계위(Digital Hierarchy)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "저속 디지털 신호를 정해진 배수로 묶어 고속 신호를 만드는 다중화 단계와 전송 속도를 계층적으로 규정한 전송 체계.",
+  "memo": "'준(PDH) → 동(SDH·SONET) → 광(OTN)' 순으로 발전했다고 외우면 계위 흐름이 한 줄로 정리된다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "기초군",
+     "다중화 계위",
+     "동기 방식"
+    ]
+   },
+   {
+    "label": "유형",
+    "mnemonic": "",
+    "keywords": [
+     "PDH",
+     "SDH",
+     "SONET",
+     "OTN"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "기초군",
+   "다중화 계위",
+   "동기 방식"
+  ]
+ },
+ {
+  "id": "net-284",
+  "title": "PDH(Plesiochronous Digital Hierarchy)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "각 다중화 장치가 자체 발진기 클럭을 사용하고 미세한 속도 차이를 스터핑으로 보정하며 저속 신호를 상위 계위로 묶는 준동기식 디지털 계위.",
+  "memo": "'각자 시계를 차고 있으니(준동기) 어긋난 박자를 스터핑으로 메운다.' 채널 하나 빼려면 전부 풀어야 하는 게 최대 단점.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "자체 클럭",
+     "비트 스터핑",
+     "다단 다중화",
+     "프레임 정렬"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "자체 클럭",
+   "비트 스터핑",
+   "다단 다중화",
+   "프레임 정렬"
+  ]
+ },
+ {
+  "id": "net-285",
+  "title": "SDH(Synchronous Digital Hierarchy)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "망의 모든 노드가 동일한 기준 클럭에 동기화된 상태에서 STM-N 프레임 단위로 신호를 다중화·전송하는 ITU-T 표준 동기식 디지털 계위.",
+  "memo": "핵심은 '포인터' — 포인터 덕분에 전부 풀지 않고도 채널을 뽑는다(Add/Drop). STM-1 155.52Mbps = STS-3.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "STM-N 프레임",
+     "오버헤드",
+     "포인터",
+     "매핑 계층"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "STM-N 프레임",
+   "오버헤드",
+   "포인터",
+   "매핑 계층"
+  ]
+ },
+ {
+  "id": "net-286",
+  "title": "SONET(Synchronous Optical NETwork)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "북미에서 제정되어 국제표준으로 확장된 동기식 광전송 체계로, 모든 노드가 동일 클럭에 동기화되어 STS-N/OC-N 단위로 신호를 전송하는 계위.",
+  "memo": "'STS는 전기, OC는 빛' — 같은 신호의 전기/광 이름표다. STS-3 = OC-3 = STM-1 = 155.52Mbps로 SDH와 연결된다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "STS 프레임",
+     "OC 신호",
+     "SPE",
+     "계층 구조"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "STS 프레임",
+   "OC 신호",
+   "SPE",
+   "계층 구조"
+  ]
+ },
+ {
+  "id": "net-287",
+  "title": "NWDAF(Network Data Analytics Function)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "5G 코어망의 각 NF와 OAM에서 운영 데이터를 수집·학습하여 예측·분석 결과를 표준 서비스로 제공하는 3GPP 정의 네트워크 데이터 분석 기능(NF).",
+  "memo": "영문 약어라 두음 대신 흐름으로 기억: 모아서(DCCF)-쌓고(ADRF)-배우고(MTLF)-추론하고(AnLF)-전달한다(MFAF). 학습은 MTLF, 추론은 AnLF 두 개만 확실히 구분하면 된다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "AnLF",
+     "MTLF",
+     "DCCF",
+     "ADRF",
+     "MFAF"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "AnLF",
+   "MTLF",
+   "DCCF",
+   "ADRF",
+   "MFAF"
+  ]
+ },
+ {
+  "id": "net-288",
+  "title": "메시 네트워크(Mesh Network)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "고정 인프라 없이 각 노드가 라우터 역할을 겸하여 다중 홉 라우팅으로 서로를 연결하는 자율·분산형 그물망 네트워크.",
+  "memo": "'노(노드)와 라(라우팅)를 게(게이트웨이)까지' → 노라게. 노드가 곧 라우터라는 점이 스타형 무선랜과의 결정적 차이.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "노라게",
+    "keywords": [
+     "노드(단말)",
+     "라우팅 프로토콜",
+     "게이트웨이"
+    ]
+   }
+  ],
+  "mnemonic": "노라게",
+  "keywords": [
+   "노드(단말)",
+   "라우팅 프로토콜",
+   "게이트웨이"
+  ]
+ },
+ {
+  "id": "net-289",
+  "title": "앰비언트 IoT(Ambient Internet of Things)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "배터리 없이 전파·빛·열 등 주변 환경 에너지를 수확해 동작하는 초저전력 사물인터넷 디바이스 및 통신 기술.",
+  "memo": "'에너지 백(back)으로 초(超)저전력 리더' → 에백초리. 스스로 전파를 만들지 않고 남의 전파를 되쏜다(백스캐터)는 점이 핵심.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "에백초리",
+    "keywords": [
+     "에너지 하베스팅",
+     "백스캐터 통신",
+     "초저전력 디바이스",
+     "리더·게이트웨이"
+    ]
+   }
+  ],
+  "mnemonic": "에백초리",
+  "keywords": [
+   "에너지 하베스팅",
+   "백스캐터 통신",
+   "초저전력 디바이스",
+   "리더·게이트웨이"
+  ]
+ },
+ {
+  "id": "net-290",
+  "title": "디지털 트윈 네트워크 (Digital Twin",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "실제 네트워크를 데이터·모델 기반으로 가상 복제해 실시간 매핑·분석·시뮬레이션하고 그 결과를 물리망에 되먹이는 양방향 네트워크 운영 체계.",
+  "memo": "'데모(demo)를 매인(매핑·인터페이스)' → 데모매인. 단방향 모니터링과 달리 결과를 물리망에 되먹이는 양방향이라는 점이 채점 포인트.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "데모매인",
+    "keywords": [
+     "데이터",
+     "모델",
+     "매핑",
+     "인터페이스"
+    ]
+   }
+  ],
+  "mnemonic": "데모매인",
+  "keywords": [
+   "데이터",
+   "모델",
+   "매핑",
+   "인터페이스"
+  ]
+ },
+ {
+  "id": "net-291",
+  "title": "SRv6(Segment Routing over IPv6)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "IPv6 확장헤더에 경로 세그먼트 목록을 실어 MPLS 없이 소스 라우팅과 트래픽 엔지니어링을 수행하는 네이티브 IPv6 기반 라우팅 기술.",
+  "memo": "영문 약어라 두음 대신 그림으로: 출발지에서 '경유지 목록(SRH)'을 적어 붙이고, 각 경유지(SID)를 지날 때마다 목록을 한 칸씩 지운다. MPLS 라벨을 IPv6 주소로 대체했다고 이해하면 된다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "SID(Segment ID)",
+     "SRH(Segment Routing Header)",
+     "End/End.X Behavior",
+     "비-SRv6 라우터 지원"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "SID(Segment ID)",
+   "SRH(Segment Routing Header)",
+   "End/End.X Behavior",
+   "비-SRv6 라우터 지원"
+  ]
+ },
+ {
+  "id": "net-292",
+  "title": "SSE(Server Sent Event)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "서버가 하나의 HTTP 연결을 열어둔 채 클라이언트에게 이벤트를 지속 푸시하는 텍스트 기반 비동기 단방향 실시간 통신 기술.",
+  "memo": "영문 혼재로 두음 생략. '한 번 GET으로 열어놓고 서버가 계속 말한다(단방향)'로 기억. 양방향이 필요하면 WebSocket, 단방향이면 SSE.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "text/event-stream",
+     "EventSource API",
+     "자동 재연결(retry)",
+     "이벤트 ID/이벤트명"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "text/event-stream",
+   "EventSource API",
+   "자동 재연결(retry)",
+   "이벤트 ID/이벤트명"
+  ]
+ },
+ {
+  "id": "net-293",
+  "title": "MODBUS",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "SCADA 환경에서 PLC·RTU 등 산업 장치 간 상태·제어 정보를 교환하기 위해 시리얼과 TCP 모두에서 동작하는 응용 계층 메시징 프로토콜.",
+  "memo": "'마스터가 기능코드로 데이터를 전송한다' → 마·기·데·전. 보안 기능이 원천적으로 없다는 점이 OT 보안 논술의 단골 지적.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "마기데전",
+    "keywords": [
+     "마스터-슬레이브",
+     "기능코드",
+     "데이터 모델",
+     "전송 모드"
+    ]
+   }
+  ],
+  "mnemonic": "마기데전",
+  "keywords": [
+   "마스터-슬레이브",
+   "기능코드",
+   "데이터 모델",
+   "전송 모드"
+  ]
+ },
+ {
+  "id": "net-294",
+  "title": "멀티미디어 스트리밍 프로토콜",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "멀티미디어 데이터를 네트워크로 실시간·순차 전송하여 다운로드 완료 전에도 재생할 수 있게 하는 전송·제어 통신 규약군.",
+  "memo": "영문 약어라 두음 생략. 역할로 묶어 기억: 나르는 RTP, 감시하는 RTCP, 리모컨 RTSP, 웹으로 잘게 쪼개 보내는 HLS·DASH.",
+  "sections": [
+   {
+    "label": "유형",
+    "mnemonic": "",
+    "keywords": [
+     "RTP",
+     "RTCP",
+     "RTSP",
+     "HLS",
+     "MPEG-DASH"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "RTP",
+   "RTCP",
+   "RTSP",
+   "HLS",
+   "MPEG-DASH"
+  ]
+ },
+ {
+  "id": "net-295",
+  "title": "AI/ML 프레임워크",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "무선 접속망에 AI/ML을 적용하기 위해 기능 블록과 인터페이스·절차를 정의하고 상호 관계를 공식화한 3GPP 표준 프레임워크.",
+  "memo": "'데이터로 학습하고 관리하며 추론한다' → 데·학·관·추. 앞 세 글자는 데이터-학습-관리 순서, 마지막이 실제 서비스인 추론.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "데학관추",
+    "keywords": [
+     "데이터 수집",
+     "모델 학습",
+     "모델 관리",
+     "모델 추론"
+    ]
+   }
+  ],
+  "mnemonic": "데학관추",
+  "keywords": [
+   "데이터 수집",
+   "모델 학습",
+   "모델 관리",
+   "모델 추론"
+  ]
+ },
+ {
+  "id": "net-296",
+  "title": "위성직접통신",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "별도 단말 개조 없이 일반 이동통신 휴대폰이 위성과 직접 링크를 맺어 문자·음성·데이터를 주고받는 차세대 비지상망(NTN) 통신 서비스.",
+  "memo": "'위성이 궤도에서 통신해 단말까지' → 위·궤·통·단. 기존 위성전화와 달리 전용 단말이 필요 없다는 점이 차별 포인트.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "위궤통단",
+    "keywords": [
+     "위성 플랫폼",
+     "궤도 유형",
+     "통신 링크",
+     "지상 단말"
+    ]
+   }
+  ],
+  "mnemonic": "위궤통단",
+  "keywords": [
+   "위성 플랫폼",
+   "궤도 유형",
+   "통신 링크",
+   "지상 단말"
+  ]
+ },
+ {
+  "id": "net-297",
+  "title": "울트라이더넷(Ultra Ethernet)",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "AI·HPC 클러스터의 대규모 병렬 트래픽을 저지연·무손실로 처리하기 위해 이더넷 전송 계층을 재설계한 차세대 개방형 통신 기술.",
+  "memo": "영문 약어라 두음 생략. '순서를 굳이 지키지 않고 여러 길로 흩뿌려 보낸 뒤(패킷 스프레이) 필요한 것만 다시 보낸다'가 핵심 차별점.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "UET(Ultra Ethernet Transport)",
+     "PDS(Packet Delivery Sublayer)",
+     "libfabric 매핑",
+     "혼잡 제어"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "UET(Ultra Ethernet Transport)",
+   "PDS(Packet Delivery Sublayer)",
+   "libfabric 매핑",
+   "혼잡 제어"
+  ]
+ },
+ {
+  "id": "net-298",
+  "title": "자율 최적화",
+  "category": "네트워크",
+  "importance": "하",
+  "definition": "AI가 설계 단계부터 내재화된 AI-Native Network 구조를 기반으로 사람 개입 없이 망 스스로 상태를 분석하고 성능을 유지·개선하는 자율 최적화 기술.",
+  "memo": "'수분(水分)을 주면 결실(結實)한다' → 수집·분석·결정·실행. 데이터에 물을 주면 자율 운영이라는 열매가 맺힌다는 연상으로 폐루프 4단계를 기억.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "수분결실",
+    "keywords": [
+     "수집",
+     "분석",
+     "결정",
+     "실행"
+    ]
+   }
+  ],
+  "mnemonic": "수분결실",
+  "keywords": [
+   "수집",
+   "분석",
+   "결정",
+   "실행"
   ]
  },
  {
@@ -37561,17 +42513,37 @@
   "title": "데이터베이스의 개념",
   "category": "데이터베이스",
   "importance": "하",
-  "definition": "어느 한 조직의 여러 응용 시스템들이 공용(Shared)할 수 있도록 통합(Integrated), 저장(Stored)된 운영(Operational) 데이터의 집합 통합 데이터, 저장 데이터, 운영 데이터, 공용 데이터 특징 : 실시간 접근성, 계속적인 변화, 동시 공용",
-  "memo": "통저운공\n실계동내",
+  "definition": "한 조직의 여러 응용 시스템이 공용할 수 있도록 중복을 배제해 통합하고 저장장치에 영속 저장한 운영 데이터의 집합.",
+  "memo": "정의는 '통저운공', 특징은 '실계동내'. 두 두음만 외우면 서론 정의와 본론 특징을 한 번에 채울 수 있다.",
   "sections": [
    {
-    "label": "두음",
+    "label": "구성요소",
     "mnemonic": "통저운공",
-    "keywords": []
+    "keywords": [
+     "통합 데이터",
+     "저장 데이터",
+     "운영 데이터",
+     "공용 데이터"
+    ]
+   },
+   {
+    "label": "특징",
+    "mnemonic": "실계동내",
+    "keywords": [
+     "실시간 접근성",
+     "계속적인 변화",
+     "동시 공용성",
+     "내용에 의한 참조"
+    ]
    }
   ],
   "mnemonic": "통저운공",
-  "keywords": []
+  "keywords": [
+   "통합 데이터",
+   "저장 데이터",
+   "운영 데이터",
+   "공용 데이터"
+  ]
  },
  {
   "id": "db-2",
@@ -37840,25 +42812,58 @@
   "title": "스키마, 인스턴스",
   "category": "데이터베이스",
   "importance": "하",
-  "definition": "데이터베이스의 전체적인 정의를 나타내며, 일반적으로 논리 스키마 지칭 - 특징 : 잘 변경되지 않음, 언어 : DDL 인스턴스 : 데이터베이스에 저장되는 값들을 나타냄 - 특징 : 자주 변경됨 언어 : DML",
-  "memo": "스구인값",
+  "definition": "스키마는 데이터베이스의 구조와 제약조건을 정의한 논리적 명세이고, 인스턴스는 특정 시점에 그 구조에 실제로 저장된 값의 집합이다.",
+  "memo": "3단계는 '외개내(밖에서 안으로)'. 스키마와 인스턴스는 '스구인값' — 스키마는 구조, 인스턴스는 값.",
   "sections": [
    {
-    "label": "두음",
-    "mnemonic": "스구인값",
-    "keywords": []
+    "label": "구성요소",
+    "mnemonic": "외개내",
+    "keywords": [
+     "외부 스키마",
+     "개념 스키마",
+     "내부 스키마"
+    ]
    }
   ],
-  "mnemonic": "스구인값",
-  "keywords": []
+  "mnemonic": "외개내",
+  "keywords": [
+   "외부 스키마",
+   "개념 스키마",
+   "내부 스키마"
+  ]
+ },
+ {
+  "id": "db-10",
+  "title": "스토어드 프로시저",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "일련의 SQL문과 제어문을 하나의 이름으로 DB 서버에 미리 컴파일·저장해 두고 호출만으로 실행하는 절차형 프로그램 객체.",
+  "memo": "PL/SQL 블록은 '선(언)-실(행)-예(외)' 순서. 장점은 네트워크 부하·처리시간 감소, 단점은 재사용성 저하와 DBMS 종속으로 대비해 외운다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "선실예",
+    "keywords": [
+     "선언부(DECLARE)",
+     "실행부(BEGIN~END)",
+     "예외처리부(EXCEPTION)"
+    ]
+   }
+  ],
+  "mnemonic": "선실예",
+  "keywords": [
+   "선언부(DECLARE)",
+   "실행부(BEGIN~END)",
+   "예외처리부(EXCEPTION)"
+  ]
  },
  {
   "id": "db-11",
   "title": "식별자((Identifiers)",
   "category": "데이터베이스",
   "importance": "하",
-  "definition": "하나의 엔터티 내 각 인스턴스를 유일하게 구분해 낼 수 있는 속성",
-  "memo": "유최불존 (유일성·최소성·불변성·존재성)\n식비 (식별관계·비식별관계)",
+  "definition": "하나의 엔터티 내에서 각 인스턴스를 유일하게 구분해 낼 수 있는 속성 또는 속성의 집합.",
+  "memo": "'유최불존' — 유일하고 최소이며 불변이고 존재해야 한다. 관계는 두 개뿐이니 두음 없이 '주식별자로 상속되면 식별자(실선), 일반속성이면 비식별자(점선)'로 기억.",
   "sections": [
    {
     "label": "특징",
@@ -37871,11 +42876,11 @@
     ]
    },
    {
-    "label": "관계",
-    "mnemonic": "식비",
+    "label": "식별자 관계",
+    "mnemonic": "",
     "keywords": [
-     "식별관계",
-     "비식별관계"
+     "식별자 관계",
+     "비식별자 관계"
     ]
    }
   ],
@@ -38145,6 +43150,56 @@
   ]
  },
  {
+  "id": "db-19",
+  "title": "HNSW(Hierarchical Navigable Small World)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "벡터를 계층형 그래프로 구성해 상위 층에서 대략적 위치를 잡고 하위 층으로 내려가며 탐색하는 근사 최근접 이웃(ANN) 인덱싱 알고리즘.",
+  "memo": "'계층에서 근접 이웃을 탐색' → 계·근·탐. 고속도로(상위 층)로 대충 근처까지 간 뒤 골목길(하위 층)에서 정밀 탐색한다는 그림으로 기억.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "계근탐",
+    "keywords": [
+     "계층 그래프",
+     "근접 이웃 리스트",
+     "탐욕 탐색"
+    ]
+   }
+  ],
+  "mnemonic": "계근탐",
+  "keywords": [
+   "계층 그래프",
+   "근접 이웃 리스트",
+   "탐욕 탐색"
+  ]
+ },
+ {
+  "id": "db-20",
+  "title": "IVF(Inverted File Index)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "벡터 공간을 여러 클러스터로 미리 분할하고 질의와 가까운 일부 클러스터만 탐색해 검색량을 줄이는 역파일 기반 ANN 인덱싱 기법.",
+  "memo": "'클러스터로 나누고 역색인으로 매달아 몇 개만 탐색' → 클·역·탐. 창고를 구역별로 나눈 뒤 가까운 몇 개 구역만 열어본다는 그림.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "클역탐",
+    "keywords": [
+     "클러스터링",
+     "역색인 리스트",
+     "탐색 범위(nprobe)"
+    ]
+   }
+  ],
+  "mnemonic": "클역탐",
+  "keywords": [
+   "클러스터링",
+   "역색인 리스트",
+   "탐색 범위(nprobe)"
+  ]
+ },
+ {
   "id": "db-21",
   "title": "공간 DATABASE",
   "category": "데이터베이스",
@@ -38174,22 +43229,113 @@
   ]
  },
  {
+  "id": "db-22",
+  "title": "그래프 데이터베이스",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "데이터를 노드와 간선(엣지)으로 표현하고 관계 자체를 1급 객체로 저장·탐색하는 관계 중심 NoSQL 데이터베이스.",
+  "memo": "속성 그래프 3요소는 '노·관·속(노드-관계-속성)'. 조인 대신 포인터를 타고 이동한다는 무인덱스 인접성이 성능 차별 포인트.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "노관속",
+    "keywords": [
+     "노드(Node)",
+     "관계(Edge)",
+     "속성(Property)"
+    ]
+   }
+  ],
+  "mnemonic": "노관속",
+  "keywords": [
+   "노드(Node)",
+   "관계(Edge)",
+   "속성(Property)"
+  ]
+ },
+ {
+  "id": "db-23",
+  "title": "RDBMS, OODBMS, ORDBMS",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "데이터 모델의 발전에 따라 관계형, 객체지향형, 이 둘을 결합한 객체관계형으로 구분되는 DBMS 계열 분류.",
+  "memo": "영문 약어라 두음 생략. 'R(테이블) → OO(객체) → OR(둘의 결합)' 발전 순서로 외우고, 실무 주류는 ORDBMS라는 결론을 붙인다.",
+  "sections": [
+   {
+    "label": "유형",
+    "mnemonic": "",
+    "keywords": [
+     "RDBMS",
+     "OODBMS",
+     "ORDBMS"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "RDBMS",
+   "OODBMS",
+   "ORDBMS"
+  ]
+ },
+ {
+  "id": "db-24",
+  "title": "멀티미디어 DB",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "이미지·오디오·비디오 등 대용량 비정형 멀티미디어 자료를 내용 기반으로 효율적으로 저장·검색·관리하기 위해 개발된 DBMS.",
+  "memo": "'속(성)·내(용)·구(조)' 세 가지 질의. 속내구 = '속 내용 구조'로 이어 읽으면 그대로 외워진다.",
+  "sections": [
+   {
+    "label": "질의 유형",
+    "mnemonic": "속내구",
+    "keywords": [
+     "속성 질의",
+     "내용기반 질의",
+     "구조 질의"
+    ]
+   }
+  ],
+  "mnemonic": "속내구",
+  "keywords": [
+   "속성 질의",
+   "내용기반 질의",
+   "구조 질의"
+  ]
+ },
+ {
+  "id": "db-25",
+  "title": "XML DB",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "XML 문서를 그 계층 구조와 태그 의미를 유지한 채 저장·검색·관리하며 XQuery·XPath로 질의할 수 있는 데이터베이스.",
+  "memo": "'확(장형)·네(이티브)·미(들웨어)' → 확네미. RDB에 얹느냐, 통째로 담느냐, 중간에서 바꿔주느냐 세 갈래로 구분한다.",
+  "sections": [
+   {
+    "label": "유형",
+    "mnemonic": "확네미",
+    "keywords": [
+     "확장형(XML Enabled)",
+     "네이티브(Native XML)",
+     "미들웨어형"
+    ]
+   }
+  ],
+  "mnemonic": "확네미",
+  "keywords": [
+   "확장형(XML Enabled)",
+   "네이티브(Native XML)",
+   "미들웨어형"
+  ]
+ },
+ {
   "id": "db-26",
   "title": "생체인식 DB",
   "category": "데이터베이스",
   "importance": "하",
-  "definition": "생체정보를 추출하여 본인여부를 비교, 확인하는 생체인식 관련 정보를 검색하고 저장하기 위한 데이터베이스",
-  "memo": "X이신 (XML 사용·이미지 저장·신속한 인증)\n획특비유 (획득·특징 추출·비교·유사도 판정)",
+  "definition": "지문·홍채·얼굴 등에서 추출한 생체 특징 정보를 저장하고 유사도 비교로 본인 여부를 확인하기 위한 전용 데이터베이스.",
+  "memo": "인증 절차는 '획득-특징-비교-유사도' → 획특비유. 1:1은 인증(Verification), 1:N은 식별(Identification)로 짝지어 외운다.",
   "sections": [
-   {
-    "label": "특징",
-    "mnemonic": "X이신",
-    "keywords": [
-     "XML 사용",
-     "이미지 저장",
-     "신속한 인증"
-    ]
-   },
    {
     "label": "인증절차",
     "mnemonic": "획특비유",
@@ -38199,13 +43345,23 @@
      "비교",
      "유사도 판정"
     ]
+   },
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "템플릿 저장",
+     "신속한 인증",
+     "확률적 판정"
+    ]
    }
   ],
-  "mnemonic": "X이신",
+  "mnemonic": "획특비유",
   "keywords": [
-   "XML 사용",
-   "이미지 저장",
-   "신속한 인증"
+   "획득",
+   "특징 추출",
+   "비교",
+   "유사도 판정"
   ]
  },
  {
@@ -38263,6 +43419,83 @@
   ]
  },
  {
+  "id": "db-29",
+  "title": "병렬 데이터베이스(Parallel database)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "다수의 프로세서와 디스크를 병렬로 사용해 질의·갱신·입출력을 분할 처리함으로써 대용량 데이터 처리 성능을 높인 데이터베이스 시스템.",
+  "memo": "'공유'가 반복되니 변별 글자만 따 '메(모리)·디(스크)·무(공유)'. 확장성은 무공유 > 공유 디스크 > 공유 메모리 순서로 외운다.",
+  "sections": [
+   {
+    "label": "구조 유형",
+    "mnemonic": "메디무",
+    "keywords": [
+     "공유 메모리(Shared Memory)",
+     "공유 디스크(Shared Disk)",
+     "무공유(Shared Nothing)"
+    ]
+   }
+  ],
+  "mnemonic": "메디무",
+  "keywords": [
+   "공유 메모리(Shared Memory)",
+   "공유 디스크(Shared Disk)",
+   "무공유(Shared Nothing)"
+  ]
+ },
+ {
+  "id": "db-30",
+  "title": "Mobile DB",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "모바일 단말에 내장되거나 무선망을 통해 접근되는 경량 데이터베이스로, 단절 상태에서도 로컬 처리 후 서버와 동기화하는 것이 특징이다.",
+  "memo": "'단(말)-동(기화)-서(버)' 3단 구조. 끊겨도 쓰고 붙으면 맞춘다(오프라인 처리 후 동기화)가 핵심.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "단동서",
+    "keywords": [
+     "단말 DB",
+     "동기화 미들웨어",
+     "서버 DB"
+    ]
+   }
+  ],
+  "mnemonic": "단동서",
+  "keywords": [
+   "단말 DB",
+   "동기화 미들웨어",
+   "서버 DB"
+  ]
+ },
+ {
+  "id": "db-31",
+  "title": "Tiny DB",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "무선 센서 네트워크의 각 센서 노드를 하나의 가상 테이블로 보고 SQL 유사 질의로 데이터를 수집·처리하는 질의 처리 시스템형 데이터베이스.",
+  "memo": "첫 글자가 뒤죽박죽이라 두음 생략. '센서망 전체를 하나의 테이블로 보고 SQL을 던진다, 단 전기를 아끼려 중간에서 합쳐 올린다'로 기억.",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "네트워크 토폴로지 인식",
+     "다중 질의 처리",
+     "고수준 선언적 질의",
+     "에너지 효율 라우팅"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "네트워크 토폴로지 인식",
+   "다중 질의 처리",
+   "고수준 선언적 질의",
+   "에너지 효율 라우팅"
+  ]
+ },
+ {
   "id": "db-32",
   "title": "SQLite",
   "category": "데이터베이스",
@@ -38294,35 +43527,34 @@
   "title": "통계 데이터베이스",
   "category": "데이터베이스",
   "importance": "하",
-  "definition": "통계적인 자료에 대해서만 응답해 주고 특정 레코드의 내용을 질의하였을 때는 응답해 주지 않는 데이터 베이스",
-  "memo": "집추 (집합·추론)\nCMMSASV (COUNT·MIN·MAX·SUM·AVG·STDDEV·VARIANCE)",
+  "definition": "개별 레코드는 노출하지 않고 합계·평균 등 집계 결과만 응답하도록 설계된 통계 목적 전용 데이터베이스.",
+  "memo": "대책은 '질(의 제한)·잡(음)·분(할)·감(사)' → 질잡분감. 위협은 두 개뿐이니 '집합·추론'으로 그냥 외우고, 잡음 삽입의 현대판이 차등 프라이버시라고 연결한다.",
   "sections": [
    {
-    "label": "보안",
-    "mnemonic": "집추",
+    "label": "보안 대책",
+    "mnemonic": "질잡분감",
     "keywords": [
-     "집합",
-     "추론"
+     "질의 제한",
+     "잡음 삽입",
+     "분할",
+     "감사"
     ]
    },
    {
-    "label": "통계함수",
-    "mnemonic": "CMMSASV",
+    "label": "보안 위협",
+    "mnemonic": "",
     "keywords": [
-     "COUNT",
-     "MIN",
-     "MAX",
-     "SUM",
-     "AVG",
-     "STDDEV",
-     "VARIANCE"
+     "집합(Aggregation)",
+     "추론(Inference)"
     ]
    }
   ],
-  "mnemonic": "집추",
+  "mnemonic": "질잡분감",
   "keywords": [
-   "집합",
-   "추론"
+   "질의 제한",
+   "잡음 삽입",
+   "분할",
+   "감사"
   ]
  },
  {
@@ -38980,6 +44212,33 @@
   ]
  },
  {
+  "id": "db-53",
+  "title": "참조무결성",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "외래키 값은 반드시 참조하는 릴레이션의 기본키 값과 일치하거나 NULL이어야 한다는 관계형 데이터베이스의 무결성 제약 규칙.",
+  "memo": "'연(쇄)·제(한)·널(설정)·기(본값)' → 연제널기. 부모가 사라질 때 자식을 같이 지울지, 막을지, 비울지, 기본값을 줄지 네 갈래로 기억.",
+  "sections": [
+   {
+    "label": "참조 규칙",
+    "mnemonic": "연제널기",
+    "keywords": [
+     "연쇄(Cascade)",
+     "제한(Restrict)",
+     "널 설정(Set Null)",
+     "기본값 설정(Set Default)"
+    ]
+   }
+  ],
+  "mnemonic": "연제널기",
+  "keywords": [
+   "연쇄(Cascade)",
+   "제한(Restrict)",
+   "널 설정(Set Null)",
+   "기본값 설정(Set Default)"
+  ]
+ },
+ {
   "id": "db-54",
   "title": "릴레이션 무결성 규칙",
   "category": "데이터베이스",
@@ -39405,6 +44664,33 @@
   ]
  },
  {
+  "id": "db-70",
+  "title": "다중 버전 동시성 제어(MVCC)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "데이터 변경 시 기존 값을 덮어쓰지 않고 버전을 생성해, 읽기 트랜잭션이 일관된 과거 버전을 참조하도록 하는 비잠금 동시성 제어 기법.",
+  "memo": "영문 약어라 두음 생략. 한 줄 요약은 '쓰는 사람은 새 버전을, 읽는 사람은 옛 버전을' — 그래서 읽기가 쓰기를 막지 않는다. 대가는 옛 버전 청소 비용.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "SCN(System Change Number)",
+     "UNDO 세그먼트",
+     "스냅샷 일관성 읽기",
+     "COMMIT 가시성"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "SCN(System Change Number)",
+   "UNDO 세그먼트",
+   "스냅샷 일관성 읽기",
+   "COMMIT 가시성"
+  ]
+ },
+ {
   "id": "db-71",
   "title": "낙관적 검증(Validation) 기법",
   "category": "데이터베이스",
@@ -39461,6 +44747,35 @@
    "정의어(DDL)",
    "조작어(DML)",
    "제어어(DCL)"
+  ]
+ },
+ {
+  "id": "db-73",
+  "title": "Data Type, 제약조건",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "데이터 타입은 컬럼에 저장 가능한 값의 형태·의미·크기와 저장 방식을 정의하고, 제약조건은 데이터 무결성을 유지하기 위해 컬럼 값에 부과하는 제한 규칙이다.",
+  "memo": "'기(본키)·외(래키)·고(유키)·널(NOT NULL)·검(CHECK)' → 기외고널검. 타입은 '값의 그릇', 제약조건은 '그릇에 담길 값의 규칙'으로 대비해 서술한다.",
+  "sections": [
+   {
+    "label": "제약조건",
+    "mnemonic": "기외고널검",
+    "keywords": [
+     "기본키(PK)",
+     "외래키(FK)",
+     "고유키(UNIQUE)",
+     "널 제약(NOT NULL)",
+     "검사 제약(CHECK)"
+    ]
+   }
+  ],
+  "mnemonic": "기외고널검",
+  "keywords": [
+   "기본키(PK)",
+   "외래키(FK)",
+   "고유키(UNIQUE)",
+   "널 제약(NOT NULL)",
+   "검사 제약(CHECK)"
   ]
  },
  {
@@ -39604,6 +44919,33 @@
   ]
  },
  {
+  "id": "db-79",
+  "title": "SQL 구문 작성",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "데이터 정의·조작·제어 목적에 맞춰 표준 SQL 문장을 문법과 실행 순서에 맞게 작성하는 관계형 DB 질의 작성 기법.",
+  "memo": "'정조제트' — 정의하고(DDL) 조작하고(DML) 제어하고(DCL) 트랜잭션(TCL)으로 마무리한다. UNION은 정렬하고 UNION ALL은 그냥 붙인다로 성능 차이를 기억.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "정조제트",
+    "keywords": [
+     "정의어(DDL)",
+     "조작어(DML)",
+     "제어어(DCL)",
+     "트랜잭션어(TCL)"
+    ]
+   }
+  ],
+  "mnemonic": "정조제트",
+  "keywords": [
+   "정의어(DDL)",
+   "조작어(DML)",
+   "제어어(DCL)",
+   "트랜잭션어(TCL)"
+  ]
+ },
+ {
   "id": "db-80",
   "title": "Dynamic SQL",
   "category": "데이터베이스",
@@ -39639,22 +44981,51 @@
   "title": "Delete",
   "category": "데이터베이스",
   "importance": "하",
-  "definition": "DML 유형 - 데이터만 삭제",
-  "memo": "D롤 (DML이므로·롤백 가능함.)",
+  "definition": "테이블에서 조건에 해당하는 행만 선택적으로 제거하며 트랜잭션 로그를 남겨 롤백이 가능한 DML 계열 데이터 삭제 명령.",
+  "memo": "'조롤공' — 조건대로 지우고, 롤백되고, 공간은 그대로 남는다. TRUNCATE와 정확히 반대라는 점으로 짝지어 외운다.",
   "sections": [
    {
-    "label": "특징",
-    "mnemonic": "D롤",
+    "label": "구성요소",
+    "mnemonic": "조롤공",
     "keywords": [
-     "DML이므로",
-     "롤백 가능함."
+     "조건 삭제(WHERE)",
+     "롤백 가능(UNDO)",
+     "공간 유지(HWM)"
     ]
    }
   ],
-  "mnemonic": "D롤",
+  "mnemonic": "조롤공",
   "keywords": [
-   "DML이므로",
-   "롤백 가능함."
+   "조건 삭제(WHERE)",
+   "롤백 가능(UNDO)",
+   "공간 유지(HWM)"
+  ]
+ },
+ {
+  "id": "db-82",
+  "title": "Truncate",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "테이블의 전체 행을 최소 로깅으로 즉시 제거하고 저장공간을 반환해 테이블을 최초 생성 직후 상태로 되돌리는 DDL 명령.",
+  "memo": "'전구공자' — 전구(電球)는 공짜다로 외우고, 전체 삭제·구조 유지·공간 반환·자동 커밋을 떠올린다. 자동 커밋이므로 되돌릴 수 없다는 점이 DELETE와의 결정적 차이.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "전구공자",
+    "keywords": [
+     "전체 삭제",
+     "구조 유지",
+     "공간 반환",
+     "자동 커밋"
+    ]
+   }
+  ],
+  "mnemonic": "전구공자",
+  "keywords": [
+   "전체 삭제",
+   "구조 유지",
+   "공간 반환",
+   "자동 커밋"
   ]
  },
  {
@@ -39705,6 +45076,31 @@
    "스테이트먼트(Statement)",
    "프리페어드 스테이트먼트(PreparedStatement)",
    "콜러블 스테이트먼트(CallableStatement)"
+  ]
+ },
+ {
+  "id": "db-85",
+  "title": "prepare statement",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "SQL 문을 파라미터 자리표시자(?)를 가진 형태로 미리 파싱·컴파일해 실행계획을 캐시에 보관하고 값만 바인딩해 반복 실행하는 DB 접근 객체.",
+  "memo": "'사바실' — 사전에 컴파일하고, 바인드 변수로 값만 넣고, 실행계획을 재사용한다. 성능(Soft Parse)과 보안(인젝션 방어)을 한 번에 얻는 기법으로 답안에 쓴다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "사바실",
+    "keywords": [
+     "사전 컴파일",
+     "바인드 변수",
+     "실행계획 캐시"
+    ]
+   }
+  ],
+  "mnemonic": "사바실",
+  "keywords": [
+   "사전 컴파일",
+   "바인드 변수",
+   "실행계획 캐시"
   ]
  },
  {
@@ -39987,6 +45383,33 @@
   ]
  },
  {
+  "id": "db-96",
+  "title": "힌트(Hint)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "개발자가 SQL 문 내부에 주석 형태로 지시자를 삽입해 옵티마이저가 수립하는 실행계획을 원하는 방향으로 유도·강제하는 SQL 튜닝 기법.",
+  "memo": "'최접조병' — 최고의 접근으로 조인하고 병렬로 달린다. 힌트는 옵티마이저를 이기려는 것이 아니라 정보를 보태주는 것이라는 관점으로 서술하면 좋다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "최접조병",
+    "keywords": [
+     "최적화 목표",
+     "접근 경로",
+     "조인 관련",
+     "병렬 처리"
+    ]
+   }
+  ],
+  "mnemonic": "최접조병",
+  "keywords": [
+   "최적화 목표",
+   "접근 경로",
+   "조인 관련",
+   "병렬 처리"
+  ]
+ },
+ {
   "id": "db-97",
   "title": "인덱스 구조에 따른 분류",
   "category": "데이터베이스",
@@ -40009,6 +45432,81 @@
    "목적(함수기반·조인·도메인)",
    "형태(트리·해시·비트맵)",
    "구조(정적·동적)"
+  ]
+ },
+ {
+  "id": "db-98",
+  "title": "리버스키 인덱스(Reverse Key Index)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "인덱스 키 값의 바이트 순서를 역순으로 뒤집어 저장함으로써 순차 증가 키가 특정 리프 블록에 몰리는 경합을 분산시키는 B-Tree 인덱스 변형 기법.",
+  "memo": "'역경범' — 역순으로 뒤집어 경합을 분산하지만 범위검색은 못 한다. 얻는 것과 잃는 것이 명확한 기법이라 장단점 대비로 답안을 구성한다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "역경범",
+    "keywords": [
+     "역순 변환",
+     "경합 분산",
+     "범위검색 제약"
+    ]
+   }
+  ],
+  "mnemonic": "역경범",
+  "keywords": [
+   "역순 변환",
+   "경합 분산",
+   "범위검색 제약"
+  ]
+ },
+ {
+  "id": "db-99",
+  "title": "정적 인덱싱",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "색인 구조를 파일 생성 시점에 고정하고 데이터 삽입·삭제가 발생해도 색인 자체는 재구성하지 않는 색인 기법으로, 색인순차파일(ISAM)이 대표적이다.",
+  "memo": "'기색오' — 기본·색인·오버플로 세 영역. 정적은 구조가 고정이라 오버플로가 쌓이고 결국 재구성을 해야 한다는 흐름으로 기억.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "기색오",
+    "keywords": [
+     "기본 영역",
+     "색인 영역",
+     "오버플로 영역"
+    ]
+   }
+  ],
+  "mnemonic": "기색오",
+  "keywords": [
+   "기본 영역",
+   "색인 영역",
+   "오버플로 영역"
+  ]
+ },
+ {
+  "id": "db-100",
+  "title": "동적 인덱싱",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "데이터 삽입·삭제에 따라 색인 블록을 동적으로 분할(Split)·병합해 색인 균형을 자동 유지하는 색인 기법으로, VSAM과 B+Tree가 대표적이다.",
+  "memo": "'색기동' — 색인·기본 영역이 동적으로 움직인다(기동한다). 정적의 '기색오'와 짝지어 오버플로 영역 유무로 구분한다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "색기동",
+    "keywords": [
+     "색인 영역",
+     "기본 영역",
+     "동적 분할(Split)"
+    ]
+   }
+  ],
+  "mnemonic": "색기동",
+  "keywords": [
+   "색인 영역",
+   "기본 영역",
+   "동적 분할(Split)"
   ]
  },
  {
@@ -40265,6 +45763,33 @@
   ]
  },
  {
+  "id": "db-109",
+  "title": "CEP",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "다수 소스에서 연속 유입되는 이벤트 스트림을 실시간으로 상관분석·패턴 매칭해 의미 있는 복합 이벤트를 도출하고 즉시 대응 액션을 실행하는 실시간 이벤트 처리 기술.",
+  "memo": "'수분탐대' — 수집·분석·탐지·대응. 핵심 구별 포인트는 단일 이벤트가 아니라 이벤트들의 조합(Complex)에서 의미를 찾는다는 점.",
+  "sections": [
+   {
+    "label": "처리절차",
+    "mnemonic": "수분탐대",
+    "keywords": [
+     "수집(Collect)",
+     "분석(Correlate)",
+     "탐지(Detect)",
+     "대응(Action)"
+    ]
+   }
+  ],
+  "mnemonic": "수분탐대",
+  "keywords": [
+   "수집(Collect)",
+   "분석(Correlate)",
+   "탐지(Detect)",
+   "대응(Action)"
+  ]
+ },
+ {
   "id": "db-110",
   "title": "배깅(Bagging: Bootstrap Aggregating의 합성어)",
   "category": "데이터베이스",
@@ -40440,22 +45965,55 @@
   "title": "토픽모델링",
   "category": "데이터베이스",
   "importance": "하",
-  "definition": "비 구조화된 테스트 자료 집합으로부터 의미 있는 토픽을 추출하는 확률모델 알고리즘",
-  "memo": "",
+  "definition": "비정형 문서 집합에 잠재된 주제를 단어 출현 확률 분포로 추정해 자동 추출하는 확률적 생성모델 기반 텍스트 마이닝 기법.",
+  "memo": "'수전행모' — 수집·전처리·행렬화·모델링. 전처리 품질이 토픽 품질을 좌우한다는 점과 토픽 수(K) 선정이 핵심 이슈임을 함께 언급하면 가점.",
   "sections": [
    {
-    "label": "핵심 키워드",
-    "mnemonic": "",
+    "label": "절차",
+    "mnemonic": "수전행모",
     "keywords": [
-     "트랜드 분석",
-     "키워드 분석"
+     "수집",
+     "전처리",
+     "행렬화(DTM)",
+     "모델링(LDA)"
     ]
    }
   ],
-  "mnemonic": "",
+  "mnemonic": "수전행모",
   "keywords": [
-   "트랜드 분석",
-   "키워드 분석"
+   "수집",
+   "전처리",
+   "행렬화(DTM)",
+   "모델링(LDA)"
+  ]
+ },
+ {
+  "id": "db-117",
+  "title": "빅데이터 큐레이션(Big Data Curation)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "방대한 데이터에서 목적에 부합하는 데이터를 선별·수집·정제·가공하고 의미를 부여해 활용까지 전 과정을 기획·지휘하는 데이터 가치화 활동.",
+  "memo": "'선수정분공' — 선수(選手)가 정분 나눠 공유한다로 읽는다. 큐레이션이 없으면 데이터 레이크가 데이터 늪이 된다는 대비 문장이 답안 마무리에 유용.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "선수정분공",
+    "keywords": [
+     "선별",
+     "수집",
+     "정제",
+     "분류",
+     "공유"
+    ]
+   }
+  ],
+  "mnemonic": "선수정분공",
+  "keywords": [
+   "선별",
+   "수집",
+   "정제",
+   "분류",
+   "공유"
   ]
  },
  {
@@ -40483,6 +46041,35 @@
    "데이터 중계자",
    "빅데이터 서비스 제공자",
    "빅데이터 소비자"
+  ]
+ },
+ {
+  "id": "db-119",
+  "title": "ISO/IEC 20547",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "빅데이터 참조 아키텍처(BDRA)의 개념·용어·활용사례·구조와 보안 및 프라이버시 고려사항을 규정한 ISO/IEC JTC1 SC42 국제표준.",
+  "memo": "파트 번호 순서로 이야기 만들기: 1로 틀을 잡고, 2로 사례를 모으고, 3으로 아키텍처를 그리고, 4로 보안을 덮고, 5로 로드맵을 그린다. 두음은 억지라 붙이지 않는다.",
+  "sections": [
+   {
+    "label": "구성(Part)",
+    "mnemonic": "",
+    "keywords": [
+     "Part1 프레임워크",
+     "Part2 활용사례·요구사항",
+     "Part3 참조 아키텍처",
+     "Part4 보안·프라이버시",
+     "Part5 표준 로드맵"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "Part1 프레임워크",
+   "Part2 활용사례·요구사항",
+   "Part3 참조 아키텍처",
+   "Part4 보안·프라이버시",
+   "Part5 표준 로드맵"
   ]
  },
  {
@@ -40635,6 +46222,33 @@
   ]
  },
  {
+  "id": "db-125",
+  "title": "데이터 스웜프(Data Swamp)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "데이터 레이크에 적재된 데이터의 품질·메타데이터·계보 관리가 부실해져 검색과 활용이 사실상 불가능해진 무질서한 데이터 저장 상태.",
+  "memo": "원인 네 가지를 '무·메·품·거'로 되뇌면 순서가 살아난다: 무분별하게 담고, 메타데이터가 없고, 품질이 낮고, 거버넌스가 없으면 레이크는 늪이 된다. 두음으로 읽히지는 않으므로 문장으로 외운다.",
+  "sections": [
+   {
+    "label": "발생원인",
+    "mnemonic": "",
+    "keywords": [
+     "무분별 수집",
+     "메타데이터 부재",
+     "품질 저하",
+     "거버넌스 부재"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "무분별 수집",
+   "메타데이터 부재",
+   "품질 저하",
+   "거버넌스 부재"
+  ]
+ },
+ {
   "id": "db-126",
   "title": "Big Data 취약점/보안",
   "category": "데이터베이스",
@@ -40713,6 +46327,33 @@
    "소프트웨어 계층",
    "인프라 계층",
    "관리·거버넌스 계층"
+  ]
+ },
+ {
+  "id": "db-129",
+  "title": "데이터 늪(Data Swamp)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "데이터 레이크에 방대한 데이터가 무분별하게 축적되어 접근성과 신뢰성을 상실하고 필요한 데이터를 찾아 쓸 수 없게 변질된 저장소.",
+  "memo": "'못 찾고(접근 불가) 못 믿고(신뢰성 저하) 설명도 없다(메타데이터 부재)' 세 문장으로 증상을 외운다. 해법은 언제나 거버넌스와 카탈로그로 귀결된다.",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "접근 불가",
+     "낮은 품질",
+     "메타데이터 부재",
+     "신뢰성 저하"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "접근 불가",
+   "낮은 품질",
+   "메타데이터 부재",
+   "신뢰성 저하"
   ]
  },
  {
@@ -41234,17 +46875,127 @@
   "title": "클러스터링",
   "category": "데이터베이스",
   "importance": "하",
-  "definition": "유사한 특성을 가진 데이터를 그룹(Cluster)으로 자동 분류하는 비지도학습 기반 분석기법으로, 데이터 패턴 발견과 고객 세분화 등에 활용되는 기법 분할기반, 계층기반, 밀도기반",
-  "memo": "분계밀",
+  "definition": "정답 레이블 없이 데이터 간 유사도(거리)를 기준으로 동질적인 그룹을 자동 형성하는 비지도학습 기반 군집 분석 기법.",
+  "memo": "'분계밀' — 분할·계층·밀도. K를 미리 정하는가(분할), 나무를 그리는가(계층), 밀집 영역을 보는가(밀도)로 구분하면 설명이 자연스럽다.",
   "sections": [
    {
-    "label": "두음",
+    "label": "유형",
     "mnemonic": "분계밀",
-    "keywords": []
+    "keywords": [
+     "분할기반(K-means)",
+     "계층기반(Hierarchical)",
+     "밀도기반(DBSCAN)"
+    ]
    }
   ],
   "mnemonic": "분계밀",
-  "keywords": []
+  "keywords": [
+   "분할기반(K-means)",
+   "계층기반(Hierarchical)",
+   "밀도기반(DBSCAN)"
+  ]
+ },
+ {
+  "id": "db-148",
+  "title": "필터링",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "대량 데이터 중 사용자 선호나 특정 목적에 부합하는 항목만 선별·결합해 개인화된 추천 결과를 제공하는 정보 선별 기법.",
+  "memo": "'콘협하' — 콘텐츠·협업·하이브리드. 콘텐츠 기반은 아이템을 보고, 협업 기반은 사람을 본다로 구분하면 장단점(콜드스타트) 서술이 매끄럽다.",
+  "sections": [
+   {
+    "label": "유형",
+    "mnemonic": "콘협하",
+    "keywords": [
+     "콘텐츠 기반",
+     "협업 기반",
+     "하이브리드"
+    ]
+   }
+  ],
+  "mnemonic": "콘협하",
+  "keywords": [
+   "콘텐츠 기반",
+   "협업 기반",
+   "하이브리드"
+  ]
+ },
+ {
+  "id": "db-149",
+  "title": "이상감지",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "전체 데이터의 일반적 통계 패턴이나 생성 메커니즘에서 유의하게 벗어난 소수의 희귀 관측치를 식별해 내는 데이터 분석 기법.",
+  "memo": "'통거기' — 통계·거리·기계학습. 단순 임계값에서 이웃 비교로, 다시 학습 모델로 정교해지는 발전 순서로 외운다.",
+  "sections": [
+   {
+    "label": "유형",
+    "mnemonic": "통거기",
+    "keywords": [
+     "통계 기반",
+     "거리·밀도 기반",
+     "기계학습 기반"
+    ]
+   }
+  ],
+  "mnemonic": "통거기",
+  "keywords": [
+   "통계 기반",
+   "거리·밀도 기반",
+   "기계학습 기반"
+  ]
+ },
+ {
+  "id": "db-150",
+  "title": "탐색적 데이터분석(EDA)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "본격 분석 전 요약통계와 시각화로 데이터의 구조·분포·이상치·변수 간 관계를 탐색해 가설과 분석 방향을 도출하는 데이터 분석 접근법.",
+  "memo": "'저잔재현' — 저항성·잔차·재표현·현시성(Tukey 4R). EDA는 가설을 만들고 CDA는 가설을 검증한다는 한 문장을 반드시 함께 쓴다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "저잔재현",
+    "keywords": [
+     "저항성",
+     "잔차 해석",
+     "재표현",
+     "현시성"
+    ]
+   }
+  ],
+  "mnemonic": "저잔재현",
+  "keywords": [
+   "저항성",
+   "잔차 해석",
+   "재표현",
+   "현시성"
+  ]
+ },
+ {
+  "id": "db-151",
+  "title": "확증적 데이터분석(CDA)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "사전에 설정한 가설을 표본 데이터로 통계적으로 검정해 모집단에 대한 결론의 유의성을 확인하는 확증적 데이터 분석 접근법.",
+  "memo": "'가검결' — 가설 세우고, 검정하고, 결론 낸다. EDA(탐색·귀납)와 CDA(확증·연역)를 한 쌍으로 묶어 비교표로 답안화한다.",
+  "sections": [
+   {
+    "label": "절차",
+    "mnemonic": "가검결",
+    "keywords": [
+     "가설 설정",
+     "검정 수행",
+     "결론 도출"
+    ]
+   }
+  ],
+  "mnemonic": "가검결",
+  "keywords": [
+   "가설 설정",
+   "검정 수행",
+   "결론 도출"
+  ]
  },
  {
   "id": "db-152",
@@ -41287,6 +47038,31 @@
   ]
  },
  {
+  "id": "db-153",
+  "title": "CKAN",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "데이터셋 등록·메타데이터 관리·검색·개방 API 제공을 지원하는 오픈소스 기반 공공데이터 개방 포털 플랫폼(Comprehensive Knowledge Archive Network).",
+  "memo": "'등검개' — 등록하고 검색하고 개방한다. CKAN은 데이터를 가공하는 도구가 아니라 데이터셋을 목록화·개방하는 카탈로그 포털이라는 점이 구별 포인트.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "등검개",
+    "keywords": [
+     "등록(Dataset)",
+     "검색(Search)",
+     "개방(Open API)"
+    ]
+   }
+  ],
+  "mnemonic": "등검개",
+  "keywords": [
+   "등록(Dataset)",
+   "검색(Search)",
+   "개방(Open API)"
+  ]
+ },
+ {
   "id": "db-154",
   "title": "데이터 등급 5단계 레벨",
   "category": "데이터베이스",
@@ -41313,6 +47089,33 @@
    "3단계 OF(개방 포맷)",
    "4단계 URI(식별자 부여)",
    "5단계 LD(연결 데이터)"
+  ]
+ },
+ {
+  "id": "db-155",
+  "title": "데이터 거래소",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "데이터 공급자와 수요자가 데이터 상품을 안전하게 등록·검색·거래·정산할 수 있도록 지원하는 데이터 유통 중개 플랫폼.",
+  "memo": "'등검연정' — 등록·검색·연계·정산. 거래소의 본질은 신뢰(품질 검증)와 정산(가격·결제)이며, 개인정보 이슈는 가명처리로 해소한다는 흐름으로 답안화.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "등검연정",
+    "keywords": [
+     "등록 플랫폼",
+     "검색 엔진",
+     "연계 인터페이스",
+     "정산 체계"
+    ]
+   }
+  ],
+  "mnemonic": "등검연정",
+  "keywords": [
+   "등록 플랫폼",
+   "검색 엔진",
+   "연계 인터페이스",
+   "정산 체계"
   ]
  },
  {
@@ -41471,6 +47274,31 @@
   ]
  },
  {
+  "id": "db-161",
+  "title": "CQL(Continuous Query Language)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "무한히 유입되는 데이터 스트림에 대해 지속적으로 등록·실행되는 질의를 표현하기 위해 스트림과 관계 간 변환 연산자를 정의한 연속 질의 언어(Stanford STREAM 프로젝트).",
+  "memo": "'잘라서(S2R) 계산하고(R2R) 다시 흘려보낸다(R2S)' 세 박자로 외운다. 영문 약어라 두음은 붙이지 않고 흐름 문장으로 기억.",
+  "sections": [
+   {
+    "label": "변환 연산자",
+    "mnemonic": "",
+    "keywords": [
+     "Stream-to-Relation",
+     "Relation-to-Relation",
+     "Relation-to-Stream"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "Stream-to-Relation",
+   "Relation-to-Relation",
+   "Relation-to-Stream"
+  ]
+ },
+ {
   "id": "db-162",
   "title": "합성 데이터(Synthetic Data)",
   "category": "데이터베이스",
@@ -41500,17 +47328,17 @@
   "title": "Small data",
   "category": "데이터베이스",
   "importance": "하",
-  "definition": "개인의 취향이나 필요, 건강 상태, 생활 양식 등에서 나오는 소량의 정보",
-  "memo": "쉽빠관선효 (쉽고 간단·빠른분석·관리용이·선택가능·효율적)",
+  "definition": "개인의 취향·행동·건강·생활양식 등 일상 맥락에서 발생하는 소량의 고맥락 데이터로, 개인 단위의 구체적 인사이트 도출에 활용되는 데이터.",
+  "memo": "'쉽빠관선효' — 쉽고 빠르고 관리 쉽고 선택 가능하고 효율적. 빅데이터가 '무엇이 일어나는가'라면 스몰데이터는 '왜 그 사람이 그렇게 하는가'를 본다.",
   "sections": [
    {
     "label": "장점",
     "mnemonic": "쉽빠관선효",
     "keywords": [
      "쉽고 간단",
-     "빠른분석",
-     "관리용이",
-     "선택가능",
+     "빠른 분석",
+     "관리 용이",
+     "선택 가능",
      "효율적"
     ]
    }
@@ -41518,9 +47346,9 @@
   "mnemonic": "쉽빠관선효",
   "keywords": [
    "쉽고 간단",
-   "빠른분석",
-   "관리용이",
-   "선택가능",
+   "빠른 분석",
+   "관리 용이",
+   "선택 가능",
    "효율적"
   ]
  },
@@ -41549,6 +47377,56 @@
    "정보제공자",
    "마이데이터 사업자",
    "중계기관"
+  ]
+ },
+ {
+  "id": "db-165",
+  "title": "Web-DB 연동 (연결 구문 확인)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "웹 애플리케이션이 미들웨어와 표준 API를 통해 데이터베이스에 접속·질의하고 결과를 반환받도록 연결하는 웹-DB 연동 구조.",
+  "memo": "항목이 둘뿐이라 두음은 두지 않는다. '브라우저-웹서버-미들웨어-드라이버-DBMS' 다섯 칸을 그려두고 직접 연결은 중간 칸을 건너뛴다고 기억.",
+  "sections": [
+   {
+    "label": "연결방식",
+    "mnemonic": "",
+    "keywords": [
+     "직접 연결 방식",
+     "간접 연결 방식"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "직접 연결 방식",
+   "간접 연결 방식"
+  ]
+ },
+ {
+  "id": "db-166",
+  "title": "ODBC, JDBC",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "응용 프로그램이 DBMS 종류에 무관하게 표준 인터페이스로 데이터베이스에 접근하도록 지원하는 DB 연결 API 표준(ODBC는 C 기반 범용, JDBC는 자바 전용).",
+  "memo": "'브리지 → 네이티브 → 네트워크 → 씬' 순서로 갈수록 순수 자바에 가까워지고 클라이언트 설치 부담이 사라진다. 실무 표준은 Type4.",
+  "sections": [
+   {
+    "label": "JDBC 드라이버 유형",
+    "mnemonic": "",
+    "keywords": [
+     "Type1 JDBC-ODBC 브리지",
+     "Type2 Native API",
+     "Type3 Net Protocol All-Java",
+     "Type4 Thin Driver"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "Type1 JDBC-ODBC 브리지",
+   "Type2 Native API",
+   "Type3 Net Protocol All-Java",
+   "Type4 Thin Driver"
   ]
  },
  {
@@ -41581,26 +47459,26 @@
   "title": "Data Architecture(DA)",
   "category": "데이터베이스",
   "importance": "하",
-  "definition": "데이터에 관한 모든 계층을 총망라해서 객관적이고 구체적인 접근방법을 명시한 체계적인 방법론",
-  "memo": "",
+  "definition": "기업의 데이터를 전사 관점에서 체계적으로 정의·구조화하고 데이터 관리 원칙과 절차·조직을 규정한 데이터 아키텍처 체계.",
+  "memo": "'원칙을 세우고(Principle) 틀을 짜고(Framework) 참조모델로 표준화하고(DRM) 거버넌스로 지킨다'로 흐름을 외운다. DA는 전사 관리, DBA는 개별 DB 운영이라는 대비가 단골 논점.",
   "sections": [
    {
-    "label": "핵심 키워드",
+    "label": "구성요소",
     "mnemonic": "",
     "keywords": [
-     "Data Principle",
-     "DA Framework",
-     "DRM",
-     "Data Governance"
+     "데이터 원칙(Data Principle)",
+     "DA 프레임워크",
+     "데이터 참조모델(DRM)",
+     "데이터 거버넌스"
     ]
    }
   ],
   "mnemonic": "",
   "keywords": [
-   "Data Principle",
-   "DA Framework",
-   "DRM",
-   "Data Governance"
+   "데이터 원칙(Data Principle)",
+   "DA 프레임워크",
+   "데이터 참조모델(DRM)",
+   "데이터 거버넌스"
   ]
  },
  {
@@ -41972,17 +47850,31 @@
   "title": "DBA",
   "category": "데이터베이스",
   "importance": "하",
-  "definition": "DBMS의구성 및 관리, 운영 전반에 대한 책임을 가지고 직무를 수행하는 자",
-  "memo": "모물튜구운표",
+  "definition": "데이터베이스의 설계·구축부터 운영·성능관리·보안까지 전반에 대한 책임을 지고 직무를 수행하는 데이터베이스 관리자.",
+  "memo": "'모물튜구운표' — 모델링·물리설계·튜닝·구축·운영·표준화. DA와의 비교(전사 vs 개별)를 한 줄 넣으면 답안 완성도가 올라간다.",
   "sections": [
    {
-    "label": "두음",
+    "label": "필요기술",
     "mnemonic": "모물튜구운표",
-    "keywords": []
+    "keywords": [
+     "모델링 기술",
+     "물리설계 기술",
+     "튜닝 기술",
+     "구축 기술",
+     "운영 기술",
+     "표준화 기술"
+    ]
    }
   ],
   "mnemonic": "모물튜구운표",
-  "keywords": []
+  "keywords": [
+   "모델링 기술",
+   "물리설계 기술",
+   "튜닝 기술",
+   "구축 기술",
+   "운영 기술",
+   "표준화 기술"
+  ]
  },
  {
   "id": "db-183",
@@ -42012,35 +47904,55 @@
   ]
  },
  {
+  "id": "db-184",
+  "title": "CPU, 메모리, 디스크 용량산정 방식",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "업무 부하와 목표 성능·가용성을 기준으로 CPU·메모리·디스크 등 시스템 자원의 적정 규모를 정량적으로 산정하는 HW 규모산정 기법.",
+  "memo": "'참시벤' — 참조·시뮬레이션·벤치마크. 왼쪽으로 갈수록 빠르고 싸지만 부정확, 오른쪽으로 갈수록 정확하지만 비싸다는 축으로 기억.",
+  "sections": [
+   {
+    "label": "산정방식",
+    "mnemonic": "참시벤",
+    "keywords": [
+     "참조 방식",
+     "시뮬레이션 방식",
+     "벤치마크 방식"
+    ]
+   }
+  ],
+  "mnemonic": "참시벤",
+  "keywords": [
+   "참조 방식",
+   "시뮬레이션 방식",
+   "벤치마크 방식"
+  ]
+ },
+ {
   "id": "db-185",
   "title": "TPC, TPC-C",
   "category": "데이터베이스",
   "importance": "하",
-  "definition": "[TPC] TPC-C(OLTP 시스템의 CPU 용량산정 일반적 기준), TPC-H(OLAP(DW) 시스템의 벤치마크 성능평가 기준)",
-  "memo": "69 (SPECweb96·SPECweb99)\nOWW (OLTP·WEB·WAS)",
+  "definition": "시스템의 트랜잭션 처리 성능을 표준화된 조건에서 측정·비교하기 위해 TPC 협의회가 제정한 벤치마크 규격 체계.",
+  "memo": "역할별로 짝짓기: OLTP는 TPC-C, DW는 TPC-H, 웹서버는 SPECweb, WAS는 SPECjbb. 영문 약어라 두음 대신 '용도-지표' 쌍으로 외운다.",
   "sections": [
    {
-    "label": "SPEC",
-    "mnemonic": "69",
+    "label": "벤치마크 유형",
+    "mnemonic": "",
     "keywords": [
-     "SPECweb96",
-     "SPECweb99"
-    ]
-   },
-   {
-    "label": "활용방안",
-    "mnemonic": "OWW",
-    "keywords": [
-     "OLTP",
-     "WEB",
-     "WAS"
+     "TPC-C(OLTP)",
+     "TPC-H(OLAP·DW)",
+     "SPECweb99(웹서버)",
+     "SPECjbb2000(WAS)"
     ]
    }
   ],
-  "mnemonic": "69",
+  "mnemonic": "",
   "keywords": [
-   "SPECweb96",
-   "SPECweb99"
+   "TPC-C(OLTP)",
+   "TPC-H(OLAP·DW)",
+   "SPECweb99(웹서버)",
+   "SPECjbb2000(WAS)"
   ]
  },
  {
@@ -42112,8 +48024,8 @@
   "title": "뷰(View)",
   "category": "데이터베이스",
   "importance": "하",
-  "definition": "원하는 데이터만 열람할 수 있도록 미리 만들어 놓은 가상 테이블",
-  "memo": "시인분 (시스템 뷰·인덱스된 뷰·분할된 뷰)",
+  "definition": "하나 이상의 기본 테이블에서 필요한 데이터만 조회하도록 정의해 둔 논리적 가상 테이블로, 실제 데이터를 저장하지 않고 질의 정의만 보관한다.",
+  "memo": "종류는 '시인분'(시스템·인덱스된·분할된), 목적은 '은단독'(은닉·단순화·독립성). 뷰는 데이터를 저장하지 않고 질의 정의만 저장한다는 점이 핵심 구별 포인트.",
   "sections": [
    {
     "label": "종류",
@@ -42122,6 +48034,15 @@
      "시스템 뷰",
      "인덱스된 뷰",
      "분할된 뷰"
+    ]
+   },
+   {
+    "label": "목적",
+    "mnemonic": "은단독",
+    "keywords": [
+     "은닉(보안)",
+     "단순화",
+     "독립성"
     ]
    }
   ],
@@ -42192,6 +48113,33 @@
    "분석 모델링",
    "비즈니스 통찰",
    "결과 시각화"
+  ]
+ },
+ {
+  "id": "db-191",
+  "title": "데이터 사이언티스트",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "대용량 데이터로부터 비즈니스 가치를 도출하기 위해 데이터 수집·관리, 통계·머신러닝 분석, 결과의 시각화·전달까지 수행하는 데이터 분석 융합형 전문 인력.",
+  "memo": "수분시도 — 데이터에 수분(水分)을 주려 시도하는 사람. 수집·분석·시각화·도메인 4역량.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "수분시도",
+    "keywords": [
+     "수집·관리 역량",
+     "분석·통계 역량",
+     "시각화·전달 역량",
+     "도메인 지식"
+    ]
+   }
+  ],
+  "mnemonic": "수분시도",
+  "keywords": [
+   "수집·관리 역량",
+   "분석·통계 역량",
+   "시각화·전달 역량",
+   "도메인 지식"
   ]
  },
  {
@@ -42490,15 +48438,215 @@
   "keywords": []
  },
  {
+  "id": "db-203",
+  "title": "관계해석",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "원하는 결과가 무엇(What)인지만 기술하고 처리 절차는 명시하지 않는 비절차적 질의 언어로, 술어 논리에 기반해 관계형 데이터 모델의 이론적 질의 체계를 제공하는 언어.",
+  "memo": "튜플은 행(Tuple→SQL), 도메인은 열(Domain→QBE). 두음 없이 '행은 SQL, 열은 QBE'로 기억.",
+  "sections": [
+   {
+    "label": "유형",
+    "mnemonic": "",
+    "keywords": [
+     "튜플 관계해석",
+     "도메인 관계해석"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "튜플 관계해석",
+   "도메인 관계해석"
+  ]
+ },
+ {
+  "id": "db-204",
+  "title": "Dublin Core(ISO 15836)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "전자자원·웹 문서를 효율적으로 식별·검색하기 위해 15개 핵심 메타데이터 요소를 정의한 국제 표준 메타데이터 요소집합(ISO 15836).",
+  "memo": "내지형 — 무엇을 담았나(내용), 누구 것인가(지적재산권), 어떤 모습인가(형태). 15요소를 3범주로 묶어 암기.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "내지형",
+    "keywords": [
+     "내용(Content)",
+     "지적재산권(Intellectual Property)",
+     "형태(Instantiation)"
+    ]
+   }
+  ],
+  "mnemonic": "내지형",
+  "keywords": [
+   "내용(Content)",
+   "지적재산권(Intellectual Property)",
+   "형태(Instantiation)"
+  ]
+ },
+ {
+  "id": "db-205",
+  "title": "데이터 카탈로그(Data Catalog)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "기업 내 흩어진 데이터 자산의 메타데이터를 자동 수집·통합하여 검색·이해·신뢰할 수 있도록 제공함으로써 데이터 활용을 지원하는 서비스(데이터 자산의 도서관 목록).",
+  "memo": "수검계통 — 메타데이터를 '수집'해 '검색'하게 하고 '계보'로 추적하며 '통제'한다. 데이터 자산의 도서관 목록.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "수검계통",
+    "keywords": [
+     "수집(Harvest)",
+     "검색(Search)",
+     "계보(Lineage)",
+     "통제(Governance)"
+    ]
+   }
+  ],
+  "mnemonic": "수검계통",
+  "keywords": [
+   "수집(Harvest)",
+   "검색(Search)",
+   "계보(Lineage)",
+   "통제(Governance)"
+  ]
+ },
+ {
+  "id": "db-206",
+  "title": "Big Noise",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "대규모 데이터 축적 과정에서 함께 증가하며 분석 목적에 기여하지 않거나 결론을 왜곡시키는 비유의미·비정상 정보.",
+  "memo": "잡음은 세 곳에서 들어온다 — 데이터 자체가 나쁘거나(품질), 엉뚱한 게 섞이거나(수집), 사람이 잘못 읽거나(해석).",
+  "sections": [
+   {
+    "label": "유형",
+    "mnemonic": "",
+    "keywords": [
+     "품질성 잡음",
+     "수집성 잡음",
+     "해석성 잡음"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "품질성 잡음",
+   "수집성 잡음",
+   "해석성 잡음"
+  ]
+ },
+ {
+  "id": "db-207",
+  "title": "Big Signal",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "대규모 데이터 분석과 머신러닝에서 잡음(Big Noise)과 구별되어 의사결정에 실질적 가치를 제공하는 유의미한 패턴·정보.",
+  "memo": "희유실적 — 희유(稀有)한 실적을 만드는 신호. 희소·유의미·실행가능·적시 4요건.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "희유실적",
+    "keywords": [
+     "희소성",
+     "유의미성",
+     "실행가능성",
+     "적시성"
+    ]
+   }
+  ],
+  "mnemonic": "희유실적",
+  "keywords": [
+   "희소성",
+   "유의미성",
+   "실행가능성",
+   "적시성"
+  ]
+ },
+ {
+  "id": "db-208",
+  "title": "데이터 리니지(Data Lineage)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "데이터가 최초 생성·수집된 시점부터 최종 활용 지점까지의 이동 경로와 변환 과정을 추적·시각화하는 데이터 계보 관리 기법.",
+  "memo": "수변적시 — 물가(水邊)에서 때맞춰(適時) 물길을 따라간다. 수집·변환·적재·시각화로 데이터 물길 추적.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "수변적시",
+    "keywords": [
+     "수집(Source)",
+     "변환(Transform)",
+     "적재(Target)",
+     "시각화(Visualization)"
+    ]
+   }
+  ],
+  "mnemonic": "수변적시",
+  "keywords": [
+   "수집(Source)",
+   "변환(Transform)",
+   "적재(Target)",
+   "시각화(Visualization)"
+  ]
+ },
+ {
+  "id": "db-209",
+  "title": "Registry, Repository",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "Registry는 자원의 소재와 메타정보를 등록해 사용자를 실제 자원으로 안내(리디렉션)하는 등록소이고, Repository는 자원의 실체를 물리적으로 저장·관리하는 저장소.",
+  "memo": "Registry는 '주소록', Repository는 '창고'. 주소록은 어디 있는지 알려주고 창고는 물건을 갖고 있다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "Registry",
+     "Repository"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "Registry",
+   "Repository"
+  ]
+ },
+ {
+  "id": "db-210",
+  "title": "Mediator, Wrapper",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "Mediator는 사용자 질의를 전역 스키마 기준으로 재작성·분해해 다양한 리소스에 질의하고 결과를 통합하는 중재자이며, Wrapper는 이질적 소스의 데이터·인터페이스를 공통 형식으로 변환하는 포장기(어댑터).",
+  "memo": "Mediator는 '통역 지휘자'(질의를 나눠 보내고 결과를 합침), Wrapper는 '포장지'(소스마다 다른 모양을 공통 형식으로 감쌈).",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "Mediator",
+     "Wrapper"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "Mediator",
+   "Wrapper"
+  ]
+ },
+ {
   "id": "db-211",
   "title": "Data Dictionary",
   "category": "데이터베이스",
   "importance": "하",
-  "definition": "데이터베이스 정보를 보여주는 읽기전용 테이블 및 뷰",
-  "memo": "사권스통 (사용자·권한·스키마·통계 정보)",
+  "definition": "데이터베이스의 객체·사용자·권한 등 데이터에 관한 데이터(메타데이터)를 DBMS가 자동으로 관리하며 읽기 전용으로 제공하는 테이블 및 뷰의 집합.",
+  "memo": "사권스통 (사용자·권한·스키마·통계 정보) — DB가 자기 자신을 기록해 둔 읽기 전용 장부.",
   "sections": [
    {
-    "label": "특징",
+    "label": "구성요소",
     "mnemonic": "사권스통",
     "keywords": [
      "사용자",
@@ -42514,6 +48662,33 @@
    "권한",
    "스키마",
    "통계 정보"
+  ]
+ },
+ {
+  "id": "db-212",
+  "title": "랜덤 액세스(Random Access)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "인덱스를 통해 획득한 ROWID로 테이블 블록을 한 번에 하나씩 접근하는 테이블 액세스 방식으로, 소량의 행을 선별 조회할 때 사용하는 데이터 접근 기법.",
+  "memo": "인덱스로 주소(ROWID)를 얻어 한 집씩 문을 두드리는 방식. 집이 많아지면 오히려 동네 전체를 도는 순차 액세스가 빠르다.",
+  "sections": [
+   {
+    "label": "절차",
+    "mnemonic": "",
+    "keywords": [
+     "인덱스 스캔",
+     "ROWID 추출",
+     "버퍼 캐시 확인",
+     "단일 블록 읽기"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "인덱스 스캔",
+   "ROWID 추출",
+   "버퍼 캐시 확인",
+   "단일 블록 읽기"
   ]
  },
  {
@@ -42739,31 +48914,68 @@
   "title": "데이터 위험",
   "category": "데이터베이스",
   "importance": "하",
-  "definition": "목적) 투명성, 신속유연,공정성",
-  "memo": "",
+  "definition": "데이터의 개방·결합·활용 과정에서 정보주체와 사회에 부정적 영향을 초래할 수 있는 위험 요인을 사전조사·식별·측정·진단하는 데이터 거버넌스 관리 체계.",
+  "memo": "사식측진 — 사전조사·(위험)식별·(위험)측정·(위험)진단. '사식(사전조사·식별)으로 재고 진단한다'로 연상.",
   "sections": [
    {
-    "label": "두음",
+    "label": "절차",
     "mnemonic": "사식측진",
-    "keywords": []
+    "keywords": [
+     "사전조사",
+     "위험식별",
+     "위험측정",
+     "위험진단"
+    ]
    }
   ],
   "mnemonic": "사식측진",
-  "keywords": []
+  "keywords": [
+   "사전조사",
+   "위험식별",
+   "위험측정",
+   "위험진단"
+  ]
+ },
+ {
+  "id": "db-221",
+  "title": "데이터 위험",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "데이터 위험 진단 결과를 토대로 금융·의료·유통 등 산업 주체별 특성에 맞춰 차별화된 대응방안을 수립·이행하는 데이터 위험관리 체계.",
+  "memo": "금의유공 — '금의(錦衣)의 유공(有功)'처럼 읽어 금융·의료·유통·공통 4주체를 암기.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "금의유공",
+    "keywords": [
+     "금융",
+     "의료",
+     "유통",
+     "공통"
+    ]
+   }
+  ],
+  "mnemonic": "금의유공",
+  "keywords": [
+   "금융",
+   "의료",
+   "유통",
+   "공통"
+  ]
  },
  {
   "id": "db-223",
   "title": "데이터 재화",
   "category": "데이터베이스",
   "importance": "하",
-  "definition": "데이터의 근본적 특성과 데이터 자산을 통해 얻는 혜택",
-  "memo": "135회 관리 3교시",
+  "definition": "데이터가 지닌 근본적 특성과 데이터 자산으로부터 얻는 편익을 경제재 관점에서 규정한 개념으로, 비경합성·비배제성을 갖는 무형의 재화.",
+  "memo": "데이터는 모일수록 값이 오르고(집합), 쓰는 사람에 따라 값이 달라지며(상대), 공짜로도 오간다(무상·공익). 135회 관리 3교시 출제.",
   "sections": [
    {
-    "label": "핵심 키워드",
+    "label": "구성요소",
     "mnemonic": "",
     "keywords": [
-     "집합적 가치",
+     "집합적 가치(연결성)",
      "활용의 상대적 가치",
      "무상거래성과 공익성"
     ]
@@ -42771,7 +48983,7 @@
   ],
   "mnemonic": "",
   "keywords": [
-   "집합적 가치",
+   "집합적 가치(연결성)",
    "활용의 상대적 가치",
    "무상거래성과 공익성"
   ]
@@ -42781,15 +48993,15 @@
   "title": "데이터 가치평가",
   "category": "데이터베이스",
   "importance": "하",
-  "definition": "평가 대상 데이터를 다수의 판매자와 사용자가 공정하게 경쟁하는 시장에서 일반적으로 인정된 평가 기법 및 모델에 따라 가액, 등급, 점수 등으로 평가 및 결과를 도출하는 활동",
-  "memo": "수원시 (수익 접근법·원각 접근법·시장 접근법)",
+  "definition": "평가 대상 데이터를 다수의 판매자와 사용자가 공정하게 경쟁하는 시장에서 일반적으로 인정된 평가 기법 및 모델에 따라 가액·등급·점수 등으로 평가하고 결과를 도출하는 활동.",
+  "memo": "수원시 (수익·원가·시장 접근법) — 도시 이름으로 3대 접근법 암기. 기존 '원각 접근법'은 '원가 접근법'의 오기.",
   "sections": [
    {
     "label": "가치평가 모델",
     "mnemonic": "수원시",
     "keywords": [
      "수익 접근법",
-     "원각 접근법",
+     "원가 접근법",
      "시장 접근법"
     ]
    }
@@ -42797,8 +49009,355 @@
   "mnemonic": "수원시",
   "keywords": [
    "수익 접근법",
-   "원각 접근법",
+   "원가 접근법",
    "시장 접근법"
+  ]
+ },
+ {
+  "id": "db-225",
+  "title": "Schema On Read",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "데이터를 저장하는 시점에는 스키마를 검증하지 않고 원본 그대로 적재한 뒤, 읽는 시점(Read with Query)에 목적에 맞는 스키마를 적용해 해석하는 데이터 처리 방식.",
+  "memo": "'일단 담고 나중에 해석' — 창고에 짐을 그대로 넣고 꺼낼 때 분류한다. 32회 모의 출제.",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "적재 유연성",
+     "스키마 진화 대응",
+     "읽기 시 파싱 비용",
+     "거버넌스 부담"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "적재 유연성",
+   "스키마 진화 대응",
+   "읽기 시 파싱 비용",
+   "거버넌스 부담"
+  ]
+ },
+ {
+  "id": "db-226",
+  "title": "Schema On Write",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "데이터를 저장하는 시점에 사전 정의된 스키마와의 일치 여부를 검증하여 올바른 형태의 데이터만 적재하는 전통적 데이터 처리 방식.",
+  "memo": "'맞는 짐만 창고에 넣는다' — 입고 검사로 품질은 얻고 유연성은 잃는다. 32회 모의 출제.",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "적재 시 검증",
+     "무결성 보장",
+     "조회 성능 우수",
+     "스키마 변경 비용"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "적재 시 검증",
+   "무결성 보장",
+   "조회 성능 우수",
+   "스키마 변경 비용"
+  ]
+ },
+ {
+  "id": "db-228",
+  "title": "DQ 인증",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "데이터산업진흥법을 근거로 데이터의 구조·값·관리체계를 심사하여 품질 수준에 따라 등급을 부여하는 정부 임의인증 제도.",
+  "memo": "'그릇(구조)·내용물(값)·주방 운영(관리체계)' 세 가지를 본다. 절차는 심사 → 판정 → 심의 순.",
+  "sections": [
+   {
+    "label": "심사영역",
+    "mnemonic": "",
+    "keywords": [
+     "데이터 구조",
+     "데이터 값",
+     "데이터 관리체계"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "데이터 구조",
+   "데이터 값",
+   "데이터 관리체계"
+  ]
+ },
+ {
+  "id": "db-229",
+  "title": "공공데이터 활용지원센터",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "공공데이터법에 근거하여 공공데이터의 생성·개방·활용 전 과정을 전문적으로 지원하기 위해 설치·운영되는 전담 지원조직.",
+  "memo": "정제활교 — 데이터를 '정제(精製)'해서 가르친다(敎). 정책·제공·활용·교육 4대 지원 기능.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "정제활교",
+    "keywords": [
+     "정책 지원",
+     "제공 지원",
+     "활용 지원",
+     "교육·홍보"
+    ]
+   }
+  ],
+  "mnemonic": "정제활교",
+  "keywords": [
+   "정책 지원",
+   "제공 지원",
+   "활용 지원",
+   "교육·홍보"
+  ]
+ },
+ {
+  "id": "db-230",
+  "title": "데이터 분석 기획 분석",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "분석을 수행하기에 앞서 분석 과제를 정의하고 의도한 결과를 도출하기 위한 수행 방안을 사전에 계획하는 일련의 작업.",
+  "memo": "최솔통발 — 수험가 통용 두음. 대상·방법 둘 다 알면 최적화, 대상만 알면 솔루션, 방법만 알면 통찰, 둘 다 모르면 발견.",
+  "sections": [
+   {
+    "label": "유형",
+    "mnemonic": "최솔통발",
+    "keywords": [
+     "최적화(Optimization)",
+     "솔루션(Solution)",
+     "통찰(Insight)",
+     "발견(Discovery)"
+    ]
+   }
+  ],
+  "mnemonic": "최솔통발",
+  "keywords": [
+   "최적화(Optimization)",
+   "솔루션(Solution)",
+   "통찰(Insight)",
+   "발견(Discovery)"
+  ]
+ },
+ {
+  "id": "db-231",
+  "title": "빅데이터 시각화 인사이트 프로세스(Visual Insight Process)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "빅데이터 탐색을 통해 내·외부 요인과 분석 대상 간의 숨겨진 관계를 찾아내고 이를 시각화하여 목표에 대한 창의적 해결안을 도출하는 프로세스.",
+  "memo": "탐분활인 — '탐색·분석·활용해 인사이트'. 네 글자를 순서대로 읽어 프로세스 흐름을 기억.",
+  "sections": [
+   {
+    "label": "절차",
+    "mnemonic": "탐분활인",
+    "keywords": [
+     "탐색",
+     "분석",
+     "활용",
+     "인사이트 도출"
+    ]
+   }
+  ],
+  "mnemonic": "탐분활인",
+  "keywords": [
+   "탐색",
+   "분석",
+   "활용",
+   "인사이트 도출"
+  ]
+ },
+ {
+  "id": "db-232",
+  "title": "퍼지 체크 포인트(Fuzzy Check point)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "체크포인트 수행 중에도 트랜잭션 처리를 중단하지 않고 더티 페이지를 비동기로 기록하여 시스템 정지 시간을 최소화하는 데이터베이스 회복 기법.",
+  "memo": "'달리는 기차 안에서 사진 찍기' — 멈추지 않고 흐릿한(Fuzzy) 스냅샷을 남기고, 회복 시 로그로 선명하게 복원.",
+  "sections": [
+   {
+    "label": "동작원리",
+    "mnemonic": "",
+    "keywords": [
+     "begin_checkpoint 기록",
+     "더티 페이지 테이블 기록",
+     "end_checkpoint 기록",
+     "백그라운드 flush"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "begin_checkpoint 기록",
+   "더티 페이지 테이블 기록",
+   "end_checkpoint 기록",
+   "백그라운드 flush"
+  ]
+ },
+ {
+  "id": "db-233",
+  "title": "시계열 데이터베이스(Time Series DB)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "시간을 기준으로 연속·누적 발생하는 데이터를 고속으로 수집·저장·질의·분석할 수 있도록 특화된 스키마 구조와 압축·인덱싱 메커니즘을 갖춘 데이터베이스.",
+  "memo": "쓰기 흐름 순서로 암기: 로그 먼저(WAL) → 메모리(MemTable) → 디스크 정렬파일(SSTable) → 조회 필터(Bloom) → 오래된 건 삭제(Retention).",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "WAL(Write-Ahead Log)",
+     "MemTable",
+     "SSTable",
+     "Bloom Filter",
+     "Retention Policy"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "WAL(Write-Ahead Log)",
+   "MemTable",
+   "SSTable",
+   "Bloom Filter",
+   "Retention Policy"
+  ]
+ },
+ {
+  "id": "db-234",
+  "title": "다중 단위 로킹(Multiple Granularity Locking)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "데이터베이스의 계층 구조(DB-파일-테이블-페이지-행)에서 트랜잭션이 다루는 데이터 양에 따라 락 단위를 자동 조정하고 상위 노드에 의도 락을 설정해 계층적으로 관리하는 병행제어 기법.",
+  "memo": "'아래층에 들어갈 거니 위층에 미리 팻말을 건다'가 의도 락. 잠글 땐 위에서 아래로, 풀 땐 아래에서 위로.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "계층 구조",
+     "의도 락(Intention Lock)",
+     "호환성 매트릭스",
+     "락 에스컬레이션"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "계층 구조",
+   "의도 락(Intention Lock)",
+   "호환성 매트릭스",
+   "락 에스컬레이션"
+  ]
+ },
+ {
+  "id": "db-235",
+  "title": "데이터베이스 인덱스 파편화(Database Index Fragmentation)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "인덱스의 데이터 블록·페이지에 데이터가 연속적으로 저장되지 않거나 사용 밀도가 낮아져 불필요한 I/O로 성능 저하를 유발하는 현상.",
+  "memo": "안이 비었으면 Sparse(내부), 한쪽으로 쏠렸으면 Skew(외부). 해법은 가벼운 것부터 coalesce → shrink → reorganize → rebuild.",
+  "sections": [
+   {
+    "label": "유형",
+    "mnemonic": "",
+    "keywords": [
+     "내부 파편화(Index Sparse)",
+     "외부 파편화(Index Skew)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "내부 파편화(Index Sparse)",
+   "외부 파편화(Index Skew)"
+  ]
+ },
+ {
+  "id": "db-236",
+  "title": "데이터 관측가능성(Data Observability)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "수집 파이프라인부터 저장 계층과 다운스트림 분석에 이르기까지 데이터 시스템 전반의 상태·품질·안정성·성능을 지속 모니터링하여, 비즈니스에 영향을 미치기 전에 데이터 문제를 감지·진단·예방하는 관행 및 프로세스.",
+  "memo": "5기둥은 질문으로 기억 — 언제 왔나(신선도), 값이 정상인가(분포), 얼마나 왔나(볼륨), 모양이 바뀌었나(스키마), 어디서 와 어디로 가나(계보).",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "신선도(Freshness)",
+     "분포(Distribution)",
+     "볼륨(Volume)",
+     "스키마(Schema)",
+     "계보(Lineage)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "신선도(Freshness)",
+   "분포(Distribution)",
+   "볼륨(Volume)",
+   "스키마(Schema)",
+   "계보(Lineage)"
+  ]
+ },
+ {
+  "id": "db-237",
+  "title": "데이터 가치평가",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "데이터의 가치를 시장에서 일반적으로 인정된 평가 기법 및 모델에 따라 가액·등급·점수 등으로 평가하고 그 결과를 도출하는 활동.",
+  "memo": "수원시 (수익·원가·시장) — 미래 벌 돈, 만든 값, 남이 산 값. 135회 관리 3교시 출제.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "수원시",
+    "keywords": [
+     "수익 접근법",
+     "원가 접근법",
+     "시장 접근법"
+    ]
+   }
+  ],
+  "mnemonic": "수원시",
+  "keywords": [
+   "수익 접근법",
+   "원가 접근법",
+   "시장 접근법"
+  ]
+ },
+ {
+  "id": "db-238",
+  "title": "데이터 자산화",
+  "category": "데이터베이스",
+  "importance": "하",
+  "definition": "기업이나 공공기관이 보유한 원천 데이터를 경제적 가치를 지닌 무형자산으로 인식하고, 체계적으로 가공·관리하여 비즈니스 모델과 정책 의사결정에 활용 가능한 형태로 전환하는 과정.",
+  "memo": "거품보유 — '거품만 보유'하지 않으려면 거버넌스·품질·보안·유통 4축을 갖춰야 진짜 자산이 된다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "거품보유",
+    "keywords": [
+     "거버넌스",
+     "품질",
+     "보안",
+     "유통"
+    ]
+   }
+  ],
+  "mnemonic": "거품보유",
+  "keywords": [
+   "거버넌스",
+   "품질",
+   "보안",
+   "유통"
   ]
  },
  {
@@ -43911,21 +50470,87 @@
   ]
  },
  {
+  "id": "ai-106",
+  "title": "A2A(Agent to Agent)",
+  "category": "인공지능",
+  "importance": "출제예상",
+  "definition": "서로 다른 벤더·프레임워크로 만들어진 AI 에이전트들이 내부 구현을 노출하지 않고 서로의 능력을 발견하고 작업을 위임·협업할 수 있게 하는 개방형 에이전트 간 상호운용 프로토콜.",
+  "memo": "명함(카드) 주고 → 일(태스크) 맡기고 → 말(메시지) 주고받고 → 결과물(아티팩트) 낸다: 카·태·메·아. MCP는 '도구와', A2A는 '동료와'로 구분해 외운다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "카태메아",
+    "keywords": [
+     "카드",
+     "태스크",
+     "메시지",
+     "아티팩트"
+    ]
+   }
+  ],
+  "mnemonic": "카태메아",
+  "keywords": [
+   "카드",
+   "태스크",
+   "메시지",
+   "아티팩트"
+  ]
+ },
+ {
+  "id": "ai-107",
+  "title": "R-CNN(Region-based CNN)",
+  "category": "인공지능",
+  "importance": "출제예상",
+  "definition": "이미지에서 객체가 있을 만한 후보 영역을 먼저 추출하고 각 영역에 CNN을 적용해 분류와 위치 보정을 수행하는 2-Stage 방식의 객체 탐지 알고리즘.",
+  "memo": "'영특한 분위기' → 영역제안·특징추출·분류·위치보정. 이름 그대로 Region(영역)부터 시작하는 것이 R-CNN의 정체성이다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "영특분위",
+    "keywords": [
+     "영역 제안",
+     "특징 추출",
+     "분류",
+     "위치 보정"
+    ]
+   }
+  ],
+  "mnemonic": "영특분위",
+  "keywords": [
+   "영역 제안",
+   "특징 추출",
+   "분류",
+   "위치 보정"
+  ]
+ },
+ {
   "id": "ai-108",
   "title": "YOLO (You Only Look Once)",
   "category": "인공지능",
   "importance": "출제예상",
-  "definition": "하나의 뉴럴넷을 사용하여 이미지 하나에서 S x S 그리드, B개의 바운딩 박스, C개의 클래스 확률 맵 이용 객체를 인식하는 실시간 객체 탐지 알고리즘 특징 : 빠른 인식, 높은 정밀도, 1-Stage, 앵커 박스(Anchor Boxes)",
-  "memo": "",
+  "definition": "이미지를 격자로 나눠 단 한 번의 신경망 순전파로 바운딩 박스와 클래스 확률을 동시에 예측하는 1-Stage 실시간 객체 탐지 알고리즘.",
+  "memo": "이름이 곧 원리다 — You Only Look Once, 한 번만 본다. '격자로 나눠 → 박스 치고 → 얼마나 확신하는지 점수 매기고 → 무슨 물체인지 고르고 → 겹친 건 지운다' 순서로 외운다.",
   "sections": [
    {
-    "label": "두음",
-    "mnemonic": "탐분GBBDCSC",
-    "keywords": []
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "그리드 분할",
+     "바운딩 박스 예측",
+     "신뢰도 점수",
+     "클래스 확률",
+     "비최대 억제"
+    ]
    }
   ],
-  "mnemonic": "탐분GBBDCSC",
-  "keywords": []
+  "mnemonic": "",
+  "keywords": [
+   "그리드 분할",
+   "바운딩 박스 예측",
+   "신뢰도 점수",
+   "클래스 확률",
+   "비최대 억제"
+  ]
  },
  {
   "id": "ai-111",
@@ -43959,38 +50584,208 @@
   ]
  },
  {
+  "id": "ai-115",
+  "title": "TF-IDF(Term Frequency-Inverse Document Frequency)",
+  "category": "인공지능",
+  "importance": "출제예상",
+  "definition": "문서 내 단어의 출현 빈도와 전체 문서집합에서의 희소성을 곱해 해당 단어가 그 문서를 얼마나 잘 대표하는지 수치화하는 통계적 문서 가중치 기법.",
+  "memo": "'단문(短文)의 역정(歷程)' → 단어빈도·문서빈도·역문서빈도·정규화. 핵심 직관은 '내 문서엔 많고 남의 문서엔 없어야 중요한 단어'.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "단문역정",
+    "keywords": [
+     "단어빈도",
+     "문서빈도",
+     "역문서빈도",
+     "정규화"
+    ]
+   }
+  ],
+  "mnemonic": "단문역정",
+  "keywords": [
+   "단어빈도",
+   "문서빈도",
+   "역문서빈도",
+   "정규화"
+  ]
+ },
+ {
   "id": "ai-116",
   "title": "협업필터링(Collaborative Filtering)",
   "category": "인공지능",
   "importance": "출제예상",
-  "definition": "추천시스템, 사용자 기반, 아이템 기반, 유클리디안, 코사인, 피어슨, 자카드 추천시스템, 협업필터링의 개념 - 많은 사용자들로부터 누적된 대규모 데이터를 활용하여 이를 분류하고, 새로운 데이터에 대입하여 향후 관심사를 분석 및 예측하는 기술",
-  "memo": "",
+  "definition": "다수 사용자의 평가·행동 이력에서 유사한 취향 패턴을 찾아 아직 접하지 않은 항목의 선호도를 예측하고 추천하는 추천 시스템 기법.",
+  "memo": "유형은 사·아·모(사용자·아이템·모델) 세 갈래, 거리는 '유코피자' — 피자 나눠 먹듯 유클리디안·코사인·피어슨·자카드.",
   "sections": [
    {
-    "label": "두음",
-    "mnemonic": "사아",
-    "keywords": []
+    "label": "유형",
+    "mnemonic": "사아모",
+    "keywords": [
+     "사용자 기반",
+     "아이템 기반",
+     "모델 기반"
+    ]
+   },
+   {
+    "label": "유사도 측정",
+    "mnemonic": "유코피자",
+    "keywords": [
+     "유클리디안",
+     "코사인",
+     "피어슨",
+     "자카드"
+    ]
    }
   ],
-  "mnemonic": "사아",
-  "keywords": []
+  "mnemonic": "사아모",
+  "keywords": [
+   "사용자 기반",
+   "아이템 기반",
+   "모델 기반"
+  ]
+ },
+ {
+  "id": "ai-117",
+  "title": "행렬분해(Matrix Factorization) 기반 협업적 필터링",
+  "category": "인공지능",
+  "importance": "출제예상",
+  "definition": "사용자와 아이템의 평점 행렬을 두 개의 저차원 잠재요인 행렬의 곱으로 근사해 관측되지 않은 평점을 예측하는 모델 기반 협업필터링 기법.",
+  "memo": "'평(점)을 잠(재요인)으로 학(습)해 예(측)한다' → 평·잠·학·예. 핵심 수식은 R ≈ P·Qᵀ, 사람과 아이템을 같은 공간에 놓고 내적으로 취향을 복원한다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "평잠학예",
+    "keywords": [
+     "평점행렬",
+     "잠재요인",
+     "학습",
+     "예측"
+    ]
+   }
+  ],
+  "mnemonic": "평잠학예",
+  "keywords": [
+   "평점행렬",
+   "잠재요인",
+   "학습",
+   "예측"
+  ]
+ },
+ {
+  "id": "ai-118",
+  "title": "필터 버블(Filter bubble)",
+  "category": "인공지능",
+  "importance": "출제예상",
+  "definition": "개인화 추천 알고리즘이 이용자 성향에 맞는 정보만 선별해 제공함으로써 이용자가 편향된 정보의 거품 안에 갇히게 되는 현상.",
+  "memo": "'개선(改善)한다더니 확·에' → 개인화·선택적노출 뒤에 확증편향·에코챔버가 따라온다. 기술(개인화)과 사람(선택적 노출)이 만나 버블이 만들어진다는 흐름으로 기억.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "개선확에",
+    "keywords": [
+     "개인화 알고리즘",
+     "선택적 노출",
+     "확증 편향",
+     "에코 챔버"
+    ]
+   }
+  ],
+  "mnemonic": "개선확에",
+  "keywords": [
+   "개인화 알고리즘",
+   "선택적 노출",
+   "확증 편향",
+   "에코 챔버"
+  ]
  },
  {
   "id": "ai-119",
   "title": "전이학습(Transfer Learning)",
   "category": "인공지능",
   "importance": "출제예상",
-  "definition": "기존의 학습된 모델과 비슷한 유형의 다른 모델로 학습된 결과를 옮겨서 부족한 데이터를 통한 학습이나 훈련 시간을 단축시키는 머신러닝 기법",
-  "memo": "",
+  "definition": "대규모 데이터로 사전학습된 모델의 지식을 데이터가 부족한 다른 도메인이나 과업으로 옮겨 학습 비용과 시간을 줄이는 기계학습 기법.",
+  "memo": "'원목전(原木展)' → 원천에서 목표로 지식을 전이한다. 유형은 귀·변·비(귀납·변환·비지도), 레이블이 어디에 있느냐로 갈린다.",
   "sections": [
    {
-    "label": "두음",
-    "mnemonic": "적태도레귀변자",
-    "keywords": []
+    "label": "구성요소",
+    "mnemonic": "원목전",
+    "keywords": [
+     "원천 도메인",
+     "목표 도메인",
+     "전이 지식"
+    ]
+   },
+   {
+    "label": "유형",
+    "mnemonic": "귀변비",
+    "keywords": [
+     "귀납적 전이",
+     "변환적 전이",
+     "비지도 전이"
+    ]
    }
   ],
-  "mnemonic": "적태도레귀변자",
-  "keywords": []
+  "mnemonic": "원목전",
+  "keywords": [
+   "원천 도메인",
+   "목표 도메인",
+   "전이 지식"
+  ]
+ },
+ {
+  "id": "ai-121",
+  "title": "AI 콜센터",
+  "category": "인공지능",
+  "importance": "출제예상",
+  "definition": "음성인식·자연어처리·생성형 AI를 결합해 상담 접수부터 응대와 사후처리까지 자동화·지능화한 지능형 컨택센터 체계.",
+  "memo": "'인·이·대·분' = 듣고(인식) → 알고(이해) → 말하고(대화) → 배운다(분석). STT로 듣고 NLU로 알고 TTS로 말하고 VOC로 배우는 순환 구조.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "인이대분",
+    "keywords": [
+     "인식",
+     "이해",
+     "대화",
+     "분석"
+    ]
+   }
+  ],
+  "mnemonic": "인이대분",
+  "keywords": [
+   "인식",
+   "이해",
+   "대화",
+   "분석"
+  ]
+ },
+ {
+  "id": "ai-122",
+  "title": "AIaaS(AI as a Service)",
+  "category": "인공지능",
+  "importance": "출제예상",
+  "definition": "AI 인프라와 사전학습 모델, 개발 도구를 클라우드에서 필요한 만큼 구독·종량 과금 방식으로 제공하는 AI 서비스 제공 모델.",
+  "memo": "'인플루언서'처럼 인·플·모·서 → 인프라·플랫폼·모델·서비스 4계층. 아래에서 위로 올라갈수록 사용자는 편해지고 통제권은 줄어든다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "인플모서",
+    "keywords": [
+     "인프라형",
+     "플랫폼형",
+     "모델형",
+     "서비스형"
+    ]
+   }
+  ],
+  "mnemonic": "인플모서",
+  "keywords": [
+   "인프라형",
+   "플랫폼형",
+   "모델형",
+   "서비스형"
+  ]
  },
  {
   "id": "ai-129",
@@ -44151,6 +50946,35 @@
   ]
  },
  {
+  "id": "ai-136",
+  "title": "AX / AX 2.0",
+  "category": "인공지능",
+  "importance": "출제예상",
+  "definition": "디지털 전환을 넘어 기업의 전략·프로세스·조직을 AI 중심으로 재설계하는 전사적 인공지능 전환 전략이며, AX 2.0은 AI가 스스로 판단하고 실행하는 자율 단계를 지향한다.",
+  "memo": "DX는 '도구를 디지털로', AX는 '판단을 AI로'. 1.0은 사람이 시키면 돕는 AI, 2.0은 목표만 주면 스스로 계획하고 실행하는 AI로 대비해서 외운다.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "전략·로드맵",
+     "데이터·인프라",
+     "AI 에이전트",
+     "인재·조직",
+     "거버넌스"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "전략·로드맵",
+   "데이터·인프라",
+   "AI 에이전트",
+   "인재·조직",
+   "거버넌스"
+  ]
+ },
+ {
   "id": "ai-137",
   "title": "MLOps(모델옵스)",
   "category": "인공지능",
@@ -44270,17 +51094,37 @@
   "title": "범용 AI(General-Purpose AI)",
   "category": "인공지능",
   "importance": "출제예상",
-  "definition": "Artificial General Intelligence)의 개발과 활용 과정에서 발생할 수 있는 다양한 위험 요소(기술적, 윤리적, 사회적, 법적 등)를 사전에 식별하고, 이를 체계적으로 관리하기 위한 종합적이고 선제적인 지침 체계",
-  "memo": "",
+  "definition": "특정 과업에 한정되지 않고 다양한 과업에 폭넓게 활용될 수 있도록 대규모 데이터로 사전학습된 범용 목적 AI 모델 및 그 위험을 규율하기 위한 규제 대상 개념.",
+  "memo": "'대범(大膽)하게 적(응)하고 창(발)한다' → 대규모·범용·적응·창발. 위험관리는 식·분·평·대(식별-분석-평가-대응) 4단계 순환.",
   "sections": [
    {
-    "label": "두음",
+    "label": "구성요소",
+    "mnemonic": "대범적창",
+    "keywords": [
+     "대규모 사전학습",
+     "범용성",
+     "적응성",
+     "창발성"
+    ]
+   },
+   {
+    "label": "위험관리 절차",
     "mnemonic": "식분평대",
-    "keywords": []
+    "keywords": [
+     "식별",
+     "분석",
+     "평가",
+     "대응"
+    ]
    }
   ],
-  "mnemonic": "식분평대",
-  "keywords": []
+  "mnemonic": "대범적창",
+  "keywords": [
+   "대규모 사전학습",
+   "범용성",
+   "적응성",
+   "창발성"
+  ]
  },
  {
   "id": "ai-148",
@@ -44336,6 +51180,71 @@
   ],
   "mnemonic": "계구운임획정라학",
   "keywords": []
+ },
+ {
+  "id": "ai-157",
+  "title": "AI 기본법",
+  "category": "인공지능",
+  "importance": "출제예상",
+  "definition": "인공지능 산업 진흥과 신뢰 기반 조성을 위해 국가 거버넌스, 고영향 인공지능 의무, 안전성 확보 조치를 함께 규정한 인공지능 발전과 신뢰 기반 조성 등에 관한 기본법.",
+  "memo": "'거진(거의) 고생 안 한다' → 거버넌스·진흥·고영향·생성형표시·안전성. 진흥과 규제를 한 법에 담았다는 점이 EU AI Act와의 결정적 차이.",
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "거진고생안",
+    "keywords": [
+     "거버넌스",
+     "진흥 기반",
+     "고영향 AI",
+     "생성형 AI 표시",
+     "안전성 확보"
+    ]
+   }
+  ],
+  "mnemonic": "거진고생안",
+  "keywords": [
+   "거버넌스",
+   "진흥 기반",
+   "고영향 AI",
+   "생성형 AI 표시",
+   "안전성 확보"
+  ]
+ },
+ {
+  "id": "ai-158",
+  "title": "인공지능 감리",
+  "category": "인공지능",
+  "importance": "출제예상",
+  "definition": "인공지능 시스템의 기획·데이터·모델·운영 전 과정이 요구사항과 신뢰성 기준에 부합하는지 제3자가 점검·평가하고 개선을 권고하는 정보시스템 감리의 확장 체계.",
+  "memo": "'데모(Demo) 돌려보고 운·거까지 본다' → 데이터·모델·운영·거버넌스. 시점은 요·설·종(요구정의-설계-종료) 3회 감리로 기억.",
+  "sections": [
+   {
+    "label": "점검영역",
+    "mnemonic": "데모운거",
+    "keywords": [
+     "데이터 적정성",
+     "모델 적정성",
+     "운영 적정성",
+     "거버넌스 적정성"
+    ]
+   },
+   {
+    "label": "감리 시점",
+    "mnemonic": "요설종",
+    "keywords": [
+     "요구정의단계 감리",
+     "설계단계 감리",
+     "종료단계 감리"
+    ]
+   }
+  ],
+  "mnemonic": "데모운거",
+  "keywords": [
+   "데이터 적정성",
+   "모델 적정성",
+   "운영 적정성",
+   "거버넌스 적정성"
+  ]
  },
  {
   "id": "ca-1",

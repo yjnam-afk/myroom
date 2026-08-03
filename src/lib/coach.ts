@@ -80,20 +80,15 @@ export function buildPlan(
   notes: WrongNote[],
   stats: QuizStats,
   now: number = Date.now(),
-  /** 오늘의 데일리 계획 토픽 — 주어지면 "오늘의 학습"이 이 토픽들과 동일해진다. */
-  todayPlanTopics?: TopicLite[],
 ): CoachPlan {
   const all = topics as TopicLite[];
   const due = dueNotes(notes);
 
   // 회독 복습 대상(오늘 지난 것)
   const reviewDue = all.filter((t) => isDue(getItem(review, t.id)));
-  // 새로 시작 추천 토픽 — 데일리 계획이 있으면 그 토픽과 "동일"하게 맞춘다.
-  // (계획이 없을 때만) 아직 시작 안 한 중요도 상 토픽을 자동 추천.
+  // 새로 시작 추천 토픽 — 아직 시작 안 한 중요도 상 토픽 순으로 제안(강제 배정 아님).
   const newPicks =
-    todayPlanTopics && todayPlanTopics.length
-      ? todayPlanTopics
-      : all
+    all
           .filter((t) => getItem(review, t.id).rounds === 0)
           .slice()
           .sort(

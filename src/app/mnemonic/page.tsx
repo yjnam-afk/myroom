@@ -10,7 +10,6 @@ import AudioLecture from "@/components/AudioLecture";
 import TopicAutocomplete from "@/components/TopicAutocomplete";
 import topics from "@/data/topics.json";
 import { loadReview, saveReview, markReviewed } from "@/lib/storage";
-import { loadTopicDone, saveTopicDone } from "@/lib/plan";
 
 type Item = { term: string; initial: string; desc: string };
 type Group = {
@@ -797,13 +796,10 @@ function Write({
   const [submitted, setSubmitted] = useState(false);
 
   function submit() {
-    // 회독 1회 기록 + 데일리 계획 완료 체크(토픽 데이터가 연결된 경우)
+    // 회독 1회 기록(토픽 데이터가 연결된 경우)
     if (topicId) {
       try {
         saveReview(markReviewed(loadReview(), topicId));
-        const td = loadTopicDone();
-        td.add(topicId);
-        saveTopicDone(td);
       } catch {
         /* 저장 실패는 무시 */
       }
@@ -945,15 +941,15 @@ function Write({
           </p>
           <p className="mt-1 text-xs text-amber-600">
             {topicId
-              ? "회독 1회가 기록되고 오늘의 데일리 계획에 완료 체크됐어요."
+              ? "회독 1회가 기록됐어요."
               : "기록하려면 토픽을 검색·선택해서 학습해 주세요."}
           </p>
           <div className="mt-3 flex flex-wrap justify-center gap-2">
             <Link
-              href="/plan"
+              href="/map"
               className="rounded-lg bg-amber-600 px-4 py-2 text-sm font-bold text-white hover:bg-amber-700"
             >
-              🗓️ 데일리 계획으로
+              🗺️ 토픽 지도로
             </Link>
             <Link
               href="/mnemonic"

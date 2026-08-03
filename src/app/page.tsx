@@ -6,20 +6,8 @@ import topics from "@/data/topics.json";
 import { ReviewItem, loadReview, getItem, isDue } from "@/lib/storage";
 import { QuizStats, loadStats, loadNotes } from "@/lib/notes";
 import { loadSession } from "@/lib/auth";
-import { CoachPlan, buildPlan, mnemonicLink, explainLink } from "@/lib/coach";
+import { CoachPlan, buildPlan } from "@/lib/coach";
 import ShareButton from "@/components/ShareButton";
-import {
-  PlanTopic,
-  orderedTopics,
-  todayIndex,
-  effectiveTopicsForDay,
-  getSchedule,
-  loadTopicDone,
-  saveTopicDone,
-  loadOverrides,
-  isRestDay,
-  PLAN_TOTAL_DAYS,
-} from "@/lib/plan";
 
 const toneClass: Record<string, string> = {
   rose: "border-slate-200 bg-slate-50 hover:border-slate-300",
@@ -39,13 +27,6 @@ const menuGroups = [
         title: "두음신공",
         desc: "핵심 키워드를 두음으로 암기 → 객관식·주관식 확인",
         color: "from-brand-600 to-brand-800",
-      },
-      {
-        href: "/plan",
-        emoji: "🗓️",
-        title: "데일리 계획 (달력)",
-        desc: "내일~8월 말, 매일 배정되는 토픽을 달력으로",
-        color: "from-brand-500 to-brand-600",
       },
       {
         href: "/commute",
@@ -142,32 +123,6 @@ export default function Home() {
   const [plan, setPlan] = useState<CoachPlan | null>(null);
   const [userName, setUserName] = useState("");
 
-  // 데일리 계획 — 오늘의 토픽(메인)
-  const [dayIdx, setDayIdx] = useState(-1);
-  const [todayTopics, setTodayTopics] = useState<PlanTopic[]>([]);
-  const [topicDone, setTopicDone] = useState<Set<string>>(new Set());
-
-  useEffect(() => {
-    const ti = todayIndex();
-    setDayIdx(ti);
-    if (ti >= 0 && ti < PLAN_TOTAL_DAYS) {
-      setTodayTopics(
-        effectiveTopicsForDay(orderedTopics(), ti, getSchedule(), loadOverrides()),
-      );
-    }
-    setTopicDone(loadTopicDone());
-  }, []);
-
-  function toggleTopicDone(id: string) {
-    const next = new Set(topicDone);
-    next.has(id) ? next.delete(id) : next.add(id);
-    setTopicDone(next);
-    saveTopicDone(next);
-  }
-  const todayDoneN = todayTopics.filter((t) => topicDone.has(t.id)).length;
-  const todayAllDone =
-    todayTopics.length > 0 && todayDoneN === todayTopics.length;
-
   useEffect(() => {
     const refresh = () => {
       const rev = loadReview();
@@ -176,13 +131,8 @@ export default function Home() {
       setReview(rev);
       setStats(st);
       setNotesCount(notes.length);
-      // 오늘의 데일리 계획 토픽을 코치에 넘겨 "오늘의 학습"을 "오늘의 토픽"과 동일하게 맞춘다.
-      const ti = todayIndex();
-      const planToday =
-        ti >= 0 && ti < PLAN_TOTAL_DAYS
-          ? effectiveTopicsForDay(orderedTopics(), ti, getSchedule(), loadOverrides())
-          : undefined;
-      setPlan(buildPlan(rev, notes, st, Date.now(), planToday));
+      // 코치는 회독·오답·퀴즈 기록만 보고 오늘 할 일을 추천한다(토픽 자동 배정 없음).
+      setPlan(buildPlan(rev, notes, st, Date.now()));
       setUserName(loadSession()?.name || "");
     };
     refresh();
@@ -272,135 +222,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 메인 — 오늘의 데일리 계획 토픽 */}
-      <div className="mb-6 rounded-2xl border-2 border-slate-200 bg-white p-5 shadow-sm">
-        <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-sm font-bold text-slate-800">
-            🗓️ 오늘의 토픽{" "}
-            {dayIdx >= 0 && dayIdx < PLAN_TOTAL_DAYS && (
-              <span className="text-brand-500">· Day {dayIdx + 1}</span>
-            )}
-          </h2>
-          <Link href="/plan" className="text-xs font-medium text-brand-600 hover:underline">
-            전체 달력 →
-          </Link>
-        </div>
-
-        {dayIdx < 0 ? (
-          <p className="rounded-lg bg-slate-50 p-4 text-sm text-slate-600">
-            데일리 계획은 <b>6/29부터</b> 시작돼요. 그 전엔 두음신공·지하철 모드로
-            예열하세요!
-          </p>
-        ) : dayIdx >= PLAN_TOTAL_DAYS ? (
-          <p className="rounded-lg bg-amber-50 p-4 text-sm text-amber-700">
-            🎉 8월 말 계획을 모두 마쳤어요! 복습·기출로 마무리하세요.
-          </p>
-        ) : isRestDay(dayIdx) ? (
-          <div className="rounded-xl bg-gradient-to-br from-indigo-50 to-slate-50 p-5 text-center">
-            <p className="text-2xl">🌙</p>
-            <p className="mt-1 text-sm font-bold text-indigo-700">일요일은 쉬어가요</p>
-            <p className="mt-1 text-xs leading-relaxed text-slate-500">
-              푹 쉬는 것도 공부의 일부예요. 지치지 않아야 오래 갑니다.
-              <br />
-              생각나면 <Link href="/commute" className="font-medium text-brand-600 hover:underline">지하철 모드</Link>로 가볍게 복습만 해도 충분해요.
-            </p>
-          </div>
-        ) : todayTopics.length === 0 ? (
-          <p className="text-sm text-slate-500">오늘 배정된 토픽이 없습니다.</p>
-        ) : (
-          <>
-            <div className="mb-2 flex items-center justify-between">
-              <span className="text-xs font-semibold text-slate-500">
-                학습한 토픽을 체크하세요 · {todayDoneN}/{todayTopics.length} 완료
-              </span>
-              {todayAllDone && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-slate-50 px-2.5 py-1 text-xs font-bold text-brand-600">
-                  🌟 참 잘했어요!
-                </span>
-              )}
-            </div>
-            <ol className="space-y-2">
-              {todayTopics.map((t, i) => {
-                const checked = topicDone.has(t.id);
-                return (
-                  <li
-                    key={t.id}
-                    className={`flex items-center gap-2 rounded-lg border p-2 ${
-                      checked
-                        ? "border-amber-200 bg-amber-50"
-                        : "border-slate-100 bg-slate-50"
-                    }`}
-                  >
-                    <span
-                      className={`grid h-5 w-5 shrink-0 place-items-center rounded-full text-[11px] font-bold tabular-nums ${
-                        checked
-                          ? "bg-amber-200 text-amber-700"
-                          : "bg-slate-200 text-slate-500"
-                      }`}
-                    >
-                      {i + 1}
-                    </span>
-                    <button
-                      onClick={() => toggleTopicDone(t.id)}
-                      aria-label="완료"
-                      className={`grid h-6 w-6 shrink-0 place-items-center rounded-md border text-xs font-bold transition ${
-                        checked
-                          ? "border-amber-400 bg-amber-500 text-white"
-                          : "border-slate-300 bg-white text-transparent hover:border-amber-400"
-                      }`}
-                    >
-                      ✓
-                    </button>
-                    <span className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-bold text-brand-700">
-                      {t.importance}
-                    </span>
-                    <span
-                      className={`min-w-0 flex-1 truncate text-sm ${
-                        checked ? "text-slate-400 line-through" : "text-slate-800"
-                      }`}
-                    >
-                      {t.title}
-                    </span>
-                    <span className="hidden text-[10px] text-slate-400 sm:inline">
-                      {t.category}
-                    </span>
-                    <Link
-                      href={mnemonicLink(t, true)}
-                      className="shrink-0 rounded-md bg-brand-600 px-2.5 py-1 text-xs font-medium text-white hover:bg-brand-700"
-                    >
-                      🥷 학습
-                    </Link>
-                    <Link
-                      href={explainLink(t)}
-                      className="shrink-0 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 hover:bg-slate-100"
-                    >
-                      💡 설명
-                    </Link>
-                  </li>
-                );
-              })}
-            </ol>
-            <div className="mt-3 flex flex-wrap items-center gap-2">
-              <Link
-                href="/commute"
-                className="rounded-lg bg-slate-700 px-3 py-2 text-xs font-semibold text-white hover:bg-slate-800"
-              >
-                🚇 지하철 모드로 카드 넘기기
-              </Link>
-              <ShareButton
-                title="오늘의 학습 토픽 — 나의 공간"
-                text={
-                  `🗓️ 오늘의 토픽 · Day ${dayIdx + 1}\n` +
-                  todayTopics
-                    .map((t, i) => `${i + 1}. [${t.importance}] ${t.title}`)
-                    .join("\n") +
-                  `\n\n나의 공간 — 기술사 답안은 소설이다 ✍️`
-                }
-              />
-            </div>
-          </>
-        )}
-      </div>
 
       {plan && plan.tasks.length > 0 && (
         <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
