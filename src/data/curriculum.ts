@@ -98,51 +98,32 @@ const CA_ALL: CurriculumTopic[] = [
   { title: "TPU(Tensor Processing Unit)", topicId: "ca-22", priority: "상" },
 ];
 
-// ── 이번주(선행 학습) — 매일 올리는 새 토픽을 그날그날 채운다 ────────────
-// 서브노트를 올리면 해당 요일 days[i] 를 { kind: "study", ... } 로 바꾸면 끝.
-const AUG03_MON: CurriculumTopic[] = [
-  { title: "교착상태(Deadlock)", topicId: "os-36", priority: "상" },
-  { title: "자원할당 그래프(Resource Allocation Graph)", topicId: "os-39", priority: "중" },
-  { title: "Banker's 알고리즘(은행가 알고리즘)", topicId: "os-41", priority: "중" },
-  { title: "Wait-Die와 Wound-Wait", topicId: "os-38", priority: "하" },
-  { title: "인터럽트(Interrupt)", topicId: "os-63", priority: "상" },
-  { title: "프로세스(Process)와 스레드(Thread) 비교", topicId: "os-53", priority: "중" },
-  { title: "PCB(Process Control Block)", topicId: "os-48", priority: "중" },
-  { title: "멀티 쓰레드(Multi-Thread)", topicId: "os-54", priority: "하" },
-  { title: "프로세스간 통신(IPC)", topicId: "os-59", priority: "중" },
-  { title: "파일 시스템(유닉스 파일시스템)", topicId: "os-58", priority: "하" },
-  { title: "유닉스의 inode", topicId: "os-57", priority: "하" },
+const STUDY_DAYS: CurriculumDay[] = [
+  { kind: "study", label: "OS ① 메모리·가상메모리", topics: OS_MEM },
+  { kind: "study", label: "OS ② 프로세스·스케줄링", topics: OS_PROC },
+  { kind: "study", label: "OS ③ 동기화·교착·파일", topics: OS_SYNC },
+  { kind: "study", label: "CA 전체", topics: CA_ALL },
 ];
-
-const OPEN = (label: string): CurriculumDay => ({
-  kind: "open",
-  label,
-  note: "서브노트를 올리면 이 날의 토픽으로 채웁니다.",
-});
 
 export const WEEKS: CurriculumWeek[] = [
   {
+    // 심화반(9월) 전에 미리 도는 선행 학습 — 오늘부터 시작.
+    // 새 서브노트를 올리면 해당 요일 topics 배열에 추가하면 된다.
     start: "2026-08-03",
-    title: "이번주 · 선행 학습 (매일 올리는 새 토픽)",
+    title: "선행 학습 · 심화반 1주차 미리 돌기",
     days: [
-      { kind: "study", label: "OS 동기화·교착·프로세스", topics: AUG03_MON },
-      OPEN("새 토픽"),
-      OPEN("새 토픽"),
-      OPEN("새 토픽"),
-      OPEN("새 토픽"),
-      { kind: "review", label: "회독", note: "이번 주 올린 토픽을 다시 돌립니다." },
+      ...STUDY_DAYS,
+      { kind: "review", label: "회독", note: "이번 주 선행한 토픽을 다시 돌립니다." },
+      { kind: "review", label: "회독", note: "약한 토픽 위주로 한 번 더." },
       { kind: "rest", label: "휴식", note: "쉬는 것도 공부의 일부예요." },
     ],
   },
   {
-    // ★ 심화반 입과 — 9월 첫주(9/1이 포함된 주) 월요일
+    // ★ 심화반 입과 — 9월 첫주(9/1이 포함된 주) 월요일. 확정.
     start: "2026-08-31",
     title: "심화반 1주차 · 운영체제(OS) + 컴퓨터구조(CA)",
     days: [
-      { kind: "study", label: "OS ① 메모리·가상메모리", topics: OS_MEM },
-      { kind: "study", label: "OS ② 프로세스·스케줄링", topics: OS_PROC },
-      { kind: "study", label: "OS ③ 동기화·교착·파일", topics: OS_SYNC },
-      { kind: "study", label: "CA 전체", topics: CA_ALL },
+      ...STUDY_DAYS,
       { kind: "review", label: "회독", note: "이번 주 배운 토픽을 다시 돌립니다." },
       { kind: "review", label: "회독", note: "약한 토픽 위주로 한 번 더." },
       { kind: "rest", label: "휴식", note: "쉬는 것도 공부의 일부예요." },
@@ -260,11 +241,22 @@ export function allCurriculumTopics(): CurriculumTopic[] {
 // ── 학습 완료 체크(브라우저 저장) ──────────────────────────────
 const DONE_KEY = "myroom:curriculum-done";
 
+/**
+ * 완료 체크의 저장 키. 주차별로 따로 센다 —
+ * 선행 학습에서 체크한 토픽이 9월 심화반에서 이미 끝난 것으로 보이면 안 되므로.
+ */
+export function doneKey(weekStart: string, title: string): string {
+  return `${weekStart}#${title}`;
+}
+
 export function loadDone(): Set<string> {
   if (typeof window === "undefined") return new Set();
   try {
     const raw = window.localStorage.getItem(DONE_KEY);
-    return new Set(raw ? (JSON.parse(raw) as string[]) : []);
+    const arr = raw ? (JSON.parse(raw) as string[]) : [];
+    // 예전(제목만) 키는 첫 주차 것으로 이관.
+    const first = WEEKS[0]?.start ?? "";
+    return new Set(arr.map((k) => (k.includes("#") ? k : doneKey(first, k))));
   } catch {
     return new Set();
   }

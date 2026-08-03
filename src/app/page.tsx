@@ -14,6 +14,7 @@ import {
   planForToday,
   loadDone,
   saveDone,
+  doneKey,
 } from "@/data/curriculum";
 import { subnoteByTopicId, subnoteByTitle } from "@/data/textbookSubnotes";
 
@@ -290,7 +291,7 @@ export default function Home() {
               <div className="mb-2 flex items-center justify-between">
                 <span className="text-xs font-semibold text-slate-500">
                   학습한 토픽을 체크하세요 ·{" "}
-                  {today.day.topics.filter((t) => done.has(t.title)).length}/
+                  {today.day.topics.filter((t) => done.has(doneKey(today.week.start, t.title))).length}/
                   {today.day.topics.length} 완료
                 </span>
                 <span className="text-[11px] text-slate-400">
@@ -301,7 +302,7 @@ export default function Home() {
               </div>
               <ol className="space-y-2">
                 {today.day.topics.map((t, i) => {
-                  const checked = done.has(t.title);
+                  const checked = done.has(doneKey(today.week.start, t.title));
                   // 교재 원본 서브노트가 있으면 AI 없이 바로 볼 수 있다
                   const sub =
                     subnoteByTopicId(t.topicId) || subnoteByTitle(t.title);
@@ -318,7 +319,7 @@ export default function Home() {
                         {i + 1}
                       </span>
                       <button
-                        onClick={() => toggleDone(t.title)}
+                        onClick={() => toggleDone(doneKey(today.week.start, t.title))}
                         aria-label="완료"
                         className={`grid h-6 w-6 shrink-0 place-items-center rounded-md border text-xs font-bold transition ${
                           checked

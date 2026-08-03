@@ -10,6 +10,7 @@ import {
   planForToday,
   loadDone,
   saveDone,
+  doneKey,
   curriculumMonths,
   monthGrid,
   todayISO,
@@ -110,7 +111,8 @@ function Calendar({
           const day = c.plan?.day;
           const isToday = c.date === today;
           const topics = day?.kind === "study" ? day.topics : [];
-          const dDone = topics.filter((t) => done.has(t.title)).length;
+          const ws = c.plan?.week.start ?? "";
+          const dDone = topics.filter((t) => done.has(doneKey(ws, t.title))).length;
           const allDone = topics.length > 0 && dDone === topics.length;
           const tone =
             day?.kind === "study"
@@ -206,26 +208,34 @@ export default function PlanPage() {
     if (t) setTodayKey(`${t.week.start}#${t.dayIndex}`);
   }, []);
 
-  function toggle(title: string) {
+  function toggle(weekStart: string, title: string) {
+    const k = doneKey(weekStart, title);
     const next = new Set(done);
-    next.has(title) ? next.delete(title) : next.add(title);
+    next.has(k) ? next.delete(k) : next.add(k);
     setDone(next);
     saveDone(next);
   }
 
-  function toggleDay(day: CurriculumDay, allDone: boolean) {
+  function toggleDay(weekStart: string, day: CurriculumDay, allDone: boolean) {
     if (day.kind !== "study") return;
     const next = new Set(done);
-    for (const t of day.topics) allDone ? next.delete(t.title) : next.add(t.title);
+    for (const t of day.topics) {
+      const k = doneKey(weekStart, t.title);
+      allDone ? next.delete(k) : next.add(k);
+    }
     setDone(next);
     saveDone(next);
   }
 
-  // 전체 진행률
+  // 전체 진행률 — 주차별로 따로 센다(선행 학습 + 심화반).
   const allTopics = WEEKS.flatMap((w) =>
-    w.days.flatMap((d) => (d.kind === "study" ? d.topics : [])),
+    w.days.flatMap((d) =>
+      d.kind === "study"
+        ? d.topics.map((t) => ({ ...t, key: doneKey(w.start, t.title) }))
+        : [],
+    ),
   );
-  const doneN = allTopics.filter((t) => done.has(t.title)).length;
+  const doneN = allTopics.filter((t) => done.has(t.key)).length;
   const pct = allTopics.length
     ? Math.round((doneN / allTopics.length) * 100)
     : 0;
@@ -256,7 +266,7 @@ export default function PlanPage() {
         <div className="mt-3 flex flex-wrap gap-3 text-[11px] text-slate-500">
           {(["상", "중", "하"] as Priority[]).map((p) => {
             const list = allTopics.filter((t) => t.priority === p);
-            const d = list.filter((t) => done.has(t.title)).length;
+            const d = list.filter((t) => done.has(t.key)).length;
             return (
               <span key={p} className="inline-flex items-center gap-1.5">
                 <PriorityBadge p={p} />
@@ -280,7 +290,9 @@ export default function PlanPage() {
             {week.days.map((day, di) => {
               const isToday = todayKey === `${week.start}#${di}`;
               const topics = day.kind === "study" ? day.topics : [];
-              const dDone = topics.filter((t) => done.has(t.title)).length;
+              const dDone = topics.filter((t) =>
+                done.has(doneKey(week.start, t.title)),
+              ).length;
               const allDone = topics.length > 0 && dDone === topics.length;
               return (
                 <div
@@ -323,7 +335,7 @@ export default function PlanPage() {
                           {dDone}/{topics.length}
                         </span>
                         <button
-                          onClick={() => toggleDay(day, allDone)}
+                          onClick={() => toggleDay(week.start, day, allDone)}
                           className="rounded-md border border-slate-300 bg-white px-2 py-1 text-[11px] font-medium text-slate-600 hover:bg-slate-50"
                         >
                           {allDone ? "전체 해제" : "전체 완료"}
@@ -335,7 +347,7 @@ export default function PlanPage() {
                   {day.kind === "study" ? (
                     <ol className="divide-y divide-slate-100">
                       {topics.map((t, i) => {
-                        const checked = done.has(t.title);
+                        const checked = done.has(doneKey(week.start, t.title));
                         const sub =
                           subnoteByTopicId(t.topicId) || subnoteByTitle(t.title);
                         return (
@@ -349,7 +361,7 @@ export default function PlanPage() {
                               {i + 1}
                             </span>
                             <button
-                              onClick={() => toggle(t.title)}
+                              onClick={() => toggle(week.start, t.title)}
                               aria-label="완료"
                               className={`grid h-5 w-5 shrink-0 place-items-center rounded border text-[11px] font-bold transition ${
                                 checked
