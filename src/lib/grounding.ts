@@ -96,11 +96,13 @@ export function findIdByTitle(title?: string): string | undefined {
 }
 
 /** 토픽의 저장된 실제 내용을 "원문 그대로" 근거 텍스트로 만든다. */
-export function groundingFrom(topicId?: string): string {
-  if (!topicId) return "";
-  const d = DETAILS[topicId];
+export function groundingFrom(topicId?: string, topicTitle?: string): string {
   // 내 교재(심화반) 서브노트가 있으면 ★최우선★ 근거로 맨 앞에 붙인다.
-  const book = subnoteByTopicId(topicId);
+  // topics.json 에 없는 교재 전용 토픽(MMU, CPU Ring Level 등)도 제목으로 붙는다.
+  const book =
+    (topicTitle ? subnoteByTitle(topicTitle) : undefined) ||
+    subnoteByTopicId(topicId);
+  const d = topicId ? DETAILS[topicId] : undefined;
   if (!d && !book) return "";
   const parts: string[] = [];
   if (book) {
@@ -165,7 +167,7 @@ export function buildGrounding(opts: {
   reference?: string;
 }): string {
   const id = opts.topicId || findIdByTitle(opts.topicTitle);
-  return [groundingFrom(id), opts.reference]
+  return [groundingFrom(id, opts.topicTitle), opts.reference]
     .filter((s) => s && s.trim())
     .join("\n\n");
 }
@@ -352,9 +354,10 @@ export function mnemonicFromTextbook(
   topicId?: string,
   topicTitle?: string,
 ): DataMnemonicSet | null {
+  // ★제목 우선★ — 같은 topicId 를 공유하는 교재 슬라이드가 있어도 정확히 그 토픽을 찾는다.
   const book =
-    subnoteByTopicId(topicId) ||
-    (topicTitle ? subnoteByTitle(topicTitle) : undefined);
+    (topicTitle ? subnoteByTitle(topicTitle) : undefined) ||
+    subnoteByTopicId(topicId);
   if (!book) return null;
 
   const twoCol = book.tables.filter((tb) => tb.headers.length <= 2);

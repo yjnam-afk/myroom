@@ -428,7 +428,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
-    topicId: "ca-58",
     title: "메모리 단편화(Fragmentation)",
     course: "CA",
     definition:
@@ -1627,7 +1626,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
-    topicId: "ca-78",
+    topicId: "ca-87",
     title: "직접 사상과 연관 사상 페이징 기법",
     course: "OS",
     definition:
@@ -2933,14 +2932,29 @@ export function subnoteByTopicId(topicId?: string): TextbookSubnote | undefined 
   return SUBNOTES.find((s) => s.topicId === topicId);
 }
 
-/** 제목으로 교재 서브노트를 찾는다(느슨한 일치). */
+const norm = (s: string) =>
+  s.trim().toLowerCase().replace(/[\s()·,\-_/]/g, "");
+/** 괄호 안 영문 풀네임까지 지운 형태 — "I2C와 SPI" ↔ "I2C(Inter…)와 SPI(Serial…)" 매칭용 */
+const bare = (s: string) => norm(s.replace(/[(（][^)）]*[)）]/g, ""));
+
+/**
+ * 제목으로 교재 서브노트를 찾는다.
+ * ★정확 일치를 먼저★ — '단편화'와 '메모리 단편화'처럼 포함 관계인 제목이 서로를
+ * 잘못 물어가지 않게 한다(느슨한 일치는 정확 일치가 없을 때만).
+ */
 export function subnoteByTitle(title?: string): TextbookSubnote | undefined {
-  const t = (title || "").trim().toLowerCase().replace(/[\s()·,\-_/]/g, "");
+  const raw = title || "";
+  const t = norm(raw);
   if (!t) return undefined;
-  return SUBNOTES.find((s) => {
-    const n = s.title.toLowerCase().replace(/[\s()·,\-_/]/g, "");
-    return n === t || n.includes(t) || t.includes(n);
-  });
+  const tb = bare(raw);
+  return (
+    SUBNOTES.find((s) => norm(s.title) === t) ||
+    (tb ? SUBNOTES.find((s) => bare(s.title) === tb) : undefined) ||
+    SUBNOTES.find((s) => {
+      const n = norm(s.title);
+      return n.includes(t) || t.includes(n);
+    })
+  );
 }
 
 /** 교재 서브노트를 프롬프트용 근거 텍스트로 변환. */

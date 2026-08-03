@@ -87,15 +87,8 @@ const menuGroups = [
     ],
   },
   {
-    group: "✍️ 2단계 · 소설 쓰기 (키워드로 답안 작성)",
+    group: "✍️ 2단계 · 문제 풀기",
     items: [
-      {
-        href: "/answer",
-        emoji: "📝",
-        title: "답안지 작성",
-        desc: "키워드로 답안 '소설' 작성 + 키워드·두음 힌트 + 소설 쓰는 법",
-        color: "from-brand-500 to-brand-600",
-      },
       {
         href: "/exam",
         emoji: "📜",

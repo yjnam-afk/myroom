@@ -10,6 +10,9 @@ import {
   planForToday,
   loadDone,
   saveDone,
+  curriculumMonths,
+  monthGrid,
+  todayISO,
 } from "@/data/curriculum";
 import { subnoteByTopicId, subnoteByTitle } from "@/data/textbookSubnotes";
 
@@ -34,19 +37,171 @@ function PriorityBadge({ p }: { p: Priority }) {
   );
 }
 
+/** YYYY-MM-DD + n일 → Date */
+function shift(start: string, offset: number): Date {
+  const [y, m, d] = start.split("-").map(Number);
+  return new Date(y, m - 1, d + offset);
+}
 /** YYYY-MM-DD + n일 → "M/D" */
 function dateLabel(start: string, offset: number): string {
-  const [y, m, d] = start.split("-").map(Number);
-  const dt = new Date(y, m - 1, d + offset);
+  const dt = shift(start, offset);
   return `${dt.getMonth() + 1}/${dt.getDate()}`;
+}
+/** 달력 → 주차 카드로 점프할 때 쓰는 앵커 id */
+function dateId(start: string, offset: number): string {
+  const dt = shift(start, offset);
+  const p = (n: number) => String(n).padStart(2, "0");
+  return `d-${dt.getFullYear()}-${p(dt.getMonth() + 1)}-${p(dt.getDate())}`;
+}
+
+const MONTH_LABEL = (ym: string) => {
+  const [y, m] = ym.split("-");
+  return `${y}년 ${Number(m)}월`;
+};
+
+/** 달력 — 커리큘럼이 걸친 달을 넘겨보며 어느 날 무슨 토픽인지 한눈에 본다. */
+function Calendar({
+  today,
+  done,
+}: {
+  today: string | null;
+  done: Set<string>;
+}) {
+  const months = curriculumMonths();
+  // 오늘이 포함된 달을 기본으로, 없으면 첫 달.
+  const initial = months.find((m) => today?.startsWith(m)) ?? months[0];
+  const [ym, setYm] = useState(initial);
+  const idx = months.indexOf(ym);
+  const cells = monthGrid(ym);
+
+  return (
+    <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <div className="mb-3 flex items-center justify-between">
+        <button
+          onClick={() => idx > 0 && setYm(months[idx - 1])}
+          disabled={idx <= 0}
+          className="rounded-lg border border-slate-200 px-2.5 py-1 text-sm text-slate-600 disabled:opacity-30"
+          aria-label="이전 달"
+        >
+          ‹
+        </button>
+        <h2 className="text-sm font-bold text-slate-900">{MONTH_LABEL(ym)}</h2>
+        <button
+          onClick={() => idx < months.length - 1 && setYm(months[idx + 1])}
+          disabled={idx >= months.length - 1}
+          className="rounded-lg border border-slate-200 px-2.5 py-1 text-sm text-slate-600 disabled:opacity-30"
+          aria-label="다음 달"
+        >
+          ›
+        </button>
+      </div>
+
+      <div className="mb-1 grid grid-cols-7 gap-1 text-center text-[10px] font-bold text-slate-400">
+        {DAY_NAMES.map((d, i) => (
+          <div key={d} className={i === 6 ? "text-red-400" : ""}>
+            {d}
+          </div>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-7 gap-1">
+        {cells.map((c, i) => {
+          if (!c.date) return <div key={i} />;
+          const day = c.plan?.day;
+          const isToday = c.date === today;
+          const topics = day?.kind === "study" ? day.topics : [];
+          const dDone = topics.filter((t) => done.has(t.title)).length;
+          const allDone = topics.length > 0 && dDone === topics.length;
+          const tone =
+            day?.kind === "study"
+              ? allDone
+                ? "border-amber-300 bg-amber-50"
+                : "border-brand-200 bg-brand-50"
+              : day?.kind === "review"
+                ? "border-emerald-200 bg-emerald-50"
+                : day?.kind === "open"
+                  ? "border-dashed border-slate-300 bg-white"
+                  : day?.kind === "rest"
+                    ? "border-slate-200 bg-slate-50"
+                    : "border-transparent bg-white";
+          const body = (
+            <div
+              className={`flex h-full min-h-[62px] flex-col rounded-lg border p-1 text-left ${tone} ${
+                isToday ? "ring-2 ring-brand-500" : ""
+              }`}
+            >
+              <span
+                className={`text-[10px] font-bold ${
+                  isToday ? "text-brand-700" : "text-slate-500"
+                }`}
+              >
+                {c.day}
+              </span>
+              {day?.kind === "study" && (
+                <>
+                  <span className="mt-0.5 line-clamp-2 text-[9px] font-semibold leading-tight text-slate-700">
+                    {day.label}
+                  </span>
+                  <span className="mt-auto text-[9px] font-bold tabular-nums text-brand-700">
+                    {dDone}/{topics.length}
+                  </span>
+                </>
+              )}
+              {day?.kind === "review" && (
+                <span className="mt-0.5 text-[9px] font-semibold text-emerald-700">
+                  🔁 회독
+                </span>
+              )}
+              {day?.kind === "rest" && (
+                <span className="mt-0.5 text-[9px] font-semibold text-slate-400">
+                  🌙 휴식
+                </span>
+              )}
+              {day?.kind === "open" && (
+                <span className="mt-0.5 text-[9px] font-medium text-slate-400">
+                  + 대기
+                </span>
+              )}
+            </div>
+          );
+          return day?.kind === "study" ? (
+            <a key={i} href={`#d-${c.date}`} className="block">
+              {body}
+            </a>
+          ) : (
+            <div key={i}>{body}</div>
+          );
+        })}
+      </div>
+
+      <div className="mt-3 flex flex-wrap gap-2.5 text-[10px] text-slate-500">
+        <Legend cls="border-brand-200 bg-brand-50" label="학습" />
+        <Legend cls="border-amber-300 bg-amber-50" label="완료" />
+        <Legend cls="border-emerald-200 bg-emerald-50" label="회독" />
+        <Legend cls="border-dashed border-slate-300 bg-white" label="토픽 대기" />
+        <Legend cls="border-slate-200 bg-slate-50" label="휴식" />
+      </div>
+    </div>
+  );
+}
+
+function Legend({ cls, label }: { cls: string; label: string }) {
+  return (
+    <span className="inline-flex items-center gap-1">
+      <span className={`inline-block h-3 w-3 rounded border ${cls}`} />
+      {label}
+    </span>
+  );
 }
 
 export default function PlanPage() {
   const [done, setDone] = useState<Set<string>>(new Set());
   const [todayKey, setTodayKey] = useState<string | null>(null);
+  const [today, setToday] = useState<string | null>(null);
 
   useEffect(() => {
     setDone(loadDone());
+    setToday(todayISO());
     const t = planForToday();
     if (t) setTodayKey(`${t.week.start}#${t.dayIndex}`);
   }, []);
@@ -81,6 +236,8 @@ export default function PlanPage() {
         title="🗓️ 학습 계획"
         desc="심화반 커리큘럼 — 내가 정한 주차별 토픽. 중요도는 교재 Priority(상★★★·중★★·하★) 그대로입니다."
       />
+
+      <Calendar key={today ?? "init"} today={today} done={done} />
 
       {/* 전체 진행률 */}
       <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -128,7 +285,8 @@ export default function PlanPage() {
               return (
                 <div
                   key={di}
-                  className={`overflow-hidden rounded-2xl border-2 bg-white shadow-sm ${
+                  id={dateId(week.start, di)}
+                  className={`scroll-mt-20 overflow-hidden rounded-2xl border-2 bg-white shadow-sm ${
                     isToday ? "border-brand-400" : "border-slate-200"
                   }`}
                 >
@@ -219,9 +377,10 @@ export default function PlanPage() {
                                 📖
                               </span>
                             )}
-                            {t.topicId && (
+                            {/* 교재 서브노트만 있어도(topicId 없어도) 두음신공은 열린다 */}
+                            {(t.topicId || sub) && (
                               <Link
-                                href={`/mnemonic?topic=${encodeURIComponent(t.title)}&topicId=${t.topicId}`}
+                                href={`/mnemonic?topic=${encodeURIComponent(t.title)}${t.topicId ? `&topicId=${t.topicId}` : ""}`}
                                 className="shrink-0 rounded-md bg-brand-600 px-2 py-1 text-[11px] font-medium text-white hover:bg-brand-700"
                               >
                                 🥷
@@ -238,8 +397,18 @@ export default function PlanPage() {
                       })}
                     </ol>
                   ) : (
-                    <p className="px-4 py-3 text-sm text-slate-500">
-                      {day.kind === "review" ? "🔁 " : "🌙 "}
+                    <p
+                      className={`px-4 py-3 text-sm ${
+                        day.kind === "open"
+                          ? "text-slate-400"
+                          : "text-slate-500"
+                      }`}
+                    >
+                      {day.kind === "review"
+                        ? "🔁 "
+                        : day.kind === "open"
+                          ? "📥 "
+                          : "🌙 "}
                       {day.note}
                     </p>
                   )}
