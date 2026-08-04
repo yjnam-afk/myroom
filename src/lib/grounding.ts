@@ -386,10 +386,17 @@ export function mnemonicFromTextbook(
     });
   }
   for (const tb of usable.slice(0, 4)) {
+    // 첫 열이 "구분"처럼 그룹 라벨이라 값이 반복되면(예: 데이터중심·데이터중심…)
+    // 두음이 "데데데가가"가 되어 버린다. 이런 표는 두 번째 열(실제 항목명)을 쓴다.
+    const col = (i: number) => tb.rows.map((r) => (r[i] || "").trim());
+    const uniq = (a: string[]) => new Set(a.filter(Boolean)).size;
+    const c0 = col(0);
+    const useCol =
+      tb.rows[0]?.length > 1 && uniq(c0) * 2 <= c0.length ? 1 : 0;
     // 절차/시점 나열표(①②…, t0·t1, 1·2·3)는 두음 대상이 아니다.
-    const items = tb.rows
-      .map((r) => (r[0] || "").trim())
-      .filter((s) => s && !/^[①-⑳]+$/.test(s) && !/^[a-zA-Z]?\d+$/.test(s));
+    const items = col(useCol).filter(
+      (s) => s && !/^[①-⑳]+$/.test(s) && !/^[a-zA-Z]?\d+$/.test(s),
+    );
     if (items.length < 2) continue;
     // 캡션에 교재가 적어둔 두음이 있으면(예: "PCB 구성 정보 (식상카레스계입메)")
     // 그것을 그대로 쓴다 — 내가 계산한 첫 글자보다 교재 두음이 항상 우선.
