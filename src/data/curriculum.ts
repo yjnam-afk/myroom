@@ -33,9 +33,7 @@ export type CurriculumWeek = {
 };
 
 /**
- * 토픽 목록을 학습일 수만큼 ★최대한 고르게★ 나눈다(교재 순서는 유지).
- * 주차마다 토픽 수가 제각각이라(53개, 129개…) 그룹 단위로 넣으면
- * 어떤 날은 10개, 어떤 날은 21개가 되어 버린다. 남는 개수는 앞 날부터 하나씩 더 준다.
+ * 토픽 목록을 n일로 ★고르게★ 나눈다(교재 순서 유지). 남는 개수는 앞 날부터.
  */
 function splitEvenly<T>(items: T[], n: number): T[][] {
   const out: T[][] = [];
@@ -50,17 +48,54 @@ function splitEvenly<T>(items: T[], n: number): T[][] {
   return out;
 }
 
-/** 균등 분배된 학습일 만들기. 라벨에 "n일차 · 첫 토픽 외 N개"를 넣어 분량이 보이게 한다. */
-function studyDays(
-  prefix: string,
-  all: CurriculumTopic[],
-  n = 4,
-): CurriculumDay[] {
-  return splitEvenly(all, n).map((topics, i) => ({
-    kind: "study" as const,
-    label: `${prefix} ${i + 1}/${n} · ${topics[0].title.split(/[(（[]/)[0].trim()} 외 ${topics.length - 1}개`,
-    topics,
+type Subject = { name: string; topics: CurriculumTopic[] };
+
+/**
+ * 학습일 배분 — ★과목은 절대 섞지 않는다.★
+ * 한 주에 과목이 둘이면(OS+CA, PM+SE) 날짜를 과목별로 먼저 쪼개고,
+ * 그 안에서만 고르게 나눈다. 과목을 섞어 버리면 하루에 OS와 CA가 뒤엉켜
+ * 이미 공부한 범위와 새 범위가 구분되지 않는다.
+ *
+ * 날짜 배분은 토픽 수에 비례하되 과목마다 최소 1일은 보장한다.
+ *   1주차 OS 32 / CA 21, 4일 → OS 2일(16·16), CA 2일(11·10)
+ *   2주차 PM 33 / SE 96, 4일 → PM 1일(33), SE 3일(32·32·32)
+ */
+function studyDays(subjects: Subject[], totalDays = 4): CurriculumDay[] {
+  const total = subjects.reduce((a, s) => a + s.topics.length, 0);
+  // 비례 배분 후 최소 1일 보장, 남는 날은 토픽이 많은 과목부터.
+  const alloc = subjects.map((s) => ({
+    s,
+    n: Math.max(1, Math.floor((s.topics.length / total) * totalDays)),
   }));
+  let left = totalDays - alloc.reduce((a, x) => a + x.n, 0);
+  while (left > 0) {
+    // 하루당 토픽 수가 가장 많은(=제일 빡센) 과목에 하루씩 더 준다.
+    alloc.sort((a, b) => b.s.topics.length / b.n - a.s.topics.length / a.n);
+    alloc[0].n += 1;
+    left--;
+  }
+  while (left < 0) {
+    alloc.sort((a, b) => a.s.topics.length / a.n - b.s.topics.length / b.n);
+    if (alloc[0].n > 1) alloc[0].n -= 1;
+    left++;
+  }
+  // 원래 과목 순서대로 되돌려 날짜를 만든다.
+  const byName = new Map(alloc.map((x) => [x.s.name, x.n]));
+  const days: CurriculumDay[] = [];
+  for (const sub of subjects) {
+    const n = byName.get(sub.name) ?? 1;
+    splitEvenly(sub.topics, n).forEach((topics, i) => {
+      days.push({
+        kind: "study",
+        label:
+          n === 1
+            ? `${sub.name} 전체 · ${topics.length}개`
+            : `${sub.name} ${i + 1}/${n} · ${topics[0].title.split(/[(（[]/)[0].trim()} 외 ${topics.length - 1}개`,
+        topics,
+      });
+    });
+  }
+  return days;
 }
 
 // ── 1주차: 운영체제(OS) + 컴퓨터구조(CA) ──────────────────────────────
@@ -283,13 +318,14 @@ const SE_3: CurriculumTopic[] = [
   { title: "사용성 평가", priority: "중" },
 ];
 
-const WEEK2_DAYS: CurriculumDay[] = studyDays("PM·SE", [
-  ...PM_PLAN, ...PM_SCHEDULE, ...PM_TEAM, ...PM_AGILE,
-  ...SE_1, ...SE_2, ...SE_3,
+const WEEK2_DAYS: CurriculumDay[] = studyDays([
+  { name: "프로젝트 관리(PM)", topics: [...PM_PLAN, ...PM_SCHEDULE, ...PM_TEAM, ...PM_AGILE] },
+  { name: "소프트웨어공학(SE)", topics: [...SE_1, ...SE_2, ...SE_3] },
 ]);
 
-const STUDY_DAYS: CurriculumDay[] = studyDays("OS·CA", [
-  ...OS_MEM, ...OS_PROC, ...OS_SYNC, ...CA_ALL,
+const STUDY_DAYS: CurriculumDay[] = studyDays([
+  { name: "운영체제(OS)", topics: [...OS_MEM, ...OS_PROC, ...OS_SYNC] },
+  { name: "컴퓨터구조(CA)", topics: CA_ALL },
 ]);
 
 export const WEEKS: CurriculumWeek[] = [
