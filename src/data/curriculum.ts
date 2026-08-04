@@ -98,6 +98,59 @@ const CA_ALL: CurriculumTopic[] = [
   { title: "TPU(Tensor Processing Unit)", topicId: "ca-22", priority: "상" },
 ];
 
+// ── 2주차: 프로젝트 관리(PM) 33토픽 ───────────────────────────────────
+const PM_PLAN: CurriculumTopic[] = [
+  { title: "경제성 분석 기법", topicId: "gj-144", priority: "중" },
+  { title: "프로젝트 관리 계획서", priority: "하" },
+  { title: "범위관리", topicId: "pm-24", priority: "중" },
+  { title: "요구사항 수집기법", topicId: "pm-25", priority: "상" },
+  { title: "요구사항 명세서 SRS", priority: "중" },
+  { title: "WBS (Work Breakdown Structure)", topicId: "pm-27", priority: "상" },
+  { title: "Scope Creep vs Gold-Plating", topicId: "pm-30", priority: "중" },
+  { title: "활동기간 산정기법", priority: "하" },
+];
+
+const PM_SCHEDULE: CurriculumTopic[] = [
+  { title: "3점 산정", topicId: "pm-35", priority: "하" },
+  { title: "CPM (Critical Path Management)", topicId: "pm-36", priority: "중" },
+  { title: "CCM (Critical Chain Management)", topicId: "pm-37", priority: "중" },
+  { title: "일정단축 기법", priority: "상" },
+  { title: "EVM(Earned Value Management, 획득 가치 관리)", topicId: "pm-46", priority: "중" },
+  { title: "품질통제도구, QC 7", topicId: "pm-50", priority: "중" },
+  { title: "형상 관리", topicId: "pm-51", priority: "상" },
+  { title: "SW 품질비용", priority: "하" },
+];
+
+const PM_TEAM: CurriculumTopic[] = [
+  { title: "RACI 매트릭스", topicId: "pm-53", priority: "하" },
+  { title: "자원 최적화", topicId: "pm-40", priority: "중" },
+  { title: "동기부여 이론", topicId: "pm-55", priority: "중" },
+  { title: "터크만 팀 개발 5단계", topicId: "pm-56", priority: "중" },
+  { title: "갈등관리", priority: "중" },
+  { title: "프로젝트 위험관리", topicId: "pm-59", priority: "중" },
+  { title: "정성적 위험 분석", topicId: "pm-60", priority: "상" },
+  { title: "정량적 위험 분석", topicId: "pm-62", priority: "상" },
+];
+
+const PM_AGILE: CurriculumTopic[] = [
+  { title: "몬테카를로 시뮬레이션", priority: "중" },
+  { title: "위험 대응", topicId: "pm-64", priority: "중" },
+  { title: "PMBOK 8개 성과 영역 및 프로젝트 관리 12원칙(PMBOK 7판)", topicId: "pm-14", priority: "하" },
+  { title: "감리/PMO 비교표", topicId: "pm-90", priority: "상" },
+  { title: "Agile 선언문과 12개 원칙", priority: "하" },
+  { title: "스크럼 (SCRUM)", topicId: "pm-73", priority: "상" },
+  { title: "번다운차트 (Burn Down Chart)", topicId: "pm-86", priority: "상" },
+  { title: "XP (eXtreme Programming)", topicId: "pm-74", priority: "하" },
+  { title: "린 (Lean) 방법론", topicId: "pm-77", priority: "하" },
+];
+
+const PM_DAYS: CurriculumDay[] = [
+  { kind: "study", label: "PM ① 기획·범위", topics: PM_PLAN },
+  { kind: "study", label: "PM ② 일정·원가·품질", topics: PM_SCHEDULE },
+  { kind: "study", label: "PM ③ 자원·팀·위험분석", topics: PM_TEAM },
+  { kind: "study", label: "PM ④ 위험대응·애자일", topics: PM_AGILE },
+];
+
 const STUDY_DAYS: CurriculumDay[] = [
   { kind: "study", label: "OS ① 메모리·가상메모리", topics: OS_MEM },
   { kind: "study", label: "OS ② 프로세스·스케줄링", topics: OS_PROC },
@@ -119,11 +172,33 @@ export const WEEKS: CurriculumWeek[] = [
     ],
   },
   {
+    // 선행 2주차 — 프로젝트 관리
+    start: "2026-08-10",
+    title: "선행 학습 · 심화반 2주차 미리 돌기 (프로젝트 관리)",
+    days: [
+      ...PM_DAYS,
+      { kind: "review", label: "회독", note: "이번 주 선행한 토픽을 다시 돌립니다." },
+      { kind: "review", label: "회독", note: "약한 토픽 위주로 한 번 더." },
+      { kind: "rest", label: "휴식", note: "쉬는 것도 공부의 일부예요." },
+    ],
+  },
+  {
     // ★ 심화반 입과 — 9월 첫주(9/1이 포함된 주) 월요일. 확정.
     start: "2026-08-31",
     title: "심화반 1주차 · 운영체제(OS) + 컴퓨터구조(CA)",
     days: [
       ...STUDY_DAYS,
+      { kind: "review", label: "회독", note: "이번 주 배운 토픽을 다시 돌립니다." },
+      { kind: "review", label: "회독", note: "약한 토픽 위주로 한 번 더." },
+      { kind: "rest", label: "휴식", note: "쉬는 것도 공부의 일부예요." },
+    ],
+  },
+  {
+    // 심화반 2주차 — 프로젝트 관리
+    start: "2026-09-07",
+    title: "심화반 2주차 · 프로젝트 관리(PM)",
+    days: [
+      ...PM_DAYS,
       { kind: "review", label: "회독", note: "이번 주 배운 토픽을 다시 돌립니다." },
       { kind: "review", label: "회독", note: "약한 토픽 위주로 한 번 더." },
       { kind: "rest", label: "휴식", note: "쉬는 것도 공부의 일부예요." },
