@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { subnoteByTitle, subnoteByTopicId } from "@/data/textbookSubnotes";
 import MyDiagrams from "@/components/MyDiagrams";
+import EasyCard from "@/components/EasyCard";
 import { subnoteExtraFor } from "@/data/subnoteExtras";
 import { PageHeader, Spinner, ErrorBox, Button } from "@/components/ui";
 import Markdown from "@/components/Markdown";
@@ -161,6 +162,12 @@ function ExplainInner() {
       </div>
 
       <div className="mt-6">
+        {/* 쉽게 이해하기 — 비유 → 용어 매핑 → 연관 토픽 → 답안. AI 호출 없음. */}
+        <EasyCard
+          topicId={topics.find((x) => x.title === topic.trim())?.id}
+          title={topic.trim()}
+        />
+
         {/* 교재 원본 서브노트 — AI 호출 없이 즉시 표시(무료 AI 한도와 무관) */}
         {textbook && (
           <section className="mb-6 overflow-hidden rounded-2xl border-2 border-emerald-200 bg-white shadow-sm">
@@ -255,17 +262,6 @@ function ExplainInner() {
           </section>
         )}
 
-        {/* 쉬운 설명 — "이게 무슨 소리냐"를 풀어 쓴 것. AI 호출 없이 항상 뜬다. */}
-        {extra?.easy && (
-          <section className="mb-6 rounded-2xl border-2 border-amber-200 bg-amber-50/60 p-5">
-            <h3 className="mb-2 text-sm font-bold text-amber-800">
-              🍯 쉬운 설명 — 이게 무슨 소리냐면
-            </h3>
-            <p className="whitespace-pre-line text-[15px] leading-[1.9] text-slate-800">
-              {extra.easy}
-            </p>
-          </section>
-        )}
 
         {/* 교재 슬라이드 원본 — 도식을 다시 그리지 않고 교재 그림 그대로 */}
         {extra?.image && (

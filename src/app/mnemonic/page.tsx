@@ -9,6 +9,7 @@ import ShareButton from "@/components/ShareButton";
 import AudioLecture from "@/components/AudioLecture";
 import TopicAutocomplete from "@/components/TopicAutocomplete";
 import MyDiagrams from "@/components/MyDiagrams";
+import EasyCard from "@/components/EasyCard";
 import { subnoteExtraFor } from "@/data/subnoteExtras";
 import topics from "@/data/topics.json";
 import { loadReview, saveReview, markReviewed } from "@/lib/storage";
@@ -991,7 +992,7 @@ function TextbookExtra({
 }) {
   const extra = subnoteExtraFor(topicId, title);
   const [open, setOpen] = useState(true); // 교재 원본은 기본으로 펼쳐 둔다
-  if (!extra?.easy && !extra?.image) return null;
+  if (!extra?.easy && !extra?.image && !extra?.guide) return null;
   return (
     <div className="mb-4 overflow-hidden rounded-2xl border border-amber-200 bg-amber-50/60">
       <button
@@ -1005,11 +1006,13 @@ function TextbookExtra({
       </button>
       {open && (
         <div className="space-y-3 border-t border-amber-200 bg-white p-4">
-          {extra.easy && (
+          {extra.guide ? (
+            <EasyCard topicId={topicId} title={title} />
+          ) : extra.easy ? (
             <p className="whitespace-pre-line text-[15px] leading-[1.9] text-slate-800">
               {extra.easy}
             </p>
-          )}
+          ) : null}
           {extra.image && (
             /* eslint-disable-next-line @next/next/no-img-element */
             <img

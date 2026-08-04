@@ -36,6 +36,14 @@ type Detail = {
 };
 const DETAILS = topicDetails as Record<string, Detail>;
 
+/** 심화반 교재 과목 코드 → 화면에 보일 이름 */
+const COURSE_NAME: Record<string, string> = {
+  CA: "컴퓨터구조",
+  OS: "운영체제",
+  PM: "프로젝트 관리",
+  SE: "소프트웨어공학",
+};
+
 /** 서브노트 원본 두음/키워드(있으면 그대로 사용). 제목 자동 매칭 포함. */
 export function subnoteFor(opts: { topicId?: string; topicTitle?: string }): {
   mnemonic: string;
@@ -52,9 +60,17 @@ export function subnoteFor(opts: { topicId?: string; topicTitle?: string }): {
         (x) => x.id === id,
       )
     : undefined;
-  const autoClassification = t
-    ? [t.category, t.group, t.title].filter((s) => s && String(s).trim()).join(" > ")
-    : "";
+  // ★심화반 교재 서브노트가 있으면 그 과목을 분류의 기준으로 삼는다.★
+  // topics.json 의 category 는 원본 엑셀에서 온 것이라 OS 토픽이 "소프트웨어공학 >
+  // 쓰레드(Thread) > 쓰레드/ 프로세스와 비교표" 처럼 엉뚱하게 잡히는 경우가 많다.
+  const book =
+    (opts.topicTitle ? subnoteByTitle(opts.topicTitle) : undefined) ||
+    subnoteByTopicId(opts.topicId);
+  const autoClassification = book
+    ? `${COURSE_NAME[book.course]} > ${book.title}`
+    : t
+      ? [t.category, t.group, t.title].filter((s) => s && String(s).trim()).join(" > ")
+      : "";
   const d = id ? DETAILS[id] : undefined;
   if (!d)
     return {

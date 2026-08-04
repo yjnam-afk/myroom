@@ -32,6 +32,37 @@ export type CurriculumWeek = {
   days: CurriculumDay[];
 };
 
+/**
+ * 토픽 목록을 학습일 수만큼 ★최대한 고르게★ 나눈다(교재 순서는 유지).
+ * 주차마다 토픽 수가 제각각이라(53개, 129개…) 그룹 단위로 넣으면
+ * 어떤 날은 10개, 어떤 날은 21개가 되어 버린다. 남는 개수는 앞 날부터 하나씩 더 준다.
+ */
+function splitEvenly<T>(items: T[], n: number): T[][] {
+  const out: T[][] = [];
+  const base = Math.floor(items.length / n);
+  const extra = items.length % n;
+  let i = 0;
+  for (let d = 0; d < n; d++) {
+    const size = base + (d < extra ? 1 : 0);
+    out.push(items.slice(i, i + size));
+    i += size;
+  }
+  return out;
+}
+
+/** 균등 분배된 학습일 만들기. 라벨에 "n일차 · 첫 토픽 외 N개"를 넣어 분량이 보이게 한다. */
+function studyDays(
+  prefix: string,
+  all: CurriculumTopic[],
+  n = 4,
+): CurriculumDay[] {
+  return splitEvenly(all, n).map((topics, i) => ({
+    kind: "study" as const,
+    label: `${prefix} ${i + 1}/${n} · ${topics[0].title.split(/[(（[]/)[0].trim()} 외 ${topics.length - 1}개`,
+    topics,
+  }));
+}
+
 // ── 1주차: 운영체제(OS) + 컴퓨터구조(CA) ──────────────────────────────
 const OS_MEM: CurriculumTopic[] = [
   { title: "커널(Kernel)", topicId: "os-2", priority: "하" },
@@ -252,19 +283,14 @@ const SE_3: CurriculumTopic[] = [
   { title: "사용성 평가", priority: "중" },
 ];
 
-const WEEK2_DAYS: CurriculumDay[] = [
-  { kind: "study", label: "PM 전체 (프로젝트 관리)", topics: [...PM_PLAN, ...PM_SCHEDULE, ...PM_TEAM, ...PM_AGILE] },
-  { kind: "study", label: "SE ① 방법론·객체지향·아키텍처", topics: SE_1 },
-  { kind: "study", label: "SE ② 다이어그램·MSA·데브옵스·테스트", topics: SE_2 },
-  { kind: "study", label: "SE ③ 리팩토링·품질인증·안전분석·감리", topics: SE_3 },
-];
+const WEEK2_DAYS: CurriculumDay[] = studyDays("PM·SE", [
+  ...PM_PLAN, ...PM_SCHEDULE, ...PM_TEAM, ...PM_AGILE,
+  ...SE_1, ...SE_2, ...SE_3,
+]);
 
-const STUDY_DAYS: CurriculumDay[] = [
-  { kind: "study", label: "OS ① 메모리·가상메모리", topics: OS_MEM },
-  { kind: "study", label: "OS ② 프로세스·스케줄링", topics: OS_PROC },
-  { kind: "study", label: "OS ③ 동기화·교착·파일", topics: OS_SYNC },
-  { kind: "study", label: "CA 전체", topics: CA_ALL },
-];
+const STUDY_DAYS: CurriculumDay[] = studyDays("OS·CA", [
+  ...OS_MEM, ...OS_PROC, ...OS_SYNC, ...CA_ALL,
+]);
 
 export const WEEKS: CurriculumWeek[] = [
   {
