@@ -353,29 +353,24 @@ export default function Home() {
                           📖 교재
                         </span>
                       )}
-                      {t.topicId ? (
-                        <>
-                          <Link
-                            href={`/mnemonic?topic=${encodeURIComponent(t.title)}&topicId=${t.topicId}`}
-                            className="shrink-0 rounded-md bg-brand-600 px-2.5 py-1 text-xs font-medium text-white hover:bg-brand-700"
-                          >
-                            🥷 학습
-                          </Link>
-                          <Link
-                            href={`/explain?topic=${encodeURIComponent(t.title)}&topicId=${t.topicId}`}
-                            className="shrink-0 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 hover:bg-slate-100"
-                          >
-                            💡 설명
-                          </Link>
-                        </>
-                      ) : (
+                      {/* 두음신공은 topicId 가 없어도 교재 서브노트만 있으면 열린다
+                          (제목으로 찾는다). topicId 유무로 버튼을 감추면
+                          프로세스 상태 전이도·CPU 스케줄링처럼 topics.json 에
+                          없는 교재 전용 토픽이 학습을 못 하게 된다. */}
+                      {(t.topicId || sub) && (
                         <Link
-                          href={`/explain?topic=${encodeURIComponent(t.title)}`}
-                          className="shrink-0 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 hover:bg-slate-100"
+                          href={`/mnemonic?topic=${encodeURIComponent(t.title)}${t.topicId ? `&topicId=${t.topicId}` : ""}`}
+                          className="shrink-0 rounded-md bg-brand-600 px-2.5 py-1 text-xs font-medium text-white hover:bg-brand-700"
                         >
-                          💡 설명
+                          🥷 학습
                         </Link>
                       )}
+                      <Link
+                        href={`/explain?topic=${encodeURIComponent(t.title)}${t.topicId ? `&topicId=${t.topicId}` : ""}`}
+                        className="shrink-0 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 hover:bg-slate-100"
+                      >
+                        💡 설명
+                      </Link>
                     </li>
                   );
                 })}
