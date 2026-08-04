@@ -4560,6 +4560,477 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
     notes: ["관계도: SAAM ─계승/발전→ ATAM. ATAM ↔ CBAM(경제성 평가보강), ATAM → ADR, ADR+ATAM → ARID, SAAM → EATAM(Product Line 평가·스테이지 기반)"],
   },
+  {
+    title: "CBAM(Cost Benefit Analysis Method)",
+    course: "SE",
+    definition:
+      "각 아키텍처 접근법의 시나리오별 효용을 계산하고, 이를 이득과 비용을 기준으로 분석하여 가장 비용 효율이 높은 방법을 선정하는 평가 프레임워크",
+    keywords: ["비용 효율", "2단계 반복", "효용-반응 곡선", "불확실성 고려"],
+    tables: [
+      {
+        caption: "특징",
+        headers: ["특징", "설명"],
+        rows: [
+          ["2단계 반복", "1차 반복: 아키텍처 접근법 우선순위 / 2차 반복: 위험, 불확실성, 자원관계까지 고려하여 재평가"],
+          ["효용-반응 곡선", "시나리오의 반응값(성능, 비용, 보안 등의 지표)과 이에 따른 효용(총 가치 또는 만족도)의 관계 시각화"],
+          ["불확실성 고려", "효용 곡선 값은 이해관계자의 경험에 따라 결정되기 때문에 불확실성 초래 가능성 있음"],
+        ],
+      },
+      {
+        caption: "CBAM 상세 절차",
+        headers: ["구분", "절차", "설명"],
+        rows: [
+          ["시나리오 결정", "시나리오 수집", "기존의 ATAM의 시나리오 또는 신규 시나리오 수집"],
+          ["시나리오 결정", "시나리오 정제", "시나리오마다 최선, 최악, 현재, 기대 반응 값을 찾아 시나리오 집합 생성"],
+          ["시나리오 결정", "시나리오 우선순위", "기대 반응 값에 따라 상위 1/2 시나리오 선별, 우선 순위별 가중치 부여"],
+          ["효용-반응값 곡선 선정", "효용-반응 값 곡선 작성", "2단계에서 찾은 최선, 최악, 현재, 기대 반응 값으로 효용-반응 값 곡선 추정"],
+          ["아키텍처 접근법 이익 계산", "예상반응 값 결정", "시나리오를 담당하는 아키텍처 접근법 연결, 예상 반응 값 결정"],
+          ["아키텍처 접근법 이익 계산", "예상 효용 계산", "효용-반응 값 곡선 이용해서 예상 반응 값에 대한 예상 효용을 계산"],
+          ["아키텍처 접근법 이익 계산", "전체 이익 계산", "시나리오 별 우선순위 가중치를 반영하여 모든 시나리오의 이익 계산"],
+          ["아키텍처 접근법", "ROI 계산, 순위 결정", "ROI를 기준으로 아키텍처 접근법들의 순위 결정"],
+          ["아키텍처 접근법", "선정, 결과 검증", "비용과 일정을 고려하여 아키텍처 접근법을 선정, 결과검증"],
+        ],
+      },
+    ],
+    notes: ["효용 반응값 곡선 기호 — QA: 품질 속성, W: Worst 최악, C: Current 현재, E: Expected 기대, D: Desired 기대, B: Best 최선"],
+  },
+  {
+    title: "UML (정적, 동적 다이어그램)",
+    course: "SE",
+    definition:
+      "특정 언어나 공정에 종속되지 않고 보다 수준 높은 자동화 기반의 소프트웨어 시스템 아키텍처를 묘사하기 위한 표준 모델링 언어",
+    keywords: ["가시화", "구체화", "명세화", "문서화", "정적/동적 다이어그램", "13개 다이어그램 명칭"],
+    tables: [
+      {
+        caption: "정적 다이어그램 (Structure Diagram)",
+        headers: ["다이어그램", "내용"],
+        rows: [
+          ["Class", "시스템 내 클래스들의 정적 구조를 표현"],
+          ["Component", "컴포넌트(component)는 논리적 클래스 혹은 클래스 자신의 구현에 대한 정보를 포함함"],
+          ["Object", "Object 이름에 밑줄 표시를 하며, 관계 있는 모든 인스턴스를 표현함"],
+          ["Deployment", "HW와 SW간의 물리적 구조를 표현하며, 실질적인 컴퓨터와 Device간의 관계를 표현하는데 이용"],
+          ["Composite Structure", "분류자의 복합 구조를 표현하는 다이어그램. port, part, connector, Collaboration으로 분류자 내부 구조 표현"],
+          ["Package", "패키지들과 패키지 내부의 요소를 표현. 클래스, 인터페이스 분류자 등을 그룹화하여 표기"],
+        ],
+      },
+      {
+        caption: "동적 다이어그램 (Behavior Diagram)",
+        headers: ["다이어그램", "내용"],
+        rows: [
+          ["Activity", "행위(Activity)의 순서적 흐름을 표시함"],
+          ["Use Case", "외부 행위자(Actor)와 시스템이 제공하는 여러 개의 Use Case(시스템을 사용하는 다양한 경우)에 연결하여, Use Case 다이어그램은 유즈케이스 뷰를 다룬다"],
+          ["State", "클래스의 객체가 가질 수 있는 모든 가능한 상태 기술"],
+          ["Interaction", "4개의 다이어그램을 통합한 그룹 (시퀀스·커뮤니케이션·인터랙션 오버뷰·타이밍)"],
+          ["Sequence", "여러 객체 사이에 동적인 협력 사항을 표현함. 오브젝트(Object) 사이에 메시지를 보내는 순서를 보여주기 위해 사용"],
+          ["Communication", "객체들 간의 상호작용을 연결에 초점을 맞춰 기술"],
+          ["Interaction Overview", "액티비티 다이어그램과 시퀀스 다이어그램의 혼합 다이어그램"],
+          ["Timing", "시간의 흐름에 따른 상태를 표현"],
+        ],
+      },
+    ],
+    notes: ["구조 다이어그램(정적) 6개 + 행위 다이어그램(동적) 7개 = 13개. 인터랙션 다이어그램은 행위 다이어그램의 하위 묶음(시퀀스·커뮤니케이션·인터랙션 오버뷰·타이밍)"],
+  },
+  {
+    title: "클래스 다이어그램 (Class Diagram)",
+    course: "SE",
+    definition:
+      "시스템에서 사용되는 객체 타입을 정의하고, 그들 간에 존재하는 정적인 관계를 표현한 정적 다이어그램",
+    keywords: ["이름", "Attribute", "Operation", "접근제어자(Public, Private, Protected, Package)", "관계(연관, 직접연관, 집합연관, 복합연관, 의존, 일반화, 실체화)"],
+    tables: [
+      {
+        caption: "접근 제어자",
+        headers: ["구성요소", "설명", "표기법"],
+        rows: [
+          ["Public", "어떤 클래스의 객체에서든 접근 가능", "+"],
+          ["Private", "해당 클래스에서 생성된 객체들만 접근 가능", "−"],
+          ["Protected", "해당 클래스와 동일 패키지에 있거나 상속 관계에 있는 하위 클래스의 객체들만 접근 가능", "#"],
+          ["Package", "동일 패키지에 있는 클래스의 객체들만 접근 가능", "~"],
+        ],
+      },
+      {
+        caption: "관계",
+        headers: ["관계", "설명", "표기법"],
+        rows: [
+          ["연관관계(Association)", "두 클래스간 서로 어떠한 연관을 가지고 있는 의미 (인스턴스 표기법: 1, 0..1, *, 1..*)", "실선"],
+          ["직접연관관계(Direct Association)", "연관관계와 다르게 방향성 존재. 참조하는 쪽과 참조 당하는 쪽을 구분", "실선 화살표"],
+          ["집합연관관계(Aggregation)", "클래스와 클래스간의 부분과 전체의 관계를 의미", "속이 빈 마름모"],
+          ["복합연관관계(Composition)", "집합연관관계와 같이 부분과 전체 관계이나, 전체 클래스 소멸 시 부분클래스도 소멸되는 관계", "채워진 마름모"],
+          ["의존관계(Dependency)", "한 클래스의 변화가 다른 클래스에 영향을 미치는 관계", "점선 화살표"],
+          ["일반화 관계(Generalization)", "상위와 하위의 관계를 의미. 하위는 상위의 공통점을 상속받아 가짐 'is a 관계' 또는 'is a kind of' 관계라고도 함", "속이 빈 삼각형 화살표"],
+          ["실체화 관계(Realization)", "인터페이스와 그 인터페이스를 구현한 클래스 사이의 관계를 의미", "점선 + 속이 빈 삼각형"],
+        ],
+      },
+      {
+        caption: "구성 요소",
+        headers: ["구성요소", "설명"],
+        rows: [
+          ["클래스", "모델링 하고자 하는 시스템의 내부 개념을 표현하며 이름, attribute, operation 으로 구성. 이름(클래스 이름 기입, 예: Animal) / Attribute(접근제어자, 변수이름, 자료형이 포함, 예: −name : string) / Operation(메소드이름, 접근제어자, 리턴타입이 포함, 예: +eat() : void)"],
+          ["스테레오 타입(Stereo Type)", "UML에서 제공하는 추가적인 확장 요소. 길러멧(guillemet, « ») 사이에 스테레오 타입의 특성 정의. «interface», «utility», «abstract», «enumeration»"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "유즈케이스 다이어그램",
+    course: "SE",
+    definition:
+      "시스템이 제공하고 있는 기능 및 그와 관련된 외부요소를 사용자의 관점에서 표현하는 동적 다이어그램",
+    keywords: ["액터", "유즈케이스", "시스템", "연관", "확장", "포함", "일반화", "그룹화"],
+    tables: [
+      {
+        caption: "구성 요소",
+        headers: ["분류", "구분", "설명", "표기법"],
+        rows: [
+          ["기본 구성", "Usecase", "시스템이 제공해야 하는 서비스. Actor가 시스템을 통한 일련의 행위", "타원"],
+          ["기본 구성", "Actor(행위자)", "사용자가 시스템에 대해 수행하는 역할(role). 시스템과 상호작용하는 사람 또는 사물", "졸라맨"],
+          ["기본 구성", "시스템(System)", "전체시스템의 영역을 표현. 특별한 의미를 가지지 못함", "사각 테두리"],
+          ["관계 표현", "연관(Association)", "Usecase와 Actor의 관계 표현(실선)", "실선"],
+          ["관계 표현", "확장(Extend)", "기본 Usecase 수행 시 특별한 조건을 만족할 때 수행하는 Usecase", "«extend» 점선 화살표"],
+          ["관계 표현", "포함(Include)", "시스템의 기능이 별도의 기능을 포함(점선). Usecase 를 수행할 때 다른 Usecase 가 반드시 수행되는 것", "«include» 점선 화살표"],
+          ["관계 표현", "일반화(Generalization)", "하위 Usecase/Action이 상위 Usecase/Actor에게 기능/역할을 상속 받음", "속이 빈 삼각형"],
+          ["관계 표현", "그룹화(Grouping)", "여러 개의 Usecase를 단순화 하는 방법", "Package"],
+        ],
+      },
+      {
+        caption: "작성 절차",
+        headers: ["절차", "설명"],
+        rows: [
+          ["Actor 식별", "시스템의 사용자 식별, 상호작용 하는 타 시스템 식별"],
+          ["Use Case 식별", "액터가 요구하는 서비스 식별, 액터가 요구하는 정보 식별, 액터가 시스템과 상호작용하는 행위를 식별"],
+          ["Relationship 정의", "액터와 액터간의 관계 분석 및 정의, 액터와 유스케이스 관계 분석 및 정의, 유스케이스와 유스케이스 관계 분석 및 정의"],
+          ["Use Case 구조화", "2개 이상의 유스케이스에 있는 공통 서비스 추출, 추출된 서비스를 유스케이스로 정의, 추출된 유스케이스를 사용하는 유스케이스 및 사용자 관계 정의"],
+        ],
+      },
+    ],
+    notes: ["extend 는 조건을 만족할 때만 수행(선택), include 는 반드시 수행(필수)"],
+  },
+  {
+    title: "상태 다이어그램 (State Diagram)",
+    course: "SE",
+    definition:
+      "하나의 객체가 가질 수 있는 모든 가능한 상태와 특정 객체에 대한 사건발생에 따른 상태 전이 과정을 묘사한 동적 다이어그램",
+    keywords: ["상태", "전이", "이벤트", "전이조건"],
+    tables: [
+      {
+        caption: "구성 요소",
+        headers: ["구분", "설명", "표기법"],
+        rows: [
+          ["상태", "객체가 가질 수 있는 조건이나 상황. 두영역을 분리하여 기입. 상단: 상태 이름(필수) / 하단: 진입(Entry), do, 탈출(Exit) 등 상세활동(선택적)", "모서리 둥근 사각형"],
+          ["시작상태", "객체의 Lifetime 시작", "● (검은 원)"],
+          ["종료상태", "객체의 Lifetime 종료", "◉ (겹친 원)"],
+          ["전이", "하나의 상태에서 다른 상태로 변화하는 것. 상태 간의 관계를 의미", "화살표"],
+          ["이벤트", "객체의 전이를 유발하는 자극", "화살표 위 이름"],
+          ["전이조건", "특정 조건 만족 시, 전이 발생하도록 하기 위해 사용되는 속성 값의 불리언 식", "[전이조건]"],
+        ],
+      },
+    ],
+    notes: ["결재 예: 시작 → 작성 →(상신) 결재대기 →(부분승인 반복) →(반려) 반려 →(재작업) 작성 / →(최종결재) 승인 → 종료"],
+  },
+  {
+    title: "시퀀스 다이어그램 (Sequence Diagram)",
+    course: "SE",
+    definition:
+      "시스템이 제공하고 있는 기능 및 그와 관련된 외부요소를 사용자의 관점에서 표현하는 동적 다이어그램",
+    keywords: ["액터", "활성 객체", "생명선", "제어사각형", "메시지", "프레임", "연산자"],
+    tables: [
+      {
+        caption: "구성 요소",
+        headers: ["구분", "설명", "표기법"],
+        rows: [
+          ["액터(Actor)", "시스템과 상호작용하는 사용자", "졸라맨"],
+          ["활성 객체", "메시지 교환에 참여하는 객체. 다이어그램 맨 위에 위치", "사각형"],
+          ["생명선", "객체가 인터랙션이 시작되기 전에 존재하고 끝난 후에도 계속 있다면 점선은 맨 위에서 아래까지 이어짐", "세로 점선"],
+          ["제어사각형", "객체가 메시지를 주고받는 상태. 생명선 위에 위치", "가는 세로 막대"],
+          ["메시지", "동기식: 호출 후 응답을 대기해야 함 / 비동기: 호출 후 응답을 대기할 필요 없음 / 응답: 메시지를 받은 객체로부터 제어가 돌아옴", "동기식 실선 채운 화살표, 비동기 실선 열린 화살표, 응답 점선 화살표"],
+          ["프레임", "UML2.0 에서는 시퀀스 다이어그램을 프레임 안에 작성함. 왼쪽 위 부분에 종류와 제목을 표시", "sd 이름"],
+          ["연산자", "loop: 여러 번에 걸쳐 실행됨, 반복 조건 명시 / opt: 주어진 조건이 참일 때 실행 / par: 병렬처리 동작을 나타낼 수 있음", "loop, opt, par"],
+        ],
+      },
+    ],
+  },
+  {
+    topicId: "se-94",
+    title: "Interaction overview diagram",
+    course: "SE",
+    definition:
+      "액티비티들의 순서적 흐름을 나타내는 액티비티 다이어그램에서 액티비티 대신 시퀀스로 흐름을 상세하게 표현하는 행위 다이어그램",
+    keywords: ["Activity와 Sequence의 결합"],
+    tables: [
+      {
+        caption: "구성 요소",
+        headers: ["Diagram", "구성요소", "설명", "표기법"],
+        rows: [
+          ["Activity", "Activity State", "워크 플로우 상의 작업 단계", "ActionState"],
+          ["Activity", "Initial/Final state", "시작 및 종료 지점", "● / ◉"],
+          ["Activity", "Decision", "의사결정 지점", "◇"],
+          ["Activity", "Transition", "제어 흐름의 전달", "화살표"],
+          ["Sequence", "활성 객체", "시스템의 행위자 또는 유효한 객체", "«javascript» Comments"],
+          ["Sequence", "메시지", "다른 활성 객체 간의 의사소통 묘사", "Message 화살표"],
+          ["Sequence", "제어 사각형", "객체의 제어와 정보의 대기상태 표시", "세로 막대"],
+        ],
+      },
+    ],
+    notes: ["사례: sd AccessControl — Enter code 객체의 OK 값 여부에 의해 Access 승인과 불가로 분기. 바깥은 Activity Diagram, 안쪽 상자는 Sequence Diagram"],
+  },
+  {
+    title: "MSA (Micro Service Architecture)",
+    course: "SE",
+    definition:
+      "하나의 큰 애플리케이션을 여러 개의 작은 마이크로 서비스 단위로 나누어 변경과 조합이 가능하도록 만든 아키텍처",
+    keywords: ["API Gateway", "Orchestration", "REST API", "Persistent", "DevOps", "DDD(Domain Driven Design, 도메인 주도 설계)", "Polyglot(폴리글랏, 크로스 플랫폼인 데이터 교환을 의미)"],
+    tables: [
+      {
+        caption: "구성 요소",
+        headers: ["구성 요소", "설명", "구현 기능"],
+        rows: [
+          ["API Gateway", "User Layer와 Micro-service layer 연계. API에 대한 Endpoint 통합. RESTful 기반의 Request, Response 관리", "API Policy Management, Load Balancing, Transaction/Session Monitoring"],
+          ["API Server", "상호 독립적으로 배포/관리 가능한 단위로 분리된 개별 서비스를 API 형태로 구현한 서버 계층", "DDD기반 비즈니스 기능 분리"],
+          ["Persistence", "API Server에서 사용하는 데이터 지속성 계층. 다양한 기술기반 데이터 베이스 활용", "RDB/NoSQL/New SQL, Polyglot Persistence 구현"],
+          ["User/Client", "웹/모바일 등 Client 애플리케이션. MSA 제공 서비스를 API를 통해 활용하는 주체", "Web 서비스"],
+        ],
+      },
+    ],
+    notes: ["계층: User Interface Layer → API Gateway Layer → Business Logic Layer(Microservice 여러 개, Polyglot Programming) → Database Layer(서비스마다 별도 DB)"],
+  },
+  {
+    topicId: "se-70",
+    title: "API Gateway",
+    course: "SE",
+    definition:
+      "클라이언트가 요청한 API 서비스를 내부에서 처리가 가능한 API 형태로 변환, 전달하는 Gateway",
+    keywords: ["프록시", "프로토콜 변환", "보안(인증, 로깅)", "라우팅", "마이크로 서비스"],
+    tables: [
+      {
+        caption: "역할",
+        headers: ["구분", "역할", "설명"],
+        rows: [
+          ["보안", "내부 데이터 보호", "내부 인프라의 보호 및 민감 데이터 암호화를 담당하여 내부에서 사용되는 데이터를 외부로부터 보호"],
+          ["보안", "접근 통제", "비인가자의 접근을 막기 위한 계정에 대한 증명, 보안정책을 적용한 접근 관리"],
+          ["보안", "로깅 및 모니터링", "비정상 행위를 감지하기 위한 모니터링, 장애처리를 위한 로그 수집 및 저장"],
+          ["서비스 연결", "클라이언트 요청 변환", "모바일 디바이스, 웹 브라우저, 외부 API 요청 등에 대하여 내부 마이크로 서비스가 처리가 가능하도록 서비스 변환"],
+          ["서비스 연결", "백엔드 처리 결과 반환", "각 마이크로 서비스가 처리 완료된 결과를 클라이언트에 적합한 형태로 변환하여 전달"],
+        ],
+      },
+      {
+        caption: "주요 기능",
+        headers: ["기능", "세부 기능", "설명"],
+        rows: [
+          ["보안", "인증 및 인가", "클라이언트 인증을 통한 API Token 생성 및 발급, Token 이용한 인증요청 및 검증"],
+          ["보안", "암호화 통신", "데이터 보호를 위한 SSL 암호화 통신 구축과 인증서 관리"],
+          ["보안", "로그 기능", "다양한 경로 별 호출 로그 기록 및 관리, 로그 패턴 분석을 통한 장애 관리"],
+          ["라우팅", "서비스 매칭", "다수 엔드 포인트와 마이크로 서비스 간 라우팅 결정"],
+          ["라우팅", "로드 밸런싱", "백엔드 서버 로드 밸런싱, 메시지/헤더 기반 라우팅"],
+          ["Mediation", "HTTP/JSON 기반 프로토콜 변환", "클라이언트의 요청 메시지에 대하여 마이크로 서비스 처리를 위한 프로토콜 변환"],
+          ["기타", "서비스 오케스트레이션", "다양한 마이크로 서비스를 묶어 신규 서비스 제공"],
+          ["기타", "서비스 디스커버리", "서비스별 위치(동적IP 및 포트번호)에 대한 관리"],
+          ["기타", "서비스 통계", "서비스별 접속 통계를 통한 미터링 및 빅데이터 연계"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "SAGA패턴",
+    course: "SE",
+    definition:
+      "마이크로 서비스들끼리 이벤트를 주고 받는 도중 작업이 실패하면 이전까지의 작업이 완료된 마이크서비스들에게 보상(complementary)이벤트를 소싱함으로써 분산 환경에서 원자성을 보장하는 패턴",
+    keywords: ["트랜잭션처리", "Choreography 방식", "Orchestration 방식", "데이터 정합성 보장"],
+    tables: [
+      {
+        caption: "Choreography 와 Orchestration 비교",
+        headers: ["구분", "Choreography Based SAGA", "Orchestration Based SAGA"],
+        rows: [
+          ["개념", "보유한 서비스 내의 Local 트랜잭션을 관리하며 Event 전파를 통해 트랜잭션을 관리하는 패턴", "트랜잭션 처리를 위해 Saga 인스턴스(Manager)가 별도로 존재하며, 트랜잭션에 관여하는 모든 App은 Manager에 의해 트랜잭션을 수행하여 일관성을 보장하는 패턴"],
+          ["트랜잭션 설명", "트랜잭션을 수행해야 하는 App으로 이벤트를 보내고, 해당 App은 완료 Event를 수신 받고 다음 작업을 진행하며 Kafka와 같은 메시지 큐를 통해 비동기방식으로 전달", "중앙 트랜잭션 관리 인스턴스를 통해서 트랜잭션을 요청하고 완료를 수신함으로써 트랜잭션 처리를 하고 모든 앱이 완료되면 인스턴스 종료로 트랜잭션 처리를 완료"],
+        ],
+      },
+    ],
+    notes: ["MSA 에서는 서비스마다 DB가 따로라 2PC 같은 분산 트랜잭션을 쓰기 어렵다. 그래서 실패 시 되돌리는 보상 트랜잭션으로 최종 일관성을 맞춘다."],
+  },
+  {
+    title: "DDD (Domain Driven Design)",
+    course: "SE",
+    definition:
+      "개발 참여자가 공통의 언어(유비쿼터스 언어) 사용을 통해 모델링과 개발의 불일치를 해결하고, 설계와 구현은 계속적인 수정 과정을 반복함으로써 개발 품질을 향상시키는 소프트웨어 설계 방법",
+    keywords: ["유비쿼터스 언어", "도메인", "서브도메인", "바운디드 컨텍스트", "컨텍스트 맵", "도메인 모델", "Entity", "Value", "Aggregate", "Repository", "Service"],
+    tables: [
+      {
+        caption: "설계 유형",
+        headers: ["구분", "설명"],
+        rows: [
+          ["전략적 설계(Strategic Design)", "비즈니스상 전략적으로 중요한 것을 구분하고 찾는 과정으로 유비쿼터스 언어로 바운디드 컨텍스트(Bounded Context, 제한된 경계)를 도출하고 컨텍스트 맵을 작성하며, 최종적으로 서비스를 도출. 분석 단계에 수행"],
+          ["전술적 설계(Tactical Design)", "도메인 모델을 만드는 데 사용할 수 있는 디자인 패턴 집합을 제공하며, 내부 아키텍처 설계. 설계 단계에 수행"],
+        ],
+      },
+      {
+        caption: "구성 요소",
+        headers: ["구분", "구성요소", "설명"],
+        rows: [
+          ["계층 구조", "User Interface", "사용자 요청을 하위 계층에 전달"],
+          ["계층 구조", "Application", "App 상태관리, Biz처리는 도메인에 요청"],
+          ["계층 구조", "Domain", "Domain 정보 및 상태 포함 Biz. Logic 제공"],
+          ["계층 구조", "Infrastructure", "다른 계층 지원 라이브러리 영속성 구현"],
+          ["구현 패턴", "엔티티(Entity)", "영속성이 필요한 고유한 식별자(ID)를 가진 객체"],
+          ["구현 패턴", "값 객체(Value Object)", "개념적으로 식별이 필요 없고, 단순히 값 만을 가지고 있는 객체"],
+          ["구현 패턴", "서비스(Service)", "Entity 등 여러 객체에서 발생하는 행위 담당"],
+          ["구현 패턴", "어그리거트(Aggregate)", "도메인을 구성하는 엔티티(Entity)와 값 객체(Value Object)의 묶음"],
+          ["구현 패턴", "팩토리(Factory)", "객체 생성의 절차 캡슐화"],
+          ["구현 패턴", "레파지토리(Repository)", "생성된 Aggregate에 대한 영속성 관리. 엔티티 저장, Aggregate 업데이트 및 삭제"],
+          ["구현 패턴", "도메인 이벤트(Domain Event)", "도메인내 변경의 파생 작업을 명시적으로 구현. 트리거, 타 시스템간 데이터 동기화"],
+          ["모델 관리", "Module", "낮은 결합도, 높은 응집도 구현"],
+          ["모델 관리", "Refactoring", "코드 및 모델 리팩토링, 설계영역 재검토"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "Event Driven Architecture",
+    course: "SE",
+    definition:
+      "데이터의 변경, 생성, 삭제 등 이벤트 발생 등 상태변화에 반응하여 서비스가 변화하는 형태의 소프트웨어 아키텍처",
+    keywords: ["이벤트 프로듀서", "이벤트 채널", "이벤트 처리 엔진", "다운스트림 이벤트 기반활동"],
+    tables: [
+      {
+        caption: "구성 요소",
+        headers: ["구성요소", "설명", "특징"],
+        rows: [
+          ["이벤트 프로듀서", "이벤트를 감지하고 감지한 이벤트를 메시지로 표현. Publisher, Producer, Creator 등 다양한 표현", "감지된 이벤트를 채널로 전달"],
+          ["이벤트 채널", "이벤트 프로듀서로 응답, 이 응답을 다운스트림으로 이벤트 소비자에게 전달. 큐에 저장하고 나중에 이벤트 처리 엔진에서 처리 대기", "실시간 이벤트 처리 필요, 비동기식"],
+          ["이벤트 처리 엔진", "수신한 이벤트를 식별한 후 다음 이벤트에 맞는 반응을 실행하는 논리적인 계층", "비즈니스 로직 실행"],
+          ["다운스트림 이벤트 기반 활동", "이벤트의 결과가 표시되는 논리적인 계층으로 알림, 경고 표시", "싱크 수준에 따른 다운스트림 활동 불필요"],
+        ],
+      },
+      {
+        caption: "활용 사례",
+        headers: ["활용 사례", "설명"],
+        rows: [
+          ["시스템 확장성", "시스템의 성능보다 확장성이 중요하고, 복합 이벤트 처리가 필요한 경우 활용"],
+          ["병렬 처리", "여러 하위 시스템이 동일한 이벤트를 처리하거나 병렬로 실행해야 하는 경우 활용"],
+        ],
+      },
+    ],
+    notes: ["Event Producers(Web Site·Mobile App·Retail App) → Event Router/Broker/Bus → Event Consumers(Inventory·Order·Payment Service)가 구독"],
+  },
+  {
+    title: "디자인 패턴 (Design Pattern)",
+    course: "SE",
+    definition:
+      "소프트웨어 개발의 여러 가지 문제 해결 설계 사례를 분류하고, 각 문제 유형별로 가장 적합한 설계를 일반화한 패턴",
+    keywords: ["개발 중 문제 해결 사례 모음", "생성 패턴", "구조 패턴", "행위 패턴"],
+    tables: [
+      {
+        caption: "디자인 패턴 형식",
+        headers: ["구분", "설명", "요소"],
+        rows: [
+          ["패턴이름(Pattern name)", "설계 의도 표현, 개발자들간 의사소통 지원", "패턴 이름과 분류, 별칭"],
+          ["문제(Problem)", "언제 해당 패턴을 사용할지, 해결할 문제와 배경 설명(캡슐화 대상 설명)", "의도/목적, 적용대상"],
+          ["해법(Solution)", "패턴의 구성요소, 각 구성요소의 역할, 요소들 간의 관계 표현(캡슐화, 인터페이스, 구성과 위임)", "구조(클래스 다이어그램), 구성요소, 협력방법, 구현/샘플코드"],
+          ["결과(Consequence)", "적용해서 얻는 결과, 장단점 서술", "효과, 주의사항, 활용사례, 관련패턴"],
+        ],
+      },
+      {
+        caption: "디자인 패턴 분류 [생구행]",
+        headers: ["구분", "생성패턴(Creational)", "구조패턴(Structural)", "행위패턴(Behavioral)"],
+        rows: [
+          ["의미", "객체의 생성방식 결정. 클래스의 정의, 객체 생성 방식의 구조화, 캡슐화", "객체를 조직화하는 일반적인 방식 제시. 클래스 라이브러리를 통합 시 유용", "객체의 행위를 조직화, 관리, 연합하고 객체나 클래스 연동에 대한 유형 제시"],
+          ["클래스 범위", "Factory Method", "Adapter(Class)", "Interpreter, Template Method"],
+          ["객체 범위", "Abstract Factory, Builder, Prototype, Singleton, Factory method 패턴", "Adapter(Object), Bridge, Composite, Decorator, Facade, Flyweight, Proxy", "Chain of Responsibility, Command, Mediator, Memento, Iterator, State, Strategy, Observer, Visitor"],
+          ["암기법", "아 베 프로 시 파", "A B C D 파 플 로", "CCMMISSOTIV"],
+        ],
+      },
+    ],
+    notes: ["교재 두음: [생구행] / 생성 '아베프로시파' / 구조 'ABCD파플로' / 행위 'CCMMISSOTIV'"],
+  },
+  {
+    title: "싱글턴 패턴 (Singleton pattern)",
+    course: "SE",
+    definition:
+      "클래스의 인스턴스가 오직 하나만 생성되도록 보장하고, 해당 인스턴스에 접근할 수 있는 전역적인 접근 지점을 제공하는 생성 패턴",
+    keywords: ["Private 생성자", "Static 인스턴스", "Public 정적 메서드"],
+    tables: [
+      {
+        caption: "구성 요소",
+        headers: ["항목", "설명"],
+        rows: [
+          ["Private 생성자", "외부에서 직접 인스턴스를 생성하지 못하도록 생성자를 private으로 선언"],
+          ["Static 인스턴스", "클래스 내부에 static으로 선언된 유일한 인스턴스를 보관할 변수"],
+          ["Public 정적 메서드(getInstance)", "외부에서 유일한 인스턴스에 접근할 수 있도록 하는 정적 메서드"],
+        ],
+      },
+      {
+        caption: "구현 방식",
+        headers: ["항목", "설명"],
+        rows: [
+          ["Lazy Initialization", "최초 호출 시 객체 생성. 지연 초기화"],
+          ["Eager Initialization", "클래스 로딩 시 객체 즉시 생성. 빠름"],
+          ["Double-Checked Locking", "멀티스레드 안전성 및 성능 개선"],
+          ["Enum Singleton", "Java에서 가장 안전한 싱글턴 구현 방법 (Serialization, Reflection 우회 방지 가능)"],
+        ],
+      },
+    ],
+    notes: ["코드 3요소: private static instance / private constructor / public static synchronized getInstance()"],
+  },
+  {
+    title: "UML의 4+1 View Model",
+    course: "SE",
+    definition:
+      "소프트웨어 시스템의 아키텍처를 사용자, 개발자, 관리자 등 다양한 이해관계자의 관점에서 효과적으로 설계하고 문서화하기 위한 프레임워크",
+    keywords: ["Logical View", "Implementation View", "Process View", "Deployment View", "Use Case View"],
+    tables: [
+      {
+        caption: "구성 요소",
+        headers: ["구분", "관점", "설명"],
+        rows: [
+          ["Logical View", "Designers, Analysts", "Use Case View에 표현된 요구사항들을 Class Diagram 등을 이용하여 시스템의 구조와 행동으로 명세화"],
+          ["Implementation View", "Programmers (개발자 관점)", "Logical View와 Process View에서 설계한 UML 모델요소(Class와 Interface)들을 물리적인 소프트웨어 모듈로 표현"],
+          ["Process View", "System Integrators (시스템 통합관점)", "Thread와 Process에 의한 동작을 중점적으로 표현"],
+          ["Deployment View", "System Engineers (시스템 엔지니어)", "Implementation View에서 정의한 UML 모델요소(Component, Interface)를 배치할 하드웨어를 표현"],
+          ["Use Case View", "End Users (최종 사용자)", "요구 사항을 분석해 시스템의 기능(Functionality)을 명세화. 전체 View를 아우르는 통합 관점의 View를 제공"],
+        ],
+      },
+      {
+        caption: "유사 아키텍처 뷰와 비교",
+        headers: ["구분", "4+1 View", "Siemens Four Views"],
+        rows: [
+          ["목적", "다양한 이해관계자의 관점 충족 및 시스템 복잡성 관리", "아키텍처 설계 과정에서 분석 요인 파악 및 설계 전략 도출"],
+          ["핵심", "4가지 주요 관점과 1가지 시나리오 관점으로 설명", "시스템의 아키텍처를 4가지 상호 보완적인 뷰로 분리"],
+          ["관점", "논리, 프로세스, 개발, 물리 +1 유즈케이스 뷰", "개념(Conceptual), 코드(Code), 모듈(Module), 실행(Execution)"],
+        ],
+      },
+    ],
+    notes: ["가운데 Use Case View 를 중심으로 Logical(설계자)·Implementation(개발자)·Process(통합자)·Deployment(엔지니어) 네 뷰가 둘러싼다"],
+  },
+  {
+    title: "MVVM (Model, View, View Model)",
+    course: "SE",
+    definition:
+      "모델, 뷰, 뷰 모델로 기능을 분리하고, data binding을 통하여 뷰와 뷰 모델 간의 통신을 자동화하는 아키텍처 패턴",
+    keywords: ["Model", "View", "View Model", "Data Binding"],
+    tables: [
+      {
+        caption: "구성 요소",
+        headers: ["구성요소", "설명"],
+        rows: [
+          ["Model", "어플리케이션에서 사용되는 데이터와 그 데이터를 처리"],
+          ["View", "사용자에게 보여지는 UI"],
+          ["View Model", "View를 나타내 주기 위한 Model이자 View를 나타내기 위한 데이터 처리"],
+          ["Data Binding", "어플리케이션에서 화면의 객체와 데이터를 동기화 시키는 기법. View와 View Model 간의 데이터와 명령을 연결해주는 매개체가 되어 서로의 존재를 명확히 알지 못하더라도 다양한 인터랙션을 도움"],
+        ],
+      },
+      {
+        caption: "패턴의 동작",
+        headers: ["순번", "동작", "설명"],
+        rows: [
+          ["1", "요청 처리", "사용자의 Action들은 View를 통해 진입"],
+          ["2", "요청 처리", "View에 Action이 들어오면, Command 패턴으로 View Model에 Action을 전달"],
+          ["3", "데이터 처리", "View Model은 Model에게 데이터를 요청"],
+          ["4", "데이터 처리", "Model은 View Model에게 요청 받은 데이터를 응답"],
+          ["5", "데이터 처리", "View Model은 응답 받은 데이터를 가공하여 저장"],
+          ["6", "화면 처리", "View는 View Model과 Data Binding하여 화면을 표현"],
+        ],
+      },
+    ],
+    notes: ["View : View Model = n : 1 관계. Data Binding 덕분에 View와 ViewModel이 서로를 직접 몰라도 된다(독립)"],
+  },
 ];
 
 /** topicId 로 교재 서브노트를 찾는다. */
