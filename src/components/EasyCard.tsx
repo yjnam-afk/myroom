@@ -54,6 +54,18 @@ export default function EasyCard({
           <p className="text-[15px] leading-[1.95] text-slate-800">{g.scene}</p>
         </div>
 
+        {/* 1.5 실제 동작 — 비유를 걷어내면 진짜로는 이렇게 돌아간다 */}
+        {g.mechanism && (
+          <div className="rounded-xl border-l-4 border-sky-300 bg-sky-50/60 p-4">
+            <div className="mb-1.5 text-xs font-bold text-sky-700">
+              ⚙️ 실제로는 이렇게 돌아갑니다
+            </div>
+            <p className="text-[15px] leading-[1.95] text-slate-800">
+              {g.mechanism}
+            </p>
+          </div>
+        )}
+
         {/* 2. 왜 필요한가 — 이유를 알면 안 잊는다 */}
         <div className="rounded-xl border-l-4 border-rose-300 bg-rose-50/60 p-4">
           <div className="mb-1.5 text-xs font-bold text-rose-700">
@@ -91,6 +103,16 @@ export default function EasyCard({
             ))}
           </div>
         </div>
+
+        {/* 3.5 실전 쓰임 — 어디에 있고, 시험엔 어떻게 나오나 */}
+        {g.usage && (
+          <div className="rounded-xl border-l-4 border-violet-300 bg-violet-50/60 p-4">
+            <div className="mb-1.5 text-xs font-bold text-violet-700">
+              💼 어디에 쓰이고, 시험엔 어떻게 나오냐면
+            </div>
+            <p className="text-[15px] leading-[1.95] text-slate-800">{g.usage}</p>
+          </div>
+        )}
 
         {/* 4. 옆 토픽 — 지식은 낱개가 아니라 그물로 저장된다 */}
         {g.links.length > 0 && (
