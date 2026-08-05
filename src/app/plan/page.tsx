@@ -248,6 +248,14 @@ export default function PlanPage() {
         desc="심화반 커리큘럼 — 내가 정한 주차별 토픽. 중요도는 교재 Priority(상★★★·중★★·하★) 그대로입니다."
       />
 
+      <Link
+        href="/basics"
+        className="mb-6 block rounded-2xl border-2 border-amber-300 bg-amber-50 p-4 text-[14.5px] leading-relaxed text-slate-800 hover:bg-amber-100"
+      >
+        🧱 <b>기초가 없어서 어렵다면</b> — 토픽 공부 전에 바닥판 10개부터.
+        1주차 53개가 전부 그 위에 붙습니다. <b className="text-brand-700">기초 체력 페이지 →</b>
+      </Link>
+
       <Calendar key={today ?? "init"} today={today} done={done} />
 
       {/* 전체 진행률 */}
