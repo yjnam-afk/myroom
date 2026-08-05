@@ -228,6 +228,23 @@ const firstCh = (s: string) =>
 const toItems = (kws: string[]): DItem[] =>
   kws.map((k) => ({ term: k, initial: firstCh(k), desc: "" }));
 
+/**
+ * ★억지 두음 금지★ — 첫 글자를 이어붙인 결과가 "자연스러운 두음"일 때만 쓴다.
+ * 기술사 두음(상점비환·감진통복)은 원래 첫 글자 조합이지만, 그건 항목이
+ * 3~8개의 서로 다른 한글 음절로 시작할 때 이야기다.
+ * "공공메메파네"(중복), "인실MMPM"(영문 뒤섞임) 같은 음절 죽은 두음이 아니다.
+ *  - 3~8글자, 전부 완성형 한글 음절, 중복 없음일 때만 통과.
+ *  - 탈락하면 빈 문자열 → UI가 "두음 없이 항목 그대로" 모드로 정직하게 보여준다.
+ */
+function naturalMnemonic(items: string[]): string {
+  const chars = items.map(firstCh);
+  const m = chars.join("");
+  if (chars.length < 3 || chars.length > 8) return "";
+  if (!chars.every((c) => /^[가-힣]$/.test(c))) return "";
+  if (new Set(chars).size !== chars.length) return "";
+  return m;
+}
+
 /** 객관식 오답(distractor) 풀. 같은 분야 키워드를 우선(헷갈리게) + 그 외 분야. */
 function distractorPool(
   excludeId: string | undefined,
@@ -341,7 +358,7 @@ function buildMc(
         options[options.length - 1],
       ];
       mc.push({
-        question: `다음 중 '${title}'의 [${s.label}](두음 ${s.mnemonic}) 구성요소가 "아닌" 것은?`,
+        question: `다음 중 '${title}'의 [${s.label}]${s.mnemonic ? `(두음 ${s.mnemonic})` : ""} 구성요소가 "아닌" 것은?`,
         options,
         answer: options.indexOf(d),
         explanation: `'${d}'은(는) 이 토픽 항목이 아닙니다. ${s.label}: ${s.keywords.join(", ")}`,
@@ -361,7 +378,7 @@ function buildMc(
       const pos = (i + 1) % 4;
       [options[0], options[pos]] = [options[pos], options[0]];
       mc.push({
-        question: `'${title}'의 [${s.label}](두음 ${s.mnemonic})에 해당하는 것은?`,
+        question: `'${title}'의 [${s.label}]${s.mnemonic ? `(두음 ${s.mnemonic})` : ""}에 해당하는 것은?`,
         options,
         answer: options.indexOf(correct),
         explanation: `${s.label}: ${s.keywords.join(", ")}`,
@@ -391,68 +408,72 @@ export function mnemonicFromTextbook(
     (tb) => tb.rows.length >= 2,
   );
 
-  const sections: SubnoteSection[] = [];
-  // 교재 '■ 키워드'가 최우선 두음 대상.
+  // 섹션 수집 — 두음은 ①교재 캡션에 적힌 것 그대로, ②아니면 자연스러울 때만 계산.
+  const sections: (SubnoteSection & { curated: boolean })[] = [];
   if (book.keywords.length >= 2) {
+    // 키워드는 순서 있는 암기 목록이 아니라 체크리스트 — 두음 대상에서 제외.
     const kws = book.keywords.slice(0, 8);
-    sections.push({
-      label: "교재 키워드",
-      mnemonic: kws.map(firstCh).join(""),
-      keywords: kws,
-    });
+    sections.push({ label: "교재 키워드", mnemonic: "", keywords: kws, curated: false });
   }
   for (const tb of usable.slice(0, 4)) {
-    // 첫 열이 "구분"처럼 그룹 라벨이라 값이 반복되면(예: 데이터중심·데이터중심…)
-    // 두음이 "데데데가가"가 되어 버린다. 이런 표는 두 번째 열(실제 항목명)을 쓴다.
     const col = (i: number) => tb.rows.map((r) => (r[i] || "").trim());
     const uniq = (a: string[]) => new Set(a.filter(Boolean)).size;
     const c0 = col(0);
-    const useCol =
-      tb.rows[0]?.length > 1 && uniq(c0) * 2 <= c0.length ? 1 : 0;
-    // 절차/시점 나열표(①②…, t0·t1, 1·2·3)는 두음 대상이 아니다.
+    const useCol = tb.rows[0]?.length > 1 && uniq(c0) * 2 <= c0.length ? 1 : 0;
     const items = col(useCol).filter(
-      (s) => s && !/^[①-⑳]+$/.test(s) && !/^[a-zA-Z]?\d+$/.test(s),
+      (v) => v && !/^[①-⑳]+$/.test(v) && !/^[a-zA-Z]?\d+$/.test(v),
     );
     if (items.length < 2) continue;
-    // 캡션에 교재가 적어둔 두음이 있으면(예: "PCB 구성 정보 (식상카레스계입메)")
-    // 그것을 그대로 쓴다 — 내가 계산한 첫 글자보다 교재 두음이 항상 우선.
+    // 교재가 캡션에 적어둔 두음(예: "PCB 구성 정보 (식상카레스계입메)")은 항상 그대로.
     const cap = tb.caption.match(/^(.*?)\s*[(（]\s*([가-힣]{3,})\s*[)）]\s*$/);
     sections.push({
       label: cap ? cap[1].trim() : tb.caption,
-      mnemonic: cap ? cap[2] : items.map(firstCh).join(""),
+      mnemonic: cap ? cap[2] : naturalMnemonic(items),
       keywords: items,
+      curated: Boolean(cap),
     });
   }
-  // 두음 품질 필터: 모든 항목의 첫 글자가 같으면(예: t0·t1·t2 → "ttt") 암기 장치가 아니다.
-  const good = sections.filter(
-    (s) => new Set(s.mnemonic.split("")).size > 1 && s.mnemonic.length >= 2,
-  );
-  if (!good.length) return null;
+  if (!sections.length) return null;
 
-  const first = good[0];
-  const body = good[1] || first;
+  // 본론: 교재 두음 보유 섹션 최우선 → 자연 두음 섹션 → 두음 없는 섹션(항목 그대로).
+  const body =
+    sections.find((x) => x.curated) ||
+    sections.find((x) => x.mnemonic) ||
+    sections[0];
+  const first = sections[0];
+  const introKw = first.keywords.slice(0, 6);
+  const introM = first === body && body.curated ? body.mnemonic : "";
   return {
     topic: book.title,
     intro: {
-      items: toItems(first.keywords.slice(0, 6)),
-      mnemonic: first.keywords.slice(0, 6).map(firstCh).join(""),
-      mnemonicHow: "교재 서브노트 키워드의 첫 글자를 모았어요.",
+      items: toItems(introKw),
+      mnemonic: introM,
+      mnemonicHow: introM
+        ? "교재 항목의 첫 글자 — 자연스러운 경우에만 두음을 만듭니다."
+        : "이 항목들은 억지 두음 없이 키워드 자체로 외웁니다.",
       definition: book.definition,
       features: (book.notes || []).slice(0, 3),
     },
     body: {
       items: toItems(body.keywords),
       mnemonic: body.mnemonic,
-      mnemonicHow: `교재 [${body.label}]의 두음`,
+      mnemonicHow: body.curated
+        ? `교재 원본 두음 [${body.mnemonic}] — 그대로 암기`
+        : body.mnemonic
+          ? `[${body.label}] 첫 글자 두음`
+          : `[${body.label}] — 억지 두음 대신 항목 자체로 암기`,
     },
-    mc: buildMc(topicId, book.title, good),
+    mc: buildMc(topicId, book.title, sections),
     recall: {
-      prompt: `[${body.label}] 두음 '${body.mnemonic}'이 의미하는 키워드를 모두 쓰시오.`,
+      prompt: body.mnemonic
+        ? `[${body.label}] 두음 '${body.mnemonic}'이 의미하는 키워드를 모두 쓰시오.`
+        : `[${body.label}]의 항목을 모두 쓰시오.`,
       answers: body.keywords,
     },
     fromData: true,
   };
 }
+
 
 export function mnemonicFromData(topicId?: string): DataMnemonicSet | null {
   if (!topicId) return null;
@@ -477,7 +498,7 @@ export function mnemonicFromData(topicId?: string): DataMnemonicSet | null {
     if (bodyKw.length) {
       sections.push({
         label: "핵심 키워드",
-        mnemonic: bodyKw.map(firstCh).join(""),
+        mnemonic: naturalMnemonic(bodyKw),
         keywords: bodyKw,
       });
     }
@@ -486,7 +507,7 @@ export function mnemonicFromData(topicId?: string): DataMnemonicSet | null {
       const ak = appKw.slice(0, 6);
       sections.push({
         label: "활용·적용",
-        mnemonic: ak.map(firstCh).join(""),
+        mnemonic: naturalMnemonic(ak),
         keywords: ak,
       });
     }
@@ -511,10 +532,13 @@ export function mnemonicFromData(topicId?: string): DataMnemonicSet | null {
         ? defKw.slice(0, 6).join(" · ")
         : (t.summary || "").split(/[.!?。\n]/)[0].trim().slice(0, 60);
 
+  const introNat = naturalMnemonic(introKw);
   const intro: DGroup = {
     items: toItems(introKw),
-    mnemonic: introKw.map(firstCh).join(""),
-    mnemonicHow: "정의 키워드의 첫 글자를 모았어요.",
+    mnemonic: introNat,
+    mnemonicHow: introNat
+      ? "정의 키워드의 첫 글자 — 자연스러운 경우에만 두음을 만듭니다."
+      : "억지 두음 없이 키워드 자체로 외웁니다.",
     definition: defLine,
     features: (featKw.length ? featKw : appKw).slice(0, 3),
   };
@@ -522,19 +546,26 @@ export function mnemonicFromData(topicId?: string): DataMnemonicSet | null {
   // 본론 그룹: 섹션이 있으면 첫 섹션, 없으면 정의 키워드로라도 구성.
   const first: SubnoteSection = sections[0] || {
     label: "핵심 키워드",
-    mnemonic: introKw.map(firstCh).join(""),
+    mnemonic: naturalMnemonic(introKw),
     keywords: introKw,
   };
+  const bodyM = first.mnemonic || naturalMnemonic(first.keywords);
   const body: DGroup = {
     items: toItems(first.keywords),
-    mnemonic: first.mnemonic || first.keywords.map(firstCh).join(""),
-    mnemonicHow: curated.length ? `${first.label}의 두음` : "핵심 키워드의 두음",
+    mnemonic: bodyM,
+    mnemonicHow: curated.length
+      ? `교재 원본 두음 [${bodyM}] — 그대로 암기`
+      : bodyM
+        ? "핵심 키워드의 첫 글자 두음"
+        : "억지 두음 없이 항목 자체로 외웁니다.",
   };
 
   const mc = buildMc(topicId, t.title, sections);
 
   const recall = {
-    prompt: `[${first.label}] 두음 '${first.mnemonic}'이 의미하는 키워드를 모두 쓰시오.`,
+    prompt: bodyM
+      ? `[${first.label}] 두음 '${bodyM}'이 의미하는 키워드를 모두 쓰시오.`
+      : `[${first.label}]의 항목을 모두 쓰시오.`,
     answers: first.keywords,
   };
 

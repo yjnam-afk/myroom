@@ -53,12 +53,20 @@ function firstChar(term: string): string {
 function normalizeGroup(g: Group | undefined): Group | undefined {
   if (!g || !Array.isArray(g.items)) return g;
   g.items = g.items.map((it) => ({ ...it, initial: firstChar(it.term) }));
-  const computed = g.items.map((it) => it.initial).join("");
+  const chars = g.items.map((it) => it.initial);
+  // ★억지 두음 금지★ 계산 두음은 3~8개·전부 한글 음절·중복 없음일 때만 인정.
+  const natural =
+    chars.length >= 3 &&
+    chars.length <= 8 &&
+    chars.every((c) => isSyllable(c)) &&
+    new Set(chars).size === chars.length
+      ? chars.join("")
+      : "";
   const m = (g.mnemonic || "").replace(/\s/g, "");
-  // 모델 두음이 자모 낱자를 포함하거나, 두음 글자수가 항목수와 다르면 계산값 사용
   const hasJamo = /[ᄀ-ᇿ㄰-㆏]/.test(m);
-  const lenOk = m.length === computed.length;
-  if (!m || hasJamo || !lenOk) g.mnemonic = computed;
+  const lenOk = m.length === chars.length;
+  // 모델 두음이 깨졌으면 자연 두음으로 교체하고, 자연 두음도 없으면 비운다(억지 금지).
+  if (!m || hasJamo || !lenOk) g.mnemonic = natural;
   return g;
 }
 

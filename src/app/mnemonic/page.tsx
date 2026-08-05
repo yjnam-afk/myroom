@@ -388,9 +388,15 @@ function GroupCard({
         <div className="text-xs font-medium text-brand-500">
           {label} · <span className="text-slate-400">{sub}</span>
         </div>
-        <div className="mt-1 text-2xl font-extrabold tracking-wide text-brand-700">
-          {group.mnemonic}
-        </div>
+        {group.mnemonic ? (
+          <div className="mt-1 text-2xl font-extrabold tracking-wide text-brand-700">
+            {group.mnemonic}
+          </div>
+        ) : (
+          <div className="mt-1 text-base font-bold text-slate-500">
+            두음 없음 — 항목 {group.items.length}개를 그대로 외웁니다
+          </div>
+        )}
         <p className="mt-1 text-xs text-slate-600">{group.mnemonicHow}</p>
       </div>
       <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
