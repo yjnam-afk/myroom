@@ -43,7 +43,7 @@ export default function RootLayout({
             <div className="flex items-center gap-4">
               <nav className="hidden gap-4 text-sm font-medium text-slate-600 xl:flex">
                 <Link href="/plan" className="font-semibold text-brand-600 hover:text-brand-700">🗓️ 계획</Link>
-                <Link href="/basics" className="hover:text-brand-600">🧱 기초</Link>
+                <Link href="/basics" className="hover:text-brand-600">🧱 용어사전</Link>
                 <Link href="/mnemonic" className="hover:text-brand-600">두음신공</Link>
                 <Link href="/commute" className="hover:text-brand-600">🚇 지하철</Link>
                 <Link href="/exam" className="hover:text-brand-600">기출문제</Link>

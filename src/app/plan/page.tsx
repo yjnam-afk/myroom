@@ -252,8 +252,8 @@ export default function PlanPage() {
         href="/basics"
         className="mb-6 block rounded-2xl border-2 border-amber-300 bg-amber-50 p-4 text-[14.5px] leading-relaxed text-slate-800 hover:bg-amber-100"
       >
-        🧱 <b>기초가 없어서 어렵다면</b> — 토픽 공부 전에 바닥판 10개부터.
-        1주차 53개가 전부 그 위에 붙습니다. <b className="text-brand-700">기초 체력 페이지 →</b>
+        🧱 <b>모르는 용어가 나오면</b> — 용어 사전에서 검색하고 바로
+        복귀하세요. 전문용어 없는 한 줄 정의 + 관련 토픽 링크. <b className="text-brand-700">용어 사전 →</b>
       </Link>
 
       <Calendar key={today ?? "init"} today={today} done={done} />
