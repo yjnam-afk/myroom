@@ -659,7 +659,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
       map: [
         { as: "장부 만지는 구간", real: "임계 영역(Critical Section)", note: "해결 조건: 상호배제·진행·한계대기" },
         { as: "한 번에 한 명만", real: "상호배제(Mutual Exclusion)", note: "모든 해법의 목표" },
-        { as: "약속으로 해결", real: "SW — 데커·피터슨·램포트 빵집", note: "flag·turn, 번호표" },
+        { as: "약속으로 해결", real: "SW — 데커·피터슨·램포트 베이커리(bakery)", note: "빵집 번호표처럼 낮은 번호부터 진입 — 정식 명칭은 베이커리 알고리즘" },
         { as: "기계 명령으로 해결", real: "HW — Test&Set·Compare&Swap", note: "읽고-쓰기를 원자적으로" },
         { as: "만들어진 도구", real: "세마포어·뮤텍스·모니터·스핀락", note: "실무에서 쓰는 것들" },
       ],
@@ -668,7 +668,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "우선순위 역전(Priority Inversion) 현상", how: "임계 영역 때문에 생기는 2차 사고입니다." },
         { topic: "프로세스(Process)와 스레드(Thread) 비교", how: "공유가 많은 스레드일수록 이 사고에 취약합니다." },
       ],
-      exam: "경쟁조건은 공유 자원 접근 순서에 따라 결과가 달라지는 현상으로, 임계영역에 대한 상호배제를 SW 알고리즘(데커·피터슨·빵집), HW 원자연산(Test&Set·CAS), 동기화 도구(세마포어·모니터)로 보장하여 해결한다.",
+      exam: "경쟁조건은 공유 자원 접근 순서에 따라 결과가 달라지는 현상으로, 임계영역에 대한 상호배제를 SW 알고리즘(데커·피터슨·램포트 베이커리), HW 원자연산(Test&Set·CAS), 동기화 도구(세마포어·모니터)로 보장하여 해결한다.",
     },
   },
 "os-32": {
