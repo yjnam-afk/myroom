@@ -91,7 +91,7 @@ function ExplainInner() {
     <div>
       <PageHeader
         title="💡 토픽 설명"
-        desc="어려운 개념을 비유와 도식으로 이해하기 쉽게 설명합니다."
+        desc="여기는 이해 전용입니다 — 학습 카드(비유·실제 동작·실전 쓰임) + 교재 원본 + 슬라이드 + 내 도식. 암기는 🥷두음신공에서."
       />
 
       <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">

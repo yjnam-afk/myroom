@@ -8,9 +8,6 @@ import { PageHeader, Spinner, ErrorBox, Button } from "@/components/ui";
 import ShareButton from "@/components/ShareButton";
 import AudioLecture from "@/components/AudioLecture";
 import TopicAutocomplete from "@/components/TopicAutocomplete";
-import MyDiagrams from "@/components/MyDiagrams";
-import EasyCard from "@/components/EasyCard";
-import { subnoteExtraFor } from "@/data/subnoteExtras";
 import topics from "@/data/topics.json";
 import { loadReview, saveReview, markReviewed } from "@/lib/storage";
 
@@ -149,7 +146,7 @@ function MnemonicInner() {
     <div>
       <PageHeader
         title="🥷 두음신공 — 키워드 암기"
-        desc="서론(정의)용·본론(2단락+)용 키워드 두음을 각각 만들어 암기 → 객관식 주입 → 주관식 확인."
+        desc="여기는 암기·인출 전용입니다 — 두음으로 새기고, 객관식으로 주입하고, 주관식으로 꺼냅니다. 이해가 먼저면 💡설명에서."
       />
 
       <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -306,10 +303,15 @@ function MnemonicInner() {
                 </p>
               </div>
             )}
-            {/* 교재 슬라이드 원본 + 쉬운 설명 (AI 호출 없음) */}
-            <TextbookExtra topicId={topicId || undefined} title={set.topic} />
-            {/* 내 도식 — 교재 도식 사진/캡처를 이 토픽에 붙여 둔다 */}
-            <MyDiagrams topicId={topicId || undefined} title={set.topic} />
+            {/* 이해 자료(학습카드·교재 원본·슬라이드·도식)는 설명 페이지가 전담.
+                여기는 암기·인출 전용 — 역할이 겹치지 않게 링크만 둔다. */}
+            <Link
+              href={`/explain?topic=${encodeURIComponent(set.topic)}${topicId ? `&topicId=${topicId}` : ""}`}
+              className="mb-4 block rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-[13.5px] text-slate-600 hover:bg-slate-100"
+            >
+              💡 개념이 아직 낯설면 — <b className="text-brand-700">설명에서 이해부터</b>
+              (학습 카드 · 교재 원본 · 슬라이드) →
+            </Link>
             <Stepper step={step} onStep={setStep} />
             {step === "learn" && (
               <Learn
@@ -982,47 +984,3 @@ export default function MnemonicPage() {
   );
 }
 
-/** 교재 슬라이드 원본 + 쉬운 설명 — 접었다 펼 수 있게. */
-function TextbookExtra({
-  topicId,
-  title,
-}: {
-  topicId?: string;
-  title?: string;
-}) {
-  const extra = subnoteExtraFor(topicId, title);
-  const [open, setOpen] = useState(true); // 교재 원본은 기본으로 펼쳐 둔다
-  if (!extra?.easy && !extra?.image && !extra?.guide) return null;
-  return (
-    <div className="mb-4 overflow-hidden rounded-2xl border border-amber-200 bg-amber-50/60">
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center justify-between gap-2 px-4 py-3 text-left"
-      >
-        <span className="text-sm font-bold text-amber-800">
-          🍯 쉬운 설명 · 교재 슬라이드 원본
-        </span>
-        <span className="text-xs text-amber-700">{open ? "접기 ▲" : "펼치기 ▼"}</span>
-      </button>
-      {open && (
-        <div className="space-y-3 border-t border-amber-200 bg-white p-4">
-          {extra.guide ? (
-            <EasyCard topicId={topicId} title={title} />
-          ) : extra.easy ? (
-            <p className="whitespace-pre-line text-[15px] leading-[1.9] text-slate-800">
-              {extra.easy}
-            </p>
-          ) : null}
-          {extra.image && (
-            /* eslint-disable-next-line @next/next/no-img-element */
-            <img
-              src={extra.image}
-              alt={`${title ?? ""} 교재 슬라이드`}
-              className="w-full rounded-lg border border-slate-200 bg-white"
-            />
-          )}
-        </div>
-      )}
-    </div>
-  );
-}
