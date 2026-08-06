@@ -453,7 +453,8 @@ export function mnemonicFromTextbook(
       mnemonicHow: introM
         ? "교재 항목의 첫 글자 — 자연스러운 경우에만 두음을 만듭니다."
         : "이 항목들은 억지 두음 없이 키워드 자체로 외웁니다.",
-      definition: book.definition,
+      // 답안 2줄(34자) 압축본이 있으면 그걸 암기 대상으로 — 없으면 교재 원문.
+      definition: book.defShort || book.definition,
       features: (book.notes || []).slice(0, 3),
     },
     body: {

@@ -412,8 +412,17 @@ export default function BasicsPage() {
                     </Link>
                   </span>
                 </div>
-                {/* 교재 정의문 원문 — 이 문장이 곧 답안 서론이다 */}
-                <p className="mt-1.5 text-[13.5px] leading-relaxed text-slate-800">
+                {/* 답안 2줄 정의(17자×2=34자) — 시험지에 쓰는 그 문장 */}
+                {s.defShort && (
+                  <p className="mt-1.5 rounded-lg bg-brand-50/70 px-2.5 py-1.5 text-[14px] font-semibold leading-relaxed text-slate-900 ring-1 ring-brand-100">
+                    ✍️ {s.defShort}
+                    <span className="ml-1.5 text-[10px] font-normal text-slate-400">
+                      {s.defShort.replace(/\s/g, "").length}자
+                    </span>
+                  </p>
+                )}
+                {/* 교재 정의문 원문 */}
+                <p className={`mt-1.5 leading-relaxed ${s.defShort ? "text-[12.5px] text-slate-500" : "text-[13.5px] text-slate-800"}`}>
                   {s.definition}
                 </p>
                 {s.keywords.length > 0 && (
