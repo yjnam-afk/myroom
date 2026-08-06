@@ -214,11 +214,11 @@ export default function Home() {
   return (
     <div>
       {/* 나의 공간 — 개인 아지트 선언 배너 */}
-      <section className="mb-6 overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-500 via-brand-600 to-indigo-700 p-7 text-white shadow-lg ring-1 ring-brand-900/40 sm:p-9">
+      <section className="mb-6 overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-500 via-brand-600 to-indigo-700 p-5 text-white shadow-lg ring-1 ring-brand-900/40 sm:p-9">
         <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-slate-100 ring-1 ring-white/20">
           🏠 나만의 학습 아지트
         </span>
-        <h1 className="mt-3 text-3xl font-extrabold leading-tight text-white sm:text-4xl">
+        <h1 className="mt-3 text-2xl font-extrabold leading-tight text-white sm:text-4xl">
           {userName ? (
             <>
               어서 와요,{" "}
@@ -231,12 +231,15 @@ export default function Home() {
             <>나의 공간에 어서 와요 👋</>
           )}
         </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-blue-100 sm:text-base">
+        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-blue-100 sm:mt-3 sm:text-base">
           기술사 답안은 <b className="font-bold text-white">&lsquo;소설&rsquo;</b>이다 ✍️
-          <br />
-          내 페이스대로, 꾸준히. 오늘도 한 걸음 나아가요.
+          <br className="hidden sm:block" />
+          <span className="hidden sm:inline">
+            내 페이스대로, 꾸준히. 오늘도 한 걸음 나아가요.
+          </span>
         </p>
-        <div className="mt-4 flex flex-wrap gap-2">
+        {/* 단계 안내 칩 — 모바일에서는 접어 '오늘의 토픽'이 첫 화면에 들어오게 한다 */}
+        <div className="mt-4 hidden flex-wrap gap-2 sm:flex">
           <span className="rounded-lg bg-white/15 px-3 py-1.5 text-xs font-medium text-white ring-1 ring-white/15">
             🥷 1단계 · 키워드 암기(두음신공)
           </span>
@@ -270,9 +273,9 @@ export default function Home() {
 
       {/* 오늘의 토픽 — 심화반 커리큘럼(내가 정한 계획)에서 가져온다 */}
       {today && (
-        <div className="mb-6 rounded-2xl border-2 border-slate-200 bg-white p-5 shadow-sm">
+        <div className="mb-6 rounded-2xl border-2 border-brand-200 bg-white p-4 shadow-sm sm:p-5">
           <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-            <h2 className="flex flex-wrap items-center gap-x-1 text-sm font-bold text-slate-800">
+            <h2 className="flex flex-wrap items-center gap-x-1 text-base font-extrabold text-slate-800 sm:text-sm sm:font-bold">
               🗓️ 오늘의 토픽{" "}
               <span className="text-brand-500">
                 · {today.dayName}요일 · {today.day.label}
@@ -296,13 +299,13 @@ export default function Home() {
 
           {today.day.kind === "study" ? (
             <>
-              <div className="mb-2 flex items-center justify-between">
+              <div className="mb-2 flex flex-wrap items-center justify-between gap-x-2 gap-y-0.5">
                 <span className="text-xs font-semibold text-slate-500">
                   학습한 토픽을 체크하세요 ·{" "}
                   {today.day.topics.filter((t) => done.has(doneKey(today.week.start, t.title))).length}/
                   {today.day.topics.length} 완료
                 </span>
-                <span className="text-[11px] text-slate-400">
+                <span className="hidden text-[11px] text-slate-400 sm:inline">
                   중요도 <b className="text-red-600">상★★★</b>{" "}
                   <b className="text-blue-600">중★★</b>{" "}
                   <b className="text-slate-500">하★</b>
@@ -315,9 +318,11 @@ export default function Home() {
                   const sub =
                     subnoteByTopicId(t.topicId) || subnoteByTitle(t.title);
                   return (
+                    // 폰 화면: 제목 줄(체크·중요도·제목)과 버튼 줄을 나눠 제목이
+                    // truncate 로 잘리지 않게 한다. sm 이상에서는 기존처럼 한 줄.
                     <li
                       key={t.title}
-                      className={`flex items-center gap-2 rounded-lg border p-2 ${
+                      className={`flex flex-wrap items-center gap-x-2 gap-y-2 rounded-lg border p-2.5 sm:flex-nowrap sm:p-2 ${
                         checked
                           ? "border-amber-200 bg-amber-50"
                           : "border-slate-100 bg-slate-50"
@@ -329,7 +334,7 @@ export default function Home() {
                       <button
                         onClick={() => toggleDone(doneKey(today.week.start, t.title))}
                         aria-label="완료"
-                        className={`grid h-6 w-6 shrink-0 place-items-center rounded-md border text-xs font-bold transition ${
+                        className={`grid h-7 w-7 shrink-0 place-items-center rounded-md border text-sm font-bold transition sm:h-6 sm:w-6 sm:text-xs ${
                           checked
                             ? "border-amber-400 bg-amber-500 text-white"
                             : "border-slate-300 bg-white text-transparent hover:border-amber-400"
@@ -339,38 +344,41 @@ export default function Home() {
                       </button>
                       <PriorityBadge p={t.priority} />
                       <span
-                        className={`min-w-0 flex-1 truncate text-sm ${
+                        className={`min-w-0 flex-1 break-keep text-sm leading-snug ${
                           checked ? "text-slate-400 line-through" : "text-slate-800"
                         }`}
                       >
                         {t.title}
                       </span>
-                      {sub && (
-                        <span
-                          className="shrink-0 rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700"
-                          title="교재 서브노트 원본이 있어요"
-                        >
-                          📖 교재
-                        </span>
-                      )}
-                      {/* 두음신공은 topicId 가 없어도 교재 서브노트만 있으면 열린다
-                          (제목으로 찾는다). topicId 유무로 버튼을 감추면
-                          프로세스 상태 전이도·CPU 스케줄링처럼 topics.json 에
-                          없는 교재 전용 토픽이 학습을 못 하게 된다. */}
-                      {(t.topicId || sub) && (
+                      {/* 버튼 묶음 — 모바일에서는 제 줄을 차지해 손가락으로 누르기 쉽게 */}
+                      <span className="flex w-full items-center gap-1.5 sm:w-auto sm:shrink-0">
+                        {sub && (
+                          <span
+                            className="shrink-0 rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700"
+                            title="교재 서브노트 원본이 있어요"
+                          >
+                            📖 교재
+                          </span>
+                        )}
+                        {/* 두음신공은 topicId 가 없어도 교재 서브노트만 있으면 열린다
+                            (제목으로 찾는다). topicId 유무로 버튼을 감추면
+                            프로세스 상태 전이도·CPU 스케줄링처럼 topics.json 에
+                            없는 교재 전용 토픽이 학습을 못 하게 된다. */}
+                        {(t.topicId || sub) && (
+                          <Link
+                            href={`/mnemonic?topic=${encodeURIComponent(t.title)}${t.topicId ? `&topicId=${t.topicId}` : ""}`}
+                            className="flex-1 rounded-md bg-brand-600 px-2.5 py-1.5 text-center text-xs font-medium text-white hover:bg-brand-700 sm:flex-initial sm:py-1"
+                          >
+                            🥷 학습
+                          </Link>
+                        )}
                         <Link
-                          href={`/mnemonic?topic=${encodeURIComponent(t.title)}${t.topicId ? `&topicId=${t.topicId}` : ""}`}
-                          className="shrink-0 rounded-md bg-brand-600 px-2.5 py-1 text-xs font-medium text-white hover:bg-brand-700"
+                          href={`/explain?topic=${encodeURIComponent(t.title)}${t.topicId ? `&topicId=${t.topicId}` : ""}`}
+                          className="flex-1 rounded-md border border-slate-200 bg-white px-2.5 py-1.5 text-center text-xs font-medium text-slate-600 hover:bg-slate-100 sm:flex-initial sm:py-1"
                         >
-                          🥷 학습
+                          💡 설명
                         </Link>
-                      )}
-                      <Link
-                        href={`/explain?topic=${encodeURIComponent(t.title)}${t.topicId ? `&topicId=${t.topicId}` : ""}`}
-                        className="shrink-0 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 hover:bg-slate-100"
-                      >
-                        💡 설명
-                      </Link>
+                      </span>
                     </li>
                   );
                 })}
