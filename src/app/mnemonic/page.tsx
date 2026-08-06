@@ -145,8 +145,8 @@ function MnemonicInner() {
   return (
     <div>
       <PageHeader
-        title="🥷 두음신공 — 키워드 암기"
-        desc="여기는 암기·인출 전용입니다 — 두음으로 새기고, 객관식으로 주입하고, 주관식으로 꺼냅니다. 이해가 먼저면 💡설명에서."
+        title="🥷 암기 훈련장"
+        desc="가리고 → 떠올리고 → 확인하는 인출 훈련 페이지입니다. 교재 두음이 있으면 힌트로 쓰고, 없으면 첫 글자가 힌트가 됩니다. 이해가 먼저면 💡설명에서."
       />
 
       <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -223,7 +223,7 @@ function MnemonicInner() {
 
         <div className="mt-5 flex flex-wrap items-center gap-3">
           <Button onClick={generate} disabled={loading}>
-            {loading ? "생성 중…" : "두음신공 만들기"}
+            {loading ? "준비 중…" : "암기 훈련 시작"}
           </Button>
           {topic.trim() && (
             <Link
@@ -237,7 +237,7 @@ function MnemonicInner() {
       </div>
 
       <div className="mt-6">
-        {loading && <Spinner label="두음신공을 만드는 중입니다…" />}
+        {loading && <Spinner label="암기 훈련 세트를 준비하는 중입니다…" />}
         {error && <ErrorBox message={error} />}
 
         {set && (
@@ -267,8 +267,8 @@ function MnemonicInner() {
                 <span />
               )}
               <ShareButton
-                title={`[나의 공간] ${set.topic} 두음신공`}
-                text={`🥷 ${set.topic} 두음신공\n\n서론: ${set.intro.mnemonic}\n본론: ${set.body.mnemonic}\n\n핵심 키워드: ${set.body.items.map((i) => i.term).join(", ")}`}
+                title={`[나의 공간] ${set.topic} 암기 훈련`}
+                text={`🥷 ${set.topic} 암기 훈련\n\n서론: ${set.intro.mnemonic}\n본론: ${set.body.mnemonic}\n\n핵심 키워드: ${set.body.items.map((i) => i.term).join(", ")}`}
               />
             </div>
             {/* NotebookLM식 오디오 강의 — AI가 팟캐스트 대사를 만들어 두 목소리로 설명 */}

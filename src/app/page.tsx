@@ -53,8 +53,8 @@ const menuGroups = [
       {
         href: "/mnemonic",
         emoji: "🥷",
-        title: "두음신공",
-        desc: "핵심 키워드를 두음으로 암기 → 객관식·주관식 확인",
+        title: "암기 훈련장",
+        desc: "가리고-떠올리기 인출 훈련 · 교재 두음은 힌트로 · 확인 퀴즈",
         color: "from-brand-600 to-brand-800",
       },
       {
@@ -241,7 +241,7 @@ export default function Home() {
         {/* 단계 안내 칩 — 모바일에서는 접어 '오늘의 토픽'이 첫 화면에 들어오게 한다 */}
         <div className="mt-4 hidden flex-wrap gap-2 sm:flex">
           <span className="rounded-lg bg-white/15 px-3 py-1.5 text-xs font-medium text-white ring-1 ring-white/15">
-            🥷 1단계 · 키워드 암기(두음신공)
+            🥷 1단계 · 키워드 암기(인출 훈련)
           </span>
           <span className="rounded-lg bg-white/15 px-3 py-1.5 text-xs font-medium text-white ring-1 ring-white/15">
             ✍️ 2단계 · 키워드로 답안 쓰기
