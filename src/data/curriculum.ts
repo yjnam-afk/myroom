@@ -429,8 +429,33 @@ const AI_ALL: CurriculumTopic[] = [
   { title: "BrainBody LLM", priority: "하" },
 ];
 
+/** 3주차 확률·통계(ST) — 교재 CONTENTS 19토픽 */
+const ST_ALL: CurriculumTopic[] = [
+  { title: "확률분포", priority: "중" },
+  { title: "확률분포와 확률 밀도 함수", priority: "하" },
+  { title: "정규분포(Normal Distribution)", priority: "중" },
+  { title: "중심극한정리", priority: "하" },
+  { title: "데이터 유형", priority: "하" },
+  { title: "표본 추출", priority: "중" },
+  { title: "왜도(skewness) & 첨도(kurtosis)", priority: "중" },
+  { title: "이상치", priority: "중" },
+  { title: "결측치", priority: "중" },
+  { title: "시계열분석", priority: "중" },
+  { title: "베이즈 정리 (Bayes's theorem)", priority: "중" },
+  { title: "기술 통계(Descriptive statistics)", priority: "중" },
+  { title: "추론 통계(Inferential Statistics)", priority: "중" },
+  { title: "추정 이론(Estimation Theory)", priority: "상" },
+  { title: "연관성 분석(association analysis) - 기초통계", priority: "하" },
+  { title: "회귀분석(Regression Analysis)", priority: "상" },
+  { title: "AIC(Akaike information Criterion) & BIC(Bayesian information Criterion)", priority: "하" },
+  { title: "통계적 가설검정 (Hypothesis Testing)", priority: "상" },
+  { title: "ANOVA(Analysis of variance)", priority: "중" },
+];
+
+// 3주차는 인공지능 + 확률·통계 — 과목 경계를 지켜 각 과목 안에서만 균등 분배한다.
 const WEEK3_DAYS: CurriculumDay[] = studyDays([
   { name: "인공지능(AI)", topics: AI_ALL },
+  { name: "확률·통계(ST)", topics: ST_ALL },
 ]);
 
 export const WEEKS: CurriculumWeek[] = [
@@ -460,7 +485,7 @@ export const WEEKS: CurriculumWeek[] = [
   {
     // 선행 3주차 — 인공지능
     start: "2026-08-17",
-    title: "선행 학습 · 심화반 3주차 미리 돌기 (인공지능)",
+    title: "선행 학습 · 심화반 3주차 미리 돌기 (인공지능 + 확률·통계)",
     days: [
       ...WEEK3_DAYS,
       { kind: "review", label: "회독", note: "이번 주 선행한 토픽을 다시 돌립니다." },
@@ -491,9 +516,9 @@ export const WEEKS: CurriculumWeek[] = [
     ],
   },
   {
-    // 심화반 3주차 — 인공지능
+    // 심화반 3주차 — 인공지능 + 확률·통계
     start: "2026-09-14",
-    title: "심화반 3주차 · 인공지능(AI)",
+    title: "심화반 3주차 · 인공지능(AI) + 확률·통계(ST)",
     days: [
       ...WEEK3_DAYS,
       { kind: "review", label: "회독", note: "이번 주 배운 토픽을 다시 돌립니다." },
