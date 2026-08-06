@@ -3,18 +3,30 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { PageHeader } from "@/components/ui";
+import { SUBNOTES } from "@/data/textbookSubnotes";
 
 /**
- * 용어 사전 — 서브노트·학습 카드를 읽다가 모르는 말이 나오면 여기서 찾는다.
+ * 용어 사전 — 두 켜로 구성한다.
  *
- * 에세이가 아니라 도구다. 검색 한 번 → 한 줄 정의 → 다시 공부로 복귀.
- * 정의는 전문용어를 전문용어로 설명하지 않는 것을 원칙으로 한다.
+ * ① 교재 정의(기본): 교재 서브노트의 정의문 '원문 그대로'. 1교시 답안 서론에
+ *    그대로 쓰는 그 문장이다. 검색 → 정의 확인 → 설명/두음신공으로 이동.
+ * ② 왕초보 용어: 정의문에 나오는 전문용어를 비유로 풀어 주는 보조 사전.
  */
 
 type Term = {
   ko: string;
   en?: string;
-  cat: "컴퓨터 기본" | "프로세스·동기화" | "메모리·캐시" | "하드웨어" | "저장·안정성" | "개발·PM·테스트";
+  cat:
+    | "컴퓨터 기본"
+    | "프로세스·동기화"
+    | "메모리·캐시"
+    | "하드웨어"
+    | "저장·안정성"
+    | "개발·PM·테스트"
+    | "프로젝트 관리"
+    | "SW공학·테스트"
+    | "인공지능"
+    | "확률·통계";
   def: string;
   /** 이 용어가 등장하는 대표 토픽(설명 페이지로 링크) */
   see?: string;
@@ -111,9 +123,134 @@ const TERMS: Term[] = [
   { ko: "결함/오류/장애", en: "Defect/Error/Failure", cat: "개발·PM·테스트", def: "사람의 실수(오류)가 코드에 결함을 심고, 결함이 실행되면 장애로 나타난다.", see: "테스트 원리" },
   { ko: "커버리지", en: "Coverage", cat: "개발·PM·테스트", def: "테스트가 코드(또는 요구사항)를 몇 %나 훑었는지의 지표.", see: "코드 커버리지(Code Coverage)" },
   { ko: "프로토타입", en: "Prototype", cat: "개발·PM·테스트", def: "요구를 빨리 확인하려고 핵심만 만든 시제품." },
+
+  // ── 프로젝트 관리 (2주차 PM) ─────────────────────────────────
+  { ko: "범위", en: "Scope", cat: "프로젝트 관리", def: "이번 프로젝트에서 '어디까지 만들 것인가'의 경계선. 경계가 흐리면 일이 끝없이 늘어난다.", see: "범위관리" },
+  { ko: "스코프 크리프", en: "Scope Creep", cat: "프로젝트 관리", def: "고객 요청이 슬금슬금 늘어 범위가 몰래 커지는 것. 반대로 시키지도 않은 걸 개발자가 더 해 주는 건 골드 플레이팅.", see: "Scope Creep vs Gold-Plating" },
+  { ko: "3점 산정", en: "Three-Point Estimate", cat: "프로젝트 관리", def: "낙관·최빈·비관 세 값을 섞어 기간을 추정하는 법. 한 사람의 감보다 훨씬 안 틀린다.", see: "3점 산정" },
+  { ko: "주공정법", en: "CPM, Critical Path", cat: "프로젝트 관리", def: "가장 오래 걸리는 작업 사슬. 여기가 하루 밀리면 프로젝트 전체가 하루 밀린다.", see: "CPM (Critical Path Management)" },
+  { ko: "여유시간", en: "Float/Slack", cat: "프로젝트 관리", def: "전체 일정에 영향 없이 이 작업이 늦어도 되는 여유. 주공정 위의 작업은 여유가 0이다.", see: "CPM (Critical Path Management)" },
+  { ko: "공정압축법", en: "Crashing", cat: "프로젝트 관리", def: "돈(인력)을 더 넣어 기간을 줄이는 것. 반대로 순서를 겹쳐 당기는 건 패스트트래킹 — 대신 재작업 위험이 커진다.", see: "일정단축 기법" },
+  { ko: "획득가치", en: "EVM, Earned Value", cat: "프로젝트 관리", def: "'계획 대비 실제로 얼마나 벌어 놨나'를 돈으로 환산해 일정·원가를 동시에 보는 지표.", see: "EVM(Earned Value Management, 획득 가치 관리)" },
+  { ko: "SPI / CPI", en: "Schedule/Cost Perf. Index", cat: "프로젝트 관리", def: "1보다 크면 좋은 상태. SPI는 일정, CPI는 원가 효율 — 1 미만이면 늦거나 돈이 새고 있다.", see: "EVM(Earned Value Management, 획득 가치 관리)" },
+  { ko: "예비비", en: "Reserve", cat: "프로젝트 관리", def: "알려진 위험에 대비한 우발사태 예비비와, 모르는 위험을 위한 관리 예비비. 후자는 경영진 승인 대상.", see: "위험 대응" },
+  { ko: "정성적/정량적 위험분석", en: "Qualitative/Quantitative", cat: "프로젝트 관리", def: "정성은 확률×영향으로 등급 매겨 줄 세우기, 정량은 숫자로 계산(EMV·몬테카를로)하기.", see: "몬테카를로 시뮬레이션" },
+  { ko: "P-I 매트릭스", en: "Probability-Impact", cat: "프로젝트 관리", def: "위험을 '일어날 확률'과 '터졌을 때 충격' 두 축으로 놓고 빨강·노랑·초록으로 등급 매기는 표.", see: "정성적 위험 분석" },
+  { ko: "EMV", en: "Expected Monetary Value", cat: "프로젝트 관리", def: "확률 × 금액으로 계산한 기대값. 두 대안 중 어느 쪽이 이득인지 숫자로 비교할 때 쓴다.", see: "위험 대응" },
+  { ko: "몬테카를로", en: "Monte Carlo", cat: "프로젝트 관리", def: "작업 기간을 확률로 보고 주사위 굴리듯 수천 번 돌려 '80% 확률로 며칠'을 얻는 모의실험.", see: "몬테카를로 시뮬레이션" },
+  { ko: "RACI", en: "RACI Chart", cat: "프로젝트 관리", def: "누가 실행(R)·최종책임(A)·자문(C)·정보공유(I)인지 적은 역할 표. A는 항상 한 명이어야 한다.", see: "자원 최적화" },
+  { ko: "갈등관리 5기법", en: "Conflict Resolution", cat: "프로젝트 관리", def: "철회·완화·타협·강요·협력. 가장 좋은 건 협력(win-win), 최악은 철회(회피).", see: "갈등관리" },
+  { ko: "터크만 모델", en: "Tuckman Ladder", cat: "프로젝트 관리", def: "팀이 거치는 단계 — 형성기·혼돈기·규범기·성취기·해산기. 싸우는 시기(혼돈기)는 정상이다.", see: "터크만 팀 개발 5단계" },
+  { ko: "PMO", en: "Project Mgmt Office", cat: "프로젝트 관리", def: "발주자 편에서 프로젝트 전 과정을 관리해 주는 조직. 제3자로 품질을 '평가'하는 감리와 역할이 다르다.", see: "감리/PMO 비교표" },
+  { ko: "애자일", en: "Agile", cat: "프로젝트 관리", def: "계획대로 밀기보다 짧게 만들고 자주 고치는 방식. 선언문의 핵심은 '왼쪽도 가치 있지만 오른쪽을 더'.", see: "Agile 선언문과 12개 원칙" },
+  { ko: "스프린트", en: "Sprint", cat: "프로젝트 관리", def: "스크럼의 2~4주짜리 개발 주기. 이 안에 '작동하는 결과물'을 반드시 낸다.", see: "스크럼(Scrum)" },
+  { ko: "백로그", en: "Backlog", cat: "프로젝트 관리", def: "만들 것들의 우선순위 목록. 전체가 제품 백로그, 이번 주기에 할 것만 뽑은 게 스프린트 백로그.", see: "스크럼(Scrum)" },
+  { ko: "번다운 차트", en: "Burndown Chart", cat: "프로젝트 관리", def: "남은 일이 0으로 줄어드는 그래프. 계획선 위에 있으면 늦은 것이고, 기울기가 팀의 속도(Velocity)다.", see: "번다운 차트" },
+  { ko: "벨로시티", en: "Velocity", cat: "프로젝트 관리", def: "한 스프린트에 팀이 처리하는 작업량. 다음 주기에 얼마나 담을지 정하는 근거.", see: "번다운 차트" },
+  { ko: "XP", en: "eXtreme Programming", cat: "프로젝트 관리", def: "짝 프로그래밍·테스트 주도 개발·지속적 통합처럼 개발 실천법을 극단까지 밀어붙인 애자일 방법론.", see: "XP(eXtreme Programming)" },
+  { ko: "린", en: "Lean", cat: "프로젝트 관리", def: "도요타 생산방식에서 온 '낭비 제거' 사고. 미완성 작업·안 쓰는 기능·대기 같은 낭비를 걷어낸다.", see: "린 (Lean) 방법론" },
+
+  // ── SW공학·테스트 (2주차 SE) ────────────────────────────────
+  { ko: "요구공학", en: "Requirements Engineering", cat: "SW공학·테스트", def: "'뭘 만들지'를 캐내고(도출) 정리하고(분석·명세) 맞는지 확인하는(확인) 활동. 여기서 틀리면 뒤가 다 틀어진다.", see: "요구공학 (Requirements Engineering)" },
+  { ko: "기능/비기능 요구사항", en: "Functional/Non-func.", cat: "SW공학·테스트", def: "'무엇을 한다'가 기능, '얼마나 빠르고 안전한가'가 비기능(성능·보안·가용성).", see: "요구사항 명세서 SRS" },
+  { ko: "추적성", en: "Traceability", cat: "SW공학·테스트", def: "요구사항 하나가 설계·코드·테스트 어디까지 연결됐는지 따라갈 수 있는 성질. 변경 영향 분석의 기본.", see: "요구공학 (Requirements Engineering)" },
+  { ko: "응집도/결합도", en: "Cohesion/Coupling", cat: "SW공학·테스트", def: "한 모듈이 한 가지 일에 집중하면 응집도가 높고(좋음), 모듈끼리 덜 얽히면 결합도가 낮다(좋음).", see: "소프트웨어 설계의 원리" },
+  { ko: "디자인 패턴", en: "Design Pattern", cat: "SW공학·테스트", def: "자주 나오는 설계 문제의 검증된 해법 모음. 생성·구조·행위 세 갈래로 나뉜다.", see: "디자인 패턴 (Design Pattern)" },
+  { ko: "싱글턴", en: "Singleton", cat: "SW공학·테스트", def: "그 객체를 딱 하나만 만들어 모두가 공유하게 하는 패턴. 설정·로그처럼 하나여야 하는 것에 쓴다.", see: "싱글턴 패턴 (Singleton pattern)" },
+  { ko: "MVC / MVVM", en: "Model-View-Controller", cat: "SW공학·테스트", def: "데이터(모델)·화면(뷰)·중개자를 분리하는 구조. 중개자가 Controller면 MVC, ViewModel이면 MVVM.", see: "MVVM (Model, View, View Model)" },
+  { ko: "UML", en: "Unified Modeling Lang.", cat: "SW공학·테스트", def: "설계를 그림으로 그리는 표준 표기법. 유스케이스·클래스·시퀀스 다이어그램이 대표.", see: "UML의 4+1 View Model" },
+  { ko: "화이트박스/블랙박스", en: "White/Black Box", cat: "SW공학·테스트", def: "속(코드)을 보고 짜는 테스트가 화이트박스, 겉(입출력)만 보고 짜는 테스트가 블랙박스.", see: "블랙박스 테스트" },
+  { ko: "테스트 오라클", en: "Test Oracle", cat: "SW공학·테스트", def: "'이 결과가 맞다'고 판정해 주는 기준. AI는 정답 기준이 모호해서 이게 테스트의 난제가 된다.", see: "AI 시스템 테스트" },
+  { ko: "동등분할/경계값", en: "Equivalence/Boundary", cat: "SW공학·테스트", def: "같은 결과가 나오는 입력을 묶어 대표 하나만 테스트(동등분할)하고, 사고가 잦은 경계(0, 최대값)를 따로 본다.", see: "블랙박스 테스트" },
+  { ko: "회귀 테스트", en: "Regression Test", cat: "SW공학·테스트", def: "고친 뒤 '멀쩡하던 게 망가지지 않았나' 확인하는 재검사.", see: "리그레이션(회귀, Regression) 테스트" },
+  { ko: "코드 커버리지", en: "Code Coverage", cat: "SW공학·테스트", def: "테스트가 코드를 얼마나 훑었는지 비율. 구문 → 결정 → 조건 → MC/DC 순으로 엄격해진다.", see: "코드 커버리지(Code Coverage)" },
+  { ko: "뮤테이션 테스트", en: "Mutation Test", cat: "SW공학·테스트", def: "일부러 코드에 결함을 심어 놓고 '내 테스트가 이걸 잡아내나'를 확인하는 테스트의 테스트.", see: "뮤테이션 테스트 (Mutation Test)" },
+  { ko: "퍼징", en: "Fuzzing", cat: "SW공학·테스트", def: "무작위·비정상 입력을 마구 넣어 뻗는 지점을 찾는 기법. 보안 취약점 발굴의 단골.", see: "퍼징 테스트 (Fuzzing Test)" },
+  { ko: "카오스 테스트", en: "Chaos Test", cat: "SW공학·테스트", def: "운영 중인 시스템에 일부러 장애를 일으켜 '진짜 버티나'를 확인하는 방식. 넷플릭스가 대표 사례.", see: "카오스 테스트 (Chaos Test)" },
+  { ko: "V모델", en: "V-Model", cat: "SW공학·테스트", def: "개발 단계마다 짝이 되는 테스트 단계를 붙인 그림. 요구↔인수, 설계↔통합, 코딩↔단위.", see: "AI 시스템 테스트" },
+  { ko: "정적/동적 테스트", en: "Static/Dynamic", cat: "SW공학·테스트", def: "실행하지 않고 문서·코드를 보는 게 정적(리뷰·인스펙션), 실제로 돌려 보는 게 동적.", see: "리뷰(Review)" },
+  { ko: "순환 복잡도", en: "Cyclomatic Complexity", cat: "SW공학·테스트", def: "코드에 갈림길이 몇 개인지 센 수치. 높을수록 테스트할 경로가 많고 버그가 숨기 좋다.", see: "McCabe 회전 복잡도" },
+  { ko: "기술 부채", en: "Technical Debt", cat: "SW공학·테스트", def: "급하게 대충 짜서 나중에 갚아야 할 빚. 이자는 유지보수 시간으로 나간다.", see: "소프트웨어 리팩토링" },
+  { ko: "CMMI", en: "Capability Maturity", cat: "SW공학·테스트", def: "조직의 개발 성숙도를 5단계로 평가하는 모델. '사람이 바뀌어도 같은 품질이 나오나'를 본다.", see: "CMMI 3.0" },
+  { ko: "기능점수", en: "Function Point", cat: "SW공학·테스트", def: "코드 줄 수가 아니라 '사용자에게 보이는 기능의 양'으로 규모를 재는 법. 공공 SW 대가 산정의 기준.", see: "Function Point" },
+  { ko: "SBOM", en: "SW Bill of Materials", cat: "SW공학·테스트", def: "이 소프트웨어에 들어간 부품(오픈소스·라이브러리) 목록표. 취약점이 터지면 영향 범위를 즉시 찾는 근거.", see: "SBOM" },
+  { ko: "감리", en: "Audit", cat: "SW공학·테스트", def: "제3자가 독립적으로 정보시스템의 품질을 평가하는 제도. 공공은 일정 규모 이상이면 의무.", see: "공통감리 절차" },
+
+  // ── 인공지능 (3주차 AI) ─────────────────────────────────────
+  { ko: "지도/비지도 학습", en: "Supervised/Unsupervised", cat: "인공지능", def: "정답표를 주고 배우면 지도, 정답 없이 비슷한 것끼리 묶게 하면 비지도. 보상으로 배우면 강화학습.", see: "머신러닝 학습방법" },
+  { ko: "레이블", en: "Label", cat: "인공지능", def: "데이터에 붙인 정답표. 사진마다 '고양이'라고 적어 주는 그 표시.", see: "데이터라벨링과 어노테이션" },
+  { ko: "가중치", en: "Weight", cat: "인공지능", def: "신경망이 학습으로 조절하는 손잡이 값. '학습한다'는 건 결국 이 숫자들을 고친다는 뜻.", see: "오류 역전파(Backpropagation)" },
+  { ko: "손실함수", en: "Loss Function", cat: "인공지능", def: "예측이 정답과 얼마나 틀렸는지를 숫자 하나로 만드는 함수. 이 점수가 있어야 고칠 방향을 안다.", see: "손실함수" },
+  { ko: "경사하강법", en: "Gradient Descent", cat: "인공지능", def: "안개 낀 산에서 발밑 기울기만 보고 낮은 곳으로 한 걸음씩 내려가는 방식. 학습의 기본 동작.", see: "머신러닝 옵티마이저" },
+  { ko: "학습률", en: "Learning Rate", cat: "인공지능", def: "한 걸음의 보폭. 너무 크면 골짜기를 건너뛰고, 너무 작으면 영원히 못 내려간다.", see: "머신러닝 옵티마이저" },
+  { ko: "에포크/배치", en: "Epoch/Batch", cat: "인공지능", def: "전체 데이터를 한 바퀴 다 본 게 1에포크, 한 번에 묶어 넣는 데이터 뭉치가 배치.", see: "배치 정규화(Batch Normalization)" },
+  { ko: "역전파", en: "Backpropagation", cat: "인공지능", def: "틀린 만큼을 출력에서 입력 쪽으로 거꾸로 흘려보내며 '누가 얼마나 잘못했나'를 따져 고치는 것.", see: "오류 역전파(Backpropagation)" },
+  { ko: "활성화 함수", en: "Activation Function", cat: "인공지능", def: "뉴런이 받은 신호를 얼마나 세게 내보낼지 정하는 함수. 이게 없으면 층을 쌓아도 직선 계산뿐이다.", see: "활성화함수(Activation Function)" },
+  { ko: "과적합", en: "Overfitting", cat: "인공지능", def: "연습문제만 통째로 외워 시험을 망치는 상태. 학습 데이터엔 완벽한데 새 데이터엔 엉망.", see: "Dropout" },
+  { ko: "드롭아웃", en: "Dropout", cat: "인공지능", def: "학습할 때마다 뉴런 일부를 랜덤으로 꺼서 특정 뉴런에 의존하지 못하게 하는 과적합 방지법.", see: "Dropout" },
+  { ko: "정규화 vs 규제화", en: "Normalization/Regularization", cat: "인공지능", def: "정규화·표준화는 '입력 데이터'의 크기를 맞추는 것, 규제화는 '모델 가중치'에 벌점을 줘 복잡도를 누르는 것.", see: "정규화, 규제화, 표준화" },
+  { ko: "기울기 소실", en: "Vanishing Gradient", cat: "인공지능", def: "층이 깊어질수록 고칠 신호가 점점 약해져 앞쪽 층이 안 배워지는 현상. ReLU로 많이 해결됐다.", see: "기울기 소실과 기울기 폭주" },
+  { ko: "하이퍼파라미터", en: "Hyperparameter", cat: "인공지능", def: "학습으로 정해지지 않고 사람이 미리 정해 줘야 하는 값(학습률·층 수·K값 등).", see: "AutoML" },
+  { ko: "차원의 저주", en: "Curse of Dimensionality", cat: "인공지능", def: "변수(차원)가 늘수록 데이터가 텅 빈 공간에 흩어져 학습이 급격히 어려워지는 현상.", see: "차원 축소(Dimensionality Reduction)" },
+  { ko: "임베딩", en: "Embedding", cat: "인공지능", def: "단어·이미지를 의미가 담긴 숫자 벡터로 바꾼 것. 뜻이 비슷하면 벡터도 가까이 놓인다.", see: "자연어처리(NLP)" },
+  { ko: "벡터 DB", en: "Vector Database", cat: "인공지능", def: "임베딩(숫자 벡터)을 저장해 두고 '의미가 비슷한 것'을 빠르게 찾아 주는 데이터베이스. RAG의 필수 부품.", see: "RAG(Retrieval Augmented Generation)" },
+  { ko: "트랜스포머", en: "Transformer", cat: "인공지능", def: "문장을 한 번에 병렬로 읽으면서 중요한 단어에 집중(어텐션)하는 구조. 오늘날 생성형 AI 전부의 뿌리.", see: "트랜스포머(Transformer)" },
+  { ko: "어텐션", en: "Attention", cat: "인공지능", def: "번역할 때 원문에서 관련 단어에 형광펜을 치듯, 지금 필요한 부분에 집중해 참고하는 방법.", see: "어텐션 메커니즘(Attention Mechanism)" },
+  { ko: "토큰", en: "Token", cat: "인공지능", def: "AI가 글을 자르는 최소 조각(단어 또는 단어 일부). 요금과 입력 한도가 전부 이 단위로 계산된다.", see: "초거대 언어 모델(Large Language Model)" },
+  { ko: "파인튜닝", en: "Fine-tuning", cat: "인공지능", def: "이미 배운 모델에 내 데이터를 추가로 학습시켜 내 일에 맞게 다듬는 것. 모델 자체가 바뀐다.", see: "파인 튜닝(Fine-tuning)" },
+  { ko: "프롬프트 튜닝", en: "Prompt Tuning", cat: "인공지능", def: "모델은 그대로 얼려 두고 입력 문구만 조절해 원하는 답을 얻는 것. 자원이 훨씬 적게 든다.", see: "프롬프트 튜닝(Prompt Tuning)" },
+  { ko: "RAG", en: "Retrieval Augmented Gen.", cat: "인공지능", def: "답하기 전에 외부 자료를 검색해 근거로 붙여 주는 방식. AI에게 오픈북 시험을 보게 하는 것.", see: "RAG(Retrieval Augmented Generation)" },
+  { ko: "할루시네이션", en: "Hallucination", cat: "인공지능", def: "AI가 사실이 아닌 것을 그럴듯하게 지어내는 현상. RAG·고품질 데이터·RLHF로 줄인다.", see: "할루시네이션(Hallucination)" },
+  { ko: "RLHF", en: "Reinforcement Learning HF", cat: "인공지능", def: "사람이 답변에 점수를 매기고 그 피드백으로 모델을 다듬는 학습법. AI를 '사람 취향'에 맞추는 과정.", see: "할루시네이션(Hallucination)" },
+  { ko: "제로샷/퓨샷", en: "Zero-shot/Few-shot", cat: "인공지능", def: "예시를 하나도 안 주고 시키면 제로샷, 몇 개 보여 주고 시키면 퓨샷.", see: "프롬프트 엔지니어링(Prompt Engineering)" },
+  { ko: "CoT", en: "Chain of Thought", cat: "인공지능", def: "답만 내놓지 말고 풀이 과정을 단계별로 쓰게 시키는 것. 그것만으로 정답률이 오른다.", see: "COT(Chain of Thought)" },
+  { ko: "AI 에이전트", en: "AI Agent", cat: "인공지능", def: "묻는 말에 답만 하지 않고, 목표를 위해 스스로 도구를 쓰고 행동까지 하는 AI.", see: "AI Agent" },
+  { ko: "MCP", en: "Model Context Protocol", cat: "인공지능", def: "AI 앱과 외부 데이터·도구를 잇는 표준 규격. 'AI계의 USB-C 포트'.", see: "MCP(Model Context Protocol)" },
+  { ko: "지식 증류", en: "Knowledge Distillation", cat: "인공지능", def: "크고 똑똑한 교사 모델의 판단을 작은 학생 모델에 옮겨, 가볍지만 비슷한 성능을 내게 하는 것.", see: "지식 증류(Knowledge Distillation)" },
+  { ko: "양자화", en: "Quantization", cat: "인공지능", def: "숫자 정밀도를 낮춰(32비트→8비트) 모델 크기와 계산량을 줄이는 경량화. 스마트폰 탑재의 필수.", see: "온디바이스 AI" },
+  { ko: "XAI", en: "Explainable AI", cat: "인공지능", def: "'왜 그렇게 판단했는지'를 설명해 주는 AI. 결과만 주는 블랙박스의 반대.", see: "편향" },
+  { ko: "모델 드리프트", en: "Model Drift", cat: "인공지능", def: "모델은 그대로인데 세상이 변해 성능이 떨어지는 현상. 그래서 재학습·모니터링이 필요하다.", see: "컨셉 드리프트 & 데이터 드리프트" },
+
+  // ── 확률·통계 (3주차 ST) ────────────────────────────────────
+  { ko: "모집단/표본", en: "Population/Sample", cat: "확률·통계", def: "알고 싶은 전체 집단이 모집단, 실제로 조사한 일부가 표본. 통계는 표본으로 모집단을 짐작하는 일이다.", see: "표본 추출" },
+  { ko: "모수/통계량", en: "Parameter/Statistic", cat: "확률·통계", def: "모집단의 진짜 값이 모수(모평균 μ), 표본에서 계산한 값이 통계량(표본평균 x̄).", see: "추정 이론(Estimation Theory)" },
+  { ko: "확률변수", en: "Random Variable", cat: "확률·통계", def: "결과가 정해지지 않은 시행의 값을 숫자로 놓은 것. 주사위 눈, 내일 기온 같은 것.", see: "확률분포" },
+  { ko: "정규분포", en: "Normal Distribution", cat: "확률·통계", def: "평균을 중심으로 좌우 대칭인 종모양. 키·시험점수·측정오차 등 자연 현상 대부분이 이 모양이다.", see: "정규분포(Normal Distribution)" },
+  { ko: "표준편차/분산", en: "Std. Deviation/Variance", cat: "확률·통계", def: "값들이 평균에서 얼마나 흩어져 있는지의 척도. 분산의 제곱근이 표준편차(단위가 원래대로 돌아온다).", see: "기술 통계(Descriptive statistics)" },
+  { ko: "중심극한정리", en: "Central Limit Theorem", cat: "확률·통계", def: "모집단이 어떤 모양이든 표본을 30개 넘게 뽑아 평균을 내면 그 평균들의 분포는 정규분포가 된다.", see: "중심극한정리" },
+  { ko: "표준오차", en: "Standard Error", cat: "확률·통계", def: "표본평균이 얼마나 흔들리는지의 척도(σ/√n). 표본이 커질수록 작아진다 = 추정이 정확해진다.", see: "중심극한정리" },
+  { ko: "신뢰구간", en: "Confidence Interval", cat: "확률·통계", def: "'모수가 이 구간 안에 있을 것'이라고 제시하는 범위. 값 하나만 찍는 점추정과 달리 불확실성을 보여 준다.", see: "추정 이론(Estimation Theory)" },
+  { ko: "자유도", en: "Degree of Freedom", cat: "확률·통계", def: "자유롭게 정할 수 있는 값의 개수. x+y+z=10에서 x·y를 정하면 z는 자동 → 자유도 2.", see: "추정 이론(Estimation Theory)" },
+  { ko: "귀무/대립가설", en: "Null/Alternative", cat: "확률·통계", def: "'차이가 없다'가 귀무가설(H₀), 내가 입증하고 싶은 '차이가 있다'가 대립가설(H₁).", see: "통계적 가설검정 (Hypothesis Testing)" },
+  { ko: "p값", en: "p-value", cat: "확률·통계", def: "귀무가설이 맞다고 쳤을 때 이런 결과가 나올 확률. 유의수준(보통 0.05)보다 작으면 귀무가설을 기각한다.", see: "통계적 가설검정 (Hypothesis Testing)" },
+  { ko: "1종/2종 오류", en: "Type I/II Error", cat: "확률·통계", def: "멀쩡한 걸 문제라고 하면 1종(α), 문제인 걸 못 잡으면 2종(β). 둘은 서로 반대로 움직인다.", see: "통계적 가설검정 (Hypothesis Testing)" },
+  { ko: "유의수준", en: "Significance Level", cat: "확률·통계", def: "1종 오류를 얼마나 감수할지 정한 기준선(보통 0.05). 판정의 잣대.", see: "통계적 가설검정 (Hypothesis Testing)" },
+  { ko: "상관계수", en: "Correlation Coefficient", cat: "확률·통계", def: "두 변수가 함께 움직이는 정도(−1~+1). 0이면 선형 관계 없음. 상관이 인과는 아니다.", see: "연관성 분석(association analysis) - 기초통계" },
+  { ko: "회귀분석", en: "Regression", cat: "확률·통계", def: "한 변수가 다른 변수에 얼마나 영향을 주는지 수식으로 설명·예측하는 것. y = ax + b의 a를 찾는 일.", see: "회귀분석(Regression Analysis)" },
+  { ko: "결정계수", en: "R-squared", cat: "확률·통계", def: "이 모델이 데이터를 몇 % 설명하는지(0~1). 높을수록 설명력이 좋지만 과적합은 별개 문제.", see: "회귀분석(Regression Analysis)" },
+  { ko: "잔차", en: "Residual", cat: "확률·통계", def: "실제값과 예측값의 차이. 이게 골고루 흩어져 있어야 좋은 모델이다.", see: "회귀분석(Regression Analysis)" },
+  { ko: "다중공선성", en: "Multicollinearity", cat: "확률·통계", def: "독립변수끼리 너무 닮아 누구 덕인지 구분이 안 되는 상태. 키와 몸무게를 함께 넣는 경우.", see: "회귀분석(Regression Analysis)" },
+  { ko: "왜도/첨도", en: "Skewness/Kurtosis", cat: "확률·통계", def: "분포가 한쪽으로 기울었는지(왜도), 뾰족한지 평평한지(첨도). 정규분포와 얼마나 다른지 보는 값.", see: "왜도(skewness) & 첨도(kurtosis)" },
+  { ko: "사분위수/IQR", en: "Quartile/IQR", cat: "확률·통계", def: "데이터를 4등분한 지점(Q1·중앙값·Q3)과 Q3−Q1 폭. 상자수염그림과 이상치 판정의 기준.", see: "이상치" },
+  { ko: "이상치", en: "Outlier", cat: "확률·통계", def: "다른 값들과 동떨어진 아주 크거나 작은 값. 평균을 통째로 왜곡하니 반드시 확인해야 한다.", see: "이상치" },
+  { ko: "ANOVA", en: "Analysis of Variance", cat: "확률·통계", def: "집단이 셋 이상일 때 평균 차이가 진짜인지 F검정으로 판정하는 기법. 두 집단이면 t-검정.", see: "ANOVA(Analysis of variance)" },
+  { ko: "베이즈 정리", en: "Bayes' Theorem", cat: "확률·통계", def: "새 증거를 보고 원래 알던 확률을 갱신하는 공식. 스팸 필터·의료 진단의 원리.", see: "베이즈 정리 (Bayes's theorem)" },
+  { ko: "시계열", en: "Time Series", cat: "확률·통계", def: "시간 순서로 쌓인 데이터. 추세·순환·계절·불규칙 네 성분으로 나눠 보고 AR·MA·ARIMA로 예측한다.", see: "시계열분석" },
 ];
 
-const CATS = ["전체", "컴퓨터 기본", "프로세스·동기화", "메모리·캐시", "하드웨어", "저장·안정성", "개발·PM·테스트"] as const;
+const CATS = [
+  "전체",
+  "컴퓨터 기본",
+  "프로세스·동기화",
+  "메모리·캐시",
+  "하드웨어",
+  "저장·안정성",
+  "개발·PM·테스트",
+  "프로젝트 관리",
+  "SW공학·테스트",
+  "인공지능",
+  "확률·통계",
+] as const;
 
 /** 바닥판 10줄 — 에세이 대신 한 줄씩만. */
 const FLOOR = [
@@ -129,11 +266,37 @@ const FLOOR = [
   "CA는 몸(하드웨어), OS는 관리인(소프트웨어). 하드웨어가 제공, OS가 활용.",
 ];
 
+const COURSE_LABEL: Record<string, string> = {
+  OS: "운영체제",
+  CA: "컴퓨터구조",
+  PM: "프로젝트관리",
+  SE: "SW공학",
+  AI: "인공지능",
+  ST: "확률·통계",
+};
+const COURSE_KEYS = ["전체", "OS", "CA", "PM", "SE", "AI", "ST"] as const;
+
 export default function BasicsPage() {
+  const [tab, setTab] = useState<"book" | "easy">("book");
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<(typeof CATS)[number]>("전체");
+  const [course, setCourse] = useState<(typeof COURSE_KEYS)[number]>("전체");
 
-  const list = useMemo(() => {
+  // ① 교재 정의 — 서브노트 정의문 원문. 검색은 제목·정의·키워드 전부에 건다.
+  const bookList = useMemo(() => {
+    const needle = q.trim().toLowerCase();
+    return SUBNOTES.filter(
+      (s) =>
+        (course === "전체" || s.course === course) &&
+        (!needle ||
+          s.title.toLowerCase().includes(needle) ||
+          s.definition.toLowerCase().includes(needle) ||
+          s.keywords.some((k) => k.toLowerCase().includes(needle))),
+    );
+  }, [q, course]);
+
+  // ② 왕초보 용어 — 손으로 쓴 보조 사전.
+  const easyList = useMemo(() => {
     const needle = q.trim().toLowerCase();
     return TERMS.filter(
       (t) =>
@@ -149,45 +312,126 @@ export default function BasicsPage() {
     <div>
       <PageHeader
         title="🧱 용어 사전"
-        desc="서브노트를 읽다 모르는 말이 나오면 여기서 찾고 바로 복귀하세요. 정의는 전문용어 없이 씁니다."
+        desc="기본은 교재 정의문 그대로 — 답안 서론에 쓰는 그 문장입니다. 낱말이 어려우면 왕초보 탭에서 찾으세요."
       />
 
-      {/* 검색 — 이 페이지의 존재 이유 */}
       <div className="sticky top-14 z-[5] -mx-1 mb-4 rounded-2xl border border-slate-200 bg-white/95 p-3 shadow-sm backdrop-blur">
+        {/* 탭 — 교재 정의가 기본 */}
+        <div className="mb-2 grid grid-cols-2 gap-1 rounded-xl bg-slate-100 p-1">
+          {(
+            [
+              ["book", "📒 교재 정의", SUBNOTES.length],
+              ["easy", "🐣 왕초보 용어", TERMS.length],
+            ] as const
+          ).map(([k, t, n]) => (
+            <button
+              key={k}
+              onClick={() => setTab(k)}
+              className={`rounded-lg px-3 py-1.5 text-sm font-semibold transition ${
+                tab === k ? "bg-white text-brand-700 shadow-sm" : "text-slate-500"
+              }`}
+            >
+              {t} <span className="text-xs font-normal text-slate-400">{n}</span>
+            </button>
+          ))}
+        </div>
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder="🔍 모르는 용어를 검색 — 예: 페이지 폴트, 세마포어, 오버헤드"
+          placeholder={
+            tab === "book"
+              ? "🔍 토픽·정의·키워드 검색 — 예: RAG, 교착상태, 몬테카를로"
+              : "🔍 모르는 낱말 검색 — 예: 오버헤드, 임베딩, p값"
+          }
           className="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-[15px] outline-none focus:border-brand-400"
           autoFocus
         />
         <div className="mt-2 flex flex-wrap gap-1.5">
-          {CATS.map((c) => (
-            <button
-              key={c}
-              onClick={() => setCat(c)}
-              className={`rounded-full px-2.5 py-1 text-xs font-medium ${
-                cat === c
-                  ? "bg-brand-600 text-white"
-                  : "border border-slate-200 text-slate-500 hover:bg-slate-50"
-              }`}
-            >
-              {c}
-            </button>
-          ))}
+          {tab === "book"
+            ? COURSE_KEYS.map((c) => (
+                <button
+                  key={c}
+                  onClick={() => setCourse(c)}
+                  className={`rounded-full px-2.5 py-1 text-xs font-medium ${
+                    course === c
+                      ? "bg-brand-600 text-white"
+                      : "border border-slate-200 text-slate-500 hover:bg-slate-50"
+                  }`}
+                >
+                  {c === "전체" ? "전체" : COURSE_LABEL[c]}
+                </button>
+              ))
+            : CATS.map((c) => (
+                <button
+                  key={c}
+                  onClick={() => setCat(c)}
+                  className={`rounded-full px-2.5 py-1 text-xs font-medium ${
+                    cat === c
+                      ? "bg-brand-600 text-white"
+                      : "border border-slate-200 text-slate-500 hover:bg-slate-50"
+                  }`}
+                >
+                  {c}
+                </button>
+              ))}
           <span className="ml-auto self-center text-xs text-slate-400">
-            {list.length}개
+            {tab === "book" ? bookList.length : easyList.length}개
           </span>
         </div>
       </div>
 
-      {list.length === 0 ? (
+      {tab === "book" ? (
+        bookList.length === 0 ? (
+          <p className="rounded-2xl border border-slate-200 bg-white p-6 text-sm text-slate-500">
+            &lsquo;{q}&rsquo; 에 해당하는 교재 토픽이 없어요. 왕초보 탭도 확인해 보세요.
+          </p>
+        ) : (
+          <div className="space-y-2.5">
+            {bookList.map((s) => (
+              <div
+                key={`${s.course}-${s.title}`}
+                className="rounded-xl border border-slate-200 bg-white p-4"
+              >
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="rounded bg-brand-50 px-1.5 py-0.5 text-[10px] font-bold text-brand-600 ring-1 ring-brand-200">
+                    {COURSE_LABEL[s.course]}
+                  </span>
+                  <b className="text-[15px] text-slate-900">{s.title}</b>
+                  <span className="ml-auto flex gap-1.5">
+                    <Link
+                      href={`/explain?topic=${encodeURIComponent(s.title)}`}
+                      className="rounded-md border border-slate-200 px-2 py-0.5 text-[11px] font-medium text-slate-600 hover:bg-slate-50"
+                    >
+                      💡 설명
+                    </Link>
+                    <Link
+                      href={`/mnemonic?topic=${encodeURIComponent(s.title)}`}
+                      className="rounded-md bg-brand-600 px-2 py-0.5 text-[11px] font-medium text-white hover:bg-brand-700"
+                    >
+                      🥷 암기
+                    </Link>
+                  </span>
+                </div>
+                {/* 교재 정의문 원문 — 이 문장이 곧 답안 서론이다 */}
+                <p className="mt-1.5 text-[13.5px] leading-relaxed text-slate-800">
+                  {s.definition}
+                </p>
+                {s.keywords.length > 0 && (
+                  <p className="mt-1.5 text-xs text-slate-400">
+                    {s.keywords.join(" · ")}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        )
+      ) : easyList.length === 0 ? (
         <p className="rounded-2xl border border-slate-200 bg-white p-6 text-sm text-slate-500">
           &lsquo;{q}&rsquo; 는 아직 사전에 없어요. 어떤 문장에서 만났는지 알려주시면 추가합니다.
         </p>
       ) : (
         <div className="grid grid-cols-1 gap-2.5 md:grid-cols-2">
-          {list.map((t) => (
+          {easyList.map((t) => (
             <div
               key={t.ko}
               className="rounded-xl border border-slate-200 bg-white p-3.5"

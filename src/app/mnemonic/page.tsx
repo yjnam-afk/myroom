@@ -377,6 +377,24 @@ function GroupCard({
   hideDesc?: boolean;
   originBadge?: boolean;
 }) {
+  // 인출 연습 — 두음이 없어도(특히 없을수록) '가리고 떠올리기'가 페이지의 본체다.
+  // shown: 전부 보임(첫 학습) / hint: 첫 글자만(인출 연습) / hidden: 전부 가림(시험 직전)
+  const [mode, setMode] = useState<"shown" | "hint" | "hidden">("shown");
+  const [revealed, setRevealed] = useState<Set<number>>(new Set());
+  const practicing = mode !== "shown";
+  const toggleRow = (i: number) => {
+    if (!practicing) return;
+    setRevealed((prev) => {
+      const next = new Set(prev);
+      next.has(i) ? next.delete(i) : next.add(i);
+      return next;
+    });
+  };
+  const setPractice = (m: "shown" | "hint" | "hidden") => {
+    setMode(m);
+    setRevealed(new Set());
+  };
+  const doneCnt = revealed.size;
   return (
     <div className="space-y-3">
       <div className="rounded-2xl border border-brand-200 bg-gradient-to-br from-brand-50 to-slate-50 p-5 text-center shadow-sm">
@@ -393,11 +411,38 @@ function GroupCard({
             {group.mnemonic}
           </div>
         ) : (
-          <div className="mt-1 text-base font-bold text-slate-500">
-            두음 없음 — 항목 {group.items.length}개를 그대로 외웁니다
+          <div className="mt-1 text-base font-bold text-slate-600">
+            두음 없음 — 첫 글자만 보고 떠올리는 연습으로 외웁니다
           </div>
         )}
         <p className="mt-1 text-xs text-slate-600">{group.mnemonicHow}</p>
+        {/* 인출 연습 모드 — 보기 → 첫 글자 → 전부 가림 순으로 강도를 올린다 */}
+        <div className="mt-3 flex flex-wrap items-center justify-center gap-1.5">
+          {(
+            [
+              ["shown", "👀 모두 보기"],
+              ["hint", "💡 첫 글자만"],
+              ["hidden", "🙈 모두 가리기"],
+            ] as const
+          ).map(([m, t]) => (
+            <button
+              key={m}
+              onClick={() => setPractice(m)}
+              className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
+                mode === m
+                  ? "bg-brand-600 text-white"
+                  : "border border-slate-300 bg-white text-slate-500 hover:border-brand-400"
+              }`}
+            >
+              {t}
+            </button>
+          ))}
+          {practicing && (
+            <span className="ml-1 self-center text-[11px] text-slate-400">
+              떠올린 뒤 줄을 눌러 확인 · {doneCnt}/{group.items.length}
+            </span>
+          )}
+        </div>
       </div>
       <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         <table className="w-full text-sm">
@@ -409,17 +454,36 @@ function GroupCard({
             </tr>
           </thead>
           <tbody>
-            {group.items.map((it, i) => (
-              <tr key={i} className="border-t border-slate-100">
-                <td className="px-4 py-3 text-center text-lg font-bold text-brand-600">
-                  {it.initial}
-                </td>
-                <td className="px-4 py-3 font-medium text-slate-900">{it.term}</td>
-                {!hideDesc && (
-                  <td className="px-4 py-3 text-slate-600">{it.desc}</td>
-                )}
-              </tr>
-            ))}
+            {group.items.map((it, i) => {
+              const open = !practicing || revealed.has(i);
+              return (
+                <tr
+                  key={i}
+                  onClick={() => toggleRow(i)}
+                  className={`border-t border-slate-100 ${
+                    practicing ? "cursor-pointer select-none hover:bg-brand-50/40" : ""
+                  } ${practicing && open ? "bg-emerald-50/50" : ""}`}
+                >
+                  <td className="px-4 py-3 text-center text-lg font-bold text-brand-600">
+                    {mode === "hidden" && !open ? "?" : it.initial}
+                  </td>
+                  <td className="px-4 py-3 font-medium text-slate-900">
+                    {open ? (
+                      it.term
+                    ) : (
+                      <span className="inline-block rounded-md bg-slate-100 px-2 py-0.5 tracking-widest text-slate-400">
+                        {mode === "hint" ? `${it.initial} ▢▢▢` : "▢▢▢▢"}
+                      </span>
+                    )}
+                  </td>
+                  {!hideDesc && (
+                    <td className={`px-4 py-3 text-slate-600 ${open ? "" : "blur-[5px]"}`}>
+                      {it.desc}
+                    </td>
+                  )}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

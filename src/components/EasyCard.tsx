@@ -27,9 +27,7 @@ export default function EasyCard({
         <h3 className="mb-2 text-sm font-bold text-amber-800">
           🍯 쉬운 설명 — 이게 무슨 소리냐면
         </h3>
-        <p className="whitespace-pre-line text-[15px] leading-[1.9] text-slate-800">
-          {extra.easy}
-        </p>
+        <EasyProse text={extra.easy} />
       </section>
     );
   }
@@ -152,5 +150,68 @@ export default function EasyCard({
         </div>
       </div>
     </section>
+  );
+}
+
+/**
+ * 줄글 easy 텍스트를 읽히게 렌더링한다.
+ * 벽돌 문단 대신: 첫 문장은 리드로 키우고, 나머지는 문장 단위 불릿으로 끊는다.
+ * [두음]과 「'따옴표'」 강조는 굵게 표시해 눈이 걸리게 한다.
+ */
+function EasyProse({ text }: { text: string }) {
+  // 괄호 안 마침표(2025.04)와 소수점(0.5, v3.1)은 지키고,
+  // '마침표 + 공백/끝'인 진짜 문장 경계에서만 자른다.
+  const sentences: string[] = [];
+  let buf = "";
+  let depth = 0;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    buf += ch;
+    if (ch === "(" || ch === "[") depth++;
+    else if (ch === ")" || ch === "]") depth = Math.max(0, depth - 1);
+    else if (
+      (ch === "." || ch === "!" || ch === "?") &&
+      depth === 0 &&
+      (i === text.length - 1 || text[i + 1] === " ")
+    ) {
+      sentences.push(buf.trim());
+      buf = "";
+    }
+  }
+  if (buf.trim()) sentences.push(buf.trim());
+  const [lead, ...rest] = sentences;
+
+  const emphasize = (s: string, key: number) => {
+    // [두음] 토큰을 굵은 배지로
+    const parts = s.split(/(\[[^\]]{2,20}\])/g);
+    return (
+      <span key={key}>
+        {parts.map((p, i) =>
+          /^\[[^\]]+\]$/.test(p) ? (
+            <b key={i} className="rounded bg-amber-100 px-1 font-bold text-amber-800">
+              {p}
+            </b>
+          ) : (
+            p
+          ),
+        )}
+      </span>
+    );
+  };
+
+  return (
+    <div className="text-[15px] leading-[1.85] text-slate-800">
+      {lead && <p className="font-semibold text-slate-900">{emphasize(lead, -1)}</p>}
+      {rest.length > 0 && (
+        <ul className="mt-2 space-y-1.5">
+          {rest.map((s, i) => (
+            <li key={i} className="flex gap-2">
+              <span className="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-amber-400" />
+              <span>{emphasize(s, i)}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }
