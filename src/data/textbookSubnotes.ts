@@ -13056,6 +13056,363 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
     notes: ["SDN 구조: Application Plane → Control Plane →(Openflow)→ Data Plane (S/W 영역과 H/W 영역 분리)", "NFV 구조: VNF들이 NFVI(가상화 인프라) 위에서 동작하고 NFV MANO가 관리"],
   },
+  {
+    title: "NWDAF(Network Data Analytics Function)",
+    course: "NW",
+    definition:
+      "네트워크 운영 중 발생하는 다양한 정보를 수집해 AI 모델을 만들고, 이 모델을 기반으로 네트워크를 실시간으로 제어 기능을 수행하는 3GPP에서 정의한 표준 기술이며 네트워크 장비",
+    defShort: "네트워크 데이터로 AI 모델을 만들어 실시간 제어하는 3GPP 장비",
+    keywords: ["AnLF", "MTLF", "DCCF", "ADRF", "MFAF"],
+    tables: [
+      {
+        caption: "표준 기능 — 분석·학습",
+        headers: ["구분", "핵심 기능", "설명"],
+        rows: [
+          ["AnLF(Analytics Logical Function)", "분석 논리 함수 / 머신 러닝(Machine Learning) 기반 추론", "추론을 수행하는 NWDAF의 논리적 기능으로, 분석 정보를 도출하고(즉, Analytics Consumer 요청을 기반으로 통계 및/또는 예측을 도출) 분석 서비스를 제공. 분석 요청을 수집하고 소비자에게 응답을 보내는 역할"],
+          ["MTLF(Model Training Logical Function)", "모델 학습 논리 함수 / 머신 러닝(Machine Learning) 학습", "머신 러닝(Machine Learning) 모델을 학습하고, 새롭게 학습된 ML 모델을 제공. 모델 추론 마이크로 서비스를 학습하고 배포"],
+        ],
+      },
+      {
+        caption: "표준 기능 — 데이터 관리",
+        headers: ["구분", "핵심 기능", "설명"],
+        rows: [
+          ["DCCF(Data Collection Coordination and Delivery Function)", "데이터 요청 관리", "동일 요청이 있을 경우 기존의 결과를 NWDAF에 직접 전송. 동일 요청이 아닐 경우 데이터 공급자(OAM/NF)로부터 데이터 전송 수행"],
+          ["ADRF(Analytical Data Repository Function)", "분석 데이터 저장소", "필요한 과거 데이터를 저장"],
+          ["MFAF(Messaging Framework Adaptor Function)", "메시징 프레임워크 어댑터 기능", "수집된 데이터를 NWDAF(AnLF)에게 전달"],
+        ],
+      },
+    ],
+    notes: ["구성도: NWDAF(MTLF) ⇄ Model Microservice(Train & Deploy Model) / NWDAF(AnLF)가 Model Endpoint·Prediction 이용 → NF(Analytical Consumer)가 Request Analytics → DCCF → MFAF ⇄ ADRF, OAM/NF(Data Provider)가 Initiate data transfer"],
+  },
+  {
+    title: "네트워크 지능",
+    course: "NW",
+    definition:
+      "네트워크 제어 및 운용·관리 기술을 AI 기술을 기반으로 자율의사결정 방법에 따라 완전 자동화 방식으로 운용되는 네트워크",
+    defShort: "AI 자율의사결정으로 제어·운용을 완전 자동화한 네트워크",
+    keywords: ["SDN/VNF", "인공지능/머신러닝", "클라우드·엣지 컴퓨팅 기술", "OAM", "MANO"],
+    tables: [
+      {
+        caption: "적용 기술 — 기술 요소",
+        headers: ["핵심요소", "설명"],
+        rows: [
+          ["인공지능/머신러닝", "네트워크 상태 정보나 실시간 이벤트, 로그와 같은 데이터 자동 수집. 수집된 데이터에 대한 분석 및 의사결정 지원. 네트워크 환경, 서비스 품질에 따른 분석모델 결정"],
+          ["빅데이터 분석기술", "데이터 수집, 분석 및 통계 정보 제공. 대용량 데이터, 다양한 분야별 데이터 유형의 다양성, 데이터 생성 시간의 가속화 및 빠른 변화 등 특성을 지닌 데이터를 효과적으로 처리"],
+          ["클라우드·엣지 컴퓨팅 가상화 기술", "다수의 기능과 작업공간을 구현하고 가변적으로 컴퓨팅 자원을 할당하여 AI 플랫폼을 역할 및 용도에 맞게 집중형·분산형으로 배치할 수 있는 하드웨어 플랫폼을 제공"],
+          ["SDN/NFV", "네트워크 지능 기술을 위한 기반 환경 제공. 네트워크 제어 및 정책에 대한 실시간 적용과 소프트웨어 기반의 유연한 네트워크 구조 제공"],
+        ],
+      },
+      {
+        caption: "관리 요소",
+        headers: ["핵심요소", "설명"],
+        rows: [
+          ["폐쇄형 반복 제어(Closed-loop control)", "데이터 자동 수집 → 인공지능 기술을 이용한 데이터 분석 → 분석 결과를 통한 자율의사 결정 → 피드백 등의 과정을 반복하여 자동적으로 네트워크가 최적의 상태로 제어 및 관리될 수 있도록 하는 방식"],
+          ["OAM / MANO", "생성된 의사결정 및 정책에 대하여 네트워크 내 물리자원과 가상자원에 실시간으로 적용 및 관리"],
+        ],
+      },
+      {
+        caption: "활용 분야",
+        headers: ["구분", "활용 분야"],
+        rows: [
+          ["네트워크 인프라 관리", "데이터 센터간 정책기반 트래픽 조정, 피크 트래픽 처리, 데이터 센터 내 에너지 절감"],
+          ["네트워크 운용", "정책기반 IP 주소관리, 무선 커버리지/용량 최적화, 지능기반 소프트웨어 롤아웃(Rollout), 네트워크 슬라이싱 보안 강화, 지능기반 프론트 홀 관리 및 오케스트레이션"],
+          ["서비스 오케스트레이션", "상황인지 VoLTE 서비스 최적화, 지능형 네트워크 슬라이싱 관리, 지능형 SD-WAN 관리"],
+          ["서비스/요구사항 보장", "네트워크 오류 식별 및 예측, 서비스 요구사항 보장"],
+        ],
+      },
+    ],
+    notes: ["개념도: Open AI/ML Services/Engine(Network Big data Analytics, AI/ML #1~#N) ↔ Prediction Self-decision → Closed-Loop Control & Management ⇄ Virtualized resources(VNF, Network slice instance) → Physical resources(Computing/Network Infrastructure), 우측에 MANO/OSS/BSS/NMS 오케스트레이션"],
+  },
+  {
+    title: "6G",
+    course: "NW",
+    definition:
+      "5G의 20Gbps보다 50배 빠른 1Tbps 최대 전송 용량과 10배 우수한 1Gbps 사용자 체감 속도 등을 지원하는 이동 통신 기술",
+    defShort: "5G보다 50배 빠른 1Tbps 전송 용량의 차세대 이동통신 기술",
+    keywords: ["초대역", "초성능", "초공간", "초정밀", "초지능", "초현실"],
+    tables: [
+      {
+        caption: "6G 이동통신 비전",
+        headers: ["비전", "6G 이동통신 기술", "기술설명 및 성능 목표"],
+        rows: [
+          ["초성능", "Tbps급 무선 통신 기술 / Tbps급 광통신 인프라 기술", "최대 속도 1Tbps, 사용자 체감 전송속도 1Gbps 이상 지원"],
+          ["초대역", "6G 이동통신 지원 RF 기술 / 6G 주파수 확보 기술", "100GHz 대역 이상의 주파수 대역, 대역폭 수십 GHz"],
+          ["초현실", "초실감 3차원 공간 미디어 / 6G 방송·통신 융합 미디어 기반 전송 기술", "실시간 홀로그램 등을 지원, 초실감형 커뮤니케이션 구현"],
+          ["초지능", "지능형 무선 엑세스 네트워크 기술", "통신 시스템의 특정 부분을 기계 학습을 통해 구현하여 실시간 요구하는 통신 시스템에 적용"],
+          ["초정밀", "6G 네트워크 종단간 초저지연, 고정밀, 고가용 네트워크 기술", "무선 구간 지연 0.1msec, 종간 간 지연 수 msec"],
+          ["초공간", "3차원 공간 이동체 브로드밴드 무선통신 기술", "지원속도 1000km 이하, 지원 고도 지상 10km 이하"],
+        ],
+      },
+      {
+        caption: "5G와 차이점 비교",
+        headers: ["비교 항목", "6G 이동통신", "5G 이동통신", "차이점"],
+        rows: [
+          ["활용대역", "100GHz 대역 이상", "100GHz 대역 이하", "100GHz 대역 이상"],
+          ["대역폭", "수십GHz", "수GHz", "5G 대비 10배"],
+          ["최대전송속도", "1Tbps", "20Gbps", "5G 대비 50배"],
+          ["체감전송속도", "1Gbps", "100Mbps", "5G 대비 10배"],
+          ["무선구간지연", "0.1ms 이하", "1ms 이하", "5G 대비 1/10배"],
+          ["단말기밀도", "100만개/km3", "100만개/km2", "3차원 공간 확장"],
+          ["이동가능속도", "1000km/h", "500km/h", "5G 대비 2배"],
+          ["측위 정확도", "10cm(옥내)/1m(옥외)", "1m~3m", "옥내, 옥외 구분"],
+        ],
+      },
+      {
+        caption: "6G 이동통신 지원 기술",
+        headers: ["기반 기술", "설명"],
+        rows: [
+          ["테라 헤르츠 대역 지원 기술", "0.1~10THz 대역을 활용 위한 기반 기술. 5G보다 더 심각한 경로 손실 및 대기 흡수 현상으로 인한 커버리지 보장 위한 RF 소자, 안테나, 신규 파형, 빔포밍(Beamforming) 기술 (4G ~6GHz, 5G ~110GHz, 6G ~3,000GHz)"],
+          ["통신-컴퓨팅 융합", "모바일 홀로그램, XR, 디지털 복제등 초고속 연산을 고성능의 컴퓨팅 장치가 설치된 네트워크에서 수행하고 이를 다시 단말기로 제공하는 통신-컴퓨팅 융합 기술"],
+          ["네이티브 AI", "6G 초기부터 통신 시스템의 다양한 구성 요소에 AI를 내장하여 활용"],
+          ["주파수 공유", "여러 시스템간 주파수 공유를 가능케 하는 CBRS(Citizens Broadband Radio Service) 시스템 도입 예상"],
+          ["안테나 기술", "THz 대역의 어려운 전파특성에 대처하기위해 기존 5G Massive MIMO 보다 더 많은 안테나를 사용할 수 있도록 하는 기술"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "디지털 트윈 네트워크(Digital Twin Network)",
+    course: "NW",
+    definition:
+      "물리적 네트워크를 실시간 복제하여 6G 무선네트워크의 설계, 진단, 분석, AI/ML 기반 실시간 최적화 및 제어를 하기 위한 네트워크",
+    defShort: "물리 네트워크를 실시간 복제해 진단·최적화하는 네트워크",
+    keywords: ["물리적 네트워크", "가상 네트워크", "Network Application Layer", "Digital Twin Layer", "Physical Network Layer"],
+    tables: [
+      {
+        caption: "디지털 트윈 네트워크 특징",
+        headers: ["특징", "설명"],
+        rows: [
+          ["데이터", "디지털 트윈 네트워크 시스템을 구성하기 위한 기본 요소. 물리적 네트워크에서 수집된 데이터는 통합 데이터 저장소인 가상 트윈 네트워크에 저장되어 적시에 정확한 데이터 모델 제공"],
+          ["매핑(mapping)", "물리적 네트워크와 가상 트윈 네트워크 간의 실시간 인터랙티브 매핑으로 네트워크 시뮬레이션 시스템과 구별되는 특징"],
+          ["모델", "디지털 트윈 네트워크에 다양한 모델을 내장하고 이를 유연하게 결합하여 네트워크 애플리케이션을 지원"],
+          ["인터페이스", "물리적 네트워크와 가상 트윈 네트워크를 연결하고, 애플리케이션 부분 인터페이스(application bound interface)는 가상 트윈 네트워크와 네트워크 애플리케이션 간 정보 교환"],
+        ],
+      },
+      {
+        caption: "참조 아키텍처 구성요소 — 계층",
+        headers: ["구성 요소", "설명"],
+        rows: [
+          ["6G 물리적 네트워크", "물리적 네트워크 요소와 운영 환경으로 구성된 실제 6G 네트워크 대상(target). 디지털 트윈 계층과 데이터 및 제어 메시지를 교환"],
+          ["6G 디지털 트윈 — 데이터 도메인", "데이터 수집, 저장, 서비스 및 관리 기능 수행 (데이터, 모델, 관리의 3가지 도메인으로 구성)"],
+          ["6G 디지털 트윈 — 모델 도메인", "수집된 데이터를 기반으로 물리적 네트워크에서 실제 객체를 나타내는 모델로 구성"],
+          ["6G 디지털 트윈 — 관리 도메인", "모델 관리와 보안 관리 등의 관리 기능 수행"],
+          ["6G 네트워크 애플리케이션", "6G 디지털 트윈 계층에 인텐트(intent)를 이용하여 필요한 서비스를 에뮬레이트(emulate)하고, 필요한 경우 제어 메시지를 6G 물리 네트워크 계층에 전송"],
+        ],
+      },
+      {
+        caption: "참조 아키텍처 구성요소 — 기능",
+        headers: ["구성 요소", "설명"],
+        rows: [
+          ["데이터", "수집 대상, 시기, 방법과 저장 위치, 액세스 방법을 제공 및 결정하고 데이터를 관리"],
+          ["모델", "AI 기반 에뮬레이션, 시각화 및 제어를 통해 생성된 물리적으로 정확한 모델링과 기능적 표현으로 구성"],
+          ["인터페이스", "상호 운용이 가능한 디지털 트윈 네트워크(Digital Twin Network) 에코시스템이나 멀티벤더(multi-vendor)를 지원하는 기능 제공"],
+        ],
+      },
+    ],
+    notes: ["참조 아키텍처: Network application(Network innovation·visualization·validation·management·optimization) ↕ Capability exposure/Intent input ↕ Network digital twin(Unified data repository + Unified data models(Basic/Functional model) + DT entity Mgmt) ↕ Data collection/Control ↕ Physical network"],
+  },
+  {
+    title: "비지상네트워크(NTN, Non-Terrestrial Networks)",
+    course: "NW",
+    definition:
+      "지상 네트워크가 도달하기 어려운 지역(해상, 산간, 오지 등)이나 광범위한 서비스 제공이 필요한 지역(항공, 재난 지역 등)에 5G 서비스를 제공하기 위해 위성, 고고도 플랫폼(HAPS), 드론 등 비지상 네트워크를 이용하는 기술",
+    defShort: "위성·HAPS·드론으로 지상 밖 지역에 5G를 제공하는 기술",
+    keywords: ["5G", "3GPP", "GEO", "LEO", "서비스 링크", "피더 링크", "위성간 링크", "Transparent", "Regenerative"],
+    tables: [
+      {
+        caption: "구성요소",
+        headers: ["내역", "설명"],
+        rows: [
+          ["사용자 단말 (UE)", "5G 서비스를 이용하는 스마트폰, 태블릿, IoT 기기 등"],
+          ["피더 링크(Feeder Link)", "위성과 게이트웨이 사이의 링크이며 3GPP 또는 3GPP가 아닌 라디오 인터페이스를 적용"],
+          ["서비스 링크(Service Link)", "단말과 위성 사이의 링크이며 3GPP에서 정의하는 NR에 기반"],
+          ["위성 간 링크", "위성 간 링크"],
+          ["Transparent 위성 / Regenerative 위성", "정지궤도 위성, 저궤도 위성 등 다양한 종류의 위성을 활용하여 넓은 지역에 서비스를 제공"],
+          ["고고도 플랫폼(HAPS)", "성층권에 떠 있는 비행선이나 드론으로, 특정 지역에 집중적으로 서비스를 제공"],
+          ["드론(UAV)", "저고도에서 운용되며, 특정 지역에 한시적으로 서비스를 제공하거나 이동 중 통신을 지원"],
+        ],
+      },
+      {
+        caption: "기술요소",
+        headers: ["내역", "설명"],
+        rows: [
+          ["전송 기술", "위성/성층권 이동통신(HAPS)/드론과 지상 간의 데이터 통신을 위한 기술 (빔포밍, MIMO 등)"],
+          ["네트워크 제어", "NTN 환경에서 효율적인 네트워크 관리 및 자원 할당 기술"],
+          ["보안", "NTN 통신 보안을 위한 기술 (인증, 암호화 등)"],
+          ["위치 추적", "위성/성층권 이동통신(HAPS)/드론의 위치를 정확하게 파악하고 추적하는 기술"],
+        ],
+      },
+    ],
+    notes: ["아키텍처: GEO/MEO/LEO 궤도 위성 + ISL(위성간 링크), HAPS·UAV, Feeder link·Service link·Air-to-ground, NTN backhaul·IoT-NTN·VSAT가 Remote/Rural/Urban area의 지상 네트워크 구성요소와 연동"],
+  },
+  {
+    title: "Wi-Fi 7(IEEE 802.11be)",
+    course: "NW",
+    definition:
+      "Wi-Fi 6보다 전송속도가 3배 빠른 30GBps급 속도, 초실감 미디어 컨텐츠를 전송하는 차세대 무선통신 기술",
+    defShort: "Wi-Fi 6보다 3배 빠른 30Gbps급 차세대 무선통신 기술",
+    keywords: ["IEEE 802.11be", "HARQ", "4096-QAM"],
+    tables: [
+      {
+        caption: "성능 스펙",
+        headers: ["구분", "성능 Spec", "설명"],
+        rows: [
+          ["최대 속도", "30Gbps 이상", "실감형 콘텐츠 지원 위한 전송속도 확보 (3배 증가)"],
+          ["최대 대역폭", "320Mhz 이상", "30Gbps 달성 위한 최대 대역폭 허용"],
+          ["지원 주파수", "2.4Ghz, 5Ghz, 6Ghz", "비면허 대역인 6Ghz 추가로 운영 주파수 확대"],
+          ["하위 호환성", "기존 IEEE 802.11 장비 지원", "2.4, 5GHz 대역의 IEEE 802.11 장비 지원"],
+          ["기술명", "IEEE 802.11be", "IEEE 801.11be (EHT, Extremely High Throughput)"],
+          ["멀티플렉싱", "In-Band Full-Duplex Multiplexing", "AP와 클라이언트 간의 통신 과정에서 송/수신 동시 가능"],
+        ],
+      },
+      {
+        caption: "기술 요소",
+        headers: ["구분", "기술 요소", "설명"],
+        rows: [
+          ["MAC(Media Access Control)", "무선공유기(AP)간 다중협력통신", "시간, 주파수 및 공간 자원 유연성 개선을 위해 AP 간 데이터 공유 및 제어 정보 지원"],
+          ["MAC(Media Access Control)", "채널당 최대 320Mhz 대역폭", "320MHz 대역폭 및 비연속 스펙트럼의 효율적인 이용"],
+          ["MAC(Media Access Control)", "16x16 MIMO", "최대 16개의 공간 스트림 네트워크 용량 증대 및 늘어난 스트림 오버헤드 개선"],
+          ["MAC(Media Access Control)", "하이브리드 ARQ", "향상된 복호화 수행을 위한 추가 패리티를 통한 재전송 프로토콜 이용"],
+          ["PHY(Physical layer)", "혼합 빔포밍", "320Mhz 광대역을 여러 개의 협대역으로 나누어 프리코딩을 수행"],
+          ["PHY(Physical layer)", "4096 QAM", "12bit 반송파 변조를 통해 기존 1024 QAM 보다 20% 향상"],
+        ],
+      },
+      {
+        caption: "Wi-Fi 6와 Wi-Fi 7 비교",
+        headers: ["구분", "Wi-Fi 6", "Wi-Fi 7"],
+        rows: [
+          ["최대 속도", "9.6Gbps 이상", "30Gbps 이상"],
+          ["최대 대역폭", "160Mhz 이상", "320Mhz 이상"],
+          ["지원 주파수", "2.4Ghz, 5Ghz", "2.4Ghz, 5Ghz, 6Ghz"],
+          ["표준 기술명", "IEEE 802.11ax, HEW", "IEEE 802.11be, EHT"],
+          ["Antenna", "MU-MIMO(8 x 8)", "MU-MIMO(16 x 16)"],
+          ["Modulation", "1024 QAM", "4096 QAM"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "Wi-Fi 8(IEEE 802.11bn)",
+    course: "NW",
+    definition:
+      "향상된 효율성을 핵심 목표로 UHR(Ultra High Reliability, 극도로 높은 신뢰성)을 제공하는 차세대 Wi-Fi 표준",
+    defShort: "극도로 높은 신뢰성(UHR)을 목표로 하는 차세대 Wi-Fi 표준",
+    keywords: ["IEEE 802.11bn", "UHR(Ultra High Reliability)", "대역폭(2.4GHz, 5GHz, 6GHz)", "최대속도(100Gbps)"],
+    tables: [
+      {
+        caption: "성능 스펙",
+        headers: ["구분", "성능Spec", "설명"],
+        rows: [
+          ["최대 채널 대역폭(MHz)", "320", "Mbps: 초당 메가비트(Megabits per second)"],
+          ["주파수 대역(GHz)", "2.4, 5, 6", "Gbps: 초당 기가비트(Gigabits per second)"],
+          ["최대 PHY 속도", "100Gbps", ""],
+          ["변조", "4096 QAM", "QAM: 직교 진폭 변조(Quadrature Amplitude Modulation)"],
+          ["공간 스트림 수", "8", ""],
+          ["MU-MIMO", "UL & DL", "MU-MIMO: 다중 사용자 다중 입력 다중 출력. UL: (Uplink), DL: (Downlink)"],
+          ["대상 대기 시간", "협조됨", ""],
+          ["OFDMA(#RU/STA)", "다중", "OFDMA: 직교 주파수 분할 다중 접속(Orthogonal Frequency-Division Multiple Access). RU: 자원 유닛(Resource Unit), STA: 스테이션(Station)"],
+          ["멀티 링크 작동", "지원", ""],
+          ["멀티 AP 협력", "지원", ""],
+          ["DSO/NPCA", "지원", "DSO: Dynamic Spectrum Optimization(동적 스펙트럼 최적화). NPCA: Network Performance and Congestion Avoidance(네트워크 성능 및 혼잡 방지)"],
+          ["dRU", "지원", "dRU: dynamic Resource Unit(동적 자원 유닛)"],
+          ["IEEE 표준", "802.11bn", "Wi-Fi 8"],
+        ],
+      },
+      {
+        caption: "Wi-Fi 버전별 비교",
+        headers: ["구분", "Wi-Fi 4(802.11n)", "Wi-Fi 5(802.11ac)", "Wi-Fi 6(802.11ax)", "Wi-Fi 7(802.11be)", "Wi-Fi 8 예정(802.11bn)"],
+        rows: [
+          ["출시년도", "2009년", "2013년", "2019년", "2024년", "2028년"],
+          ["최대 채널 대역폭(MHz)", "40", "160", "160", "320", "320"],
+          ["주파수 대역(GHz)", "2.4, 5", "5", "2.4, 5, 6", "2.4, 5, 6", "2.4, 5, 6"],
+          ["최대 PHY 속도", "600Mbps", "4.3Gbps", "9.6Gbps", "46Gbps", "100Gbps"],
+          ["변조", "64 QAM", "256 QAM", "1024 QAM", "4096 QAM", "4096 QAM"],
+          ["공간 스트림 수", "4", "4", "8", "8", "8"],
+          ["MU-MIMO", "–", "DL only", "UL & DL", "UL & DL", "UL & DL"],
+          ["대상 대기 시간", "–", "–", "개별, 방송", "제한적", "협조적"],
+          ["OFDMA(#RU/STA)", "–", "–", "Yes(단일)", "Yes(다중)", "Yes(다중)"],
+          ["멀티 링크 작동", "–", "–", "–", "Yes", "Yes"],
+          ["멀티 AP 협력", "–", "–", "–", "–", "Yes"],
+          ["DSO/NPCA", "–", "–", "–", "–", "Yes"],
+          ["dRU", "–", "–", "–", "–", "Yes"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "Passive WiFi",
+    course: "NW",
+    definition:
+      "전력을 많이 소비하는 RF수신 장치를 별도 분리하고 후방산란 방식으로 데이터를 전달하는 기술",
+    defShort: "RF부를 분리하고 후방산란으로 데이터를 전달하는 저전력 기술",
+    keywords: ["사물인터넷", "후방산란(backscatter)", "디지털 장비", "아날로그 RF"],
+    tables: [
+      {
+        caption: "구성도",
+        headers: ["구분", "설명"],
+        rows: [
+          ["기존 와이파이", "아날로그와 디지털신호 발생장치를 한 곳에 모아놓은 현재의 와이파이 기기. Digital(Baseband)은 무어의 법칙에 따라 전력이 낮아지지만(O(10) uW) Analog(RF)는 그렇지 않음(100 mW)"],
+          ["패시브 와이파이", "아날로그 신호를 분리해서 전원에 꽂고, 전력소모가 거의 없는 패시브 와이파이(오른쪽)를 분리한 새 기술. Plugged-in Device → Passive Device → Wi-Fi Receiver"],
+        ],
+      },
+      {
+        caption: "구성요소 — 송신(Plugged-In Device)",
+        headers: ["주요 기술", "상세 내용"],
+        rows: [
+          ["RF(Radio Frequency) Transfer", "각 Array 안테나에서부터 입출력 RF 입출력 신호에 대한 Up/Down Converter RF/IF 모듈로 구성"],
+          ["RF Calibration", "각 안테나 소자의 특성 차이를 보상. 안테나 간 RF채널 송수신기의 진폭과 위상의 차이를 보정"],
+          ["MAC", "사용 가능한 사용자의 데이터베이스 유지 관리. MAC 주소 및 채널 매개변수 설정"],
+        ],
+      },
+      {
+        caption: "구성요소 — 수신",
+        headers: ["구성요소", "주요 기술", "상세 내용"],
+        rows: [
+          ["Passive Device", "후방산란(Back scattering)", "기기의 무선 신호를 직접 만들어내지 않고, 공중에 존재하는 방사된 신호를 반사해 정보를 전달하는 방식의 기술. 무선 신호를 생성하는데 전력을 소모하지 않아 초저전력으로 통신을 가능"],
+          ["Wifi Receiver", "-", "스마트 기기로 와이파이 수신"],
+        ],
+      },
+    ],
+    notes: ["후방산란: 전파 방향과 반대 방향인 입사단으로 되돌아오는 현상"],
+  },
+  {
+    title: "SDN(Software Defined Network)",
+    course: "NW",
+    definition:
+      "네트워크 제어기능(Control Plane)과 데이터 전송기능(Data Plane)을 분리하고 개방형 프로토콜을 이용하여 SW기반의 다양한 네트워크 구성 및 제어를 수행하는 네트워크 기술",
+    defShort: "제어·전송 평면을 분리해 SW로 제어하는 네트워크 기술",
+    keywords: ["Control Plane", "Data Plane", "OSS", "BSS", "오픈API플랫폼"],
+    tables: [
+      {
+        caption: "개념도 — 기존 장비 vs SDN 장비",
+        headers: ["구분", "설명"],
+        rows: [
+          ["기존 네트워크 장비", "Switch 하나에 SW 영역(Routing, QoS, Policy)과 HW 영역(Forwarding)이 함께 존재"],
+          ["SDN 네트워크 장비", "분리 → Controller의 SW 영역(Routing, QoS, Policy)과 Switch의 HW 영역(Forwarding)이 API로 연결"],
+          ["전체 구조", "Application ↔ Network OS ↔ N/W Device ↔ node. Control Plane — Open API — Data Plane — Host"],
+        ],
+      },
+      {
+        caption: "SDN 구성 요소",
+        headers: ["구성 요소", "설명", "비고"],
+        rows: [
+          ["Application", "Network OS 상위에서 사용자 서비스를 지원하는 프로그램", "SDN Application Logic"],
+          ["Interface", "Data Plane과 Control Plane간 연계", "OpenFlow"],
+          ["Control Plane", "기존 네트워크 제어기능(ACL, 라우팅 프로토콜, 인증 등)에 대한 중앙집중화 구현", "SDN Control Logic, ACL, Routing, 인증"],
+          ["Data Plane", "Openflow만을 지원하는 스위치 또는 기존 Layer2(스위칭), Layer3(라우팅) 기능을 지원하는 스위치에 Openflow 기능을 추가한 스위치로 구성. 단순 패킷 포워딩, 스위칭 기능만 구현", "Forward Engine"],
+        ],
+      },
+      {
+        caption: "SDN 구성도(3계층)",
+        headers: ["계층", "구성"],
+        rows: [
+          ["APPLICATION LAYER", "Business Applications — API로 CONTROL LAYER와 연결"],
+          ["CONTROL LAYER", "SDN Control Software + Network Services — Control Data Plane interface(e.g., OpenFlow)로 INFRASTRUCTURE LAYER와 연결"],
+          ["INFRASTRUCTURE LAYER", "Network Device 들"],
+        ],
+      },
+    ],
+  },
 ];
 
 /** topicId 로 교재 서브노트를 찾는다. */
