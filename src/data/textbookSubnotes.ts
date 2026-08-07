@@ -12446,6 +12446,114 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
     notes: ["종료가 4단계인 이유: 서버가 FIN을 받아도 아직 보낼 데이터가 남아 있을 수 있어 ACK와 FIN을 나눠 보낸다(Half-Close)", "TIME_WAIT: 마지막 ACK가 유실될 경우를 대비해 일정 시간 대기 후 완전 종료"],
   },
+  {
+    title: "TCP 혼잡제어",
+    course: "NW",
+    definition:
+      "네트워크로 유입되는 사용자 트래픽(데이터에 대한 표현)의 양이 네트워크 용량을 초과하지 않도록 유지시키는 메커니즘",
+    defShort: "트래픽 양이 네트워크 용량을 넘지 않게 유지하는 메커니즘",
+    keywords: ["Slow Start", "Congestion Avoidance", "Fast Retransmission", "Fast Recovery"],
+    tables: [
+      {
+        caption: "메커니즘 4단계",
+        headers: ["구성", "설명"],
+        rows: [
+          ["느린 출발(Slow Start)", "네트워크 연결 초기에는 CWND 크기를 전송시마다 2배씩 증가, ACK 수신 실패 시 감소시키는 전송방식"],
+          ["혼잡회피(Congestion Avoidance)", "ACK 수신 시 마다 CWND 크기를 선형적으로 증가시키는 전송방식"],
+          ["빠른 전송(Fast Retransmission)", "송신자에게 다음 수신할 Sequence Number를 알려주고 그 이후에는 Slow Start 로 전송하는 방식"],
+          ["빠른 회복(Fast Recovery)", "Fast Retransmission 통해 손실 세그먼트를 전송한 후 Congestion Avoidance를 수행하는 전송방식"],
+        ],
+      },
+      {
+        caption: "알고리즘 유형",
+        headers: ["유형", "단계", "설명"],
+        rows: [
+          ["Tahoe 알고리즘", "1 Slow start", "임계치 도달까지 윈도우 크기를 지수적으로 증가"],
+          ["Tahoe 알고리즘", "2 Congestion Avoidance", "임계치 도달 후, 윈도우 크기를 1씩 증가"],
+          ["Tahoe 알고리즘", "3 Time out", "임계치를 줄이고 재시작"],
+          ["Reno 알고리즘", "1 Slow Start", "임계치 도달까지 윈도우 크기를 지수적으로 증가"],
+          ["Reno 알고리즘", "2 Congestion Avoidance", "임계치 도달 후, 윈도우 크기를 1씩 증가"],
+          ["Reno 알고리즘", "3 Fast Recovery", "Congestion Avoidance 수행"],
+          ["New Reno 알고리즘", "Partial ACK 도입", "한 윈도우 내에 다수의 패킷 손실 발생 시 RTO 때까지 대기해야 하는 문제를 해결하기 위해 손실된 하나의 패킷 복구에 한번의 RTT 소요하는 기법"],
+        ],
+      },
+    ],
+    notes: ["메커니즘 그래프: Slow Start(지수 증가) → ssthresh 도달 → 혼잡회피(선형 증가) → 손실 발생 → Fast Retransmit → Fast Recovery(사이즈 절반에서 다시 선형적으로 증가). 초기버전이 Taho(e) TCP, 이후 버전이 Reno TCP", "위 4단계를 통해 처리하는 과정을 TCP 혼잡제어(Congestion Control)라고 함"],
+  },
+  {
+    title: "TCP 와 UDP 비교",
+    course: "NW",
+    definition: "연결 지향형인 TCP와 비 연결 지향형인 UDP 비교",
+    defShort: "연결 지향 TCP와 비연결 지향 UDP의 특성 비교",
+    keywords: ["연결지향", "순서제어", "흐름제어", "혼잡제어", "오류제어", "제어 플래그"],
+    tables: [
+      {
+        caption: "TCP와 UDP 비교",
+        headers: ["구분", "TCP", "UDP"],
+        rows: [
+          ["정의", "4계층의 통신 프로토콜", "제어용 메시지 처리나 빠른 응답을 요구하는 응용 서비스를 위하여 비연결형 설정을 제공하는 프로토콜"],
+          ["주요 기능", "연결제어, 순서제어, 흐름제어, 혼잡제어, 오류제어", "Connectionless(비신뢰성), 빠른 전송 속도, 오류 검출"],
+          ["데이터 순서", "순서 유지함", "순서 유지하지 않음"],
+          ["데이터 중복", "데이터 중복, 손실 없음", "데이터 중복, 손실 가능"],
+          ["연결지향", "연결지향", "비 연결 지향"],
+          ["전송속도", "UDP에 비해 느림", "TCP에 비해 빠름"],
+          ["에러체크", "에러검사 후 에러시 재전송", "에러 검사 후 에러 시 재전송하지 않음"],
+          ["헤더크기", "20바이트", "8바이트"],
+          ["흐름제어", "슬라이딩 윈도우(패킷 흐름 제어) 사용", "흐름제어 없음"],
+          ["사용 프로토콜", "HTTP, FTP, SMTP등", "DNS, SNMP, RIP등"],
+        ],
+      },
+      {
+        caption: "TCP 제어 플래그 (6종)",
+        headers: ["플래그", "설명"],
+        rows: [
+          ["① URG (Urgent)", "송신측 상위 계층이 긴급 데이터라고 알려주면, 긴급 비트 URG를 1 로 설정하고 순서에 상관없이 먼저 송신"],
+          ["② ACK (Acknowledgement)", "확인 응답 필드에 확인응답번호(Acknowledgement Number) 값이 셋팅 되었음을 알림"],
+          ["③ PSH (Push)", "수신 측은 버퍼가 찰 때까지 기다리지 않고, 수신 즉시 버퍼링 된 데이터를 응용프로그램에 전달"],
+          ["④ RST (Reset)", "연결확립(ESTABLISHED)된 회선에 강제 리셋 요청"],
+          ["⑤ SYN (Synchronize)", "TCP 연결설정 초기화를 위한 순서번호의 동기화"],
+          ["⑥ FIN (Finish)", "송신기가 데이터 보내기를 끝마침"],
+        ],
+      },
+      {
+        caption: "헤더 구조",
+        headers: ["구분", "구성"],
+        rows: [
+          ["TCP 헤더 (20 byte, 무옵션시)", "발신지 포트 주소 / 목적지 포트 주소 / Sequence number / Acknowledgement number / HLEN(4bits) · 예약(6bits) · 제어플래그(URG ACK PSH RST SYN FIN) / Window size / Checksum / Urgent pointer / Options and Padding"],
+          ["UDP 헤더 (8 byte)", "송신지 포트 번호(16비트) / 수신지 포트 번호(16비트) / 전체 길이(16비트) / 검사합(16비트)"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "IPv4와 IPv6 터널링",
+    course: "NW",
+    definition:
+      "IPv6/IPv4 호스트와 라우터에서 IPv6 데이터 그램을 IPv4 패킷에 캡슐화하여 IPv4 라우팅 토폴로지 영역을 통해 전송하는 방법",
+    defShort: "IPv6 데이터그램을 IPv4 패킷에 캡슐화해 전송하는 전환 방법",
+    keywords: ["듀얼 스택", "터널링", "주소 변환"],
+    tables: [
+      {
+        caption: "유형",
+        headers: ["유형", "설명"],
+        rows: [
+          ["듀얼 스택(Dual Stack, 라우팅 관점)", "IP계층에서 IPv4와 IPv6의 기능 모두 설치(IPv4/IPv6 라우터에 장착). DNS 주소 해석라이브러리(DNS Resolver Library)가 두가지 유형 모두 지원 필요. 프로토콜 스택 수정으로 인한 과다한 비용"],
+          ["터널링(Tunneling, 네트워크)", "트래픽이 IPv6망에서 인접한 IPv4망을 거쳐서 건너편 IPv6망으로 통과할 때 IPv4망에 터널을 만들어 IPv6 패킷을 통과시키는 개념. IPv6 노드 간에 IPv6 패킷을 IPv4 패킷 속에 포함시켜서 IPv4망으로 전달"],
+          ["주소 변환(Address Translation, G/W 방식)", "IPv4망과 IPv6망 사이 주소변환기를 사용하여 상호 연동하는 기술. IPv4/IPv6 호스트의 프로토콜 스택에 대한 수정 불필요. 구현이 용이(변환방식 투명, 변환 절차 간단)"],
+        ],
+      },
+      {
+        caption: "주소 변환 방식",
+        headers: ["방식", "설명"],
+        rows: [
+          ["헤더변환(Header Conversion)방식", "IPv6 헤더를 IPv4 헤더로(또는 그 반대로) 직접 변환"],
+          ["수송계층 릴레이(Transport Relay)방식", "전송 계층에서 양쪽 연결을 중계"],
+          ["응용계층 게이트웨이(ALG: Application-Level Gateway) 방식", "응용 프락시 서버가 HTTP 등 응용 계층에서 중계 — IPv6측 HTTP/TCP/IPv6 ↔ IPv4측 HTTP/TCP/IPv4"],
+        ],
+      },
+    ],
+    notes: ["터널링 개념도: Node A(IPv6/IPv4) → IPv4 Infrastructure 구간에 IPv6 Over IPv4 Tunnel 생성 → IPv4/IPv6 Router → IPv4 or IPv6 Infrastructure → Node B(IPv6)"],
+  },
 ];
 
 /** topicId 로 교재 서브노트를 찾는다. */
