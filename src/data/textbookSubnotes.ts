@@ -13413,6 +13413,105 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
     ],
   },
+  {
+    title: "IoT Matter",
+    course: "NW",
+    definition:
+      "CSA(Connectivity Standards Alliance) 단체가 개발한 IoT 기기간 연결과 연동을 제공하는 IP 기반 응용계층 개방형 IoT 통합 표준 프로토콜",
+    defShort: "IoT 기기 연동을 위한 IP 기반 개방형 통합 표준 프로토콜",
+    keywords: ["스마트홈", "IP 기반 IoT 프로토콜", "Wi-Fi", "Thread"],
+    tables: [
+      {
+        caption: "프로토콜 스택",
+        headers: ["계층", "구성"],
+        rows: [
+          ["Application", "Matter"],
+          ["Transport", "TCP/IP, UDP (우측으로 Bluetooth LE 별도 스택)"],
+          ["Network", "IPv6"],
+          ["Link", "Wi-Fi | Thread"],
+          ["Radio", "802.11 | 802.15.4"],
+          ["IoT Devices", "Matter-enabled Products"],
+        ],
+      },
+      {
+        caption: "기술 요소",
+        headers: ["계층", "기술요소", "설명"],
+        rows: [
+          ["Application", "Matter Application", "IP기반으로 통신, 어플리케이션 계층에서 서비스 처리하여, 다양한 스마트홈 디바이스 연동문제를 해결"],
+          ["Transport", "TCP/IP", "연결지향성을 통해 신뢰성 있는 전송계층 프로토콜, 매터의 안전성 제공"],
+          ["Transport", "UDP", "대량의 데이터 전송 가능한 비연결지향 통신 프로토콜"],
+          ["Network", "IPv6", "IoT 기기별 IP주소제공, 확장 헤더를 가지는 128bit 인터넷 주소체계"],
+          ["Radio", "Wi-Fi(802.11)", "Wi-Fi 6 기반, 댁내 밀집된 사용자 환경에서 기기간 영향 최소화. 동영상 등 고속 통신이 필요한 디바이스를 위해 사용함"],
+          ["Radio", "Thread(802.15.4)", "메쉬(Mesh) 지원으로 SPOF 방지, 최대 64개 라우터 메쉬 구성 가능. IPv6을 사용하며, 배터리로 동작하는 저전력 디바이스를 위해 사용"],
+          ["Radio", "BLE", "스마트 홈 플랫폼에 디바이스 provisioning 용도로 사용"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "오픈플로우(OpenFlow)",
+    course: "NW",
+    definition:
+      "네트워크 장비의 패킷 포워딩 기능과 컨트롤러 기능을 표준 인터페이스로 분리하여 네트워크 개방성을 제공하는 기술로서 SDN(Software Defined Network) 컨트롤러와 네트워크 장치 간의 인터페이스 규격",
+    defShort: "SDN 컨트롤러와 네트워크 장치 간의 표준 인터페이스 규격",
+    keywords: ["OpenFlow Controller", "Switch", "Flow Table", "Group Table", "OpenFlow Channel", "Pipelining"],
+    tables: [
+      {
+        caption: "구성 요소 — Controller",
+        headers: ["구성요소", "설명"],
+        rows: [
+          ["OpenFlow Controller", "OpenFlow Protocol을 통하여 OpenFlow Switch와 상호작용. 다수의 OpenFlow 논리적 스위치를 제어하는 소프트웨어"],
+        ],
+      },
+      {
+        caption: "구성 요소 — Protocol",
+        headers: ["구성요소", "설명"],
+        rows: [
+          ["OpenFlow Protocol", "OpenFlow Switch와 OpenFlow Controller사이의 통신 규약. 3개의 메시지 타입 지원 — ① Controller-to-Switch: Controller에 의해 시작, Switch 상태 확인, 제어(전송, 수정, 폐기 등) 처리 ② Asynchronous: Switch에 의해 시작, 네트워크와 스위치 상태 변경 등을 Controller에 Update ③ Symmetric: Switch나 Controller에 의해 시작, 요청 없이 전송"],
+        ],
+      },
+      {
+        caption: "구성 요소 — Switch",
+        headers: ["구성요소", "설명"],
+        rows: [
+          ["OpenFlow Channel", "Controller가 Switch를 관리하기 위하여 사용하는 OpenFlow Control와 OpenFlow Switch 사이의 인터페이스"],
+          ["Flow Table", "다수의 Flow entry로 구성되었으며, 파이프라인(Pipeline)으로 처리. Flow entry 구성: match fields(패킷 일치), counters(통계), instructions(패킷과 entry 일치 시 실행 내용)"],
+          ["Group Table", "다수의 Group entry로 구성. Group entry 구성: Group Identifier, Group Type, Counters(패킷 처리 통계), Action Buckets(실행 집합과 변수 등)"],
+        ],
+      },
+    ],
+    notes: ["구성도: Controller들 ⇄ OpenFlow Protocol ⇄ OpenFlow Switch. Switch 내부는 Control Channel(OpenFlow Channel들)과 Datapath(Group Table, Meter Table), 그리고 Port ─ Flow Table → Flow Table → … → Flow Table ─ Port 로 이어지는 Pipeline 구조"],
+  },
+  {
+    title: "SD-WAN(Software Defined-Wide Area Network)",
+    course: "NW",
+    definition:
+      "데이터센터·기업·대학 등의 LAN에서 Data Plane과 Control Plane을 분리하는 SDN을 통신망 사업자와 서비스 제공자 등의 WAN(Wide Area Network)으로 확장 적용한 네트워크 기술",
+    defShort: "SDN을 WAN 구간으로 확장 적용한 네트워크 기술",
+    keywords: ["SD-WAN Controller", "SD-WAN Edge", "VPN"],
+    tables: [
+      {
+        caption: "기술 요소 — 장비 측면",
+        headers: ["기술요소", "설명"],
+        rows: [
+          ["SD-WAN Controller", "액세스 노드의 네트워크 및 정책 설정. 네트워크 토폴로지 관리. QoS 및 액세스에 대한 정책 설정 및 배포, 사용량 및 성능 보고"],
+          ["SD-WAN CPE(SD-WAN Edge)", "별도의 CPE 장비 또는 범용 서버에 가상화된 VNF 로 구현. 가상의 오버레이 네트워크를 생성해내기 위한 라우팅 및 터널링 엔진. 방화벽, 보안, 암호화, WAN 최적화(캐싱, 압축, 에러 정정, 로드밸런싱)"],
+        ],
+      },
+      {
+        caption: "기술 요소 — 트래픽(Traffic) Control",
+        headers: ["기술요소", "설명"],
+        rows: [
+          ["Dynamic Path Switching", "여러 경로 중에 한 경로의 성능이 저하될 경우 다른 경로를 선택해 트래픽을 스위칭"],
+          ["Packet Duplication", "중요한 패킷의 경우 여러 경로에 중복으로 패킷을 전송해서 한 경로의 패킷이 중간에 유실되어도 다른 경로에서 들어온 온전한 패킷을 사용해 통신"],
+          ["Link Aggregation", "물리적인 여러 회선을 논리적인 하나의 회선으로 만들어 대역폭을 확장하는 기술(Traffic Load Balancing, Tunnel Bonding)"],
+          ["Network Segmentation", "LAN에서는 세그먼트 별로 VLAN을 할당하여 LAN망을 논리적으로 분리(Segmentation)하고, 각 세그먼트 간에 통신이 필요한 경우는 해당 트래픽 Flow를 Firewall에 등록하여 세그먼트간 통신하는 기술"],
+          ["트래픽 스티어링(Traffic Steering)", "각 지점에서 발생한 트래픽을 분석(식별)해서 어플리케이션 별로 경로 설정"],
+        ],
+      },
+    ],
+    notes: ["구성도: Control Plane에 SD-WAN Controller(모니터링 및 관제, 정책설정 및 라우팅) — Data Plane에서 Site A의 SD-WAN CPE ↔ MPLS망/Internet망 두 경로(Overlay Tunnel) ↔ Site B의 SD-WAN CPE"],
+  },
 ];
 
 /** topicId 로 교재 서브노트를 찾는다. */
