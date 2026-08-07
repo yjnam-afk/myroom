@@ -199,18 +199,10 @@ function ExplainInner() {
                     </p>
                   )}
                   {!!textbook.features?.length && (
-                    <div className="mt-2">
-                      <span className="text-[13px] font-bold text-amber-700">특징</span>
-                      <ul className="mt-1 space-y-1">
-                        {textbook.features.map((f) => (
-                          <li key={f.name} className="text-[13px] leading-relaxed text-slate-700">
-                            <span className="font-semibold text-slate-900">— {f.name}</span>
-                            <span className="text-slate-400"> · </span>
-                            {f.desc}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    <p className="mt-1.5 text-[13px] leading-relaxed text-slate-800">
+                      <span className="mr-1 font-bold text-amber-700">특징</span>
+                      {textbook.features.join(" · ")}
+                    </p>
                   )}
                 </div>
               )}
