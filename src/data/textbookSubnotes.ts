@@ -13730,6 +13730,89 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
     ],
   },
+  {
+    title: "Sliding Window & 네이글(Nagle's) 알고리즘",
+    course: "NW",
+    definition:
+      "윈도우 크기를 활용한 흐름제어 기법과 Ack 수신에 따라 패킷 수를 조절하여 네트워크 부하를 감소시키는 알고리즘",
+    defShort: "윈도우로 흐름을 제어하고 패킷 수를 줄이는 부하 감소 기법",
+    keywords: ["윈도우 열림, 닫힘, 축소 동작", "수신 Window Size만큼 전송", "송신 데이터 종료 시 즉시 전송", "데이터 축적 후 전송"],
+    tables: [
+      {
+        caption: "Sliding Window 개요",
+        headers: ["구분", "설명"],
+        rows: [
+          ["정의", "수신 측에서 설정한 윈도우 크기만큼 송신 측에서 확인 응답(ACK) 없이 전송할 수 있도록 흐름을 동적으로 조절하는 제어 알고리즘"],
+          ["개념도", "Window num = Min(cwnd, rwnd). 윈도우 크기 안에서 [ACK응답 수신 완료] [ACK 미수신(전송된 데이터)] [즉시 전송 가능 데이터] [ACK 응답 수신 후 전송 가능 데이터] 로 구간이 나뉘며, 왼쪽 경계는 '닫힘', 오른쪽 경계는 '열림'"],
+        ],
+      },
+      {
+        caption: "Sliding Window 동작 매커니즘",
+        headers: ["동작 방식", "설명"],
+        rows: [
+          ["Window 열림", "수신측 으로부터 ACK가 도착하여 윈도우의 오른쪽 경계가 오른쪽으로 이동(데이터 전송량 증가)"],
+          ["Window 닫힘", "데이터가 전송된 후 ACK를 수신하여 윈도우의 왼쪽 경계가 오른쪽으로 이동하는 동작(전송의 정상 완료)"],
+          ["Window 축소", "전송할 데이터의 적합성 문제 또는 윈도우 크기 변경으로 오른쪽 경계가 왼쪽 이동"],
+        ],
+      },
+      {
+        caption: "네이글 알고리즘",
+        headers: ["구분", "설명"],
+        rows: [
+          ["정의", "전송 패킷의 크기가 매우 작은 경우 여러 패킷을 모아서 전송함으로써 네트워크의 패킷 수를 줄여 네트워크 부하를 감소하는 기법"],
+          ["개념도", "Nagle 적용 시: Client가 data1 전송 후 delay를 두고 ACK를 기다렸다가 data2 전송. None Nagle: Client가 data를 연달아 전송하고 ACK를 나중에 한 번에 수신"],
+        ],
+      },
+      {
+        caption: "네이글 알고리즘 동작 매커니즘",
+        headers: ["동작 방식", "설명"],
+        rows: [
+          ["수신 Window Size만큼 전송", "상대방이 수신 가능한 Window Size보다 송신할 최대 세그먼트 크기(Maximum Segment Size)가 클 경우 Window Size만큼 바로 전송"],
+          ["송신 데이터 종료 시 즉시 전송", "더 이상 송신할 패킷이 없으면 현재 buffer data 전송"],
+          ["데이터 축적 후 전송", "이 외에 Ack가 올 때까지 buffer에 데이터를 축적 후 ack 수신 시 buffer의 data 송신"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "BGP(Border Gateway Protocol)",
+    course: "NW",
+    definition:
+      "AS(Autonomous System) 번호가 서로 다른 네트워크 간에 라우팅 정보를 주고 받기 위해 Open, Update 패킷 이용, 라우팅 우선순위는 Weight, Local Preference 매트릭으로 이용하는 Exterior Gateway 라우팅 프로토콜",
+    defShort: "AS 간 라우팅 정보를 교환하는 Exterior Gateway 프로토콜",
+    keywords: ["iBGP", "eBGP", "Path Vector", "AS", "Local Preference", "MED"],
+    tables: [
+      {
+        caption: "구성도 (RFC 1771, 4271)",
+        headers: ["구분", "설명"],
+        rows: [
+          ["내부 iBGP", "같은 AS 번호를 사용하는 내부 네트워크는 iBGP로 구현 (예: AS 200 내부의 ALU-D·ALU-E·ALU-F, AS 100 내부의 ALU-A·ALU-B·ALU-C)"],
+          ["외부 eBGP", "다른 AS 번호간 연결 외부네트워크는 eBGP로 구현 (AS 200 ↔ AS 100)"],
+        ],
+      },
+      {
+        caption: "기술 요소 — 경로 속성",
+        headers: ["기술 요소", "설명"],
+        rows: [
+          ["Next-Hop", "BGP 정보를 전송하는 라우터의 IP 주소. 목적지까지 가는 경로의 필수 경유 라우터의 주소를 말함"],
+          ["Local Preference", "외부로 나가는 경로의 우선 순위 값(기본값 100)"],
+          ["AS-Path", "해당 목적지 AS 도착시 경유되는 AS 번호들. 개수가 작을수록 짧은 경로로 판단되어 선택"],
+          ["MED", "Multi-Exit-Discriminator. 인입 경로 다중일 경우 우선 순위 값"],
+        ],
+      },
+      {
+        caption: "기술 요소 — 프로토콜 메시지",
+        headers: ["기술 요소", "설명"],
+        rows: [
+          ["Open", "TCP 포트번호 179번을 이용한 회선 연결 시도를 위한 오픈 메시지. 라우터간에 BGP Neighbor 설정(이웃관계의 설정)을 위해 사용"],
+          ["Update", "BGP 정보 교환 및 정보 갱신을 위해 비정기적 사용. 도달 가능성 정보를 전송"],
+          ["Notification", "문제가 발생 및 이웃관계의 단절을 알리는데 사용"],
+          ["Keepalive", "BGP Neighbor 라우터 Health Check 메시지"],
+          ["Route-Refresh", "BGP Neighbor 라우터 정보 재확인 목적"],
+        ],
+      },
+    ],
+  },
 ];
 
 /** topicId 로 교재 서브노트를 찾는다. */
