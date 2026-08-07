@@ -123,9 +123,11 @@ function Calendar({
                 ? "border-emerald-200 bg-emerald-50"
                 : day?.kind === "open"
                   ? "border-dashed border-slate-300 bg-white"
-                  : day?.kind === "rest"
-                    ? "border-slate-200 bg-slate-50"
-                    : "border-transparent bg-white";
+                  : day?.kind === "class"
+                    ? "border-indigo-200 bg-indigo-50"
+                    : day?.kind === "rest"
+                      ? "border-slate-200 bg-slate-50"
+                      : "border-transparent bg-white";
           const body = (
             <div
               className={`flex h-full min-h-[62px] flex-col rounded-lg border p-1 text-left ${tone} ${
@@ -152,6 +154,11 @@ function Calendar({
               {day?.kind === "review" && (
                 <span className="mt-0.5 text-[9px] font-semibold text-emerald-700">
                   🔁 회독
+                </span>
+              )}
+              {day?.kind === "class" && (
+                <span className="mt-0.5 text-[9px] font-semibold text-indigo-700">
+                  🏫 학원
                 </span>
               )}
               {day?.kind === "rest" && (

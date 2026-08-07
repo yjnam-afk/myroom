@@ -12230,6 +12230,222 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
     notes: ["개념도: <START>에서 A(0.5)·C(0.4) 선택 → A는 AB(0.2)·AE(0.25)로, C는 후보 탈락(X) → AB→ABC(0.16), AE→AED(0.2) → Candidate Sequences: A,C → AB,AE → ABC,AED", "Beam size가 1이면 그리디 알고리즘과 같고, 무한대면 완전 탐색(BFS)과 같다 — K가 클수록 정확하지만 계산량 증가"],
   },
+  {
+    title: "CSMA/CA",
+    course: "NW",
+    definition:
+      "무선 LAN 환경에서 충돌 감지가 어려운 특성을 고려하여, 전송 전에 회선을 감시하고 충돌을 사전에 회피하는 매체 접근 제어 프로토콜",
+    defShort: "무선 환경에서 전송 전 충돌을 사전 회피하는 매체 접근 제어",
+    keywords: ["충돌 회피", "IFS", "RTS/CTS", "NAV", "Back-off", "ACK"],
+    tables: [
+      {
+        caption: "CSMA/CD와 CSMA/CA 비교",
+        headers: ["구분", "CSMA/CD", "CSMA/CA"],
+        rows: [
+          ["적용 환경", "유선 LAN(이더넷)", "무선 LAN(Wi-Fi)"],
+          ["핵심 개념", "충돌 검출(Collision Detection) — 충돌이 나면 감지하고 재전송", "충돌 회피(Collision Avoidance) — 충돌 자체가 나지 않도록 사전 예방"],
+          ["충돌 감지", "전송 중 신호를 감시하여 충돌 감지 가능", "송신 중 자기 신호가 커서 타 신호 감지 곤란(Hidden Node 문제)"],
+          ["주요 기법", "Jam 신호 전송 후 Back-off 대기", "IFS 대기 + Back-off + RTS/CTS 예약 + ACK 확인"],
+        ],
+      },
+      {
+        caption: "주요 기술 요소",
+        headers: ["요소", "설명"],
+        rows: [
+          ["IFS(Inter Frame Space)", "채널이 유휴 상태가 되어도 곧바로 보내지 않고 일정 시간 대기 — 우선순위 부여"],
+          ["Back-off", "IFS 후에도 임의의 시간을 추가로 대기하여 동시 전송 확률을 낮춤"],
+          ["RTS/CTS", "송신 요청(RTS)과 수신 준비 완료(CTS)를 주고받아 채널을 예약 — 히든 노드 문제 해결"],
+          ["NAV(Network Allocation Vector)", "RTS/CTS를 엿들은 다른 단말이 그 시간 동안 전송을 자제하도록 하는 가상 반송파 감지"],
+          ["ACK", "무선은 충돌 감지가 불가하므로 수신 측 ACK로 성공 여부 확인, 미수신 시 재전송"],
+        ],
+      },
+    ],
+    notes: ["핵심 한 줄: 유선은 부딪히면 알아채고 다시 보내지만(CD), 무선은 부딪혔는지 알 수 없으니 아예 안 부딪히게 예약하고 확인받는다(CA)"],
+  },
+  {
+    title: "다중화(Multiplexing)",
+    course: "NW",
+    definition:
+      "여러 신호를 동시에 송수신할 수 있도록, 하나의 전송로를 분할시켜, 다수의 채널로 분할하여 전송하는 기술",
+    defShort: "하나의 전송로를 분할해 여러 신호를 동시 전송하는 기술",
+    keywords: ["FDM", "TDM", "SDM", "CDM", "WDM"],
+    tables: [
+      {
+        caption: "다중화 종류",
+        headers: ["종류", "설명"],
+        rows: [
+          ["FDM(주파수)", "공통 채널을 효율적으로 이용하기 위해, 전송매체를 주파수 분할로 전송. 넓은 대역폭을 나눠서 사용"],
+          ["TDM(시간)", "시간분할 된 타임슬롯을 전송 하는 방식. 하나의 회선을 시간간격으로 분할"],
+          ["CDM(코드)", "상호 직교성이 있는 코드를 이용하여 전송하는 방식. 확산 대역(Spread Spectrum)을 사용하여 전송"],
+          ["WDM(파장)", "손실이 적은 주파수 대역 이용. 파장이 다른 광 신호를 한 가닥의 광섬유에 다중화"],
+          ["SDM(공간)", "공간적으로 분리된 다수의 물리 채널을 마치 하나의 채널인 것처럼 만들어진 논리적 채널로 전송"],
+        ],
+      },
+      {
+        caption: "다중화 vs 다원접속",
+        headers: ["구분", "다중화(Multiplexing)", "다원접속(Multiple Access)"],
+        rows: [
+          ["목적", "전송매체의 효율적 이용, 통신비용 절감", "한정된 자원의 공동 이용, 사용자의 구분"],
+          ["송신측", "데이터 송신 지점이 한 곳, 동일 지점에서 데이터를 모아 송출", "데이터 송신 지점이 여러 곳, 독립된 각 터미널에서 송출"],
+          ["다중화", "단일 송신국에서 신호가 다중화 되어 발신", "여러 단말기 신호가 다중화되어 발신"],
+          ["기술유형", "FDM, TDM, CDM, WDM, SDM", "FDMA, TDMA, CDMA, WDMA"],
+          ["전파방향", "하향 Down-LINK", "상향 UP-LINK"],
+        ],
+      },
+    ],
+    notes: ["개념도: 데이터1·2·3을 각각 타임슬롯으로 분할(시분할액세스 TDMA) → 기지국에서 다중화하여 하나의 캐리어로 송신(시분할다중 TDM) → 수신 측은 자기에게 전송된 프레임을 수신"],
+  },
+  {
+    title: "서비스 프리미티브(Service Primitive)",
+    course: "NW",
+    definition:
+      "네트워크 계층화 아키텍처에서 한 계층이 서비스를 수행하기 위해 다른 계층을 필요로 할 때 계층간 통신 서비스 기본형식",
+    defShort: "계층 간 통신 서비스를 요청·응답으로 규정한 기본형식",
+    keywords: ["요구(Request)", "지시(Indication)", "응답(Response)", "확인(Confirm)"],
+    tables: [
+      {
+        caption: "종류",
+        headers: ["종류", "설명"],
+        rows: [
+          ["요청(Request)", "상위계층이 하위계층에게 데이터의 전송을 요구하거나 연결설정을 요청할 때 사용하는 서비스"],
+          ["지시(Indication)", "하위계층이 상위계층에게 데이터의 도착이나 연결설정의 요청이 있음을 알려주는 서비스"],
+          ["응답(Response)", "지시에 따른 데이터의 처리나 연결설정을 알리는 서비스로 상위의 계층이 하위계층에게 알리는 서비스"],
+          ["확인(Confirm)", "처음의 요청에 응답이 왔음을 알리는 서비스로 하위계층이 상위계층에게 알리는 서비스"],
+        ],
+      },
+      {
+        caption: "표현 사례 — T.CONNECT.request(called address, calling address, …, user data)",
+        headers: ["구분", "설명", "예"],
+        rows: [
+          ["① 서비스 제공 계층", "어느 계층이 제공하는 서비스인지", "L: Link Layer, N: Network Layer, T: Transport Layer, S: Session Layer"],
+          ["② 수행되는 동작 이름", "무슨 동작인지", "CONNECT, DATA 등"],
+          ["③ 프리미티브 방향", "요청·지시·응답·확인 중 어느 것인지", "Request, Indication, Response, Confirmation"],
+          ["④ 파라미터", "함께 전달하는 값", "주소, 사용자 데이터, 원하는 서비스 형태, 데이터 최대크기 등"],
+        ],
+      },
+    ],
+    notes: ["동작 흐름: 송신측 상위계층 1.Request(하향) → 수신측 하위계층 2.Indication(상향) → 수신측 3.Response(하향) → 송신측 4.Confirm(상향)", "표현 예 해석: Transport 계층(T)에서 접속(CONNECT)을 요구(Request)하면서, 착·발신 주소를 알려주며 사용자 데이터를 송부"],
+  },
+  {
+    title: "OSI 7 Layer (ISO 7498)",
+    course: "NW",
+    definition: "국제표준기구(ISO)에서 표준화된 네트워크 구조를 제시한 기본 모델",
+    defShort: "ISO가 표준화한 네트워크 구조의 7계층 기본 모델",
+    keywords: ["[아파서티내다]", "Application", "Presentation", "Session", "Transport", "Network", "Data Link", "Physical"],
+    tables: [
+      {
+        caption: "계층별 역할과 프로토콜 [아파서티내다]",
+        headers: ["계층", "상세설명", "프로토콜"],
+        rows: [
+          ["7계층 Application", "사용자가 네트워크에 접근할 수 있도록 해주는 계층. 사용자 인터페이스, 전자우편, 데이터베이스 관리서비스", "HTTP, SMTP, SNMP, FTP, Telnet, NFS, RTSP, NTP"],
+          ["6계층 Presentation", "운영체제의 한 부분으로 I/O 데이터를 표현 형태로 변환. 번역을 수행하여 두 장치가 일관되고 이해할 수 있음", "JPEG, MPEG, XDR, SMB, AFP"],
+          ["5계층 Session", "통신세션을 구성하는 계층으로 포트연결 확인. 통신 장치 간의 상호작용을 설정하고 유지하며 동기화", "TLS, SSH, RPC, NetBIOS, AppleTalk"],
+          ["4계층 Transport", "전체 메시지를 발신지 대 목적지간 제어와 에러 관리. 패킷들의 전송 유효확인, 실패한 패킷은 재전송하여 신뢰성 있는 통신 보장. 머리말에는 세그먼트가 포함", "TCP, UDP, RTP, SCTP, SPX"],
+          ["3계층 Network", "다중 네트워크 링크에서 패킷을 목적지로 전달. 패킷이 시작시점에서 최종 목적지까지 성공적으로 전달되도록 관리", "IP, ICMP, IGMP, X.25, CLNP, ARP, RARP, BGP, OSPF, RIP, IPX, DDP"],
+          ["2계층 Data Link", "오류 없이 한 장치에서 다른 장치로 프레임을 전달. 스위칭 테이블을 참조하여 입력되는 패킷의 MAC 주소를 보고 해당 포트로 패킷 전송", "PPP, HDLC, Ethernet, TokenRing, ISDN, FDDI"],
+          ["1계층 Physical", "물리적 매체를 통해 비트(Bit)흐름 전송. 장치 간의 물리적 접속을 제어하기 위한 기능 제공", "RS-232C, 광 섬유, 동축케이블, ISDN, DSL"],
+        ],
+      },
+      {
+        caption: "계층별 데이터 단위와 장비",
+        headers: ["구분", "내용"],
+        rows: [
+          ["데이터 단위(PDU)", "Transport = segment, Network = packet, Data Link = frame, Physical = bits"],
+          ["중계 장비", "Router(3계층), Bridge(2계층), Repeater(1계층)"],
+          ["캡슐화/역캡슐화", "송신측은 계층을 내려가며 헤더 정보를 붙이고(캡슐화), 수신측은 올라가며 헤더를 벗김(역캡슐화)"],
+        ],
+      },
+    ],
+    notes: ["OSI 7 Layer는 각 계층마다 특정한 서비스를 제공하고, 이를 위한 각각 프로토콜이 존재함"],
+  },
+  {
+    title: "HTTP/3",
+    course: "NW",
+    definition:
+      "UDP+TLS 웹 페이지 로딩 시간 개선과 동시에 혼잡제어 및 손실 복구 가능한 구글 QUIC 기반의 응용계층 프로토콜",
+    defShort: "QUIC(UDP+TLS1.3) 기반으로 지연을 줄인 응용계층 프로토콜",
+    keywords: ["QUIC(QUICK UDP Internet Connections)", "TLS 1.3", "UDP", "HTTP 1.1 HOL 블로킹 문제 해결", "0-RTT", "1-RTT Handshake"],
+    tables: [
+      {
+        caption: "프로토콜 스택",
+        headers: ["구분", "HTTP/2", "HTTP/3"],
+        rows: [
+          ["스택 구성", "HTTP/2 → TLS → TCP → IP", "HTTP over QUIC → QUIC(TLS 1.3 + TCP-like congestion control, loss recovery) → UDP → IP"],
+          ["특징", "TCP 기반", "UDP와 TLS1.3 통해 성능과 보안성 향상. QUIC 기반 연결 및 전송 지연 최소화"],
+        ],
+      },
+      {
+        caption: "특징",
+        headers: ["특징", "설명"],
+        rows: [
+          ["0-RTT/1-RTT 연결", "UDP 기반 이전 연결의 캐시된 자격 증명 사용"],
+          ["HOL 블로킹 해결", "다중 Stream 제공 및 개별 Stream 내에서 흐름 제어 제공"],
+          ["멀티 스트리밍 전송", "멀티 플렉싱된 스트림 통해 트래픽 손실 최소화"],
+          ["Selective ACK(SACK)", "오류 발생시 재전송 통해 에러 복구"],
+          ["Seamless Connection", "Connection ID 사용, IP·Port 변경 시에도 지속적 연결 유지"],
+          ["보안성 강화", "두 번째 패킷부터 0-RTT, 1개의 패킷 전달을 통해 암호화된 연결 설정함"],
+        ],
+      },
+      {
+        caption: "동작 과정",
+        headers: ["구분", "동작 과정", "설명"],
+        rows: [
+          ["Initial 1-RTT Handshake", "Inchoate CHLO(Client Hello)", "시작을 알리는 Inchoate(시작 단계). 암호화되지 않은 CHLO 패킷을 전송"],
+          ["Initial 1-RTT Handshake", "Rejection", "서버 설정과 암호화된 토큰을 포함한 패킷 전송"],
+          ["Initial 1-RTT Handshake", "Complete CHLO", "연결 완료, 이후부터 암호화된 통신 가능"],
+          ["Successful 0-RTT Handshake", "Complete CHLO", "이전 연결 시 캐싱된 자격증명을 사용해서 Encrypted Request를 서버로 바로 전송 가능"],
+          ["Rejected 0-RTT Handshake", "1-RTT Handshake 재 수행", "캐싱된 정보가 오래된 경우에 수행하는 동작, 이때에는 1-RTT 재 수행"],
+        ],
+      },
+      {
+        caption: "HOL(Head Of Line) 블로킹",
+        headers: ["설명"],
+        rows: [
+          ["패킷을 대기 행렬에 큐잉하여 FIFO처리함 (대기열의 머리에 있는 패킷은 대기열의 끝에 있는 패킷보다 먼저 전달)"],
+          ["순차 처리 제약으로 인해 머리가 처리 되지 않으면 후속 패킷은 대기하게 됨"],
+          ["동일한 송신 포트에 대한 처리량 경쟁으로 처리량 지연 및 프레임 손실 발생"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "TCP 연결의 설정 및 해제(Handshaking)",
+    course: "NW",
+    definition: "TCP 세션 수립 및 종료를 위해 수행하는 절차",
+    defShort: "TCP 세션의 수립(3-way)과 종료(4-way)를 위한 절차",
+    keywords: ["3-way handshake와 4-way handshake", "신뢰성", "연결지향적", "SYN", "ACK", "FIN", "데이터그램"],
+    tables: [
+      {
+        caption: "3-way handshake (TCP 세션 수립)",
+        headers: ["단계", "설명"],
+        rows: [
+          ["초기연결시도", "Client는 접속하고자 하는 서버의 포트번호와 클라이언트의 초기순서번호(Init Sequence Number)를 지정한 SYN 세그먼트를 전송"],
+          ["서버응답", "서버의 초기순서번호(ISN)를 포함한 자신의 SYN세그먼트로 응답. 클라이언트의 ISN + 1 ACK를 보냄으로써 클라이언트의 SYN에 확인 응답"],
+          ["클라이언트 응답", "클라이언트는 서버로부터 보내온 SYN에 대하여 서버의 ISN + 1 ACK로 확인응답을 전송"],
+        ],
+      },
+      {
+        caption: "3-way handshake 상태 전이",
+        headers: ["Client state", "동작", "Server state"],
+        rows: [
+          ["Closed → SYN-SENT", "Connect() → SYN(a)", "LISTEN → SYN-RECVED"],
+          ["SYN-SENT", "← SYN(b) + ACK(a+1)", "SYN-RECVED"],
+          ["→ ESTABLISHED", "ACK(b+1) →", "→ ESTABLISHED (accept() return)"],
+        ],
+      },
+      {
+        caption: "4-way handshake (TCP 세션 종료)",
+        headers: ["단계", "설명"],
+        rows: [
+          ["연결종료 요청", "client가 Server에게 연결 종료를 요청 (FIN 전송, FIN_WAIT_1)"],
+          ["서버 ACK 신호", "서버는 바로 종료하지 않고 ACK를 전송해 CLOSE_WAIT 상태로 넘어감 (Client는 FIN_WAIT_2)"],
+          ["서버 FIN 신호", "잔여 작업 종료후 서버는 FIN 신호를 보내고 연결 종료 시도 (LAST_ACK)"],
+          ["클라이언트 ACK", "클라이언트는 서버의 FIN을 잘 받았다는 ACK를 서버에게 보내고, 클라이언트의 ACK를 받으면 서버는 종료 (Client는 TIME_WAIT → CLOSED, Server는 CLOSED)"],
+        ],
+      },
+    ],
+    notes: ["종료가 4단계인 이유: 서버가 FIN을 받아도 아직 보낼 데이터가 남아 있을 수 있어 ACK와 FIN을 나눠 보낸다(Half-Close)", "TIME_WAIT: 마지막 ACK가 유실될 경우를 대비해 일정 시간 대기 후 완전 종료"],
+  },
 ];
 
 /** topicId 로 교재 서브노트를 찾는다. */

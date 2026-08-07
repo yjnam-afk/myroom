@@ -21,6 +21,8 @@ export type CurriculumDay =
   | { kind: "study"; label: string; topics: CurriculumTopic[] }
   | { kind: "review"; label: string; note: string }
   | { kind: "rest"; label: string; note: string }
+  /** 학원 수업일 — 심화반 강의를 듣는 날. */
+  | { kind: "class"; label: string; note: string }
   /** 아직 토픽을 안 정한 날 — 서브노트를 올리면 study 로 채운다. */
   | { kind: "open"; label: string; note: string };
 
@@ -561,7 +563,7 @@ export const WEEKS: CurriculumWeek[] = [
       ...STUDY_DAYS,
       { kind: "review", label: "회독", note: "이번 주 선행한 토픽을 다시 돌립니다." },
       { kind: "review", label: "회독", note: "약한 토픽 위주로 한 번 더." },
-      { kind: "rest", label: "휴식", note: "쉬는 것도 공부의 일부예요." },
+      { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 선행한 내용을 강의로 확인합니다." },
     ],
   },
   {
@@ -572,7 +574,7 @@ export const WEEKS: CurriculumWeek[] = [
       ...WEEK2_DAYS,
       { kind: "review", label: "회독", note: "이번 주 선행한 토픽을 다시 돌립니다." },
       { kind: "review", label: "회독", note: "약한 토픽 위주로 한 번 더." },
-      { kind: "rest", label: "휴식", note: "쉬는 것도 공부의 일부예요." },
+      { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 선행한 내용을 강의로 확인합니다." },
     ],
   },
   {
@@ -583,7 +585,7 @@ export const WEEKS: CurriculumWeek[] = [
       ...WEEK3_DAYS,
       { kind: "review", label: "회독", note: "이번 주 선행한 토픽을 다시 돌립니다." },
       { kind: "review", label: "회독", note: "약한 토픽 위주로 한 번 더." },
-      { kind: "rest", label: "휴식", note: "쉬는 것도 공부의 일부예요." },
+      { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 선행한 내용을 강의로 확인합니다." },
     ],
   },
   {
@@ -594,7 +596,7 @@ export const WEEKS: CurriculumWeek[] = [
       ...STUDY_DAYS,
       { kind: "review", label: "회독", note: "이번 주 배운 토픽을 다시 돌립니다." },
       { kind: "review", label: "회독", note: "약한 토픽 위주로 한 번 더." },
-      { kind: "rest", label: "휴식", note: "쉬는 것도 공부의 일부예요." },
+      { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 선행한 내용을 강의로 확인합니다." },
     ],
   },
   {
@@ -605,7 +607,7 @@ export const WEEKS: CurriculumWeek[] = [
       ...WEEK2_DAYS,
       { kind: "review", label: "회독", note: "이번 주 배운 토픽을 다시 돌립니다." },
       { kind: "review", label: "회독", note: "약한 토픽 위주로 한 번 더." },
-      { kind: "rest", label: "휴식", note: "쉬는 것도 공부의 일부예요." },
+      { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 선행한 내용을 강의로 확인합니다." },
     ],
   },
   {
@@ -616,7 +618,7 @@ export const WEEKS: CurriculumWeek[] = [
       ...WEEK3_DAYS,
       { kind: "review", label: "회독", note: "이번 주 배운 토픽을 다시 돌립니다." },
       { kind: "review", label: "회독", note: "약한 토픽 위주로 한 번 더." },
-      { kind: "rest", label: "휴식", note: "쉬는 것도 공부의 일부예요." },
+      { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 선행한 내용을 강의로 확인합니다." },
     ],
   },
   {
@@ -627,7 +629,7 @@ export const WEEKS: CurriculumWeek[] = [
       ...WEEK4_DAYS,
       { kind: "review", label: "회독", note: "이번 주 선행한 토픽을 다시 돌립니다." },
       { kind: "review", label: "회독", note: "약한 토픽 위주로 한 번 더." },
-      { kind: "rest", label: "휴식", note: "쉬는 것도 공부의 일부예요." },
+      { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 선행한 내용을 강의로 확인합니다." },
     ],
   },
   {
@@ -638,7 +640,7 @@ export const WEEKS: CurriculumWeek[] = [
       ...WEEK4_DAYS,
       { kind: "review", label: "회독", note: "이번 주 배운 토픽을 다시 돌립니다." },
       { kind: "review", label: "회독", note: "약한 토픽 위주로 한 번 더." },
-      { kind: "rest", label: "휴식", note: "쉬는 것도 공부의 일부예요." },
+      { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 선행한 내용을 강의로 확인합니다." },
     ],
   },
 ];

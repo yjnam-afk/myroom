@@ -408,7 +408,7 @@ export default function Home() {
             </div>
           ) : (
             <div className="rounded-xl bg-gradient-to-br from-indigo-50 to-slate-50 p-5 text-center">
-              <p className="text-2xl">🌙</p>
+              <p className="text-2xl">{today.day.kind === "class" ? "🏫" : "🌙"}</p>
               <p className="mt-1 text-sm font-bold text-indigo-700">
                 {today.day.label}
               </p>
