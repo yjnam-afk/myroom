@@ -12924,6 +12924,138 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
     notes: ["구성도: RRH(무선부문, 리모트 라디오 헤드) ←프론트홀→ 중앙 집중화된 디지털부문(DU) → 접속노드(PoP) → 패킷 코어"],
   },
+  {
+    title: "O-RAN",
+    course: "NW",
+    definition:
+      "네트워크 장비 운용에 필요한 RAN(Radio Access Network) 구간에 가상화 기술을 적용하여 Hardware와 Software를 분리하기 위한 Apache 2.0 License의 개방형 아키텍처",
+    defShort: "RAN에 가상화를 적용해 H/W와 S/W를 분리한 개방형 아키텍처",
+    keywords: ["무선접속망(Radio Access Network) 규격 통일", "가상화", "O-RU", "O-DU", "O-CU"],
+    tables: [
+      {
+        caption: "구성 요소",
+        headers: ["구성 요소", "기반 기술", "설명"],
+        rows: [
+          ["RIC(RAN Intelligent Controller)", "RIC near-RT(Realtime), RIC non-RT(Realtime)", "데이터 수집과 분석을 기반으로 RAN 요소와 자원을 제어하고 최적화를 수행"],
+          ["O-CU(O-RAN Centralized Unit)", "RRC(Radio Resource Control), SDAP(Service Data Adaption Protocol), PDCP(Packet Data Convergence Protocol)", "RRC, PDCP 실행하는 중앙 집중 장치. CU Control Plane과 CU User Plane으로 구성. Midhaul 인터페이스 통해 여러 O-DU 제어"],
+          ["O-DU(O-RAN Distributed Unit)", "RLC(Radio Link Control), MAC(Media Access Control), High PHY", "O-RU 근처에 위치해서 RLC, MAC 및 PHY 계층 일부를 실행하는 분산 장치"],
+          ["O-RU(O-RAN Radio Unit)", "Digital Front End(DFE), RF Front End(RF FE), Low PHY, Beamforming", "안테나 근처에 위치 혹은 통합. 안테나 송수신되는 무선 신호를 Fronthaul 통해 O-DU로 전송할 수 있는 디지털 신호로 변환"],
+        ],
+      },
+      {
+        caption: "아키텍처 인터페이스",
+        headers: ["인터페이스", "구간"],
+        rows: [
+          ["A1", "Orchestration & Automation(ONAP: MANO, NMS)의 RIC non-RT ↔ RIC near-RT"],
+          ["E2", "RIC near-RT ↔ CU/DU"],
+          ["E1", "CU-CP(RRC, PDCP-C) ↔ CU-UP(SDAP, PDCP-U)"],
+          ["F1", "CU ↔ O-DU(RLC/MAC/PHY-high)"],
+          ["Open Front Haul", "O-DU ↔ O-RU(PHY-low/RF)"],
+        ],
+      },
+    ],
+    notes: ["구간 명칭: RU ←Fronthaul→ DU ←Midhaul→ CU ←Backhaul→ 5G 코어", "특정 벤더 장비에 종속되지 않도록 인터페이스를 개방 표준화한 것이 핵심 — NFVI Platform(가상화 계층 + COTS 범용 하드웨어) 위에서 동작"],
+  },
+  {
+    title: "RAN(Radio Access Network) Sharing",
+    course: "NW",
+    definition:
+      "이동통신망에서 서로 다른 사업자가 동일한 주파수 사용시 발생되는 간섭 문제 해결을 위해 기지국, 코어망, Gateway를 공유 사용하며 MOCN, MORAN, GWCN 기술 활용하는 무선 인프라 공유 기술",
+    defShort: "사업자 간 기지국·코어망을 공유하는 무선 인프라 공유 기술",
+    keywords: ["MOCN", "MORAN", "GWCN"],
+    tables: [
+      {
+        caption: "공유 방식 비교",
+        headers: ["방식", "개념", "장점", "단점"],
+        rows: [
+          ["MOCN(Multiple Operator Core Network)", "주파수, 기지국(eNB or gNB), 컨트롤러는 공유하고 코어망(EPC or 5GC)는 별도 구성하는 방식", "구현·비용 유리 — 연동 인터페이스 단순, 공유 요소 비용 절감", "차별화 어려움 — 공용 RAN 사용에 따른 서비스 품질 차별화 어려움"],
+          ["MORAN(Multiple Operator Radio Access Network)", "기지국(eNB or gNB), 컨트롤러는 공유하지만 주파수는 구분해서 사용하고 코어망(EPC or 5GC)는 별도 구성하는 방식", "차별화 가능 — 대역폭 조절에 따른 사업자간 서비스 품질 차별화 가능", "구현·비용 불리 — 공유 범위 조절에 따른 복잡성 증가 및 비용 절감 효과 저하"],
+          ["GWCN(GateWay Core Network)", "주파수, 기지국(eNB or gNB), 컨트롤러, 코어망의 MME(Mobility Management Entity), S-GW(Serving Gateway)까지 공유하고 코어망의 P-GW(PDN Gateway)는 별도 구성하는 방식", "비용 유리 — 공유 요소 증대에 따른 MOCN 대비 구축 비용 감소", "구현 불리 — 공유 요소 증대에 따른 MOCN 대비 구현 복잡성 증대"],
+        ],
+      },
+    ],
+    notes: ["공유 범위 순서: MORAN(주파수 분리) < MOCN(주파수까지 공유) < GWCN(코어망 MME·S-GW까지 공유) — 공유를 많이 할수록 비용은 줄지만 차별화는 어렵고 구현은 복잡해진다"],
+  },
+  {
+    title: "5G 특화망",
+    course: "NW",
+    definition:
+      "기존 이동통신 상용망이 아닌 전용 주파수를 통해 특정공간(건물, 시설, 장소 등)에서 수요기업이 도입하는 최첨단 서비스 구현할 수 있는 맞춤형 네트워크",
+    defShort: "전용 주파수로 특정 공간에 구축하는 기업 맞춤형 5G 네트워크",
+    keywords: ["전용 주파수", "4.7GHz", "28GHz", "자가구축", "On-Premise형", "5G Core CP 공유형", "5G Core 전체 공유형", "MEC", "SDN", "NFV", "Open RAN"],
+    tables: [
+      {
+        caption: "구성 요소",
+        headers: ["핵심 기술", "설명"],
+        rows: [
+          ["5G 주파수", "5G 주파수 or 독자 주파수 — 4.7GHz, 28GHz"],
+          ["UPF(User Plane Function)", "패킷 라우팅 및 포워딩, 패킷 검사, QoS 처리, 외부 PDU 세션 등을 담당. DN(Data Networks) 상호 연결"],
+          ["MEC(Multi-access Edge Computing)", "코어 및 인터넷망을 사용하지 않고 사용자 인접한 곳에서 MEC 서버를 통해 처리. 저지연 요구사항 만족 및 코어 및 인터넷망 혼잡 완화"],
+          ["gNB", "5G 무선 네트워크 기지국"],
+        ],
+      },
+      {
+        caption: "기술 요소",
+        headers: ["기술", "설명"],
+        rows: [
+          ["SDN", "Control plane과 Data Plane 분리 기반 SW 정의 네트워크"],
+          ["NFV", "네트워크 장비의 네트워크 기능 가상화"],
+          ["Network Slicing", "SDN, NFV 기반 물리적 네트워크의 용도별 논리적 네트워크 분리"],
+          ["Open RAN", "CU/DU/RU 분리, 개방형 표준 무선 기술"],
+          ["RAN Sharing", "사설망과 공중망 간 gNB 공유 기법"],
+        ],
+      },
+      {
+        caption: "5G 특화망 유형",
+        headers: ["구분", "유형"],
+        rows: [
+          ["자가구축", "On-Premise 형"],
+          ["이음 5G 사업자", "On-Premise 형 / 5G Core CP 공유형 / 5G Core 전체 공유형"],
+        ],
+      },
+    ],
+    notes: ["구성도: 단말 ↔ 액세스 망 ↔ 코어 망, 전체를 OSS(운영지원시스템)가 관리", "국내에서는 '이음 5G'라는 이름으로 4.7GHz·28GHz 대역을 기업에 할당"],
+  },
+  {
+    title: "네트워크 슬라이싱",
+    course: "NW",
+    definition:
+      "물리적으로 하나의 네트워크를 논리적으로 분리하여, 서로 다른 특성을 갖는 다양한 서비스에 특화된 전용 네트워크를 제공하는 5G 네트워크 핵심기술",
+    defShort: "하나의 물리 네트워크를 논리 분리해 서비스별 전용망을 제공",
+    keywords: ["SDN", "NFV", "RAN"],
+    tables: [
+      {
+        caption: "슬라이스 예시",
+        headers: ["슬라이스", "대상 서비스"],
+        rows: [
+          ["통신/인터넷망 Slice", "Mobile — 통신, 인터넷"],
+          ["물류/기후망 Slice", "Massive IoT — 물류, 기후"],
+          ["스마트카/스마트 팩토리 Slice", "Mission critical — 스마트카, 스마트 팩토리"],
+        ],
+      },
+      {
+        caption: "핵심기술 SDN",
+        headers: ["구분", "설명"],
+        rows: [
+          ["개념", "전달 및 제어 기능이 결합된 기존의 전송 장치에서 제어 기능을 분리하여 중앙 집중화하고, OpenFlow와 같은 개방형 API를 통해 Network 트래픽 전달 동작을 S/W기반 컨트롤러에서 제어하는 네트워크 기술"],
+          ["application", "Network OS 상위에서 사용자 서비스를 지원하는 프로그램"],
+          ["Control plane", "전체 망에 대한 Global View를 갖고 전체 망을 제어. Openflow Controller는 Openflow protocol을 통해 Data plane에 있는 네트워크 장비의 Flow Table 제어"],
+          ["Data plane", "단순 패킷 포워딩, 스위칭 기능만 구현. 기존 스위치 또는 Layer2(스위칭), Layer3(라우팅) 기능 지원 스위치에 OpenFlow의 기능을 추가"],
+        ],
+      },
+      {
+        caption: "핵심기술 NFV",
+        headers: ["구분", "설명"],
+        rows: [
+          ["개념", "가상화 기술을 기반으로 통신망운용에 필요한 다양한 N/W 장비내의 여러 기능(Function)들을 분리시켜 S/W로 제어 및 관리가 가능하도록 가상화하는 네트워크 기술"],
+          ["NFVI", "컴퓨팅, 저장소, 네트워크 기능을 지원하는 물리적 하드웨어 자원, 가상화 지원 기능 및 VNF 실행을 지원하는 기능"],
+          ["VNFs", "여러 응용 프로그램을 지원하기 위한 S/W 로 개발된 네트워크 기능들의 집합"],
+          ["MANO", "물리적, 소프트웨어적 자원 관리, 전달, VNF 관리 기능"],
+        ],
+      },
+    ],
+    notes: ["SDN 구조: Application Plane → Control Plane →(Openflow)→ Data Plane (S/W 영역과 H/W 영역 분리)", "NFV 구조: VNF들이 NFVI(가상화 인프라) 위에서 동작하고 NFV MANO가 관리"],
+  },
 ];
 
 /** topicId 로 교재 서브노트를 찾는다. */
