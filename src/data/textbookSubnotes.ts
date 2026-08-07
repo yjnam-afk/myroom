@@ -3998,6 +3998,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "PM",
     definition: "프로젝트에서 식별된 위험요소에 대해 상세한 대응방안을 계획하는 프로세스",
     defShort: "프로젝트에서 식별된 위험 요소마다 상세한 대응방안을 수립해 계획하는 프로세스",
+    lead:
+      "위험을 식별만 하고 두면 의미가 없으므로 유형별 대응 전략이 필요하다.",
+    features: [
+      { name: "부정적 대응 EATMA", desc: "에스컬레이션·회피·전가·완화·수용" },
+      { name: "긍정적 대응 EESEA", desc: "에스컬레이션·활용·공유·증대·수용" },
+      { name: "적극성 차이", desc: "왼쪽일수록 적극적, 오른쪽일수록 소극적 대응" },
+    ],
     keywords: [
       "부정적 (에스컬레이션, 회피, 전가, 완화, 수용)",
       "긍정적 (에스컬레이션, 활용, 공유, 증대, 수용)",
@@ -4035,6 +4042,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "PMBOK : 모든 프로젝트에 적용할 수 있는 원칙과 가치 제공에 초점을 맞춘 프로젝트 관리 지식 체계 지침서",
     defShort: "모든 프로젝트에 적용할 수 있는 원칙과 가치 제공에 초점을 맞춘 관리 지식 체계 지침서",
+    lead:
+      "프로세스 나열만으로는 다양한 프로젝트를 담지 못해 원칙 중심으로 전환되었다.",
+    features: [
+      { name: "8개 성과 영역", desc: "이팀개기 성인측불 — 무엇을 잘해야 하는가" },
+      { name: "12개 원칙", desc: "스팀이가 시리조품 복위적변 — 어떤 태도인가" },
+      { name: "가치 중심", desc: "프로세스 준수보다 가치 인도에 초점을 둠" },
+    ],
     keywords: [
       "성과: 이해관계자, 팀, 개발방식 및 생애주기, 기획, 성과, 인도, 측정, 불확실성 및 모호성 탐색",
       "원칙: 스튜어드쉽, 팀, 이해관계자, 가치, 시스템 사고, 리더쉽, 조정, 품질, 복잡성, 위험, 적응성과 복원력, 변화",
@@ -4081,6 +4095,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "감리는 기술적 측면의 평가 성격이며, PMO는 프로젝트 전 과정에 개입하는 관리적 성격이 강함",
     defShort: "기술적 측면을 평가하는 감리와 프로젝트 전 과정에 개입하는 PMO를 견준 비교표",
+    lead:
+      "프로젝트를 들여다보는 두 조직은 서 있는 자리가 달라 역할 구분이 필요하다.",
+    features: [
+      { name: "관점 차이", desc: "감리는 제3자 평가, PMO는 발주자 관점 관리" },
+      { name: "법령 근거", desc: "전자정부법 57조 의무, 64조의2 권고 사항" },
+      { name: "수행 주체", desc: "감리법인 대 컨설팅업체·회계법인·대형 SI" },
+    ],
     keywords: ["관점 차이", "법령 차이", "산출물 차이"],
     tables: [
       {
@@ -4104,6 +4125,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "PM",
     definition: "고객 요구사항에 유연한 대응을 하는 Agile 방법론의 4가지 선언문과 12 원칙",
     defShort: "고객 요구사항에 유연하게 대응하는 애자일 방법론의 4가지 선언문과 12가지 원칙",
+    lead:
+      "계획 준수 중심 개발이 잦은 요구 변경을 감당하지 못해 애자일이 등장했다.",
+    features: [
+      { name: "4대 가치", desc: "개인과 상호작용·작동SW·고객협력·변화대응" },
+      { name: "우선순위 선언", desc: "왼쪽을 버리는 것이 아니라 오른쪽을 더 중시" },
+      { name: "12원칙", desc: "고요배의 동대지소 좋단자효로 실천을 구체화" },
+    ],
     keywords: ["개인과 상호작용", "변화에 대응", "작동하는 소프트웨어", "고객과의 협력"],
     tables: [
       {
@@ -4143,6 +4171,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "작은 개발팀과 짧은 개발기간 동안 점진적, 반복적으로 SW를 개발하는 애자일 개발방법론",
     defShort: "작은 팀과 짧은 기간으로 점진적·반복적으로 SW를 개발하는 애자일 개발방법론",
+    lead:
+      "긴 개발 주기로는 변화를 반영하기 어려워 짧은 반복 주기가 요구된다.",
+    features: [
+      { name: "스프린트", desc: "2~4주 주기를 반복해 점진적으로 완성" },
+      { name: "산출물", desc: "제품 백로그와 스프린트 백로그, 번다운차트" },
+      { name: "역할 3인", desc: "제품책임자·스크럼마스터·스크럼팀" },
+    ],
     keywords: ["Product backlog", "Sprint backlog", "회의 5개 세부내용", "Burn down chart", "담당자별 역할"],
     tables: [
       {
@@ -4183,6 +4218,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "Agile 프로젝트기반 조직에서 점수(Story Point)를 산정하여 Sprint 계획대비 현재 진행을 파악할 수 있는 차트",
     defShort: "애자일 스토리 포인트를 산정해 스프린트 계획 대비 현재 진행 상황을 파악하는 차트",
+    lead:
+      "스프린트 진척을 말로만 보고하면 지연을 늦게 알게 되어 가시화가 필요하다.",
+    features: [
+      { name: "남은 일 관점", desc: "세로축 잔여 작업량을 0으로 태워 나감" },
+      { name: "계획선 비교", desc: "실제선이 계획선 위면 지연, 아래면 선행" },
+      { name: "Velocity", desc: "기울기가 곧 팀의 작업 속도를 의미함" },
+    ],
     keywords: ["스토리포인트(Story Point) 산정", "Sprint 진척율 가시화"],
     tables: [
       {
@@ -4219,6 +4261,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "의사소통과 TDD(Test driven development)를 기반으로 짧은 개발 주기를 통해 SW를 생산하는 애자일 개발 방법론",
     defShort: "의사소통과 테스트 주도 개발을 기반으로 짧은 개발 주기로 생산하는 애자일 방법론",
+    lead:
+      "의사소통 부족과 늦은 피드백이 결함을 키워 극단적 실천이 제안되었다.",
+    features: [
+      { name: "핵심 가치 5", desc: "용기·단순성·커뮤니케이션·피드백·존중" },
+      { name: "대표 실천", desc: "페어 프로그래밍·TDD·지속적 통합·리팩토링" },
+      { name: "짧은 릴리스", desc: "2주 단위 작은 릴리스와 고객 상주 운영" },
+    ],
     keywords: ["용기", "단순함", "커뮤니케이션", "피드백", "존중", "12가지 실천 항목"],
     tables: [
       {
@@ -4271,6 +4320,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "제품을 개발하는 전 과정에서 고객의 피드백을 수시로 반영하며, 불필요한 작업을 최소화하여 생산성을 높이는 것을 목표하는 방법론",
     defShort: "고객 피드백을 수시로 반영하고 불필요한 작업을 최소화해 생산성을 높이는 방법론",
+    lead:
+      "개발 과정의 낭비가 생산성을 떨어뜨려 도요타식 낭비 제거가 도입되었다.",
+    features: [
+      { name: "원칙 7가지", desc: "나배결빠 위통씨로 낭비 없는 흐름을 구축" },
+      { name: "낭비 7가지", desc: "미가재작 이지결을 제거 대상으로 규정" },
+      { name: "파생 유형", desc: "린 SW개발·린 UX·린 스타트업·린 애자일" },
+    ],
     keywords: ["나배결빠위통씨", "미가재작이지결"],
     tables: [
       {
@@ -4306,6 +4362,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "소프트웨어 개발에 관한 계획, 분석, 설계 및 구축에 관련 정형화된 방법과 절차, 도구 등이 공학적 기법으로 체계적으로 정리하여 표준화한 이론",
     defShort: "SW 개발의 계획과 분석, 설계, 구축에 관한 방법과 절차, 도구를 표준화한 이론",
+    lead:
+      "개발을 개인 역량에 맡기면 품질이 들쭉날쭉해 표준화된 방법론이 필요하다.",
+    features: [
+      { name: "구성요소 6", desc: "절차·방법·산출물·관리·기법·도구" },
+      { name: "유형 변천", desc: "구조적→정보공학→객체지향→CBD→애자일" },
+      { name: "재사용 방식", desc: "객체지향은 화이트박스, CBD는 블랙박스" },
+    ],
     keywords: ["표준화", "절방산관기도", "구정객CAP"],
     tables: [
       {
@@ -4340,6 +4403,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "소프트웨어 시스템을 효율적으로 설계하고 개발하여 복잡성을 줄이고 품질을 높이기 위해 지켜야 할 기본적인 지침과 규칙",
     defShort: "시스템의 복잡성을 줄이고 품질을 높이고자 설계 시 지켜야 할 기본적인 지침과 규칙",
+    lead:
+      "시스템이 복잡해질수록 통제가 어려워져 설계 원리가 지침으로 요구된다.",
+    features: [
+      { name: "일반화 계열", desc: "추상화와 정보은닉으로 불필요한 상세를 감춤" },
+      { name: "구체화 계열", desc: "분할과 정복·단계적 분해·모듈화로 쪼갬" },
+      { name: "설계 구분", desc: "상위는 아키텍처·UI, 하위는 모듈·알고리즘" },
+    ],
     keywords: ["추상화", "정보은닉", "분할과 정복", "단계적 분해", "모듈화"],
     tables: [
       {
@@ -4376,6 +4446,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "현실 세계에서 개체(Entity)를 속성(Attribute)과 메소드(Method)를 결합된 형태의 객체(Object)로 표현하는 개념",
     defShort: "현실 세계의 개체를 속성과 메소드가 결합된 형태의 객체로 표현하는 프로그래밍 개념",
+    lead:
+      "절차 중심 개발은 재사용과 확장이 어려워 객체 중심 개념이 등장했다.",
+    features: [
+      { name: "캡슐화·정보은닉", desc: "데이터와 메소드를 묶고 내부를 감춤" },
+      { name: "추상화·상속성", desc: "공통 성질을 뽑아 상위 클래스로 재사용" },
+      { name: "다형성", desc: "같은 이름으로 여러 메소드를 구현 가능" },
+    ],
     keywords: ["캡슐화", "추상화", "다형성", "정보은닉", "상속성"],
     tables: [
       {
@@ -4397,6 +4474,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "SE",
     definition: "같은 함수(Method) 이름으로, 여러 개의 메서드를 만들 수 있는 기법",
     defShort: "같은 함수 이름을 가지고 여러 개의 메서드를 만들 수 있도록 하는 객체지향 설계 기법",
+    lead:
+      "같은 동작을 상황마다 다르게 처리해야 해 하나의 이름으로 묶을 필요가 있다.",
+    features: [
+      { name: "오버로딩", desc: "같은 클래스에서 파라미터를 달리한 수평 확장" },
+      { name: "오버라이딩", desc: "상속 관계에서 상위 메소드를 덮는 수직 확장" },
+      { name: "제약 차이", desc: "오버라이딩은 이름·파라미터·리턴이 모두 동일" },
+    ],
     keywords: ["오버로딩", "오버라이딩"],
     tables: [
       {
@@ -4418,6 +4502,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "SE",
     definition: "소프트웨어 개발 및 유지보수성 향상을 위한 설계관점의 기본원칙",
     defShort: "소프트웨어의 개발 및 유지보수성 향상을 위한 설계 관점의 다섯 가지 기본적인 원칙",
+    lead:
+      "객체지향으로 짜도 설계가 나쁘면 유지보수가 어려워 원칙이 필요하다.",
+    features: [
+      { name: "SRP·OCP", desc: "단일 책임과 확장 개방·변경 폐쇄 원칙" },
+      { name: "LSP·ISP", desc: "자식의 치환 가능성과 인터페이스 분리" },
+      { name: "DIP", desc: "고수준과 저수준 모두 추상에 의존하게 함" },
+    ],
     keywords: ["SOLID", "SRP", "OCP", "LSP", "ISP", "DIP"],
     tables: [
       {
@@ -4440,6 +4531,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "오브젝트는 주변 다른 오브젝트에 대해 제한된 정보만 갖고 자신과 밀접한 오브젝트만 이용해야 한다는 설계 법칙",
     defShort: "오브젝트는 제한된 정보만 갖고 자신과 밀접한 오브젝트만 이용해야 한다는 설계 법칙",
+    lead:
+      "객체가 다른 객체 내부까지 파고들면 결합도가 높아져 제약이 필요하다.",
+    features: [
+      { name: "최소 지식 원칙", desc: "자신과 밀접한 객체만 이용하도록 제한" },
+      { name: "호출 가능 5종", desc: "자신·파라미터·생성 객체·컴포넌트·전역변수" },
+      { name: "효과", desc: "결합도를 낮춰 변경 파급을 억제함" },
+    ],
     keywords: [
       "최소지식의 원칙",
       "loose coupling",
@@ -4471,6 +4569,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "제품/서비스군 별로 도메인 기반의 핵심자산(Core Asset)을 개발하여 제품 생산 과정에 재사용성과 생산성을 극대화 시키는 생산 체계",
     defShort: "제품군별 도메인 기반 핵심자산을 개발해 재사용성과 생산성을 극대화하는 생산 체계",
+    lead:
+      "유사 제품을 매번 새로 만들면 낭비가 커 공통 자산의 재사용이 요구된다.",
+    features: [
+      { name: "Core Asset", desc: "공통 아키텍처와 컴포넌트를 미리 확보" },
+      { name: "Domain Engineering", desc: "공통점과 차이점을 분석해 핵심자산 구축" },
+      { name: "Application Engineering", desc: "핵심자산을 제품 요구에 맞게 인스턴스화" },
+    ],
     keywords: ["Domain Engineering", "Application Engineering", "Core Asset"],
     tables: [
       {
@@ -4491,6 +4596,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "관심사의 분리(Separation of Concern) 원칙에 기반하여, 시스템 구성을 핵심 관심사와 횡단 관심사로 분리하고 Weaving을 통해 프로그램을 구현하는 방법론",
     defShort: "핵심 관심사와 횡단 관심사를 분리하고 위빙으로 결합해 구현하는 프로그래밍 방법론",
+    lead:
+      "로깅·보안 코드가 모든 모듈에 흩어져 중복되므로 관심사 분리가 필요하다.",
+    features: [
+      { name: "관심사 분리", desc: "핵심 관심사와 횡단 관심사를 나누어 구현" },
+      { name: "구성 요소", desc: "Joint Point·Pointcut·Advice·Aspect·Target" },
+      { name: "Weaving", desc: "컴파일·클래스로딩·런타임 시점에 결합 수행" },
+    ],
     keywords: ["핵심관심", "횡단관심", "Joint-Point", "Point-cut", "Weaving", "Aspect"],
     tables: [
       {
@@ -4515,6 +4627,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "조직의 표준 프로세스를 커스터마이징 하여 프로젝트 요구에 맞게 적합한 프로세스를 얻는 과정",
     defShort: "조직의 표준 프로세스를 커스터마이징하여 프로젝트 요구에 맞는 절차를 얻는 과정",
+    lead:
+      "표준 프로세스를 그대로 쓰면 규모에 맞지 않아 조정 과정이 요구된다.",
+    features: [
+      { name: "절차 5단계", desc: "특선상세문 — 특징정의부터 문서화까지" },
+      { name: "2단계 조정", desc: "상위 수준과 세부 수준으로 나누어 조정" },
+      { name: "고려사항", desc: "규모·기간·경험 등 프로젝트와 기술 측면" },
+    ],
     keywords: ["프로젝트 특징 정의", "표준 프로세스 선정 및 검증", "상위/하위 수준 커스터마이징", "문서화"],
     tables: [
       {
@@ -4553,6 +4672,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "요구사항의 수집, 분석, 명세, 검증, 변경, 관리 등의 원칙과 제반 활동에 대한 총체적인 접근 체계",
     defShort: "요구사항의 수집과 분석, 명세, 검증, 관리 활동에 대한 총체적인 접근 체계를 말함",
+    lead:
+      "요구사항 결함은 후공정에서 비용이 폭증하므로 체계적 관리가 필요하다.",
+    features: [
+      { name: "요구사항 개발", desc: "추출 → 분석 → 명세 → 검증의 네 단계" },
+      { name: "변경관리", desc: "협상·기준선·변경관리·확인검증으로 통제" },
+      { name: "평가 지표 9", desc: "정명완검일수추리해로 요구 품질을 판정" },
+    ],
     keywords: ["정명완검일수추리해", "추분명검", "협기변검"],
     tables: [
       {
@@ -4594,6 +4720,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "어떤 제품 혹은 서비스를 사용할 만한 목표 인구 집단안에 있는 다양한 사용자 유형들을 대표하는 가상의 인물",
     defShort: "제품이나 서비스를 사용할 목표 집단 안의 다양한 사용자 유형을 대표하는 가상 인물",
+    lead:
+      "사용자를 뭉뚱그리면 설계 판단이 서지 않아 구체적 대표 인물이 필요하다.",
+    features: [
+      { name: "가상 인물화", desc: "이름·나이·목표·불만까지 구체적으로 기술" },
+      { name: "작성 절차", desc: "범주 파악부터 프로파일 확정까지 단계 수행" },
+      { name: "대체 기법", desc: "인지·역할·사회기술 모형과 함께 활용" },
+    ],
     keywords: ["사용자 분석", "사용자 범주 파악", "기간구조 잡기", "페르소나 평가", "프로파일 작성"],
     tables: [
       {
@@ -4627,6 +4760,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "SW 집약적 시스템의 아키텍처에서 표현해야 하는 내용 및 이들간 관계를 제공하는 아키텍처 명세 위한 표준 메타모델",
     defShort: "SW 집약적 시스템 아키텍처가 표현할 내용과 그 관계를 제공하는 명세 표준 메타모델",
+    lead:
+      "아키텍처 문서 형식이 제각각이면 소통이 안 되므로 표준 메타모델이 필요하다.",
+    features: [
+      { name: "핵심 연결", desc: "이해관계자→관심사→관점→뷰→기술서 구조" },
+      { name: "근거 기록", desc: "Rationale에 설계 이유를 남겨 추적 가능" },
+      { name: "2022년 추가", desc: "Entity of Interest 등 세 요소가 신설됨" },
+    ],
     keywords: ["구성요소들 전부"],
     tables: [
       {
@@ -4657,6 +4797,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "요구사항을 분석하고 품질속성을 식별하여 아키텍처를 설계하고, 평가·승인까지 수행하는 절차",
     defShort: "요구사항을 분석하고 품질속성을 식별해 아키텍처를 설계하고 평가·승인하는 절차",
+    lead:
+      "아키텍처를 즉흥적으로 잡으면 품질 요구를 놓쳐 정형화된 절차가 요구된다.",
+    features: [
+      { name: "4단계 진행", desc: "요구분석·아키텍처분석·설계·검증승인" },
+      { name: "품질속성 우선", desc: "비기능 품질속성 식별이 설계의 출발점" },
+      { name: "반복 상세화", desc: "평가 결과로 설계를 반복 정제 후 승인" },
+    ],
     keywords: ["요구사항분석", "아키텍처분석", "아키텍처설계", "검증 및 승인", "품질속성", "아키텍처 스타일", "평가"],
     tables: [
       {
@@ -4682,6 +4829,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "소프트웨어 아키텍처를 4개의 계층으로 관심사를 분리해 각 계층에서 가지는 의존성에서 탈피해 높은 모듈성, 확장성, 유연성을 가지는 아키텍처",
     defShort: "아키텍처를 네 계층으로 관심사를 분리해 모듈성과 확장성, 유연성을 높인 아키텍처",
+    lead:
+      "업무 규칙이 프레임워크에 묶이면 교체가 어려워 계층 분리가 필요하다.",
+    features: [
+      { name: "4계층 구조", desc: "Entity·Use Case·Adapter·Framework 순" },
+      { name: "의존성 규칙", desc: "의존은 항상 바깥에서 안쪽으로만 향함" },
+      { name: "변경 격리", desc: "DB·프레임워크 교체에도 업무 규칙은 불변" },
+    ],
     keywords: ["관심사 분리", "Entites", "Use Case", "Interface Adapters", "Frameworks & Drivers"],
     tables: [
       {
@@ -4703,6 +4857,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "아키텍처 요구 사항 항목을 분석, 아키텍처 설계에 직/간접적 근간이 될 수 있는 항목을 추출/정제하여, 이를 아키텍처 설계 원칙이나 근거로 표현한 항목",
     defShort: "아키텍처 설계의 직간접 근간이 될 요구 항목을 추출·정제해 원칙으로 표현한 항목",
+    lead:
+      "수백 개 요구 중 아키텍처를 좌우하는 것은 소수여서 선별이 필요하다.",
+    features: [
+      { name: "세 종류", desc: "기능 요구·품질 요구·제약사항으로 구성" },
+      { name: "제약 구분", desc: "기술적·비즈니스·품질 제약으로 세분화" },
+      { name: "적정 개수", desc: "10개 미만으로 압축해야 설계가 수렴함" },
+    ],
     keywords: ["기능 요구", "비기능 요구", "품질 요구", "제약 사항"],
     tables: [
       {
@@ -4732,6 +4893,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "소프트웨어 아키텍처 등 품질을 기반으로 평가하는 모델에서 품질 특성을 기준으로 시나리오를 작성하는 분석법, 또는 그 구조",
     defShort: "품질을 기반으로 평가하는 모델에서 품질 특성을 기준으로 시나리오를 작성하는 구조",
+    lead:
+      "추상적인 품질 요구는 검증할 수 없어 시나리오로 내려야 한다.",
+    features: [
+      { name: "4단계 분해", desc: "유틸리티→품질속성→세분화→시나리오" },
+      { name: "측정 가능화", desc: "지연 5초 이내처럼 수치 문장으로 전환" },
+      { name: "Bottom Up", desc: "아키텍트 소수가 품질속성에서 시나리오 도출" },
+    ],
     keywords: ["유틸리티", "품질속성", "세분화된 품질 속성", "시나리오", "시나리오 우선순위", "부분→전체", "Bottom Up"],
     tables: [
       {
@@ -4762,6 +4930,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "SW의 비기능 요구사항을 도출하기 위해 시스템과 이해관계자의 상호작용으로 표현한 시나리오 기반 요구사항 도출 기법",
     defShort: "SW 비기능 요구사항을 시스템과 이해관계자의 상호작용으로 표현한 요구 도출 기법",
+    lead:
+      "비기능 요구는 문장이 모호해 검증 가능한 형식이 필요하다.",
+    features: [
+      { name: "6개 항목", desc: "유발원·자극·환경·대상·응답·응답측정" },
+      { name: "응답 측정", desc: "수치 기준이 있어야 사후 검증이 가능함" },
+      { name: "활용", desc: "가용성·성능 등 품질속성별로 작성해 활용" },
+    ],
     keywords: ["자극유발원", "환경", "응답측정"],
     tables: [
       {
@@ -4797,6 +4972,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "아키텍처 설계에서 반복적, 일반적 발생 문제를 해결하고 아키텍처가 만족시켜야 하는 시스템 품질 속성 달성 위한 Best Practice를 정리한 패턴",
     defShort: "반복 발생하는 문제를 해결하고 요구 품질 속성을 달성하는 검증된 아키텍처 설계 패턴",
+    lead:
+      "설계 문제는 반복되므로 검증된 해법을 유형화해 둘 필요가 있다.",
+    features: [
+      { name: "데이터 계열", desc: "데이터 중심형과 데이터 흐름형으로 구분" },
+      { name: "호출과 리턴", desc: "주프로그램·RPC·계층형·클라이언트서버" },
+      { name: "분산과 중계", desc: "Master-Slave·MSA와 이벤트버스·브로커" },
+    ],
     keywords: ["칠저일파", "번규주원래클", "마슬마서", "이브"],
     tables: [
       {
@@ -4829,6 +5011,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "제시된 소프트웨어 아키텍처가 개발될 소프트웨어에 대해서 요구되는 품질 특성을 충족시킬 수 있는지 아키텍처 수준에서 평가하는 절차",
     defShort: "제시된 아키텍처가 요구되는 품질 특성을 충족하는지 아키텍처 수준에서 보는 절차",
+    lead:
+      "설계가 끝난 뒤 문제를 발견하면 비용이 커 사전 평가가 요구된다.",
+    features: [
+      { name: "시나리오 기반", desc: "SAAM→ATAM→CBAM→EATAM으로 발전" },
+      { name: "ATAM 핵심", desc: "품질 목표 사이의 Trade-off를 규명함" },
+      { name: "설계 기반", desc: "ADR과 ARID로 부분 설계도 평가 가능" },
+    ],
     keywords: ["SAAM", "CBAM", "ATAM", "EATAM", "ADR", "ARID"],
     tables: [
       {
@@ -4852,6 +5041,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "각 아키텍처 접근법의 시나리오별 효용을 계산하고, 이를 이득과 비용을 기준으로 분석하여 가장 비용 효율이 높은 방법을 선정하는 평가 프레임워크",
     defShort: "아키텍처 접근법의 시나리오별 효용을 이득과 비용 기준으로 분석하는 평가 방법론",
+    lead:
+      "품질만 따지면 투자 판단이 서지 않아 비용 관점의 평가가 필요하다.",
+    features: [
+      { name: "효용-반응 곡선", desc: "최악·현재·기대·희망·최선 값을 점수화" },
+      { name: "ROI 산정", desc: "접근법별 이익과 비용을 비교해 순위 결정" },
+      { name: "2단계 반복", desc: "1차는 우선순위, 2차는 불확실성을 반영" },
+    ],
     keywords: ["비용 효율", "2단계 반복", "효용-반응 곡선", "불확실성 고려"],
     tables: [
       {
@@ -4887,6 +5083,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "특정 언어나 공정에 종속되지 않고 보다 수준 높은 자동화 기반의 소프트웨어 시스템 아키텍처를 묘사하기 위한 표준 모델링 언어",
     defShort: "특정 언어나 공정에 종속되지 않고 시스템 아키텍처를 묘사하기 위한 표준 모델링 언어",
+    lead:
+      "설계 표기가 제각각이면 소통 비용이 커져 표준 모델링 언어가 요구된다.",
+    features: [
+      { name: "4대 목적", desc: "가시화·명세화·구체화·문서화를 지원" },
+      { name: "정적 6종", desc: "클래스·컴포넌트·객체·배치·복합구조·패키지" },
+      { name: "동적 7종", desc: "활동·유즈케이스·상태·시퀀스 등 행위 표현" },
+    ],
     keywords: ["가시화", "구체화", "명세화", "문서화", "정적/동적 다이어그램", "13개 다이어그램 명칭"],
     tables: [
       {
@@ -4924,6 +5127,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "시스템에서 사용되는 객체 타입을 정의하고, 그들 간에 존재하는 정적인 관계를 표현한 정적 다이어그램",
     defShort: "시스템에서 쓰는 객체 타입을 정의하고 그들 사이 정적 관계를 표현한 정적 다이어그램",
+    lead:
+      "객체 구조를 말로 설명하면 모호해 정적 관계를 도식화할 필요가 있다.",
+    features: [
+      { name: "구성 요소", desc: "클래스명·속성·오퍼레이션과 접근제어자" },
+      { name: "관계 표기", desc: "연관·집합·복합·의존·일반화·실체화 구분" },
+      { name: "집합과 복합", desc: "전체가 사라질 때 부분도 사라지면 복합관계" },
+    ],
     keywords: ["이름", "Attribute", "Operation", "접근제어자(Public, Private, Protected, Package)", "관계(연관, 직접연관, 집합연관, 복합연관, 의존, 일반화, 실체화)"],
     tables: [
       {
@@ -4965,6 +5175,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "시스템이 제공하고 있는 기능 및 그와 관련된 외부요소를 사용자의 관점에서 표현하는 동적 다이어그램",
     defShort: "시스템이 제공하는 기능과 관련 외부요소를 사용자 관점에서 표현한 동적 다이어그램",
+    lead:
+      "개발자 용어로 기능을 적으면 고객이 검토할 수 없어 사용자 관점이 필요하다.",
+    features: [
+      { name: "구성 요소", desc: "액터·유즈케이스·시스템 경계로 단순 표현" },
+      { name: "include", desc: "반드시 함께 실행되는 필수 포함 관계" },
+      { name: "extend", desc: "조건이 맞을 때만 실행되는 확장 관계" },
+    ],
     keywords: ["액터", "유즈케이스", "시스템", "연관", "확장", "포함", "일반화", "그룹화"],
     tables: [
       {
@@ -5000,6 +5217,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "하나의 객체가 가질 수 있는 모든 가능한 상태와 특정 객체에 대한 사건발생에 따른 상태 전이 과정을 묘사한 동적 다이어그램",
     defShort: "객체가 가질 수 있는 모든 상태와 사건 발생에 따른 상태 전이 과정을 묘사한 동적 그림",
+    lead:
+      "객체가 상황마다 다르게 동작하므로 상태 변화를 도식화해야 한다.",
+    features: [
+      { name: "단일 객체", desc: "하나의 객체가 갖는 상태만을 대상으로 함" },
+      { name: "구성 요소", desc: "상태·전이·이벤트·전이조건으로 구성" },
+      { name: "표기", desc: "검은 원이 시작, 겹친 원이 종료를 의미" },
+    ],
     keywords: ["상태", "전이", "이벤트", "전이조건"],
     tables: [
       {
@@ -5023,6 +5247,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "시스템이 제공하고 있는 기능 및 그와 관련된 외부요소를 사용자의 관점에서 표현하는 동적 다이어그램",
     defShort: "객체들이 주고받는 메시지를 시간 순서에 따라 표현한 상호작용 동적 다이어그램임",
+    lead:
+      "객체 간 호출 순서를 놓치면 설계 오류가 생겨 시간 축 표현이 필요하다.",
+    features: [
+      { name: "시간 축", desc: "위에서 아래로 생명선을 따라 흐름을 표현" },
+      { name: "메시지 구분", desc: "채운 화살표 동기, 열린 화살표 비동기" },
+      { name: "프레임 연산자", desc: "loop·opt·par 로 반복·조건·병렬 표현" },
+    ],
     keywords: ["액터", "활성 객체", "생명선", "제어사각형", "메시지", "프레임", "연산자"],
     tables: [
       {
@@ -5047,6 +5278,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "액티비티들의 순서적 흐름을 나타내는 액티비티 다이어그램에서 액티비티 대신 시퀀스로 흐름을 상세하게 표현하는 행위 다이어그램",
     defShort: "액티비티 다이어그램에서 액티비티 대신 시퀀스로 흐름을 상세하게 표현한 행위 도식",
+    lead:
+      "큰 흐름과 세부 상호작용을 따로 그리면 연결이 끊겨 통합 표현이 필요하다.",
+    features: [
+      { name: "혼합 구조", desc: "액티비티 흐름 안에 시퀀스를 끼워 넣음" },
+      { name: "표현 범위", desc: "전체 제어 흐름과 세부 메시지를 한 장에 담음" },
+      { name: "활용", desc: "흐름과 상호작용이 동시에 필요할 때 사용" },
+    ],
     keywords: ["Activity와 Sequence의 결합"],
     tables: [
       {
@@ -5071,6 +5309,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "하나의 큰 애플리케이션을 여러 개의 작은 마이크로 서비스 단위로 나누어 변경과 조합이 가능하도록 만든 아키텍처",
     defShort: "하나의 큰 애플리케이션을 작은 서비스 단위로 나눠 변경과 조합이 가능하게 한 구조",
+    lead:
+      "거대한 단일 애플리케이션은 배포와 확장이 어려워 서비스 분할이 요구된다.",
+    features: [
+      { name: "4계층", desc: "클라이언트·API Gateway·서비스·개별 DB" },
+      { name: "Polyglot", desc: "서비스마다 언어와 저장소를 달리 선택 가능" },
+      { name: "파생 과제", desc: "분산 트랜잭션과 관문 문제가 함께 발생" },
+    ],
     keywords: ["API Gateway", "Orchestration", "REST API", "Persistent", "DevOps", "DDD(Domain Driven Design, 도메인 주도 설계)", "Polyglot(폴리글랏, 크로스 플랫폼인 데이터 교환을 의미)"],
     tables: [
       {
@@ -5093,6 +5338,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "클라이언트가 요청한 API 서비스를 내부에서 처리가 가능한 API 형태로 변환, 전달하는 Gateway",
     defShort: "클라이언트가 요청한 API를 내부에서 처리 가능한 형태로 변환·전달하는 관문",
+    lead:
+      "클라이언트가 수십 개 서비스 주소를 알 수 없어 단일 관문이 필요하다.",
+    features: [
+      { name: "보안", desc: "인증·인가와 SSL 암호화, 접근 로깅을 수행" },
+      { name: "라우팅", desc: "목적 서비스 매칭과 로드밸런싱을 담당" },
+      { name: "변환", desc: "클라이언트 요청을 내부 프로토콜로 변환" },
+    ],
     keywords: ["프록시", "프로토콜 변환", "보안(인증, 로깅)", "라우팅", "마이크로 서비스"],
     tables: [
       {
@@ -5129,6 +5381,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "마이크로 서비스들끼리 이벤트를 주고 받는 도중 작업이 실패하면 이전까지의 작업이 완료된 마이크서비스들에게 보상(complementary)이벤트를 소싱함으로써 분산 환경에서 원자성을 보장하는 패턴",
     defShort: "작업 실패 시 완료된 서비스에 보상 이벤트를 보내 분산 환경 원자성을 보장하는 패턴",
+    lead:
+      "서비스마다 DB가 달라 단일 트랜잭션이 불가능해 보상 방식이 필요하다.",
+    features: [
+      { name: "보상 트랜잭션", desc: "실패 시 완료된 서비스에 보상 이벤트 전송" },
+      { name: "Choreography", desc: "각 서비스가 이벤트를 릴레이하며 진행" },
+      { name: "Orchestration", desc: "중앙 관리자가 트랜잭션을 지휘하고 수신" },
+    ],
     keywords: ["트랜잭션처리", "Choreography 방식", "Orchestration 방식", "데이터 정합성 보장"],
     tables: [
       {
@@ -5148,6 +5407,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "개발 참여자가 공통의 언어(유비쿼터스 언어) 사용을 통해 모델링과 개발의 불일치를 해결하고, 설계와 구현은 계속적인 수정 과정을 반복함으로써 개발 품질을 향상시키는 소프트웨어 설계 방법",
     defShort: "공통의 유비쿼터스 언어로 모델링과 개발의 불일치를 해결하는 도메인 중심 설계 방법",
+    lead:
+      "개발자와 현업의 용어가 달라 모델과 구현이 어긋나므로 공통 언어가 필요하다.",
+    features: [
+      { name: "유비쿼터스 언어", desc: "현업과 개발이 같은 용어를 사용하도록 통일" },
+      { name: "전략적 설계", desc: "바운디드 컨텍스트와 컨텍스트 맵을 도출" },
+      { name: "전술적 설계", desc: "Entity·Value·Aggregate·Repository 구현" },
+    ],
     keywords: ["유비쿼터스 언어", "도메인", "서브도메인", "바운디드 컨텍스트", "컨텍스트 맵", "도메인 모델", "Entity", "Value", "Aggregate", "Repository", "Service"],
     tables: [
       {
@@ -5185,6 +5451,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "데이터의 변경, 생성, 삭제 등 이벤트 발생 등 상태변화에 반응하여 서비스가 변화하는 형태의 소프트웨어 아키텍처",
     defShort: "데이터 생성·변경·삭제 같은 상태변화 이벤트에 반응해 동작하는 SW 아키텍처",
+    lead:
+      "서비스 간 직접 호출은 결합도를 높여 이벤트 기반 연동이 요구된다.",
+    features: [
+      { name: "4단계 구성", desc: "프로듀서·채널·처리 엔진·다운스트림 활동" },
+      { name: "비동기 전달", desc: "큐에 쌓아 전달해 송수신을 분리함" },
+      { name: "확장성", desc: "송신자가 수신자를 몰라도 되어 확장에 유리" },
+    ],
     keywords: ["이벤트 프로듀서", "이벤트 채널", "이벤트 처리 엔진", "다운스트림 이벤트 기반활동"],
     tables: [
       {
@@ -5214,6 +5487,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "소프트웨어 개발의 여러 가지 문제 해결 설계 사례를 분류하고, 각 문제 유형별로 가장 적합한 설계를 일반화한 패턴",
     defShort: "소프트웨어 개발 문제 해결 사례를 분류해 유형별 가장 적합한 설계를 일반화한 패턴",
+    lead:
+      "같은 설계 문제가 반복되므로 검증된 해법을 이름 붙여 공유할 필요가 있다.",
+    features: [
+      { name: "생성 패턴", desc: "객체 생성 방식을 다루며 싱글턴 등 5종" },
+      { name: "구조 패턴", desc: "객체 조립을 다루며 어댑터 등 7종" },
+      { name: "행위 패턴", desc: "객체 간 협력을 다루며 옵서버 등 11종" },
+    ],
     keywords: ["개발 중 문제 해결 사례 모음", "생성 패턴", "구조 패턴", "행위 패턴"],
     tables: [
       {
@@ -5245,6 +5525,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "클래스의 인스턴스가 오직 하나만 생성되도록 보장하고, 해당 인스턴스에 접근할 수 있는 전역적인 접근 지점을 제공하는 생성 패턴",
     defShort: "클래스의 인스턴스를 오직 하나만 만들도록 보장하고 전역 접근점을 주는 객체 패턴",
+    lead:
+      "전역에서 하나여야 할 자원이 여러 개 생기면 충돌해 인스턴스 통제가 필요하다.",
+    features: [
+      { name: "구현 3요소", desc: "private 생성자·static 인스턴스·정적 메서드" },
+      { name: "구현 방식", desc: "Lazy·Eager·Double-Checked·Enum 네 가지" },
+      { name: "적용 대상", desc: "프린터 스풀러나 설정 관리자처럼 유일 자원" },
+    ],
     keywords: ["Private 생성자", "Static 인스턴스", "Public 정적 메서드"],
     tables: [
       {
@@ -5275,6 +5562,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "소프트웨어 시스템의 아키텍처를 사용자, 개발자, 관리자 등 다양한 이해관계자의 관점에서 효과적으로 설계하고 문서화하기 위한 프레임워크",
     defShort: "사용자·개발자 등 여러 이해관계자 관점에서 아키텍처를 문서화하는 프레임워크",
+    lead:
+      "이해관계자마다 보고 싶은 관점이 달라 뷰를 나누어 그릴 필요가 있다.",
+    features: [
+      { name: "4개 뷰", desc: "논리·구현·프로세스·배포 관점으로 구분" },
+      { name: "+1 뷰", desc: "유즈케이스 뷰가 네 뷰를 하나로 묶음" },
+      { name: "관점별 대상", desc: "설계자·개발자·통합자·엔지니어에 대응" },
+    ],
     keywords: ["Logical View", "Implementation View", "Process View", "Deployment View", "Use Case View"],
     tables: [
       {
@@ -5306,6 +5600,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "모델, 뷰, 뷰 모델로 기능을 분리하고, data binding을 통하여 뷰와 뷰 모델 간의 통신을 자동화하는 아키텍처 패턴",
     defShort: "모델·뷰·뷰모델로 나누고 바인딩으로 뷰와 뷰모델 통신을 자동화한 아키텍처 패턴",
+    lead:
+      "화면과 데이터가 얽히면 테스트가 어려워 중간 계층이 요구된다.",
+    features: [
+      { name: "3계층", desc: "Model·View·View Model로 역할을 분리" },
+      { name: "Data Binding", desc: "뷰와 뷰모델의 동기화를 자동으로 처리" },
+      { name: "독립성", desc: "뷰 없이도 뷰모델 단위 테스트가 가능함" },
+    ],
     keywords: ["Model", "View", "View Model", "Data Binding"],
     tables: [
       {
@@ -5340,6 +5641,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "Simple Code의 추구를 목적으로 Test Case를 먼저 개발하고 Test Case를 통과하는 실제코드를 나중에 개발하는 Agile 개발방법",
     defShort: "단순한 코드를 목적으로 테스트 케이스를 먼저 개발하고 통과 코드를 뒤에 만드는 기법",
+    lead:
+      "코드를 먼저 짜면 검증이 늦어져 테스트를 앞세우는 순서 전환이 필요하다.",
+    features: [
+      { name: "4단계", desc: "요구사항 → 테스트 → 구현 → 리팩토링" },
+      { name: "Red-Green-Refactor", desc: "실패·통과·개선의 리듬을 반복함" },
+      { name: "효과", desc: "항상 검증 수단이 있어 안전한 변경이 가능" },
+    ],
     keywords: ["[요테구리] 요구사항", "테스트", "구현", "리팩토링"],
     tables: [
       {
@@ -5372,6 +5680,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "시스템 개발자와 운영을 담당하는 정보기술 전문가 사이의 소통, 협업, 통합 및 자동화를 강조하는 소프트웨어 개발론",
     defShort: "시스템 개발자와 운영 전문가 사이의 소통·협업·통합과 자동화를 강조하는 개발론",
+    lead:
+      "개발과 운영이 단절되면 배포가 병목이 되어 협업과 자동화가 요구된다.",
+    features: [
+      { name: "무한 루프", desc: "개발과 운영 활동이 끊김 없이 순환함" },
+      { name: "CI/CD", desc: "자동 빌드·테스트와 운영 반영까지 자동화" },
+      { name: "완료 기준", desc: "코드 작성이 아닌 운영서버 정상동작이 기준" },
+    ],
     keywords: ["CI/CD", "프로비저닝"],
     tables: [
       {
@@ -5399,6 +5714,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "대규모 시스템의 지속적이고 적절한 수준의 안정성을 확보하기 위하여 고도의 자동화와 자가 치유 기능을 제공하는 SW 엔지니어링 기술",
     defShort: "대규모 시스템의 안정성 확보를 위해 고도의 자동화와 자가 치유를 제공하는 SW 공학",
+    lead:
+      "운영을 사람 손에 맡기면 규모를 감당할 수 없어 공학적 접근이 필요하다.",
+    features: [
+      { name: "지표 기반", desc: "SLI로 측정하고 SLO 목표로 판단을 데이터화" },
+      { name: "Error Budget", desc: "허용 장애 예산으로 배포와 안정화를 조절" },
+      { name: "Toil 제거", desc: "반복 수작업을 자동화하고 비난 없는 회고 수행" },
+    ],
     keywords: ["안정성", "자가치유", "자동화", "카나리 배포", "Toil 관리", "Error Budget", "구글 운영팀"],
     tables: [
       {
@@ -5432,6 +5754,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "시스템에 의해 제공하는 비즈니스의 연속성과 안정성을 보장하기 위해 운영 환경에 소스 배포 시 서비스가 중단되지 않도록 코드를 Deploy할 수 있는 기술",
     defShort: "비즈니스 연속성과 안정성을 보장하려 서비스 중단 없이 운영에 코드를 배포하는 기법",
+    lead:
+      "배포를 위해 서비스를 멈추면 매출과 신뢰가 손상되어 무중단이 요구된다.",
+    features: [
+      { name: "Rolling Update", desc: "인스턴스를 순차 교체해 비용이 적고 롤백 용이" },
+      { name: "Blue/Green", desc: "동일 환경을 이중 구성해 한 번에 전환" },
+      { name: "Canary", desc: "일부 트래픽만 먼저 보내 위험을 조기 감지" },
+    ],
     keywords: ["Rolling Update", "Blue/Green Deployment", "Canary Release"],
     tables: [
       {
@@ -5453,6 +5782,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "소프트웨어 개발 과정에 신뢰성과 효율성을 추구하여 안정적이고 예측 가능한 배포·구현·개선 방법을 포괄적으로 연구하는 소프트웨어 엔지니어링",
     defShort: "안정적이고 예측 가능한 배포와 구현, 개선 방법을 포괄적으로 연구하는 엔지니어링",
+    lead:
+      "수작업 배포는 실수와 편차를 낳아 예측 가능한 파이프라인이 필요하다.",
+    features: [
+      { name: "파이프라인", desc: "통합·CI·빌드·IaC·배포·릴리즈로 연결" },
+      { name: "코드형 인프라", desc: "서버 환경을 코드로 정의해 재현성 확보" },
+      { name: "목표", desc: "사람 개입 없이 안정적이고 예측 가능한 인도" },
+    ],
     keywords: ["배포·구현·유지보수", "파이프라인(pipeline)"],
     tables: [
       {
@@ -5486,6 +5822,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "복잡한 분산 시스템 환경에서 시스템의 신뢰성을 확인하기 위해, 인위적인 혼돈(Chaos)을 가하여 시스템의 취약한 부분을 찾고 보강하는 방식의 엔지니어링 기법",
     defShort: "인위적인 혼돈을 가해 분산 시스템의 취약한 부분을 찾아 보강하는 엔지니어링 기법",
+    lead:
+      "분산 시스템의 장애는 예측이 어려워 사전에 고장을 내 볼 필요가 있다.",
+    features: [
+      { name: "가설 수립", desc: "정상 상태를 수치로 정의하고 가설을 설정" },
+      { name: "Fault Injection", desc: "의도적으로 장애를 주입해 복원력을 확인" },
+      { name: "측정과 검증", desc: "지표로 가설을 검증하고 취약점을 보강" },
+    ],
     keywords: ["Hypothesis", "Fault Injection", "Measuring", "Verify"],
     tables: [
       {
@@ -5511,6 +5854,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "Development 와 Operation의 융합과 협업을 통한 개발 주기에서 보안 측면의 주기를 포함하는 개발 방법론",
     defShort: "개발과 운영의 융합과 협업을 통한 개발 주기에 보안 측면 주기를 포함하는 개발 방법론",
+    lead:
+      "보안을 마지막에 검사하면 재작업이 커져 개발 전 단계에 내재화해야 한다.",
+    features: [
+      { name: "보안 내재화", desc: "코드·빌드·테스트·운영 전 단계에 보안 적용" },
+      { name: "보안 기법", desc: "IAST·퍼징·모의해킹과 운영 중 RASP 활용" },
+      { name: "CARTA", desc: "지속적·적응형 위험과 신뢰 평가 접근법" },
+    ],
     keywords: ["Development", "Operation", "Security", "Agile", "Visualization", "FMEA", "RASP", "Analysis"],
     tables: [
       {
@@ -5545,6 +5895,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "결함 발견·불완전·초기 시작·결함 집중·살충제 패러독스·정황 의존·오류 부재의 궤변 등 SW 테스트가 따르는 7가지 원리",
     defShort: "결함 발견·결함 집중·살충제 패러독스 등 SW 테스트가 따르는 일곱 가지 기본 원리",
+    lead:
+      "테스트를 감각으로 하면 놓치는 부분이 생겨 기본 원리의 이해가 필요하다.",
+    features: [
+      { name: "결함 발견 목적", desc: "완벽한 테스트는 불가능하며 조기 착수가 유리" },
+      { name: "결함 집중", desc: "결함의 80%가 20% 모듈에 몰리는 파레토 특성" },
+      { name: "두 궤변", desc: "살충제 패러독스와 오류 부재의 궤변에 유의" },
+    ],
     keywords: ["살충제 패러독스", "오류부재 궤변", "결함발견", "초기 시작", "불완전", "결함 집중", "정황의존"],
     tables: [
       {
@@ -5578,6 +5935,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "코드를 포함하여 요구사항 정의서, 설계서 등 개발 중간산출물을 실행하지 않고 검토하여, 개발 초기 단계에서 결함을 발견하고 예방하는 핵심적인 정적 테스팅 기법",
     defShort: "요구사항 정의서와 설계서 등 중간산출물을 실행 없이 검토해 결함을 찾는 정적 테스팅",
+    lead:
+      "실행 전 산출물의 결함은 늦게 잡을수록 비싸 정적 검토가 요구된다.",
+    features: [
+      { name: "정적 테스팅", desc: "실행 없이 문서와 코드를 눈으로 검토함" },
+      { name: "형식 4단계", desc: "비공식·기술적 리뷰·워크쓰루·인스펙션 순" },
+      { name: "프로세스", desc: "계획·시작·사전검토·미팅·재작업·후속조치" },
+    ],
     keywords: ["비공식적 리뷰", "기술적 리뷰", "워크쓰루", "인스펙션", "페이건의 인스펙션", "Process-계시사미RF", "참여자-관중기작검"],
     tables: [
       {
@@ -5623,6 +5987,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "소프트웨어의 내부 구조를 고려하지 않고 입력값에 대한 출력값을 확인하여 기능과 S/W 외부와의 연계를 테스트하는 방법",
     defShort: "내부 구조를 고려하지 않고 입력값에 대한 출력값을 확인해 기능을 검증하는 테스트",
+    lead:
+      "내부 구조를 모르는 사용자 관점에서도 기능이 맞는지 확인해야 한다.",
+    features: [
+      { name: "대표값 선정", desc: "동등분할·경계값 분석·페어와이즈로 축약" },
+      { name: "표와 그림", desc: "의사결정 테이블·상태전이·원인결과 그래프" },
+      { name: "경험 활용", desc: "오류예측 기법으로 취약 지점을 직접 찌름" },
+    ],
     keywords: ["동등분할", "경계값분석", "의사결정 테이블", "상태전이", "유즈케이스", "분류트리", "페어와이즈 테스트", "원인-결과 그래프 기법", "오류예측기법"],
     tables: [
       {
@@ -5650,6 +6021,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "소프트웨어의 내부 구조, 동작, 소스 코드를 직접 보면서 논리적인 흐름이 올바른지 검증하는 테스트",
     defShort: "소프트웨어 내부 구조와 소스 코드를 직접 보며 논리 흐름이 옳은지 검증하는 테스트",
+    lead:
+      "기능이 맞아도 내부 논리에 결함이 남을 수 있어 구조 검증이 필요하다.",
+    features: [
+      { name: "커버리지 기반", desc: "구문·결정·조건·MC/DC 순으로 강도가 증가" },
+      { name: "루프 테스트", desc: "반복 구조의 경계 오류를 집중 확인" },
+      { name: "제어 구조", desc: "McCabe 복잡도를 이용한 기본 경로 시험" },
+    ],
     keywords: ["내부 구조(Internal Structure)", "논리 흐름(Logical Flow)", "코드 커버리지(Code Coverage)", "제어구조", "루프"],
     tables: [
       {
@@ -5686,6 +6064,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "전체 소스 코드 중 테스트 케이스가 실행한 코드의 비율(%)을 나타내는 화이트박스 테스트 지표",
     defShort: "전체 소스 코드 중 테스트 케이스가 실행한 코드의 비율을 나타내는 화이트박스 지표",
+    lead:
+      "테스트를 얼마나 했는지 감으로 말할 수 없어 정량 지표가 필요하다.",
+    features: [
+      { name: "포함 관계", desc: "SC ⊂ DC ⊂ C/DC ⊂ MC/DC ⊂ MCC ⊂ 경로" },
+      { name: "MC/DC", desc: "각 조건이 독립적으로 결과를 바꾸는지 확인" },
+      { name: "인증 요구", desc: "항공 DO-178C 등 안전 인증이 MC/DC를 요구" },
+    ],
     keywords: ["구문(SC)", "결정(DC)", "조건(CC)", "조건(C/DC)", "변경조건(MC/DC)", "다중조건(MCC)", "Test Case"],
     tables: [
       {
@@ -5710,6 +6095,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "테스터의 경험과 직관을 활용하여 애플리케이션의 동작을 조사하고 결함을 발견하는 것을 목표로 하는 테스트",
     defShort: "테스터의 경험과 직관을 활용해 동작을 조사하고 결함을 발견하는 것이 목표인 테스트",
+    lead:
+      "명세가 부실하고 시간이 없을 때는 문서 기반 테스트가 힘을 쓰지 못한다.",
+    features: [
+      { name: "구성 4요소", desc: "세션·차터·노트·요약보고로 규율을 유지" },
+      { name: "타임박스", desc: "45분에서 수 시간의 방해 없는 세션을 운영" },
+      { name: "PROOF", desc: "과거·결과·전망·장애·감상으로 결과를 보고" },
+    ],
     keywords: ["[세차노요] Heuristic 기반", "Time-boxing", "테스트세션", "테스트 차터", "테스트노트", "요약보고"],
     tables: [
       {
@@ -5741,6 +6133,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "유사 어플리케이션이나 기술에서의 경험, 직관, 테스터의 기술 능력으로부터 테스트 케이스를 추출하는 기법",
     defShort: "유사 경험과 직관, 테스터의 기술 능력으로부터 테스트 케이스를 추출해 내는 기법",
+    lead:
+      "명세만으로는 실제 결함 지점을 못 짚어 경험적 접근이 함께 필요하다.",
+    features: [
+      { name: "주요 기법", desc: "탐색적 테스팅·오류추정·체크리스트·분류트리" },
+      { name: "오류추정", desc: "취약할 법한 지점을 감으로 예측해 찌름" },
+      { name: "위치", desc: "명세 기반 기법을 대체가 아닌 보완하는 역할" },
+    ],
     keywords: ["[경탐오체분] 탐색적 테스팅", "오류추정", "체크리스트", "분류 트리"],
     tables: [
       {
@@ -5769,6 +6168,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "위험을 측정하여 우선순위가 높은 부분에 주어진 테스팅 자원을 집중하여 전체적인 영향을 줄이기 위한 테스트 전략",
     defShort: "위험을 측정해 우선순위가 높은 부분에 주어진 테스팅 자원을 집중하는 테스트 전략",
+    lead:
+      "테스트 자원은 늘 부족하므로 위험이 큰 곳에 집중할 필요가 있다.",
+    features: [
+      { name: "2축 매트릭스", desc: "장애 발생 가능성과 영향으로 영역을 구분" },
+      { name: "4개 영역", desc: "STA·STTA·ITA·FTA로 우선순위를 배정" },
+      { name: "순회 순서", desc: "사업 리스크는 N자형, 기술 리스크는 S자형" },
+    ],
     keywords: ["테스트 자원 한정", "STA", "STTA", "ITA", "FTA"],
     tables: [
       {
@@ -5802,6 +6208,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "수행된 테스트 결과가 기대했던 결과인지를 판단하거나 분석하는 메커니즘",
     defShort: "수행된 테스트 결과가 기대했던 결과인지를 판단하거나 분석해 주는 채점 메커니즘",
+    lead:
+      "테스트를 돌려도 정답 기준이 없으면 합격 여부를 판정할 수 없다.",
+    features: [
+      { name: "참·샘플링", desc: "전체 정답 보유와 일부 입력만 정답 보유" },
+      { name: "휴리스틱·일관성", desc: "나머지는 추정하거나 이전 결과와 비교" },
+      { name: "AI 한계", desc: "확률적 AI는 참 오라클이 불가능해 대안 필요" },
+    ],
     keywords: ["[참샘휴일] 참 오라클", "샘플링 오라클", "휴리스틱 오라클", "일관성 검사"],
     tables: [
       {
@@ -9789,6 +10202,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "소스 코드 구문을 일정한 규칙으로 변형 후, 원본 프로그램으로 테스트할 때와 동일한 입력 값으로 서로 다른 결과를 출력시키는 테스트케이스를 선정하여 수행하는 결함 기반 테스트",
     defShort: "소스 코드를 규칙대로 변형해 테스트케이스의 결함 검출력을 보는 결함 기반 테스트",
+    lead:
+      "테스트를 돌려도 결함을 못 잡으면 소용없어 테스트 자체를 검증해야 한다.",
+    features: [
+      { name: "뮤턴트 생성", desc: "연산자로 소스를 규칙에 따라 의도적 변형" },
+      { name: "검출력 판정", desc: "뮤턴트를 죽이면 유능, 살아남으면 허술함" },
+      { name: "뮤테이션 점수", desc: "죽인 뮤턴트를 전체로 나눈 값으로 평가" },
+    ],
     keywords: ["정상 코드", "돌연변이 코드(뮤턴트)", "테스트 케이스 검증", "의도적 소스 변경", "뮤턴트 연산자", "뮤턴트 스코어"],
     tables: [
       {
