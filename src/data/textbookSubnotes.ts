@@ -12797,6 +12797,133 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
     notes: ["요청은 모두에게(Broadcast, FF:FF:FF:FF:FF:FF), 응답은 요청자에게만(Unicast) — 이 비대칭이 시험 포인트", "반대 방향(MAC → IP)은 RARP"],
   },
+  {
+    title: "RARP(Reverse Address Resolution Protocol)",
+    course: "NW",
+    definition:
+      "IP호스트가 자신의 물리 네트워크 주소(MAC)는 알지만 IP주소를 모르는 경우, 서버로부터 IP주소를 요청하기 위해 사용하는 프로토콜",
+    defShort: "MAC은 알지만 IP를 모를 때 서버에 IP를 요청하는 프로토콜",
+    keywords: ["MAC을 IP로 변환"],
+    tables: [
+      {
+        caption: "동작 원리",
+        headers: ["구분", "순서", "설명"],
+        rows: [
+          ["RARP Request", "①", "RARP의 주소를 모르기 때문에 RARP Request Broadcast"],
+          ["RARP Request", "②", "RARP Request는 네트워크의 모든 컴퓨터가 수신, RARP 서버만 응답 — RARP Request is broadcast"],
+          ["RARP Response", "③", "RARP 서버가 2대 이상 있을 경우, 두 대 모두 응답"],
+          ["RARP Response", "④", "A는 Response가 2개 이상일 때는 첫번째 Response만 수신, 나머지 무시 — RARP Reply is unicast"],
+        ],
+      },
+      {
+        caption: "ARP와 RARP 비교",
+        headers: ["구분", "ARP", "RARP"],
+        rows: [
+          ["변환 방향", "IP → MAC", "MAC → IP"],
+          ["상황", "상대의 IP는 아는데 MAC을 모를 때", "자신의 MAC은 아는데 IP를 모를 때(디스크리스 단말 등)"],
+          ["요청", "Broadcast", "Broadcast"],
+          ["응답", "Unicast (해당 호스트)", "Unicast (RARP 서버)"],
+        ],
+      },
+    ],
+    notes: ["예: \"My physical address is A4:6E:A5:57:82:36. I am looking for my IP address.\" → \"Your IP address is 141.14.56.21\"", "오늘날은 대부분 DHCP로 대체되었다"],
+  },
+  {
+    title: "DHCP(Dynamic Host Configuration Protocol)",
+    course: "NW",
+    definition:
+      "호스트에 IP 주소 할당을 위해 DHCP Discover, Offer, Request, Ack의 4단계 할당 과정 이용하는 동적 호스트 IP 자동 할당 프로토콜",
+    defShort: "4단계 절차로 호스트에 IP를 자동 할당하는 동적 프로토콜",
+    keywords: ["DISCOVER", "OFFER", "REQUEST", "ACK", "DHCP Starvation"],
+    tables: [
+      {
+        caption: "DHCP IP 할당 과정 (UDP 68 → UDP 67)",
+        headers: ["단계", "할당 과정", "설명"],
+        rows: [
+          ["①", "DISCOVER", "Client가 Broadcast로 DHCP Discover 패킷 전송"],
+          ["②", "OFFER", "Server가 Unicast로 DHCP Offer 패킷 전송. 제안 IP주소, 임대시간, DNS 정보 등 전달"],
+          ["③", "REQUEST", "Client가 Broadcast로 DHCP Request 패킷 전송. 제안 IP 주소 사용 승인 의사 전달"],
+          ["④", "ACK", "Server가 Unicast로 DHCP Ack 패킷 전송. 제안 IP 사용 최종 승인 및 할당 종료"],
+        ],
+      },
+      {
+        caption: "IP 갱신 과정",
+        headers: ["단계", "갱신 과정", "설명"],
+        rows: [
+          ["①", "REQUEST", "Client가 Unicast로 IP 연장 의사 전달. 임대시간 50% 남은 시점 전달"],
+          ["②", "ACK", "Server가 Unicast로 DHCP Ack 패킷 전송. 제안 IP 사용 연장 최종 승인 및 할당 종료"],
+        ],
+      },
+      {
+        caption: "IP 해제 과정",
+        headers: ["단계", "해제 과정", "설명"],
+        rows: [
+          ["①", "RELEASE", "Client가 Unicast로 IP 사용 종료 의사 전달. Server 별도 응답 없이 IP 할당 해제 종료"],
+        ],
+      },
+    ],
+    notes: ["포트: 클라이언트 UDP 68, 서버 UDP 67", "DHCP Starvation: 공격자가 위조 MAC으로 대량의 DHCP 요청을 보내 IP 풀을 고갈시키는 공격"],
+  },
+  {
+    title: "SCTP(Stream Control Transmission Protocol)",
+    course: "NW",
+    definition:
+      "UDP의 메시지 지향 특성(Message Oriented)과 TCP의 연결 지향(Connection Oriented) 신뢰성을 조합한 전송 계층 프로토콜",
+    defShort: "UDP의 메시지 지향과 TCP의 신뢰성을 조합한 전송 프로토콜",
+    keywords: ["Multi-homing", "Multi-streaming", "4 way handshaking", "SACK & Heartbeat", "3 way handshaking"],
+    tables: [
+      {
+        caption: "기술 요소",
+        headers: ["기술요소", "설명"],
+        rows: [
+          ["Multi Homing", "SCTP 세션이 여러 개의 IP 주소를 동시에 사용 할 수 있도록 하며, 세션 도중 네트워크 장애 발생시 대체 경로를 통해 세션 유지"],
+          ["Multi Streaming", "하나의 세션을 통해 다양한 종류의 응용데이터를 보낼 수 있는 기술"],
+          ["4-way Handshake(초기화)", "세션 초기화는 4단계절차 구성. SCTP-A는 INIT 메시지 전송으로 세션 초기화를 진행. SCTP-Z는 INIT 응답으로 자신이 사용할 IP 주소 포함, INIT-ACK 메시지 전송. 이후 COOKIE-ECHO, COOKIE-ACK 교환, 세션 초기화 마무리"],
+          ["SACK & HEARTBEAT(전송)", "데이터 전송 시 오류 제어를 위해 SACK(Selective ACK) 방식 사용. 경로(목적지 IP 주소) 관리 위해 HEARTBEAT 메시지 전송하며 이를 통해 가용 IP 파악"],
+          ["3-way Handshake(세션종료)", "3단계 구성으로 'Half-open Closing' 해결 — SHUTDOWN → SHUTDOWN-ACK → SHUTDOWN-CMPL"],
+        ],
+      },
+      {
+        caption: "계층 구조",
+        headers: ["계층", "설명"],
+        rows: [
+          ["SCTP User Application", "응용 프로그램"],
+          ["API's", "응용과 SCTP 사이 인터페이스"],
+          ["SCTP Transport Service", "SCTP 전송 서비스(다중 IP 주소 사용)"],
+          ["IP Network Service", "IP 네트워크 서비스 — SCTP Node A ↔ Network Transport ↔ SCTP Node B"],
+        ],
+      },
+    ],
+    notes: ["TCP와의 차이: TCP는 3-way 수립·4-way 종료인데 SCTP는 반대로 4-way 수립(COOKIE로 SYN 플러딩 방어)·3-way 종료(Half-close 미허용)", "활용: 통신망 시그널링(SIGTRAN), WebRTC 데이터 채널"],
+  },
+  {
+    title: "C-RAN(Centralized / Cloud RAN)",
+    course: "NW",
+    definition:
+      "기존 기지국의 디지털 장치(DU: Digital Unit)와 RF 장치를 분리하여 여러 기지국의 DU를 중앙에 모아서 처리하고, RF 장치는 서비스 지역에 분산시키는 무선 접속망",
+    defShort: "기지국의 DU를 중앙에 모으고 RF는 분산시킨 무선 접속망",
+    keywords: ["DU와 RF 분리", "RU", "CPRI", "OBSAI", "ORI"],
+    tables: [
+      {
+        caption: "구성 요소",
+        headers: ["기술요소", "설명"],
+        rows: [
+          ["RU(Radio Unit)", "DU로부터 수신한 디지털 신호를 주파수 대역에 따라 RF(Radio Frequency) 신호로 변환하여 안테나로 송·수신하는 변환 장치와 RF 증폭기로 구성"],
+          ["Centralized DU(Data Unit)", "클라우드 데이터 센터 형태로 한 곳에 집중되어 있기 때문에 셀 간의 간섭 조정이 용이하고 협력 통신 등의 고품질 서비스가 가능"],
+        ],
+      },
+      {
+        caption: "인터페이스 규격 종류",
+        headers: ["규격", "설명"],
+        rows: [
+          ["CPRI(Common Public Radio Interface)", "REC(DU측)와 RE(RU측)간에 User Data, CPRI 제어/관리 데이터, CPRI 프레임의 동기 정보(Synchronization)를 송, 수신"],
+          ["OBSAI(Open Baseband Remote Radiohead Interface)", "개방형 기지국 구조를 만드는 것을 목표로 기지국의 주요 기능을 모듈 단위로 나누고, RP(Reference Point)라는 인터페이스로 각 모듈들을 상호 연결하도록 구성. CPRI와 유사한 경쟁 규격"],
+          ["ORI(Open Radio Interface)", "CPRI가 여전히 호환성 측면에서 한계가 있는 상황에서, 이를 극복하고 벤더 간 호환성을 개선하고자 표준화 기관인 ETSI가 주도하고 있는 표준화"],
+        ],
+      },
+    ],
+    notes: ["구성도: RRH(무선부문, 리모트 라디오 헤드) ←프론트홀→ 중앙 집중화된 디지털부문(DU) → 접속노드(PoP) → 패킷 코어"],
+  },
 ];
 
 /** topicId 로 교재 서브노트를 찾는다. */
