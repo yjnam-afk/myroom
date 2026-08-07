@@ -46,6 +46,7 @@ const COURSE_NAME: Record<string, string> = {
   ST: "확률·통계",
   DS: "자료구조",
   AL: "알고리즘",
+  NW: "네트워크",
 };
 
 /** 서브노트 원본 두음/키워드(있으면 그대로 사용). 제목 자동 매칭 포함. */

@@ -493,10 +493,62 @@ const AL_ALL: CurriculumTopic[] = [
   { title: "그래프 순회(Graph Traversal)", priority: "중" },
 ];
 
+const NW_ALL: CurriculumTopic[] = [
+  { title: "전송부호화(소스 코딩, 채널 코딩, 라인 코딩)", priority: "하" },
+  { title: "PCM(Pulse-Code Modulation)", priority: "하" },
+  { title: "QAM(Quadrature Amplitude Modulation)", priority: "하" },
+  { title: "CSMA/CD", priority: "중" },
+  { title: "CSMA/CA", priority: "중" },
+  { title: "다중화(Multiplexing)", priority: "중" },
+  { title: "서비스 프리미티브(Service Primitive)", priority: "중" },
+  { title: "OSI 7 Layer (ISO 7498)", priority: "상" },
+  { title: "HTTP/3", priority: "중" },
+  { title: "TCP 연결의 설정 및 해제(Handshaking)", priority: "상" },
+  { title: "TCP 혼잡제어", priority: "상" },
+  { title: "TCP 와 UDP 비교", priority: "상" },
+  { title: "Sliding Window & 네이글(Nagle's) 알고리즘", priority: "중" },
+  { title: "IPv6", priority: "중" },
+  { title: "IPv4와 IPv6 터널링", priority: "상" },
+  { title: "DNS(Domain Name System)", priority: "중" },
+  { title: "라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)", priority: "상" },
+  { title: "BGP(Border Gateway Protocol)", priority: "하" },
+  { title: "FEC(Forward Error Correction) / BEC(Backward Error Correction)", priority: "상" },
+  { title: "해밍코드(Hamming code)", priority: "중" },
+  { title: "CRC(Cyclic Redundancy Check)", priority: "중" },
+  { title: "QoS(Quality of Service)", priority: "상" },
+  { title: "ARP(Address Resolution Protocol)", priority: "중" },
+  { title: "RARP(Reverse Address Resolution Protocol)", priority: "중" },
+  { title: "DHCP(Dynamic Host Configuration Protocol)", priority: "상" },
+  { title: "SCTP(Stream Control Transmission Protocol)", priority: "중" },
+  { title: "O-RAN", priority: "상" },
+  { title: "C-RAN(Centralized / Cloud RAN)", priority: "하" },
+  { title: "RAN(Radio Access Network) Sharing", priority: "하" },
+  { title: "네트워크 슬라이싱", priority: "상" },
+  { title: "5G 특화망", priority: "중" },
+  { title: "NWDAF(Network Data Analytics Function)", priority: "중" },
+  { title: "네트워크 지능", priority: "하" },
+  { title: "6G", priority: "상" },
+  { title: "디지털 트윈 네트워크(Digital Twin Network)", priority: "중" },
+  { title: "비지상네트워크(NTN, Non-Terrestrial Networks)", priority: "상" },
+  { title: "Wi-Fi 7 (IEEE 802.11be)", priority: "중" },
+  { title: "Wi-Fi 8 (IEEE 802.11bn)", priority: "중" },
+  { title: "Passive WiFi", priority: "하" },
+  { title: "IoT Matter", priority: "하" },
+  { title: "SDN(Software Defined Network)", priority: "상" },
+  { title: "오픈플로우(OpenFlow)", priority: "상" },
+  { title: "SD-WAN(Software Defined-Wide Area Network)", priority: "중" },
+  { title: "SDR(Software Defined Radio)", priority: "중" },
+  { title: "CDN(Contents Delivery Network)", priority: "상" },
+  { title: "망 중립성(Network Neutrality)", priority: "중" },
+  { title: "인텐트 기반 네트워킹(Intent-Based Networking)", priority: "중" },
+  { title: "무선 충전 기술", priority: "중" },
+];
+
 // 4주차도 과목 경계 유지 — 자료구조/알고리즘을 섞지 않는다.
 const WEEK4_DAYS: CurriculumDay[] = studyDays([
   { name: "자료구조(DS)", topics: DS_ALL },
   { name: "알고리즘(AL)", topics: AL_ALL },
+  { name: "네트워크(NW)", topics: NW_ALL },
 ]);
 
 export const WEEKS: CurriculumWeek[] = [
@@ -570,7 +622,7 @@ export const WEEKS: CurriculumWeek[] = [
   {
     // 선행 4주차 — 자료구조 + 알고리즘
     start: "2026-08-24",
-    title: "선행 학습 · 심화반 4주차 미리 돌기 (자료구조 + 알고리즘)",
+    title: "선행 학습 · 심화반 4주차 미리 돌기 (자료구조 + 알고리즘 + 네트워크)",
     days: [
       ...WEEK4_DAYS,
       { kind: "review", label: "회독", note: "이번 주 선행한 토픽을 다시 돌립니다." },
@@ -581,7 +633,7 @@ export const WEEKS: CurriculumWeek[] = [
   {
     // 심화반 4주차 — 자료구조 + 알고리즘
     start: "2026-09-21",
-    title: "심화반 4주차 · 자료구조(DS) + 알고리즘(AL)",
+    title: "심화반 4주차 · 자료구조(DS) + 알고리즘(AL) + 네트워크(NW)",
     days: [
       ...WEEK4_DAYS,
       { kind: "review", label: "회독", note: "이번 주 배운 토픽을 다시 돌립니다." },
