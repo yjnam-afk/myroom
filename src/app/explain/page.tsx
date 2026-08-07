@@ -180,6 +180,40 @@ function ExplainInner() {
               </span>
             </div>
             <div className="space-y-5 p-5">
+              {/* 답안 서론 한 덩어리 — 리드문 → 정의 2줄 → 특징 3가지 순으로 그대로 옮겨 적는다. */}
+              {(textbook.lead || textbook.features?.length) && (
+                <div className="rounded-xl border-2 border-amber-200 bg-amber-50/60 p-4">
+                  <div className="text-xs font-bold text-amber-800">
+                    ✍️ 답안 서론 — 이대로 옮겨 적으세요
+                  </div>
+                  {textbook.lead && (
+                    <p className="mt-2 text-[13px] leading-relaxed text-slate-700">
+                      <span className="mr-1 font-bold text-amber-700">리드문</span>
+                      {textbook.lead}
+                    </p>
+                  )}
+                  {textbook.defShort && (
+                    <p className="mt-1.5 text-[13px] font-bold leading-relaxed text-slate-800">
+                      <span className="mr-1 font-bold text-amber-700">정의</span>
+                      {textbook.defShort}
+                    </p>
+                  )}
+                  {!!textbook.features?.length && (
+                    <div className="mt-2">
+                      <span className="text-[13px] font-bold text-amber-700">특징</span>
+                      <ul className="mt-1 space-y-1">
+                        {textbook.features.map((f) => (
+                          <li key={f.name} className="text-[13px] leading-relaxed text-slate-700">
+                            <span className="font-semibold text-slate-900">— {f.name}</span>
+                            <span className="text-slate-400"> · </span>
+                            {f.desc}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              )}
               <div>
                 <div className="text-xs font-bold text-slate-500">■ 정의</div>
                 {/* 답안 서론에 그대로 옮겨 적는 2줄(한 줄 17자 × 2줄) 압축본을 먼저 보여준다. */}
