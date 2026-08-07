@@ -19,6 +19,58 @@ const details = JSON.parse(
 
 const firstCh = (s) => (s || "").trim().charAt(0);
 
+// ── 교재 서브노트의 답안용 2줄 정의(defShort) 사전 ────────────────────────────
+// textbookSubnotes.ts 는 TS라 이 스크립트(node .mjs)에서 import 할 수 없다.
+// 항목 블록이 `title: "..."` ... `defShort: "..."` 로 일정하므로 원문에서 뽑아 쓴다.
+const DEF_SHORT = (() => {
+  const src = fs.readFileSync(
+    path.join(root, "src/data/textbookSubnotes.ts"),
+    "utf8",
+  );
+  const list = [];
+  // 항목 경계: 들여쓰기 2칸 + `{` (파일 상단 타입 정의에는 title/defShort 쌍이 없다)
+  for (const block of src.split(/\n {2}\{\n/)) {
+    const title = block.match(/^\s*title: "((?:[^"\\]|\\.)*)"/m);
+    const short = block.match(/^\s*defShort: "((?:[^"\\]|\\.)*)"/m);
+    if (title && short)
+      list.push({
+        title: title[1],
+        n: norm(title[1]),
+        b: bare(title[1]),
+        short: short[1].replace(/\\"/g, '"'),
+      });
+  }
+  return list;
+})();
+
+/** 제목 비교용 정규화 — grounding/subnoteExtras/textbookSubnotes 와 동일 규칙. */
+function norm(s) {
+  return String(s || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[\s()·,\-_/]/g, "");
+}
+/** 괄호 안 영문 풀네임까지 지운 형태 — "I2C와 SPI" ↔ "I2C(Inter…)와 SPI(Serial…)" 매칭용 */
+function bare(s) {
+  return norm(String(s || "").replace(/[(（][^)）]*[)）]/g, ""));
+}
+
+/**
+ * 제목으로 2줄 정의를 찾는다.
+ * 정확 일치 → 괄호 안 영문 풀네임을 지운 일치, 두 단계만 쓴다.
+ * (포함 매칭은 쓰지 않는다 — "EAMS" 가 "Beam Search"의 부분 문자열로 걸리는 식의
+ *  오탐이 나오는데, 카드에 엉뚱한 정의가 박히는 편이 정의가 없는 것보다 나쁘다.)
+ */
+function defShortFor(title) {
+  const t = norm(title);
+  if (!t) return "";
+  const tb = bare(title);
+  const hit =
+    DEF_SHORT.find((s) => s.n === t) ||
+    (tb ? DEF_SHORT.find((s) => s.b === tb) : undefined);
+  return hit ? hit.short : "";
+}
+
 // 교재 원문(detail)·요약(summary)에서 "정의다운 정의" 한 문장 추출.
 // (grounding.ts의 cleanDefinition과 동일 규칙 — 지하철 모드/두음신공 정의 일치.)
 function cleanOne(src) {
@@ -80,6 +132,8 @@ for (const t of topics) {
     category: t.category,
     importance: t.importance,
     definition: cleanDefinition(d.detail, t.summary) || t.summary || "",
+    // 답안 서론용 2줄(한 줄 17자 × 2줄) 압축 정의 — 교재 서브노트가 있는 토픽만.
+    defShort: defShortFor(t.title),
     // 두음이 없는 토픽의 대체 암기 장치(연상 문장). 카드 하단에 노출한다.
     memo: (d.memo || "").trim(),
     sections,

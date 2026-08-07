@@ -9783,7 +9783,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "SE",
     definition:
       "테스트 대상 어플리케이션과 관련된 키워드 테스트 케이스를 포함하여 해석기, 시퀀서 이용한 ISO/IEC/IEEE 29119 Part 5에 명시된 소프트웨어 국제 표준 테스트 기법",
-    defShort: "키워드 테스트 케이스로 자동 실행하는 ISO 29119 Part 5 표준 테스트 기법",
+    defShort: "키워드로 테스트를 자동 실행하는 ISO 29119 표준 기법",
     keywords: ["편집기", "해석기", "데이터 시퀀서", "툴 브릿지", "실행 엔진", "테스트 대상", "테스트 라이브러리 저장소", "테스트 데이터 저장소"],
     tables: [
       {
@@ -13884,6 +13884,41 @@ const norm = (s: string) =>
 /** 괄호 안 영문 풀네임까지 지운 형태 — "I2C와 SPI" ↔ "I2C(Inter…)와 SPI(Serial…)" 매칭용 */
 const bare = (s: string) => norm(s.replace(/[(（][^)）]*[)）]/g, ""));
 
+/** 공백은 남기고 구분기호만 지운 형태 — 낱말 경계를 봐야 하는 검사용 */
+const spaced = (s: string) =>
+  s.trim().toLowerCase().replace(/[()·,\-_/]/g, "").replace(/\s+/g, " ");
+/** 낱말 경계 판정용 문자 종류 — 한글/영숫자/그 외 */
+const script = (c: string) =>
+  !c ? "" : /[가-힣]/.test(c) ? "ko" : /[a-z0-9]/.test(c) ? "en" : "";
+/** 경계인가 — 문자열 끝이거나, 기호이거나, 한글↔영문으로 문자 종류가 바뀌는 지점 */
+const atBoundary = (outside: string, inside: string) => {
+  const o = script(outside);
+  return !o || o !== script(inside);
+};
+
+/**
+ * 포함 매칭(needle ⊂ haystack)을 받아들여도 되는지 판정한다.
+ *
+ * 공백을 지우고 비교하면 "EAMS" 가 "빔 탐색(Beam Search)" 의 'b|eams|earch' 에
+ * 걸리는 식의 영문 조각 오탐이 난다. 그래서 공백을 살린 형태에서 needle 이
+ * 낱말 경계(문자열 끝 · 기호 · 한글↔영문 전환)에 맞아떨어지는지 먼저 본다.
+ * 이 경계 검사가 "스택(Stack)" ↔ "Stack" 은 살리고 "빔 탐색(Beam Search)" ↔ "EAMS" 는
+ * 막아준다. 경계에서 안 걸리면 한글이 섞였거나 6글자 이상일 때만 통과시킨다
+ * (= "활동 기간 산정 기법들" ↔ "활동기간 산정기법" 처럼 띄어쓰기만 다른 한글 제목 구제).
+ */
+function okLoose(needleTitle: string, haystackTitle: string): boolean {
+  const n = spaced(needleTitle);
+  const h = spaced(haystackTitle);
+  const i = h.indexOf(n);
+  if (i >= 0 && n) {
+    const okStart = atBoundary(i === 0 ? "" : h[i - 1], n[0]);
+    const okEnd = atBoundary(h[i + n.length] || "", n[n.length - 1]);
+    if (okStart && okEnd) return true;
+  }
+  const bareNeedle = norm(needleTitle);
+  return /[가-힣]/.test(bareNeedle) || bareNeedle.length >= 6;
+}
+
 /**
  * 제목으로 교재 서브노트를 찾는다.
  * ★정확 일치를 먼저★ — '단편화'와 '메모리 단편화'처럼 포함 관계인 제목이 서로를
@@ -13898,11 +13933,13 @@ export function subnoteByTitle(title?: string): TextbookSubnote | undefined {
     SUBNOTES.find((s) => norm(s.title) === t) ||
     (tb ? SUBNOTES.find((s) => bare(s.title) === tb) : undefined) ||
     // 느슨한 포함 매칭은 짧은 문자열에서 오탐이 크다("x" 가 "context"에 걸리는 식).
-    // 4글자 이상일 때만 허용한다.
+    // 4글자 이상 + 아래 okLoose() 관문을 통과할 때만 허용한다.
     (t.length >= 4
       ? SUBNOTES.find((s) => {
           const n = norm(s.title);
-          return n.includes(t) || t.includes(n);
+          if (n.includes(t)) return okLoose(raw, s.title);
+          if (t.includes(n)) return okLoose(s.title, raw);
+          return false;
         })
       : undefined)
   );

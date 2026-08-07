@@ -11,6 +11,8 @@ type Card = {
   category: string;
   importance: string;
   definition: string;
+  /** 답안 서론용 2줄(한 줄 17자 × 2줄) 압축 정의. */
+  defShort?: string;
   /** 두음이 없는 토픽의 연상 문장(암기 팁). */
   memo?: string;
   /** 교재 구획별 두음(빌드 시 topicDetails에서 자동 추출). */
@@ -141,7 +143,22 @@ export default function CommutePage() {
                     <div className="text-xs font-semibold text-amber-700">
                       📖 정의
                     </div>
-                    <p className="mt-1 text-sm leading-relaxed text-slate-800">
+                    {/* 답안에 그대로 옮겨 적는 2줄 압축본을 먼저 — 원문은 아래 작게. */}
+                    {card.defShort && (
+                      <p className="mt-1 text-sm font-bold leading-relaxed text-amber-900">
+                        ✍️ {card.defShort}
+                        <span className="ml-1.5 align-middle text-[10px] font-medium text-amber-600">
+                          {card.defShort.replace(/\s/g, "").length}자
+                        </span>
+                      </p>
+                    )}
+                    <p
+                      className={
+                        card.defShort
+                          ? "mt-1.5 text-[12px] leading-relaxed text-slate-500"
+                          : "mt-1 text-sm leading-relaxed text-slate-800"
+                      }
+                    >
                       {card.definition}
                     </p>
                   </div>
