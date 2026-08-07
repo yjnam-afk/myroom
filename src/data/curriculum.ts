@@ -458,6 +458,47 @@ const WEEK3_DAYS: CurriculumDay[] = studyDays([
   { name: "확률·통계(ST)", topics: ST_ALL },
 ]);
 
+
+// ── 4주차: 자료구조(DS) 9토픽 + 알고리즘(AL) 18토픽 ──────────────────
+const DS_ALL: CurriculumTopic[] = [
+  { title: "선형 자료구조와 비선형 자료구조", priority: "상" },
+  { title: "링크드 리스트(Linked List)", priority: "중" },
+  { title: "Stack", priority: "상" },
+  { title: "Queue", priority: "상" },
+  { title: "이진 탐색 트리(Binary Search Tree)", priority: "상" },
+  { title: "AVL 트리", priority: "중" },
+  { title: "힙(Heap)", priority: "중" },
+  { title: "B-Tree(Balanced Tree)", priority: "하" },
+  { title: "방향성 비순환 그래프(DAG, Directed Acyclic Graph)", priority: "하" },
+];
+
+const AL_ALL: CurriculumTopic[] = [
+  { title: "알고리즘 성능평가", priority: "하" },
+  { title: "빅오 표기법(O-Notation)", priority: "상" },
+  { title: "퀵 정렬(Quick Sort)", priority: "중" },
+  { title: "삽입 정렬(Insertion Sort)", priority: "하" },
+  { title: "버블 정렬(Bubble Sort)", priority: "하" },
+  { title: "병합 정렬(Merge Sort)", priority: "중" },
+  { title: "해시 테이블", priority: "하" },
+  { title: "해싱과 충돌해결방법", priority: "상" },
+  { title: "동적 계획법(Dynamic Programming)", priority: "중" },
+  { title: "그리디(탐욕) 알고리즘", priority: "하" },
+  { title: "빔 탐색(Beam Search)", priority: "하" },
+  { title: "허프만(Huffman) 코딩", priority: "중" },
+  { title: "런랭스(Run Length) 코딩", priority: "중" },
+  { title: "다익스트라(Dijkstra) 알고리즘", priority: "중" },
+  { title: "TF-IDF(Term Frequency - Inverse Document Frequency)", priority: "중" },
+  { title: "최소 신장 트리(MST, Minimum Spanning Tree)", priority: "상" },
+  { title: "트리 순회(Tree Traversal)", priority: "중" },
+  { title: "그래프 순회(Graph Traversal)", priority: "중" },
+];
+
+// 4주차도 과목 경계 유지 — 자료구조/알고리즘을 섞지 않는다.
+const WEEK4_DAYS: CurriculumDay[] = studyDays([
+  { name: "자료구조(DS)", topics: DS_ALL },
+  { name: "알고리즘(AL)", topics: AL_ALL },
+]);
+
 export const WEEKS: CurriculumWeek[] = [
   {
     // 심화반(9월) 전에 미리 도는 선행 학습 — 오늘부터 시작.
@@ -521,6 +562,28 @@ export const WEEKS: CurriculumWeek[] = [
     title: "심화반 3주차 · 인공지능(AI) + 확률·통계(ST)",
     days: [
       ...WEEK3_DAYS,
+      { kind: "review", label: "회독", note: "이번 주 배운 토픽을 다시 돌립니다." },
+      { kind: "review", label: "회독", note: "약한 토픽 위주로 한 번 더." },
+      { kind: "rest", label: "휴식", note: "쉬는 것도 공부의 일부예요." },
+    ],
+  },
+  {
+    // 선행 4주차 — 자료구조 + 알고리즘
+    start: "2026-08-24",
+    title: "선행 학습 · 심화반 4주차 미리 돌기 (자료구조 + 알고리즘)",
+    days: [
+      ...WEEK4_DAYS,
+      { kind: "review", label: "회독", note: "이번 주 선행한 토픽을 다시 돌립니다." },
+      { kind: "review", label: "회독", note: "약한 토픽 위주로 한 번 더." },
+      { kind: "rest", label: "휴식", note: "쉬는 것도 공부의 일부예요." },
+    ],
+  },
+  {
+    // 심화반 4주차 — 자료구조 + 알고리즘
+    start: "2026-09-21",
+    title: "심화반 4주차 · 자료구조(DS) + 알고리즘(AL)",
+    days: [
+      ...WEEK4_DAYS,
       { kind: "review", label: "회독", note: "이번 주 배운 토픽을 다시 돌립니다." },
       { kind: "review", label: "회독", note: "약한 토픽 위주로 한 번 더." },
       { kind: "rest", label: "휴식", note: "쉬는 것도 공부의 일부예요." },
