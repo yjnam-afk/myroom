@@ -6068,6 +6068,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "대량의 데이터를 스스로 학습하고 정리하여 문제에 대한 해답을 찾아내는 기법, 학습된 내용을 기반으로 미래를 예측하기 위한 기법",
     defShort: "대량의 데이터를 스스로 학습하고 정리해 해답을 찾고 미래를 예측하는 학습 기법들",
+    lead:
+      "정답 유무에 따른 학습의 갈래, 머신러닝 학습방법",
+    features: ["지도·비지도", "강화학습", "데이터 의존"],
     keywords: ["지도학습", "비지도학습", "준지도학습", "강화학습", "진화학습"],
     tables: [
       {
@@ -6090,6 +6093,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "기존의 학습된 모델과 비슷한 유형의 다른 모델로 학습된 결과를 옮겨서 부족한 데이터를 통한 학습이나 훈련 시간을 단축시키는 머신러닝 기법",
     defShort: "기존에 학습된 모델의 결과를 옮겨 데이터 부족과 훈련 시간을 줄이는 머신러닝 기법",
+    lead:
+      "학습된 지식의 재활용, 전이학습",
+    features: ["데이터 절감", "시간 단축", "미세조정"],
     keywords: ["미세조정(Fine Tuning)", "과업/도메인 전이", "Inductive/Transductive/Unsupervised"],
     tables: [
       {
@@ -6120,6 +6126,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "데이터에 스스로 레이블을 생성하여 학습하는 지도학습 형태의 비지도학습 (지도학습이 필요한 작업에 비지도 학습 사용)",
     defShort: "데이터에 스스로 레이블을 생성하여 학습하는 지도학습 형태를 띤 비지도학습 방법",
+    lead:
+      "스스로 만드는 레이블, 자기지도학습",
+    features: ["레이블 자동 생성", "비용 절감", "사전학습 활용"],
     keywords: ["프리텍스트 태스크(pre-text task)", "다운스트림 태스크(downstream task)", "전이학습"],
     tables: [
       {
@@ -6157,6 +6166,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "저장 데이터를 직접 공유하지 않는 다수의 로컬 기기와 하나의 중앙 서버가 협력하여 AI 모델을 학습하는 분산형 머신 러닝",
     defShort: "데이터를 공유하지 않고 다수 로컬 기기와 중앙 서버가 협력 학습하는 분산 머신러닝",
+    lead:
+      "데이터 이동 없는 협력 학습, 연합학습",
+    features: ["프라이버시 보호", "분산 학습", "모델만 교환"],
     keywords: ["전역모델", "지역모델", "FedSGD", "FedAVG"],
     tables: [
       {
@@ -6186,6 +6198,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "한 번 학습된 머신러닝 모델에서 특정 데이터를 선택적으로 제거하여 해당 데이터를 학습하지 않은 것처럼 하는 기술",
     defShort: "학습된 모델에서 특정 데이터를 선택적으로 지워 학습하지 않은 것처럼 만드는 기술",
+    lead:
+      "학습의 선택적 삭제, 머신 언러닝",
+    features: ["잊혀질 권리", "영향 제거", "재학습 회피"],
     keywords: ["데이터가 모델에 미친 영향 제거", "개인정보 보호", "AI윤리", "재학습", "언러닝 알고리즘", "잊혀질 권리"],
     tables: [
       {
@@ -6221,6 +6236,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "특정 산업이나 도메인에 최적화된 데이터를 활용하여 해당 분야의 고유한 문제를 해결하는 인공지능",
     defShort: "특정 산업이나 도메인에 최적화된 데이터로 그 분야의 고유한 문제를 푸는 인공지능",
+    lead:
+      "도메인 특화 인공지능, 버티컬 AI",
+    features: ["산업 특화", "전문성", "데이터 차별화"],
     keywords: ["범용 데이터", "특화 데이터", "파인 튜닝", "sLLM"],
     tables: [
       {
@@ -6247,6 +6265,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "로봇, 자율주행차와 같은 물리적 기기에 탑재되어, 물리적 세계를 인식하고 이해하며 상호작용하는 인공지능",
     defShort: "로봇이나 자율주행차 같은 물리 기기에 탑재돼 현실을 인식하고 상호작용하는 AI",
+    lead:
+      "물리 세계와 상호작용하는 AI, Physical AI",
+    features: ["실세계 인식", "기기 탑재", "실시간성"],
     keywords: ["LWM", "Tokenizer", "디지털트윈", "온디바이스AI", "모델 경량화", "sLLM", "벡터DB", "휴머노이드", "자율주행"],
     tables: [
       {
@@ -6296,6 +6317,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "클라우드 서버가 아닌 단말 기기 내부에서 인공지능(AI) 모델의 추론(inference) 및 연산이 이루어지는 기술",
     defShort: "클라우드 서버가 아닌 단말 기기 내부에서 AI 모델의 추론과 연산이 이뤄지는 기술",
+    lead:
+      "단말 내부의 AI 연산, 온디바이스 AI",
+    features: ["저지연", "보안 강화", "자원 제약"],
     keywords: ["레이턴시 지연", "보안", "모델 성능 제한", "모델 경량화", "전력 관리", "자원 제약", "하이브리드 AI"],
     tables: [
       {
@@ -6350,6 +6374,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "인공지능과 감성지능의 결합으로 AI가 스스로 감정을 가져 자신과 타인의 감정을 구별 및 새로운 사고와 행동을 결정하며 감정을 공유하는 인공지능 기술",
     defShort: "인공지능과 감성지능을 결합해 감정을 구별하고 공유하며 행동을 결정하는 AI 기술",
+    lead:
+      "감정을 다루는 인공지능, AEI",
+    features: ["감성 인식", "감성 생성", "공감 상호작용"],
     keywords: ["AI + 감성", "감성인식", "감성생성", "감성증강 기술"],
     tables: [
       {
@@ -6382,6 +6409,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "인공신경망에서 현재 레이어(Layer)의 입력 신호와 가중치의 총합을 비선형적 출력 신호로 변환하여 활성화 여부를 결정하는 함수",
     defShort: "신경망에서 입력 신호와 가중치의 총합을 비선형 출력으로 바꿔 활성화를 정하는 함수",
+    lead:
+      "신경망의 비선형 변환, 활성화함수",
+    features: ["비선형성", "활성 결정", "표현력 부여"],
     keywords: ["출력 신호 변환", "활성화 여부 결정"],
     tables: [
       {
@@ -6417,6 +6447,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "신경망의 최적 가중치를 찾기 위해 실제 값과 신경망의 예측 값의 차이를 수치화(오차계산)해주는 함수",
     defShort: "신경망의 최적 가중치를 찾으려 실제 값과 예측 값의 차이를 수치화해 주는 함수이다",
+    lead:
+      "오차의 수치화, 손실함수",
+    features: ["오차 계량", "최적화 기준", "문제별 선택"],
     keywords: ["오차 계산", "MSE", "RMSE", "MAE", "BCE", "CCE", "SCCE"],
     tables: [
       {
@@ -6449,6 +6482,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "손실함수의 최소값을 찾기 위해 신경망의 가중치를 갱신하여 신경망 모델을 최적화하는 알고리즘",
     defShort: "손실함수의 최소값을 찾도록 신경망 가중치를 갱신해 모델을 최적화하는 알고리즘",
+    lead:
+      "가중치 갱신의 전략, 머신러닝 옵티마이저",
+    features: ["경사 기반", "수렴 속도", "학습률 조절"],
     keywords: ["가중치 갱신", "에포크", "러닝레이트", "경사하강법", "SGD", "Momentum", "NAG", "AdaGrad", "RMSProp", "AdaDelta", "Adam"],
     tables: [
       {
@@ -6473,6 +6509,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "데이터가 사상 된 공간에서 경계선과 가장 근접한 데이터(Support Vector)간의 거리가 가장 큰 경계를 식별하는 알고리즘",
     defShort: "경계선과 가장 가까운 서포트 벡터 사이의 거리가 최대인 경계를 찾는 분류 알고리즘",
+    lead:
+      "최대 마진의 분류 경계, SVM",
+    features: ["마진 최대화", "일반화 우수", "커널 확장"],
     keywords: ["분류", "패턴인식", "지도학습", "종속변수", "독립변수", "Support Vector", "Margin", "초평면", "커널함수", "과적합"],
     tables: [
       {
@@ -6502,6 +6541,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "라벨링: 인공지능이 기계학습에 활용할 수 있도록 기능이나 목적에 부합하는 정보를 원천데이터에 부착하는 활동 / 어노테이션: 라벨링 공정에서 인간이 부여한 식별기준을 기계가 인식할 수 있도록 선정된 데이터에 추가적인 정보를 기입하여 알고리즘이 이해할 수 있도록 만드는 과정",
     defShort: "원천데이터에 목적에 맞는 정답 정보를 부착하고 기계가 읽도록 기입하는 구축 활동",
+    lead:
+      "학습 데이터의 정답 부착, 데이터라벨링과 어노테이션",
+    features: ["정답 생성", "품질 좌우", "수작업 비중"],
     keywords: ["라벨링", "어노테이션", "바운딩박스", "폴리곤", "텍스트 전사"],
     tables: [
       {
@@ -6529,6 +6571,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "사전 학습된 모델(Teacher Model)이 학습한 지식을 다른 작은 모델(Student Model)에게 전달하여, 학습한 내용이나 예측 성능을 모방하도록 학습하는 기법",
     defShort: "사전 학습된 교사 모델의 지식을 작은 학생 모델에 전달해 모방하도록 학습시키는 기법",
+    lead:
+      "큰 모델 지식의 압축 전수, 지식 증류",
+    features: ["모델 경량화", "성능 보존", "교사-학생 구조"],
     keywords: ["지식전달", "Teacher model", "Student model", "Distillation Loss"],
     tables: [
       {
@@ -6574,6 +6619,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "학습 시의 배치를 한 단위로 정규화를 하는 것으로 분포의 평균이 0, 분산이 1이 되도록 정규화하는 작업",
     defShort: "학습 시의 배치를 한 단위로 분포의 평균 0, 분산 1이 되도록 맞추는 정규화 작업임",
+    lead:
+      "분포 안정화의 학습 가속, 배치 정규화",
+    features: ["분포 정규화", "학습 안정", "소실 완화"],
     keywords: ["기울기 소실문제", "배치정규화 Layer(BN Layer)", "데이터 분포 정규화(평균0, 분산1)"],
     tables: [
       {
@@ -6603,6 +6651,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "정규화: 데이터를 일정한 범위로 변환하여 특징간의 스케일 차이를 맞추는 기법 / 규제화: 모델의 과적합을 방지하기 위해 손실함수에 패널티 항을 추가하는 기법 / 표준화: 데이터를 평균 0, 표준편차 1을 갖는 표준정규분포로 변환하는 데이터 전처리 기법",
     defShort: "입력 스케일을 맞추는 정규화·표준화와 가중치에 패널티를 주는 규제화 세 가지 기법",
+    lead:
+      "스케일 조정과 과적합 억제, 정규화·규제화·표준화",
+    features: ["스케일 통일", "패널티 부여", "목적 상이"],
     keywords: ["Min-Max 스케일링", "L1(Lasso)", "L2(Ridge)", "Z-score 스케일링"],
     tables: [
       {
@@ -6632,6 +6683,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "신경망의 과적합을 방지하기 위해 은닉층의 일부 노드를 무작위로 비활성화 시켜 정규화(성능 일반화)하는 신경망 학습 기법",
     defShort: "과적합을 방지하려 은닉층 일부 노드를 무작위로 비활성화해 일반화하는 학습 기법",
+    lead:
+      "무작위 비활성화의 일반화, Dropout",
+    features: ["과적합 방지", "공적응 차단", "앙상블 효과"],
     keywords: ["노드 비활성화", "Overfitting", "co-adaption", "dropout rate"],
     tables: [
       {
@@ -6670,6 +6724,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "임의의 클러스터 중심을 이동시키며 중심으로부터 정해진 반경 거리 내에 최소 데이터 포인트 개수를 확인하며 밀도 기반으로 군집화를 수행하는 알고리즘",
     defShort: "정해진 반경 안의 최소 데이터 개수를 확인하며 밀도 기준으로 군집화하는 알고리즘",
+    lead:
+      "밀도 기준의 군집 발견, DBSCAN",
+    features: ["군집 수 자동", "임의 모양 대응", "이상치 구분"],
     keywords: ["밀도", "군집화", "core", "border", "Epsilon", "connected"],
     tables: [
       {
@@ -6701,6 +6758,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "신경망에서 최적의 결과를 유도하기 위하여 계산된 예측 값과 실제 값과의 차이인 오류(Error)를 신경망의 각 노드에 역방향으로 전파하여 각 노드의 가중치를 업데이트하여 최적화하는 기법",
     defShort: "예측과 실제 값의 오차를 역방향으로 전파해 각 노드 가중치를 갱신하는 최적화 기법",
+    lead:
+      "오차의 역방향 전파, 오류 역전파",
+    features: ["연쇄 법칙", "가중치 갱신", "학습 핵심"],
     keywords: ["오차(오류)", "Chain Rule", "Delta Rule", "경사하강법", "가중치 업데이트"],
     tables: [
       {
@@ -6732,6 +6792,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "라벨링 된 데이터로부터 거리가 가까운 'k'개의 다른 데이터의 레이블을 참조하여 분류하는 알고리즘",
     defShort: "라벨링된 데이터에서 거리가 가까운 K개 이웃의 레이블을 참조해 분류하는 알고리즘",
+    lead:
+      "이웃 참조의 분류, K-NN",
+    features: ["거리 기반", "비모수적", "계산 지연"],
     keywords: ["Classification", "회귀", "지도학습", "예측", "거리기반"],
     tables: [
       {
@@ -6776,6 +6839,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "기울기 소실: 깊은 인공 신경망 학습 시, 역전파 과정에서 기울기가 점차 작아져 가중치가 업데이트 되지 않는 현상 / 기울기 폭주: 역전파 과정에서 기울기가 점차 커져 가중치들이 비정상적인 큰 값으로 발산하는 현상",
     defShort: "역전파 도중 기울기가 점차 작아져 소멸하거나 커져 발산해 학습이 실패하는 두 현상",
+    lead:
+      "심층 학습의 두 실패 현상, 기울기 소실과 폭주",
+    features: ["소멸·발산 상반", "깊이 기인", "ReLU 완화"],
     keywords: ["ReLU", "Leaky ReLU", "Gradient Clipping"],
     tables: [
       {
@@ -6804,6 +6870,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "n개의 데이터를 K개의 군집으로 분류하기 위해 거리 기반으로 반복적으로 계산해 나가는 Clustering 알고리즘",
     defShort: "n개의 데이터를 K개 군집으로 나누려 거리 기반 계산을 반복하는 군집화 알고리즘",
+    lead:
+      "거리 기반 반복 군집화, K-평균 알고리즘",
+    features: ["비지도", "중심 갱신", "K 사전 지정"],
     keywords: ["Clustering", "비지도학습", "군집화", "거리기반"],
     tables: [
       {
@@ -6838,6 +6907,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "고차원 공간의 표본들을 선형 연관성이 없는 저차원공간(주성분)의 표본으로 변환하는 알고리즘",
     defShort: "고차원 공간의 표본을 선형 연관성이 없는 저차원 주성분 표본으로 바꾸는 알고리즘",
+    lead:
+      "분산 최대의 축 추출, PCA",
+    features: ["차원 축소", "정보 보존", "잡음 제거"],
     keywords: ["차원 축소", "잡음제거", "공분산", "Eigen Vector", "Eigen Value"],
     tables: [
       {
@@ -6869,6 +6941,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "매우 많은 피처로 구성된 다차원 데이터 세트의 차원을 축소해 새로운 차원의 데이터 세트를 생성",
     defShort: "매우 많은 피처로 이뤄진 다차원 데이터의 차원을 줄여 새 데이터 세트를 만드는 기법",
+    lead:
+      "차원의 저주 극복, 차원 축소",
+    features: ["피처 압축", "연산 절감", "시각화 용이"],
     keywords: ["차원의 저주", "PCA", "LDA", "ISOMAP", "로컬 선형 임베딩"],
     tables: [
       {
@@ -6901,6 +6976,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "자연세계의 진화현상인 유전학의 원리에 근거하여, 세대를 거치면서 적자생존을 통해 점진적으로 최적해를 탐색해가는 최적화 문제해결 알고리즘",
     defShort: "유전학의 진화 원리에 따라 세대를 거쳐 적자생존으로 최적해를 탐색하는 알고리즘",
+    lead:
+      "진화 모방의 최적해 탐색, 유전 알고리즘",
+    features: ["적자생존", "세대 반복", "전역 탐색"],
     keywords: ["최적화 알고리즘", "반복"],
     tables: [
       {
@@ -6936,6 +7014,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "여러 개의 분류기를 생성하고, 그 예측을 결합함으로써 보다 정확한 예측을 도출하는 기법",
     defShort: "여러 개의 분류기를 생성하고 그 예측을 결합해 더 정확한 예측을 도출하는 학습 기법",
+    lead:
+      "여러 모델의 집단 지성, 앙상블 학습",
+    features: ["정확도 향상", "과적합 완화", "결합 다양"],
     keywords: ["과적합", "결합", "보팅"],
     tables: [
       {
@@ -6957,6 +7038,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "단어나 문장을 벡터화하여 특징벡터를 만들고, 벡터가 얼마나 같은지 나타내주는 척도",
     defShort: "단어나 문장을 벡터화해 특징벡터를 만들고 두 벡터가 얼마나 같은지 나타내는 척도",
+    lead:
+      "벡터 간 닮음의 척도, 유사도",
+    features: ["벡터 기반", "척도 다양", "검색 근거"],
     keywords: ["벡터", "교집합의 크기/합집합의 크기", "코사인 각도", "유사도"],
     tables: [
       {
@@ -6977,6 +7061,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "클래스간 분산과 클래스 내 분산의 비율을 최대화하는 방식으로 데이터에 대한 특징 벡터의 차원을 축소하는 알고리즘",
     defShort: "클래스 간 분산과 클래스 내 분산의 비율을 최대화하는 방식으로 차원을 줄이는 기법",
+    lead:
+      "분리 최대의 차원 축소, LDA",
+    features: ["지도적 축소", "분산 비율", "경계 명확"],
     keywords: ["클래스 간 분산/클래스 내 분산", "고유벡터", "고유 값", "decision boundary"],
     tables: [
       {
@@ -7010,6 +7097,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "두 데이터 간의 차이를 측정하기 위한 방법으로 데이터 간의 거리가 가까울수록 유사한 데이터로 판별하는 척도",
     defShort: "두 데이터 간의 차이를 측정하여 거리가 가까울수록 유사한 데이터로 판별하는 척도",
+    lead:
+      "데이터 차이의 측정 자, 거리 공식",
+    features: ["유사성 판별", "공식 다양", "알고리즘 기초"],
     keywords: ["직선거리", "절대값거리", "L2거리", "L1거리"],
     tables: [
       {
@@ -7031,6 +7121,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "어텐션 메커니즘을 사용하여 입력된 문장을 병렬적으로 처리하여 문장 내 단어들의 위치 정보를 보존하면서 효율적으로 처리하는 자연어 처리(NLP)를 위한 딥러닝 모델",
     defShort: "어텐션으로 문장을 병렬 처리하며 단어 위치 정보를 보존하는 자연어처리 딥러닝 모델",
+    lead:
+      "어텐션 기반 병렬 처리, 트랜스포머",
+    features: ["병렬성", "장거리 의존 해결", "LLM 기반"],
     keywords: ["인코더", "디코더", "어텐션 메커니즘", "LLM"],
     tables: [
       {
@@ -7056,6 +7149,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "인간의 언어를 기계적으로 분석해서 컴퓨터가 이해할 수 있는 형태로 만들거나 혹은 컴퓨터가 처리한 이해할 수 있는 언어로 표현하는 기술",
     defShort: "사람의 언어를 기계적으로 분석해 컴퓨터가 이해하거나 표현할 수 있게 만드는 기술",
+    lead:
+      "인간 언어의 기계 처리, 자연어처리",
+    features: ["이해·생성", "비정형 대응", "응용 광범위"],
     keywords: ["자연어이해(NLU)", "자연어생성(NLG)", "자연어처리(NLP)"],
     tables: [
       {
@@ -7096,6 +7192,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "모델평균(μ)과 표준편차(σ)를 학습하여 사후확률을 최대화 하여 입력 데이터와 유사한 새로운 데이터를 생성하는 AI 기술",
     defShort: "평균과 표준편차를 학습해 사후확률을 최대화하고 유사한 새 데이터를 만드는 모델",
+    lead:
+      "확률 분포 학습의 생성, VAE",
+    features: ["분포 학습", "잠재 공간", "생성 능력"],
     keywords: ["목표 지향", "실시간 피드백", "적응형 학습", "미세조정"],
     tables: [
       {
@@ -7135,6 +7234,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "Generator와 Discriminator가 서로 대립 과정을 통해 훈련 타깃을 생성하는 학습 모델로 두개의 네트워크로 구성된 심층 신경망",
     defShort: "생성자와 판별자가 서로 대립하는 과정으로 훈련하는 두 네트워크 구성 심층 신경망",
+    lead:
+      "대립 학습의 생성 모델, GAN",
+    features: ["적대적 훈련", "생성·판별 경쟁", "고품질 생성"],
     keywords: ["Generator", "Discriminator", "Min-Max 학습", "Nash균형", "모드진동", "모드붕괴", "준지도학습"],
     tables: [
       {
@@ -7175,6 +7277,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "행렬을 고유한 기하학적 성질을 가진 세 행렬로 분해하여 원본 행렬의 중요한 정보만 유지하면서, 고차원 행렬을 저차원 행렬로 분리하는 기법",
     defShort: "행렬을 기하학적 성질을 가진 세 개의 행렬로 분해해 저차원으로 압축·분리하는 기법",
+    lead:
+      "행렬 분해의 차원 압축, SVD",
+    features: ["세 행렬 분해", "정보 선별", "압축 활용"],
     keywords: ["특이값", "특이 벡터", "직교행렬", "대각행렬", "전치행렬"],
     tables: [
       {
@@ -7216,6 +7321,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "대규모 언어 모델 답변 생성 시 텍스트를 생성하는 중간에 필요한 정보를 반복적으로 검색하여 언어 모델 답변의 정확성과 신뢰성을 높이는 기술",
     defShort: "언어 모델이 답변을 생성하는 중간에 필요한 정보를 반복 검색해 정확성을 높이는 기술",
+    lead:
+      "생성 중간의 반복 검색, RIG",
+    features: ["중간 검색", "반복 보강", "정확성 향상"],
     keywords: ["임베딩", "벡터 DB", "답변 생성 중 검색", "반복 검색", "할루시네이션"],
     tables: [
       {
@@ -7251,6 +7359,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "생성형 AI 서비스를 외부 데이터를 검색하고 검색된 관련 데이터를 컨텍스트에 추가하여 AI 모델의 정확성과 신뢰성을 향상시키는 기술",
     defShort: "외부 데이터를 검색해 컨텍스트에 추가함으로써 AI 답변의 정확성을 높이는 기술",
+    lead:
+      "외부 지식의 컨텍스트 보강, RAG",
+    features: ["외부 검색", "환각 억제", "최신성 확보"],
     keywords: ["인덱싱", "청크", "임베딩", "벡터 DB", "유사도", "프롬프트 증강", "할루시네이션(hallucination)"],
     tables: [
       {
@@ -7282,6 +7393,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "인공지능 모델이 정확하지 않거나 사실이 아닌 조작된 정보를 생성하는 것을 의미",
     defShort: "인공지능 모델이 정확하지 않거나 사실이 아닌 조작된 정보를 생성해 내는 잘못된 현상",
+    lead:
+      "AI의 그럴듯한 거짓, 할루시네이션",
+    features: ["사실 왜곡", "신뢰 저해", "원인 다양"],
     keywords: ["편향", "과적합", "맥락이해 부족", "적대적 공격", "복잡한 모델", "고품질 데이터", "문맥개선", "RLHF", "RAG"],
     tables: [
       {
@@ -7315,6 +7429,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "대량 연산이 가능한 컴퓨팅 인프라와 대량의 데이터로 학습하여 사람의 언어를 이해하고 생성가능한 언어모델",
     defShort: "대량 연산 인프라와 대량의 데이터로 학습해 사람의 언어를 이해하고 생성하는 모델",
+    lead:
+      "대규모 학습의 언어 지능, 초거대 언어 모델",
+    features: ["대규모 파라미터", "범용성", "창발 능력"],
     keywords: ["컴퓨팅 파워", "데이터", "모델 알고리즘", "트랜스포머", "BERT", "ChatGPT"],
     tables: [
       {
@@ -7354,6 +7471,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "디코더에서 출력 단어를 예측하는 매 시점(time step)마다, 인코더에서의 전체 입력 문장의 예측해야 할 단어와 연관 있는 입력 단어 부분을 집중해 참고하는 방법",
     defShort: "출력 단어를 예측하는 매 시점마다 연관 있는 입력 단어 부분에 집중해 참고하는 방법",
+    lead:
+      "연관 부분 집중의 기법, 어텐션 메커니즘",
+    features: ["선택적 집중", "가중치 산출", "병렬 처리"],
     keywords: ["Q(Query)", "K(Key)", "V(Value)", "Attention Score", "Attention Distribution", "Attention Value"],
     tables: [
       {
@@ -7385,6 +7505,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "언어모델을 활용한 서비스 개발 시 여러 언어 모델과 통합을 간소화 하도록 설계된 SDK이자 다양한 언어모델을 기반으로 하는 애플리케이션 개발을 위한 프레임워크",
     defShort: "여러 언어모델의 통합을 간소화해 LLM 응용 개발을 돕는 SDK이자 프레임워크",
+    lead:
+      "LLM 응용 개발 프레임워크, 랭체인",
+    features: ["통합 간소화", "모듈 조합", "외부 연동"],
     keywords: ["Agent", "Memory", "Model I/O", "Data Connection", "Chains", "Callbacks"],
     tables: [
       {
@@ -7418,6 +7541,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "일반적인 학습 과정에서 얻은 모델의 가중치를 초기 설정으로 사용하고, 새로운 데이터셋에 대하여 추가적인 학습을 진행하며 조정하는 과정",
     defShort: "학습으로 얻은 모델 가중치를 초기 설정으로 삼아 새 데이터셋으로 추가 학습하는 과정",
+    lead:
+      "사전학습 모델의 재조정, 파인 튜닝",
+    features: ["가중치 갱신", "작업 특화", "데이터 효율"],
     keywords: ["특정 작업 최적화", "전이 학습", "지도 파인 튜닝", "비지도 파인 튜닝", "미세조정"],
     tables: [
       {
@@ -7464,6 +7590,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "초거대 언어모델(LLM)의 파라미터는 고정시킨 상태에서 새로운 작업에 적응시키기 위해 프롬프트(명령이나 요청 등의 텍스트)를 조정하여 모델이 원하는 방식으로 응답하도록 하는 기법",
     defShort: "모델의 파라미터는 고정한 상태에서 프롬프트만 조정해 원하는 응답을 얻는 기법이다",
+    lead:
+      "모델 고정의 경량 적응, 프롬프트 튜닝",
+    features: ["파라미터 고정", "저비용", "신속 적용"],
     keywords: ["최적화", "프롬프트 조합"],
     tables: [
       {
@@ -7489,6 +7618,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "대규모 언어 모델(LLM)의 입력과 작동 방식에 있어, 사용자 의도와 목적에 따라 문맥(Context)을 정형화, 조작, 구성하여 정확도·일관성·목적 적합성을 향상시키는 기법",
     defShort: "사용자 의도에 따라 문맥을 정형화·구성해 LLM의 정확도와 일관성을 높이는 기법",
+    lead:
+      "문맥 설계의 최적화, 컨텍스트 엔지니어링",
+    features: ["문맥 구조화", "일관성 향상", "의도 반영"],
     keywords: ["맥락(Context)을 설계·활용·최적화"],
     tables: [
       {
@@ -7531,6 +7663,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "컴퓨터와 상호작용을 하는 사용자를 위한 AI 인터페이스 개발 분야로 높은 수준의 결과물을 얻기 위해 적절한 프롬프트를 구성하는 작업 또는 엔지니어링 기법",
     defShort: "높은 수준의 결과물을 얻기 위해 적절한 프롬프트를 구성하는 작업이자 엔지니어링",
+    lead:
+      "질문 설계의 기술, 프롬프트 엔지니어링",
+    features: ["출력 품질 좌우", "기법 다양", "비용 효율"],
     keywords: ["생성형AI", "Task Description", "Input Indicator", "Output Indicator", "Zero-shot Prompting"],
     tables: [
       {
@@ -7568,6 +7703,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "전체 모델을 재 훈련하지 않고 특정 용도에 맞게 대규모 머신 러닝 모델을 조정하는 방법",
     defShort: "전체 모델을 다시 훈련하지 않고 저랭크 행렬만 학습해 조정하는 경량 파인튜닝 기법",
+    lead:
+      "저랭크 행렬의 경량 튜닝, LoRA",
+    features: ["파라미터 절감", "원본 보존", "병합 용이"],
     keywords: ["매개변수 일부만 파인튜닝", "PEFT"],
     tables: [
       {
@@ -7597,6 +7735,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "대규모 언어 모델(LLM)의 추론 능력 부족, 정보의 정확성 문제, 지식의 일관성 유지 어려움 등의 한계를 극복하기 위한 기술",
     defShort: "추론 능력 부족과 정보 정확성, 지식 일관성 같은 LLM의 한계를 극복하기 위한 기술",
+    lead:
+      "LLM 한계 극복의 기술군, LLM 성능 향상 기술",
+    features: ["추론 강화", "지식 보강", "효율화"],
     keywords: ["추론 능력 강화", "RAG", "모델 병합 및 결합", "효율성 및 비용 절감", "멀티모달 통합"],
     tables: [
       {
@@ -7630,6 +7771,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "\"개념(Concept)\"을 의미 단위로 사용하여 토큰 기반 제약을 벗어나 보다 의미론적인 추론을 수행하는 모델",
     defShort: "개념을 의미 단위로 삼아 토큰 기반의 제약을 벗어나 의미론적 추론을 수행하는 모델",
+    lead:
+      "토큰을 넘는 개념 단위 추론, 대형개념모델",
+    features: ["개념 단위", "언어 독립", "의미 추론"],
     keywords: ["SONAR 임베딩 공간", "메타AI"],
     tables: [
       {
@@ -7670,6 +7814,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "LLM의 언어 이해 능력에 실제 행동 수행 능력을 결합한 모델로 물리적인 세계와 상호작용하는 인공지능 모델",
     defShort: "LLM의 언어 이해 능력에 실제 행동 수행 능력을 결합한 물리 세계 상호작용형 모델",
+    lead:
+      "언어 이해에서 행동 수행으로, LAM",
+    features: ["행동 결합", "작업 분해", "실세계 연동"],
     keywords: ["AI Agent", "의도분류", "계층적작업분해", "Neuro-symbolic Programming", "RLHF"],
     tables: [
       {
@@ -7708,6 +7855,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "여러 에이전트가 협업하여 작업을 수행하는 기능을 수행하기 위한 멀티 에이전트 시스템을 구축하는 데 사용되는 LangChain 기반의 상태 관리 및 워크플로우 라이브러리",
     defShort: "여러 에이전트가 협업하는 시스템을 만드는 랭체인 기반 상태 관리 워크플로우 도구",
+    lead:
+      "멀티 에이전트 협업 도구, LangGraph",
+    features: ["그래프 구조", "상태 관리", "협업 조율"],
     keywords: ["Agent", "멀티 Agent", "협업 Agent", "워크플로우 라이브러리", "노드", "엣지", "디자이너"],
     tables: [
       {
@@ -7739,6 +7889,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "언어 모델이 복잡한 문제를 해결할 때, 단계별로 논리적 추론을 수행하도록 유도하는 방법론",
     defShort: "언어 모델이 복잡한 문제를 해결할 때 단계별로 논리 추론을 하도록 유도하는 방법론",
+    lead:
+      "단계적 사고의 유도, COT",
+    features: ["추론 단계화", "정확도 향상", "과정 가시화"],
     keywords: ["단계적 논리적 추론", "사고 과정 단계"],
     tables: [
       {
@@ -7763,6 +7916,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "여러 개의 전문가 모델(Expert Model) 중에서 특정 입력에 대해 최적의 전문가를 선택하여 예측을 수행하는 모델 아키텍처",
     defShort: "여러 전문가 모델 중 특정 입력에 가장 알맞은 전문가를 선택해 예측하는 모델 아키텍처",
+    lead:
+      "전문가 선택의 분업 구조, MOE",
+    features: ["선택적 활성", "연산 효율", "용량 확장"],
     keywords: ["Expert", "Routing", "딥시크"],
     tables: [
       {
@@ -7795,6 +7951,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "사전학습 된 모델의 전체 파라미터를 업데이트하지 않고 일부만 조정하여, 적은 자원으로 효과적인 파인튜닝을 실현하는 방법",
     defShort: "사전학습 모델의 파라미터 일부만 조정해 적은 자원으로 파인튜닝을 실현하는 방법",
+    lead:
+      "일부 조정의 효율 튜닝, PEFT",
+    features: ["자원 절감", "일부만 갱신", "성능 유지"],
     keywords: ["일부만 파인튜닝"],
     tables: [
       {
@@ -7829,6 +7988,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "AI 하드웨어와 소프트웨어의 학습(Training) 및 추론(Inference) 성능을 다양한 조건에서 평가할 수 있는 벤치마크",
     defShort: "AI 하드웨어와 소프트웨어의 학습 및 추론 성능을 여러 조건에서 평가하는 벤치마크",
+    lead:
+      "AI 성능의 공인 벤치마크, MLPerf",
+    features: ["표준 측정", "학습·추론 포괄", "비교 가능"],
     keywords: ["Training", "Inference", "CLOSED 방식", "OPEN 방식"],
     tables: [
       {
@@ -7870,6 +8032,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "모델을 추론(inference) 단계에서 더 나은 성능을 발휘하도록, 입력 크기·샘플 수·리소스 사용량 등을 시간 축에 따라 조정하는 기법",
     defShort: "추론 단계에서 입력 크기와 샘플 수, 리소스 사용량 등을 조정해 성능을 높이는 기법",
+    lead:
+      "추론 시점의 성능 조절, 테스트 타임 스케일링",
+    features: ["추론 강화", "연산 가변", "학습 불변"],
     keywords: ["추론 성능 향상", "성능 향상", "연산량 조절"],
     tables: [
       {
@@ -7919,6 +8084,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "머신 러닝 프로세스인 데이터 수집, 분석, 배포를 자동화하기 위하여 DevOps와 결합한 머신 러닝을 위한 IT 운영 프레임워크",
     defShort: "데이터 수집·분석·배포를 자동화하려 데브옵스와 결합한 머신러닝 IT 운영 체계",
+    lead:
+      "머신러닝 운영의 자동화, MLOps",
+    features: ["파이프라인화", "지속 배포", "협업 통합"],
     keywords: ["DevOps", "자동화", "CI/CD"],
     tables: [
       {
@@ -7951,6 +8119,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "대형 언어 모델(LLMs)의 설계부터 관리, 배포, 유지 관리를 통합하고 효율화하는 과정 및 패러다임",
     defShort: "대형 언어 모델의 설계부터 관리, 배포, 유지 관리를 통합하고 효율화하는 패러다임",
+    lead:
+      "대형 언어 모델의 운영 체계, LLMOps",
+    features: ["LLM 특화", "전 주기 관리", "효율화"],
     keywords: ["LLM", "DevOps", "자동화", "CI/CD"],
     tables: [
       {
@@ -7997,6 +8168,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "인공지능을 포함한 알고리즘에 의해 크게 변경되거나 생성된 이미지, 동영상, 오디오, 텍스트 등의 정보(AI 생성물)에 인지 불가능한 워터마크를 삽입·추출하는 기술",
     defShort: "AI가 생성한 이미지와 영상, 텍스트에 인지 불가능한 워터마크를 넣고 빼는 기술",
+    lead:
+      "AI 생성물의 식별 표지, 워터마크 적용 기술",
+    features: ["비인지성", "삽입·추출", "진위 판별"],
     keywords: ["공간 기반", "변환 기반", "학습 기반", "이미지", "동영상", "텍스트 적용 기술"],
     tables: [
       {
@@ -8046,6 +8220,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "생성형 인공지능 서비스 이용 과정에서 잠재적 위험들 사전 방지 및 이용자 권익 보호 위한 기본 원칙과 실천 방식 제시",
     defShort: "생성형 AI의 잠재 위험을 사전 방지하고 이용자 권익을 보호하는 원칙과 실천 방식",
+    lead:
+      "이용자 권익의 보호 원칙, 생성형 AI 이용자 보호 가이드라인",
+    features: ["존엄성 보호", "설명 가능성", "사전 방지"],
     keywords: ["인간 존엄성 보호", "설명 가능성", "이용자 인격권 보호", "다양한 존중 노력"],
     tables: [
       {
@@ -8093,6 +8270,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "생성형 인공지능 서비스 이용 과정에서 잠재적 위험들 사전 방지 및 이용자 권익 보호 위한 기본 원칙과 실천 방식 제시(방송통신위원회, 2025.02.28)",
     defShort: "방송통신위원회가 발표한 생성형 AI 위험 방지와 이용자 권익 보호를 위한 기본 원칙",
+    lead:
+      "방통위의 이용자 보호 기준, 생성형 AI 가이드라인",
+    features: ["기본 원칙", "실천 방식", "권익 보호"],
     keywords: ["인간 존엄성 보호", "설명 가능성", "이용자 인격권 보호", "다양한 존중 노력"],
     tables: [
       {
@@ -8122,6 +8302,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "ISO/IEC/IEEE 29119 소프트웨어 테스트 표준을 AI 시스템에 적용하는 개요 및 가이드라인을 제시하는 기술 명세서",
     defShort: "SW 테스트 표준 29119를 AI 시스템에 적용하는 개요·지침의 기술 명세서",
+    lead:
+      "AI 테스트의 국제 명세, ISO/IEC TS 42119-2",
+    features: ["표준 연계", "리스크 식별", "접근법 제시"],
     keywords: ["범위", "용어", "AI시스템", "테스트 소개", "AI 시스템 리스크 식별", "AI 테스트 접근법"],
     tables: [
       {
@@ -8147,6 +8330,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "두 개의 대형 언어 모델(LLM)을 계층적으로 사용하여 모델간 상호작용을 통해 오류를 지속적으로 개선하도록 설계된 에이전트 시스템",
     defShort: "두 개의 LLM을 계층적으로 써서 상호작용으로 오류를 개선하는 에이전트 시스템",
+    lead:
+      "계층적 LLM 협업 구조, BrainBody LLM",
+    features: ["역할 분리", "피드백 루프", "오류 개선"],
     keywords: ["계층", "계획", "실행", "피드백 루프"],
     tables: [
       {
@@ -8167,6 +8353,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "데이터 분석에서 잘못된 예측의 영향을 파악하기 위해 예측된 값과 실제 값이 일치하는지 여부를 행렬로 분류하는 모델 평가 기법",
     defShort: "예측된 값과 실제 값이 일치하는지 여부를 행렬로 분류해 보는 모델 성능 평가 기법이다",
+    lead:
+      "분류 성능의 사분면, 혼동행렬",
+    features: ["일치 분류", "지표 도출", "오류 유형화"],
     keywords: ["TP/FP/FN/TN", "Precision", "Accuracy", "Recall", "Specificity", "FP Rate", "F1 점수", "Kappa"],
     tables: [
       {
@@ -8199,6 +8388,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "탐색하는 타깃 데이터의 수가 매우 극소수인 상태",
     defShort: "탐색하려는 타깃 데이터의 수가 매우 극소수여서 학습이 한쪽으로 치우치는 상태이다",
+    lead:
+      "치우친 데이터의 학습 왜곡, 클래스 불균형",
+    features: ["소수 클래스", "지표 왜곡", "표집 보정"],
     keywords: ["정확도", "재현율", "Over sampling", "under sampling"],
     tables: [
       {
@@ -8251,6 +8443,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "텍스트 및 이미지 프롬프트에서 고유한 실사 이미지를 생성하는 생성형 인공지능(생성형 AI) 모델 (텍스트 정보를 바탕으로 인공지능이 그림을 생성하는 모델)",
     defShort: "노이즈를 더하고 지우는 학습으로 텍스트에서 실사 이미지를 만드는 생성형 AI 모델",
+    lead:
+      "노이즈 제거의 생성 모델, Diffusion 모델",
+    features: ["점진 복원", "고품질 생성", "텍스트 조건"],
     keywords: ["텍스트 to 이미지", "latent diffusion model", "CLIP", "U-Net", "VAE", "생성형 AI", "Diffusion", "가우시안 노이즈"],
     tables: [
       {
@@ -8273,6 +8468,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "기계학습 파이프라인에서 데이터의 특징 추출, 하이퍼 파라미터(Hyperparameter) 설정 등 소모적이고 반복적인 작업을 자동화하는 머신러닝 프로세스",
     defShort: "특징 추출과 하이퍼파라미터 설정 등 반복적 작업을 자동화하는 머신러닝 프로세스",
+    lead:
+      "머신러닝 과정의 자동화, AutoML",
+    features: ["반복 제거", "진입 장벽 완화", "최적화 자동"],
     keywords: ["피처 엔지니어링 및 하이퍼 파라미터 최적화를 자동화"],
     tables: [
       {
@@ -8302,6 +8500,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "개인이나 집단의 사전적인 견해, 선입견, 편견, 문화적 영향 등으로 인해 객관성이나 공정성에서 벗어난 경향을 의미",
     defShort: "선입견이나 편견, 문화적 영향 등으로 객관성이나 공정성에서 벗어난 경향을 뜻함",
+    lead:
+      "공정성을 해치는 치우침, 편향",
+    features: ["원인 다양", "은닉성", "XAI 대응"],
     keywords: ["인간의 편향", "숨겨진 편향", "데이터 표본 편향", "롱테일 편향", "고의적 편향", "XAI"],
     tables: [
       {
@@ -8331,6 +8532,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "AI의 부적절한 사용 방지 위해 가트너에서 제시한 AI 신뢰성, 위험, 보안 관리에 관한 프레임워크",
     defShort: "AI의 부적절한 사용을 막고자 가트너가 낸 신뢰성·위험·보안 관리 프레임워크",
+    lead:
+      "AI 신뢰·위험·보안의 통합 관리, AI TRiSM",
+    features: ["설명 가능성", "모델 감시", "보안·프라이버시"],
     keywords: ["AI 악용", "Explainability/Model Monitoring", "ModelOps", "AI Application Security", "Privacy"],
     tables: [
       {
@@ -8352,6 +8556,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "딥러닝과 Fake의 합성어로 딥러닝을 이용해 기존 영상에 다른 영상이나 이미지 정보를 합성하여 콘텐츠를 생성하는 기법",
     defShort: "딥러닝을 이용해 기존 영상에 다른 영상이나 이미지를 합성해 콘텐츠를 만드는 기법",
+    lead:
+      "딥러닝 합성의 명암, 딥페이크",
+    features: ["정교한 합성", "악용 위험", "탐지 대응"],
     keywords: ["GAN", "이미지 합성", "역기능"],
     tables: [
       {
@@ -8390,6 +8597,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "LLM 모델의 응답을 조작하기 위해, 공격자가 프롬프트에 정교하게 조작된 입력 값을 주입하여 민감 데이터를 유출하는 공격기법",
     defShort: "프롬프트에 조작된 입력을 주입해 LLM 응답을 바꾸고 민감 데이터를 빼내는 공격",
+    lead:
+      "프롬프트를 노린 공격, 프롬프트 인젝션",
+    features: ["입력 조작", "지시 탈취", "데이터 유출"],
     keywords: ["LLM 프롬프트", "자연어 명령어", "시스템 명령어", "입력값 조작", "보안 우회", "탈옥", "직접 인젝션", "간접 인젝션", "민감 데이터 유출", "외부소스", "입력값 검증"],
     tables: [
       {
@@ -8427,6 +8637,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "딥러닝의 심층신경망을 이용한 모델에 적대적 교란(Adversarial Perturbation)을 적용하여 오분류 발생시키는 공격기술",
     defShort: "딥러닝의 심층신경망을 이용한 모델에 적대적 교란을 가해 오분류를 일으키는 공격",
+    lead:
+      "AI 모델을 속이는 교란, 인공지능 적대적 공격",
+    features: ["미세 교란", "오분류 유발", "유형 다양"],
     keywords: ["Poisoning", "Evasion", "Inversion", "Model extraction"],
     tables: [
       {
@@ -8459,6 +8672,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "고객, 환경, 상품, 산업 등등 변화는 끊임없이 변화하는 환경에 따라 모델의 성능이 저하되는 현상",
     defShort: "고객과 환경, 상품 등이 끊임없이 변화함에 따라 배포된 모델의 성능이 떨어지는 현상",
+    lead:
+      "환경 변화의 성능 저하, 모델 드리프트",
+    features: ["분포 변화", "관계 변화", "재학습 필요"],
     keywords: ["데이터와 라벨의 관계성 변화", "입력데이터의 분포 변화"],
     tables: [
       {
@@ -8480,6 +8696,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "AI 모델 또는 시스템의 잠재적인 취약점, 편향, 사회적 해악, 보안 문제 등을 식별하기 위해 의도적으로 다양한 공격을 시도하고 한계를 시험하는 적대적인 탐색적 테스팅 방법",
     defShort: "의도적으로 공격을 시도해 AI의 취약점과 편향, 보안 문제를 찾는 적대적 테스팅",
+    lead:
+      "의도적 공격의 취약점 발굴, AI 레드팀 테스트",
+    features: ["적대적 관점", "잠재 위협 발굴", "탐색적 수행"],
     keywords: ["의도", "비결정성", "탐색적 테스트", "잠재 위협"],
     tables: [
       {
@@ -8518,6 +8737,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "휴리스틱으로 이루어진 AI 모델 특성상 테스트 오라클 부재를 해결하기 위한 테스트",
     defShort: "휴리스틱으로 이뤄진 AI 모델 특성상 테스트 오라클 부재를 해결하기 위한 테스트",
+    lead:
+      "오라클 부재의 검증 도전, AI 시스템 테스트",
+    features: ["비결정성", "대안 기법", "데이터 검증"],
     keywords: ["블랙박스 테스팅", "신경망 화이트박스 테스팅"],
     tables: [
       {
