@@ -44,6 +44,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "CPU가 한 개의 명령어를 실행하는데 필요한 과정으로 실행하는 순간부터 중단될 때까지 반복되는 과정",
     defShort: "CPU가 명령어 하나를 인출·해석·실행·저장하며 중단까지 반복하는 실행 과정",
+    lead:
+      "명령어 실행의 기본 순환, CPU 처리과정",
+    features: ["반복 순환", "단계적 수행", "레지스터 활용"],
     keywords: [
       "인출 사이클",
       "실행 사이클",
@@ -89,6 +92,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "CA",
     definition: "명령어 구성 방식에 따른 CPU 유형",
     defShort: "명령어 집합을 복잡하게 두느냐 축소하느냐로 갈리는 두 가지 CPU 구조 설계 방식",
+    lead:
+      "명령어 집합 구조의 양대 방식, CISC vs RISC",
+    features: ["복잡도 상반", "성능 상충", "용도 특화"],
     keywords: [
       "Instruction Set",
       "마이크로 프로그램/하드와이어드",
@@ -137,6 +143,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "CPU의 프로그램 처리 속도를 높이기 위해 CPU의 명령어 처리 과정을 여러 단계로 나누어 동시에 처리하는 기술",
     defShort: "CPU의 프로그램 처리 속도를 높이려 명령어 처리를 여러 단계로 나눠 동시에 수행",
+    lead:
+      "명령어 중첩 처리의 속도 향상, 파이프라인",
+    features: ["병렬성", "처리량 증대", "단계 분할"],
     keywords: [
       "단일 파이프라인",
       "슈퍼 파이프라인",
@@ -179,6 +188,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "CA",
     definition: "파이프라인 프로세스에서 명령어 의존성을 발생시킬 수 있는 문제",
     defShort: "파이프라인에서 명령어 간 의존성 때문에 정상 흐름이 막혀 성능이 떨어지는 지연 문제",
+    lead:
+      "파이프라인 성능 저하 요인, Pipeline Hazard",
+    features: ["의존성 기인", "지연 발생", "유형 3종"],
     keywords: ["구조적 해저드", "데이터 해저드", "제어 해저드"],
     tables: [
       {
@@ -223,6 +235,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "CPU가 메모리에 접근하도록 관리하는 하드웨어 부품으로 가상 메모리 주소를 실제 메모리 주소로 변환해 주는 장치",
     defShort: "CPU의 메모리 접근을 관리하며 가상 주소를 실제 주소로 바꾸어 주는 하드웨어 부품",
+    lead:
+      "가상 주소 변환의 하드웨어, MMU",
+    features: ["주소 변환", "메모리 보호", "가상화 지원"],
     keywords: ["가상 주소", "물리주소", "주소변환", "TTB"],
     tables: [
       {
@@ -250,6 +265,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "CA",
     definition: "주기억장치에서 필요한 정보를 캐시기억장치에 정보를 교환하는 기법",
     defShort: "주기억장치 블록을 캐시에 대응시키는 기법으로 직접·연관·집합연관 방식이 있음",
+    lead:
+      "주기억장치와 캐시의 대응 기법, 캐시 사상 방식",
+    features: ["속도·비용 상충", "충돌 관리", "방식 3종"],
     keywords: [
       "직접 사상(태그, 라인, 단어)",
       "완전 연관 사상(태그, 단어)",
@@ -309,6 +327,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "컴퓨터 하드웨어와 응용 프로그램과의 연계를 위하여 자원관리, 프로세스/네트워크 관리 및 추상화를 수행하는 운영체제의 핵심 프로그램",
     defShort: "하드웨어와 응용 프로그램을 잇고 자원·프로세스 관리와 추상화를 맡는 OS 핵심부",
+    lead:
+      "운영체제의 핵심 관리자, 커널",
+    features: ["자원 관리", "추상화", "보호 모드"],
     keywords: [
       "프로세스 관리 및 CPU Scheduling",
       "메모리 관리",
@@ -393,6 +414,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "CPU를 통하지 않고 주변장치(I/O 장치)와 주기억장치 사이의 데이터 전송을 담당하는 장치",
     defShort: "CPU를 거치지 않고 입출력 장치와 주기억장치 사이의 데이터 전송을 담당하는 장치",
+    lead:
+      "CPU 개입 없는 데이터 전송, DMA",
+    features: ["CPU 부담 경감", "고속 전송", "독립 동작"],
     keywords: [
       "단일버스분리식",
       "단일버스통합형",
@@ -447,6 +471,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "메모리 상에서 프로그램에 의해 사용되지 못하고 낭비되는 공간이 발생하는 현상",
     defShort: "메모리에 남아 있으나 프로그램이 사용하지 못하고 낭비되는 공간이 발생하는 현상",
+    lead:
+      "메모리 공간의 낭비 현상, 메모리 단편화",
+    features: ["공간 낭비", "내부·외부 구분", "해소 기법 존재"],
     keywords: [
       "낭비되는 공간",
       "내부단편화",
@@ -507,6 +534,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "CA",
     definition: "시리얼(Serial) 통신 방식",
     defShort: "임베디드 장치 사이에서 데이터를 한 줄로 주고받는 두 가지 대표적 시리얼 통신 방식",
+    lead:
+      "임베디드 시리얼 통신의 양대 방식, I2C와 SPI",
+    features: ["직렬 전송", "선 수 차이", "속도 상반"],
     keywords: ["SCL", "SDA", "CS", "SCLK", "MOSI", "MISO", "100kbps", "70MHz"],
     tables: [
       {
@@ -538,6 +568,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "CA",
     definition: "캐시(Cache)와 주기억장치에 기록하는 시점에 대한 정책",
     defShort: "캐시에 기록한 내용을 주기억장치에 언제 반영할지 그 시점을 정하는 캐시 쓰기 정책",
+    lead:
+      "캐시 기록 반영 시점의 정책, 캐시 쓰기정책",
+    features: ["일관성 상충", "성능 상충", "방식 2종"],
     keywords: ["Write Through", "Write Back", "Cache Coherence"],
     tables: [
       {
@@ -568,6 +601,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "캐시 메모리 전체 혹은 일부를 무효화(invalidate)하고 주 메모리에서 다시 읽어 들일 필요가 있을 경우 메모리에 데이터 저장 없이 캐시를 비우는 동작",
     defShort: "캐시 전체나 일부를 무효화하고 주기억장치에서 데이터를 다시 읽어 오게 하는 동작",
+    lead:
+      "캐시 무효화와 재적재, 캐시 플러시",
+    features: ["무효화", "일관성 확보", "성능 비용"],
     keywords: ["invalidate", "dirty bit", "valid bit", "cache flush", "cache clean"],
     tables: [
       {
@@ -601,6 +637,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "공유 메모리 시스템에서 각 클라이언트(혹은 프로세서)가 가진 로컬 캐시 간의 일관성",
     defShort: "공유 메모리 시스템에서 프로세서마다 가진 로컬 캐시의 내용을 같게 유지하는 성질",
+    lead:
+      "다중 캐시의 데이터 일치, 캐시 일관성",
+    features: ["데이터 일치", "프로토콜 기반", "HW·SW 기법"],
     keywords: [
       "SW 기법",
       "HW 기법",
@@ -661,6 +700,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "버스의 경합이나 기억장치의 충돌 회피를 위하여 기억장치를 여러 개의 독립적인 모듈들로 나누고 모듈들에서 동시에 엑세스 동작이 일어날 수 있도록 하는 기법",
     defShort: "버스 충돌을 피하려 기억장치를 독립 모듈로 나눠 동시 접근하게 하는 성능 향상 기법",
+    lead:
+      "기억장치 동시 접근 기법, 메모리 인터리빙",
+    features: ["병렬 접근", "대역폭 향상", "모듈 분할"],
     keywords: [
       "상위 인터리빙",
       "하위 인터리빙",
@@ -710,6 +752,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "캐시의 일관성을 유지하기 위해서 별도의 Flag를 할당한 후 Flag의 상태를 확인하여 데이터의 유효 여부를 판단할 수 있는 프로토콜",
     defShort: "캐시 블록에 네 가지 상태 플래그를 두어 데이터의 유효성을 판단하는 일관성 프로토콜",
+    lead:
+      "캐시 일관성 유지 프로토콜, MESI",
+    features: ["상태 4종", "스누핑 기반", "무효화 중심"],
     keywords: ["Cache Coherence", "Modify", "Exclusive", "Shared", "Invalid"],
     tables: [
       {
@@ -751,6 +796,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "두 대 이상의 시스템을 하나의 클러스터로 묶어, 한 시스템 장애시 최소한의 서비스 중단을 위해 클러스터 내의 다른 시스템에 신속하게 서비스를 Fail-Over하여 업무 연속성 유지 위한 메커니즘",
     defShort: "두 대 이상 시스템을 클러스터로 묶어 장애 시 신속히 넘겨 업무 연속성을 지키는 기술",
+    lead:
+      "업무 연속성 보장 기술, HA(고가용성)",
+    features: ["이중화", "자동 전환", "무중단 지향"],
     keywords: ["Heart-beat", "Hot Standby", "Mutual Takeover", "Concurrent Access"],
     tables: [
       {
@@ -781,6 +829,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "하드웨어 혹은 소프트웨어의 결함 또는 고장이 발생하여도 정상적 혹은 부분적으로 기능을 수행할 수 있는 시스템",
     defShort: "하드웨어나 소프트웨어에 결함이 발생해도 정상 또는 부분적으로 동작하는 시스템",
+    lead:
+      "결함 속 지속 동작 시스템, 결함허용 컴퓨터",
+    features: ["중복 구성", "자동 복구", "성능 저하 감내"],
     keywords: ["Graceful Degradation", "결함 감지", "결함 진단", "결함 통제", "결함 복구"],
     tables: [
       {
@@ -837,6 +888,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "프로세서의 동작을 감시하여, 외부잡음이나 비정상적인 동작으로 오작동에 빠졌을 경우, 시스템을 리셋하여 복구하기 위해 사용되는 디바이스",
     defShort: "프로세서의 동작을 감시하다 오작동에 빠지면 시스템을 리셋해 복구하는 디바이스",
+    lead:
+      "오작동 감시와 자동 복구, 워치독 타이머",
+    features: ["상시 감시", "자동 리셋", "임베디드 필수"],
     keywords: ["Kick", "Reset", "Clock", "Time out"],
     tables: [
       {
@@ -878,6 +932,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "디스크의 가용성 및 성능 향상을 위해 스트라이핑 및 미러링 기술 이용하는 디스크 고가용성 기술",
     defShort: "스트라이핑과 미러링 기술로 디스크의 가용성과 성능을 함께 높이는 고가용성 기술",
+    lead:
+      "디스크 가용성·성능 향상 기술, RAID",
+    features: ["중복 저장", "분산 기록", "레벨 다양"],
     keywords: ["스트라이핑", "미러링", "해밍", "패리티", "분산 패리티", "0+1", "1+0"],
     tables: [
       {
@@ -922,6 +979,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "분할과 패리티를 이용하여 데이터를 인코딩하고, 데이터 손실 시 디코딩 과정을 거쳐 원본 데이터를 복구하는 기술",
     defShort: "데이터를 분할하고 패리티로 인코딩해 손실 시 디코딩으로 원본을 복구하는 저장 기술",
+    lead:
+      "패리티 기반 데이터 복구, 이레이저 코딩",
+    features: ["공간 효율", "복구 능력", "연산 비용"],
     keywords: [
       "Reed-Solomon Code",
       "Tahoe-LAFS",
@@ -969,6 +1029,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "데이터를 저장하는 메모리 반도체와 연산 기능을 수행할 수 있는 시스템 반도체의 융합된 형태를 가지는 반도체",
     defShort: "데이터를 저장하는 메모리 반도체와 연산하는 시스템 반도체가 융합된 형태의 반도체",
+    lead:
+      "메모리·시스템 반도체의 융합, 지능형 반도체",
+    features: ["융합 구조", "저전력", "연산 내장"],
     keywords: [
       "지능화",
       "저전력화",
@@ -1024,6 +1087,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "CA",
     definition: "AI 모델의 학습과 추론에 최적화된 주문형 반도체(ASIC)",
     defShort: "인공지능 모델의 학습과 추론 전용으로 최적화한 구글의 주문형 반도체 ASIC 칩",
+    lead:
+      "AI 연산 전용 반도체, TPU",
+    features: ["행렬 연산 특화", "고효율", "전용 설계"],
     keywords: [
       "텐서(Tensor)",
       "주문형 반도체",
@@ -1092,6 +1158,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "둘 이상의 프로세스가 동일한 공유 자원에 동시에 접근하면서 실행 순서에 따라 결과가 달라질 수 있는 상황",
     defShort: "둘 이상의 프로세스가 공유 자원에 동시 접근해 실행 순서에 따라 결과가 달라지는 상황",
+    lead:
+      "공유 자원 동시 접근 문제, 경쟁조건 해결 방안",
+    features: ["결과 비결정성", "상호배제 필요", "SW·HW 기법"],
     keywords: [
       "데커(Dekker)",
       "피터슨(Peterson)",
@@ -1203,6 +1272,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "우선순위 기반 CPU 스케줄링 시 높은 우선순위 프로세스의 지속적 진입으로 인해, 낮은 우선순위 프로세스가 수행되지 못하고 무한대기 하는 현상",
     defShort: "높은 우선순위 프로세스가 계속 들어와 낮은 쪽이 실행되지 못하고 무한 대기하는 현상",
+    lead:
+      "저순위 프로세스의 무한 대기, 기아(Starvation)",
+    features: ["무한 대기", "우선순위 기인", "에이징 해소"],
     keywords: ["무한대기", "Aging기법 적용", "HRN 스케줄링", "MLFQ 스케줄링"],
     tables: [
       {
@@ -1265,6 +1337,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "CPU가 실행 중인 하나의 프로세스 상태를 저장하고, 다른 프로세스 상태를 복원하여 실행하는 과정",
     defShort: "CPU가 실행 중인 프로세스 상태를 저장하고 다른 프로세스 상태를 복원하는 과정",
+    lead:
+      "프로세스 전환의 상태 저장, 문맥교환",
+    features: ["상태 보존", "오버헤드", "멀티태스킹 기반"],
     keywords: [
       "디스패치(dispatch)",
       "타임아웃",
@@ -1319,6 +1394,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "동기화로 인해 우선순위가 높은 프로세스가 우선순위가 낮은 프로세스보다 실행이 지연되는 현상",
     defShort: "동기화 때문에 우선순위가 높은 프로세스가 낮은 프로세스보다 늦게 실행되는 현상",
+    lead:
+      "동기화로 인한 순위 뒤집힘, 우선순위 역전",
+    features: ["임계영역 기인", "실시간 위협", "상속으로 해소"],
     keywords: ["임계영역", "프로세스 선점", "자원", "우선순위 상속", "우선순위 올림"],
     tables: [
       {
@@ -1361,6 +1439,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "멀티프로세스 환경에서 상호 배제를 보장하고 동기화를 제어하기 위해 사용하는 동기화 기법",
     defShort: "멀티프로세스 환경에서 상호 배제와 동기화를 보장하는 정수 변수 기반 동기화 기법",
+    lead:
+      "정수 기반 동기화 기법, 세마포어",
+    features: ["상호배제", "P·V 연산", "계수 가능"],
     keywords: [
       "상호배제",
       "동기화",
@@ -1448,6 +1529,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "시스템이 운영체제 및 소프트웨어의 실행 권한을 관리하기 위해 설계된 프로세서의 권한 수준(Privilege Level)를 나타내는 (보안) 계층적 구조",
     defShort: "운영체제와 소프트웨어의 실행 권한을 나눠 관리하는 프로세서의 권한 계층적 구조",
+    lead:
+      "실행 권한의 계층적 통제, CPU Ring Level",
+    features: ["권한 분리", "커널 보호", "계층 구조"],
     keywords: [
       "Ring 0 (Kernel Mode, Supervisor Mode)",
       "Ring 1",
@@ -1504,6 +1588,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "가격과 성능이 다른 여러 수준의 기억 장치를 비용 최소화, 빠른 속도, 대용량의 기억 공간을 효율적으로 구성하는 기억 장치 구조",
     defShort: "속도와 가격이 다른 여러 기억장치를 계층으로 쌓아 올려 비용과 성능을 함께 잡는 구조",
+    lead:
+      "속도와 비용의 절충 구조, 기억장치 계층 구조",
+    features: ["계층화", "속도·비용 상충", "참조 지역성 활용"],
     keywords: [
       "기억장치 계층 구조(①보조기억장치→②주기억장치→③캐시 기억장치→④CPU)",
       "계층 상위로 갈수록 bit당 기억장치 비용 증가",
@@ -1535,6 +1622,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "운영체제가 제한된 물리적 메모리를 효율적으로 활용하기 위해 가상 주소 공간을 제공하고, 보조기억장치에 저장된 데이터를 필요할 때 동적으로 메모리에 로드하여 관리하는 기법",
     defShort: "가상 주소 공간을 제공하고 필요할 때 동적 적재해 물리 메모리를 넓혀 쓰는 관리 기법",
+    lead:
+      "물리 메모리의 논리적 확장, 가상메모리 관리기법",
+    features: ["공간 확장", "동적 적재", "정책 조합"],
     keywords: [
       "할당(단일, 다중)",
       "배치(First, Best, Next, Worst)",
@@ -1602,6 +1692,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "[페이징] 물리적 메모리와 가상 메모리를 일정한 크기의 블록으로 나누어 관리하는 메모리 관리 기법 / [세그멘테이션] 프로세스의 메모리를 가변 크기의 논리적 블록(세그먼트)으로 나누어 관리하는 메모리 관리 기법",
     defShort: "프로세스 메모리를 고정 크기 페이지 또는 가변 크기 세그먼트로 나눠 관리하는 기법",
+    lead:
+      "메모리 분할의 양대 기법, 페이징과 세그멘테이션",
+    features: ["고정·가변 대비", "단편화 상반", "매핑 테이블"],
     keywords: [
       "일정 크기 블록",
       "페이지 맵핑 테이블",
@@ -1669,6 +1762,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "[직접 사상] 페이지 사상 테이블(PMT)을 참고하여 가상 주소를 실제 주소로 변환하는 기법 / [연관 사상] 메모리 주소 변환을 위해 연관 메모리 또는 내용 주소 지정 기억장치를 사용하는 기법",
     defShort: "페이지 사상 테이블을 직접 참조하거나 연관 메모리를 써서 가상 주소를 변환하는 기법",
+    lead:
+      "가상 주소 변환의 두 방식, 직접 사상과 연관 사상",
+    features: ["속도 차등", "비용 상충", "테이블 참조"],
     keywords: [
       "페이지 사상표 시작 주소",
       "가상 주소",
@@ -1722,6 +1818,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "페이지 부재(page fault)가 발생하였을 경우, 가상기억장치의 필요한 페이지를 주기억장치의 어떤 페이지 프레임을 선택, 교체 해야하는가를 결정하는 기법",
     defShort: "페이지 부재 시 주기억장치의 어느 페이지 프레임을 교체해야 하는지 결정하는 기법",
+    lead:
+      "페이지 부재 시 희생 선택, 페이지 교체 알고리즘",
+    features: ["부재 최소화", "정책 다양", "지역성 활용"],
     keywords: [
       "페이지 부재(page fault)",
       "최적화 원칙",
@@ -1817,6 +1916,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "FIFO 페이지 교체 알고리즘에서, 페이지 프레임의 개수 증가 불구하고 page fault 발생이 오히려 증가하는 현상",
     defShort: "FIFO 교체에서 페이지 프레임을 늘렸는데 페이지 부재가 오히려 증가하는 현상",
+    lead:
+      "프레임 증설의 역설, Belady's Anomaly",
+    features: ["직관 배반", "FIFO 한계", "LRU로 회피"],
     keywords: ["FIFO", "page fault 증가", "Page Frame 증가", "LRU", "OPT"],
     tables: [
       {
@@ -1862,6 +1964,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "멀티프로세싱 환경에서 페이지 부재로 인해 CPU가 프로세스 실행보다 페이지 교체에 더 많은 시간을 소요하는 비 정상적인 현상",
     defShort: "페이지 부재가 잦아져 프로세스 실행보다 페이지 교체에 시간을 더 쓰는 비정상 현상",
+    lead:
+      "과도한 페이지 교체의 성능 붕괴, 스레싱",
+    features: ["부재율 급증", "CPU 활용 급감", "워킹셋 해소"],
     keywords: [
       "리소스 부족",
       "부적절한 Page 교체 정책",
@@ -1929,6 +2034,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "OS",
     definition: "CPU가 어느 순간에 정보를 특정 부분만 집중적으로 참조하는 특성",
     defShort: "CPU가 어느 순간에 기억장치의 특정 부분만 집중적으로 참조하게 되는 특성을 말함",
+    lead:
+      "참조 집중의 성질, 지역성(Locality)",
+    features: ["시간적", "공간적", "캐시 근거"],
     keywords: ["시간적", "공간적", "순차적"],
     tables: [
       {
@@ -1988,6 +2096,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "작업의 크기가 주기억장치 분할 영역과 맞지 않아 주기억장치 공간이 사용되지 못하고 낭비되는 현상",
     defShort: "작업 크기와 분할 영역이 맞지 않아 주기억장치 공간이 사용되지 못하고 낭비되는 현상",
+    lead:
+      "할당 불일치의 공간 낭비, 단편화",
+    features: ["내부·외부 구분", "공간 낭비", "통합·집약 해소"],
     keywords: ["내부 단편화", "외부 단편화", "통합(Coalescing)", "집약(Compaction)"],
     tables: [
       {
@@ -2032,6 +2143,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "OS",
     definition: "어떤 Process에게 시스템 자원을 할당할지를 결정하는 운영체제 커널의 모듈",
     defShort: "어떤 프로세스에 시스템 자원을 할당할지 판단해 결정하는 운영체제 커널의 핵심 모듈",
+    lead:
+      "자원 할당의 결정자, 스케줄러",
+    features: ["단계 구분", "처리량 극대화", "응답시간 최소화"],
     keywords: [
       "①장기(High Level/Job Scheduler)",
       "②중기(Middle-Level Scheduler)",
@@ -2119,6 +2233,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "OS",
     definition: "하나의 프로세스가 시스템 내에 존재하는 동안 그 프로세스가 가지는 상태",
     defShort: "프로세스가 생성부터 종료까지 가지는 여러 상태와 그 사이의 전이 관계를 나타낸 그림",
+    lead:
+      "프로세스 일생의 상태 흐름, 프로세스 상태 전이도",
+    features: ["상태 5종", "전이 규칙", "디스패치 중심"],
     keywords: [
       "①생성【Job】",
       "②준비【Job】",
@@ -2165,6 +2282,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "다중 프로세스 환경에서 운영체제(스케줄러)가 프로세스에 합리적으로 CPU 자원을 할당(dispatch)하는 정책",
     defShort: "다중 프로세스 환경에서 각 프로세스에 CPU 자원을 합리적으로 할당하는 관리 정책",
+    lead:
+      "CPU 자원의 합리적 배분, CPU 스케줄링",
+    features: ["선점·비선점", "공정성", "효율성"],
     keywords: [
       "선점(RR, SRT, MLQ, MLFQ)",
       "비선점(Priority, FCFS, SJF, HRN)",
@@ -2240,6 +2360,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "OS",
     definition: "작업이 주어진 기한(마감시간) 안에 완료되도록 계획하는 스케줄링 기법",
     defShort: "작업이 주어진 기한과 마감시간 안에 완료되도록 계획하는 실시간 스케줄링 기법이다",
+    lead:
+      "마감시간 보장의 실시간 계획, 기한부 스케줄링",
+    features: ["실시간성", "마감 보장", "주기 기반"],
     keywords: [
       "실시간 운영체제(Real-Time OS, RTOS)",
       "RM(Rate Monotonic) 스케줄링 – 주기 기반",
@@ -2284,6 +2407,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "다중 프로그램 환경에서 두 개 이상의 프로세스가 다른 프로세스가 점유한 자원을 기다리면서 무한 대기하는 상태",
     defShort: "다중 프로그램 환경에서 프로세스가 서로 점유한 자원을 기다리며 무한 대기하는 상태",
+    lead:
+      "상호 대기의 정지 상태, 교착상태(Deadlock)",
+    features: ["4대 조건", "무한 대기", "예방·회피"],
     keywords: [
       "상호배제",
       "점유 대기",
@@ -2352,6 +2478,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "정점(vertex)들과 정점을 연결하는 간선(edge)들로 이루어져, 프로세스와 자원 간의 관계를 나타내는 방향성 그래프",
     defShort: "정점과 간선으로 이루어져 프로세스와 자원 사이의 관계를 나타내는 방향성 그래프",
+    lead:
+      "자원 관계의 시각화, 자원할당 그래프",
+    features: ["방향성", "사이클 탐지", "교착 판별"],
     keywords: [
       "정점(Vertex)",
       "프로세스",
@@ -2420,6 +2549,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "프로세스가 자원을 요구할 때 시스템은 자원을 할당한 후에도 안정 상태로 남아있게 되는 지를 사전에 검사하여 교착상태의 발생을 회피하는 기법",
     defShort: "프로세스가 자원을 요구할 때 할당 후 안정 상태인지 검사해 교착상태를 회피하는 기법",
+    lead:
+      "안정 상태 검사의 교착 회피, Banker's 알고리즘",
+    features: ["사전 검사", "안정 상태 유지", "보수적 할당"],
     keywords: ["안정상태", "Available", "Max", "Need", "Allocation", "Request"],
     tables: [
       {
@@ -2475,6 +2607,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "[Wait-Die] 자원 요청 프로세스와 보유 프로세스의 타임 스템프를 비교하여 대기하거나 롤백하는 비선점 기반 DeadLock 회피 기법 / [Wound-Wait] 자원 요청 프로세스와 보유 프로세스의 타임 스템프를 비교하여 대기하거나 강제 종료하는 선점 기반 DeadLock 회피 기법",
     defShort: "요청과 보유 프로세스의 타임스탬프를 비교해 대기·롤백을 정하는 교착 회피 기법",
+    lead:
+      "타임스탬프 기반 교착 회피, Wait-Die와 Wound-Wait",
+    features: ["나이 비교", "선점 여부 상반", "롤백 활용"],
     keywords: ["타임스템프", "Old", "Young", "롤백", "강제종료", "선점", "비선점"],
     tables: [
       {
@@ -2508,6 +2643,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "CPU가 현재 실행 프로그램의 처리를 강제적으로 중단시키고, 특정 주소에 위치한 프로그램을 수행하는 절차 혹은 제어 신호",
     defShort: "실행 중인 프로그램을 강제로 중단하고 특정 주소의 프로그램을 수행하는 제어 신호",
+    lead:
+      "실행 흐름의 강제 전환, 인터럽트",
+    features: ["비동기 발생", "우선순위 처리", "벡터 참조"],
     keywords: [
       "인터럽트 서비스 루틴",
       "인터럽트 소스",
@@ -2591,6 +2729,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "[프로세스] 운영체제에서 프로세서(CPU)에 의해 실행되는 프로그램 단위 / [스레드] 하나의 프로세스 내에서 제어 흐름으로 프로세스의 실행 부분을 담당하는 일관된 실행의 기본 단위의 경량 프로세스",
     defShort: "CPU가 실행하는 프로그램 단위인 프로세스와 그 안의 실행 흐름인 스레드의 비교",
+    lead:
+      "실행 단위의 두 층위, 프로세스와 스레드",
+    features: ["자원 소유 대비", "공유 범위 차이", "전환 비용 차등"],
     keywords: ["자원 할당 기본 단위", "프로세스 내 여러 Thread"],
     tables: [
       {
@@ -2659,6 +2800,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "프로세스가 실행될 때마다 프로세스의 정보를 기록하여 프로세스를 관리할 수 있는 특별한 자료구조",
     defShort: "프로세스가 실행될 때마다 그 정보를 기록해 관리할 수 있게 하는 특별한 자료 구조체",
+    lead:
+      "프로세스 정보의 관리 장부, PCB",
+    features: ["상태 보존", "문맥교환 기반", "커널 관리"],
     keywords: [
       "PID(프로세스 식별자)",
       "프로세스 상태",
@@ -2715,6 +2859,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "하나의 Processor 내에서 둘 이상의 흐름(Thread)이 동시에 존재하며 독립적으로 실행될 수 있는 구조",
     defShort: "하나의 프로세스 내에서 둘 이상의 스레드가 동시에 독립적으로 실행될 수 있는 구조",
+    lead:
+      "단일 프로세스 내 병행 실행, 멀티 쓰레드",
+    features: ["자원 공유", "경량 전환", "병행성"],
     keywords: [
       "Single Thread",
       "Interleaved Multithreading(IMT)",
@@ -2765,6 +2912,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "파일과 디렉터리를 계층적인 트리 구조로 조직하며, 모든 데이터를 저장하고 관리하는 구조",
     defShort: "파일과 디렉터리를 계층적인 트리 구조로 조직해 데이터를 저장하고 관리하는 구조",
+    lead:
+      "계층적 데이터 조직, 유닉스 파일시스템",
+    features: ["트리 구조", "블록 구성", "파일 유형 구분"],
     keywords: [
       "루트파일시스템",
       "일반 파일",
@@ -2820,6 +2970,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "OS",
     definition: "UNIX 파일 시스템에서 파일의 속성과 저장 위치를 관리하는 메타데이터 구조체",
     defShort: "유닉스 파일 시스템에서 파일의 속성과 저장 위치를 관리하는 핵심 메타데이터 구조체",
+    lead:
+      "파일 메타데이터의 핵심, 유닉스의 inode",
+    features: ["속성 관리", "위치 관리", "번호 식별"],
     keywords: [
       "i-node 소유 정보",
       "i-node number",
@@ -2893,6 +3046,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "운영체제(OS)에서 실행 중인 프로세스들 간 상호 데이터를 교환할 수 있도록 하는 메커니즘",
     defShort: "운영체제에서 실행 중인 프로세스들이 서로 데이터를 교환할 수 있게 하는 메커니즘",
+    lead:
+      "프로세스 간 데이터 교환, IPC",
+    features: ["공유 메모리", "메시지 전달", "동기화 필요"],
     keywords: [
       "공유 메모리 방식",
       "공유 메모리(Shared Memory)",
@@ -2989,6 +3145,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "디스크 상의 여러 곳에 저장되어 있는 데이터를 엑세스 하기 위해 디스크 헤드가 움직이는 최적의 경로를 결정하는 기법",
     defShort: "여러 곳에 저장된 데이터에 접근하려 디스크 헤드가 움직일 최적 경로를 정하는 기법",
+    lead:
+      "헤드 이동의 최적화, 디스크 스케줄링",
+    features: ["탐색시간 단축", "공정성", "기법 다양"],
     keywords: [
       "FCFS",
       "SSTF",
@@ -3079,7 +3238,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "비용과 편익을 측정해 경제적 수익률을 계산함으로써 수행 여부를 정하는 분석 기법",
     lead:
       "프로젝트 수행 여부 판단, 경제성 분석 기법",
-    features: ["BCR", "NPV", "IRR"],
+    features: ["정량적 판단", "시간가치 반영", "투자 우선순위"],
     keywords: ["비용편익비율(BCR)", "투자회수기간(PP)", "내부수익률(IRR)", "순현재가치(NPV)"],
     tables: [
       {
@@ -3103,7 +3262,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "프로젝트를 계획·실행·감시 통제·종료하는 방법을 명시한 보조 계획서 통합 문서",
     lead:
       "보조 계획서의 통합 문서, 프로젝트 관리 계획서",
-    features: ["통합 계획", "기준 문서", "9개 목차"],
+    features: ["통합성", "기준선 역할", "승인 기반"],
     keywords: ["개요", "업무", "일정", "인력", "교육", "통제", "품질", "인수", "측정"],
     tables: [
       {
@@ -3133,7 +3292,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "프로젝트를 완료하는 데 필요한 모든 작업 범위와 산출물을 정의·관리하는 지식영역",
     lead:
       "작업 범위와 산출물의 정의, 범위관리",
-    features: ["범위 정의", "WBS 작성", "범위 통제"],
+    features: ["명확한 경계", "변경 통제", "고객 승인"],
     keywords: ["범위 관리 계획수립", "요구사항 수집", "범위 정의", "작업분류체계(WBS) 작성", "범위 확인", "범위 통제"],
     tables: [
       {
@@ -3160,7 +3319,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "이해관계자가 필요로 하는 기능적·비기능적 요구사항을 수집하고 정의하는 기법",
     lead:
       "이해관계자 요구의 도출, 요구사항 수집기법",
-    features: ["인터뷰", "브레인스토밍", "프로토타입"],
+    features: ["기법 조합", "이해관계자 참여", "완전성 확보"],
     keywords: ["데이터 수집", "데이터 분석", "데이터 표현", "의사 결정", "대인관계와 팀 스킬", "기타 기법"],
     tables: [
       {
@@ -3196,7 +3355,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "SW를 분석·설계·구현·유지하는 단계에서 검토와 평가, 승인 기준이 되는 문서",
     lead:
       "검토·평가·승인의 기준, 요구사항 명세서 SRS",
-    features: ["명확성", "완전성", "추적성"],
+    features: ["명확성", "검증가능성", "추적성"],
     keywords: ["명세원리", "작성시 유의사항", "목차"],
     tables: [
       {
@@ -3252,7 +3411,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "목표 달성에 필요한 실행 작업을 인도물 중심의 계층 구조로 세분해 놓은 작업 계층도",
     lead:
       "인도물 중심의 작업 분해, WBS(Work Breakdown Structure)",
-    features: ["인도물 중심", "100% rule", "작업 패키지"],
+    features: ["인도물 중심", "계층적 분해", "100% 규칙"],
     keywords: ["Work Package", "Plan Package", "100% rule", "Control Account", "Code of Account", "3~5수준"],
     tables: [
       {
@@ -3278,7 +3437,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "요구가 슬금슬금 늘어나는 크리프와 임의 기능을 덧붙이는 도금, 범위관리 실패 원인",
     lead:
       "범위 관리 실패 원인, Scope Creep vs Gold-Plating",
-    features: ["범위 확산", "과잉 기능", "변경 통제"],
+    features: ["원인 상반", "범위 확산", "통제 실패"],
     keywords: ["통제 되지 않은 요구사항 관리", "고객이 요구한 것 이상으로 기능이나 특성을 추가"],
     tables: [
       {
@@ -3313,7 +3472,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "한정된 자원으로 각 활동을 수행하는 데 소요될 기간을 추정하는 활동 기간 산정 기법",
     lead:
       "활동 소요 기간의 추정, 활동기간 산정기법",
-    features: ["유사 산정", "모수 산정", "3점 산정"],
+    features: ["정확도 차등", "위험 반영", "기법 병행"],
     keywords: ["전문가 판단", "유사 산정", "모수 산정", "3점 산정", "상향식 산정", "데이터 분석", "의사 결정", "미팅"],
     tables: [
       {
@@ -3341,7 +3500,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "낙관치와 비관치, 평균치 세 가지 값을 계산해 프로젝트 전체 일정을 산정하는 기법",
     lead:
       "불확실성을 반영한 일정 산정, 3점 산정",
-    features: ["낙관치", "비관치", "평균치"],
+    features: ["불확실성 반영", "가중 평균", "위험 계량화"],
     keywords: ["낙관치", "비관치", "평균치"],
     tables: [
       {
@@ -3378,7 +3537,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "시간과 비용을 함께 고려해 프로젝트의 최소 소요 시간을 결정하는 네트워크 분석기법",
     lead:
       "최소 소요 기간의 도출, CPM(Critical Path Management)",
-    features: ["임계경로", "전진·후진 계산", "여유시간"],
+    features: ["최장 경로", "여유시간 산출", "일정 통제 기준"],
     keywords: ["CP (Critical Path, 임계경로)", "ES", "EF", "LS", "LF", "Free float", "Total float"],
     tables: [
       {
@@ -3406,7 +3565,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "자원제약을 고려해 여유시간을 통합 버퍼로 묶고 소진율을 감시하는 일정 관리 기법",
     lead:
       "자원제약 기반 버퍼 관리, CCM(Critical Chain Management)",
-    features: ["프로젝트 버퍼", "피딩 버퍼", "자원 버퍼"],
+    features: ["자원 제약 반영", "버퍼 집중", "소진율 관리"],
     keywords: ["프로젝트 버퍼(안전, 모니터링, 행동)", "피딩 버퍼", "자원 버퍼"],
     tables: [
       {
@@ -3438,7 +3597,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "프로젝트의 범위 변경 없이 일정 기간을 단축시키는 크래싱·패스트트래킹 등 기법",
     lead:
       "범위 변경 없는 납기 단축, 일정단축 기법",
-    features: ["크래싱", "패스트트래킹", "범위 불변"],
+    features: ["범위 불변", "원가·위험 상충", "임계경로 대상"],
     keywords: ["Crashing(자원 추가)", "Fast Tracking(병행 추진)"],
     tables: [
       {
@@ -3464,7 +3623,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "업무 범위와 일정, 비용 성과를 통합 관리해 최종 일정과 비용을 예측하는 관리 기법",
     lead:
       "일정·원가의 통합 성과 측정, EVM(획득 가치 관리)",
-    features: ["PV·EV·AC", "SV·CV", "SPI·CPI"],
+    features: ["일정·원가 통합", "조기 경보", "예측 가능"],
     keywords: ["PV", "EV", "AC", "SV", "CV", "SPI", "CPI", "ETC", "EAC", "VAC", "TCPI"],
     tables: [
       {
@@ -3512,7 +3671,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "품질의 개발·개선·관리 활동에 쓰이는 데이터 기초 정리용 일곱 가지 통계적 도구",
     lead:
       "데이터 기반 품질 통제, 품질통제도구 QC 7",
-    features: ["파레토차트", "특성요인도", "관리도"],
+    features: ["시각화", "통계 기반", "원인 규명"],
     keywords: ["품질통제도구", "현원자", "체파히", "특산층", "관"],
     tables: [
       {
@@ -3540,7 +3699,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "SW 개발 과정의 형상 항목을 식별하고 변경을 제어하며 요구 부합을 검증하는 활동",
     lead:
       "산출물 변경의 통제, 형상 관리",
-    features: ["식별", "통제", "감사"],
+    features: ["추적성", "무결성", "가시성"],
     keywords: ["형상 식별", "형상 통제", "형상 감사", "형상 기록", "기능적", "분배적", "설계", "시험", "제품", "운용"],
     tables: [
       {
@@ -3577,7 +3736,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "예방비용과 평가비용을 높여서 실패비용을 줄이는 것을 목표로 하는 품질 활동 원가",
     lead:
       "품질 활동의 원가 환산, SW 품질비용",
-    features: ["예방비용", "평가비용", "실패비용"],
+    features: ["사전 투자", "실패비용 절감", "정량 관리"],
     keywords: ["적합 품질비용(예방비용, 평가비용)", "부적합 품질비용(내부실패 비용, 외부실패 비용)"],
     tables: [
       {
@@ -3611,7 +3770,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "활동의 책임과 역할을 책임·승인·자문·통보 네 단계로 구분해 표현한 매트릭스",
     lead:
       "역할과 책임의 명확화, RACI 매트릭스",
-    features: ["책임", "승인", "자문·통보"],
+    features: ["역할 명확화", "단일 책임", "의사소통 개선"],
     keywords: ["R(Responsible:책임)-실무담당자", "A(Accountable:승인)-의사결정권자", "C(Consult:고려 대상)-업무수행조언자", "I(Inform:통보)-결과보고대상자"],
     tables: [
       {
@@ -3644,7 +3803,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "활동에 분배되는 자원을 최적화하는 기법으로 평준화와 스무딩 두 가지가 대표적이다",
     lead:
       "자원 과부하의 조정, 자원 최적화",
-    features: ["자원 평준화", "자원 평활화", "과부하 해소"],
+    features: ["과부하 해소", "납기 영향 상이", "여유시간 활용"],
     keywords: ["Resource Leveling (자원평준화)", "Resource Smoothing (자원 평활화)"],
     tables: [
       {
@@ -3669,7 +3828,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "조직원이 어떤 욕구나 보상에 의해 어떤 행동을 보이고 성과는 어떤지 분석하는 이론",
     lead:
       "조직원 행동과 성과 분석, 동기부여 이론",
-    features: ["내용 이론", "과정 이론", "강화 이론"],
+    features: ["관점 다층", "욕구 기반", "성과 연계"],
     keywords: ["내용 이론", "과정 이론", "강화 이론"],
     tables: [
       {
@@ -3706,7 +3865,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "팀 개발 과정을 형성·스토밍·표준화·수행·해산의 다섯 단계로 표현한 개발 모델",
     lead:
       "팀 성숙 과정의 단계 모델, 터크만 팀 개발 5단계",
-    features: ["형성·스토밍", "표준화·수행", "리더십 전환"],
+    features: ["단계적 성숙", "효과성 변동", "리더십 전환"],
     keywords: ["형성", "스토밍", "표준화", "수행", "해산"],
     tables: [
       {
@@ -3742,7 +3901,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "목적이나 아이디어를 둘러싼 구성원 사이의 강한 불일치를 다루는 다섯 가지 관리 기법",
     lead:
       "구성원 간 불일치 해소, 갈등관리",
-    features: ["회피", "타협", "문제해결"],
+    features: ["상황 의존", "2축 분류", "협력 지향"],
     keywords: ["강요", "철회", "상대 의견 수용", "양쪽 의견 타협", "문제 해결"],
     tables: [
       {
@@ -3780,7 +3939,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "위험을 식별·분석하고 대응책을 마련해 프로젝트를 성공적으로 마치는 관리 활동",
     lead:
       "위험의 식별·분석·대응, 프로젝트 위험관리",
-    features: ["위험 식별", "위험 분석", "위험 대응"],
+    features: ["사전 예방", "반복 수행", "우선순위 기반"],
     keywords: ["계획수립", "위험식별", "정성적 위험분석", "정량적 위험분석", "위험대응 계획수립", "위험대응 실행", "감시 및 통제"],
     tables: [
       {
@@ -3817,7 +3976,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "발생확률과 영향, 특징을 평가해 개별 위험의 대응 우선순위를 정하는 분석 프로세스",
     lead:
       "위험 대응 우선순위 결정, 정성적 위험 분석",
-    features: ["확률-영향", "우선순위", "RBS"],
+    features: ["신속성", "등급화", "주관 개입"],
     keywords: ["데이터 수집", "데이터 분석", "데이터 표현", "대인관계 및 팀 기술", "기타 기법"],
     tables: [
       {
@@ -3848,7 +4007,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "식별된 위험이 전체 프로젝트 목표에 미치는 영향을 수치적으로 분석하는 프로세스",
     lead:
       "목표 영향도의 수치 분석, 정량적 위험 분석",
-    features: ["민감도 분석", "EMV", "몬테카를로"],
+    features: ["수치화", "객관성", "비용 소요"],
     keywords: ["데이터 수집", "데이터 분석", "대인관계 및 팀 기술", "기타 기법"],
     tables: [
       {
@@ -3876,7 +4035,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "불확실한 변수를 확률분포로 모델링해 무작위 샘플링을 반복하는 시뮬레이션 기법",
     lead:
       "무작위 반복 모의실험, 몬테카를로 시뮬레이션",
-    features: ["확률분포", "무작위 샘플링", "결과 집계"],
+    features: ["확률적 접근", "반복 시행", "분포 제공"],
     keywords: ["다양한 시나리오 분석", "확률적 결과 제공", "변수 정의", "무작위 샘플링", "시뮬레이션 실행", "결과 집계"],
     tables: [
       {
@@ -3900,7 +4059,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "프로젝트에서 식별된 위험 요소마다 상세한 대응방안을 수립해 계획하는 프로세스",
     lead:
       "위험 유형별 대응 전략, 위험 대응",
-    features: ["회피·전가", "완화·수용", "활용·증대"],
+    features: ["유형별 대응", "적극성 차등", "기회 활용"],
     keywords: [
       "부정적 (에스컬레이션, 회피, 전가, 완화, 수용)",
       "긍정적 (에스컬레이션, 활용, 공유, 증대, 수용)",
@@ -3940,7 +4099,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "모든 프로젝트에 적용할 수 있는 원칙과 가치 제공에 초점을 맞춘 관리 지식 체계 지침서",
     lead:
       "원칙과 가치 중심의 전환, PMBOK 7판",
-    features: ["8개 성과 영역", "12개 원칙", "가치 중심"],
+    features: ["원칙 중심", "가치 지향", "적응성"],
     keywords: [
       "성과: 이해관계자, 팀, 개발방식 및 생애주기, 기획, 성과, 인도, 측정, 불확실성 및 모호성 탐색",
       "원칙: 스튜어드쉽, 팀, 이해관계자, 가치, 시스템 사고, 리더쉽, 조정, 품질, 복잡성, 위험, 적응성과 복원력, 변화",
@@ -3989,7 +4148,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "기술적 측면을 평가하는 감리와 프로젝트 전 과정에 개입하는 PMO를 견준 비교표",
     lead:
       "평가와 관리의 관점 차이, 감리/PMO 비교",
-    features: ["제3자 평가", "발주자 관리", "법령 근거"],
+    features: ["독립성 대비", "의무·권고 차이", "관점 상이"],
     keywords: ["관점 차이", "법령 차이", "산출물 차이"],
     tables: [
       {
@@ -4015,7 +4174,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "고객 요구사항에 유연하게 대응하는 애자일 방법론의 4가지 선언문과 12가지 원칙",
     lead:
       "변화 대응 중심의 가치 선언, Agile 선언문과 12개 원칙",
-    features: ["개인과 상호작용", "작동하는 SW", "변화 대응"],
+    features: ["변화 수용", "협업 중시", "우선순위 선언"],
     keywords: ["개인과 상호작용", "변화에 대응", "작동하는 소프트웨어", "고객과의 협력"],
     tables: [
       {
@@ -4057,7 +4216,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "작은 팀과 짧은 기간으로 점진적·반복적으로 SW를 개발하는 애자일 개발방법론",
     lead:
       "짧은 주기의 반복 개발, 스크럼(SCRUM)",
-    features: ["스프린트", "백로그", "데일리 스크럼"],
+    features: ["짧은 주기", "자기조직화", "투명성"],
     keywords: ["Product backlog", "Sprint backlog", "회의 5개 세부내용", "Burn down chart", "담당자별 역할"],
     tables: [
       {
@@ -4100,7 +4259,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "애자일 스토리 포인트를 산정해 스프린트 계획 대비 현재 진행 상황을 파악하는 차트",
     lead:
       "스프린트 진척의 가시화, 번다운차트",
-    features: ["스토리 포인트", "잔여 작업량", "Velocity"],
+    features: ["진척 가시화", "속도 측정", "직관성"],
     keywords: ["스토리포인트(Story Point) 산정", "Sprint 진척율 가시화"],
     tables: [
       {
@@ -4139,7 +4298,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "의사소통과 테스트 주도 개발을 기반으로 짧은 개발 주기로 생산하는 애자일 방법론",
     lead:
       "의사소통과 TDD 기반 개발, XP(eXtreme Programming)",
-    features: ["페어 프로그래밍", "TDD", "지속적 통합"],
+    features: ["짧은 피드백", "실천 중심", "고객 참여"],
     keywords: ["용기", "단순함", "커뮤니케이션", "피드백", "존중", "12가지 실천 항목"],
     tables: [
       {
@@ -4194,7 +4353,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "고객 피드백을 수시로 반영하고 불필요한 작업을 최소화해 생산성을 높이는 방법론",
     lead:
       "개발 낭비의 제거, 린(Lean) 방법론",
-    features: ["낭비 제거", "빠른 인도", "권한 위임"],
+    features: ["낭비 제거", "흐름 중시", "권한 위임"],
     keywords: ["나배결빠위통씨", "미가재작이지결"],
     tables: [
       {
@@ -4232,7 +4391,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "SW 개발의 계획과 분석, 설계, 구축에 관한 방법과 절차, 도구를 표준화한 이론",
     lead:
       "개발 절차와 산출물의 표준화, 소프트웨어 개발 방법론",
-    features: ["절차", "산출물", "기법·도구"],
+    features: ["표준화", "재현성", "유형 진화"],
     keywords: ["표준화", "절방산관기도", "구정객CAP"],
     tables: [
       {
@@ -4269,7 +4428,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "시스템의 복잡성을 줄이고 품질을 높이고자 설계 시 지켜야 할 기본적인 지침과 규칙",
     lead:
       "복잡성 감소의 설계 지침, 소프트웨어 설계의 원리",
-    features: ["추상화", "정보은닉", "모듈화"],
+    features: ["복잡성 감소", "재사용성", "유지보수성"],
     keywords: ["추상화", "정보은닉", "분할과 정복", "단계적 분해", "모듈화"],
     tables: [
       {
@@ -4332,7 +4491,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "같은 함수 이름을 가지고 여러 개의 메서드를 만들 수 있도록 하는 객체지향 설계 기법",
     lead:
       "하나의 이름, 여러 구현, 다형성(Polymorphism)",
-    features: ["오버로딩", "오버라이딩", "동일 이름"],
+    features: ["동일 인터페이스", "유연한 확장", "재사용성"],
     keywords: ["오버로딩", "오버라이딩"],
     tables: [
       {
@@ -4356,7 +4515,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "소프트웨어의 개발 및 유지보수성 향상을 위한 설계 관점의 다섯 가지 기본적인 원칙",
     lead:
       "유지보수성 향상 원칙, 객체지향 설계 원리 SOLID",
-    features: ["단일 책임", "개방-폐쇄", "의존 역전"],
+    features: ["낮은 결합도", "높은 응집도", "확장 용이성"],
     keywords: ["SOLID", "SRP", "OCP", "LSP", "ISP", "DIP"],
     tables: [
       {
@@ -4381,7 +4540,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "오브젝트는 제한된 정보만 갖고 자신과 밀접한 오브젝트만 이용해야 한다는 설계 법칙",
     lead:
       "결합도 최소화 원칙, 데메테르의 법칙",
-    features: ["최소 지식", "낮은 결합도", "호출 제한"],
+    features: ["최소 지식", "낮은 결합도", "변경 격리"],
     keywords: [
       "최소지식의 원칙",
       "loose coupling",
@@ -4415,7 +4574,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "제품군별 도메인 기반 핵심자산을 개발해 재사용성과 생산성을 극대화하는 생산 체계",
     lead:
       "핵심자산 재사용 생산 체계, Product Line",
-    features: ["핵심자산", "도메인 공학", "애플리케이션 공학"],
+    features: ["재사용성", "생산성", "도메인 특화"],
     keywords: ["Domain Engineering", "Application Engineering", "Core Asset"],
     tables: [
       {
@@ -4438,7 +4597,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "핵심 관심사와 횡단 관심사를 분리하고 위빙으로 결합해 구현하는 프로그래밍 방법론",
     lead:
       "횡단 관심사의 분리, AOP(Aspect Oriented Programming)",
-    features: ["핵심 관심사", "횡단 관심사", "위빙"],
+    features: ["관심사 분리", "모듈화", "중복 제거"],
     keywords: ["핵심관심", "횡단관심", "Joint-Point", "Point-cut", "Weaving", "Aspect"],
     tables: [
       {
@@ -4465,7 +4624,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "조직의 표준 프로세스를 커스터마이징하여 프로젝트 요구에 맞는 절차를 얻는 과정",
     lead:
       "표준 프로세스의 맞춤 조정, 테일러링(Tailoring)",
-    features: ["표준 프로세스", "커스터마이징", "문서화"],
+    features: ["적합성", "유연성", "근거 문서화"],
     keywords: ["프로젝트 특징 정의", "표준 프로세스 선정 및 검증", "상위/하위 수준 커스터마이징", "문서화"],
     tables: [
       {
@@ -4506,7 +4665,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "요구사항의 수집과 분석, 명세, 검증, 관리 활동에 대한 총체적인 접근 체계를 말함",
     lead:
       "요구사항 관리의 총체적 체계, 요구공학",
-    features: ["추출·분석", "명세·검증", "변경관리"],
+    features: ["체계성", "추적성", "변경 통제"],
     keywords: ["정명완검일수추리해", "추분명검", "협기변검"],
     tables: [
       {
@@ -4550,7 +4709,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "제품이나 서비스를 사용할 목표 집단 안의 다양한 사용자 유형을 대표하는 가상 인물",
     lead:
       "목표 사용자의 대표 인물, 페르소나(Persona)",
-    features: ["가상 인물", "사용자 목표", "행태 분석"],
+    features: ["구체성", "사용자 대표성", "의사결정 기준"],
     keywords: ["사용자 분석", "사용자 범주 파악", "기간구조 잡기", "페르소나 평가", "프로파일 작성"],
     tables: [
       {
@@ -4586,7 +4745,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "SW 집약적 시스템 아키텍처가 표현할 내용과 그 관계를 제공하는 명세 표준 메타모델",
     lead:
       "아키텍처 기술의 표준 메타모델, ISO/IEC/IEEE 42010",
-    features: ["이해관계자", "관점(Viewpoint)", "뷰(View)"],
+    features: ["표준화", "관점 분리", "추적 가능"],
     keywords: ["구성요소들 전부"],
     tables: [
       {
@@ -4619,7 +4778,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "요구사항을 분석하고 품질속성을 식별해 아키텍처를 설계하고 평가·승인하는 절차",
     lead:
       "품질속성 기반의 설계 절차, SW Architecture 구축 절차",
-    features: ["요구사항 분석", "품질속성 식별", "평가·승인"],
+    features: ["품질속성 주도", "반복 정제", "검증 기반"],
     keywords: ["요구사항분석", "아키텍처분석", "아키텍처설계", "검증 및 승인", "품질속성", "아키텍처 스타일", "평가"],
     tables: [
       {
@@ -4647,7 +4806,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "아키텍처를 네 계층으로 관심사를 분리해 모듈성과 확장성, 유연성을 높인 아키텍처",
     lead:
       "의존성 방향의 통제, Clean Architecture",
-    features: ["4계층 분리", "의존성 규칙", "관심사 분리"],
+    features: ["의존성 역전", "관심사 분리", "교체 용이성"],
     keywords: ["관심사 분리", "Entites", "Use Case", "Interface Adapters", "Frameworks & Drivers"],
     tables: [
       {
@@ -4671,7 +4830,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "아키텍처 설계의 직간접 근간이 될 요구 항목을 추출·정제해 원칙으로 표현한 항목",
     lead:
       "설계를 좌우하는 요구 항목, SW Architecture Driver",
-    features: ["기능 요구", "품질 요구", "제약사항"],
+    features: ["선별성", "설계 결정력", "제약 반영"],
     keywords: ["기능 요구", "비기능 요구", "품질 요구", "제약 사항"],
     tables: [
       {
@@ -4703,7 +4862,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "품질을 기반으로 평가하는 모델에서 품질 특성을 기준으로 시나리오를 작성하는 구조",
     lead:
       "품질 요구의 시나리오화, 유틸리티 트리",
-    features: ["품질속성", "시나리오", "우선순위"],
+    features: ["계층적 분해", "측정 가능", "우선순위화"],
     keywords: ["유틸리티", "품질속성", "세분화된 품질 속성", "시나리오", "시나리오 우선순위", "부분→전체", "Bottom Up"],
     tables: [
       {
@@ -4736,7 +4895,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "SW 비기능 요구사항을 시스템과 이해관계자의 상호작용으로 표현한 요구 도출 기법",
     lead:
       "검증 가능한 비기능 요구, 소프트웨어 품질 속성 시나리오",
-    features: ["자극 유발원", "환경", "응답 측정"],
+    features: ["구체성", "검증 가능", "정량 측정"],
     keywords: ["자극유발원", "환경", "응답측정"],
     tables: [
       {
@@ -4774,7 +4933,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "반복 발생하는 문제를 해결하고 요구 품질 속성을 달성하는 검증된 아키텍처 설계 패턴",
     lead:
       "검증된 설계 해법의 유형, 소프트웨어 아키텍처 스타일",
-    features: ["데이터 중심", "데이터 흐름", "호출과 리턴"],
+    features: ["검증된 해법", "재사용성", "품질속성 대응"],
     keywords: ["칠저일파", "번규주원래클", "마슬마서", "이브"],
     tables: [
       {
@@ -4809,7 +4968,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "제시된 아키텍처가 요구되는 품질 특성을 충족하는지 아키텍처 수준에서 보는 절차",
     lead:
       "품질 충족 여부의 사전 검증, SW Architecture 평가",
-    features: ["SAAM", "ATAM", "CBAM"],
+    features: ["사전 검증", "트레이드오프 규명", "이해관계자 참여"],
     keywords: ["SAAM", "CBAM", "ATAM", "EATAM", "ADR", "ARID"],
     tables: [
       {
@@ -4835,7 +4994,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "아키텍처 접근법의 시나리오별 효용을 이득과 비용 기준으로 분석하는 평가 방법론",
     lead:
       "비용 대비 효용의 평가, CBAM",
-    features: ["효용-반응 곡선", "ROI 산정", "2단계 반복"],
+    features: ["경제성 평가", "정량 비교", "불확실성 고려"],
     keywords: ["비용 효율", "2단계 반복", "효용-반응 곡선", "불확실성 고려"],
     tables: [
       {
@@ -4873,7 +5032,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "특정 언어나 공정에 종속되지 않고 시스템 아키텍처를 묘사하기 위한 표준 모델링 언어",
     lead:
       "설계 표현의 표준 언어, UML",
-    features: ["가시화", "명세화", "문서화"],
+    features: ["표준성", "언어 독립", "가시성"],
     keywords: ["가시화", "구체화", "명세화", "문서화", "정적/동적 다이어그램", "13개 다이어그램 명칭"],
     tables: [
       {
@@ -4913,7 +5072,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "시스템에서 쓰는 객체 타입을 정의하고 그들 사이 정적 관계를 표현한 정적 다이어그램",
     lead:
       "객체 타입과 정적 관계, 클래스 다이어그램",
-    features: ["연관·의존", "집합·복합", "일반화·실체화"],
+    features: ["정적 구조", "관계 표현", "구현 매핑"],
     keywords: ["이름", "Attribute", "Operation", "접근제어자(Public, Private, Protected, Package)", "관계(연관, 직접연관, 집합연관, 복합연관, 의존, 일반화, 실체화)"],
     tables: [
       {
@@ -4957,7 +5116,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "시스템이 제공하는 기능과 관련 외부요소를 사용자 관점에서 표현한 동적 다이어그램",
     lead:
       "사용자 관점의 기능 표현, 유즈케이스 다이어그램",
-    features: ["액터", "유즈케이스", "include·extend"],
+    features: ["사용자 관점", "직관성", "범위 정의"],
     keywords: ["액터", "유즈케이스", "시스템", "연관", "확장", "포함", "일반화", "그룹화"],
     tables: [
       {
@@ -4995,7 +5154,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "객체가 가질 수 있는 모든 상태와 사건 발생에 따른 상태 전이 과정을 묘사한 동적 그림",
     lead:
       "객체 상태와 전이의 표현, 상태 다이어그램",
-    features: ["상태", "전이", "이벤트"],
+    features: ["단일 객체", "이벤트 기반", "전이 명세"],
     keywords: ["상태", "전이", "이벤트", "전이조건"],
     tables: [
       {
@@ -5021,7 +5180,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "객체들이 주고받는 메시지를 시간 순서에 따라 표현한 상호작용 동적 다이어그램임",
     lead:
       "시간 순 메시지 흐름, 시퀀스 다이어그램",
-    features: ["생명선", "동기·비동기", "시간 순서"],
+    features: ["시간 순서", "상호작용 표현", "동기·비동기 구분"],
     keywords: ["액터", "활성 객체", "생명선", "제어사각형", "메시지", "프레임", "연산자"],
     tables: [
       {
@@ -5048,7 +5207,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "액티비티 다이어그램에서 액티비티 대신 시퀀스로 흐름을 상세하게 표현한 행위 도식",
     lead:
       "흐름과 상호작용의 결합, Interaction overview diagram",
-    features: ["액티비티 결합", "시퀀스 삽입", "흐름 표현"],
+    features: ["혼합 표현", "흐름 통합", "상세도 조절"],
     keywords: ["Activity와 Sequence의 결합"],
     tables: [
       {
@@ -5075,7 +5234,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "하나의 큰 애플리케이션을 작은 서비스 단위로 나눠 변경과 조합이 가능하게 한 구조",
     lead:
       "서비스 단위의 분할 구조, MSA",
-    features: ["서비스 분할", "독립 배포", "Polyglot"],
+    features: ["독립 배포", "기술 다양성", "확장 용이성"],
     keywords: ["API Gateway", "Orchestration", "REST API", "Persistent", "DevOps", "DDD(Domain Driven Design, 도메인 주도 설계)", "Polyglot(폴리글랏, 크로스 플랫폼인 데이터 교환을 의미)"],
     tables: [
       {
@@ -5100,7 +5259,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "클라이언트가 요청한 API를 내부에서 처리 가능한 형태로 변환·전달하는 관문",
     lead:
       "마이크로서비스의 단일 관문, API Gateway",
-    features: ["인증·보안", "라우팅", "프로토콜 변환"],
+    features: ["단일 진입점", "공통 기능 집중", "결합도 완화"],
     keywords: ["프록시", "프로토콜 변환", "보안(인증, 로깅)", "라우팅", "마이크로 서비스"],
     tables: [
       {
@@ -5139,7 +5298,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "작업 실패 시 완료된 서비스에 보상 이벤트를 보내 분산 환경 원자성을 보장하는 패턴",
     lead:
       "분산 트랜잭션의 보상 처리, SAGA 패턴",
-    features: ["보상 트랜잭션", "코레오그래피", "오케스트레이션"],
+    features: ["최종 일관성", "보상 처리", "분산 원자성"],
     keywords: ["트랜잭션처리", "Choreography 방식", "Orchestration 방식", "데이터 정합성 보장"],
     tables: [
       {
@@ -5161,7 +5320,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "공통의 유비쿼터스 언어로 모델링과 개발의 불일치를 해결하는 도메인 중심 설계 방법",
     lead:
       "도메인 중심의 설계 방법, DDD",
-    features: ["유비쿼터스 언어", "바운디드 컨텍스트", "애그리거트"],
+    features: ["도메인 중심", "공통 언어", "경계 분리"],
     keywords: ["유비쿼터스 언어", "도메인", "서브도메인", "바운디드 컨텍스트", "컨텍스트 맵", "도메인 모델", "Entity", "Value", "Aggregate", "Repository", "Service"],
     tables: [
       {
@@ -5201,7 +5360,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "데이터 생성·변경·삭제 같은 상태변화 이벤트에 반응해 동작하는 SW 아키텍처",
     lead:
       "상태변화 이벤트 기반 동작, Event Driven Architecture",
-    features: ["이벤트 프로듀서", "이벤트 채널", "비동기 처리"],
+    features: ["느슨한 결합", "비동기 처리", "확장 용이성"],
     keywords: ["이벤트 프로듀서", "이벤트 채널", "이벤트 처리 엔진", "다운스트림 이벤트 기반활동"],
     tables: [
       {
@@ -5233,7 +5392,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "소프트웨어 개발 문제 해결 사례를 분류해 유형별 가장 적합한 설계를 일반화한 패턴",
     lead:
       "반복 설계 문제의 정형 해법, 디자인 패턴",
-    features: ["생성 패턴", "구조 패턴", "행위 패턴"],
+    features: ["재사용성", "검증된 해법", "의사소통 용이"],
     keywords: ["개발 중 문제 해결 사례 모음", "생성 패턴", "구조 패턴", "행위 패턴"],
     tables: [
       {
@@ -5267,7 +5426,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "클래스의 인스턴스를 오직 하나만 만들도록 보장하고 전역 접근점을 주는 객체 패턴",
     lead:
       "유일 인스턴스의 보장, 싱글턴 패턴",
-    features: ["private 생성자", "static 인스턴스", "전역 접근점"],
+    features: ["유일성 보장", "전역 접근", "자원 절약"],
     keywords: ["Private 생성자", "Static 인스턴스", "Public 정적 메서드"],
     tables: [
       {
@@ -5300,7 +5459,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "사용자·개발자 등 여러 이해관계자 관점에서 아키텍처를 문서화하는 프레임워크",
     lead:
       "이해관계자 관점별 문서화, UML의 4+1 View Model",
-    features: ["논리·구현 뷰", "프로세스·배포 뷰", "유즈케이스 뷰"],
+    features: ["관점 분리", "이해관계자 대응", "통합 기준"],
     keywords: ["Logical View", "Implementation View", "Process View", "Deployment View", "Use Case View"],
     tables: [
       {
@@ -5334,7 +5493,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "모델·뷰·뷰모델로 나누고 바인딩으로 뷰와 뷰모델 통신을 자동화한 아키텍처 패턴",
     lead:
       "데이터 바인딩 기반 분리, MVVM",
-    features: ["Model", "View", "View Model"],
+    features: ["관심사 분리", "데이터 바인딩", "테스트 용이성"],
     keywords: ["Model", "View", "View Model", "Data Binding"],
     tables: [
       {
@@ -5371,7 +5530,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "단순한 코드를 목적으로 테스트 케이스를 먼저 개발하고 통과 코드를 뒤에 만드는 기법",
     lead:
       "테스트를 앞세운 개발, TDD",
-    features: ["테스트 선작성", "Red-Green", "리팩토링"],
+    features: ["선 테스트", "빠른 피드백", "안전한 리팩토링"],
     keywords: ["[요테구리] 요구사항", "테스트", "구현", "리팩토링"],
     tables: [
       {
@@ -5406,7 +5565,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "시스템 개발자와 운영 전문가 사이의 소통·협업·통합과 자동화를 강조하는 개발론",
     lead:
       "개발과 운영의 통합, 데브옵스(DevOps)",
-    features: ["소통·협업", "CI/CD", "자동화"],
+    features: ["협업 문화", "자동화", "지속적 전달"],
     keywords: ["CI/CD", "프로비저닝"],
     tables: [
       {
@@ -5436,7 +5595,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "대규모 시스템의 안정성 확보를 위해 고도의 자동화와 자가 치유를 제공하는 SW 공학",
     lead:
       "운영의 엔지니어링화, SRE",
-    features: ["SLI·SLO", "Error Budget", "Toil 제거"],
+    features: ["지표 기반", "자동화", "신뢰성 우선"],
     keywords: ["안정성", "자가치유", "자동화", "카나리 배포", "Toil 관리", "Error Budget", "구글 운영팀"],
     tables: [
       {
@@ -5472,7 +5631,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "비즈니스 연속성과 안정성을 보장하려 서비스 중단 없이 운영에 코드를 배포하는 기법",
     lead:
       "서비스 중단 없는 배포, 무중단 배포",
-    features: ["롤링 업데이트", "블루·그린", "카나리"],
+    features: ["서비스 연속성", "점진 전환", "롤백 용이"],
     keywords: ["Rolling Update", "Blue/Green Deployment", "Canary Release"],
     tables: [
       {
@@ -5496,7 +5655,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "안정적이고 예측 가능한 배포와 구현, 개선 방법을 포괄적으로 연구하는 엔지니어링",
     lead:
       "예측 가능한 배포 파이프라인, 릴리즈 엔지니어링",
-    features: ["파이프라인", "코드형 인프라", "자동 배포"],
+    features: ["자동화", "재현성", "예측 가능성"],
     keywords: ["배포·구현·유지보수", "파이프라인(pipeline)"],
     tables: [
       {
@@ -5532,7 +5691,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "인위적인 혼돈을 가해 분산 시스템의 취약한 부분을 찾아 보강하는 엔지니어링 기법",
     lead:
       "인위적 장애 주입 검증, 카오스 엔지니어링",
-    features: ["가설 수립", "장애 주입", "복원력 검증"],
+    features: ["실험적 접근", "사전 검증", "복원력 향상"],
     keywords: ["Hypothesis", "Fault Injection", "Measuring", "Verify"],
     tables: [
       {
@@ -5560,7 +5719,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "개발과 운영의 융합과 협업을 통한 개발 주기에 보안 측면 주기를 포함하는 개발 방법론",
     lead:
       "개발 주기 내 보안 내재화, DevSecOps",
-    features: ["보안 내재화", "IAST·퍼징", "RASP"],
+    features: ["보안 내재화", "자동화", "지속 평가"],
     keywords: ["Development", "Operation", "Security", "Agile", "Visualization", "FMEA", "RASP", "Analysis"],
     tables: [
       {
@@ -5597,7 +5756,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "결함 발견·결함 집중·살충제 패러독스 등 SW 테스트가 따르는 일곱 가지 기본 원리",
     lead:
       "테스트가 따르는 기본 법칙, 테스트 원리 7가지",
-    features: ["결함 발견", "결함 집중", "살충제 패러독스"],
+    features: ["결함 발견", "조기 착수", "완전성 한계"],
     keywords: ["살충제 패러독스", "오류부재 궤변", "결함발견", "초기 시작", "불완전", "결함 집중", "정황의존"],
     tables: [
       {
@@ -5633,7 +5792,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "요구사항 정의서와 설계서 등 중간산출물을 실행 없이 검토해 결함을 찾는 정적 테스팅",
     lead:
       "실행 없는 정적 결함 검출, 리뷰(Review)",
-    features: ["워크쓰루", "인스펙션", "정적 검토"],
+    features: ["정적 검토", "조기 결함 발견", "공식성 차등"],
     keywords: ["비공식적 리뷰", "기술적 리뷰", "워크쓰루", "인스펙션", "페이건의 인스펙션", "Process-계시사미RF", "참여자-관중기작검"],
     tables: [
       {
@@ -5681,7 +5840,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "내부 구조를 고려하지 않고 입력값에 대한 출력값을 확인해 기능을 검증하는 테스트",
     lead:
       "입출력 기반의 기능 검증, 블랙박스 테스트",
-    features: ["동등분할", "경계값 분석", "의사결정 테이블"],
+    features: ["명세 기반", "사용자 관점", "내부 무관"],
     keywords: ["동등분할", "경계값분석", "의사결정 테이블", "상태전이", "유즈케이스", "분류트리", "페어와이즈 테스트", "원인-결과 그래프 기법", "오류예측기법"],
     tables: [
       {
@@ -5711,7 +5870,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "소프트웨어 내부 구조와 소스 코드를 직접 보며 논리 흐름이 옳은지 검증하는 테스트",
     lead:
       "내부 논리 흐름의 검증, 화이트박스 테스트",
-    features: ["구문 커버리지", "결정 커버리지", "MC/DC"],
+    features: ["구조 기반", "개발자 관점", "커버리지 측정"],
     keywords: ["내부 구조(Internal Structure)", "논리 흐름(Logical Flow)", "코드 커버리지(Code Coverage)", "제어구조", "루프"],
     tables: [
       {
@@ -5750,7 +5909,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "전체 소스 코드 중 테스트 케이스가 실행한 코드의 비율을 나타내는 화이트박스 지표",
     lead:
       "테스트 수행 범위의 정량화, 코드 커버리지",
-    features: ["구문·결정", "조건·MC/DC", "다중조건"],
+    features: ["정량 지표", "포함 관계", "강도 차등"],
     keywords: ["구문(SC)", "결정(DC)", "조건(CC)", "조건(C/DC)", "변경조건(MC/DC)", "다중조건(MCC)", "Test Case"],
     tables: [
       {
@@ -5777,7 +5936,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "테스터의 경험과 직관을 활용해 동작을 조사하고 결함을 발견하는 것이 목표인 테스트",
     lead:
       "경험과 직관 기반의 탐험, 탐색적 테스트",
-    features: ["세션", "차터", "타임박스"],
+    features: ["경험 기반", "설계·실행 동시", "타임박스"],
     keywords: ["[세차노요] Heuristic 기반", "Time-boxing", "테스트세션", "테스트 차터", "테스트노트", "요약보고"],
     tables: [
       {
@@ -5811,7 +5970,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "유사 경험과 직관, 테스터의 기술 능력으로부터 테스트 케이스를 추출해 내는 기법",
     lead:
       "노하우 기반 케이스 추출, 경험 기반 테스트",
-    features: ["오류추정", "체크리스트", "분류트리"],
+    features: ["직관 활용", "보완적 성격", "신속성"],
     keywords: ["[경탐오체분] 탐색적 테스팅", "오류추정", "체크리스트", "분류 트리"],
     tables: [
       {
@@ -5842,7 +6001,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "위험을 측정해 우선순위가 높은 부분에 주어진 테스팅 자원을 집중하는 테스트 전략",
     lead:
       "위험 우선순위 기반 집중, 위험 기반 테스트",
-    features: ["발생 가능성", "영향도", "우선순위"],
+    features: ["선택과 집중", "우선순위화", "자원 효율"],
     keywords: ["테스트 자원 한정", "STA", "STTA", "ITA", "FTA"],
     tables: [
       {
@@ -5878,7 +6037,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "수행된 테스트 결과가 기대했던 결과인지를 판단하거나 분석해 주는 채점 메커니즘",
     lead:
       "결과 판정의 채점 기준, 테스트 오라클",
-    features: ["참 오라클", "샘플링", "일관성 검사"],
+    features: ["판정 기준", "정확도 차등", "비용 상충"],
     keywords: ["[참샘휴일] 참 오라클", "샘플링 오라클", "휴리스틱 오라클", "일관성 검사"],
     tables: [
       {
@@ -9868,7 +10027,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "소스 코드를 규칙대로 변형해 테스트케이스의 결함 검출력을 보는 결함 기반 테스트",
     lead:
       "테스트의 결함 검출력 검증, 뮤테이션 테스트",
-    features: ["뮤턴트 생성", "검출력 검증", "뮤테이션 점수"],
+    features: ["결함 기반", "검출력 평가", "정량 점수"],
     keywords: ["정상 코드", "돌연변이 코드(뮤턴트)", "테스트 케이스 검증", "의도적 소스 변경", "뮤턴트 연산자", "뮤턴트 스코어"],
     tables: [
       {
@@ -9899,7 +10058,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "개발된 시스템이 주어진 환경에서 요구사항 목표치를 달성했는지 확인하는 테스트",
     lead:
       "목표 성능 달성의 확인, 성능 테스트",
-    features: ["부하 테스트", "스트레스 테스트", "TPS·응답시간"],
+    features: ["목표 대비 검증", "부하 조건 다양", "정량 지표"],
     keywords: ["요구사항 목표치 달성 여부 확인", "TPS", "응답시간", "부하/스파이크 테스트"],
     tables: [
       {
@@ -9951,7 +10110,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "제품에 랜덤 데이터를 입력해 예외와 오류를 분석하고 보안 취약점을 찾는 테스팅 기법",
     lead:
       "비정상 입력 기반 취약점 탐지, 퍼징 테스트",
-    features: ["무작위 입력", "예외 분석", "취약점 탐지"],
+    features: ["무작위성", "자동화", "취약점 특화"],
     keywords: ["Valid Case Fuzzing", "Invalid Case Skip Fuzzing", "Invalid Case Fail Fuzzing", "보안취약점", "블랙박스", "화이트박스"],
     tables: [
       {
@@ -9993,7 +10152,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "수정·확장 후 변경 부분뿐 아니라 기존 기능까지 함께 테스트해 오류를 검출하는 기법",
     lead:
       "변경에 따른 부작용 검출, 회귀 테스트",
-    features: ["기존 기능 검증", "파급 효과", "자동화 재실행"],
+    features: ["반복 수행", "부작용 검출", "자동화 필수"],
     keywords: ["프로그램 수정/확장", "변경 외 기존 기능 테스트", "종류(Reset All, Selective, Priority)", "Ripple Effect", "Side Effect"],
     tables: [
       {
@@ -10024,7 +10183,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "인간과 구별할 수 없을 정도의 지적 행동을 표시할 수 있는 기계 능력의 확인 실험이다",
     lead:
       "기계 지능의 판별 실험, 튜링 테스트",
-    features: ["모방 게임", "대화 판별", "지능 판정"],
+    features: ["행동 기반", "판별 실험", "주관 개입"],
     keywords: ["기계의 사고 능력 판별"],
     tables: [
       {
@@ -10057,7 +10216,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "키워드 테스트 케이스와 해석기, 시퀀서를 이용해 자동 실행하는 국제 표준 시험 기법",
     lead:
       "키워드 조립식 테스트 자동화, Keyword Driven Testing",
-    features: ["키워드 조립", "해석기·시퀀서", "설계·구현 분리"],
+    features: ["재사용성", "비개발자 참여", "유지보수 용이"],
     keywords: ["편집기", "해석기", "데이터 시퀀서", "툴 브릿지", "실행 엔진", "테스트 대상", "테스트 라이브러리 저장소", "테스트 데이터 저장소"],
     tables: [
       {
@@ -10094,7 +10253,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "실 서비스에 인위적 혼돈을 주입해 출시 전에 드러나지 않은 문제를 찾는 테스트 방법",
     lead:
       "실 서비스 혼돈 주입 시험, 카오스 테스트",
-    features: ["정상 상태 정의", "가설 수립", "혼돈 주입"],
+    features: ["실환경 수행", "가설 검증", "범위 통제"],
     keywords: ["[정가실결문]", "카오스 엔지니어링 팀", "정상 상태", "가설수립", "실험 디자인", "결과확인", "문제점 수정"],
     tables: [
       {
@@ -10128,7 +10287,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "둘 이상의 테스트 시스템에 동일한 입력을 주고 실행해 결과 불일치를 비교하는 기법",
     lead:
       "동일 입력의 결과 비교, Back to Back 테스트",
-    features: ["동일 입력", "결과 비교", "불일치 분석"],
+    features: ["비교 판정", "오라클 대체", "안전 분야 활용"],
     keywords: ["Testcase작성/테스트 수행/결과값 비교/원인 분석", "자동차", "항공기 분야 사용"],
     tables: [
       {
@@ -10163,7 +10322,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "테스트 계획부터 케이스 설계, 실행, 결과 분석, 오류 수정까지의 5단계 프로세스",
     lead:
       "테스트 활동의 단계화, Test Process",
-    features: ["계획", "설계·실행", "결과 분석"],
+    features: ["단계화", "문서 기반", "반복 적용"],
     keywords: ["[계케실결오]", "IEEE 829"],
     tables: [
       {
@@ -10187,7 +10346,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "SW 개발 생명주기 전 과정에 걸쳐 있는 테스팅 프로세스와 관련 산출물의 국제 표준",
     lead:
       "테스팅 프로세스의 국제 표준, ISO 29119",
-    features: ["테스트 프로세스", "문서화", "테스트 기법"],
+    features: ["국제 표준", "전 생명주기", "프로세스 체계화"],
     keywords: ["[개프도테키]", "개념", "프로세스", "문서화", "테스트 기법", "키워드 기반 테스팅"],
     tables: [
       {
@@ -10212,7 +10371,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "AI 기반 시스템을 도입하고 테스트하는 방법의 지침을 제공하는 ISO 기술보고서",
     lead:
       "AI 시스템 테스트 지침, ISO 29119-11",
-    features: ["AI 시스템", "오라클 부재", "변성 테스트"],
+    features: ["AI 특화", "오라클 대안", "데이터 품질 중시"],
     keywords: ["AI 기반 시스템", "1~10 파트"],
     tables: [
       {
@@ -10252,7 +10411,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "추정 결함밀도와 커버리지 달성률 등 정량 지표로 종료 시점을 정하는 테스트 완료 기준",
     lead:
       "테스트 종료 시점의 기준, Test Exit Criteria",
-    features: ["커버리지 달성률", "결함밀도", "일정·비용"],
+    features: ["정량 기준", "사전 정의", "객관적 판단"],
     keywords: ["완전성", "목적", "기준", "커버리지", "리스크", "스케쥴"],
     tables: [
       {
@@ -10287,7 +10446,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "소프트웨어의 지속적 진화를 세 가지 유형과 여덟 가지 원리로 설명한 변화의 법칙들",
     lead:
       "소프트웨어 진화의 법칙, Lehman의 변화의 원리",
-    features: ["지속 변경", "복잡도 증가", "품질 감소"],
+    features: ["지속 변경", "복잡도 증가", "품질 저하"],
     keywords: ["[변복진조친성품피]", "①계속 변경 ②복잡도 증가 ③프로그램 진화 ④조직적 안정화 ⑤친근성 유지 ⑥지속 성장 ⑦품질감소 ⑧피드백 시스템"],
     tables: [
       {
@@ -10323,7 +10482,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "생산성 극대화를 위해 레포지토리 기반으로 역공학·재공학·재사용을 쓰는 접근법",
     lead:
       "레거시 활용의 세 기법, 3R",
-    features: ["역공학", "재공학", "재사용"],
+    features: ["재사용성", "생산성", "레거시 활용"],
     keywords: ["레포지토리", "역공학", "재공학", "재사용"],
     tables: [
       {
@@ -10365,7 +10524,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "모듈의 외부적 기능은 그대로 두고 내부 구조를 단순화해 유지보수성을 높이는 기법",
     lead:
       "기능 불변의 구조 개선, 소프트웨어 리팩토링",
-    features: ["코드 스멜", "구조 개선", "외부 동작 불변"],
+    features: ["동작 불변", "구조 개선", "점진적 수행"],
     keywords: ["외부기능 변경없이 내부 구조 수정", "코드 스멜", "Move", "Extract", "Push Down", "Full Up"],
     tables: [
       {
@@ -10403,7 +10562,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "생명주기의 최종인 폐기 전 단계로 오류를 고치고 기능과 수행력을 증진시키는 활동",
     lead:
       "인도 후 오류 수정과 개선, 유지보수",
-    features: ["수정·적응", "완전·예방", "변경 요청"],
+    features: ["지속성", "높은 비용 비중", "유형 다양"],
     keywords: ["계예응지", "데프문시", "수완예적"],
     tables: [
       {
@@ -10445,7 +10604,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "ISO 12207의 유지보수 프로세스를 6단계로 상세화한 SW 유지보수 표준",
     lead:
       "유지보수 프로세스의 표준, ISO/IEC/IEEE 14764",
-    features: ["6단계 프로세스", "반응적 유지보수", "순향적 유지보수"],
+    features: ["표준 프로세스", "단계화", "유형 분류"],
     keywords: ["수정/적응/완벽/예방 유지보수", "기법(SW 이해, 재공학, 역공학, 재구조화)", "유지보수 프로세스 단계"],
     tables: [
       {
@@ -10490,7 +10649,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "공개된 소스코드를 자유롭게 사용하는 데 따르는 보안 위협과 그 관리·조치 방안들",
     lead:
       "공개 코드 사용의 위험, 오픈소스 SW 보안위협",
-    features: ["제로데이 공격", "라이선스 위반", "SBOM 관리"],
+    features: ["공개성 취약", "공급망 위험", "관리 필요"],
     keywords: ["자유로운 배포", "소스 코드 공개", "Zero day Attack", "Log4j", "거버넌스"],
     tables: [
       {
@@ -10537,7 +10696,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "OSS를 안전하게 쓰고 배포하도록 생명주기 단계별로 제시한 절차와 관리 체계다",
     lead:
       "OSS 생명주기의 통제 체계, 오픈소스 거버넌스",
-    features: ["정책 수립", "라이선스 준수", "취약점 관리"],
+    features: ["생명주기 관리", "라이선스 준수", "통제 체계"],
     keywords: ["거버넌스", "프레임워크", "정책수립", "획득", "적용", "운영 및 유지", "관리 및 개선"],
     tables: [
       {
@@ -10578,7 +10737,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "프로세스 개선으로 특정 성숙도 레벨에 진입하기 위한 활동을 제시한 개발 역량 모델",
     lead:
       "조직 프로세스 성숙도 모델, CMMI 3.0",
-    features: ["성숙도 5단계", "프로세스 개선", "역량 평가"],
+    features: ["단계적 성숙", "프로세스 개선", "객관 평가"],
     keywords: ["Category", "Capability", "Practices"],
     tables: [
       {
@@ -10614,7 +10773,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "SW 시험 인증 센터가 국제표준을 기반으로 개발한 한국형 SW 품질 인증 제도이다",
     lead:
       "국산 SW 제품의 품질 인증, GS 인증",
-    features: ["제품 품질 인증", "ISO 25023", "공공 우선구매"],
+    features: ["제품 대상", "국제표준 기반", "조달 혜택"],
     keywords: ["기능성", "신뢰성", "사용성", "성능효율성", "유지보수성", "이식성", "보안성", "호환성", "일반적 요구사항", "SW산업진흥법"],
     tables: [
       {
@@ -10659,7 +10818,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "소프트웨어 기업과 개발 조직의 프로세스 품질 역량을 심사해 등급을 부여하는 제도",
     lead:
       "개발 프로세스 역량의 인증, SP 인증",
-    features: ["프로세스 인증", "역량 심사", "등급 부여"],
+    features: ["프로세스 대상", "역량 심사", "등급제"],
     keywords: ["프로세스", "품질", "소프트웨어 진흥법"],
     tables: [
       {
@@ -10702,7 +10861,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "소프트웨어 품질의 특성을 정의하고 품질 평가의 지표를 규정해 놓은 국제 표준이다",
     lead:
       "SW 품질 특성의 국제 표준, ISO/IEC 25010",
-    features: ["기능적합성", "보안성", "유연성"],
+    features: ["품질 특성 체계", "국제 표준", "평가 지표"],
     keywords: ["기능적합성", "신뢰성", "상호작용 능력", "성능 효율성", "유지 보수성", "유연성", "보안성", "호환성", "안전성"],
     tables: [
       {
@@ -10742,7 +10901,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "동종의 경쟁 제품 간 기능과 성능을 비교 평가해 우수한 제품을 가려내는 품질 시험임",
     lead:
       "경쟁 제품 간 비교 평가, 상용SW 품질성능 평가 시험",
-    features: ["BMT", "비교 평가", "직접구매"],
+    features: ["비교 평가", "객관성", "조달 연계"],
     keywords: ["BMT", "소프트웨어 진흥법 제55조", "직접구매"],
     tables: [
       {
@@ -10781,7 +10940,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "제어 흐름 그래프에서 사이크로매틱 회전수를 구해 SW의 복잡도를 계산하는 방법",
     lead:
       "제어 흐름 기반 복잡도 측정, McCabe 회전 복잡도",
-    features: ["제어 흐름 그래프", "독립 경로 수", "복잡도 판정"],
+    features: ["정량 측정", "구조 기반", "케이스 산정"],
     keywords: ["복잡도 = (edge − node + 2) = (폐구간 + 1) = (의사결정 수 + 조건 수 + 1)"],
     tables: [
       {
@@ -10813,7 +10972,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "위험의 원인을 트리 다이어그램을 통해서 찾아 나가는 연역적 하향식 위험 분석 기법",
     lead:
       "원인 추적의 연역적 분석, FTA",
-    features: ["하향식", "연역적", "AND·OR 게이트"],
+    features: ["하향식", "연역적", "정성·정량 병행"],
     keywords: ["Top-down", "연역적 기법", "트리 다이어그램"],
     tables: [
       {
@@ -10854,7 +11013,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "고장 요인을 도출해 영향도에 따른 우선순위 등급을 정하는 귀납적 상향식 분석 기법",
     lead:
       "영향도 기반 귀납적 분석, FMEA",
-    features: ["상향식", "귀납적", "RPN"],
+    features: ["상향식", "귀납적", "우선순위 계량"],
     keywords: ["Bottom-up", "RPN = 심각도 x 발생도 x 검출도"],
     tables: [
       {
@@ -10897,7 +11056,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "전문가들이 모여 공정변수와 가이드워드의 조합으로 이탈 원인과 영향을 보는 기법",
     lead:
       "설계 의도 이탈의 식별, HAZOP",
-    features: ["공정변수", "가이드워드", "이탈 분석"],
+    features: ["정성적", "전문가 기반", "체계적 도출"],
     keywords: ["경험기반", "이탈 = 공정변수 * 가이드워드", "공정(특정변수, 일반변수)", "가이드워드(7가지) : 없음/증가/감소/반대/부가/부분/기타"],
     tables: [
       {
@@ -10939,7 +11098,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "초기 이벤트부터 발생 가능성을 확률로 계산해 최종 시나리오를 도출하는 분석 기법",
     lead:
       "시나리오 확률의 정량 분석, ETA",
-    features: ["초기 사건", "성공·실패 분기", "시나리오 확률"],
+    features: ["상향식", "정량적", "시나리오 확률"],
     keywords: ["[범위초 트결경]", "이벤트 기반", "Event Tree", "Tree 분석"],
     tables: [
       {
@@ -10974,7 +11133,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "STAMP 기반으로 시스템 각 요소 간 상호작용이 안전성을 위협하는지 보는 기법",
     lead:
       "요소 간 상호작용의 안전 분석, STPA",
-    features: ["STAMP", "제어 구조", "UCA 도출"],
+    features: ["상호작용 중심", "시스템 이론", "제어 관점"],
     keywords: ["STAMP", "요소간 상호작용", "사고 및 위험정의", "Control Structure 도식화", "Unsafe Control Action 도출", "원인 시나리오 도출"],
     tables: [
       {
@@ -11007,7 +11166,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "SW의 규모를 파악해 소요 공수와 투입 자원, 기간을 산정하고 계획을 세우는 과정",
     lead:
       "공수와 기간 산정의 기초, SW 규모산정",
-    features: ["하향식", "상향식", "수학적 산정"],
+    features: ["계획 기초", "방법 다양", "정확도 차등"],
     keywords: ["하향식 산정", "상향식 산정", "수학적 산정"],
     tables: [
       {
@@ -11054,7 +11213,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "정보처리 규모와 기능의 복잡도 요인에 의거해 SW 규모를 산정하는 대표적인 방식",
     lead:
       "기능 단위의 규모 측정, Function Point",
-    features: ["ILF·EIF", "EI·EO·EQ", "조정인자"],
+    features: ["언어 독립", "기능 기반", "국제 표준"],
     keywords: ["트랜잭션 유형(EI, EO, EQ)", "데이터 기능 유형(ILF, EIF)", "ISO 14143-1"],
     tables: [
       {
@@ -11110,7 +11269,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "예산 수립과 사업 발주, 계약 시 적정 대가를 산정하도록 기준을 제공하는 가이드다",
     lead:
       "적정 대가 산정의 기준, SW 사업대가",
-    features: ["기능점수 방식", "보정계수", "직접경비·이윤"],
+    features: ["산정 기준 제공", "단계별 방식", "공정 계약"],
     keywords: ["구현단계(사기전후직소)", "기획단계", "ISP/BPR", "EA/ITA", "ISMP"],
     tables: [
       {
@@ -11145,7 +11304,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "프로그램 코드의 일부나 전체를 변경해 가독성을 낮춰 역공학에 대비하는 대응 방법",
     lead:
       "역공학 대비의 코드 변환, 난독화",
-    features: ["구획 난독화", "제어 난독화", "역공학 방지"],
+    features: ["가독성 저하", "역공학 대비", "성능 영향 차등"],
     keywords: ["[구데집제예]", "구획 난독화", "데이터 난독화", "집합 난독화", "제어 난독화", "예방 난독화"],
     tables: [
       {
@@ -11179,7 +11338,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "구성 요소 식별 메타데이터와 저작권·라이선스 정보를 담은 공식 SW 자재 명세서",
     lead:
       "SW 공급망의 구성 명세, SBOM",
-    features: ["구성요소 식별", "라이선스 정보", "SPDX·CycloneDX"],
+    features: ["구성 투명성", "추적성", "표준 포맷"],
     keywords: ["Author Name", "Timestamp", "Version String", "SPDX", "CycloneDX", "SWID"],
     tables: [
       {
@@ -11216,7 +11375,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "인도된 정보시스템의 안정적인 운영과 성능 보장, 개선 과정을 점검하는 감리 활동",
     lead:
       "운영 단계의 품질 점검, 운영/유지보수 감리",
-    features: ["안정 운영", "성능·보안", "백업 관리"],
+    features: ["사후 점검", "지속성", "대상 다양"],
     keywords: ["개발 소프트웨어", "상용 소프트웨어", "인프라", "배포관리", "장애관리", "보안", "성능", "패치", "백업"],
     tables: [
       {
@@ -11247,7 +11406,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "효율성 향상과 안전성 확보를 위해 제3자 관점에서 구축 사항을 점검·개선하는 활동",
     lead:
       "제3자 관점의 점검 활동, 정보시스템 감리",
-    features: ["제3자 관점", "성과·산출물", "절차 준수"],
+    features: ["독립성", "객관성", "법정 의무"],
     keywords: ["3자적 관점", "대국민 서비스", "공동 행정 서비스", "5억 이상", "기관장의 필요성 인정", "절차", "산출물", "성과"],
     tables: [
       {
@@ -11288,7 +11447,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "개발과 EA, ISP 등 모든 유형의 정보화 사업에 공통으로 적용되는 감리의 절차",
     lead:
       "모든 정보화 사업의 공통 절차, 공통감리 절차",
-    features: ["예비조사", "현장감리", "시정조치 확인"],
+    features: ["표준화", "3단계 구성", "전 유형 적용"],
     keywords: ["[예현조]", "예비조사", "현장감리", "조치 확인", "준실감", "감착감보종보", "준시작보"],
     tables: [
       {
@@ -11322,7 +11481,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "독립된 감리법인이 제3자 관점의 현장감리 내용을 정리해 제출하는 최종결과보고서",
     lead:
       "감리 수행의 최종 산출물, 감리결과보고서",
-    features: ["종합의견", "영역별 점검결과", "개선권고"],
+    features: ["공식 산출물", "근거 제시", "조치 지시"],
     keywords: ["1)종합의견 2)감리영역별 점검결과 3)별첨", "감리계획서", "필수", "협의", "권고", "장기", "단기"],
     tables: [
       {
@@ -11368,7 +11527,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "운영 성과 측정·평가 결과에 따라 정비 대상을 정해 업무·비용 성과를 높이는 활동",
     lead:
       "운영 성과 측정과 정비, 정보시스템 운영 성과관리",
-    features: ["운영 적정성", "비용 효율성", "정비 대상 선정"],
+    features: ["정량 측정", "정비 연계", "법정 근거"],
     keywords: ["전자정부법 제23조", "운영의 적정성", "유지의 용이성", "비용의 효율성", "기능 활용도", "업무성과 달성도"],
     tables: [
       {
@@ -11416,7 +11575,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "SW 안전 책임자와 안전관리 대상 SW의 개발·운영단계 관리기준을 담고 있는 지침",
     lead:
       "SW 오작동 피해 방지, 소프트웨어 안전 확보 지침",
-    features: ["총괄 담당자", "위험원 분석", "운영 점검"],
+    features: ["단계별 관리", "위험원 중심", "법정 고시"],
     keywords: ["SW진흥법 제30조 제2항", "총괄 담당자 지정", "관리 대상 소프트웨어 지정", "개발단계에서의 안전확보", "운영단계에서의 안전확보"],
     tables: [
       {
@@ -11449,7 +11608,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "대규모 신규 사업의 예산 편성 전 기획재정부 주관으로 하는 사전 타당성 검증 제도다",
     lead:
       "대규모 사업의 사전 검증, 정보화사업 예비타당성",
-    features: ["국가재정법", "경제성 분석", "정책적 타당성"],
+    features: ["사전 검증", "대규모 대상", "다면 평가"],
     keywords: ["국가재정법", "사업비 500억 & 국가재정지원규모 300억 신규 사업"],
     tables: [
       {
@@ -11482,7 +11641,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "공공 SW사업이 민간 소프트웨어 시장에 미치는 영향을 검토해 사전 조정하는 제도",
     lead:
       "민간 시장 침해의 사전 조정, 소프트웨어사업 영향평가",
-    features: ["민간 시장 침해", "사전 검토", "재평가 요청권"],
+    features: ["사전 조정", "민간 보호", "이의 절차"],
     keywords: ["소프트웨어 진흥법 43조", "민간 시장 위축 방지", "대상사업 명확화", "SW사업자에게 재평가 요청권 부여"],
     tables: [
       {
@@ -11517,7 +11676,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "공공 정보화사업에서 상용SW만 따로 발주·평가·계약해 직접 구매하는 조달 제도",
     lead:
       "상용SW의 분리 발주, 직접구매 제도",
-    features: ["분리 발주", "인증 제품", "중소기업 판로"],
+    features: ["분리 발주", "판로 보호", "인증 연계"],
     keywords: ["별도 발주", "3억", "5천만원", "소프트웨어 진흥법 제54조"],
     tables: [
       {
@@ -11549,7 +11708,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "사용자가 제품을 쓰는 것을 관찰·분석해 효율성과 문제점을 찾아내는 공학적 테스트",
     lead:
       "실사용 관찰 기반 검증, 사용성 평가",
-    features: ["탐색적 테스트", "검증 테스트", "학습 용이성"],
+    features: ["실사용 관찰", "정량 지표", "단계별 유형"],
     keywords: ["UX리서치 방법론", "SUS설문", "편의성", "정확성", "만족도", "유연성", "탐구형테스트", "평가형 테스트"],
     tables: [
       {
