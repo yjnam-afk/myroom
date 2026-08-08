@@ -206,24 +206,10 @@ function ExplainInner() {
                   )}
                 </div>
               )}
+              {/* 34자 압축본은 위의 답안 서론 블록에 있으므로, 여기는 교재 원문만. */}
               <div>
                 <div className="text-xs font-bold text-slate-500">■ 정의</div>
-                {/* 답안 서론에 그대로 옮겨 적는 2줄(한 줄 17자 × 2줄) 압축본을 먼저 보여준다. */}
-                {textbook.defShort && (
-                  <p className="mt-1 rounded-lg bg-amber-50 px-3 py-2 text-sm font-bold leading-relaxed text-amber-900 ring-1 ring-amber-200">
-                    ✍️ {textbook.defShort}
-                    <span className="ml-1.5 align-middle text-[10px] font-medium text-amber-600">
-                      {textbook.defShort.replace(/\s/g, "").length}자
-                    </span>
-                  </p>
-                )}
-                <p
-                  className={
-                    textbook.defShort
-                      ? "mt-1.5 text-[12.5px] leading-relaxed text-slate-500"
-                      : "mt-1 text-sm font-medium leading-relaxed text-slate-800"
-                  }
-                >
+                <p className="mt-1 text-sm font-medium leading-relaxed text-slate-800">
                   {textbook.definition}
                 </p>
               </div>
