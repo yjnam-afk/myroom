@@ -8773,6 +8773,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "대규모 데이터셋을 사용해 사전에 학습을 하여 다른 서비스나 분야로 사용되기 위한 다목적 모델",
     defShort: "대규모 데이터셋으로 미리 학습해 다른 서비스나 분야에 쓰이도록 만든 다목적 모델",
+    lead:
+      "다목적 활용의 기반 모델, 파운데이션 모델",
+    features: ["대규모 사전학습", "범용 적응", "창발성"],
     keywords: ["자기지도학습", "adaptation", "기반모델", "창발성", "균일화", "FMOps"],
     tables: [
       {
@@ -8809,6 +8812,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "이미지, 텍스트, 음성, 비디오 등 다양한 모달리티(Modality)를 동시에 받아들이고 사고하는 AI 모델",
     defShort: "이미지와 텍스트, 음성, 비디오 등 여러 모달리티를 동시에 받아들여 사고하는 모델",
+    lead:
+      "여러 감각의 통합 지능, 멀티모달 AI",
+    features: ["다중 입력", "교차 이해", "표현 통합"],
     keywords: ["모달리티", "다양한 감각 기관", "지식/언어지능", "음성/청각", "이미지/시각", "추론/기계학습"],
     tables: [
       {
@@ -8830,6 +8836,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "범용 인공지능(AGI)의 개발과 활용 과정에서 발생할 수 있는 다양한 위험 요소를 사전에 식별하고, 이를 체계적으로 관리하기 위한 종합적이고 선제적인 지침 체계",
     defShort: "범용 인공지능의 개발과 활용에서 생길 위험 요소를 미리 식별해 관리하는 선제적 지침",
+    lead:
+      "AGI 위험의 선제 관리, 범용 인공지능 위험관리 프레임워크",
+    features: ["사전 식별", "체계적 평가", "선제 대응"],
     keywords: ["위험 식별", "분석", "평가 대응", "위험 프로필", "3D 위험 매트릭스"],
     tables: [
       {
@@ -8860,6 +8869,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "환경과 상호 작용하여 데이터 수집하고, 데이터를 사용하여 사전 결정된 목표를 달성하기 위해 필요한 작업을 스스로 결정해서 수행할 수 있는 자율 시스템",
     defShort: "환경과 상호작용해 데이터를 모으고 목표 달성에 필요한 작업을 스스로 하는 시스템",
+    lead:
+      "목표 지향의 자율 시스템, AI Agent",
+    features: ["자율성", "환경 상호작용", "목표 지향"],
     keywords: ["인식(Perception)", "추론(Reasoning)", "행동(Action)", "학습(Learning)"],
     tables: [
       {
@@ -8887,6 +8899,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "에이전트에 유용한 도구와 컨텍스트를 제공하는 MCP를 보완하여 AI 에이전트가 다양한 엔터프라이즈 플랫폼이나 애플리케이션에서 서로 통신하고 안전하게 정보는 교환할 수 있는 개방형 프로토콜",
     defShort: "AI 에이전트들이 여러 플랫폼에서 서로 통신하고 안전하게 정보를 교환하는 규약",
+    lead:
+      "에이전트 간 통신 규약, A2A 프로토콜",
+    features: ["상호운용성", "안전한 교환", "플랫폼 초월"],
     keywords: ["자율", "분산", "통신", "경쟁/협력", "전문화", "적응성", "Crew AI", "Expert Agent", "강화학습"],
     tables: [
       {
@@ -8913,6 +8928,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "대규모 언어 모델(LLM)을 활용하여 사용자의 자연어 지시를 기반으로 코드를 생성하고, 개발자는 이를 검토 및 조정하여 소프트웨어를 개발하는 코딩 기법",
     defShort: "LLM에 자연어로 지시해 코드를 생성하고 개발자는 검토·조정만 하는 코딩 기법",
+    lead:
+      "자연어 지시의 코드 생성, 바이브코딩",
+    features: ["자연어 개발", "역할 전환", "신속 구현"],
     keywords: ["LLM", "자연어 처리", "소스코드 생성"],
     tables: [
       {
@@ -8946,6 +8964,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "LLM 애플리케이션과 외부 데이터 소스 및 도구들 간의 원활한 통합을 가능하게 하는 개방형 프로토콜",
     defShort: "LLM 애플리케이션과 외부 데이터 소스, 도구를 원활히 통합하는 개방형 프로토콜",
+    lead:
+      "LLM과 외부 도구의 표준 연결, MCP",
+    features: ["개방형 표준", "통합 간소화", "맥락 제공"],
     keywords: ["맥락", "프로토콜", "통합", "JSON-RPC 요청"],
     tables: [
       {
@@ -8996,6 +9017,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "MCP(Model Context Protocol) 연동 구조에서 발생하는 Tool Poisoning, Rug Pulls, Cross-Server Attacks 등 보안위협과 인증·실행·서버·클라이언트 측면의 대응방안",
     defShort: "MCP 연동 구조에서 생기는 도구·서버 보안위협과 인증·실행 측면의 대응방안",
+    lead:
+      "MCP 연동의 보안 위협, MCP 보안취약점 및 대응방안",
+    features: ["도구 오염", "신뢰 탈취", "최소권한 대응"],
     keywords: ["Tool Poisoning", "Rug Pulls", "Cross-Server Attacks", "프롬프트 인젝션", "토큰 바인딩", "최소권한"],
     tables: [
       {
@@ -9046,6 +9070,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "통계적 방법 등을 이용하여 추정된 모형에서 새롭게 생성되어 실제 데이터와 통계 속성이 동일한 모의 데이터",
     defShort: "통계적 방법으로 추정한 모형에서 새로 만들어 낸 실제와 통계 속성이 같은 모의 데이터",
+    lead:
+      "통계 속성 복제의 모의 데이터, 합성 데이터",
+    features: ["프라이버시 보호", "속성 동일", "생성 다양"],
     keywords: ["통계적 속성", "모의 데이터", "완전합성", "부분합성", "복합합성", "전통적 통계 또는 베이지안", "기계학습 모형", "차등정보보호"],
     tables: [
       {
@@ -9105,6 +9132,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "자체 인프라, 데이터, 인력 및 비즈니스 네트워크를 사용하여 AI를 구축하는 국가의 역량과 데이터 주권과 규제 준수를 보장하기 위해 개발된 AI 기술",
     defShort: "자체 인프라와 데이터, 인력으로 구축해 데이터 주권과 규제 준수를 보장하는 AI",
+    lead:
+      "데이터 주권의 자립 AI, 소버린 AI",
+    features: ["자체 구축", "주권 보장", "문화 반영"],
     keywords: ["데이터주권", "자체 인프라", "독립적 운영", "대규모 AI 인프라"],
     tables: [
       {
@@ -9134,6 +9164,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "조직의 인공지능 경영시스템 수립, 구현, 유지, 개선을 위한 요구사항에 대한 AI 국제 경영시스템 표준",
     defShort: "조직의 인공지능 경영시스템 수립·구현·유지·개선 요구사항을 담은 국제 표준",
+    lead:
+      "AI 경영의 국제 표준, ISO 42001",
+    features: ["PDCA 순환", "위험 평가", "지속 개선"],
     keywords: ["PDCA", "조직상황", "리더십", "기획", "지원", "운용", "성과평가", "개선", "AI 리스크 평가", "AI 영향 평가"],
     tables: [
       {
@@ -9169,6 +9202,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "기업이 기존 사업 모델과 작업 프로세스를 버리고 AI 기술을 전사적으로 적용해 사업 모델, 작업 프로세스, 제품, 서비스 등을 변화를 추구하는 전환 과정",
     defShort: "기존 사업 모델을 버리고 AI를 전사 적용해 프로세스와 제품을 바꾸는 전환의 과정",
+    lead:
+      "AI 전사 적용의 전환, AX(AI Transformation)",
+    features: ["전사적 전환", "프로세스 혁신", "DX 계승"],
     keywords: ["DX(Digital Transformation)", "AI 서비스", "AI 인프라", "AI 거버넌스"],
     tables: [
       {
@@ -9201,6 +9237,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "다양한 AI 기술을 메모리, 계획, 환경 감지, 도구 활용, 안전 지침 준수와 같은 기능과 결합하여 목표를 달성하기 위한 작업을 스스로 수행하는 AI",
     defShort: "메모리와 계획, 도구 활용 등을 결합해 목표 달성 작업을 스스로 수행하는 인공지능",
+    lead:
+      "자율 수행의 진화형 AI, 에이전틱 AI",
+    features: ["자율 의사결정", "도구 활용", "목표 수행"],
     keywords: ["자율", "인식", "추론", "행동", "학습", "LLM", "RAG", "데이터 플라이 휠"],
     tables: [
       {
@@ -9233,6 +9272,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "인공지능 학습용 데이터 품질을 확보하는 데 필요한 조직, 절차, 품질기준, 품질관리 방법이나 활동 정의하여 점검하고 조치하는 일련의 활동",
     defShort: "AI 학습용 데이터의 품질 확보에 필요한 조직과 절차, 품질기준을 정의한 지침서",
+    lead:
+      "학습 데이터 품질의 기준, 데이터 품질관리 가이드라인",
+    features: ["단계별 관리", "품질 지표", "체계화"],
     keywords: ["100.준비·계획", "200.구축", "300.운영·활용 3단계 사업 단계", "단계", "프로세스", "산출물", "품질관리 활동"],
     tables: [
       {
@@ -9266,6 +9308,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "초거대AI 등장에 따라 기업 및 공공부문의 일하는 방식이 변화되고 있는 과정에서 초거대AI를 도입하기 위한 절차 및 내용에 대한 가이드라인",
     defShort: "공공부문이 초거대AI를 도입하기 위한 절차와 내용을 제시한 정부의 가이드라인",
+    lead:
+      "공공 초거대AI 도입의 지침, 공공부문 가이드라인 2.0",
+    features: ["보안 등급화", "절차 제시", "성과 관리"],
     keywords: ["데이터 보안 등급", "서비스 도입 방식", "서비스 레벨 목표", "유지보수 및 운영", "성과관리"],
     tables: [
       {
@@ -9309,6 +9354,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "데이터 및 모델의 편향, 인공지능 기술에 내재한 위험과 한계를 해결하고, 인공지능을 활용하고 확산하는 과정에서 부작용을 방지하기 위해 준수해야 하는 가치 기준",
     defShort: "데이터와 모델의 편향, AI 기술에 내재한 위험을 막고자 지켜야 하는 가치의 기준",
+    lead:
+      "믿을 수 있는 AI의 조건, AI 신뢰성 인증",
+    features: ["안전성", "설명가능성", "공평성"],
     keywords: ["ISO/IEC TR 24028", "안전성", "설명가능성", "투명성", "견고성", "공평성", "다양성"],
     tables: [
       {
@@ -9352,6 +9400,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "인공지능(AI) 및 머신러닝(ML) 모델의 훈련, 검증 및 테스트에 바로 사용할 수 있도록 준비, 구조화, 정리된 데이터",
     defShort: "AI와 머신러닝 모델의 훈련·검증·테스트에 바로 쓰게 정리·구조화한 데이터",
+    lead:
+      "바로 쓰는 학습 데이터, AI Ready Data",
+    features: ["구조화", "즉시 활용", "품질 보장"],
     keywords: ["원시데이터", "포맷", "가공 및 데이터 라벨링", "클래스 라벨(단일, 다중)"],
     tables: [
       {
@@ -9390,6 +9441,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "인공지능의 건전한 발전과 신뢰기반 조성에 필요한 기본적인 사항을 규정하는 것을 목적으로 제정된 법",
     defShort: "인공지능의 건전한 발전과 신뢰기반 조성에 필요한 기본적 사항을 규정한 국내 법률",
+    lead:
+      "AI 발전과 신뢰의 법적 기반, AI 기본법",
+    features: ["고영향 규율", "투명성 의무", "산업 육성"],
     keywords: ["국가인공지능위원회", "고영향 인공지능", "생성형 인공지능", "인공지능산업", "인공지능사업자"],
     tables: [
       {
@@ -9439,6 +9493,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "인공지능(AI) 서비스 도입 사업비는 서비스 가격표 또는 견적서에 제시된 서비스 총이용료와 투입공수 방식의 커스터마이징 작업비용, 구축·개발비용에 따라 대가를 산정하는 방식",
     defShort: "서비스 이용료와 커스터마이징 작업비, 구축·개발비를 합해 대가를 산정하는 방식",
+    lead:
+      "AI 도입 대가의 산정, AI 도입 사업비 산정 절차",
+    features: ["구성 3요소", "유형별 산정", "단계적 절차"],
     keywords: ["사전준비", "서비스 이용료 계산", "커스터마이징 작업비용 계산", "구축·개발 비용 계산", "AI 서비스 도입 사업비 산정"],
     tables: [
       {
@@ -9472,6 +9529,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "생성형AI 데이터 관점의 품질관리 역량 확보를 위한 품질관리 방법 및 절차의 체계적으로 제시하는 품질관리 가이드라인",
     defShort: "생성형AI 데이터 관점의 품질관리 역량 확보를 위한 방법과 절차를 담은 가이드라인",
+    lead:
+      "생성형AI 데이터 품질 기준, 생성형AI 데이터 품질관리 가이드",
+    features: ["생성형 특화", "전 주기 관리", "절차 체계화"],
     keywords: ["구축계획 수립", "데이터 획득/수집", "데이터 정제", "데이터 가공", "데이터 학습", "데이터 운영·활용"],
     tables: [
       {
@@ -9505,6 +9565,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "여러 개의 자율적 소프트웨어 에이전트가 상호작용하며 협력 또는 경쟁을 통해 복잡한 문제를 분산적으로 해결하는 분산 인공지능 시스템",
     defShort: "자율 에이전트들이 협력하거나 경쟁하며 복잡한 문제를 분산 해결하는 분산 인공지능",
+    lead:
+      "에이전트 집단의 분산 지능, MAS",
+    features: ["자율 분산", "협력·경쟁", "전문화"],
     keywords: ["자율", "분산", "통신", "경쟁/협력", "전문화", "적응성", "Crew AI", "Expert Agent", "강화학습"],
     tables: [
       {
@@ -9538,6 +9601,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "ST",
     definition: "확률변수가 특정한 값을 가질 확률을 나타내는 분포",
     defShort: "확률변수가 특정한 값을 가질 확률이 어떻게 흩어져 있는지를 나타내 주는 분포이다",
+    lead:
+      "확률의 흩어짐 표현, 확률분포",
+    features: ["이산·연속", "기대값 산출", "모델 기초"],
     keywords: ["이산확률분포", "연속확률분포", "기대치", "분산"],
     tables: [
       {
@@ -9577,6 +9643,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "확률분포: 여러 번의 독립적 시행에서 각각의 값이 특정 횟수가 나타날 확률을 정의하는 분포 / 확률밀도함수: 연속확률변수의 확률분포를 수학적으로 표현하는 함수",
     defShort: "각 값이 나타날 확률을 정의한 확률분포와 연속확률변수 분포를 표현하는 밀도 함수",
+    lead:
+      "연속 확률의 수학적 표현, 확률분포와 확률 밀도 함수",
+    features: ["밀도 표현", "적분 확률", "분포 다양"],
     keywords: ["이산확률분포", "연속확률분포", "정규분포", "지수분포", "확률질량함수"],
     tables: [
       {
@@ -9612,6 +9681,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "평균을 중심으로 종모양의 좌우 대칭인 분포로 평균과 분산(또는 표준편차)에 따라 분포의 위치와 모양이 결정되는 확률분포",
     defShort: "평균 중심의 좌우대칭 종모양으로 평균과 분산이 위치와 모양을 결정하는 확률분포",
+    lead:
+      "통계의 중심 분포, 정규분포",
+    features: ["좌우대칭", "종모양", "두 모수 결정"],
     keywords: ["확률변수", "종모양", "표준편차", "평균", "분산", "표준정규 분포", "Z값"],
     tables: [
       {
@@ -9645,6 +9717,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "모집단으로부터 추출된 표본의 크기 n이 충분히 크다면(30 이상) 표본 평균들이 이루는 분포는 모집단의 분포와 상관없이 정규분포를 따른다는 원리",
     defShort: "표본 크기가 충분히 크면 모집단과 무관하게 표본평균이 정규분포를 따른다는 원리",
+    lead:
+      "표본평균의 정규 수렴, 중심극한정리",
+    features: ["분포 무관", "크기 조건", "추론 근거"],
     keywords: ["평균", "정규분포"],
     tables: [
       {
@@ -9675,6 +9750,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "ST",
     definition: "자료의 형태와 측정 척도에 따라 데이터를 분류하는 체계",
     defShort: "자료의 형태와 측정 척도에 따라 명목·순서·등간·비율로 데이터를 나누는 체계",
+    lead:
+      "측정 척도의 분류 체계, 데이터 유형",
+    features: ["척도 4종", "분석법 결정", "범주·수치"],
     keywords: ["범주", "수치", "명목", "순서", "등간", "비율"],
     tables: [
       {
@@ -9704,6 +9782,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "확률 추출: 모집단의 모든 요소가 동일한 확률로 표본으로 선택될 기회를 가지는 방법 / 비확률 추출: 모집단의 요소들이 동일한 확률로 선택되지 않는 방법",
     defShort: "모집단에서 표본을 뽑는 방법으로 확률 추출과 비확률 추출 두 가지로 나뉘게 된다고 함",
+    lead:
+      "모집단 대표의 선별, 표본 추출",
+    features: ["확률·비확률", "대표성", "비용 효율"],
     keywords: ["확률 추출", "비확률 추출"],
     tables: [
       {
@@ -9735,6 +9816,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "왜도: 분포의 비대칭성 정도, 분포가 기울어진 정도와 방향 / 첨도: 정규 분포와 비교해 얼마나 더 뾰족한 지 측정한 값",
     defShort: "분포가 기울어진 정도를 재는 왜도와 정규분포보다 뾰족한 정도를 재는 첨도 측정값",
+    lead:
+      "분포 모양의 두 측정값, 왜도와 첨도",
+    features: ["비대칭 측정", "뾰족함 측정", "정규성 검정"],
     keywords: ["분포의 비대칭성 정도", "얼마나 더 뾰족한 지 측정", "정규성 검정"],
     tables: [
       {
@@ -9770,6 +9854,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "ST",
     definition: "보통 관측된 데이터의 범위에서 많이 벗어난 아주 작은 값이나 큰 값",
     defShort: "보통 관측된 데이터의 범위에서 많이 벗어난 아주 작은 값이나 아주 큰 값을 가리킨다",
+    lead:
+      "범위를 벗어난 값, 이상치",
+    features: ["결과 왜곡", "탐지 기법 다양", "처리 판단"],
     keywords: ["결과 왜곡", "적정성 위협", "Percentile", "variance", "Likelihood", "Nearest-Neighbor", "Density", "Clustering"],
     tables: [
       {
@@ -9812,6 +9899,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "ST",
     definition: "관측되어야 할 값을 얻지 못한 데이터(누락)",
     defShort: "마땅히 관측되어야 할 값을 얻지 못하여 비어 있는 상태로 누락되어 버린 데이터를 말함",
+    lead:
+      "관측되지 못한 빈 값, 결측치",
+    features: ["편향 유발", "삭제·대체", "원인 진단"],
     keywords: ["편향", "삭제", "대체"],
     tables: [
       {
@@ -9845,6 +9935,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "시간의 흐름에 따라 관측되는 자료의 시계열 특성을 AR, MA, ARMA, ARIMA 기법을 이용하여 분석, 미래를 예측하는 분석 기법",
     defShort: "시간 흐름에 따른 자료를 AR·MA·ARIMA로 분석해 미래를 예측하는 기법",
+    lead:
+      "시간 흐름의 예측 분석, 시계열분석",
+    features: ["구성 요소 4", "모형 다양", "미래 예측"],
     keywords: ["추세", "순환", "계절", "불규칙", "AR", "MA", "ARMA", "ARIMA"],
     tables: [
       {
@@ -9884,6 +9977,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "ST",
     definition: "두 확률 변수의 사전 확률과 사후 확률 사이의 관계를 나타내는 정리",
     defShort: "두 확률 변수의 사전 확률과 사후 확률 사이의 관계를 나타내어 확률을 갱신하는 정리",
+    lead:
+      "확률 갱신의 원리, 베이즈 정리",
+    features: ["사전·사후", "우도 활용", "조건부 기반"],
     keywords: ["사전확률", "우도(Likelihood)", "사후확률", "조건부확률", "확률의 곱셈정리", "전 확률의 정리"],
     tables: [
       {
@@ -9914,6 +10010,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "ST",
     definition: "주어진 표본 자체의 속성을 정량적으로 기술하고 요약하는데 초점을 두는 데이터 분석 통계",
     defShort: "주어진 표본 자체의 속성을 정량적으로 기술하고 요약하는 데 초점을 둔 데이터 통계",
+    lead:
+      "데이터 요약의 통계, 기술 통계",
+    features: ["중심경향", "변산도", "시각화"],
     keywords: ["데이터 요약(중심경향값, 변산도, 분포)", "데이터 시각화(히스토그램, 상자수염그림, 산점도)"],
     tables: [
       {
@@ -9941,6 +10040,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "ST",
     definition: "표본 데이터를 기반으로 모집단의 특성을 추정하거나 가설을 검정하는 통계 기법",
     defShort: "표본 데이터를 기반으로 모집단의 특성을 추정하거나 가설을 검정하는 통계적 기법",
+    lead:
+      "표본에서 모집단으로, 추론 통계",
+    features: ["모수 추정", "가설 검정", "불확실성 계량"],
     keywords: ["모집단 특성 추정", "가설 검정"],
     tables: [
       {
@@ -9979,6 +10081,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "ST",
     definition: "모집단으로부터 표본을 추출하여 모집단의 특성을 나타내는 모수에 대한 정보를 얻기 위한 일련의 과정",
     defShort: "모집단에서 표본을 추출하여 모수에 대한 정보를 얻기 위한 점 추정과 구간 추정 과정",
+    lead:
+      "모수 근사의 이론, 추정 이론",
+    features: ["점 추정", "구간 추정", "신뢰수준"],
     keywords: ["추정", "추정량", "추정값", "점 추정", "구간 추정"],
     tables: [
       {
@@ -10023,6 +10128,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "ST",
     definition: "조사 대상에서 수집한 자료의 척도를 기준으로 변수들 간의 어떤 관계가 있는지 판단하기 위한 분석",
     defShort: "수집한 자료의 척도를 기준으로 변수들 사이에 어떤 관계가 있는지 판단하려는 분석",
+    lead:
+      "변수 간 관계의 판단, 연관성 분석",
+    features: ["척도 의존", "카이제곱", "관계 규명"],
     keywords: ["관계", "척도", "카이제곱 검정", "관측빈도", "기대빈도", "자유도", "기각역", "상관계수", "상관분석", "공분산"],
     tables: [
       {
@@ -10061,6 +10169,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "ST",
     definition: "특정 변수가 다른 변수에 어떤 영향을 미치는지 수학적 모형으로 설명, 예측 기법",
     defShort: "특정 변수가 다른 변수에 어떤 영향을 미치는지 수학적 모형으로 설명·예측하는 기법",
+    lead:
+      "영향 관계의 모형화, 회귀분석",
+    features: ["관계 모델링", "예측 활용", "가정 4종"],
     keywords: ["선형성", "독립성", "등분산성", "정규성", "변수간 관계 모델링 및 예측"],
     tables: [
       {
@@ -10114,6 +10225,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "AIC: 모델의 적합도(log-likelihood)와 변수 개수(모델 복잡도)를 동시에 고려하는 지표 / BIC: 표본 크기 n을 고려하여 복잡한 모델에 더 큰 패널티를 부여하는 지표",
     defShort: "모델의 적합도와 복잡도를 함께 고려하여 최적의 모델을 선택하는 두 가지 평가 지표",
+    lead:
+      "모델 선택의 두 잣대, AIC와 BIC",
+    features: ["적합도·복잡도", "패널티 차등", "비교 선택"],
     keywords: ["회귀", "모델 적합도·복잡도 균형 평가 기준"],
     tables: [
       {
@@ -10153,6 +10267,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "ST",
     definition: "표본에서 얻은 사실을 근거로 하여 모집단에 대한 가설이 맞는지 통계적으로 검정하는 분석방법",
     defShort: "표본에서 얻은 사실을 근거로 모집단 가설이 맞는지 통계적으로 검정하는 분석방법",
+    lead:
+      "가설의 통계적 판정, 통계적 가설검정",
+    features: ["귀무·대립", "유의확률", "기각 판단"],
     keywords: ["귀무가설", "대립가설", "검정통계량", "유의확률", "기각역", "귀무가설 기각", "귀무가설 채택"],
     tables: [
       {
@@ -10206,6 +10323,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "서로 독립적인 집단이 셋 이상인 경우, 집단간 평균차이를 확인하기 위해 F검정을 이용하는 검증해 통계적으로 유의미한지 판단하는 통계 기법",
     defShort: "독립적인 집단이 셋 이상일 때 집단 간 평균 차이를 F검정으로 확인하는 분산분석 기법",
+    lead:
+      "세 집단 이상의 평균 비교, ANOVA",
+    features: ["F검정", "분산 비교", "다집단 대응"],
     keywords: ["분산분석", "후속검정", "F검정", "F분포", "F검정량", "단일변량 분산분석", "다변량 분산분석"],
     tables: [
       {
@@ -11978,6 +12098,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "DS",
     definition: "데이터 사이의 대응 구조에 따라 선형, 비선형 자료구조로 분류",
     defShort: "데이터 사이의 대응 구조에 따라 선형과 비선형 자료구조로 나누어 놓은 분류 체계다",
+    lead:
+      "데이터 대응 구조의 분류, 선형과 비선형 자료구조",
+    features: ["1:1 대 1:N", "용도 구분", "기본 분류"],
     keywords: ["선형자료구조(Array, Linked List, 스택(LIFO), 큐(FIFO))", "비선형자료구조(트리, 그래프)"],
     tables: [
       {
@@ -12006,6 +12129,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "각 노드(Node)가 데이터(Data)와 포인터(Pointer)를 가지고 한 줄로 연결되어 있는 데이터를 저장하는 자료 구조",
     defShort: "각 노드가 데이터와 포인터를 가지고 한 줄로 연결되어 데이터를 저장하는 자료 구조",
+    lead:
+      "포인터 연결의 동적 구조, 링크드 리스트",
+    features: ["동적 크기", "삽입·삭제 용이", "순차 접근"],
     keywords: ["노드 = 데이터 + 포인터", "Singly / Doubly / Single Circular / Double Circular Linked List"],
     tables: [
       {
@@ -12043,6 +12169,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "나중에 삽입된 자료가 가장 먼저 삭제되는 후입선출(LIFO)방식으로 리스트의 한쪽 끝으로만 자료의 삽입, 삭제 작업이 이루어지는 자료구조",
     defShort: "나중에 삽입된 자료가 가장 먼저 삭제되는 후입선출 방식으로 한쪽 끝만 쓰는 자료구조",
+    lead:
+      "후입선출의 자료구조, Stack",
+    features: ["LIFO", "단일 출입구", "호출 관리 활용"],
     keywords: ["LIFO", "Top", "bottom", "삽입(Push)", "제거(pop)"],
     tables: [
       {
@@ -12075,6 +12204,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "선형리스트의 한쪽에서는 삽입 작업이 이루어지고 다른 한쪽에서는 삭제 작업이 이루어지도록, 먼저 들어온 데이터가 먼저 나가는 자료구조",
     defShort: "한쪽에서는 삽입, 다른 한쪽에서는 삭제가 이뤄지는 선입선출 방식의 선형 자료구조",
+    lead:
+      "선입선출의 자료구조, Queue",
+    features: ["FIFO", "양끝 분리", "대기열 활용"],
     keywords: ["FIFO", "선형큐", "순환큐(원형큐)", "링크드리스트큐", "덱 [선순링덱]"],
     tables: [
       {
@@ -12107,6 +12239,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "이진탐색(binary search)과 연결리스트(linked list)를 결합한 자료구조로, 이진탐색의 효율적인 탐색 능력을 유지하면서 빈번한 입력과 삭제가 가능하도록 고안된 자료 구조",
     defShort: "이진탐색과 연결리스트를 결합해 탐색 능력과 잦은 입력·삭제를 함께 얻은 자료 구조",
+    lead:
+      "탐색과 갱신의 균형, 이진 탐색 트리",
+    features: ["정렬 유지", "탐색 효율", "동적 갱신"],
     keywords: ["이진 탐색", "재귀"],
     tables: [
       {
@@ -12138,6 +12273,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "각 노드의 왼쪽 서브 트리의 높이와 오른쪽 서브 트리의 높이 차이(Balance factor)가 절대값 1 이하인 이진 탐색 트리",
     defShort: "각 노드의 좌우 서브 트리 높이 차이가 절대값 1 이하가 되도록 유지한 이진 탐색 트리",
+    lead:
+      "자가 균형의 탐색 트리, AVL 트리",
+    features: ["균형 인수", "회전 복원", "성능 보장"],
     keywords: ["Balance factor", "균형 이진 트리", "LL", "RR", "LR", "RL"],
     tables: [
       {
@@ -12169,6 +12307,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "여러 개의 노드들 가운데서 가장 큰 키 값을 가지는 노드나 가장 작은 키 값을 가지는 노드를 빠른 시간 내에 찾아 내도록 만들어진 자료 구조",
     defShort: "여러 개의 노드 가운데 가장 크거나 작은 키 값을 빠르게 찾도록 만들어진 완전 이진 트리",
+    lead:
+      "최대·최소의 빠른 접근, 힙(Heap)",
+    features: ["완전 이진 트리", "부분 정렬", "우선순위 큐"],
     keywords: ["완전 이진 트리", "최대 힙(Max-Heap)", "최소 힙(Min-Heap)"],
     tables: [
       {
@@ -12197,6 +12338,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "DS",
     definition: "하나의 노드가 가질 수 있는 자식 노드의 최대 숫자가 2보다 큰 이진 트리의 확장형 트리 구조",
     defShort: "하나의 노드가 가질 수 있는 자식 노드의 최대 수가 2보다 큰 이진 트리의 확장형 구조",
+    lead:
+      "다분기 균형 트리, B-Tree",
+    features: ["다중 자식", "균형 유지", "디스크 효율"],
     keywords: ["m/2", "분할", "균형 유지"],
     tables: [
       {
@@ -12229,6 +12373,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "DS",
     definition: "개별 요소들이 특정한 방향을 향하고 있으며, 서로 순환하지 않는 구조로 구성된 그래프",
     defShort: "개별 요소들이 특정한 방향을 향하면서 서로 순환하지 않는 구조로 구성한 그래프이다",
+    lead:
+      "방향은 있고 순환은 없는 구조, DAG",
+    features: ["방향성", "비순환", "위상 정렬 가능"],
     keywords: ["위상 정렬", "유향 비순환", "진입차수"],
     tables: [
       {
@@ -12261,6 +12408,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "알고리즘 수행 시 필요로 하는 시간 및 공간에 대한 지표를 기준으로 알고리즘 성능을 판단하는 프로세스",
     defShort: "알고리즘 수행 시 필요한 시간과 공간에 대한 지표로 성능을 판단하는 프로세스이다",
+    lead:
+      "시간과 공간의 정량 평가, 알고리즘 성능평가",
+    features: ["시간 복잡도", "공간 복잡도", "점근 표기"],
     keywords: ["시간복잡도(수행시간)", "공간복잡도(사용 메모리공간)", "점근적 성능표기법"],
     tables: [
       {
@@ -12300,6 +12450,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "데이터 수 N에 대해서 복잡도가 어떤 함수로 나타나는가를 간단히 표현하기 위한 알고리즘의 시간 복잡도를 표현하는 상한 점근 표기법",
     defShort: "데이터 수 N에 대한 알고리즘의 시간 복잡도를 표현하기 위한 상한 점근 표기법을 말함",
+    lead:
+      "최악 기준의 상한 표기, 빅오 표기법",
+    features: ["상한 표현", "입력 크기 기준", "비교 척도"],
     keywords: ["시간 복잡도", "매개변수 N"],
     tables: [
       {
@@ -12331,6 +12484,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "분할과 정복(divide and conquer)에 기반한 정렬 알고리즘으로, 기준이 되는 Pivot을 정해서 기준 값을 중심으로 작은 값을 갖는 자료들과 큰 값을 갖는 자료로 분할하여 정렬하는 방법",
     defShort: "기준이 되는 Pivot을 정해 작은 값과 큰 값으로 분할해 정렬하는 분할 정복 정렬",
+    lead:
+      "피벗 분할의 고속 정렬, 퀵 정렬",
+    features: ["분할 정복", "제자리 정렬", "평균 고속"],
     keywords: ["Pivot", "평균실행시간: O(n logn)", "최악의 경우: O(n²)", "분할 정복(divide and conquer)"],
     tables: [
       {
@@ -12376,6 +12532,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "자료 배열의 모든 요소를 앞에서부터 차례대로 이미 정렬된 배열 부분과 비교하여 자신의 위치를 찾아 삽입하는 정렬",
     defShort: "배열의 모든 요소를 앞에서부터 이미 정렬된 부분과 비교해 자기 위치를 찾아 넣는 정렬",
+    lead:
+      "정렬 부분에 끼워 넣기, 삽입 정렬",
+    features: ["단순 구현", "부분 정렬 유리", "안정 정렬"],
     keywords: ["이미 정렬", "자신 위치 찾아 삽입"],
     tables: [
       {
@@ -12417,6 +12576,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "데이터 집합을 순회하면서 집합 내의 이웃 요소들끼리의 비교 후 교환을 통해 정렬",
     defShort: "데이터 집합을 순회하면서 집합 내 이웃 요소들끼리 비교한 뒤 교환해 정렬하는 방법",
+    lead:
+      "이웃 교환의 반복 정렬, 버블 정렬",
+    features: ["인접 비교", "구현 용이", "비효율적"],
     keywords: ["인접 원소 비교", "거품", "완전 정렬", "O(n²)", "위치 교환 방식"],
     tables: [
       {
@@ -12457,6 +12619,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "하나의 리스트를 같은 크기의 두 개로 분할을 반복한 다음, 정렬된 두 리스트를 병합을 반복하면서 정렬된 전체 리스트를 만드는 분할 정복에 기반하는 정렬 알고리즘",
     defShort: "리스트를 같은 크기의 둘로 나누기를 반복한 다음 정렬하며 병합하는 분할 정복 정렬",
+    lead:
+      "나누고 합치는 안정 정렬, 병합 정렬",
+    features: ["분할 정복", "안정 정렬", "추가 공간"],
     keywords: ["분할과 정복", "O(n log n)"],
     tables: [
       {
@@ -12485,6 +12650,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "AL",
     definition: "키(key)라는 특별한 인덱스로 자료에 접근하는 배열로 구성되는 자료구조",
     defShort: "키라는 특별한 인덱스로 자료에 곧바로 접근하는 배열로 구성되는 자료구조를 말함",
+    lead:
+      "키 기반 즉시 접근, 해시 테이블",
+    features: ["상수 시간 접근", "충돌 존재", "공간 교환"],
     keywords: ["해시 키", "고정길이", "해시함수", "해시테이블", "버킷", "충돌", "오버 플로우"],
     tables: [
       {
@@ -12512,6 +12680,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "데이터의 신속한 탐색을 위해 주어진 키 값으로부터 해시함수를 적용하여 주소 값을 계산하고, 계산된 주소 값으로 레코드가 저장되어 있는 위치에 직접 접근하는 방법",
     defShort: "주어진 키 값에 해시함수를 적용해 주소를 구하고 그 위치에 직접 접근하는 탐색 방법",
+    lead:
+      "주소 계산의 직접 탐색, 해싱과 충돌해결방법",
+    features: ["직접 접근", "충돌 불가피", "해결 기법 다양"],
     keywords: ["나폴리는 중세기다", "선이중무 체코"],
     tables: [
       {
@@ -12546,6 +12717,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "최적성 원리 문제에 대한 점화관계 도출, 분할, Memoization 기법 활용, 부분 반복 문제의 최적화 해결 위한 Bottom-Up Approach 알고리즘",
     defShort: "부분 문제의 해를 저장하고 재사용해 최적해를 구하는 상향식 접근 최적화 알고리즘",
+    lead:
+      "부분 해의 저장과 재사용, 동적 계획법",
+    features: ["중복 제거", "점화식 기반", "상향식"],
     keywords: ["점화/재귀식", "Top-down(메모이제이션 - 재귀)", "Bottom-Up(타뷸레이션 - 반복문)"],
     tables: [
       {
@@ -12573,6 +12747,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "AL",
     definition: "선택 시 마다 그 순간 최적의 해를 선택하여 최종적인 해를 도출하는 알고리즘",
     defShort: "선택할 때마다 그 순간에 최적의 해를 선택하여 최종적인 해를 도출해 내는 알고리즘",
+    lead:
+      "순간 최적의 선택 반복, 그리디 알고리즘",
+    features: ["국소 최적", "신속성", "최적해 미보장"],
     keywords: ["[해적검] 해 선택", "적합성 검증", "해 검증"],
     tables: [
       {
@@ -12614,6 +12791,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "가변 길이 부호화로서 자주 발생하는 데이터에는 짧은 부호를, 자주 발생하지 않는 데이터에는 긴 부호를 할당하여 전체 데이터 길이 압축하는 기법",
     defShort: "자주 발생하는 데이터에 짧은 부호를 할당하여 전체 길이를 줄이는 가변 길이 부호화",
+    lead:
+      "빈도 기반 가변 부호화, 허프만 코딩",
+    features: ["무손실", "빈도 반영", "엔트로피 근접"],
     keywords: ["무손실 압축", "빈도", "통계적 기법", "엔트로피"],
     tables: [
       {
@@ -12652,6 +12832,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "데이터에서 같은 값이 연속해서 나타나는 것을 그 개수와 반복되는 값만으로 표현하는 데이터 압축 알고리즘 (Run은 반복되는 문자, Length는 반복되는 횟수를 의미)",
     defShort: "같은 값이 연속해서 나타나는 것을 그 개수와 반복 값만으로 표현하는 압축 알고리즘",
+    lead:
+      "반복 압축의 단순 부호화, 런랭스 코딩",
+    features: ["무손실", "연속값 특화", "구현 단순"],
     keywords: ["무손실 압축", "RUN", "LENGTH"],
     tables: [
       {
@@ -12673,6 +12856,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "음수가 아닌 가중치가 있는 그래프에서 하나의 정점에서 시작하여 모든 다른 정점까지 최단 경로를 구하는 알고리즘",
     defShort: "음수가 아닌 가중치 그래프에서 한 정점부터 모든 정점까지 최단 경로를 구하는 기법",
+    lead:
+      "단일 출발 최단 경로, 다익스트라 알고리즘",
+    features: ["음수 불가", "점진 확정", "그리디 기반"],
     keywords: ["음수가 아닌 가중치", "무한대(∞) 설정 → 시작 정점 최단경로 추가 → 인접 정점 탐색 → 추가탐색"],
     tables: [
       {
@@ -12698,6 +12884,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "정보 검색과 텍스트 마이닝에서 이용하는 가중치로, 여러 문서로 이루어진 문서군이 있을 때 어떤 단어가 특정 문서 내에서 얼마나 중요한 것인지를 나타내는 통계적 수치",
     defShort: "문서군에서 어떤 단어가 특정 문서 내에 얼마나 중요한지를 나타내는 통계적 가중치",
+    lead:
+      "단어 중요도의 계량, TF-IDF",
+    features: ["빈도 가중", "희소성 반영", "검색 활용"],
     keywords: ["TF", "IDF", "TDM", "NORM", "내적", "코사인 거리"],
     tables: [
       {
@@ -12737,6 +12926,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "각 간선에 가중치가 있는 무방향그래프에서 모든 정점들을 연결하는 가중치의 합이 최소가 되는 신장 트리",
     defShort: "가중치가 있는 무방향그래프에서 모든 정점들을 잇는 가중치 합이 최소인 신장 트리",
+    lead:
+      "최소 비용의 전체 연결, 최소 신장 트리",
+    features: ["전체 연결", "가중치 최소", "비순환"],
     keywords: ["신장트리", "간선 가중치 최소", "비순환", "프림(Prim)", "크루스칼(Kruscal)"],
     tables: [
       {
@@ -12780,6 +12972,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "AL",
     definition: "계층적 구조를 갖는 트리(Tree)의 모든 노드(node)를 한 번씩 체계적으로 방문하는 과정",
     defShort: "계층적 구조를 갖는 트리의 모든 노드를 한 번씩 체계적으로 방문하는 과정을 가리킴",
+    lead:
+      "트리 방문의 체계, 트리 순회",
+    features: ["전·중·후위", "전체 방문", "재귀 기반"],
     keywords: ["전위 순회(Pre-Order Traversal)", "중위 순회(In-Order Traversal)", "후위 순회(Post-Order Traversal)"],
     tables: [
       {
@@ -12799,6 +12994,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "AL",
     definition: "주어진 그래프 G=(V, E)에서 정점의 집합 V에 속한 모든 정점들을 한번씩 방문하는 것",
     defShort: "주어진 그래프에서 정점의 집합에 속한 모든 정점들을 한 번씩 방문하는 탐색을 말함",
+    lead:
+      "그래프 방문의 두 전략, 그래프 순회",
+    features: ["DFS·BFS", "전체 탐색", "방문 표시"],
     keywords: ["깊이 우선 방식(DFS)", "너비 우선 방식(BFS)"],
     tables: [
       {
@@ -12830,6 +13028,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "아날로그 형태 정보(음성, 영상 등)를 디지털 형태로 효율적 변환 위한 수학적 매핑 및 변환 기법",
     defShort: "음성과 영상 등 아날로그 정보를 디지털로 효율 변환하기 위한 수학적 매핑·변환 기법",
+    lead:
+      "아날로그의 디지털 변환, 전송부호화",
+    features: ["압축", "오류 제어", "신호 변환"],
     keywords: ["소스코딩(압축)", "채널코딩(오류제어)", "라인코딩(bipolar, unipolar, polar)"],
     tables: [
       {
@@ -12870,6 +13071,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "아날로그 신호를 표본화 정리로 정해지는 표본화 주파수로 표본화하고, 각 표본(샘플)의 값을 양자화 한 후, 2진 부호화 하는 디지털 변조방식",
     defShort: "아날로그 신호를 표본화하고 양자화한 다음 2진 부호화하는 디지털 변조 방식이다",
+    lead:
+      "표본화·양자화·부호화, PCM",
+    features: ["3단계 변환", "나이퀴스트 기반", "디지털화"],
     keywords: ["표본화(Sampling)", "양자화(Quantization)", "부호화(Encoding)", "디지털화", "아날로그신호를 디지털신호로 변환(A/D변환)", "나이퀴스트"],
     tables: [
       {
@@ -12907,6 +13111,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "정보 신호에 따라 반송파의 진폭과 위상을 동시에 변화시켜, PSK의 변조 원리에 진폭 변조까지 포함하는 변조 방식",
     defShort: "정보 신호에 따라 반송파의 진폭과 위상을 동시에 변화시키는 디지털 변조 방식이다",
+    lead:
+      "진폭·위상 동시 변조, QAM",
+    features: ["이중 변조", "전송 효율", "성상도 표현"],
     keywords: ["디지털 변조 방식", "진폭 변조", "위상 변조"],
     tables: [
       {
@@ -12939,6 +13146,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "각각의 호스트가 링크를 사용하기 전에 링크의 사용 상태를 감지하여 전송 충돌을 최소화하기 위한 프로토콜",
     defShort: "각각의 호스트가 링크를 쓰기 전에 사용 상태를 감지해 전송 충돌을 줄이는 프로토콜",
+    lead:
+      "충돌 감지의 매체 접근, CSMA/CD",
+    features: ["사전 감지", "충돌 검출", "백오프 재시도"],
     keywords: ["1-Persistent", "Non-Persistent", "P-Persistent", "충돌", "Back-off"],
     tables: [
       {
@@ -12969,6 +13179,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "여러 경우 중 하나를 결정하지 않고 Beam Size(K개)만큼 가장 가능도가 높은 후보군으로 선택하여 Greedy 알고리즘의 최적해 미보장 단점을 보완한 최적해 알고리즘",
     defShort: "가능도가 높은 후보 K개를 유지해 그리디의 최적해 미보장 단점을 보완한 알고리즘",
+    lead:
+      "후보 유지의 절충 탐색, 빔 탐색",
+    features: ["K개 후보", "그리디 보완", "탐색 절충"],
     keywords: ["최적해 미보장 단점 보완", "최적해", "Beam size"],
     tables: [
       {
@@ -13008,6 +13221,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "무선 LAN 환경에서 충돌 감지가 어려운 특성을 고려하여, 전송 전에 회선을 감시하고 충돌을 사전에 회피하는 매체 접근 제어 프로토콜",
     defShort: "무선 랜 환경에서 전송하기 전 회선을 감시해 충돌을 미리 피하는 매체 접근 제어 규약",
+    lead:
+      "충돌 회피의 무선 접근, CSMA/CA",
+    features: ["사전 회피", "무선 특화", "확인 응답"],
     keywords: ["충돌 회피", "IFS", "RTS/CTS", "NAV", "Back-off", "ACK"],
     tables: [
       {
@@ -13040,6 +13256,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "여러 신호를 동시에 송수신할 수 있도록, 하나의 전송로를 분할시켜, 다수의 채널로 분할하여 전송하는 기술",
     defShort: "여러 신호를 동시에 송수신하도록 하나의 전송로를 다수의 채널로 나누는 기술이다",
+    lead:
+      "하나의 전송로, 여러 채널, 다중화",
+    features: ["자원 공유", "방식 다양", "효율 극대화"],
     keywords: ["FDM", "TDM", "SDM", "CDM", "WDM"],
     tables: [
       {
@@ -13073,6 +13292,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "네트워크 계층화 아키텍처에서 한 계층이 서비스를 수행하기 위해 다른 계층을 필요로 할 때 계층간 통신 서비스 기본형식",
     defShort: "한 계층이 다른 계층을 필요로 할 때 쓰이는 계층 간 통신 서비스의 기본적인 형식이다",
+    lead:
+      "계층 간 통신의 기본형, 서비스 프리미티브",
+    features: ["4개 동작", "계층 연계", "표준 형식"],
     keywords: ["요구(Request)", "지시(Indication)", "응답(Response)", "확인(Confirm)"],
     tables: [
       {
@@ -13103,6 +13325,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "NW",
     definition: "국제표준기구(ISO)에서 표준화된 네트워크 구조를 제시한 기본 모델",
     defShort: "국제표준기구에서 표준화한 네트워크 구조를 제시한 일곱 개 계층의 기본 참조 모델",
+    lead:
+      "네트워크 구조의 참조 모델, OSI 7 Layer",
+    features: ["7계층 분리", "표준 참조", "계층별 역할"],
     keywords: ["[아파서티내다]", "Application", "Presentation", "Session", "Transport", "Network", "Data Link", "Physical"],
     tables: [
       {
@@ -13136,6 +13361,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "UDP+TLS 웹 페이지 로딩 시간 개선과 동시에 혼잡제어 및 손실 복구 가능한 구글 QUIC 기반의 응용계층 프로토콜",
     defShort: "구글 QUIC 기반으로 지연을 줄이고 혼잡제어와 손실 복구를 하는 응용계층 규약",
+    lead:
+      "QUIC 기반의 차세대 웹 규약, HTTP/3",
+    features: ["UDP 기반", "지연 감소", "HOL 해소"],
     keywords: ["QUIC(QUICK UDP Internet Connections)", "TLS 1.3", "UDP", "HTTP 1.1 HOL 블로킹 문제 해결", "0-RTT", "1-RTT Handshake"],
     tables: [
       {
@@ -13185,6 +13413,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "NW",
     definition: "TCP 세션 수립 및 종료를 위해 수행하는 절차",
     defShort: "TCP 세션의 수립과 종료를 위해 수행하는 3-way, 4-way 핸드셰이킹",
+    lead:
+      "세션 수립과 종료의 절차, TCP 핸드셰이킹",
+    features: ["3-way 수립", "4-way 종료", "신뢰 보장"],
     keywords: ["3-way handshake와 4-way handshake", "신뢰성", "연결지향적", "SYN", "ACK", "FIN", "데이터그램"],
     tables: [
       {
@@ -13224,6 +13455,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "네트워크로 유입되는 사용자 트래픽(데이터에 대한 표현)의 양이 네트워크 용량을 초과하지 않도록 유지시키는 메커니즘",
     defShort: "네트워크로 들어오는 사용자 트래픽의 양이 용량을 넘지 않도록 유지하는 메커니즘",
+    lead:
+      "트래픽 폭주의 억제, TCP 혼잡제어",
+    features: ["슬로 스타트", "혼잡 회피", "빠른 회복"],
     keywords: ["Slow Start", "Congestion Avoidance", "Fast Retransmission", "Fast Recovery"],
     tables: [
       {
@@ -13257,6 +13491,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "NW",
     definition: "연결 지향형인 TCP와 비 연결 지향형인 UDP 비교",
     defShort: "연결 지향형인 TCP와 비연결 지향형인 UDP의 특성을 견주어 놓은 비교표이다",
+    lead:
+      "신뢰와 속도의 대비, TCP와 UDP 비교",
+    features: ["연결성 상반", "제어 유무", "용도 구분"],
     keywords: ["연결지향", "순서제어", "흐름제어", "혼잡제어", "오류제어", "제어 플래그"],
     tables: [
       {
@@ -13303,6 +13540,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "IPv6/IPv4 호스트와 라우터에서 IPv6 데이터 그램을 IPv4 패킷에 캡슐화하여 IPv4 라우팅 토폴로지 영역을 통해 전송하는 방법",
     defShort: "IPv6 데이터그램을 IPv4 패킷에 캡슐화해 IPv4 영역으로 보내는 방법",
+    lead:
+      "IPv6 전환의 가교, IPv4와 IPv6 터널링",
+    features: ["캡슐화", "공존 지원", "전환 기술"],
     keywords: ["듀얼 스택", "터널링", "주소 변환"],
     tables: [
       {
@@ -13331,6 +13571,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "NW",
     definition: "Host Name 또는 URL을 IP Address로 변환하기 위한 Protocol",
     defShort: "호스트 이름이나 URL을 IP 주소로 변환하기 위해 사용하는 인터넷 프로토콜이다",
+    lead:
+      "이름과 주소의 변환, DNS",
+    features: ["분산 계층", "캐싱 활용", "질의 방식 2종"],
     keywords: ["Recursive", "Iterative"],
     tables: [
       {
@@ -13366,6 +13609,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "NW",
     definition: "라우팅 테이블을 생성, 유지, 업데이트, 전달하는 프로토콜",
     defShort: "라우팅 테이블을 생성하고 유지, 갱신, 전달하는 경로 결정용 프로토콜을 말한다",
+    lead:
+      "경로 결정의 프로토콜, 라우팅 알고리즘",
+    features: ["거리벡터", "링크상태", "메트릭 기반"],
     keywords: ["거리벡터 라우팅", "링크상태 라우팅", "Metric 정보", "홉수(Hop count)", "심볼길이(Symbolic length)", "벨만-포드", "다익스트라"],
     tables: [
       {
@@ -13403,6 +13649,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "NW",
     definition: "잉여비트를 통한 에러 복원 혹은 재전송을 통하여 오류를 제어하는 기법",
     defShort: "잉여비트로 스스로 복원하거나 재전송을 통해 오류를 정정하는 두 가지 오류 제어 기법",
+    lead:
+      "오류 제어의 두 방향, FEC와 BEC",
+    features: ["자체 복원", "재전송 정정", "대역폭 상충"],
     keywords: ["Parity Check", "Stop and Wait", "Go-back-N", "Selective-Repeat", "Adaptive ARQ", "Block Sum", "CRC", "Check Sum", "Hamming Code"],
     tables: [
       {
@@ -13440,6 +13689,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "코드의 전송 시 발생하는 오류를 Parity bit 이용해 검출 뿐만 아니라 오류 정정가능한 코드",
     defShort: "코드의 전송 시 발생하는 오류를 패리티 비트를 이용해 검출하고 정정까지 하는 코드",
+    lead:
+      "검출을 넘어 정정까지, 해밍코드",
+    features: ["패리티 기반", "단일 오류 정정", "위치 산출"],
     keywords: ["2^p ≥ d+p+1", "1,2,4,8 비트 짝수 패리티", "검사결과 0이면 정상 아니면 2진으로 오류정정"],
     tables: [
       {
@@ -13472,6 +13724,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "이진 나눗셈 연산을 기반으로 오류를 검출하는 방식으로 성능이 우수하며, 여러 비트에서 발생하는 집단 오류(Burst Error)도 검출 가능한 오류 검출 기법",
     defShort: "이진 나눗셈 연산을 기반으로 집단 오류까지 검출하는 성능이 우수한 오류 검출 기법",
+    lead:
+      "집단 오류의 검출, CRC",
+    features: ["다항식 나눗셈", "집단 오류 대응", "검출 전용"],
     keywords: ["Divisor", "다항식", "나머지 연산"],
     tables: [
       {
@@ -13501,6 +13756,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "한정된 네트워크 망의 대역폭을 효율적으로 사용하게 하고, 네트워크 트래픽을 정책 별로 제어하여 인터넷 종단 간 서비스 품질을 향상 시키는 기술",
     defShort: "한정된 망의 대역폭을 정책별로 제어하여 인터넷 종단 간 서비스 품질을 높이는 기술",
+    lead:
+      "종단 간 품질 보장, QoS",
+    features: ["대역폭 제어", "지연·지터 관리", "정책 기반"],
     keywords: ["대역폭", "지연", "지터", "패킷손실", "자원예약", "RSVP", "우선순위", "DSCP"],
     tables: [
       {
@@ -13545,6 +13803,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "LAN 환경에서 논리 주소인 IP주소를 물리 주소인 MAC주소로 변환해 주는 네트워크 계층의 프로토콜",
     defShort: "랜 환경에서 논리 주소인 IP 주소를 물리 주소인 MAC 주소로 바꿔 주는 프로토콜",
+    lead:
+      "IP에서 MAC으로, ARP",
+    features: ["주소 변환", "브로드캐스트", "캐시 활용"],
     keywords: ["IP를 MAC으로 변환"],
     tables: [
       {
@@ -13575,6 +13836,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "IP호스트가 자신의 물리 네트워크 주소(MAC)는 알지만 IP주소를 모르는 경우, 서버로부터 IP주소를 요청하기 위해 사용하는 프로토콜",
     defShort: "물리 주소는 알지만 IP 주소를 모를 때 서버에 IP를 요청하기 위해 쓰는 프로토콜",
+    lead:
+      "MAC에서 IP로, RARP",
+    features: ["역방향 변환", "서버 의존", "디스크리스 활용"],
     keywords: ["MAC을 IP로 변환"],
     tables: [
       {
@@ -13606,6 +13870,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "호스트에 IP 주소 할당을 위해 DHCP Discover, Offer, Request, Ack의 4단계 할당 과정 이용하는 동적 호스트 IP 자동 할당 프로토콜",
     defShort: "발견·제안·요청·승인 4단계로 호스트에 IP를 자동 할당하는 동적 프로토콜",
+    lead:
+      "IP 자동 할당의 절차, DHCP",
+    features: ["4단계 할당", "동적 관리", "임대 개념"],
     keywords: ["DISCOVER", "OFFER", "REQUEST", "ACK", "DHCP Starvation"],
     tables: [
       {
@@ -13642,6 +13909,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "UDP의 메시지 지향 특성(Message Oriented)과 TCP의 연결 지향(Connection Oriented) 신뢰성을 조합한 전송 계층 프로토콜",
     defShort: "UDP의 메시지 지향 특성과 TCP의 연결 지향 신뢰성을 조합한 전송 계층 프로토콜",
+    lead:
+      "TCP와 UDP의 절충, SCTP",
+    features: ["멀티호밍", "멀티스트리밍", "신뢰 전송"],
     keywords: ["Multi-homing", "Multi-streaming", "4 way handshaking", "SACK & Heartbeat", "3 way handshaking"],
     tables: [
       {
@@ -13674,6 +13944,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "기존 기지국의 디지털 장치(DU: Digital Unit)와 RF 장치를 분리하여 여러 기지국의 DU를 중앙에 모아서 처리하고, RF 장치는 서비스 지역에 분산시키는 무선 접속망",
     defShort: "기지국의 디지털 장치는 중앙에 모아서 처리하고 RF 장치는 분산시킨 무선 접속망",
+    lead:
+      "기지국 기능의 중앙 집중, C-RAN",
+    features: ["DU 집중", "RF 분산", "자원 효율"],
     keywords: ["DU와 RF 분리", "RU", "CPRI", "OBSAI", "ORI"],
     tables: [
       {
@@ -13702,6 +13975,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "네트워크 장비 운용에 필요한 RAN(Radio Access Network) 구간에 가상화 기술을 적용하여 Hardware와 Software를 분리하기 위한 Apache 2.0 License의 개방형 아키텍처",
     defShort: "RAN 구간에 가상화를 적용해 하드웨어와 소프트웨어를 분리한 개방형 아키텍처",
+    lead:
+      "개방형 무선 접속망, O-RAN",
+    features: ["개방 표준", "HW·SW 분리", "벤더 중립"],
     keywords: ["무선접속망(Radio Access Network) 규격 통일", "가상화", "O-RU", "O-DU", "O-CU"],
     tables: [
       {
@@ -13734,6 +14010,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "이동통신망에서 서로 다른 사업자가 동일한 주파수 사용시 발생되는 간섭 문제 해결을 위해 기지국, 코어망, Gateway를 공유 사용하며 MOCN, MORAN, GWCN 기술 활용하는 무선 인프라 공유 기술",
     defShort: "사업자 간에 기지국과 코어망, 게이트웨이를 함께 쓰는 무선 인프라 공유 기술이다",
+    lead:
+      "무선 인프라의 공동 이용, RAN Sharing",
+    features: ["설비 공유", "비용 절감", "방식 3종"],
     keywords: ["MOCN", "MORAN", "GWCN"],
     tables: [
       {
@@ -13754,6 +14033,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "기존 이동통신 상용망이 아닌 전용 주파수를 통해 특정공간(건물, 시설, 장소 등)에서 수요기업이 도입하는 최첨단 서비스 구현할 수 있는 맞춤형 네트워크",
     defShort: "상용망이 아닌 전용 주파수를 통해 특정 공간에 구축하는 기업 맞춤형 5G 네트워크",
+    lead:
+      "기업 전용의 5G, 5G 특화망",
+    features: ["전용 주파수", "공간 한정", "보안·저지연"],
     keywords: ["전용 주파수", "4.7GHz", "28GHz", "자가구축", "On-Premise형", "5G Core CP 공유형", "5G Core 전체 공유형", "MEC", "SDN", "NFV", "Open RAN"],
     tables: [
       {
@@ -13794,6 +14076,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "물리적으로 하나의 네트워크를 논리적으로 분리하여, 서로 다른 특성을 갖는 다양한 서비스에 특화된 전용 네트워크를 제공하는 5G 네트워크 핵심기술",
     defShort: "물리적으로 하나인 망을 논리적으로 분리해 서비스별 전용망을 주는 5G 핵심기술",
+    lead:
+      "논리 분할의 전용망, 네트워크 슬라이싱",
+    features: ["논리 분리", "서비스 특화", "자원 격리"],
     keywords: ["SDN", "NFV", "RAN"],
     tables: [
       {
@@ -13834,6 +14119,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "네트워크 운영 중 발생하는 다양한 정보를 수집해 AI 모델을 만들고, 이 모델을 기반으로 네트워크를 실시간으로 제어 기능을 수행하는 3GPP에서 정의한 표준 기술이며 네트워크 장비",
     defShort: "네트워크 운영 정보를 모아 AI 모델을 만들고 실시간 제어하는 3GPP 표준 장비",
+    lead:
+      "망 데이터의 AI 분석, NWDAF",
+    features: ["3GPP 표준", "학습·추론 분리", "실시간 제어"],
     keywords: ["AnLF", "MTLF", "DCCF", "ADRF", "MFAF"],
     tables: [
       {
@@ -13862,6 +14150,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "네트워크 제어 및 운용·관리 기술을 AI 기술을 기반으로 자율의사결정 방법에 따라 완전 자동화 방식으로 운용되는 네트워크",
     defShort: "제어와 운용·관리를 AI 자율의사결정에 따라 완전 자동화 방식으로 운용하는 망",
+    lead:
+      "AI 자율 운용의 망, 네트워크 지능",
+    features: ["자율 결정", "폐쇄 루프", "완전 자동화"],
     keywords: ["SDN/VNF", "인공지능/머신러닝", "클라우드·엣지 컴퓨팅 기술", "OAM", "MANO"],
     tables: [
       {
@@ -13901,6 +14192,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "5G의 20Gbps보다 50배 빠른 1Tbps 최대 전송 용량과 10배 우수한 1Gbps 사용자 체감 속도 등을 지원하는 이동 통신 기술",
     defShort: "5G의 20Gbps보다 50배 빠른 1Tbps 용량을 지원하는 차세대 이동통신",
+    lead:
+      "1Tbps의 차세대 이동통신, 6G",
+    features: ["초성능", "초공간", "초지능"],
     keywords: ["초대역", "초성능", "초공간", "초정밀", "초지능", "초현실"],
     tables: [
       {
@@ -13948,6 +14242,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "물리적 네트워크를 실시간 복제하여 6G 무선네트워크의 설계, 진단, 분석, AI/ML 기반 실시간 최적화 및 제어를 하기 위한 네트워크",
     defShort: "물리적 네트워크를 실시간 복제해 6G 망의 설계와 진단, 최적화를 하려는 네트워크",
+    lead:
+      "망의 실시간 복제, 디지털 트윈 네트워크",
+    features: ["실시간 매핑", "사전 검증", "최적화 순환"],
     keywords: ["물리적 네트워크", "가상 네트워크", "Network Application Layer", "Digital Twin Layer", "Physical Network Layer"],
     tables: [
       {
@@ -13989,6 +14286,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "지상 네트워크가 도달하기 어려운 지역(해상, 산간, 오지 등)이나 광범위한 서비스 제공이 필요한 지역(항공, 재난 지역 등)에 5G 서비스를 제공하기 위해 위성, 고고도 플랫폼(HAPS), 드론 등 비지상 네트워크를 이용하는 기술",
     defShort: "지상망이 닿기 어려운 지역에 위성과 고고도 플랫폼, 드론으로 5G를 제공하는 기술",
+    lead:
+      "지상 밖의 5G 확장, 비지상네트워크(NTN)",
+    features: ["위성·HAPS", "광역 커버", "링크 구분"],
     keywords: ["5G", "3GPP", "GEO", "LEO", "서비스 링크", "피더 링크", "위성간 링크", "Transparent", "Regenerative"],
     tables: [
       {
@@ -14023,6 +14323,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "Wi-Fi 6보다 전송속도가 3배 빠른 30GBps급 속도, 초실감 미디어 컨텐츠를 전송하는 차세대 무선통신 기술",
     defShort: "Wi-Fi 6보다 전송속도가 3배 빠른 30Gbps급 차세대 무선통신 기술이다",
+    lead:
+      "30Gbps급 무선랜, Wi-Fi 7",
+    features: ["대역폭 2배", "16×16 MIMO", "4096-QAM"],
     keywords: ["IEEE 802.11be", "HARQ", "4096-QAM"],
     tables: [
       {
@@ -14069,6 +14372,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "향상된 효율성을 핵심 목표로 UHR(Ultra High Reliability, 극도로 높은 신뢰성)을 제공하는 차세대 Wi-Fi 표준",
     defShort: "향상된 효율성을 목표로 극도로 높은 신뢰성을 제공하는 차세대 Wi-Fi 표준이다",
+    lead:
+      "신뢰성 중심의 차세대 무선랜, Wi-Fi 8",
+    features: ["UHR 지향", "AP 협력", "혼잡 대응"],
     keywords: ["IEEE 802.11bn", "UHR(Ultra High Reliability)", "대역폭(2.4GHz, 5GHz, 6GHz)", "최대속도(100Gbps)"],
     tables: [
       {
@@ -14117,6 +14423,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "전력을 많이 소비하는 RF수신 장치를 별도 분리하고 후방산란 방식으로 데이터를 전달하는 기술",
     defShort: "전력을 많이 쓰는 RF 수신 장치를 분리하고 후방산란으로 데이터를 전달하는 기술",
+    lead:
+      "후방산란의 초저전력 통신, Passive WiFi",
+    features: ["RF 분리", "반사 전송", "초저전력"],
     keywords: ["사물인터넷", "후방산란(backscatter)", "디지털 장비", "아날로그 RF"],
     tables: [
       {
@@ -14153,6 +14462,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "네트워크 제어기능(Control Plane)과 데이터 전송기능(Data Plane)을 분리하고 개방형 프로토콜을 이용하여 SW기반의 다양한 네트워크 구성 및 제어를 수행하는 네트워크 기술",
     defShort: "네트워크 제어기능과 데이터 전송기능을 분리해 SW 기반으로 제어하는 네트워크",
+    lead:
+      "제어와 전송의 분리, SDN",
+    features: ["평면 분리", "중앙 제어", "개방형 규약"],
     keywords: ["Control Plane", "Data Plane", "OSS", "BSS", "오픈API플랫폼"],
     tables: [
       {
@@ -14191,6 +14503,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "CSA(Connectivity Standards Alliance) 단체가 개발한 IoT 기기간 연결과 연동을 제공하는 IP 기반 응용계층 개방형 IoT 통합 표준 프로토콜",
     defShort: "IoT 기기 사이의 연결과 연동을 제공하는 IP 기반의 개방형 통합 표준 프로토콜",
+    lead:
+      "스마트홈 연동의 통합 표준, IoT Matter",
+    features: ["IP 기반", "상호운용성", "개방 표준"],
     keywords: ["스마트홈", "IP 기반 IoT 프로토콜", "Wi-Fi", "Thread"],
     tables: [
       {
@@ -14226,6 +14541,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "네트워크 장비의 패킷 포워딩 기능과 컨트롤러 기능을 표준 인터페이스로 분리하여 네트워크 개방성을 제공하는 기술로서 SDN(Software Defined Network) 컨트롤러와 네트워크 장치 간의 인터페이스 규격",
     defShort: "패킷 포워딩과 컨트롤러 기능을 분리하는 SDN 컨트롤러와 장치 간 인터페이스 규격",
+    lead:
+      "SDN의 표준 인터페이스, 오픈플로우",
+    features: ["표준 규격", "플로우 테이블", "파이프라인"],
     keywords: ["OpenFlow Controller", "Switch", "Flow Table", "Group Table", "OpenFlow Channel", "Pipelining"],
     tables: [
       {
@@ -14260,6 +14578,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "데이터센터·기업·대학 등의 LAN에서 Data Plane과 Control Plane을 분리하는 SDN을 통신망 사업자와 서비스 제공자 등의 WAN(Wide Area Network)으로 확장 적용한 네트워크 기술",
     defShort: "제어와 전송 평면을 분리하는 SDN을 통신망 사업자의 WAN 구간까지 확장한 기술",
+    lead:
+      "SDN의 WAN 확장, SD-WAN",
+    features: ["경로 지능화", "회선 통합", "중앙 정책"],
     keywords: ["SD-WAN Controller", "SD-WAN Edge", "VPN"],
     tables: [
       {
@@ -14290,6 +14611,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "주파수의 범위, 변조 방식, 무선 출력 등 주요 무선 특성을 소프트웨어로 업데이트 또는 변경 가능한 무선 통신 기술",
     defShort: "주파수의 범위와 변조 방식 등 주요 무선 특성을 소프트웨어로 바꿀 수 있는 통신 기술",
+    lead:
+      "소프트웨어로 바꾸는 무선, SDR",
+    features: ["SW 재구성", "규격 유연", "광대역 처리"],
     keywords: ["RF Front-end", "디지털 IF", "모뎀", "기저대역 DSP(Digital Signal Processing)", "SW 다운로드"],
     tables: [
       {
@@ -14345,6 +14669,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "콘텐츠를 중간경로를 최소화, 효율적으로 전달하기 위해 ISP의 여러 노드(웹 캐시)를 가진 네트워크에 데이터를 복제 저장하여 제공하는 시스템",
     defShort: "중간경로를 줄이려 ISP의 여러 웹 캐시 노드에 데이터를 복제 저장해 주는 시스템",
+    lead:
+      "가까운 곳에서 콘텐츠를, CDN",
+    features: ["분산 캐싱", "지연 단축", "부하 분산"],
     keywords: ["Caching", "Global Server Load Balancing", "Load Balancing", "Streaming", "배포", "동기화", "Request Routing"],
     tables: [
       {
@@ -14392,6 +14719,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "인터넷 접속서비스 제공사업자(ISP)가 네트워크를 통해 전송되는 트래픽의 내용, 유형, 단말기기 등에 관계없이 차별·차단하지 않고 동등하게 처리해야 한다는 원칙",
     defShort: "ISP가 트래픽의 내용과 유형에 관계없이 차별·차단 없이 동등 처리해야 하는 원칙",
+    lead:
+      "트래픽 동등 처리의 원칙, 망 중립성",
+    features: ["차별 금지", "차단 금지", "투명성"],
     keywords: ["투명성", "차단금지", "불합리한 차별금지", "합리적인 트래픽 관리"],
     tables: [
       {
@@ -14426,6 +14756,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "네트워크 관리자의 의도(Intent)를 인공지능 기술로 파악하여 인터넷을 구성하는 유선망과 무선망 설정을 자동으로 수행하는 네트워크 기술",
     defShort: "관리자의 의도를 인공지능으로 파악해 유선망과 무선망 설정을 자동 수행하는 기술",
+    lead:
+      "의도만 말하면 되는 망, 인텐트 기반 네트워킹",
+    features: ["의도 번역", "자동 수행", "폐쇄 루프"],
     keywords: ["의도(intent)", "인공지능", "자율 네트워크", "변환과 검증", "자동 수행", "상황 인식", "동적인 최적화"],
     tables: [
       {
@@ -14461,6 +14794,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "전력선을 사용하지 않고 무선으로 전기 에너지를 자기장 혹은 전자기파 형태로 변형하여 전송하여 디바이스의 2차전지(배터리)를 충전하는 기술",
     defShort: "전력선 없이 전기 에너지를 자기장이나 전자기파로 바꾸어 배터리를 충전하는 기술",
+    lead:
+      "선 없는 전력 전송, 무선 충전 기술",
+    features: ["방식 3종", "거리·효율 상충", "표준 상이"],
     keywords: ["자기유도", "자기공명", "전자기파"],
     tables: [
       {
@@ -14508,6 +14844,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "윈도우 크기를 활용한 흐름제어 기법과 Ack 수신에 따라 패킷 수를 조절하여 네트워크 부하를 감소시키는 알고리즘",
     defShort: "윈도우 크기로 흐름을 제어하고 패킷 수를 조절해 네트워크 부하를 줄이는 알고리즘",
+    lead:
+      "흐름 제어와 부하 감소, Sliding Window와 네이글",
+    features: ["윈도우 조절", "패킷 절감", "효율 전송"],
     keywords: ["윈도우 열림, 닫힘, 축소 동작", "수신 Window Size만큼 전송", "송신 데이터 종료 시 즉시 전송", "데이터 축적 후 전송"],
     tables: [
       {
@@ -14552,6 +14891,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "AS(Autonomous System) 번호가 서로 다른 네트워크 간에 라우팅 정보를 주고 받기 위해 Open, Update 패킷 이용, 라우팅 우선순위는 Weight, Local Preference 매트릭으로 이용하는 Exterior Gateway 라우팅 프로토콜",
     defShort: "AS 번호가 서로 다른 네트워크 간에 라우팅 정보를 주고받는 외부 게이트웨이 규약",
+    lead:
+      "AS 간 경로 교환의 규약, BGP",
+    features: ["경로 벡터", "AS 단위", "정책 라우팅"],
     keywords: ["iBGP", "eBGP", "Path Vector", "AS", "Local Preference", "MED"],
     tables: [
       {
@@ -14591,6 +14933,9 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "IPv4가 가지고 있는 주소 고갈, 보안성, 이동성 지원 등의 문제점을 해결하기 위해 개발된 128bit의 차세대 주소체계",
     defShort: "IPv4의 주소 고갈과 보안성, 이동성 문제를 푼 128bit 차세대 주소체계",
+    lead:
+      "128비트의 차세대 주소, IPv6",
+    features: ["주소 확장", "확장 헤더", "보안 내장"],
     keywords: ["128비트", "주소고갈", "보안성", "이동성", "16진수 4자리"],
     tables: [
       {
