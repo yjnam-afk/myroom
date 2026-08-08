@@ -64,9 +64,12 @@ const MONTH_LABEL = (ym: string) => {
 function Calendar({
   today,
   done,
+  onPick,
 }: {
   today: string | null;
   done: Set<string>;
+  /** 학습일 클릭 → 그 주차를 아래 리스트에 펼치고 해당 날짜로 스크롤 */
+  onPick: (weekStart: string, date: string) => void;
 }) {
   const months = curriculumMonths();
   // 오늘이 포함된 달을 기본으로, 없으면 첫 달.
@@ -174,9 +177,14 @@ function Calendar({
             </div>
           );
           return day?.kind === "study" ? (
-            <a key={i} href={`#d-${c.date}`} className="block">
+            <button
+              key={i}
+              type="button"
+              onClick={() => onPick(ws, c.date!)}
+              className="block w-full text-left"
+            >
               {body}
-            </a>
+            </button>
           ) : (
             <div key={i}>{body}</div>
           );
@@ -203,10 +211,18 @@ function Legend({ cls, label }: { cls: string; label: string }) {
   );
 }
 
+/** 주차 선택 칩 라벨 — "선행 1주" / "심화 5주" */
+function weekChipLabel(title: string): string {
+  const n = title.match(/(\d)주차/)?.[1] ?? "?";
+  return `${title.startsWith("선행") ? "선행" : "심화"} ${n}주`;
+}
+
 export default function PlanPage() {
   const [done, setDone] = useState<Set<string>>(new Set());
   const [todayKey, setTodayKey] = useState<string | null>(null);
   const [today, setToday] = useState<string | null>(null);
+  // 아래 리스트에 펼칠 주차 — 기본은 오늘이 속한 주차 하나만("all"이면 전체).
+  const [sel, setSel] = useState<string | "all">("all");
 
   useEffect(() => {
     setDone(loadDone());
@@ -214,7 +230,18 @@ export default function PlanPage() {
     const t = planForToday();
     // "오늘" 강조는 진짜 오늘일 때만. 커리큘럼 밖이라 대신 채운 날은 강조하지 않는다.
     if (t?.isToday) setTodayKey(`${t.week.start}#${t.dayIndex}`);
+    if (t) setSel(t.week.start);
   }, []);
+
+  /** 달력 학습일 클릭 — 그 주차만 펼치고 해당 날짜 카드로 스크롤 */
+  function pick(weekStart: string, date: string) {
+    setSel(weekStart);
+    setTimeout(() => {
+      document
+        .getElementById(`d-${date}`)
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 60);
+  }
 
   function toggle(weekStart: string, title: string) {
     const k = doneKey(weekStart, title);
@@ -263,7 +290,7 @@ export default function PlanPage() {
         복귀하세요. 전문용어 없는 한 줄 정의 + 관련 토픽 링크. <b className="text-brand-700">용어 사전 →</b>
       </Link>
 
-      <Calendar key={today ?? "init"} today={today} done={done} />
+      <Calendar key={today ?? "init"} today={today} done={done} onPick={pick} />
 
       {/* 전체 진행률 */}
       <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -293,7 +320,41 @@ export default function PlanPage() {
         </div>
       </div>
 
-      {WEEKS.map((week) => (
+      {/* 주차 선택 — 달력에서 날짜를 눌러도 해당 주차로 바뀐다 */}
+      <div className="mb-4 flex flex-wrap gap-1.5">
+        <button
+          type="button"
+          onClick={() => setSel("all")}
+          className={`rounded-full border px-3 py-1.5 text-xs font-bold transition ${
+            sel === "all"
+              ? "border-brand-500 bg-brand-600 text-white"
+              : "border-slate-300 bg-white text-slate-600 hover:bg-slate-50"
+          }`}
+        >
+          전체
+        </button>
+        {[...WEEKS]
+          .sort((a, b) => a.start.localeCompare(b.start))
+          .map((w) => (
+            <button
+              key={w.start}
+              type="button"
+              onClick={() => setSel(w.start)}
+              className={`rounded-full border px-3 py-1.5 text-xs font-bold transition ${
+                sel === w.start
+                  ? "border-brand-500 bg-brand-600 text-white"
+                  : "border-slate-300 bg-white text-slate-600 hover:bg-slate-50"
+              }`}
+            >
+              {weekChipLabel(w.title)}
+              <span className={`ml-1 font-medium ${sel === w.start ? "text-brand-100" : "text-slate-400"}`}>
+                {dateLabel(w.start, 0)}
+              </span>
+            </button>
+          ))}
+      </div>
+
+      {WEEKS.filter((w) => sel === "all" || w.start === sel).map((week) => (
         <section key={week.start} className="mb-8">
           <h2 className="mb-3 text-base font-bold text-slate-900">
             {week.title}{" "}

@@ -553,6 +553,72 @@ const WEEK4_DAYS: CurriculumDay[] = studyDays([
   { name: "네트워크(NW)", topics: NW_ALL },
 ]);
 
+
+// ── 5주차: 데이터베이스(DB) 56토픽 ────────────────────────────────────
+const DB_ALL: CurriculumTopic[] = [
+  { title: "트랜잭션", priority: "상" },
+  { title: "Isolation Level(격리 레벨)", priority: "중" },
+  { title: "ANSI/SPARC 모델(3-단계 데이터베이스 구조) / 데이터 독립성", priority: "중" },
+  { title: "데이터베이스 모델링", priority: "상" },
+  { title: "데이터베이스 무결성", priority: "상" },
+  { title: "릴레이션 키(key)", priority: "중" },
+  { title: "엔티티(Entity)", priority: "하" },
+  { title: "함수적 종속성(Functional Dependency)", priority: "중" },
+  { title: "암스트롱 공리(Armstrong's Axioms)", priority: "중" },
+  { title: "데이터베이스 정규화(Normalization)", priority: "상" },
+  { title: "데이터베이스 반정규화(De-Normalization)", priority: "상" },
+  { title: "연결함정(Connection Trap)", priority: "중" },
+  { title: "관계대수(Relational Algebra)", priority: "하" },
+  { title: "관계해석(Relational Calculus)", priority: "하" },
+  { title: "DB 회복기법", priority: "상" },
+  { title: "DB 동시성제어", priority: "상" },
+  { title: "낙관적 검증(Validation) 기법", priority: "하" },
+  { title: "MVCC(다중 버전 동시성 제어) 2가지 유형", priority: "하" },
+  { title: "분산 DB", priority: "중" },
+  { title: "2PC", priority: "하" },
+  { title: "NoSQL", priority: "중" },
+  { title: "NoSQL 데이터모델링 패턴", priority: "하" },
+  { title: "CAP 이론과 BASE 이론", priority: "중" },
+  { title: "PACELC", priority: "중" },
+  { title: "NewSQL", priority: "하" },
+  { title: "벡터 데이터베이스(Vector Database)", priority: "상" },
+  { title: "ANN(Approximate Nearest Neighbor) 알고리즘", priority: "하" },
+  { title: "SQL(Structured Query Language)", priority: "하" },
+  { title: "조인(Join)", priority: "하" },
+  { title: "RDBMS 인덱스(index)", priority: "하" },
+  { title: "쿼리오프로딩(Query offloading)", priority: "하" },
+  { title: "데이터베이스 파티셔닝(Partitioning)", priority: "중" },
+  { title: "데이터베이스 샤딩(Sharding)", priority: "중" },
+  { title: "데이터 표준화", priority: "중" },
+  { title: "데이터 거버넌스, 데이터 품질", priority: "중" },
+  { title: "데이터 품질관리(ISO 8000)", priority: "하" },
+  { title: "데이터 전처리", priority: "중" },
+  { title: "데이터 클렌징(Cleansing)", priority: "중" },
+  { title: "데이터 프로파일링(Data Profiling)", priority: "중" },
+  { title: "데이터 분석 거버넌스(Data Analytics Governance)", priority: "하" },
+  { title: "데이터 분석 준비도와 데이터 분석 성숙도", priority: "중" },
+  { title: "데이터 마이닝 방법론", priority: "중" },
+  { title: "탐색적 데이터 분석과 확증적 데이터 분석", priority: "하" },
+  { title: "데이터 시각화", priority: "중" },
+  { title: "데이터 레이크하우스(Data Lakehouse)", priority: "중" },
+  { title: "아파치 카프카", priority: "하" },
+  { title: "공공데이터 예방적 품질관리 진단 가이드", priority: "하" },
+  { title: "공공데이터 품질인증 매뉴얼(2025.07.)", priority: "중" },
+  { title: "공공기관 데이터베이스 표준화지침(2023년 4월 개정 고시)", priority: "하" },
+  { title: "데이터 품질인증 가이드라인 - DQ인증 (2025.02.26)", priority: "상" },
+  { title: "데이터 가치 평가", priority: "중" },
+  { title: "연관성 분석(association analysis) - 데이터마이닝", priority: "상" },
+  { title: "Apriori 알고리즘", priority: "하" },
+  { title: "DHP(Direct Hashing & Pruning) 알고리즘", priority: "하" },
+  { title: "FP(Frequent Pattern)-Growth 알고리즘", priority: "하" },
+  { title: "DaaP(Data as a product)", priority: "중" },
+];
+
+// 5주차 — 데이터베이스 단일 과목.
+const WEEK5_DAYS: CurriculumDay[] = studyDays([
+  { name: "데이터베이스(DB)", topics: DB_ALL },
+]);
+
 export const WEEKS: CurriculumWeek[] = [
   {
     // 심화반(9월) 전에 미리 도는 선행 학습 — 오늘부터 시작.
@@ -638,6 +704,17 @@ export const WEEKS: CurriculumWeek[] = [
     title: "심화반 4주차 · 자료구조(DS) + 알고리즘(AL) + 네트워크(NW)",
     days: [
       ...WEEK4_DAYS,
+      { kind: "review", label: "회독", note: "이번 주 배운 토픽을 다시 돌립니다." },
+      { kind: "review", label: "회독", note: "약한 토픽 위주로 한 번 더." },
+      { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 선행한 내용을 강의로 확인합니다." },
+    ],
+  },
+  {
+    // 심화반 5주차 — 데이터베이스
+    start: "2026-09-28",
+    title: "심화반 5주차 · 데이터베이스(DB)",
+    days: [
+      ...WEEK5_DAYS,
       { kind: "review", label: "회독", note: "이번 주 배운 토픽을 다시 돌립니다." },
       { kind: "review", label: "회독", note: "약한 토픽 위주로 한 번 더." },
       { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 선행한 내용을 강의로 확인합니다." },
