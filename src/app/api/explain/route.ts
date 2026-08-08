@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         {
           error:
-            "지금은 설명을 끝까지 생성하지 못했어요(무료 AI 한도). 잠시 후 다시 시도해 주세요. 두음신공·기출 메뉴는 토큰 없이 바로 보실 수 있어요.",
+            "지금은 설명을 끝까지 생성하지 못했어요(무료 AI 한도). 잠시 후 다시 시도해 주세요. 암기 훈련장·기출 메뉴는 토큰 없이 바로 보실 수 있어요.",
         },
         { status: 503 },
       );

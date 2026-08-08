@@ -2033,7 +2033,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "지역성(Locality)",
     course: "OS",
     definition: "CPU가 어느 순간에 정보를 특정 부분만 집중적으로 참조하는 특성",
-    defShort: "CPU가 어느 순간에 기억장치의 특정 부분만 집중적으로 참조하게 되는 특성을 말함",
+    defShort: "CPU가 어느 순간에 기억장치의 특정 부분만 집중 참조하는 시간적·공간적 특성",
     lead:
       "참조 집중의 성질, 지역성(Locality)",
     features: ["시간적", "공간적", "캐시 근거"],
@@ -2359,7 +2359,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "기한부(Deadline) 스케줄링",
     course: "OS",
     definition: "작업이 주어진 기한(마감시간) 안에 완료되도록 계획하는 스케줄링 기법",
-    defShort: "작업이 주어진 기한과 마감시간 안에 완료되도록 계획하는 실시간 스케줄링 기법이다",
+    defShort: "각 작업이 주어진 기한 안에 완료되도록 우선순위를 계획하는 실시간 스케줄링 기법",
     lead:
       "마감시간 보장의 실시간 계획, 기한부 스케줄링",
     features: ["실시간성", "마감 보장", "주기 기반"],
@@ -3434,7 +3434,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "Scope Creep vs Gold-Plating",
     course: "PM",
     definition: "범위 관리 실패 원인",
-    defShort: "요구가 슬금슬금 늘어나는 크리프와 임의 기능을 덧붙이는 도금, 범위관리 실패 원인",
+    defShort: "통제되지 않은 요구 증가와 요구 외 임의 기능 추가로 범위가 부푸는 범위관리 실패 원인",
     lead:
       "범위 관리 실패 원인, Scope Creep vs Gold-Plating",
     features: ["원인 상반", "범위 확산", "통제 실패"],
@@ -3594,7 +3594,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "일정단축 기법",
     course: "PM",
     definition: "프로젝트 범위 변경 없이 일정 기간을 단축 시키는 기법",
-    defShort: "프로젝트의 범위 변경 없이 일정 기간을 단축시키는 크래싱·패스트트래킹 등 기법",
+    defShort: "프로젝트의 범위 변경 없이 자원 추가나 작업 병행으로 일정 기간을 줄이는 관리 기법",
     lead:
       "범위 변경 없는 납기 단축, 일정단축 기법",
     features: ["범위 불변", "원가·위험 상충", "임계경로 대상"],
@@ -3800,7 +3800,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "자원 최적화",
     course: "PM",
     definition: "활동에 분배되는 자원을 최적화 하는 기법",
-    defShort: "활동에 분배되는 자원을 최적화하는 기법으로 평준화와 스무딩 두 가지가 대표적이다",
+    defShort: "한정된 자원과 일정의 균형을 위해 활동에 배분되는 자원량을 조정하는 일정 관리 기법",
     lead:
       "자원 과부하의 조정, 자원 최적화",
     features: ["과부하 해소", "납기 영향 상이", "여유시간 활용"],
@@ -4662,7 +4662,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "SE",
     definition:
       "요구사항의 수집, 분석, 명세, 검증, 변경, 관리 등의 원칙과 제반 활동에 대한 총체적인 접근 체계",
-    defShort: "요구사항의 수집과 분석, 명세, 검증, 관리 활동에 대한 총체적인 접근 체계를 말함",
+    defShort: "요구사항의 수집·분석·명세·검증·변경관리 원칙과 활동의 총체적 접근 체계",
     lead:
       "요구사항 관리의 총체적 체계, 요구공학",
     features: ["체계성", "추적성", "변경 통제"],
@@ -5177,7 +5177,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "SE",
     definition:
       "시스템이 제공하고 있는 기능 및 그와 관련된 외부요소를 사용자의 관점에서 표현하는 동적 다이어그램",
-    defShort: "객체들이 주고받는 메시지를 시간 순서에 따라 표현한 상호작용 동적 다이어그램임",
+    defShort: "객체들 간 주고받는 메시지를 생명선 위에 시간 순서로 표현한 상호작용 다이어그램",
     lead:
       "시간 순 메시지 흐름, 시퀀스 다이어그램",
     features: ["시간 순서", "상호작용 표현", "동기·비동기 구분"],
@@ -6446,7 +6446,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "AI",
     definition:
       "신경망의 최적 가중치를 찾기 위해 실제 값과 신경망의 예측 값의 차이를 수치화(오차계산)해주는 함수",
-    defShort: "신경망의 최적 가중치를 찾으려 실제 값과 예측 값의 차이를 수치화해 주는 함수이다",
+    defShort: "최적의 가중치 탐색을 위해 실제 값과 신경망 예측 값의 오차를 수치화하는 평가 함수",
     lead:
       "오차의 수치화, 손실함수",
     features: ["오차 계량", "최적화 기준", "문제별 선택"],
@@ -6618,7 +6618,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "AI",
     definition:
       "학습 시의 배치를 한 단위로 정규화를 하는 것으로 분포의 평균이 0, 분산이 1이 되도록 정규화하는 작업",
-    defShort: "학습 시의 배치를 한 단위로 분포의 평균 0, 분산 1이 되도록 맞추는 정규화 작업임",
+    defShort: "학습 시 배치 단위로 분포를 평균 0, 분산 1로 정규화하여 학습을 안정화하는 기법",
     lead:
       "분포 안정화의 학습 가속, 배치 정규화",
     features: ["분포 정규화", "학습 안정", "소실 완화"],
@@ -7589,7 +7589,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "AI",
     definition:
       "초거대 언어모델(LLM)의 파라미터는 고정시킨 상태에서 새로운 작업에 적응시키기 위해 프롬프트(명령이나 요청 등의 텍스트)를 조정하여 모델이 원하는 방식으로 응답하도록 하는 기법",
-    defShort: "모델의 파라미터는 고정한 상태에서 프롬프트만 조정해 원하는 응답을 얻는 기법이다",
+    defShort: "LLM 파라미터는 고정하고 프롬프트만 조정해 원하는 응답을 얻는 경량 적응 기법",
     lead:
       "모델 고정의 경량 적응, 프롬프트 튜닝",
     features: ["파라미터 고정", "저비용", "신속 적용"],
@@ -8118,7 +8118,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "AI",
     definition:
       "대형 언어 모델(LLMs)의 설계부터 관리, 배포, 유지 관리를 통합하고 효율화하는 과정 및 패러다임",
-    defShort: "대형 언어 모델의 설계부터 관리, 배포, 유지 관리를 통합하고 효율화하는 패러다임",
+    defShort: "대형 언어 모델의 설계·관리·배포·유지보수를 통합해 효율화하는 운영 패러다임",
     lead:
       "대형 언어 모델의 운영 체계, LLMOps",
     features: ["LLM 특화", "전 주기 관리", "효율화"],
@@ -8352,7 +8352,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "AI",
     definition:
       "데이터 분석에서 잘못된 예측의 영향을 파악하기 위해 예측된 값과 실제 값이 일치하는지 여부를 행렬로 분류하는 모델 평가 기법",
-    defShort: "예측된 값과 실제 값이 일치하는지 여부를 행렬로 분류해 보는 모델 성능 평가 기법이다",
+    defShort: "예측된 값과 실제 값의 일치 여부를 행렬 형태로 분류해 분석하는 모델 성능 평가 기법",
     lead:
       "분류 성능의 사분면, 혼동행렬",
     features: ["일치 분류", "지표 도출", "오류 유형화"],
@@ -8387,7 +8387,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "AI",
     definition:
       "탐색하는 타깃 데이터의 수가 매우 극소수인 상태",
-    defShort: "탐색하려는 타깃 데이터의 수가 매우 극소수여서 학습이 한쪽으로 치우치는 상태이다",
+    defShort: "탐색 타깃 데이터가 극소수인 상태로 과대·과소표집으로 해결하는 데이터 편중 문제",
     lead:
       "치우친 데이터의 학습 왜곡, 클래스 불균형",
     features: ["소수 클래스", "지표 왜곡", "표집 보정"],
@@ -8499,7 +8499,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "AI",
     definition:
       "개인이나 집단의 사전적인 견해, 선입견, 편견, 문화적 영향 등으로 인해 객관성이나 공정성에서 벗어난 경향을 의미",
-    defShort: "선입견이나 편견, 문화적 영향 등으로 객관성이나 공정성에서 벗어난 경향을 뜻함",
+    defShort: "사전적 견해와 선입견, 문화적 영향으로 객관성·공정성에서 벗어난 판단의 경향",
     lead:
       "공정성을 해치는 치우침, 편향",
     features: ["원인 다양", "은닉성", "XAI 대응"],
@@ -9600,7 +9600,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "확률분포",
     course: "ST",
     definition: "확률변수가 특정한 값을 가질 확률을 나타내는 분포",
-    defShort: "확률변수가 특정한 값을 가질 확률이 어떻게 흩어져 있는지를 나타내 주는 분포이다",
+    defShort: "확률변수가 특정한 값을 가질 확률의 흩어진 모양을 나타내는 함수 형태의 확률 분포",
     lead:
       "확률의 흩어짐 표현, 확률분포",
     features: ["이산·연속", "기대값 산출", "모델 기초"],
@@ -9781,7 +9781,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "ST",
     definition:
       "확률 추출: 모집단의 모든 요소가 동일한 확률로 표본으로 선택될 기회를 가지는 방법 / 비확률 추출: 모집단의 요소들이 동일한 확률로 선택되지 않는 방법",
-    defShort: "모집단에서 표본을 뽑는 방법으로 확률 추출과 비확률 추출 두 가지로 나뉘게 된다고 함",
+    defShort: "모집단의 특성을 추정하기 위해 전체가 아닌 일부 표본을 뽑아 조사하는 통계적 기법",
     lead:
       "모집단 대표의 선별, 표본 추출",
     features: ["확률·비확률", "대표성", "비용 효율"],
@@ -9853,7 +9853,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "이상치(Outlier)",
     course: "ST",
     definition: "보통 관측된 데이터의 범위에서 많이 벗어난 아주 작은 값이나 큰 값",
-    defShort: "보통 관측된 데이터의 범위에서 많이 벗어난 아주 작은 값이나 아주 큰 값을 가리킨다",
+    defShort: "관측된 데이터의 범위에서 크게 벗어나 분석 결과를 왜곡하는 극단적인 값의 데이터",
     lead:
       "범위를 벗어난 값, 이상치",
     features: ["결과 왜곡", "탐지 기법 다양", "처리 판단"],
@@ -9898,7 +9898,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "결측치(Missing Value)",
     course: "ST",
     definition: "관측되어야 할 값을 얻지 못한 데이터(누락)",
-    defShort: "마땅히 관측되어야 할 값을 얻지 못하여 비어 있는 상태로 누락되어 버린 데이터를 말함",
+    defShort: "관측되어야 할 값이 누락되어 삭제나 대치 같은 별도의 처리가 필요한 미획득 데이터",
     lead:
       "관측되지 못한 빈 값, 결측치",
     features: ["편향 유발", "삭제·대체", "원인 진단"],
@@ -10522,7 +10522,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "SE",
     definition:
       "인간과 구별할 수 없을 정도의 지적행동을 표시할 수 있는 기계의 능력을 확인하는 imitation game 테스트",
-    defShort: "인간과 구별할 수 없을 정도의 지적 행동을 표시할 수 있는 기계 능력의 확인 실험이다",
+    defShort: "심사관과의 대화에서 인간과 구별되지 않는 기계의 지적 사고 능력을 판별하는 실험",
     lead:
       "기계 지능의 판별 실험, 튜링 테스트",
     features: ["행동 기반", "판별 실험", "주관 개입"],
@@ -11035,7 +11035,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "SE",
     definition:
       "OSS를 안전하게 사용·적용 및 배포하기 위해 필요한 사항을 다양한 관점에서 활용할 수 있도록 소프트웨어 라이프 사이클 단계별로 제시한 절차 및 체계",
-    defShort: "OSS를 안전하게 쓰고 배포하도록 생명주기 단계별로 제시한 절차와 관리 체계다",
+    defShort: "OSS의 안전한 사용·적용·배포를 생명주기 단계별로 통제하는 절차와 관리 체계",
     lead:
       "OSS 생명주기의 통제 체계, 오픈소스 거버넌스",
     features: ["생명주기 관리", "라이선스 준수", "통제 체계"],
@@ -11112,7 +11112,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "SE",
     definition:
       "국산 SW 제품의 품질 향상을 통한 국내 SW 산업 활성화 정책으로 SW 시험 인증 센터가 국제표준을 기반으로 개발한 한국형 SW 품질 인증제도",
-    defShort: "SW 시험 인증 센터가 국제표준을 기반으로 개발한 한국형 SW 품질 인증 제도이다",
+    defShort: "국제표준을 기반으로 국산 SW 제품 품질을 시험해 등급을 부여하는 국가 인증 제도",
     lead:
       "국산 SW 제품의 품질 인증, GS 인증",
     features: ["제품 대상", "국제표준 기반", "조달 혜택"],
@@ -11200,7 +11200,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "SE",
     definition:
       "소프트웨어 품질의 특성을 정의하고, 품질 평가의 Metrics를 정의한 국제표준",
-    defShort: "소프트웨어 품질의 특성을 정의하고 품질 평가의 지표를 규정해 놓은 국제 표준이다",
+    defShort: "SW 품질을 9개 주특성으로 정의하고 평가 지표를 규정한 품질 평가 국제 표준 체계",
     lead:
       "SW 품질 특성의 국제 표준, ISO/IEC 25010",
     features: ["품질 특성 체계", "국제 표준", "평가 지표"],
@@ -11240,7 +11240,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "SE",
     definition:
       "동종의 경쟁 제품간 기능 및 성능 비교 평가를 통해 사용자의 요구사항을 만족하고 품질 및 성능이 우수한 제품을 가려내는 시험",
-    defShort: "동종의 경쟁 제품 간 기능과 성능을 비교 평가해 우수한 제품을 가려내는 품질 시험임",
+    defShort: "동종 경쟁 상용SW 간 기능·성능을 비교 평가해 우수 제품을 가리는 법정 품질 시험",
     lead:
       "경쟁 제품 간 비교 평가, 상용SW 품질성능 평가 시험",
     features: ["비교 평가", "객관성", "조달 연계"],
@@ -11608,7 +11608,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "SE",
     definition:
       "S/W 대가산정 가이드는 예산수립, 사업 발주, 계약 시 적정대가를 산정하기 위한 기준을 제공 (1FP = 605,784원)",
-    defShort: "예산 수립과 사업 발주, 계약 시 적정 대가를 산정하도록 기준을 제공하는 가이드다",
+    defShort: "예산 수립과 발주·계약 시 기능점수 기반으로 적정 대가의 산정 기준을 주는 가이드",
     lead:
       "적정 대가 산정의 기준, SW 사업대가",
     features: ["산정 기준 제공", "단계별 방식", "공정 계약"],
@@ -12097,7 +12097,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "선형 자료구조와 비선형 자료구조",
     course: "DS",
     definition: "데이터 사이의 대응 구조에 따라 선형, 비선형 자료구조로 분류",
-    defShort: "데이터 사이의 대응 구조에 따라 선형과 비선형 자료구조로 나누어 놓은 분류 체계다",
+    defShort: "데이터 간 대응이 1:1이면 선형, 1:N이면 비선형으로 나누는 자료구조 분류",
     lead:
       "데이터 대응 구조의 분류, 선형과 비선형 자료구조",
     features: ["1:1 대 1:N", "용도 구분", "기본 분류"],
@@ -12372,7 +12372,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "방향성 비순환 그래프(DAG, Directed Acyclic Graph)",
     course: "DS",
     definition: "개별 요소들이 특정한 방향을 향하고 있으며, 서로 순환하지 않는 구조로 구성된 그래프",
-    defShort: "개별 요소들이 특정한 방향을 향하면서 서로 순환하지 않는 구조로 구성한 그래프이다",
+    defShort: "개별 요소들이 방향을 가지며 서로 순환하지 않아 위상 정렬이 가능한 방향성 그래프",
     lead:
       "방향은 있고 순환은 없는 구조, DAG",
     features: ["방향성", "비순환", "위상 정렬 가능"],
@@ -12407,7 +12407,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "AL",
     definition:
       "알고리즘 수행 시 필요로 하는 시간 및 공간에 대한 지표를 기준으로 알고리즘 성능을 판단하는 프로세스",
-    defShort: "알고리즘 수행 시 필요한 시간과 공간에 대한 지표로 성능을 판단하는 프로세스이다",
+    defShort: "시간 복잡도와 공간 복잡도 지표를 기준으로 알고리즘의 성능을 판단하는 프로세스",
     lead:
       "시간과 공간의 정량 평가, 알고리즘 성능평가",
     features: ["시간 복잡도", "공간 복잡도", "점근 표기"],
@@ -12449,7 +12449,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "AL",
     definition:
       "데이터 수 N에 대해서 복잡도가 어떤 함수로 나타나는가를 간단히 표현하기 위한 알고리즘의 시간 복잡도를 표현하는 상한 점근 표기법",
-    defShort: "데이터 수 N에 대한 알고리즘의 시간 복잡도를 표현하기 위한 상한 점근 표기법을 말함",
+    defShort: "데이터 수 N의 함수로 알고리즘 시간 복잡도의 상한을 나타내는 점근적 성능 표기법",
     lead:
       "최악 기준의 상한 표기, 빅오 표기법",
     features: ["상한 표현", "입력 크기 기준", "비교 척도"],
@@ -12649,7 +12649,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "해시 테이블",
     course: "AL",
     definition: "키(key)라는 특별한 인덱스로 자료에 접근하는 배열로 구성되는 자료구조",
-    defShort: "키라는 특별한 인덱스로 자료에 곧바로 접근하는 배열로 구성되는 자료구조를 말함",
+    defShort: "키를 인덱스 삼아 배열에서 자료에 O(1)로 직접 접근하는 키-값 기반 자료구조",
     lead:
       "키 기반 즉시 접근, 해시 테이블",
     features: ["상수 시간 접근", "충돌 존재", "공간 교환"],
@@ -12971,7 +12971,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "트리 순회(Tree Traversal)",
     course: "AL",
     definition: "계층적 구조를 갖는 트리(Tree)의 모든 노드(node)를 한 번씩 체계적으로 방문하는 과정",
-    defShort: "계층적 구조를 갖는 트리의 모든 노드를 한 번씩 체계적으로 방문하는 과정을 가리킴",
+    defShort: "루트와 서브트리의 방문 순서에 따라 모든 노드를 한 번씩 체계적으로 방문하는 과정",
     lead:
       "트리 방문의 체계, 트리 순회",
     features: ["전·중·후위", "전체 방문", "재귀 기반"],
@@ -12993,7 +12993,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "그래프 순회(Graph Traversal)",
     course: "AL",
     definition: "주어진 그래프 G=(V, E)에서 정점의 집합 V에 속한 모든 정점들을 한번씩 방문하는 것",
-    defShort: "주어진 그래프에서 정점의 집합에 속한 모든 정점들을 한 번씩 방문하는 탐색을 말함",
+    defShort: "하나의 정점에서 출발해 그래프의 모든 정점을 한 번씩 빠짐없이 방문하는 탐색 과정",
     lead:
       "그래프 방문의 두 전략, 그래프 순회",
     features: ["DFS·BFS", "전체 탐색", "방문 표시"],
@@ -13070,7 +13070,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "NW",
     definition:
       "아날로그 신호를 표본화 정리로 정해지는 표본화 주파수로 표본화하고, 각 표본(샘플)의 값을 양자화 한 후, 2진 부호화 하는 디지털 변조방식",
-    defShort: "아날로그 신호를 표본화하고 양자화한 다음 2진 부호화하는 디지털 변조 방식이다",
+    defShort: "아날로그 신호를 표본화·양자화·부호화 절차로 디지털 신호로 바꾸는 변조 방식",
     lead:
       "표본화·양자화·부호화, PCM",
     features: ["3단계 변환", "나이퀴스트 기반", "디지털화"],
@@ -13110,7 +13110,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "NW",
     definition:
       "정보 신호에 따라 반송파의 진폭과 위상을 동시에 변화시켜, PSK의 변조 원리에 진폭 변조까지 포함하는 변조 방식",
-    defShort: "정보 신호에 따라 반송파의 진폭과 위상을 동시에 변화시키는 디지털 변조 방식이다",
+    defShort: "반송파의 진폭과 위상을 동시에 변화시켜 심볼당 여러 비트를 싣는 디지털 변조 방식",
     lead:
       "진폭·위상 동시 변조, QAM",
     features: ["이중 변조", "전송 효율", "성상도 표현"],
@@ -13255,7 +13255,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "NW",
     definition:
       "여러 신호를 동시에 송수신할 수 있도록, 하나의 전송로를 분할시켜, 다수의 채널로 분할하여 전송하는 기술",
-    defShort: "여러 신호를 동시에 송수신하도록 하나의 전송로를 다수의 채널로 나누는 기술이다",
+    defShort: "하나의 전송로를 다수의 채널로 분할하여 여러 신호를 동시에 송수신하는 전송 기술",
     lead:
       "하나의 전송로, 여러 채널, 다중화",
     features: ["자원 공유", "방식 다양", "효율 극대화"],
@@ -13291,7 +13291,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "NW",
     definition:
       "네트워크 계층화 아키텍처에서 한 계층이 서비스를 수행하기 위해 다른 계층을 필요로 할 때 계층간 통신 서비스 기본형식",
-    defShort: "한 계층이 다른 계층을 필요로 할 때 쓰이는 계층 간 통신 서비스의 기본적인 형식이다",
+    defShort: "네트워크 계층화 구조에서 한 계층이 다른 계층의 서비스를 요청·응답하는 기본 형식",
     lead:
       "계층 간 통신의 기본형, 서비스 프리미티브",
     features: ["4개 동작", "계층 연계", "표준 형식"],
@@ -13490,7 +13490,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "TCP 와 UDP 비교",
     course: "NW",
     definition: "연결 지향형인 TCP와 비 연결 지향형인 UDP 비교",
-    defShort: "연결 지향형인 TCP와 비연결 지향형인 UDP의 특성을 견주어 놓은 비교표이다",
+    defShort: "연결 지향 TCP의 신뢰성과 비연결 지향 UDP의 신속성을 견주는 전송 계층 비교",
     lead:
       "신뢰와 속도의 대비, TCP와 UDP 비교",
     features: ["연결성 상반", "제어 유무", "용도 구분"],
@@ -13570,7 +13570,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "DNS(Domain Name System)",
     course: "NW",
     definition: "Host Name 또는 URL을 IP Address로 변환하기 위한 Protocol",
-    defShort: "호스트 이름이나 URL을 IP 주소로 변환하기 위해 사용하는 인터넷 프로토콜이다",
+    defShort: "호스트 이름과 URL을 IP 주소로 변환해 주는 분산 계층형 인터넷 표준 프로토콜",
     lead:
       "이름과 주소의 변환, DNS",
     features: ["분산 계층", "캐싱 활용", "질의 방식 2종"],
@@ -13608,7 +13608,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)",
     course: "NW",
     definition: "라우팅 테이블을 생성, 유지, 업데이트, 전달하는 프로토콜",
-    defShort: "라우팅 테이블을 생성하고 유지, 갱신, 전달하는 경로 결정용 프로토콜을 말한다",
+    defShort: "최적 경로 선정을 위해 라우팅 테이블을 생성·유지·갱신·전달하는 경로 결정 규약",
     lead:
       "경로 결정의 프로토콜, 라우팅 알고리즘",
     features: ["거리벡터", "링크상태", "메트릭 기반"],
@@ -14009,7 +14009,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "NW",
     definition:
       "이동통신망에서 서로 다른 사업자가 동일한 주파수 사용시 발생되는 간섭 문제 해결을 위해 기지국, 코어망, Gateway를 공유 사용하며 MOCN, MORAN, GWCN 기술 활용하는 무선 인프라 공유 기술",
-    defShort: "사업자 간에 기지국과 코어망, 게이트웨이를 함께 쓰는 무선 인프라 공유 기술이다",
+    defShort: "주파수 간섭 문제 해결을 위해 사업자 간 기지국·코어망을 공유하는 무선 인프라 기술",
     lead:
       "무선 인프라의 공동 이용, RAN Sharing",
     features: ["설비 공유", "비용 절감", "방식 3종"],
@@ -14322,7 +14322,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "NW",
     definition:
       "Wi-Fi 6보다 전송속도가 3배 빠른 30GBps급 속도, 초실감 미디어 컨텐츠를 전송하는 차세대 무선통신 기술",
-    defShort: "Wi-Fi 6보다 전송속도가 3배 빠른 30Gbps급 차세대 무선통신 기술이다",
+    defShort: "320MHz 대역폭과 4096QAM으로 30Gbps급을 내는 무선랜 표준",
     lead:
       "30Gbps급 무선랜, Wi-Fi 7",
     features: ["대역폭 2배", "16×16 MIMO", "4096-QAM"],
@@ -14371,7 +14371,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "NW",
     definition:
       "향상된 효율성을 핵심 목표로 UHR(Ultra High Reliability, 극도로 높은 신뢰성)을 제공하는 차세대 Wi-Fi 표준",
-    defShort: "향상된 효율성을 목표로 극도로 높은 신뢰성을 제공하는 차세대 Wi-Fi 표준이다",
+    defShort: "효율성 향상을 핵심 목표로 UHR 극도의 신뢰성을 제공하는 차세대 Wi-Fi 표준",
     lead:
       "신뢰성 중심의 차세대 무선랜, Wi-Fi 8",
     features: ["UHR 지향", "AP 협력", "혼잡 대응"],

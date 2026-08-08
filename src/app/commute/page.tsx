@@ -171,7 +171,7 @@ export default function CommutePage() {
                     <div key={si} className={si > 0 ? "mt-4" : ""}>
                       <div className="rounded-2xl bg-gradient-to-br from-brand-50 to-slate-50 p-4 text-center">
                         <div className="text-xs font-medium text-brand-500">
-                          {s.label || (s.mnemonic ? "두음신공" : "핵심 키워드")}
+                          {s.label || (s.mnemonic ? "두음" : "핵심 키워드")}
                         </div>
                         {s.mnemonic ? (
                           <div className="mt-1 text-3xl font-extrabold tracking-wide text-brand-700">

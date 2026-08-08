@@ -89,7 +89,7 @@ export default function ShareButton({
             title: title || "나의 공간",
             description:
               (text && text.slice(0, 80)) ||
-              "정보관리기술사 학습 — 두음신공 + 답안쓰기",
+              "정보관리기술사 학습 — 암기 훈련 + 답안쓰기",
             imageUrl: `${origin}/api/og`,
             link: links,
           },

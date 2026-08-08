@@ -117,7 +117,7 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     const status = err instanceof AIConfigError ? 503 : 500;
     return NextResponse.json(
-      { error: err instanceof Error ? err.message : "두음신공 생성에 실패했습니다." },
+      { error: err instanceof Error ? err.message : "암기 카드 생성에 실패했습니다." },
       { status },
     );
   }

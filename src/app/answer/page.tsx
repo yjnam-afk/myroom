@@ -340,7 +340,7 @@ export default function AnswerPage() {
             <div className="rounded-2xl border border-brand-200 bg-white p-6 shadow-sm">
               <h3 className="text-sm font-bold text-brand-700">🔑 답안 힌트</h3>
               <div className="mt-3 rounded-xl bg-gradient-to-br from-brand-50 to-slate-50 p-4 text-center">
-                <div className="text-xs font-medium text-brand-500">두음신공</div>
+                <div className="text-xs font-medium text-brand-500">두음</div>
                 <div className="mt-1 text-2xl font-extrabold tracking-wide text-brand-700">
                   {hint.mnemonic}
                 </div>

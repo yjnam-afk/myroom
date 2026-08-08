@@ -91,7 +91,7 @@ function ExplainInner() {
     <div>
       <PageHeader
         title="💡 토픽 설명"
-        desc="여기는 이해 전용입니다 — 학습 카드(비유·실제 동작·실전 쓰임) + 교재 원본 + 슬라이드 + 내 도식. 암기는 🥷두음신공에서."
+        desc="여기는 이해 전용입니다 — 학습 카드(비유·실제 동작·실전 쓰임) + 교재 원본 + 슬라이드 + 내 도식. 암기는 🥷암기 훈련장에서."
       />
 
       <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -155,7 +155,7 @@ function ExplainInner() {
               }&auto=1`}
               className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-brand-700 hover:bg-slate-100"
             >
-              🥷 이 토픽 두음신공 학습 →
+              🥷 이 토픽 암기 훈련 →
             </Link>
           )}
         </div>

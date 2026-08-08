@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://myroom.vercel.app"),
   title: "나의 공간",
   description:
-    "기술사 답안은 '소설'이다 — 내 페이스대로 키워드 암기(두음신공)와 답안 쓰기를 훈련하는 나만의 정보관리기술사 학습 공간",
+    "기술사 답안은 '소설'이다 — 내 페이스대로 키워드 암기 훈련과 답안 쓰기를 훈련하는 나만의 정보관리기술사 학습 공간",
   openGraph: {
     title: "나의 공간",
     description:
-      "기술사 답안은 소설이다 ✍️ 두음신공 암기 + 키워드 답안쓰기 — 나만의 학습 아지트",
+      "기술사 답안은 소설이다 ✍️ 암기 훈련 + 키워드 답안쓰기 — 나만의 학습 아지트",
     siteName: "나의 공간",
     images: [{ url: "/api/og", width: 1200, height: 630 }],
     type: "website",
@@ -44,7 +44,7 @@ export default function RootLayout({
               <nav className="hidden gap-4 text-sm font-medium text-slate-600 xl:flex">
                 <Link href="/plan" className="font-semibold text-brand-600 hover:text-brand-700">🗓️ 계획</Link>
                 <Link href="/basics" className="hover:text-brand-600">🧱 용어사전</Link>
-                <Link href="/mnemonic" className="hover:text-brand-600">두음신공</Link>
+                <Link href="/mnemonic" className="hover:text-brand-600">암기 훈련장</Link>
                 <Link href="/commute" className="hover:text-brand-600">🚇 지하철</Link>
                 <Link href="/exam" className="hover:text-brand-600">기출문제</Link>
                 <Link href="/bank" className="hover:text-brand-600">🏦 문제은행</Link>

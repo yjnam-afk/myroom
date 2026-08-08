@@ -155,7 +155,7 @@ export function buildPlan(
       kind: "new",
       emoji: "🆕",
       title: `새 토픽 ${newPicks.length}개 시작 (중요도 ${imp} 우선)`,
-      detail: "두음신공으로 키워드부터 외우고 답안 소설을 써보세요.",
+      detail: "암기 훈련장에서 키워드부터 외우고 답안 소설을 써보세요.",
       href: mnemonicLink(newPicks[0], true),
       priority: 3,
       tone: "violet",
@@ -191,7 +191,7 @@ export function buildPlan(
   let subline: string;
   if (due.length + reviewDue.length === 0 && stats.total === 0) {
     headline = "오늘부터 시작해 볼까요? 🚀";
-    subline = "중요도 '상' 토픽부터 두음신공으로 키워드를 외워보세요.";
+    subline = "중요도 '상' 토픽부터 암기 훈련장에서 키워드를 외워보세요.";
   } else if (due.length > 0) {
     headline = `잊기 전에 오답 ${due.length}개부터 잡아요 📕`;
     subline = "복습은 타이밍이 전부예요. 가장 급한 것부터 코치가 정리했어요.";
