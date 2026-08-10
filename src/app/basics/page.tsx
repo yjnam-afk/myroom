@@ -26,7 +26,11 @@ type Term = {
     | "프로젝트 관리"
     | "SW공학·테스트"
     | "인공지능"
-    | "확률·통계";
+    | "확률·통계"
+    | "자료구조·알고리즘"
+    | "네트워크"
+    | "데이터베이스"
+    | "경영전략";
   def: string;
   /** 이 용어가 등장하는 대표 토픽(설명 페이지로 링크) */
   see?: string;
@@ -101,7 +105,6 @@ const TERMS: Term[] = [
   { ko: "Failover", en: "장애 절체", cat: "저장·안정성", def: "주 장비가 죽었을 때 대기 장비가 자동으로 넘겨받는 것.", see: "HA(High Availability)" },
   { ko: "Heartbeat", en: "심박 신호", cat: "저장·안정성", def: "서로 살아 있는지 확인하는 주기적 신호. 끊기면 죽은 것으로 보고 절체한다.", see: "HA(High Availability)" },
   { ko: "inode", en: "index node", cat: "저장·안정성", def: "유닉스에서 파일 한 개마다 붙는 정보 카드. 속성과 저장 위치를 담고, 이름은 안 담는다.", see: "유닉스의 inode" },
-  { ko: "트랜잭션", en: "Transaction", cat: "저장·안정성", def: "전부 되거나 전부 안 되거나 해야 하는 작업 묶음. 이체 = 출금+입금이 한 몸." },
   { ko: "롤백", en: "Rollback", cat: "저장·안정성", def: "하다 만 작업을 시작 전 상태로 되돌리는 것." },
 
   // ── 개발·PM·테스트 ──────────────────────────────────────────
@@ -236,6 +239,62 @@ const TERMS: Term[] = [
   { ko: "ANOVA", en: "Analysis of Variance", cat: "확률·통계", def: "집단이 셋 이상일 때 평균 차이가 진짜인지 F검정으로 판정하는 기법. 두 집단이면 t-검정.", see: "ANOVA(Analysis of variance)" },
   { ko: "베이즈 정리", en: "Bayes' Theorem", cat: "확률·통계", def: "새 증거를 보고 원래 알던 확률을 갱신하는 공식. 스팸 필터·의료 진단의 원리.", see: "베이즈 정리 (Bayes's theorem)" },
   { ko: "시계열", en: "Time Series", cat: "확률·통계", def: "시간 순서로 쌓인 데이터. 추세·순환·계절·불규칙 네 성분으로 나눠 보고 AR·MA·ARIMA로 예측한다.", see: "시계열분석" },
+
+  // ── 자료구조·알고리즘 ─────────────────────────────────────────
+  { ko: "자료구조", en: "Data Structure", cat: "자료구조·알고리즘", def: "데이터를 담는 그릇의 모양. 배열은 줄지은 사물함, 리스트는 사슬, 트리는 족보, 그래프는 노선도." },
+  { ko: "시간 복잡도", en: "Big-O", cat: "자료구조·알고리즘", def: "입력이 커질 때 일이 늘어나는 속도 등급. O(n²)이면 인원이 2배 될 때 일이 4배가 된다." },
+  { ko: "재귀", en: "Recursion", cat: "자료구조·알고리즘", def: "함수가 자기 자신을 다시 부르는 방식. 러시아 인형처럼 같은 문제의 더 작은 판을 반복해 푼다." },
+  { ko: "해시", en: "Hash", cat: "자료구조·알고리즘", def: "이름을 함수에 넣어 바로 서랍 번호를 얻는 초고속 찾기. 같은 번호가 나오는 충돌 처리가 숙제다." },
+  { ko: "트리", en: "Tree", cat: "자료구조·알고리즘", def: "뿌리에서 가지를 치며 내려가는 계층 구조. 폴더 구조나 조직도가 그대로 트리다." },
+  { ko: "그래프", en: "Graph", cat: "자료구조·알고리즘", def: "점(정점)과 선(간선)으로 관계를 그린 구조. 지하철 노선도·SNS 친구 관계가 그래프다." },
+  { ko: "정렬", en: "Sort", cat: "자료구조·알고리즘", def: "뒤죽박죽 데이터를 순서대로 세우는 것. 어떻게 세우느냐(버블·퀵·병합…)로 속도가 갈린다." },
+  { ko: "이진 탐색", en: "Binary Search", cat: "자료구조·알고리즘", def: "정렬된 목록을 반씩 접어 가며 찾기. 업다운 게임처럼 몇 번 만에 범위가 확 줄어든다." },
+
+  // ── 네트워크 ─────────────────────────────────────────────────
+  { ko: "패킷", en: "Packet", cat: "네트워크", def: "데이터를 소포처럼 잘게 나눈 전송 단위. 각자 주소를 달고 따로 여행한 뒤 도착지에서 재조립된다." },
+  { ko: "IP 주소", en: "IP Address", cat: "네트워크", def: "인터넷 세상의 집 주소. 패킷이 찾아갈 목적지 번호로, 부족해진 v4를 v6가 이어받는 중이다.", see: "IPv6" },
+  { ko: "포트", en: "Port", cat: "네트워크", def: "한 건물(컴퓨터) 안의 호실 번호. 웹은 80호, 메일은 25호처럼 서비스마다 드나드는 문이 다르다." },
+  { ko: "프로토콜", en: "Protocol", cat: "네트워크", def: "서로 다른 장비가 대화하기 위해 미리 정한 약속(말투·순서·형식). 계층별로 역할을 나눠 둔다.", see: "OSI 7 Layer (ISO 7498)" },
+  { ko: "라우팅", en: "Routing", cat: "네트워크", def: "패킷이 갈 길을 고르는 교차로 안내. 거리로 고르거나(거리벡터) 지도를 보고 고른다(링크상태).", see: "라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)" },
+  { ko: "DNS", en: "Domain Name System", cat: "네트워크", def: "naver.com 같은 이름을 IP 번호로 바꿔 주는 인터넷 전화번호부.", see: "DNS(Domain Name System)" },
+  { ko: "TCP/UDP", en: "TCP/UDP", cat: "네트워크", def: "등기우편(도착 확인·재전송 보장) vs 일반우편(빠르지만 확인 없음). 신뢰냐 속도냐의 선택.", see: "TCP 와 UDP 비교" },
+  { ko: "대역폭", en: "Bandwidth", cat: "네트워크", def: "도로의 차선 수. 넓을수록 한 번에 많은 데이터가 지나간다. 속도가 아니라 '폭'이다.", see: "QoS(Quality of Service)" },
+  { ko: "지연", en: "Latency", cat: "네트워크", def: "데이터가 출발해 도착할 때까지 걸리는 시간. 차선(대역폭)이 아무리 넓어도 거리가 멀면 늦는다." },
+  { ko: "핸드셰이크", en: "Handshake", cat: "네트워크", def: "통신을 시작하기 전 서로 준비됐는지 확인하는 악수 절차. TCP는 세 번 악수하고 시작한다.", see: "TCP 연결의 설정 및 해제(Handshaking)" },
+  { ko: "혼잡 제어", en: "Congestion Control", cat: "네트워크", def: "도로가 막히면 차를 천천히 내보내는 속도 조절. 조금씩 늘리다 사고가 나면 확 줄인다.", see: "TCP 혼잡제어" },
+  { ko: "CDN", en: "Contents Delivery Network", cat: "네트워크", def: "인기 콘텐츠를 각 동네 창고에 미리 복사해 두고 가까운 곳에서 내주는 배급망.", see: "CDN(Contents Delivery Network)" },
+
+  // ── 데이터베이스 ─────────────────────────────────────────────
+  { ko: "트랜잭션", en: "Transaction", cat: "데이터베이스", def: "쪼갤 수 없는 작업 한 묶음. 계좌이체는 출금+입금이 전부 성공하거나 전부 취소돼야 한다.", see: "트랜잭션" },
+  { ko: "커밋/롤백", en: "Commit/Rollback", cat: "데이터베이스", def: "확정 도장(커밋)과 없던 일로 되돌리기(롤백). 트랜잭션의 두 결말.", see: "트랜잭션" },
+  { ko: "스키마", en: "Schema", cat: "데이터베이스", def: "데이터베이스의 설계도. 어떤 표에 어떤 칸이 있고 서로 어떻게 이어지는지를 정의한다.", see: "ANSI/SPARC 모델(3-단계 데이터베이스 구조) / 데이터 독립성" },
+  { ko: "릴레이션(테이블)", en: "Relation", cat: "데이터베이스", def: "행과 열로 된 표. 관계형 DB는 모든 데이터를 이 표에 담는다.", see: "릴레이션 키(key)" },
+  { ko: "기본키", en: "Primary Key", cat: "데이터베이스", def: "행 하나를 유일하게 구별하는 대표 번호표. 사람으로 치면 주민등록번호.", see: "릴레이션 키(key)" },
+  { ko: "외래키", en: "Foreign Key", cat: "데이터베이스", def: "다른 표의 기본키를 가리키는 연결 고리. 주문 표가 고객 표의 번호를 들고 있는 식.", see: "릴레이션 키(key)" },
+  { ko: "인덱스", en: "Index", cat: "데이터베이스", def: "책 뒤의 찾아보기. 표 전체를 안 뒤져도 원하는 행으로 바로 가게 해 준다.", see: "RDBMS 인덱스(index)" },
+  { ko: "조인", en: "Join", cat: "데이터베이스", def: "두 표를 공통 칸으로 이어 붙여 한 번에 보는 것. 고객 표+주문 표 → '누가 뭘 샀나'.", see: "조인(Join)" },
+  { ko: "정규화(DB)", en: "Normalization", cat: "데이터베이스", def: "중복을 없애 표를 잘게 나누는 정리 정돈. 같은 정보가 두 곳에 있으면 언젠가 어긋난다.", see: "데이터베이스 정규화(Normalization)" },
+  { ko: "락", en: "Lock", cat: "데이터베이스", def: "동시에 같은 데이터를 고치지 못하게 거는 잠금. 화장실 문 잠금과 같은 원리다.", see: "DB 동시성제어" },
+  { ko: "백업/복구", en: "Backup/Recovery", cat: "데이터베이스", def: "사고에 대비해 사본을 떠 두고(백업), 사고가 나면 로그로 되살리는(복구) 안전장치.", see: "DB 회복기법" },
+  { ko: "쿼리", en: "Query", cat: "데이터베이스", def: "데이터베이스에 던지는 질문. '3월 주문 전부 보여줘'를 SQL 문장으로 쓴 것.", see: "SQL(Structured Query Language)" },
+  { ko: "메타데이터", en: "Metadata", cat: "데이터베이스", def: "데이터에 대한 데이터. 사진의 촬영일·위치처럼, 데이터의 이름·형식·출처 같은 신상 정보.", see: "데이터 거버넌스(Data Governance)" },
+  { ko: "CDC", en: "Change Data Capture", cat: "데이터베이스", def: "원본 DB의 변경분만 실시간으로 베껴 다른 DB에 전달하는 복제 기술.", see: "쿼리오프로딩(Query offloading)" },
+
+  // ── 경영전략 ─────────────────────────────────────────────────
+  { ko: "거버넌스", en: "Governance", cat: "경영전략", def: "'누가 무엇을 결정하고 책임지는가'의 체계. 일 자체(운영)가 아니라 통제·감독의 틀이다.", see: "IT 거버넌스(IT-Governance)" },
+  { ko: "프레임워크", en: "Framework", cat: "경영전략", def: "일하는 틀. 바닥부터 고민하지 않도록 앞사람들이 정리해 둔 뼈대와 절차.", see: "ITIL(IT Infrastructure Library) 4.0" },
+  { ko: "SLA", en: "Service Level Agreement", cat: "경영전략", def: "서비스 수준을 숫자로 약속한 계약서. '가동률 99.9% 보장' 같은 조항이 들어간다.", see: "ITSM(Information Technology Service Management)" },
+  { ko: "아웃소싱", en: "Outsourcing", cat: "경영전략", def: "내 일을 외부 전문 업체에 맡기는 것. 맡기는 만큼 수준을 재는 계약(SLA)이 중요해진다.", see: "ITSM(Information Technology Service Management)" },
+  { ko: "BCP/DR", en: "Business Continuity/Disaster Recovery", cat: "경영전략", def: "재해가 나도 사업을 멈추지 않는 계획(BCP)과 시스템을 되살리는 복구(DR).", see: "BCP (Business Continuity Planning)" },
+  { ko: "RTO/RPO", en: "Recovery Time/Point Objective", cat: "경영전략", def: "언제까지 복구할지(RTO)와 데이터를 어느 시점까지 포기할 수 있는지(RPO)의 목표치.", see: "BIA (Business Impact Analysis)" },
+  { ko: "컴플라이언스", en: "Compliance", cat: "경영전략", def: "법과 규제를 지키는 것. 안 지키면 벌금·제재가 따라오니 시스템 차원에서 대비한다.", see: "IT-Compliance" },
+  { ko: "포트폴리오", en: "Portfolio", cat: "경영전략", def: "사업·제품을 바구니에 담아 한눈에 보는 것. 어디에 더 투자하고 어디서 뺄지를 정한다.", see: "BCG Matrix" },
+  { ko: "RFP", en: "Request For Proposal", cat: "경영전략", def: "'이런 시스템을 만들어 주세요'라고 조건을 적어 업체들에게 보내는 공식 제안요청서.", see: "ISMP (Information System Master Plan)" },
+  { ko: "ROI", en: "Return On Investment", cat: "경영전략", def: "투자 대비 수익 비율. 1억을 넣어 1.2억을 벌면 ROI 20%.", see: "IT 투자성과 평가" },
+  { ko: "NPV", en: "Net Present Value", cat: "경영전략", def: "미래에 벌 돈을 현재 가치로 환산해 더한 것. '내년의 1억'은 오늘의 1억보다 싸다.", see: "IT 투자성과 평가" },
+  { ko: "KPI", en: "Key Performance Indicator", cat: "경영전략", def: "목표 달성을 재는 핵심 숫자. 매출·가동률·불량률처럼 계기판에 올려 두는 지표.", see: "OKR" },
+  { ko: "캐즘", en: "Chasm", cat: "경영전략", def: "신제품이 얼리어답터를 넘어 대중 시장으로 가기 직전 수요가 뚝 끊기는 골짜기.", see: "기술수용 주기(Technology Adoption Life Cycle)" },
+  { ko: "페르소나", en: "Persona", cat: "경영전략", def: "대표 사용자를 가상 인물로 구체화한 것. '38세 워킹맘 김OO'처럼 얼굴을 붙여 설계한다.", see: "디자인 씽킹(Design Thinking)" },
 ];
 
 const CATS = [
@@ -250,6 +309,10 @@ const CATS = [
   "SW공학·테스트",
   "인공지능",
   "확률·통계",
+  "자료구조·알고리즘",
+  "네트워크",
+  "데이터베이스",
+  "경영전략",
 ] as const;
 
 /** 바닥판 10줄 — 에세이 대신 한 줄씩만. */
@@ -273,8 +336,26 @@ const COURSE_LABEL: Record<string, string> = {
   SE: "SW공학",
   AI: "인공지능",
   ST: "확률·통계",
+  DS: "자료구조",
+  AL: "알고리즘",
+  NW: "네트워크",
+  DB: "데이터베이스",
+  MG: "경영전략",
 };
-const COURSE_KEYS = ["전체", "OS", "CA", "PM", "SE", "AI", "ST"] as const;
+const COURSE_KEYS = [
+  "전체",
+  "OS",
+  "CA",
+  "PM",
+  "SE",
+  "AI",
+  "ST",
+  "DS",
+  "AL",
+  "NW",
+  "DB",
+  "MG",
+] as const;
 
 export default function BasicsPage() {
   const [tab, setTab] = useState<"book" | "easy">("book");

@@ -91,7 +91,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "CISC vs RISC",
     course: "CA",
     definition: "명령어 구성 방식에 따른 CPU 유형",
-    defShort: "명령어 집합을 복잡하게 두느냐 축소하느냐로 갈리는 두 가지 CPU 구조 설계 방식",
+    defShort: "명령어 집합을 복잡하게 둔 CISC와 단순하게 축소한 RISC의 CPU 설계 방식",
     lead:
       "명령어 집합 구조의 양대 방식, CISC vs RISC",
     features: ["복잡도 상반", "성능 상충", "용도 특화"],
@@ -533,7 +533,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "I2C(Inter Integrated Circuit)와 SPI(Serial Peripheral Interface)",
     course: "CA",
     definition: "시리얼(Serial) 통신 방식",
-    defShort: "임베디드 장치 사이에서 데이터를 한 줄로 주고받는 두 가지 대표적 시리얼 통신 방식",
+    defShort: "임베디드 보드의 장치 사이에서 적은 신호선으로 데이터를 주고받는 직렬 통신 방식",
     lead:
       "임베디드 시리얼 통신의 양대 방식, I2C와 SPI",
     features: ["직렬 전송", "선 수 차이", "속도 상반"],
@@ -751,7 +751,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "CA",
     definition:
       "캐시의 일관성을 유지하기 위해서 별도의 Flag를 할당한 후 Flag의 상태를 확인하여 데이터의 유효 여부를 판단할 수 있는 프로토콜",
-    defShort: "캐시 블록에 네 가지 상태 플래그를 두어 데이터의 유효성을 판단하는 일관성 프로토콜",
+    defShort: "캐시 블록에 M·E·S·I 상태를 두어 유효성을 판단하는 캐시 일관성 프로토콜",
     lead:
       "캐시 일관성 유지 프로토콜, MESI",
     features: ["상태 4종", "스누핑 기반", "무효화 중심"],
@@ -3497,7 +3497,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "PM",
     definition:
       "프로젝트 일정산정에 있어 낙관치(O), 비관치(P), 평균치(M) 의 산정 값을 계산하여 일정을 산정하는 기법",
-    defShort: "낙관치와 비관치, 평균치 세 가지 값을 계산해 프로젝트 전체 일정을 산정하는 기법",
+    defShort: "낙관치와 비관치, 평균치를 가중 평균하여 프로젝트의 전체 일정을 산정하는 기법",
     lead:
       "불확실성을 반영한 일정 산정, 3점 산정",
     features: ["불확실성 반영", "가중 평균", "위험 계량화"],
@@ -3668,7 +3668,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "PM",
     definition:
       "품질의 개발, 개선, 관리의 제 활동에 대한 유용한 도구로, 데이터의 기초적인 정리 방법으로 널리 쓰이며, 품질관리를 하는데 있어서 가장 필수적인 통계적 방법",
-    defShort: "품질의 개발·개선·관리 활동에 쓰이는 데이터 기초 정리용 일곱 가지 통계적 도구",
+    defShort: "품질의 개발·개선·관리 활동에서 데이터를 정리해 문제를 찾는 통계적 도구 묶음",
     lead:
       "데이터 기반 품질 통제, 품질통제도구 QC 7",
     features: ["시각화", "통계 기반", "원인 규명"],
@@ -3898,7 +3898,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "PM",
     definition:
       "갈등: 목적, 이해 또는 아이디어 등과 관련하여 구성원 사이에 강한 불합의나 불일치가 있는 현상",
-    defShort: "목적이나 아이디어를 둘러싼 구성원 사이의 강한 불일치를 다루는 다섯 가지 관리 기법",
+    defShort: "목적이나 아이디어를 둘러싼 구성원 사이의 강한 불일치를 진단하고 조정하는 활동",
     lead:
       "구성원 간 불일치 해소, 갈등관리",
     features: ["상황 의존", "2축 분류", "협력 지향"],
@@ -4512,7 +4512,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "객체지향 설계 원리",
     course: "SE",
     definition: "소프트웨어 개발 및 유지보수성 향상을 위한 설계관점의 기본원칙",
-    defShort: "소프트웨어의 개발 및 유지보수성 향상을 위한 설계 관점의 다섯 가지 기본적인 원칙",
+    defShort: "소프트웨어의 개발과 유지보수성 향상을 위해 따르는 객체지향 설계 관점의 기본 원칙",
     lead:
       "유지보수성 향상 원칙, 객체지향 설계 원리 SOLID",
     features: ["낮은 결합도", "높은 응집도", "확장 용이성"],
@@ -5753,7 +5753,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "SE",
     definition:
       "결함 발견·불완전·초기 시작·결함 집중·살충제 패러독스·정황 의존·오류 부재의 궤변 등 SW 테스트가 따르는 7가지 원리",
-    defShort: "결함 발견·결함 집중·살충제 패러독스 등 SW 테스트가 따르는 일곱 가지 기본 원리",
+    defShort: "결함 발견과 결함 집중, 살충제 패러독스 등 SW 테스트가 따르는 기본적인 원리 묶음",
     lead:
       "테스트가 따르는 기본 법칙, 테스트 원리 7가지",
     features: ["결함 발견", "조기 착수", "완전성 한계"],
@@ -6650,7 +6650,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "AI",
     definition:
       "정규화: 데이터를 일정한 범위로 변환하여 특징간의 스케일 차이를 맞추는 기법 / 규제화: 모델의 과적합을 방지하기 위해 손실함수에 패널티 항을 추가하는 기법 / 표준화: 데이터를 평균 0, 표준편차 1을 갖는 표준정규분포로 변환하는 데이터 전처리 기법",
-    defShort: "입력 스케일을 맞추는 정규화·표준화와 가중치에 패널티를 주는 규제화 세 가지 기법",
+    defShort: "입력 스케일을 맞추는 정규화·표준화와 가중치에 패널티를 주는 규제화 학습 기법",
     lead:
       "스케일 조정과 과적합 억제, 정규화·규제화·표준화",
     features: ["스케일 통일", "패널티 부여", "목적 상이"],
@@ -10224,7 +10224,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "ST",
     definition:
       "AIC: 모델의 적합도(log-likelihood)와 변수 개수(모델 복잡도)를 동시에 고려하는 지표 / BIC: 표본 크기 n을 고려하여 복잡한 모델에 더 큰 패널티를 부여하는 지표",
-    defShort: "모델의 적합도와 복잡도를 함께 고려하여 최적의 모델을 선택하는 두 가지 평가 지표",
+    defShort: "모델의 적합도와 복잡도를 함께 고려하여 최적의 모델을 선택하도록 돕는 평가 지표",
     lead:
       "모델 선택의 두 잣대, AIC와 BIC",
     features: ["적합도·복잡도", "패널티 차등", "비교 선택"],
@@ -10785,7 +10785,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "SE",
     definition:
       "소프트웨어의 지속적 진화에 대해 3가지 Type으로 분류하고 그 진화에 대해 설명한 8가지 원리 (Software 변화의 법칙)",
-    defShort: "소프트웨어의 지속적 진화를 세 가지 유형과 여덟 가지 원리로 설명한 변화의 법칙들",
+    defShort: "소프트웨어가 사용되는 한 지속적으로 진화한다는 사실을 설명한 변화의 법칙 묶음",
     lead:
       "소프트웨어 진화의 법칙, Lehman의 변화의 원리",
     features: ["지속 변경", "복잡도 증가", "품질 저하"],
@@ -11552,7 +11552,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "SE",
     definition:
       "정보처리 규모와 기능의 복잡도 요인에 의거한 SW 규모 산정 방식",
-    defShort: "정보처리 규모와 기능의 복잡도 요인에 의거해 SW 규모를 산정하는 대표적인 방식",
+    defShort: "정보처리 규모와 기능의 복잡도 요인에 의거하여 SW 규모를 산정하는 정량적 방식",
     lead:
       "기능 단위의 규모 측정, Function Point",
     features: ["언어 독립", "기능 기반", "국제 표준"],
@@ -13648,7 +13648,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "FEC(Forward Error Correction) / BEC(Backward Error Correction)",
     course: "NW",
     definition: "잉여비트를 통한 에러 복원 혹은 재전송을 통하여 오류를 제어하는 기법",
-    defShort: "잉여비트로 스스로 복원하거나 재전송을 통해 오류를 정정하는 두 가지 오류 제어 기법",
+    defShort: "잉여비트로 스스로 복원하는 FEC와 재전송으로 정정하는 BEC 오류 제어 기법",
     lead:
       "오류 제어의 두 방향, FEC와 BEC",
     features: ["자체 복원", "재전송 정정", "대역폭 상충"],
@@ -15849,7 +15849,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "DB",
     definition:
       "CAP: 분산시스템이 갖출 수 있는 일관성, 가용성, 부분결함허용 3가지 특성 중 2가지만 선택 가능하다는 이론 / BASE: 가용성, 성능 향상을 중시하며 일관성 유지하는 분산시스템 특성",
-    defShort: "분산시스템의 일관성·가용성·부분결함허용 세 특성 중 두 가지만 선택 가능한 이론",
+    defShort: "분산시스템이 일관성과 가용성, 부분결함허용을 모두 동시에 만족할 수 없다는 이론",
     lead:
       "분산시스템 특성의 선택 이론, CAP 이론과 BASE 이론",
     features: ["2가지만 선택", "가용성 중시", "결과적 일관성"],

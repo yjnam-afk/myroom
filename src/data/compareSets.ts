@@ -1216,4 +1216,146 @@ export const compareSets: CompareSet[] = [
       { name: "OKR", hint: "도전 목표·핵심결과·주기 짧음" },
     ],
   },
+  // ─────────────── 5주차 보강: 데이터베이스 (교재 비교표 기반) ───────────────
+  {
+    category: "데이터베이스",
+    title: "쿼리 오프로딩 vs 샤딩",
+    axis: "트랜잭션을 유형별 분리 vs 데이터를 인스턴스로 분할",
+    items: [
+      { name: "쿼리오프로딩(Query offloading)", hint: "Update/Read 분리·CDC·성능 향상" },
+      { name: "데이터베이스 샤딩(Sharding)", hint: "수평 분할·Shard·용량한계 극복" },
+    ],
+  },
+  {
+    category: "데이터베이스",
+    title: "샤딩 vs 파티셔닝",
+    axis: "여러 DB 인스턴스 vs 한 인스턴스 안 분할",
+    items: [
+      { name: "데이터베이스 샤딩(Sharding)", hint: "별도 서버 분산·Master Node 관리" },
+      { name: "데이터베이스 파티셔닝(Partitioning)", hint: "동일 서버·수평/수직·Master 없음" },
+    ],
+  },
+  {
+    category: "데이터베이스",
+    title: "EDA vs CDA",
+    axis: "탐정(가설 도출) vs 판사(가설 검정)",
+    items: [
+      { name: "탐색적 데이터 분석과 확증적 데이터 분석", hint: "EDA: 시각화 탐색·인사이트 발견" },
+      { name: "확증적 데이터 분석(CDA)", hint: "가설 설정 → P-value로 수용/기각" },
+    ],
+  },
+  {
+    category: "데이터베이스",
+    title: "연관분석 알고리즘 3형제",
+    axis: "후보 집합을 어떻게 줄이나",
+    items: [
+      { name: "Apriori 알고리즘", hint: "후보 생성·최소 지지도·가지치기" },
+      { name: "DHP(Direct Hashing & Pruning) 알고리즘", hint: "해시 버킷 count로 후보 축소" },
+      { name: "FP(Frequent Pattern)-Growth 알고리즘", hint: "후보 생성 제거·FP-Tree 압축" },
+    ],
+  },
+  {
+    category: "데이터베이스",
+    title: "데이터 마이닝 방법론",
+    axis: "누가 만들었고 몇 단계로 도나",
+    items: [
+      { name: "KDD", hint: "Fayyad·선택→전처리→변환→마이닝→평가" },
+      { name: "SEMMA", hint: "SAS·Sample→Explore→Modify→Model→Assess" },
+      { name: "CRISP-DM", hint: "비즈니스 중심·4레벨 6단계" },
+    ],
+  },
+  {
+    category: "데이터베이스",
+    title: "레이크 vs 웨어하우스 vs 레이크하우스",
+    axis: "원본 그대로 vs 정제된 주제지향 vs 결합",
+    items: [
+      { name: "데이터 레이크", hint: "정형·비정형 원본 통합 보관" },
+      { name: "데이터 웨어하우스", hint: "주제지향·시계열·정제 분석" },
+      { name: "데이터 레이크하우스(Data Lakehouse)", hint: "둘의 결합·ACID·스키마 관리" },
+    ],
+  },
+  {
+    category: "데이터베이스",
+    title: "MVCC 구현 두 방식",
+    axis: "새 행을 옆에 쓰나, 제자리에 쓰고 과거를 보관하나",
+    items: [
+      { name: "MGA(Multi Generation Architecture)", hint: "PostgreSQL·새 행 추가·VACUUM" },
+      { name: "Rollback Segment", hint: "Oracle·제자리 갱신·이전 이미지 보관" },
+    ],
+  },
+  {
+    category: "데이터베이스",
+    title: "데이터 가치 평가 vs 기술 가치 평가",
+    axis: "무엇의 경제적 가치를 매기나 (접근법은 동일 골격)",
+    items: [
+      { name: "데이터 가치 평가", hint: "데이터 기본법 14조·경할기 변수" },
+      { name: "기술 가치 평가", hint: "기권시사 요인·수원시 접근법" },
+    ],
+  },
+
+  // ─────────────── 5주차 보강: 경영전략 (교재 비교표 기반) ───────────────
+  {
+    category: "경영전략",
+    title: "OKR vs MBO",
+    axis: "도전적 정성 목표 vs 정량 목표 관리",
+    items: [
+      { name: "OKR", hint: "1970 인텔·KR·Moon-Shot·Bottom-up" },
+      { name: "MBO", hint: "1950 드러커·KPI·Roof-Shot·Top-down" },
+    ],
+  },
+  {
+    category: "경영전략",
+    title: "BSC vs IT-BSC 관점 매핑",
+    axis: "기업 성과 4관점 ↔ IT 투자 4관점",
+    items: [
+      { name: "BSC (Balanced Scorecard), IT-BSC (IT-Balanced Scorecard)", hint: "재무↔기업공헌·고객↔사용자" },
+      { name: "IT-BSC", hint: "내부프로세스↔운영·학습성장↔미래지향" },
+    ],
+  },
+  {
+    category: "경영전략",
+    title: "ISP vs EA/ITA vs ISMP",
+    axis: "전사 전략 vs 청사진 vs 단위 사업 상세",
+    items: [
+      { name: "ISP (Information Strategy Planning)", hint: "전사 정보화 전략·To-Be 로드맵" },
+      { name: "EA/ITA", hint: "업무-IT 관계 청사진·참조모델" },
+      { name: "ISMP (Information System Master Plan)", hint: "단위 프로젝트·RFP·예산" },
+    ],
+  },
+  {
+    category: "경영전략",
+    title: "리빙랩 vs S.O.S랩",
+    axis: "시민 참여 문제 해결 vs SW 기반 지역 생태계",
+    items: [
+      { name: "리빙랩(Living Lab), S.O.S랩", hint: "리빙랩: Bottom-up 나선·기탐실평공" },
+      { name: "S.O.S랩", hint: "SW 해결·Top-down 병행·조개구실공사" },
+    ],
+  },
+  {
+    category: "경영전략",
+    title: "BCG vs GE 매트릭스",
+    axis: "2축 4분면 vs 다차원 9칸",
+    items: [
+      { name: "BCG Matrix", hint: "성장률×점유율·별들에게 물어봐" },
+      { name: "GE 매트릭스", hint: "산업 매력도×경쟁력·투자/선별/철수" },
+    ],
+  },
+  {
+    category: "경영전략",
+    title: "주목 경제 vs 의도 경제",
+    axis: "시선을 끄나, 의도를 읽나",
+    items: [
+      { name: "주목 경제(Attention Economy)", hint: "제품 노출·수동적 소비자·Funnel" },
+      { name: "의도 경제(Intention Economy)", hint: "의도 파악·능동적 소비자·LLM 추천" },
+    ],
+  },
+  {
+    category: "경영전략",
+    title: "그로스 해킹 vs 시빅 해킹",
+    axis: "기업의 성장 vs 시민의 공공 혁신",
+    items: [
+      { name: "그로스 해킹(Growth hacking)", hint: "데이터 기반·AARRR 퍼널" },
+      { name: "시빅 해킹(Civic Hacking)", hint: "시민 협업·공공데이터·삶의 질" },
+    ],
+  },
 ];
