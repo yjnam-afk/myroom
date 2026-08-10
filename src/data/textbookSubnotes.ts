@@ -16015,7 +16015,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       "고차원 벡터 공간에서 주어진 쿼리 벡터에 가장 가까운 이웃(neighbor)을 빠르게 찾기 위한 근사 최근접 이웃 알고리즘",
     defShort: "고차원 벡터 공간에서 쿼리 벡터에 가장 가까운 이웃들을 빠르게 찾는 근사 탐색 기법",
     lead:
-      "쿼리 벡터의 근사 이웃 탐색, ANN(Approximate Nearest Neighbor) 알고리즘",
+      "쿼리 벡터의 근사 이웃 탐색, ANN 알고리즘",
     features: ["공간 분할", "그래프 탐색", "압축·양자화"],
     keywords: ["고차원 벡터 유사성 탐색", "k-d 트리", "LSH", "HNSW", "NSG", "IVF", "PQ", "벡터DB"],
     tables: [
@@ -17474,7 +17474,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       "클라우드 서비스를 이용하여 데이터, 어플리케이션 등을 백업한 후 재해와 정전, 사이버공격, 기타 비즈니스 장애가 발생하는 경우 데이터 복제, 호스팅, 복구 등을 제공하는 서비스",
     defShort: "클라우드에 백업한 뒤 장애 발생 시 데이터 복제·호스팅·복구를 제공하는 서비스",
     lead:
-      "클라우드 재해복구 서비스, DRaaS(Disaster Recovery as a Service)",
+      "클라우드 재해복구 서비스, DRaaS",
     features: ["클라우드 DR", "짧은 RPO", "모델 3유형"],
     keywords: ["재해복구", "Failover", "Failback", "Replication", "DRaaS 모델(관리형, 지원형, DIY형)"],
     tables: [
@@ -17941,7 +17941,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       "조직의 중장기 마스터 플랜을 지원하기 위한 정보시스템을 계획하고 전략을 수립하는 활동",
     defShort: "조직의 중장기 마스터 플랜 지원 위해 정보시스템을 계획하고 전략을 수립하는 활동",
     lead:
-      "중장기 정보화 전략 수립, ISP(Information Strategy Planning)",
+      "중장기 정보화 전략 수립, ISP",
     features: ["중장기 계획", "전사 대상", "To-Be 설계"],
     keywords: ["환경분석", "현황분석", "정보화 비전 및 전략 수립", "목표모델설계", "통합 이행계획"],
     tables: [
@@ -17975,7 +17975,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       "특정 SW 개발 사업에 대한 상세 분석과 제안요청서(RFP)를 마련하기 위해 기능점수 도출 가능수준까지 요건을 기술하여 구축전략 및 이행 전략 수립하는 활동",
     defShort: "SW 사업의 RFP 마련 위해 기능점수 수준까지 요건을 기술해 전략 수립하는 활동",
     lead:
-      "RFP 수준의 상세 계획, ISMP(Information System Master Plan)",
+      "RFP 수준의 상세 계획, ISMP",
     features: ["RFP 산출", "기능점수 수준", "단위 프로젝트"],
     keywords: ["프로젝트 착수 및 참여자 결정", "정보시스템 방향성 수립", "업무 및 정보기술 요건 분석", "정보시스템 구조 및 요건 정의", "정보시스템 구축 사업 이행방안 수립"],
     tables: [
@@ -18556,6 +18556,11 @@ function okLoose(needleTitle: string, haystackTitle: string): boolean {
     if (okStart && okEnd) return true;
   }
   const bareNeedle = norm(needleTitle);
+  // 경계에서 못 걸렸다면 띄어쓰기 변형 구제용 폴백인데, 괄호를 뗀 알맹이가
+  // 상대 제목의 절반도 안 되는 길이면 다른 토픽의 한 조각일 가능성이 크다 —
+  // "데이터 품질관리(ISO 8000)" 가 "인공지능 학습용 데이터 품질관리 가이드라인"
+  // 을 잘못 무는 사고를 막는다.
+  if (bare(needleTitle).length * 2 < bare(haystackTitle).length) return false;
   return /[가-힣]/.test(bareNeedle) || bareNeedle.length >= 6;
 }
 
