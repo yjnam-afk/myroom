@@ -57180,7 +57180,7 @@
   "category": "데이터베이스",
   "importance": "중",
   "definition": "시스템별로 산재한 데이터 정보 요소의 명칭·정의·형식·규칙에 대한 원칙을 수립하고 전사적으로 일관되게 적용하는 데이터 관리 활동.",
-  "defShort": "",
+  "defShort": "데이터 명칭과 정의, 형식, 규칙에 대한 원칙을 수립해 전사적으로 적용하는 활동",
   "memo": "명정형규 — 이름 짓고(명) 뜻 정하고(정) 형식 맞추고(형) 규칙 건다(규).",
   "sections": [
    {
@@ -57448,7 +57448,7 @@
   "category": "데이터베이스",
   "importance": "출제예상",
   "definition": "Update 트랜잭션과 Read 트랜잭션을 분리해 DB 처리량 증가시켜 성능을 향상시키는 기법",
-  "defShort": "",
+  "defShort": "Update와 Read 트랜잭션을 분리하여 DB 처리량과 성능을 높이는 기법",
   "memo": "RU (Read·Update)",
   "sections": [
    {
