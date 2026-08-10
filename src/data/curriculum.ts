@@ -614,9 +614,53 @@ const DB_ALL: CurriculumTopic[] = [
   { title: "DaaP(Data as a product)", priority: "중" },
 ];
 
-// 5주차 — 데이터베이스 단일 과목.
+// 5주차 경영전략(MG) — 교재 CONTENTS 39토픽. ★★★=상, ★★=중, ★=하.
+const MG_ALL: CurriculumTopic[] = [
+  { title: "기술 부채", priority: "하" },
+  { title: "리빙랩(Living Lab), S.O.S랩", priority: "하" },
+  { title: "ITIL(IT Infrastructure Library) 4.0", priority: "상" },
+  { title: "ITSM(Information Technology Service Management)", priority: "중" },
+  { title: "서비스 수준 관리 (SLM, Service Level Management)", priority: "중" },
+  { title: "BCP (Business Continuity Planning)", priority: "중" },
+  { title: "BIA (Business Impact Analysis)", priority: "중" },
+  { title: "BCP 지표 중 MBCO, MTPD, MAO", priority: "하" },
+  { title: "DRS (Disaster Recovery System)", priority: "중" },
+  { title: "DRaaS", priority: "하" },
+  { title: "ISO 22301", priority: "중" },
+  { title: "디지털 안전 3법", priority: "하" },
+  { title: "IT 거버넌스", priority: "상" },
+  { title: "ISO 38500:2024", priority: "중" },
+  { title: "IT-Compliance", priority: "하" },
+  { title: "환경분석", priority: "상" },
+  { title: "가치사슬(Value Chain)", priority: "하" },
+  { title: "BCG Matrix", priority: "하" },
+  { title: "Ansoff Matrix", priority: "하" },
+  { title: "PDCA(Plan-Do-Check-Act, Deming Cycle)", priority: "하" },
+  { title: "MECE와 LISS", priority: "하" },
+  { title: "ISP 및 ISMP 수립 공통가이드 9판(2025.05)", priority: "상" },
+  { title: "ISP (Information Strategy Plan)", priority: "중" },
+  { title: "ISMP (Information System Master Plan)", priority: "중" },
+  { title: "정보시스템 하드웨어 규모산정 지침", priority: "상" },
+  { title: "TRL(Technology Readiness Level)", priority: "하" },
+  { title: "기술수용 주기(Technology Adoption Life Cycle)", priority: "하" },
+  { title: "IT 투자성과 평가", priority: "상" },
+  { title: "기술 가치 평가", priority: "중" },
+  { title: "지식재산권", priority: "하" },
+  { title: "OKR", priority: "하" },
+  { title: "BSC (Balanced Scorecard), IT-BSC (IT-Balanced Scorecard)", priority: "하" },
+  { title: "ESG 경영", priority: "하" },
+  { title: "디자인 씽킹(Design Thinking)", priority: "하" },
+  { title: "서비타이제이션(Servitization)", priority: "하" },
+  { title: "프로토콜 경제(Protocol Economy)", priority: "하" },
+  { title: "의도 경제(Intention Economy)", priority: "하" },
+  { title: "그로스 해킹(Growth hacking)", priority: "하" },
+  { title: "시빅 해킹(Civic Hacking)", priority: "하" },
+];
+
+// 5주차 — 데이터베이스 + 경영전략.
 const WEEK5_DAYS: CurriculumDay[] = studyDays([
   { name: "데이터베이스(DB)", topics: DB_ALL },
+  { name: "경영전략(MG)", topics: MG_ALL },
 ]);
 
 export const WEEKS: CurriculumWeek[] = [
@@ -712,7 +756,7 @@ export const WEEKS: CurriculumWeek[] = [
   {
     // 심화반 5주차 — 데이터베이스
     start: "2026-09-28",
-    title: "심화반 5주차 · 데이터베이스(DB)",
+    title: "심화반 5주차 · 데이터베이스(DB) + 경영전략(MG)",
     days: [
       ...WEEK5_DAYS,
       { kind: "review", label: "회독", note: "이번 주 배운 토픽을 다시 돌립니다." },
