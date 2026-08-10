@@ -15737,6 +15737,419 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
     notes: ["기출: 138회 정보관리 3교시", "개념도: Client ↔ 분산 DBMS ↔ 분산 네트워크(투명성, 2PC) ↔ 지역 DBMS들(메시지 교환, 지역자율성) — 사용자·통합 제어·DB Node 분산"],
   },
+  {
+    title: "2PC",
+    course: "DB",
+    definition:
+      "분산 데이터베이스 환경에서 원자성을 보장하기 위해 분산 트랜잭션에 관여하는 모든 노드가 Commit하거나, 모든 노드가 Rollback하는 메커니즘",
+    defShort: "분산 DB의 원자성 보장을 위하여 모든 노드가 함께 커밋하거나 롤백하는 합의 방식",
+    lead:
+      "분산 트랜잭션 원자성 보장, 2PC(2-Phase Commit)",
+    features: ["Prepare 단계", "Commit 단계", "전원 합의"],
+    keywords: ["Global Coordinator", "지역 노드", "Prepare/Commit"],
+    tables: [
+      {
+        caption: "구성요소",
+        headers: ["구성요소", "주요개념"],
+        rows: [
+          ["조정자 (Global Coordinator)", "분산 트랜잭션에 참여하는 참여자 목록을 가지며, 분산 트랜잭션 및 Global Commit을 시작하는 노드"],
+          ["지역 노드 (Local Coordinator)", "분산 트랜잭션에서 지역(local) 트랜잭션을 수행하는 서버. 조정자의 존재를 알고 그 결정에 따름"],
+          ["Commit Point Site", "Commit에 관련된 원격 Site. 분산 트랜잭션에 관여한 노드 중에서 제일 먼저 Commit이나 Rollback을 수행하는 노드로서, 제일 중요한 데이터를 포함하는 주요 노드"],
+          ["클라이언트(Client)", "다른 노드의 데이터베이스를 이용하는 노드"],
+        ],
+      },
+      {
+        caption: "단계",
+        headers: ["단계", "수행내역"],
+        rows: [
+          ["Phase 1 (Prepare 준비단계)", "1) 한 지역 노드에서 commit을 요구 2) Global Coordinator가 commit point site(관련된 원격 사이트) 결정 3) Global Coordinator가 Prepare 메시지를 전송하고 4) 원격 지역 노드는 Prepare 메시지에 응답 수행"],
+          ["Phase 2 (Commit 단계)", "5) 모두 commit 준비되었다는 메시지를 받았을 경우에는 commit을 명령함 6) 결정을 내려야 하는 Coordinator가 다른 노드로부터 에러보고를 받았을 때에는 Rollback 명령함"],
+        ],
+      },
+    ],
+    notes: ["개념도: ① Commit 요청 → ② Commit Point Site 결정 → ③ Prepare 메시지 전송 → ④ Prepare 메시지 응답 → ⑤ Commit/Rollback 명령 (Global Coordinator ↔ 지역 노드 1~N)"],
+  },
+  {
+    title: "NoSQL",
+    course: "DB",
+    definition:
+      "관계형 데이터베이스(RDBMS)의 테이블-컬럼과 같은 스키마 없이, 분산 환경에서 단순 검색 및 추가 작업이 용이하고, 지연(latency)과 처리율(throughput)이 높은 Database",
+    defShort: "스키마 없이 분산 환경에서 검색·추가가 쉽고 지연과 처리율이 높은 데이터베이스",
+    lead:
+      "스키마 없는 분산형 DB, NoSQL",
+    features: ["스키마 리스", "수평 확장", "유형 4종"],
+    keywords: ["비정형 데이터", "스키마 리스", "CAP", "PACELC", "Key-Value", "Document", "Column", "Graph"],
+    tables: [
+      {
+        caption: "NoSQL의 절차",
+        headers: ["단계", "절차", "설명"],
+        rows: [
+          ["탐색", "도메인 모델 파악", "저장하고자 하는 도메인 파악. 어떤 데이터 개체가 있는지 개체 간의 관계는 어떻게 되는지 등을 분석하고 ERD 활용하여 도식화"],
+          ["설계", "쿼리결과 디자인", "도메인 모델 기반으로 애플리케이션에 의해서 쿼리 되는 결과값을 정하여 데이터 출력 내용 기반으로 디자인"],
+          ["설계", "패턴을 이용한 데이터 모델링", "RDBMS 기능을 제공하지 않기 때문에 이를 배제하고 Put/Get으로만 데이터를 가지고 올 수 있는 형태로 데이터 모델, NoSQL 내의 테이블로 재정의"],
+          ["설계", "기능 최적화", "RDBMS의 Index 와 같은 이 개념을 NoSQL 에서 'Secondary Index'을 이용하여 기능의 최적화"],
+          ["최적화", "후보 NoSQL을 선정 및 테스트", "NoSQL에 대한 구조 및 특성을 분석한 후에 실제로 부하테스트, 안정성, 확장성 테스트를 거친 후에 가장 적절한 솔루션을 선택"],
+          ["최적화", "선정된 NoSQL의 데이터 모델 최적화 및 하드웨어 디자인", "선정된 NoSQL 을 기반으로 그에 적합한 데이터 모델 최적화 후 이에 맞는 어플리케이션 인터페이스 설계와 구동 시킬 하드웨어 디자인을 실시"],
+        ],
+      },
+      {
+        caption: "NoSQL의 유형 [키컬도그]",
+        headers: ["모델 유형", "설명"],
+        rows: [
+          ["Key-Value", "키와 값의 쌍으로 관리. 키를 사용 값을 확인하는 가장 기본적이며 단순한 NoSQL 데이터 모델. Key에 대한 단위연산 속도가 빠름. 키 범위(Key Range)처리 요구에 대한 적용이 안 되는 단점"],
+          ["Column Family (Ordered Key-Value)", "키 범위 처리 요구를 개선한 Key-Value 데이터 모델. 키를 기반으로 Sorting 하여 저장"],
+          ["Document Key/Value Store", "스키마 없이 임의의 속성을 추가할 수 있는 모델. Document Id 또는 특정 속성값 기준으로 order-preserving 하여 키 범위 처리에 대한 효율적인 연산이 가능. JSON, XML 형태로 구조적 문서 저장 가능. 쿼리 처리시 데이터를 Parsing하여 메모리 연산을 해야 하므로 처리 overhead가 큼"],
+          ["Graph 기반", "Entities와 Entities 간의 관계(relations)를 저장하는 데이터베이스 유형. 모든 Node(Vertex)와 Edge에 고유 식별자가 부여됨. Traversing relationship가 이미 DB에 저장되어 있어서 추가적인 계산이 필요 없기 때문에 검색 속도가 빠름"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "NoSQL 데이터모델링 패턴",
+    course: "DB",
+    definition:
+      "Key/Value 저장 구조에 Put/Get 밖에 없는 DBMS에 다양한 형태의 Query 지원을 위한 테이블 디자인 가이드",
+    defShort: "Put/Get뿐인 키·값 구조에 다양한 쿼리를 지원하는 테이블 디자인 가이드",
+    lead:
+      "쿼리 지원 테이블 설계 가이드, NoSQL 데이터모델링 패턴",
+    features: ["기본 패턴", "확장 패턴", "계층 패턴"],
+    keywords: ["기본 데이터 모델링 패턴", "확장 데이터 모델링 패턴", "계층 데이터 모델링 패턴"],
+    tables: [
+      {
+        caption: "기본적인 데이터모델링 패턴",
+        headers: ["패턴", "설명", "특징"],
+        rows: [
+          ["Denormalization", "같은 데이터를 중복해서 저장하는 방식. 중복해서 정보를 저장하여 Join을 없애고 한번의 I/O로 조회를 할 수 있는 패턴", "데이터 중복, RDBMS의 역정규화와 비슷, 성능 향상 가능"],
+          ["Aggregation", "1:n의 관계 최소화. row의 key만 똑같다면 각각의 row들이 꼭 같은 컬럼을 가질 필요도 없고, 데이터 타입도 모두 다르게 구성하는 패턴", "유연한 스키마 제공 (Scheme-less, Soft Scheme)"],
+          ["Application Side Join", "Join 기능이 필요한 경우 Client Application 단에서 Join 로직을 처리해주는 패턴", "Client 단 Join 처리, 일부 Server side Join 제공"],
+        ],
+      },
+      {
+        caption: "확장된 데이터모델링 패턴",
+        headers: ["패턴", "설명", "특징"],
+        rows: [
+          ["Atomic aggregation", "일관성 보장을 위해 테이블을 하나로 통합하는 패턴", "테이블 통합을 통한 트랜잭션의 일관성 보장"],
+          ["Index Table", "NoSQL에서는 인덱스가 지원되지 않음으로 별도의 인덱스 테이블을 만드는 패턴", "조회를 위한 인덱스 생성"],
+          ["Composite Key Table", "단일 인덱스 모델에서 복합 인덱스가 필요한 경우 복합 키 인덱스 모델로 구성하는 방법", "복합 인덱스 생성"],
+        ],
+      },
+      {
+        caption: "계층적인 데이터모델링 패턴",
+        headers: ["패턴", "설명"],
+        rows: [
+          ["Tree Aggregation", "Tree 구조 자체를 하나의 Value에 저장하는 방식으로 Tree 자체가 크지 않고, 변경이 많이 없는 경우 적용"],
+          ["Adjacent Lists", "Linked List와 같은 자료 구조형을 사용하여, 각 Tree 의 노드에 parent node에 대한 포인터와 child node 들에 대한 포인터를 저장하는 방식"],
+          ["Materialized Path", "Tree 구조를 테이블에 저장할 때, root에서 부터 현재 노드까지의 전체 경로를 key로 저장하는 방법"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "CAP 이론과 BASE 이론",
+    course: "DB",
+    definition:
+      "CAP: 분산시스템이 갖출 수 있는 일관성, 가용성, 부분결함허용 3가지 특성 중 2가지만 선택 가능하다는 이론 / BASE: 가용성, 성능 향상을 중시하며 일관성 유지하는 분산시스템 특성",
+    defShort: "분산시스템의 일관성·가용성·부분결함허용 세 특성 중 두 가지만 선택 가능한 이론",
+    lead:
+      "분산시스템 특성의 선택 이론, CAP 이론과 BASE 이론",
+    features: ["2가지만 선택", "가용성 중시", "결과적 일관성"],
+    keywords: ["일관성", "가용성", "파티션 허용성", "가용성"],
+    tables: [
+      {
+        caption: "CAP 이론 [일가파]",
+        headers: ["특성", "설명"],
+        rows: [
+          ["Consistency (일관성)", "분산 환경에서 모든 Server가 같은 시점에 동일한 데이터를 바라보는 것을 의미"],
+          ["Availability (가용성)", "클러스터를 구성하는 일부 Server가 다운 되도 데이터베이스 시스템은 정상적 동작을 의미"],
+          ["Partition Tolerance (부분결함허용)", "네트워크 장애로 인하여 Message가 전달되지 않거나 유실되었을 때 시스템이 동작하는 메커니즘"],
+        ],
+      },
+      {
+        caption: "CAP 조합과 한계점",
+        headers: ["구분", "설명"],
+        rows: [
+          ["RDBMS (CA)", "Oracle, MySQL, DB2 — Consistency + Availability"],
+          ["NoSQL (CP)", "HBase, MongoDB — Consistency + Partition Tolerance. 네트워크 분할 시 가용성이 저하"],
+          ["NoSQL (AP)", "Dynamo, Cassandra — Availability + Partition Tolerance. 일관성이 떨어짐"],
+          ["한계점", "네트워크 분할 시에는 일관성과 가용성 중 하나를 선택. CA 시스템은 네트워크 분할 시 분할 내성을 보장하기 어려움. 한계점을 극복하기 위한 이론: PACELC 이론"],
+        ],
+      },
+      {
+        caption: "BASE 이론 [가분데비일]",
+        headers: ["속성", "목적", "설명"],
+        rows: [
+          ["Basically Available", "분산 시스템의 가용성 확보", "일부의 실패에도 항상 가용성을 중시. 다수의 Storage에 복사본을 저장"],
+          ["Soft State", "분산 Node간 Data", "노드의 상태는 내부에 포함된 정보에 의해 결정되는 것이 아니라 외부에서 전송된 정보를 통해 결정. 분산 노드간 업데이트는 데이터가 노드에 도달 시점에 수행"],
+          ["Eventually Consistent", "일시적 비일관성 허용", "데이터가 해당 노드에 도달 전까지는 데이터에 일관성이 없는 상태로 Data 도착 후 일관성 회복"],
+        ],
+      },
+    ],
+    notes: ["BASE 3대요소: Give up ACID, Give up SQL, Effect Scalability"],
+  },
+  {
+    title: "PACELC",
+    course: "DB",
+    definition:
+      "CAP 이론의 단점을 보완하기 위해 네트워크 장애 상황과 정상 상황으로 나누어서 설명하는 이론",
+    defShort: "CAP 이론의 단점을 보완하기 위해 장애 상황과 정상 상황으로 나누어 설명하는 이론",
+    lead:
+      "장애·정상 상황의 상충 이론, PACELC",
+    features: ["장애 시 A-C 상충", "정상 시 L-C 상충", "4가지 분류"],
+    keywords: ["Partition", "Availability", "Consistency", "Latency", "Consistency"],
+    tables: [
+      {
+        caption: "개념도 해석",
+        headers: ["항목", "설명"],
+        rows: [
+          ["파티션(네트워크 장애) 상황", "네트워크 단절이 일어나 몇 개의 노드에 접근할 수 없을 때 C를 위해 데이터 반영이 아예 실패하던지, C를 포기하고 일단 접근 가능한 노드들에게만 데이터를 반영하던지 둘 중의 하나만 선택해야 함 — A와 C는 상충"],
+          ["정상 상황", "모든 노드들에 새로운 데이터를 반영하는 것은 상대적으로 긴 응답시간이 필요하기 때문 — L과 C는 상충하며 둘 중 하나를 선택해야 함"],
+        ],
+      },
+      {
+        caption: "PACELC 이론에 따른 NoSQL 분류",
+        headers: ["분류", "설명", "NoSQL"],
+        rows: [
+          ["PC/EC", "장애 상황일 때 C를 위해 A를 희생. 정상 상황일 때 C를 위해 L을 희생", "HBase, VoltDB, Megastore"],
+          ["PA/EL", "장애 상황일 때 가능한 노드에만 반영, 정상으로 복구되면 필요한 노드에 데이터를 모두 반영. 정상 상황일 때 L을 위해 모든 노드에 데이터를 반영하지 않음", "Cassandra, Dynamo"],
+          ["PA/EC", "장애 상황일 때는 C를 포기, 접근 가능한 만큼만 데이터를 반영. 정상 상황일 때는 강력한 C를 반영, 장애 상황이 복구되면 전달하지 못한 데이터를 반영", "MongoDB"],
+          ["PC/EL", "장애 상황일 때는 C를 위해 A를 희생. 정상 상황일 때는 L을 위해 C를 희생", "PNUTS"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "NewSQL",
+    course: "DB",
+    definition:
+      "RDBMS의 ACID 특성을 유지하면서 NoSQL의 성능과 확장성을 제공하는 데이터베이스 관리시스템",
+    defShort: "ACID 특성을 유지하면서 NoSQL의 성능과 확장성을 함께 제공하는 DBMS",
+    lead:
+      "ACID와 확장성의 결합, NewSQL",
+    features: ["ACID 지원", "수평적 확장성", "SQL 지원"],
+    keywords: ["SQL기반 상호작용", "ACID 지원", "비 잠금 동시성 제어", "노드 단위 고성능", "병렬/비 공유 아키텍처"],
+    tables: [
+      {
+        caption: "NewSQL 기능 [트아 SA비 노병]",
+        headers: ["구분", "기능", "설명"],
+        rows: [
+          ["트랜잭션", "SQL 기반 상호작용", "App의 DBMS 연계(입력/조회/갱신/삭제) 시 SQL 을 사용해 통신"],
+          ["트랜잭션", "ACID 지원", "RDBMS에서 가장 중요한 트랜잭션 커밋(Commit)을 위한 필요 속성인 ACID(원자성, 일관성, 고립성, 지속성)를 지원해야 함"],
+          ["트랜잭션", "비잠금 동시성제어", "데이터 무결성 처리를 위해 지원하는 트랜잭션 동시 제어 잠금 처리와 관련해 기존 방식과 다른 Non-locking 구조 지원"],
+          ["아키텍처", "노드단위 고성능", "각 단일 DBMS 서버 노드 단위로 확장해 고성능을 보장"],
+          ["아키텍처", "병렬/비공유", "병렬 아키텍처 기반 수행으로 데이터를 고성능으로 처리. 분산 처리시 데이터가 각 서버에 중복되지 않고 독립적으로 존재"],
+        ],
+      },
+      {
+        caption: "NewSQL 기술요소 [R노 인M샤 스인D]",
+        headers: ["구분", "기술요소", "설명"],
+        rows: [
+          ["RDBMS 측면", "인덱싱", "데이터베이스 검색 속도 향상, 테이블 연관, 독립적인 저장공간"],
+          ["RDBMS 측면", "MVCC", "트랜잭션의 다중 버전 동시성 제어로 트랜잭션 직렬화"],
+          ["RDBMS 측면", "샤딩", "동일 테이블 스키마의 데이터를 다수 데이터베이스에 분산 저장"],
+          ["NoSQL 측면", "스키마리스", "테이블과 컬럼 스키마 없이 Key-Value 기반 단순 검색, 추가 용이"],
+          ["NoSQL 측면", "인메모리", "고성능, 저지연 서비스, 버퍼 관리 불필요"],
+          ["NoSQL 측면", "DB 스케일링", "scale-out 방식의 유연한 데이터 구조"],
+        ],
+      },
+      {
+        caption: "NewSQL, RDBMS, NoSQL 비교",
+        headers: ["구분", "NewSQL", "RDBMS", "NoSQL"],
+        rows: [
+          ["ACID 특성", "ACID 특성 제공", "ACID 특성 제공", "ACID 특성 미제공"],
+          ["BASE 특성", "BASE 특성 제공", "BASE 특성 미제공", "BASE 특성 제공"],
+          ["스키마", "Schema-less", "Schema-full", "Schema-less"],
+          ["확장성", "Scale-out", "Scale-up", "Scale-out"],
+          ["솔루션", "Volt DB, Spanner", "Oracle, MSSQL", "MongoDB, Redis"],
+        ],
+      },
+    ],
+    notes: ["개념도: RDBMS(SQL — ACID 특성·SQL 지원) → NoSQL(수평적 확장성·고가용성 HA) → NewSQL(ACID + 수평적 확장성 + 고가용성 + SQL 지원)"],
+  },
+  {
+    title: "벡터 데이터베이스(Vector Database)",
+    course: "DB",
+    definition:
+      "방대한 양의 고차원 데이터를 벡터 형태로 최적화하여 저장하고 검색하기 위한 데이터베이스",
+    defShort: "방대한 양의 고차원 데이터를 벡터 형태로 최적화해 저장하고 검색하는 데이터베이스",
+    lead:
+      "고차원 데이터의 벡터 저장·검색, 벡터 데이터베이스(Vector Database)",
+    features: ["임베딩", "유사도 측정", "유사성 검색"],
+    keywords: ["임베딩", "유사도 측정", "유사성 검색"],
+    tables: [
+      {
+        caption: "알고리즘 및 유사도 측정 방법 [랜양LHI]",
+        headers: ["구분", "알고리즘/유사도", "설명"],
+        rows: [
+          ["알고리즘", "랜덤 투영 (Random Projection)", "고차원 데이터를 저차원 투영하여 차원을 축소하는기법"],
+          ["알고리즘", "제품 양자화 (Product Quantization)", "고차원 벡터데이터를 저차원 공간으로 나누고 개별 양자화로 전체 벡터 압축"],
+          ["알고리즘", "LSH (Locality Sensitive Hashing)", "고차원 데이터에서 유사한 데이터끼리 동일한 해시값으로 매핑될 확률을 높이는 해싱 기법"],
+          ["알고리즘", "HNSW (Hierarchical Navigable Small World)", "그래프 기반 ANN 알고리즘. 벡터들을 계층적 그래프로 구성하여 탐색"],
+          ["알고리즘", "IVF (Inverted File Index)", "여러 그룹으로 나누고 필요한 그룹에서만 검색"],
+          ["유사도 측정", "코사인 유사도", "두 벡터의 각도로 유사도를 측정"],
+          ["유사도 측정", "유클리드 거리", "두 점의 직선거리로 유사도를 측정"],
+          ["유사도 측정", "맨하튼 거리", "두 점의 거리를 격자 기준으로 유사도 측정"],
+          ["유사도 측정", "내적", "두 벡터가 얼마나 같은 방향을 향하는지 측정"],
+        ],
+      },
+      {
+        caption: "동작 과정",
+        headers: ["구분", "핵심 작동 원리", "설명"],
+        rows: [
+          ["① 벡터 임베딩", "벡터로 변환", "텍스트, 이미지, 오디오 등 다양한 형태의 원본데이터를 고차원의 숫자 벡터로 변환"],
+          ["② 데이터 저장 및 인덱싱", "해싱 기반", "유사한 벡터들이 동일한 해시 버킷에 할당"],
+          ["② 데이터 저장 및 인덱싱", "양자화 기반", "고차원 벡터를 여러 개의 저차원 하위 벡터로 분할, 각 하위 벡터 공간을 양자화하여 벡터를 압축"],
+          ["② 데이터 저장 및 인덱싱", "그래프 기반", "벡터들 노드로, 벡터 간 유사도를 엣지로 표현"],
+          ["② 데이터 저장 및 인덱싱", "트리 기반", "벡터 공간을 계층적으로 분할하여 검색범위 축소"],
+          ["③ 쿼리 처리", "벡터로 변환", "사용자가 검색하고자 하는 데이터 또한 원본 데이터임. 동일한 벡터화 모델을 통해 벡터로 변환"],
+          ["④ 유사성 측정", "코사인 유사도 등", "코사인 유사도(각도로 코사인 계산), 유클리드 거리(끝점을 잇는 가장 짧은 직선 거리), 내적(각 성분끼리의 곱의 합), 맨해튼 거리(직각 거리의 절댓값 합산), 자카드 유사도(교집합 크기를 합집합 크기로 나눈 값)"],
+          ["⑤ 후처리", "후처리 단계", "초기 결과에 대해 추가적인 필터링이나 순위 재조정과 같은 후처리 단계 적용"],
+        ],
+      },
+    ],
+    notes: ["기출: 137회 정보관리 4교시, 2025.06 KPC 모의고사 2교시, 2025.01·2024.05 ITPE FR", "개념도: Context/Application → Embedding Model → Vector Embedding [0.12, -0.34, …] → Vector Database → Query Result"],
+  },
+  {
+    title: "ANN(Approximate Nearest Neighbor) 알고리즘",
+    course: "DB",
+    definition:
+      "고차원 벡터 공간에서 주어진 쿼리 벡터에 가장 가까운 이웃(neighbor)을 빠르게 찾기 위한 근사 최근접 이웃 알고리즘",
+    defShort: "고차원 벡터 공간에서 쿼리 벡터에 가장 가까운 이웃들을 빠르게 찾는 근사 탐색 기법",
+    lead:
+      "쿼리 벡터의 근사 이웃 탐색, ANN(Approximate Nearest Neighbor) 알고리즘",
+    features: ["공간 분할", "그래프 탐색", "압축·양자화"],
+    keywords: ["고차원 벡터 유사성 탐색", "k-d 트리", "LSH", "HNSW", "NSG", "IVF", "PQ", "벡터DB"],
+    tables: [
+      {
+        caption: "알고리즘 절차",
+        headers: ["단계", "설명"],
+        rows: [
+          ["①", "Vector 공간에서 임의의 두 점을 선택한 뒤, 두 점의 사이의 hyperplane로 Vector Space를 나눔"],
+          ["②", "Subspace에 있는 점들의 개수를 node로 하여 binary tree 생성 또는 갱신"],
+          ["③", "Subspace 내에 점이 K개 초과로 존재한다면 해당 Subspace에 대해 ①과 ② 진행"],
+          ["④", "ANN을 구하기 위해서는 현재 점을 binary tree에서 검색한 뒤 해당 subspace에서 NN을 search"],
+        ],
+      },
+      {
+        caption: "ANN 알고리즘 구성요소",
+        headers: ["요소", "설명", "주요 알고리즘"],
+        rows: [
+          ["공간 분할 기반", "전체 벡터 공간을 여러 하위 영역으로 분할 후, 쿼리와 관련성이 높은 영역 중심으로 탐색. 비교적 직관적이며 트리 기반 접근법으로 관리가 용이하나 고차원에서 성능 저하 발생", "k-d 트리, Annoy, LSH(Locality-Sensitive Hash)"],
+          ["그래프 기반", "데이터를 노드(node)로, 인접 이웃 관계를 엣지(edge)로 표현하는 근접성 그래프(proximity graph) 구축. 높은 정확도와 효율성 제공하나, 인덱스 구축 시간이 비교적 길고 복잡", "HNSW, NSG, 그래프 탐색(graph traversal)"],
+          ["압축 및 양자화 기반", "벡터 데이터를 저 차원으로 압축하거나, 이산적인 코드로 변환(PQ 등). 메모리 사용량 절감, 거리 계산 속도 가속화. 저장공간 및 계산 속도 면에서 유리하나, 정보 손실로 인한 정확도 저하 위험", "PQ(Product Quantization), IVF(Inverted File Index)"],
+        ],
+      },
+    ],
+    notes: ["기출: 2025.10 KPC 모의고사 1교시, 2025.10 ITPE 모의고사 3교시"],
+  },
+  {
+    title: "SQL(Structured Query Language)",
+    course: "DB",
+    definition:
+      "관계형 데이터베이스 관리시스템(RDBMS)에서 자료 검색과 관리, 스키마 생성 및 수정, 객체 접근 조정 관리를 위한 프로그래밍 언어",
+    defShort: "RDBMS에서 자료 검색과 관리, 스키마 생성·수정, 접근 조정을 위한 표준 언어",
+    lead:
+      "RDBMS의 표준 질의 언어, SQL(Structured Query Language)",
+    features: ["DDL·DML", "DCL·TCL", "비절차적 언어"],
+    keywords: ["비절차적 언어", "DDL", "DML", "DCL", "TCL", "SQL-99"],
+    tables: [
+      {
+        caption: "SQL 유형",
+        headers: ["유형", "개념", "구문"],
+        rows: [
+          ["DDL (Data Definition Language)", "스키마 객체 생성, 변경, 제거를 위한 데이터 간에 관계를 정의하여 데이터베이스 구조를 설정하는 언어", "CREATE, ALTER, DROP, TRUNCATE, RENAME"],
+          ["DML (Data Manipulation Language)", "데이터베이스에 저장된 자료들을 입력, 수정, 삭제, 조회하는 언어", "INSERT, UPDATE, DELETE, SELECT"],
+          ["DCL (Data Control Language)", "사용자에 권한을 주거나 삭제하는 언어", "GRANT, REVOKE"],
+          ["TCL (Transaction Control Language)", "트랜잭션을 제어하는 명령 (DCL에서 COMMIT과 ROLLBACK만 분리해서 TCL이라고도 표현)", "COMMIT, ROLLBACK, SAVEPOINT"],
+        ],
+      },
+    ],
+    notes: ["SQL Commands 분류: DDL(CREATE·ALTER·DROP·RENAME·TRUNCATE·COMMENT) / DML(SELECT·INSERT·UPDATE·DELETE·MERGE·CALL·EXPLAIN PLAN·LOCK TABLE) / DCL(GRANT·REVOKE) / TCL(COMMIT·ROLLBACK·SAVEPOINT·SET TRANSACTION)"],
+  },
+  {
+    title: "조인(Join)",
+    course: "DB",
+    definition:
+      "두 개의 테이블을 엮어서 원하는 데이터를 추출하는 방법",
+    defShort: "두 개의 테이블을 공통 속성으로 엮어서 원하는 데이터를 추출해 내는 질의 처리 방법",
+    lead:
+      "테이블 결합의 데이터 추출, 조인(Join)",
+    features: ["관계대수 측면", "메커니즘 측면", "실행계획 최적화"],
+    keywords: ["Equi Join", "Nature Join", "Outer Join", "Semi Join", "Nested Loop Join(선행,인덱스,후행)", "Sort Merge Join(정렬)", "Hash Join(인덱스,선행,해시)"],
+    tables: [
+      {
+        caption: "유형",
+        headers: ["유형", "설명"],
+        rows: [
+          ["관계대수 측면", "Equi join, Natural join, Outer join, Semi join"],
+          ["메커니즘 측면", "Nested Loop Join, Sort Merge Join, Hash Join"],
+        ],
+      },
+      {
+        caption: "조인 메커니즘",
+        headers: ["유형", "설명"],
+        rows: [
+          ["Nested Loop Join", "먼저 선행테이블의 처리범위를 하나씩 액세스하면서 그 추출된 값으로 연결할 테이블을 조인하는 방식"],
+          ["Sort Merge Join", "양쪽 테이블의 처리범위를 각자 액세스하여 정렬한 결과를 차례로 스캔하면서 연결 고리의 조건으로 병합해 가는 방식"],
+          ["Hash Join", "조인에 참여한 두 집합 중에서 작은 집합의 해시 테이블을 메모리상에 만들고, 큰 집합은 조인을 위해 해시 테이블을 탐색하는 방식"],
+        ],
+      },
+      {
+        caption: "메커니즘 비교",
+        headers: ["구분", "Nested Loop Join", "Sort Merge Join", "Hash Join"],
+        rows: [
+          ["처리범위", "부분범위", "전체범위", "전체범위"],
+          ["처리량", "소량 데이터", "대량 데이터", "대량 데이터"],
+          ["액세스방식", "Index Scan, Random Access", "Table Full Scan, Sequential Access", "Table Full Scan, Sequential Access"],
+          ["조인방향", "영향큼", "영향없음", "영향있음"],
+          ["사용자원", "Buffer Cache", "PGA", "PGA"],
+          ["사용환경", "OLTP", "OLAP", "OLAP"],
+          ["사용조건", "일반적 발생", "인덱스 없는 경우", "대량 집계 작업시"],
+          ["Hint", "/*+ USE_NL */", "/*+ USE_MERGE */", "/*+ USE_HASH */"],
+          ["고려사항", "테이블 접근순서, 조인절 인덱스 필수", "Sort Area Size", "Hash Area Size, 소량의 Driving Table 선정"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "RDBMS 인덱스(index)",
+    course: "DB",
+    definition:
+      "어떤 파일의 레코드들에 대한 효율적 접근을 위해 <레코드 키 값, 레코드 주소(포인터)> 쌍을 체계적으로 수집하여 관리하는 데이터베이스 오브젝트",
+    defShort: "레코드의 효율적 접근을 위해 키 값과 주소 쌍을 체계적으로 관리하는 DB 오브젝트",
+    lead:
+      "키-주소 쌍의 접근 가속, RDBMS 인덱스(index)",
+    features: ["검색 가속", "B-tree 기반", "스캔방식 다양"],
+    keywords: ["트리 기반", "해쉬 기반", "비트맵", "함수 기반", "조인", "도메인", "정적", "동적", "논리적 인덱스", "물리적 인덱스"],
+    tables: [
+      {
+        caption: "인덱스 유형 [트해비 함조도 정동 논물]",
+        headers: ["분류", "인덱스 구조", "설명"],
+        rows: [
+          ["형태", "트리 기반 인덱스", "인덱스(RDBMS는 대부분 B-tree)"],
+          ["형태", "해시 기반 인덱스", "Hash 테이블을 이용하여 데이터 검색. =, <=, => 연산자만 사용 가능"],
+          ["형태", "비트맵 인덱스", "비트를 이용하여 컬럼 값을 저장하고 ROWID를 자동으로 생성하는 인덱스"],
+          ["목적", "함수기반 인덱스", "사용자 정의 함수 결과를 인덱스 사용. 데이터 타입이 상이한 컬럼 간 사용"],
+          ["목적", "조인 인덱스", "DW에서 조인 쿼리의 처리가 가능"],
+          ["목적", "도메인 인덱스", "사용자 정의의 인덱스 타입을 사용. 텍스트, 카테고리 인덱스 등"],
+          ["구조", "정적 인덱스", "데이터 파일에 레코드가 삽입, 삭제됨에 따라 인덱스의 내용은 변하지만 인덱스 구조는 변경하지 않는 기법"],
+          ["구조", "동적 인덱스", "인덱스와 데이터 파일을 블록으로 구성하고, 각 블록에는 나중에 레코드가 삽입될 것을 감안하여 빈 공간을 미리 준비해 두는 인덱싱 기법"],
+          ["논리", "논리적 인덱스", "인덱스가 생성될 때 컬럼의 속성과 유형에 따라 분리"],
+          ["논리", "물리적 인덱스", "인덱스가 저장되는 데이터 구조에 따라 나누어지는 방법"],
+        ],
+      },
+      {
+        caption: "스캔방식",
+        headers: ["방식", "설명"],
+        rows: [
+          ["Index Range Scan", "인덱스 루트 블록에서 리프 블록까지 수직적으로 탐색한 후에 리프 블록을 필요한 범위만 스캔하는 방식"],
+          ["Index Full Scan", "인덱스 리프 블록을 처음부터 끝까지 수평적으로 탐색하는 방식 (최적의 인덱스가 없을 때 차선)"],
+          ["Index Unique Scan", "수직적 탐색만으로 데이터를 찾는 스캔 방식. = 조건으로 탐색하는 경우 작동"],
+          ["Index Skip Scan", "선두 칼럼이 조건절에 빠져도 활용할 수 있는 스캔 방식. 조건에 맞는 레코드를 포함 가능성 있는 블록만 액세스"],
+          ["Index Range Scan Descending", "Index Range Scan과 기본적으로 동일. 인덱스 뒤쪽에서부터 앞쪽으로 스캔(내림차순)"],
+        ],
+      },
+    ],
+  },
 ];
 
 /** topicId 로 교재 서브노트를 찾는다. */
