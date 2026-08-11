@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 264" font-family="sans-serif">
+  <style>
+    .rule { stroke: #eef2f7; stroke-width: 1; }
+    .box { fill: #fff; stroke: #0f172a; stroke-width: 1.5; }
+    .soft { fill: #f8fafc; stroke: #0f172a; stroke-width: 1.5; }
+    .label { font-size: 14px; font-weight: bold; fill: #0f172a; text-anchor: middle; }
+    .small { font-size: 12px; font-weight: bold; fill: #0f172a; text-anchor: middle; }
+    .sub { font-size: 11px; fill: #475569; text-anchor: middle; }
+    .arrow { stroke: #0f172a; stroke-width: 1.5; fill: none; marker-end: url(#a); }
+    .red { stroke: #dc2626; stroke-width: 1.5; fill: none; marker-end: url(#r); stroke-dasharray: 5 3; }
+    .tag { font-size: 11px; font-weight: bold; fill: #dc2626; text-anchor: middle; }
+    .note { font-size: 11px; fill: #64748b; text-anchor: middle; }
+  </style>
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#0f172a"/></marker>
+    <marker id="r" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#dc2626"/></marker>
+  </defs>
+  <line class="rule" x1="0" y1="44" x2="800" y2="44"/>
+  <line class="rule" x1="0" y1="88" x2="800" y2="88"/>
+  <line class="rule" x1="0" y1="132" x2="800" y2="132"/>
+  <line class="rule" x1="0" y1="176" x2="800" y2="176"/>
+  <line class="rule" x1="0" y1="220" x2="800" y2="220"/>
+  <rect class="box" x="30" y="60" width="170" height="60"/>
+  <text class="label" x="115" y="87">선행 항목 A</text>
+  <text class="sub" x="115" y="106">Bread, Egg</text>
+  <path class="arrow" d="M200,90 L300,90"/>
+  <text class="sub" x="250" y="80">IF → THEN</text>
+  <rect class="box" x="302" y="60" width="170" height="60"/>
+  <text class="label" x="387" y="87">후행 항목 B</text>
+  <text class="sub" x="387" y="106">Milk</text>
+  <text class="small" x="250" y="140">연관 규칙(Association Rule) 평가</text>
+  <rect class="box" x="30" y="158" width="232" height="76"/>
+  <text class="label" x="146" y="193">지지도 Support</text>
+  <text class="sub" x="146" y="212">|A∩B| / N — 얼마나 자주 같이</text>
+  <rect class="box" x="282" y="158" width="232" height="76"/>
+  <text class="label" x="398" y="193">신뢰도 Confidence</text>
+  <text class="sub" x="398" y="212">S(A∪B)/S(A) — A면 B일 확률</text>
+  <rect class="box" x="534" y="158" width="240" height="76"/>
+  <text class="label" x="654" y="193">향상도 Lift</text>
+  <text class="sub" x="654" y="212">C(A⇒B)/S(B) — 1보다 커야 유의미</text>
+  <rect class="soft" x="534" y="44" width="240" height="76"/>
+  <text class="label" x="654" y="79">빈발/비빈발 규칙</text>
+  <text class="sub" x="654" y="98">최소 지지도 이상/미만</text>
+
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 264" font-family="sans-serif">
+  <style>
+    .rule { stroke: #eef2f7; stroke-width: 1; }
+    .box { fill: #fff; stroke: #0f172a; stroke-width: 1.5; }
+    .soft { fill: #f8fafc; stroke: #0f172a; stroke-width: 1.5; }
+    .label { font-size: 14px; font-weight: bold; fill: #0f172a; text-anchor: middle; }
+    .small { font-size: 12px; font-weight: bold; fill: #0f172a; text-anchor: middle; }
+    .sub { font-size: 11px; fill: #475569; text-anchor: middle; }
+    .arrow { stroke: #0f172a; stroke-width: 1.5; fill: none; marker-end: url(#a); }
+    .red { stroke: #dc2626; stroke-width: 1.5; fill: none; marker-end: url(#r); stroke-dasharray: 5 3; }
+    .tag { font-size: 11px; font-weight: bold; fill: #dc2626; text-anchor: middle; }
+    .note { font-size: 11px; fill: #64748b; text-anchor: middle; }
+  </style>
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#0f172a"/></marker>
+    <marker id="r" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#dc2626"/></marker>
+  </defs>
+  <line class="rule" x1="0" y1="44" x2="800" y2="44"/>
+  <line class="rule" x1="0" y1="88" x2="800" y2="88"/>
+  <line class="rule" x1="0" y1="132" x2="800" y2="132"/>
+  <line class="rule" x1="0" y1="176" x2="800" y2="176"/>
+  <line class="rule" x1="0" y1="220" x2="800" y2="220"/>
+  <rect class="box" x="20" y="90" width="170" height="80"/>
+  <text class="label" x="105" y="127">정규화된 모델</text>
+  <text class="sub" x="105" y="146">조인 과다·조회 성능 저하</text>
+  <path class="arrow" d="M190,130 L280,130"/>
+  <text class="sub" x="235" y="120">성능·단순화 목적</text>
+  <rect class="soft" x="282" y="90" width="150" height="80"/>
+  <text class="label" x="357" y="127">반정규화</text>
+  <text class="sub" x="357" y="146">중복 허용 결단</text>
+  <path class="arrow" d="M432,110 L520,72"/>
+  <path class="arrow" d="M432,130 L520,130"/>
+  <path class="arrow" d="M432,150 L520,190"/>
+  <rect class="box" x="522" y="44" width="250" height="54"/>
+  <text class="label" x="647" y="68">테이블 반정규화</text>
+  <text class="sub" x="647" y="87">병합 · 분할 · 중복 테이블 추가</text>
+  <rect class="box" x="522" y="104" width="250" height="54"/>
+  <text class="label" x="647" y="128">컬럼 반정규화</text>
+  <text class="sub" x="647" y="147">중복 컬럼 · 파생 컬럼</text>
+  <rect class="box" x="522" y="164" width="250" height="54"/>
+  <text class="label" x="647" y="188">관계 반정규화</text>
+  <text class="sub" x="647" y="207">중복 관계 추가</text>
+  <text class="note" x="280" y="230">전제: 무결성 훼손 각오 → 데이터 정합성 관리 방안 병행</text>
+
+</svg>

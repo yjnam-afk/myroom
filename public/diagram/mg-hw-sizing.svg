@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 264" font-family="sans-serif">
+  <style>
+    .rule { stroke: #eef2f7; stroke-width: 1; }
+    .box { fill: #fff; stroke: #0f172a; stroke-width: 1.5; }
+    .soft { fill: #f8fafc; stroke: #0f172a; stroke-width: 1.5; }
+    .label { font-size: 14px; font-weight: bold; fill: #0f172a; text-anchor: middle; }
+    .small { font-size: 12px; font-weight: bold; fill: #0f172a; text-anchor: middle; }
+    .sub { font-size: 11px; fill: #475569; text-anchor: middle; }
+    .arrow { stroke: #0f172a; stroke-width: 1.5; fill: none; marker-end: url(#a); }
+    .red { stroke: #dc2626; stroke-width: 1.5; fill: none; marker-end: url(#r); stroke-dasharray: 5 3; }
+    .tag { font-size: 11px; font-weight: bold; fill: #dc2626; text-anchor: middle; }
+    .note { font-size: 11px; fill: #64748b; text-anchor: middle; }
+  </style>
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#0f172a"/></marker>
+    <marker id="r" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#dc2626"/></marker>
+  </defs>
+  <line class="rule" x1="0" y1="44" x2="800" y2="44"/>
+  <line class="rule" x1="0" y1="88" x2="800" y2="88"/>
+  <line class="rule" x1="0" y1="132" x2="800" y2="132"/>
+  <line class="rule" x1="0" y1="176" x2="800" y2="176"/>
+  <line class="rule" x1="0" y1="220" x2="800" y2="220"/>
+  <rect class="soft" x="20" y="60" width="150" height="64"/>
+  <text class="label" x="95" y="89">CPU 산정</text>
+  <text class="sub" x="95" y="108">tpmC(TPC-C) 기준</text>
+  <path class="arrow" d="M170,80 L250,60"/>
+  <path class="arrow" d="M170,92 L250,102"/>
+  <path class="arrow" d="M170,104 L250,144"/>
+  <rect class="box" x="252" y="40" width="170" height="44"/>
+  <text class="label" x="337" y="59">메모리</text>
+  <text class="sub" x="337" y="78">서버 구성방안 의거</text>
+  <rect class="box" x="252" y="88" width="170" height="44"/>
+  <text class="label" x="337" y="107">디스크</text>
+  <text class="sub" x="337" y="126">OS·SW·DB·백업영역</text>
+  <rect class="box" x="252" y="136" width="170" height="44"/>
+  <text class="label" x="337" y="155">스토리지</text>
+  <text class="sub" x="337" y="174">서버 규모 따라 산정</text>
+  <rect class="box" x="460" y="40" width="320" height="44"/>
+  <text class="label" x="620" y="59">수식계산법</text>
+  <text class="sub" x="620" y="78">사용자 수 × 보정치</text>
+  <rect class="box" x="460" y="88" width="320" height="44"/>
+  <text class="label" x="620" y="107">참조법</text>
+  <text class="sub" x="620" y="126">유사 시스템 규모 비교</text>
+  <rect class="box" x="460" y="136" width="320" height="44"/>
+  <text class="label" x="620" y="155">시뮬레이션법</text>
+  <text class="sub" x="620" y="174">작업부하 모델링</text>
+  <text class="small" x="620" y="30">규모산정 방법 [수참시]</text>
+  <text class="note" x="400" y="215">절차: 구축방향·기초자료 조사 → 업무분석 → 참조모델 결정·산정 → 가중치 적용</text>
+  <text class="note" x="400" y="240">지표: OLTP=tpmC(TPC-C) · WEB/WAS=max-jOPS(SPECjbb2015) · 스토리지=IOPS(SPC-1)</text>
+
+</svg>

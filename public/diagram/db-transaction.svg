@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 264" font-family="sans-serif">
+  <style>
+    .rule { stroke: #eef2f7; stroke-width: 1; }
+    .box { fill: #fff; stroke: #0f172a; stroke-width: 1.5; }
+    .soft { fill: #f8fafc; stroke: #0f172a; stroke-width: 1.5; }
+    .label { font-size: 14px; font-weight: bold; fill: #0f172a; text-anchor: middle; }
+    .small { font-size: 12px; font-weight: bold; fill: #0f172a; text-anchor: middle; }
+    .sub { font-size: 11px; fill: #475569; text-anchor: middle; }
+    .arrow { stroke: #0f172a; stroke-width: 1.5; fill: none; marker-end: url(#a); }
+    .red { stroke: #dc2626; stroke-width: 1.5; fill: none; marker-end: url(#r); stroke-dasharray: 5 3; }
+    .tag { font-size: 11px; font-weight: bold; fill: #dc2626; text-anchor: middle; }
+    .note { font-size: 11px; fill: #64748b; text-anchor: middle; }
+  </style>
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#0f172a"/></marker>
+    <marker id="r" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#dc2626"/></marker>
+  </defs>
+  <line class="rule" x1="0" y1="44" x2="800" y2="44"/>
+  <line class="rule" x1="0" y1="88" x2="800" y2="88"/>
+  <line class="rule" x1="0" y1="132" x2="800" y2="132"/>
+  <line class="rule" x1="0" y1="176" x2="800" y2="176"/>
+  <line class="rule" x1="0" y1="220" x2="800" y2="220"/>
+  <rect class="box" x="30" y="100" width="130" height="56"/>
+  <text class="label" x="95" y="125">활동</text>
+  <text class="sub" x="95" y="144">(Active)</text>
+  <path class="arrow" d="M160,118 L250,118"/>
+  <text class="sub" x="205" y="108">연산 완료</text>
+  <rect class="box" x="252" y="90" width="150" height="56"/>
+  <text class="label" x="327" y="115">부분 완료</text>
+  <text class="sub" x="327" y="134">(Partially Committed)</text>
+  <path class="arrow" d="M402,118 L500,118"/>
+  <text class="sub" x="451" y="108">Commit</text>
+  <rect class="box" x="502" y="90" width="130" height="56"/>
+  <text class="label" x="567" y="115">완료</text>
+  <text class="sub" x="567" y="134">(Committed)</text>
+  <path class="arrow" d="M95,156 L95,196"/>
+  <path class="red" d="M160,140 L300,196"/>
+  <text class="tag" x="215" y="180">오류 발생</text>
+  <rect class="box" x="30" y="198" width="130" height="50"/>
+  <text class="label" x="95" y="220">실패</text>
+  <text class="sub" x="95" y="239">(Failed)</text>
+  <path class="arrow" d="M160,222 L300,222"/>
+  <text class="sub" x="230" y="212">Rollback</text>
+  <rect class="box" x="302" y="198" width="150" height="50"/>
+  <text class="label" x="377" y="220">철회</text>
+  <text class="sub" x="377" y="239">(Aborted)</text>
+  <rect class="soft" x="502" y="178" width="270" height="74"/>
+  <text class="label" x="637" y="212">ACID</text>
+  <text class="sub" x="637" y="231">원자성 · 일관성 · 고립성 · 영속성</text>
+  <text class="note" x="400" y="30">〈 트랜잭션 상태 전이도 — Commit이면 완료, 오류면 Rollback으로 철회 〉</text>
+
+</svg>

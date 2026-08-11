@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 264" font-family="sans-serif">
+  <style>
+    .rule { stroke: #eef2f7; stroke-width: 1; }
+    .box { fill: #fff; stroke: #0f172a; stroke-width: 1.5; }
+    .soft { fill: #f8fafc; stroke: #0f172a; stroke-width: 1.5; }
+    .label { font-size: 14px; font-weight: bold; fill: #0f172a; text-anchor: middle; }
+    .small { font-size: 12px; font-weight: bold; fill: #0f172a; text-anchor: middle; }
+    .sub { font-size: 11px; fill: #475569; text-anchor: middle; }
+    .arrow { stroke: #0f172a; stroke-width: 1.5; fill: none; marker-end: url(#a); }
+    .red { stroke: #dc2626; stroke-width: 1.5; fill: none; marker-end: url(#r); stroke-dasharray: 5 3; }
+    .tag { font-size: 11px; font-weight: bold; fill: #dc2626; text-anchor: middle; }
+    .note { font-size: 11px; fill: #64748b; text-anchor: middle; }
+  </style>
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#0f172a"/></marker>
+    <marker id="r" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#dc2626"/></marker>
+  </defs>
+  <line class="rule" x1="0" y1="44" x2="800" y2="44"/>
+  <line class="rule" x1="0" y1="88" x2="800" y2="88"/>
+  <line class="rule" x1="0" y1="132" x2="800" y2="132"/>
+  <line class="rule" x1="0" y1="176" x2="800" y2="176"/>
+  <line class="rule" x1="0" y1="220" x2="800" y2="220"/>
+  <path class="arrow" d="M40,200 L760,200"/>
+  <line x1="300" y1="60" x2="300" y2="210" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="640" y1="60" x2="640" y2="210" stroke="#dc2626" stroke-width="2"/>
+  <text class="small" x="300" y="50">체크포인트</text>
+  <text class="tag" x="645" y="50">장애 발생</text>
+  <rect x="120" y="80" width="360" height="26" fill="#e0f2fe" stroke="#0369a1"/>
+  <text class="sub" x="300" y="97">T1 — 장애 전 Commit 완료</text>
+  <text class="tag" x="560" y="97">→ REDO(재실행)</text>
+  <rect x="360" y="130" width="280" height="26" fill="#fee2e2" stroke="#dc2626"/>
+  <text class="sub" x="500" y="147">T2 — Commit 못 함</text>
+  <text class="tag" x="710" y="147">→ UNDO(취소)</text>
+  <text class="note" x="400" y="235">〈 로그 기반 회복 — Commit 여부로 REDO/UNDO, 체크포인트로 회복 범위 축소 〉</text>
+
+</svg>

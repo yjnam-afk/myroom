@@ -8,6 +8,7 @@ import { subnoteByTitle, subnoteByTopicId } from "@/data/textbookSubnotes";
 import MyDiagrams from "@/components/MyDiagrams";
 import EasyCard from "@/components/EasyCard";
 import { subnoteExtraFor } from "@/data/subnoteExtras";
+import { diagramForTitle } from "@/data/answerDiagrams";
 import { PageHeader, Spinner, ErrorBox, Button } from "@/components/ui";
 import Markdown from "@/components/Markdown";
 import ConceptDiagram from "@/components/ConceptDiagram";
@@ -204,6 +205,34 @@ function ExplainInner() {
                       {textbook.features.join(" · ")}
                     </p>
                   )}
+                </div>
+              )}
+              {/* 답안 본론 — 답안지 6줄 안에 옮겨 그리는 개념도 + 구성요소는 아래 표 그대로. */}
+              {diagramForTitle(textbook.title) && (
+                <div className="rounded-xl border-2 border-sky-200 bg-sky-50/50 p-4">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="text-xs font-bold text-sky-800">
+                      ✍️ 답안 본론 — 개념도 (답안지 6줄 규격)
+                    </div>
+                    <a
+                      href={diagramForTitle(textbook.title)}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-[11px] font-medium text-sky-600 hover:underline"
+                    >
+                      크게 보기 ↗
+                    </a>
+                  </div>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={diagramForTitle(textbook.title)}
+                    alt={`${textbook.title} 답안용 개념도`}
+                    className="mt-2 w-full rounded-lg border border-sky-100 bg-white"
+                  />
+                  <p className="mt-2 text-[11px] leading-relaxed text-sky-700">
+                    회색 가로선이 답안지 줄입니다. 구성요소·설명 표는 아래 ■ 표를
+                    그대로 옮겨 적으세요.
+                  </p>
                 </div>
               )}
               {/* 34자 압축본은 위의 답안 서론 블록에 있으므로, 여기는 교재 원문만. */}
