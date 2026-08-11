@@ -44,25 +44,25 @@ export default function EasyCard({
       </div>
 
       <div className="space-y-5 p-5">
-        {/* 1. 한 장면 — 그림이 그려지는 비유 */}
-        <div className="rounded-xl bg-slate-50 p-4">
-          <div className="mb-1.5 text-xs font-bold text-slate-500">
-            🎬 이런 장면을 떠올려 보세요
-          </div>
-          <p className="text-[15px] leading-[1.95] text-slate-800">{g.scene}</p>
-        </div>
-
-        {/* 1.5 실제 동작 — 비유를 걷어내면 진짜로는 이렇게 돌아간다 */}
+        {/* 1. 실제 동작 — 정확히 무엇이고 어떻게 돌아가는지부터 */}
         {g.mechanism && (
           <div className="rounded-xl border-l-4 border-sky-300 bg-sky-50/60 p-4">
             <div className="mb-1.5 text-xs font-bold text-sky-700">
-              ⚙️ 실제로는 이렇게 돌아갑니다
+              ⚙️ 정확히는 이렇게 돌아갑니다
             </div>
             <p className="text-[15px] leading-[1.95] text-slate-800">
               {g.mechanism}
             </p>
           </div>
         )}
+
+        {/* 2. 한 장면 — 이해를 돕는 보조 비유 */}
+        <div className="rounded-xl bg-slate-50 p-4">
+          <div className="mb-1.5 text-xs font-bold text-slate-500">
+            🎬 비유로 한 번 더
+          </div>
+          <p className="text-[15px] leading-[1.95] text-slate-800">{g.scene}</p>
+        </div>
 
         {/* 2. 왜 필요한가 — 이유를 알면 안 잊는다 */}
         <div className="rounded-xl border-l-4 border-rose-300 bg-rose-50/60 p-4">
