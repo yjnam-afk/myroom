@@ -140,8 +140,9 @@ export const compareSets: CompareSet[] = [
     title: "동기화 기법(상호배제)",
     axis: "임계구역을 어떻게 보호하나",
     items: [
-      { name: "뮤텍스(Mutex)", hint: "1개 자원·소유 개념" },
-      { name: "세마포어(Semaphore)", hint: "카운터·다수 자원" },
+      { name: "뮤텍스(Mutex)", hint: "1개 자원·소유 개념·잠들어 대기" },
+      { name: "세마포어(Semaphore)", hint: "카운터·다수 자원·소유 없음" },
+      { name: "스핀락(Spinlock)", hint: "바쁜 대기·짧은 임계구역" },
       { name: "모니터(Monitor)", hint: "언어 차원 캡슐화·조건변수" },
     ],
   },
