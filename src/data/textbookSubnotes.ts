@@ -1096,6 +1096,18 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "AI 연산 전용 반도체, TPU",
     features: ["행렬 연산 특화", "고효율", "전용 설계"],
+    defPair: [
+      {
+        name: "TPU (Tensor Processing Unit)",
+        def: "딥러닝의 행렬 연산 전용으로 특화 설계되어 학습과 추론을 가속하는 주문형 반도체",
+        features: ["전용성", "전력 효율 높음", "폐쇄적 생태계"],
+      },
+      {
+        name: "GPU (Graphics Processing Unit)",
+        def: "수천 개 코어의 동시 연산으로 그래픽과 대규모 범용 계산을 처리하는 병렬 프로세서",
+        features: ["범용성", "전력 소비 높음", "개방적 생태계"],
+      },
+    ],
     keywords: [
       "텐서(Tensor)",
       "주문형 반도체",
