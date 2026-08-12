@@ -1263,6 +1263,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     notes: [
       "임계영역(Critical Section): 병렬컴퓨팅에서 둘 이상의 프로세스가 동시에 접근해서는 안되는 공유 자원(자료 구조 또는 장치)을 접근하는 코드의 일부 영역",
       "Acquire the Lock → Lock is locked / Release the Lock → Lock is unlocked",
+      "출제 변형: '운영체제 동기화 기법'으로 물어도 같은 토픽 — 서론만 바꿔 쓴다. 리드문: 경쟁조건 예방 위한 실행 순서 제어, 프로세스 동기화 기법 / 정의(34자): 공유 자원의 경쟁조건을 막기 위해 프로세스의 실행 순서를 제어하는 상호배제 기법 / 특징: 상호배제·진행 보장·한계 대기(임계영역 3요건)",
     ],
   },
   {
