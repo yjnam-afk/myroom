@@ -192,17 +192,39 @@ function ExplainInner() {
                       {textbook.lead}
                     </p>
                   )}
-                  {textbook.defShort && (
-                    <p className="mt-1.5 text-[13px] font-bold leading-relaxed text-slate-800">
-                      <span className="mr-1 font-bold text-amber-700">정의</span>
-                      {textbook.defShort}
-                    </p>
-                  )}
-                  {!!textbook.features?.length && (
-                    <p className="mt-1.5 text-[13px] leading-relaxed text-slate-800">
-                      <span className="mr-1 font-bold text-amber-700">특징</span>
-                      {textbook.features.join(" · ")}
-                    </p>
+                  {textbook.defPair?.length ? (
+                    // 비교 토픽 — 개념별 정의(각 34~35자)와 특징을 따로 옮겨 적는다.
+                    textbook.defPair.map((p) => (
+                      <div key={p.name} className="mt-2 rounded-lg bg-white/70 p-2.5">
+                        <p className="text-[13px] font-bold leading-relaxed text-slate-800">
+                          <span className="mr-1 font-bold text-amber-700">
+                            정의({p.name})
+                          </span>
+                          {p.def}
+                        </p>
+                        {!!p.features?.length && (
+                          <p className="mt-1 text-[13px] leading-relaxed text-slate-800">
+                            <span className="mr-1 font-bold text-amber-700">특징</span>
+                            {p.features.join(" · ")}
+                          </p>
+                        )}
+                      </div>
+                    ))
+                  ) : (
+                    <>
+                      {textbook.defShort && (
+                        <p className="mt-1.5 text-[13px] font-bold leading-relaxed text-slate-800">
+                          <span className="mr-1 font-bold text-amber-700">정의</span>
+                          {textbook.defShort}
+                        </p>
+                      )}
+                      {!!textbook.features?.length && (
+                        <p className="mt-1.5 text-[13px] leading-relaxed text-slate-800">
+                          <span className="mr-1 font-bold text-amber-700">특징</span>
+                          {textbook.features.join(" · ")}
+                        </p>
+                      )}
+                    </>
                   )}
                 </div>
               )}

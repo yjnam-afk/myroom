@@ -29,6 +29,12 @@ export type TextbookSubnote = {
   lead?: string;
   /** 답안 서론 특징 — 간결한 단어 3개 */
   features?: string[];
+  /**
+   * 비교 토픽 전용 — 개념별 답안 정의·특징.
+   * "A와 B 비교" 류는 두 개념 각각의 34~35자(공백 제외) 정의가 필요하다.
+   * defPair 가 있으면 답안 서론에서 defShort 대신 개념별로 보여준다.
+   */
+  defPair?: { name: string; def: string; features?: string[] }[];
   /** 교재 '■ 키워드' 그대로 — 두음신공·답안의 정답 근거 */
   keywords: string[];
   tables: SubnoteTable[];
@@ -2730,6 +2736,18 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "[프로세스] 운영체제에서 프로세서(CPU)에 의해 실행되는 프로그램 단위 / [스레드] 하나의 프로세스 내에서 제어 흐름으로 프로세스의 실행 부분을 담당하는 일관된 실행의 기본 단위의 경량 프로세스",
     defShort: "CPU가 실행하는 프로그램 단위인 프로세스와 그 안의 실행 흐름인 스레드의 비교",
+    defPair: [
+      {
+        name: "프로세스(Process)",
+        def: "운영체제로부터 독립된 메모리와 자원을 할당받아 CPU가 실행하는 프로그램 단위",
+        features: ["독립 주소공간", "자원 소유 단위", "IPC로 통신"],
+      },
+      {
+        name: "스레드(Thread)",
+        def: "하나의 프로세스 안에서 자원을 공유하며 실행 부분을 담당하는 경량화된 실행 단위",
+        features: ["자원 공유", "스택만 별도", "경량 전환"],
+      },
+    ],
     lead:
       "실행 단위의 두 층위, 프로세스와 스레드",
     features: ["자원 소유 대비", "공유 범위 차이", "전환 비용 차등"],
