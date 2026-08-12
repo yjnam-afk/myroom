@@ -2740,12 +2740,12 @@ export const SUBNOTES: TextbookSubnote[] = [
       {
         name: "프로세스(Process)",
         def: "운영체제로부터 독립된 메모리와 자원을 할당받아 CPU가 실행하는 프로그램 단위",
-        features: ["독립 주소공간", "자원 소유 단위", "IPC로 통신"],
+        features: ["독립성", "전환 비용 높음", "장애 격리"],
       },
       {
         name: "스레드(Thread)",
         def: "하나의 프로세스 안에서 자원을 공유하며 실행 부분을 담당하는 경량화된 실행 단위",
-        features: ["자원 공유", "스택만 별도", "경량 전환"],
+        features: ["공유성", "전환 비용 낮음", "동기화 필요"],
       },
     ],
     lead:
