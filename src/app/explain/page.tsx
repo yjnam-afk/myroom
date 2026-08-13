@@ -193,25 +193,26 @@ function ExplainInner() {
               </p>
               <p className="mt-1 text-[13px] font-bold text-slate-400">답)</p>
 
-              {/* 1. 서론 — 리드문이 곧 첫 소제목, 아래에 정의·특징 */}
+              {/* 1. 서론 — 소제목은 "리드문의 정의", 바로 아래 34자 정의 → 특징) 3가지 */}
               <div className="mt-2">
                 <p className="text-[13px] font-bold leading-relaxed text-slate-800">
-                  1. {textbook.lead ? `${textbook.lead}의 개요` : `${textbook.title}의 개요`}
+                  1. {textbook.lead ? `${textbook.lead}의 정의` : `${textbook.title}의 정의`}
                 </p>
-                <div className="mt-1 space-y-1 pl-4">
+                <div className="mt-1 space-y-1.5 pl-4">
                   {textbook.defPair?.length ? (
                     // 비교 토픽 — 개념별 정의(각 34~35자)와 특징을 가/나로 나눠 적는다.
                     textbook.defPair.map((p, i) => (
                       <div key={p.name}>
                         <p className="text-[13px] leading-relaxed text-slate-800">
                           <span className="mr-1 font-bold text-slate-500">
-                            {["가", "나", "다", "라"][i]}. 정의({p.name})
+                            {["가", "나", "다", "라"][i]}. {p.name}:
                           </span>
                           {p.def}
                         </p>
                         {!!p.features?.length && (
                           <p className="pl-4 text-[13px] leading-relaxed text-slate-700">
-                            — 특징: {p.features.join(" · ")}
+                            <span className="mr-1 font-bold text-slate-500">특징)</span>
+                            {p.features.join(", ")}
                           </p>
                         )}
                       </div>
@@ -220,14 +221,13 @@ function ExplainInner() {
                     <>
                       {textbook.defShort && (
                         <p className="text-[13px] leading-relaxed text-slate-800">
-                          <span className="mr-1 font-bold text-slate-500">가. 정의</span>
                           {textbook.defShort}
                         </p>
                       )}
                       {!!textbook.features?.length && (
                         <p className="text-[13px] leading-relaxed text-slate-800">
-                          <span className="mr-1 font-bold text-slate-500">나. 특징</span>
-                          {textbook.features.join(" · ")}
+                          <span className="mr-1 font-bold text-slate-500">특징)</span>
+                          {textbook.features.join(", ")}
                         </p>
                       )}
                     </>
@@ -245,13 +245,26 @@ function ExplainInner() {
                 </div>
               )}
 
-              {/* 2.~ 본론 — 교재 표가 곧 답안 본론. 번호 이어붙여 그대로 옮겨 적는다. */}
-              {textbook.tables.map((tb, ti) => (
-                <div key={tb.caption} className="mt-4">
-                  <p className="text-[13px] font-bold leading-relaxed text-slate-800">
-                    {ti + 2}. {tb.caption}
+              {/* 2. 본론 — 개념도와 구성요소. 개념도는 아래 교재 슬라이드를 6줄 도식으로 옮기고,
+                  교재 표들은 가/나/다 소항목으로 이어 적는다. */}
+              <div className="mt-4">
+                <p className="text-[13px] font-bold leading-relaxed text-slate-800">
+                  2. {textbook.title.replace(/\s*\([^)]*\)/g, "")}의 개념도 및 구성요소
+                </p>
+                {extra?.image && (
+                  <p className="mt-1 pl-4 text-[13px] leading-relaxed text-slate-600">
+                    <span className="mr-1 font-bold text-slate-500">가. 개념도</span>
+                    아래 교재 슬라이드의 개념도를 답안지 6줄 내 도식으로 옮겨 그린다
                   </p>
-                  <div className="mt-1.5 overflow-x-auto pl-4">
+                )}
+              </div>
+              {textbook.tables.map((tb, ti) => (
+                <div key={tb.caption} className="mt-3 pl-4">
+                  <p className="text-[13px] font-bold leading-relaxed text-slate-700">
+                    {["가", "나", "다", "라", "마", "바", "사"][ti + (extra?.image ? 1 : 0)]}.{" "}
+                    {tb.caption}
+                  </p>
+                  <div className="mt-1.5 overflow-x-auto">
                     <table className="w-full border-collapse text-xs">
                       <thead>
                         <tr>
@@ -288,6 +301,22 @@ function ExplainInner() {
                 </div>
               ))}
 
+              {/* 3. 플러스 알파 — 비고·출제 이력·두음 등 추가 어필 거리 */}
+              {textbook.notes?.length ? (
+                <div className="mt-4">
+                  <p className="text-[13px] font-bold leading-relaxed text-slate-800">
+                    3. 플러스 알파 — 추가 어필
+                  </p>
+                  <ul className="mt-1 space-y-1 pl-4">
+                    {textbook.notes.map((n, i) => (
+                      <li key={i} className="text-[13px] leading-relaxed text-slate-600">
+                        · {n}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+
               <p className="mt-5 text-right text-[13px] font-bold text-slate-400">
                 ·································· &ldquo;끝&rdquo;
               </p>
@@ -311,18 +340,6 @@ function ExplainInner() {
                 </div>
               </div>
             )}
-            {textbook.notes?.length ? (
-              <div className="border-t border-emerald-100 px-5 py-3">
-                <div className="text-xs font-bold text-slate-500">■ 비고 · 출제 포인트</div>
-                <ul className="mt-1 space-y-1">
-                  {textbook.notes.map((n, i) => (
-                    <li key={i} className="text-xs leading-relaxed text-slate-600">
-                      · {n}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
             <p className="border-t border-emerald-100 bg-emerald-50/50 px-5 py-2 text-[11px] text-emerald-700">
               교재 원문(정의·키워드·표)은 아래 슬라이드 원본에서 그대로 볼 수 있어요. 여기는 답안지에
               옮겨 적는 순서대로 재구성한 템플릿입니다.
