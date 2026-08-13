@@ -102,7 +102,7 @@ function ExplainInner() {
             setTopic(t.title);
             setRecCat(t.category);
           }}
-          placeholder="토픽/키워드 입력 — 비슷한 토픽이 떠요"
+          placeholder="문제풀이 검색 — 토픽명·키워드·정의 아무거나 입력 (예: 레인보우, 솔트)"
         />
 
         <div className="mt-3 flex flex-wrap items-center gap-2">
