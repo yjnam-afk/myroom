@@ -20,7 +20,7 @@ export type TextbookSubnote = {
   topicId?: string;
   title: string;
   /** 교재 분류 (CA=컴퓨터구조, OS=운영체제, PM=프로젝트관리, SE=소프트웨어공학, AI=인공지능) */
-  course: "CA" | "OS" | "PM" | "SE" | "AI" | "ST" | "DS" | "AL" | "NW" | "DB" | "MG";
+  course: "CA" | "OS" | "PM" | "SE" | "AI" | "ST" | "DS" | "AL" | "NW" | "DB" | "MG" | "SC";
   /** 교재 '■ 정의' 그대로 */
   definition: string;
   /** 답안 서론용 2줄 정의 — 한 줄 17자 × 2줄, 공백 제외 34~35자로 맞춘 버전 */
