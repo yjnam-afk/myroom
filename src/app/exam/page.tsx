@@ -76,6 +76,9 @@ export default function ExamPage() {
   const [kind, setKind] = useState<string>(KINDS[0] || "기출");
   const [round, setRound] = useState<string>(() => newestRound(KINDS[0] || "기출"));
   const [period, setPeriod] = useState<(typeof PERIODS)[number]>("전체");
+  // 검색어 — 입력하면 구분·회차·교시 필터를 무시하고 전체 문제에서 찾는다.
+  const [query, setQuery] = useState("");
+  const nq = query.trim().toLowerCase();
 
   // 선택 구분에 존재하는 회차/주차만.
   const rounds = useMemo(
@@ -99,28 +102,36 @@ export default function ExamPage() {
     ] as (typeof PERIODS)[number][];
   }, [kind]);
 
-  const list = useMemo(
-    () =>
-      EXAMS.filter(
+  const list = useMemo(() => {
+    if (nq) {
+      // 검색 모드 — 전 구분·전 회차·전 교시에서 지문·과목·출처로 찾는다. 최신 회차 먼저.
+      return EXAMS.filter(
         (q) =>
-          kindOf(q) === kind &&
-          (round === "전체" || roundOf(q) === round) &&
-          (period === "전체" || q.period === period),
-      ),
-    [kind, round, period],
-  );
+          q.text.toLowerCase().includes(nq) ||
+          q.category.toLowerCase().includes(nq) ||
+          (q.source || "").toLowerCase().includes(nq) ||
+          roundOf(q).toLowerCase().includes(nq),
+      ).sort((a, b) => roundNum(roundOf(b)) - roundNum(roundOf(a)));
+    }
+    return EXAMS.filter(
+      (q) =>
+        kindOf(q) === kind &&
+        (round === "전체" || roundOf(q) === round) &&
+        (period === "전체" || q.period === period),
+    );
+  }, [kind, round, period, nq]);
 
   // 페이지네이션 — 처음엔 일부만 렌더(수백 문제를 한 번에 그리지 않게). 필터가 바뀌면 리셋.
   const PAGE = 20;
   const [visible, setVisible] = useState(PAGE);
-  useEffect(() => setVisible(PAGE), [kind, round, period]);
+  useEffect(() => setVisible(PAGE), [kind, round, period, nq]);
   const capped = useMemo(() => list.slice(0, visible), [list, visible]);
 
-  // 교시별 그룹(현재 렌더 대상 capped 기준)
+  // 교시별 그룹(현재 렌더 대상 capped 기준) — 검색 모드에선 구분 라벨까지 붙인다.
   const groups = useMemo(() => {
     const map = new Map<string, Q[]>();
     for (const q of capped) {
-      const key = `${roundOf(q)} · ${q.period}`;
+      const key = `${nq ? `${KIND_LABEL[kindOf(q)] || kindOf(q)} ` : ""}${roundOf(q)} · ${q.period}`;
       if (!map.has(key)) map.set(key, []);
       map.get(key)!.push(q);
     }
@@ -129,11 +140,27 @@ export default function ExamPage() {
       const [rb, pb] = b[0].split(" · ");
       return roundNum(rb) - roundNum(ra) || pa.localeCompare(pb);
     });
-  }, [capped]);
+  }, [capped, nq]);
 
   return (
     <div>
       <PageHeader title="📜 문제 풀이" desc={KIND_DESC[kind]} />
+
+      {/* 기출문제 검색 — 지문·과목·회차 어디로든. 입력 중엔 아래 필터를 무시하고 전체에서 찾는다. */}
+      <div className="mb-4">
+        <input
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="🔍 기출문제 검색 — 지문·과목·회차 (예: 암호화, 데이터베이스, 139회)"
+          className="w-full rounded-xl border border-slate-300 bg-white p-3 text-sm shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+        />
+        {nq && (
+          <p className="mt-1.5 text-[11px] text-slate-400">
+            기출·셀테·모의고사·예상 전체({EXAMS.length}문제)에서 검색 중 — 아래 구분·회차·교시
+            필터는 잠시 무시됩니다. 지우면 원래 목록으로 돌아가요.
+          </p>
+        )}
+      </div>
 
       {KINDS.length > 1 && (
         <div className="mb-4 flex flex-wrap gap-1.5 rounded-xl border border-slate-200 bg-white p-1.5 shadow-sm">
@@ -192,6 +219,7 @@ export default function ExamPage() {
           ))}
         </div>
         <span className="ml-auto text-xs text-slate-400">
+          {nq ? "🔍 검색결과 " : ""}
           {Math.min(visible, list.length)}/{list.length}문제
         </span>
       </div>
