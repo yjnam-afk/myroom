@@ -7,6 +7,8 @@ import { PageHeader } from "@/components/ui";
 import topics from "@/data/topics.json";
 import { compareSets } from "@/data/compareSets";
 import { memoryTables } from "@/data/memoryTables";
+import { SUBNOTES } from "@/data/textbookSubnotes";
+import { WEEKS } from "@/data/curriculum";
 
 type Topic = {
   id: string;
@@ -17,7 +19,44 @@ type Topic = {
   summary: string;
 };
 
-const ALL = topics as Topic[];
+// ── 심화반 서브노트를 토픽지도에 통합 ─────────────────────────────────
+// topics.json(기존 8도메인)에 없는 심화반 토픽 389+개를 과목별 도메인으로 합친다.
+// 컴퓨터구조·운영체제·확률통계·자료구조·알고리즘은 새 도메인으로 생긴다.
+const COURSE_CAT: Record<string, string> = {
+  CA: "컴퓨터구조",
+  OS: "운영체제",
+  PM: "프로젝트관리",
+  SE: "소프트웨어공학",
+  AI: "인공지능",
+  ST: "확률·통계",
+  DS: "자료구조",
+  AL: "알고리즘",
+  NW: "네트워크",
+  DB: "데이터베이스",
+  MG: "경영전략",
+  SC: "보안",
+};
+// 커리큘럼 우선순위(상·중·하)를 제목으로 찾는다 — 지도의 중요도 배지에 사용.
+const PRIORITY = (() => {
+  const m = new Map<string, string>();
+  for (const w of WEEKS)
+    for (const d of w.days)
+      if (d.kind === "study") for (const t of d.topics) m.set(t.title, t.priority);
+  return m;
+})();
+const KNOWN = new Set((topics as Topic[]).map((t) => t.title));
+const SUBNOTE_TOPICS: Topic[] = SUBNOTES.filter((s) => !KNOWN.has(s.title)).map(
+  (s, i) => ({
+    id: `sn-${i}`,
+    title: s.title,
+    category: COURSE_CAT[s.course] || s.course,
+    group: `심화반 ${COURSE_CAT[s.course] || s.course} 서브노트`,
+    importance: PRIORITY.get(s.title) || "중",
+    summary: s.defShort || "",
+  }),
+);
+
+const ALL = [...(topics as Topic[]), ...SUBNOTE_TOPICS];
 const CATS = Array.from(new Set(ALL.map((t) => t.category)));
 const IMP_ORDER: Record<string, number> = { 상: 0, 중: 1, 하: 2, 출제예상: 3 };
 

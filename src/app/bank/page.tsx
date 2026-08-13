@@ -13,19 +13,21 @@ type Q = {
   category: string;
   text: string;
   source?: string;
-  kind?: "기출" | "셀테" | "모의고사" | "예상";
+  kind?: "기출" | "셀테" | "모의고사" | "NS모의" | "예상";
   round?: string;
 };
 
 // 출처(회차/주차)가 있는 문제 = 기출·셀테·모의고사 전부.
 const POOL = (questions as Q[]).filter((q) => q.source || q.kind);
-const kindOf = (q: Q): "기출" | "셀테" | "모의고사" | "예상" => q.kind || "기출";
+const kindOf = (q: Q): "기출" | "셀테" | "모의고사" | "NS모의" | "예상" =>
+  q.kind || "기출";
 const roundOf = (q: Q) => q.round || (q.source || "").split(" ")[0] || "";
 
-const KINDS = ["기출", "모의고사", "셀테", "예상"] as const;
+const KINDS = ["기출", "모의고사", "NS모의", "셀테", "예상"] as const;
 const KIND_BADGE: Record<string, string> = {
   기출: "bg-amber-100 text-amber-700",
   모의고사: "bg-rose-100 text-rose-700",
+  NS모의: "bg-sky-100 text-sky-700",
   셀테: "bg-violet-100 text-violet-700",
   예상: "bg-emerald-100 text-emerald-700",
 };

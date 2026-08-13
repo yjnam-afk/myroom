@@ -15,7 +15,7 @@ type Q = {
   text: string;
   source?: string;
   /** 구분 — 없으면 실제 기출. */
-  kind?: "기출" | "셀테" | "모의고사" | "예상";
+  kind?: "기출" | "셀테" | "모의고사" | "NS모의" | "예상";
   /** 회차/주차 라벨(명시적). 없으면 source 앞토큰. */
   round?: string;
 };
@@ -25,7 +25,7 @@ const EXAMS = (questions as Q[]).filter((q) => q.source || q.kind);
 // 검색은 라벨 없는 연습문제까지 포함해 questions.json 전체에서 한다.
 const ALL = questions as Q[];
 
-function kindOf(q: Q): "기출" | "셀테" | "모의고사" | "예상" {
+function kindOf(q: Q): "기출" | "셀테" | "모의고사" | "NS모의" | "예상" {
   return q.kind || "기출";
 }
 // "139회 1교시" → 회차 "139회". round가 있으면 그대로.
@@ -34,7 +34,13 @@ function roundOf(q: Q): string {
 }
 
 // 데이터에 실제 존재하는 구분만 탭으로. 기출 → 셀테 → 모의고사 → 예상 순.
-const KIND_ORDER: Record<string, number> = { 기출: 0, 셀테: 1, 모의고사: 2, 예상: 3 };
+const KIND_ORDER: Record<string, number> = {
+  기출: 0,
+  셀테: 1,
+  모의고사: 2,
+  NS모의: 3,
+  예상: 4,
+};
 const KINDS = Array.from(new Set(EXAMS.map(kindOf))).sort(
   (a, b) => (KIND_ORDER[a] ?? 9) - (KIND_ORDER[b] ?? 9),
 );
@@ -43,6 +49,7 @@ const KIND_DESC: Record<string, string> = {
   셀테: "주차별 실전 셀프테스트(셀테)입니다. 시험처럼 골라 답안을 연습해 보세요.",
   모의고사: "실전 명품 모의고사입니다. 교시별로 실제 시험처럼 풀어 보세요.",
   예상: "출제 흐름(AI·클라우드·보안·데이터)을 반영해 만든 예상문제입니다. 참고용으로 연습하세요.",
+  NS모의: "6주차 보안(NS) 교재 진도 기반 주간 모의고사입니다. 전사한 토픽 범위에서 주차별로 출제됩니다.",
 };
 
 // 회차 정렬: 숫자(회/주차) 큰 순.
@@ -62,6 +69,7 @@ const KIND_LABEL: Record<string, string> = {
   기출: "📜 기출",
   셀테: "📝 셀테",
   모의고사: "🏆 모의고사",
+  NS모의: "🛡️ NS 주간 모의고사",
   예상: "🔮 예상",
 };
 
@@ -193,7 +201,7 @@ export default function ExamPage() {
       <div className="mb-5 flex flex-wrap items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
         <div className="flex items-center gap-2">
           <span className="text-xs text-slate-400">
-            {kind === "셀테" ? "주차" : "회차"}
+            {kind === "셀테" || kind === "NS모의" ? "주차" : "회차"}
           </span>
           <select
             value={round}
