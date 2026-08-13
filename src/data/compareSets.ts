@@ -1359,4 +1359,51 @@ export const compareSets: CompareSet[] = [
       { name: "시빅 해킹(Civic Hacking)", hint: "시민 협업·공공데이터·삶의 질" },
     ],
   },
+  {
+    category: "보안",
+    title: "혼돈 vs 확산",
+    axis: "값을 바꿔 숨기나, 위치로 퍼뜨리나",
+    items: [
+      { name: "혼돈(Confusion)", hint: "키-암호문 상관관계 은닉·대치·S-Box" },
+      { name: "확산(Diffusion)", hint: "통계 구조 분산·전치·1비트→여러 비트" },
+    ],
+  },
+  {
+    category: "보안",
+    title: "대칭키 vs 비대칭키 vs 해시",
+    axis: "키를 나누나, 쌍으로 두나, 아예 없나",
+    items: [
+      { name: "대칭키 암호화", hint: "동일 비밀키·빠름·키 공유 필요·AES/DES" },
+      { name: "비대칭키 암호화", hint: "공개키-비밀키 쌍·전자서명·RSA/ECC" },
+      { name: "단방향 해시", hint: "키 없음·무결성·SHA-256/bcrypt" },
+    ],
+  },
+  {
+    category: "보안",
+    title: "스트림 암호 vs 블록 암호",
+    axis: "비트 단위로 흘리나, 블록으로 자르나",
+    items: [
+      { name: "스트림 암호", hint: "1비트/1바이트·빠름·에러 파급 적음" },
+      { name: "블록 암호", hint: "단위 블록·혼돈성 부여·SPN/Feistel" },
+    ],
+  },
+  {
+    category: "보안",
+    title: "솔트 vs 페퍼 vs 키 스트레칭",
+    axis: "무엇을 더하나, 몇 번 돌리나",
+    items: [
+      { name: "해시 솔트(Salt)", hint: "사용자별 무작위 값·레인보우 테이블 대응·평문 저장 가능" },
+      { name: "페퍼(Pepper)", hint: "전체 동일 값·별도 암호화 보관" },
+      { name: "키 스트레칭(Key Stretching)", hint: "해시 N번 반복·무차별 대입 지연" },
+    ],
+  },
+  {
+    category: "보안",
+    title: "SPN vs Feistel",
+    axis: "행렬로 섞나, 반으로 갈라 반복하나",
+    items: [
+      { name: "SPN", hint: "대체순열구조·4×4 행렬·AES/ARIA" },
+      { name: "Feistel(피스텔)", hint: "N/2 분할·R라운드 XOR 반복·DES/SEED" },
+    ],
+  },
 ];

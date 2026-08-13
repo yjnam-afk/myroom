@@ -22,6 +22,8 @@ type Q = {
 
 // source(회차) 또는 kind가 있는 문제(기출·셀테·모의고사·예상)를 모은다.
 const EXAMS = (questions as Q[]).filter((q) => q.source || q.kind);
+// 검색은 라벨 없는 연습문제까지 포함해 questions.json 전체에서 한다.
+const ALL = questions as Q[];
 
 function kindOf(q: Q): "기출" | "셀테" | "모의고사" | "예상" {
   return q.kind || "기출";
@@ -104,8 +106,8 @@ export default function ExamPage() {
 
   const list = useMemo(() => {
     if (nq) {
-      // 검색 모드 — 전 구분·전 회차·전 교시에서 지문·과목·출처로 찾는다. 최신 회차 먼저.
-      return EXAMS.filter(
+      // 검색 모드 — 연습문제 포함 전체에서 지문·과목·출처로 찾는다. 최신 회차 먼저.
+      return ALL.filter(
         (q) =>
           q.text.toLowerCase().includes(nq) ||
           q.category.toLowerCase().includes(nq) ||
@@ -131,7 +133,10 @@ export default function ExamPage() {
   const groups = useMemo(() => {
     const map = new Map<string, Q[]>();
     for (const q of capped) {
-      const key = `${nq ? `${KIND_LABEL[kindOf(q)] || kindOf(q)} ` : ""}${roundOf(q)} · ${q.period}`;
+      // 검색 모드 라벨 — source/kind 없는 문제는 '연습'으로 표기(기출로 오인 방지)
+      const kindLabel =
+        q.source || q.kind ? KIND_LABEL[kindOf(q)] || kindOf(q) : "✏️ 연습";
+      const key = `${nq ? `${kindLabel} ` : ""}${roundOf(q)} · ${q.period}`;
       if (!map.has(key)) map.set(key, []);
       map.get(key)!.push(q);
     }
@@ -156,7 +161,7 @@ export default function ExamPage() {
         />
         {nq && (
           <p className="mt-1.5 text-[11px] text-slate-400">
-            기출·셀테·모의고사·예상 전체({EXAMS.length}문제)에서 검색 중 — 아래 구분·회차·교시
+            기출·셀테·모의고사·예상·연습 전체({ALL.length}문제)에서 검색 중 — 아래 구분·회차·교시
             필터는 잠시 무시됩니다. 지우면 원래 목록으로 돌아가요.
           </p>
         )}
