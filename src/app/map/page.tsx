@@ -94,8 +94,9 @@ const CMP_CATS = Array.from(new Set(compareSets.map((s) => s.category)));
 const TBL_CATS = Array.from(new Set(memoryTables.map((t) => t.category)));
 // 묶음 이름의 개행·중복공백 정규화(표시용) — 데이터엔 "병행 제어\n(...)" 같은 값이 섞여 있다.
 const cleanGroup = (name: string) => name.replace(/\s+/g, " ").trim();
-const explainHref = (name: string) =>
-  `/explain?topic=${encodeURIComponent(name)}&auto=1`;
+// 토픽지도 → 설명 링크는 AI 자동 생성(auto=1) 없이 연다.
+// 답안지 템플릿·교재 서브노트는 AI 없이 즉시 뜨고, AI 설명은 필요할 때만 버튼으로.
+const explainHref = (name: string) => `/explain?topic=${encodeURIComponent(name)}`;
 
 export default function MapPage() {
   const [view, setView] = useState<"compare" | "tables" | "groups">("compare");
@@ -551,7 +552,7 @@ function GroupsView({
                     {g.items.map((t) => (
                       <li key={t.id}>
                         <Link
-                          href={`/explain?topic=${encodeURIComponent(t.title)}&auto=1`}
+                          href={`/explain?topic=${encodeURIComponent(t.title)}`}
                           className="group flex items-start gap-3 px-5 py-3 transition hover:bg-brand-50/50"
                         >
                           <span
