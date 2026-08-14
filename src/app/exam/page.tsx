@@ -8,6 +8,7 @@ import CopyButton from "@/components/CopyButton";
 import questions from "@/data/questions.json";
 import { getModelAnswer } from "@/lib/modelAnswers";
 import { matchSubnoteTitle } from "@/lib/matchSubnote";
+import genAnswers from "@/data/genAnswers.json";
 
 type Q = {
   id: string;
@@ -257,7 +258,12 @@ export default function ExamPage() {
             </h3>
             <div className="space-y-2">
               {qs.map((q, i) => {
-                const ma = getModelAnswer(q.id);
+                // 수작업 모범답안 우선, 없으면 교재/토픽 자료 기반 자동 생성본.
+                const ma =
+                  getModelAnswer(q.id) ||
+                  (genAnswers as Record<string, { source: string; answer: string }>)[
+                    q.id
+                  ];
                 const tpl = matchSubnoteTitle(q.text);
                 return (
                 <div
