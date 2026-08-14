@@ -7,6 +7,7 @@ import Markdown from "@/components/Markdown";
 import CopyButton from "@/components/CopyButton";
 import questions from "@/data/questions.json";
 import { getModelAnswer } from "@/lib/modelAnswers";
+import { matchSubnoteTitle } from "@/lib/matchSubnote";
 
 type Q = {
   id: string;
@@ -257,6 +258,7 @@ export default function ExamPage() {
             <div className="space-y-2">
               {qs.map((q, i) => {
                 const ma = getModelAnswer(q.id);
+                const tpl = matchSubnoteTitle(q.text);
                 return (
                 <div
                   key={q.id}
@@ -280,6 +282,14 @@ export default function ExamPage() {
                       <span className="self-center rounded-md bg-amber-100 px-2 py-1 text-[10px] font-bold text-amber-700">
                         📘 모범답안 제공
                       </span>
+                    )}
+                    {tpl && (
+                      <Link
+                        href={`/explain?topic=${encodeURIComponent(tpl)}`}
+                        className="rounded-md bg-emerald-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-emerald-700"
+                      >
+                        📝 답안지 템플릿 →
+                      </Link>
                     )}
                     <Link
                       href={answerLink(q)}

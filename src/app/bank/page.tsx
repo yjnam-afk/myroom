@@ -6,6 +6,7 @@ import { PageHeader, Button } from "@/components/ui";
 import ShareButton from "@/components/ShareButton";
 import CopyButton from "@/components/CopyButton";
 import questions from "@/data/questions.json";
+import { matchSubnoteTitle } from "@/lib/matchSubnote";
 
 type Q = {
   id: string;
@@ -248,6 +249,14 @@ export default function BankPage() {
                         text={q.text}
                         className="ml-auto rounded-md border border-slate-200 bg-white px-2 py-1 text-[11px] font-medium text-slate-500 hover:bg-slate-100"
                       />
+                      {matchSubnoteTitle(q.text) && (
+                        <Link
+                          href={`/explain?topic=${encodeURIComponent(matchSubnoteTitle(q.text)!)}`}
+                          className="rounded-md bg-emerald-600 px-2.5 py-1 text-xs font-medium text-white hover:bg-emerald-700"
+                        >
+                          📝 답안지 템플릿 →
+                        </Link>
+                      )}
                       <Link
                         href={`/answer?period=${encodeURIComponent(answerPeriod)}&question=${encodeURIComponent(q.text)}`}
                         className="rounded-md bg-brand-600 px-2.5 py-1 text-xs font-medium text-white hover:bg-brand-700"
