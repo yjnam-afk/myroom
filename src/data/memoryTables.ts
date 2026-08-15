@@ -2448,4 +2448,17 @@ export const memoryTables: MemoryTable[] = [
     ],
     examTip: "암호화의 목적 4종: 인증·기밀성·무결성·부인방지. 부인방지는 전자서명(비대칭)이 담당.",
   },
+  {
+    category: "운영체제",
+    title: "가상메모리 4대 관리기법 [할배호교]",
+    intro: "나눠진 메모리 블록을 '어떻게 운영하나'의 정책 4형제. How·Where·When·Who 질문 하나씩 담당한다.",
+    columns: ["기법", "질문", "종류"],
+    rows: [
+      ["할당(Allocation)", "어떻게 공급하나", "단일 분할 · 다중 분할(고정/가변)"],
+      ["배치(Placement)", "어디(Where)에 적재하나", "First · Best · Next · Worst Fit"],
+      ["호출(Fetch)", "언제(When) 적재하나", "Demand Fetch(요구) · Pre Fetch(예측)"],
+      ["교체(Replacement)", "누구와(Who) 교체하나", "FIFO · LRU · LFU · OPT · NUR"],
+    ],
+    examTip: "페이징·세그멘테이션은 이 4형제가 아니라 그 전 단계인 '분할 구조' — 고정 분할=페이징(내부 단편화), 가변 분할=세그멘테이션(외부 단편화). 배치 기법이 외부 단편화 크기를 좌우하고, 해결은 통합·집약.",
+  },
 ];
