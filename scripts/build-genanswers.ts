@@ -94,6 +94,9 @@ function mdTable(tbRaw: any): string {
 
 const GA = "가나다라마바사아".split("");
 const isP1 = (q: any) => q.period === "1교시";
+/** 보안 도메인 여부 — 2교시 도입부는 타입③ Why 관점(중요성·필요성, 억지정의 금지) */
+const isSecQ = (q: any, domain?: string) =>
+  /보안/.test(domain || "") || /보안/.test(q.category || "");
 
 /** 서론(정의 2줄 34자 + 특징) — 1교시 서론이자 2교시 도입부 타입①(1교시 상속·확장)의 뼈대 */
 function introLines(sn: any): string[] {
@@ -136,8 +139,52 @@ function buildFromSubnote(q: any, sn: any): string {
       parts.push("## 3. 플러스 알파 — 추가 어필");
       for (const n of sn.notes) parts.push(`- ${n}`);
     }
+  } else if (isSecQ(q, sn.course === "SC" ? "보안" : "")) {
+    // ── 보안 도메인 2·3·4교시: 도입부 타입③ Why 관점 — 억지정의 금지,
+    //    위협 배경·필요성으로 열고 정의는 본론1 머리로 내린다. ──
+    const bt = bareTitle(sn.title);
+    const modifier = (sn.lead || "").split(",")[0].trim();
+    parts.push(`## 1. 서론 — ${bt}의 필요성 (Why 관점)`);
+    parts.push(
+      `- (위협 배경) 사이버 공격의 지능화·상시화로 ${modifier ? `${modifier}인 ` : ""}${bt}의 중요성 증대`,
+    );
+    if (sn.features?.length)
+      parts.push(`- (필요성) ${sn.features.join(", ")} 확보 관점의 대응 요구`);
+    parts.push("");
+    const body1 = tables.slice(0, 1);
+    const body2 = tables.slice(1);
+    parts.push(`## 2. 본론1 — ${bt}의 정의 및 개념도·구성요소`);
+    if (sn.defPair?.length) {
+      sn.defPair.forEach((p: any, i: number) =>
+        parts.push(`- 정의(${p.name}): ${p.def}`),
+      );
+    } else if (sn.defShort) {
+      parts.push(`- 정의: ${sn.defShort}`);
+    }
+    parts.push("가. 개념도 — 교재 슬라이드의 개념도를 답안지 6줄 내 도식으로 옮겨 그린다");
+    body1.forEach((tb: any, ti: number) => {
+      parts.push("");
+      parts.push(`${GA[ti + 1] || "•"}. ${tb.caption || "구성요소"}`);
+      parts.push(mdTable(tb));
+    });
+    if (body2.length) {
+      parts.push("");
+      parts.push(
+        "## 3. 본론2 — 승부처 (물어본 것을 안 물어본 것보다 많게)",
+      );
+      body2.forEach((tb: any, ti: number) => {
+        parts.push("");
+        parts.push(`${GA[ti] || "•"}. ${tb.caption || "상세"}`);
+        parts.push(mdTable(tb));
+      });
+    }
+    if (sn.notes?.length) {
+      parts.push("");
+      parts.push(`## ${body2.length ? 4 : 3}. 결론 — 차별화(+α)`);
+      for (const n of sn.notes) parts.push(`- ${n}`);
+    }
   } else {
-    // ── 2·3·4교시: 서론(도입부) → 본론1 → 본론2(승부처) → 결론(+α) ──
+    // ── 일반 도메인 2·3·4교시: 서론(도입부) → 본론1 → 본론2(승부처) → 결론(+α) ──
     // 도입부 타입① '1교시 상속·확장': 정의 2줄 + 특징으로 시작.
     parts.push(`## 1. 서론 — ${defTitle}`);
     parts.push(...introLines(sn));
@@ -240,8 +287,38 @@ function buildFromTopic(q: any, t: any): string {
       if (plus.length) parts.push(`- ${plus.slice(0, 6).join(" · ")}`);
       if (d.memo) parts.push(`- ${cut(String(d.memo).trim(), 160)}`);
     }
+  } else if (isSecQ(q, t.category)) {
+    // ── 보안 도메인 2·3·4교시: 도입부 타입③ Why 관점 — 억지정의 금지 ──
+    const bt = bareTitle(t.title);
+    parts.push(`## 1. 서론 — ${bt}의 필요성 (Why 관점)`);
+    parts.push(
+      `- (위협 배경) 사이버 공격의 지능화·상시화로 ${bt} 대응의 중요성 증대`,
+    );
+    if (feat.length)
+      parts.push(`- (필요성) ${feat.slice(0, 4).join(", ")} 확보 관점의 대응 요구`);
+    if (sections.length) {
+      parts.push("");
+      parts.push(`## 2. 본론1 — ${bt}의 정의 및 핵심 구성`);
+      if (def) parts.push(`- 정의: ${def}`);
+      parts.push(sectionsTable(sections.slice(0, 3)));
+      if (sections.length > 3) {
+        parts.push("");
+        parts.push("## 3. 본론2 — 승부처 (물어본 것을 안 물어본 것보다 많게)");
+        parts.push(sectionsTable(sections.slice(3)));
+      }
+    } else if (def) {
+      parts.push("");
+      parts.push(`## 2. 본론1 — ${bt}의 정의`);
+      parts.push(`- 정의: ${def}`);
+    }
+    if (plus.length || d.memo) {
+      parts.push("");
+      parts.push(`## ${sections.length > 3 ? 4 : 3}. 결론 — 차별화(+α)`);
+      if (plus.length) parts.push(`- ${plus.slice(0, 6).join(" · ")}`);
+      if (d.memo) parts.push(`- ${cut(String(d.memo).trim(), 160)}`);
+    }
   } else {
-    // ── 2·3·4교시: 서론(도입부) → 본론1(3단표) → 본론2(승부처) → 결론(+α) ──
+    // ── 일반 도메인 2·3·4교시: 서론(도입부) → 본론1(3단표) → 본론2(승부처) → 결론(+α) ──
     parts.push(`## 1. 서론 — ${bareTitle(t.title)}의 정의`);
     defBlock();
     if (sections.length) {
