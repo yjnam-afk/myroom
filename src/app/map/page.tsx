@@ -7,8 +7,9 @@ import { PageHeader } from "@/components/ui";
 import topics from "@/data/topics.json";
 import { compareSets } from "@/data/compareSets";
 import { memoryTables } from "@/data/memoryTables";
-import { SUBNOTES } from "@/data/textbookSubnotes";
+import { SUBNOTES, subnoteByTitle } from "@/data/textbookSubnotes";
 import { WEEKS } from "@/data/curriculum";
+import { matchSubnoteTitle, findSubnoteByContent } from "@/lib/matchSubnote";
 
 type Topic = {
   id: string;
@@ -96,7 +97,31 @@ const TBL_CATS = Array.from(new Set(memoryTables.map((t) => t.category)));
 const cleanGroup = (name: string) => name.replace(/\s+/g, " ").trim();
 // 토픽지도 → 설명 링크는 AI 자동 생성(auto=1) 없이 연다.
 // 답안지 템플릿·교재 서브노트는 AI 없이 즉시 뜨고, AI 설명은 필요할 때만 버튼으로.
-const explainHref = (name: string) => `/explain?topic=${encodeURIComponent(name)}`;
+// 비교 세트 항목명("혼돈(Confusion)" 등)은 서브노트 제목과 다를 수 있어,
+// 느슨 매칭으로 답안 템플릿이 있는 제목으로 바꿔 연다(없으면 이름 그대로).
+const explainHref = (name: string) => {
+  const resolved =
+    subnoteByTitle(name)?.title ||
+    matchSubnoteTitle(name) ||
+    findSubnoteByContent(name) ||
+    name;
+  return `/explain?topic=${encodeURIComponent(resolved)}`;
+};
+// 비교 항목이 어디로든(교재 템플릿·예전 토픽 자료) 연결되는지 — 아니면 링크를 안 건다.
+const TOPIC_TITLE_SET = (() => {
+  const s = new Set<string>();
+  for (const t of topics as Topic[]) {
+    s.add(t.title.trim().toLowerCase().replace(/[\s()·,\-_/]/g, ""));
+  }
+  return s;
+})();
+const hasAnyData = (name: string) =>
+  !!(
+    subnoteByTitle(name)?.title ||
+    matchSubnoteTitle(name) ||
+    findSubnoteByContent(name) ||
+    TOPIC_TITLE_SET.has(name.trim().toLowerCase().replace(/[\s()·,\-_/]/g, ""))
+  );
 
 export default function MapPage() {
   const [view, setView] = useState<"compare" | "tables" | "groups">("compare");
@@ -268,7 +293,7 @@ function CompareView({
       <p className="mb-3 text-xs text-slate-400">
         {searching
           ? `"${q}" 검색 결과 · 비교 세트 ${cmpResults.length}개`
-          : `견주며 외우는 핵심 비교 ${compareSets.length}세트 · 항목을 누르면 AI 설명으로 이동`}
+          : `견주며 외우는 핵심 비교 ${compareSets.length}세트 · 항목을 누르면 답안지 템플릿으로 이동`}
       </p>
 
       {shown.length === 0 ? (
@@ -295,20 +320,35 @@ function CompareView({
                       </h3>
                       <p className="mt-0.5 text-xs text-brand-600">⚖️ {s.axis}</p>
                       <div className="mt-3 flex flex-wrap gap-2">
-                        {s.items.map((it) => (
-                          <Link
-                            key={it.name}
-                            href={explainHref(it.name)}
-                            className="group min-w-[130px] flex-1 rounded-xl border border-slate-200 bg-slate-50 p-2.5 transition hover:border-brand-300 hover:bg-brand-50"
-                          >
-                            <div className="text-[13px] font-semibold leading-snug text-slate-800 group-hover:text-brand-600">
-                              {it.name}
+                        {s.items.map((it) =>
+                          hasAnyData(it.name) ? (
+                            <Link
+                              key={it.name}
+                              href={explainHref(it.name)}
+                              className="group min-w-[130px] flex-1 rounded-xl border border-slate-200 bg-slate-50 p-2.5 transition hover:border-brand-300 hover:bg-brand-50"
+                            >
+                              <div className="text-[13px] font-semibold leading-snug text-slate-800 group-hover:text-brand-600">
+                                {it.name}
+                              </div>
+                              <div className="mt-0.5 text-[11px] leading-snug text-slate-500">
+                                {it.hint}
+                              </div>
+                            </Link>
+                          ) : (
+                            // 교재·예전 자료 어디에도 없는 하위 개념 — 링크 없이 힌트만(AI 페이지로 안 보냄)
+                            <div
+                              key={it.name}
+                              className="min-w-[130px] flex-1 rounded-xl border border-slate-200 bg-slate-50 p-2.5"
+                            >
+                              <div className="text-[13px] font-semibold leading-snug text-slate-800">
+                                {it.name}
+                              </div>
+                              <div className="mt-0.5 text-[11px] leading-snug text-slate-500">
+                                {it.hint}
+                              </div>
                             </div>
-                            <div className="mt-0.5 text-[11px] leading-snug text-slate-500">
-                              {it.hint}
-                            </div>
-                          </Link>
-                        ))}
+                          ),
+                        )}
                       </div>
                     </section>
                   ))}

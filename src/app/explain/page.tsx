@@ -15,9 +15,34 @@ import ShareButton from "@/components/ShareButton";
 import AudioLecture from "@/components/AudioLecture";
 import TopicAutocomplete from "@/components/TopicAutocomplete";
 import topics from "@/data/topics.json";
+import flashcards from "@/data/flashcards.json";
 
 const CATS = Array.from(new Set(topics.map((t) => t.category)));
 const IMP_ORDER: Record<string, number> = { 상: 0, 중: 1, 하: 2, 출제예상: 3 };
+
+// ── 예전 토픽 자료 폴백 — 서브노트가 없을 때 AI 없이 보여줄 지하철 카드 데이터 ──
+type LegacyCard = {
+  title: string;
+  category: string;
+  definition: string;
+  memo?: string;
+  sections: { label: string; mnemonic: string; keywords: string[] }[];
+};
+const normT = (s: string) =>
+  s.trim().toLowerCase().replace(/[\s()·,\-_/]/g, "");
+const bareT = (s: string) => normT(s.replace(/[(（][^)）]*[)）]/g, ""));
+const CARD_BY_NORM = new Map<string, LegacyCard>();
+const CARD_BY_BARE = new Map<string, LegacyCard>();
+for (const c of flashcards as LegacyCard[]) {
+  CARD_BY_NORM.set(normT(c.title), c);
+  const b = bareT(c.title);
+  if (!CARD_BY_BARE.has(b)) CARD_BY_BARE.set(b, c);
+}
+function legacyCardFor(title: string): LegacyCard | undefined {
+  const t = title.trim();
+  if (!t) return undefined;
+  return CARD_BY_NORM.get(normT(t)) || CARD_BY_BARE.get(bareT(t));
+}
 
 function ExplainInner() {
   const [topic, setTopic] = useState("");
@@ -38,6 +63,8 @@ function ExplainInner() {
   const textbook =
     subnoteByTitle(topic.trim()) ||
     subnoteByTopicId(topics.find((x) => x.title === topic.trim())?.id);
+  // 교재에 없는 예전 토픽 — 지하철 카드 자료를 AI 없이 폴백으로 보여준다.
+  const legacy = !textbook ? legacyCardFor(topic.trim()) : undefined;
 
   // 학습 코치 등에서 ?topic=&auto= 으로 들어오면 미리 채우고 auto=1이면 즉시 생성.
   // SPA 이동으로 쿼리만 바뀌어도 반응하도록 searchParams 의존.
@@ -347,6 +374,61 @@ function ExplainInner() {
           </section>
         )}
 
+
+        {/* 예전 토픽 자료 폴백 — 교재 서브노트가 없어도 AI 없이 정리 자료를 보여준다 */}
+        {legacy && (
+          <section className="mb-6 overflow-hidden rounded-2xl border-2 border-indigo-200 bg-white shadow-sm">
+            <div className="flex items-center justify-between gap-2 bg-indigo-50 px-5 py-3">
+              <h3 className="text-sm font-bold text-indigo-800">
+                📗 토픽 자료 — {legacy.title}
+              </h3>
+              <span className="rounded bg-indigo-600 px-2 py-0.5 text-[10px] font-bold text-white">
+                {legacy.category}
+              </span>
+            </div>
+            <div className="space-y-4 p-5">
+              {legacy.definition && (
+                <div>
+                  <div className="text-xs font-bold text-slate-500">■ 정의</div>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-800">
+                    {legacy.definition}
+                  </p>
+                </div>
+              )}
+              {legacy.sections.map((s) => (
+                <div key={s.label}>
+                  <div className="text-xs font-bold text-slate-500">
+                    ■ {s.label}
+                    {s.mnemonic && (
+                      <span className="ml-1.5 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">
+                        {s.mnemonic}
+                      </span>
+                    )}
+                  </div>
+                  <div className="mt-1.5 flex flex-wrap gap-1.5">
+                    {s.keywords.map((k) => (
+                      <span
+                        key={k}
+                        className="rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-indigo-100"
+                      >
+                        {k}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+              {legacy.memo && (
+                <p className="rounded-lg bg-slate-50 p-3 text-xs leading-relaxed text-slate-600">
+                  💡 {legacy.memo}
+                </p>
+              )}
+            </div>
+            <p className="border-t border-indigo-100 bg-indigo-50/50 px-5 py-2 text-[11px] text-indigo-700">
+              교재 서브노트가 아직 없는 토픽이라 예전 정리 자료를 보여드려요. AI 없이 항상
+              열립니다.
+            </p>
+          </section>
+        )}
 
         {/* 교재 슬라이드 원본 — 도식을 다시 그리지 않고 교재 그림 그대로 */}
         {extra?.image && (

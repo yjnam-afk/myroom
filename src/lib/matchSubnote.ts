@@ -35,3 +35,41 @@ export function matchSubnoteTitle(text: string): string | undefined {
   }
   return best?.title;
 }
+
+// ── 내용 기반 조회 — 표·키워드 안에만 나오는 하위 개념을 상위 서브노트로 연결 ──
+// 예) "단위 테스트" → 테스트 레벨 서브노트, "폭포수 모델" → 개발 모델 서브노트.
+const CONTENT_INDEX: { title: string; hay: string }[] = SUBNOTES.map((s) => ({
+  title: s.title,
+  hay: [
+    s.title,
+    s.defShort,
+    s.lead || "",
+    ...(s.features || []),
+    ...(s.keywords || []),
+    ...(s.defPair || []).flatMap((p) => [p.name, p.def]),
+    ...(s.notes || []),
+    ...s.tables.flatMap((tb) => [tb.caption || "", ...tb.rows.flat()]),
+  ]
+    .join(" ")
+    .toLowerCase()
+    .replace(/\s+/g, " "),
+}));
+
+/**
+ * 개념 이름이 '내용에' 들어 있는 서브노트 제목을 찾는다(제목 매칭 실패 시의 폴백).
+ * 괄호를 뗀 형태까지 두 번 찔러 보고, 여러 개면 짧은 제목(더 전용인 쪽)을 고른다.
+ */
+export function findSubnoteByContent(name: string): string | undefined {
+  const probes = [
+    name.toLowerCase().replace(/\s+/g, " ").trim(),
+    bare(name) ? name.replace(/\s*\([^)]*\)/g, "").toLowerCase().replace(/\s+/g, " ").trim() : "",
+  ].filter((p) => p.length >= 2);
+  for (const p of probes) {
+    const hits = CONTENT_INDEX.filter((x) => x.hay.includes(p));
+    if (hits.length) {
+      hits.sort((a, b) => a.title.length - b.title.length);
+      return hits[0].title;
+    }
+  }
+  return undefined;
+}
