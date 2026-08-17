@@ -30114,6 +30114,1047 @@
   ]
  },
  {
+  "id": "sn-506",
+  "title": "이중 서명(Dual Signature)",
+  "category": "보안",
+  "importance": "상",
+  "definition": "구매 정보와 지불 정보를 각각 다른 키로 암호화되어, 판매자는 구매정보만, 금융기관은 지불정보만 알 수 있도록 하는 전자 서명",
+  "defShort": "구매 정보와 지불 정보를 분리 암호화해 판매자·금융기관이 각자 필요분만 보는 서명",
+  "memo": "핵심: 판매자는 구매정보만·금융기관은 지불정보만 보게 하여 프라이버시 보호 — SET(전자결제) 프로토콜의 핵심 기술",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "정보 분리",
+     "선택적 기밀성",
+     "연접 서명"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "구매 정보",
+     "지불 정보",
+     "연접(Concatenation)",
+     "해시",
+     "공개키",
+     "개인키",
+     "비밀키",
+     "전자봉투",
+     "기밀성",
+     "무결성"
+    ]
+   },
+   {
+    "label": "이중 서명 암호화 단계",
+    "mnemonic": "",
+    "keywords": [
+     "전자서명 생성",
+     "결제정보 암호화",
+     "전자봉투 생성",
+     "판매자 전송"
+    ]
+   },
+   {
+    "label": "이중 서명 복호화 과정",
+    "mnemonic": "",
+    "keywords": [
+     "판매자",
+     "카드사(PG)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "정보 분리",
+   "선택적 기밀성",
+   "연접 서명"
+  ]
+ },
+ {
+  "id": "sn-507",
+  "title": "다중 서명(Multi Signature)",
+  "category": "보안",
+  "importance": "상",
+  "definition": "하나의 거래(트랜잭션)를 승인하기 위해 미리 지정된 여러 개의 키(서명) 중 정해진 수(M of N) 이상의 서명이 필요한 디지털 보안 서명",
+  "defShort": "하나의 거래 승인에 미리 지정된 키 중 정해진 수 이상의 서명을 요구하는 디지털 서명",
+  "memo": "M of N: N개 키 중 M개 이상 서명해야 거래 승인 — 단일 키 유실·탈취 위험 분산(공동 지갑·에스크로)",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "M of N 승인",
+     "분산 권한",
+     "변조 방지"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "N of M 서명",
+     "P2SH",
+     "스마트 컨트랙트",
+     "조건설정",
+     "키생성",
+     "주소생성",
+     "거래생성",
+     "서명요청",
+     "서명검증",
+     "제출"
+    ]
+   },
+   {
+    "label": "블록체인에서의 다중서명 절차",
+    "mnemonic": "",
+    "keywords": [
+     "조건설정",
+     "키생성",
+     "주소생성",
+     "거래생성",
+     "서명요청",
+     "서명검증",
+     "제출",
+     "완료"
+    ]
+   },
+   {
+    "label": "블록체인에서 다중 서명 구현을 위한 기법 비교",
+    "mnemonic": "",
+    "keywords": [
+     "주요 사용 플랫폼",
+     "기본 개념",
+     "자산 보관 위치",
+     "구현 수준",
+     "주요 목적"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "M of N 승인",
+   "분산 권한",
+   "변조 방지"
+  ]
+ },
+ {
+  "id": "sn-508",
+  "title": "간편인증 인터페이스 가이드라인",
+  "category": "보안",
+  "importance": "중",
+  "definition": "긴 패스워드를 입력하는 대신 PIN 번호, 바이오 정보, 패턴입력 등 간편한 방법으로 전자서명 서비스를 이용하는 방식",
+  "defShort": "긴 패스워드 대신 PIN·바이오·패턴 등으로 간편하게 전자서명을 이용하는 방식",
+  "memo": "절차: 사용자가 전자서명수단 선택·정보 입력 → 이용기관이 사용자 인증 요청 → 전자서명인증사업자가 인증앱 호출(앱스킴·딥링크·QR·PUSH) → 사용자 전자서명 → 결과를 이용기관에 제공",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "간편 인증수단",
+     "키 이중구조",
+     "무결성 검증"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "클라이언트 시크릿",
+     "마스터 시크릿",
+     "인터페이스 인증",
+     "메시지 인증",
+     "중요정보 암호화",
+     "HMAC",
+     "Salt"
+    ]
+   },
+   {
+    "label": "간편인증 서비스의 키 종류",
+    "mnemonic": "",
+    "keywords": [
+     "클라이언트 시크릿(ClientSecret, CS)",
+     "마스터 시크릿(MasterSecret, MS)"
+    ]
+   },
+   {
+    "label": "키의 사용처",
+    "mnemonic": "",
+    "keywords": [
+     "인터페이스 인증",
+     "메시지 인증",
+     "중요정보 암호화"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "간편 인증수단",
+   "키 이중구조",
+   "무결성 검증"
+  ]
+ },
+ {
+  "id": "sn-509",
+  "title": "전자봉투(Digital Envelope)",
+  "category": "보안",
+  "importance": "상",
+  "definition": "대칭키, 비대칭키의 장점 이용, 컨텐츠는 비밀키(대칭키), 비밀키는 공개키로 암호화하여 전송하는 System",
+  "defShort": "컨텐츠는 대칭키로, 그 키는 수신자 공개키로 암호화해 전송하는 하이브리드 방식",
+  "memo": "핵심: 대칭키는 빠르지만 키 공유가 위험, 비대칭키는 안전하지만 느림 → 데이터는 대칭키로, 그 대칭키는 수신자 공개키로 암호화(전자봉투)해 둘의 장점만 결합",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "하이브리드 암호",
+     "키 안전 전달",
+     "기밀성 보장"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "기밀성",
+     "공개키",
+     "개인키",
+     "비밀키",
+     "해시 함수",
+     "메시지 다이제스트",
+     "전자서명"
+    ]
+   },
+   {
+    "label": "전자봉투 송신 절차",
+    "mnemonic": "",
+    "keywords": [
+     "Message Digest 생성",
+     "전자서명 생성",
+     "비밀키로 암호문 생성",
+     "전자봉투 생성",
+     "암호문과 전자봉투 전송"
+    ]
+   },
+   {
+    "label": "전자봉투 수신 절차",
+    "mnemonic": "",
+    "keywords": [
+     "전자봉투 복호화",
+     "암호문 복호화",
+     "전자서명 복호화",
+     "무결성 검증"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "하이브리드 암호",
+   "키 안전 전달",
+   "기밀성 보장"
+  ]
+ },
+ {
+  "id": "sn-510",
+  "title": "DRM(Digital Right Management)",
+  "category": "보안",
+  "importance": "하",
+  "definition": "디지털 컨텐츠의 불법사용 및 복제 방지, 과금 서비스를 통한 정상 사용자의 검증 가능한 저작권 기술",
+  "defShort": "디지털 컨텐츠의 불법 사용·복제를 막고 정상 사용자를 검증하는 저작권 보호 기술",
+  "memo": "유통 흐름(개념도): CP(콘텐츠 제공자)→패키저→유통(Store Front)→CC(소비자, DRM 컨트롤러·보안 컨테이너), 라이선스는 클리어링 하우스(CH)가 발급",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "불법복제 방지",
+     "사용권한 통제",
+     "과금 연계"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "CP(콘텐츠 제공자)",
+     "CD(분배자)",
+     "CC(소비자)",
+     "CH(클리어링하우스)",
+     "DOI",
+     "INDECS",
+     "XrML",
+     "ODRL",
+     "Watermark",
+     "Fingerprint"
+    ]
+   },
+   {
+    "label": "DRM 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "DRM 서버",
+     "DRM 서버",
+     "클리어링 하우스",
+     "클리어링 하우스",
+     "DRM 클라이언트",
+     "DRM 클라이언트"
+    ]
+   },
+   {
+    "label": "DRM 기술 요소",
+    "mnemonic": "",
+    "keywords": [
+     "컨텐츠 식별체계",
+     "컨텐츠 식별체계",
+     "메타데이터",
+     "메타데이터",
+     "저작권 표현",
+     "저작권 표현",
+     "불법유통 적발",
+     "불법유통 적발"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "불법복제 방지",
+   "사용권한 통제",
+   "과금 연계"
+  ]
+ },
+ {
+  "id": "sn-511",
+  "title": "디지털 워터마킹(Digital Watermarking)",
+  "category": "보안",
+  "importance": "하",
+  "definition": "오디오, 비디오, 이미지 등의 콘텐츠에 특정 마크를 삽입하여, 불법 복제 시 소유권 정보를 추적할 수 있는 정보은닉 기술",
+  "defShort": "콘텐츠에 특정 마크를 삽입하여 불법 복제 시 소유권 정보를 추적하는 정보은닉 기법",
+  "memo": "핑거프린팅과 구분: 워터마킹은 '저작권 정보'를 삽입(불법복제 방지), 핑거프린팅은 '저작권 정보 + 구매자 정보'를 삽입(불법유통 추적)",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "소유권 표시",
+     "비가시성",
+     "견고성"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "삽입기술(공간영역, 주파수영역)",
+     "검출기술(공개형, 비공개형)",
+     "비가시성",
+     "견조성",
+     "복잡성",
+     "효율성"
+    ]
+   },
+   {
+    "label": "Watermarking 삽입 기술",
+    "mnemonic": "",
+    "keywords": [
+     "특성",
+     "장점",
+     "단점"
+    ]
+   },
+   {
+    "label": "Watermarking 검출 기술",
+    "mnemonic": "",
+    "keywords": [
+     "특성",
+     "장점",
+     "단점"
+    ]
+   },
+   {
+    "label": "Watermarking 공격 기법",
+    "mnemonic": "",
+    "keywords": [
+     "Filtering Attack",
+     "Copy Attack",
+     "Mosaic Attack",
+     "Template Attack"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "소유권 표시",
+   "비가시성",
+   "견고성"
+  ]
+ },
+ {
+  "id": "sn-512",
+  "title": "핑거프린팅(Fingerprinting)",
+  "category": "보안",
+  "importance": "하",
+  "definition": "디지털 콘텐츠에 저작권 정보와 구매한 사용자의 정보를 삽입하여 컨텐츠 불법 배포자 추적을 위한 기술",
+  "defShort": "콘텐츠에 저작권 정보와 구매자 정보를 삽입해 불법 배포자를 추적하는 정보은닉 기술",
+  "memo": "워터마킹과 핵심 차이: 삽입정보에 '구매자 정보'가 추가되어 '누가 유출했는지' 추적 가능 — 삽입 시점도 구매 시점마다",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "구매자 정보 삽입",
+     "불법 유통 추적",
+     "공모 공격 대응"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "불법 유통 구매자 확인",
+     "공모공격",
+     "대칭형/비대칭형",
+     "구매자 정보 삽입",
+     "평균화 공격",
+     "모자이크 공격"
+    ]
+   },
+   {
+    "label": "Watermarking과 FingerPrinting의 비교",
+    "mnemonic": "",
+    "keywords": [
+     "목적",
+     "삽입정보",
+     "콘텐츠 변화 시점",
+     "기술적 유형",
+     "취약점",
+     "기술적 해결책"
+    ]
+   },
+   {
+    "label": "핑거프린팅 공모 공격 유형",
+    "mnemonic": "",
+    "keywords": [
+     "평균화 공격(Averaging Attack)",
+     "최대최소 공격(Max-Min Attack)",
+     "상관계수 음수화 공격(Negative-Correlation Attack)",
+     "상관계수 제로화 공격(Zero-Correlation Attack)",
+     "모자이크 공격(Mosaic Attack)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "구매자 정보 삽입",
+   "불법 유통 추적",
+   "공모 공격 대응"
+  ]
+ },
+ {
+  "id": "sn-513",
+  "title": "생체 인증(텔레바이오 인증)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "유무선 통신 환경에서 원거리 사용자의 신분을 바이오인식 기술을 이용하여 식별하는 기술",
+  "defShort": "유무선 통신 환경에서 원거리 사용자의 신분을 바이오인식 기술로 식별하는 인증 기술",
+  "memo": "생체 인증 고유 특성 7가지: 보편성·유일성·영구성·획득성·정확성·접근성·기만성",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "생체 고유성",
+     "비대면 식별",
+     "FAR·FRR 지표"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "지열홍정음걸행서",
+    "keywords": [
+     "보편성",
+     "유일성",
+     "영구성",
+     "획득성",
+     "정확성",
+     "접근성",
+     "기만성",
+     "FRR",
+     "FAR",
+     "EER"
+    ]
+   },
+   {
+    "label": "생체 유형",
+    "mnemonic": "지열홍정음걸행서",
+    "keywords": [
+     "신체적 특징",
+     "신체적 특징",
+     "신체적 특징",
+     "신체적 특징",
+     "행동적 특징",
+     "행동적 특징",
+     "행동적 특징",
+     "행동적 특징"
+    ]
+   },
+   {
+    "label": "생체 인증 측정 지표",
+    "mnemonic": "",
+    "keywords": [
+     "FRR(False Rejection Rate)",
+     "FAR(False Acceptance Rate)",
+     "EER(Equal Error Rate)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "생체 고유성",
+   "비대면 식별",
+   "FAR·FRR 지표"
+  ]
+ },
+ {
+  "id": "sn-514",
+  "title": "생체정보 보호 안내서(24.12)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "개인의 신체적·생리적·행동적 특징에 관한 정보로서 특정 개인을 인증·식별하기 위해 일정한 기술적 수단을 통해 처리되는 생체정보를 안전하게 보호하기 위한 안내서",
+  "defShort": "특정 개인 인증·식별용 생체정보를 안전하게 보호하기 위한 처리 원칙과 조치 안내서",
+  "memo": "핵심 구분: 생체정보 ⊃ 생체인식정보(인증·식별 목적) — 원본정보(수집)에서 특징정보(민감정보)를 추출",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "6대 보호 원칙",
+     "5단계 보호조치",
+     "PbD 적용"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "원본정보",
+     "특징정보(민감정보)",
+     "비례성",
+     "적법성",
+     "목적제한",
+     "투명성",
+     "안전성",
+     "통제권보장"
+    ]
+   },
+   {
+    "label": "개인정보·생체정보·생체인식정보의 관계",
+    "mnemonic": "",
+    "keywords": [
+     "개인정보",
+     "생체정보",
+     "생체인식정보",
+     "원본정보",
+     "특징정보(민감정보)"
+    ]
+   },
+   {
+    "label": "생체인식정보 보호 6대 원칙",
+    "mnemonic": "",
+    "keywords": [
+     "비례성",
+     "적법성",
+     "목적제한",
+     "투명성",
+     "안전성",
+     "통제권보장"
+    ]
+   },
+   {
+    "label": "생체인식정보 보호조치 5단계",
+    "mnemonic": "",
+    "keywords": [
+     "기획·설계 단계",
+     "수집 단계",
+     "이용·제공 단계",
+     "보관·파기 단계",
+     "상시 점검"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "6대 보호 원칙",
+   "5단계 보호조치",
+   "PbD 적용"
+  ]
+ },
+ {
+  "id": "sn-515",
+  "title": "OAuth(Open Authorize) 2.0",
+  "category": "보안",
+  "importance": "중",
+  "definition": "Third-Party 프로그램에게 리소스 소유자를 대신하여 리소스 서버에서 제공하는 자원에 대한 접근 권한을 위임하는 개방형 표준 프로토콜",
+  "defShort": "제3자 앱에 리소스 소유자를 대신해 자원 접근 권한을 위임하는 개방형 표준 프로토콜",
+  "memo": "인증 절차: 클라이언트가 Authorization 요청 → 권한 서버가 Access Token 발급 → 자원 서버에서 토큰으로 권한 검증 후 보호 자원 제공",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "권한 위임",
+     "토큰 기반",
+     "4대 부여 방식"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "자원 소유자",
+     "클라이언트",
+     "권한 서버",
+     "자원 서버",
+     "액세스 토큰",
+     "리프레시 토큰",
+     "Authorization Code",
+     "Implicit",
+     "Password Credentials",
+     "Client Credentials"
+    ]
+   },
+   {
+    "label": "OAuth 2.0 구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "자원 소유자(Resource Owner)",
+     "클라이언트(Client)",
+     "권한 서버(Authorization Server)",
+     "자원 서버(Resource Server)",
+     "액세스 토큰",
+     "리프레시 토큰"
+    ]
+   },
+   {
+    "label": "OAuth 인증 유형(권한 부여 방식)",
+    "mnemonic": "",
+    "keywords": [
+     "Authorization Code Grant",
+     "Implicit Grant",
+     "Password Credentials Grant",
+     "Client Credentials Grant"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "권한 위임",
+   "토큰 기반",
+   "4대 부여 방식"
+  ]
+ },
+ {
+  "id": "sn-516",
+  "title": "패스키(Passkey)",
+  "category": "보안",
+  "importance": "상",
+  "definition": "비밀번호 방식 등 기존 인증 방식의 보안 취약점 해소를 위해 WebAuthn 기술 표준의 공개키 방식을 적용한 FIDO 기반 디지털 사용자 인증 정보",
+  "defShort": "비밀번호의 취약점을 공개키 방식으로 해소한 FIDO 기반 디지털 사용자 인증 정보",
+  "memo": "원리: 개인키는 사용자 기기(Authenticator)에 안전 보관, 공개키만 서버(Relying Party)에 등록 — 비밀번호를 서버에 저장하지 않아 유출·피싱에 강함",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "Passwordless",
+     "공개키 기반",
+     "피싱 저항성"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "Passwordless",
+     "Authenticator",
+     "Client Application",
+     "Relying party",
+     "Metadata repository",
+     "WebAuthn",
+     "FIDO"
+    ]
+   },
+   {
+    "label": "패스키 구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "Authenticator",
+     "Client Application",
+     "Relying Party",
+     "Metadata repository"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "Passwordless",
+   "공개키 기반",
+   "피싱 저항성"
+  ]
+ },
+ {
+  "id": "sn-517",
+  "title": "공격 표면 관리(Attack Surface Management)",
+  "category": "보안",
+  "importance": "상",
+  "definition": "조직의 공격 표면을 구성하는 사이버 보안 취약점 및 잠재적 공격 벡터를 지속적으로 발견, 분석, 우선순위 지정, 수정 및 모니터링하는 보안 프로세스",
+  "defShort": "조직의 공격 표면 취약점과 공격 벡터를 지속 발견·분석·대응하는 보안 프로세스",
+  "memo": "핵심: '공격자 관점(Outside-In)'에서 조직이 인지 못한 자산(Shadow IT·노출 API)까지 찾아 관리 — EASM은 외부 노출 표면 특화",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "외부 관점",
+     "지속 발견",
+     "우선순위 대응"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "ASM",
+     "EASM(External Attack Surface Management)",
+     "Outside-In 방식",
+     "네트워크 경계",
+     "디지털 자산 발견",
+     "자산 식별·분류",
+     "지속 모니터링"
+    ]
+   },
+   {
+    "label": "공격 표면 관리 프로세스",
+    "mnemonic": "",
+    "keywords": [
+     "디지털 자산 발견",
+     "자산 식별 및 분류",
+     "지속적인 보안 모니터링",
+     "악성자산 및 사고 모니터링"
+    ]
+   },
+   {
+    "label": "공격 표면 최소화 대응방안",
+    "mnemonic": "",
+    "keywords": [
+     "인프라 측면",
+     "데이터 측면",
+     "소프트웨어 측면",
+     "사용자 측면"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "외부 관점",
+   "지속 발견",
+   "우선순위 대응"
+  ]
+ },
+ {
+  "id": "sn-518",
+  "title": "차세대 SIEM(Security Information and Event Management)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "대규모 로그를 AI·UEBA로 분석해 지능형 위협을 탐지하고 SOAR로 자동 대응하는 클라우드 보안 플랫폼",
+  "defShort": "대규모 로그를 AI·UEBA로 분석해 위협을 탐지·자동 대응하는 보안 플랫폼",
+  "memo": "위협 헌팅 프로세스: 수집 → 가설 수립 → 헌팅 → 탐지자 개발 → 위협 탐지 → 조사 및 대응(Cyber Kill Chain 기반)",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "AI 위협 탐지",
+     "SOAR 자동대응",
+     "위협 헌팅"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "수집",
+     "가설 수립",
+     "헌팅",
+     "탐지자 개발",
+     "위협 탐지",
+     "조사 및 대응",
+     "Cyber Kill Chain",
+     "AI/ML",
+     "UEBA",
+     "SOAR",
+     "XDR",
+     "TIP"
+    ]
+   },
+   {
+    "label": "SIEM 수집 Log 유형",
+    "mnemonic": "",
+    "keywords": [
+     "네트워크 장치",
+     "엔드포인트",
+     "DB",
+     "모바일 디바이스"
+    ]
+   },
+   {
+    "label": "위협 헌팅 요소(차세대 SIEM 연계)",
+    "mnemonic": "",
+    "keywords": [
+     "AI",
+     "UEBA",
+     "SOAR",
+     "XDR",
+     "TIP"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "AI 위협 탐지",
+   "SOAR 자동대응",
+   "위협 헌팅"
+  ]
+ },
+ {
+  "id": "sn-519",
+  "title": "위협 헌팅(Threat Hunting)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "네트워크와 엔드 포인트(End Point)를 검색하여 보안 통제를 우회하는 위협이 공격을 실행하거나 목표를 달성하기 전 위협을 사전에 식별하는 프로세스",
+  "defShort": "네트워크와 엔드포인트를 검색해 보안 통제를 우회하는 위협을 사전 식별하는 기법",
+  "memo": "핵심: 탐지 경보를 '기다리지' 않고 '가설을 세워 능동적으로 찾아 나선다'(Active Threat Hunting) — SIEM/EDR/Cyber Kill Chain 활용",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "가설 기반",
+     "선제 탐색",
+     "ATT&CK 활용"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "수집",
+     "가설 수립",
+     "헌팅",
+     "탐지자 개발",
+     "위협 탐지",
+     "조사 및 대응",
+     "Cyber Kill Chain",
+     "Active/Passive Threat Hunting",
+     "TTP Based",
+     "IOC Based"
+    ]
+   },
+   {
+    "label": "위협 헌팅 절차",
+    "mnemonic": "",
+    "keywords": [
+     "수집",
+     "가설 수립",
+     "헌팅",
+     "탐지자 개발",
+     "위협 탐지",
+     "조사 및 대응"
+    ]
+   },
+   {
+    "label": "위협 헌팅 기술적 요소",
+    "mnemonic": "",
+    "keywords": [
+     "EDR",
+     "SIEM",
+     "Cyber Kill Chain"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "가설 기반",
+   "선제 탐색",
+   "ATT&CK 활용"
+  ]
+ },
+ {
+  "id": "sn-520",
+  "title": "위협 모델링(Threat Modeling)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "시스템, 애플리케이션, 네트워크 등 보호해야 할 자산에 대해 잠재적인 보안 위협을 식별, 분석, 평가와 대응 방안을 수립하는 프로세스",
+  "defShort": "보호 자산의 잠재적 보안 위협을 식별·분석·평가하고 대응 방안을 수립하는 절차",
+  "memo": "절차: 보안 요구사항 정의 → 위협 식별 → 위협 분석·평가 → 완화 계획 수립 → 검증·반복(5 Key Steps)",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "잠재 위협 식별",
+     "기법 다양성",
+     "설계 단계 적용"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "잠재적 보안 위협",
+     "STRIDE",
+     "DREAD",
+     "PASTA",
+     "DFD",
+     "신뢰 경계(Trust Boundary)"
+    ]
+   },
+   {
+    "label": "위협 모델링 기법의 종류",
+    "mnemonic": "",
+    "keywords": [
+     "STRIDE",
+     "DREAD",
+     "PASTA"
+    ]
+   },
+   {
+    "label": "위협 모델링의 DFD 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "외부 개체",
+     "프로세스",
+     "데이터 저장소",
+     "데이터 흐름",
+     "신뢰 경계(Trust Boundary)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "잠재 위협 식별",
+   "기법 다양성",
+   "설계 단계 적용"
+  ]
+ },
+ {
+  "id": "sn-521",
+  "title": "WAAP(Web Application and API Protection)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "웹방화벽(WAF) 기능에 추가로 API 보안 등 웹 환경에서 발생 가능한 각종 공격에 대한 보안책을 종합 적용한 웹 애플리케이션 및 API 보호 솔루션",
+  "defShort": "WAF 기능에 API 보안 등을 더해 웹 공격을 종합 방어하는 웹·API 보호 솔루션",
+  "memo": "핵심: WAF(웹 공격 방어) + API 보호 + DDoS + Bot 보호를 통합 — API 경제·클라우드 확산으로 API가 새 공격면이 되며 부상",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "WAF 확장",
+     "API 보호",
+     "봇 대응"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "WAF",
+     "웹 애플리케이션 보호",
+     "API 보호",
+     "DDoS",
+     "Bot 보호",
+     "RASP"
+    ]
+   },
+   {
+    "label": "WAAP 주요 기능",
+    "mnemonic": "",
+    "keywords": [
+     "웹 애플리케이션 방화벽(WAF)",
+     "DDoS(분산 서비스 거부) 보호",
+     "API 보호",
+     "Bot 보호"
+    ]
+   },
+   {
+    "label": "WAAP과 기존 보안 시스템 비교",
+    "mnemonic": "",
+    "keywords": [
+     "주요 목적",
+     "OSI Layer",
+     "제어대상",
+     "제어기법"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "WAF 확장",
+   "API 보호",
+   "봇 대응"
+  ]
+ },
+ {
+  "id": "sn-522",
+  "title": "EDR(Endpoint Detection and Response)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "엔드포인트 시스템 레벨의 동작을 지속적으로 모니터링하고 그 대응을 제공하는 보안 솔루션",
+  "defShort": "엔드포인트 시스템 레벨의 동작을 지속 모니터링하고 위협에 대응하는 보안 솔루션",
+  "memo": "핵심: 알려진 침해지표(IOC)와 행위 분석 기술로 침해를 조기 식별하기 위한 지속적 검색 수행 — 백신(시그니처)의 한계를 보완",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "행위 기반 탐지",
+     "지속 모니터링",
+     "IOC 활용"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "Predict",
+     "Prevent",
+     "Detect",
+     "Response",
+     "침해지표(IOC, Indicator of Compromise)",
+     "행위 분석"
+    ]
+   },
+   {
+    "label": "EDR Process",
+    "mnemonic": "",
+    "keywords": [
+     "Predict",
+     "Prevent",
+     "Detect",
+     "Response"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "행위 기반 탐지",
+   "지속 모니터링",
+   "IOC 활용"
+  ]
+ },
+ {
   "id": "gj-2",
   "title": "IT Outsourcing",
   "category": "경영전략",
@@ -57234,44 +58275,6 @@
   ]
  },
  {
-  "id": "ds-355",
-  "title": "Oauth 2.0",
-  "category": "디지털서비스",
-  "importance": "중",
-  "definition": "자원 소유자의 인증정보를 노출하지 않고 접근 토큰을 발급받아 제3자 애플리케이션이 보호 자원에 위임 접근하도록 하는 권한 위임 프레임워크",
-  "defShort": "",
-  "memo": "소클인자 - 소유자가 클라이언트에게, 인가서버를 거쳐 자원서버 접근을 허락한다.\n인암클리 - 인가코드·암묵적·클라이언트자격증명·리소스소유자암호 4가지 그랜트.",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "소클인자",
-    "keywords": [
-     "소유자",
-     "클라이언트",
-     "인가서버",
-     "자원서버"
-    ]
-   },
-   {
-    "label": "유형",
-    "mnemonic": "인암클리",
-    "keywords": [
-     "인가 코드 방식",
-     "암묵적 방식",
-     "클라이언트 자격증명 방식",
-     "리소스 소유자 암호 방식"
-    ]
-   }
-  ],
-  "mnemonic": "소클인자",
-  "keywords": [
-   "소유자",
-   "클라이언트",
-   "인가서버",
-   "자원서버"
-  ]
- },
- {
   "id": "ds-356",
   "title": "SSO",
   "category": "디지털서비스",
@@ -69031,36 +70034,6 @@
   "keywords": []
  },
  {
-  "id": "sec-23",
-  "title": "이중 서명",
-  "category": "보안",
-  "importance": "출제예상",
-  "definition": "판매자는 구매 정보만을, 금융기관은 결제 정보만 알 수 있도록 각각의 공개키로 암호화하는 두단계 서명 지급결제 보안 + 사용자 프라이버시 보안 구매 정보/결제 정보를 송신자 개인키로 전자서명 -> 수신자 공개키로 암호화하여 전자봉투도 함께 전송",
-  "defShort": "",
-  "memo": "해공비전전 (해시함수·공개키 암호화·비밀키 암호화·전자서명·전자봉투)",
-  "sections": [
-   {
-    "label": "기술요소",
-    "mnemonic": "해공비전전",
-    "keywords": [
-     "해시함수",
-     "공개키 암호화",
-     "비밀키 암호화",
-     "전자서명",
-     "전자봉투"
-    ]
-   }
-  ],
-  "mnemonic": "해공비전전",
-  "keywords": [
-   "해시함수",
-   "공개키 암호화",
-   "비밀키 암호화",
-   "전자서명",
-   "전자봉투"
-  ]
- },
- {
   "id": "sec-24",
   "title": "메시지 인증(Message Authentication)",
   "category": "보안",
@@ -71161,36 +72134,6 @@
   ]
  },
  {
-  "id": "sec-128",
-  "title": "전자봉투",
-  "category": "보안",
-  "importance": "중",
-  "definition": "메시지는 대칭키(비밀키)로 암호화하고 그 비밀키는 수신자의 공개키로 암호화해 함께 전달함으로써, 대칭키의 속도와 공개키의 키 분배 안전성을 결합한 하이브리드 암호 기법.",
-  "defShort": "",
-  "memo": "송씨 개인암은 비밀 수공암에 있다 — 서명은 송신자 개인키, 봉투는 비밀키를 수신자 공개키로. 절차는 '서암봉전복'.",
-  "sections": [
-   {
-    "label": "절차",
-    "mnemonic": "서암봉전복",
-    "keywords": [
-     "서명",
-     "암호화",
-     "봉투생성",
-     "전송",
-     "복호"
-    ]
-   }
-  ],
-  "mnemonic": "서암봉전복",
-  "keywords": [
-   "서명",
-   "암호화",
-   "봉투생성",
-   "전송",
-   "복호"
-  ]
- },
- {
   "id": "sec-129",
   "title": "공인인증서 문제 및 해결방안",
   "category": "보안",
@@ -72500,36 +73443,6 @@
    "Diversity(다양화)",
    "Redundancy(중복화)",
    "Distribution(분산화)"
-  ]
- },
- {
-  "id": "sec-177",
-  "title": "EDR(EndPoint Detection and Response)",
-  "category": "보안",
-  "importance": "출제예상",
-  "definition": "엔드포인트 레벨에서 지속적인 모니터링과 대응을 제공하는 보안솔루션",
-  "defShort": "",
-  "memo": "예방탐대- PPDR \n이오데프 시복스 오픈아이오씨",
-  "sections": [
-   {
-    "label": "핵심 키워드",
-    "mnemonic": "",
-    "keywords": [
-     "예방탐대- PPDR",
-     "예방기술",
-     "방어기술",
-     "탐지기술",
-     "대응기술"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "예방탐대- PPDR",
-   "예방기술",
-   "방어기술",
-   "탐지기술",
-   "대응기술"
   ]
  },
  {
@@ -74143,55 +75056,6 @@
   ]
  },
  {
-  "id": "sec-233",
-  "title": "DRM",
-  "category": "보안",
-  "importance": "상",
-  "definition": "디지털 콘텐츠의 생성·유통·이용 전 과정에서 콘텐츠를 암호화 패키징으로 안전하게 보호하고, 라이선스에 부여된 권한정보에 따라 열람·복사·인쇄 등 이용을 제어·통제하는 콘텐츠 보안 기술",
-  "defShort": "",
-  "memo": "기술요소는 유통 흐름 그대로 '패키징한 권리를 워터마킹으로 지키고, 복제를 막고, 식별해서, 상호연동한다'로 연상. 구성 4주체는 CP가 만들고 CD가 나르고 CC가 쓰고 CH가 정산.",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "",
-    "keywords": [
-     "콘텐츠제공자(CP)",
-     "콘텐츠분배자(CD)",
-     "콘텐츠소비자(CC)",
-     "클리어링하우스(CH)"
-    ]
-   },
-   {
-    "label": "기술요소",
-    "mnemonic": "",
-    "keywords": [
-     "패키징",
-     "권리표현기술(REL)",
-     "워터마킹/핑거프린팅",
-     "복제방지",
-     "식별체계",
-     "상호연동"
-    ]
-   },
-   {
-    "label": "특징",
-    "mnemonic": "투사유",
-    "keywords": [
-     "투명성",
-     "사용성",
-     "유통성"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "콘텐츠제공자(CP)",
-   "콘텐츠분배자(CD)",
-   "콘텐츠소비자(CC)",
-   "클리어링하우스(CH)"
-  ]
- },
- {
   "id": "sec-234",
   "title": "CAS",
   "category": "보안",
@@ -75081,32 +75945,6 @@
    "설치",
    "명령·제어",
    "목표달성"
-  ]
- },
- {
-  "id": "sec-264",
-  "title": "위협헌팅(Threat Hunting)",
-  "category": "보안",
-  "importance": "출제예상",
-  "definition": "사이버 공격의 흔적(아티팩트)를 발견하고 공격주체를 추적하여 조직 내에 식별 및 비식별 된 보안위협을 탐지하고 대응하는 기술 및 기능을 의미",
-  "defShort": "",
-  "memo": "보헌프 (보안조직·헌팅도구·프로세스)",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "보헌프",
-    "keywords": [
-     "보안조직",
-     "헌팅도구",
-     "프로세스"
-    ]
-   }
-  ],
-  "mnemonic": "보헌프",
-  "keywords": [
-   "보안조직",
-   "헌팅도구",
-   "프로세스"
   ]
  },
  {
