@@ -31641,6 +31641,597 @@
   ]
  },
  {
+  "id": "sn-532",
+  "title": "개인정보 프라이버시 8원칙",
+  "category": "보안",
+  "importance": "상",
+  "definition": "OECD가 제시한 개인정보의 국제 유통과 프라이버시 보호를 위한 8가지 기본 원칙",
+  "defShort": "OECD가 제시한 개인정보의 국제 유통과 프라이버시 보호를 위한 8가지 기본 원칙",
+  "memo": "8원칙 두음: 수집제한·정보정확성·목적명확화·이용제한·안전성확보·공개·개인참가·책임",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "수집 제한",
+     "이용 제한",
+     "정보주체 참여"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "수집제한",
+     "정보정확성",
+     "목적명확화",
+     "이용제한",
+     "안전성확보",
+     "공개(처리방침)",
+     "정보주체참여",
+     "책임"
+    ]
+   },
+   {
+    "label": "OECD 프라이버시 8원칙",
+    "mnemonic": "",
+    "keywords": [
+     "수집 제한의 원칙",
+     "정보 정확성의 원칙",
+     "목적 명확화의 원칙",
+     "이용 제한의 원칙",
+     "안전성 확보의 원칙",
+     "공개의 원칙",
+     "개인 참가의 원칙",
+     "책임의 원칙"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "수집 제한",
+   "이용 제한",
+   "정보주체 참여"
+  ]
+ },
+ {
+  "id": "sn-533",
+  "title": "개인정보 보호기술",
+  "category": "보안",
+  "importance": "상",
+  "definition": "개인 정보의 처리(수집, 기록, 파기 등) 중에 발생할 수 있는 부정한 사용 또는 유출 등의 위험으로부터 개인의 정보를 안전하게 보호할 수 있도록 하는 기술과 정책의 총칭",
+  "defShort": "개인정보 처리 중 부정 사용·유출 위험으로부터 정보를 보호하는 기술과 정책의 총칭",
+  "memo": "핵심: 필터링(노출·침해 차단) + 통신 보호(은닉·암호화·인증) + 저장 보호(DB암호화·Secure OS) + 정책(P3P)",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "기술적 통제",
+     "정책 결합",
+     "생애주기 보호"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "정책협상 기술",
+     "프라이버시 정책 생성",
+     "쿠키 관리",
+     "암호화 S/W",
+     "익명화(anonymizers)",
+     "필터링 기술",
+     "개인정보 은닉/암호화/인증",
+     "DB암호화",
+     "OS 보안",
+     "P3P"
+    ]
+   },
+   {
+    "label": "개인정보 보호기술 종류",
+    "mnemonic": "",
+    "keywords": [
+     "정책협상 기술",
+     "프라이버시 정책 생성",
+     "Cookie 관리(통제 및 필터링)",
+     "암호화 S",
+     "익명화(anonymizers) 기술"
+    ]
+   },
+   {
+    "label": "개인정보보호 기술적 통제방안",
+    "mnemonic": "",
+    "keywords": [
+     "필터링(개인정보 노출차단)",
+     "필터링(개인정보 침해차단)",
+     "개인정보 통신-은닉",
+     "개인정보 통신-암호화",
+     "개인정보 인증",
+     "개인정보 저장",
+     "개인정보 정책"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "기술적 통제",
+   "정책 결합",
+   "생애주기 보호"
+  ]
+ },
+ {
+  "id": "sn-534",
+  "title": "위험분석 방법론 (ISO/IEC 1335-1, 위험분석 전략/평가)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "자산의 위험을 식별·분석·평가하여 적절한 보안 대책을 수립하기 위한 위험분석 접근법과 평가 방법의 체계",
+  "defShort": "자산의 위험을 식별·분석·평가하여 적절한 보안 대책을 수립하는 위험분석 체계",
+  "memo": "접근법 4종: 베이스라인(체크리스트)·비정형(전문가)·상세(정량 모델)·복합(고위험만 상세)",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "접근법 4종",
+     "정성·정량 평가",
+     "자산 기반"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "베이스라인 접근법",
+     "비정형 접근법",
+     "상세 위험 분석",
+     "복합 접근법",
+     "정성적 평가",
+     "정량적 평가"
+    ]
+   },
+   {
+    "label": "위험분석 접근법 (ISO/IEC 1335-1)",
+    "mnemonic": "",
+    "keywords": [
+     "베이스라인 접근법",
+     "비정형 접근법",
+     "상세 위험 분석",
+     "복합 접근법"
+    ]
+   },
+   {
+    "label": "위험 평가 방법",
+    "mnemonic": "",
+    "keywords": [
+     "정성적 평가 방법",
+     "정량적 평가 방법"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "접근법 4종",
+   "정성·정량 평가",
+   "자산 기반"
+  ]
+ },
+ {
+  "id": "sn-535",
+  "title": "IEC 62443",
+  "category": "보안",
+  "importance": "중",
+  "definition": "산업제어시스템(IACS) 보안관리 요구사항과 보안기술, 제품의 개발 요구사항 및 구성요소에 대한 기술적 보안 요구사항 등이 정의되어 있는 산업제어시스템 보안 국제 표준",
+  "defShort": "산업제어시스템(IACS)의 보안 요구사항과 기술을 정의한 산업 보안 국제 표준",
+  "memo": "4파트 두음: General(일반)·Policy & Procedure(정책·절차)·System(시스템)·Component(컴포넌트)",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "4파트 구성",
+     "7대 기본요구",
+     "IACS 특화"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "General",
+     "Policy & Procedure",
+     "System",
+     "Component",
+     "7 FR(Foundational Requirements)",
+     "IACS"
+    ]
+   },
+   {
+    "label": "IEC 62443 구성 (4 Part)",
+    "mnemonic": "",
+    "keywords": [
+     "Part 1",
+     "Part 2",
+     "Part 3",
+     "Part 4"
+    ]
+   },
+   {
+    "label": "IEC 62443 7대 기본 요구사항(7 FR)",
+    "mnemonic": "",
+    "keywords": [
+     "FR1",
+     "FR2",
+     "FR3",
+     "FR4",
+     "FR5",
+     "FR6",
+     "FR7"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "4파트 구성",
+   "7대 기본요구",
+   "IACS 특화"
+  ]
+ },
+ {
+  "id": "sn-536",
+  "title": "ISO 27018",
+  "category": "보안",
+  "importance": "하",
+  "definition": "퍼블릭 클라우드 환경에서 개인식별정보(PII)를 보호하기 위한 통제 국제표준",
+  "defShort": "퍼블릭 클라우드 환경에서 개인식별정보(PII)를 보호하기 위한 통제 국제 표준",
+  "memo": "표준 계보: ISO 27001·27002·29100 기반 → ISO 27018(퍼블릭 클라우드 PII 보호)",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "PII 특화",
+     "27001 확장",
+     "동의·투명성"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "개인식별정보(PII)",
+     "Consent and choice",
+     "Data minimization",
+     "Individual participation",
+     "Accountability",
+     "Privacy compliance"
+    ]
+   },
+   {
+    "label": "ISO 27018 확장 통제 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "A.1 General(개요)",
+     "A.2 Consent and choice(동의와 선택)",
+     "A.3 Purpose legitimacy and specification",
+     "A.4 Collection limitation(수집제한)",
+     "A.5 Data minimization(데이터 최소화)",
+     "A.6 Use, retention and disclosure limita",
+     "A.7 Accuracy and quality(정확성과 품질)",
+     "A.8 Openness, transparency and notice(개방",
+     "A.9 Individual participation and access(",
+     "A.10 Accountability(책임)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "PII 특화",
+   "27001 확장",
+   "동의·투명성"
+  ]
+ },
+ {
+  "id": "sn-537",
+  "title": "차량 사이버 보안 국제 표준(ISO 21434)",
+  "category": "보안",
+  "importance": "상",
+  "definition": "차량 기획 단계부터 생산 및 Post Production 과정까지 사이버보안 활동에 관한 프로세스를 정의하는 것을 목적으로 만들어진 국제 표준",
+  "defShort": "차량 기획부터 폐기까지 사이버보안 활동 프로세스를 정의하는 자동차 보안 국제 표준",
+  "memo": "구성: General → Policy & Procedure → System → Component처럼 조직·프로젝트·분산·지속 관리로 구성",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "생애주기 보안",
+     "CSMS 인증",
+     "위험 기반"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "사이버 보안 활동 프로세스",
+     "조직 사이버 보안 관리",
+     "프로젝트 사이버보안 관리",
+     "분산 사이버보안 활동",
+     "지속적인 사이버보안 활동",
+     "CSMS"
+    ]
+   },
+   {
+    "label": "ISO/SAE 21434 구성",
+    "mnemonic": "",
+    "keywords": [
+     "1~4. 기본",
+     "조직 사이버보안 관리",
+     "프로젝트 사이버보안 관리",
+     "분산 사이버보안 활동",
+     "지속적인 사이버보안 활동",
+     "9~11. 개념 정의~검증",
+     "12~15. 생산 이후"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "생애주기 보안",
+   "CSMS 인증",
+   "위험 기반"
+  ]
+ },
+ {
+  "id": "sn-538",
+  "title": "ISO 27701",
+  "category": "보안",
+  "importance": "중",
+  "definition": "개인정보 보호를 위한 ISO/IEC 27001 및 ISO/IEC 27002의 확장판으로, 조직이 개인정보보호를 위해 갖추어야 하는 요구사항과 가이드라인을 동시에 제공하는 표준",
+  "defShort": "ISO 27001·27002에 개인정보보호 관리체계를 결합한 확장 국제 표준",
+  "memo": "구조: ISMS(ISO 27001)에 PIMS(개인정보보호 관리체계)를 얹은 것 — PII 통제자와 처리자를 구분해 지침 제공",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "PIMS 확장",
+     "27001 결합",
+     "PII 통제자·처리자"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "PIMS",
+     "ISMS",
+     "PII 통제자",
+     "PII 처리자",
+     "Gap Analysis",
+     "SOA",
+     "ISO 29100",
+     "GDPR"
+    ]
+   },
+   {
+    "label": "ISO/IEC 27701의 구성",
+    "mnemonic": "",
+    "keywords": [
+     "1~4",
+     "5",
+     "6",
+     "7",
+     "8"
+    ]
+   },
+   {
+    "label": "ISO/IEC 27701의 점검 항목",
+    "mnemonic": "",
+    "keywords": [
+     "Scope",
+     "Gap Analysis",
+     "Control Implementation",
+     "Statement of Applicability(SOA)",
+     "Internal Audit",
+     "Maintenance"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "PIMS 확장",
+   "27001 결합",
+   "PII 통제자·처리자"
+  ]
+ },
+ {
+  "id": "sn-539",
+  "title": "ISO/IEC 20889",
+  "category": "보안",
+  "importance": "중",
+  "definition": "프라이버시 침해 없이 개인정보를 처리하기 위한 비식별화 기법 및 관련 기술을 제시하는 개인정보 비식별조치 국제표준",
+  "defShort": "프라이버시 침해 없이 개인정보를 처리하기 위한 비식별화 기법을 제시하는 국제 표준",
+  "memo": "프라이버시 보호 모델: K-익명성 → L-다양성(동질성 보완) → T-근접성(쏠림 보완) 순으로 강화",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "비식별 기법",
+     "프라이버시 모델",
+     "재식별 방어"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "통계도구",
+     "일반화",
+     "해부화",
+     "가명화",
+     "삭제",
+     "암호화",
+     "무작위화",
+     "재현데이터",
+     "K-익명성",
+     "L-다양성",
+     "T-근접성"
+    ]
+   },
+   {
+    "label": "개인정보 비식별조치 표준 기법",
+    "mnemonic": "",
+    "keywords": [
+     "대체",
+     "대체",
+     "대체",
+     "대체",
+     "제거",
+     "변경",
+     "변경",
+     "생성"
+    ]
+   },
+   {
+    "label": "프라이버시 보호 모델",
+    "mnemonic": "",
+    "keywords": [
+     "K-익명성",
+     "L-다양성",
+     "T-근접성"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "비식별 기법",
+   "프라이버시 모델",
+   "재식별 방어"
+  ]
+ },
+ {
+  "id": "sn-540",
+  "title": "전자증거개시제도(e-Discovery)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "소송 또는 규제 요구에 대응하기 위해 디지털 형태로 존재하는 전자적 자료(ESI, Electronically Stored Information)를 수집, 준비, 검토, 구성, 생산하여 개시하는 절차",
+  "defShort": "소송·규제 대응을 위해 전자 자료(ESI)를 수집·검토·생산해 개시하는 절차",
+  "memo": "EDRM 절차: 정보관리 → 식별 → 보존·수집 → 처리·검토·분석 → 산출",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "ESI 대상",
+     "사전 원칙",
+     "민사 소송"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "EDRM",
+     "ESI",
+     "정보관리",
+     "식별",
+     "보존·수집",
+     "처리·검토·분석",
+     "산출"
+    ]
+   },
+   {
+    "label": "EDRM(Electronic Discovery Reference Mode",
+    "mnemonic": "",
+    "keywords": [
+     "정보 관리",
+     "식별",
+     "보존·수집",
+     "처리·검토·분석",
+     "산출"
+    ]
+   },
+   {
+    "label": "e-Discovery와 디지털 포렌식 비교",
+    "mnemonic": "",
+    "keywords": [
+     "목적",
+     "특징",
+     "관점",
+     "원칙"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "ESI 대상",
+   "사전 원칙",
+   "민사 소송"
+  ]
+ },
+ {
+  "id": "sn-541",
+  "title": "제로트러스트 가이드라인 2.0",
+  "category": "보안",
+  "importance": "상",
+  "definition": "암시적 신뢰를 제거하고 엄격한 인증 및 승인을 하는 무신뢰 기반 과립형 경계(Granular Perimeter) 보안 모델",
+  "defShort": "암시적 신뢰를 제거하고 엄격한 인증·승인을 하는 무신뢰 기반 과립형 경계 보안 모델",
+  "memo": "핵심 원칙: '절대 신뢰하지 말고 항상 검증하라(Never Trust, Always Verify)' — 암시적 신뢰 제거",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "암시적 신뢰 제거",
+     "지속 검증",
+     "최소 권한"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "PE(정책 엔진)",
+     "PA(정책 관리자)",
+     "PDP(정책결정지점)",
+     "PEP(정책시행지점)",
+     "PIP(정책정보지점)",
+     "Granular Perimeter",
+     "성숙도 4단계"
+    ]
+   },
+   {
+    "label": "제로 트러스트 보안 모델 Framework 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "핵심 구성요소",
+     "핵심 구성요소",
+     "핵심 구성요소",
+     "핵심 구성요소",
+     "정책 정보지점(PIP)"
+    ]
+   },
+   {
+    "label": "제로트러스트 성숙도 모델 2.0의 성숙도 4단계",
+    "mnemonic": "",
+    "keywords": [
+     "1단계: 기존 단계",
+     "2단계: 초기 단계",
+     "3단계: 향상 단계",
+     "4단계: 최적화 단계"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "암시적 신뢰 제거",
+   "지속 검증",
+   "최소 권한"
+  ]
+ },
+ {
   "id": "gj-2",
   "title": "IT Outsourcing",
   "category": "경영전략",
@@ -75601,78 +76192,6 @@
    "비식별조치",
    "적정성평가",
    "사후관리"
-  ]
- },
- {
-  "id": "sec-239",
-  "title": "개인정보 보호기술",
-  "category": "보안",
-  "importance": "상",
-  "definition": "개인정보의 수집·이용·제공 전 과정에서 노출과 오남용을 최소화하도록 정책·암호·필터링·익명화·인증 기술을 결합하여 프라이버시를 보호하는 기술의 총칭(PET, Privacy Enhancing Technology)",
-  "defShort": "",
-  "memo": "'정책을 세우고, 암호를 걸고, 위협을 거르고, 신원을 숨기고, 필요할 때만 인증한다' — 데이터 흐름 순서로 5대 기술을 복원. 익명화의 Mix-net은 믹서기처럼 트래픽을 섞는다고 연상.",
-  "sections": [
-   {
-    "label": "유형(5대 기술)",
-    "mnemonic": "정암필익인",
-    "keywords": [
-     "정책협상 기술",
-     "암호 기술",
-     "필터링 기술",
-     "익명화 기술",
-     "인증 기술"
-    ]
-   },
-   {
-    "label": "└ 암호 기술",
-    "mnemonic": "",
-    "keywords": [
-     "DES/AES",
-     "RSA",
-     "ECC",
-     "SSL/TLS",
-     "VPN"
-    ]
-   },
-   {
-    "label": "└ 필터링 기술",
-    "mnemonic": "",
-    "keywords": [
-     "방화벽",
-     "IDS/IPS",
-     "NAC",
-     "안티바이러스",
-     "캡쳐방지",
-     "피싱 모니터링"
-    ]
-   },
-   {
-    "label": "└ 익명화 기술",
-    "mnemonic": "",
-    "keywords": [
-     "Mix-net",
-     "ISO 25237",
-     "ISO/IEC 20889"
-    ]
-   },
-   {
-    "label": "└ 인증 기술",
-    "mnemonic": "",
-    "keywords": [
-     "PKI",
-     "i-PIN",
-     "SSO",
-     "OpenID"
-    ]
-   }
-  ],
-  "mnemonic": "정암필익인",
-  "keywords": [
-   "정책협상 기술",
-   "암호 기술",
-   "필터링 기술",
-   "익명화 기술",
-   "인증 기술"
   ]
  },
  {
