@@ -12,7 +12,6 @@ import { PageHeader, Spinner, ErrorBox, Button } from "@/components/ui";
 import Markdown from "@/components/Markdown";
 import ConceptDiagram from "@/components/ConceptDiagram";
 import ShareButton from "@/components/ShareButton";
-import AudioLecture from "@/components/AudioLecture";
 import TopicAutocomplete from "@/components/TopicAutocomplete";
 import topics from "@/data/topics.json";
 import flashcards from "@/data/flashcards.json";
@@ -493,12 +492,8 @@ function ExplainInner() {
           ))}
         {result && (
           <>
-            {/* 오디오 강의·공유 — 두음신공 페이지와 동일하게 결과 상단(카드 밖) */}
-            <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-              <AudioLecture
-                topic={topic.trim()}
-                topicId={topics.find((x) => x.title === topic.trim())?.id}
-              />
+            {/* 공유 — 두음신공 페이지와 동일하게 결과 상단(카드 밖) */}
+            <div className="mb-4 flex flex-wrap items-center justify-end gap-2">
               <ShareButton
                 title={`[나의 공간] ${topic.trim()} 설명`}
                 text={`💡 ${topic.trim()} — 이해하기 쉬운 설명`}

@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { PageHeader, Spinner, ErrorBox, Button } from "@/components/ui";
 import ShareButton from "@/components/ShareButton";
-import AudioLecture from "@/components/AudioLecture";
 import TopicAutocomplete from "@/components/TopicAutocomplete";
 import topics from "@/data/topics.json";
 import { loadReview, saveReview, markReviewed } from "@/lib/storage";
@@ -270,10 +269,6 @@ function MnemonicInner() {
                 title={`[나의 공간] ${set.topic} 암기 훈련`}
                 text={`🥷 ${set.topic} 암기 훈련\n\n서론: ${set.intro.mnemonic}\n본론: ${set.body.mnemonic}\n\n핵심 키워드: ${set.body.items.map((i) => i.term).join(", ")}`}
               />
-            </div>
-            {/* NotebookLM식 오디오 강의 — AI가 팟캐스트 대사를 만들어 두 목소리로 설명 */}
-            <div className="mb-4">
-              <AudioLecture topic={set.topic} topicId={topicId} />
             </div>
             {subnote?.related && subnote.related.length > 0 && (
               <div className="mb-4 rounded-2xl border border-sky-200 bg-sky-50 p-4">
