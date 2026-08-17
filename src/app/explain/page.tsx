@@ -272,24 +272,41 @@ function ExplainInner() {
                 </div>
               )}
 
-              {/* 2. 본론 — 개념도와 구성요소. 개념도는 아래 교재 슬라이드를 6줄 도식으로 옮기고,
-                  교재 표들은 가/나/다 소항목으로 이어 적는다. */}
+              {/* 2. 본론 — 개념도와 구성요소. 도식 캡처(images)가 있으면 개념도 자리에 바로 띄우고,
+                  없으면 아래 교재 슬라이드를 참조하도록 안내. 교재 표들은 가/나/다 소항목. */}
               <div className="mt-4">
                 <p className="text-[13px] font-bold leading-relaxed text-slate-800">
                   2. {textbook.title.replace(/\s*\([^)]*\)/g, "")}의 개념도 및 구성요소
                 </p>
-                {extra?.image && (
+                {(extra?.image || extra?.images?.length) && (
                   <p className="mt-1 pl-4 text-[13px] leading-relaxed text-slate-600">
                     <span className="mr-1 font-bold text-slate-500">가. 개념도</span>
-                    아래 교재 슬라이드의 개념도를 답안지 6줄 내 도식으로 옮겨 그린다
+                    {extra?.images?.length
+                      ? "이 도식을 답안지 6줄 내로 옮겨 그린다"
+                      : "아래 교재 슬라이드의 개념도를 답안지 6줄 내 도식으로 옮겨 그린다"}
                   </p>
+                )}
+                {!!extra?.images?.length && (
+                  <div className="mt-2 space-y-2 pl-4">
+                    {extra.images.map((src) => (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        key={src}
+                        src={src}
+                        alt={`${topic.trim()} 개념도`}
+                        className="w-full max-w-xl rounded-lg border border-slate-200 bg-white"
+                      />
+                    ))}
+                  </div>
                 )}
               </div>
               {textbook.tables.map((tb, ti) => (
                 <div key={tb.caption} className="mt-3 pl-4">
                   <p className="text-[13px] font-bold leading-relaxed text-slate-700">
-                    {["가", "나", "다", "라", "마", "바", "사"][ti + (extra?.image ? 1 : 0)]}.{" "}
-                    {tb.caption}
+                    {["가", "나", "다", "라", "마", "바", "사"][
+                      ti + (extra?.image || extra?.images?.length ? 1 : 0)
+                    ]}
+                    . {tb.caption}
                   </p>
                   <div className="mt-1.5 overflow-x-auto">
                     <table className="w-full border-collapse text-xs">
@@ -452,26 +469,6 @@ function ExplainInner() {
               alt={`${topic.trim()} 교재 슬라이드`}
               className="w-full bg-white"
             />
-          </section>
-        )}
-
-        {/* 추가 도식 — 사용자가 보내준 캡처를 리포에 커밋해 둔 것. 로그인·DB 없이 항상 뜬다 */}
-        {!!extra?.images?.length && (
-          <section className="mb-6 overflow-hidden rounded-2xl border border-slate-200 bg-white">
-            <div className="border-b border-slate-100 px-4 py-2 text-xs font-bold text-slate-600">
-              📐 추가 도식 ({extra.images.length}장)
-            </div>
-            <div className="space-y-2 p-2">
-              {extra.images.map((src) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  key={src}
-                  src={src}
-                  alt={`${topic.trim()} 추가 도식`}
-                  className="w-full rounded-lg bg-white"
-                />
-              ))}
-            </div>
           </section>
         )}
 
