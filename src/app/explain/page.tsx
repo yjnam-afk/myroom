@@ -455,6 +455,26 @@ function ExplainInner() {
           </section>
         )}
 
+        {/* 추가 도식 — 사용자가 보내준 캡처를 리포에 커밋해 둔 것. 로그인·DB 없이 항상 뜬다 */}
+        {!!extra?.images?.length && (
+          <section className="mb-6 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+            <div className="border-b border-slate-100 px-4 py-2 text-xs font-bold text-slate-600">
+              📐 추가 도식 ({extra.images.length}장)
+            </div>
+            <div className="space-y-2 p-2">
+              {extra.images.map((src) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  key={src}
+                  src={src}
+                  alt={`${topic.trim()} 추가 도식`}
+                  className="w-full rounded-lg bg-white"
+                />
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* 내 도식 — 교재 도식을 사진/캡처로 직접 넣어 둔다(AI가 그린 그림 대신 원본) */}
         {topic.trim() && (
           <MyDiagrams

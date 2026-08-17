@@ -43,6 +43,11 @@ export type EasyGuide = {
 export type SubnoteExtra = {
   /** 교재 슬라이드 원본 이미지 경로 */
   image?: string;
+  /**
+   * 추가 도식 — 사용자가 보내준 캡처를 public/concept/extra/ 에 커밋해 두고 여기 나열.
+   * 리포에 포함되므로 로그인·DB 없이 모든 기기에서 항상 뜬다.
+   */
+  images?: string[];
   /** (구) 줄글 설명 — guide 가 없을 때만 쓴다 */
   easy?: string;
   /** (신) 이해→암기→인출 학습 카드 */
