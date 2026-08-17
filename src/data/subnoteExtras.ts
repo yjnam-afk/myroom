@@ -530,7 +530,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   "risk-based-test": { image: "/concept/book/risk-based-test.png", easy: "테스트할 시간과 인력은 늘 모자라니, 위험이 큰 곳부터 집중하자는 전략입니다. 각 항목의 위험을 '장애 발생 가능성 × 영향'의 2축 매트릭스에 놓으면 네 구역이 나옵니다 — STA(가능성↑영향↑: 반드시 테스트), STTA(가능성↓영향↑), ITA(가능성↑영향↓), FTA(둘 다 낮음: 생략 가능). 순회 순서까지 나옵니다 — 사업적 리스크 중심이면 N자형(STA→STTA→ITA→FTA), 기술적 리스크 중심이면 S자형(STA→ITA→STTA→FTA). 절차는 위험 식별→분석→대응계획→테스트 계획→모니터링입니다." },
   "se-163": { image: "/concept/book/se-163.png", easy: "테스트 결과가 '맞았는지 틀렸는지'를 판정해 주는 채점 기준입니다 [참샘휴일]. 참 오라클(모든 입력의 정답을 다 앎 — 이상적이나 비쌈), 샘플링(특정 입력 몇 개만 정답 보유 — sin 함수의 0°·90°·180°처럼), 휴리스틱(샘플은 정확히, 나머지는 추정으로 — 샘플링의 개선), 일관성 검사(이전 실행 결과와 같은지 비교 — 회귀 테스트·자동화 도구가 사용). 요즘 단골 연계 — AI 시스템은 확률적이고 재현이 안 돼 참 오라클이 불가능하므로, 백투백·A/B·변성(Metamorphic) 테스트 같은 대안을 씁니다." },
 "memory-fragmentation": {
-    image: "/concept/book/memory-fragmentation.webp",
+    image: "/concept/book/memory-fragmentation.webp", images: ["/concept/extra/internal-fragmentation.png", "/concept/extra/external-fragmentation.png"],
     guide: {
       hook: "빈 메모리는 있는데 못 쓰는 낭비 — CA 교재는 '예방 도구'까지 다룹니다.",
       scene: "주차장으로 보세요. 대형차 칸에 경차가 서면 칸 안에 틈이 남고(내부), 빈 칸이 띄엄띄엄이면 버스를 댈 수가 없습니다(외부). 관리인의 대응 — 붙어 있는 빈 칸 합치기(통합), 차들을 한쪽으로 몰아 큰 빈 공간 만들기(압축). 그리고 아예 처음부터 잘 배치하는 도구들이 있습니다.",
@@ -1430,7 +1430,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-47": {
-    image: "/concept/book/os-47.webp",
+    image: "/concept/book/os-47.webp", images: ["/concept/extra/context-switch-pcb.png"],
     guide: {
       hook: "요리사가 주문 A를 내려놓고 B로 갈아타는 동작 — 그 시간엔 요리가 한 개도 안 됩니다.",
       scene: "갈아타려면 A가 어디까지 됐는지(불 세기·남은 시간)를 A의 관리 카드(PCB)에 적고, B의 카드를 읽어 그 상태를 복원해야 합니다. 적고 읽는 동안 손은 완전히 멈춰 있습니다.",
@@ -1679,7 +1679,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "paging-segmentation": {
-    image: "/concept/book/paging-segmentation.webp",
+    image: "/concept/book/paging-segmentation.webp", images: ["/concept/extra/paging-mmu.png", "/concept/extra/segmentation-mmu.png"],
     guide: {
       hook: "프로그램을 메모리에 올리려고 자를 때, 자로 자르느냐 의미로 자르느냐입니다.",
       scene:
@@ -1705,7 +1705,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-58": {
-    image: "/concept/book/ca-58.webp",
+    image: "/concept/book/ca-58.webp", images: ["/concept/extra/internal-fragmentation.png", "/concept/extra/external-fragmentation.png"],
     guide: {
       hook: "빈 공간은 분명히 있는데, 쓸 수가 없는 상태입니다.",
       scene:
