@@ -264,18 +264,17 @@ function buildFromSubnote(q: any, sn: any): string {
       if (bs <= 0) bi = Math.min(ti, items.length - 1);
       buckets[bi].push(tb);
     });
+    // ★ 품질 게이트 — 지문 항목 중 하나라도 채울 교재 표가 없으면 답안을 내지 않는다.
+    //   (빈 항목을 키워드 나열로 때우는 가짜 답안 방지 — 없는 게 낫다)
+    if (buckets.some((b) => b.length === 0)) return "";
     items.forEach((it, i) => {
       parts.push(`## ${no++}. ${GA[i]}. ${it}`);
       if (i === 0 && sec) parts.push(...defOneLiner(sn));
-      if (buckets[i].length) {
-        buckets[i].forEach((tb: any) => {
-          parts.push("");
-          parts.push(`■ ${tb.caption || "관련 표"}`);
-          parts.push(mdTable(tb));
-        });
-      } else {
-        parts.push(`- 교재 키워드로 전개: ${(sn.keywords || []).slice(0, 6).join(" · ")}`);
-      }
+      buckets[i].forEach((tb: any) => {
+        parts.push("");
+        parts.push(`■ ${tb.caption || "관련 표"}`);
+        parts.push(mdTable(tb));
+      });
       parts.push("");
     });
   } else {
@@ -303,10 +302,11 @@ function buildFromSubnote(q: any, sn: any): string {
     parts.push("");
   }
 
-  // 결론(+α)
-  if (sn.notes?.length) {
+  // 결론(+α) — 개념도 묘사용 비고는 결론에 어울리지 않으므로 제외
+  const cNotes = (sn.notes || []).filter((n: string) => !/^개념도/.test(n));
+  if (cNotes.length) {
     parts.push(`## ${no++}. 결론 — 차별화(+α)`);
-    for (const n of sn.notes) parts.push(`- ${n}`);
+    for (const n of cNotes) parts.push(`- ${n}`);
     parts.push("");
   }
   parts.push("**(끝)**");
@@ -383,6 +383,9 @@ function buildFromTopic(q: any, t: any): string {
   const items = subItems(q.text);
   const seq = isSeqQ(q.text);
   let no = 1;
+  // ★ 품질 게이트 — 예전 토픽 자료는 지문 다항 요구에 항목별 대응이 불가능하므로
+  //   가/나/다 다항 문제에는 답안을 내지 않는다(빈 껍데기 방지).
+  if (items.length) return "";
 
   if (sec) {
     parts.push(`## ${no++}. 서론 — ${bt}의 필요성 (Why 관점)`);
@@ -403,26 +406,7 @@ function buildFromTopic(q: any, t: any): string {
   }
   parts.push("");
 
-  if (items.length) {
-    // 병렬식 — 항목별 헤딩. 예전 토픽 자료는 항목-표 매핑이 어려워 키워드 근거를 배치.
-    items.forEach((it, i) => {
-      parts.push(`## ${no++}. ${GA[i]}. ${it}`);
-      if (i === 0 && sec && def) parts.push(`- 정의: ${def}`);
-      const s = sections[i];
-      if (s)
-        parts.push(
-          `- ${s.label}${s.mnemonic ? ` [${s.mnemonic}]` : ""}: ${(s.keywords || [])
-            .slice(0, 8)
-            .join(" · ")}`,
-        );
-      parts.push("");
-    });
-    if (sections.length > items.length) {
-      parts.push(`## ${no++}. 본론 보강 — 남은 핵심 구성`);
-      parts.push(sectionsTable(sections.slice(items.length)));
-      parts.push("");
-    }
-  } else {
+  {
     if (sections.length) {
       parts.push(`## ${no++}. 본론1 — ${bt}의 ${sec ? "정의 및 " : ""}핵심 구성`);
       if (sec && def) parts.push(`- 정의: ${def}`);
@@ -458,26 +442,28 @@ let bySn = 0,
 for (const q of questions) {
   if (modelAnswers[q.id]) continue; // 수작업 모범답안 우선
   const sn = matchLongest(q.text, SN_INDEX);
-  if (sn) {
+  const snAns = sn ? buildFromSubnote(q, sn.sn) : "";
+  if (snAns) {
     out[q.id] = {
       title: sn.sn.title,
       source: `교재 서브노트 — ${sn.sn.title}`,
-      answer: buildFromSubnote(q, sn.sn),
+      answer: snAns,
     };
     bySn++;
     continue;
   }
   const tp = matchLongest(q.text, TP_INDEX);
-  if (tp) {
+  const tpAns = tp ? buildFromTopic(q, tp.t) : "";
+  if (tpAns) {
     out[q.id] = {
       title: tp.t.title,
       source: `토픽 자료 — ${tp.t.title}`,
-      answer: buildFromTopic(q, tp.t),
+      answer: tpAns,
     };
     byTp++;
     continue;
   }
-  skip++;
+  skip++; // 품질 게이트에 걸렸거나 매칭 실패 — 가짜 답안 대신 미제공
 }
 
 const outPath = path.join(root, "src/data/genAnswers.json");

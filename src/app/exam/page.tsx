@@ -259,11 +259,14 @@ export default function ExamPage() {
             <div className="space-y-2">
               {qs.map((q, i) => {
                 // 수작업 모범답안 우선, 없으면 교재/토픽 자료 기반 자동 생성본.
-                const ma =
-                  getModelAnswer(q.id) ||
-                  (genAnswers as Record<string, { source: string; answer: string }>)[
-                    q.id
-                  ];
+                // 수작업 모범답안과 자동 조립본은 라벨을 구분해 보여준다.
+                const hand = getModelAnswer(q.id);
+                const gen = hand
+                  ? undefined
+                  : (genAnswers as Record<string, { source: string; answer: string }>)[
+                      q.id
+                    ];
+                const ma = hand || gen;
                 const tpl = matchSubnoteTitle(q.text);
                 return (
                 <div
@@ -284,9 +287,14 @@ export default function ExamPage() {
                     </div>
                   </div>
                   <div className="mt-3 flex flex-wrap gap-2 pl-9">
-                    {ma && (
+                    {hand && (
                       <span className="self-center rounded-md bg-amber-100 px-2 py-1 text-[10px] font-bold text-amber-700">
                         📘 모범답안 제공
+                      </span>
+                    )}
+                    {gen && (
+                      <span className="self-center rounded-md bg-slate-100 px-2 py-1 text-[10px] font-bold text-slate-500">
+                        🧩 조립 답안(자동)
                       </span>
                     )}
                     {tpl && (
@@ -311,11 +319,29 @@ export default function ExamPage() {
 
                   {ma && (
                     <details className="mt-3 pl-9">
-                      <summary className="cursor-pointer text-xs font-semibold text-amber-700 hover:underline">
-                        📘 클로드 모범답안 보기
+                      <summary
+                        className={`cursor-pointer text-xs font-semibold hover:underline ${
+                          hand ? "text-amber-700" : "text-slate-500"
+                        }`}
+                      >
+                        {hand
+                          ? "📘 클로드 모범답안 보기"
+                          : "🧩 교재 조립 답안 보기 (자동 생성 · 참고용)"}
                       </summary>
-                      <div className="mt-2 rounded-xl border border-amber-200 bg-amber-50/40 p-4">
-                        <div className="mb-2 rounded-md bg-white px-2.5 py-1 text-[10px] text-amber-700 ring-1 ring-amber-200">
+                      <div
+                        className={`mt-2 rounded-xl border p-4 ${
+                          hand
+                            ? "border-amber-200 bg-amber-50/40"
+                            : "border-slate-200 bg-slate-50/60"
+                        }`}
+                      >
+                        <div
+                          className={`mb-2 rounded-md bg-white px-2.5 py-1 text-[10px] ring-1 ${
+                            hand
+                              ? "text-amber-700 ring-amber-200"
+                              : "text-slate-500 ring-slate-200"
+                          }`}
+                        >
                           🧾 근거: {ma.source}
                         </div>
                         <article className="rounded-lg bg-white p-4">
