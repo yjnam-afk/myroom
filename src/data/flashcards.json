@@ -27805,6 +27805,249 @@
   ]
  },
  {
+  "id": "sn-468",
+  "title": "블록 암호화(Block Cipher)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "평문을 일정한 블록 단위로 분할하여 각 블록마다 암호화 과정을 수행하여 고정된 크기의 블록 단위의 암호문을 생성하는 암호화",
+  "defShort": "평문을 일정한 블록 단위로 분할하여 블록마다 암호화를 수행해 암호문을 만드는 방식",
+  "memo": "블록 암호 특징: 가. 소프트웨어 구현 용이 나. Block 단위 암호화 다. Confusion + Diffusion 라. S-BOX, P-BOX",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "SW 구현 용이",
+     "블록 단위 암호화",
+     "혼돈·확산 적용"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "ECB",
+     "CBC",
+     "PCBC",
+     "CFB",
+     "OFB",
+     "CTR",
+     "IV(초기화 벡터)"
+    ]
+   },
+   {
+    "label": "블록 암호화 구조와 알고리즘",
+    "mnemonic": "",
+    "keywords": [
+     "Feistel 구조",
+     "SPN 구조",
+     "기타 구조"
+    ]
+   },
+   {
+    "label": "블록 암호화 운영 모드",
+    "mnemonic": "",
+    "keywords": [
+     "ECB (Electronic Code Book)",
+     "CBC (Cipher Block Chaining)",
+     "PCBC (Propagating CBC)",
+     "CFB (Cipher Feedback)",
+     "OFB (Output Feedback)",
+     "CTR (Counter)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "SW 구현 용이",
+   "블록 단위 암호화",
+   "혼돈·확산 적용"
+  ]
+ },
+ {
+  "id": "sn-469",
+  "title": "암호학적 보안 강도(Security Strength)",
+  "category": "보안",
+  "importance": "하",
+  "definition": "특정 암호 알고리즘 또는 해시 함수에 대하여, 공격자가 키 탐색, 충돌 탐색, 역상 탐색 등의 공격을 성공시키는 데 필요한 계산량을 2^n 수준의 연산량으로 나타낸 척도",
+  "defShort": "특정 암호나 해시 함수 공격 성공에 필요한 계산량을 2의 n승 연산량으로 나타낸 척도",
+  "memo": "해시 n비트 출력의 보안 강도: 충돌 저항성 약 n/2비트, 역상 저항성 약 n비트 — 같은 해시라도 공격 유형에 따라 강도가 다르다",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "2^n 연산량 척도",
+     "방식별 기준 상이",
+     "유지기간 존재"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "2^n",
+     "연산량(계산량)",
+     "암호 키 길이",
+     "해시 출력 길이",
+     "운용 모드",
+     "초기화 벡터(IV)·논스(Nonce) 사용 방식",
+     "112bit",
+     "128bit",
+     "192bit",
+     "256bit"
+    ]
+   },
+   {
+    "label": "암호학적 보안 강도(Security Strength)의 결정 요소",
+    "mnemonic": "",
+    "keywords": [
+     "암호 키 길이",
+     "해시 출력 길이",
+     "운용 모드",
+     "초기화 벡터(IV)·논스(Nonce) 사용 방식"
+    ]
+   },
+   {
+    "label": "암호학적 보안 강도(Security Strength)의 보안 강도 기준",
+    "mnemonic": "",
+    "keywords": [
+     "대칭키 암호",
+     "공개키 암호",
+     "해시 함수"
+    ]
+   },
+   {
+    "label": "보안 강도별 암호 알고리즘 비교",
+    "mnemonic": "",
+    "keywords": [
+     "112",
+     "128",
+     "192",
+     "256"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "2^n 연산량 척도",
+   "방식별 기준 상이",
+   "유지기간 존재"
+  ]
+ },
+ {
+  "id": "sn-470",
+  "title": "동형 암호(Homomorphic Encryption)",
+  "category": "보안",
+  "importance": "하",
+  "definition": "평문과 암호문의 동형(Homomorphic) 성질로 인해 암호문 상태에서도 연산이 가능한 차세대 암호",
+  "defShort": "평문과 암호문의 동형 성질로 인해 암호문 상태에서도 연산이 가능한 차세대 암호 기술",
+  "memo": "개념도: A·B를 비밀키로 암호화 → E(A)·E(B) 상태에서 모든 사칙연산 동일 결과 → E(A)+E(B)를 복호화하면 C=A+B",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "암호문 상태 연산",
+     "PHE→SHE→FHE 단계",
+     "노이즈 제어"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "부분 동형",
+     "준 동형",
+     "완전 동형",
+     "부트스트래핑",
+     "스쿼싱",
+     "RAD78",
+     "BGN05",
+     "Gen09",
+     "CRT-based"
+    ]
+   },
+   {
+    "label": "동형 암호의 유형, 설계원리와 알고리즘",
+    "mnemonic": "",
+    "keywords": [
+     "유형",
+     "유형",
+     "유형",
+     "설계원리",
+     "설계원리",
+     "알고리즘",
+     "알고리즘",
+     "알고리즘",
+     "알고리즘"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "암호문 상태 연산",
+   "PHE→SHE→FHE 단계",
+   "노이즈 제어"
+  ]
+ },
+ {
+  "id": "sn-471",
+  "title": "암호 분석 공격(Cryptanalysis Attacks) 기법",
+  "category": "보안",
+  "importance": "중",
+  "definition": "암호 시스템을 분석하여 암호문을 해독(평문 추출)하거나 암호 키를 추출하려는 공격 기법",
+  "defShort": "암호 시스템을 분석하여 암호문의 평문 해독이나 암호 키의 추출을 노리는 공격 기법",
+  "memo": "암호 공격 기법 종류: ① 암호 분석 공격 ② 무차별 대입 공격 ③ 사전 공격(레인보우 테이블) ④ 크레덴셜 스터핑 공격 ⑤ 중간자 공격 ⑥ 재전송 공격 ⑦ 부채널 공격 등",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "정보량별 분류",
+     "수학적 분석",
+     "방어책 상이"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "COA",
+     "KPA",
+     "CPA",
+     "CCA"
+    ]
+   },
+   {
+    "label": "암호 분석 공격 4유형 (COA·KPA·CPA·CCA)",
+    "mnemonic": "",
+    "keywords": [
+     "암호문 단독 공격 (COA, Ciphertext-Only Attack)",
+     "기지(알려진) 평문 공격 (KPA, Known-Plaintext Atta",
+     "선택 평문 공격 (CPA, Chosen-Plaintext Attack)",
+     "선택 암호문 공격 (CCA, Chosen-Ciphertext Attack"
+    ]
+   },
+   {
+    "label": "커크호프의 원칙(Kerckhoffs's principle)",
+    "mnemonic": "",
+    "keywords": [
+     "암호 알고리즘은 공개되어도 안전해야 한다",
+     "시스템의 보안은 암호 키의 비밀성에 의존해야 한다",
+     "키가 유출되었을 경우 쉽게 변경할 수 있어야 한다",
+     "시스템은 실용적이어야 하며, 유지보수가 가능해야 한다"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "정보량별 분류",
+   "수학적 분석",
+   "방어책 상이"
+  ]
+ },
+ {
   "id": "gj-2",
   "title": "IT Outsourcing",
   "category": "경영전략",
@@ -66334,63 +66577,6 @@
   ]
  },
  {
-  "id": "sec-5",
-  "title": "블록 암호화",
-  "category": "보안",
-  "importance": "상",
-  "definition": "평문을 고정 크기 블록 단위로 대칭키와 함께 암호화하는 방식으로, 운영모드와 암호구조를 통해 혼돈·확산을 구현하는 대칭키 암호 기법이다.",
-  "defShort": "",
-  "memo": "운영모드: ECB는 절대 금지(패턴 노출), CBC·CTR 권장. Feistel=DES, SPN=AES. 최신 실무는 인증암호 AES-GCM.",
-  "sections": [
-   {
-    "label": "운영모드",
-    "mnemonic": "",
-    "keywords": [
-     "ECB(사용금지)",
-     "CBC(권장)",
-     "CFB",
-     "OFB",
-     "CTR(권장)"
-    ]
-   },
-   {
-    "label": "암호구조",
-    "mnemonic": "",
-    "keywords": [
-     "Feistel(좌우분리·XOR·라운드)",
-     "SPN(S-Box·P-Box)"
-    ]
-   },
-   {
-    "label": "공격기법",
-    "mnemonic": "",
-    "keywords": [
-     "차분공격(Differential)",
-     "선형공격(Linear)"
-    ]
-   },
-   {
-    "label": "대표 알고리즘",
-    "mnemonic": "",
-    "keywords": [
-     "DES",
-     "SEED",
-     "AES",
-     "RC5",
-     "ARIA"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "ECB(사용금지)",
-   "CBC(권장)",
-   "CFB",
-   "OFB",
-   "CTR(권장)"
-  ]
- },
- {
   "id": "sec-6",
   "title": "비밀키 암호화/비대칭키 암호봐",
   "category": "보안",
@@ -66969,41 +67155,6 @@
   "keywords": [
    "형태보존암호화(FPE)",
    "순서보존암호화(OPE)"
-  ]
- },
- {
-  "id": "sec-28",
-  "title": "동형 암호",
-  "category": "보안",
-  "importance": "중",
-  "definition": "데이터를 암호화한 상태 그대로 연산을 수행하고 그 결과를 복호화하면 평문을 연산한 결과와 동일한 값을 얻을 수 있는 프라이버시 보존형 암호 기술",
-  "defShort": "",
-  "memo": "유형은 부준완 — 부분에서 준, 준에서 완전으로 발전한 순서 그대로다. 기술요소는 부스노(부트스트래핑·스쿼싱·노이즈 관리)로, 셋 다 결국 노이즈를 다스리는 이야기다.",
-  "sections": [
-   {
-    "label": "유형",
-    "mnemonic": "부준완",
-    "keywords": [
-     "부분동형암호(PHE)",
-     "준동형암호(SWHE)",
-     "완전동형암호(FHE)"
-    ]
-   },
-   {
-    "label": "기술요소",
-    "mnemonic": "부스노",
-    "keywords": [
-     "부트스트래핑",
-     "스쿼싱",
-     "노이즈 관리"
-    ]
-   }
-  ],
-  "mnemonic": "부준완",
-  "keywords": [
-   "부분동형암호(PHE)",
-   "준동형암호(SWHE)",
-   "완전동형암호(FHE)"
   ]
  },
  {
