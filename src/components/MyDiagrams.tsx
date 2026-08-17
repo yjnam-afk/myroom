@@ -30,7 +30,15 @@ export default function MyDiagrams({
   const [err, setErr] = useState("");
   const [zoom, setZoom] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
-  const server = diagramServerEnabled();
+  // 세션은 localStorage에 있어 첫 렌더(SSR·하이드레이션)에서는 못 읽는다.
+  // state로 두고 마운트 후 + 로그인/로그아웃(auth-change) 때 갱신해야 배지가 정확하다.
+  const [server, setServer] = useState(false);
+  useEffect(() => {
+    const update = () => setServer(diagramServerEnabled());
+    update();
+    window.addEventListener("auth-change", update);
+    return () => window.removeEventListener("auth-change", update);
+  }, []);
 
   const refresh = useCallback(async () => {
     if (!key) return;
@@ -44,7 +52,8 @@ export default function MyDiagrams({
 
   useEffect(() => {
     refresh();
-  }, [refresh]);
+    // 로그인 상태가 바뀌면(개인 모드 ↔ 계정) 저장소가 달라지므로 목록을 다시 읽는다.
+  }, [refresh, server]);
 
   // 로컬 모드에서 만든 objectURL 은 목록이 바뀔 때 해제한다(메모리 누수 방지).
   useEffect(() => {
