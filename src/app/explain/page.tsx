@@ -4,7 +4,7 @@ import { readJsonSafe } from "@/lib/safeJson";
 import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { subnoteByTitle, subnoteByTopicId } from "@/data/textbookSubnotes";
+import { SUBNOTES, subnoteByTitle, subnoteByTopicId } from "@/data/textbookSubnotes";
 import MyDiagrams from "@/components/MyDiagrams";
 import EasyCard from "@/components/EasyCard";
 import { subnoteExtraFor } from "@/data/subnoteExtras";
@@ -43,6 +43,152 @@ function legacyCardFor(title: string): LegacyCard | undefined {
   return CARD_BY_NORM.get(normT(t)) || CARD_BY_BARE.get(bareT(t));
 }
 
+// ── 도메인별 토픽 목록 — 검색어가 생각 안 날 때 눈으로 훑어 찾는 용도 ──
+const COURSE_LABEL: Record<string, string> = {
+  OS: "운영체제",
+  CA: "컴퓨터구조",
+  PM: "프로젝트관리",
+  SE: "SW공학",
+  AI: "인공지능",
+  ST: "확률·통계",
+  DS: "자료구조",
+  AL: "알고리즘",
+  NW: "네트워크",
+  DB: "데이터베이스",
+  MG: "경영전략",
+  SC: "보안",
+};
+const COURSE_ORDER = [
+  "SC", "AI", "NW", "DB", "OS", "CA", "SE", "PM", "MG", "AL", "DS", "ST",
+];
+
+type BrowseGroup = { key: string; label: string; badge: string; titles: string[] };
+
+/** 교재 서브노트를 과목별로, 교재에 없는 예전 토픽은 카테고리별로 묶는다. */
+const BROWSE_GROUPS: BrowseGroup[] = (() => {
+  const byCourse = new Map<string, string[]>();
+  const covered = new Set<string>();
+  for (const s of SUBNOTES) {
+    if (!byCourse.has(s.course)) byCourse.set(s.course, []);
+    byCourse.get(s.course)!.push(s.title);
+    covered.add(bareT(s.title));
+  }
+  const groups: BrowseGroup[] = [];
+  for (const c of COURSE_ORDER) {
+    const list = byCourse.get(c);
+    if (!list?.length) continue;
+    groups.push({
+      key: `course:${c}`,
+      label: COURSE_LABEL[c] || c,
+      badge: "교재",
+      titles: list.slice().sort((a, b) => a.localeCompare(b, "ko")),
+    });
+  }
+  // 교재에 아직 없는 예전 토픽 — 카드 자료로 볼 수 있으므로 같이 노출한다.
+  const byCat = new Map<string, string[]>();
+  for (const t of topics) {
+    if (covered.has(bareT(t.title))) continue;
+    if (!byCat.has(t.category)) byCat.set(t.category, []);
+    byCat.get(t.category)!.push(t.title);
+  }
+  for (const [cat, list] of Array.from(byCat).sort(
+    (a, b) => b[1].length - a[1].length,
+  )) {
+    groups.push({
+      key: `cat:${cat}`,
+      label: cat,
+      badge: "예전",
+      titles: list.slice().sort((a, b) => a.localeCompare(b, "ko")),
+    });
+  }
+  return groups;
+})();
+
+const BROWSE_TOTAL = BROWSE_GROUPS.reduce((n, g) => n + g.titles.length, 0);
+
+function TopicBrowser({ onPick }: { onPick: (title: string) => void }) {
+  const [open, setOpen] = useState<string | null>(BROWSE_GROUPS[0]?.key ?? null);
+  const [filter, setFilter] = useState("");
+
+  const q = filter.trim().toLowerCase();
+  const groups = q
+    ? BROWSE_GROUPS.map((g) => ({
+        ...g,
+        titles: g.titles.filter((t) => t.toLowerCase().includes(q)),
+      })).filter((g) => g.titles.length > 0)
+    : BROWSE_GROUPS;
+
+  return (
+    <section className="mb-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 bg-slate-50 px-5 py-3">
+        <h3 className="text-sm font-bold text-slate-700">
+          📂 도메인별 토픽 목록{" "}
+          <span className="font-normal text-slate-400">({BROWSE_TOTAL}개)</span>
+        </h3>
+        <input
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+          placeholder="목록 안에서 걸러보기"
+          className="w-44 rounded-lg border border-slate-300 px-3 py-1.5 text-xs focus:border-brand-500 focus:outline-none"
+        />
+      </div>
+      <div className="divide-y divide-slate-100">
+        {groups.map((g) => {
+          const isOpen = q ? true : open === g.key;
+          return (
+            <div key={g.key}>
+              <button
+                onClick={() => setOpen(isOpen && !q ? null : g.key)}
+                className="flex w-full items-center justify-between gap-2 px-5 py-3 text-left hover:bg-slate-50"
+              >
+                <span className="flex items-center gap-2 text-sm font-semibold text-slate-700">
+                  <span
+                    className={`rounded px-1.5 py-0.5 text-[10px] font-bold ${
+                      g.badge === "교재"
+                        ? "bg-emerald-600 text-white"
+                        : "bg-slate-300 text-slate-700"
+                    }`}
+                  >
+                    {g.badge}
+                  </span>
+                  {g.label}
+                  <span className="font-normal text-slate-400">
+                    {g.titles.length}
+                  </span>
+                </span>
+                <span className="text-xs text-slate-400">
+                  {isOpen ? "▲" : "▼"}
+                </span>
+              </button>
+              {isOpen && (
+                <div className="flex flex-wrap gap-1.5 px-5 pb-4">
+                  {g.titles.map((t) => (
+                    <button
+                      key={t}
+                      onClick={() => {
+                        onPick(t);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                      className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 hover:border-brand-400 hover:bg-brand-50 hover:text-brand-700"
+                    >
+                      {t}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })}
+        {groups.length === 0 && (
+          <p className="px-5 py-6 text-center text-xs text-slate-400">
+            “{filter}”와 맞는 토픽이 목록에 없어요.
+          </p>
+        )}
+      </div>
+    </section>
+  );
+}
+
 function ExplainInner() {
   const [topic, setTopic] = useState("");
   const [recCat, setRecCat] = useState(CATS[0]);
@@ -51,6 +197,7 @@ function ExplainInner() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [autoPending, setAutoPending] = useState(false);
+  const [browseOpen, setBrowseOpen] = useState(true);
 
   // 교재 슬라이드 원본 이미지 + 쉬운 설명 (AI 호출 없음)
   const extra = subnoteExtraFor(
@@ -72,6 +219,7 @@ function ExplainInner() {
     const title = searchParams.get("topic") || "";
     if (title) {
       setTopic(title);
+      setBrowseOpen(false);
       const t = topics.find((x) => x.title === title);
       if (t) setRecCat(t.category);
       if (searchParams.get("auto") === "1") setAutoPending(true);
@@ -127,6 +275,7 @@ function ExplainInner() {
           onSelect={(t) => {
             setTopic(t.title);
             setRecCat(t.category);
+            setBrowseOpen(false);
           }}
           placeholder="문제풀이 검색 — 토픽명·키워드·정의 아무거나 입력 (예: 레인보우, 솔트)"
         />
@@ -187,8 +336,31 @@ function ExplainInner() {
         </div>
       </div>
 
+      {/* 도메인별 목록 — 아무것도 안 골랐으면 펼쳐서, 고른 뒤에는 접어서 보여준다. */}
       <div className="mt-6">
-        {/* 쉽게 이해하기 — 비유 → 용어 매핑 → 연관 토픽 → 답안. AI 호출 없음. */}
+        {browseOpen ? (
+          <TopicBrowser
+            onPick={(t) => {
+              setTopic(t);
+              const m = topics.find((x) => x.title === t);
+              if (m) setRecCat(m.category);
+              setResult("");
+              setError("");
+              setBrowseOpen(false);
+            }}
+          />
+        ) : (
+          <button
+            onClick={() => setBrowseOpen(true)}
+            className="mb-6 w-full rounded-2xl border border-dashed border-slate-300 bg-white px-5 py-3 text-sm font-medium text-slate-500 hover:border-brand-400 hover:text-brand-700"
+          >
+            📂 도메인별 토픽 목록에서 다른 토픽 찾기 ({BROWSE_TOTAL}개)
+          </button>
+        )}
+      </div>
+
+      <div className="mt-6">
+        {/* 쉽게 이해하기— 비유 → 용어 매핑 → 연관 토픽 → 답안. AI 호출 없음. */}
         <EasyCard
           topicId={topics.find((x) => x.title === topic.trim())?.id}
           title={topic.trim()}

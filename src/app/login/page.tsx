@@ -8,6 +8,7 @@ import {
   loadSession,
   clearSession,
   updateProfile,
+  isLocalSession,
   Session,
 } from "@/lib/auth";
 
@@ -33,8 +34,14 @@ export default function LoginPage() {
 
   async function saveProfile() {
     if (!session) return;
-    if (!curPw) {
+    // 개인 모드는 서버 계정이 없어 이름만 로컬에서 바꾸므로 비밀번호 확인이 필요 없다.
+    const local = isLocalSession(session);
+    if (!local && !curPw) {
       setEditErr("현재 비밀번호를 입력하세요.");
+      return;
+    }
+    if (local && !newName.trim()) {
+      setEditErr("바꿀 이름을 입력하세요.");
       return;
     }
     if (!newName.trim() && !newPw) {
@@ -136,16 +143,20 @@ export default function LoginPage() {
               <h3 className="mb-3 text-sm font-bold text-slate-800">
                 회원정보 수정
               </h3>
-              <label className="mb-1 block text-xs font-medium text-slate-500">
-                현재 비밀번호 (확인용, 필수)
-              </label>
-              <input
-                type="password"
-                value={curPw}
-                onChange={(e) => setCurPw(e.target.value)}
-                placeholder="현재 비밀번호"
-                className="mb-3 w-full rounded-lg border border-slate-300 p-3 text-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
-              />
+              {!isLocalSession(session) && (
+                <>
+                  <label className="mb-1 block text-xs font-medium text-slate-500">
+                    현재 비밀번호 (확인용, 필수)
+                  </label>
+                  <input
+                    type="password"
+                    value={curPw}
+                    onChange={(e) => setCurPw(e.target.value)}
+                    placeholder="현재 비밀번호"
+                    className="mb-3 w-full rounded-lg border border-slate-300 p-3 text-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+                  />
+                </>
+              )}
               <label className="mb-1 block text-xs font-medium text-slate-500">
                 새 이름 (안 바꾸면 비워두기)
               </label>
@@ -156,16 +167,20 @@ export default function LoginPage() {
                 placeholder={session.name}
                 className="mb-3 w-full rounded-lg border border-slate-300 p-3 text-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
               />
-              <label className="mb-1 block text-xs font-medium text-slate-500">
-                새 비밀번호 (안 바꾸면 비워두기, 4자 이상)
-              </label>
-              <input
-                type="password"
-                value={newPw}
-                onChange={(e) => setNewPw(e.target.value)}
-                placeholder="새 비밀번호"
-                className="mb-4 w-full rounded-lg border border-slate-300 p-3 text-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
-              />
+              {!isLocalSession(session) && (
+                <>
+                  <label className="mb-1 block text-xs font-medium text-slate-500">
+                    새 비밀번호 (안 바꾸면 비워두기, 4자 이상)
+                  </label>
+                  <input
+                    type="password"
+                    value={newPw}
+                    onChange={(e) => setNewPw(e.target.value)}
+                    placeholder="새 비밀번호"
+                    className="mb-4 w-full rounded-lg border border-slate-300 p-3 text-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+                  />
+                </>
+              )}
               {editErr && (
                 <div className="mb-3">
                   <ErrorBox message={editErr} />
