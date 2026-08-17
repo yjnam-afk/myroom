@@ -35,6 +35,7 @@ export const COURSE_LABEL: Record<string, string> = {
   DB: "데이터베이스",
   MG: "경영전략",
   SC: "보안",
+  DX: "디지털서비스",
 };
 
 /** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */

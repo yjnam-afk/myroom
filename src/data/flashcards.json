@@ -8141,7 +8141,7 @@
   "importance": "중",
   "definition": "로봇, 자율주행차와 같은 물리적 기기에 탑재되어, 물리적 세계를 인식하고 이해하며 상호작용하는 인공지능",
   "defShort": "로봇이나 자율주행차 같은 물리 기기에 탑재돼 현실을 인식하고 상호작용하는 AI",
-  "memo": "출제 이력: 2025.04 KPC 모의고사 3교시, 2025.03 ITPE 모의고사 1교시",
+  "memo": "메커니즘 3단계 — 인지 단계: 데이터 수집(센서·멀티모달 데이터) → 데이터 저장(데이터센터·클라우드) / 판단 단계: AI 모델(LLM·VLM·시뮬레이션·디지털 트윈) / 실행 단계: AI모델 실세계 구현(액추에이터·로봇 활용). 실행 결과 및 환경 변화 데이터가 다시 축적되어 순환한다.",
   "sections": [
    {
     "label": "특징",
@@ -8190,6 +8190,16 @@
      "대형언어모델 적용",
      "물리세계인식",
      "산업 현장 활용"
+    ]
+   },
+   {
+    "label": "피지컬 AI 패러다임 변화",
+    "mnemonic": "",
+    "keywords": [
+     "지각 AI(Perception AI)",
+     "생성 AI(Generative AI)",
+     "에이전트 AI(Agentic AI)",
+     "피지컬 AI(Physical AI)"
     ]
    },
    {
@@ -33316,6 +33326,791 @@
    "C/S/O 등급분류",
    "차등 보안",
    "망분리 개선"
+  ]
+ },
+ {
+  "id": "sn-561",
+  "title": "ISO/IEC 25059:2023(AI 품질모델)",
+  "category": "인공지능",
+  "importance": "중",
+  "definition": "소프트웨어 제품 품질 표준을 기반으로 AI 시스템 고유 속성인 비결정성, 데이터 의존성 등이 반영된 AI 시스템 전용 품질모델 확장 표준",
+  "defShort": "SW 제품 품질 표준에 AI 고유 속성을 반영해 확장한 AI 시스템 전용 품질모델 표준",
+  "memo": "* 표시 속성은 AI 시스템의 고유 특성(비결정성·데이터 의존성)을 반영해 새로 추가·확장된 항목이다.",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "비결정성 반영",
+     "데이터 의존성",
+     "8특성 확장"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "기능 적합성",
+     "신뢰성",
+     "사용성",
+     "성능 효율성",
+     "유지보수성",
+     "이식성",
+     "호환성",
+     "보안성",
+     "견고성",
+     "설명가능성",
+     "강건성"
+    ]
+   },
+   {
+    "label": "AI 품질모델 8대 특성과 하위 속성 (개념도) — 두음: 기신사효유이호",
+    "mnemonic": "",
+    "keywords": [
+     "기능 적합성",
+     "성능 효율성",
+     "호환성",
+     "사용성",
+     "신뢰성",
+     "보안성",
+     "유지보수성",
+     "이식성"
+    ]
+   },
+   {
+    "label": "표준 구성 (모델·항목별 평가 내용)",
+    "mnemonic": "",
+    "keywords": [
+     "기능 적합성",
+     "기능 적합성",
+     "신뢰성",
+     "신뢰성",
+     "사용성",
+     "사용성",
+     "성능 효율성",
+     "성능 효율성",
+     "유지보수성",
+     "유지보수성"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "비결정성 반영",
+   "데이터 의존성",
+   "8특성 확장"
+  ]
+ },
+ {
+  "id": "sn-562",
+  "title": "AP2(Agent Payment Protocol)",
+  "category": "DX",
+  "importance": "중",
+  "definition": "AI 에이전트가 사용자 지시에 따라 안전하고 검증가능한 결제를 수행할 수 있게 하는 오픈 표준 결제 프로토콜",
+  "defShort": "AI 에이전트가 사용자 지시대로 검증 가능한 결제를 수행하는 오픈 표준 프로토콜",
+  "memo": "검증 가능한 디지털 자격증명(VDC) 기반 위임장 흐름: 구매지시 → Intent mandate 확인 → cart mandate 준비 → Get User approval → Intent 집행 → Cart 집행 → Payment 집행 → Order With Payment(Merchant).",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "3중 위임장",
+     "검증가능 자격증명",
+     "A2A x402"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "AI Agent",
+     "역할기반 결제",
+     "위임장(Mandate)",
+     "A2A",
+     "x402",
+     "MCP",
+     "A2A x402 Extension",
+     "스마트계약"
+    ]
+   },
+   {
+    "label": "역할기반 아키텍처 — 구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "사용자",
+     "사용자",
+     "자격 증명",
+     "판매자",
+     "판매자",
+     "증명 제공"
+    ]
+   },
+   {
+    "label": "AP2의 주요 기술요소 구성도",
+    "mnemonic": "",
+    "keywords": [
+     "보안 측면",
+     "연동 측면",
+     "거래 측면",
+     "결제 측면"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "3중 위임장",
+   "검증가능 자격증명",
+   "A2A x402"
+  ]
+ },
+ {
+  "id": "sn-563",
+  "title": "UCP(Universal Commerce Protocol)",
+  "category": "DX",
+  "importance": "중",
+  "definition": "AI 에이전트가 다양한 쇼핑몰과 상거래 시스템에서 데이터를 표준화된 방식으로 교환하고, 상품 탐색부터 결제, 주문까지 전 과정을 자동화하도록 돕는 개방형 프로토콜",
+  "defShort": "AI 에이전트가 쇼핑몰과 데이터를 표준 교환해 결제·주문을 자동화하는 프로토콜",
+  "memo": "Discovery & Negotiation(탐색·협상) → UCP 코어 → Transport → 보안·결제 계층 순으로 내려가는 계층 구조가 답안 뼈대다.",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "표준 데이터 교환",
+     "전 과정 자동화",
+     "개방형 규격"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "Google 주도 에이전틱 상거래 프로토콜",
+     "Checkout",
+     "Identity Linking",
+     "Order",
+     "Payment Token Exchange",
+     "REST API",
+     "MCP",
+     "A2A",
+     "JSON-RPC",
+     "OAuth 2.0",
+     "PCI-DSS"
+    ]
+   },
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "Checkout",
+     "Identity Linking",
+     "Order",
+     "Payment Token Exchange"
+    ]
+   },
+   {
+    "label": "개념도 — 계층 구조",
+    "mnemonic": "",
+    "keywords": [
+     "Consumer Surfaces(소비자 접점)",
+     "UCP 프로토콜 코어",
+     "전송 방식(Transport)",
+     "보안 & 결제 계층",
+     "판매자 백엔드(Merchant Backend)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "표준 데이터 교환",
+   "전 과정 자동화",
+   "개방형 규격"
+  ]
+ },
+ {
+  "id": "sn-564",
+  "title": "ACP(Agentic Commerce Protocol)",
+  "category": "DX",
+  "importance": "중",
+  "definition": "구매자가 AI에이전트와 소통을 통해 원하는 제품을 찾고 안전하게 상거래를 할 수 있도록 하는데 중점을 둔 개방형 프로토콜",
+  "defShort": "구매자가 AI 에이전트와 소통해 원하는 제품을 안전하게 사도록 돕는 개방형 규약",
+  "memo": "개념도: 구매자 → AI Agent(LLM: OpenAI · Claude · Perplexity) → 결제(Stripe · Adyen · PayPal · VISA · Mastercard) → 판매자(Google · SHEIN · YouTube · Instagram) 흐름.",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "공유 결제 토큰",
+     "위임 결제",
+     "REST 4엔드포인트"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "OpenAI 주도 에이전틱 상거래 프로토콜",
+     "Shared Payment Token(SPT)",
+     "Delegated Payment",
+     "REST 엔드포인트",
+     "API 버전 헤더",
+     "HTTPS"
+    ]
+   },
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "Shared Payment Token(SPT)",
+     "Delegated Payment",
+     "4개 REST 엔드포인트 구조",
+     "보안 요구사항"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "공유 결제 토큰",
+   "위임 결제",
+   "REST 4엔드포인트"
+  ]
+ },
+ {
+  "id": "sn-565",
+  "title": "스테이블 코인(Stable coin)",
+  "category": "DX",
+  "importance": "중",
+  "definition": "암호화폐의 급격한 가격변동성을 방지하기 위해 법정 화폐 또는 실물 자산과 연동하여 가격 안전성을 보장하도록 설계된 암호 화폐",
+  "defShort": "암호화폐 가격변동성을 막기 위해 법정화폐·실물자산과 연동한 가격 안정 암호화폐",
+  "memo": "발행(Mint)은 '돈을 받고 토큰을 찍는' 흐름, 소각(Burn)은 '토큰을 없애고 돈을 돌려주는' 흐름 — 두 절차가 대칭이라는 점이 답안 구조가 된다.",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "법정화폐 담보형",
+     "암호화폐 담보형",
+     "무담보 알고리즘형"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "법정화폐 담보형",
+     "암호화폐 담보형",
+     "무담보 알고리즘형",
+     "발행(Mint)",
+     "소각(Burn)"
+    ]
+   },
+   {
+    "label": "유형",
+    "mnemonic": "",
+    "keywords": [
+     "법정화폐 담보형",
+     "암호화폐 담보형",
+     "무담보 알고리즘형"
+    ]
+   },
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "외부 연동 계층",
+     "서비스 통합 계층",
+     "데이터 및 메시징 계층",
+     "블록체인 상호작용 계층",
+     "API 및 운영 계층"
+    ]
+   },
+   {
+    "label": "발행절차(Mint)",
+    "mnemonic": "",
+    "keywords": [
+     "M.0",
+     "M.1",
+     "M.2",
+     "M.3",
+     "M.4",
+     "M.5",
+     "M.6",
+     "M.7",
+     "M.8"
+    ]
+   },
+   {
+    "label": "소각절차(Burn)",
+    "mnemonic": "",
+    "keywords": [
+     "B.1",
+     "B.2",
+     "B.3",
+     "B.4",
+     "B.6",
+     "B.7"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "법정화폐 담보형",
+   "암호화폐 담보형",
+   "무담보 알고리즘형"
+  ]
+ },
+ {
+  "id": "sn-566",
+  "title": "데이터 스페이스(Data Space)",
+  "category": "DX",
+  "importance": "중",
+  "definition": "데이터 공유·활용 생태계로 기업, 기관, 개인이 만든 데이터를 공유 및 교환하면서 보안·주권을 유지할 수 있도록 만든 체계",
+  "defShort": "기업·기관·개인이 만든 데이터를 공유·교환하며 주권과 보안을 유지하는 체계",
+  "memo": "비즈니스 계층(무엇을 거래하나) → 기술 계층(어떻게 거래하나)의 2단 구조 위에 거버넌스가 얹히는 그림이 답안 뼈대다.",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "데이터 주권",
+     "연합형 구조",
+     "상호운용성"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "데이터 주권",
+     "연합형 네트워크",
+     "상호운용성",
+     "신뢰성/투명성 확보"
+    ]
+   },
+   {
+    "label": "데이터 스페이스 거버넌스 참조모델",
+    "mnemonic": "",
+    "keywords": [
+     "데이터 주권 보장",
+     "연합형 및 분산형 구조",
+     "신뢰 및 보안 확보",
+     "상호운용성 확보",
+     "투명성 확보",
+     "거버넌스 유연성 및 자율성"
+    ]
+   },
+   {
+    "label": "개발 및 활용 단계별 개인정보 침해 방지를 위한 방안",
+    "mnemonic": "",
+    "keywords": [
+     "데이터 스페이스 거버넌스",
+     "데이터 스페이스 거버넌스",
+     "데이터 스페이스 거버넌스",
+     "비즈니스 계층",
+     "비즈니스 계층",
+     "비즈니스 계층",
+     "비즈니스 계층",
+     "기술 계층",
+     "기술 계층",
+     "기술 계층"
+    ]
+   },
+   {
+    "label": "K Data Space 추진 전략",
+    "mnemonic": "",
+    "keywords": [
+     "추진 배경",
+     "추진 전략"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "데이터 주권",
+   "연합형 구조",
+   "상호운용성"
+  ]
+ },
+ {
+  "id": "sn-567",
+  "title": "도메인 특화 언어 모델(Domain-Specific Language Model)",
+  "category": "DX",
+  "importance": "중",
+  "definition": "금융, 의료, 법률 등 특정 산업군이나 비즈니스 기능에 최적화된 데이터셋으로 학습 또는 미세 조정하여 높은 정확도 및 실용성을 제공하는 AI 모델",
+  "defShort": "특정 산업군이나 비즈니스 기능에 최적화된 데이터로 학습·조정한 고정확도 모델",
+  "memo": "개념도: Fundation Model + 범용 데이터 →파인튜닝→ 도메인특화 사전학습(DAPT) ←말뭉치 수집— 도메인 데이터 → 도메인 특화 언어 모델(+ RAG / RLHF).",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "도메인 특화 학습",
+     "높은 정확도",
+     "sLLM 기반"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "Vertical AI",
+     "도메인 지식",
+     "sLLM",
+     "RAG",
+     "프롬프트 엔지니어링"
+    ]
+   },
+   {
+    "label": "핵심 기술",
+    "mnemonic": "",
+    "keywords": [
+     "데이터",
+     "데이터",
+     "학습",
+     "학습",
+     "성능",
+     "성능",
+     "성능"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "도메인 특화 학습",
+   "높은 정확도",
+   "sLLM 기반"
+  ]
+ },
+ {
+  "id": "sn-568",
+  "title": "AI 프라이버시 리스크 관리",
+  "category": "보안",
+  "importance": "중",
+  "definition": "AI가 프라이버시 친화적으로 활용될 수 있도록 AI 프라이버시 리스크 요인을 체계화하고, 리스크 관리의 방향과 원칙을 제시하기 위해 체계",
+  "defShort": "AI 프라이버시 리스크 요인을 체계화하고 관리의 방향과 원칙을 제시하는 관리 체계",
+  "memo": "개념도(4단계): AI의 유형·용례 파악 → 리스크 식별 → 리스크 측정 → 리스크 경감방안의 검토와 도입(관리적 방안 검토 / 기술적 방안 검토).",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "4단계 절차",
+     "관리적·기술적 조치",
+     "생애주기 식별"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "AI의 유형 및 용례 파악",
+     "리스크의 식별",
+     "리스크의 측정",
+     "리스크의 경감"
+    ]
+   },
+   {
+    "label": "리스크 관리 절차",
+    "mnemonic": "",
+    "keywords": [
+     "AI의 유형·용례 파악",
+     "리스크 식별",
+     "리스크 측정",
+     "리스크 경감",
+     "리스크 경감"
+    ]
+   },
+   {
+    "label": "리스크 식별 — 단계별 리스크",
+    "mnemonic": "",
+    "keywords": [
+     "기획·개발 단계",
+     "서비스 제공 단계"
+    ]
+   },
+   {
+    "label": "리스크 경감 — 조치 유형별 방안",
+    "mnemonic": "",
+    "keywords": [
+     "관리적 조치",
+     "기술적 조치"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "4단계 절차",
+   "관리적·기술적 조치",
+   "생애주기 식별"
+  ]
+ },
+ {
+  "id": "sn-569",
+  "title": "데이터 상호 운용성 & 데이터 이동권",
+  "category": "DX",
+  "importance": "중",
+  "definition": "데이터 상호 운용성은 시스템 간 제약 없는 데이터 호환을 위해 데이터 교환 능력과 데이터 의미 일관성 등을 보장하는 능력이며, 데이터 이동권은 개인이 자신의 데이터(의료, 금융, 행정, 여행, 에너지, 통신)를 자신이 지정한 위치로 이동시킬 수 있는 권리",
+  "defShort": "시스템 간 데이터 호환 능력과 개인이 자기 데이터를 옮길 권리를 다루는 데이터 개념",
+  "memo": "상호운용성 개념도: 데이터 이용자(데이터 수요자·AI 모델·데이터 중계자) ↔ 데이터 상호운용성(안전한 연결·의미 일관성·구문 표준화 / MCP·XML·JSON·온톨로지) ↔ 데이터 공급자(공공 데이터 플랫폼·민간 데이터 플랫폼·Physical AI).",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "구문·의미 표준화",
+     "개인 데이터 통제",
+     "데이터 파편화 해소"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "상호운용성",
+     "데이터 이동권",
+     "데이터 파편화",
+     "MCP",
+     "API AI Agent",
+     "XML",
+     "JSON",
+     "표준용어",
+     "온톨로지"
+    ]
+   },
+   {
+    "label": "데이터 상호 운용성 — 핵심요소",
+    "mnemonic": "",
+    "keywords": [
+     "기술적 안정성",
+     "구문적 표준화",
+     "의미적 일관성",
+     "표준"
+    ]
+   },
+   {
+    "label": "데이터 이동권의 3가지 핵심요소",
+    "mnemonic": "",
+    "keywords": [
+     "데이터 유형(Type of Data)",
+     "수혜자(Beneficiaries)",
+     "운영 방식(Operational Modality)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "구문·의미 표준화",
+   "개인 데이터 통제",
+   "데이터 파편화 해소"
+  ]
+ },
+ {
+  "id": "sn-570",
+  "title": "AI Agent 보안위협",
+  "category": "보안",
+  "importance": "중",
+  "definition": "AI 에이전트가 자율적 의사결정, 메모리 활용, 외부 도구 및 시스템 호출, 인증 및 권한 관리, 인간 개입, 다중 에이전트의 6단계에서 발생하는 보안 위협과 그에 대응하는 방안(금융보안원)",
+  "defShort": "AI 에이전트 실행 6단계에서 발생하는 보안 위협을 식별하고 대응하는 관리 체계",
+  "memo": "금융보안원 자료 — 교재에 별도 정의문 없이 위협·대응 표로만 제시된다. 답안 서론은 위협 배경(자율 에이전트의 권한 확대)에서 출발하는 편이 자연스럽다.",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "6단계 위협 식별",
+     "단계별 대응방안",
+     "다중 에이전트 위험"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "자율적 의사결정",
+     "메모리 활용",
+     "외부 도구 및 시스템 호출",
+     "인증 및 권한 관리",
+     "인간 개입",
+     "다중 에이전트"
+    ]
+   },
+   {
+    "label": "보안위협 — 위협 식별 6단계",
+    "mnemonic": "",
+    "keywords": [
+     "1단계(자율적 의사결정)",
+     "1단계(자율적 의사결정)",
+     "1단계(자율적 의사결정)",
+     "2단계(메모리 활용)",
+     "2단계(메모리 활용)",
+     "3단계(외부 도구 및 시스템 호출)",
+     "3단계(외부 도구 및 시스템 호출)",
+     "3단계(외부 도구 및 시스템 호출)",
+     "3단계(외부 도구 및 시스템 호출)",
+     "4단계(인증 및 권한 관리)"
+    ]
+   },
+   {
+    "label": "대응방안 — 단계별 통제",
+    "mnemonic": "",
+    "keywords": [
+     "자율적 의사결정",
+     "자율적 의사결정",
+     "자율적 의사결정",
+     "메모리 활용",
+     "메모리 활용",
+     "메모리 활용",
+     "외부 도구 및 시스템 호출",
+     "외부 도구 및 시스템 호출",
+     "인증 및 권한 관리",
+     "인간 개입"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "6단계 위협 식별",
+   "단계별 대응방안",
+   "다중 에이전트 위험"
+  ]
+ },
+ {
+  "id": "sn-571",
+  "title": "AI-DLC(AI-Driven SDLC)와 SDD(Spec Driven Development)",
+  "category": "DX",
+  "importance": "중",
+  "definition": "AI-DLC는 SW SDLC에 인공지능을 통합하여, AI가 계획 수립과 코딩을 주도하고 사람이 검증하는 개발방법론이며, SDD는 기계가 읽을 수 있는 구체적인 사양을 중심으로, AI가 코드, 테스트, 문서를 자동으로 파생하여 생성하는 개발 방법론",
+  "defShort": "AI가 계획·코딩을 주도하고 사람이 검증하며 명세에서 산출물을 파생하는 방법론",
+  "memo": "AI-DLC 구조: 인텐트(Intent) 안에 유닛(Unit)이 있고, 유닛 안에 볼트(Bolt)가 여러 개 — 목표 → 작업 묶음 → 최소 반복 단위의 3단 계층.",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "AI 주도 개발",
+     "사람 검증",
+     "명세 단일 원천"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "AI-Centric",
+     "유닛(Unit)",
+     "인텐트(Intent)",
+     "볼트(Bolt)",
+     "실행 가능한 명세",
+     "단일 진실 원천"
+    ]
+   },
+   {
+    "label": "AI-DLC 특징",
+    "mnemonic": "",
+    "keywords": [
+     "AI 역량과의 정렬",
+     "단계 최소화, 흐름 극대화"
+    ]
+   },
+   {
+    "label": "AI-DLC 구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "인텐트(Intent)",
+     "유닛(Unit)",
+     "볼트(Bolt)"
+    ]
+   },
+   {
+    "label": "SDD 특징",
+    "mnemonic": "",
+    "keywords": [
+     "실행 가능한 명세",
+     "요구-코드 간 의미적 정합성 보장"
+    ]
+   },
+   {
+    "label": "SDD 절차",
+    "mnemonic": "",
+    "keywords": [
+     "정의(Specify)",
+     "설계(Plan)",
+     "분해(Break Down)",
+     "구현(Implement)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "AI 주도 개발",
+   "사람 검증",
+   "명세 단일 원천"
+  ]
+ },
+ {
+  "id": "sn-572",
+  "title": "AI OS(Artificial Intelligence Operating System)",
+  "category": "DX",
+  "importance": "중",
+  "definition": "AI 중심의 컴퓨팅 자원, 모델, 데이터를 통합 관리 및 제어하는 차세대 운영체제",
+  "defShort": "AI 중심의 컴퓨팅 자원과 모델·데이터를 통합 관리·제어하는 차세대 운영체제",
+  "memo": "구성도: Users → User Prompt → Agent Applications(AAPs) → [Tools ←API→ LLM(Context Window) ←Retrieval→ External Storage] = AIOS.",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "LLM 중심 자원관리",
+     "컨텍스트 스위칭",
+     "에이전트 실행환경"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "LLMCore",
+     "LLMScheduler",
+     "Context Manager",
+     "Memory Manager",
+     "Storage Manager",
+     "Tool Manager",
+     "Access Manager"
+    ]
+   },
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "LLM",
+     "LLM",
+     "Data Manager",
+     "Data Manager",
+     "Data Manager",
+     "Tool Manager",
+     "Tool Manager"
+    ]
+   },
+   {
+    "label": "전통적인 OS와 비교",
+    "mnemonic": "",
+    "keywords": [
+     "개념도",
+     "아키텍처 레이어",
+     "자원 예약",
+     "컨텍스트 스위칭",
+     "애플리케이션",
+     "개발자 인터페이스",
+     "하드웨어 자원 인식",
+     "목표"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "LLM 중심 자원관리",
+   "컨텍스트 스위칭",
+   "에이전트 실행환경"
   ]
  },
  {

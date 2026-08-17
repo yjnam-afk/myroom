@@ -57,9 +57,10 @@ const COURSE_LABEL: Record<string, string> = {
   DB: "데이터베이스",
   MG: "경영전략",
   SC: "보안",
+  DX: "디지털서비스",
 };
 const COURSE_ORDER = [
-  "SC", "AI", "NW", "DB", "OS", "CA", "SE", "PM", "MG", "AL", "DS", "ST",
+  "SC", "AI", "DX", "NW", "DB", "OS", "CA", "SE", "PM", "MG", "AL", "DS", "ST",
 ];
 
 type BrowseGroup = { key: string; label: string; badge: string; titles: string[] };

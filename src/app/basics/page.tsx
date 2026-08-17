@@ -343,6 +343,7 @@ const COURSE_LABEL: Record<string, string> = {
   DB: "데이터베이스",
   MG: "경영전략",
   SC: "보안",
+  DX: "디지털서비스",
 };
 const COURSE_KEYS = [
   "전체",
@@ -358,6 +359,7 @@ const COURSE_KEYS = [
   "DB",
   "MG",
   "SC",
+  "DX",
 ] as const;
 
 export default function BasicsPage() {

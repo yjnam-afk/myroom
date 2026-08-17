@@ -36,6 +36,7 @@ const COURSE_CAT: Record<string, string> = {
   DB: "데이터베이스",
   MG: "경영전략",
   SC: "보안",
+  DX: "디지털서비스",
 };
 // 커리큘럼 우선순위(상·중·하)를 제목으로 찾는다 — 지도의 중요도 배지에 사용.
 const PRIORITY = (() => {
