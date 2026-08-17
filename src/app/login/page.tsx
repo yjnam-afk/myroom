@@ -79,6 +79,15 @@ export default function LoginPage() {
     try {
       const s = mode === "login" ? await login(name, password) : await register(name, password);
       setSession(s);
+      // 서버 DB 미설정 폴백 — 조용히 개인 모드로 들어가면 "로그인했는데 왜 로컬이냐"는
+      // 혼란이 생기므로, 명시적으로 알리고 넘어간다.
+      if (s.token === "local-only") {
+        alert(
+          "서버 DB(Upstash Redis)가 설정되지 않아 개인 모드로 입장합니다.\n" +
+            "기록·도식이 이 브라우저에만 저장되고 기기 간 동기화는 꺼져 있어요.\n" +
+            "Vercel 프로젝트에 Upstash Redis를 연결하면 서버 저장이 켜집니다.",
+        );
+      }
       // 세션이 모든 화면(헤더·게이트)에 확실히 반영되도록 전체 새로고침으로 이동
       window.location.href = next;
     } catch (e) {
