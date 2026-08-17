@@ -1,19 +1,21 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { useRef } from "react";
 import {
-  MyDiagram,
-  addDiagram,
+  DiagramView,
+  addDiagramView,
   diagramKey,
-  listDiagrams,
-  removeDiagram,
-  shrinkImage,
+  diagramServerEnabled,
+  listDiagramsView,
+  removeDiagramView,
 } from "@/lib/myDiagrams";
 
 /**
  * 내 도식 — 교재의 도식을 사진 찍거나 캡처해서 그 토픽에 붙인다.
  * AI가 다시 그린 그림이 아니라 ★교재 원본 그대로★ 를 보는 게 목적.
- * 이미지는 이 브라우저(IndexedDB)에만 저장되고 서버로 올라가지 않는다.
+ * 로그인 상태면 서버(내 계정)에 저장되어 어느 기기에서든 같이 뜨고,
+ * 개인 모드(비로그인)에서는 이 브라우저(IndexedDB)에만 저장된다.
  */
 export default function MyDiagrams({
   topicId,
@@ -23,19 +25,20 @@ export default function MyDiagrams({
   title?: string;
 }) {
   const key = diagramKey(topicId, title);
-  const [items, setItems] = useState<MyDiagram[]>([]);
-  const [urls, setUrls] = useState<Record<string, string>>({});
+  const [items, setItems] = useState<DiagramView[]>([]);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState("");
   const [zoom, setZoom] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
+  const server = diagramServerEnabled();
 
   const refresh = useCallback(async () => {
     if (!key) return;
     try {
-      setItems(await listDiagrams(key));
-    } catch {
-      setErr("도식을 불러오지 못했습니다.");
+      setItems(await listDiagramsView(key));
+      setErr("");
+    } catch (e) {
+      setErr(e instanceof Error ? e.message : "도식을 불러오지 못했습니다.");
     }
   }, [key]);
 
@@ -43,13 +46,11 @@ export default function MyDiagrams({
     refresh();
   }, [refresh]);
 
-  // Blob → objectURL. 목록이 바뀔 때마다 새로 만들고 이전 것은 반드시 해제(메모리 누수 방지).
+  // 로컬 모드에서 만든 objectURL 은 목록이 바뀔 때 해제한다(메모리 누수 방지).
   useEffect(() => {
-    const made: Record<string, string> = {};
-    for (const it of items) made[it.id] = URL.createObjectURL(it.blob);
-    setUrls(made);
+    const blobUrls = items.map((it) => it.src).filter((s) => s.startsWith("blob:"));
     return () => {
-      for (const u of Object.values(made)) URL.revokeObjectURL(u);
+      for (const u of blobUrls) URL.revokeObjectURL(u);
     };
   }, [items]);
 
@@ -60,11 +61,13 @@ export default function MyDiagrams({
     try {
       for (const f of Array.from(files)) {
         if (!f.type.startsWith("image/")) continue;
-        await addDiagram(key, await shrinkImage(f));
+        await addDiagramView(key, f);
       }
       await refresh();
-    } catch {
-      setErr("저장에 실패했습니다. 이미지 파일인지 확인해 주세요.");
+    } catch (e) {
+      setErr(
+        e instanceof Error ? e.message : "저장에 실패했습니다. 이미지 파일인지 확인해 주세요.",
+      );
     } finally {
       setBusy(false);
       if (fileRef.current) fileRef.current.value = "";
@@ -72,8 +75,12 @@ export default function MyDiagrams({
   }
 
   async function onDelete(id: string) {
-    await removeDiagram(id);
-    await refresh();
+    try {
+      await removeDiagramView(id, key);
+      await refresh();
+    } catch (e) {
+      setErr(e instanceof Error ? e.message : "삭제에 실패했습니다.");
+    }
   }
 
   if (!key) return null;
@@ -83,6 +90,15 @@ export default function MyDiagrams({
       <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
         <div className="text-xs font-semibold text-brand-700">
           📐 내 도식 <span className="text-slate-400">(교재 원본)</span>
+          {server ? (
+            <span className="ml-1.5 rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700">
+              ☁️ 서버 저장
+            </span>
+          ) : (
+            <span className="ml-1.5 rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-bold text-slate-500">
+              이 브라우저만
+            </span>
+          )}
         </div>
         <div className="flex items-center gap-2">
           <button
@@ -107,9 +123,18 @@ export default function MyDiagrams({
 
       {items.length === 0 ? (
         <p className="rounded-xl bg-slate-50 p-3 text-xs leading-relaxed text-slate-500">
-          교재의 도식을 사진 찍거나 캡처해서 넣어 두면 이 토픽을 볼 때마다 같이
-          뜹니다. 여러 장 넣을 수 있고, <strong>이 브라우저에만</strong> 저장돼요
-          (서버로 안 올라갑니다).
+          교재의 도식을 사진 찍거나 캡처해서 넣어 두면 이 토픽을 볼 때마다 같이 뜹니다.
+          여러 장 넣을 수 있어요.{" "}
+          {server ? (
+            <>
+              <strong>서버(내 계정)에 저장</strong>되어 폰·PC 어디서든 같이 보입니다.
+            </>
+          ) : (
+            <>
+              지금은 개인 모드라 <strong>이 브라우저에만</strong> 저장돼요 — 로그인하면
+              서버에 저장되어 기기 간 공유됩니다.
+            </>
+          )}
         </p>
       ) : (
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -120,9 +145,9 @@ export default function MyDiagrams({
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={urls[it.id]}
+                src={it.src}
                 alt="내 도식"
-                onClick={() => setZoom(urls[it.id])}
+                onClick={() => setZoom(it.src)}
                 className="max-h-72 w-full cursor-zoom-in bg-white object-contain"
               />
               <button

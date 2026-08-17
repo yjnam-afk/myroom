@@ -2,9 +2,11 @@
  * 내 도식 보관함 — 교재의 도식을 사진/캡처로 직접 넣어 토픽에 붙인다.
  *
  * AI가 그린 도식은 교재와 다르므로, 교재 원본 이미지를 그대로 쓰는 게 정답이다.
- * 사진은 용량이 커서 localStorage(약 5MB)로는 금방 터지므로 IndexedDB에 Blob으로 저장한다.
- * 저장은 이 브라우저 안에서만 이뤄지고 서버로 올라가지 않는다.
+ * 로그인 상태면 서버(계정별 Redis)에 저장해 어느 기기에서든 보이고,
+ * 비로그인(개인 모드)에서는 예전처럼 이 브라우저의 IndexedDB에만 저장한다.
+ * 브라우저에 남아 있던 예전 도식은 서버 모드 첫 조회 때 자동으로 올려보낸다(1회 마이그레이션).
  */
+import { loadSession, isLocalSession } from "@/lib/auth";
 
 const DB_NAME = "myroom-diagrams";
 const STORE = "images";
@@ -104,6 +106,123 @@ export async function allDiagrams(): Promise<MyDiagram[]> {
  * 가로/세로 최대 1600px 로 줄이고 JPEG(품질 0.85)로 다시 인코딩한다.
  * 도식은 글자가 있으므로 과하게 줄이지 않는다.
  */
+// ── 서버 동기화 계층 ─────────────────────────────────────────────────────
+/** 화면 표시용 항목 — 로컬(objectURL)이든 서버(dataUrl)든 src 하나로 통일 */
+export type DiagramView = {
+  id: string;
+  topicKey: string;
+  caption: string;
+  createdAt: number;
+  src: string;
+};
+
+/** 로그인(서버 계정) 상태에서만 서버 저장을 쓴다. 개인 모드는 로컬 유지. */
+export function diagramServerEnabled(): boolean {
+  const s = loadSession();
+  return !!s && !isLocalSession(s);
+}
+
+function blobToDataUrl(blob: Blob): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const fr = new FileReader();
+    fr.onload = () => resolve(String(fr.result));
+    fr.onerror = () => reject(fr.error);
+    fr.readAsDataURL(blob);
+  });
+}
+
+async function api<T = { ok?: boolean; items?: unknown[] }>(body: object): Promise<T> {
+  const res = await fetch("/api/diagrams", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  const j = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error((j as { error?: string }).error || "도식 동기화 실패");
+  return j as T;
+}
+
+/** 목록 — 서버 모드면 서버에서, 그 전에 브라우저에 남은 예전 도식을 올려보낸다. */
+export async function listDiagramsView(topicKey: string): Promise<DiagramView[]> {
+  if (!topicKey) return [];
+  if (!diagramServerEnabled()) {
+    const local = await listDiagrams(topicKey);
+    return local.map((it) => ({
+      id: it.id,
+      topicKey: it.topicKey,
+      caption: it.caption,
+      createdAt: it.createdAt,
+      src: URL.createObjectURL(it.blob),
+    }));
+  }
+  const s = loadSession()!;
+  // 1회 마이그레이션 — 실패해도 목록 조회는 계속한다.
+  try {
+    const local = await listDiagrams(topicKey);
+    for (const it of local) {
+      const dataUrl = await blobToDataUrl(it.blob);
+      if (dataUrl.length > 950_000) continue; // 상한 초과분은 로컬에 남겨둔다
+      await api({
+        name: s.name,
+        token: s.token,
+        action: "add",
+        item: { id: it.id, topicKey, caption: it.caption, createdAt: it.createdAt, dataUrl },
+      });
+      await removeDiagram(it.id);
+    }
+  } catch {
+    /* 마이그레이션 실패 무시 */
+  }
+  const { items } = await api<{ items: (Omit<DiagramView, "src"> & { dataUrl: string })[] }>({
+    name: s.name,
+    token: s.token,
+    action: "list",
+    topicKey,
+  });
+  return (items || []).map((it) => ({
+    id: it.id,
+    topicKey: it.topicKey,
+    caption: it.caption,
+    createdAt: it.createdAt,
+    src: it.dataUrl,
+  }));
+}
+
+/** 추가 — 서버 모드면 업로드(용량 초과 시 한 번 더 줄여서 재시도). */
+export async function addDiagramView(topicKey: string, file: File): Promise<void> {
+  let blob = await shrinkImage(file);
+  if (!diagramServerEnabled()) {
+    await addDiagram(topicKey, blob);
+    return;
+  }
+  let dataUrl = await blobToDataUrl(blob);
+  if (dataUrl.length > 950_000) {
+    blob = await shrinkImage(file, 1100);
+    dataUrl = await blobToDataUrl(blob);
+  }
+  if (dataUrl.length > 950_000) throw new Error("이미지가 너무 큽니다. 더 작게 잘라 주세요.");
+  const s = loadSession()!;
+  await api({
+    name: s.name,
+    token: s.token,
+    action: "add",
+    item: {
+      id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+      topicKey,
+      caption: "",
+      createdAt: Date.now(),
+      dataUrl,
+    },
+  });
+}
+
+/** 삭제 — 서버 모드면 서버에서, 아니면 IndexedDB에서. */
+export async function removeDiagramView(id: string, topicKey: string): Promise<void> {
+  if (!diagramServerEnabled()) return removeDiagram(id);
+  const s = loadSession()!;
+  await api({ name: s.name, token: s.token, action: "remove", id, topicKey });
+}
+
 export async function shrinkImage(file: File, maxSide = 1600): Promise<Blob> {
   // SVG 는 벡터라 그대로 저장(리사이즈하면 오히려 깨진다).
   if (file.type === "image/svg+xml") return file;
