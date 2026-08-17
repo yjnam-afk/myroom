@@ -28048,6 +28048,2072 @@
   ]
  },
  {
+  "id": "sn-472",
+  "title": "양자 암호(Quantum Cryptography)",
+  "category": "보안",
+  "importance": "상",
+  "definition": "양자 중첩, 얽힘, 불확실성 등의 양자 역학 원리를 이용하여 데이터를 안전하게 암호화하고 전송하는 암호화 기법",
+  "defShort": "양자 중첩과 얽힘, 불확실성 원리로 데이터를 안전하게 암호화하고 전송하는 기법",
+  "memo": "구성도: 암호 장비 ↔ 일반 통신망 ↔ 암호 장비, 하단 키분배장치(QKD: 양자 광학계 QRNG·modulator, 전자제어시스템)가 양자 채널(BB84)로 연결 — Basis 0/1 (+: ↑→, ×: ↗↘)",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "복제 불가능성",
+     "도청 탐지 가능",
+     "무조건적 안전성"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "양자 중첩",
+     "양자 얽힘",
+     "불확실성",
+     "양자 암호통신",
+     "양자 키 분배(QKD)",
+     "Quantum Channel",
+     "BB84"
+    ]
+   },
+   {
+    "label": "양자 암호의 원리(양자 특성)",
+    "mnemonic": "",
+    "keywords": [
+     "양자 중첩",
+     "양자 얽힘",
+     "불확정성"
+    ]
+   },
+   {
+    "label": "양자 암호 구현 기술",
+    "mnemonic": "",
+    "keywords": [
+     "양자광원",
+     "단일광자 검출기",
+     "양자 난수 생성기(QRNG)",
+     "양자 암호 프로토콜",
+     "양자암호통신 채널"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "복제 불가능성",
+   "도청 탐지 가능",
+   "무조건적 안전성"
+  ]
+ },
+ {
+  "id": "sn-473",
+  "title": "포스트 양자 암호(Post-Quantum Cryptography)",
+  "category": "보안",
+  "importance": "상",
+  "definition": "양자 컴퓨터의 계산 능력에 대항하여 양자 컴퓨팅 환경에서 안전한 암호 기술을 이용할 수 있도록 하는 새로운 암호 체계",
+  "defShort": "양자 컴퓨터의 계산 능력에 대항하여 양자 환경에서도 안전하도록 설계된 암호 체계",
+  "memo": "공격-대상 대응: 그로버 → 대칭키(AES·SHA 계열, 강도 절반), 쇼어 → 공개키(RSA·ECC 계열, 사실상 붕괴) — 공개키 암호가 먼저 무너지므로 PQC가 시급",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "수학 난제 기반",
+     "양자 공격 내성",
+     "유형 다양성"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "다변수기반",
+     "코드",
+     "격자",
+     "아이소제니",
+     "해시기반 전자서명"
+    ]
+   },
+   {
+    "label": "양자 컴퓨터의 공격 기법",
+    "mnemonic": "",
+    "keywords": [
+     "그로버 알고리즘(Grover's Algorithm)",
+     "쇼어 알고리즘(Shor's Algorithm)"
+    ]
+   },
+   {
+    "label": "포스트 양자 암호(양자 내성 암호) 유형",
+    "mnemonic": "",
+    "keywords": [
+     "다변수기반(Multivariate-based) 암호",
+     "코드기반(Code-based) 암호",
+     "격자기반(Lattice-based) 암호",
+     "아이소제니기반(Isogeny-based) 암호",
+     "해시기반(Hash-based) 전자서명"
+    ]
+   },
+   {
+    "label": "양자 내성 암호 비교",
+    "mnemonic": "",
+    "keywords": [
+     "다변수 기반",
+     "코드 기반",
+     "격자 기반",
+     "아이소제니 기반",
+     "해시 기반"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "수학 난제 기반",
+   "양자 공격 내성",
+   "유형 다양성"
+  ]
+ },
+ {
+  "id": "sn-474",
+  "title": "딥보이스(Deep Voice) 피싱",
+  "category": "보안",
+  "importance": "중",
+  "definition": "딥페이크와 보이스 피싱의 합성어로서, 딥러닝 기반의 음성 합성 기술을 활용해 실제 인물의 음성을 모방하여 전화를 걸고, 금전이나 정보를 탈취하는 지능형 보이스 피싱",
+  "defShort": "딥러닝 음성 합성으로 실제 인물의 음성을 모방해 금전과 정보를 탈취하는 보이스 피싱",
+  "memo": "Attack Flow(개념도): ① 음성수집 → ② 음성합성(딥페이크) → ③ 공격 시나리오 → ④ 전화사기(친인척·지인 사칭) → ⑤ 금전/정보탈취",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "음성 지문 복제",
+     "실시간 합성",
+     "사회공학 결합"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "딥페이크",
+     "보이스 피싱",
+     "음성 수집",
+     "음성 합성",
+     "전화 사기",
+     "음성 클로닝",
+     "Neural TTS",
+     "음성 변환",
+     "음성 지문"
+    ]
+   },
+   {
+    "label": "딥보이스(Deep Voice) 피싱 공격 절차",
+    "mnemonic": "",
+    "keywords": [
+     "사전준비",
+     "음성합성",
+     "음성합성",
+     "공격수행",
+     "공격수행"
+    ]
+   },
+   {
+    "label": "딥보이스(Deep Voice) 피싱의 음성 추출 및 합성 기법",
+    "mnemonic": "",
+    "keywords": [
+     "샘플 추출 단계",
+     "재현 단계",
+     "재현 단계"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "음성 지문 복제",
+   "실시간 합성",
+   "사회공학 결합"
+  ]
+ },
+ {
+  "id": "sn-475",
+  "title": "OWASP Top 10 for LLM Application 2025",
+  "category": "보안",
+  "importance": "중",
+  "definition": "대규모 언어 모델(LLM) 기반 애플리케이션에서 발생할 수 있는 상위 10개의 보안 취약점을 기술한 보안 가이드라인",
+  "defShort": "대규모 언어 모델 기반 애플리케이션의 상위 10대 보안 취약점을 정리한 가이드라인",
+  "memo": "두음 [프민공데부 과시벡잘무]: 프롬프트인젝션·민감정보·공급망·데이터중독·부적절출력 / 과도한대행·시스템프롬프트·벡터임베딩·잘못된정보·무제한소비",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "LLM 특화 취약점",
+     "취약점별 대응",
+     "가이드라인"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "프민공데부과시벡잘무",
+    "keywords": [
+     "프롬프트 인젝션",
+     "민감정보 공개",
+     "공급망",
+     "데이터·모델 중독",
+     "부적절한 출력 처리",
+     "과도한 대행",
+     "시스템 프롬프트 노출",
+     "벡터·임베딩",
+     "잘못된 정보",
+     "무제한 소비"
+    ]
+   },
+   {
+    "label": "보안취약점",
+    "mnemonic": "프민공데부과시벡잘무",
+    "keywords": [
+     "LLM01",
+     "LLM02",
+     "LLM03",
+     "LLM04",
+     "LLM05",
+     "LLM06",
+     "LLM07",
+     "LLM08",
+     "LLM09",
+     "LLM10"
+    ]
+   },
+   {
+    "label": "보안취약점 대응 방안(요약)",
+    "mnemonic": "",
+    "keywords": [
+     "LLM01 프롬프트 인젝션",
+     "LLM02 민감한 정보 공개",
+     "LLM03 공급망 취약점",
+     "LLM06 과도한 대행",
+     "LLM08 벡터·임베딩 취약점",
+     "LLM09 잘못된 정보",
+     "LLM10 무제한 소비"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "LLM 특화 취약점",
+   "취약점별 대응",
+   "가이드라인"
+  ]
+ },
+ {
+  "id": "sn-476",
+  "title": "사이버전(Cyber Warfare)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "가상 공간에서 다양한 사이버 공격 수단을 사용하여 적의 정보 체계를 교란, 거부, 통제, 파괴하는 등의 공격과 이를 방어하는 활동",
+  "defShort": "가상 공간에서 사이버 공격 수단으로 적의 정보 체계를 교란·파괴하고 방어하는 활동",
+  "memo": "개념도: 국가 Cyber System(컴퓨터 시스템·네트워크 통신망·Data) ↔ Cyber Space(방어/군사적 행동/공격) — Cyber 해킹(정부 보유 정보 획득)·Cyber 전쟁(적 정보 체계 파괴·자국 보호)·Cyber 테러(인터넷 기반 공격 행위)",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "비대칭 전력",
+     "공격원 은닉",
+     "전선 부재"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "정보 보안 핵심 원천 기술",
+     "사이버전 방어·분석·공격 기술",
+     "고비도 암호 기술",
+     "밀리터리 포렌식",
+     "사이버 공격 근원지 역추적",
+     "사이버 킬 체인",
+     "EMP 폭탄"
+    ]
+   },
+   {
+    "label": "사이버전의 보안기술",
+    "mnemonic": "",
+    "keywords": [
+     "정보 보안 핵심 원천 기술",
+     "사이버전 방어 기술",
+     "사이버전 분석 기술",
+     "사이버전 공격 기술"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "비대칭 전력",
+   "공격원 은닉",
+   "전선 부재"
+  ]
+ },
+ {
+  "id": "sn-477",
+  "title": "APT(Advanced Persistent Threat) 공격",
+  "category": "보안",
+  "importance": "하",
+  "definition": "특정 대상을 장기적인 계획과 고도화된 수법을 사용하여 오랜 기간 동안 지속적으로 공격하는 정교한 사이버 공격 기법",
+  "defShort": "특정 대상을 장기 계획과 고도화된 수법으로 오랜 기간 지속 공격하는 정교한 공격 기법",
+  "memo": "공격 절차: 침투(Incursion) → 검색(Discovery) → 수집(Capture) → 유출(Control) — 정상 계정·제로데이를 이용해 은밀하고 지속적으로 진행",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "지능화",
+     "지속성",
+     "명확한 타겟"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "침투(Incursion)",
+     "검색(Discovery)",
+     "수집(Capture)",
+     "유출(Control)",
+     "다중벡터",
+     "권한상승",
+     "사이버 킬 체인"
+    ]
+   },
+   {
+    "label": "APT 공격 절차와 기법",
+    "mnemonic": "",
+    "keywords": [
+     "침투(Incursion)",
+     "탐색(Discovery)",
+     "수집(Capture)",
+     "제어(Control)"
+    ]
+   },
+   {
+    "label": "APT 공격 대응 방안",
+    "mnemonic": "",
+    "keywords": [
+     "조직",
+     "규정",
+     "보안의식",
+     "시스템",
+     "네트워크",
+     "데이터"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "지능화",
+   "지속성",
+   "명확한 타겟"
+  ]
+ },
+ {
+  "id": "sn-478",
+  "title": "스니핑(Sniffing) & 스푸핑(Spoofing)",
+  "category": "보안",
+  "importance": "하",
+  "definition": "스니핑은 네트워크상에서 자신이 아닌 다른 상대방들의 패킷 교환을 엿보는(가로채기) 공격 기법이고, 스푸핑은 공격자가 데이터 위변조를 통해 정상 시스템인 것처럼 위장하여 사용자를 속이는 해킹 기법",
+  "defShort": "패킷 교환을 몰래 엿보는 스니핑과 위장으로 사용자를 속이는 스푸핑의 네트워크 공격",
+  "memo": "상관관계: 스위치 환경에서 스니핑하려면 ARP 스푸핑이 선행됨(액티브 스니핑) → Sniffing·Spoofing을 이용해 Session Hijacking(Sequence Number 획득, TCP 3-Way Handshake 악용)으로 이어짐",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "수동적 감청",
+     "능동적 위장",
+     "세션 하이재킹 연계"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "MITM",
+     "ARP 캐시변조",
+     "Mac Address Table 오버플로우",
+     "Fail Safe",
+     "IP Forward",
+     "Ack Storm",
+     "RST(Reset)"
+    ]
+   },
+   {
+    "label": "스니핑과 스푸핑의 비교",
+    "mnemonic": "",
+    "keywords": [
+     "정의",
+     "공격 방식",
+     "목적",
+     "공격 유형",
+     "방어 기법"
+    ]
+   },
+   {
+    "label": "스니핑·스푸핑 공격 유형",
+    "mnemonic": "",
+    "keywords": [
+     "스니핑",
+     "스니핑",
+     "스푸핑",
+     "스푸핑",
+     "스푸핑",
+     "스푸핑"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "수동적 감청",
+   "능동적 위장",
+   "세션 하이재킹 연계"
+  ]
+ },
+ {
+  "id": "sn-479",
+  "title": "BPF(Berkeley Packet Filter) Door",
+  "category": "보안",
+  "importance": "하",
+  "definition": "리눅스 커널의 BPF 기술을 악용하여 네트워크 패킷을 감시하며 외부 명령을 수신하고 실행하는 리눅스 기반 백도어 유형의 공격 기법",
+  "defShort": "리눅스 커널 BPF를 악용해 패킷을 감시하고 외부 명령을 받아 실행하는 백도어 공격",
+  "memo": "핵심 위협: 포트를 열지 않아 포트 스캔에 안 잡히고, iptables보다 먼저 커널에서 패킷을 읽어 방화벽을 우회 — '매직 패킷'을 트리거로만 깨어난다",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "포트 미개방",
+     "매직 패킷 트리거",
+     "방화벽 우회"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "리눅스 커널",
+     "BPF",
+     "BPF Filter",
+     "매직 패킷",
+     "백도어",
+     "리버스 셸",
+     "iptables"
+    ]
+   },
+   {
+    "label": "BPF Door Attack Flow",
+    "mnemonic": "",
+    "keywords": [
+     "잠입 및 설치",
+     "BPF 필터 로드",
+     "매직 패킷 감시",
+     "방화벽 우회",
+     "백도어 활성화",
+     "원격 제어"
+    ]
+   },
+   {
+    "label": "BPF Door 대응 방안",
+    "mnemonic": "",
+    "keywords": [
+     "관리적 측면",
+     "관리적 측면",
+     "기술적 측면",
+     "기술적 측면"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "포트 미개방",
+   "매직 패킷 트리거",
+   "방화벽 우회"
+  ]
+ },
+ {
+  "id": "sn-480",
+  "title": "부채널 공격(Side Channel Attack)",
+  "category": "보안",
+  "importance": "하",
+  "definition": "디바이스 내의 물리적 장치가 구동하면서 발생하는 전력소모, 발열 등 다양한 누수 정보를 획득, 분석하여 암호 키를 획득하는 공격 기법",
+  "defShort": "디바이스 구동 중 발생하는 전력·발열 등 누수 정보를 분석하여 암호 키를 얻는 공격",
+  "memo": "개념도: 평문 →(Crypto Algorithm: ECC·AES·RSA·LEA·HIGHT + Secret Key)→ 암호문, 이때 연산모듈·스마트폰·IoT·USB·OTP가 흘리는 부채널 정보(시간·전력·발열·전자파·소리·파장)를 공격자가 수집·분석해 Secret Key 획득",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "물리 정보 누수",
+     "비침습 가능",
+     "알고리즘 무관"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "부채널 정보(시간·전력소모량·발열·전자파·소리·파장)",
+     "수동적",
+     "능동적",
+     "단순 부채널 공격",
+     "차분 부채널 공격"
+    ]
+   },
+   {
+    "label": "부채널 공격 기법",
+    "mnemonic": "",
+    "keywords": [
+     "SW연산 과정",
+     "SW연산 과정",
+     "모듈접근 방법",
+     "모듈접근 방법",
+     "모듈접근 방법",
+     "표본자료 분석방법",
+     "표본자료 분석방법"
+    ]
+   },
+   {
+    "label": "부채널 공격의 대응 기법",
+    "mnemonic": "",
+    "keywords": [
+     "단계별 대응",
+     "무작위성 기법",
+     "블라인드 기법",
+     "마스킹 기법",
+     "하이딩 기법"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "물리 정보 누수",
+   "비침습 가능",
+   "알고리즘 무관"
+  ]
+ },
+ {
+  "id": "sn-481",
+  "title": "드라이브 바이 다운로드(Drive By Download)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "직접 파일 다운로드하거나 실행하지 않아도 웹사이트 접속하는 것만으로 악성 코드가 자동으로 다운로드 및 실행되는 공격 기법",
+  "defShort": "파일 실행 없이 웹사이트 접속만으로 악성코드가 자동 다운로드·실행되는 공격 기법",
+  "memo": "공격 흐름(개념도): Attacker → Banner(iFrame) → Victim이 Landing Site 접속(Request URL) → URL redirection → Exploit Server → Malware Server → Malware download",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "무자각 감염",
+     "리다이렉션 연쇄",
+     "브라우저 취약점 악용"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "Landing Site",
+     "Exploit Server",
+     "Malware Server",
+     "Dropper",
+     "API 오용",
+     "브라우저 취약점"
+    ]
+   },
+   {
+    "label": "드라이브 바이 다운로드 공격 절차",
+    "mnemonic": "",
+    "keywords": [
+     "1",
+     "2",
+     "3",
+     "4",
+     "5"
+    ]
+   },
+   {
+    "label": "드라이브 바이 다운로드 대응 방안",
+    "mnemonic": "",
+    "keywords": [
+     "정적분석",
+     "동적분석",
+     "서버측면 보안",
+     "클라이언트 보안"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "무자각 감염",
+   "리다이렉션 연쇄",
+   "브라우저 취약점 악용"
+  ]
+ },
+ {
+  "id": "sn-482",
+  "title": "공급망 공격(Supply Chain Attack)",
+  "category": "보안",
+  "importance": "상",
+  "definition": "정상 소프트웨어를 개발하여 배포하는 과정에서 취약한 업데이트 서버, 개발자 PC 등에 침투해 소프트웨어를 변조하여 악성코드를 유포하는 해킹 기법",
+  "defShort": "SW 개발·배포 과정에 침투해 소프트웨어를 변조하여 악성코드를 퍼뜨리는 공격",
+  "memo": "개념도: 해커 → 개발환경 침투(SW개발서버·업데이트서버·관리서버·개발자PC) → 변조 업데이트 유포 → A사용자·B기업·C기업 감염 → 타겟 범위확대 → 기타 내부·외부 추가 감염",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "신뢰 관계 악용",
+     "다단계 확산",
+     "SBOM 대응"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "공급망",
+     "악성코드",
+     "제조공정",
+     "데이터저장소",
+     "서버 침투",
+     "SBOM"
+    ]
+   },
+   {
+    "label": "공급망 공격 절차",
+    "mnemonic": "",
+    "keywords": [
+     "개발환경 침투",
+     "변조 업데이트 파일 유포",
+     "개인사용자 및 기업 내부 확대",
+     "타겟설정 범위확대",
+     "추가 악성코드 감염"
+    ]
+   },
+   {
+    "label": "공급망 공격 대응 방안",
+    "mnemonic": "",
+    "keywords": [
+     "기술적 방안",
+     "기술적 방안",
+     "관리적 방안",
+     "관리적 방안"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "신뢰 관계 악용",
+   "다단계 확산",
+   "SBOM 대응"
+  ]
+ },
+ {
+  "id": "sn-483",
+  "title": "DoS(Denial of Service)",
+  "category": "보안",
+  "importance": "하",
+  "definition": "시스템이나 네트워크 리소스를 의도적으로 고갈시켜 정상적인 사용자들이 원래 의도된 용도로 사용하지 못하게 하는 사이버 공격 기법",
+  "defShort": "시스템·네트워크 리소스를 고갈시켜 정상 사용자의 서비스 이용을 막는 공격 기법",
+  "memo": "DoS는 단일 공격원, DDoS는 다수 좀비 PC 분산 공격 — DoS 대응 절차는 인지→유형 파악→차단→사후 조치 4단계",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "가용성 침해",
+     "자원 고갈",
+     "계층별 공격"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "가용성 공격",
+     "서비스 거부",
+     "Flooding 공격",
+     "Connection 공격",
+     "Application 공격"
+    ]
+   },
+   {
+    "label": "DoS 공격 유형",
+    "mnemonic": "",
+    "keywords": [
+     "Flooding 공격",
+     "Flooding 공격",
+     "Flooding 공격",
+     "Flooding 공격",
+     "Flooding 공격",
+     "Connection 공격",
+     "Connection 공격",
+     "Connection 공격",
+     "Application 공격",
+     "Application 공격"
+    ]
+   },
+   {
+    "label": "DoS 대응 절차와 방법",
+    "mnemonic": "",
+    "keywords": [
+     "대응 절차",
+     "라우터 설정",
+     "보안 장비",
+     "네트워크"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "가용성 침해",
+   "자원 고갈",
+   "계층별 공격"
+  ]
+ },
+ {
+  "id": "sn-484",
+  "title": "DRDoS(Distributed Reflection DoS)",
+  "category": "보안",
+  "importance": "하",
+  "definition": "별도의 에이전트 설치 없이 네트워크 통신 프로토콜 구조의 취약성을 이용해 정상적인 서비스를 운영하고 있는 시스템을 DDoS 공격의 에이전트로 활용하는 기법",
+  "defShort": "프로토콜 취약성을 이용해 정상 서버를 반사·증폭판으로 악용하는 DDoS 공격",
+  "memo": "DDoS와 차이: DRDoS는 좀비(에이전트)를 심을 필요 없이 정상 서버(DNS·NTP·SNMP·CHARGEN)를 반사판으로 악용 — 30byte 요청이 3000byte 응답으로 증폭",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "에이전트 미설치",
+     "출발지 IP 위조",
+     "반사·증폭"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "프로토콜 취약점",
+     "Source IP Spoofing",
+     "Boot 감염 불필요",
+     "경유지 서버 활용",
+     "반사(Reflection)",
+     "증폭(Amplification)",
+     "NTP",
+     "DNS",
+     "SNMP",
+     "CHARGEN"
+    ]
+   },
+   {
+    "label": "DRDoS 공격 절차",
+    "mnemonic": "",
+    "keywords": [
+     "IP Spoofing",
+     "Reflection & Amplification",
+     "Service Down"
+    ]
+   },
+   {
+    "label": "Protocol별 DRDoS 공격 방식과 증폭 대상",
+    "mnemonic": "",
+    "keywords": [
+     "DNS",
+     "NTP",
+     "SNMP",
+     "CHARGEN"
+    ]
+   },
+   {
+    "label": "DRDoS 대응 방안",
+    "mnemonic": "",
+    "keywords": [
+     "Victim서버의 IP·Port 필터링",
+     "반사서버의 무차별 이용방지",
+     "ISP의 필터링",
+     "공격 플랫폼 제한"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "에이전트 미설치",
+   "출발지 IP 위조",
+   "반사·증폭"
+  ]
+ },
+ {
+  "id": "sn-485",
+  "title": "RaaS(Ransomware as a Service)",
+  "category": "보안",
+  "importance": "하",
+  "definition": "다크웹과 같은 익명 네트워크를 이용하여 비용만 지급하면 랜섬웨어 공격을 할 수 있도록 서비스 형태로 제공되는 랜섬웨어",
+  "defShort": "다크웹에서 비용만 내면 랜섬웨어 공격이 가능하도록 서비스로 제공하는 랜섬웨어",
+  "memo": "핵심: 랜섬웨어가 '서비스 상품'이 되어 제작자-공격자가 수익을 배분하는 분업 구조 — 기술 없는 사람도 구독만으로 공격 가능해 위협 확산",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "서비스형 제공",
+     "수익 배분",
+     "비전문가 공격 가능"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "익명 네트워크",
+     "랜섬웨어",
+     "서비스",
+     "다크웹",
+     "수익 배분",
+     "비트코인"
+    ]
+   },
+   {
+    "label": "RaaS 공격 절차",
+    "mnemonic": "",
+    "keywords": [
+     "공격자 ↔ 제작자",
+     "공격자 ↔ 피해자",
+     "공격자 ↔ 제작자"
+    ]
+   },
+   {
+    "label": "RaaS 대응 방안",
+    "mnemonic": "",
+    "keywords": [
+     "백업 수행",
+     "사용자 교육",
+     "최신 패치",
+     "화이트리스트 기반관리"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "서비스형 제공",
+   "수익 배분",
+   "비전문가 공격 가능"
+  ]
+ },
+ {
+  "id": "sn-486",
+  "title": "루트킷(Rootkit)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "최고 관리자 권한(Root)을 탈취해 시스템을 장악한 뒤, 탐지를 피해 숨어 지내며 해커에게 지속적인 불법 접근을 허용하는 악성 소프트웨어 모음(Kit)",
+  "defShort": "관리자 권한을 탈취해 시스템을 장악하고 탐지를 피해 은닉하는 악성 소프트웨어 모음",
+  "memo": "은닉 계층이 깊을수록 강력·탐지 곤란: 사용자 모드 < 부트킷(MBR) < 펌웨어 < 하이퍼바이저 순으로 OS보다 낮은 계층을 장악",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "권한 상승",
+     "은닉·후킹",
+     "지속적 백도어"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "익명 네트워크",
+     "권한상승",
+     "은닉·후킹",
+     "백도어",
+     "User-Mode",
+     "Kernel-Mode",
+     "부트킷",
+     "하이퍼바이저 루트킷"
+    ]
+   },
+   {
+    "label": "루트킷의 침투 매커니즘(동작원리)",
+    "mnemonic": "",
+    "keywords": [
+     "초기침투",
+     "초기침투",
+     "지속성 확보",
+     "지속성 확보",
+     "악성 공격 수행",
+     "악성 공격 수행"
+    ]
+   },
+   {
+    "label": "루트킷의 유형",
+    "mnemonic": "",
+    "keywords": [
+     "실행 레벨",
+     "부팅 과정",
+     "하드웨어",
+     "가상화"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "권한 상승",
+   "은닉·후킹",
+   "지속적 백도어"
+  ]
+ },
+ {
+  "id": "sn-487",
+  "title": "OWASP Top 10:2021",
+  "category": "보안",
+  "importance": "하",
+  "definition": "웹 애플리케이션 취약점 중에서 빈도가 많이 발생하고, 보안상 영향을 크게 줄 수 있는 것을 10가지 선정하여 발표하는 보안 기술 가이드",
+  "defShort": "웹 애플리케이션에서 빈도와 영향이 큰 10대 보안 취약점을 선정해 발표하는 가이드",
+  "memo": "2021 신규·상승: A01 접근 통제가 5위→1위, A04 안전하지 않은 설계·A08 무결성 실패·A10 SSRF 신설",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "웹 취약점 순위",
+     "취약점별 대응",
+     "주기적 개정"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "취약한 접근 통제",
+     "암호학적 오류",
+     "인젝션",
+     "안전하지 않은 설계",
+     "보안 설정 오류",
+     "취약하고 오래된 컴포넌트",
+     "식별 및 인증 오류",
+     "SW·데이터 무결성 오류",
+     "보안 로깅·모니터링 실패",
+     "서버 측 요청 위조"
+    ]
+   },
+   {
+    "label": "OWASP Top 10:2021 취약점과 대응",
+    "mnemonic": "",
+    "keywords": [
+     "A01",
+     "A02",
+     "A03",
+     "A04",
+     "A05",
+     "A06",
+     "A07",
+     "A08",
+     "A09",
+     "A10"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "웹 취약점 순위",
+   "취약점별 대응",
+   "주기적 개정"
+  ]
+ },
+ {
+  "id": "sn-488",
+  "title": "OWASP Top 10:2025",
+  "category": "보안",
+  "importance": "하",
+  "definition": "웹 애플리케이션 취약점 중에서 빈도가 많이 발생하고, 보안상 영향을 크게 줄 수 있는 것을 10가지 선정하여 발표하는 보안 기술 가이드(2025 개정)",
+  "defShort": "웹 애플리케이션 10대 취약점을 2025년 기준으로 개정 발표하는 웹 보안 가이드",
+  "memo": "2021 대비 변화: A03에 '소프트웨어 공급망 실패'가 새로 부상(기존 취약 컴포넌트 확장), SSRF는 A01 접근 제어로 통합, A10에 '예외적 조건의 오처리' 신설",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "공급망 실패 부상",
+     "예외 처리 신설",
+     "2021 대비 개편"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "취약한 접근 제어",
+     "보안 설정 오류",
+     "소프트웨어 공급망 실패",
+     "암호화 실패",
+     "인젝션",
+     "안전하지 않은 설계",
+     "인증 실패",
+     "SW·데이터 무결성 실패",
+     "로깅·경고 실패",
+     "예외적 조건의 오처리"
+    ]
+   },
+   {
+    "label": "OWASP Top 10:2025 취약점",
+    "mnemonic": "",
+    "keywords": [
+     "A01 Broken Access Control(취약한 접근 제어)",
+     "A02 Security Misconfiguration(보안 설정 오류)",
+     "A03 Software Supply Chain Failures(소프트웨어",
+     "A04 Cryptographic Failures(암호화 실패)",
+     "A05 Injection(인젝션)",
+     "A06 Insecure Design(안전하지 않은 설계)",
+     "A07 Authentication Failures(인증 실패)",
+     "A08 Software or Data Integrity Failures(",
+     "A09 Logging & Alerting Failures(로깅·경고 실패",
+     "A10 Mishandling of Exceptional Condition"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "공급망 실패 부상",
+   "예외 처리 신설",
+   "2021 대비 개편"
+  ]
+ },
+ {
+  "id": "sn-489",
+  "title": "시큐어 코딩(Secure Coding)",
+  "category": "보안",
+  "importance": "상",
+  "definition": "해킹 등 사이버 공격의 원인인 보안취약점을 제거해 안전한 소프트웨어를 개발하는 SW 개발 기법",
+  "defShort": "사이버 공격의 원인인 보안취약점을 제거하여 안전한 소프트웨어를 개발하는 기법",
+  "memo": "7대 항목 두음 [입보시에코캡A]: 입력데이터검증·보안기능·시간및상태·에러처리·코드오류·캡슐화·API오용",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "취약점 사전 제거",
+     "7대 진단 항목",
+     "개발 단계 적용"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "입보시에코캡A",
+     "입력데이터 검증 및 표현",
+     "보안 기능",
+     "시간 및 상태",
+     "에러 처리",
+     "코드 오류",
+     "캡슐화",
+     "API 오용"
+    ]
+   },
+   {
+    "label": "시큐어 코딩 보안약점 제거 7대 항목",
+    "mnemonic": "입보시에코캡A",
+    "keywords": [
+     "입력데이터 검증 및 표현(17)",
+     "보안 기능(16)",
+     "시간 및 상태(2)",
+     "에러 처리(3)",
+     "코드 오류(5)",
+     "캡슐화(4)",
+     "API 오용(2)"
+    ]
+   },
+   {
+    "label": "안전한 암호 알고리즘 및 키 길이(보호함수)",
+    "mnemonic": "",
+    "keywords": [
+     "최소 안전성 수준",
+     "블록암호",
+     "블록암호 운영모드 - 기밀성",
+     "블록암호 운영모드 - 기밀성",
+     "해쉬함수",
+     "메시지 인증코드 - 해쉬기반",
+     "메시지 인증코드 - 블록기반"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "취약점 사전 제거",
+   "7대 진단 항목",
+   "개발 단계 적용"
+  ]
+ },
+ {
+  "id": "sn-490",
+  "title": "SSRF(Server-Side Request Forgery)",
+  "category": "보안",
+  "importance": "상",
+  "definition": "서버 측에 위조된 HTTP 요청을 발생시켜 직접적인 접근이 제한된 서버 내부 자원에 접근하여 외부로 데이터 유출 및 오동작을 유발하는 공격",
+  "defShort": "위조된 HTTP 요청으로 접근 제한된 내부 자원에 접근하는 서버측 요청 위조 공격",
+  "memo": "SSRF는 OWASP Top 10:2021 A10 신규 항목 — 2025판에서는 A01 접근 제어로 통합됨",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "서버측 요청 조작",
+     "내부 자원 접근",
+     "우회 공격"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "서버측 요청 조작",
+     "내부 네트워크 스캔",
+     "원격 코드 실행",
+     "Non-blind SSRF",
+     "Blind SSRF"
+    ]
+   },
+   {
+    "label": "SSRF 공격 절차",
+    "mnemonic": "",
+    "keywords": [
+     "URL 변조 요청",
+     "백엔드로 요청 전달",
+     "내부 주요 정보 요청",
+     "백엔드 결과 응답"
+    ]
+   },
+   {
+    "label": "SSRF 공격 유형과 대응",
+    "mnemonic": "",
+    "keywords": [
+     "공격 유형",
+     "공격 유형",
+     "대응",
+     "대응",
+     "대응",
+     "대응"
+    ]
+   },
+   {
+    "label": "SSRF와 CSRF(Cross-Site Request Forgery) 비",
+    "mnemonic": "",
+    "keywords": [
+     "공격 위치",
+     "공격 대상",
+     "공격 요청",
+     "필수 요소"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "서버측 요청 조작",
+   "내부 자원 접근",
+   "우회 공격"
+  ]
+ },
+ {
+  "id": "sn-491",
+  "title": "SW난독화",
+  "category": "보안",
+  "importance": "하",
+  "definition": "소스 코드나 바이너리를 의도적으로 변형하여 사람이 쉽게 이해하지 못하여 SW를 보호하는 기술",
+  "defShort": "소스 코드나 바이너리를 의도적으로 변형해 이해를 어렵게 하여 SW를 보호하는 기술",
+  "memo": "SW난독화의 목적: 리버스 엔지니어링 방지, 소프트웨어 무단 복제·크랙 방지, 보안 강화 및 취약점 보호, 저작권·라이선스 보호",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "역공학 방지",
+     "실행결과 보존",
+     "5대 기법"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "구획",
+     "데이터",
+     "집합",
+     "제어",
+     "예방",
+     "리버스 엔지니어링 방지"
+    ]
+   },
+   {
+    "label": "SW 난독화 분류",
+    "mnemonic": "",
+    "keywords": [
+     "구획 난독화",
+     "데이터 난독화",
+     "집합 난독화",
+     "제어 난독화",
+     "예방 난독화"
+    ]
+   },
+   {
+    "label": "SW 난독화 주요 기술(모드)",
+    "mnemonic": "",
+    "keywords": [
+     "심볼 정보 제거",
+     "코드 암호화",
+     "제어 흐름 변환",
+     "자료 난독화"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "역공학 방지",
+   "실행결과 보존",
+   "5대 기법"
+  ]
+ },
+ {
+  "id": "sn-492",
+  "title": "DevSecOps",
+  "category": "보안",
+  "importance": "상",
+  "definition": "개발(Development)과 운영(Operation)의 융합과 협업의 개발 주기에 보안(Security) 측면을 포함한 개발 방법론",
+  "defShort": "개발과 운영의 협업 주기에 보안을 통합해 전 단계에서 보안을 확보하는 개발 방법론",
+  "memo": "개념도: Dev(Create·Plan·Verify·Preprod) ↔ Sec ↔ Ops(Prevent·Detect·Respond·Predict)의 무한 루프 — Continuous Delivery",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "보안 좌측 이동",
+     "CI/CD 통합",
+     "Security as Code"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "개발과 운영에 보안 통합",
+     "CI/CD",
+     "구현 도구",
+     "Security as Code",
+     "Continuous Delivery"
+    ]
+   },
+   {
+    "label": "DevSecOps 작동 방식",
+    "mnemonic": "",
+    "keywords": [
+     "DevOps",
+     "CI",
+     "DevSecOps"
+    ]
+   },
+   {
+    "label": "DevSecOps 구현 요소(핵심 성공 요소)",
+    "mnemonic": "",
+    "keywords": [
+     "문화",
+     "프로세스",
+     "자동화",
+     "도구",
+     "성과 평가"
+    ]
+   },
+   {
+    "label": "DevSecOps 구현 도구와 보안 기능(SDLC)",
+    "mnemonic": "",
+    "keywords": [
+     "도구",
+     "도구",
+     "도구",
+     "도구",
+     "보안 기능",
+     "보안 기능",
+     "보안 기능"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "보안 좌측 이동",
+   "CI/CD 통합",
+   "Security as Code"
+  ]
+ },
+ {
+  "id": "sn-493",
+  "title": "개인정보보호 중심 설계(Privacy by Design)",
+  "category": "보안",
+  "importance": "상",
+  "definition": "프라이버시 위협을 예측·예상하거나 가능성을 대비하여 서비스 기획/설계 단계 등 사전에 예방하는 설계",
+  "defShort": "프라이버시 위협을 예측·대비하여 서비스 설계 단계에서 사전 예방하는 설계 원칙",
+  "memo": "3영역 분류: Design(사전대비·기본값 설정·기획단계 고려) / Coverage(포괄적 기능성 보장·수명주기 보호) / Usability(가시성·투명성·사용자 중심)",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "사전 예방",
+     "기본값 보호",
+     "설계 내재화"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "Design",
+     "Coverage",
+     "Usability",
+     "7대 원칙",
+     "사전대비",
+     "기본값 설정",
+     "기획단계 고려",
+     "포괄적 기능성 보장",
+     "수명주기보호",
+     "가시성·투명성",
+     "사용자 중심"
+    ]
+   },
+   {
+    "label": "PbD의 7대 기본 원칙",
+    "mnemonic": "",
+    "keywords": [
+     "Design",
+     "Design",
+     "Design",
+     "Coverage",
+     "Coverage",
+     "Usability",
+     "Usability"
+    ]
+   },
+   {
+    "label": "PbD의 적용 절차",
+    "mnemonic": "",
+    "keywords": [
+     "파악",
+     "분석",
+     "결정",
+     "예방"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "사전 예방",
+   "기본값 보호",
+   "설계 내재화"
+  ]
+ },
+ {
+  "id": "sn-494",
+  "title": "PbD(Privacy by Design) 인증제도",
+  "category": "보안",
+  "importance": "중",
+  "definition": "일상생활에서 밀접하게 활용되는 기기를 중심으로 개인정보가 안전하게 보호되는지 개인정보 보호 중심 설계(PbD)를 검증하는 제도",
+  "defShort": "기기 중심으로 개인정보가 안전하게 보호되는지 PbD 설계를 검증하는 인증제도",
+  "memo": "8대 전략 = 데이터 지향(최소화·숨기기·분리·총계화) + 프로세스 중심(정보제공·통제·집행·입증)",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "4대 인증영역",
+     "8대 전략",
+     "ISO 31700 기반"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "기본적인 요구사항",
+     "개인정보 처리의 적법성",
+     "정보보안 및 프라이버시 강화",
+     "조직적 보호조치",
+     "ISO 31700"
+    ]
+   },
+   {
+    "label": "Privacy By Design 인증제도 인증기준(71영역)",
+    "mnemonic": "",
+    "keywords": [
+     "Ⅰ. 기본적인 요구사항(14항목)",
+     "Ⅱ. 개인정보 처리의 적법성(26항목)",
+     "Ⅲ. 정보보안 및 프라이버시 강화(22항목)",
+     "Ⅳ. 조직적 보호조치(7항목)"
+    ]
+   },
+   {
+    "label": "PBD의 8대 전략",
+    "mnemonic": "",
+    "keywords": [
+     "데이터 지향 전략",
+     "데이터 지향 전략",
+     "데이터 지향 전략",
+     "데이터 지향 전략",
+     "프로세스 중심 설계",
+     "프로세스 중심 설계",
+     "프로세스 중심 설계",
+     "프로세스 중심 설계"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "4대 인증영역",
+   "8대 전략",
+   "ISO 31700 기반"
+  ]
+ },
+ {
+  "id": "sn-495",
+  "title": "가명처리(Pseudonymization) 기법",
+  "category": "보안",
+  "importance": "상",
+  "definition": "개인정보의 일부를 삭제하거나 일부 또는 전부를 대체하는 등의 방법으로 추가 정보가 없이는 특정 개인을 알아볼 수 없도록 처리하는 기술(개인정보보호법 제2조1의2)",
+  "defShort": "추가 정보 없이는 특정 개인을 알아볼 수 없도록 개인정보를 삭제·대체 처리하는 기술",
+  "memo": "개인식별정보(PII) = 직접 식별자 + 간접 식별자",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "재식별 방지",
+     "추가정보 분리",
+     "결합 활용 가능"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "직접식별자(고유식별자)",
+     "간접식별자(준식별자)",
+     "속성정보",
+     "특이정보(민감정보)",
+     "삭제(삭제·마스킹)",
+     "통계(총계)",
+     "일반화",
+     "암호화",
+     "무작위화",
+     "차분 프라이버시",
+     "ISO/IEC 20889"
+    ]
+   },
+   {
+    "label": "가명 처리 기법",
+    "mnemonic": "",
+    "keywords": [
+     "삭제기술",
+     "통계도구",
+     "일반화",
+     "암호화",
+     "무작위화 기술",
+     "기타 기술"
+    ]
+   },
+   {
+    "label": "가명 처리 대상",
+    "mnemonic": "",
+    "keywords": [
+     "직접식별자(고유식별자)",
+     "간접식별자(준식별자)",
+     "속성정보",
+     "특이정보(민감정보)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "재식별 방지",
+   "추가정보 분리",
+   "결합 활용 가능"
+  ]
+ },
+ {
+  "id": "sn-496",
+  "title": "가명정보 처리 가이드라인",
+  "category": "보안",
+  "importance": "중",
+  "definition": "기업과 개인이 안전하게 가명처리할 수 있도록 개인정보보호위원회에서 발표한 공식 지침",
+  "defShort": "기업·개인이 안전하게 가명처리하도록 개인정보보호위원회가 발표한 공식 지침",
+  "memo": "관련 근거: 가명정보의 처리(개인정보보호법 제28조의2), 가명정보의 결합 제한(제28조의3)",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "3중 보호조치",
+     "처리 절차",
+     "결합·반출 절차"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "가명정보",
+     "가명처리",
+     "관리적·기술적·물리적 보호조치",
+     "개인정보보호법 제28조의2",
+     "개인정보보호법 제28조의3"
+    ]
+   },
+   {
+    "label": "가명 정보 처리 절차",
+    "mnemonic": "",
+    "keywords": [
+     "1단계",
+     "2단계",
+     "3단계",
+     "4단계",
+     "5단계"
+    ]
+   },
+   {
+    "label": "가명 정보의 안전한 관리를 위한 보호조치",
+    "mnemonic": "",
+    "keywords": [
+     "관리적 보호조치",
+     "기술적 보호조치",
+     "물리적 보호조치",
+     "정보주체 권리보장"
+    ]
+   },
+   {
+    "label": "가명 정보 결합 및 반출 절차",
+    "mnemonic": "",
+    "keywords": [
+     "1단계",
+     "2단계",
+     "3단계",
+     "4단계"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "3중 보호조치",
+   "처리 절차",
+   "결합·반출 절차"
+  ]
+ },
+ {
+  "id": "sn-497",
+  "title": "Secure Software Development Framework(SSDF)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "소프트웨어 개발 생명 주기(SDLC)의 모든 단계에 걸친 보안 관행 통합 및 조직이 보안 소프트웨어 개발에 대한 체계적인 접근 방식",
+  "defShort": "SDLC 전 단계에 보안 관행을 통합하도록 체계적 접근을 제시하는 보안 프레임워크",
+  "memo": "구성 4단계 두음: 조직 준비(PO) → SW 보호(PS) → 보안이 잘된 SW 제작(PW) → 취약점 대응(RV)",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "SDLC 전 단계 보안",
+     "조직·제작·대응 구성",
+     "NIST 기반"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "조직 준비(PO)",
+     "SW 보호(PS)",
+     "보안이 잘된 SW 제작(PW)",
+     "취약점 대응(RV)",
+     "SDLC"
+    ]
+   },
+   {
+    "label": "SSDF의 구성과 단계",
+    "mnemonic": "",
+    "keywords": [
+     "조직 준비(PO, Prepare the Organization)",
+     "SW 보호(PS, Protect the Software)",
+     "보안이 잘된 SW 제작(PW, Produce Well Secured So",
+     "취약점 대응(RV, Respond to Vulnerabilities)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "SDLC 전 단계 보안",
+   "조직·제작·대응 구성",
+   "NIST 기반"
+  ]
+ },
+ {
+  "id": "sn-498",
+  "title": "DNS 싱크홀(Sinkhole)",
+  "category": "보안",
+  "importance": "하",
+  "definition": "악성봇에 감염된 PC가 해커의 명령을 받기 위해 C&C로 연결 시도 할 때, C&C 대신 싱크홀 서버로 우회시켜 조종 명령을 받지 않도록 해주는 시스템",
+  "defShort": "악성봇의 C&C 접속을 싱크홀 서버로 우회시켜 조종 명령 수신을 차단하는 시스템",
+  "memo": "동작 원리: DNS 질의 단계에서 C&C 도메인을 싱크홀 서버 IP로 응답 → 감염 PC가 해커 대신 싱크홀에 접속 → 명령 차단·감염 현황 파악",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "C&C 우회",
+     "봇 무력화",
+     "DNS 기반 차단"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "블랙홀 라우팅",
+     "C&C서버",
+     "좀비 PC",
+     "타겟시스템",
+     "악성봇"
+    ]
+   },
+   {
+    "label": "DNS 싱크홀 적용 전후 비교",
+    "mnemonic": "",
+    "keywords": [
+     "적용 전",
+     "적용 후"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "C&C 우회",
+   "봇 무력화",
+   "DNS 기반 차단"
+  ]
+ },
+ {
+  "id": "sn-499",
+  "title": "DNSSEC(Domain Name System Security Extension)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "공개키 암호화방식의 전자서명을 적용해 DNS 데이터 대상의 데이터 위조·변조 공격을 방지하기 위한 인터넷 표준",
+  "defShort": "공개키 전자서명으로 DNS 데이터의 위조·변조 공격을 방지하는 인터넷 보안 표준",
+  "memo": "방어 대상: DNS 캐시 포이즈닝·파밍(pharming) — 가짜 DNS 응답으로 사용자를 악성 사이트로 유도하는 공격을 전자서명 검증으로 차단",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "전자서명 검증",
+     "위변조 방지",
+     "리소스 레코드 확장"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "DNSKEY",
+     "파밍(pharming)",
+     "DNS 캐시 포이즈닝(cache poisoning)",
+     "공개키",
+     "전자서명",
+     "ZSK",
+     "RRSIG"
+    ]
+   },
+   {
+    "label": "DNSSEC 작동 방식",
+    "mnemonic": "",
+    "keywords": [
+     "ⓐ 서명용 키 생성",
+     "ⓑ 원본 데이터 서명",
+     "ⓒ 서명 데이터 전송",
+     "ⓓ 데이터 수신",
+     "ⓔ 공개키 조회",
+     "ⓕ 서명 검증"
+    ]
+   },
+   {
+    "label": "DNSSEC 각 리소스 레코드의 역할",
+    "mnemonic": "",
+    "keywords": [
+     "상위 DNS Server의 공개키",
+     "원본 데이터",
+     "서명 데이터"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "전자서명 검증",
+   "위변조 방지",
+   "리소스 레코드 확장"
+  ]
+ },
+ {
+  "id": "sn-500",
+  "title": "IPSec",
+  "category": "보안",
+  "importance": "중",
+  "definition": "IP계층의 취약점 보완 목적, IP 계층 기반으로 한 보안 프로토콜들을 제공하는 개방 구조의 프로토콜 모음",
+  "defShort": "IP 계층 기반으로 보안 프로토콜을 제공하는 개방 구조의 IP 보안 프로토콜 모음",
+  "memo": "AH는 무결성·인증만, ESP는 암호화(기밀성)까지 — VPN은 주로 ESP 터널 모드로 구성",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "IP 계층 보안",
+     "전송·터널 모드",
+     "AH·ESP 제공"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "IP 계층 보안",
+     "AH",
+     "ESP",
+     "SAD",
+     "SPD",
+     "IKE",
+     "SA",
+     "전송 모드",
+     "터널 모드"
+    ]
+   },
+   {
+    "label": "IPSec 구조와 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "프로토콜",
+     "프로토콜",
+     "데이터베이스",
+     "데이터베이스",
+     "키 교환",
+     "보안 연계"
+    ]
+   },
+   {
+    "label": "IPSec 전송 모드",
+    "mnemonic": "",
+    "keywords": [
+     "전송 모드(Transport Mode)",
+     "터널 모드(Tunnel Mode)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "IP 계층 보안",
+   "전송·터널 모드",
+   "AH·ESP 제공"
+  ]
+ },
+ {
+  "id": "sn-501",
+  "title": "TLS/SSL(Secure Socket Layer)",
+  "category": "보안",
+  "importance": "상",
+  "definition": "보호되지 않는 네트워크 환경에서 안전한 통신을 목적으로 응용 계층과 TCP 계층 사이에서 동작하는 데이터 암호화 프로토콜",
+  "defShort": "응용 계층과 TCP 계층 사이에서 안전한 통신을 제공하는 데이터 암호화 프로토콜",
+  "memo": "핵심: 비대칭키로 대칭키(세션키)를 안전하게 교환하고, 이후 실제 데이터는 빠른 대칭키로 암호화 — 하이브리드 방식",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "핸드셰이크 협상",
+     "대칭·비대칭 결합",
+     "무결성 보장"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "대칭키",
+     "비대칭키",
+     "Handshake",
+     "Change cipher spec",
+     "Alert",
+     "Record"
+    ]
+   },
+   {
+    "label": "TLS/SSL 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "동작 관리",
+     "동작 관리",
+     "동작 관리",
+     "보안 서비스"
+    ]
+   },
+   {
+    "label": "TLS/SSL Handshake 단계",
+    "mnemonic": "",
+    "keywords": [
+     "협상",
+     "보안키 공유",
+     "전송"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "핸드셰이크 협상",
+   "대칭·비대칭 결합",
+   "무결성 보장"
+  ]
+ },
+ {
+  "id": "sn-502",
+  "title": "VPN(Virtual Private Network)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "암호화된 터널을 통해 인터넷에 연결함으로써 공중망(인터넷망)을 사설망(전용회선)처럼 이용할 수 있는 네트워크 서비스",
+  "defShort": "암호화된 터널로 공중망을 사설 전용망처럼 안전하게 이용하는 네트워크 보안 서비스",
+  "memo": "IPSec VPN=Layer 3 종단간(빠름·설치 부담), SSL VPN=Layer 4~7 웹 기반(설치 편리·속도 느림) 대비가 시험 포인트",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "터널링",
+     "암호화 기밀성",
+     "가상 전용회선"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "터널링",
+     "암호화",
+     "기밀성",
+     "무결성",
+     "SSL VPN",
+     "IPSec VPN",
+     "MPLS VPN"
+    ]
+   },
+   {
+    "label": "VPN 기술 요소",
+    "mnemonic": "",
+    "keywords": [
+     "터널링",
+     "암호화",
+     "인증",
+     "접근 제어"
+    ]
+   },
+   {
+    "label": "VPN 종류",
+    "mnemonic": "",
+    "keywords": [
+     "SSL VPN",
+     "IPSec VPN",
+     "MPLS VPN"
+    ]
+   },
+   {
+    "label": "IPSec VPN과 SSL VPN 비교",
+    "mnemonic": "",
+    "keywords": [
+     "정의",
+     "Network Layer",
+     "동작 방식",
+     "인증 방식",
+     "장단점"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "터널링",
+   "암호화 기밀성",
+   "가상 전용회선"
+  ]
+ },
+ {
+  "id": "sn-503",
+  "title": "CWPP(Cloud Workload Protection Platform) & CSPM(Cloud Security Posture Management)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "CWPP는 물리 컴퓨터·가상 머신·컨테이너·서버리스 워크로드에 대한 일관된 제어·가시성으로 서버 워크로드를 보호하는 솔루션이고, CSPM은 클라우드 시스템·인프라의 위험과 잘못된 구성을 지속 모니터링하는 프로세스",
+  "defShort": "워크로드를 지키는 CWPP와 설정 위험을 관리하는 CSPM의 클라우드 보안 기술",
+  "memo": "한 줄 구분: CWPP는 워크로드 보호(애플리케이션·컨테이너·VM 보안), CSPM은 설정·규정 준수 관리(클라우드 설정 오류·정책 위반 탐지)",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "워크로드 보호",
+     "설정 관리",
+     "역할 상보"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "외부",
+     "인프라",
+     "구성",
+     "규정 준수 위반",
+     "내부",
+     "내부 실행 위협",
+     "워크로드",
+     "CASB",
+     "SASE"
+    ]
+   },
+   {
+    "label": "CSPM과 CWPP 비교",
+    "mnemonic": "",
+    "keywords": [
+     "정의",
+     "특징",
+     "목적",
+     "적용환경",
+     "핵심기능",
+     "구성요소"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "워크로드 보호",
+   "설정 관리",
+   "역할 상보"
+  ]
+ },
+ {
+  "id": "sn-504",
+  "title": "SASE(Secure Access Service Edge)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "광역 네트워킹(WAN)과 네트워크 보안 서비스(예: CASB, FWaaS, 제로 트러스트)를 통합하여 제공하는 클라우드 기반 서비스 모델",
+  "defShort": "광역 네트워킹과 네트워크 보안 서비스를 통합해 제공하는 클라우드 기반 서비스 모델",
+  "memo": "SASE = SSE(The Secure Service Edge: FWaaS·ZTNA·CASB·SWG) + A(The Network Access: SD-WAN·Unified Connectivity)",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "WAN·보안 융합",
+     "클라우드 엣지",
+     "제로 트러스트"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "SD-WAN",
+     "보안",
+     "Network as a Service",
+     "Network Security as a Service",
+     "CASB",
+     "SECaaS",
+     "ZTNA"
+    ]
+   },
+   {
+    "label": "SASE 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "네트워크 서비스",
+     "네트워크 서비스",
+     "보안 서비스",
+     "보안 서비스",
+     "보안 서비스"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "WAN·보안 융합",
+   "클라우드 엣지",
+   "제로 트러스트"
+  ]
+ },
+ {
+  "id": "sn-505",
+  "title": "SECaaS(Security as a Service)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "직접 보안 인프라를 구축할 필요 없이, 클라우드 서비스 형태로 보안 기능을 제공받는 모델",
+  "defShort": "직접 보안 인프라 구축 없이 클라우드 서비스 형태로 보안 기능을 제공받는 보안 모델",
+  "memo": "SaaS·PaaS·IaaS처럼 보안도 '서비스형'으로 — 직접 구축 대신 IAM·DLP·SIEM·EDR·FWaaS·MDR을 구독",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "인프라 불필요",
+     "클라우드 제공",
+     "구독형"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "CSP",
+     "SSP",
+     "Cloud 보안 서비스",
+     "IAM",
+     "DLP",
+     "SIEM",
+     "EDR",
+     "FWaaS",
+     "MDR"
+    ]
+   },
+   {
+    "label": "SECaaS 유형",
+    "mnemonic": "",
+    "keywords": [
+     "CSP SECaaS",
+     "SSP SECaaS"
+    ]
+   },
+   {
+    "label": "SECaaS 제공 서비스",
+    "mnemonic": "",
+    "keywords": [
+     "IAM(Identity & Access Management)",
+     "DLP(Data Loss Prevention)",
+     "SIEM(Security Information & Event Manage",
+     "EDR(Endpoint Detection & Response)",
+     "FWaaS(Firewall as a Service)",
+     "MDR(Managed Detection & Response)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "인프라 불필요",
+   "클라우드 제공",
+   "구독형"
+  ]
+ },
+ {
   "id": "gj-2",
   "title": "IT Outsourcing",
   "category": "경영전략",
@@ -46326,63 +48392,6 @@
   ]
  },
  {
-  "id": "ds-51",
-  "title": "SecaaS(서비스 분류)",
-  "category": "디지털서비스",
-  "importance": "상",
-  "definition": "방화벽·인증·암호화 등 보안 기능을 클라우드 서비스 형태로 구독·제공하는 클라우드 보안 서비스 모델(Security as a Service).",
-  "defShort": "",
-  "memo": "식데침암네업 = 식별접근(IAM)·데이터손실(DLP)·침입관리·암호화·네트워크·업무연속성(BCDR) — CSP형. CASB는 클라우드-사용자 사이 보안 브로커(Agent·API·Private·Public형). 최신은 SASE·CNAPP.",
-  "sections": [
-   {
-    "label": "CSP형 SECaaS",
-    "mnemonic": "식데침암네업",
-    "keywords": [
-     "식별/접근관리(IAM)",
-     "데이터손실방지(DLP)",
-     "침입관리(IM)",
-     "암호화",
-     "네트워크보안",
-     "업무연속성(BCDR)"
-    ]
-   },
-   {
-    "label": "SSP형 SECaaS",
-    "mnemonic": "",
-    "keywords": [
-     "취약성탐지",
-     "웹보안",
-     "이메일보안",
-     "지속적 감시",
-     "이벤트관리",
-     "보안접근"
-    ]
-   },
-   {
-    "label": "CASB 기능",
-    "mnemonic": "",
-    "keywords": [
-     "접근통제",
-     "데이터손실방지",
-     "로깅/감사",
-     "이상탐지",
-     "위험평가",
-     "암호화",
-     "DRM"
-    ]
-   }
-  ],
-  "mnemonic": "식데침암네업",
-  "keywords": [
-   "식별/접근관리(IAM)",
-   "데이터손실방지(DLP)",
-   "침입관리(IM)",
-   "암호화",
-   "네트워크보안",
-   "업무연속성(BCDR)"
-  ]
- },
- {
   "id": "ds-53",
   "title": "CSP(Cloud Service Provider)",
   "category": "디지털서비스",
@@ -46907,34 +48916,6 @@
    "계약",
    "이용",
    "종료"
-  ]
- },
- {
-  "id": "ds-75",
-  "title": "RaaS",
-  "category": "디지털서비스",
-  "importance": "하",
-  "definition": "로봇 하드웨어와 제어 소프트웨어를 클라우드 기반으로 통합해 구독형·온디맨드로 제공하는 서비스형 로봇 활용 모델.",
-  "defShort": "",
-  "memo": "'로봇을 클라우드로 통제하고 구독한다' → 로·클·통·구. 답안 첫 줄에 Robot-as-a-Service임을 밝혀 랜섬웨어 RaaS와 구분.",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "로클통구",
-    "keywords": [
-     "로봇 하드웨어",
-     "클라우드 플랫폼",
-     "통신 네트워크",
-     "구독 과금"
-    ]
-   }
-  ],
-  "mnemonic": "로클통구",
-  "keywords": [
-   "로봇 하드웨어",
-   "클라우드 플랫폼",
-   "통신 네트워크",
-   "구독 과금"
   ]
  },
  {
@@ -67224,34 +69205,6 @@
   ]
  },
  {
-  "id": "sec-31",
-  "title": "부 채널 공격",
-  "category": "보안",
-  "importance": "중",
-  "definition": "암호 알고리즘이 디바이스에서 동작할 때 발생하는 소비전력·연산시간·전자파 등 물리적 부가 정보를 측정·분석하여 비밀키를 복원하는 구현 공격 기법",
-  "defShort": "",
-  "memo": "시전전오 — 시간, 전력, 전자파, 오류주입. 기존 '시오전E오'는 영문 E가 섞여 두음이 깨지므로 전자파공격으로 이름을 통일했다. 앞 셋은 수동적 관찰, 마지막 오류주입만 능동적 공격이다.",
-  "sections": [
-   {
-    "label": "공격법",
-    "mnemonic": "시전전오",
-    "keywords": [
-     "시차공격",
-     "전력분석공격",
-     "전자파공격",
-     "오류주입공격"
-    ]
-   }
-  ],
-  "mnemonic": "시전전오",
-  "keywords": [
-   "시차공격",
-   "전력분석공격",
-   "전자파공격",
-   "오류주입공격"
-  ]
- },
- {
   "id": "sec-32",
   "title": "IP Spoofing",
   "category": "보안",
@@ -67957,44 +69910,6 @@
   ]
  },
  {
-  "id": "sec-74",
-  "title": "루트킷",
-  "category": "보안",
-  "importance": "하",
-  "definition": "관리자 계정(root)과 도구 모음(kit)의 합성어로, 시스템 최고 권한을 유지하면서 자신과 다른 악성코드의 존재를 운영체제·보안도구로부터 은닉하는 악성코드",
-  "defShort": "",
-  "memo": "은관백탐 — 은밀히 관리자 권한으로 백도어를 열고 탐지를 피한다.\n유형은 사커부펌(사용자·커널·부트킷·펌웨어), 아래로 갈수록 탐지가 어렵다.",
-  "sections": [
-   {
-    "label": "특징",
-    "mnemonic": "은관백탐",
-    "keywords": [
-     "은닉성",
-     "관리자 권한 유지",
-     "백도어",
-     "탐지 곤란"
-    ]
-   },
-   {
-    "label": "유형",
-    "mnemonic": "사커부펌",
-    "keywords": [
-     "사용자 모드",
-     "커널 모드",
-     "부트킷",
-     "펌웨어 루트킷"
-    ]
-   }
-  ],
-  "mnemonic": "은관백탐",
-  "keywords": [
-   "은닉성",
-   "관리자 권한 유지",
-   "백도어",
-   "탐지 곤란"
-  ]
- },
- {
   "id": "sec-77",
   "title": "Pharming",
   "category": "보안",
@@ -68391,46 +70306,6 @@
   ],
   "mnemonic": "접암인계정",
   "keywords": []
- },
- {
-  "id": "sec-101",
-  "title": "OWASP Top 10 for LLM Application 2025",
-  "category": "보안",
-  "importance": "중",
-  "definition": "LLM(대규모 언어모델) 기반 애플리케이션에서 발생하는 상위 10대 보안 취약점을 정리한 OWASP 가이드라인(2025년판) [OWASP Top 10 for LLM (2025)] - LLM01 프롬프트 인젝션(Prompt Injection) - LLM02 민감정보 노출",
-  "defShort": "",
-  "memo": "",
-  "sections": [
-   {
-    "label": "핵심 키워드",
-    "mnemonic": "프민공데부과시벡잘무",
-    "keywords": [
-     "프롬프트 인젝션",
-     "민감정보 노출",
-     "공급망 취약점",
-     "데이터·모델 중독",
-     "부적절한 출력 처리",
-     "과도한 대행",
-     "시스템 프롬프트 유출",
-     "벡터·임베딩 취약점",
-     "잘못된 정보",
-     "무제한 소비"
-    ]
-   }
-  ],
-  "mnemonic": "프민공데부과시벡잘무",
-  "keywords": [
-   "프롬프트 인젝션",
-   "민감정보 노출",
-   "공급망 취약점",
-   "데이터·모델 중독",
-   "부적절한 출력 처리",
-   "과도한 대행",
-   "시스템 프롬프트 유출",
-   "벡터·임베딩 취약점",
-   "잘못된 정보",
-   "무제한 소비"
-  ]
  },
  {
   "id": "sec-102",
@@ -69348,45 +71223,6 @@
    "액티브X 종속",
    "갱신 부담",
    "호환성 결여"
-  ]
- },
- {
-  "id": "sec-130",
-  "title": "VPN",
-  "category": "보안",
-  "importance": "중",
-  "definition": "공중망(인터넷) 위에 터널링과 암호화를 적용해, 마치 전용회선으로 연결된 것과 같은 기밀성·무결성을 제공하는 논리적 가상 사설 네트워크.",
-  "defShort": "",
-  "memo": "필요기술 '터암인키복', 구축은 '준접활'(준비-접속-활성화).",
-  "sections": [
-   {
-    "label": "필요기술",
-    "mnemonic": "터암인키복",
-    "keywords": [
-     "터널링",
-     "암호화",
-     "인증",
-     "키관리",
-     "복수프로토콜처리"
-    ]
-   },
-   {
-    "label": "절차",
-    "mnemonic": "준접활",
-    "keywords": [
-     "준비단계(IKE 정책·SA)",
-     "접속단계(AH·ESP 협상)",
-     "활성화(장비 적용·연동)"
-    ]
-   }
-  ],
-  "mnemonic": "터암인키복",
-  "keywords": [
-   "터널링",
-   "암호화",
-   "인증",
-   "키관리",
-   "복수프로토콜처리"
   ]
  },
  {
@@ -70639,32 +72475,6 @@
   ]
  },
  {
-  "id": "sec-175",
-  "title": "DNSSEC",
-  "category": "보안",
-  "importance": "출제예상",
-  "definition": "DNS 데이터 위, 변조 차단을 위해 공개키 암호화 방식의 전자서명 기술을 DNS 체계에 도입한 확장 보안 프로토콜",
-  "defShort": "",
-  "memo": "공서원 (공개키·서명데이터·원본데이터)",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "공서원",
-    "keywords": [
-     "공개키",
-     "서명데이터",
-     "원본데이터"
-    ]
-   }
-  ],
-  "mnemonic": "공서원",
-  "keywords": [
-   "공개키",
-   "서명데이터",
-   "원본데이터"
-  ]
- },
- {
   "id": "sec-176",
   "title": "MTD(Moving Target Defense)",
   "category": "보안",
@@ -71293,53 +73103,6 @@
    "인증서",
    "종단처리(TLS Termination)",
    "백엔드서버"
-  ]
- },
- {
-  "id": "sec-199",
-  "title": "IPSec",
-  "category": "보안",
-  "importance": "상",
-  "definition": "네트워크(IP) 계층에서 AH·ESP 프로토콜과 IKE 키 교환을 통해 패킷 단위의 인증·무결성·기밀성을 제공하는 표준 보안 프로토콜 체계",
-  "defShort": "",
-  "memo": "AH는 \"도장만\"(인증), ESP는 \"봉투+도장\"(암호화+인증) — NAT 환경·기밀성 필요 시 ESP 선택. 터널 모드는 \"새 봉투에 통째로 다시 넣기\"로 연상.",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "",
-    "keywords": [
-     "AH",
-     "ESP",
-     "IKE",
-     "SA",
-     "SPD·SAD"
-    ]
-   },
-   {
-    "label": "적용 모드",
-    "mnemonic": "",
-    "keywords": [
-     "전송 모드(페이로드 보호)",
-     "터널 모드(패킷 전체 보호)"
-    ]
-   },
-   {
-    "label": "SPD 정책",
-    "mnemonic": "폐통적",
-    "keywords": [
-     "폐기(Drop)",
-     "통과(Bypass)",
-     "적용(Apply)"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "AH",
-   "ESP",
-   "IKE",
-   "SA",
-   "SPD·SAD"
   ]
  },
  {
@@ -73382,32 +75145,6 @@
   ]
  },
  {
-  "id": "sec-266",
-  "title": "사이버전(Cyber Warfare)",
-  "category": "보안",
-  "importance": "출제예상",
-  "definition": "컴퓨터 네트워크를 통해 디지털화된 정보가 유통되는 가상적인 공간에서 다양한 사이버 공격 수단을 사용하여 적의 정보 체계를 교란, 거부, 통제, 파괴하는 등의 공격과 이를 방어하는 활동",
-  "defShort": "",
-  "memo": "과공해 (과거-대량살상전·공중전·해전)",
-  "sections": [
-   {
-    "label": "사버이번 대비 중요성",
-    "mnemonic": "과공해",
-    "keywords": [
-     "과거-대량살상전",
-     "공중전",
-     "해전"
-    ]
-   }
-  ],
-  "mnemonic": "과공해",
-  "keywords": [
-   "과거-대량살상전",
-   "공중전",
-   "해전"
-  ]
- },
- {
   "id": "sec-268",
   "title": "취약점(Vulnerability)",
   "category": "보안",
@@ -75357,34 +77094,6 @@
    "위협 시나리오",
    "영향도 평가",
    "공격 실현가능성"
-  ]
- },
- {
-  "id": "sec-370",
-  "title": "딥보이스(Deep Voice) 피싱",
-  "category": "보안",
-  "importance": "하",
-  "definition": "딥러닝 음성합성(Voice Cloning)으로 지인·기관 담당자의 목소리를 모방해 전화로 금전이나 정보를 탈취하는 지능형 보이스피싱 수법",
-  "defShort": "",
-  "memo": "음딥발심 - 음성 모아(음) 딥러닝으로 복제하고(딥) 발신번호 위조해(발) 심리를 흔든다(심). 대응은 '다른 경로로 콜백'.",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "음딥발심",
-    "keywords": [
-     "음성 수집",
-     "딥러닝 합성",
-     "발신 위조",
-     "심리 조작"
-    ]
-   }
-  ],
-  "mnemonic": "음딥발심",
-  "keywords": [
-   "음성 수집",
-   "딥러닝 합성",
-   "발신 위조",
-   "심리 조작"
   ]
  },
  {
