@@ -3,7 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { PageHeader } from "@/components/ui";
-import topics from "@/data/topics.json";
+import {
+  REVIEW_TOPICS as topics,
+  TEXTBOOK_ONLY_COUNT,
+} from "@/data/reviewTopics";
 import {
   ReviewItem,
   loadReview,
@@ -38,10 +41,19 @@ const IMP_STYLE: Record<string, string> = {
 const IMP_FILTERS = ["전체", "상", "중", "하", "출제예상"];
 const PAGE_SIZE = 50;
 
+// 분야 목록 — 토픽 수가 많은 순. 교재 과목(보안·인공지능 등)이 여기에 함께 들어온다.
+const CAT_OPTIONS: [string, number][] = (() => {
+  const m = new Map<string, number>();
+  for (const t of topics) m.set(t.category, (m.get(t.category) || 0) + 1);
+  return Array.from(m).sort((a, b) => b[1] - a[1]);
+})();
+
 export default function ReviewPage() {
   const [state, setState] = useState<Record<string, ReviewItem>>({});
   const [ready, setReady] = useState(false);
   const [impFilter, setImpFilter] = useState("전체");
+  const [catFilter, setCatFilter] = useState("전체");
+  const [bookOnly, setBookOnly] = useState(false);
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(0);
   const [session, setSession] = useState<Session | null>(null);
@@ -171,7 +183,7 @@ export default function ReviewPage() {
   // 필터·검색이 바뀌면 첫 페이지로
   useEffect(() => {
     setPage(0);
-  }, [impFilter, query]);
+  }, [impFilter, catFilter, bookOnly, query]);
 
   function update(next: Record<string, ReviewItem>) {
     setState(next);
@@ -367,11 +379,37 @@ export default function ReviewPage() {
         })}
       </div>
 
+      {/* 분야 필터 — 교재 과목(보안·인공지능 등)만 골라 회독할 때 쓴다. */}
+      <div className="mb-4 flex flex-wrap items-center gap-2">
+        <span className="text-xs text-slate-400">분야:</span>
+        <select
+          value={catFilter}
+          onChange={(e) => setCatFilter(e.target.value)}
+          className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-600 outline-none focus:border-brand-400"
+        >
+          <option value="전체">전체 ({topics.length.toLocaleString()})</option>
+          {CAT_OPTIONS.map(([c, n]) => (
+            <option key={c} value={c}>
+              {c} ({n})
+            </option>
+          ))}
+        </select>
+        <label className="flex items-center gap-1.5 text-xs text-slate-500">
+          <input
+            type="checkbox"
+            checked={bookOnly}
+            onChange={(e) => setBookOnly(e.target.checked)}
+            className="h-3.5 w-3.5 accent-emerald-600"
+          />
+          교재 서브노트만 ({TEXTBOOK_ONLY_COUNT})
+        </label>
+      </div>
+
       <div className="mb-4">
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="🔎 토픽·분야 검색 (전체 2,603개 중에서 찾기)"
+          placeholder={`🔎 토픽·분야 검색 (전체 ${topics.length.toLocaleString()}개 중에서 찾기)`}
           className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm shadow-sm outline-none focus:border-brand-400"
         />
       </div>
@@ -380,6 +418,8 @@ export default function ReviewPage() {
         const q = query.trim().toLowerCase();
         const filtered = topics
           .filter((t) => impFilter === "전체" || t.importance === impFilter)
+          .filter((t) => catFilter === "전체" || t.category === catFilter)
+          .filter((t) => !bookOnly || t.fromTextbook)
           .filter(
             (t) =>
               !q ||

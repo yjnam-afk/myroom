@@ -2,7 +2,7 @@
  * 클라이언트 측 로그인 세션 + 랭킹 점수 계산/전송 유틸.
  * 세션(이름·토큰)은 localStorage 에 저장합니다.
  */
-import topics from "@/data/topics.json";
+import { REVIEW_TOPICS as topics } from "@/data/reviewTopics";
 import { loadReview, getItem } from "@/lib/storage";
 import { loadStats, loadNotes } from "@/lib/notes";
 
