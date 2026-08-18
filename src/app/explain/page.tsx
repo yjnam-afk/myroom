@@ -206,6 +206,9 @@ function ExplainInner() {
     topic.trim(),
   );
 
+  // 답안지 2번 항목의 그림 이름 — 그림이 흐름·단계를 보여 주면 "절차"처럼 바꿔 쓴다.
+  const diagramLabel = extra?.imagesLabel || "개념도";
+
   // 내 교재(심화반) 서브노트 원본 — 있으면 AI 없이 바로 보여준다.
   const textbook =
     subnoteByTitle(topic.trim()) ||
@@ -448,13 +451,16 @@ function ExplainInner() {
                   없으면 아래 교재 슬라이드를 참조하도록 안내. 교재 표들은 가/나/다 소항목. */}
               <div className="mt-4">
                 <p className="text-[13px] font-bold leading-relaxed text-slate-800">
-                  2. {textbook.title.replace(/\s*\([^)]*\)/g, "")}의 개념도 및 구성요소
+                  2. {textbook.title.replace(/\s*\([^)]*\)/g, "")}의 {diagramLabel} 및
+                  구성요소
                 </p>
                 {(extra?.image || extra?.images?.length) && (
                   <p className="mt-1 pl-4 text-[13px] leading-relaxed text-slate-600">
-                    <span className="mr-1 font-bold text-slate-500">가. 개념도</span>
+                    <span className="mr-1 font-bold text-slate-500">
+                      가. {extra?.images?.length ? diagramLabel : "개념도"}
+                    </span>
                     {extra?.images?.length
-                      ? "이 도식을 답안지 6줄 내로 옮겨 그린다"
+                      ? `이 ${diagramLabel}를 답안지 6줄 내로 옮겨 그린다`
                       : "아래 교재 슬라이드의 개념도를 답안지 6줄 내 도식으로 옮겨 그린다"}
                   </p>
                 )}
@@ -465,7 +471,7 @@ function ExplainInner() {
                       <img
                         key={src}
                         src={src}
-                        alt={`${topic.trim()} 개념도`}
+                        alt={`${topic.trim()} ${diagramLabel}`}
                         className="w-full max-w-xl rounded-lg border border-slate-200 bg-white"
                       />
                     ))}
