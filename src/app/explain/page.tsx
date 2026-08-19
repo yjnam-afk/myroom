@@ -108,16 +108,25 @@ const BROWSE_GROUPS: BrowseGroup[] = (() => {
 const BROWSE_TOTAL = BROWSE_GROUPS.reduce((n, g) => n + g.titles.length, 0);
 
 function TopicBrowser({ onPick }: { onPick: (title: string) => void }) {
-  const [open, setOpen] = useState<string | null>(BROWSE_GROUPS[0]?.key ?? null);
+  // 기본은 아무 도메인도 안 펼친다 — 칩 한 줄만 보이는 상태가 시작점.
+  const [sel, setSel] = useState<string | null>(null);
   const [filter, setFilter] = useState("");
 
   const q = filter.trim().toLowerCase();
-  const groups = q
-    ? BROWSE_GROUPS.map((g) => ({
-        ...g,
-        titles: g.titles.filter((t) => t.toLowerCase().includes(q)),
-      })).filter((g) => g.titles.length > 0)
-    : BROWSE_GROUPS;
+  // 걸러보기 입력 중에는 도메인 무관하게 맞는 토픽만 모아 한 판에 보여준다.
+  const matched = q
+    ? BROWSE_GROUPS.flatMap((g) =>
+        g.titles
+          .filter((t) => t.toLowerCase().includes(q))
+          .map((t) => ({ title: t, group: g.label })),
+      )
+    : [];
+  const selGroup = BROWSE_GROUPS.find((g) => g.key === sel);
+
+  const pick = (t: string) => {
+    onPick(t);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <section className="mb-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
@@ -133,59 +142,80 @@ function TopicBrowser({ onPick }: { onPick: (title: string) => void }) {
           className="w-44 rounded-lg border border-slate-300 px-3 py-1.5 text-xs focus:border-brand-500 focus:outline-none"
         />
       </div>
-      <div className="divide-y divide-slate-100">
-        {groups.map((g) => {
-          const isOpen = q ? true : open === g.key;
-          return (
-            <div key={g.key}>
-              <button
-                onClick={() => setOpen(isOpen && !q ? null : g.key)}
-                className="flex w-full items-center justify-between gap-2 px-5 py-3 text-left hover:bg-slate-50"
-              >
-                <span className="flex items-center gap-2 text-sm font-semibold text-slate-700">
-                  <span
-                    className={`rounded px-1.5 py-0.5 text-[10px] font-bold ${
-                      g.badge === "교재"
-                        ? "bg-emerald-600 text-white"
-                        : "bg-slate-300 text-slate-700"
-                    }`}
-                  >
-                    {g.badge}
+
+      {q ? (
+        // 걸러보기 결과 — 도메인 구분 없이 한 판, 최대 높이 안에서 스크롤.
+        <div className="max-h-72 overflow-y-auto p-4">
+          {matched.length ? (
+            <div className="flex flex-wrap gap-1.5">
+              {matched.map((m) => (
+                <button
+                  key={m.group + m.title}
+                  onClick={() => pick(m.title)}
+                  className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 hover:border-brand-400 hover:bg-brand-50 hover:text-brand-700"
+                  title={m.group}
+                >
+                  {m.title}
+                  <span className="ml-1 text-[10px] text-slate-400">
+                    {m.group}
                   </span>
+                </button>
+              ))}
+            </div>
+          ) : (
+            <p className="py-2 text-center text-xs text-slate-400">
+              “{filter}”와 맞는 토픽이 목록에 없어요.
+            </p>
+          )}
+        </div>
+      ) : (
+        <>
+          {/* 도메인 칩 — 여기서 하나를 고르면 그 도메인만 아래에 펼쳐진다. */}
+          <div className="flex flex-wrap gap-1.5 p-4">
+            {BROWSE_GROUPS.map((g) => {
+              const active = sel === g.key;
+              return (
+                <button
+                  key={g.key}
+                  onClick={() => setSel(active ? null : g.key)}
+                  className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
+                    active
+                      ? "border-brand-600 bg-brand-600 text-white"
+                      : g.badge === "교재"
+                        ? "border-emerald-300 bg-emerald-50 text-emerald-800 hover:border-emerald-500"
+                        : "border-slate-200 bg-white text-slate-500 hover:border-slate-400"
+                  }`}
+                >
                   {g.label}
-                  <span className="font-normal text-slate-400">
+                  <span
+                    className={`font-normal ${active ? "text-brand-100" : "text-slate-400"}`}
+                  >
                     {g.titles.length}
                   </span>
-                </span>
-                <span className="text-xs text-slate-400">
-                  {isOpen ? "▲" : "▼"}
-                </span>
-              </button>
-              {isOpen && (
-                <div className="flex flex-wrap gap-1.5 px-5 pb-4">
-                  {g.titles.map((t) => (
+                </button>
+              );
+            })}
+          </div>
+
+          {selGroup && (
+            <div className="border-t border-slate-100">
+              <div className="max-h-72 overflow-y-auto p-4">
+                <div className="flex flex-wrap gap-1.5">
+                  {selGroup.titles.map((t) => (
                     <button
                       key={t}
-                      onClick={() => {
-                        onPick(t);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
+                      onClick={() => pick(t)}
                       className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 hover:border-brand-400 hover:bg-brand-50 hover:text-brand-700"
                     >
                       {t}
                     </button>
                   ))}
                 </div>
-              )}
+              </div>
             </div>
-          );
-        })}
-        {groups.length === 0 && (
-          <p className="px-5 py-6 text-center text-xs text-slate-400">
-            “{filter}”와 맞는 토픽이 목록에 없어요.
-          </p>
-        )}
-      </div>
+          )}
+        </>
+      )}
     </section>
   );
 }
