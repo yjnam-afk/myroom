@@ -1,6 +1,5 @@
 "use client";
 
-import { readJsonSafe } from "@/lib/safeJson";
 import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -8,10 +7,7 @@ import { SUBNOTES, subnoteByTitle, subnoteByTopicId } from "@/data/textbookSubno
 import MyDiagrams from "@/components/MyDiagrams";
 import EasyCard from "@/components/EasyCard";
 import { subnoteExtraFor } from "@/data/subnoteExtras";
-import { PageHeader, Spinner, ErrorBox, Button } from "@/components/ui";
-import Markdown from "@/components/Markdown";
-import ConceptDiagram from "@/components/ConceptDiagram";
-import ShareButton from "@/components/ShareButton";
+import { PageHeader } from "@/components/ui";
 import TopicAutocomplete from "@/components/TopicAutocomplete";
 import topics from "@/data/topics.json";
 import flashcards from "@/data/flashcards.json";
@@ -63,15 +59,16 @@ const COURSE_ORDER = [
   "SC", "AI", "DX", "NW", "DB", "OS", "CA", "SE", "PM", "MG", "AL", "DS", "ST",
 ];
 
-type BrowseGroup = { key: string; label: string; badge: string; titles: string[] };
+type BrowseItem = { title: string; imp?: string };
+type BrowseGroup = { key: string; label: string; badge: string; items: BrowseItem[] };
 
 /** 교재 서브노트를 과목별로, 교재에 없는 예전 토픽은 카테고리별로 묶는다. */
 const BROWSE_GROUPS: BrowseGroup[] = (() => {
-  const byCourse = new Map<string, string[]>();
+  const byCourse = new Map<string, BrowseItem[]>();
   const covered = new Set<string>();
   for (const s of SUBNOTES) {
     if (!byCourse.has(s.course)) byCourse.set(s.course, []);
-    byCourse.get(s.course)!.push(s.title);
+    byCourse.get(s.course)!.push({ title: s.title });
     covered.add(bareT(s.title));
   }
   const groups: BrowseGroup[] = [];
@@ -82,15 +79,16 @@ const BROWSE_GROUPS: BrowseGroup[] = (() => {
       key: `course:${c}`,
       label: COURSE_LABEL[c] || c,
       badge: "교재",
-      titles: list.slice().sort((a, b) => a.localeCompare(b, "ko")),
+      items: list.slice().sort((a, b) => a.title.localeCompare(b.title, "ko")),
     });
   }
   // 교재에 아직 없는 예전 토픽 — 카드 자료로 볼 수 있으므로 같이 노출한다.
-  const byCat = new Map<string, string[]>();
+  // 원래 붙어 있던 중요도(상·중·하·출제예상)를 유지하고 상부터 정렬한다.
+  const byCat = new Map<string, BrowseItem[]>();
   for (const t of topics) {
     if (covered.has(bareT(t.title))) continue;
     if (!byCat.has(t.category)) byCat.set(t.category, []);
-    byCat.get(t.category)!.push(t.title);
+    byCat.get(t.category)!.push({ title: t.title, imp: t.importance });
   }
   for (const [cat, list] of Array.from(byCat).sort(
     (a, b) => b[1].length - a[1].length,
@@ -99,13 +97,26 @@ const BROWSE_GROUPS: BrowseGroup[] = (() => {
       key: `cat:${cat}`,
       label: cat,
       badge: "예전",
-      titles: list.slice().sort((a, b) => a.localeCompare(b, "ko")),
+      items: list
+        .slice()
+        .sort(
+          (a, b) =>
+            (IMP_ORDER[a.imp || ""] ?? 9) - (IMP_ORDER[b.imp || ""] ?? 9) ||
+            a.title.localeCompare(b.title, "ko"),
+        ),
     });
   }
   return groups;
 })();
 
-const BROWSE_TOTAL = BROWSE_GROUPS.reduce((n, g) => n + g.titles.length, 0);
+const BROWSE_TOTAL = BROWSE_GROUPS.reduce((n, g) => n + g.items.length, 0);
+
+const IMP_CHIP: Record<string, string> = {
+  상: "text-red-600",
+  중: "text-amber-600",
+  하: "text-slate-400",
+  출제예상: "text-brand-600",
+};
 
 function TopicBrowser({ onPick }: { onPick: (title: string) => void }) {
   // 기본은 아무 도메인도 안 펼친다 — 칩 한 줄만 보이는 상태가 시작점.
@@ -116,9 +127,9 @@ function TopicBrowser({ onPick }: { onPick: (title: string) => void }) {
   // 걸러보기 입력 중에는 도메인 무관하게 맞는 토픽만 모아 한 판에 보여준다.
   const matched = q
     ? BROWSE_GROUPS.flatMap((g) =>
-        g.titles
-          .filter((t) => t.toLowerCase().includes(q))
-          .map((t) => ({ title: t, group: g.label })),
+        g.items
+          .filter((it) => it.title.toLowerCase().includes(q))
+          .map((it) => ({ ...it, group: g.label })),
       )
     : [];
   const selGroup = BROWSE_GROUPS.find((g) => g.key === sel);
@@ -155,6 +166,11 @@ function TopicBrowser({ onPick }: { onPick: (title: string) => void }) {
                   className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 hover:border-brand-400 hover:bg-brand-50 hover:text-brand-700"
                   title={m.group}
                 >
+                  {m.imp && (
+                    <span className={`mr-1 text-[10px] font-bold ${IMP_CHIP[m.imp] || "text-slate-400"}`}>
+                      {m.imp}
+                    </span>
+                  )}
                   {m.title}
                   <span className="ml-1 text-[10px] text-slate-400">
                     {m.group}
@@ -190,7 +206,7 @@ function TopicBrowser({ onPick }: { onPick: (title: string) => void }) {
                   <span
                     className={`font-normal ${active ? "text-brand-100" : "text-slate-400"}`}
                   >
-                    {g.titles.length}
+                    {g.items.length}
                   </span>
                 </button>
               );
@@ -201,13 +217,18 @@ function TopicBrowser({ onPick }: { onPick: (title: string) => void }) {
             <div className="border-t border-slate-100">
               <div className="max-h-72 overflow-y-auto p-4">
                 <div className="flex flex-wrap gap-1.5">
-                  {selGroup.titles.map((t) => (
+                  {selGroup.items.map((it) => (
                     <button
-                      key={t}
-                      onClick={() => pick(t)}
+                      key={it.title}
+                      onClick={() => pick(it.title)}
                       className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 hover:border-brand-400 hover:bg-brand-50 hover:text-brand-700"
                     >
-                      {t}
+                      {it.imp && (
+                        <span className={`mr-1 text-[10px] font-bold ${IMP_CHIP[it.imp] || "text-slate-400"}`}>
+                          {it.imp}
+                        </span>
+                      )}
+                      {it.title}
                     </button>
                   ))}
                 </div>
@@ -223,11 +244,6 @@ function TopicBrowser({ onPick }: { onPick: (title: string) => void }) {
 function ExplainInner() {
   const [topic, setTopic] = useState("");
   const [recCat, setRecCat] = useState(CATS[0]);
-  const [result, setResult] = useState("");
-  const [conceptTopicId, setConceptTopicId] = useState<string | undefined>();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const [autoPending, setAutoPending] = useState(false);
   const [browseOpen, setBrowseOpen] = useState(true);
 
   // 교재 슬라이드 원본 이미지 + 쉬운 설명 (AI 호출 없음)
@@ -246,7 +262,8 @@ function ExplainInner() {
   // 교재에 없는 예전 토픽 — 지하철 카드 자료를 AI 없이 폴백으로 보여준다.
   const legacy = !textbook ? legacyCardFor(topic.trim()) : undefined;
 
-  // 학습 코치 등에서 ?topic=&auto= 으로 들어오면 미리 채우고 auto=1이면 즉시 생성.
+  // 학습 코치 등에서 ?topic= 으로 들어오면 미리 채운다(예전 auto=1은 무시 —
+  // 이 페이지는 AI를 부르지 않고 교재·정리 자료만 즉시 보여준다).
   // SPA 이동으로 쿼리만 바뀌어도 반응하도록 searchParams 의존.
   const searchParams = useSearchParams();
   useEffect(() => {
@@ -256,44 +273,8 @@ function ExplainInner() {
       setBrowseOpen(false);
       const t = topics.find((x) => x.title === title);
       if (t) setRecCat(t.category);
-      if (searchParams.get("auto") === "1") setAutoPending(true);
     }
   }, [searchParams]);
-
-  useEffect(() => {
-    if (autoPending && topic.trim() && !loading) {
-      setAutoPending(false);
-      generate();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [autoPending, topic]);
-
-  async function generate() {
-    if (!topic.trim()) {
-      setError("토픽을 입력하거나 추천 토픽을 선택하세요.");
-      return;
-    }
-    setLoading(true);
-    setError("");
-    setResult("");
-    setConceptTopicId(undefined);
-    try {
-      const matched = topics.find((x) => x.title === topic.trim());
-      setConceptTopicId(matched?.id);
-      const res = await fetch("/api/explain", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ topic, topicId: matched?.id }),
-      });
-      const { ok, data } = await readJsonSafe(res);
-      if (!ok) throw new Error((data.error as string) || "생성 실패");
-      setResult(data.explanation as string);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "오류가 발생했습니다.");
-    } finally {
-      setLoading(false);
-    }
-  }
 
   return (
     <div>
@@ -352,9 +333,6 @@ function ExplainInner() {
         </div>
 
         <div className="mt-5 flex flex-wrap items-center gap-3">
-          <Button onClick={generate} disabled={loading}>
-            {loading ? "설명 중…" : "설명 보기"}
-          </Button>
           {topic.trim() && (
             <Link
               href={`/mnemonic?topic=${encodeURIComponent(topic.trim())}${
@@ -378,8 +356,6 @@ function ExplainInner() {
               setTopic(t);
               const m = topics.find((x) => x.title === t);
               if (m) setRecCat(m.category);
-              setResult("");
-              setError("");
               setBrowseOpen(false);
             }}
           />
@@ -688,34 +664,12 @@ function ExplainInner() {
           />
         )}
 
-        {loading && <Spinner label="이해하기 쉽게 정리하고 있습니다…" />}
-        {error &&
-          (textbook ? (
-            // 교재 원본·쉬운 설명·슬라이드가 이미 위에 다 떠 있다.
-            // AI는 "덤"이므로 실패를 오류처럼 보여주지 않는다.
-            <p className="rounded-xl bg-slate-50 px-4 py-3 text-xs text-slate-500">
-              AI 추가 해설은 지금 한도가 차서 못 만들었어요. 위 내용만으로 충분합니다.
-            </p>
-          ) : (
-            <ErrorBox message={error} />
-          ))}
-        {result && (
-          <>
-            {/* 공유 — 두음신공 페이지와 동일하게 결과 상단(카드 밖) */}
-            <div className="mb-4 flex flex-wrap items-center justify-end gap-2">
-              <ShareButton
-                title={`[나의 공간] ${topic.trim()} 설명`}
-                text={`💡 ${topic.trim()} — 이해하기 쉬운 설명`}
-                url={`https://study-teal-eight.vercel.app/explain?topic=${encodeURIComponent(topic.trim())}&auto=1`}
-              />
-            </div>
-            {/* 개념도 — 교재 슬라이드 원본이 있으면(위에 이미 떠 있음) 중복이므로 생략.
-                교재 슬라이드가 없는 토픽만 기존 개념도 이미지를 쓴다. */}
-            {!extra?.image && <ConceptDiagram topicId={conceptTopicId} />}
-            <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
-              <Markdown>{result}</Markdown>
-            </article>
-          </>
+        {/* 어떤 자료도 못 찾은 경우 — AI를 부르지 않고 상황만 안내한다 */}
+        {topic.trim() && !textbook && !legacy && !extra?.image && (
+          <p className="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-500">
+            “{topic.trim()}” 자료가 아직 없어요. 위 검색창에서 비슷한 토픽을
+            찾아보거나, 클로드에게 말해 주시면 교재가 없어도 직접 만들어 넣어요.
+          </p>
         )}
       </div>
     </div>

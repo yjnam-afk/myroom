@@ -226,7 +226,7 @@ function MnemonicInner() {
           </Button>
           {topic.trim() && (
             <Link
-              href={`/explain?topic=${encodeURIComponent(topic)}&auto=1`}
+              href={`/explain?topic=${encodeURIComponent(topic)}`}
               className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm font-medium text-amber-700 hover:bg-amber-100"
             >
               💡 이 토픽 설명 보기 →
