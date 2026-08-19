@@ -22712,6 +22712,70 @@ export const SUBNOTES: TextbookSubnote[] = [
       "운영체제 과목의 프로세스 관리·컨텍스트 스위칭·가상메모리와 대비시키면 2교시 도입부가 자연스럽게 잡힌다.",
     ],
   },
+  {
+    title: "OWASP Agentic AI 위협 및 대응방안(Agentic AI Threats and Mitigations)",
+    course: "SC",
+    definition:
+      "OWASP GenAI Security Project가 자율적으로 계획을 세우고 도구를 호출하며 다른 에이전트와 협업하는 AI 에이전트에서 새로 발생하는 보안 위협 15가지(T1~T15)와 위협별 완화 방안을 정리한 위협 참조 모델",
+    defShort: "자율 AI 에이전트에서 새로 생기는 보안 위협과 완화 방안을 정리한 위협 참조 모델",
+    lead: "자율 에이전트 확산에 따른 신종 위협 체계화, OWASP Agentic AI",
+    features: ["15개 위협 분류", "위협별 완화 매핑", "다중 에이전트 위험"],
+    keywords: ["OWASP Top 10 for Agentic AI", "Agentic Security Initiative", "Memory Poisoning", "Tool Misuse", "Privilege Compromise", "Cascading Hallucination", "Intent Breaking", "Rogue Agents", "Human-in-the-Loop", "Agent Communication Poisoning"],
+    tables: [
+      {
+        caption: "Agentic AI 위협 15종(T1~T15)",
+        headers: ["코드", "위협", "설명"],
+        rows: [
+          ["T1", "Memory Poisoning(메모리 오염)", "단기·장기 메모리에 허위 정보를 주입해 이후 의사결정을 지속적으로 왜곡"],
+          ["T2", "Tool Misuse(도구 오용)", "승인된 도구를 기만적 프롬프트로 유도해 악의적 작업을 수행하게 함"],
+          ["T3", "Privilege Compromise(권한 침해)", "권한 설정·동적 역할 위임의 허점을 악용해 비인가 작업 수행"],
+          ["T4", "Resource Overload(자원 과부하)", "연산·메모리·API 자원을 고갈시켜 성능 저하 및 가용성 침해"],
+          ["T5", "Cascading Hallucination(연쇄 환각 공격)", "그럴듯한 허위 정보가 후속 판단과 연결 시스템으로 연쇄 전파"],
+          ["T6", "Intent Breaking & Goal Manipulation(의도 훼손·목표 조작)", "계획 수립과 목표 설정을 조작해 원래 사용자 의도에서 이탈시킴"],
+          ["T7", "Misaligned & Deceptive Behaviors(오정렬·기만 행위)", "목표 달성을 위해 허용되지 않은 방식을 쓰거나 허위 응답을 생성"],
+          ["T8", "Repudiation & Untraceability(부인·추적 불가)", "행위 로그가 없거나 조작 가능해 사후 분석과 책임 추적이 불가"],
+          ["T9", "Identity Spoofing & Impersonation(신원 사칭·위장)", "사용자나 다른 에이전트로 위장해 인증 체계를 우회하고 작업 수행"],
+          ["T10", "Overwhelming Human-in-the-Loop(인간 개입 무력화)", "승인 요청을 폭주시켜 인간이 검토할 수 없게 만들어 감독을 형해화"],
+          ["T11", "Unexpected RCE and Code Attacks(예기치 않은 원격코드 실행)", "코드 생성·실행 기능을 악용해 악성 코드를 실행하도록 유도"],
+          ["T12", "Agent Communication Poisoning(에이전트 통신 오염)", "에이전트 간 통신 채널을 조작해 허위 정보를 확산"],
+          ["T13", "Rogue Agents(악성 에이전트)", "감시 범위 밖에서 동작하는 악성·변조 에이전트가 다중 에이전트 시스템을 침해"],
+          ["T14", "Human Attacks on Multi-Agent Systems(다중 에이전트 대상 인적 공격)", "에이전트 간 신뢰·위임 관계를 악용해 권한을 횡적으로 확대"],
+          ["T15", "Human Manipulation(인간 조종)", "신뢰받는 에이전트가 사용자를 유도·조종해 잘못된 행동을 하게 함"],
+        ],
+      },
+      {
+        caption: "위협 범주별 완화 방안",
+        headers: ["범주", "해당 위협", "완화 방안"],
+        rows: [
+          ["메모리·지식", "T1, T5", "세션 기반 메모리 격리, 메모리 쓰기 검증·출처 추적, 스냅샷 및 롤백, 외부 지식 대조를 통한 사실 검증"],
+          ["도구·실행", "T2, T4, T11", "사전 승인된 도구 허용목록, 도구 호출 파라미터 검증, 실행 샌드박스 격리, 호출 빈도·자원 사용량 상한"],
+          ["권한·신원", "T3, T9", "에이전트 고유 신원(Agent ID) 발급, 최소 권한·역할 기반 접근통제, 다중 인증, 위임 토큰의 범위·수명 제한"],
+          ["추론·목표", "T6, T7", "사용자 의도와 실행 계획의 일관성 검증, 목표-출력 정합성 검사, 자기 검증(Reflection) 단계 삽입"],
+          ["감사·추적", "T8", "변조 불가 감사 로그, 결정 과정의 암호화 서명 기록, 이상 행위 실시간 탐지"],
+          ["인간 감독", "T10, T15", "중요 작업 필수 승인, 승인 요청 상한 및 이상 승인 패턴 탐지, 에이전트 출력에 대한 사용자 고지"],
+          ["다중 에이전트", "T12, T13, T14", "에이전트 간 통신 암호화·서명 검증, 신뢰 에이전트 레지스트리 운영, 행위 이상 탐지 및 격리·차단"],
+        ],
+      },
+      {
+        caption: "OWASP LLM Top 10(2025)과 Agentic AI 위협 비교",
+        headers: ["구분", "OWASP Top 10 for LLM Applications", "OWASP Agentic AI Threats"],
+        rows: [
+          ["보호 대상", "LLM 애플리케이션(모델·프롬프트·데이터)", "자율 에이전트(계획·도구·메모리·협업)"],
+          ["항목 수", "10개(LLM01~LLM10)", "15개(T1~T15)"],
+          ["대표 위협", "프롬프트 인젝션, 민감한 정보 공개, 공급망, 데이터·모델 중독, 과도한 대행(Excessive Agency)", "메모리 오염, 도구 오용, 목표 조작, 인간 개입 무력화, 악성 에이전트"],
+          ["위협 원천", "입력·출력 경계에서의 조작", "자율성·도구 호출 권한·에이전트 간 신뢰"],
+          ["대응 축", "입출력 검증, 데이터 거버넌스", "권한 최소화, 감사 추적, 인간 감독 설계"],
+        ],
+      },
+    ],
+    notes: [
+      "★출처 주의★ OWASP GenAI Security Project의 공식 문서명은 'Agentic AI — Threats and Mitigations'이며 위협은 10개가 아니라 15개(T1~T15)다. 현장에서 'OWASP Top 10 for Agentic AI'라고 부르는 경우가 많지만, 답안에는 'OWASP Agentic AI 위협(15종)'으로 쓰는 것이 안전하다. 별도의 'OWASP Top 10'은 LLM 애플리케이션용(LLM01~LLM10)이다.",
+      "15개 위협은 에이전트 실행 파이프라인 순서로 묶으면 외워진다 — 기억(T1·T5) → 목표·추론(T6·T7) → 도구·실행(T2·T4·T11) → 권한·신원(T3·T9) → 감사(T8) → 인간 감독(T10·T15) → 다중 에이전트(T12·T13·T14).",
+      "금융보안원 'AI Agent 보안위협' 6단계(자율적 의사결정·메모리 활용·외부 도구 호출·인증 및 권한 관리·인간 개입·다중 에이전트)가 이 15종을 국내 금융권 관점으로 재분류한 것이다. 두 자료를 한 답안에서 교차 인용하면 차별화된다.",
+      "MCP·A2A 같은 에이전트 연동 프로토콜, AP2·ACP 같은 에이전트 결제 프로토콜이 확산되면서 T12(통신 오염)·T13(악성 에이전트)의 실효 위험이 커지고 있다.",
+      "이 서브노트는 교재 슬라이드가 없어 OWASP 원문을 근거로 정리한 항목이다.",
+    ],
+  },
 ];
 
 /** topicId 로 교재 서브노트를 찾는다. */

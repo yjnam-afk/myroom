@@ -34114,6 +34114,88 @@
   ]
  },
  {
+  "id": "sn-573",
+  "title": "OWASP Agentic AI 위협 및 대응방안(Agentic AI Threats and Mitigations)",
+  "category": "보안",
+  "importance": "중",
+  "definition": "OWASP GenAI Security Project가 자율적으로 계획을 세우고 도구를 호출하며 다른 에이전트와 협업하는 AI 에이전트에서 새로 발생하는 보안 위협 15가지(T1~T15)와 위협별 완화 방안을 정리한 위협 참조 모델",
+  "defShort": "자율 AI 에이전트에서 새로 생기는 보안 위협과 완화 방안을 정리한 위협 참조 모델",
+  "memo": "★출처 주의★ OWASP GenAI Security Project의 공식 문서명은 'Agentic AI — Threats and Mitigations'이며 위협은 10개가 아니라 15개(T1~T15)다. 현장에서 'OWASP Top 10 for Agentic AI'라고 부르는 경우가 많지만, 답안에는 'OWASP Agentic AI 위협(15종)'으로 쓰는 것이 안전하다. 별도의 'OWASP Top 10'은 LLM 애플리케이션용(LLM01~LLM10)이다.",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "15개 위협 분류",
+     "위협별 완화 매핑",
+     "다중 에이전트 위험"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "OWASP Top 10 for Agentic AI",
+     "Agentic Security Initiative",
+     "Memory Poisoning",
+     "Tool Misuse",
+     "Privilege Compromise",
+     "Cascading Hallucination",
+     "Intent Breaking",
+     "Rogue Agents",
+     "Human-in-the-Loop",
+     "Agent Communication Poisoning"
+    ]
+   },
+   {
+    "label": "Agentic AI 위협 15종(T1~T15)",
+    "mnemonic": "",
+    "keywords": [
+     "T1",
+     "T2",
+     "T3",
+     "T4",
+     "T5",
+     "T6",
+     "T7",
+     "T8",
+     "T9",
+     "T10"
+    ]
+   },
+   {
+    "label": "위협 범주별 완화 방안",
+    "mnemonic": "",
+    "keywords": [
+     "메모리·지식",
+     "도구·실행",
+     "권한·신원",
+     "추론·목표",
+     "감사·추적",
+     "인간 감독",
+     "다중 에이전트"
+    ]
+   },
+   {
+    "label": "OWASP LLM Top 10(2025)과 Agentic AI 위협 비교",
+    "mnemonic": "",
+    "keywords": [
+     "보호 대상",
+     "항목 수",
+     "대표 위협",
+     "위협 원천",
+     "대응 축"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "15개 위협 분류",
+   "위협별 완화 매핑",
+   "다중 에이전트 위험"
+  ]
+ },
+ {
   "id": "gj-2",
   "title": "IT Outsourcing",
   "category": "경영전략",
