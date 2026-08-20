@@ -2497,16 +2497,196 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
       ],
       exam: "2PC는 조정자가 준비 투표(1단계)와 커밋·취소 결정(2단계)으로 분산 트랜잭션의 원자성을 보장하는 프로토콜로, 조정자 장애 시 블로킹 한계가 있어 3PC·Saga로 보완한다.",
     }, image: "/concept/book/db-2pc.png", easy: "분산 DB에서 여러 노드에 걸친 트랜잭션을 '전원 커밋 아니면 전원 롤백'으로 만드는 합의 절차입니다. 등장인물 — 조정자(Global Coordinator: 참여자 목록을 갖고 커밋을 지휘), 지역 노드(로컬 트랜잭션 수행, 조정자 결정에 따름), Commit Point Site(가장 중요한 데이터를 가진 노드로 제일 먼저 커밋·롤백), 클라이언트. 이름 그대로 2단계입니다 — Phase 1(Prepare): 커밋 요구가 오면 조정자가 Commit Point Site를 정하고 모든 노드에 Prepare 메시지를 보내 응답을 받음. Phase 2(Commit): 전원이 '준비됐다'고 하면 commit 명령, 하나라도 에러 보고가 오면 Rollback 명령. 분산 DB의 장애 투명성을 받치는 메커니즘이라 분산 DB 토픽과 세트로 나옵니다." },
-"db-nosql": { image: "/concept/book/db-nosql.png", easy: "RDBMS의 테이블-컬럼 스키마 없이, 분산 환경에서 단순 검색·추가에 강하고 처리율이 높은 DB입니다. 유형 4개 [키컬도그]가 핵심 — Key-Value(가장 단순, 단위연산 빠름, 대신 키 범위 처리 안 됨), Column Family(키 기반 Sorting 저장으로 키 범위 처리를 개선한 Ordered Key-Value), Document(JSON·XML 문서 저장, 임의 속성 추가 자유, 대신 Parsing 오버헤드), Graph(관계 자체를 저장, Traversing이 미리 저장돼 관계 검색이 빠름). 각 유형의 '개선 계보'로 외우면 좋습니다 — Key-Value의 범위 처리 약점을 Column Family가, 구조 표현 약점을 Document가 보완. 절차는 탐색(도메인 파악) → 설계(쿼리결과 디자인·패턴 모델링·기능 최적화) → 최적화(후보 선정·테스트) 순입니다." },
-"db-nosql-modeling": { image: "/concept/book/db-nosql-modeling.png", easy: "NoSQL 데이터모델링 패턴은 Put/Get 위주의 NoSQL에서 다양한 조회를 지원하기 위한 테이블 설계 기법 모음입니다. RDBMS처럼 쿼리로 풀 수 없으니 설계 단계에서 미리 푸는 것입니다. 기본 패턴 3 — Denormalization(중복 저장해서 Join 없이 한 번의 I/O로 조회), Aggregation(1:n 관계 최소화, row마다 컬럼·타입이 달라도 됨 = Soft Scheme), Application Side Join(Join이 꼭 필요하면 클라이언트 앱에서 처리). 확장 패턴 3 — Atomic aggregation(일관성 위해 테이블을 하나로 통합), Index Table(인덱스가 없으니 별도 인덱스 테이블을 직접 생성), Composite Key Table(복합 키 인덱스 구성). 계층 패턴 3 — Tree Aggregation(트리 전체를 하나의 Value에), Adjacent Lists(부모·자식 포인터 저장), Materialized Path(루트부터 전체 경로를 key로 저장)입니다." },
-"db-cap-base": { image: "/concept/book/db-cap-base.png", easy: "분산시스템은 일관성(C: 모든 서버가 같은 시점에 같은 데이터)·가용성(A: 일부 서버가 죽어도 정상 동작)·부분결함허용(P: 메시지 유실에도 동작) 셋을 다 가질 수 없고 둘만 고를 수 있다는 것이 CAP [일가파]입니다. 조합별 제품까지 — CA(Oracle·MySQL 등 RDBMS), CP(HBase·MongoDB — 분할 시 가용성 저하), AP(Dynamo·Cassandra — 일관성 저하). 한계는 '네트워크 분할 시 C와 A 중 하나를 골라야 한다'는 것이고, 이를 보완한 것이 PACELC입니다. BASE [가분데비일]는 가용성을 중시하는 NoSQL의 성질 — Basically Available(복사본 저장으로 항상 가용), Soft State(노드 상태는 외부 전송 정보로 결정), Eventually Consistent(일시적 비일관성을 허용하되 결국 일관성 회복). ACID와의 대비가 단골입니다." },
-"db-pacelc": { image: "/concept/book/db-pacelc.png", easy: "PACELC는 분산시스템의 트레이드오프를 장애 시(P: A vs C)와 정상 시(E: L vs C) 두 상황으로 나눠 설명하는 이론입니다. 장애 상황만 다루는 CAP의 보완판입니다 — P(파티션, 장애) 상황에서는 A(가용성)와 C(일관성)가 상충하고, E(else, 정상) 상황에서는 L(지연시간)과 C(일관성)가 상충한다(모든 노드에 반영하려면 응답이 길어지므로). 그래서 시스템이 4가지로 분류됩니다 — PC/EC(늘 일관성 우선: HBase·VoltDB·Megastore), PA/EL(늘 가용성·속도 우선: Cassandra·Dynamo), PA/EC(장애 땐 가용성, 평상시엔 일관성: MongoDB), PC/EL(장애 땐 일관성, 평상시엔 속도: PNUTS). 대표 제품과 분류를 짝짓는 문제가 그대로 나옵니다." },
-"db-newsql": { image: "/concept/book/db-newsql.png", easy: "RDBMS(ACID·SQL은 되지만 확장이 어려움)와 NoSQL(확장·고가용은 되지만 ACID 포기)의 장점만 합친 세대입니다 — ACID + 수평 확장 + 고가용성 + SQL을 모두 지원. 기능 [트아 SA비 노병] — 트랜잭션 측면(SQL 기반 상호작용, ACID 지원, Non-locking 비잠금 동시성제어), 아키텍처 측면(노드단위 고성능, 병렬/비공유 — 데이터가 서버마다 중복 없이 독립 존재). 기술요소는 양쪽에서 가져옵니다 — RDBMS 쪽: 인덱싱·MVCC·샤딩 / NoSQL 쪽: 스키마리스·인메모리·DB 스케일링(scale-out). 3자 비교표가 그대로 출제됩니다: ACID(New○ R○ No✕), BASE(New○ R✕ No○), 확장(New/No는 Scale-out, R은 Scale-up), 솔루션(VoltDB·Spanner / Oracle·MSSQL / MongoDB·Redis)." },
-"db-vector-db": { image: "/concept/book/db-vector-db.png", easy: "벡터 DB는 텍스트·이미지 같은 원본을 임베딩 모델로 고차원 숫자 벡터로 바꿔 저장하고, 유사한 것을 빠르게 찾아 주는 데이터베이스입니다 — RAG의 저장소이며 137회 4교시 기출입니다. 동작 5단계: ① 벡터 임베딩(원본→고차원 벡터) ② 저장·인덱싱(해싱/양자화/그래프/트리 기반) ③ 쿼리 처리(질문도 같은 모델로 벡터화) ④ 유사성 측정 ⑤ 후처리(필터링·순위 재조정). 알고리즘 [랜양LHI] — 랜덤 투영(저차원 투영), 제품 양자화 PQ(나눠서 압축), LSH(유사한 것끼리 같은 해시), HNSW(계층적 그래프 탐색), IVF(그룹 나눠 필요한 그룹만 검색). 유사도 측정은 코사인(각도)·유클리드(직선거리)·맨해튼(격자거리)·내적(방향)·자카드(집합)입니다." },
-"db-ann": { image: "/concept/book/db-ann.png", easy: "ANN은 정확한 최근접 이웃(NN)의 전수 비교가 너무 느리기 때문에, '거의 가장 가까운' 이웃을 빠르게 찾는 근사 탐색 알고리즘입니다 — 벡터 DB의 검색 엔진 역할입니다. 절차(트리 기반 예시): ① 임의의 두 점 사이 hyperplane으로 공간을 나누고 ② subspace의 점 개수를 노드로 binary tree 생성 ③ 점이 K개 넘으면 재귀 반복 ④ 검색 시 트리를 타고 내려가 해당 subspace 안에서만 NN 탐색. 구성요소 3계열이 시험 포인트 — 공간 분할 기반(k-d 트리·Annoy·LSH: 직관적이나 고차원에서 성능 저하), 그래프 기반(HNSW·NSG: 정확도·효율 높으나 인덱스 구축이 김), 압축·양자화 기반(PQ·IVF: 메모리·속도 유리하나 정보 손실로 정확도 저하 위험). 벡터 DB 토픽과 한 세트입니다." },
-"db-sql": { image: "/concept/book/db-sql.png", easy: "RDBMS에 말을 거는 표준 언어이고, 명령어를 4갈래로 분류하는 것이 전부입니다. DDL(구조 정의 — CREATE·ALTER·DROP·TRUNCATE·RENAME): 테이블 같은 스키마 객체를 만들고 바꾸고 없앰. DML(데이터 조작 — SELECT·INSERT·UPDATE·DELETE): 저장된 자료를 넣고 고치고 지우고 조회. DCL(권한 제어 — GRANT·REVOKE): 사용자에게 권한을 주거나 뺏음. TCL(트랜잭션 제어 — COMMIT·ROLLBACK·SAVEPOINT): 트랜잭션을 확정·취소. 헷갈림 포인트 둘 — TRUNCATE는 데이터를 지우지만 DDL이고(구조 초기화), COMMIT·ROLLBACK은 원래 DCL로 분류하다가 따로 떼어 TCL이라 부르기도 한다는 점입니다." },
-"db-join": { image: "/concept/book/db-join.png", easy: "두 테이블을 엮어 원하는 데이터를 뽑는 방법인데, 시험은 '논리(어떤 결과)'보다 '물리(어떻게 실행)'를 묻습니다. 관계대수 측면: Equi·Natural·Outer·Semi Join(벤 다이어그램의 LEFT/RIGHT/INNER/FULL). 메커니즘 측면 3형제가 핵심 — Nested Loop(선행 테이블을 한 건씩 읽으며 후행을 인덱스로 찾음: 소량·OLTP·부분범위·Buffer Cache), Sort Merge(양쪽을 각자 정렬해 차례로 병합: 인덱스 없을 때·대량), Hash(작은 집합으로 메모리에 해시 테이블을 만들고 큰 집합이 탐색: 대량 집계·OLAP). 비교표의 힌트(/*+ USE_NL, USE_MERGE, USE_HASH */)와 사용자원(Buffer Cache vs PGA) 구분까지 외우면 완성입니다." },
-"db-index": { image: "/concept/book/db-index.png", easy: "인덱스는 <키 값, 레코드 주소> 쌍을 체계적으로 모아 두어 풀 스캔 없이 원하는 행에 바로 접근하게 하는 DB 오브젝트입니다 — 책 뒤의 찾아보기와 같은 원리입니다. 유형 [트해비 함조도 정동 논물]을 분류 축으로 — 형태(트리 기반: RDBMS 대부분 B-tree / 해시 기반: = 계열 연산만 가능 / 비트맵: 비트로 저장·ROWID 자동 생성), 목적(함수기반·조인·도메인 인덱스), 구조(정적: 구조 불변 / 동적: 빈 공간을 미리 준비), 논리(논리적/물리적). 스캔방식 5종은 그림과 함께 — Range Scan(수직 탐색 후 필요한 범위만), Full Scan(리프를 처음부터 끝까지, 차선책), Unique Scan(= 조건, 수직 탐색만), Skip Scan(선두 칼럼이 조건에 없어도 활용), Range Scan Descending(뒤에서 앞으로 내림차순). '해시 인덱스는 범위 검색이 안 된다'가 자주 나오는 함정입니다." },
+"db-nosql": {
+    guide: {
+      hook: "관계형의 엄격한 스키마·조인을 버리고 '확장성'을 택한 비관계형 DB 계열입니다.",
+      scene: "대규모 웹 서비스는 정해진 표 구조에 데이터를 억지로 맞추기 어렵고, 서버를 옆으로 늘려(수평 확장) 폭증하는 트래픽을 감당해야 합니다. NoSQL은 유연한 스키마와 수평 확장을 얻는 대신 강한 일관성·조인을 포기합니다.",
+      why: "4대 유형과 'RDBMS vs NoSQL'(ACID vs BASE, 수직 vs 수평 확장)의 대비가 출제 핵심입니다. CAP 이론과 직결됩니다.",
+      mechanism: "4유형: Key-Value(단순 키로 값 저장 — Redis·DynamoDB), Document(JSON 문서 — MongoDB), Column-Family(열 그룹 — Cassandra·HBase), Graph(노드·관계 — Neo4j). 특징: 스키마 유연, 수평 확장(샤딩), BASE(결과적 일관성). RDBMS 대비 조인·복잡 트랜잭션 약함.",
+      map: [
+        { as: "단순 키로 꺼내기", real: "Key-Value", note: "Redis" },
+        { as: "JSON 문서 통째", real: "Document", note: "MongoDB" },
+        { as: "열 그룹으로", real: "Column-Family", note: "Cassandra" },
+        { as: "관계를 그래프로", real: "Graph", note: "Neo4j" },
+      ],
+      usage: "대규모·비정형·고트래픽 서비스에 쓰입니다. 시험은 4유형 매핑, RDBMS와의 비교, BASE·CAP과의 연결입니다.",
+      links: [
+        { topic: "CAP 이론과 BASE 이론", how: "NoSQL의 일관성 모델 근거입니다." },
+        { topic: "NoSQL 데이터모델링 패턴", how: "NoSQL 설계 방법을 다룹니다." },
+      ],
+      exam: "NoSQL은 유연한 스키마와 수평 확장을 위해 Key-Value·Document·Column-Family·Graph 4유형으로 나뉘며, ACID 대신 BASE를 택해 대규모·비정형 데이터에 적합하다.",
+    }, image: "/concept/book/db-nosql.png", easy: "RDBMS의 테이블-컬럼 스키마 없이, 분산 환경에서 단순 검색·추가에 강하고 처리율이 높은 DB입니다. 유형 4개 [키컬도그]가 핵심 — Key-Value(가장 단순, 단위연산 빠름, 대신 키 범위 처리 안 됨), Column Family(키 기반 Sorting 저장으로 키 범위 처리를 개선한 Ordered Key-Value), Document(JSON·XML 문서 저장, 임의 속성 추가 자유, 대신 Parsing 오버헤드), Graph(관계 자체를 저장, Traversing이 미리 저장돼 관계 검색이 빠름). 각 유형의 '개선 계보'로 외우면 좋습니다 — Key-Value의 범위 처리 약점을 Column Family가, 구조 표현 약점을 Document가 보완. 절차는 탐색(도메인 파악) → 설계(쿼리결과 디자인·패턴 모델링·기능 최적화) → 최적화(후보 선정·테스트) 순입니다." },
+"db-nosql-modeling": {
+    guide: {
+      hook: "NoSQL은 '조인이 없어서', 정규화 대신 '쿼리에 맞춰' 데이터를 미리 뭉쳐 설계합니다.",
+      scene: "RDBMS는 정규화 후 조인하지만, NoSQL은 조인이 약하거나 없어서 '어떻게 조회할지'를 먼저 정하고 그에 맞게 데이터를 한 문서에 묶거나(임베딩) 참조를 둡니다. 설계의 출발점이 데이터가 아니라 쿼리입니다.",
+      why: "'정규화 → 쿼리 주도 설계'라는 발상 전환이 핵심입니다. 임베딩 vs 참조, 대표 패턴이 출제 포인트입니다.",
+      mechanism: "원칙: 쿼리 우선(액세스 패턴 파악 후 모델링), 조인 회피(비정규화). 임베딩(관련 데이터를 한 문서에 중첩 — 함께 읽을 때 빠름, 문서 커짐), 참조(ID로 연결 — 중복 적으나 여러 번 조회). 패턴: 버킷(시계열 묶음), 아웃라이어(예외 처리), 사전 계산(집계 저장), 스키마 버저닝. 1:1·1:N·N:M별 임베딩/참조 선택.",
+      map: [
+        { as: "조회 먼저 정하고 설계", real: "쿼리 주도 모델링", note: "핵심" },
+        { as: "관련 데이터 한 문서에", real: "임베딩", note: "함께 읽기 빠름" },
+        { as: "ID로 연결", real: "참조(Referencing)", note: "중복 감소" },
+        { as: "시계열 묶기·집계 저장", real: "버킷·사전계산 패턴", note: "" },
+      ],
+      usage: "MongoDB·DynamoDB 설계의 기본입니다. 시험은 쿼리 주도 설계, 임베딩 vs 참조 선택 기준, 패턴입니다.",
+      links: [
+        { topic: "NoSQL", how: "이 모델링이 적용되는 대상 DB입니다." },
+        { topic: "데이터베이스 반정규화(De-Normalization)", how: "비정규화·중복을 적극 활용합니다." },
+      ],
+      exam: "NoSQL 데이터모델링은 조인이 약한 특성상 액세스 패턴을 먼저 정해 임베딩·참조로 데이터를 뭉치는 쿼리 주도 설계로, 버킷·사전계산 등 패턴을 활용한다.",
+    }, image: "/concept/book/db-nosql-modeling.png", easy: "NoSQL 데이터모델링 패턴은 Put/Get 위주의 NoSQL에서 다양한 조회를 지원하기 위한 테이블 설계 기법 모음입니다. RDBMS처럼 쿼리로 풀 수 없으니 설계 단계에서 미리 푸는 것입니다. 기본 패턴 3 — Denormalization(중복 저장해서 Join 없이 한 번의 I/O로 조회), Aggregation(1:n 관계 최소화, row마다 컬럼·타입이 달라도 됨 = Soft Scheme), Application Side Join(Join이 꼭 필요하면 클라이언트 앱에서 처리). 확장 패턴 3 — Atomic aggregation(일관성 위해 테이블을 하나로 통합), Index Table(인덱스가 없으니 별도 인덱스 테이블을 직접 생성), Composite Key Table(복합 키 인덱스 구성). 계층 패턴 3 — Tree Aggregation(트리 전체를 하나의 Value에), Adjacent Lists(부모·자식 포인터 저장), Materialized Path(루트부터 전체 경로를 key로 저장)입니다." },
+"db-cap-base": {
+    guide: {
+      hook: "분산 DB는 '일관성·가용성·분단내성' 셋 중 둘만 가질 수 있다 — CAP의 냉정한 선택입니다.",
+      scene: "네트워크가 끊기는(분단) 순간, '최신 데이터만 주되 응답 못 할 수도(일관성)'와 '일단 응답하되 옛 데이터일 수도(가용성)' 중 하나를 골라야 합니다. 분산 시스템에선 분단내성이 필수라, 실제 선택은 C냐 A냐입니다.",
+      why: "CAP의 '셋 중 둘'과 CP/AP 시스템 예시, 그리고 BASE(가용성 중심 완화된 일관성)가 출제 핵심입니다. NoSQL 설계 철학의 근거입니다.",
+      mechanism: "CAP: Consistency(모든 노드가 같은 최신 데이터), Availability(항상 응답), Partition tolerance(분단에도 동작). 분단(P)은 분산에서 불가피 → C와 A 중 택1. CP(일관성 우선 — HBase·MongoDB 기본), AP(가용성 우선 — Cassandra·DynamoDB). BASE: Basically Available·Soft state·Eventual consistency — ACID 반대편, 결과적 일관성 허용.",
+      map: [
+        { as: "모두 최신 같은 값", real: "일관성(C)", note: "" },
+        { as: "항상 응답", real: "가용성(A)", note: "" },
+        { as: "끊겨도 동작", real: "분단내성(P)", note: "분산 필수" },
+        { as: "결국엔 일치", real: "BASE(결과적 일관성)", note: "ACID 반대" },
+      ],
+      usage: "NoSQL·분산 시스템 선택의 이론 근거입니다. 시험은 CAP 셋 중 둘, CP/AP 예시, BASE vs ACID입니다.",
+      links: [
+        { topic: "NoSQL", how: "CAP·BASE가 NoSQL 설계 철학입니다." },
+        { topic: "PACELC", how: "CAP을 지연·일관성으로 확장합니다." },
+      ],
+      exam: "CAP 이론은 분산 DB가 일관성·가용성·분단내성 중 둘만 만족할 수 있음을 말하며, 분단이 불가피해 CP/AP를 택하고, BASE는 결과적 일관성으로 가용성을 우선한다.",
+    }, image: "/concept/book/db-cap-base.png", easy: "분산시스템은 일관성(C: 모든 서버가 같은 시점에 같은 데이터)·가용성(A: 일부 서버가 죽어도 정상 동작)·부분결함허용(P: 메시지 유실에도 동작) 셋을 다 가질 수 없고 둘만 고를 수 있다는 것이 CAP [일가파]입니다. 조합별 제품까지 — CA(Oracle·MySQL 등 RDBMS), CP(HBase·MongoDB — 분할 시 가용성 저하), AP(Dynamo·Cassandra — 일관성 저하). 한계는 '네트워크 분할 시 C와 A 중 하나를 골라야 한다'는 것이고, 이를 보완한 것이 PACELC입니다. BASE [가분데비일]는 가용성을 중시하는 NoSQL의 성질 — Basically Available(복사본 저장으로 항상 가용), Soft State(노드 상태는 외부 전송 정보로 결정), Eventually Consistent(일시적 비일관성을 허용하되 결국 일관성 회복). ACID와의 대비가 단골입니다." },
+"db-pacelc": {
+    guide: {
+      hook: "CAP이 놓친 '평소(분단이 없을 때)'까지 따지는 확장 이론 — 지연과 일관성의 트레이드오프입니다.",
+      scene: "CAP은 네트워크가 끊긴 상황만 다루지만, 정상일 때도 '빠른 응답(낮은 지연)'과 '강한 일관성'은 상충합니다. PACELC은 '분단이면(P) C냐 A냐, 아니면(E, Else) 지연(L)이냐 일관성(C)이냐'를 함께 봅니다.",
+      why: "CAP의 한계를 보완한다는 점과 시스템 분류(PA/EL, PC/EC 등)가 출제 포인트입니다. 실무 DB의 일관성 설계 이해에 쓰입니다.",
+      mechanism: "PACELC: if Partition → choose C or A; Else → choose L(atency) or C(onsistency). 분류 예: PA/EL(Dynamo·Cassandra — 분단 시 가용성, 평소 저지연), PC/EC(강한 일관성 우선 — VoltDB), PA/EC 등. 복제 동기화 방식(동기=일관성·고지연, 비동기=저지연·약일관성)이 EL/EC를 가름.",
+      map: [
+        { as: "끊기면 C냐 A냐", real: "Partition → C/A", note: "CAP 부분" },
+        { as: "평소엔 지연이냐 일관성이냐", real: "Else → L/C", note: "CAP 확장" },
+        { as: "분단 가용·평소 저지연", real: "PA/EL(Cassandra)", note: "" },
+        { as: "언제나 일관성", real: "PC/EC", note: "" },
+      ],
+      usage: "분산 DB의 일관성-지연 설계 분석에 쓰입니다. 시험은 CAP과의 차이, PA/EL·PC/EC 분류입니다.",
+      links: [
+        { topic: "CAP 이론과 BASE 이론", how: "PACELC가 확장하는 기반 이론입니다." },
+        { topic: "NoSQL", how: "NoSQL의 일관성 설계를 세밀히 설명합니다." },
+      ],
+      exam: "PACELC는 CAP을 확장해 분단 시 일관성·가용성, 정상 시 지연·일관성의 트레이드오프까지 다루며, 시스템을 PA/EL·PC/EC 등으로 분류한다.",
+    }, image: "/concept/book/db-pacelc.png", easy: "PACELC는 분산시스템의 트레이드오프를 장애 시(P: A vs C)와 정상 시(E: L vs C) 두 상황으로 나눠 설명하는 이론입니다. 장애 상황만 다루는 CAP의 보완판입니다 — P(파티션, 장애) 상황에서는 A(가용성)와 C(일관성)가 상충하고, E(else, 정상) 상황에서는 L(지연시간)과 C(일관성)가 상충한다(모든 노드에 반영하려면 응답이 길어지므로). 그래서 시스템이 4가지로 분류됩니다 — PC/EC(늘 일관성 우선: HBase·VoltDB·Megastore), PA/EL(늘 가용성·속도 우선: Cassandra·Dynamo), PA/EC(장애 땐 가용성, 평상시엔 일관성: MongoDB), PC/EL(장애 땐 일관성, 평상시엔 속도: PNUTS). 대표 제품과 분류를 짝짓는 문제가 그대로 나옵니다." },
+"db-newsql": {
+    guide: {
+      hook: "'NoSQL의 확장성 + RDBMS의 ACID·SQL'을 둘 다 잡으려는 차세대 DB입니다.",
+      scene: "NoSQL은 확장은 좋지만 강한 일관성·SQL·트랜잭션이 약하고, RDBMS는 반대입니다. NewSQL은 SQL과 ACID 트랜잭션을 유지하면서도 수평 확장을 달성하려는 시도입니다 — Google Spanner가 대표입니다.",
+      why: "'NoSQL의 확장성과 RDBMS의 정합성을 결합'이라는 위치가 핵심입니다. 분산 트랜잭션·합의(Paxos/Raft)·시간 동기화 같은 실현 기술이 출제 포인트입니다.",
+      mechanism: "특징: 관계형 모델·SQL 유지, 분산 아키텍처로 수평 확장, 분산 ACID 트랜잭션(합의 알고리즘 Paxos·Raft로 복제 일관성), 자동 샤딩. 구현 사례: Google Spanner(TrueTime — 원자시계·GPS로 전역 시간 동기화해 외부 일관성), CockroachDB, TiDB. NoSQL(BASE)·전통 RDBMS(단일 노드)의 한계를 동시에 극복.",
+      map: [
+        { as: "SQL·트랜잭션 유지", real: "RDBMS 정합성", note: "" },
+        { as: "옆으로 확장", real: "NoSQL 수평 확장", note: "" },
+        { as: "합의로 복제 일관성", real: "Paxos/Raft", note: "" },
+        { as: "전역 시간 동기화", real: "Spanner TrueTime", note: "외부 일관성" },
+      ],
+      usage: "글로벌 규모의 정합성 필요 서비스(금융·전자상거래)에 쓰입니다. 시험은 NoSQL·RDBMS와의 3자 비교, Spanner·합의 알고리즘입니다.",
+      links: [
+        { topic: "NoSQL", how: "확장성은 취하되 BASE 한계는 극복합니다." },
+        { topic: "CAP 이론과 BASE 이론", how: "강한 일관성과 확장성의 양립 시도입니다." },
+      ],
+      exam: "NewSQL은 SQL·ACID 트랜잭션을 유지하면서 수평 확장을 달성하는 DB로, 합의 알고리즘과 시간 동기화(Spanner TrueTime)로 분산 일관성을 구현한다.",
+    }, image: "/concept/book/db-newsql.png", easy: "RDBMS(ACID·SQL은 되지만 확장이 어려움)와 NoSQL(확장·고가용은 되지만 ACID 포기)의 장점만 합친 세대입니다 — ACID + 수평 확장 + 고가용성 + SQL을 모두 지원. 기능 [트아 SA비 노병] — 트랜잭션 측면(SQL 기반 상호작용, ACID 지원, Non-locking 비잠금 동시성제어), 아키텍처 측면(노드단위 고성능, 병렬/비공유 — 데이터가 서버마다 중복 없이 독립 존재). 기술요소는 양쪽에서 가져옵니다 — RDBMS 쪽: 인덱싱·MVCC·샤딩 / NoSQL 쪽: 스키마리스·인메모리·DB 스케일링(scale-out). 3자 비교표가 그대로 출제됩니다: ACID(New○ R○ No✕), BASE(New○ R✕ No○), 확장(New/No는 Scale-out, R은 Scale-up), 솔루션(VoltDB·Spanner / Oracle·MSSQL / MongoDB·Redis)." },
+"db-vector-db": {
+    guide: {
+      hook: "숫자 벡터로 바뀐 데이터를 '의미가 비슷한 순'으로 찾아 주는 DB — RAG의 심장입니다.",
+      scene: "텍스트·이미지를 AI가 임베딩(숫자 벡터)으로 바꾸면, '고양이'와 '고양이과 동물'은 벡터 공간에서 가깝습니다. 벡터 DB는 '이 벡터와 가장 가까운 것들'을 찾아, 키워드가 안 겹쳐도 의미로 검색합니다.",
+      why: "생성형 AI·RAG의 핵심 인프라라는 위치가 최신 출제 포인트입니다. 유사도 척도와 ANN 인덱싱(정확도-속도 트레이드오프)이 핵심입니다.",
+      mechanism: "임베딩 벡터를 저장하고 유사도(코사인·유클리드·내적)로 최근접 이웃 검색. 정확한 전수 비교는 느려 ANN(근사 최근접) 인덱스 사용 — HNSW(그래프), IVF(클러스터), PQ(양자화). 필터링(메타데이터)·하이브리드 검색(키워드+벡터) 지원. Pinecone·Milvus·pgvector·Weaviate 등.",
+      map: [
+        { as: "의미를 숫자 좌표로", real: "임베딩 벡터", note: "" },
+        { as: "가까운 순 찾기", real: "유사도 검색(코사인 등)", note: "" },
+        { as: "빠르게 근사로", real: "ANN 인덱스(HNSW·IVF)", note: "정확도-속도" },
+        { as: "RAG의 지식 저장소", real: "검색 증강 생성 연동", note: "핵심 용도" },
+      ],
+      usage: "LLM RAG·추천·이미지 검색의 기반입니다. 시험은 유사도 척도, ANN 인덱스, RAG와의 관계입니다.",
+      links: [
+        { topic: "ANN(Approximate Nearest Neighbor) 알고리즘", how: "벡터 검색의 핵심 인덱싱입니다." },
+        { topic: "도메인 특화 언어 모델(Domain-Specific Language Model)", how: "RAG로 벡터 DB와 결합합니다." },
+      ],
+      exam: "벡터 데이터베이스는 임베딩 벡터를 저장하고 코사인 등 유사도로 최근접 이웃을 검색하는 DB로, ANN 인덱스로 속도를 확보하며 RAG의 핵심 인프라가 된다.",
+    }, image: "/concept/book/db-vector-db.png", easy: "벡터 DB는 텍스트·이미지 같은 원본을 임베딩 모델로 고차원 숫자 벡터로 바꿔 저장하고, 유사한 것을 빠르게 찾아 주는 데이터베이스입니다 — RAG의 저장소이며 137회 4교시 기출입니다. 동작 5단계: ① 벡터 임베딩(원본→고차원 벡터) ② 저장·인덱싱(해싱/양자화/그래프/트리 기반) ③ 쿼리 처리(질문도 같은 모델로 벡터화) ④ 유사성 측정 ⑤ 후처리(필터링·순위 재조정). 알고리즘 [랜양LHI] — 랜덤 투영(저차원 투영), 제품 양자화 PQ(나눠서 압축), LSH(유사한 것끼리 같은 해시), HNSW(계층적 그래프 탐색), IVF(그룹 나눠 필요한 그룹만 검색). 유사도 측정은 코사인(각도)·유클리드(직선거리)·맨해튼(격자거리)·내적(방향)·자카드(집합)입니다." },
+"db-ann": {
+    guide: {
+      hook: "'정확히 가장 가까운 것' 대신 '거의 가까운 것'을 빠르게 찾는 근사 최근접 탐색입니다.",
+      scene: "수백만 벡터를 전부 비교해 정확한 1등을 찾으면 너무 느립니다. ANN은 약간의 정확도를 포기하는 대신, 후보를 영리하게 좁혀 수십 배 빠르게 '거의 최근접'을 찾습니다 — 벡터 검색의 실용성을 만듭니다.",
+      why: "'정확도-속도 트레이드오프'와 대표 알고리즘(HNSW·IVF·PQ)의 원리가 출제 핵심입니다. 벡터 DB 성능의 근간입니다.",
+      mechanism: "완전 탐색(brute-force)은 O(N)이라 느림 → 근사 인덱스로 후보 축소. HNSW(계층적 탐색 가능 그래프 — 이웃 그래프를 따라 점프하며 탐색, 고정확·고속), IVF(역파일 — 클러스터로 나눠 관련 클러스터만 탐색), PQ(곱 양자화 — 벡터를 압축 코드로 근사해 메모리·계산 절감), IVF+PQ 결합. recall(재현율)로 정확도 측정, 파라미터로 속도-정확도 조절.",
+      map: [
+        { as: "거의 가까운 것 빠르게", real: "근사 탐색", note: "정확도-속도" },
+        { as: "이웃 그래프 점프", real: "HNSW", note: "고정확·고속" },
+        { as: "클러스터로 후보 축소", real: "IVF", note: "" },
+        { as: "벡터 압축 근사", real: "PQ(곱 양자화)", note: "메모리 절감" },
+      ],
+      usage: "벡터 DB·추천·검색 엔진의 핵심 알고리즘입니다. 시험은 완전탐색 한계, HNSW·IVF·PQ 원리, recall-속도 트레이드오프입니다.",
+      links: [
+        { topic: "벡터 데이터베이스(Vector Database)", how: "ANN이 벡터 DB의 검색 엔진입니다." },
+        { topic: "RDBMS 인덱스(index)", how: "전통 인덱스와 대비되는 벡터 인덱싱입니다." },
+      ],
+      exam: "ANN은 정확도를 약간 희생해 최근접 이웃을 빠르게 찾는 근사 탐색으로, HNSW(그래프)·IVF(클러스터)·PQ(양자화) 등으로 벡터 DB의 검색 성능을 확보한다.",
+    }, image: "/concept/book/db-ann.png", easy: "ANN은 정확한 최근접 이웃(NN)의 전수 비교가 너무 느리기 때문에, '거의 가장 가까운' 이웃을 빠르게 찾는 근사 탐색 알고리즘입니다 — 벡터 DB의 검색 엔진 역할입니다. 절차(트리 기반 예시): ① 임의의 두 점 사이 hyperplane으로 공간을 나누고 ② subspace의 점 개수를 노드로 binary tree 생성 ③ 점이 K개 넘으면 재귀 반복 ④ 검색 시 트리를 타고 내려가 해당 subspace 안에서만 NN 탐색. 구성요소 3계열이 시험 포인트 — 공간 분할 기반(k-d 트리·Annoy·LSH: 직관적이나 고차원에서 성능 저하), 그래프 기반(HNSW·NSG: 정확도·효율 높으나 인덱스 구축이 김), 압축·양자화 기반(PQ·IVF: 메모리·속도 유리하나 정보 손실로 정확도 저하 위험). 벡터 DB 토픽과 한 세트입니다." },
+"db-sql": {
+    guide: {
+      hook: "관계형 DB를 다루는 표준 언어 — '무엇을 원하는지'만 쓰면 되는 선언적 언어입니다.",
+      scene: "데이터를 어떻게 찾을지(순회·인덱스)는 DBMS가 알아서 하고, 사용자는 'A 조건인 것들의 B를 줘'라고 결과만 선언합니다. 이 선언적 성격이 관계해석에서 나옵니다.",
+      why: "SQL의 4분류(DDL·DML·DCL·TCL)와 각 명령의 역할이 출제 핵심입니다. 선언적 성격·질의 처리 과정도 포인트입니다.",
+      mechanism: "DDL(정의 — CREATE·ALTER·DROP·TRUNCATE: 스키마 정의), DML(조작 — SELECT·INSERT·UPDATE·DELETE: 데이터 처리), DCL(제어 — GRANT·REVOKE: 권한), TCL(트랜잭션 — COMMIT·ROLLBACK·SAVEPOINT). 질의 처리: 파싱→최적화(실행 계획 선택)→실행. 선언적이라 옵티마이저가 관계대수 기반으로 최적 경로 결정.",
+      map: [
+        { as: "표 구조 만들기", real: "DDL(CREATE 등)", note: "정의" },
+        { as: "데이터 조회·수정", real: "DML(SELECT 등)", note: "조작" },
+        { as: "권한 주고 뺏기", real: "DCL(GRANT/REVOKE)", note: "제어" },
+        { as: "커밋·롤백", real: "TCL", note: "트랜잭션" },
+      ],
+      usage: "모든 관계형 DB 조작의 표준입니다. 시험은 4분류 명령 매핑, 선언적 성격, 질의 처리 과정입니다.",
+      links: [
+        { topic: "관계해석(Relational Calculus)", how: "SQL 선언적 성격의 이론 근거입니다." },
+        { topic: "조인(Join)", how: "SQL 다중 테이블 조회의 핵심 연산입니다." },
+      ],
+      exam: "SQL은 관계형 DB의 표준 선언적 언어로, 스키마 정의(DDL)·데이터 조작(DML)·권한 제어(DCL)·트랜잭션 제어(TCL)로 분류되며 옵티마이저가 실행 계획을 최적화한다.",
+    }, image: "/concept/book/db-sql.png", easy: "RDBMS에 말을 거는 표준 언어이고, 명령어를 4갈래로 분류하는 것이 전부입니다. DDL(구조 정의 — CREATE·ALTER·DROP·TRUNCATE·RENAME): 테이블 같은 스키마 객체를 만들고 바꾸고 없앰. DML(데이터 조작 — SELECT·INSERT·UPDATE·DELETE): 저장된 자료를 넣고 고치고 지우고 조회. DCL(권한 제어 — GRANT·REVOKE): 사용자에게 권한을 주거나 뺏음. TCL(트랜잭션 제어 — COMMIT·ROLLBACK·SAVEPOINT): 트랜잭션을 확정·취소. 헷갈림 포인트 둘 — TRUNCATE는 데이터를 지우지만 DDL이고(구조 초기화), COMMIT·ROLLBACK은 원래 DCL로 분류하다가 따로 떼어 TCL이라 부르기도 한다는 점입니다." },
+"db-join": {
+    guide: {
+      hook: "여러 테이블을 '공통 값으로 이어 붙여' 하나처럼 조회하는 관계형의 핵심 연산입니다.",
+      scene: "학생 테이블과 학과 테이블을 '학과코드'로 이으면, 학생 이름 옆에 학과명이 붙습니다. 정규화로 나눈 데이터를 다시 합쳐 보는 게 조인입니다. 어떻게 이을지(내부/외부)와 물리적으로 어떻게 처리할지(알고리즘)가 다릅니다.",
+      why: "논리적 조인 유형(Inner·Outer·Cross 등)과 물리적 조인 알고리즘(Nested Loop·Sort Merge·Hash)의 구분이 출제 핵심입니다. 성능 최적화와 직결됩니다.",
+      mechanism: "논리 유형: Inner(양쪽 일치만), Left/Right/Full Outer(한쪽·양쪽 미일치도 포함, NULL 채움), Cross(곱집합), Self(자기 조인). 물리 알고리즘: Nested Loop(한 행씩 대조 — 소량·인덱스 유리), Sort Merge(양쪽 정렬 후 병합 — 대량·정렬됨), Hash Join(해시 테이블로 매칭 — 대량·등가 조인). 옵티마이저가 통계로 선택.",
+      map: [
+        { as: "양쪽 일치만", real: "Inner Join", note: "" },
+        { as: "한쪽은 다 포함", real: "Outer Join", note: "NULL 채움" },
+        { as: "한 행씩 대조", real: "Nested Loop", note: "소량·인덱스" },
+        { as: "해시로 매칭", real: "Hash Join", note: "대량·등가" },
+      ],
+      usage: "다중 테이블 조회·성능 튜닝의 핵심입니다. 시험은 조인 유형, 물리 알고리즘 3종의 적용 조건입니다.",
+      links: [
+        { topic: "SQL(Structured Query Language)", how: "조인이 SQL 다중 테이블 조회입니다." },
+        { topic: "RDBMS 인덱스(index)", how: "인덱스가 조인 성능을 좌우합니다." },
+      ],
+      exam: "조인은 공통 값으로 여러 테이블을 결합하는 연산으로, 논리적으로 Inner·Outer·Cross로, 물리적으로 Nested Loop·Sort Merge·Hash Join으로 나뉘며 옵티마이저가 선택한다.",
+    }, image: "/concept/book/db-join.png", easy: "두 테이블을 엮어 원하는 데이터를 뽑는 방법인데, 시험은 '논리(어떤 결과)'보다 '물리(어떻게 실행)'를 묻습니다. 관계대수 측면: Equi·Natural·Outer·Semi Join(벤 다이어그램의 LEFT/RIGHT/INNER/FULL). 메커니즘 측면 3형제가 핵심 — Nested Loop(선행 테이블을 한 건씩 읽으며 후행을 인덱스로 찾음: 소량·OLTP·부분범위·Buffer Cache), Sort Merge(양쪽을 각자 정렬해 차례로 병합: 인덱스 없을 때·대량), Hash(작은 집합으로 메모리에 해시 테이블을 만들고 큰 집합이 탐색: 대량 집계·OLAP). 비교표의 힌트(/*+ USE_NL, USE_MERGE, USE_HASH */)와 사용자원(Buffer Cache vs PGA) 구분까지 외우면 완성입니다." },
+"db-index": {
+    guide: {
+      hook: "책 뒤 '찾아보기'처럼, 전체를 안 뒤지고 원하는 행을 빨리 찾게 하는 자료구조입니다.",
+      scene: "1만 페이지 책에서 단어를 찾을 때 처음부터 넘기면(풀 스캔) 느리지만, 색인을 보면 몇 페이지인지 바로 압니다. 인덱스는 조회를 빠르게 하지만, 색인도 갱신해야 하므로 INSERT·UPDATE는 느려집니다.",
+      why: "'조회 성능↑ ↔ 쓰기 성능↓·저장공간↑'의 트레이드오프와 자료구조(B-tree·해시·비트맵)가 출제 핵심입니다. 인덱스가 안 타는 경우(선두 컬럼·형변환)도 포인트입니다.",
+      mechanism: "구조: B-tree/B+tree(범위·정렬 조회, 가장 일반적), Hash(등가 조회만, 범위 불가), Bitmap(카디널리티 낮은 컬럼·OLAP), 함수 기반. 클러스터형(데이터가 인덱스 순으로 물리 정렬 — 1개)/비클러스터형(별도 구조). 주의: 복합 인덱스 선두 컬럼 미사용·컬럼 가공 시 인덱스 미적용, 과다 인덱스는 DML 저하.",
+      map: [
+        { as: "책 뒤 찾아보기", real: "인덱스", note: "조회 가속" },
+        { as: "범위·정렬 조회", real: "B-tree 인덱스", note: "일반적" },
+        { as: "등가 조회만", real: "Hash 인덱스", note: "범위 불가" },
+        { as: "색인도 갱신 부담", real: "DML 성능 저하", note: "트레이드오프" },
+      ],
+      usage: "쿼리 성능 튜닝의 1순위 도구입니다. 시험은 B-tree/해시/비트맵 용도, 트레이드오프, 인덱스 미적용 조건입니다.",
+      links: [
+        { topic: "조인(Join)", how: "인덱스가 조인 알고리즘·성능을 결정합니다." },
+        { topic: "데이터베이스 파티셔닝(Partitioning)", how: "대용량 인덱스 관리와 함께 쓰입니다." },
+      ],
+      exam: "RDBMS 인덱스는 B-tree·해시·비트맵 등으로 조회를 가속하는 자료구조로, 쓰기 성능·저장공간과 트레이드오프이며 선두 컬럼 미사용·컬럼 가공 시 적용되지 않는다.",
+    }, image: "/concept/book/db-index.png", easy: "인덱스는 <키 값, 레코드 주소> 쌍을 체계적으로 모아 두어 풀 스캔 없이 원하는 행에 바로 접근하게 하는 DB 오브젝트입니다 — 책 뒤의 찾아보기와 같은 원리입니다. 유형 [트해비 함조도 정동 논물]을 분류 축으로 — 형태(트리 기반: RDBMS 대부분 B-tree / 해시 기반: = 계열 연산만 가능 / 비트맵: 비트로 저장·ROWID 자동 생성), 목적(함수기반·조인·도메인 인덱스), 구조(정적: 구조 불변 / 동적: 빈 공간을 미리 준비), 논리(논리적/물리적). 스캔방식 5종은 그림과 함께 — Range Scan(수직 탐색 후 필요한 범위만), Full Scan(리프를 처음부터 끝까지, 차선책), Unique Scan(= 조건, 수직 탐색만), Skip Scan(선두 칼럼이 조건에 없어도 활용), Range Scan Descending(뒤에서 앞으로 내림차순). '해시 인덱스는 범위 검색이 안 된다'가 자주 나오는 함정입니다." },
 "db-query-offloading": { image: "/concept/book/db-query-offloading.png", easy: "쿼리 오프로딩은 Update 트랜잭션은 Master DB에서만 받고, Read 트랜잭션은 여러 대의 Slave DB로 분리(오프로딩)해 DB 처리량을 늘리는 기법입니다. DB 부하의 대부분이 읽기(Read 70~90%, Update 10~30%)라서 효과가 큽니다. 구성요소 [마스슬C로] — Master DB(Update만), Staging DB(중간 경유지 — Master가 다수 Slave로 직접 복제할 때의 성능저하 방지), Slave DB(Read만, N개 구성 + 장애 시 다른 인스턴스로 접근하는 HA), CDC(Source DB의 Back Log를 읽어 Target에 replay — Golden Gate, Share Flex, Galera), load balancing(Slave 조회 부하 분산). 샤딩과 헷갈리기 쉬운데, 쿼리 오프로딩은 '트랜잭션을 유형별로 분리'(성능 향상 목적)이고 샤딩은 '데이터를 여러 인스턴스로 분할'(용량한계 극복 목적)입니다." },
 "db-partitioning": { image: "/concept/book/db-partitioning.png", easy: "파티셔닝은 대규모 테이블을 파티션 키 기준으로 물리적 세그먼트 여러 개에 나눠 저장하는 DB 설계 기법입니다(2025.01 ITPE FR·119회 컴시응 기출). 샤딩과 달리 한 서버(한 DB 인스턴스) 안에서의 분할입니다. 테이블 파티셔닝 유형 6가지: 레인지(키 값 범위로 — 가장 일반적), 리스트(불연속 값 목록을 지정 — 서울/경기 같은 그룹핑), 해시(해시 함수로 고르게 분산 — 병렬 처리 유리), 결합(레인지 후 해시/리스트로 서브 파티션), Reference(부모 테이블 키로 자식 테이블 파티셔닝), Interval(정해진 간격으로 자동 확장). 인덱스도 파티셔닝 — 글로벌(여러 파티션이 공유)과 로컬(파티션마다 개별). 설계 절차는 액세스 패턴 분석 → 데이터 분포 분석 → 인덱스 설계 → 테이블 파티셔닝 설계 → 인덱스 파티셔닝 설계 순입니다." },
 "db-sharding": { image: "/concept/book/db-sharding.png", easy: "샤딩은 데이터를 샤드(Shard)라는 개별 파티션으로 수평 분할해, 물리적으로 다른 DB 서버들에 나눠 저장·조회하는 기법입니다(127회 정보관리 4교시 기출). 파티셔닝이 '한 인스턴스 안 분할'이라면 샤딩은 '여러 인스턴스로 분할'입니다. MongoDB 그림처럼 Application → MongoS(라우터) → Shard1·2·3 구조로, shard key(어느 샤드로 갈지 정하는 칼럼)와 proxy(힌트+메타데이터로 요청을 해당 샤드에 전달)가 핵심 구성요소입니다. 분할방법 [해레디] — Hash(해시로 균일 분산, 샤드 추가 시 재정렬 필요), Range(범위 기준, 일부 샤드에 데이터 집중 가능), Directory(별도 조회 테이블로 라우팅, 그 테이블이 단일 장애 포인트). 비교표의 '샤딩=수평 분할·별도 서버·Master Node 관리 / 파티셔닝=수평·수직·동일 서버·Master 없음'이 답안 단골입니다." },
