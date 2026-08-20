@@ -11,6 +11,7 @@ import { fileURLToPath } from "node:url";
 import { SUBNOTES } from "../src/data/textbookSubnotes";
 import { WEEKS } from "../src/data/curriculum";
 import { TOPIC_GUIDES } from "../src/data/topicGuides";
+import { TOPIC_INTROS } from "../src/data/topicIntros";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const topics = JSON.parse(
@@ -172,8 +173,9 @@ for (const t of topics) {
     category: t.category,
     importance: t.importance,
     definition: cleanDefinition(d.detail, t.summary) || t.summary || "",
-    // 예전 토픽의 ✍️ 답안 한 줄 — 커널 학습카드의 exam(답안에 그대로 쓸 한 줄)
-    defShort: TOPIC_GUIDES[t.id]?.exam || "",
+    // 예전 토픽의 ✍️ 답안 한 줄 — 교재 규격 34~35자 정의(서론 세트) 우선,
+    // 없으면 커널 학습카드의 exam(답안에 그대로 쓸 한 줄)
+    defShort: TOPIC_INTROS[t.id]?.defShort || TOPIC_GUIDES[t.id]?.exam || "",
     memo: (d.memo || "").trim(),
     sections,
     mnemonic: sections[0]?.mnemonic || "",

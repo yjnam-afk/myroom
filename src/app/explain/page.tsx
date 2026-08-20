@@ -12,6 +12,7 @@ import { PageHeader } from "@/components/ui";
 import TopicAutocomplete from "@/components/TopicAutocomplete";
 import topics from "@/data/topics.json";
 import flashcards from "@/data/flashcards.json";
+import { TOPIC_INTROS } from "@/data/topicIntros";
 
 const CATS = Array.from(new Set(topics.map((t) => t.category)));
 const IMP_ORDER: Record<string, number> = { 상: 0, 중: 1, 하: 2, 출제예상: 3 };
@@ -287,6 +288,10 @@ function ExplainInner() {
     subnoteByTopicId(topics.find((x) => x.title === topic.trim())?.id);
   // 교재에 없는 예전 토픽 — 지하철 카드 자료를 AI 없이 폴백으로 보여준다.
   const legacy = !textbook ? legacyCardFor(topic.trim()) : undefined;
+  // 예전 토픽의 답안 서론 세트 — 교재와 같은 규격(리드문·34~35자 정의·특징 3개)
+  const intro = legacy
+    ? TOPIC_INTROS[topics.find((x) => x.title === topic.trim())?.id || ""]
+    : undefined;
 
   // 학습 코치 등에서 ?topic= 으로 들어오면 미리 채운다(예전 auto=1은 무시 —
   // 이 페이지는 AI를 부르지 않고 교재·정리 자료만 즉시 보여준다).
@@ -627,19 +632,23 @@ function ExplainInner() {
               </p>
               <p className="mt-1 text-[13px] font-bold text-slate-400">답)</p>
 
-              {/* 1. 서론 — 커널 카드의 답안 한 줄을 정의로, 특징 3개 */}
+              {/* 1. 서론 — 교재와 같은 규격: 리드문의 정의 → 34~35자(공백 제외) 압축
+                  정의 → 특징) 3가지. 서론 세트가 없는 토픽만 커널 카드 한 줄로 폴백. */}
               <div className="mt-2">
                 <p className="text-[13px] font-bold leading-relaxed text-slate-800">
-                  1. {legacy.title}의 정의
+                  1. {intro?.lead ? `${intro.lead}의 정의` : `${legacy.title}의 정의`}
                 </p>
                 <div className="mt-1 space-y-1.5 pl-4">
                   <p className="text-[13px] leading-relaxed text-slate-800">
-                    {extra?.guide?.exam || legacy.definition}
+                    {intro?.defShort || extra?.guide?.exam || legacy.definition}
                   </p>
-                  {!!legacy.features?.length && (
+                  {!!(intro?.features?.length || legacy.features?.length) && (
                     <p className="text-[13px] leading-relaxed text-slate-800">
                       <span className="mr-1 font-bold text-slate-500">특징)</span>
-                      {legacy.features.join(", ")}
+                      {(intro?.features?.length
+                        ? intro.features
+                        : legacy.features || []
+                      ).join(", ")}
                     </p>
                   )}
                 </div>
