@@ -9,6 +9,7 @@ import {
   subnoteByTitle,
   subnoteAsText,
 } from "@/data/textbookSubnotes";
+import { TOPIC_GUIDES } from "@/data/topicGuides";
 
 export type SubnoteSection = {
   label: string;
@@ -126,11 +127,25 @@ export function groundingFrom(topicId?: string, topicTitle?: string): string {
     (topicTitle ? subnoteByTitle(topicTitle) : undefined) ||
     subnoteByTopicId(topicId);
   const d = topicId ? DETAILS[topicId] : undefined;
-  if (!d && !book) return "";
+  // 예전 토픽의 커널 학습카드 — 답안 한 줄·핵심 동작·핵심 용어를 근거로 추가
+  const g = topicId ? TOPIC_GUIDES[topicId] : undefined;
+  if (!d && !book && !g) return "";
   const parts: string[] = [];
   if (book) {
     parts.push(
       `★★★내 교재 서브노트 원본 — 아래 내용을 최우선 정답 근거로 삼고, 정의·키워드·표 항목을 그대로 사용하라(임의 변경·추가 금지)★★★\n${subnoteAsText(book)}\n`,
+    );
+  }
+  if (g) {
+    parts.push(
+      [
+        `커널 학습카드(검증된 정리 — 정의·설명·채점 근거로 그대로 활용):`,
+        `정의(답안 한 줄): ${g.exam}`,
+        g.mechanism ? `핵심 동작: ${g.mechanism}` : "",
+        g.map?.length ? `핵심 용어: ${g.map.map((m) => m.real).join(", ")}` : "",
+      ]
+        .filter(Boolean)
+        .join("\n"),
     );
   }
   if (!d) return parts.join("\n");
