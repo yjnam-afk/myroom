@@ -18,6 +18,7 @@ import { G as g08 } from "./g08";
 import { G as g09 } from "./g09";
 import { G as g12 } from "./g12";
 import { G as g13 } from "./g13";
+import { G as g16 } from "./g16";
 
 export const TOPIC_GUIDES: Record<string, EasyGuide> = {
   ...g01,
@@ -31,4 +32,5 @@ export const TOPIC_GUIDES: Record<string, EasyGuide> = {
   ...g09,
   ...g12,
   ...g13,
+  ...g16,
 };
