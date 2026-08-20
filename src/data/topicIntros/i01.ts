@@ -139,7 +139,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "net-188": {
     lead: "새로 설계된 5G 무선 규격, NR",
-    defShort: "LTE 호환 없이 새로 설계해 유연한 뉴머롤로지 도입한 5G 무선접속 표준 규격",
+    defShort: "LTE 호환 없이 새로 설계해 유연한 뉴머롤로지를 도입한 5G 무선접속 표준 규격",
     features: ["뉴머롤로지", "mmWave", "Massive MIMO"],
   },
   "net-189": {
@@ -254,7 +254,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "net-55": {
     lead: "라우팅 테이블 집약, 슈퍼네팅",
-    defShort: "연속된 작은 네트워크를 공통 프리픽스로 통합하는 CIDR 기반 주소 집약 기법",
+    defShort: "연속된 작은 네트워크들을 공통 프리픽스로 통합하는 CIDR 기반 주소 집약 기법",
     features: ["CIDR", "경로 집약", "테이블 절감"],
   },
   "net-76": {

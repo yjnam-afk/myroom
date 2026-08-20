@@ -34,7 +34,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "sec-291": {
     lead: "추측실행의 부작용, CPU 보안 취약점 스펙터",
-    defShort: "CPU 분기예측·추측실행을 악용해 타 프로그램 메모리에 접근하는 하드웨어 취약점",
+    defShort: "CPU 분기예측·추측실행을 악용해 프로그램 메모리에 접근하는 하드웨어 취약점",
     features: ["분기예측 악용", "캐시 부채널", "x86·ARM 공통"],
   },
   "sec-292": {
@@ -234,7 +234,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "sec-70": {
     lead: "봇넷의 구성원이 되는, 좀비 PC",
-    defShort: "악성코드 감염을 인지하지 못한 채 스팸 발송·DDoS 등에 원격 조종당하는 감염 PC",
+    defShort: "악성코드 감염을 인지하지 못한 채 스팸 발송·DDoS 등에 원격 조종당하는 PC",
     features: ["원격 조종", "C&C 명령", "봇넷 구성"],
   },
   "sec-72": {
@@ -264,7 +264,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "sec-81": {
     lead: "범죄를 위한 도구, 크라임웨어(Crimeware)",
-    defShort: "사이버공격에 사용되는 악성코드와 SW의 총칭으로 탐지를 회피하는 범죄 도구",
+    defShort: "사이버공격에 사용되는 악성코드와 SW의 총칭으로 탐지를 회피하는 범죄 공격 도구",
     features: ["스텔스 기술", "Stuxnet·Zeus", "봇넷 활용"],
   },
   "sec-82": {
