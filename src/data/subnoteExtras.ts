@@ -9625,7 +9625,25 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
       ],
       exam: "OWASP Agentic AI 위협은 자율 에이전트의 신종 위협 15종(T1~T15)으로, 기억·목표·도구·권한·감사·인간·다중 파이프라인에 매핑되며 LLM Top 10과 구분해야 한다.",
     }, easy: "AI 에이전트는 챗봇과 다릅니다. 스스로 계획을 세우고, 도구(API·터미널·결제)를 직접 호출하고, 다른 에이전트와 협업합니다. 그 세 가지가 그대로 새로운 공격면이 됩니다. OWASP가 이걸 15개 위협(T1~T15)으로 정리했습니다. 실행 파이프라인 순서로 묶으면 외워집니다 — ①기억: 메모리 오염(T1)으로 허위 정보를 심어두면 이후 판단이 계속 틀어지고, 그 허위가 퍼지면 연쇄 환각(T5)이 됩니다. ②목표·추론: 의도 훼손·목표 조작(T6)으로 원래 시킨 일에서 벗어나게 하고, 오정렬·기만 행위(T7)로 허용 안 된 방법을 쓰게 만듭니다. ③도구·실행: 도구 오용(T2), 자원 과부하(T4), 예기치 않은 원격코드 실행(T11). ④권한·신원: 권한 침해(T3), 신원 사칭(T9). ⑤감사: 부인·추적 불가(T8) — 로그가 없으면 사고가 나도 누구 책임인지 못 밝힙니다. ⑥인간 감독: 승인 요청을 폭주시켜 사람이 못 보게 만드는 인간 개입 무력화(T10), 반대로 에이전트가 사람을 꼬드기는 인간 조종(T15). ⑦다중 에이전트: 통신 오염(T12), 악성 에이전트(T13), 신뢰 관계를 악용한 인적 공격(T14). ★시험에서 조심할 것★ — 'OWASP Top 10 for Agentic AI'라고 부르는 사람이 많지만 실제 문서는 15개입니다. Top 10은 LLM 애플리케이션용(LLM01~LLM10)이 따로 있습니다. 답안에는 'OWASP Agentic AI 위협 15종'으로 쓰세요." },
-"ai-iso-25059": { image: "/concept/book/ai-iso-25059.png", easy: "기존 소프트웨어 품질 표준(ISO/IEC 25010, SQuaRE)만으로는 AI를 평가할 수 없습니다. 같은 입력에도 답이 달라지는 비결정성, 학습 데이터에 성능이 좌우되는 데이터 의존성 때문입니다. 그래서 25010의 8대 특성을 AI용으로 확장한 것이 25059입니다. 8특성 두음은 [기신사효유이호보] — 기능 적합성, 신뢰성, 사용성, 성능 효율성, 유지보수성, 이식성, 호환성, 보안성. AI 때문에 새로 붙거나 확장된 하위 속성이 시험 포인트입니다: 신뢰성의 강건성(다양한 조건에서 안정적으로 작동하는가), 사용성의 사용자 제어성·투명성(동작을 제어할 수 있고 작동 원리를 이해할 수 있는가), 보안성의 개입 가능성·책임성(사용자가 개입해 조치할 수 있고, 행동을 추적해 책임을 물을 수 있는가), 기능 적합성의 기능 정확성·적응성. AI 표준 계보로 묶어 외우세요 — 22989(용어·개념), 23053(ML 프레임워크), 23894(위험관리), 42001(AI 경영시스템), 25059(품질모델)." },
+"ai-iso-25059": {
+    guide: {
+      hook: "SW 품질 표준(25010)을 'AI용으로 확장'한 국제 품질 표준입니다.",
+      scene: "AI는 같은 입력에도 답이 달라지고(비결정성) 데이터에 성능이 좌우돼, 기존 SW 품질 표준으로는 평가가 안 됩니다. ISO/IEC 25059는 25010의 8대 품질특성을 AI 특성에 맞게 확장해 AI 품질을 평가하게 합니다.",
+      why: "25010 8특성의 AI용 확장 속성(강건성·기능 적응성 등)이 출제 핵심입니다.",
+      mechanism: "기반: 25010(SQuaRE) 8특성[기신사효유이호보] — 기능 적합성·신뢰성·사용성·성능 효율성·유지보수성·이식성·호환성·보안성. AI 확장 하위속성: 신뢰성의 강건성(Robustness — 다양·이상 조건에서 안정), 기능적 적응성·정확성, 사용성의 사용자 통제·투명성, 그리고 비결정성·데이터 의존성 반영. 25010을 대체가 아닌 확장. AI 신뢰성·품질 평가 근거. 23894(위험)·22989(개념)과 연계.",
+      map: [
+        { as: "25010 8특성 기반", real: "품질 모델", note: "" },
+        { as: "이상 조건서 안정", real: "강건성(Robustness)", note: "신뢰성" },
+        { as: "비결정·데이터 의존", real: "AI 특성 반영", note: "" },
+        { as: "확장(대체 아님)", real: "25010 연계", note: "" },
+      ],
+      usage: "AI 시스템 품질 평가입니다. 시험은 8특성 확장, 강건성입니다.",
+      links: [
+        { topic: "ISO/IEC 25010:2023", how: "확장의 기반이 되는 SW 품질 모델입니다." },
+        { topic: "ISO/IEC 42001 (AI 경영시스템)", how: "AI 거버넌스 표준과 연계됩니다." },
+      ],
+      exam: "ISO/IEC 25059는 25010의 8대 품질특성을 AI의 비결정성·데이터 의존성에 맞춰 확장한 표준으로, 강건성 등 AI 특화 속성으로 품질을 평가한다.",
+    }, image: "/concept/book/ai-iso-25059.png", easy: "기존 소프트웨어 품질 표준(ISO/IEC 25010, SQuaRE)만으로는 AI를 평가할 수 없습니다. 같은 입력에도 답이 달라지는 비결정성, 학습 데이터에 성능이 좌우되는 데이터 의존성 때문입니다. 그래서 25010의 8대 특성을 AI용으로 확장한 것이 25059입니다. 8특성 두음은 [기신사효유이호보] — 기능 적합성, 신뢰성, 사용성, 성능 효율성, 유지보수성, 이식성, 호환성, 보안성. AI 때문에 새로 붙거나 확장된 하위 속성이 시험 포인트입니다: 신뢰성의 강건성(다양한 조건에서 안정적으로 작동하는가), 사용성의 사용자 제어성·투명성(동작을 제어할 수 있고 작동 원리를 이해할 수 있는가), 보안성의 개입 가능성·책임성(사용자가 개입해 조치할 수 있고, 행동을 추적해 책임을 물을 수 있는가), 기능 적합성의 기능 정확성·적응성. AI 표준 계보로 묶어 외우세요 — 22989(용어·개념), 23053(ML 프레임워크), 23894(위험관리), 42001(AI 경영시스템), 25059(품질모델)." },
 "dx-ap2": {
     guide: {
       hook: "AI 에이전트가 내 대신 결제할 때 '정말 내가 시켰나'를 위임장 3장으로 증명합니다(구글).",
@@ -10996,8 +11014,44 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
       ],
       exam: "DAG는 방향이 있고 사이클이 없는 그래프로 의존·순서 관계를 표현하며, 위상 정렬로 실행 순서를 정하고 작업 스케줄링·빌드·git 이력에 쓰인다.",
     }, image: "/concept/book/ds-dag.png", easy: "간선에 방향이 있고 순환이 없는 그래프 — 선수과목 이수 체계나 작업 의존 관계(빌드 순서, Airflow 파이프라인)를 표현하는 구조입니다. 핵심 알고리즘이 위상 정렬(Topological Ordering): 방향을 거스르지 않게 정점을 한 줄로 나열합니다. 절차: ① 정점별 진입차수(in-degree: 들어오는 간선 수) 표 작성 → ② 진입차수 0인 정점을 큐에 삽입하며 그 정점과 간선 제거 → ③ 새로 진입차수 0이 된 정점을 계속 큐에 삽입 → ④ 모든 정점 제거되면 완료. 교재 예제 결과: 4→1→6→2→3→5. DFS나 큐로 풀 수 있고, 순환이 있으면 위상 정렬이 불가능하다는 것도 시험 포인트입니다." },
-"genai-data-quality-v2": { image: "/concept/book/genai-data-quality-v2.png", easy: "생성형AI를 위한 데이터 품질관리 방법·절차를 체계적으로 제시하는 가이드입니다. '학습용 데이터 품질관리 v3.1'이 일반 AI 학습데이터용이라면, 이쪽은 생성형AI(Instruction Data) 특화판 — 가공 데이터가 Caption(캡션)·Summary(요약)·Q&A(질의응답)·Dialogue(대화)·Translation(번역)·Radiology Report(판독문) 형태라는 점이 다릅니다. 데이터 구축 과정: 구축계획 수립 → 데이터 획득/수집(원시데이터) → 데이터 정제(원천데이터) → 데이터 가공(가공데이터) → 데이터 학습(학습 데이터셋) → 반복. 품질지표 4개: 구축 공정 적정성(준비성·완전성·유용성), 데이터 적합성(기준 적합성·다양성·유사성·편향성·유용성·안전성), 가공 데이터 정확성(구문·의미 정확성), 학습모델 적정성(알고리즘 적정성·유효성). 2025 KPC·ITPE 다수 기출." },
-"mas": { image: "/concept/book/mas.png", easy: "여러 자율적 소프트웨어 에이전트가 상호작용하며 협력 또는 경쟁을 통해 복잡한 문제를 분산적으로 해결하는 분산 인공지능 시스템입니다. 개미 군집처럼 개별 에이전트는 단순하지만 모이면 복잡한 문제를 풉니다. 특성 6가지 [자분통 경전적] — 자율(중앙 통제 없이 독립 판단: GPT 기반 에이전트·RL 로봇), 분산(제어 권한 분산으로 특정 장애에도 전체 유지: Event-driven Architecture·Fault-Tolerant Agent Design), 통신(RPC/REST/Pub-Sub로 정보 교환·협상), 경쟁/협력(Multi-Agent Task Scheduler로 역할 분담), 전문화(Expert Agent — 서로 다른 역할·지식으로 상호보완), 적응성(RL로 환경 변화에 능동 대응). 유형: Independent(Discrete, Emergent Cooperation) vs Cooperative(Communicating — Deliberative·Negotiating / Non-communicating). A2A 프로토콜은 이 에이전트들이 조직 경계를 넘어 통신하기 위한 규약입니다. 2025.05 ITPE FR 기출." },
+"genai-data-quality-v2": {
+    guide: {
+      hook: "생성형 AI용 '지시(Instruction) 데이터'의 품질을 관리하는 가이드입니다.",
+      scene: "생성형 AI는 캡션·요약·Q&A·대화 같은 지시 데이터로 학습해, 일반 AI 학습데이터와 품질 관리가 다릅니다. 이 가이드는 생성형 AI 특화 데이터의 구축·정제·가공·품질검증 절차를 체계적으로 제시합니다.",
+      why: "일반 학습데이터(v3.1)와의 차이(Instruction 데이터 유형)와 구축 절차가 출제 핵심입니다.",
+      mechanism: "특화: 가공 데이터가 Caption·Summary·Q&A·Dialogue·Translation·판독문(Radiology Report) 형태. 구축: 계획 수립→획득/수집(원시)→정제(원천)→가공(가공데이터)→품질검증→활용. 품질기준: 구문·의미 정확성, 다양성, 편향·유해성 관리. '학습용 데이터 품질관리 v3.1'(일반 AI)의 생성형 특화판. 데이터 품질이 생성 성능·안전성 좌우.",
+      map: [
+        { as: "지시 데이터", real: "Q&A·대화·요약", note: "" },
+        { as: "수집→정제→가공", real: "구축 절차", note: "" },
+        { as: "편향·유해성 관리", real: "품질기준", note: "" },
+        { as: "v3.1 생성형 특화판", real: "위치", note: "" },
+      ],
+      usage: "생성형 AI 데이터 품질입니다. 시험은 지시 데이터 유형, 구축 절차입니다.",
+      links: [
+        { topic: "인공지능 학습용 데이터 품질관리 가이드 v3.1", how: "일반 AI판과 대비되는 생성형 특화판입니다." },
+        { topic: "데이터 품질(Data Quality)", how: "데이터 품질 관리 원리를 공유합니다." },
+      ],
+      exam: "생성형 AI 데이터 품질관리 가이드는 캡션·Q&A·대화 등 지시 데이터의 구축·정제·가공·검증 절차를 제시하는 v3.1의 생성형 특화판이다.",
+    }, image: "/concept/book/genai-data-quality-v2.png", easy: "생성형AI를 위한 데이터 품질관리 방법·절차를 체계적으로 제시하는 가이드입니다. '학습용 데이터 품질관리 v3.1'이 일반 AI 학습데이터용이라면, 이쪽은 생성형AI(Instruction Data) 특화판 — 가공 데이터가 Caption(캡션)·Summary(요약)·Q&A(질의응답)·Dialogue(대화)·Translation(번역)·Radiology Report(판독문) 형태라는 점이 다릅니다. 데이터 구축 과정: 구축계획 수립 → 데이터 획득/수집(원시데이터) → 데이터 정제(원천데이터) → 데이터 가공(가공데이터) → 데이터 학습(학습 데이터셋) → 반복. 품질지표 4개: 구축 공정 적정성(준비성·완전성·유용성), 데이터 적합성(기준 적합성·다양성·유사성·편향성·유용성·안전성), 가공 데이터 정확성(구문·의미 정확성), 학습모델 적정성(알고리즘 적정성·유효성). 2025 KPC·ITPE 다수 기출." },
+"mas": {
+    guide: {
+      hook: "여러 자율 에이전트가 협력·경쟁하며 문제를 분산 해결하는 시스템입니다.",
+      scene: "복잡한 문제를 하나의 큰 AI로 풀기 어려울 때가 있습니다. MAS(Multi-Agent System)는 각자 자율적으로 판단하는 여러 에이전트가 통신·협상하며 협력 또는 경쟁해, 개미 군집처럼 분산적으로 문제를 풉니다.",
+      why: "6대 특성(자율·분산·통신·협력/경쟁 등)과 분산 AI 개념이 출제 핵심입니다.",
+      mechanism: "특성[자분통 경전적]: 자율(중앙 통제 없이 독립 판단), 분산(제어 분산 → 부분 장애에도 유지, Fault-Tolerant), 통신(RPC·REST·Pub-Sub로 정보 교환·협상), 경쟁/협력(공동·상충 목표), 전문화(역할 분담), 적응(환경 학습). 구조: 에이전트+환경+상호작용 프로토콜. LLM 기반 에이전트로 부상(LangGraph·A2A). 조정·합의·오케스트레이션이 과제.",
+      map: [
+        { as: "독립 판단", real: "자율(Autonomy)", note: "" },
+        { as: "제어 분산", real: "분산·내결함", note: "" },
+        { as: "협상·정보 교환", real: "통신", note: "" },
+        { as: "협력/경쟁", real: "상호작용", note: "" },
+      ],
+      usage: "분산 AI·멀티에이전트입니다. 시험은 6대 특성, 조정·오케스트레이션입니다.",
+      links: [
+        { topic: "LangGraph", how: "멀티에이전트 협업을 오케스트레이션합니다." },
+        { topic: "A2A (Agent-to-Agent)", how: "에이전트 간 통신 프로토콜을 제공합니다." },
+      ],
+      exam: "MAS는 자율·분산·통신·협력/경쟁 특성을 갖는 여러 에이전트가 상호작용하며 문제를 분산 해결하는 분산 AI 시스템으로, LLM 기반 멀티에이전트로 재부상하고 있다.",
+    }, image: "/concept/book/mas.png", easy: "여러 자율적 소프트웨어 에이전트가 상호작용하며 협력 또는 경쟁을 통해 복잡한 문제를 분산적으로 해결하는 분산 인공지능 시스템입니다. 개미 군집처럼 개별 에이전트는 단순하지만 모이면 복잡한 문제를 풉니다. 특성 6가지 [자분통 경전적] — 자율(중앙 통제 없이 독립 판단: GPT 기반 에이전트·RL 로봇), 분산(제어 권한 분산으로 특정 장애에도 전체 유지: Event-driven Architecture·Fault-Tolerant Agent Design), 통신(RPC/REST/Pub-Sub로 정보 교환·협상), 경쟁/협력(Multi-Agent Task Scheduler로 역할 분담), 전문화(Expert Agent — 서로 다른 역할·지식으로 상호보완), 적응성(RL로 환경 변화에 능동 대응). 유형: Independent(Discrete, Emergent Cooperation) vs Cooperative(Communicating — Deliberative·Negotiating / Non-communicating). A2A 프로토콜은 이 에이전트들이 조직 경계를 넘어 통신하기 위한 규약입니다. 2025.05 ITPE FR 기출." },
 "llmops": {
     guide: {
       hook: "MLOps의 LLM 특화판 — LLM 앱의 설계·배포·운영을 통합 관리합니다.",
@@ -11074,13 +11128,139 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
       ],
       exam: "생성형 AI 이용자 보호 가이드라인(방통위, 2025.02.28)은 인간 존엄·설명 가능성·안전·공정성 5대 원칙으로 생성형 AI의 위험을 사전 예방하고 이용자를 보호하는 자율규제 지침이다.",
     }, image: "/concept/book/genai-user-protection-2502.png", easy: "생성형 AI 서비스 이용자 보호 가이드라인(2025.02.28)은 방송통신위원회가 발표한, 생성형 AI 이용 과정의 잠재적 위험을 사전 방지하고 이용자 권익을 보호하기 위한 기본 원칙과 실천 방식입니다('생성형 인공지능 서비스 이용자 보호 가이드라인'과 같은 문서의 발표일 표기판). 기본원칙 [인설안공비] — 인간 존엄성 보호(AI는 인간을 보조하는 수단, 인간의 결정권 보장), 설명 가능성과 투명성 확보(왜 그런 결과인지 알기 쉽게 설명), 안전한 작동 보장(오작동·잘못된 정보 생성·프롬프트 남용 사전 예방), 공정성과 비차별(데이터·알고리즘 편향 최소화). 실행 방안은 이용자 권익 보호 [이결다입](인격권 보호·결정 과정 설명·다양성 존중·입력데이터 관리)과 콘텐츠 관리·책임 [책건](책임과 참여·건전한 유통 배포). 답안 서두는 '방통위 2025.02.28 발표'로 잡으면 됩니다." },
-"iso-42119-2": { image: "/concept/book/iso-42119-2.png", easy: "소프트웨어 테스트 국제표준(ISO/IEC/IEEE 29119)을 AI 시스템에 적용하는 방법을 제시하는 기술 명세서입니다. 구성: 서문(범위 — 29119 적용 범위 한정, Normative references — 29119 시리즈+AI 표준 23894·25059·22989, AI 특화 용어 40개 — \"AI risk\"·\"drift testing\"·\"adversarial testing\") + 기술 본론 4개: AI 시스템·테스트 소개(생애주기 정의, 위험 기반 테스트 접근 중심), AI 시스템 리스크 식별(안전성·공정성·프라이버시·보안 리스크를 ISO/IEC 23894와 연계해 우선순위 설정), AI 테스트 접근법(레벨별 + 데이터 품질·모델·지식기반 시스템 테스트), Annex A~C(AI의 확률성·학습성·비결정성 특성). 2026.02 ITPE FR 기출." },
-"brainbody-llm": { image: "/concept/book/brainbody-llm.png", easy: "LLM 두 개를 뇌(Brain)와 몸(Body)처럼 계층적으로 나눠 쓰는 에이전트 시스템입니다. Brain-LLM은 고수준 작업 계획과 의미론적 추론을 담당하고(\"소파에서 칩 먹기\" → 주방으로 가기·칩 찾기 같은 High-level Plan), Body-LLM은 하위 수준 제어·실행을 담당합니다(<walk><kitchen> 같은 Low-level Plan). 핵심은 Closed-Loop Feedback — 시뮬레이터/실환경에서 오류가 나면 오류 신호와 환경 상태가 즉시 Brain-LLM으로 돌아가고, Brain이 원인을 추론해 계획을 수정합니다(접시 씻기 실패 → 수세미 사용으로 계획 갱신 → SUCCESS). 로봇 제어형 Physical AI의 대표 아키텍처입니다." },
-"confusion-matrix": { image: "/concept/book/confusion-matrix.png", easy: "예측값과 실제값의 일치 여부를 2×2 행렬(TP·FN·FP·TN)로 놓고 모델을 평가하는 기법 — 분류 모델 평가의 출발점입니다. 지표 공식이 그대로 시험에 나옵니다: Precision=TP/(TP+FP)(Positive 예측 중 진짜), Accuracy=(TP+TN)/전체, Recall=TP/(TP+FN)(실제 Positive 중 잡아낸 비율, 민감도), Specificity=TN/(FP+TN)(진음성률), FP Rate=FP/(FP+TN)(=1−Specificity), F1 Score=2×(P×R)/(P+R)(정밀도·재현율의 조화), Cohen's Kappa=(Accuracy−P(e))/(1−P(e))(우연히 맞춘 것까지 보정 — 클래스 불균형에서 Accuracy의 함정 극복). ROC(모든 threshold의 FPR·TPR)·AUC(ROC 아래 면적)·PR Plot도 세트로 기억하세요." },
-"class-imbalance": { image: "/concept/book/class-imbalance.png", easy: "타깃 데이터가 극소수인 상태 — 사기 거래 1건 vs 정상 9,999건 같은 상황입니다. 함정: 전부 '정상'이라고만 해도 Accuracy 99.99%가 나오지만 Recall은 0에 가깝습니다. 해결 3가지 — 과대 표집(Over-Sampling) [렌아스블디]: 소수 클래스를 복제·생성(Random Over Sampling, ADASYN, SMOTE, BLSMOTE, DBSMOTE — 정보 손실은 없지만 과적합 위험) / 과소 표집(Under-Sampling) [랜토이발]: 다수 클래스 일부만 선택(Random Under Sampling, Tomek Links, EasyEnsemble, BalanceCascade — 계산은 빠르지만 데이터 소실 큼) / 임곗값 이동: 학습은 그대로 하고 테스트 단계에서 컷오프를 데이터 많은 쪽으로 이동. 성능 지표는 상황 따라 F1·F0.5·F2·G-Mean·PR AUC 등을 선택합니다." },
-"diffusion": { image: "/concept/book/diffusion.png", easy: "텍스트 프롬프트에서 실사 이미지를 만들어내는 생성형 AI 모델 — Stable Diffusion·DALL-E·Midjourney의 원리입니다. 동작 직관: 이미지에 노이즈를 점점 첨가하는 순방향 디퓨전을 학습해 두고, 생성할 때는 랜덤 노이즈에서 시작해 그 과정을 거꾸로 반복 취소(denoise)하는 역방향 디퓨전으로 그림을 만들어 냅니다. 기술요소 4개가 시험 포인트 — CLIP(텍스트를 토큰화해 text embedding으로 변환하는 Text Encoder), U-Net+Scheduler(노이즈 제거의 핵심, n번 반복 denoise), VAE(Encoder로 특징 학습·Decoder로 최종 이미지 복원), 순방향/역방향 디퓨전. 흐름: 프롬프트 → CLIP → Text Embeddings → U-Net 반복 → Conditioned Latents → VAE → 이미지." },
-"automl": { image: "/concept/book/automl.png", easy: "머신러닝에서 가장 소모적이고 반복적인 작업 — 피처 추출과 하이퍼파라미터 설정 — 을 자동화하는 프로세스입니다. 프로세스 [피하신] — ① 피처 엔지니어링(EDA로 원시데이터 해석: PCA, k-means, Min-max 스케일링, BoW) → ② 하이퍼 파라미터 최적화(그리드 탐색·랜덤 탐색·베이지안 최적화) → ③ 신경망 구조 탐색(NAS: 검색 공간·검색 전략·성능 추정 전략). 상용 서비스: Google Cloud AutoML(자동 전이학습·신경 아키텍처 검색), Azure Machine Learning(피처·알고리즘 탐색+튜닝), Amazon SageMaker(튜닝 수행, 자동 다중 모델 시도는 지양). 데이터 과학자 없이도 ML 모델을 만들 수 있게 하는 'ML의 민주화' 기술입니다." },
-"ai-bias": { image: "/concept/book/ai-bias.png", easy: "선입견·편견·문화적 영향 등으로 AI가 객관성·공정성에서 벗어나는 경향입니다. 유형 [인숨데롱고] — Data 관점: 인간의 편향(원시 데이터에 인간의 편향이 개입), 숨겨진 편향(절대 발견될 수 없는 의도치 않은 편향 — 가장 찾기 어려움), 데이터 표본 편향(샘플링에 기인) / Process 관점: 롱테일 편향(특정 범주가 훈련 데이터에서 누락), 고의적 편향(해킹으로 의도적으로 편향 — 숨겨져 있어 가장 위험). 해결방안이 XAI(설명 가능한 AI): 기존 AI는 \"95% 확률로 고양이\"라는 결과만 주지만, XAI는 \"털·수염이 있고 ~모양이므로 95% 확률로 고양이\"처럼 결과가 생성되는 과정을 설명해 편향을 발견·교정할 수 있게 합니다." },
+"iso-42119-2": {
+    guide: {
+      hook: "SW 테스트 표준(29119)을 'AI 시스템 테스트'에 적용하는 기술 명세입니다.",
+      scene: "AI는 비결정성·데이터 의존성 탓에 기존 테스트 표준을 그대로 쓰기 어렵습니다. ISO/IEC 42119-2는 SW 테스트 국제표준(29119)을 AI 시스템에 어떻게 적용할지 방법과 AI 특화 용어·기법을 제시합니다.",
+      why: "29119의 AI 적용과 AI 특화 테스트 개념(메타모픽·데이터 테스트)이 출제 핵심입니다.",
+      mechanism: "기반: ISO/IEC/IEEE 29119(SW 테스트 시리즈) + AI 표준(23894 위험·25059 품질·22989 개념). 구성: 범위·참조·AI 특화 용어(약 40개)·AI 테스트 기법. AI 특화 이슈: 비결정성·오라클 문제(정답 판정 곤란)·데이터 품질·강건성 테스트. 기법: 메타모픽 테스트, 데이터 기반 테스트, 적대적 테스트. AI 시스템 검증·품질 보증 근거.",
+      map: [
+        { as: "29119 기반", real: "SW 테스트 표준", note: "" },
+        { as: "AI 표준 참조", real: "23894·25059·22989", note: "" },
+        { as: "정답 판정 곤란", real: "오라클 문제", note: "" },
+        { as: "메타모픽·적대적", real: "AI 테스트 기법", note: "" },
+      ],
+      usage: "AI 시스템 테스트입니다. 시험은 29119 적용, 오라클 문제·AI 테스트 기법입니다.",
+      links: [
+        { topic: "ISO/IEC 25059 (AI 품질 모델)", how: "AI 품질 특성을 테스트로 검증합니다." },
+        { topic: "AI 시스템 테스트(AI System Test)", how: "AI 특화 테스트 기법을 공유합니다." },
+      ],
+      exam: "ISO/IEC 42119-2는 SW 테스트 표준 29119를 AI 시스템에 적용하는 기술 명세로, 비결정성·오라클 문제에 대응해 메타모픽·적대적 등 AI 특화 테스트 기법을 제시한다.",
+    }, image: "/concept/book/iso-42119-2.png", easy: "소프트웨어 테스트 국제표준(ISO/IEC/IEEE 29119)을 AI 시스템에 적용하는 방법을 제시하는 기술 명세서입니다. 구성: 서문(범위 — 29119 적용 범위 한정, Normative references — 29119 시리즈+AI 표준 23894·25059·22989, AI 특화 용어 40개 — \"AI risk\"·\"drift testing\"·\"adversarial testing\") + 기술 본론 4개: AI 시스템·테스트 소개(생애주기 정의, 위험 기반 테스트 접근 중심), AI 시스템 리스크 식별(안전성·공정성·프라이버시·보안 리스크를 ISO/IEC 23894와 연계해 우선순위 설정), AI 테스트 접근법(레벨별 + 데이터 품질·모델·지식기반 시스템 테스트), Annex A~C(AI의 확률성·학습성·비결정성 특성). 2026.02 ITPE FR 기출." },
+"brainbody-llm": {
+    guide: {
+      hook: "LLM을 '뇌(계획)'와 '몸(실행)'으로 나눠 쓰는 계층적 에이전트 구조입니다.",
+      scene: "하나의 LLM이 고수준 계획과 세부 실행을 다 맡으면 비효율·오류가 큽니다. Brain-Body LLM은 큰 모델이 계획·추론(뇌)을, 작고 빠른 모델이 실제 도구 조작·실행(몸)을 맡아 역할을 계층 분리합니다.",
+      why: "Brain(계획·추론) vs Body(실행) 역할 분리와 계층 협업이 출제 핵심입니다.",
+      mechanism: "Brain-LLM: 고수준 작업 계획·의미론적 추론(크고 강력, 느림·고비용). Body-LLM: 저수준 행동·도구 조작·환경 상호작용(작고 빠름·저비용). 흐름: Brain이 목표를 하위 작업으로 분해→Body가 실행→관찰 피드백→Brain 재계획. 장점: 비용·지연 절감, 역할 특화. LAM·에이전트 구현 패턴. 계층 간 인터페이스·오류 전파가 과제.",
+      map: [
+        { as: "계획·추론", real: "Brain-LLM", note: "크고 느림" },
+        { as: "실행·도구 조작", real: "Body-LLM", note: "작고 빠름" },
+        { as: "분해→실행→재계획", real: "협업 흐름", note: "" },
+        { as: "비용·지연 절감", real: "장점", note: "" },
+      ],
+      usage: "계층형 AI 에이전트입니다. 시험은 Brain/Body 역할 분리, 계층 협업입니다.",
+      links: [
+        { topic: "LAM (Large Action Model)", how: "행동 실행 계층의 기반이 됩니다." },
+        { topic: "AI 에이전트(AI Agent)", how: "에이전트 구현 패턴을 제공합니다." },
+      ],
+      exam: "Brain-Body LLM은 큰 모델이 계획·추론(뇌)을, 작고 빠른 모델이 실행·도구 조작(몸)을 맡는 계층형 에이전트 구조로, 비용·지연을 줄이며 역할을 특화한다.",
+    }, image: "/concept/book/brainbody-llm.png", easy: "LLM 두 개를 뇌(Brain)와 몸(Body)처럼 계층적으로 나눠 쓰는 에이전트 시스템입니다. Brain-LLM은 고수준 작업 계획과 의미론적 추론을 담당하고(\"소파에서 칩 먹기\" → 주방으로 가기·칩 찾기 같은 High-level Plan), Body-LLM은 하위 수준 제어·실행을 담당합니다(<walk><kitchen> 같은 Low-level Plan). 핵심은 Closed-Loop Feedback — 시뮬레이터/실환경에서 오류가 나면 오류 신호와 환경 상태가 즉시 Brain-LLM으로 돌아가고, Brain이 원인을 추론해 계획을 수정합니다(접시 씻기 실패 → 수세미 사용으로 계획 갱신 → SUCCESS). 로봇 제어형 Physical AI의 대표 아키텍처입니다." },
+"confusion-matrix": {
+    guide: {
+      hook: "예측과 실제를 2×2 행렬로 놓고 분류 모델을 평가하는 기법입니다.",
+      scene: "'정확도 99%'만으로는 모델을 신뢰할 수 없습니다. 혼동 행렬은 예측·실제의 일치를 TP·FN·FP·TN 네 칸으로 나눠, 정밀도·재현율 등 다양한 지표로 분류 성능을 정확히 평가하는 출발점입니다.",
+      why: "TP/FN/FP/TN 정의와 Precision·Recall·F1 공식이 그대로 출제됩니다.",
+      mechanism: "4칸: TP(맞게 양성), TN(맞게 음성), FP(양성 오탐 — 1종 오류), FN(음성 미탐 — 2종 오류). 지표: Precision=TP/(TP+FP)(예측 양성 중 진짜), Recall(민감도)=TP/(TP+FN)(실제 양성 중 잡음), Accuracy=(TP+TN)/전체, Specificity=TN/(FP+TN), F1=2PR/(P+R)(정밀도·재현율 조화평균). ROC·AUC로 확장. 불균형 데이터엔 Accuracy 대신 F1·Recall.",
+      map: [
+        { as: "맞게 양성", real: "TP", note: "" },
+        { as: "예측 양성 중 진짜", real: "Precision", note: "" },
+        { as: "실제 양성 중 잡음", real: "Recall(민감도)", note: "" },
+        { as: "정밀·재현 조화평균", real: "F1", note: "" },
+      ],
+      usage: "분류 모델 평가입니다. 시험은 4칸 정의, Precision·Recall·F1 공식입니다.",
+      links: [
+        { topic: "클래스 불균형(Class Imbalance)", how: "불균형 시 Accuracy 대신 Recall·F1을 씁니다." },
+        { topic: "머신러닝 평가지표", how: "분류 성능 지표의 기반입니다." },
+      ],
+      exam: "혼동 행렬은 예측·실제를 TP·FN·FP·TN로 구분해 분류 성능을 평가하는 기법으로, Precision=TP/(TP+FP)·Recall=TP/(TP+FN)·F1(조화평균) 지표를 도출한다.",
+    }, image: "/concept/book/confusion-matrix.png", easy: "예측값과 실제값의 일치 여부를 2×2 행렬(TP·FN·FP·TN)로 놓고 모델을 평가하는 기법 — 분류 모델 평가의 출발점입니다. 지표 공식이 그대로 시험에 나옵니다: Precision=TP/(TP+FP)(Positive 예측 중 진짜), Accuracy=(TP+TN)/전체, Recall=TP/(TP+FN)(실제 Positive 중 잡아낸 비율, 민감도), Specificity=TN/(FP+TN)(진음성률), FP Rate=FP/(FP+TN)(=1−Specificity), F1 Score=2×(P×R)/(P+R)(정밀도·재현율의 조화), Cohen's Kappa=(Accuracy−P(e))/(1−P(e))(우연히 맞춘 것까지 보정 — 클래스 불균형에서 Accuracy의 함정 극복). ROC(모든 threshold의 FPR·TPR)·AUC(ROC 아래 면적)·PR Plot도 세트로 기억하세요." },
+"class-imbalance": {
+    guide: {
+      hook: "타깃 데이터가 극소수인 상태 — 정확도의 함정을 부르는 문제입니다.",
+      scene: "사기 1건 대 정상 9,999건 같은 데이터에서 모델이 전부 '정상'이라 해도 정확도 99.99%가 나옵니다. 하지만 정작 잡아야 할 사기는 못 잡죠. 클래스 불균형은 이런 소수 클래스 학습 실패를 다룹니다.",
+      why: "정확도의 함정과 해결 3축(과대·과소 표집, 알고리즘)이 출제 핵심입니다.",
+      mechanism: "함정: 다수 클래스만 맞혀도 Accuracy 높음, Recall은 0에 가까움 → F1·Recall로 평가. 해결: ①과대 표집(Over-Sampling — 소수 복제·생성: SMOTE·ADASYN·BLSMOTE, 과적합 위험), ②과소 표집(Under-Sampling — 다수 일부만: Random·Tomek·ENN, 정보 손실), ③알고리즘(비용민감 학습·Class Weight·앙상블). 평가지표 교체(F1·AUC). 데이터·알고리즘 양면 대응.",
+      map: [
+        { as: "다수만 맞혀도 고정확도", real: "정확도 함정", note: "" },
+        { as: "소수 생성", real: "Over-Sampling(SMOTE)", note: "과적합" },
+        { as: "다수 축소", real: "Under-Sampling", note: "정보 손실" },
+        { as: "비용민감·가중치", real: "알고리즘", note: "" },
+      ],
+      usage: "불균형 데이터 학습입니다. 시험은 정확도 함정, SMOTE, F1 평가입니다.",
+      links: [
+        { topic: "혼동 행렬(Confusion Matrix)", how: "불균형 시 Recall·F1로 평가합니다." },
+        { topic: "데이터 품질(Data Quality)", how: "학습 데이터 분포 관리와 연계됩니다." },
+      ],
+      exam: "클래스 불균형은 소수 타깃으로 정확도가 왜곡되는 문제로, 과대 표집(SMOTE)·과소 표집·비용민감 알고리즘으로 대응하고 F1·Recall로 평가한다.",
+    }, image: "/concept/book/class-imbalance.png", easy: "타깃 데이터가 극소수인 상태 — 사기 거래 1건 vs 정상 9,999건 같은 상황입니다. 함정: 전부 '정상'이라고만 해도 Accuracy 99.99%가 나오지만 Recall은 0에 가깝습니다. 해결 3가지 — 과대 표집(Over-Sampling) [렌아스블디]: 소수 클래스를 복제·생성(Random Over Sampling, ADASYN, SMOTE, BLSMOTE, DBSMOTE — 정보 손실은 없지만 과적합 위험) / 과소 표집(Under-Sampling) [랜토이발]: 다수 클래스 일부만 선택(Random Under Sampling, Tomek Links, EasyEnsemble, BalanceCascade — 계산은 빠르지만 데이터 소실 큼) / 임곗값 이동: 학습은 그대로 하고 테스트 단계에서 컷오프를 데이터 많은 쪽으로 이동. 성능 지표는 상황 따라 F1·F0.5·F2·G-Mean·PR AUC 등을 선택합니다." },
+"diffusion": {
+    guide: {
+      hook: "노이즈를 '거꾸로 제거'해 텍스트에서 이미지를 만드는 생성 모델입니다.",
+      scene: "Stable Diffusion·DALL-E·Midjourney는 어떻게 그림을 그릴까요. 디퓨전은 이미지에 노이즈를 점점 더하는 과정을 학습해 두고, 생성 시 랜덤 노이즈에서 시작해 그 과정을 거꾸로 반복 제거(denoise)하며 이미지를 만듭니다.",
+      why: "순방향/역방향 디퓨전 원리와 CLIP·U-Net 구성요소가 출제 핵심입니다.",
+      mechanism: "학습(순방향): 이미지에 점진적으로 노이즈 첨가. 생성(역방향): 랜덤 노이즈→n번 반복 denoise→이미지. 요소: CLIP(텍스트→임베딩 Text Encoder), U-Net+Scheduler(노이즈 예측·제거 핵심), VAE(잠재공간 인코딩/디코딩 — Latent Diffusion으로 연산 절감), 잠재 공간. GAN 대비 안정적·고품질. 텍스트-투-이미지 생성형 AI의 주류.",
+      map: [
+        { as: "노이즈 점진 첨가", real: "순방향(학습)", note: "" },
+        { as: "반복 노이즈 제거", real: "역방향(생성)", note: "denoise" },
+        { as: "텍스트→임베딩", real: "CLIP", note: "" },
+        { as: "노이즈 예측·제거", real: "U-Net", note: "" },
+      ],
+      usage: "이미지 생성입니다. 시험은 순/역방향 디퓨전, CLIP·U-Net·VAE입니다.",
+      links: [
+        { topic: "GAN (Generative Adversarial Network)", how: "이미지 생성 대안으로 대비됩니다." },
+        { topic: "VAE (Variational AutoEncoder)", how: "잠재공간 인코딩에 활용됩니다." },
+      ],
+      exam: "디퓨전은 순방향으로 노이즈 첨가를 학습해 두고 역방향으로 노이즈를 반복 제거해 이미지를 생성하는 모델로, CLIP·U-Net·VAE로 구성되며 텍스트-투-이미지의 주류다.",
+    }, image: "/concept/book/diffusion.png", easy: "텍스트 프롬프트에서 실사 이미지를 만들어내는 생성형 AI 모델 — Stable Diffusion·DALL-E·Midjourney의 원리입니다. 동작 직관: 이미지에 노이즈를 점점 첨가하는 순방향 디퓨전을 학습해 두고, 생성할 때는 랜덤 노이즈에서 시작해 그 과정을 거꾸로 반복 취소(denoise)하는 역방향 디퓨전으로 그림을 만들어 냅니다. 기술요소 4개가 시험 포인트 — CLIP(텍스트를 토큰화해 text embedding으로 변환하는 Text Encoder), U-Net+Scheduler(노이즈 제거의 핵심, n번 반복 denoise), VAE(Encoder로 특징 학습·Decoder로 최종 이미지 복원), 순방향/역방향 디퓨전. 흐름: 프롬프트 → CLIP → Text Embeddings → U-Net 반복 → Conditioned Latents → VAE → 이미지." },
+"automl": {
+    guide: {
+      hook: "피처 추출·하이퍼파라미터 튜닝 등 ML의 반복 작업을 자동화합니다.",
+      scene: "ML 성능은 피처 엔지니어링과 하이퍼파라미터 설정에 크게 좌우되는데, 이건 지루한 시행착오입니다. AutoML은 이 소모적 과정을 자동화해, 전문가가 아니어도 좋은 모델을 얻게 합니다.",
+      why: "3대 프로세스(피처·하이퍼파라미터·NAS)와 NAS 구성이 출제 핵심입니다.",
+      mechanism: "프로세스[피하신]: ①피처 엔지니어링(EDA·PCA·k-means·스케일링·BoW로 특징 자동 추출), ②하이퍼파라미터 최적화(Grid·Random·베이지안 최적화), ③신경망 구조 탐색(NAS — 검색 공간·검색 전략·성능 추정). 상용: Google Cloud AutoML, Azure ML, H2O. 효과: 진입장벽↓·생산성↑. 과제: 탐색 비용·해석성. MLOps와 연계.",
+      map: [
+        { as: "특징 자동 추출", real: "피처 엔지니어링", note: "" },
+        { as: "Grid·베이지안", real: "하이퍼파라미터 최적화", note: "" },
+        { as: "구조 자동 탐색", real: "NAS", note: "" },
+        { as: "진입장벽↓", real: "효과", note: "" },
+      ],
+      usage: "ML 자동화입니다. 시험은 3대 프로세스, NAS 구성입니다.",
+      links: [
+        { topic: "MLOps", how: "ML 파이프라인 자동화와 연계됩니다." },
+        { topic: "하이퍼파라미터 최적화", how: "AutoML의 핵심 단계입니다." },
+      ],
+      exam: "AutoML은 피처 엔지니어링·하이퍼파라미터 최적화·신경망 구조 탐색(NAS)을 자동화해 ML 생산성을 높이는 프로세스로, Grid·베이지안 최적화와 NAS가 핵심이다.",
+    }, image: "/concept/book/automl.png", easy: "머신러닝에서 가장 소모적이고 반복적인 작업 — 피처 추출과 하이퍼파라미터 설정 — 을 자동화하는 프로세스입니다. 프로세스 [피하신] — ① 피처 엔지니어링(EDA로 원시데이터 해석: PCA, k-means, Min-max 스케일링, BoW) → ② 하이퍼 파라미터 최적화(그리드 탐색·랜덤 탐색·베이지안 최적화) → ③ 신경망 구조 탐색(NAS: 검색 공간·검색 전략·성능 추정 전략). 상용 서비스: Google Cloud AutoML(자동 전이학습·신경 아키텍처 검색), Azure Machine Learning(피처·알고리즘 탐색+튜닝), Amazon SageMaker(튜닝 수행, 자동 다중 모델 시도는 지양). 데이터 과학자 없이도 ML 모델을 만들 수 있게 하는 'ML의 민주화' 기술입니다." },
+"ai-bias": {
+    guide: {
+      hook: "선입견·편향된 데이터로 AI가 공정성에서 벗어나는 경향입니다.",
+      scene: "채용·대출 AI가 특정 집단을 차별하면 큰 사회 문제입니다. AI 편향은 학습 데이터나 알고리즘에 스며든 편견으로 AI가 객관성·공정성을 잃는 현상으로, 원인 규명과 완화가 신뢰 AI의 핵심입니다.",
+      why: "데이터/프로세스 관점 유형과 XAI 기반 해결이 출제 핵심입니다.",
+      mechanism: "유형[인숨데롱고] — 데이터 관점: 인간 편향(원시 데이터에 인간 편견 개입), 숨겨진 편향(발견 어려운 무의도 편향), 표본 편향(샘플링 편중). 프로세스 관점: 롱테일 편향(소수 범주 누락), 고의적 편향(악의적 조작 — 가장 위험). 해결: XAI(설명 가능 AI로 판단 근거 규명), 데이터 다양화·리샘플링, 공정성 지표(Demographic Parity), 편향 감사. AI 윤리·거버넌스 핵심.",
+      map: [
+        { as: "인간 편견 개입", real: "인간 편향", note: "" },
+        { as: "발견 어려운 편향", real: "숨겨진 편향", note: "" },
+        { as: "소수 범주 누락", real: "롱테일 편향", note: "" },
+        { as: "판단 근거 규명", real: "XAI", note: "해결" },
+      ],
+      usage: "AI 공정성입니다. 시험은 편향 유형, XAI·공정성 지표입니다.",
+      links: [
+        { topic: "XAI (eXplainable AI)", how: "편향 규명·완화의 핵심 수단입니다." },
+        { topic: "AI TRiSM", how: "AI 신뢰·공정성 관리 프레임과 연계됩니다." },
+      ],
+      exam: "AI 편향은 편향된 데이터·알고리즘으로 AI가 공정성을 잃는 현상으로, 인간·숨겨진·롱테일·고의적 편향 등이 있으며 XAI·공정성 지표로 규명·완화한다.",
+    }, image: "/concept/book/ai-bias.png", easy: "선입견·편견·문화적 영향 등으로 AI가 객관성·공정성에서 벗어나는 경향입니다. 유형 [인숨데롱고] — Data 관점: 인간의 편향(원시 데이터에 인간의 편향이 개입), 숨겨진 편향(절대 발견될 수 없는 의도치 않은 편향 — 가장 찾기 어려움), 데이터 표본 편향(샘플링에 기인) / Process 관점: 롱테일 편향(특정 범주가 훈련 데이터에서 누락), 고의적 편향(해킹으로 의도적으로 편향 — 숨겨져 있어 가장 위험). 해결방안이 XAI(설명 가능한 AI): 기존 AI는 \"95% 확률로 고양이\"라는 결과만 주지만, XAI는 \"털·수염이 있고 ~모양이므로 95% 확률로 고양이\"처럼 결과가 생성되는 과정을 설명해 편향을 발견·교정할 수 있게 합니다." },
 "ai-trism": { image: "/concept/book/ai-trism.png", easy: "AI의 부적절한 사용을 막기 위해 가트너가 제시한 AI 신뢰성·위험·보안 관리 프레임워크입니다. 개념도 [신위보]: Unmanaged Risks를 AI TRiSM으로 걸러 Managed Risks로 만드는 구조. 4개 Pillar [익모모응프]가 시험 핵심 — Explainability/Model Monitoring(SHAP·MS Fairlearn 툴킷으로 설명가능성 확보), ModelOps(전사 단일소스, AI 거버넌스·라이프사이클 관리 — 지식그래프·규칙·최적화), AI Application Security(적대적 AI 대응 모델 강화, 노이즈 면역력 — 견고성 테스트·모델 검증), Privacy(비식별화가 아니라 합성 데이터·허위 데이터 사용 — AI Reverie). AI 도입 기업의 거버넌스 답안 단골 프레임워크입니다." },
 "deepfake": { image: "/concept/book/deepfake.png", easy: "딥러닝+Fake의 합성어 — 딥러닝으로 기존 영상에 다른 영상·이미지를 합성해 콘텐츠를 만드는 기법입니다. 원리는 GAN: 잠재 확률 변수 → 생성 AI가 가짜 표본을 만들고, 식별 AI가 진짜/가짜를 판별해 피드백(반복)하며 점점 정교해집니다. 요소기술 절차: 수집(Source·Target 영상) → 생성(GAN 활용 — Autoencoder·GAN·LSTM) → 식별·학습 반복(Real/Fake 구분 피드백) → 딥페이크 생성. 탐지기술: AI 기반(얼굴 특징·영상 품질·생체 신호 분석)과 포렌식 분석(픽셀 레벨·메타데이터). 대응방안 3축 — 기술적(탐지 시스템·라벨링·수정불가 워터마크), 법적(법제화·플랫폼 책임·국제 협력), 사회적(교육·탐지 도구 공개)." },
 "prompt-injection": { image: "/concept/book/prompt-injection.png", easy: "공격자가 프롬프트에 정교하게 조작된 입력을 주입해 LLM의 응답을 조작하고 민감 데이터를 유출시키는 공격입니다(OWASP LLM Top 10 1위). 공격절차: 시스템 프롬프트(정상 명령)에 사용자 입력으로 악성 데이터 주입 → LLM이 명령어와 데이터를 구분 못 해 보안 경계 우회(탈옥) → 프롬프트·데이터·컨텍스트 탈취, 원격코드 실행, 허위정보 캠페인. 유형 2가지가 시험 포인트: 직접 인젝션(프롬프트에 직접 악성 입력)과 간접 인젝션(외부소스에 악성 입력을 심어 LLM이 읽게 함). 대응: 입력 검증·필터링(Regex, 화이트/블랙리스트, 프롬프트 캡슐화, 의미 분석), 권한·접근 제어(최소권한, RBAC, 신뢰경계), 사용자 확인·모니터링(승인 프로세스, 감사로그, RLHF)." },
