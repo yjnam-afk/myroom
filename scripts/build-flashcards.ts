@@ -159,7 +159,12 @@ for (const t of topics) {
       sections = [{ label: "두음", mnemonic: stored, keywords: [] }];
     }
   }
-  if (!sections.length) continue;
+  // 구획이 전혀 없으면 정의 키워드로 대신 채운다 — 그래도 없으면 빈 구획으로 두되
+  // 카드는 만들어서 답안지 템플릿(정의·특징·플러스 알파)이 항상 뜨게 한다.
+  if (!sections.length) {
+    const dk = (d.defKeywords || []).filter(Boolean);
+    if (dk.length >= 2) sections = [{ label: "정의 키워드", mnemonic: "", keywords: dk }];
+  }
   cards.push({
     id: t.id,
     title: t.title,
@@ -169,8 +174,14 @@ for (const t of topics) {
     defShort: "",
     memo: (d.memo || "").trim(),
     sections,
-    mnemonic: sections[0].mnemonic,
-    keywords: sections[0].keywords,
+    mnemonic: sections[0]?.mnemonic || "",
+    keywords: sections[0]?.keywords || [],
+    // 답안지 템플릿용 — 특징 3개·검증된 개념도·정의/활용/플러스 키워드
+    features: (d.featureKeywords || []).filter(Boolean).slice(0, 3),
+    conceptMap: (d.conceptMap || "").trim(),
+    defKeywords: (d.defKeywords || []).filter(Boolean),
+    apply: (d.applicationKeywords || []).filter(Boolean),
+    plus: (d.plusKeywords || []).filter(Boolean),
   });
 }
 

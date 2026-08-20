@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { SUBNOTES, subnoteByTitle, subnoteByTopicId } from "@/data/textbookSubnotes";
 import MyDiagrams from "@/components/MyDiagrams";
 import EasyCard from "@/components/EasyCard";
+import Mermaid from "@/components/Mermaid";
 import { subnoteExtraFor } from "@/data/subnoteExtras";
 import { PageHeader } from "@/components/ui";
 import TopicAutocomplete from "@/components/TopicAutocomplete";
@@ -22,6 +23,12 @@ type LegacyCard = {
   definition: string;
   memo?: string;
   sections: { label: string; mnemonic: string; keywords: string[] }[];
+  /** 답안지 템플릿용(예전 토픽) — 특징 3개·검증된 개념도·활용/플러스 키워드 */
+  features?: string[];
+  conceptMap?: string;
+  defKeywords?: string[];
+  apply?: string[];
+  plus?: string[];
 };
 const normT = (s: string) =>
   s.trim().toLowerCase().replace(/[\s()·,\-_/]/g, "");
@@ -64,11 +71,24 @@ type BrowseGroup = { key: string; label: string; badge: string; items: BrowseIte
 
 /** 교재 서브노트를 과목별로, 교재에 없는 예전 토픽은 카테고리별로 묶는다. */
 const BROWSE_GROUPS: BrowseGroup[] = (() => {
+  // 교재 토픽 중요도 — 예전 토픽(topics.json)과 매칭되면 그 상·중·하를 쓰고,
+  // 심화반 교재에만 있는 토픽은 회독 관리와 같은 기준으로 '상'을 기본값으로 둔다.
+  const impById = new Map<string, string>();
+  const impByBare = new Map<string, string>();
+  for (const t of topics) {
+    impById.set(t.id, t.importance);
+    const b = bareT(t.title);
+    if (!impByBare.has(b)) impByBare.set(b, t.importance);
+  }
   const byCourse = new Map<string, BrowseItem[]>();
   const covered = new Set<string>();
   for (const s of SUBNOTES) {
     if (!byCourse.has(s.course)) byCourse.set(s.course, []);
-    byCourse.get(s.course)!.push({ title: s.title });
+    const imp =
+      (s.topicId && impById.get(s.topicId)) ||
+      impByBare.get(bareT(s.title)) ||
+      "상";
+    byCourse.get(s.course)!.push({ title: s.title, imp });
     covered.add(bareT(s.title));
   }
   const groups: BrowseGroup[] = [];
@@ -79,7 +99,13 @@ const BROWSE_GROUPS: BrowseGroup[] = (() => {
       key: `course:${c}`,
       label: COURSE_LABEL[c] || c,
       badge: "교재",
-      items: list.slice().sort((a, b) => a.title.localeCompare(b.title, "ko")),
+      items: list
+        .slice()
+        .sort(
+          (a, b) =>
+            (IMP_ORDER[a.imp || ""] ?? 9) - (IMP_ORDER[b.imp || ""] ?? 9) ||
+            a.title.localeCompare(b.title, "ko"),
+        ),
     });
   }
   // 교재에 아직 없는 예전 토픽 — 카드 자료로 볼 수 있으므로 같이 노출한다.
@@ -576,57 +602,153 @@ function ExplainInner() {
         )}
 
 
-        {/* 예전 토픽 자료 폴백 — 교재 서브노트가 없어도 AI 없이 정리 자료를 보여준다 */}
+        {/* 예전 토픽 답안지 템플릿 — 교재 서브노트가 없어도 같은 시험지 형식으로 보여준다.
+            정의는 커널 카드의 답안 한 줄(guide.exam)을 최우선, 개념도는 검증된 conceptMap 렌더. */}
         {legacy && (
           <section className="mb-6 overflow-hidden rounded-2xl border-2 border-indigo-200 bg-white shadow-sm">
             <div className="flex items-center justify-between gap-2 bg-indigo-50 px-5 py-3">
               <h3 className="text-sm font-bold text-indigo-800">
-                📗 토픽 자료 — {legacy.title}
+                📝 답안지 템플릿 — {legacy.title}
               </h3>
               <span className="rounded bg-indigo-600 px-2 py-0.5 text-[10px] font-bold text-white">
                 {legacy.category}
               </span>
             </div>
-            <div className="space-y-4 p-5">
-              {legacy.definition && (
-                <div>
-                  <div className="text-xs font-bold text-slate-500">■ 정의</div>
-                  <p className="mt-1 text-sm leading-relaxed text-slate-800">
-                    {legacy.definition}
+
+            {/* 답안지 종이 — 교재 템플릿과 같은 시험지 모양. 이 순서 그대로 옮겨 적는다. */}
+            <div className="relative p-5 pl-10">
+              <div
+                className="pointer-events-none absolute inset-y-4 left-6 w-px bg-rose-200"
+                aria-hidden
+              />
+
+              <p className="text-[13px] font-bold leading-relaxed text-slate-800">
+                문) {legacy.title}에 대하여 설명하시오.
+              </p>
+              <p className="mt-1 text-[13px] font-bold text-slate-400">답)</p>
+
+              {/* 1. 서론 — 커널 카드의 답안 한 줄을 정의로, 특징 3개 */}
+              <div className="mt-2">
+                <p className="text-[13px] font-bold leading-relaxed text-slate-800">
+                  1. {legacy.title}의 정의
+                </p>
+                <div className="mt-1 space-y-1.5 pl-4">
+                  <p className="text-[13px] leading-relaxed text-slate-800">
+                    {extra?.guide?.exam || legacy.definition}
                   </p>
+                  {!!legacy.features?.length && (
+                    <p className="text-[13px] leading-relaxed text-slate-800">
+                      <span className="mr-1 font-bold text-slate-500">특징)</span>
+                      {legacy.features.join(", ")}
+                    </p>
+                  )}
                 </div>
-              )}
-              {legacy.sections.map((s) => (
-                <div key={s.label}>
-                  <div className="text-xs font-bold text-slate-500">
-                    ■ {s.label}
-                    {s.mnemonic && (
-                      <span className="ml-1.5 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">
-                        {s.mnemonic}
-                      </span>
+              </div>
+
+              {/* 2. 본론 — 검증된 개념도(conceptMap) + 구획별 키워드를 가/나/다로 */}
+              <div className="mt-4">
+                <p className="text-[13px] font-bold leading-relaxed text-slate-800">
+                  2. {legacy.title.replace(/\s*\([^)]*\)/g, "")}의 개념도 및 구성요소
+                </p>
+                {legacy.conceptMap && (
+                  <div className="mt-1 pl-4">
+                    <p className="text-[13px] leading-relaxed text-slate-600">
+                      <span className="mr-1 font-bold text-slate-500">가. 개념도</span>이
+                      개념도를 답안지 6줄 내로 옮겨 그린다
+                    </p>
+                    <div className="mt-2 overflow-x-auto rounded-lg border border-slate-200 bg-white p-2">
+                      <Mermaid chart={legacy.conceptMap} />
+                    </div>
+                  </div>
+                )}
+                {legacy.sections.map((s, si) => (
+                  <div key={s.label} className="mt-3 pl-4">
+                    <p className="text-[13px] font-bold leading-relaxed text-slate-700">
+                      {["가", "나", "다", "라", "마", "바", "사"][
+                        si + (legacy.conceptMap ? 1 : 0)
+                      ]}
+                      . {s.label}
+                      {s.mnemonic && (
+                        <span className="ml-1.5 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">
+                          두음 {s.mnemonic}
+                        </span>
+                      )}
+                    </p>
+                    <div className="mt-1.5 flex flex-wrap gap-1.5">
+                      {s.keywords.map((k) => (
+                        <span
+                          key={k}
+                          className="rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-indigo-100"
+                        >
+                          {k}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* 3. 플러스 알파 — 활용·플러스 키워드와 메모로 추가 어필 */}
+              {(legacy.apply?.length || legacy.plus?.length || legacy.memo) ? (
+                <div className="mt-4">
+                  <p className="text-[13px] font-bold leading-relaxed text-slate-800">
+                    3. 플러스 알파 — 추가 어필
+                  </p>
+                  <ul className="mt-1 space-y-1 pl-4">
+                    {!!legacy.apply?.length && (
+                      <li className="text-[13px] leading-relaxed text-slate-600">
+                        · 활용: {legacy.apply.join(", ")}
+                      </li>
                     )}
+                    {!!legacy.plus?.length && (
+                      <li className="text-[13px] leading-relaxed text-slate-600">
+                        · 플러스: {legacy.plus.join(", ")}
+                      </li>
+                    )}
+                    {legacy.memo && (
+                      <li className="text-[13px] leading-relaxed text-slate-600">
+                        · {legacy.memo}
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              ) : null}
+
+              <p className="mt-5 text-right text-[13px] font-bold text-slate-400">
+                ·································· &ldquo;끝&rdquo;
+              </p>
+            </div>
+
+            {/* 채점 근거 — 답안에 키워드가 들어갔는지 마지막에 확인 */}
+            {(() => {
+              const check = Array.from(
+                new Set([
+                  ...(legacy.defKeywords || []),
+                  ...(legacy.features || []),
+                  ...legacy.sections.flatMap((s) => s.keywords),
+                ]),
+              ).filter(Boolean);
+              return check.length ? (
+                <div className="border-t border-indigo-100 px-5 py-3">
+                  <div className="text-xs font-bold text-slate-500">
+                    ✅ 키워드 체크 — 내 답안에 이 단어들이 들어갔는지 확인
                   </div>
                   <div className="mt-1.5 flex flex-wrap gap-1.5">
-                    {s.keywords.map((k) => (
+                    {check.map((k) => (
                       <span
                         key={k}
-                        className="rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-indigo-100"
+                        className="rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-blue-100"
                       >
                         {k}
                       </span>
                     ))}
                   </div>
                 </div>
-              ))}
-              {legacy.memo && (
-                <p className="rounded-lg bg-slate-50 p-3 text-xs leading-relaxed text-slate-600">
-                  💡 {legacy.memo}
-                </p>
-              )}
-            </div>
+              ) : null;
+            })()}
             <p className="border-t border-indigo-100 bg-indigo-50/50 px-5 py-2 text-[11px] text-indigo-700">
-              교재 서브노트가 아직 없는 토픽이라 예전 정리 자료를 보여드려요. AI 없이 항상
-              열립니다.
+              교재 서브노트가 아직 없는 예전 토픽이에요. 같은 답안지 순서(정의→특징→개념도→
+              구성요소→플러스 알파)로 재구성했고, AI 없이 항상 열립니다.
             </p>
           </section>
         )}
