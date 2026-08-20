@@ -15,6 +15,7 @@ export type AnswerIntro = {
 
 import { I as i01 } from "./i01";
 import { I as i02 } from "./i02";
+import { I as i03 } from "./i03";
 import { I as i04 } from "./i04";
 import { I as i05 } from "./i05";
 import { I as i14 } from "./i14";
@@ -29,6 +30,7 @@ import { I as i12 } from "./i12";
 export const TOPIC_INTROS: Record<string, AnswerIntro> = {
   ...i01,
   ...i02,
+  ...i03,
   ...i04,
   ...i05,
   ...i06,
