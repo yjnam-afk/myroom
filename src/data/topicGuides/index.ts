@@ -9,16 +9,20 @@ import type { EasyGuide } from "../subnoteExtras";
  */
 import { G as g01 } from "./g01";
 import { G as g02 } from "./g02";
+import { G as g03 } from "./g03";
 import { G as g04 } from "./g04";
 import { G as g05 } from "./g05";
 import { G as g06 } from "./g06";
 import { G as g07 } from "./g07";
+import { G as g08 } from "./g08";
 
 export const TOPIC_GUIDES: Record<string, EasyGuide> = {
   ...g01,
   ...g02,
+  ...g03,
   ...g04,
   ...g05,
   ...g06,
   ...g07,
+  ...g08,
 };
