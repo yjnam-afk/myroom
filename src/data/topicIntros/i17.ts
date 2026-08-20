@@ -159,7 +159,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "ca-161": {
     lead: "버스 충돌을 막는 소자, 3상태 버퍼",
-    defShort: "High·Low에 하이 임피던스를 더한 3개 출력 레벨을 갖는 버스 제어 소자",
+    defShort: "High·Low에 하이 임피던스를 더한 3개 출력 레벨을 갖는 버스 제어 논리 소자",
     features: ["Z 상태", "버스 공유", "방향성 전달"],
   },
   "ca-162": {
@@ -289,7 +289,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "ca-193": {
     lead: "주소 공간을 나눠 쓰는, 메모리 사상 입출력 방식",
-    defShort: "메모리 주소 공간 일부를 입출력장치에 할당해 메모리 명령어로 입출력하는 방식",
+    defShort: "메모리 주소 공간 일부를 입출력장치에 할당해 메모리 명령어로 입출력하는 전송 방식",
     features: ["주소 공유", "MMIO", "명령어 통일"],
   },
   "ca-194": {
@@ -324,7 +324,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "ca-208": {
     lead: "임베디드 내장 저장장치, eMMC",
-    defShort: "컨트롤러와 NAND 플래시를 통합해 제품에 내장한 임베디드 기기 전용 반도체",
+    defShort: "컨트롤러와 NAND 플래시를 통합하여 제품에 내장한 임베디드 기기 전용 반도체",
     features: ["NAND 통합", "컨트롤러 내장", "고속 처리"],
   },
   "ca-209": {
@@ -374,7 +374,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "ca-27": {
     lead: "장치를 잇는 공용 통로, 시스템 버스",
-    defShort: "CPU 중심으로 기억장치·입출력장치가 데이터와 신호를 교환하는 공용 통로",
+    defShort: "CPU 중심으로 기억장치·입출력장치가 데이터와 신호를 교환하는 공용 전송 통로",
     features: ["주소 버스", "데이터 버스", "제어 버스"],
   },
   "ca-29": {
