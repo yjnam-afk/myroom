@@ -5298,16 +5298,196 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
 "nw-dhcp": { image: "/concept/book/nw-dhcp.png", easy: "DHCP는 네트워크에 접속한 단말에 IP 주소·DNS 같은 설정 정보를 자동으로 할당해 주는 프로토콜입니다 — Wi-Fi에 연결하면 IP가 저절로 잡히는 원리입니다. 할당 4단계 [DORA]: ① DISCOVER — 클라이언트가 \"DHCP 서버 있나요?\"를 브로드캐스트 ② OFFER — 서버가 \"이 IP 쓰세요\"를 유니캐스트로 제안(IP·임대시간·DNS 정보 포함) ③ REQUEST — 클라이언트가 \"그 IP 쓰겠습니다\"를 브로드캐스트(다른 서버들에게도 거절 통보) ④ ACK — 서버가 최종 승인. 포트는 클라이언트 UDP 68, 서버 UDP 67입니다. 갱신은 임대시간이 50% 남은 시점에 REQUEST → ACK 두 단계로 유니캐스트하고, 해제는 RELEASE 한 번으로 끝(서버 응답 없음). 보안 위협으로 DHCP Starvation(위조 MAC으로 대량 요청해 IP 풀 고갈)이 함께 출제됩니다." },
 "nw-sctp": { image: "/concept/book/nw-sctp.png", easy: "TCP의 신뢰성과 UDP의 메시지 지향성을 합친 전송 계층 프로토콜입니다. 두 가지 무기가 시험 핵심: Multi-homing — 한 세션이 여러 IP 주소를 동시에 보유해, 쓰던 경로가 끊겨도 다른 경로로 세션을 유지합니다(TCP는 IP 하나가 끊기면 연결도 끊김). Multi-streaming — 한 세션 안에 여러 스트림을 두어 한 스트림이 막혀도 다른 스트림은 진행합니다(HOL 블로킹 완화). 핸드셰이크가 TCP와 반대인 것도 포인트: 수립은 4-way(INIT → INIT-ACK → COOKIE-ECHO → COOKIE-ACK, 쿠키로 SYN 플러딩 방어), 종료는 3-way(SHUTDOWN → SHUTDOWN-ACK → SHUTDOWN-CMPL, Half-open Closing 해결). 전송 중에는 SACK로 선택적 확인, HEARTBEAT로 경로 생존을 감시합니다." },
 "nw-cran": { image: "/concept/book/nw-cran.png", easy: "기존 기지국은 디지털 처리부(DU)와 무선 송수신부(RF/RU)가 한 몸이었는데, 이를 분리해 DU만 중앙 데이터센터에 모으고 RU는 서비스 지역에 분산시킨 구조입니다. 중앙과 분산 장비를 잇는 구간을 프론트홀이라 부릅니다. 장점: DU가 한곳에 모여 있어 셀 간 간섭 조정이 쉽고 협력 통신 같은 고품질 서비스가 가능하며, 장비·전력 비용도 절감됩니다. 구성: RU(디지털 신호를 RF로 변환해 안테나로 송수신) + Centralized DU(클라우드 형태로 집중된 디지털 처리부). 인터페이스 규격 3종이 시험 포인트: CPRI(DU-RU 간 표준, 사실상 업계 주류), OBSAI(모듈 단위로 나눈 개방형 경쟁 규격), ORI(CPRI의 벤더 간 호환성 한계를 개선하려는 ETSI 주도 표준)." },
-"nw-hamming": { image: "/concept/book/nw-hamming.png", easy: "패리티 비트를 여러 개 심어서 오류를 '검출'만 하는 게 아니라 '몇 번째 비트가 틀렸는지'까지 찾아 고치는 코드입니다. 절차: ① 패리티 개수 결정 — 2^p ≥ d+p+1 (데이터 4비트면 패리티 3개, 7비트면 4개) ② 위치 결정 — 1, 2, 4, 8번째(2의 거듭제곱 자리)에 삽입 ③ 값 결정 — P1은 1·3·5·7·9·11번 비트를, P2는 2·3·6·7·10·11번을, P4는 4~7번을, P8은 8~11번을 검사해 각각 짝수 패리티가 되게 함 ④ 전송 ⑤ 수신 측에서 P1~P8을 다시 검사. 검사 결과가 전부 0이면 정상이고, 0이 아니면 그 값을 P8P4P2P1 순으로 읽어 2진수로 보면 그게 바로 오류가 난 비트 위치입니다(예: 0011 → 3번째 비트를 뒤집으면 복구)." },
-"nw-crc": { image: "/concept/book/nw-crc.png", easy: "데이터를 하나의 큰 이진수로 보고 약속된 다항식(Divisor)으로 나눈 나머지를 뒤에 붙여 보내는 오류 검출 기법입니다. 수신 측은 받은 전체를 같은 다항식으로 나눠 나머지가 0이면 정상, 0이 아니면 오류로 보고 재전송을 요청합니다. 절차: Encoding(데이터 뒤에 n개의 0을 붙여 (n+1)비트 Divisor로 나눠 CRC 생성 → 데이터+CRC = 코드 워드) → Transmission → Decoding(같은 Divisor로 나눠 나머지 확인). 교재 예제: 데이터 1011010, 다항식 CRC-8 = X⁸+X²+X+1(100000111) → XOR 나눗셈 결과 나머지 10000001 → 전송 데이터 101101010000001. 강점은 여러 비트가 한꺼번에 깨지는 집단 오류(Burst Error)도 잡아낸다는 점이라 이더넷·Wi-Fi에서 표준으로 씁니다." },
-"nw-qos": { image: "/concept/book/nw-qos.png", easy: "한정된 대역폭을 트래픽 종류에 따라 차등 배분해서, 영상통화 같은 중요한 트래픽이 파일 다운로드에 밀리지 않게 하는 기술입니다. 주요 지표 [대지터패] — 대역폭(최대 처리 능력), 지연(전달까지 걸리는 시간), 지터(도착 간격이 들쭉날쭉한 정도), 패킷 손실. 관리 기술: 트래픽 쉐이핑(Leaky Bucket — 버킷에 담아 일정 속도로 흘려보냄 / Token Bucket — 토큰이 있어야 전송), 혼잡제어(RED — 혼잡 전에 미리 랜덤 폐기 / WRED — 클래스별 가중치 적용), 큐잉(FIFO / Priority Queuing / WFQ). 보장 기술 2가지가 시험 핵심: IntServ(RSVP로 흐름별 자원을 미리 예약 — 정확하지만 확장성 낮음)와 DiffServ(패킷 DS 필드에 DSCP를 마킹해 홉마다 등급대로 처리 — 확장성이 좋아 실무 표준)." },
-"nw-arp": { image: "/concept/book/nw-arp.png", easy: "IP 주소는 아는데 상대의 MAC 주소를 모를 때, 같은 LAN 안에서 \"이 IP 쓰는 사람 MAC 주소 알려줘\"라고 물어 알아내는 프로토콜입니다. 동작이 비대칭인 게 시험 포인트: 요청은 브로드캐스트 — 호스트 A가 Destination MAC을 FF:FF:FF:FF:FF:FF로 채운 ARP Request를 네트워크 전체에 뿌립니다. 응답은 유니캐스트 — 자기 IP임을 확인한 호스트 D만 ARP Reply를 A에게 1:1로 보냅니다. A는 받은 MAC을 자신의 ARP Cache 테이블에 저장해 두고 이후 통신에 씁니다(그래서 매번 묻지 않음). 반대 방향, 즉 MAC은 아는데 IP를 모를 때 쓰는 것이 RARP입니다." },
-"nw-dns": { image: "/concept/book/nw-dns.png", easy: "사람이 외우는 이름(www.test.com)을 컴퓨터가 쓰는 IP 주소로 바꿔주는 인터넷 전화번호부입니다. 질의 두 종류가 시험 핵심입니다: Recursive Query(재귀) — 클라이언트가 로컬 DNS 서버에게 \"답을 찾아서 갖다 줘\"라고 위임하는 방식 / Iterative Query(반복) — 로컬 DNS 서버가 Root → TLD(.com) → Authoritative(ns.test.com) 순으로 \"다음엔 저기 물어봐\"를 안내받아 직접 찾아가는 방식. 전체 흐름 9단계: 클라이언트 질의 → 로컬 DNS가 Root에 질의 → .com 서버 IP 받음 → TLD에 질의 → test.com DNS 정보 받음 → ns.test.com에 질의 → www의 IP 받음 → 클라이언트에 전달 → 접속. 기능: Name Resolution, Host Aliasing(별칭), Mail Server Aliasing, Load Distribution(한 URL에 여러 IP를 두어 부하 분산)." },
-"nw-routing": { image: "/concept/book/nw-routing.png", easy: "패킷을 목적지까지 어느 길로 보낼지 정하는 라우팅 테이블을 만들고 유지하는 프로토콜입니다. 두 방식의 대비가 핵심입니다. 거리벡터(Distance Vector): 이웃 라우터가 주기적으로 알려주는 정보만 믿고, 홉 수(Hop count)가 가장 적은 길을 고릅니다 — 벨만-포드 알고리즘, RIP·IGRP. 이웃에게 받은 테이블에 자기까지의 거리를 더해 기존 값과 비교하고, 더 작으면 갱신하는 식입니다(소문으로 길 찾기). 링크상태(Link State): 각 라우터가 이웃의 링크 상태를 수집(LSA)해 전체 토폴로지 데이터베이스, 즉 '지도'를 만들고, SPF(다익스트라)로 최소 비용 경로를 직접 계산합니다 — OSPF·EIGRP. 계산 결과로 SPF 트리를 만들고 그것으로 라우팅 테이블을 생성합니다(지도 보고 길 찾기)." },
-"nw-fec-bec": { image: "/concept/book/nw-fec-bec.png", easy: "전송 중 생긴 오류를 어떻게 처리하느냐로 갈리는 두 방식입니다. FEC(전진 오류 정정): 보낼 때 미리 잉여비트를 넣어두어 수신 측이 재전송 요청 없이 스스로 고칩니다 — 되돌아갈 시간이 없는 실시간 방송·위성 통신에 유리. 기법은 블록 코드(해밍 코드 — 패리티 비트로 오류 위치까지 찾아 정정 / RS 코드 — 랜덤·연집 오류까지 정정)와 논블록 코드(길쌈 코드 — 과거 신호까지 활용하는 메모리 부호화 / 터보 코드)로 나뉩니다. BEC(후진 오류 정정): 오류를 검출만 하고 송신 측에 알려 다시 보내게 합니다 — 검출은 Parity Check·Block Sum·CRC·Check Sum, 재전송(ARQ)은 Stop and Wait(하나 보내고 응답 대기), Go-Back-N(오류 프레임부터 전부 다시), Selective-Repeat(오류 프레임만), Adaptive ARQ(블록 길이를 동적 조절)." },
-"nw-tcp-congestion": { image: "/concept/book/nw-tcp-congestion.png", easy: "네트워크가 감당할 수 있는 양보다 많은 트래픽이 몰리지 않게 송신 속도를 조절하는 메커니즘입니다. 4단계로 움직입니다: ① Slow Start — 처음엔 조심스럽게 시작해 전송할 때마다 윈도우(CWND)를 2배씩 지수 증가 ② Congestion Avoidance — 임계치(ssthresh)에 도달하면 급증을 멈추고 1씩 선형 증가 ③ Fast Retransmit — 손실이 감지되면 타임아웃을 기다리지 않고 즉시 재전송 ④ Fast Recovery — 재전송 후 처음부터 시작하지 않고 윈도우 절반에서 다시 선형 증가. 알고리즘 계보가 시험 포인트: Tahoe(손실 시 Slow Start부터 재시작) → Reno(Fast Recovery 도입, 절반에서 재개) → New Reno(Partial ACK로 한 윈도우에 여러 패킷이 손실돼도 RTO 대기 없이 복구)." },
-"nw-tcp-udp": { image: "/concept/book/nw-tcp-udp.png", easy: "TCP는 연결을 먼저 맺고 도착을 확인·재전송하며 보내는 신뢰성 중심의 전송 프로토콜이고, UDP는 연결 없이 확인도 없이 보내는 속도 중심의 전송 프로토콜입니다. TCP: 연결지향, 순서 유지, 중복·손실 없음, 에러 시 재전송, 슬라이딩 윈도우로 흐름제어, 헤더 20바이트, HTTP·FTP·SMTP에 사용 — 느리지만 신뢰성. UDP: 비연결, 순서 유지 안 함, 손실 가능, 재전송 없음, 흐름제어 없음, 헤더 8바이트, DNS·SNMP·RIP에 사용 — 빠르지만 비신뢰성(실시간 스트리밍·게임에 적합). TCP 제어 플래그 6개도 단골입니다: URG(긴급 우선 송신), ACK(확인응답번호 유효), PSH(버퍼 대기 없이 즉시 전달), RST(강제 연결 리셋), SYN(연결설정 순서번호 동기화), FIN(전송 종료)." },
-"nw-ipv4-ipv6-tunneling": { image: "/concept/book/nw-ipv4-ipv6-tunneling.png", easy: "IPv4에서 IPv6로 한 번에 갈아탈 수 없으니, 두 체계가 공존하며 연동하는 전환 기술 3가지입니다. 듀얼 스택: 한 장비에 IPv4와 IPv6 기능을 모두 설치해 상대에 맞춰 골라 씀 — 가장 확실하지만 프로토콜 스택 수정 비용이 큼. 터널링: IPv6 패킷을 IPv4 패킷 속에 통째로 캡슐화해서 중간의 IPv4망을 '터널'처럼 통과시킴 — IPv6망 사이에 IPv4 구간이 끼어 있을 때 사용(IPv6 Over IPv4 Tunnel). 주소 변환(G/W 방식): 중간에 주소변환기를 두어 IPv4망과 IPv6망을 상호 연동 — 호스트 수정이 불필요하고 구현이 쉬움. 변환 방식은 헤더변환, 수송계층 릴레이, 응용계층 게이트웨이(ALG) 셋입니다." },
+"nw-hamming": {
+    guide: {
+      hook: "패리티 비트를 여러 개 배치해 '어느 비트가 틀렸는지 위치까지' 찾아 정정하는 코드입니다.",
+      scene: "패리티 1개는 '틀렸다'만 알지 어디가 틀렸는지 모릅니다. 해밍코드는 패리티를 2의 거듭제곱 위치에 여러 개 넣어, 오류 비트의 위치를 이진수로 지목해 그 비트를 뒤집어 고칩니다 — 1비트 오류 정정.",
+      why: "'검출을 넘어 정정'하는 FEC의 대표라는 위치, 그리고 패리티 개수 공식(2^r ≥ m+r+1)과 위치 계산이 출제 핵심입니다.",
+      mechanism: "패리티 비트 r개를 2^k 위치(1,2,4,8…)에 배치, 데이터는 나머지 위치. 각 패리티는 특정 비트 그룹의 짝수 패리티를 담당. 수신 측이 각 패리티를 재검사해 얻은 신드롬(이진수)이 오류 비트 위치를 지목 → 해당 비트 반전으로 정정. 최소 해밍거리 3이면 1비트 정정. SEC-DED(확장 해밍)는 1정정+2검출.",
+      map: [
+        { as: "패리티 여러 개 배치", real: "2^k 위치 패리티", note: "" },
+        { as: "오류 위치를 이진수로", real: "신드롬", note: "위치 지목" },
+        { as: "그 비트 뒤집어 정정", real: "1비트 오류 정정", note: "" },
+        { as: "1정정+2검출", real: "SEC-DED", note: "확장" },
+      ],
+      usage: "메모리(ECC RAM)·전송 오류 정정에 쓰입니다. 시험은 패리티 개수 공식, 위치 계산, 신드롬입니다.",
+      links: [
+        { topic: "FEC(Forward Error Correction) / BEC(Backward Error Correction)", how: "해밍은 FEC의 대표 코드입니다." },
+        { topic: "CRC(Cyclic Redundancy Check)", how: "검출 전용과 대비되는 정정 코드입니다." },
+      ],
+      exam: "해밍코드는 2의 거듭제곱 위치에 패리티를 배치해 신드롬으로 오류 비트 위치를 지목·정정하는 FEC로, 최소 해밍거리 3에서 1비트 정정이 가능하다.",
+    }, image: "/concept/book/nw-hamming.png", easy: "패리티 비트를 여러 개 심어서 오류를 '검출'만 하는 게 아니라 '몇 번째 비트가 틀렸는지'까지 찾아 고치는 코드입니다. 절차: ① 패리티 개수 결정 — 2^p ≥ d+p+1 (데이터 4비트면 패리티 3개, 7비트면 4개) ② 위치 결정 — 1, 2, 4, 8번째(2의 거듭제곱 자리)에 삽입 ③ 값 결정 — P1은 1·3·5·7·9·11번 비트를, P2는 2·3·6·7·10·11번을, P4는 4~7번을, P8은 8~11번을 검사해 각각 짝수 패리티가 되게 함 ④ 전송 ⑤ 수신 측에서 P1~P8을 다시 검사. 검사 결과가 전부 0이면 정상이고, 0이 아니면 그 값을 P8P4P2P1 순으로 읽어 2진수로 보면 그게 바로 오류가 난 비트 위치입니다(예: 0011 → 3번째 비트를 뒤집으면 복구)." },
+"nw-crc": {
+    guide: {
+      hook: "다항식 나눗셈의 '나머지'로 오류를 검출하는 강력하고 빠른 검사 기법입니다.",
+      scene: "데이터를 특정 생성 다항식으로 나눈 나머지(CRC 값)를 붙여 보내고, 수신 측이 같은 방식으로 나눠 나머지가 0인지 봅니다. 0이 아니면 오류입니다 — 하드웨어로 빠르고, 연집(버스트) 오류를 잘 잡습니다.",
+      why: "'검출 전용(정정 아님)'이라는 위치와 다항식 연산 원리, 버스트 오류 검출력이 출제 핵심입니다. 정정하는 해밍과의 구분이 포인트입니다.",
+      mechanism: "송신: 데이터에 0을 r개 붙이고 생성 다항식 G(x)로 모듈로-2 나눗셈 → 나머지(CRC)를 데이터 뒤에 부착. 수신: 받은 전체를 G(x)로 나눠 나머지 0이면 정상, 아니면 오류(재전송 요청 — ARQ와 결합). 특징: r비트 CRC는 r비트 이하 버스트 오류를 확실히 검출, 하드웨어(시프트 레지스터·XOR)로 고속. 이더넷·USB·ZIP에 사용.",
+      map: [
+        { as: "다항식으로 나눈 나머지", real: "CRC 값", note: "모듈로-2" },
+        { as: "나머지 0이면 정상", real: "수신 검증", note: "" },
+        { as: "연속 오류 잘 잡음", real: "버스트 오류 검출", note: "강점" },
+        { as: "고치진 못함", real: "검출 전용", note: "해밍과 구분" },
+      ],
+      usage: "이더넷 FCS·USB·저장매체 무결성 검사입니다. 시험은 다항식 나눗셈, 버스트 검출력, 검출 vs 정정 구분입니다.",
+      links: [
+        { topic: "해밍코드(Hamming code)", how: "정정 코드와 대비되는 검출 코드입니다." },
+        { topic: "FEC(Forward Error Correction) / BEC(Backward Error Correction)", how: "CRC는 BEC의 검출 수단입니다." },
+      ],
+      exam: "CRC는 생성 다항식의 모듈로-2 나눗셈 나머지로 오류를 검출하는 기법으로, r비트 이하 버스트 오류를 확실히 잡고 하드웨어로 고속이나 정정은 못 한다.",
+    }, image: "/concept/book/nw-crc.png", easy: "데이터를 하나의 큰 이진수로 보고 약속된 다항식(Divisor)으로 나눈 나머지를 뒤에 붙여 보내는 오류 검출 기법입니다. 수신 측은 받은 전체를 같은 다항식으로 나눠 나머지가 0이면 정상, 0이 아니면 오류로 보고 재전송을 요청합니다. 절차: Encoding(데이터 뒤에 n개의 0을 붙여 (n+1)비트 Divisor로 나눠 CRC 생성 → 데이터+CRC = 코드 워드) → Transmission → Decoding(같은 Divisor로 나눠 나머지 확인). 교재 예제: 데이터 1011010, 다항식 CRC-8 = X⁸+X²+X+1(100000111) → XOR 나눗셈 결과 나머지 10000001 → 전송 데이터 101101010000001. 강점은 여러 비트가 한꺼번에 깨지는 집단 오류(Burst Error)도 잡아낸다는 점이라 이더넷·Wi-Fi에서 표준으로 씁니다." },
+"nw-qos": {
+    guide: {
+      hook: "제한된 대역에서 '중요한 트래픽에 우선순위'를 줘 품질을 보장하는 기술입니다.",
+      scene: "화상회의·VoIP는 조금만 늦어도 끊기지만, 파일 다운로드는 좀 느려도 됩니다. QoS는 트래픽을 분류해 우선순위를 매기고, 대역·지연·손실을 관리해 중요한 통신의 품질을 지킵니다.",
+      why: "4대 품질 지표(대역폭·지연·지터·손실)와 서비스 모델(IntServ·DiffServ)이 출제 핵심입니다. 큐잉·정책 기법이 포인트입니다.",
+      mechanism: "지표: 대역폭, 지연(Latency), 지터(지연 변동), 패킷 손실. 모델: IntServ(흐름별 자원 예약 — RSVP, 확장성 낮음), DiffServ(패킷에 DSCP 표시로 클래스별 차등 — 확장성 좋음, 실무 주류). 기법: 분류·표시(마킹), 큐잉(PQ·WFQ·LLQ), 폴리싱/셰이핑(속도 제한), 혼잡 회피(WRED). 5G는 네트워크 슬라이싱으로 QoS를 논리망 단위로 보장.",
+      map: [
+        { as: "지연·지터·손실·대역", real: "4대 품질 지표", note: "" },
+        { as: "흐름별 예약", real: "IntServ(RSVP)", note: "확장성 낮음" },
+        { as: "클래스별 차등 표시", real: "DiffServ(DSCP)", note: "실무 주류" },
+        { as: "우선 큐·속도 제한", real: "큐잉·셰이핑", note: "" },
+      ],
+      usage: "VoIP·영상·기업망 품질 보장입니다. 시험은 4지표, IntServ/DiffServ 비교, 큐잉 기법입니다.",
+      links: [
+        { topic: "네트워크 슬라이싱", how: "5G에서 QoS를 논리망으로 보장합니다." },
+        { topic: "다중화(Multiplexing)", how: "자원 분배와 함께 품질을 관리합니다." },
+      ],
+      exam: "QoS는 대역폭·지연·지터·손실을 관리해 중요 트래픽 품질을 보장하는 기술로, 흐름별 예약 IntServ와 클래스별 차등 DiffServ 모델을 쓰며 큐잉·셰이핑으로 구현한다.",
+    }, image: "/concept/book/nw-qos.png", easy: "한정된 대역폭을 트래픽 종류에 따라 차등 배분해서, 영상통화 같은 중요한 트래픽이 파일 다운로드에 밀리지 않게 하는 기술입니다. 주요 지표 [대지터패] — 대역폭(최대 처리 능력), 지연(전달까지 걸리는 시간), 지터(도착 간격이 들쭉날쭉한 정도), 패킷 손실. 관리 기술: 트래픽 쉐이핑(Leaky Bucket — 버킷에 담아 일정 속도로 흘려보냄 / Token Bucket — 토큰이 있어야 전송), 혼잡제어(RED — 혼잡 전에 미리 랜덤 폐기 / WRED — 클래스별 가중치 적용), 큐잉(FIFO / Priority Queuing / WFQ). 보장 기술 2가지가 시험 핵심: IntServ(RSVP로 흐름별 자원을 미리 예약 — 정확하지만 확장성 낮음)와 DiffServ(패킷 DS 필드에 DSCP를 마킹해 홉마다 등급대로 처리 — 확장성이 좋아 실무 표준)." },
+"nw-arp": {
+    guide: {
+      hook: "IP 주소로 '같은 랜의 MAC 주소'를 알아내는 주소 변환 프로토콜입니다.",
+      scene: "IP는 알아도 실제 이더넷 프레임을 보내려면 상대의 물리 주소(MAC)가 필요합니다. ARP는 '이 IP 쓰는 사람 MAC이 뭐야?'를 브로드캐스트로 물어, 해당 호스트가 자기 MAC으로 응답하면 캐시에 저장합니다.",
+      why: "L3(IP)→L2(MAC) 매핑이라는 계층 연결이 출제 핵심입니다. ARP 캐시·스푸핑 취약점이 포인트입니다.",
+      mechanism: "ARP Request(브로드캐스트 — '이 IP의 MAC?') → 해당 호스트가 ARP Reply(유니캐스트 — 자기 MAC) → ARP 캐시에 IP-MAC 저장(TTL). 같은 서브넷 내에서만 동작(다른 망은 게이트웨이 MAC으로). 취약: 인증이 없어 위조 응답으로 캐시를 오염(ARP 스푸핑) → 중간자 공격. 방어: 정적 ARP·DAI(Dynamic ARP Inspection).",
+      map: [
+        { as: "IP로 MAC 묻기", real: "L3→L2 매핑", note: "핵심" },
+        { as: "전체에 물어보기", real: "ARP Request(브로드캐스트)", note: "" },
+        { as: "당사자만 답하기", real: "ARP Reply(유니캐스트)", note: "" },
+        { as: "위조 응답 오염", real: "ARP 스푸핑", note: "취약점" },
+      ],
+      usage: "이더넷 통신의 필수 기능입니다. 시험은 IP-MAC 매핑, 브로드캐스트/유니캐스트, ARP 스푸핑입니다.",
+      links: [
+        { topic: "RARP(Reverse Address Resolution Protocol)", how: "MAC→IP의 반대 방향입니다." },
+        { topic: "스니핑(Sniffing) & 스푸핑(Spoofing)", how: "ARP 스푸핑이 중간자 공격에 쓰입니다." },
+      ],
+      exam: "ARP는 같은 서브넷에서 IP 주소로 MAC 주소를 알아내는 프로토콜로, 브로드캐스트 요청·유니캐스트 응답으로 동작하며 인증 부재로 ARP 스푸핑에 취약하다.",
+    }, image: "/concept/book/nw-arp.png", easy: "IP 주소는 아는데 상대의 MAC 주소를 모를 때, 같은 LAN 안에서 \"이 IP 쓰는 사람 MAC 주소 알려줘\"라고 물어 알아내는 프로토콜입니다. 동작이 비대칭인 게 시험 포인트: 요청은 브로드캐스트 — 호스트 A가 Destination MAC을 FF:FF:FF:FF:FF:FF로 채운 ARP Request를 네트워크 전체에 뿌립니다. 응답은 유니캐스트 — 자기 IP임을 확인한 호스트 D만 ARP Reply를 A에게 1:1로 보냅니다. A는 받은 MAC을 자신의 ARP Cache 테이블에 저장해 두고 이후 통신에 씁니다(그래서 매번 묻지 않음). 반대 방향, 즉 MAC은 아는데 IP를 모를 때 쓰는 것이 RARP입니다." },
+"nw-dns": {
+    guide: {
+      hook: "'사람이 읽는 도메인'을 '컴퓨터가 쓰는 IP'로 바꿔 주는 인터넷 전화번호부입니다.",
+      scene: "www.example.com을 외우긴 쉬워도 컴퓨터는 IP 주소로 통신합니다. DNS는 이 이름을 IP로 번역해 주는 분산 데이터베이스로, 전 세계 서버가 계층적으로 나눠 관리합니다.",
+      why: "계층 구조(루트→TLD→권한)와 재귀·반복 질의, 캐싱이 출제 핵심입니다. DNS 스푸핑·DNSSEC 보안과 연결됩니다.",
+      mechanism: "계층: 루트(.) → TLD(.com) → 권한 네임서버(example.com). 질의: 스텁 리졸버 → 재귀 리졸버가 루트부터 반복 질의(iterative)로 최종 IP 획득 → 캐싱(TTL 동안). 레코드: A(IPv4)·AAAA(IPv6)·CNAME(별칭)·MX(메일)·NS(네임서버)·TXT. 보안: 응답 위조(스푸핑·캐시 포이즈닝) → DNSSEC 서명, DoH/DoT 암호화.",
+      map: [
+        { as: "이름을 IP로 번역", real: "이름 해석", note: "핵심 기능" },
+        { as: "루트→TLD→권한", real: "계층 구조", note: "분산" },
+        { as: "리졸버가 대신 반복 질의", real: "재귀·반복 질의", note: "" },
+        { as: "TTL 동안 기억", real: "캐싱", note: "성능" },
+      ],
+      usage: "모든 인터넷 접속의 첫 단계입니다. 시험은 계층·질의 방식·레코드, 캐싱, DNSSEC 보안입니다.",
+      links: [
+        { topic: "DNSSEC(Domain Name System Security Extension)", how: "DNS 응답을 서명으로 보호합니다." },
+        { topic: "CDN(Contents Delivery Network)", how: "DNS 기반으로 가까운 서버로 유도합니다." },
+      ],
+      exam: "DNS는 도메인 이름을 IP로 변환하는 계층적 분산 DB로, 재귀·반복 질의와 캐싱으로 동작하며 A·MX 등 레코드를 관리하고 DNSSEC으로 위조를 방지한다.",
+    }, image: "/concept/book/nw-dns.png", easy: "사람이 외우는 이름(www.test.com)을 컴퓨터가 쓰는 IP 주소로 바꿔주는 인터넷 전화번호부입니다. 질의 두 종류가 시험 핵심입니다: Recursive Query(재귀) — 클라이언트가 로컬 DNS 서버에게 \"답을 찾아서 갖다 줘\"라고 위임하는 방식 / Iterative Query(반복) — 로컬 DNS 서버가 Root → TLD(.com) → Authoritative(ns.test.com) 순으로 \"다음엔 저기 물어봐\"를 안내받아 직접 찾아가는 방식. 전체 흐름 9단계: 클라이언트 질의 → 로컬 DNS가 Root에 질의 → .com 서버 IP 받음 → TLD에 질의 → test.com DNS 정보 받음 → ns.test.com에 질의 → www의 IP 받음 → 클라이언트에 전달 → 접속. 기능: Name Resolution, Host Aliasing(별칭), Mail Server Aliasing, Load Distribution(한 URL에 여러 IP를 두어 부하 분산)." },
+"nw-routing": {
+    guide: {
+      hook: "패킷의 '최적 경로'를 정하는 두 철학 — 소문(거리벡터)과 지도(링크상태)입니다.",
+      scene: "거리벡터는 이웃에게 '나는 거기까지 몇 홉'이라고 소문을 퍼뜨려 경로를 정하고(옆집 말만 믿음), 링크상태는 전체 망 지도를 각자 그려 최단경로를 계산합니다(전체를 봄). 정보 공유 방식이 다릅니다.",
+      why: "거리벡터 vs 링크상태의 원리·장단 비교가 출제 핵심입니다. 대표 프로토콜(RIP·OSPF)과 수렴·무한 카운팅 문제가 포인트입니다.",
+      mechanism: "거리벡터(Distance Vector — RIP): 이웃과 라우팅 테이블 전체를 주기적 교환, 벨만-포드로 홉수 최소 경로, 느린 수렴·무한 카운팅(스플릿 호라이즌·홀드다운으로 완화). 링크상태(Link State — OSPF): 링크 상태(LSA)를 전체에 플러딩해 각자 전체 지도 구성, 다익스트라로 최단경로, 빠른 수렴·확장성 좋으나 자원 부담. AS 간은 경로벡터(BGP).",
+      map: [
+        { as: "옆집 소문만 믿기", real: "거리벡터(RIP)", note: "벨만-포드·홉수" },
+        { as: "전체 지도 그리기", real: "링크상태(OSPF)", note: "다익스트라" },
+        { as: "느린 수렴·루프", real: "무한 카운팅", note: "거리벡터 단점" },
+        { as: "AS 간 경로", real: "경로벡터(BGP)", note: "" },
+      ],
+      usage: "라우터 경로 결정의 핵심입니다. 시험은 거리벡터/링크상태 비교, RIP/OSPF, 무한 카운팅입니다.",
+      links: [
+        { topic: "BGP(Border Gateway Protocol)", how: "AS 간 경로벡터 라우팅입니다." },
+        { topic: "OSI 7 Layer (ISO 7498)", how: "3계층 네트워크의 경로 기능입니다." },
+      ],
+      exam: "라우팅은 거리벡터(이웃과 테이블 교환·벨만포드·RIP)와 링크상태(전체 지도·다익스트라·OSPF)로 나뉘며, 거리벡터는 무한 카운팅, 링크상태는 자원 부담이 단점이다.",
+    }, image: "/concept/book/nw-routing.png", easy: "패킷을 목적지까지 어느 길로 보낼지 정하는 라우팅 테이블을 만들고 유지하는 프로토콜입니다. 두 방식의 대비가 핵심입니다. 거리벡터(Distance Vector): 이웃 라우터가 주기적으로 알려주는 정보만 믿고, 홉 수(Hop count)가 가장 적은 길을 고릅니다 — 벨만-포드 알고리즘, RIP·IGRP. 이웃에게 받은 테이블에 자기까지의 거리를 더해 기존 값과 비교하고, 더 작으면 갱신하는 식입니다(소문으로 길 찾기). 링크상태(Link State): 각 라우터가 이웃의 링크 상태를 수집(LSA)해 전체 토폴로지 데이터베이스, 즉 '지도'를 만들고, SPF(다익스트라)로 최소 비용 경로를 직접 계산합니다 — OSPF·EIGRP. 계산 결과로 SPF 트리를 만들고 그것으로 라우팅 테이블을 생성합니다(지도 보고 길 찾기)." },
+"nw-fec-bec": {
+    guide: {
+      hook: "오류를 '스스로 고치는' FEC와 '다시 보내달라 하는' BEC — 정정 방식이 반대입니다.",
+      scene: "FEC는 미리 여분 정보를 붙여 수신 측이 재전송 없이 오류를 복원하고(위성·방송처럼 되묻기 어려운 곳), BEC는 오류를 검출하면 송신 측에 재전송을 요청합니다(되묻기 쉬운 유선). 지연과 대역의 트레이드오프입니다.",
+      why: "'전진 정정(FEC) vs 후진 정정(BEC=ARQ)'의 원리·적용처가 출제 핵심입니다. ARQ 방식(정지대기·GBN·SR)이 포인트입니다.",
+      mechanism: "FEC(Forward): 잉여 비트(오류정정부호 — 해밍·리드솔로몬·터보·LDPC)를 미리 추가해 수신 측이 재전송 없이 정정 → 지연↓·대역 오버헤드↑, 단방향·실시간(방송·위성·저장매체). BEC(Backward=ARQ): 오류 검출(CRC 등) 후 재전송 요청 — Stop-and-Wait, Go-Back-N, Selective Repeat → 대역 효율↑·지연↑, 양방향. 하이브리드 HARQ는 둘 결합(LTE·5G).",
+      map: [
+        { as: "여분 붙여 스스로 복원", real: "FEC(전진 정정)", note: "재전송 없음" },
+        { as: "틀리면 다시 보내달라", real: "BEC(후진=ARQ)", note: "재전송" },
+        { as: "위성·방송", real: "FEC 적용", note: "되묻기 어려움" },
+        { as: "정지대기·GBN·SR", real: "ARQ 방식", note: "BEC 종류" },
+      ],
+      usage: "오류 제어 설계의 기본입니다. 시험은 FEC/BEC 원리·적용처, ARQ 3방식, HARQ입니다.",
+      links: [
+        { topic: "해밍코드(Hamming code)", how: "FEC의 대표 오류정정부호입니다." },
+        { topic: "CRC(Cyclic Redundancy Check)", how: "BEC의 오류 검출에 쓰입니다." },
+      ],
+      exam: "FEC는 잉여 비트로 재전송 없이 오류를 정정하는 전진 정정으로 위성·방송에, BEC(ARQ)는 오류 검출 후 재전송을 요청하는 후진 정정으로 유선에 쓰이며 HARQ로 결합된다.",
+    }, image: "/concept/book/nw-fec-bec.png", easy: "전송 중 생긴 오류를 어떻게 처리하느냐로 갈리는 두 방식입니다. FEC(전진 오류 정정): 보낼 때 미리 잉여비트를 넣어두어 수신 측이 재전송 요청 없이 스스로 고칩니다 — 되돌아갈 시간이 없는 실시간 방송·위성 통신에 유리. 기법은 블록 코드(해밍 코드 — 패리티 비트로 오류 위치까지 찾아 정정 / RS 코드 — 랜덤·연집 오류까지 정정)와 논블록 코드(길쌈 코드 — 과거 신호까지 활용하는 메모리 부호화 / 터보 코드)로 나뉩니다. BEC(후진 오류 정정): 오류를 검출만 하고 송신 측에 알려 다시 보내게 합니다 — 검출은 Parity Check·Block Sum·CRC·Check Sum, 재전송(ARQ)은 Stop and Wait(하나 보내고 응답 대기), Go-Back-N(오류 프레임부터 전부 다시), Selective-Repeat(오류 프레임만), Adaptive ARQ(블록 길이를 동적 조절)." },
+"nw-tcp-congestion": {
+    guide: {
+      hook: "네트워크가 막히지 않게 '전송 속도를 스스로 조절'하는 TCP의 자율 브레이크입니다.",
+      scene: "고속도로에 차를 마구 보내면 정체가 심해집니다. TCP는 처음엔 조금씩 빠르게 늘리다가(느린 시작), 어느 선부터 천천히 늘리고, 혼잡 신호(패킷 손실)가 오면 속도를 확 줄입니다. 네트워크 상태를 보며 창(window) 크기를 조절합니다.",
+      why: "4단계(느린 시작·혼잡 회피·빠른 재전송·빠른 회복)와 AIMD 원리가 출제 핵심입니다. 흐름제어(수신자 보호)와의 구분이 포인트입니다.",
+      mechanism: "혼잡 윈도우(cwnd) 조절. Slow Start(cwnd를 1부터 지수적 2배 증가 → 임계값 ssthresh까지), Congestion Avoidance(임계 후 선형 1씩 증가 — AIMD의 AI), Fast Retransmit(중복 ACK 3개면 타임아웃 전 재전송), Fast Recovery(손실 시 cwnd 절반 — AIMD의 MD). 타임아웃이면 Slow Start로. 흐름제어(rwnd, 수신자 버퍼)와 별개로 네트워크 혼잡을 다룸.",
+      map: [
+        { as: "처음엔 지수로 빠르게", real: "Slow Start", note: "cwnd 2배" },
+        { as: "이후 천천히 선형", real: "혼잡 회피(AI)", note: "" },
+        { as: "손실 시 절반으로", real: "빠른 회복(MD)", note: "AIMD" },
+        { as: "중복 ACK로 즉시 재전송", real: "빠른 재전송", note: "" },
+      ],
+      usage: "인터넷 안정성의 핵심입니다. 시험은 4단계·AIMD, 흐름제어와의 구분, cwnd/ssthresh입니다.",
+      links: [
+        { topic: "TCP 연결의 설정 및 해제(Handshaking)", how: "연결 후 이 제어가 작동합니다." },
+        { topic: "Sliding Window & 네이글(Nagle's) 알고리즘", how: "윈도우 기반 전송 제어를 공유합니다." },
+      ],
+      exam: "TCP 혼잡제어는 혼잡 윈도우를 느린 시작·혼잡 회피·빠른 재전송·빠른 회복으로 조절하는 AIMD 기반 제어로, 수신자 버퍼를 다루는 흐름제어와 구분된다.",
+    }, image: "/concept/book/nw-tcp-congestion.png", easy: "네트워크가 감당할 수 있는 양보다 많은 트래픽이 몰리지 않게 송신 속도를 조절하는 메커니즘입니다. 4단계로 움직입니다: ① Slow Start — 처음엔 조심스럽게 시작해 전송할 때마다 윈도우(CWND)를 2배씩 지수 증가 ② Congestion Avoidance — 임계치(ssthresh)에 도달하면 급증을 멈추고 1씩 선형 증가 ③ Fast Retransmit — 손실이 감지되면 타임아웃을 기다리지 않고 즉시 재전송 ④ Fast Recovery — 재전송 후 처음부터 시작하지 않고 윈도우 절반에서 다시 선형 증가. 알고리즘 계보가 시험 포인트: Tahoe(손실 시 Slow Start부터 재시작) → Reno(Fast Recovery 도입, 절반에서 재개) → New Reno(Partial ACK로 한 윈도우에 여러 패킷이 손실돼도 RTO 대기 없이 복구)." },
+"nw-tcp-udp": {
+    guide: {
+      hook: "'신뢰의 TCP'와 '속도의 UDP' — 목적이 정반대인 두 전송 프로토콜입니다.",
+      scene: "중요한 파일은 빠짐없이 순서대로 도착해야 하니 TCP(연결·확인·재전송), 실시간 영상·게임은 조금 빠져도 빨리 와야 하니 UDP(비연결·무보장·저지연)를 씁니다. 신뢰성과 속도를 맞바꿉니다.",
+      why: "두 프로토콜의 특성 비교표가 출제 핵심입니다. 각 응용(파일=TCP, 스트리밍/DNS/VoIP=UDP)의 선택 이유가 포인트입니다.",
+      mechanism: "TCP: 연결 지향(3-way), 신뢰성(순서·재전송·확인응답), 흐름·혼잡 제어, 헤더 20B, 스트림. UDP: 비연결, 무보장(순서·재전송 없음), 제어 없음, 헤더 8B, 데이터그램, 저지연·저오버헤드. 선택: 정확성 중요(웹·파일·메일)=TCP, 실시간·소량·브로드캐스트(스트리밍·게임·DNS·VoIP)=UDP. QUIC는 UDP 위에 신뢰성을 얹음.",
+      map: [
+        { as: "빠짐없이 순서대로", real: "TCP(신뢰)", note: "연결·재전송" },
+        { as: "빠르게 일단 보내기", real: "UDP(속도)", note: "비연결·무보장" },
+        { as: "웹·파일·메일", real: "TCP 응용", note: "" },
+        { as: "스트리밍·DNS·VoIP", real: "UDP 응용", note: "" },
+      ],
+      usage: "전송 프로토콜 선택의 기준입니다. 시험은 비교표, 응용별 선택 이유, QUIC의 위치입니다.",
+      links: [
+        { topic: "TCP 혼잡제어", how: "TCP만의 제어 메커니즘입니다." },
+        { topic: "HTTP/3", how: "UDP 위에 신뢰성을 얹은 QUIC를 씁니다." },
+      ],
+      exam: "TCP는 연결 지향·신뢰성·흐름/혼잡 제어로 정확성이 중요한 응용에, UDP는 비연결·무보장·저지연으로 실시간 응용에 쓰이며 속도와 신뢰성을 맞바꾼다.",
+    }, image: "/concept/book/nw-tcp-udp.png", easy: "TCP는 연결을 먼저 맺고 도착을 확인·재전송하며 보내는 신뢰성 중심의 전송 프로토콜이고, UDP는 연결 없이 확인도 없이 보내는 속도 중심의 전송 프로토콜입니다. TCP: 연결지향, 순서 유지, 중복·손실 없음, 에러 시 재전송, 슬라이딩 윈도우로 흐름제어, 헤더 20바이트, HTTP·FTP·SMTP에 사용 — 느리지만 신뢰성. UDP: 비연결, 순서 유지 안 함, 손실 가능, 재전송 없음, 흐름제어 없음, 헤더 8바이트, DNS·SNMP·RIP에 사용 — 빠르지만 비신뢰성(실시간 스트리밍·게임에 적합). TCP 제어 플래그 6개도 단골입니다: URG(긴급 우선 송신), ACK(확인응답번호 유효), PSH(버퍼 대기 없이 즉시 전달), RST(강제 연결 리셋), SYN(연결설정 순서번호 동기화), FIN(전송 종료)." },
+"nw-ipv4-ipv6-tunneling": {
+    guide: {
+      hook: "IPv6 패킷을 IPv4 망 위로 '캡슐에 싸서' 보내는 과도기 전환 기술입니다.",
+      scene: "IPv6 섬들 사이에 아직 IPv4 바다가 있습니다. 터널링은 IPv6 패킷을 IPv4 패킷 안에 통째로 넣어(캡슐화) IPv4 망을 건너보내고, 반대편에서 껍질을 벗겨 IPv6로 복원합니다.",
+      why: "IPv4→IPv6 전환 3방식(듀얼스택·터널링·변환) 중 터널링의 원리가 출제 핵심입니다. 대표 방식(6to4·Teredo·ISATAP)이 포인트입니다.",
+      mechanism: "전환 3방식: 듀얼스택(양쪽 동시 지원), 터널링(IPv6를 IPv4에 캡슐화 — 6to4·6in4·Teredo(NAT 통과)·ISATAP), 변환(NAT64/DNS64로 프로토콜 자체 변환). 터널: 진입점에서 IPv6 패킷을 IPv4 헤더로 감싸고, 출구에서 역캡슐화. IPv6 도입 초기 상호운용 확보.",
+      map: [
+        { as: "IPv6를 IPv4로 감싸기", real: "캡슐화 터널링", note: "핵심" },
+        { as: "양쪽 다 지원", real: "듀얼스택", note: "다른 전환법" },
+        { as: "프로토콜 자체 변환", real: "NAT64/변환", note: "다른 전환법" },
+        { as: "NAT 뒤에서도", real: "Teredo", note: "터널 방식" },
+      ],
+      usage: "IPv6 전환기의 상호운용 기술입니다. 시험은 전환 3방식, 터널링 캡슐화 원리, 대표 방식입니다.",
+      links: [
+        { topic: "IPv6", how: "터널링이 IPv6 도입을 돕습니다." },
+        { topic: "DNS(Domain Name System)", how: "DNS64가 변환 방식에 쓰입니다." },
+      ],
+      exam: "IPv4/IPv6 터널링은 IPv6 패킷을 IPv4 패킷에 캡슐화해 IPv4 망을 통과시키는 전환 기술로, 듀얼스택·변환과 함께 IPv6 도입기의 상호운용을 제공한다.",
+    }, image: "/concept/book/nw-ipv4-ipv6-tunneling.png", easy: "IPv4에서 IPv6로 한 번에 갈아탈 수 없으니, 두 체계가 공존하며 연동하는 전환 기술 3가지입니다. 듀얼 스택: 한 장비에 IPv4와 IPv6 기능을 모두 설치해 상대에 맞춰 골라 씀 — 가장 확실하지만 프로토콜 스택 수정 비용이 큼. 터널링: IPv6 패킷을 IPv4 패킷 속에 통째로 캡슐화해서 중간의 IPv4망을 '터널'처럼 통과시킴 — IPv6망 사이에 IPv4 구간이 끼어 있을 때 사용(IPv6 Over IPv4 Tunnel). 주소 변환(G/W 방식): 중간에 주소변환기를 두어 IPv4망과 IPv6망을 상호 연동 — 호스트 수정이 불필요하고 구현이 쉬움. 변환 방식은 헤더변환, 수송계층 릴레이, 응용계층 게이트웨이(ALG) 셋입니다." },
 "nw-csma-ca": {
     guide: {
       hook: "무선은 충돌을 못 '감지'하니, 아예 '회피'하도록 설계한 Wi-Fi의 접근 방식입니다.",
