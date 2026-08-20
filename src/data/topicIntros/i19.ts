@@ -209,7 +209,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "se-219": {
     lead: "SW 제품 평가 절차의 표준, SO/IEC 25041",
-    defShort: "개발자·구매자·평가자 관점의 제품 평가 절차와 요구를 규정한 평가 국제표준",
+    defShort: "개발자·구매자·평가자 관점의 SW 제품 평가 절차와 요구를 규정한 평가 국제표준",
     features: ["관점별 절차", "반복·재현성", "공정·객관성"],
   },
   "se-22": {
@@ -354,7 +354,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "se-36": {
     lead: "횡단 관심사의 분리, AOP",
-    defShort: "핵심과 횡단 관심사를 분리하고 애스펙트를 위빙으로 결합해 모듈성을 높이는 패러다임",
+    defShort: "핵심과 횡단 관심사를 분리하고 애스펙트를 위빙으로 엮어 모듈성을 높이는 패러다임",
     features: ["관심사 분리", "위빙 결합", "포인트컷"],
   },
   "se-37": {
