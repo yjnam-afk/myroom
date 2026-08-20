@@ -183,6 +183,8 @@ for (const t of topics) {
     // 답안지 템플릿용 — 특징 3개·검증된 개념도·정의/활용/플러스 키워드
     features: (d.featureKeywords || []).filter(Boolean).slice(0, 3),
     conceptMap: (d.conceptMap || "").trim(),
+    // 도식 이름 — 그림이 클래스다이어그램·절차 등일 때 "개념도" 대신 실제 이름
+    conceptMapLabel: (d.conceptMapLabel || "").trim(),
     defKeywords: (d.defKeywords || []).filter(Boolean),
     apply: (d.applicationKeywords || []).filter(Boolean),
     plus: (d.plusKeywords || []).filter(Boolean),

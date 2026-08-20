@@ -27,6 +27,8 @@ type LegacyCard = {
   /** 답안지 템플릿용(예전 토픽) — 특징 3개·검증된 개념도·활용/플러스 키워드 */
   features?: string[];
   conceptMap?: string;
+  /** 도식 이름 — 클래스다이어그램·절차 등. 없으면 "개념도" */
+  conceptMapLabel?: string;
   defKeywords?: string[];
   apply?: string[];
   plus?: string[];
@@ -668,15 +670,17 @@ function ExplainInner() {
                 return (
                   <div className="mt-4">
                     <p className="text-[13px] font-bold leading-relaxed text-slate-800">
-                      2. {legacy.title.replace(/\s*\([^)]*\)/g, "")}의 개념도 및 구성요소
+                      2. {legacy.title.replace(/\s*\([^)]*\)/g, "")}의{" "}
+                      {legacy.conceptMapLabel || "개념도"} 및 구성요소
                     </p>
                     {legacy.conceptMap && (
                       <div className="mt-1 pl-4">
                         <p className="text-[13px] leading-relaxed text-slate-600">
                           <span className="mr-1 font-bold text-slate-500">
-                            {letter()}. 개념도
+                            {letter()}. {legacy.conceptMapLabel || "개념도"}
                           </span>
-                          이 개념도를 답안지 6줄 내로 옮겨 그린다
+                          이 {legacy.conceptMapLabel || "개념도"}를 답안지 6줄 내로
+                          옮겨 그린다
                         </p>
                         <div className="mt-2 overflow-x-auto rounded-lg border border-slate-200 bg-white p-2">
                           <Mermaid chart={legacy.conceptMap} />
