@@ -89,7 +89,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "sec-294": {
     lead: "AI를 속이는 공격과 방어, 딥러닝 취약점",
-    defShort: "적대적 교란으로 DNN 오분류를 유발하는 중독·회피·추출 공격과 방어 체계",
+    defShort: "적대적 교란으로 DNN 오분류를 유발하는 중독·회피·추출 공격과 방어 기법 체계",
     features: ["적대적 예제", "중독·회피", "모델 추출"],
   },
   "sec-302": {
@@ -184,7 +184,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "sec-91": {
     lead: "유사도 기반 경험적 탐지, 휴리스틱 탐지기법",
-    defShort: "악성코드 특징을 프로파일링해 유사도로 신종·변종까지 탐지하는 경험적 기법",
+    defShort: "악성코드 특징을 프로파일링해 유사도 비교로 신종·변종까지 탐지하는 경험적 기법",
     features: ["유사도 비교", "미지 위협 탐지", "오탐 존재"],
   },
   "sec-92": {
@@ -329,7 +329,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "dst-19": {
     lead: "공간 검색의 인덱스, R-tree",
-    defShort: "공간 객체를 최소 경계 사각형으로 감싸 계층 인덱싱해 공간 질의를 가속하는 트리",
+    defShort: "공간 객체를 최소 경계 사각형으로 감싸 계층 인덱싱해 공간 질의를 가속하는 균형 트리",
     features: ["MBR", "겹침 가지치기", "N차원 질의"],
   },
   "dst-8": {
@@ -384,7 +384,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "os-65": {
     lead: "동시 인터럽트의 중재, 인터럽트 우선순위 체계",
-    defShort: "동시 발생한 인터럽트의 처리 순서를 SW 폴링과 데이지 체인으로 판별하는 체계",
+    defShort: "동시 발생한 인터럽트의 처리 순서를 SW 폴링과 HW 데이지 체인으로 판별하는 체계",
     features: ["폴링", "데이지 체인", "병렬 우선순위"],
   },
   "os-76": {
