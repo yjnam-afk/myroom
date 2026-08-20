@@ -1064,5 +1064,3 @@ export const G: Record<string, EasyGuide> = {
     ],
     exam: "Network ACL은 VPC 서브넷 단위로 유입·유출 트래픽을 규칙 번호 순서에 따라 허용·거부하는 상태 비저장 가상 방화벽으로, Deny 지정이 가능해 경계 계층 통제에 활용된다.",
   },
-  "sec-390": {
-    hook: "업로드한 악성 스크립트를 브
