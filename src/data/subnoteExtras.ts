@@ -2167,9 +2167,63 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
 "nw-net-neutrality": { image: "/concept/book/nw-net-neutrality.png", easy: "ISP(통신사)가 어떤 트래픽이든 내용·유형·단말기를 따지지 말고 똑같이 취급해야 한다는 원칙입니다. 넷플릭스 트래픽이 많다고 일부러 느리게 하거나 돈을 더 받고 빠르게 해주면 안 된다는 얘기입니다. 3대 원칙은 '무엇을 금지하는가'로 묶으면 외워집니다 — 비차별성 확립(트래픽 이용 차별 금지: CP·이용자 등급 차등 금지, 이용자 권리 보호, 단대단 선택권), 상호접속 허용(일방적 접근 차단 금지: 서비스 이용 보장, 컨텐츠 차단 금지, 합법적 트래픽 관리), 접근성 제공(자유로운 이용 허용: 정책 투명성, 디바이스 접근 보장). 국내 망 중립성 가이드라인('21.1.11)의 조문 4개도 함께 봐두세요: 투명성(제4조), 차단금지(제5조), 불합리한 차별 금지(제6조), 합리적인 트래픽 관리(제7조). 마지막 제7조가 예외 조항인데, 망 보안·안정성 확보나 일시적 혼잡 해소, 법령상 필요한 경우엔 통신사가 트래픽을 관리할 수 있습니다." },
 "nw-ibn": { image: "/concept/book/nw-ibn.png", easy: "지금까지는 관리자가 '이 포트를 열어라, 이 경로로 보내라' 하고 장비마다 명령을 넣었다면, IBN은 '영업팀 화상회의는 끊기지 않게 해줘' 같은 의도(Intent)만 말하면 AI가 알아서 유·무선망 설정을 잡아주는 기술입니다. 핵심은 폐쇄 루프(Closed-Loop Intent Control) 순환입니다: 의도 입력 → Translation/Optimization이 High-level Policy로 번역 → Activation/Configuration이 Low-level Policy로 장비에 적용 → Infrastructure 동작 → Monitoring 데이터 수집 → Assurance가 의도대로 됐는지 검증 → Feedback으로 다시 번역 단계로 돌아감. 요건 4개(변환과 검증 / 자동 수행 / 상황 인식 / 동적인 최적화)가 이 루프의 각 구간과 그대로 대응합니다. 요즘은 의도 번역 단계에 LLM이 들어가 음성·텍스트 의도를 컴퓨터 스크립트로 바꿉니다. 앞서 본 '네트워크 지능'과 같은 폐쇄형 반복 제어 구조라는 점을 엮어두면 답안에서 쓸 데가 많습니다." },
 "nw-sdr": { image: "/concept/book/nw-sdr.png", easy: "SDR은 무선 특성(주파수 범위, 변조 방식, 무선 출력)을 소프트웨어로 바꿀 수 있게 만든 기술입니다. 예전 단말기는 이 특성이 하드웨어 칩에 박혀 있어 규격이 바뀌면 기기를 새로 사야 했습니다 — 소프트웨어만 업데이트하면 다른 통신 규격을 쓰는 단말이 됩니다. 개념도 비교가 핵심입니다: 기존 단말기는 기저대역부가 BBA(ADC/DAC) → MSM → CODEC 으로 하드웨어 블록이 줄줄이 나뉘어 있는데, SDR 단말기는 안테나에서 받은 신호를 ADC로 바로 디지털화한 뒤 그 블록 전체를 SDR 소프트웨어 하나가 처리합니다. 그래서 앞단 RF는 광대역 처리가 필요해집니다. 기술 요소는 4갈래 — 소자(A/D·D/A, 광대역 RF, Digital IF, FPGA/DSP), 소프트웨어(SCA 구조, 미들웨어, RTOS, XML/UML 기술언어), 통신(핸드오버, OTA 다운로드, 보안·인증), 시스템(HW/SW 플랫폼, 스마트 안테나)." },
-"nw-sdwan": { image: "/concept/book/nw-sdwan.png", easy: "SDN이 데이터센터·사옥 안(LAN)에서 제어와 전송을 분리한 기술이라면, SD-WAN은 그 방식을 지사와 본사를 잇는 WAN 구간으로 끌고 나온 것입니다. 기존에는 비싼 MPLS 전용회선 하나에 의존했는데, SD-WAN은 MPLS와 일반 인터넷 회선을 동시에 묶어놓고 소프트웨어가 상황에 맞춰 골라 씁니다. 장비는 둘 — SD-WAN Controller(중앙에서 정책·QoS 설정, 토폴로지 관리, 성능 보고)와 각 지점의 SD-WAN CPE(=SD-WAN Edge, 오버레이 터널을 만들고 방화벽·암호화·WAN 최적화 수행). 시험에 나오는 건 트래픽 제어 5종입니다: Dynamic Path Switching(경로 성능이 나빠지면 다른 경로로 갈아탐), Packet Duplication(중요 패킷은 여러 경로로 중복 전송해 유실 대비), Link Aggregation(여러 물리 회선을 논리적 하나로 묶어 대역폭 확장), Network Segmentation(VLAN으로 논리 분리, 세그먼트 간 통신은 방화벽 경유), Traffic Steering(애플리케이션별로 경로를 따로 지정)." },
-"nw-openflow": { image: "/concept/book/nw-openflow.png", easy: "SDN이 '제어와 전송을 분리하자'는 개념이라면, 오픈플로우는 그 둘을 실제로 잇는 표준 인터페이스 규격입니다 — 즉 SDN 컨트롤러가 스위치에게 명령을 내리는 공용 언어입니다. 스위치 쪽 3대 구성요소: OpenFlow Channel(컨트롤러↔스위치 관리 인터페이스), Flow Table(패킷 처리 규칙 모음), Group Table(여러 동작을 묶은 실행 집합). Flow Table이 핵심인데, 각 Flow entry는 match fields(어떤 패킷에 해당하나) + counters(통계) + instructions(맞으면 뭘 하나) 세 조각으로 되어 있고, 테이블 여러 개를 차례로 거치는 파이프라인(Pipelining)으로 처리합니다. 프로토콜 메시지 3종도 방향으로 외우면 쉽습니다 — Controller-to-Switch(컨트롤러가 시작, 상태 확인·제어), Asynchronous(스위치가 시작, 상태 변경 보고), Symmetric(양쪽 다 시작 가능, 요청 없이 전송)." },
-"nw-iot-matter": { image: "/concept/book/nw-iot-matter.png", easy: "스마트홈 기기가 제조사마다 규격이 달라 서로 연동이 안 되던 문제를 풀려고 CSA(Connectivity Standards Alliance)가 만든 IoT 통합 표준입니다. 핵심 아이디어는 'IP 기반 응용계층 표준' — 아래쪽 무선 방식은 각자 쓰던 걸 그대로 두고, 위에 IP(IPv6)와 공통 응용 계층(Matter)을 얹어 통일합니다. 스택을 아래에서 위로 읽으면: Radio는 802.11(Wi-Fi)과 802.15.4(Thread) 두 갈래, 그 위 Network는 IPv6로 합쳐지고, Transport는 TCP/IP(신뢰성)와 UDP(대량 전송), 맨 위가 Matter입니다. BLE는 옆으로 빠진 별도 스택인데 통신용이 아니라 기기 최초 등록(provisioning) 전용입니다. Wi-Fi와 Thread를 나눠 쓰는 이유가 시험 포인트 — Wi-Fi는 동영상 같은 고속 통신용, Thread는 메쉬로 SPOF를 막고(최대 64개 라우터) 배터리로 도는 저전력 기기용입니다." },
+"nw-sdwan": {
+    guide: {
+      hook: "SDN 원리를 WAN에 적용해 '여러 회선을 소프트웨어로 지능 관리'하는 기술입니다.",
+      scene: "지사들이 값비싼 전용선(MPLS)에만 의존하던 것을, SD-WAN은 인터넷·LTE·MPLS 여러 회선을 함께 쥐고 트래픽을 애플리케이션별로 최적 경로에 자동 배분합니다. 클라우드 접속도 가깝게 최적화합니다.",
+      why: "'MPLS 종속 탈피·앱 인지 라우팅'이라는 이점과 중앙 정책 제어가 출제 핵심입니다. SASE로의 확장이 포인트입니다.",
+      mechanism: "SDN 원리(제어-데이터 분리)를 WAN에. 특징: 다중 회선 통합·본딩, 애플리케이션 인지 라우팅(중요 앱은 좋은 회선으로), 중앙 오케스트레이터로 정책 일괄 배포(Zero-touch 프로비저닝), 동적 경로 선택(회선 품질 실시간 반영), 암호화 터널(오버레이). 이점: 비용↓·클라우드 최적화·민첩성. 보안 결합 시 SASE로 확장.",
+      map: [
+        { as: "여러 회선 함께 쥐기", real: "다중 회선 통합", note: "MPLS 탈피" },
+        { as: "앱별 최적 경로", real: "애플리케이션 인지 라우팅", note: "핵심" },
+        { as: "중앙에서 정책 배포", real: "오케스트레이터", note: "Zero-touch" },
+        { as: "보안 결합 확장", real: "SASE", note: "" },
+      ],
+      usage: "기업 WAN·지사 연결·클라우드 접속입니다. 시험은 MPLS 대비 이점, 앱 인지 라우팅, SASE와의 관계입니다.",
+      links: [
+        { topic: "SDN(Software Defined Network)", how: "SD-WAN은 SDN의 WAN 응용입니다." },
+        { topic: "SASE(Secure Access Service Edge)", how: "SD-WAN에 보안을 결합한 확장입니다." },
+      ],
+      exam: "SD-WAN은 SDN 원리를 WAN에 적용해 인터넷·MPLS 등 다중 회선을 애플리케이션 인지 라우팅으로 최적 배분하고 중앙에서 정책을 제어하며, 보안 결합 시 SASE로 확장된다.",
+    }, image: "/concept/book/nw-sdwan.png", easy: "SDN이 데이터센터·사옥 안(LAN)에서 제어와 전송을 분리한 기술이라면, SD-WAN은 그 방식을 지사와 본사를 잇는 WAN 구간으로 끌고 나온 것입니다. 기존에는 비싼 MPLS 전용회선 하나에 의존했는데, SD-WAN은 MPLS와 일반 인터넷 회선을 동시에 묶어놓고 소프트웨어가 상황에 맞춰 골라 씁니다. 장비는 둘 — SD-WAN Controller(중앙에서 정책·QoS 설정, 토폴로지 관리, 성능 보고)와 각 지점의 SD-WAN CPE(=SD-WAN Edge, 오버레이 터널을 만들고 방화벽·암호화·WAN 최적화 수행). 시험에 나오는 건 트래픽 제어 5종입니다: Dynamic Path Switching(경로 성능이 나빠지면 다른 경로로 갈아탐), Packet Duplication(중요 패킷은 여러 경로로 중복 전송해 유실 대비), Link Aggregation(여러 물리 회선을 논리적 하나로 묶어 대역폭 확장), Network Segmentation(VLAN으로 논리 분리, 세그먼트 간 통신은 방화벽 경유), Traffic Steering(애플리케이션별로 경로를 따로 지정)." },
+"nw-openflow": {
+    guide: {
+      hook: "SDN 컨트롤러가 '스위치의 전달 규칙(플로우)을 직접 설치'하는 사우스바운드 프로토콜입니다.",
+      scene: "SDN에서 중앙 두뇌(컨트롤러)가 각 스위치에게 '이런 패킷은 저리로 보내라'는 규칙표(플로우 테이블)를 내려 줍니다. 오픈플로우는 그 명령을 전달하는 표준 규약으로, SDN을 실제로 동작하게 하는 핵심입니다.",
+      why: "'SDN 제어-데이터 평면 간 표준 인터페이스'라는 위치와 플로우 테이블(매치-액션) 구조가 출제 핵심입니다.",
+      mechanism: "구조: 스위치의 플로우 테이블 = 여러 플로우 엔트리(Match 필드 + Action + Counter). 패킷 도착 → 플로우 테이블 매칭 → 일치 액션(전달·드롭·수정·컨트롤러로 전송) 수행 → 미일치면 컨트롤러에 문의(Packet-In) → 컨트롤러가 규칙 설치(Flow-Mod). 파이프라인(다중 테이블)·그룹 테이블 지원. 컨트롤러가 망 전체 플로우를 프로그래밍.",
+      map: [
+        { as: "패킷 처리 규칙표", real: "플로우 테이블", note: "" },
+        { as: "조건+동작", real: "Match-Action 엔트리", note: "핵심 구조" },
+        { as: "모르면 두뇌에 문의", real: "Packet-In", note: "" },
+        { as: "규칙 설치", real: "Flow-Mod", note: "컨트롤러→스위치" },
+      ],
+      usage: "SDN 구현의 표준 프로토콜입니다. 시험은 SDN 사우스바운드 위치, 플로우 테이블(Match-Action), Packet-In/Flow-Mod입니다.",
+      links: [
+        { topic: "SDN(Software Defined Network)", how: "오픈플로우가 SDN의 제어-데이터 인터페이스입니다." },
+        { topic: "SD-WAN(Software Defined-Wide Area Network)", how: "SDN 원리의 WAN 응용입니다." },
+      ],
+      exam: "오픈플로우는 SDN 컨트롤러가 스위치의 플로우 테이블(Match-Action)을 제어하는 사우스바운드 프로토콜로, Packet-In으로 문의하고 Flow-Mod로 규칙을 설치한다.",
+    }, image: "/concept/book/nw-openflow.png", easy: "SDN이 '제어와 전송을 분리하자'는 개념이라면, 오픈플로우는 그 둘을 실제로 잇는 표준 인터페이스 규격입니다 — 즉 SDN 컨트롤러가 스위치에게 명령을 내리는 공용 언어입니다. 스위치 쪽 3대 구성요소: OpenFlow Channel(컨트롤러↔스위치 관리 인터페이스), Flow Table(패킷 처리 규칙 모음), Group Table(여러 동작을 묶은 실행 집합). Flow Table이 핵심인데, 각 Flow entry는 match fields(어떤 패킷에 해당하나) + counters(통계) + instructions(맞으면 뭘 하나) 세 조각으로 되어 있고, 테이블 여러 개를 차례로 거치는 파이프라인(Pipelining)으로 처리합니다. 프로토콜 메시지 3종도 방향으로 외우면 쉽습니다 — Controller-to-Switch(컨트롤러가 시작, 상태 확인·제어), Asynchronous(스위치가 시작, 상태 변경 보고), Symmetric(양쪽 다 시작 가능, 요청 없이 전송)." },
+"nw-iot-matter": {
+    guide: {
+      hook: "브랜드가 달라도 '스마트홈 기기가 서로 통하게' 하는 IoT 통합 표준입니다.",
+      scene: "예전엔 애플·구글·아마존 생태계가 갈려 기기 호환이 안 됐습니다. Matter는 이들이 함께 만든 공통 표준으로, 어느 앱·허브에서도 인증받은 스마트홈 기기를 제어할 수 있게 합니다.",
+      why: "'생태계 파편화 해소·상호운용'이라는 목적과 기반 기술(IP·Thread)이 출제 포인트입니다. CSA 표준·멀티 어드민이 핵심입니다.",
+      mechanism: "CSA(Connectivity Standards Alliance) 표준. 특징: IP 기반(모든 기기가 IP로 통신), 전송으로 Wi-Fi·Ethernet·Thread(저전력 메시) 사용, BLE로 초기 커미셔닝. 멀티 어드민(한 기기를 여러 생태계에서 동시 제어), 로컬 제어(클라우드 없이도 동작), 보안(인증·암호화). 애플 HomeKit·구글·아마존·삼성 지원. Thread 메시로 저전력 기기 확장.",
+      map: [
+        { as: "브랜드 달라도 호환", real: "상호운용 표준", note: "파편화 해소" },
+        { as: "모두 IP로 통신", real: "IP 기반", note: "" },
+        { as: "저전력 메시", real: "Thread", note: "전송" },
+        { as: "여러 생태계 동시 제어", real: "멀티 어드민", note: "" },
+      ],
+      usage: "스마트홈 기기 통합입니다. 시험은 상호운용 목적, IP·Thread 기반, 멀티 어드민입니다.",
+      links: [
+        { topic: "Passive WiFi", how: "저전력 IoT 통신 축을 공유합니다." },
+        { topic: "IoT Matter", how: "동일 주제 서브노트입니다." },
+      ],
+      exam: "Matter는 CSA의 IP 기반 스마트홈 통합 표준으로 Wi-Fi·Thread를 전송으로 쓰며, 멀티 어드민·로컬 제어로 생태계 파편화를 해소해 브랜드 간 상호운용을 보장한다.",
+    }, image: "/concept/book/nw-iot-matter.png", easy: "스마트홈 기기가 제조사마다 규격이 달라 서로 연동이 안 되던 문제를 풀려고 CSA(Connectivity Standards Alliance)가 만든 IoT 통합 표준입니다. 핵심 아이디어는 'IP 기반 응용계층 표준' — 아래쪽 무선 방식은 각자 쓰던 걸 그대로 두고, 위에 IP(IPv6)와 공통 응용 계층(Matter)을 얹어 통일합니다. 스택을 아래에서 위로 읽으면: Radio는 802.11(Wi-Fi)과 802.15.4(Thread) 두 갈래, 그 위 Network는 IPv6로 합쳐지고, Transport는 TCP/IP(신뢰성)와 UDP(대량 전송), 맨 위가 Matter입니다. BLE는 옆으로 빠진 별도 스택인데 통신용이 아니라 기기 최초 등록(provisioning) 전용입니다. Wi-Fi와 Thread를 나눠 쓰는 이유가 시험 포인트 — Wi-Fi는 동영상 같은 고속 통신용, Thread는 메쉬로 SPOF를 막고(최대 64개 라우터) 배터리로 도는 저전력 기기용입니다." },
 // ── 5주차 데이터베이스(DB) ──
 "db-transaction": {
     guide: {
@@ -5319,13 +5373,139 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
       ],
       exam: "네트워크 지능은 데이터 수집·AI 분석·자동 제어의 폐루프로 망을 스스로 최적화하는 자율화로, SON에서 IBN·완전 자율 네트워크(레벨 0~5)로 진화한다.",
     }, image: "/concept/book/nw-network-intelligence.png", easy: "사람이 손으로 하던 네트워크 운용·관리를 AI가 스스로 판단해 완전 자동으로 돌리는 네트워크입니다. 핵심 엔진은 폐쇄형 반복 제어(Closed-loop control) — 데이터 자동 수집 → AI 분석 → 자율 의사결정 → 피드백을 계속 돌려 네트워크가 알아서 최적 상태를 유지합니다. 이게 가능하려면 밑판이 있어야 하는데, SDN/NFV가 소프트웨어로 제어할 수 있는 유연한 구조를 깔아주고, 클라우드·엣지 가상화가 AI 플랫폼을 집중형/분산형으로 배치할 하드웨어를 제공하고, 인공지능/머신러닝과 빅데이터 분석이 실제 판단을 합니다. 결정된 정책을 물리·가상 자원에 실제로 꽂아넣는 건 OAM/MANO의 몫입니다. 쓰이는 곳: 데이터센터 트래픽 조정, 무선 커버리지 최적화, 지능형 슬라이싱·SD-WAN 관리, 장애 예측." },
-"nw-6g": { image: "/concept/book/nw-6g.png", easy: "5G 다음 세대로, 최대 1Tbps(5G의 50배)·체감 1Gbps(10배)를 목표로 합니다. 비전 6개를 '초'자 돌림으로 외우면 편합니다 — 초성능(1Tbps), 초대역(100GHz 이상, 대역폭 수십GHz), 초현실(실시간 홀로그램), 초지능(기계학습을 통신 시스템에 내장), 초정밀(무선 구간 지연 0.1ms), 초공간(시속 1000km·고도 10km까지 커버). 지원 기술도 짝을 이룹니다: 테라헤르츠(0.1~10THz) 대역은 경로 손실이 심해서 빔포밍·신규 안테나가 필수고, 통신-컴퓨팅 융합은 무거운 연산을 네트워크가 대신 해주며, 네이티브 AI는 처음부터 AI를 내장하고, 주파수 공유(CBRS)와 5G Massive MIMO를 넘는 안테나 기술이 뒷받침합니다. 시험 포인트는 5G 대비 배수(속도 50배, 대역폭 10배, 지연 1/10, 단말밀도 km²→km³)." },
-"nw-digital-twin-network": { image: "/concept/book/nw-digital-twin-network.png", easy: "실제 물리 네트워크를 그대로 복제한 '가상 쌍둥이'를 만들어 놓고, 거기서 설계·진단·분석·최적화를 먼저 돌려본 뒤 실제 망에 적용하는 6G용 네트워크입니다. 시뮬레이션과 헷갈리기 쉬운데 결정적 차이는 매핑(mapping) — 물리망과 가상망이 실시간으로 양방향 연동된다는 점입니다(시뮬레이션은 한 번 만들어놓고 끝). 특징 4개: 데이터(통합 저장소에 수집), 매핑(실시간 인터랙티브), 모델(다양한 모델 내장·유연 결합), 인터페이스(물리↔가상 연결 + 애플리케이션 연결). 아키텍처는 3계층으로, 위에서부터 Network Application(설계·검증·관리·최적화) → Digital Twin(데이터/모델/관리 3개 도메인) → Physical Network이고, 위에서 인텐트를 내리면 트윈이 에뮬레이트한 뒤 제어 메시지를 물리 계층에 전송합니다." },
-"nw-ntn": { image: "/concept/book/nw-ntn.png", easy: "기지국을 세울 수 없는 곳 — 바다, 산간, 오지, 항공, 재난 지역 — 에 위성·성층권 비행체·드론을 띄워 5G를 제공하는 기술입니다. 고도별로 GEO(정지궤도) / MEO / LEO(저궤도) 위성, 성층권의 HAPS(고고도 플랫폼), 저고도의 드론(UAV)이 층을 이룹니다. 링크 이름을 구분하는 게 시험 포인트입니다: 서비스 링크는 단말↔위성(3GPP NR 기반), 피더 링크는 위성↔지상 게이트웨이, 위성 간 링크(ISL)는 위성끼리. 위성 방식도 두 가지 — Transparent는 신호를 그냥 중계만 하고, Regenerative는 위성이 직접 복조·재생해서 보냅니다. 기술요소는 전송(빔포밍, MIMO), 네트워크 제어(자원 할당), 보안(인증·암호화), 위치 추적입니다." },
-"nw-wifi7": { image: "/concept/book/nw-wifi7.png", easy: "Wi-Fi 6보다 3배 빠른 30Gbps급 무선랜 표준으로, 정식 명칭은 IEEE 802.11be, 별칭은 EHT(Extremely High Throughput)입니다. 속도가 3배가 된 이유를 세 갈래로 보면 됩니다: 대역폭이 160MHz → 320MHz로 2배, 안테나가 MU-MIMO 8×8 → 16×16으로 2배, 변조가 1024QAM → 4096QAM(12bit 반송파 변조)로 20% 향상. 여기에 6GHz 비면허 대역이 추가돼 쓸 수 있는 주파수가 넓어졌습니다(2.4/5/6GHz). 나머지 기술요소도 짝이 있습니다 — MAC 쪽은 AP 간 다중협력통신(AP끼리 데이터·제어 정보를 공유), 하이브리드 ARQ(추가 패리티로 재전송 효율 개선), In-Band Full-Duplex(송·수신 동시)이고, PHY 쪽은 혼합 빔포밍(320MHz 광대역을 협대역 여러 개로 나눠 프리코딩)입니다." },
-"nw-wifi8": { image: "/concept/book/nw-wifi8.png", easy: "2028년 예정인 IEEE 802.11bn으로, Wi-Fi 7과 결정적으로 다른 점은 '더 빠르게'가 아니라 '더 안정적으로'입니다 — 핵심 목표가 UHR(Ultra High Reliability, 극도로 높은 신뢰성)이고 대역폭(320MHz)·변조(4096QAM)·공간 스트림(8)은 Wi-Fi 7과 같습니다. 그래서 새로 붙은 기능들이 전부 혼잡·간섭 대응입니다: 멀티 AP 협력(AP끼리 협조), DSO(동적 스펙트럼 최적화)/NPCA(네트워크 성능 및 혼잡 방지), dRU(동적 자원 유닛), 협조적 대상 대기 시간. 버전별 비교표는 시험에 그대로 나올 수 있으니 흐름만 잡아두세요 — 대역폭 40→160→160→320→320, 변조 64→256→1024→4096→4096QAM, MU-MIMO는 Wi-Fi 5부터(DL only) Wi-Fi 6부터 UL&DL, 멀티링크는 Wi-Fi 7부터." },
-"nw-passive-wifi": { image: "/concept/book/nw-passive-wifi.png", easy: "Passive WiFi는 전력을 많이 쓰는 RF 송신부를 별도 장치(Plugged-In Device)로 떼어 두고, 센서 쪽 기기(Passive Device)는 그 신호를 반사만 해서 정보를 실어 보내는 초저전력 무선 기술입니다. Wi-Fi 전력의 범인이 디지털부(무어의 법칙 덕에 10μW)가 아니라 아날로그 RF부(여전히 100mW)라는 데서 출발한 발상입니다. 이 반사가 후방산란(backscatter) — 전파가 들어온 방향의 반대인 입사단으로 되돌아오는 현상입니다. 신호를 생성하지 않으니 전력 소모가 거의 없어 초저전력 IoT에 딱 맞습니다. 송신 측 기술은 RF Transfer(Up/Down 컨버터), RF Calibration(안테나 간 진폭·위상 보정), MAC(주소·채널 설정)이고, 수신은 Passive Device와 스마트기기인 Wi-Fi Receiver입니다." },
-"nw-sdn": { image: "/concept/book/nw-sdn.png", easy: "기존 스위치는 '어디로 보낼지 결정하는 두뇌(Control Plane — 라우팅, QoS, 정책)'와 '실제로 패킷을 밀어내는 손발(Data Plane — Forwarding)'이 한 장비 안에 붙어 있어서, 정책을 바꾸려면 장비를 하나하나 만져야 했습니다. SDN은 이 둘을 분리해 두뇌를 Controller로 중앙집중화하고, 스위치는 단순 포워딩만 하게 만듭니다. 그 사이를 잇는 개방형 프로토콜이 OpenFlow입니다. 구성 요소 4개: Application(Network OS 위에서 사용자 서비스 제공), Interface(OpenFlow — Control↔Data Plane 연계), Control Plane(ACL·라우팅·인증을 중앙집중 구현), Data Plane(Forward Engine — 단순 패킷 포워딩). 계층으로 보면 APPLICATION LAYER ─API─ CONTROL LAYER(SDN Control Software) ─OpenFlow─ INFRASTRUCTURE LAYER(Network Device)입니다." },
+"nw-6g": {
+    guide: {
+      hook: "5G 다음 세대 — '테라헤르츠·AI 네이티브·지상+위성 통합'을 지향하는 차세대 이동통신입니다.",
+      scene: "5G가 사람·사물을 잇는다면, 6G는 초당 테라비트급 속도와 마이크로초급 지연으로 홀로그램·디지털 트윈·완전 자율을 지원하고, 지상망과 위성망을 하나로 묶어 어디서나 연결을 목표로 합니다(2030년경).",
+      why: "6G 비전(성능 목표·핵심 기술)과 5G 대비 진화가 출제 포인트입니다. 특히 AI 네이티브·NTN·테라헤르츠가 핵심입니다.",
+      mechanism: "성능 목표: Tbps급 속도(5G의 ~50배), 0.1ms 지연, 초고밀도 연결. 핵심 기술: 테라헤르츠(THz) 대역, AI 네이티브(설계부터 AI 내장), 지상-비지상 통합(NTN — 위성·HAPS), 리컨피규러블 인텔리전트 서피스(RIS — 전파 반사 제어), 센싱-통신 융합(JCAS), 초정밀 측위. 응용: 홀로그램·XR·디지털 트윈·완전 자율.",
+      map: [
+        { as: "5G의 수십 배 속도", real: "Tbps·0.1ms", note: "성능 목표" },
+        { as: "설계부터 AI", real: "AI 네이티브", note: "" },
+        { as: "지상+위성 통합", real: "NTN 통합", note: "어디서나 연결" },
+        { as: "전파 반사 제어", real: "RIS", note: "핵심 기술" },
+      ],
+      usage: "차세대 통신 연구·표준화 이슈입니다. 시험은 6G 성능 목표, 핵심 기술, 5G 대비 진화입니다.",
+      links: [
+        { topic: "비지상네트워크(NTN, Non-Terrestrial Networks)", how: "6G의 지상-위성 통합 요소입니다." },
+        { topic: "네트워크 지능", how: "6G의 AI 네이티브와 연결됩니다." },
+      ],
+      exam: "6G는 Tbps 속도·0.1ms 지연을 목표로 테라헤르츠·AI 네이티브·지상-비지상 통합(NTN)·RIS·센싱 융합을 핵심 기술로 하는 차세대 이동통신이다.",
+    }, image: "/concept/book/nw-6g.png", easy: "5G 다음 세대로, 최대 1Tbps(5G의 50배)·체감 1Gbps(10배)를 목표로 합니다. 비전 6개를 '초'자 돌림으로 외우면 편합니다 — 초성능(1Tbps), 초대역(100GHz 이상, 대역폭 수십GHz), 초현실(실시간 홀로그램), 초지능(기계학습을 통신 시스템에 내장), 초정밀(무선 구간 지연 0.1ms), 초공간(시속 1000km·고도 10km까지 커버). 지원 기술도 짝을 이룹니다: 테라헤르츠(0.1~10THz) 대역은 경로 손실이 심해서 빔포밍·신규 안테나가 필수고, 통신-컴퓨팅 융합은 무거운 연산을 네트워크가 대신 해주며, 네이티브 AI는 처음부터 AI를 내장하고, 주파수 공유(CBRS)와 5G Massive MIMO를 넘는 안테나 기술이 뒷받침합니다. 시험 포인트는 5G 대비 배수(속도 50배, 대역폭 10배, 지연 1/10, 단말밀도 km²→km³)." },
+"nw-digital-twin-network": {
+    guide: {
+      hook: "실제 네트워크의 '가상 쌍둥이'를 만들어 시뮬레이션·예측·자동 제어에 쓰는 기술입니다.",
+      scene: "실제 망에서 설정을 바꿔 보면 위험하니, 똑같은 가상 망(디지털 트윈)에서 먼저 실험합니다. 변경 영향·장애 시나리오를 안전하게 예측하고, 최적 설정을 찾아 실제 망에 반영합니다.",
+      why: "'가상 실험·예측을 통한 네트워크 자율화 도구'라는 위치가 핵심입니다. 실시간 동기화·What-if 분석이 출제 포인트입니다.",
+      mechanism: "구성: 물리 네트워크의 실시간 데이터를 수집해 가상 모델과 동기화 → 가상에서 What-if 시뮬레이션(구성 변경·장애·트래픽 변동 예측) → AI로 최적안 도출 → 물리 망에 적용(폐루프). 활용: 사전 검증(변경 리스크↓), 장애 예측·근본원인, 용량 계획, 자율 최적화. 네트워크 지능·6G의 핵심 도구.",
+      map: [
+        { as: "망의 가상 쌍둥이", real: "디지털 트윈 네트워크", note: "" },
+        { as: "실시간 동기화", real: "물리-가상 동기", note: "" },
+        { as: "먼저 실험해 보기", real: "What-if 시뮬레이션", note: "핵심 이점" },
+        { as: "검증 후 실제 반영", real: "폐루프 최적화", note: "" },
+      ],
+      usage: "네트워크 자율화·사전 검증 도구입니다. 시험은 실시간 동기화, What-if 분석, 네트워크 지능과의 관계입니다.",
+      links: [
+        { topic: "네트워크 지능", how: "디지털 트윈이 자율 최적화의 시뮬레이션 도구입니다." },
+        { topic: "6G", how: "6G의 핵심 운영 기술입니다." },
+      ],
+      exam: "디지털 트윈 네트워크는 실제 망을 실시간 동기화한 가상 모델로 What-if 시뮬레이션·예측을 수행해 최적안을 물리 망에 반영하는 네트워크 자율화 도구다.",
+    }, image: "/concept/book/nw-digital-twin-network.png", easy: "실제 물리 네트워크를 그대로 복제한 '가상 쌍둥이'를 만들어 놓고, 거기서 설계·진단·분석·최적화를 먼저 돌려본 뒤 실제 망에 적용하는 6G용 네트워크입니다. 시뮬레이션과 헷갈리기 쉬운데 결정적 차이는 매핑(mapping) — 물리망과 가상망이 실시간으로 양방향 연동된다는 점입니다(시뮬레이션은 한 번 만들어놓고 끝). 특징 4개: 데이터(통합 저장소에 수집), 매핑(실시간 인터랙티브), 모델(다양한 모델 내장·유연 결합), 인터페이스(물리↔가상 연결 + 애플리케이션 연결). 아키텍처는 3계층으로, 위에서부터 Network Application(설계·검증·관리·최적화) → Digital Twin(데이터/모델/관리 3개 도메인) → Physical Network이고, 위에서 인텐트를 내리면 트윈이 에뮬레이트한 뒤 제어 메시지를 물리 계층에 전송합니다." },
+"nw-ntn": {
+    guide: {
+      hook: "위성·고고도 플랫폼으로 '하늘에서 통신을 제공'하는 비지상 네트워크입니다.",
+      scene: "지상 기지국이 닿지 않는 바다·산악·재난 지역을, 저궤도 위성(스타링크 등)이나 성층권 무인기(HAPS)로 커버합니다. 6G는 이 하늘 망을 지상망과 하나로 통합해 진정한 전지구 연결을 목표로 합니다.",
+      why: "'지상망 한계 보완·전지구 커버리지'와 구성(LEO·GEO·HAPS)이 출제 핵심입니다. 3GPP NTN 표준화와 5G/6G 통합이 포인트입니다.",
+      mechanism: "구성: LEO(저궤도 위성 — 저지연·다수 위성 군집, 스타링크), MEO/GEO(중·정지궤도 — 광역·고지연), HAPS(성층권 무인기·기구 — 준정지 커버), UAV. 3GPP가 5G NR로 위성 접속 표준화(NTN). 과제: 큰 전파 지연·도플러(고속 이동)·핸드오버 빈발·전력. 활용: 오지·해상·항공·재난·IoT 백홀.",
+      map: [
+        { as: "저궤도 위성 군집", real: "LEO", note: "저지연" },
+        { as: "성층권 무인기", real: "HAPS", note: "준정지" },
+        { as: "지상 안 닿는 곳", real: "커버리지 보완", note: "핵심" },
+        { as: "지상+위성 하나로", real: "5G/6G NTN 통합", note: "" },
+      ],
+      usage: "오지·재난·해상 통신, 6G 통합입니다. 시험은 LEO/GEO/HAPS 구성, NTN 과제, 6G 통합입니다.",
+      links: [
+        { topic: "6G", how: "6G의 지상-비지상 통합 핵심입니다." },
+        { topic: "네트워크 슬라이싱", how: "위성 자원도 슬라이스로 관리합니다." },
+      ],
+      exam: "NTN은 LEO·GEO 위성과 HAPS로 지상망이 닿지 않는 지역까지 커버하는 비지상 네트워크로, 3GPP NTN 표준화로 5G/6G와 통합되며 전파 지연·핸드오버가 과제다.",
+    }, image: "/concept/book/nw-ntn.png", easy: "기지국을 세울 수 없는 곳 — 바다, 산간, 오지, 항공, 재난 지역 — 에 위성·성층권 비행체·드론을 띄워 5G를 제공하는 기술입니다. 고도별로 GEO(정지궤도) / MEO / LEO(저궤도) 위성, 성층권의 HAPS(고고도 플랫폼), 저고도의 드론(UAV)이 층을 이룹니다. 링크 이름을 구분하는 게 시험 포인트입니다: 서비스 링크는 단말↔위성(3GPP NR 기반), 피더 링크는 위성↔지상 게이트웨이, 위성 간 링크(ISL)는 위성끼리. 위성 방식도 두 가지 — Transparent는 신호를 그냥 중계만 하고, Regenerative는 위성이 직접 복조·재생해서 보냅니다. 기술요소는 전송(빔포밍, MIMO), 네트워크 제어(자원 할당), 보안(인증·암호화), 위치 추적입니다." },
+"nw-wifi7": {
+    guide: {
+      hook: "'320MHz·4K-QAM·다중 링크'로 유선급 속도를 노리는 Wi-Fi 7(802.11be)입니다.",
+      scene: "Wi-Fi 6가 효율을 높였다면, Wi-Fi 7은 채널을 더 넓게(320MHz), 신호를 더 촘촘하게(4096-QAM) 쓰고, 여러 주파수 대역을 동시에 묶어(MLO) 지연·속도를 크게 개선합니다. 초고화질 무선·XR용입니다.",
+      why: "핵심 3기술(320MHz·4K-QAM·MLO)과 Wi-Fi 6 대비 개선이 출제 포인트입니다. 특히 MLO(다중 링크)가 최신 핵심입니다.",
+      mechanism: "핵심: 320MHz 채널(6GHz 대역, Wi-Fi 6의 2배), 4096-QAM(심볼당 12bit, 6E의 1024-QAM 대비 20%↑), MLO(Multi-Link Operation — 2.4/5/6GHz 여러 링크 동시 사용해 처리량↑·지연↓·안정성↑), Multi-RU(자원 유연 할당), preamble puncturing(간섭 대역 회피). 최대 ~46Gbps 이론속도. 저지연 응용(게임·XR) 겨냥.",
+      map: [
+        { as: "채널 두 배로 넓게", real: "320MHz", note: "6GHz" },
+        { as: "신호 더 촘촘하게", real: "4096-QAM", note: "12bit/심볼" },
+        { as: "여러 대역 동시에", real: "MLO(다중 링크)", note: "핵심" },
+        { as: "간섭 대역 회피", real: "preamble puncturing", note: "" },
+      ],
+      usage: "고화질 무선·XR·저지연 응용입니다. 시험은 320MHz·4K-QAM·MLO, Wi-Fi 6 대비 개선입니다.",
+      links: [
+        { topic: "CSMA/CA", how: "Wi-Fi의 매체 접근 기반입니다." },
+        { topic: "Wi-Fi 8(IEEE 802.11bn)", how: "다음 세대(신뢰성 중심)입니다." },
+      ],
+      exam: "Wi-Fi 7(802.11be)은 320MHz 채널·4096-QAM·다중 링크(MLO)로 최대 46Gbps급 속도와 저지연을 제공하는 무선랜 표준으로, XR·고화질 응용을 겨냥한다.",
+    }, image: "/concept/book/nw-wifi7.png", easy: "Wi-Fi 6보다 3배 빠른 30Gbps급 무선랜 표준으로, 정식 명칭은 IEEE 802.11be, 별칭은 EHT(Extremely High Throughput)입니다. 속도가 3배가 된 이유를 세 갈래로 보면 됩니다: 대역폭이 160MHz → 320MHz로 2배, 안테나가 MU-MIMO 8×8 → 16×16으로 2배, 변조가 1024QAM → 4096QAM(12bit 반송파 변조)로 20% 향상. 여기에 6GHz 비면허 대역이 추가돼 쓸 수 있는 주파수가 넓어졌습니다(2.4/5/6GHz). 나머지 기술요소도 짝이 있습니다 — MAC 쪽은 AP 간 다중협력통신(AP끼리 데이터·제어 정보를 공유), 하이브리드 ARQ(추가 패리티로 재전송 효율 개선), In-Band Full-Duplex(송·수신 동시)이고, PHY 쪽은 혼합 빔포밍(320MHz 광대역을 협대역 여러 개로 나눠 프리코딩)입니다." },
+"nw-wifi8": {
+    guide: {
+      hook: "속도보다 '신뢰성·초저지연(UHR)'에 초점을 맞춘 차세대 Wi-Fi 8(802.11bn)입니다.",
+      scene: "Wi-Fi 7이 최고 속도를 올렸다면, Wi-Fi 8은 '끊김 없고 일관된' 연결을 지향합니다. 혼잡한 환경·이동 중에도 지연이 튀지 않게, 여러 AP가 협력해 안정성을 보장하는 UHR(초고신뢰) 방향입니다.",
+      why: "'속도 → 신뢰성·저지연'으로의 방향 전환과 핵심 기술(다중 AP 협력)이 출제 포인트입니다. Wi-Fi 7과의 대비가 핵심입니다.",
+      mechanism: "목표(UHR — Ultra High Reliability): 최고 속도보다 최악 상황의 성능·일관성·지연 개선. 핵심 기술: 다중 AP 협력(Multi-AP Coordination — 인접 AP가 협력해 간섭 관리·핸드오버 매끄럽게), 개선된 MLO, 이동성 강화, 저지연 보장. 산업용·XR·자율이동체 등 신뢰성 필수 환경 겨냥. 2028년경 표준화 예상.",
+      map: [
+        { as: "최고속도보다 일관성", real: "UHR(초고신뢰)", note: "방향 전환" },
+        { as: "AP들이 협력", real: "다중 AP 협력", note: "핵심 기술" },
+        { as: "이동 중에도 안정", real: "이동성·핸드오버 강화", note: "" },
+        { as: "지연 안 튀게", real: "저지연 보장", note: "" },
+      ],
+      usage: "산업용·XR·신뢰성 필수 무선입니다. 시험은 UHR 방향, 다중 AP 협력, Wi-Fi 7과의 대비입니다.",
+      links: [
+        { topic: "Wi-Fi 7(IEEE 802.11be)", how: "속도 중심 직전 세대와 대비됩니다." },
+        { topic: "QoS(Quality of Service)", how: "신뢰성·저지연 보장과 연결됩니다." },
+      ],
+      exam: "Wi-Fi 8(802.11bn)은 최고 속도보다 신뢰성·초저지연(UHR)에 초점을 두고 다중 AP 협력·이동성 강화로 최악 환경의 일관된 성능을 지향하는 차세대 무선랜이다.",
+    }, image: "/concept/book/nw-wifi8.png", easy: "2028년 예정인 IEEE 802.11bn으로, Wi-Fi 7과 결정적으로 다른 점은 '더 빠르게'가 아니라 '더 안정적으로'입니다 — 핵심 목표가 UHR(Ultra High Reliability, 극도로 높은 신뢰성)이고 대역폭(320MHz)·변조(4096QAM)·공간 스트림(8)은 Wi-Fi 7과 같습니다. 그래서 새로 붙은 기능들이 전부 혼잡·간섭 대응입니다: 멀티 AP 협력(AP끼리 협조), DSO(동적 스펙트럼 최적화)/NPCA(네트워크 성능 및 혼잡 방지), dRU(동적 자원 유닛), 협조적 대상 대기 시간. 버전별 비교표는 시험에 그대로 나올 수 있으니 흐름만 잡아두세요 — 대역폭 40→160→160→320→320, 변조 64→256→1024→4096→4096QAM, MU-MIMO는 Wi-Fi 5부터(DL only) Wi-Fi 6부터 UL&DL, 멀티링크는 Wi-Fi 7부터." },
+"nw-passive-wifi": {
+    guide: {
+      hook: "'스스로 전파를 안 만들고' 주변 신호를 반사해 통신하는 초저전력 Wi-Fi입니다.",
+      scene: "일반 Wi-Fi는 전파를 직접 생성해 전력을 많이 씁니다. Passive WiFi는 주변에 이미 있는 신호를 반사·변조(백스캐터)해 데이터를 실어 보내, 전력을 1만분의 1 수준으로 낮춥니다 — 배터리 없는 IoT용입니다.",
+      why: "'백스캐터 기반 초저전력'이라는 원리와 IoT 적용이 출제 포인트입니다. 전력 절감 배수가 핵심입니다.",
+      mechanism: "백스캐터(Backscatter) 통신: 별도 RF 신호원(플러그인 장치)이 반송파를 방출 → 센서(태그)는 스위치로 그 신호를 반사(반사=1)하거나 흡수(=0)하며 데이터 변조 → 일반 Wi-Fi 수신기가 디코딩. 자체 전파 생성이 없어 소비 전력이 극히 낮음(마이크로와트급, ~1/10000). 배터리리스·에너지 하베스팅 IoT 센서에 적합. 통신 거리·속도는 제한적.",
+      map: [
+        { as: "주변 신호 반사", real: "백스캐터 통신", note: "핵심" },
+        { as: "반사=1, 흡수=0", real: "반사 변조", note: "" },
+        { as: "전파 생성 안 함", real: "초저전력(~1/10000)", note: "" },
+        { as: "배터리 없는 센서", real: "IoT 적용", note: "" },
+      ],
+      usage: "배터리리스 IoT·웨어러블 센서입니다. 시험은 백스캐터 원리, 초저전력, IoT 적용·한계입니다.",
+      links: [
+        { topic: "IoT Matter", how: "저전력 IoT 연결 생태계와 연결됩니다." },
+        { topic: "무선 충전 기술", how: "에너지 하베스팅과 함께 배터리리스를 지향합니다." },
+      ],
+      exam: "Passive WiFi는 자체 전파를 생성하지 않고 주변 신호를 반사·변조하는 백스캐터 통신으로 소비 전력을 1/10000 수준으로 낮춰 배터리 없는 IoT 센서에 적합하다.",
+    }, image: "/concept/book/nw-passive-wifi.png", easy: "Passive WiFi는 전력을 많이 쓰는 RF 송신부를 별도 장치(Plugged-In Device)로 떼어 두고, 센서 쪽 기기(Passive Device)는 그 신호를 반사만 해서 정보를 실어 보내는 초저전력 무선 기술입니다. Wi-Fi 전력의 범인이 디지털부(무어의 법칙 덕에 10μW)가 아니라 아날로그 RF부(여전히 100mW)라는 데서 출발한 발상입니다. 이 반사가 후방산란(backscatter) — 전파가 들어온 방향의 반대인 입사단으로 되돌아오는 현상입니다. 신호를 생성하지 않으니 전력 소모가 거의 없어 초저전력 IoT에 딱 맞습니다. 송신 측 기술은 RF Transfer(Up/Down 컨버터), RF Calibration(안테나 간 진폭·위상 보정), MAC(주소·채널 설정)이고, 수신은 Passive Device와 스마트기기인 Wi-Fi Receiver입니다." },
+"nw-sdn": {
+    guide: {
+      hook: "네트워크의 '두뇌(제어)'와 '팔다리(전달)'를 분리해 소프트웨어로 망을 프로그래밍합니다.",
+      scene: "기존 라우터·스위치는 경로 결정(제어)과 패킷 전달을 한 장비가 다 했습니다. SDN은 제어를 중앙 컨트롤러로 빼내, 소프트웨어로 전체 망을 한눈에 보고 프로그래밍하듯 제어합니다.",
+      why: "'제어평면-데이터평면 분리'와 3계층 구조(애플리케이션·컨트롤·인프라)가 출제 핵심입니다. 오픈플로우·NFV와의 관계가 포인트입니다.",
+      mechanism: "구조: 애플리케이션 계층(정책·앱) —(노스바운드 API)— 컨트롤 계층(중앙 컨트롤러 — 전체 뷰·경로 결정) —(사우스바운드 API, OpenFlow)— 인프라 계층(스위치 — 단순 전달). 제어평면을 논리 중앙화해 유연·자동화·가시성 확보. NFV(네트워크 기능 가상화)와 결합해 vRAN·슬라이싱 구현. 이점: 프로그래머빌리티·자동화, 과제: 컨트롤러 SPOF·확장성.",
+      map: [
+        { as: "두뇌를 중앙에", real: "제어평면 분리·중앙화", note: "핵심" },
+        { as: "스위치는 전달만", real: "데이터평면", note: "" },
+        { as: "컨트롤러↔스위치 규약", real: "사우스바운드(OpenFlow)", note: "" },
+        { as: "앱↔컨트롤러", real: "노스바운드 API", note: "" },
+      ],
+      usage: "데이터센터·클라우드·5G 코어의 기반입니다. 시험은 제어/데이터 분리, 3계층, OpenFlow·NFV와의 관계입니다.",
+      links: [
+        { topic: "오픈플로우(OpenFlow)", how: "SDN의 대표 사우스바운드 프로토콜입니다." },
+        { topic: "SD-WAN(Software Defined-Wide Area Network)", how: "SDN을 WAN에 적용한 것입니다." },
+      ],
+      exam: "SDN은 제어평면을 데이터평면에서 분리해 중앙 컨트롤러로 논리 집중화하는 아키텍처로, 애플리케이션·컨트롤·인프라 3계층과 OpenFlow로 망을 프로그래밍한다.",
+    }, image: "/concept/book/nw-sdn.png", easy: "기존 스위치는 '어디로 보낼지 결정하는 두뇌(Control Plane — 라우팅, QoS, 정책)'와 '실제로 패킷을 밀어내는 손발(Data Plane — Forwarding)'이 한 장비 안에 붙어 있어서, 정책을 바꾸려면 장비를 하나하나 만져야 했습니다. SDN은 이 둘을 분리해 두뇌를 Controller로 중앙집중화하고, 스위치는 단순 포워딩만 하게 만듭니다. 그 사이를 잇는 개방형 프로토콜이 OpenFlow입니다. 구성 요소 4개: Application(Network OS 위에서 사용자 서비스 제공), Interface(OpenFlow — Control↔Data Plane 연계), Control Plane(ACL·라우팅·인증을 중앙집중 구현), Data Plane(Forward Engine — 단순 패킷 포워딩). 계층으로 보면 APPLICATION LAYER ─API─ CONTROL LAYER(SDN Control Software) ─OpenFlow─ INFRASTRUCTURE LAYER(Network Device)입니다." },
 "nw-oran": {
     guide: {
       hook: "폐쇄적이던 기지국 장비를 '개방형 표준 인터페이스'로 열어 벤더 종속을 깬 RAN입니다.",
