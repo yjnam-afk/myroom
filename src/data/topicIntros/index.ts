@@ -26,6 +26,7 @@ import { I as i17 } from "./i17";
 import { I as i18 } from "./i18";
 import { I as i19 } from "./i19";
 import { I as i21 } from "./i21";
+import { I as i22 } from "./i22";
 import { I as i29 } from "./i29";
 import { I as i31 } from "./i31";
 import { I as i06 } from "./i06";
@@ -57,6 +58,7 @@ export const TOPIC_INTROS: Record<string, AnswerIntro> = {
   ...i18,
   ...i19,
   ...i21,
+  ...i22,
   ...i29,
   ...i31,
 };
