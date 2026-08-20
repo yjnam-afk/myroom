@@ -5071,16 +5071,196 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
       ],
       exam: "어텐션 메커니즘은 Query·Key 유사도로 가중치를 구해 Value를 가중합하는 연산으로 입력의 중요 부분에 집중하며, 셀프·멀티헤드 어텐션으로 트랜스포머의 핵심이 된다.",
     }, image: "/concept/book/attention.png", easy: "디코더가 단어를 예측하는 매 시점마다 입력 문장 전체에서 '지금 예측할 단어와 연관 있는 부분'에 집중해 참고하는 방법 — 번역할 때 원문에서 관련 단어에 형광펜을 치는 것과 같습니다. 어텐션 함수 [쿼키벨어]: Attention(Q,K,V) — 쿼리에 대해 모든 키의 유사도를 구하고 → 유사도를 값(Value)에 반영하고 → 모두 더해서 → 어텐션 값을 반환. 예측 과정 [스분값연예] — 어텐션 스코어(디코더와 인코더 hidden state의 유사도) → 어텐션 분포(softmax로 가중치화) → 어텐션 값(가중합 = Context Vector) → 연결(디코더 hidden state와 concatenate — 문장이 길어져도 정보 손실이 적음) → 최종값 예측. 트랜스포머의 심장입니다." },
-"langchain": { image: "/concept/book/langchain.png", easy: "언어모델 기반 애플리케이션을 만들 때 여러 언어 모델과의 통합을 간소화해 주는 SDK이자 프레임워크 — LLM 앱 개발의 '레고 블록 상자'입니다. 구성요소 [모커에 체메콜] — 메인 모듈: Model I/O(모든 언어모델과 인터페이스), Data Connection(사용자별 데이터를 로드·변환·저장·쿼리), Agent(체인이 사용할 도구를 선택해 동작) / 추가 모듈: Chains(컴포넌트를 체인으로 연결), Memory(이전 상황을 기억해 상태 유지), Callbacks(중간단계 기록·로깅·모니터링·스트리밍). 흐름: 외부 데이터 가져오기 → Word Embedding 생성 → 벡터 DB 저장·검색 → LLM에 프롬프트 전송·응답 수신. RAG 챗봇을 만들 때 사실상 표준 도구입니다." },
-"fine-tuning": { image: "/concept/book/fine-tuning.png", easy: "이미 학습된 모델의 가중치를 출발점 삼아, 새로운 데이터셋으로 추가 학습해 내 작업에 맞게 조정하는 과정입니다. 절차 [사조학최] — 사전 학습 모델 → 출력 계층 조정 → 모델 학습 → 모델 최적화. 방법 2가지: Full Fine-tuning(모든 레이어·매개변수 업데이트 — 작업과 모델 차이가 클 때)과 Repurposing(하위 레이어는 유지, 상위 레이어만 튜닝 — 유사성이 있거나 데이터셋이 작을 때). 유형 2가지: 지도 파인튜닝(레이블 있는 데이터로 목표 출력 학습)과 비지도 파인튜닝(레이블 없이 데이터 구조에서 특징 추출). 고려사항: 학습률(원래 가중치 훼손 방지), 데이터 양, 모델 복잡성. 병행 기법으로 프롬프트 튜닝이 있습니다." },
-"prompt-tuning": { image: "/concept/book/prompt-tuning.png", easy: "LLM의 파라미터는 그대로 얼려두고, 학습 가능한 소프트 프롬프트(learnable input)만 추가·조정해 원하는 응답을 얻는 기법입니다. 파인튜닝과의 비교표가 그대로 시험에 나옵니다 — 모델 구조: 프롬프트 튜닝은 모델 유지 vs 파인튜닝은 구조 변경 / 리소스: 경량 vs 대량 컴퓨팅 필요 / 정확도: 프롬프트 품질에 좌우 vs 데이터 품질에 좌우 / 오버피팅: 모델이 고정이라 발생 불가 vs 스몰 데이터 추가 학습이라 가능성 존재 / 확장성: 다양한 작업에 적용 용이 vs 특정 도메인 최적화로 전환 불가. 기반 기술도 짝으로: 프롬프트 튜닝은 Zero/One-Shot Prompting·CoT, 파인튜닝은 전이학습·LoRA입니다. 2025.04 ITPE 모의고사 기출." },
-"context-engineering": { image: "/concept/book/context-engineering.png", easy: "프롬프트 한 줄이 아니라 모델에게 주는 '문맥(Context) 전체'를 설계·조작·구성해서 LLM의 정확도·일관성·목적 적합성을 높이는 기법입니다. 핵심전략 4가지 — 컨텍스트 작성(정보를 저장소에 기록), 선택(상황에 맞는 문맥만 골라 제공), 압축(토큰 절약을 위해 생략·요약), 분리(작업·역할별로 컨텍스트 분리 관리). 구현 기술: RAG, 메모리 시스템, 도구 통합 추론, 다중 에이전트 시스템. 프롬프트 엔지니어링과의 비교가 시험 포인트 — 프롬프트 엔지니어링은 '입력 명령문'을 다듬어 출력 품질을 높이고, 컨텍스트 엔지니어링은 '문맥·배경 정보'를 설계해 이해력과 일관성을 높입니다. 2026.02·2025.08 ITPE FR 기출." },
-"prompt-engineering": { image: "/concept/book/prompt-engineering.png", easy: "AI에게서 높은 수준의 결과물을 얻기 위해 적절한 프롬프트를 구성하는 기법입니다. 구성요소 [태인커아 제원퓨C] — 질문 4요소: Task Description(수행할 상황의 상세 설명), Input Indicator(입력 지시자), Current Input(질문 내용), Output Indicator(결과물 형식) / 프롬프트 방식: Zero-Shot(예제 없이), One-Shot(예제 1개), Few-Shot(예제 수 개), CoT(풀이 과정 중심) / 추론 방식: Zero-Shot CoT, ToT(사고를 나무로 분기해 최적 경로 선택), Self Consistency(여러 추론을 종합해 일관된 답), Meta-Reasoning(여러 체인 비교 분석). 고려사항: 대화 스타일 조정, 미사여구 최소화, 닫힌 지시문, 구체적 지시, 예제 제공." },
-"lora": { image: "/concept/book/lora.png", easy: "거대 모델 전체를 재훈련하지 않고, 원래 가중치는 얼려둔(Freeze) 채 옆에 작은 저랭크 행렬 두 개(A: d×r, B: r×k)만 붙여 학습하는 효율적 파인튜닝입니다. 왜 필요한가 — LLM 가중치는 1.5~3B라 GPU에 올리는 것만도 큰 비용이고, Forward·Backward·가중치·gradient까지 저장하면 가중치의 2~3배 VRAM이 필요합니다. LoRA는 A(정규분포 초기화)·B(0으로 초기화)의 가중치만 업데이트해 Pretrain Model에 더해줍니다 → VRAM 절약. Transformer의 W_q(query)·W_k(key) 레이어에 적용했을 때 성능이 가장 좋았다는 실험 결과까지 시험 포인트. PEFT 기법의 대표 주자입니다." },
-"llm-enhancement": { image: "/concept/book/llm-enhancement.png", easy: "LLM의 추론 능력 부족·정확성 문제·일관성 유지 어려움을 극복하는 기술 묶음입니다. 주요기법 [추R모효멀] — 추론 능력 강화(CoT, ToT, Least-to-Most Prompting), RAG(외부 지식 활용·정밀 검색, Knowledge-Intensive NLP), 모델 병합·결합(Model Merging, DARE, Evolutionary Model Merging), 효율성·비용 절감(MoE, Sparse Attention, 양자화, LoRA), 멀티모달 통합(CLIP, Flamingo, BLIP-2). Reasoning 상세도 시험 포인트 — 사고사슬 CoT(중간 추론을 단계별 서술), 디컴포지션(하위 문제로 분해 — Self-Ask), 메타-리즌(자기 추론을 검토·수정 — Self-Reflection·ReAct), 귀납적 추론(패턴에서 일반화 — In-Context Learning), 상호 추론(두 모델이 서로 검증 — rStar). 2025.05 ITPE FR 기출." },
-"lcm": { image: "/concept/book/lcm.png", easy: "토큰(단어 조각) 단위가 아니라 '개념(Concept)' — 문장 수준의 의미 단위 — 로 추론하는 메타AI의 모델입니다. 아키텍처 [소프트포] — SONAR 인코더·디코더(문장↔개념 임베딩 변환), PreNet(입력 정규화·매핑), Transformer 기반 디코더(다음 '문장 임베딩'을 예측), PostNet(디노멀화해 출력). SONAR 임베딩 공간은 200개 언어 텍스트와 76개 언어 음성을 지원합니다. 특징: 계층 구조로 긴 컨텍스트 가독성 향상, 컨텍스트 길이에 따라 계산량이 기하급수로 느는 트랜스포머 단점 해결, 뛰어난 제로샷 일반화, 인코더·디코더 모듈화로 확장성. 유형: Base-LCM, Diffusion-based LCM(One-Tower/Two-Tower), Quant-LCM(연속 표현을 이산화)." },
-"lam": { image: "/concept/book/lam.png", easy: "LLM의 언어 이해에 '실제 행동 수행 능력'을 결합한 모델 — 말만 하는 AI에서 마우스를 움직이고 버튼을 눌러 일을 해내는 AI로의 진화입니다. 발전 계단이 시험 포인트: LLM(자연어 이해·텍스트 생성) → LMM(멀티모달 통합 처리) → LAM(행동 계획·작업 실행, 태스크 자동화). 단계: 입력처리(원시 상태·데이터 수집) → 분석(행동이력 기반 도메인 특화 프롬프트 설계) → 실행(행동 생성). 핵심기술 4그룹 — Input Processing(멀티모달 인코딩·의도 분류·동적 컨텍스트 윈도우), Planning & Reasoning(CoT·계층적 작업분해·Neuro-symbolic Programming), Action Execution(API 오케스트레이션·동적 계획·원자적 액션), Self-Correction(다차원 평가·Contextual Memory·RLHF). 2025.04 KPC 기출." },
-"langgraph": { image: "/concept/book/langgraph.png", easy: "여러 AI 에이전트가 협업하는 멀티 에이전트 시스템을 만들기 위한, LangChain 기반의 상태 관리·워크플로우 라이브러리입니다. 핵심은 구조의 차이 — LangChain이 작업을 '체인(사슬)'으로 순차 연결한다면, LangGraph는 노드(Node: 개별 작업 모듈)와 엣지(Edge: 데이터 흐름·종속 관계)로 이뤄진 '그래프'라서 반복·분기 같은 비순차적 흐름을 표현할 수 있습니다. 개념도의 Thought → Action → Observation 순환(끝나면 Finish)이 에이전트 루프의 전형입니다. 구성: 노드·엣지·데이터레이어·워크플로우 디자이너(시각적 UI)·API 통합. LangChain vs LangGraph 비교표(체인 기반 vs 그래프 기반, 코드 커스터마이징 vs 시각적 설계)가 시험 포인트입니다." },
+"langchain": {
+    guide: {
+      hook: "여러 LLM·데이터·도구를 레고처럼 조립해 AI 앱을 만드는 프레임워크입니다.",
+      scene: "LLM 하나만으로는 앱이 안 됩니다. 모델 호출·데이터 연결·도구 사용·기억을 매번 직접 짜야 하죠. LangChain은 이 조각들을 표준 컴포넌트로 제공해, 체인으로 연결하면 LLM 앱이 완성되게 합니다.",
+      why: "핵심 모듈(Model I/O·Data Connection·Chains·Agent·Memory)과 체인 개념이 출제 포인트입니다.",
+      mechanism: "메인 모듈: Model I/O(모든 언어모델과 표준 인터페이스), Data Connection(외부 데이터 로드·변환·저장·쿼리 — RAG 기반), Agent(체인이 쓸 도구를 LLM이 스스로 선택). 추가: Chains(컴포넌트를 순차 연결), Memory(대화 상태 유지), Callbacks(로깅·모니터링). 프롬프트 템플릿·출력 파서로 입출력 정형화. RAG·에이전트·멀티에이전트(LangGraph)의 기반. 파이썬·JS 지원.",
+      map: [
+        { as: "모델 표준 연결", real: "Model I/O", note: "" },
+        { as: "외부 데이터 로드·쿼리", real: "Data Connection", note: "RAG" },
+        { as: "컴포넌트 순차 연결", real: "Chains", note: "" },
+        { as: "도구 자율 선택", real: "Agent", note: "" },
+      ],
+      usage: "LLM 앱 개발입니다. 시험은 핵심 모듈, 체인, 에이전트·RAG 기반입니다.",
+      links: [
+        { topic: "LangGraph", how: "체인을 그래프로 확장한 멀티에이전트 프레임워크입니다." },
+        { topic: "RAG (Retrieval-Augmented Generation)", how: "Data Connection으로 RAG를 구현합니다." },
+      ],
+      exam: "LangChain은 Model I/O·Data Connection·Chains·Agent·Memory 모듈을 체인으로 조립해 LLM 앱을 만드는 프레임워크로, RAG·에이전트 개발의 기반이 된다.",
+    }, image: "/concept/book/langchain.png", easy: "언어모델 기반 애플리케이션을 만들 때 여러 언어 모델과의 통합을 간소화해 주는 SDK이자 프레임워크 — LLM 앱 개발의 '레고 블록 상자'입니다. 구성요소 [모커에 체메콜] — 메인 모듈: Model I/O(모든 언어모델과 인터페이스), Data Connection(사용자별 데이터를 로드·변환·저장·쿼리), Agent(체인이 사용할 도구를 선택해 동작) / 추가 모듈: Chains(컴포넌트를 체인으로 연결), Memory(이전 상황을 기억해 상태 유지), Callbacks(중간단계 기록·로깅·모니터링·스트리밍). 흐름: 외부 데이터 가져오기 → Word Embedding 생성 → 벡터 DB 저장·검색 → LLM에 프롬프트 전송·응답 수신. RAG 챗봇을 만들 때 사실상 표준 도구입니다." },
+"fine-tuning": {
+    guide: {
+      hook: "사전학습 모델을 내 데이터로 추가 학습해 특정 작업에 맞추는 과정입니다.",
+      scene: "GPT 같은 모델을 처음부터 학습하면 천문학적 비용입니다. 파인튜닝은 이미 학습된 모델의 가중치를 출발점 삼아, 내 데이터셋으로 조금 더 학습해 도메인·작업에 맞게 조정합니다.",
+      why: "방식(Full vs Repurposing)과 PEFT(LoRA 등) 경량화가 출제 핵심입니다.",
+      mechanism: "절차: 사전학습 모델→출력 계층 조정→추가 학습→최적화. 방식: Full Fine-tuning(전체 파라미터 갱신 — 작업 차이 클 때, 비용 큼), Repurposing(하위 레이어 동결·상위만 튜닝 — 유사·소량 데이터). 유형: 지도(레이블 데이터), 비지도, 지시(instruction), RLHF(인간 피드백 강화). 경량화: PEFT(LoRA·Prompt Tuning — 일부만 학습). 프롬프트 엔지니어링·RAG와 목적 구분(지식 주입 vs 행동 조정).",
+      map: [
+        { as: "전체 갱신", real: "Full Fine-tuning", note: "비용 큼" },
+        { as: "상위만 튜닝", real: "Repurposing", note: "" },
+        { as: "일부만 학습", real: "PEFT·LoRA", note: "경량" },
+        { as: "인간 피드백 강화", real: "RLHF", note: "" },
+      ],
+      usage: "LLM 도메인 특화입니다. 시험은 Full/Repurposing, PEFT, RAG와의 구분입니다.",
+      links: [
+        { topic: "LoRA (Low-Rank Adaptation)", how: "대표적 경량 파인튜닝 기법입니다." },
+        { topic: "PEFT (Parameter-Efficient Fine-Tuning)", how: "파인튜닝의 경량화 계열입니다." },
+      ],
+      exam: "파인튜닝은 사전학습 모델을 내 데이터로 추가 학습해 작업에 맞추는 과정으로, 전체 갱신(Full)·상위층 튜닝(Repurposing)이 있고 LoRA 등 PEFT로 경량화한다.",
+    }, image: "/concept/book/fine-tuning.png", easy: "이미 학습된 모델의 가중치를 출발점 삼아, 새로운 데이터셋으로 추가 학습해 내 작업에 맞게 조정하는 과정입니다. 절차 [사조학최] — 사전 학습 모델 → 출력 계층 조정 → 모델 학습 → 모델 최적화. 방법 2가지: Full Fine-tuning(모든 레이어·매개변수 업데이트 — 작업과 모델 차이가 클 때)과 Repurposing(하위 레이어는 유지, 상위 레이어만 튜닝 — 유사성이 있거나 데이터셋이 작을 때). 유형 2가지: 지도 파인튜닝(레이블 있는 데이터로 목표 출력 학습)과 비지도 파인튜닝(레이블 없이 데이터 구조에서 특징 추출). 고려사항: 학습률(원래 가중치 훼손 방지), 데이터 양, 모델 복잡성. 병행 기법으로 프롬프트 튜닝이 있습니다." },
+"prompt-tuning": {
+    guide: {
+      hook: "모델은 얼려두고 '학습 가능한 소프트 프롬프트'만 조정하는 경량 기법입니다.",
+      scene: "파인튜닝은 모델 전체를 바꿔 비쌉니다. 프롬프트 튜닝은 LLM 파라미터를 그대로 동결하고, 입력 앞에 붙는 학습 가능한 벡터(소프트 프롬프트)만 학습해 원하는 응답을 유도합니다.",
+      why: "파인튜닝과의 비교표(모델 구조·리소스·오버피팅)가 그대로 출제됩니다.",
+      mechanism: "핵심: 모델 가중치 동결 + 소프트 프롬프트(learnable embedding)만 역전파로 학습. 비교(vs 파인튜닝): 모델 구조(유지 vs 변경), 리소스(경량 vs 대량 컴퓨팅), 정확도(프롬프트 품질 좌우 vs 데이터 품질), 오버피팅(모델 고정이라 거의 없음 vs 소량 데이터 시 발생), 확장성(태스크별 프롬프트만 교체 vs 모델별 재학습). PEFT 계열. 하드 프롬프트(사람이 쓴 텍스트)와 구분되는 소프트 프롬프트.",
+      map: [
+        { as: "모델 동결", real: "파라미터 유지", note: "" },
+        { as: "학습되는 입력 벡터", real: "소프트 프롬프트", note: "" },
+        { as: "오버피팅 거의 없음", real: "모델 고정", note: "" },
+        { as: "PEFT 계열", real: "경량 튜닝", note: "" },
+      ],
+      usage: "LLM 경량 적응입니다. 시험은 소프트 프롬프트, 파인튜닝 비교표입니다.",
+      links: [
+        { topic: "PEFT (Parameter-Efficient Fine-Tuning)", how: "프롬프트 튜닝이 속한 경량 계열입니다." },
+        { topic: "파인튜닝(Fine-tuning)", how: "모델 변경 방식과 대비됩니다." },
+      ],
+      exam: "프롬프트 튜닝은 LLM 파라미터를 동결하고 학습 가능한 소프트 프롬프트만 조정하는 PEFT 기법으로, 경량·오버피팅 회피 면에서 파인튜닝과 대비된다.",
+    }, image: "/concept/book/prompt-tuning.png", easy: "LLM의 파라미터는 그대로 얼려두고, 학습 가능한 소프트 프롬프트(learnable input)만 추가·조정해 원하는 응답을 얻는 기법입니다. 파인튜닝과의 비교표가 그대로 시험에 나옵니다 — 모델 구조: 프롬프트 튜닝은 모델 유지 vs 파인튜닝은 구조 변경 / 리소스: 경량 vs 대량 컴퓨팅 필요 / 정확도: 프롬프트 품질에 좌우 vs 데이터 품질에 좌우 / 오버피팅: 모델이 고정이라 발생 불가 vs 스몰 데이터 추가 학습이라 가능성 존재 / 확장성: 다양한 작업에 적용 용이 vs 특정 도메인 최적화로 전환 불가. 기반 기술도 짝으로: 프롬프트 튜닝은 Zero/One-Shot Prompting·CoT, 파인튜닝은 전이학습·LoRA입니다. 2025.04 ITPE 모의고사 기출." },
+"context-engineering": {
+    guide: {
+      hook: "프롬프트 한 줄이 아니라 '문맥 전체'를 설계해 LLM 성능을 끌어올립니다.",
+      scene: "프롬프트만 다듬는 데는 한계가 있습니다. 컨텍스트 엔지니어링은 모델에 주는 문맥(검색 지식·메모리·도구·이력) 전체를 어떻게 구성·선택·압축할지 설계해, 정확도와 일관성을 높입니다.",
+      why: "4대 전략(작성·선택·압축·분리)과 프롬프트 엔지니어링과의 차이가 출제 핵심입니다.",
+      mechanism: "4대 전략: 작성(Write — 정보를 저장소·메모리에 기록), 선택(Select — 상황에 맞는 문맥만 골라 제공), 압축(Compress — 토큰 절약 위해 요약·생략), 분리(Isolate — 작업·역할별 컨텍스트 분리 관리). 구현: RAG, 메모리 시스템, 도구 통합 추론, 멀티에이전트. vs 프롬프트 엔지니어링(문구 최적화)보다 넓은 '문맥 자원 관리'. 컨텍스트 윈도·토큰 한계가 배경. 에이전트 성능의 핵심.",
+      map: [
+        { as: "저장소에 기록", real: "작성(Write)", note: "" },
+        { as: "필요 문맥만 제공", real: "선택(Select)", note: "" },
+        { as: "요약·생략", real: "압축(Compress)", note: "토큰" },
+        { as: "역할별 분리", real: "분리(Isolate)", note: "" },
+      ],
+      usage: "LLM·에이전트 문맥 설계입니다. 시험은 4대 전략, 프롬프트 엔지니어링 비교입니다.",
+      links: [
+        { topic: "프롬프트 엔지니어링(Prompt Engineering)", how: "문구 최적화의 상위 개념으로 대비됩니다." },
+        { topic: "RAG (Retrieval-Augmented Generation)", how: "문맥 주입의 대표 구현입니다." },
+      ],
+      exam: "컨텍스트 엔지니어링은 LLM에 주는 문맥 전체를 작성·선택·압축·분리 전략으로 설계하는 기법으로, 프롬프트 엔지니어링보다 넓은 문맥 자원 관리이며 에이전트 성능의 핵심이다.",
+    }, image: "/concept/book/context-engineering.png", easy: "프롬프트 한 줄이 아니라 모델에게 주는 '문맥(Context) 전체'를 설계·조작·구성해서 LLM의 정확도·일관성·목적 적합성을 높이는 기법입니다. 핵심전략 4가지 — 컨텍스트 작성(정보를 저장소에 기록), 선택(상황에 맞는 문맥만 골라 제공), 압축(토큰 절약을 위해 생략·요약), 분리(작업·역할별로 컨텍스트 분리 관리). 구현 기술: RAG, 메모리 시스템, 도구 통합 추론, 다중 에이전트 시스템. 프롬프트 엔지니어링과의 비교가 시험 포인트 — 프롬프트 엔지니어링은 '입력 명령문'을 다듬어 출력 품질을 높이고, 컨텍스트 엔지니어링은 '문맥·배경 정보'를 설계해 이해력과 일관성을 높입니다. 2026.02·2025.08 ITPE FR 기출." },
+"prompt-engineering": {
+    guide: {
+      hook: "AI에게서 좋은 결과를 얻도록 프롬프트(질문)를 잘 구성하는 기법입니다.",
+      scene: "같은 모델도 어떻게 묻느냐에 따라 답이 천차만별입니다. 프롬프트 엔지니어링은 작업 설명·입력·출력 형식을 체계적으로 구성하고 예시·추론 유도를 더해, 원하는 고품질 응답을 끌어냅니다.",
+      why: "질문 4요소와 Shot 방식(Zero/One/Few-Shot·CoT)이 출제 핵심입니다.",
+      mechanism: "질문 4요소: Task Description(수행 상황 상세), Input Indicator(입력 지시자), Current Input(질문 내용), Output Indicator(출력 형식). 방식: Zero-Shot(예시 없이), One-Shot(예시 1개), Few-Shot(예시 수 개), CoT(Chain-of-Thought — 풀이 과정 유도). 고급: ToT·Self-Consistency·ReAct. 역할 부여·제약 명시. vs 컨텍스트 엔지니어링(문맥 전체 설계)보다 좁은 문구 최적화.",
+      map: [
+        { as: "작업·출력 형식 명시", real: "질문 4요소", note: "" },
+        { as: "예시 개수", real: "Zero/One/Few-Shot", note: "" },
+        { as: "풀이 과정 유도", real: "CoT", note: "" },
+        { as: "문구 최적화", real: "vs 컨텍스트 엔지니어링", note: "" },
+      ],
+      usage: "LLM 활용입니다. 시험은 질문 4요소, Shot 방식·CoT입니다.",
+      links: [
+        { topic: "CoT (Chain of Thought)", how: "추론 과정을 유도하는 대표 프롬프트 기법입니다." },
+        { topic: "컨텍스트 엔지니어링(Context Engineering)", how: "문맥 설계의 상위 개념과 대비됩니다." },
+      ],
+      exam: "프롬프트 엔지니어링은 작업·입력·출력 4요소를 구성하고 Zero/Few-Shot·CoT로 추론을 유도해 LLM 응답 품질을 높이는 기법이다.",
+    }, image: "/concept/book/prompt-engineering.png", easy: "AI에게서 높은 수준의 결과물을 얻기 위해 적절한 프롬프트를 구성하는 기법입니다. 구성요소 [태인커아 제원퓨C] — 질문 4요소: Task Description(수행할 상황의 상세 설명), Input Indicator(입력 지시자), Current Input(질문 내용), Output Indicator(결과물 형식) / 프롬프트 방식: Zero-Shot(예제 없이), One-Shot(예제 1개), Few-Shot(예제 수 개), CoT(풀이 과정 중심) / 추론 방식: Zero-Shot CoT, ToT(사고를 나무로 분기해 최적 경로 선택), Self Consistency(여러 추론을 종합해 일관된 답), Meta-Reasoning(여러 체인 비교 분석). 고려사항: 대화 스타일 조정, 미사여구 최소화, 닫힌 지시문, 구체적 지시, 예제 제공." },
+"lora": {
+    guide: {
+      hook: "원래 가중치는 얼려두고 작은 '저랭크 행렬'만 학습하는 효율적 파인튜닝입니다.",
+      scene: "수십억 파라미터 LLM을 통째로 파인튜닝하려면 GPU 메모리가 감당 못 합니다. LoRA는 원 가중치를 동결하고 그 옆에 작은 행렬 두 개(A·B)만 붙여 학습해, 적은 자원으로 모델을 적응시킵니다.",
+      why: "저랭크 분해(A·B 행렬)와 원본 동결로 VRAM을 줄이는 원리가 출제 핵심입니다.",
+      mechanism: "원리: 가중치 갱신량 ΔW를 저랭크 분해 ΔW=B·A로 근사(A: d×r, B: r×k, r≪d). 원 가중치 W는 동결, A(정규분포 초기화)·B(0 초기화)만 학습→추론 시 W+BA. r만큼만 파라미터 학습해 VRAM·저장 급감. 여러 태스크별 LoRA 어댑터 교체 가능. QLoRA(양자화+LoRA)로 더 경량. PEFT 대표 기법. 성능 손실 최소.",
+      map: [
+        { as: "원 가중치 동결", real: "Freeze W", note: "" },
+        { as: "저랭크 행렬 학습", real: "A·B (r≪d)", note: "" },
+        { as: "VRAM·저장 급감", real: "효율", note: "" },
+        { as: "양자화 결합", real: "QLoRA", note: "" },
+      ],
+      usage: "LLM 경량 파인튜닝입니다. 시험은 저랭크 분해, 원본 동결, QLoRA입니다.",
+      links: [
+        { topic: "PEFT (Parameter-Efficient Fine-Tuning)", how: "LoRA가 대표하는 경량 튜닝 계열입니다." },
+        { topic: "파인튜닝(Fine-tuning)", how: "Full 파인튜닝의 경량 대안입니다." },
+      ],
+      exam: "LoRA는 원 가중치를 동결하고 갱신량을 저랭크 행렬 A·B로 근사해 학습하는 PEFT 기법으로, 적은 VRAM으로 LLM을 적응시키며 QLoRA로 확장된다.",
+    }, image: "/concept/book/lora.png", easy: "거대 모델 전체를 재훈련하지 않고, 원래 가중치는 얼려둔(Freeze) 채 옆에 작은 저랭크 행렬 두 개(A: d×r, B: r×k)만 붙여 학습하는 효율적 파인튜닝입니다. 왜 필요한가 — LLM 가중치는 1.5~3B라 GPU에 올리는 것만도 큰 비용이고, Forward·Backward·가중치·gradient까지 저장하면 가중치의 2~3배 VRAM이 필요합니다. LoRA는 A(정규분포 초기화)·B(0으로 초기화)의 가중치만 업데이트해 Pretrain Model에 더해줍니다 → VRAM 절약. Transformer의 W_q(query)·W_k(key) 레이어에 적용했을 때 성능이 가장 좋았다는 실험 결과까지 시험 포인트. PEFT 기법의 대표 주자입니다." },
+"llm-enhancement": {
+    guide: {
+      hook: "LLM의 추론 부족·부정확·비용 문제를 극복하는 기술 묶음입니다.",
+      scene: "LLM은 복잡한 추론에 약하고 환각·비용 문제가 있습니다. LLM 고도화는 추론 강화·외부 지식 결합·모델 병합·효율화·멀티모달을 조합해 이런 한계를 보완하는 기술 집합입니다.",
+      why: "5대 기법군(추론·RAG·모델병합·효율·멀티모달)의 분류가 출제 핵심입니다.",
+      mechanism: "추론 강화: CoT·ToT·Least-to-Most. RAG: 외부 지식 검색 결합(지식집약 NLP). 모델 병합·결합: Model Merging·DARE·Evolutionary Merging. 효율·비용: MoE(전문가 혼합)·Sparse Attention·양자화·LoRA. 멀티모달: 텍스트+이미지·음성 통합. 목적: 정확성·일관성·비용 개선. 파인튜닝·프롬프트 엔지니어링과 함께 LLM 활용 스택 구성.",
+      map: [
+        { as: "CoT·ToT", real: "추론 강화", note: "" },
+        { as: "외부 지식 결합", real: "RAG", note: "" },
+        { as: "MoE·양자화·LoRA", real: "효율·비용", note: "" },
+        { as: "모델 병합", real: "Merging·DARE", note: "" },
+      ],
+      usage: "LLM 성능 개선입니다. 시험은 5대 기법군 분류입니다.",
+      links: [
+        { topic: "RAG (Retrieval-Augmented Generation)", how: "외부 지식 결합 기법입니다." },
+        { topic: "MoE (Mixture of Experts)", how: "효율화 대표 기법입니다." },
+      ],
+      exam: "LLM 고도화는 추론 강화(CoT)·RAG·모델 병합·효율화(MoE·양자화·LoRA)·멀티모달을 조합해 LLM의 추론·정확성·비용 한계를 극복하는 기술 묶음이다.",
+    }, image: "/concept/book/llm-enhancement.png", easy: "LLM의 추론 능력 부족·정확성 문제·일관성 유지 어려움을 극복하는 기술 묶음입니다. 주요기법 [추R모효멀] — 추론 능력 강화(CoT, ToT, Least-to-Most Prompting), RAG(외부 지식 활용·정밀 검색, Knowledge-Intensive NLP), 모델 병합·결합(Model Merging, DARE, Evolutionary Model Merging), 효율성·비용 절감(MoE, Sparse Attention, 양자화, LoRA), 멀티모달 통합(CLIP, Flamingo, BLIP-2). Reasoning 상세도 시험 포인트 — 사고사슬 CoT(중간 추론을 단계별 서술), 디컴포지션(하위 문제로 분해 — Self-Ask), 메타-리즌(자기 추론을 검토·수정 — Self-Reflection·ReAct), 귀납적 추론(패턴에서 일반화 — In-Context Learning), 상호 추론(두 모델이 서로 검증 — rStar). 2025.05 ITPE FR 기출." },
+"lcm": {
+    guide: {
+      hook: "토큰이 아니라 '문장 단위 개념'으로 추론하는 메타AI의 모델입니다.",
+      scene: "기존 LLM은 단어 조각(토큰) 하나씩 예측해 긴 맥락에 약합니다. LCM(Large Concept Model)은 문장 수준의 의미 단위(개념) 임베딩으로 추론해, 언어·양식에 독립적이고 긴 문맥에 강한 구조를 지향합니다.",
+      why: "'개념(문장) 단위 추론'과 SONAR 임베딩 아키텍처가 출제 핵심입니다.",
+      mechanism: "추론 단위: 토큰이 아닌 개념(문장 임베딩). 아키텍처: SONAR 인코더/디코더(문장↔개념 임베딩 변환), PreNet(입력 정규화·매핑), Transformer 디코더(다음 문장 임베딩 예측), PostNet(디노멀화 출력). SONAR 공간은 200개 언어 텍스트·76개 언어 음성 지원(언어·양식 독립). 특징: 계층 구조로 긴 컨텍스트·다국어 강점. 기존 토큰 기반 LLM과 대비되는 개념 기반 접근.",
+      map: [
+        { as: "문장 단위 추론", real: "개념(Concept)", note: "vs 토큰" },
+        { as: "문장↔개념 변환", real: "SONAR", note: "" },
+        { as: "다음 문장 예측", real: "Transformer 디코더", note: "" },
+        { as: "다국어·긴 문맥 강점", real: "언어 독립", note: "" },
+      ],
+      usage: "차세대 LLM 구조입니다. 시험은 개념 단위 추론, SONAR 아키텍처입니다.",
+      links: [
+        { topic: "LLM (Large Language Model)", how: "토큰 기반과 대비되는 개념 기반입니다." },
+        { topic: "트랜스포머(Transformer)", how: "디코더 백본으로 활용됩니다." },
+      ],
+      exam: "LCM은 토큰이 아닌 문장 수준 개념 임베딩(SONAR)으로 추론하는 메타AI 모델로, 언어·양식에 독립적이고 긴 문맥·다국어에 강점을 갖는다.",
+    }, image: "/concept/book/lcm.png", easy: "토큰(단어 조각) 단위가 아니라 '개념(Concept)' — 문장 수준의 의미 단위 — 로 추론하는 메타AI의 모델입니다. 아키텍처 [소프트포] — SONAR 인코더·디코더(문장↔개념 임베딩 변환), PreNet(입력 정규화·매핑), Transformer 기반 디코더(다음 '문장 임베딩'을 예측), PostNet(디노멀화해 출력). SONAR 임베딩 공간은 200개 언어 텍스트와 76개 언어 음성을 지원합니다. 특징: 계층 구조로 긴 컨텍스트 가독성 향상, 컨텍스트 길이에 따라 계산량이 기하급수로 느는 트랜스포머 단점 해결, 뛰어난 제로샷 일반화, 인코더·디코더 모듈화로 확장성. 유형: Base-LCM, Diffusion-based LCM(One-Tower/Two-Tower), Quant-LCM(연속 표현을 이산화)." },
+"lam": {
+    guide: {
+      hook: "언어 이해에 '실제 행동 수행'을 결합한 대규모 행동 모델입니다.",
+      scene: "LLM은 말은 잘하지만 실제로 일을 하진 못합니다. LAM(Large Action Model)은 LLM의 이해력에 행동 계획·실행을 더해, 마우스를 움직이고 앱을 조작해 태스크를 자동으로 완수하는 AI로 진화합니다.",
+      why: "발전 계단(LLM→LMM→LAM)과 행동 실행 파이프라인이 출제 핵심입니다.",
+      mechanism: "발전: LLM(언어 이해·생성)→LMM(멀티모달 통합)→LAM(행동 계획·작업 실행). 단계: 입력처리(원시 상태·데이터 수집)→분석(행동이력 기반 도메인 프롬프트 설계)→실행(행동 생성·수행). 핵심기술: 멀티모달 Input Processing, 행동 계획, 도구·환경 상호작용, 피드백 학습. AI 에이전트·자동화의 실행 엔진. 안전·통제(잘못된 행동 위험)가 과제.",
+      map: [
+        { as: "LLM→LMM→LAM", real: "발전 계단", note: "" },
+        { as: "상태·데이터 수집", real: "입력처리", note: "" },
+        { as: "도메인 프롬프트 설계", real: "분석", note: "" },
+        { as: "행동 생성·수행", real: "실행", note: "" },
+      ],
+      usage: "행동형 AI입니다. 시험은 발전 계단, 실행 파이프라인, 에이전트 연계입니다.",
+      links: [
+        { topic: "AI 에이전트(AI Agent)", how: "LAM이 에이전트의 실행 엔진이 됩니다." },
+        { topic: "멀티모달 AI(Multimodal AI)", how: "LMM 단계의 기반입니다." },
+      ],
+      exam: "LAM은 LLM의 언어 이해에 행동 계획·실행을 결합한 모델로, LLM→LMM→LAM 발전 단계를 거쳐 입력처리·분석·실행 파이프라인으로 태스크를 자동 수행한다.",
+    }, image: "/concept/book/lam.png", easy: "LLM의 언어 이해에 '실제 행동 수행 능력'을 결합한 모델 — 말만 하는 AI에서 마우스를 움직이고 버튼을 눌러 일을 해내는 AI로의 진화입니다. 발전 계단이 시험 포인트: LLM(자연어 이해·텍스트 생성) → LMM(멀티모달 통합 처리) → LAM(행동 계획·작업 실행, 태스크 자동화). 단계: 입력처리(원시 상태·데이터 수집) → 분석(행동이력 기반 도메인 특화 프롬프트 설계) → 실행(행동 생성). 핵심기술 4그룹 — Input Processing(멀티모달 인코딩·의도 분류·동적 컨텍스트 윈도우), Planning & Reasoning(CoT·계층적 작업분해·Neuro-symbolic Programming), Action Execution(API 오케스트레이션·동적 계획·원자적 액션), Self-Correction(다차원 평가·Contextual Memory·RLHF). 2025.04 KPC 기출." },
+"langgraph": {
+    guide: {
+      hook: "AI 에이전트 협업을 '그래프'로 설계하는 LangChain 기반 라이브러리입니다.",
+      scene: "LangChain의 순차 체인으로는 반복·분기 같은 복잡한 흐름을 표현하기 어렵습니다. LangGraph는 작업을 노드와 엣지의 그래프로 구성해, 여러 에이전트가 상태를 공유하며 순환·분기하는 워크플로우를 만듭니다.",
+      why: "체인(순차) vs 그래프(순환·분기) 구조 차이와 상태 관리가 출제 핵심입니다.",
+      mechanism: "구조: 노드(개별 작업·에이전트 모듈)+엣지(데이터 흐름·종속). vs LangChain 체인(순차)과 달리 반복·조건 분기·순환 표현 가능. 상태(State) 객체를 노드 간 공유·갱신해 문맥 유지. Thought→Action→Observation 순환(ReAct) 구현. 멀티에이전트 오케스트레이션·휴먼인더루프·체크포인트 지원. 복잡한 에이전트 워크플로우의 제어 흐름 엔진.",
+      map: [
+        { as: "작업 모듈", real: "노드(Node)", note: "" },
+        { as: "흐름·종속", real: "엣지(Edge)", note: "" },
+        { as: "순환·분기 가능", real: "vs 순차 체인", note: "" },
+        { as: "상태 공유", real: "State", note: "" },
+      ],
+      usage: "멀티에이전트 워크플로우입니다. 시험은 그래프 구조, 체인과의 차이, 상태 관리입니다.",
+      links: [
+        { topic: "LangChain", how: "순차 체인 기반을 그래프로 확장합니다." },
+        { topic: "AI 에이전트(AI Agent)", how: "멀티에이전트 협업을 오케스트레이션합니다." },
+      ],
+      exam: "LangGraph는 노드·엣지 그래프와 공유 상태로 반복·분기 워크플로우를 표현하는 LangChain 기반 라이브러리로, 순차 체인과 달리 멀티에이전트 협업을 오케스트레이션한다.",
+    }, image: "/concept/book/langgraph.png", easy: "여러 AI 에이전트가 협업하는 멀티 에이전트 시스템을 만들기 위한, LangChain 기반의 상태 관리·워크플로우 라이브러리입니다. 핵심은 구조의 차이 — LangChain이 작업을 '체인(사슬)'으로 순차 연결한다면, LangGraph는 노드(Node: 개별 작업 모듈)와 엣지(Edge: 데이터 흐름·종속 관계)로 이뤄진 '그래프'라서 반복·분기 같은 비순차적 흐름을 표현할 수 있습니다. 개념도의 Thought → Action → Observation 순환(끝나면 Finish)이 에이전트 루프의 전형입니다. 구성: 노드·엣지·데이터레이어·워크플로우 디자이너(시각적 UI)·API 통합. LangChain vs LangGraph 비교표(체인 기반 vs 그래프 기반, 코드 커스터마이징 vs 시각적 설계)가 시험 포인트입니다." },
 "cot": { image: "/concept/book/cot.png", easy: "언어 모델이 복잡한 문제를 풀 때 '문제-풀이-답'처럼 중간 과정을 단계별로 밟아 논리적으로 추론하게 유도하는 방법론입니다. 개념도가 핵심: 표준 IO 프롬프팅은 Input→Output 직행이라 계산 문제를 자주 틀리지만, CoT는 Input→thought→thought→thought→Output으로 풀이 과정을 거쳐 정답률이 오릅니다. 특징·구성요소 [문사최] — 특징: 단계적 추론, 문제 해결력 향상(수학·논리 퍼즐·복잡한 의사결정), 설명 가능한 AI(중간 사고 과정을 보여줘 신뢰성↑), Prompt Engineering 활용 / 구성요소: 문제 입력 → 사고 과정 단계(이전 정보 기반으로 다음 단계 진행) → 최종 출력. 2025.04 ITPE 모의고사 기출." },
 "moe": { image: "/concept/book/moe.png", easy: "여러 전문가 모델(Expert) 중 입력에 맞는 최적의 전문가만 골라 쓰는 모델 아키텍처 — 종합병원에서 증상에 맞는 전문의에게 배정하는 것과 같습니다. 개념도 [익라] — Experts(각자 특정 Feature Space에 특화 학습된 전문가 네트워크)와 Router(입력에 따라 어떤 전문가를 쓸지 Softmax·Top-k로 결정). 핵심 특징이 Sparse Computation: 전체 전문가를 다 돌리지 않고 일부만 활성화해 계산 효율을 높이므로, 매우 큰 모델도 효율적으로 동작합니다(딥시크·GPT급 모델의 비결). 구성요소: 게이팅 네트워크(Softmax로 전문가 가중치 결정), 전문가 네트워크(서브 모델들), 출력 조합 모듈(선택된 전문가 예측값을 가중합). 2025.04 ITPE·KPC 기출." },
 "peft": { image: "/concept/book/peft.png", easy: "사전학습 모델의 전체 파라미터가 아니라 일부만 조정해서, 적은 자원으로 파인튜닝 효과를 내는 기법의 통칭입니다(전체 대비 수~몇 %만 업데이트). 기법 5가지가 시험 핵심 — Adapter(PLM 중간에 Bottleneck 구조의 작은 신경망 삽입), Prefix Tuning(입력 앞단에 학습 가능한 벡터 추가, Softmax로 영향 조절), LoRA(가중치 대신 저랭크 행렬 추가 학습), Parallel Adapter(PLM 경로와 병렬로 ReLU 기반 어댑터 연결 후 합침), Scaled PA(Parallel Adapter에 Scaling 추가로 영향력 미세 조정). 목적은 하나: 비용·자원·시간을 최소화하면서 커스터마이징. 2025.10 ITPE 모의고사 기출." },
