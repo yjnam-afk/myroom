@@ -5261,12 +5261,120 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
       ],
       exam: "LangGraph는 노드·엣지 그래프와 공유 상태로 반복·분기 워크플로우를 표현하는 LangChain 기반 라이브러리로, 순차 체인과 달리 멀티에이전트 협업을 오케스트레이션한다.",
     }, image: "/concept/book/langgraph.png", easy: "여러 AI 에이전트가 협업하는 멀티 에이전트 시스템을 만들기 위한, LangChain 기반의 상태 관리·워크플로우 라이브러리입니다. 핵심은 구조의 차이 — LangChain이 작업을 '체인(사슬)'으로 순차 연결한다면, LangGraph는 노드(Node: 개별 작업 모듈)와 엣지(Edge: 데이터 흐름·종속 관계)로 이뤄진 '그래프'라서 반복·분기 같은 비순차적 흐름을 표현할 수 있습니다. 개념도의 Thought → Action → Observation 순환(끝나면 Finish)이 에이전트 루프의 전형입니다. 구성: 노드·엣지·데이터레이어·워크플로우 디자이너(시각적 UI)·API 통합. LangChain vs LangGraph 비교표(체인 기반 vs 그래프 기반, 코드 커스터마이징 vs 시각적 설계)가 시험 포인트입니다." },
-"cot": { image: "/concept/book/cot.png", easy: "언어 모델이 복잡한 문제를 풀 때 '문제-풀이-답'처럼 중간 과정을 단계별로 밟아 논리적으로 추론하게 유도하는 방법론입니다. 개념도가 핵심: 표준 IO 프롬프팅은 Input→Output 직행이라 계산 문제를 자주 틀리지만, CoT는 Input→thought→thought→thought→Output으로 풀이 과정을 거쳐 정답률이 오릅니다. 특징·구성요소 [문사최] — 특징: 단계적 추론, 문제 해결력 향상(수학·논리 퍼즐·복잡한 의사결정), 설명 가능한 AI(중간 사고 과정을 보여줘 신뢰성↑), Prompt Engineering 활용 / 구성요소: 문제 입력 → 사고 과정 단계(이전 정보 기반으로 다음 단계 진행) → 최종 출력. 2025.04 ITPE 모의고사 기출." },
-"moe": { image: "/concept/book/moe.png", easy: "여러 전문가 모델(Expert) 중 입력에 맞는 최적의 전문가만 골라 쓰는 모델 아키텍처 — 종합병원에서 증상에 맞는 전문의에게 배정하는 것과 같습니다. 개념도 [익라] — Experts(각자 특정 Feature Space에 특화 학습된 전문가 네트워크)와 Router(입력에 따라 어떤 전문가를 쓸지 Softmax·Top-k로 결정). 핵심 특징이 Sparse Computation: 전체 전문가를 다 돌리지 않고 일부만 활성화해 계산 효율을 높이므로, 매우 큰 모델도 효율적으로 동작합니다(딥시크·GPT급 모델의 비결). 구성요소: 게이팅 네트워크(Softmax로 전문가 가중치 결정), 전문가 네트워크(서브 모델들), 출력 조합 모듈(선택된 전문가 예측값을 가중합). 2025.04 ITPE·KPC 기출." },
-"peft": { image: "/concept/book/peft.png", easy: "사전학습 모델의 전체 파라미터가 아니라 일부만 조정해서, 적은 자원으로 파인튜닝 효과를 내는 기법의 통칭입니다(전체 대비 수~몇 %만 업데이트). 기법 5가지가 시험 핵심 — Adapter(PLM 중간에 Bottleneck 구조의 작은 신경망 삽입), Prefix Tuning(입력 앞단에 학습 가능한 벡터 추가, Softmax로 영향 조절), LoRA(가중치 대신 저랭크 행렬 추가 학습), Parallel Adapter(PLM 경로와 병렬로 ReLU 기반 어댑터 연결 후 합침), Scaled PA(Parallel Adapter에 Scaling 추가로 영향력 미세 조정). 목적은 하나: 비용·자원·시간을 최소화하면서 커스터마이징. 2025.10 ITPE 모의고사 기출." },
-"mlperf": { image: "/concept/book/mlperf.png", easy: "AI 하드웨어·소프트웨어의 성능을 공정하게 겨루는 국제 벤치마크 — AI 업계의 '공인 기록 경기'입니다. 평가항목 [학추] — 학습부문(Training: 얼마나 빨리 모델을 학습시키는가)과 추론부문(Inference: 얼마나 빠르고 정확하게 결과를 내는가). 평가지표 [훈처 추정처] — 학습은 훈련시간·처리량, 추론은 추론속도·정확도·처리량. 벤치마크 종목: 이미지 분류, 객체탐지, 음성인식, 자연어처리, 추천시스템, 강화학습(승률 50% 도달 시 종료). 경기 방식 2가지가 시험 포인트: CLOSED(과업·모델·데이터를 고정하고 시간으로만 경쟁 — 공정 비교)와 OPEN(모델 성능 외 모든 항목 자유 설정). 2025.06 KPC 기출." },
-"tts": { image: "/concept/book/tts.png", easy: "모델을 다시 학습시키지 않고, 추론(inference) 시점에 시간·연산을 더 투자해 성능을 끌어올리는 기법입니다 — '시험 시간에 검산을 여러 번 하게 하는 것'. 대표 기법 [베빔체몬] — Sampling 기반: Best-of-N(N개 응답 중 신뢰도 최고 선택) / Decoding 기반: Beam Search(중간단계 평가하며 확장), Self-Consistency(여러 CoT 응답의 다수결) / Reasoning 기반: CoT·ToT·GoT / Search & Verification: 보상모델 평가, MCTS(rollout으로 탐색 경로 확장) / Self-Improvement: 응답→비판→수정 반복 / Compute 최적화: COS(난이도 따라 순차·병렬 탐색 배분). 사전학습과의 비교가 시험 포인트: 사전학습은 모델 능력 자체를 확장(파라미터 수정·고비용), TTS는 파라미터 유지한 채 추론 품질 향상(유연한 비용, 단 느릴 수 있음)." },
-"mlops": { image: "/concept/book/mlops.png", easy: "머신러닝의 데이터 수집→분석→배포 전 과정을 DevOps와 결합해 자동화하는 IT 운영 프레임워크입니다. 모델을 '만드는 것'과 '운영하는 것' 사이의 골짜기를 메웁니다. 파이프라인 [도파 데학평배] — ML옵스 도구 선택 → 파이프라인 구축 → 데이터 수집 → 모델 학습 → 모델 평가 → 모델 배포. 성숙도 3단계가 시험 핵심: 0단계(빌드·배포 수동 — 형상관리 부재로 비효율), 1단계(ML 파이프라인 자동화 — Feature Store로 데이터·특징추출 과정 관리, 재현성 보장), 2단계(CI/CD 파이프라인 자동화 — 배포·모니터링까지 자동화, 실시간 성능 추적과 데이터 드리프트 감지). 구성: ML(Data·Model) + DEV(Create~Package) + OPS(Release~Monitor)." },
+"cot": {
+    guide: {
+      hook: "정답만 말하지 말고 '풀이 과정을 단계별로' 밟게 유도하는 추론 기법입니다.",
+      scene: "LLM에 계산·논리 문제를 바로 물으면 자주 틀립니다. CoT(Chain of Thought)는 '단계별로 생각해 보라'며 중간 사고 과정을 거치게 해, 수학·논리 문제의 정답률을 크게 올립니다.",
+      why: "IO 직행 vs 사고 단계 경유 구조와 설명 가능성이 출제 핵심입니다.",
+      mechanism: "표준 프롬프팅: Input→Output 직행(중간 과정 없음). CoT: Input→thought→thought→…→Output(단계적 추론). 효과: 수학·논리·복잡한 의사결정 정확도↑, 중간 사고를 보여줘 설명 가능성·신뢰성↑. 확장: Zero-shot CoT('단계별로 생각'), Self-Consistency(여러 CoT 다수결), ToT(트리 탐색), GoT(그래프). 프롬프트 엔지니어링의 핵심 기법. 추론 특화 모델의 기반.",
+      map: [
+        { as: "직행 출력", real: "표준 프롬프팅", note: "오답 잦음" },
+        { as: "사고 단계 경유", real: "CoT", note: "" },
+        { as: "다수결 결합", real: "Self-Consistency", note: "" },
+        { as: "중간 과정 노출", real: "설명 가능성", note: "" },
+      ],
+      usage: "LLM 추론 강화입니다. 시험은 IO 대비, 설명 가능성, Self-Consistency입니다.",
+      links: [
+        { topic: "프롬프트 엔지니어링(Prompt Engineering)", how: "CoT가 대표 프롬프트 기법입니다." },
+        { topic: "LLM 고도화(LLM Enhancement)", how: "추론 강화 기법군에 속합니다." },
+      ],
+      exam: "CoT는 LLM이 Input→중간 사고→Output으로 풀이 과정을 단계별로 밟게 유도하는 프롬프트 기법으로, 복잡 추론 정확도와 설명 가능성을 높인다.",
+    }, image: "/concept/book/cot.png", easy: "언어 모델이 복잡한 문제를 풀 때 '문제-풀이-답'처럼 중간 과정을 단계별로 밟아 논리적으로 추론하게 유도하는 방법론입니다. 개념도가 핵심: 표준 IO 프롬프팅은 Input→Output 직행이라 계산 문제를 자주 틀리지만, CoT는 Input→thought→thought→thought→Output으로 풀이 과정을 거쳐 정답률이 오릅니다. 특징·구성요소 [문사최] — 특징: 단계적 추론, 문제 해결력 향상(수학·논리 퍼즐·복잡한 의사결정), 설명 가능한 AI(중간 사고 과정을 보여줘 신뢰성↑), Prompt Engineering 활용 / 구성요소: 문제 입력 → 사고 과정 단계(이전 정보 기반으로 다음 단계 진행) → 최종 출력. 2025.04 ITPE 모의고사 기출." },
+"moe": {
+    guide: {
+      hook: "여러 전문가 중 입력에 맞는 '일부만 골라 쓰는' 모델 아키텍처입니다.",
+      scene: "거대 모델을 매번 통째로 돌리면 계산이 막대합니다. MoE(Mixture of Experts)는 여러 전문가 네트워크 중 라우터가 입력에 맞는 소수만 활성화해, 큰 모델을 효율적으로 돌립니다 — 증상별 전문의 배정과 같습니다.",
+      why: "Router·Expert 구조와 Sparse Computation(부분 활성화)이 출제 핵심입니다.",
+      mechanism: "구성: Experts(각자 특정 특징 공간에 특화된 전문가 네트워크), Router/Gating(입력별로 어떤 전문가를 쓸지 Softmax·Top-k로 결정). 핵심: Sparse Computation — 전체가 아닌 일부 전문가만 활성화해 파라미터는 크되 연산은 적음. 효과: 초대형 모델을 효율적으로(GPT급·딥시크의 비결). 과제: 부하 분산(전문가 편중), 통신 비용. LLM 효율화·고도화 기법.",
+      map: [
+        { as: "특화 네트워크", real: "Experts", note: "" },
+        { as: "전문가 선택", real: "Router (Top-k)", note: "" },
+        { as: "일부만 활성화", real: "Sparse Computation", note: "" },
+        { as: "부하 분산", real: "과제", note: "" },
+      ],
+      usage: "초대형 LLM 효율화입니다. 시험은 Router·Expert, Sparse Computation입니다.",
+      links: [
+        { topic: "LLM 고도화(LLM Enhancement)", how: "효율화 대표 기법입니다." },
+        { topic: "트랜스포머(Transformer)", how: "FFN 계층을 MoE로 대체합니다." },
+      ],
+      exam: "MoE는 라우터가 입력별로 소수 전문가만 선택·활성화하는 Sparse Computation 아키텍처로, 초대형 모델을 적은 연산으로 효율적으로 동작시킨다.",
+    }, image: "/concept/book/moe.png", easy: "여러 전문가 모델(Expert) 중 입력에 맞는 최적의 전문가만 골라 쓰는 모델 아키텍처 — 종합병원에서 증상에 맞는 전문의에게 배정하는 것과 같습니다. 개념도 [익라] — Experts(각자 특정 Feature Space에 특화 학습된 전문가 네트워크)와 Router(입력에 따라 어떤 전문가를 쓸지 Softmax·Top-k로 결정). 핵심 특징이 Sparse Computation: 전체 전문가를 다 돌리지 않고 일부만 활성화해 계산 효율을 높이므로, 매우 큰 모델도 효율적으로 동작합니다(딥시크·GPT급 모델의 비결). 구성요소: 게이팅 네트워크(Softmax로 전문가 가중치 결정), 전문가 네트워크(서브 모델들), 출력 조합 모듈(선택된 전문가 예측값을 가중합). 2025.04 ITPE·KPC 기출." },
+"peft": {
+    guide: {
+      hook: "전체가 아닌 '일부 파라미터만' 조정해 적은 자원으로 파인튜닝하는 기법 통칭입니다.",
+      scene: "수십억 파라미터를 다 갱신하는 파인튜닝은 자원이 막대합니다. PEFT는 전체의 수 %만 학습해 비슷한 효과를 내는 경량 파인튜닝 기법들의 총칭으로, LoRA·Adapter 등이 여기 속합니다.",
+      why: "대표 기법 5종(Adapter·Prefix·LoRA 등)과 '일부만 갱신' 원리가 출제 핵심입니다.",
+      mechanism: "원리: 사전학습 모델 대부분 동결, 소수 파라미터만 학습(전체 대비 수~몇 %). 기법: Adapter(중간에 Bottleneck 신경망 삽입), Prefix Tuning(입력 앞 학습 벡터 추가), Prompt Tuning(소프트 프롬프트만), LoRA(저랭크 행렬 추가), Parallel/Scaled Adapter. 효과: VRAM·저장·시간 급감, 태스크별 어댑터 교체. QLoRA로 양자화 결합. Full 파인튜닝의 경량 대안.",
+      map: [
+        { as: "Bottleneck 삽입", real: "Adapter", note: "" },
+        { as: "입력 앞 벡터", real: "Prefix/Prompt Tuning", note: "" },
+        { as: "저랭크 행렬", real: "LoRA", note: "" },
+        { as: "일부만 갱신", real: "경량화", note: "수 %" },
+      ],
+      usage: "LLM 경량 파인튜닝입니다. 시험은 5대 기법, 일부 갱신 원리입니다.",
+      links: [
+        { topic: "LoRA (Low-Rank Adaptation)", how: "PEFT의 대표 기법입니다." },
+        { topic: "파인튜닝(Fine-tuning)", how: "Full 파인튜닝의 경량 대안입니다." },
+      ],
+      exam: "PEFT는 사전학습 모델 대부분을 동결하고 소수 파라미터(Adapter·Prefix·LoRA 등)만 학습하는 경량 파인튜닝 기법의 통칭으로, 적은 자원으로 Full 파인튜닝에 준하는 효과를 낸다.",
+    }, image: "/concept/book/peft.png", easy: "사전학습 모델의 전체 파라미터가 아니라 일부만 조정해서, 적은 자원으로 파인튜닝 효과를 내는 기법의 통칭입니다(전체 대비 수~몇 %만 업데이트). 기법 5가지가 시험 핵심 — Adapter(PLM 중간에 Bottleneck 구조의 작은 신경망 삽입), Prefix Tuning(입력 앞단에 학습 가능한 벡터 추가, Softmax로 영향 조절), LoRA(가중치 대신 저랭크 행렬 추가 학습), Parallel Adapter(PLM 경로와 병렬로 ReLU 기반 어댑터 연결 후 합침), Scaled PA(Parallel Adapter에 Scaling 추가로 영향력 미세 조정). 목적은 하나: 비용·자원·시간을 최소화하면서 커스터마이징. 2025.10 ITPE 모의고사 기출." },
+"mlperf": {
+    guide: {
+      hook: "AI 하드웨어·SW 성능을 공정하게 겨루는 국제 벤치마크입니다.",
+      scene: "AI 칩·시스템의 성능을 저마다 다른 기준으로 자랑하면 비교가 안 됩니다. MLPerf는 학습·추론 성능을 표준 과업으로 측정해 공정하게 순위를 매기는 'AI 업계의 공인 기록 경기'입니다.",
+      why: "평가 부문(학습·추론)과 CLOSED/OPEN 두 경기 방식이 출제 핵심입니다.",
+      mechanism: "부문: Training(학습 속도), Inference(추론 속도·정확도). 지표: 학습(훈련시간·처리량), 추론(추론속도·정확도·처리량). 종목: 이미지 분류, 객체탐지, 음성인식, NLP, 추천, 강화학습. 방식: CLOSED(과업·모델·데이터 고정 — 순수 시스템 성능 비교), OPEN(모델·기법 자유 — 혁신 허용). MLCommons 주관. 하드웨어·프레임워크 벤치마크 표준.",
+      map: [
+        { as: "학습 속도", real: "Training", note: "" },
+        { as: "추론 속도·정확도", real: "Inference", note: "" },
+        { as: "조건 고정 비교", real: "CLOSED", note: "" },
+        { as: "기법 자유", real: "OPEN", note: "" },
+      ],
+      usage: "AI 시스템 성능 평가입니다. 시험은 학습·추론 부문, CLOSED/OPEN 방식입니다.",
+      links: [
+        { topic: "AI 반도체(AI Semiconductor)", how: "하드웨어 성능을 MLPerf로 검증합니다." },
+        { topic: "TPU (Tensor Processing Unit)", how: "AI 가속기 성능 비교 대상입니다." },
+      ],
+      exam: "MLPerf는 학습·추론 성능을 표준 과업으로 측정하는 국제 AI 벤치마크로, 조건을 고정한 CLOSED와 기법이 자유로운 OPEN 방식으로 시스템을 공정하게 비교한다.",
+    }, image: "/concept/book/mlperf.png", easy: "AI 하드웨어·소프트웨어의 성능을 공정하게 겨루는 국제 벤치마크 — AI 업계의 '공인 기록 경기'입니다. 평가항목 [학추] — 학습부문(Training: 얼마나 빨리 모델을 학습시키는가)과 추론부문(Inference: 얼마나 빠르고 정확하게 결과를 내는가). 평가지표 [훈처 추정처] — 학습은 훈련시간·처리량, 추론은 추론속도·정확도·처리량. 벤치마크 종목: 이미지 분류, 객체탐지, 음성인식, 자연어처리, 추천시스템, 강화학습(승률 50% 도달 시 종료). 경기 방식 2가지가 시험 포인트: CLOSED(과업·모델·데이터를 고정하고 시간으로만 경쟁 — 공정 비교)와 OPEN(모델 성능 외 모든 항목 자유 설정). 2025.06 KPC 기출." },
+"tts": {
+    guide: {
+      hook: "재학습 없이 '추론 시점에 연산을 더 써서' 성능을 끌어올리는 기법입니다.",
+      scene: "모델을 더 크게 학습하는 건 비쌉니다. Test-Time Scaling은 학습된 모델 그대로, 답을 낼 때 여러 번 생각·검산·탐색하도록 추론 연산을 늘려 성능을 높입니다 — 시험 시간에 검산을 여러 번 하는 셈입니다.",
+      why: "학습 스케일링과 대비되는 '추론 스케일링'과 대표 기법군이 출제 핵심입니다.",
+      mechanism: "핵심: 파라미터·학습이 아닌 추론 연산 투자. 기법: Sampling(Best-of-N — N개 중 최고 선택), Decoding(Beam Search, Self-Consistency — CoT 다수결), Reasoning(CoT·ToT·GoT — 사고 확장), Search & Verification(보상모델 평가, MCTS 롤아웃). o1 등 추론 모델의 원리. 학습 스케일링 한계 보완, 추론 비용↑ 트레이드오프. LLM 고도화 축.",
+      map: [
+        { as: "N개 중 최고", real: "Best-of-N", note: "" },
+        { as: "CoT 다수결", real: "Self-Consistency", note: "" },
+        { as: "사고 확장", real: "CoT·ToT", note: "" },
+        { as: "탐색·검증", real: "MCTS·보상모델", note: "" },
+      ],
+      usage: "추론 성능 강화입니다. 시험은 추론 스케일링, 기법군, 학습 스케일링 대비입니다.",
+      links: [
+        { topic: "CoT (Chain of Thought)", how: "추론 스케일링의 기본 기법입니다." },
+        { topic: "LLM 고도화(LLM Enhancement)", how: "추론 강화 축에 속합니다." },
+      ],
+      exam: "Test-Time Scaling은 재학습 없이 추론 시점 연산을 늘려(Best-of-N·Self-Consistency·MCTS) 성능을 높이는 기법으로, 학습 스케일링과 대비되는 추론 스케일링 축이다.",
+    }, image: "/concept/book/tts.png", easy: "모델을 다시 학습시키지 않고, 추론(inference) 시점에 시간·연산을 더 투자해 성능을 끌어올리는 기법입니다 — '시험 시간에 검산을 여러 번 하게 하는 것'. 대표 기법 [베빔체몬] — Sampling 기반: Best-of-N(N개 응답 중 신뢰도 최고 선택) / Decoding 기반: Beam Search(중간단계 평가하며 확장), Self-Consistency(여러 CoT 응답의 다수결) / Reasoning 기반: CoT·ToT·GoT / Search & Verification: 보상모델 평가, MCTS(rollout으로 탐색 경로 확장) / Self-Improvement: 응답→비판→수정 반복 / Compute 최적화: COS(난이도 따라 순차·병렬 탐색 배분). 사전학습과의 비교가 시험 포인트: 사전학습은 모델 능력 자체를 확장(파라미터 수정·고비용), TTS는 파라미터 유지한 채 추론 품질 향상(유연한 비용, 단 느릴 수 있음)." },
+"mlops": {
+    guide: {
+      hook: "ML의 데이터~배포 전 과정을 DevOps와 결합해 자동화하는 운영 프레임워크입니다.",
+      scene: "모델을 잘 만들어도 운영·재학습이 수동이면 실전에서 무너집니다. MLOps는 데이터 수집·학습·배포·모니터링을 DevOps 방식으로 자동화해, 모델을 '만드는 것'과 '운영하는 것' 사이 골짜기를 메웁니다.",
+      why: "파이프라인 단계와 성숙도 3단계(0/1/2)가 출제 핵심입니다.",
+      mechanism: "파이프라인: 도구 선택→구축→데이터 수집→학습→평가→배포→모니터링→재학습(순환). 성숙도: 0단계(수동 빌드·배포, 형상관리 부재), 1단계(ML 파이프라인 자동화 — Feature Store로 재현성 보장), 2단계(CI/CD 자동화 — 배포·재학습 완전 자동). 요소: Feature Store, 모델 레지스트리, 데이터·모델 버전관리, 드리프트 모니터링. DevOps+데이터+ML 융합.",
+      map: [
+        { as: "수동 빌드·배포", real: "성숙도 0단계", note: "" },
+        { as: "파이프라인 자동화", real: "1단계", note: "Feature Store" },
+        { as: "CI/CD 자동화", real: "2단계", note: "" },
+        { as: "드리프트 감시", real: "모니터링", note: "" },
+      ],
+      usage: "ML 운영 자동화입니다. 시험은 파이프라인, 성숙도 3단계입니다.",
+      links: [
+        { topic: "LLMOps", how: "LLM에 특화된 MLOps입니다." },
+        { topic: "모델 드리프트(Model Drift)", how: "모니터링으로 탐지·대응합니다." },
+      ],
+      exam: "MLOps는 데이터 수집·학습·배포·모니터링을 DevOps로 자동화하는 ML 운영 프레임워크로, 성숙도 0(수동)·1(파이프라인)·2(CI/CD) 단계로 발전한다.",
+    }, image: "/concept/book/mlops.png", easy: "머신러닝의 데이터 수집→분석→배포 전 과정을 DevOps와 결합해 자동화하는 IT 운영 프레임워크입니다. 모델을 '만드는 것'과 '운영하는 것' 사이의 골짜기를 메웁니다. 파이프라인 [도파 데학평배] — ML옵스 도구 선택 → 파이프라인 구축 → 데이터 수집 → 모델 학습 → 모델 평가 → 모델 배포. 성숙도 3단계가 시험 핵심: 0단계(빌드·배포 수동 — 형상관리 부재로 비효율), 1단계(ML 파이프라인 자동화 — Feature Store로 데이터·특징추출 과정 관리, 재현성 보장), 2단계(CI/CD 파이프라인 자동화 — 배포·모니터링까지 자동화, 실시간 성능 추적과 데이터 드리프트 감지). 구성: ML(Data·Model) + DEV(Create~Package) + OPS(Release~Monitor)." },
 // ─────────────── 3주차: 확률·통계(ST) — 교재 슬라이드 + 쉬운 설명 ───────────────
 "st-prob-dist": {
     guide: {
@@ -10890,10 +10998,82 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     }, image: "/concept/book/ds-dag.png", easy: "간선에 방향이 있고 순환이 없는 그래프 — 선수과목 이수 체계나 작업 의존 관계(빌드 순서, Airflow 파이프라인)를 표현하는 구조입니다. 핵심 알고리즘이 위상 정렬(Topological Ordering): 방향을 거스르지 않게 정점을 한 줄로 나열합니다. 절차: ① 정점별 진입차수(in-degree: 들어오는 간선 수) 표 작성 → ② 진입차수 0인 정점을 큐에 삽입하며 그 정점과 간선 제거 → ③ 새로 진입차수 0이 된 정점을 계속 큐에 삽입 → ④ 모든 정점 제거되면 완료. 교재 예제 결과: 4→1→6→2→3→5. DFS나 큐로 풀 수 있고, 순환이 있으면 위상 정렬이 불가능하다는 것도 시험 포인트입니다." },
 "genai-data-quality-v2": { image: "/concept/book/genai-data-quality-v2.png", easy: "생성형AI를 위한 데이터 품질관리 방법·절차를 체계적으로 제시하는 가이드입니다. '학습용 데이터 품질관리 v3.1'이 일반 AI 학습데이터용이라면, 이쪽은 생성형AI(Instruction Data) 특화판 — 가공 데이터가 Caption(캡션)·Summary(요약)·Q&A(질의응답)·Dialogue(대화)·Translation(번역)·Radiology Report(판독문) 형태라는 점이 다릅니다. 데이터 구축 과정: 구축계획 수립 → 데이터 획득/수집(원시데이터) → 데이터 정제(원천데이터) → 데이터 가공(가공데이터) → 데이터 학습(학습 데이터셋) → 반복. 품질지표 4개: 구축 공정 적정성(준비성·완전성·유용성), 데이터 적합성(기준 적합성·다양성·유사성·편향성·유용성·안전성), 가공 데이터 정확성(구문·의미 정확성), 학습모델 적정성(알고리즘 적정성·유효성). 2025 KPC·ITPE 다수 기출." },
 "mas": { image: "/concept/book/mas.png", easy: "여러 자율적 소프트웨어 에이전트가 상호작용하며 협력 또는 경쟁을 통해 복잡한 문제를 분산적으로 해결하는 분산 인공지능 시스템입니다. 개미 군집처럼 개별 에이전트는 단순하지만 모이면 복잡한 문제를 풉니다. 특성 6가지 [자분통 경전적] — 자율(중앙 통제 없이 독립 판단: GPT 기반 에이전트·RL 로봇), 분산(제어 권한 분산으로 특정 장애에도 전체 유지: Event-driven Architecture·Fault-Tolerant Agent Design), 통신(RPC/REST/Pub-Sub로 정보 교환·협상), 경쟁/협력(Multi-Agent Task Scheduler로 역할 분담), 전문화(Expert Agent — 서로 다른 역할·지식으로 상호보완), 적응성(RL로 환경 변화에 능동 대응). 유형: Independent(Discrete, Emergent Cooperation) vs Cooperative(Communicating — Deliberative·Negotiating / Non-communicating). A2A 프로토콜은 이 에이전트들이 조직 경계를 넘어 통신하기 위한 규약입니다. 2025.05 ITPE FR 기출." },
-"llmops": { image: "/concept/book/llmops.png", easy: "MLOps의 LLM 특화판 — 대형 언어 모델의 설계부터 관리·배포·유지까지 통합하고 효율화하는 과정이자 패러다임입니다. 벤다이어그램이 핵심: LLMOps = 머신러닝 ∩ DevOps ∩ 데이터 엔지니어링. 단계별 구성요소: Data 수집·처리 → 기반모델 선정 → 임베딩 처리(벡터라이징·벡터 DB 저장) → 프롬프트 관리(프롬프트 엔지니어링·체이닝) → 테스트 → 버전 관리(CI/CD) → 모니터링(지연·안전성) → 최적화(파인튜닝·프롬프트 iteration). 구현 기술 예: Spark/Kafka(수집), GPT·LLAMA·Gemini(기반모델), Milvus/Weaviate(벡터 DB), Azure AI Studio(프롬프트), Jenkins X(CI/CD), Arize(모니터링)." },
-"ai-watermark": { image: "/concept/book/ai-watermark.png", easy: "AI가 만든 이미지·영상·오디오·텍스트에 사람 눈에 안 보이는 워터마크를 심어 'AI 생성물'임을 식별하게 하는 기술입니다. 분류 3가지가 시험 핵심 — 공간 기반(이미지·동영상: 최하위 비트에 삽입, LSB), 변환 기반(주파수 도메인으로 변환해 삽입: DCT는 블록 단위 주파수 계수, DWT는 저주파 LL 제외한 중·고주파 서브밴드에 삽입, Edge Masking), 학습 기반(생성 모델 자체가 서명을 숨기도록 학습: Stable Signature, 텍스트는 로짓 생성·토큰 샘플링 워터마크). 오디오는 Audio Seal·WavMark·Spread Spectrum 등. AI 기본법의 생성물 표시 의무와 연결되는 실무 기술입니다. 2025.05 ITPE FR 기출." },
-"genai-user-protection": { image: "/concept/book/genai-user-protection.png", easy: "생성형 AI 서비스의 잠재적 위험을 사전 방지하고 이용자 권익을 보호하기 위한 가이드라인입니다(방통위, 2025.02.28). 기본원칙 [인설안공비] — 인간 존엄성 보호(AI는 보조 수단), 설명 가능성과 투명성 확보, 안전한 작동 보장, 공정성과 비차별. 실행 방안이 두 축: 이용자 권익 보호 [이결다입] — 이용자 인격권 보호(필터링·신고·차단), 결정 과정의 설명 노력('AI 생성' 고지), 다양성 존중, 입력데이터 수집·활용 관리(사전 고지·동의) / 콘텐츠 관리·책임 [책건] — 책임과 참여, 건전한 유통·배포. 생태계 조성은 EU AI Act·AI 기본법·ISO/IEC 42001과 연계됩니다. 138회 정보관리 3교시 기출." },
-"genai-user-protection-2502": { image: "/concept/book/genai-user-protection-2502.png", easy: "생성형 AI 서비스 이용자 보호 가이드라인(2025.02.28)은 방송통신위원회가 발표한, 생성형 AI 이용 과정의 잠재적 위험을 사전 방지하고 이용자 권익을 보호하기 위한 기본 원칙과 실천 방식입니다('생성형 인공지능 서비스 이용자 보호 가이드라인'과 같은 문서의 발표일 표기판). 기본원칙 [인설안공비] — 인간 존엄성 보호(AI는 인간을 보조하는 수단, 인간의 결정권 보장), 설명 가능성과 투명성 확보(왜 그런 결과인지 알기 쉽게 설명), 안전한 작동 보장(오작동·잘못된 정보 생성·프롬프트 남용 사전 예방), 공정성과 비차별(데이터·알고리즘 편향 최소화). 실행 방안은 이용자 권익 보호 [이결다입](인격권 보호·결정 과정 설명·다양성 존중·입력데이터 관리)과 콘텐츠 관리·책임 [책건](책임과 참여·건전한 유통 배포). 답안 서두는 '방통위 2025.02.28 발표'로 잡으면 됩니다." },
+"llmops": {
+    guide: {
+      hook: "MLOps의 LLM 특화판 — LLM 앱의 설계·배포·운영을 통합 관리합니다.",
+      scene: "LLM 앱은 프롬프트·임베딩·벡터DB·환각 관리 등 일반 ML과 다른 요소가 많습니다. LLMOps는 이런 LLM 특유의 개발·배포·모니터링을 체계화해, 프롬프트부터 운영까지 전 주기를 관리하는 패러다임입니다.",
+      why: "MLOps와의 차이(프롬프트·임베딩·벡터DB)와 파이프라인 단계가 출제 핵심입니다.",
+      mechanism: "정의: LLMOps = 머신러닝 ∩ DevOps ∩ 데이터 엔지니어링(LLM 특화). 단계: 데이터 수집·처리→기반모델 선정→임베딩(벡터화·벡터DB)→프롬프트 관리(엔지니어링·체이닝)→테스트→버전관리(CI/CD)→모니터링(지연·안전성·환각)→최적화(파인튜닝·프롬프트 반복). 기술: Spark/Kafka, GPT·LLaMA, LangChain, 벡터DB. MLOps 대비 프롬프트·RAG·환각 관리가 특징.",
+      map: [
+        { as: "벡터화·벡터DB", real: "임베딩", note: "" },
+        { as: "엔지니어링·체이닝", real: "프롬프트 관리", note: "" },
+        { as: "지연·환각 감시", real: "모니터링", note: "" },
+        { as: "ML∩DevOps∩데이터", real: "정의", note: "" },
+      ],
+      usage: "LLM 앱 운영입니다. 시험은 MLOps 차이, 파이프라인 단계입니다.",
+      links: [
+        { topic: "MLOps", how: "LLMOps가 LLM 특화판입니다." },
+        { topic: "RAG (Retrieval-Augmented Generation)", how: "임베딩·벡터DB 단계의 핵심입니다." },
+      ],
+      exam: "LLMOps는 임베딩·프롬프트·벡터DB·환각 관리를 포함해 LLM 앱의 개발~운영을 통합하는 MLOps의 LLM 특화 패러다임이다.",
+    }, image: "/concept/book/llmops.png", easy: "MLOps의 LLM 특화판 — 대형 언어 모델의 설계부터 관리·배포·유지까지 통합하고 효율화하는 과정이자 패러다임입니다. 벤다이어그램이 핵심: LLMOps = 머신러닝 ∩ DevOps ∩ 데이터 엔지니어링. 단계별 구성요소: Data 수집·처리 → 기반모델 선정 → 임베딩 처리(벡터라이징·벡터 DB 저장) → 프롬프트 관리(프롬프트 엔지니어링·체이닝) → 테스트 → 버전 관리(CI/CD) → 모니터링(지연·안전성) → 최적화(파인튜닝·프롬프트 iteration). 구현 기술 예: Spark/Kafka(수집), GPT·LLAMA·Gemini(기반모델), Milvus/Weaviate(벡터 DB), Azure AI Studio(프롬프트), Jenkins X(CI/CD), Arize(모니터링)." },
+"ai-watermark": {
+    guide: {
+      hook: "AI 생성물에 '보이지 않는 서명'을 심어 AI 제작임을 식별하는 기술입니다.",
+      scene: "딥페이크·AI 생성 콘텐츠가 진짜와 구별이 안 되면 사회적 혼란입니다. AI 워터마크는 이미지·영상·오디오·텍스트에 사람 눈에 안 보이는 표식을 심어, 'AI 생성물'임을 검출·증명하게 합니다.",
+      why: "3대 분류(공간·변환·학습 기반)와 도메인별 기법이 출제 핵심입니다.",
+      mechanism: "공간 기반: 이미지·영상 최하위 비트에 삽입(LSB — 단순·취약). 변환 기반: 주파수 도메인 삽입(DCT 블록 계수, DWT 중·고주파 서브밴드, Edge Masking — 강인성↑). 학습 기반: 생성 모델이 서명을 숨기도록 학습(Stable Signature; 텍스트는 로짓·토큰 샘플링 워터마크). 오디오: AudioSeal·WavMark. 요건: 비가시성·강인성(변형 견딤)·검출성. AI 투명성·규제 대응.",
+      map: [
+        { as: "최하위 비트", real: "공간 기반(LSB)", note: "취약" },
+        { as: "주파수 도메인", real: "변환 기반(DCT·DWT)", note: "강인" },
+        { as: "생성 모델이 서명 학습", real: "학습 기반", note: "" },
+        { as: "비가시·강인·검출", real: "요건", note: "" },
+      ],
+      usage: "AI 콘텐츠 식별입니다. 시험은 3대 분류, DCT·DWT, 강인성입니다.",
+      links: [
+        { topic: "딥페이크(Deepfake)", how: "워터마크로 생성물을 식별·대응합니다." },
+        { topic: "생성형 AI 서비스 이용자 보호 가이드라인", how: "AI 생성 고지 수단으로 연계됩니다." },
+      ],
+      exam: "AI 워터마크는 AI 생성물에 비가시 표식을 심어 식별하는 기술로, 공간(LSB)·변환(DCT·DWT)·학습(Stable Signature) 기반으로 나뉘며 강인성·검출성이 핵심 요건이다.",
+    }, image: "/concept/book/ai-watermark.png", easy: "AI가 만든 이미지·영상·오디오·텍스트에 사람 눈에 안 보이는 워터마크를 심어 'AI 생성물'임을 식별하게 하는 기술입니다. 분류 3가지가 시험 핵심 — 공간 기반(이미지·동영상: 최하위 비트에 삽입, LSB), 변환 기반(주파수 도메인으로 변환해 삽입: DCT는 블록 단위 주파수 계수, DWT는 저주파 LL 제외한 중·고주파 서브밴드에 삽입, Edge Masking), 학습 기반(생성 모델 자체가 서명을 숨기도록 학습: Stable Signature, 텍스트는 로짓 생성·토큰 샘플링 워터마크). 오디오는 Audio Seal·WavMark·Spread Spectrum 등. AI 기본법의 생성물 표시 의무와 연결되는 실무 기술입니다. 2025.05 ITPE FR 기출." },
+"genai-user-protection": {
+    guide: {
+      hook: "생성형 AI의 위험을 사전 예방하고 이용자를 보호하는 가이드라인입니다.",
+      scene: "생성형 AI가 허위·차별·인격권 침해 콘텐츠를 만들 수 있습니다. 이 가이드라인(방통위, 2025.02.28)은 서비스 제공자가 지켜야 할 기본 원칙과 실천 방안을 제시해, 잠재 위험을 사전에 막고 이용자 권익을 지킵니다.",
+      why: "5대 기본원칙과 두 실행 축(권익 보호·콘텐츠 책임)이 출제 핵심입니다.",
+      mechanism: "기본원칙[인설안공비]: 인간 존엄성 보호(AI는 보조·인간 결정권), 설명 가능성·투명성, 안전한 작동 보장, 공정성·비차별, 그리고 이를 관통하는 신뢰. 실행 축1(이용자 권익): 인격권 보호(필터링·신고·차단), 결정 과정 설명('AI 생성' 고지), 다양성 존중, 입력데이터 수집·활용 관리(고지·동의). 실행 축2(콘텐츠 관리·책임): 책임과 참여, 건전한 유통·배포. 자율규제 성격.",
+      map: [
+        { as: "인간 존엄·결정권", real: "기본원칙", note: "" },
+        { as: "AI 생성 고지", real: "설명·투명성", note: "" },
+        { as: "필터링·신고·차단", real: "인격권 보호", note: "" },
+        { as: "건전한 유통", real: "콘텐츠 책임", note: "" },
+      ],
+      usage: "생성형 AI 서비스 규범입니다. 시험은 5대 원칙, 두 실행 축입니다.",
+      links: [
+        { topic: "AI 워터마크(AI Watermark)", how: "'AI 생성' 고지 수단이 됩니다." },
+        { topic: "AI 기본법(AI Basic Act)", how: "생성형 AI 규제의 법적 기반과 연계됩니다." },
+      ],
+      exam: "생성형 AI 이용자 보호 가이드라인(방통위, 2025.02.28)은 인간 존엄·설명 가능성·안전·공정성 원칙 아래 이용자 권익 보호와 콘텐츠 책임을 실천하게 하는 자율규제 지침이다.",
+    }, image: "/concept/book/genai-user-protection.png", easy: "생성형 AI 서비스의 잠재적 위험을 사전 방지하고 이용자 권익을 보호하기 위한 가이드라인입니다(방통위, 2025.02.28). 기본원칙 [인설안공비] — 인간 존엄성 보호(AI는 보조 수단), 설명 가능성과 투명성 확보, 안전한 작동 보장, 공정성과 비차별. 실행 방안이 두 축: 이용자 권익 보호 [이결다입] — 이용자 인격권 보호(필터링·신고·차단), 결정 과정의 설명 노력('AI 생성' 고지), 다양성 존중, 입력데이터 수집·활용 관리(사전 고지·동의) / 콘텐츠 관리·책임 [책건] — 책임과 참여, 건전한 유통·배포. 생태계 조성은 EU AI Act·AI 기본법·ISO/IEC 42001과 연계됩니다. 138회 정보관리 3교시 기출." },
+"genai-user-protection-2502": {
+    guide: {
+      hook: "생성형 AI 이용자 보호 가이드라인(2025.02.28) — 방통위 발표판입니다.",
+      scene: "생성형 AI 확산으로 허위정보·프롬프트 남용·차별 우려가 커졌습니다. 방통위가 2025.2.28 발표한 이 가이드라인은 이용 과정의 잠재 위험을 사전 방지하고 이용자 권익을 보호할 기본 원칙과 실천 방식을 담습니다.",
+      why: "발표 주체·시점과 5대 기본원칙이 출제 핵심입니다.",
+      mechanism: "발표: 방송통신위원회, 2025.02.28. 기본원칙[인설안공비]: 인간 존엄성 보호(AI는 인간 보조·결정권 보장), 설명 가능성·투명성(왜 그런 결과인지 설명), 안전한 작동 보장(오작동·허위 생성·프롬프트 남용 예방), 공정성·비차별(데이터 편향 관리). 실천: 이용자 권익 보호(인격권·고지·동의), 콘텐츠 관리·책임(건전 유통). 자율규제. '생성형 인공지능 서비스 이용자 보호 가이드라인'과 동일 문서.",
+      map: [
+        { as: "방통위 2025.02.28", real: "발표", note: "" },
+        { as: "인간 보조·결정권", real: "인간 존엄성", note: "" },
+        { as: "허위·남용 예방", real: "안전한 작동", note: "" },
+        { as: "편향 관리", real: "공정성·비차별", note: "" },
+      ],
+      usage: "생성형 AI 규범입니다. 시험은 발표 주체·시점, 5대 원칙입니다.",
+      links: [
+        { topic: "생성형 AI 서비스 이용자 보호 가이드라인", how: "동일 문서의 발표일 표기판입니다." },
+        { topic: "AI 기본법(AI Basic Act)", how: "생성형 AI 규제 기반과 연계됩니다." },
+      ],
+      exam: "생성형 AI 이용자 보호 가이드라인(방통위, 2025.02.28)은 인간 존엄·설명 가능성·안전·공정성 5대 원칙으로 생성형 AI의 위험을 사전 예방하고 이용자를 보호하는 자율규제 지침이다.",
+    }, image: "/concept/book/genai-user-protection-2502.png", easy: "생성형 AI 서비스 이용자 보호 가이드라인(2025.02.28)은 방송통신위원회가 발표한, 생성형 AI 이용 과정의 잠재적 위험을 사전 방지하고 이용자 권익을 보호하기 위한 기본 원칙과 실천 방식입니다('생성형 인공지능 서비스 이용자 보호 가이드라인'과 같은 문서의 발표일 표기판). 기본원칙 [인설안공비] — 인간 존엄성 보호(AI는 인간을 보조하는 수단, 인간의 결정권 보장), 설명 가능성과 투명성 확보(왜 그런 결과인지 알기 쉽게 설명), 안전한 작동 보장(오작동·잘못된 정보 생성·프롬프트 남용 사전 예방), 공정성과 비차별(데이터·알고리즘 편향 최소화). 실행 방안은 이용자 권익 보호 [이결다입](인격권 보호·결정 과정 설명·다양성 존중·입력데이터 관리)과 콘텐츠 관리·책임 [책건](책임과 참여·건전한 유통 배포). 답안 서두는 '방통위 2025.02.28 발표'로 잡으면 됩니다." },
 "iso-42119-2": { image: "/concept/book/iso-42119-2.png", easy: "소프트웨어 테스트 국제표준(ISO/IEC/IEEE 29119)을 AI 시스템에 적용하는 방법을 제시하는 기술 명세서입니다. 구성: 서문(범위 — 29119 적용 범위 한정, Normative references — 29119 시리즈+AI 표준 23894·25059·22989, AI 특화 용어 40개 — \"AI risk\"·\"drift testing\"·\"adversarial testing\") + 기술 본론 4개: AI 시스템·테스트 소개(생애주기 정의, 위험 기반 테스트 접근 중심), AI 시스템 리스크 식별(안전성·공정성·프라이버시·보안 리스크를 ISO/IEC 23894와 연계해 우선순위 설정), AI 테스트 접근법(레벨별 + 데이터 품질·모델·지식기반 시스템 테스트), Annex A~C(AI의 확률성·학습성·비결정성 특성). 2026.02 ITPE FR 기출." },
 "brainbody-llm": { image: "/concept/book/brainbody-llm.png", easy: "LLM 두 개를 뇌(Brain)와 몸(Body)처럼 계층적으로 나눠 쓰는 에이전트 시스템입니다. Brain-LLM은 고수준 작업 계획과 의미론적 추론을 담당하고(\"소파에서 칩 먹기\" → 주방으로 가기·칩 찾기 같은 High-level Plan), Body-LLM은 하위 수준 제어·실행을 담당합니다(<walk><kitchen> 같은 Low-level Plan). 핵심은 Closed-Loop Feedback — 시뮬레이터/실환경에서 오류가 나면 오류 신호와 환경 상태가 즉시 Brain-LLM으로 돌아가고, Brain이 원인을 추론해 계획을 수정합니다(접시 씻기 실패 → 수세미 사용으로 계획 갱신 → SUCCESS). 로봇 제어형 Physical AI의 대표 아키텍처입니다." },
 "confusion-matrix": { image: "/concept/book/confusion-matrix.png", easy: "예측값과 실제값의 일치 여부를 2×2 행렬(TP·FN·FP·TN)로 놓고 모델을 평가하는 기법 — 분류 모델 평가의 출발점입니다. 지표 공식이 그대로 시험에 나옵니다: Precision=TP/(TP+FP)(Positive 예측 중 진짜), Accuracy=(TP+TN)/전체, Recall=TP/(TP+FN)(실제 Positive 중 잡아낸 비율, 민감도), Specificity=TN/(FP+TN)(진음성률), FP Rate=FP/(FP+TN)(=1−Specificity), F1 Score=2×(P×R)/(P+R)(정밀도·재현율의 조화), Cohen's Kappa=(Accuracy−P(e))/(1−P(e))(우연히 맞춘 것까지 보정 — 클래스 불균형에서 Accuracy의 함정 극복). ROC(모든 threshold의 FPR·TPR)·AUC(ROC 아래 면적)·PR Plot도 세트로 기억하세요." },
