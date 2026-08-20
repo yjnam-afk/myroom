@@ -645,54 +645,100 @@ function ExplainInner() {
                 </div>
               </div>
 
-              {/* 2. 본론 — 검증된 개념도(conceptMap) + 구획별 키워드를 가/나/다로 */}
-              <div className="mt-4">
-                <p className="text-[13px] font-bold leading-relaxed text-slate-800">
-                  2. {legacy.title.replace(/\s*\([^)]*\)/g, "")}의 개념도 및 구성요소
-                </p>
-                {legacy.conceptMap && (
-                  <div className="mt-1 pl-4">
-                    <p className="text-[13px] leading-relaxed text-slate-600">
-                      <span className="mr-1 font-bold text-slate-500">가. 개념도</span>이
-                      개념도를 답안지 6줄 내로 옮겨 그린다
+              {/* 2. 본론 — 검증된 개념도(conceptMap) + 구획별 키워드를 가/나/다로.
+                  구획·개념도가 없는 얇은 토픽은 커널 카드(guide)의 핵심 동작·용어 매핑으로
+                  채우고, 그마저 없으면 2번 자체를 건너뛰어 빈 소제목을 만들지 않는다. */}
+              {(() => {
+                const g = extra?.guide;
+                const useGuideBody = !legacy.sections.length && !!(g?.mechanism || g?.map?.length);
+                const hasBody =
+                  !!legacy.conceptMap || legacy.sections.length > 0 || useGuideBody;
+                if (!hasBody) return null;
+                let li = 0;
+                const letter = () => ["가", "나", "다", "라", "마", "바", "사"][li++];
+                return (
+                  <div className="mt-4">
+                    <p className="text-[13px] font-bold leading-relaxed text-slate-800">
+                      2. {legacy.title.replace(/\s*\([^)]*\)/g, "")}의 개념도 및 구성요소
                     </p>
-                    <div className="mt-2 overflow-x-auto rounded-lg border border-slate-200 bg-white p-2">
-                      <Mermaid chart={legacy.conceptMap} />
-                    </div>
+                    {legacy.conceptMap && (
+                      <div className="mt-1 pl-4">
+                        <p className="text-[13px] leading-relaxed text-slate-600">
+                          <span className="mr-1 font-bold text-slate-500">
+                            {letter()}. 개념도
+                          </span>
+                          이 개념도를 답안지 6줄 내로 옮겨 그린다
+                        </p>
+                        <div className="mt-2 overflow-x-auto rounded-lg border border-slate-200 bg-white p-2">
+                          <Mermaid chart={legacy.conceptMap} />
+                        </div>
+                      </div>
+                    )}
+                    {legacy.sections.map((s) => (
+                      <div key={s.label} className="mt-3 pl-4">
+                        <p className="text-[13px] font-bold leading-relaxed text-slate-700">
+                          {letter()}. {s.label}
+                          {s.mnemonic && (
+                            <span className="ml-1.5 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">
+                              두음 {s.mnemonic}
+                            </span>
+                          )}
+                        </p>
+                        <div className="mt-1.5 flex flex-wrap gap-1.5">
+                          {s.keywords.map((k) => (
+                            <span
+                              key={k}
+                              className="rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-indigo-100"
+                            >
+                              {k}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                    {useGuideBody && g?.mechanism && (
+                      <div className="mt-3 pl-4">
+                        <p className="text-[13px] font-bold leading-relaxed text-slate-700">
+                          {letter()}. 핵심 동작·내용
+                        </p>
+                        <p className="mt-1 text-[13px] leading-relaxed text-slate-700">
+                          {g.mechanism}
+                        </p>
+                      </div>
+                    )}
+                    {useGuideBody && !!g?.map?.length && (
+                      <div className="mt-3 pl-4">
+                        <p className="text-[13px] font-bold leading-relaxed text-slate-700">
+                          {letter()}. 핵심 구성요소
+                        </p>
+                        <div className="mt-1.5 flex flex-wrap gap-1.5">
+                          {g.map.map((m) => (
+                            <span
+                              key={m.real + m.as}
+                              className="rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-indigo-100"
+                              title={m.as}
+                            >
+                              {m.real}
+                              {m.note ? ` (${m.note})` : ""}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
-                )}
-                {legacy.sections.map((s, si) => (
-                  <div key={s.label} className="mt-3 pl-4">
-                    <p className="text-[13px] font-bold leading-relaxed text-slate-700">
-                      {["가", "나", "다", "라", "마", "바", "사"][
-                        si + (legacy.conceptMap ? 1 : 0)
-                      ]}
-                      . {s.label}
-                      {s.mnemonic && (
-                        <span className="ml-1.5 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">
-                          두음 {s.mnemonic}
-                        </span>
-                      )}
-                    </p>
-                    <div className="mt-1.5 flex flex-wrap gap-1.5">
-                      {s.keywords.map((k) => (
-                        <span
-                          key={k}
-                          className="rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-indigo-100"
-                        >
-                          {k}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
+                );
+              })()}
 
-              {/* 3. 플러스 알파 — 활용·플러스 키워드와 메모로 추가 어필 */}
+              {/* 플러스 알파 — 활용·플러스 키워드와 메모로 추가 어필(앞 항목 유무에 따라 번호 조정) */}
               {(legacy.apply?.length || legacy.plus?.length || legacy.memo) ? (
                 <div className="mt-4">
                   <p className="text-[13px] font-bold leading-relaxed text-slate-800">
-                    3. 플러스 알파 — 추가 어필
+                    {!!legacy.conceptMap ||
+                    legacy.sections.length > 0 ||
+                    !!(extra?.guide?.mechanism || extra?.guide?.map?.length)
+                      ? "3"
+                      : "2"}
+                    . 플러스 알파 — 추가 어필
                   </p>
                   <ul className="mt-1 space-y-1 pl-4">
                     {!!legacy.apply?.length && (
@@ -726,6 +772,10 @@ function ExplainInner() {
                   ...(legacy.defKeywords || []),
                   ...(legacy.features || []),
                   ...legacy.sections.flatMap((s) => s.keywords),
+                  // 구획이 없는 얇은 토픽 — 커널 카드의 핵심 용어로 채점 근거를 보강
+                  ...(legacy.sections.length
+                    ? []
+                    : (extra?.guide?.map || []).map((m) => m.real)),
                 ]),
               ).filter(Boolean);
               return check.length ? (
