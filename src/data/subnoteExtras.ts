@@ -5281,8 +5281,44 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
       ],
       exam: "AI OS는 CPU·RAM 대신 LLM·컨텍스트를 자원으로 관리하는 차세대 운영체제로, 전통 OS의 프로세스·메모리·파일이 에이전트·컨텍스트·벡터저장소로 치환된다.",
     }, image: "/concept/book/dx-aios.png", easy: "지금 OS는 CPU와 RAM을 프로세스에 나눠주는 게 일인데, AI OS는 LLM과 컨텍스트를 에이전트에 나눠줍니다. 대응 관계로 외우면 쉽습니다 — CPU+RAM ↔ LLM+Context, Kernel ↔ AI OS Kernel, Process(Users) ↔ Agent(Users). 구성요소는 세 묶음: LLM 쪽(LLMCore로 인스턴스 추상화, LLMScheduler로 이기종 GPU 스케줄링), Data Manager 쪽(Context Manager로 추론 중단점 저장·복원, Memory Manager로 단기·장기 메모리, Storage Manager로 영구 저장·벡터 DB 검색), Tool Manager 쪽(Tool Manager로 API 도구 표준화, Access Manager로 접근제어). 전통 OS와의 비교표가 그대로 시험 문제가 됩니다: 자원 예약은 스레드 단위 vs LLM 요청 단위, 컨텍스트 스위칭은 체크포인트·가상메모리 vs 스냅샷·복원 경로, 개발자 인터페이스는 POSIX vs LLM API + AI OS SDK." },
-"nw-nwdaf": { image: "/concept/book/nw-nwdaf.png", easy: "5G 코어 안에 들어간 'AI 분석 담당 장비'입니다(3GPP 표준). 네트워크가 돌아가며 쏟아내는 로그·상태 정보를 모아 머신러닝 모델을 만들고, 그 모델로 앞으로 무슨 일이 생길지 예측해 네트워크를 실시간으로 제어합니다. 기능이 5개로 쪼개져 있는데 학습과 추론이 분리된 게 핵심입니다 — MTLF는 모델을 '학습'해서 배포하고, AnLF는 그 모델로 '추론'해서 요청한 NF(Analytics Consumer)에게 통계·예측 결과를 돌려줍니다. 나머지 셋은 데이터 뒷바라지: DCCF는 같은 요청이 또 오면 기존 결과를 그냥 주고 새 요청이면 OAM/NF에서 데이터를 끌어오는 중복 방지 담당, ADRF는 과거 데이터 창고, MFAF는 수집된 데이터를 AnLF에게 배달하는 메신저입니다." },
-"nw-network-intelligence": { image: "/concept/book/nw-network-intelligence.png", easy: "사람이 손으로 하던 네트워크 운용·관리를 AI가 스스로 판단해 완전 자동으로 돌리는 네트워크입니다. 핵심 엔진은 폐쇄형 반복 제어(Closed-loop control) — 데이터 자동 수집 → AI 분석 → 자율 의사결정 → 피드백을 계속 돌려 네트워크가 알아서 최적 상태를 유지합니다. 이게 가능하려면 밑판이 있어야 하는데, SDN/NFV가 소프트웨어로 제어할 수 있는 유연한 구조를 깔아주고, 클라우드·엣지 가상화가 AI 플랫폼을 집중형/분산형으로 배치할 하드웨어를 제공하고, 인공지능/머신러닝과 빅데이터 분석이 실제 판단을 합니다. 결정된 정책을 물리·가상 자원에 실제로 꽂아넣는 건 OAM/MANO의 몫입니다. 쓰이는 곳: 데이터센터 트래픽 조정, 무선 커버리지 최적화, 지능형 슬라이싱·SD-WAN 관리, 장애 예측." },
+"nw-nwdaf": {
+    guide: {
+      hook: "5G 코어 안에서 '데이터를 분석해 망을 스스로 최적화'하는 AI 분석 기능입니다.",
+      scene: "5G 코어가 쏟아내는 로그·상태를 모아 머신러닝 모델로 '앞으로 무슨 일이 생길지' 예측하고, 그 결과로 망을 실시간 제어합니다. 학습(모델 만들기)과 추론(예측하기)이 분리된 게 핵심입니다.",
+      why: "'네트워크 자동화·지능화'의 표준 기능이라는 위치와 학습/추론 분리(MTLF/AnLF)가 출제 포인트입니다. 네트워크 지능·자동화와 연결됩니다.",
+      mechanism: "3GPP 표준 5G 코어 NF. 기능 분리: MTLF(Model Training Logical Function — 데이터로 ML 모델 학습·배포), AnLF(Analytics Logical Function — 그 모델로 추론해 통계·예측을 소비자 NF에 제공). 데이터 지원: DCCF(수집 조정·중복 방지), ADRF(데이터 저장소), MFAF(데이터 전달). 용도: 이동성 예측·부하 예측·이상 탐지로 슬라이스·QoS 자동 최적화.",
+      map: [
+        { as: "모델 학습·배포", real: "MTLF", note: "학습" },
+        { as: "예측해서 제공", real: "AnLF", note: "추론" },
+        { as: "데이터 중복 방지", real: "DCCF", note: "수집 조정" },
+        { as: "망 자동 최적화", real: "예측 기반 제어", note: "용도" },
+      ],
+      usage: "5G 네트워크 자동화의 핵심입니다. 시험은 MTLF/AnLF 분리, 데이터 기능, 자동화 용도입니다.",
+      links: [
+        { topic: "네트워크 지능", how: "NWDAF가 망 지능화를 구현합니다." },
+        { topic: "네트워크 슬라이싱", how: "예측으로 슬라이스를 최적화합니다." },
+      ],
+      exam: "NWDAF는 5G 코어의 데이터를 분석·예측해 망을 자동 최적화하는 표준 NF로, 모델 학습(MTLF)과 추론(AnLF)을 분리하고 DCCF·ADRF·MFAF가 데이터를 지원한다.",
+    }, image: "/concept/book/nw-nwdaf.png", easy: "5G 코어 안에 들어간 'AI 분석 담당 장비'입니다(3GPP 표준). 네트워크가 돌아가며 쏟아내는 로그·상태 정보를 모아 머신러닝 모델을 만들고, 그 모델로 앞으로 무슨 일이 생길지 예측해 네트워크를 실시간으로 제어합니다. 기능이 5개로 쪼개져 있는데 학습과 추론이 분리된 게 핵심입니다 — MTLF는 모델을 '학습'해서 배포하고, AnLF는 그 모델로 '추론'해서 요청한 NF(Analytics Consumer)에게 통계·예측 결과를 돌려줍니다. 나머지 셋은 데이터 뒷바라지: DCCF는 같은 요청이 또 오면 기존 결과를 그냥 주고 새 요청이면 OAM/NF에서 데이터를 끌어오는 중복 방지 담당, ADRF는 과거 데이터 창고, MFAF는 수집된 데이터를 AnLF에게 배달하는 메신저입니다." },
+"nw-network-intelligence": {
+    guide: {
+      hook: "네트워크가 스스로 '보고·판단·최적화'하는 자율 지능화 — AI를 망 운영에 심습니다.",
+      scene: "사람이 일일이 망을 튜닝하던 것을, AI가 트래픽·장애를 예측해 자동으로 라우팅·자원·정책을 조정합니다. 관찰(데이터)→분석(AI)→실행(제어)의 자율 루프를 망 안에 넣는 것입니다.",
+      why: "'자율 네트워크(SON→IBN→자율화)'의 상위 개념이라는 위치가 핵심입니다. 자율화 단계(레벨)와 NWDAF·IBN·SDN과의 관계가 출제 포인트입니다.",
+      mechanism: "구성: 데이터 수집(텔레메트리)→AI/ML 분석(예측·이상탐지·근본원인)→자동 제어(폐루프 최적화). 진화: SON(자가 구성·최적화·치유)→IBN(의도 기반)→완전 자율 네트워크(TM Forum 자율 레벨 0~5). 기반: NWDAF(5G 분석), SDN/NFV(프로그래머블), 디지털 트윈(시뮬레이션). 목표: 무인 운영·SLA 자동 보장.",
+      map: [
+        { as: "망이 스스로 판단", real: "자율 지능화", note: "" },
+        { as: "관찰→분석→실행 루프", real: "폐루프 최적화", note: "" },
+        { as: "자가 구성·치유", real: "SON", note: "진화 단계" },
+        { as: "자율 레벨 0~5", real: "자율 네트워크", note: "TM Forum" },
+      ],
+      usage: "차세대 통신망 운영 자동화입니다. 시험은 SON→IBN→자율화, NWDAF·SDN과의 관계, 자율 레벨입니다.",
+      links: [
+        { topic: "NWDAF(Network Data Analytics Function)", how: "5G에서 망 지능화를 구현하는 기능입니다." },
+        { topic: "인텐트 기반 네트워킹(Intent-Based Networking)", how: "지능화의 상위 운영 패러다임입니다." },
+      ],
+      exam: "네트워크 지능은 데이터 수집·AI 분석·자동 제어의 폐루프로 망을 스스로 최적화하는 자율화로, SON에서 IBN·완전 자율 네트워크(레벨 0~5)로 진화한다.",
+    }, image: "/concept/book/nw-network-intelligence.png", easy: "사람이 손으로 하던 네트워크 운용·관리를 AI가 스스로 판단해 완전 자동으로 돌리는 네트워크입니다. 핵심 엔진은 폐쇄형 반복 제어(Closed-loop control) — 데이터 자동 수집 → AI 분석 → 자율 의사결정 → 피드백을 계속 돌려 네트워크가 알아서 최적 상태를 유지합니다. 이게 가능하려면 밑판이 있어야 하는데, SDN/NFV가 소프트웨어로 제어할 수 있는 유연한 구조를 깔아주고, 클라우드·엣지 가상화가 AI 플랫폼을 집중형/분산형으로 배치할 하드웨어를 제공하고, 인공지능/머신러닝과 빅데이터 분석이 실제 판단을 합니다. 결정된 정책을 물리·가상 자원에 실제로 꽂아넣는 건 OAM/MANO의 몫입니다. 쓰이는 곳: 데이터센터 트래픽 조정, 무선 커버리지 최적화, 지능형 슬라이싱·SD-WAN 관리, 장애 예측." },
 "nw-6g": { image: "/concept/book/nw-6g.png", easy: "5G 다음 세대로, 최대 1Tbps(5G의 50배)·체감 1Gbps(10배)를 목표로 합니다. 비전 6개를 '초'자 돌림으로 외우면 편합니다 — 초성능(1Tbps), 초대역(100GHz 이상, 대역폭 수십GHz), 초현실(실시간 홀로그램), 초지능(기계학습을 통신 시스템에 내장), 초정밀(무선 구간 지연 0.1ms), 초공간(시속 1000km·고도 10km까지 커버). 지원 기술도 짝을 이룹니다: 테라헤르츠(0.1~10THz) 대역은 경로 손실이 심해서 빔포밍·신규 안테나가 필수고, 통신-컴퓨팅 융합은 무거운 연산을 네트워크가 대신 해주며, 네이티브 AI는 처음부터 AI를 내장하고, 주파수 공유(CBRS)와 5G Massive MIMO를 넘는 안테나 기술이 뒷받침합니다. 시험 포인트는 5G 대비 배수(속도 50배, 대역폭 10배, 지연 1/10, 단말밀도 km²→km³)." },
 "nw-digital-twin-network": { image: "/concept/book/nw-digital-twin-network.png", easy: "실제 물리 네트워크를 그대로 복제한 '가상 쌍둥이'를 만들어 놓고, 거기서 설계·진단·분석·최적화를 먼저 돌려본 뒤 실제 망에 적용하는 6G용 네트워크입니다. 시뮬레이션과 헷갈리기 쉬운데 결정적 차이는 매핑(mapping) — 물리망과 가상망이 실시간으로 양방향 연동된다는 점입니다(시뮬레이션은 한 번 만들어놓고 끝). 특징 4개: 데이터(통합 저장소에 수집), 매핑(실시간 인터랙티브), 모델(다양한 모델 내장·유연 결합), 인터페이스(물리↔가상 연결 + 애플리케이션 연결). 아키텍처는 3계층으로, 위에서부터 Network Application(설계·검증·관리·최적화) → Digital Twin(데이터/모델/관리 3개 도메인) → Physical Network이고, 위에서 인텐트를 내리면 트윈이 에뮬레이트한 뒤 제어 메시지를 물리 계층에 전송합니다." },
 "nw-ntn": { image: "/concept/book/nw-ntn.png", easy: "기지국을 세울 수 없는 곳 — 바다, 산간, 오지, 항공, 재난 지역 — 에 위성·성층권 비행체·드론을 띄워 5G를 제공하는 기술입니다. 고도별로 GEO(정지궤도) / MEO / LEO(저궤도) 위성, 성층권의 HAPS(고고도 플랫폼), 저고도의 드론(UAV)이 층을 이룹니다. 링크 이름을 구분하는 게 시험 포인트입니다: 서비스 링크는 단말↔위성(3GPP NR 기반), 피더 링크는 위성↔지상 게이트웨이, 위성 간 링크(ISL)는 위성끼리. 위성 방식도 두 가지 — Transparent는 신호를 그냥 중계만 하고, Regenerative는 위성이 직접 복조·재생해서 보냅니다. 기술요소는 전송(빔포밍, MIMO), 네트워크 제어(자원 할당), 보안(인증·암호화), 위치 추적입니다." },
@@ -5290,14 +5326,158 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
 "nw-wifi8": { image: "/concept/book/nw-wifi8.png", easy: "2028년 예정인 IEEE 802.11bn으로, Wi-Fi 7과 결정적으로 다른 점은 '더 빠르게'가 아니라 '더 안정적으로'입니다 — 핵심 목표가 UHR(Ultra High Reliability, 극도로 높은 신뢰성)이고 대역폭(320MHz)·변조(4096QAM)·공간 스트림(8)은 Wi-Fi 7과 같습니다. 그래서 새로 붙은 기능들이 전부 혼잡·간섭 대응입니다: 멀티 AP 협력(AP끼리 협조), DSO(동적 스펙트럼 최적화)/NPCA(네트워크 성능 및 혼잡 방지), dRU(동적 자원 유닛), 협조적 대상 대기 시간. 버전별 비교표는 시험에 그대로 나올 수 있으니 흐름만 잡아두세요 — 대역폭 40→160→160→320→320, 변조 64→256→1024→4096→4096QAM, MU-MIMO는 Wi-Fi 5부터(DL only) Wi-Fi 6부터 UL&DL, 멀티링크는 Wi-Fi 7부터." },
 "nw-passive-wifi": { image: "/concept/book/nw-passive-wifi.png", easy: "Passive WiFi는 전력을 많이 쓰는 RF 송신부를 별도 장치(Plugged-In Device)로 떼어 두고, 센서 쪽 기기(Passive Device)는 그 신호를 반사만 해서 정보를 실어 보내는 초저전력 무선 기술입니다. Wi-Fi 전력의 범인이 디지털부(무어의 법칙 덕에 10μW)가 아니라 아날로그 RF부(여전히 100mW)라는 데서 출발한 발상입니다. 이 반사가 후방산란(backscatter) — 전파가 들어온 방향의 반대인 입사단으로 되돌아오는 현상입니다. 신호를 생성하지 않으니 전력 소모가 거의 없어 초저전력 IoT에 딱 맞습니다. 송신 측 기술은 RF Transfer(Up/Down 컨버터), RF Calibration(안테나 간 진폭·위상 보정), MAC(주소·채널 설정)이고, 수신은 Passive Device와 스마트기기인 Wi-Fi Receiver입니다." },
 "nw-sdn": { image: "/concept/book/nw-sdn.png", easy: "기존 스위치는 '어디로 보낼지 결정하는 두뇌(Control Plane — 라우팅, QoS, 정책)'와 '실제로 패킷을 밀어내는 손발(Data Plane — Forwarding)'이 한 장비 안에 붙어 있어서, 정책을 바꾸려면 장비를 하나하나 만져야 했습니다. SDN은 이 둘을 분리해 두뇌를 Controller로 중앙집중화하고, 스위치는 단순 포워딩만 하게 만듭니다. 그 사이를 잇는 개방형 프로토콜이 OpenFlow입니다. 구성 요소 4개: Application(Network OS 위에서 사용자 서비스 제공), Interface(OpenFlow — Control↔Data Plane 연계), Control Plane(ACL·라우팅·인증을 중앙집중 구현), Data Plane(Forward Engine — 단순 패킷 포워딩). 계층으로 보면 APPLICATION LAYER ─API─ CONTROL LAYER(SDN Control Software) ─OpenFlow─ INFRASTRUCTURE LAYER(Network Device)입니다." },
-"nw-oran": { image: "/concept/book/nw-oran.png", easy: "기지국 장비가 특정 제조사에 묶이지 않도록, RAN 구간에 가상화를 적용하고 인터페이스를 개방 표준으로 만든 아키텍처입니다(Apache 2.0 라이선스). 구성 3분할: O-CU(중앙 집중 — RRC·PDCP 실행, Control Plane과 User Plane으로 나뉨), O-DU(분산 — RLC·MAC·High PHY 실행, O-RU 근처), O-RU(안테나 부근 — 무선 신호를 디지털로 변환, Low PHY·빔포밍). 여기에 RIC(RAN Intelligent Controller)가 데이터를 수집·분석해 자원을 최적화합니다 — 실시간용 near-RT와 비실시간용 non-RT. 구간 이름도 함께: RU ←Fronthaul→ DU ←Midhaul→ CU ←Backhaul→ 코어. 인터페이스는 A1(non-RT↔near-RT), E2(RIC↔CU/DU), E1(CU-CP↔CU-UP), F1(CU↔DU), Open Front Haul(DU↔RU)." },
-"nw-ran-sharing": { image: "/concept/book/nw-ran-sharing.png", easy: "여러 통신사가 기지국·코어망을 함께 써서 중복 투자를 줄이는 기술입니다. 무엇까지 공유하느냐로 3가지가 갈립니다: MORAN — 기지국·컨트롤러는 공유하되 주파수는 사업자별로 분리(대역폭 조절로 품질 차별화 가능, 대신 복잡하고 비용 절감 효과는 작음). MOCN — 주파수까지 공유하고 코어망만 따로(구현이 단순하고 비용 절감이 크지만, 같은 RAN을 쓰니 서비스 차별화가 어려움). GWCN — 코어망의 MME·S-GW까지 공유하고 P-GW만 분리(공유가 가장 많아 구축비는 가장 적지만 구현 복잡성은 최대). 한 줄: 공유 범위 MORAN < MOCN < GWCN, 공유할수록 싸지고 차별화는 어려워집니다." },
-"nw-5g-private": { image: "/concept/book/nw-5g-private.png", easy: "통신사 상용망 대신 전용 주파수를 받아 공장·병원·건물 같은 특정 공간에만 구축하는 기업 맞춤형 5G입니다 — 국내 명칭은 '이음 5G'이고 4.7GHz·28GHz 대역을 씁니다. 왜 쓰나: 외부망을 타지 않아 보안이 강하고, MEC(사용자 가까운 곳의 엣지 서버)로 처리해 지연이 매우 짧습니다(스마트 팩토리 로봇 제어 등). 구성 요소: 5G 전용 주파수, UPF(패킷 라우팅·QoS 처리), MEC, gNB(기지국). 기술 요소: SDN(제어·데이터 평면 분리), NFV(장비 기능 가상화), Network Slicing(용도별 논리 분리), Open RAN(CU/DU/RU 분리), RAN Sharing. 유형은 자가구축(On-Premise)과 이음 5G 사업자형(On-Premise / 5G Core CP 공유 / 5G Core 전체 공유)으로 나뉩니다." },
-"nw-network-slicing": { image: "/concept/book/nw-network-slicing.png", easy: "물리적으로 하나인 5G 망을 논리적으로 여러 개로 쪼개, 서비스마다 성격이 다른 전용망을 제공하는 기술입니다. 예: 통신/인터넷 Slice(일반 모바일), 물류/기후 Slice(대규모 IoT — 속도보다 접속 수가 중요), 스마트카/스마트팩토리 Slice(Mission critical — 초저지연이 생명). 이걸 가능하게 하는 두 축이 시험 핵심입니다. SDN: 장비에 붙어 있던 제어 기능을 떼어 중앙 컨트롤러로 모으고, OpenFlow 같은 개방형 API로 트래픽 흐름을 소프트웨어가 제어합니다(Application Plane → Control Plane → Data Plane). NFV: 방화벽·로드밸런서 같은 네트워크 장비 기능을 전용 하드웨어에서 떼어내 범용 서버 위의 소프트웨어(VNF)로 돌립니다 — NFVI(인프라) 위에서 VNF들이 동작하고 MANO가 관리합니다." },
-"nw-rarp": { image: "/concept/book/nw-rarp.png", easy: "RARP는 자기 MAC 주소로 자신의 IP 주소를 알아내는 프로토콜입니다 — ARP(IP→MAC)의 반대 방향으로, 하드디스크 없이 부팅해 IP를 모르는 단말이 \"내 물리 주소는 A4:6E:A5:57:82:36인데 내 IP가 뭐죠?\"라고 서버에 물어보는 프로토콜입니다. 동작: RARP Request를 브로드캐스트로 뿌리면 네트워크의 모든 컴퓨터가 받지만 RARP 서버만 응답하고, 응답(RARP Reply)은 유니캐스트로 옵니다 — \"당신 IP는 141.14.56.21입니다\". RARP 서버가 2대 이상이면 둘 다 응답하는데, 호스트는 첫 번째 응답만 받고 나머지는 무시합니다. 한 줄 정리: ARP는 IP→MAC, RARP는 MAC→IP. 오늘날은 대부분 DHCP가 이 역할을 대신합니다." },
-"nw-dhcp": { image: "/concept/book/nw-dhcp.png", easy: "DHCP는 네트워크에 접속한 단말에 IP 주소·DNS 같은 설정 정보를 자동으로 할당해 주는 프로토콜입니다 — Wi-Fi에 연결하면 IP가 저절로 잡히는 원리입니다. 할당 4단계 [DORA]: ① DISCOVER — 클라이언트가 \"DHCP 서버 있나요?\"를 브로드캐스트 ② OFFER — 서버가 \"이 IP 쓰세요\"를 유니캐스트로 제안(IP·임대시간·DNS 정보 포함) ③ REQUEST — 클라이언트가 \"그 IP 쓰겠습니다\"를 브로드캐스트(다른 서버들에게도 거절 통보) ④ ACK — 서버가 최종 승인. 포트는 클라이언트 UDP 68, 서버 UDP 67입니다. 갱신은 임대시간이 50% 남은 시점에 REQUEST → ACK 두 단계로 유니캐스트하고, 해제는 RELEASE 한 번으로 끝(서버 응답 없음). 보안 위협으로 DHCP Starvation(위조 MAC으로 대량 요청해 IP 풀 고갈)이 함께 출제됩니다." },
-"nw-sctp": { image: "/concept/book/nw-sctp.png", easy: "TCP의 신뢰성과 UDP의 메시지 지향성을 합친 전송 계층 프로토콜입니다. 두 가지 무기가 시험 핵심: Multi-homing — 한 세션이 여러 IP 주소를 동시에 보유해, 쓰던 경로가 끊겨도 다른 경로로 세션을 유지합니다(TCP는 IP 하나가 끊기면 연결도 끊김). Multi-streaming — 한 세션 안에 여러 스트림을 두어 한 스트림이 막혀도 다른 스트림은 진행합니다(HOL 블로킹 완화). 핸드셰이크가 TCP와 반대인 것도 포인트: 수립은 4-way(INIT → INIT-ACK → COOKIE-ECHO → COOKIE-ACK, 쿠키로 SYN 플러딩 방어), 종료는 3-way(SHUTDOWN → SHUTDOWN-ACK → SHUTDOWN-CMPL, Half-open Closing 해결). 전송 중에는 SACK로 선택적 확인, HEARTBEAT로 경로 생존을 감시합니다." },
-"nw-cran": { image: "/concept/book/nw-cran.png", easy: "기존 기지국은 디지털 처리부(DU)와 무선 송수신부(RF/RU)가 한 몸이었는데, 이를 분리해 DU만 중앙 데이터센터에 모으고 RU는 서비스 지역에 분산시킨 구조입니다. 중앙과 분산 장비를 잇는 구간을 프론트홀이라 부릅니다. 장점: DU가 한곳에 모여 있어 셀 간 간섭 조정이 쉽고 협력 통신 같은 고품질 서비스가 가능하며, 장비·전력 비용도 절감됩니다. 구성: RU(디지털 신호를 RF로 변환해 안테나로 송수신) + Centralized DU(클라우드 형태로 집중된 디지털 처리부). 인터페이스 규격 3종이 시험 포인트: CPRI(DU-RU 간 표준, 사실상 업계 주류), OBSAI(모듈 단위로 나눈 개방형 경쟁 규격), ORI(CPRI의 벤더 간 호환성 한계를 개선하려는 ETSI 주도 표준)." },
+"nw-oran": {
+    guide: {
+      hook: "폐쇄적이던 기지국 장비를 '개방형 표준 인터페이스'로 열어 벤더 종속을 깬 RAN입니다.",
+      scene: "기존 RAN은 한 제조사 장비로만 구성돼 종속·고비용이었습니다. O-RAN은 기지국 구성요소 간 인터페이스를 표준·개방해 서로 다른 벤더 장비를 섞어 쓰고(믹스앤매치), AI로 지능화합니다.",
+      why: "'개방·지능화·가상화'라는 O-RAN 철학과 구성(DU/CU 분할·RIC)이 출제 핵심입니다. C-RAN과의 관계가 포인트입니다.",
+      mechanism: "핵심: 개방형 인터페이스(O-RAN Alliance 표준 — 벤더 간 상호운용), 가상화(RAN 기능을 COTS 서버 SW로), 지능화(RIC — RAN Intelligent Controller가 AI/ML로 자원·정책 최적화, Non-RT/Near-RT). 기능 분할: RU(무선)-DU(분산)-CU(중앙). 이점: 종속 탈피·비용↓·혁신 가속. 과제: 상호운용 검증·보안(공격 표면 증가).",
+      map: [
+        { as: "벤더 섞어 쓰기", real: "개방형 인터페이스", note: "종속 탈피" },
+        { as: "SW로 가상화", real: "vRAN", note: "COTS 서버" },
+        { as: "AI로 최적화", real: "RIC(지능형 컨트롤러)", note: "" },
+        { as: "RU-DU-CU 분할", real: "기능 분할", note: "" },
+      ],
+      usage: "차세대 개방형 5G 인프라입니다. 시험은 개방·가상화·지능화, RIC, C-RAN과의 관계입니다.",
+      links: [
+        { topic: "C-RAN(Centralized / Cloud RAN)", how: "O-RAN이 개방·지능화로 발전시킨 기반입니다." },
+        { topic: "네트워크 지능", how: "RIC의 AI 기반 최적화와 연결됩니다." },
+      ],
+      exam: "O-RAN은 RAN 구성요소 간 인터페이스를 개방·표준화해 벤더 종속을 깨고 가상화·RIC 기반 AI 지능화를 더한 개방형 무선접속망으로, 상호운용·보안이 과제다.",
+    }, image: "/concept/book/nw-oran.png", easy: "기지국 장비가 특정 제조사에 묶이지 않도록, RAN 구간에 가상화를 적용하고 인터페이스를 개방 표준으로 만든 아키텍처입니다(Apache 2.0 라이선스). 구성 3분할: O-CU(중앙 집중 — RRC·PDCP 실행, Control Plane과 User Plane으로 나뉨), O-DU(분산 — RLC·MAC·High PHY 실행, O-RU 근처), O-RU(안테나 부근 — 무선 신호를 디지털로 변환, Low PHY·빔포밍). 여기에 RIC(RAN Intelligent Controller)가 데이터를 수집·분석해 자원을 최적화합니다 — 실시간용 near-RT와 비실시간용 non-RT. 구간 이름도 함께: RU ←Fronthaul→ DU ←Midhaul→ CU ←Backhaul→ 코어. 인터페이스는 A1(non-RT↔near-RT), E2(RIC↔CU/DU), E1(CU-CP↔CU-UP), F1(CU↔DU), Open Front Haul(DU↔RU)." },
+"nw-ran-sharing": {
+    guide: {
+      hook: "여러 통신사가 '기지국 자원을 함께 써서' 투자·운영 비용을 나누는 방식입니다.",
+      scene: "통신사마다 전국에 기지국을 따로 세우면 중복 투자입니다. RAN 공유는 안테나·기지국 같은 무선 접속망을 사업자들이 공유해, 특히 농어촌·신규 대역에서 비용을 아끼고 커버리지를 빨리 넓힙니다.",
+      why: "공유 수준(수동/능동)과 방식(MOCN·MORAN)이 출제 핵심입니다. 5G 투자 효율화·커버리지 확대 관점이 포인트입니다.",
+      mechanism: "수동 공유(Passive — 철탑·전원·공간 등 물리 설비만 공유), 능동 공유(Active — RAN 장비까지 공유). 방식: MORAN(Multi-Operator RAN — 무선망 공유하되 주파수는 사업자별 분리), MOCN(Multi-Operator Core Network — 무선망·주파수까지 공유하고 코어만 분리), 국가로밍. 이점: CAPEX/OPEX 절감·빠른 확산. 과제: 성능 분리·경쟁 이슈·규제.",
+      map: [
+        { as: "철탑·전원만 공유", real: "수동 공유", note: "물리 설비" },
+        { as: "RAN 장비까지 공유", real: "능동 공유", note: "" },
+        { as: "주파수는 분리", real: "MORAN", note: "" },
+        { as: "주파수까지 공유", real: "MOCN", note: "" },
+      ],
+      usage: "5G 농어촌·신대역 투자 효율화입니다. 시험은 수동/능동, MORAN/MOCN 구분, 이점·과제입니다.",
+      links: [
+        { topic: "C-RAN(Centralized / Cloud RAN)", how: "집중화된 RAN 자원을 공유합니다." },
+        { topic: "네트워크 슬라이싱", how: "공유 인프라를 논리적으로 분리합니다." },
+      ],
+      exam: "RAN Sharing은 통신사들이 무선 접속망을 공유해 투자·운영 비용을 절감하는 방식으로, 수동/능동 공유와 주파수 분리(MORAN)·공유(MOCN)로 나뉜다.",
+    }, image: "/concept/book/nw-ran-sharing.png", easy: "여러 통신사가 기지국·코어망을 함께 써서 중복 투자를 줄이는 기술입니다. 무엇까지 공유하느냐로 3가지가 갈립니다: MORAN — 기지국·컨트롤러는 공유하되 주파수는 사업자별로 분리(대역폭 조절로 품질 차별화 가능, 대신 복잡하고 비용 절감 효과는 작음). MOCN — 주파수까지 공유하고 코어망만 따로(구현이 단순하고 비용 절감이 크지만, 같은 RAN을 쓰니 서비스 차별화가 어려움). GWCN — 코어망의 MME·S-GW까지 공유하고 P-GW만 분리(공유가 가장 많아 구축비는 가장 적지만 구현 복잡성은 최대). 한 줄: 공유 범위 MORAN < MOCN < GWCN, 공유할수록 싸지고 차별화는 어려워집니다." },
+"nw-5g-private": {
+    guide: {
+      hook: "특정 기업·장소 전용으로 구축하는 '나만의 5G 망'입니다.",
+      scene: "공장·항만·병원이 공용 이동통신에 의존하면 보안·성능을 제어할 수 없습니다. 5G 특화망은 그 부지 전용으로 5G를 구축해, 초저지연·고신뢰가 필요한 스마트팩토리·로봇을 자체 통제 하에 운영합니다.",
+      why: "'전용망'의 필요성(보안·성능·제어)과 국내 이음5G(28GHz·4.7GHz) 제도가 출제 포인트입니다. 네트워크 슬라이싱과의 비교가 핵심입니다.",
+      mechanism: "특정 지역·기업 전용 5G(로컬 주파수 할당 — 국내 '이음5G' 4.7GHz·28GHz). 구성: 전용 코어(온프레미스 UPF로 데이터 로컬 처리 — 저지연·보안), RAN, 단말. 이점: 초저지연·고신뢰(URLLC), 데이터 외부 유출 없음, 맞춤 QoS. 공용망 슬라이싱(논리적 분리)과 달리 물리적 전용. 스마트팩토리·항만·국방에 적용.",
+      map: [
+        { as: "부지 전용 5G", real: "특화망(이음5G)", note: "로컬 주파수" },
+        { as: "데이터 로컬 처리", real: "온프레미스 UPF", note: "저지연·보안" },
+        { as: "초저지연·고신뢰", real: "URLLC", note: "" },
+        { as: "물리 전용 vs 논리 분리", real: "슬라이싱과 차이", note: "" },
+      ],
+      usage: "스마트팩토리·항만·병원 전용망입니다. 시험은 특화망 필요성, 이음5G, 슬라이싱과의 차이입니다.",
+      links: [
+        { topic: "네트워크 슬라이싱", how: "공용망 논리 분리와 대비되는 전용망입니다." },
+        { topic: "스마트팩토리 보안취약점 및 대응방안", how: "특화망의 대표 적용처입니다." },
+      ],
+      exam: "5G 특화망(이음5G)은 기업·장소 전용으로 로컬 주파수와 온프레미스 코어를 구축해 초저지연·고신뢰·보안을 확보하는 망으로, 공용망 슬라이싱과 달리 물리적 전용이다.",
+    }, image: "/concept/book/nw-5g-private.png", easy: "통신사 상용망 대신 전용 주파수를 받아 공장·병원·건물 같은 특정 공간에만 구축하는 기업 맞춤형 5G입니다 — 국내 명칭은 '이음 5G'이고 4.7GHz·28GHz 대역을 씁니다. 왜 쓰나: 외부망을 타지 않아 보안이 강하고, MEC(사용자 가까운 곳의 엣지 서버)로 처리해 지연이 매우 짧습니다(스마트 팩토리 로봇 제어 등). 구성 요소: 5G 전용 주파수, UPF(패킷 라우팅·QoS 처리), MEC, gNB(기지국). 기술 요소: SDN(제어·데이터 평면 분리), NFV(장비 기능 가상화), Network Slicing(용도별 논리 분리), Open RAN(CU/DU/RU 분리), RAN Sharing. 유형은 자가구축(On-Premise)과 이음 5G 사업자형(On-Premise / 5G Core CP 공유 / 5G Core 전체 공유)으로 나뉩니다." },
+"nw-network-slicing": {
+    guide: {
+      hook: "하나의 물리 5G 망을 '용도별 논리 망 여러 개로 잘라' 각기 다른 품질을 보장합니다.",
+      scene: "같은 물리 망 위에 '초저지연 자율주행용', '대용량 영상용', '초다수 IoT용' 슬라이스를 각각 만들어, 서로 격리된 채 요구 품질을 보장받게 합니다 — 한 케이크를 용도별로 자르는 셈입니다.",
+      why: "'물리 하나 → 논리 다수'와 5G 3대 서비스(eMBB·URLLC·mMTC)별 슬라이스가 출제 핵심입니다. SDN/NFV 기반과 특화망과의 구분이 포인트입니다.",
+      mechanism: "SDN/NFV로 물리 자원(RAN·전송·코어)을 논리적으로 분할·격리해 슬라이스별 전용 자원·QoS 제공. 5G 서비스 매핑: eMBB(초고속 대용량 — 영상), URLLC(초저지연·고신뢰 — 자율주행·원격수술), mMTC(초다수 연결 — IoT). 각 슬라이스는 독립 SLA·격리(한 슬라이스 폭주가 다른 데 영향 없음). E2E 오케스트레이션으로 관리.",
+      map: [
+        { as: "케이크 용도별 자르기", real: "논리 망 분할", note: "물리 하나" },
+        { as: "초고속 대용량", real: "eMBB 슬라이스", note: "영상" },
+        { as: "초저지연 고신뢰", real: "URLLC 슬라이스", note: "자율주행" },
+        { as: "초다수 IoT", real: "mMTC 슬라이스", note: "" },
+      ],
+      usage: "5G 서비스 차별화의 핵심입니다. 시험은 eMBB/URLLC/mMTC 매핑, SDN/NFV 기반, 특화망과의 구분입니다.",
+      links: [
+        { topic: "5G 특화망", how: "논리 분리(슬라이싱) vs 물리 전용(특화망)입니다." },
+        { topic: "SDN(Software Defined Network)", how: "슬라이싱을 구현하는 기반 기술입니다." },
+      ],
+      exam: "네트워크 슬라이싱은 SDN/NFV로 하나의 물리 5G 망을 논리 망 여러 개로 격리 분할해 eMBB·URLLC·mMTC별 QoS를 보장하는 기술이다.",
+    }, image: "/concept/book/nw-network-slicing.png", easy: "물리적으로 하나인 5G 망을 논리적으로 여러 개로 쪼개, 서비스마다 성격이 다른 전용망을 제공하는 기술입니다. 예: 통신/인터넷 Slice(일반 모바일), 물류/기후 Slice(대규모 IoT — 속도보다 접속 수가 중요), 스마트카/스마트팩토리 Slice(Mission critical — 초저지연이 생명). 이걸 가능하게 하는 두 축이 시험 핵심입니다. SDN: 장비에 붙어 있던 제어 기능을 떼어 중앙 컨트롤러로 모으고, OpenFlow 같은 개방형 API로 트래픽 흐름을 소프트웨어가 제어합니다(Application Plane → Control Plane → Data Plane). NFV: 방화벽·로드밸런서 같은 네트워크 장비 기능을 전용 하드웨어에서 떼어내 범용 서버 위의 소프트웨어(VNF)로 돌립니다 — NFVI(인프라) 위에서 VNF들이 동작하고 MANO가 관리합니다." },
+"nw-rarp": {
+    guide: {
+      hook: "ARP의 반대 — 자기 'MAC 주소로 IP를 알아내는' 초기 부팅용 프로토콜입니다.",
+      scene: "디스크 없는 단말은 켜질 때 자기 IP를 모릅니다. RARP는 '내 MAC은 이건데 IP 뭐야?'를 서버에 물어 IP를 받습니다. 지금은 더 기능이 많은 DHCP로 대체됐습니다.",
+      why: "'ARP와 반대 방향(MAC→IP)'이라는 대비와 DHCP로 대체된 이유가 출제 포인트입니다.",
+      mechanism: "디스크리스 워크스테이션 등이 부팅 시 RARP Request(자기 MAC 브로드캐스트) → RARP 서버가 MAC-IP 매핑 테이블에서 찾아 IP 응답. 한계: IP만 제공(서브넷·게이트웨이·DNS 미제공), 서버가 같은 물리 네트워크에 있어야 함 → BOOTP를 거쳐 DHCP로 대체(추가 설정·주소 임대 제공).",
+      map: [
+        { as: "MAC으로 IP 묻기", real: "L2→L3(ARP 반대)", note: "" },
+        { as: "부팅 시 자기 IP 획득", real: "디스크리스 단말", note: "" },
+        { as: "IP만 주고 끝", real: "기능 한계", note: "게이트웨이·DNS 없음" },
+        { as: "DHCP로 대체됨", real: "BOOTP→DHCP", note: "" },
+      ],
+      usage: "역사적 프로토콜로 개념 이해용입니다. 시험은 ARP와의 대비, DHCP 대체 이유입니다.",
+      links: [
+        { topic: "ARP(Address Resolution Protocol)", how: "정반대 방향의 주소 변환입니다." },
+        { topic: "DHCP(Dynamic Host Configuration Protocol)", how: "RARP를 대체한 자동 설정 프로토콜입니다." },
+      ],
+      exam: "RARP는 MAC 주소로 IP를 알아내는 ARP의 역방향 프로토콜로, 디스크리스 단말의 부팅에 쓰였으나 IP만 제공하는 한계로 BOOTP를 거쳐 DHCP로 대체됐다.",
+    }, image: "/concept/book/nw-rarp.png", easy: "RARP는 자기 MAC 주소로 자신의 IP 주소를 알아내는 프로토콜입니다 — ARP(IP→MAC)의 반대 방향으로, 하드디스크 없이 부팅해 IP를 모르는 단말이 \"내 물리 주소는 A4:6E:A5:57:82:36인데 내 IP가 뭐죠?\"라고 서버에 물어보는 프로토콜입니다. 동작: RARP Request를 브로드캐스트로 뿌리면 네트워크의 모든 컴퓨터가 받지만 RARP 서버만 응답하고, 응답(RARP Reply)은 유니캐스트로 옵니다 — \"당신 IP는 141.14.56.21입니다\". RARP 서버가 2대 이상이면 둘 다 응답하는데, 호스트는 첫 번째 응답만 받고 나머지는 무시합니다. 한 줄 정리: ARP는 IP→MAC, RARP는 MAC→IP. 오늘날은 대부분 DHCP가 이 역할을 대신합니다." },
+"nw-dhcp": {
+    guide: {
+      hook: "네트워크에 접속하면 'IP·게이트웨이·DNS를 자동으로' 나눠 주는 설정 프로토콜입니다.",
+      scene: "카페 와이파이에 연결만 하면 알아서 인터넷이 됩니다. DHCP 서버가 IP 주소를 임대(lease)해 주고, 게이트웨이·DNS 같은 설정까지 자동으로 내려 주기 때문입니다.",
+      why: "DORA 4단계 흐름과 임대(lease)·갱신 개념이 출제 핵심입니다. RARP/BOOTP 대비 확장성이 포인트입니다.",
+      mechanism: "DORA: Discover(클라이언트 브로드캐스트 — DHCP 서버 탐색) → Offer(서버가 IP 제안) → Request(클라이언트가 특정 제안 수락 요청) → Ack(서버 확정·임대). 임대 기간(lease) 만료 전 갱신(Renew, T1=50%)·재바인딩(T2=87.5%). 제공: IP·서브넷·게이트웨이·DNS·임대시간. 릴레이 에이전트로 서브넷 넘어 서비스.",
+      map: [
+        { as: "서버 찾기", real: "Discover", note: "브로드캐스트" },
+        { as: "IP 제안", real: "Offer", note: "" },
+        { as: "수락 요청", real: "Request", note: "" },
+        { as: "확정·임대", real: "Ack", note: "lease" },
+      ],
+      usage: "모든 자동 IP 할당의 표준입니다. 시험은 DORA 4단계, 임대·갱신, RARP/BOOTP와의 차이입니다.",
+      links: [
+        { topic: "RARP(Reverse Address Resolution Protocol)", how: "DHCP가 대체한 초기 방식입니다." },
+        { topic: "DNS(Domain Name System)", how: "DHCP가 DNS 서버 주소도 배포합니다." },
+      ],
+      exam: "DHCP는 Discover·Offer·Request·Ack(DORA)로 IP와 게이트웨이·DNS 설정을 자동 임대하는 프로토콜로, 임대 갱신·재바인딩을 지원하며 RARP·BOOTP를 대체했다.",
+    }, image: "/concept/book/nw-dhcp.png", easy: "DHCP는 네트워크에 접속한 단말에 IP 주소·DNS 같은 설정 정보를 자동으로 할당해 주는 프로토콜입니다 — Wi-Fi에 연결하면 IP가 저절로 잡히는 원리입니다. 할당 4단계 [DORA]: ① DISCOVER — 클라이언트가 \"DHCP 서버 있나요?\"를 브로드캐스트 ② OFFER — 서버가 \"이 IP 쓰세요\"를 유니캐스트로 제안(IP·임대시간·DNS 정보 포함) ③ REQUEST — 클라이언트가 \"그 IP 쓰겠습니다\"를 브로드캐스트(다른 서버들에게도 거절 통보) ④ ACK — 서버가 최종 승인. 포트는 클라이언트 UDP 68, 서버 UDP 67입니다. 갱신은 임대시간이 50% 남은 시점에 REQUEST → ACK 두 단계로 유니캐스트하고, 해제는 RELEASE 한 번으로 끝(서버 응답 없음). 보안 위협으로 DHCP Starvation(위조 MAC으로 대량 요청해 IP 풀 고갈)이 함께 출제됩니다." },
+"nw-sctp": {
+    guide: {
+      hook: "TCP와 UDP의 장점을 합친 '멀티스트림·멀티호밍' 전송 프로토콜입니다.",
+      scene: "TCP는 신뢰성은 좋지만 하나의 스트림이 막히면 다 멈추고(HOL), 연결도 한 경로뿐입니다. SCTP는 한 연결에 여러 스트림을 두고(막힘 격리), 여러 IP 경로를 동시에 쥐어(멀티호밍) 한 경로가 죽어도 이어집니다.",
+      why: "TCP·UDP 대비 특징(멀티스트림·멀티호밍·메시지 지향)이 출제 핵심입니다. HOL 블로킹 완화와 시그널링(통신망) 활용이 포인트입니다.",
+      mechanism: "멀티스트림(한 association 안에 독립 스트림 여러 개 → 스트림 간 HOL 블로킹 격리), 멀티호밍(양단이 여러 IP 보유 → 주 경로 장애 시 대체 경로로 페일오버), 메시지 지향(TCP의 바이트 스트림과 달리 메시지 경계 보존), 4-way 핸드셰이크(쿠키로 SYN 플러딩 방어). 통신 시그널링(SIGTRAN)·WebRTC 데이터 채널에 사용.",
+      map: [
+        { as: "여러 스트림 독립", real: "멀티스트림", note: "HOL 격리" },
+        { as: "여러 경로 동시 보유", real: "멀티호밍", note: "페일오버" },
+        { as: "메시지 경계 보존", real: "메시지 지향", note: "UDP 특성" },
+        { as: "쿠키로 SYN 방어", real: "4-way 핸드셰이크", note: "보안" },
+      ],
+      usage: "통신망 시그널링·WebRTC에 쓰입니다. 시험은 TCP/UDP 대비 특징, 멀티스트림·멀티호밍입니다.",
+      links: [
+        { topic: "TCP 와 UDP 비교", how: "둘의 장점을 결합한 프로토콜입니다." },
+        { topic: "HTTP/3", how: "멀티스트림·HOL 해소라는 문제의식을 공유합니다." },
+      ],
+      exam: "SCTP는 한 연결에 여러 스트림(HOL 격리)과 여러 IP 경로(멀티호밍 페일오버)를 두는 메시지 지향 전송 프로토콜로, 통신 시그널링·WebRTC에 쓰인다.",
+    }, image: "/concept/book/nw-sctp.png", easy: "TCP의 신뢰성과 UDP의 메시지 지향성을 합친 전송 계층 프로토콜입니다. 두 가지 무기가 시험 핵심: Multi-homing — 한 세션이 여러 IP 주소를 동시에 보유해, 쓰던 경로가 끊겨도 다른 경로로 세션을 유지합니다(TCP는 IP 하나가 끊기면 연결도 끊김). Multi-streaming — 한 세션 안에 여러 스트림을 두어 한 스트림이 막혀도 다른 스트림은 진행합니다(HOL 블로킹 완화). 핸드셰이크가 TCP와 반대인 것도 포인트: 수립은 4-way(INIT → INIT-ACK → COOKIE-ECHO → COOKIE-ACK, 쿠키로 SYN 플러딩 방어), 종료는 3-way(SHUTDOWN → SHUTDOWN-ACK → SHUTDOWN-CMPL, Half-open Closing 해결). 전송 중에는 SACK로 선택적 확인, HEARTBEAT로 경로 생존을 감시합니다." },
+"nw-cran": {
+    guide: {
+      hook: "기지국의 '두뇌(BBU)'를 중앙에 모아 자원을 공유하는 클라우드 무선 접속망입니다.",
+      scene: "기존엔 기지국마다 안테나와 처리장치가 다 있었습니다. C-RAN은 신호 처리부(BBU)를 중앙 데이터센터에 풀(pool)로 모으고, 현장엔 안테나부(RRH)만 남겨 자원을 공유·집중 관리합니다.",
+      why: "'BBU 집중화'의 이점(자원 풀링·에너지 절감·협력 통신)과 프론트홀 부담이 출제 핵심입니다. O-RAN·RAN 공유로 이어지는 관문입니다.",
+      mechanism: "구조: RRH(원격 무선 헤드 — 안테나·RF, 현장) + 프론트홀(광링크, CPRI) + BBU 풀(중앙 집중 처리). 이점: BBU 자원 공유로 활용률↑, 협력 통신(CoMP)으로 간섭 관리, 유지보수·에너지 효율↑, 소형셀 확장 용이. 과제: BBU-RRH 간 프론트홀 대용량·저지연 요구. 5G에서 BBU를 DU/CU로 분할.",
+      map: [
+        { as: "두뇌를 중앙에 모으기", real: "BBU 풀 집중화", note: "핵심" },
+        { as: "현장엔 안테나만", real: "RRH", note: "" },
+        { as: "중앙-현장 광링크", real: "프론트홀(CPRI)", note: "대용량 부담" },
+        { as: "협력으로 간섭 관리", real: "CoMP", note: "이점" },
+      ],
+      usage: "5G 기지국 아키텍처의 기반입니다. 시험은 BBU/RRH 분리, 프론트홀, O-RAN과의 관계입니다.",
+      links: [
+        { topic: "O-RAN", how: "C-RAN을 개방형 표준으로 발전시킵니다." },
+        { topic: "RAN(Radio Access Network) Sharing", how: "집중화된 RAN 자원을 공유합니다." },
+      ],
+      exam: "C-RAN은 기지국 신호처리부(BBU)를 중앙에 풀로 집중하고 현장엔 안테나부(RRH)만 두어 자원 공유·협력 통신·에너지 효율을 얻는 구조로, 프론트홀 대용량이 과제다.",
+    }, image: "/concept/book/nw-cran.png", easy: "기존 기지국은 디지털 처리부(DU)와 무선 송수신부(RF/RU)가 한 몸이었는데, 이를 분리해 DU만 중앙 데이터센터에 모으고 RU는 서비스 지역에 분산시킨 구조입니다. 중앙과 분산 장비를 잇는 구간을 프론트홀이라 부릅니다. 장점: DU가 한곳에 모여 있어 셀 간 간섭 조정이 쉽고 협력 통신 같은 고품질 서비스가 가능하며, 장비·전력 비용도 절감됩니다. 구성: RU(디지털 신호를 RF로 변환해 안테나로 송수신) + Centralized DU(클라우드 형태로 집중된 디지털 처리부). 인터페이스 규격 3종이 시험 포인트: CPRI(DU-RU 간 표준, 사실상 업계 주류), OBSAI(모듈 단위로 나눈 개방형 경쟁 규격), ORI(CPRI의 벤더 간 호환성 한계를 개선하려는 ETSI 주도 표준)." },
 "nw-hamming": {
     guide: {
       hook: "패리티 비트를 여러 개 배치해 '어느 비트가 틀렸는지 위치까지' 찾아 정정하는 코드입니다.",
