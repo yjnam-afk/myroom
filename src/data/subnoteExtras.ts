@@ -9,6 +9,7 @@
  */
 
 import { subnoteByTitle } from "./textbookSubnotes";
+import { TOPIC_GUIDES } from "./topicGuides";
 
 /**
  * 처음 보는 사람이 ★이해하고 → 기억하고 → 꺼내 쓰게★ 만드는 학습 카드.
@@ -11801,6 +11802,10 @@ export function subnoteExtraFor(
   title?: string,
 ): SubnoteExtra | undefined {
   if (topicId && EXTRAS[topicId]) return EXTRAS[topicId];
+  // 교재 외 예전 토픽 — topicGuides 청크에서 조회
+  if (topicId && TOPIC_GUIDES[topicId]) {
+    return { guide: TOPIC_GUIDES[topicId] };
+  }
   if (!title) return undefined;
 
   // ① 제목 슬러그 직접 조회(topicId 가 없는 교재 전용 토픽)
