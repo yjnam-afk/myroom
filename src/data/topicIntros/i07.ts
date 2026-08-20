@@ -149,7 +149,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "ca-63": {
     lead: "저전력 초고속 5세대 메모리, DDR5",
-    defShort: "10나노급 공정으로 속도·집적도 높이고 전압 낮춘 5세대 DDR 메모리 규격",
+    defShort: "10나노급 공정으로 속도·집적도 높이고 전압을 낮춘 5세대 DDR 메모리 규격",
     features: ["10나노급", "저전력", "고집적도"],
   },
   "dst-14": {
@@ -169,7 +169,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "os-44": {
     lead: "양보만 반복하는 무한 대기, 라이브락",
-    defShort: "둘 이상 프로세스가 상대의 자원 요구에 서로 양보를 반복하며 무한 대기하는 상태",
+    defShort: "둘 이상의 프로세스가 상대의 자원 요구에 서로 양보를 반복하며 무한 대기하는 상태",
     features: ["상호 양보", "무한 대기", "진전 없음"],
   },
   "os-51": {
@@ -369,7 +369,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "se-54": {
     lead: "웹서비스 기반 통합 버스, ESB",
-    defShort: "SOAP 웹서비스로 내·외부 시스템 통합·관리하는 SOA 미들웨어 플랫폼",
+    defShort: "SOAP 웹서비스 기술로 내·외부 시스템 통합·관리하는 SOA 미들웨어 플랫폼",
     features: ["SOAP 기반", "버스 구조", "SOA 지원"],
   },
   "se-64": {
