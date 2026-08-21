@@ -34,7 +34,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "db-79": {
     lead: "목적별 표준 질의 활용, SQL 구문 작성",
-    defShort: "DDL·DML·DCL을 목적에 맞게 실행 순서를 고려해 작성하는 관계형 질의 기법",
+    defShort: "DDL·DML·DCL을 목적에 맞게 순서를 고려해 작성하는 관계형 질의 기법",
     features: ["DDL·DML", "실행 순서", "집합 연산"],
   },
   "db-81": {
@@ -79,7 +79,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "ds-10": {
     lead: "웹 데이터 자동 수집 기술, 스크래핑(Scraping)",
-    defShort: "웹 화면의 데이터를 프로그램이 자동 수집·파싱해 구조화하는 데이터 획득 기술",
+    defShort: "웹 화면의 데이터를 프로그램이 자동으로 수집·파싱해 구조화하는 데이터 획득 기술",
     features: ["자동 수집", "파싱·추출", "robots 준수"],
   },
   "ds-100": {
@@ -104,7 +104,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "ds-109": {
     lead: "이용자가 주인공이 되는 몰입 콘텐츠, 가상현실게임",
-    defShort: "HMD·추적 장비의 가상 공간에 주인공으로 참여해 실시간 상호작용하는 몰입형 게임",
+    defShort: "HMD·추적 장비의 가상 공간에 주인공으로 참여해 실시간 상호작용하는 몰입 게임",
     features: ["몰입 디스플레이", "실시간 상호작용", "콘텐츠 엔진"],
   },
   "ds-110": {
@@ -139,7 +139,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "ds-125": {
     lead: "이벤트 기반 XML 파서, SAX",
-    defShort: "XML을 순차로 읽으며 태그 이벤트마다 콜백을 호출하는 저메모리 구문 분석기",
+    defShort: "XML을 순차적으로 읽으며 태그 이벤트마다 콜백을 호출하는 저메모리 구문 분석기",
     features: ["순차 판독", "콜백 처리", "저메모리 고속"],
   },
   "ds-126": {
@@ -169,7 +169,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "ds-132": {
     lead: "미디어 시간 동기화 언어, SMIL",
-    defShort: "미디어를 시간 축과 화면 영역에 동기화·배치하는 웹 프레젠테이션 마크업 언어",
+    defShort: "멀티미디어를 시간 축과 화면 영역에 동기화·배치하는 웹 프레젠테이션 마크업 언어",
     features: ["par·seq 타이밍", "region 배치", "동기 재생"],
   },
   "ds-133": {
@@ -269,7 +269,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "ds-197": {
     lead: "위성이 방송하는 GPS 보정, SBAS",
-    defShort: "기준국이 산출한 GPS 보정정보를 정지궤도 위성으로 방송하는 위성 보강항법",
+    defShort: "기준국이 산출한 GPS 보정정보를 정지궤도 위성으로 방송하는 위성 기반 보강항법",
     features: ["오차 보정", "무결성 정보", "정지궤도 방송"],
   },
   "ds-198": {
@@ -294,7 +294,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "ds-209": {
     lead: "손목 위 건강 비서, 애플워치",
-    defShort: "생체 센서와 OS를 손목에 담아 건강 측정·알림·결제를 제공하는 스마트워치",
+    defShort: "생체 센서와 OS를 손목에 착용해 건강 측정·알림·결제를 제공하는 스마트워치",
     features: ["PPG·ECG", "응급 감지", "eSIM 통신"],
   },
   "ds-21": {
@@ -309,7 +309,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "ds-212": {
     lead: "몸에 착용하는 상시 컴퓨팅, 웨어러블 스마트 기기",
-    defShort: "신체에 착용·부착·이식한 채 정보를 수집·처리·전달하는 상시 컴퓨팅 기기",
+    defShort: "신체에 착용·부착·이식한 채로 정보를 수집·처리·전달하는 상시 컴퓨팅 기기",
     features: ["상시 착용", "생체 센싱", "4대 유형"],
   },
   "ds-215": {
@@ -374,7 +374,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "ds-233": {
     lead: "공장 에너지 최적화 시스템, FEMS",
-    defShort: "공장 설비의 에너지 사용을 계측·분석해 효율을 최적화하는 에너지관리 시스템",
+    defShort: "공장 설비의 에너지 사용량을 계측·분석해 효율을 최적화하는 에너지관리 시스템",
     features: ["실시간 계측", "피크 제어", "설비 스케줄링"],
   },
   "ds-234": {
@@ -389,12 +389,12 @@ export const I: Record<string, AnswerIntro> = {
   },
   "ds-240": {
     lead: "전문가 경험 원칙 점검, 휴리스틱에 의한 사용성평가",
-    defShort: "전문가가 닐슨 10원칙에 따라 인터페이스 결함과 심각도를 도출하는 평가 기법",
+    defShort: "전문가가 닐슨의 10원칙에 따라 인터페이스 결함과 심각도를 도출하는 평가 기법",
     features: ["닐슨 10원칙", "전문가 평가", "심각도 산정"],
   },
   "ds-248": {
     lead: "기업 모바일 단말 중앙 통제, MDM",
-    defShort: "기업 모바일 단말을 OTA로 원격 등록·통제·감사해 유출 위험을 관리하는 보안 기술",
+    defShort: "모바일 단말을 OTA로 원격 등록·통제·감사해 유출 위험을 관리하는 보안 기술",
     features: ["원격 통제", "정책 배포", "분실 대응"],
   },
   "ds-249": {

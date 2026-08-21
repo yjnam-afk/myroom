@@ -134,7 +134,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "ca-117": {
     lead: "작업 분할 단위 기준, Grain 크기 분류",
-    defShort: "병렬처리의 작업 분할 단위 크기에 따라 미세·중간·큰 그레인으로 구분하는 분류 기준",
+    defShort: "병렬처리의 작업 단위 크기에 따라 미세·중간·큰 그레인으로 구분하는 분류 기준",
     features: ["미세 그레인", "중간 그레인", "큰 그레인"],
   },
   "ca-122": {
@@ -154,7 +154,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "ca-13": {
     lead: "프로그램 내장 기본 구조, 폰노이만 컴퓨터 구조",
-    defShort: "프로그램과 데이터를 한 기억장치에 저장하고 명령어를 순차 인출·해독·실행하는 구조",
+    defShort: "프로그램과 데이터를 한 기억장치에 두고 명령어를 순차 인출·해독·실행하는 구조",
     features: ["프로그램 내장", "시스템버스", "메모리 병목"],
   },
   "ca-130": {
@@ -169,7 +169,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "ca-14": {
     lead: "프로그램 내장 방식, Stored program computer",
-    defShort: "프로그램과 데이터를 주기억장치에 저장해 명령어 사이클로 인출·실행하는 내장 방식",
+    defShort: "프로그램과 데이터를 주기억장치에 두고 명령어 사이클로 인출·실행하는 내장 방식",
     features: ["프로그램 내장", "순차 실행", "범용성"],
   },
   "ca-15": {
@@ -179,7 +179,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "ca-16": {
     lead: "명령어 사이클의 반복, 컴퓨터 작동 원리",
-    defShort: "CPU가 클록에 맞춰 명령어를 인출·해독·실행·저장하며 중단까지 반복하는 원리",
+    defShort: "CPU가 클록마다 명령어를 인출·해독·실행·저장하며 중단까지 반복하는 원리",
     features: ["명령어 사이클", "클록 동기", "레지스터 활용"],
   },
   "ca-176": {
@@ -219,7 +219,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "ca-195": {
     lead: "자바 실행 가상 머신, JVM",
-    defShort: "자바 바이트코드를 적재·해석해 OS 독립적으로 실행하는 스택 기반 가상 머신",
+    defShort: "자바 바이트코드를 적재·해석해 OS에 독립적으로 실행하는 스택 기반 가상 머신",
     features: ["클래스 로더", "JIT 컴파일", "GC"],
   },
   "ca-196": {

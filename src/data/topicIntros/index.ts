@@ -30,6 +30,9 @@ import { I as i22 } from "./i22";
 import { I as i29 } from "./i29";
 import { I as i20 } from "./i20";
 import { I as i26 } from "./i26";
+import { I as i24 } from "./i24";
+import { I as i27 } from "./i27";
+import { I as i28 } from "./i28";
 import { I as i31 } from "./i31";
 import { I as i06 } from "./i06";
 import { I as i07 } from "./i07";
@@ -64,5 +67,8 @@ export const TOPIC_INTROS: Record<string, AnswerIntro> = {
   ...i29,
   ...i20,
   ...i26,
+  ...i24,
+  ...i27,
+  ...i28,
   ...i31,
 };

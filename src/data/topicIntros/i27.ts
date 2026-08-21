@@ -9,7 +9,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "sec-248": {
     lead: "개인정보 최소 안전조치, 기술적·관리적 보호조치 기준",
-    defShort: "개인정보 유출 방지 위해 처리자가 지킬 관리적·기술적·물리적 보호조치 고시",
+    defShort: "개인정보 유출 방지를 위해 처리자가 지킬 관리적·기술적·물리적 보호조치 고시",
     features: ["최소 안전조치", "접근통제", "암호화"],
   },
   "sec-256": {
@@ -19,7 +19,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "sec-260": {
     lead: "개인정보 보호 총괄 책임자, CPO",
-    defShort: "조직이 수집·이용하는 개인정보 보호를 계획·점검·교육·대응으로 총괄하는 책임자",
+    defShort: "수집·이용하는 개인정보 보호를 계획·점검·교육·대응으로 총괄하는 책임자",
     features: ["보호계획 수립", "처리실태 점검", "유출 대응"],
   },
   "sec-261": {
@@ -74,7 +74,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "sec-304": {
     lead: "전자 증거 공개 절차, E-Discovery",
-    defShort: "소송 시 합의 범위의 전자저장정보를 보존·수집·검토해 공개하는 전자증거개시 제도",
+    defShort: "소송 시 합의 범위의 전자저장정보를 보존·수집·검토해 제출하는 증거개시 제도",
     features: ["소송보류", "EDRM 절차", "ESI 공개"],
   },
   "sec-305": {
@@ -159,7 +159,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "sec-336": {
     lead: "레거시 프로토콜의 역습, SSLv2 DROWN",
-    defShort: "SSLv2 서버를 오라클 삼아 같은 RSA 키 TLS 암호문을 복호화하는 공격",
+    defShort: "SSLv2 서버를 오라클로 삼아 같은 RSA 키 TLS 암호문을 복호화하는 공격",
     features: ["교차 프로토콜", "패딩 오라클", "SSLv2 비활성화"],
   },
   "sec-340": {
@@ -274,7 +274,7 @@ export const I: Record<string, AnswerIntro> = {
   },
   "sec-385": {
     lead: "무선기기 보안 규제, RED",
-    defShort: "유럽 시장 무선기기에 네트워크·개인정보·금융사기 방지 요건을 부과하는 EU 지침",
+    defShort: "유럽 무선기기에 네트워크·개인정보·금융사기 방지 요건을 부과하는 EU 지침",
     features: ["사이버 요건", "CE 적합성", "EN 18031 연계"],
   },
   "sec-386": {
