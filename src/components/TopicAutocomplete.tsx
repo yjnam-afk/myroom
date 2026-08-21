@@ -31,11 +31,18 @@ export default function TopicAutocomplete({
   value,
   onChange,
   onSelect,
+  onPickTitle,
   placeholder,
 }: {
   value: string;
   onChange: (v: string) => void;
   onSelect: (t: T) => void;
+  /**
+   * 제안을 고른 순간(교재 전용 토픽 포함) 한 번만 불린다.
+   * onSelect 는 topics.json 에 연결된 토픽에만 오므로, 주소(?topic=) 갱신처럼
+   * "무엇을 골랐든" 해야 하는 처리는 이걸 쓴다.
+   */
+  onPickTitle?: (title: string, t?: T) => void;
   placeholder?: string;
 }) {
   const [open, setOpen] = useState(false);
@@ -110,7 +117,8 @@ export default function TopicAutocomplete({
   }, [q, entries]);
 
   function pick(e: Entry) {
-    if (e.t) onSelect(e.t);
+    if (onPickTitle) onPickTitle(e.title, e.t);
+    else if (e.t) onSelect(e.t);
     else onChange(e.title); // topics.json에 없는 서브노트 — 제목만으로 답안 템플릿이 뜬다
     setOpen(false);
   }

@@ -9,7 +9,7 @@
  *   교재 토픽 id 는 `tb-{과목}-{제목 정규화}` 규칙을 고정해서 쓴다. ★
  */
 import rawTopics from "@/data/topics.json";
-import { SUBNOTES } from "@/data/textbookSubnotes";
+import { SUBNOTES, subnoteByAlias } from "@/data/textbookSubnotes";
 
 export type ReviewTopic = {
   id: string;
@@ -52,11 +52,8 @@ function normTitle(s: string): string {
  * 두 번 세지 않도록 예전 항목을 교재 제목·중요도로 갈아끼운다.
  * (id 는 회독 진도의 저장 키라 그대로 둬야 기존 진도가 유지된다.)
  */
-const SUB_BY_TOPIC_ID = new Map<string, (typeof SUBNOTES)[number]>();
-for (const s of SUBNOTES) if (s.topicId) SUB_BY_TOPIC_ID.set(s.topicId, s);
-
 const BASE: ReviewTopic[] = (rawTopics as ReviewTopic[]).map((t) => {
-  const s = SUB_BY_TOPIC_ID.get(t.id);
+  const s = subnoteByAlias(t.id, t.title);
   if (!s) return t;
   const cat = COURSE_LABEL[s.course] || s.course;
   return {

@@ -22829,6 +22829,72 @@ function okLoose(needleTitle: string, haystackTitle: string): boolean {
   return /[가-힣]/.test(bareNeedle) || bareNeedle.length >= 6;
 }
 
+
+/* ── 교재 ↔ 예전 토픽 같은 토픽 판별 ──────────────────────────────────────
+ * 두 목록의 제목 표기가 달라 같은 토픽이 두 번 뜨는 문제를 막는다.
+ *   "Singleton 패턴" ↔ "싱글턴 패턴 (Singleton pattern)"
+ *   "Value Chain"    ↔ "가치사슬(Value Chain)"
+ * 규칙: ① topicId 가 같거나 ② 괄호를 뗀 제목이 같거나
+ *       ③ 제목이 괄호로 끝날 때 그 괄호 안 이름(또는 패턴·기법 등 일반 접미어를
+ *          뗀 핵심어, 5자 이상)이 서로 겹칠 때.
+ * 괄호 뒤에 범위어가 더 붙은 제목("… 의 보안 취약점 및 대응방안")은 다른 토픽이라
+ * 별칭을 만들지 않는다.
+ */
+const GEN_SUFFIX = /(패턴|pattern|기법|방식|모델|model|알고리즘|algorithm)$/i;
+/** 별칭이 겹쳐도 서로 다른 토픽 — 합치면 안 되는 일반어 */
+const ALIAS_BLOCK = new Set(["artificialintelligence", "optimizer"]);
+
+function aliasKeys(title: string): { key: string; strong: Set<string> } {
+  const t = (title || "").trim();
+  const key = bare(t);
+  const strong = new Set<string>();
+  if (/[)）]$/.test(t)) {
+    const m = t.match(/[(（]([^)）]+)[)）]\s*$/);
+    if (m) strong.add(norm(m[1]));
+  }
+  for (const k of [key, ...strong]) {
+    const c = k.replace(GEN_SUFFIX, "");
+    if (c.length >= 5) strong.add(c);
+  }
+  for (const k of [...strong]) {
+    if (k.length < 5 || ALIAS_BLOCK.has(k)) strong.delete(k);
+  }
+  return { key, strong };
+}
+
+const TB_IDS = new Set<string>();
+const TB_BY_KEY = new Map<string, TextbookSubnote>();
+const TB_BY_ALIAS = new Map<string, TextbookSubnote>();
+for (const s of SUBNOTES) {
+  if (s.topicId) TB_IDS.add(s.topicId);
+  const { key, strong } = aliasKeys(s.title);
+  if (key && !TB_BY_KEY.has(key)) TB_BY_KEY.set(key, s);
+  for (const a of strong) if (!TB_BY_ALIAS.has(a)) TB_BY_ALIAS.set(a, s);
+}
+
+/**
+ * 예전 토픽(topics.json)이 교재에 이미 있는 토픽인지 — 있으면 그 서브노트를 준다.
+ * 목록·카드·회독에서 예전 항목을 감추고 교재 쪽만 남기는 데 쓴다.
+ */
+export function subnoteByAlias(
+  topicId?: string,
+  title?: string,
+): TextbookSubnote | undefined {
+  if (topicId && TB_IDS.has(topicId)) {
+    const hit = SUBNOTES.find((s) => s.topicId === topicId);
+    if (hit) return hit;
+  }
+  if (!title) return undefined;
+  const { key, strong } = aliasKeys(title);
+  const byKey = key ? TB_BY_KEY.get(key) : undefined;
+  if (byKey) return byKey;
+  for (const a of strong) {
+    const hit = TB_BY_ALIAS.get(a);
+    if (hit) return hit;
+  }
+  return undefined;
+}
+
 /**
  * 제목으로 교재 서브노트를 찾는다.
  * ★정확 일치를 먼저★ — '단편화'와 '메모리 단편화'처럼 포함 관계인 제목이 서로를

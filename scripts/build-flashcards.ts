@@ -8,7 +8,7 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 import { fileURLToPath } from "node:url";
-import { SUBNOTES } from "../src/data/textbookSubnotes";
+import { SUBNOTES, subnoteByAlias } from "../src/data/textbookSubnotes";
 import { WEEKS } from "../src/data/curriculum";
 import { TOPIC_GUIDES } from "../src/data/topicGuides";
 import { TOPIC_INTROS } from "../src/data/topicIntros";
@@ -204,12 +204,9 @@ const subnoteCount = cards.length;
 
 // ── 예전 토픽 카드(교재에 없는 것만 — 삭제하지 않고 뒤에 유지) ─────────────
 const snBare = new Set((SUBNOTES as any[]).map((s) => bare(s.title)));
-// 교재와 topicId 로 연결된 예전 토픽은 제목이 달라도 같은 토픽 — 카드를 만들지 않는다.
-const snIds = new Set(
-  (SUBNOTES as any[]).map((s) => s.topicId).filter(Boolean) as string[],
-);
 for (const t of topics) {
-  if (snBare.has(bare(t.title)) || snIds.has(t.id)) continue; // 교재 카드가 이미 있음
+  // 교재에 같은 토픽이 있으면(제목 표기가 달라도) 예전 카드를 만들지 않는다.
+  if (snBare.has(bare(t.title)) || subnoteByAlias(t.id, t.title)) continue;
   const d = details[t.id] || {};
   let sections: Section[] = Array.isArray(d.sections)
     ? d.sections.filter((s: any) => s?.keywords?.length || s?.mnemonic)

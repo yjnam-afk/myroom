@@ -2,8 +2,13 @@
 
 import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import { SUBNOTES, subnoteByTitle, subnoteByTopicId } from "@/data/textbookSubnotes";
+import { useRouter, useSearchParams } from "next/navigation";
+import {
+  SUBNOTES,
+  subnoteByTitle,
+  subnoteByTopicId,
+  subnoteByAlias,
+} from "@/data/textbookSubnotes";
 import MyDiagrams from "@/components/MyDiagrams";
 import EasyCard from "@/components/EasyCard";
 import Mermaid from "@/components/Mermaid";
@@ -108,11 +113,6 @@ const BROWSE_GROUPS: BrowseGroup[] = (() => {
   }
   const byCourse = new Map<string, BrowseItem[]>();
   const covered = new Set<string>();
-  // 교재와 topicId 로 연결된 예전 토픽은 제목이 달라도 같은 토픽이다 — 목록에서 뺀다.
-  const coveredIds = new Set<string>();
-  for (const s of SUBNOTES) {
-    if (s.topicId) coveredIds.add(s.topicId);
-  }
   for (const s of SUBNOTES) {
     if (!byCourse.has(s.course)) byCourse.set(s.course, []);
     const imp =
@@ -143,7 +143,8 @@ const BROWSE_GROUPS: BrowseGroup[] = (() => {
   // 원래 붙어 있던 중요도(상·중·하·출제예상)를 유지하고 상부터 정렬한다.
   const byCat = new Map<string, BrowseItem[]>();
   for (const t of topics) {
-    if (covered.has(bareT(t.title)) || coveredIds.has(t.id)) continue;
+    // 교재에 같은 토픽이 있으면(제목 표기가 달라도) 예전 항목은 감춘다.
+    if (covered.has(bareT(t.title)) || subnoteByAlias(t.id, t.title)) continue;
     if (!byCat.has(t.category)) byCat.set(t.category, []);
     byCat.get(t.category)!.push({ title: t.title, imp: t.importance });
   }
@@ -315,7 +316,9 @@ function ExplainInner() {
   // 내 교재(심화반) 서브노트 원본 — 있으면 AI 없이 바로 보여준다.
   const textbook =
     subnoteByTitle(topic.trim()) ||
-    subnoteByTopicId(topics.find((x) => x.title === topic.trim())?.id);
+    subnoteByTopicId(topics.find((x) => x.title === topic.trim())?.id) ||
+    // 제목 표기만 다른 같은 토픽("Singleton 패턴" ↔ "싱글턴 패턴 (Singleton pattern)")
+    subnoteByAlias(topics.find((x) => x.title === topic.trim())?.id, topic.trim());
   // 교재에 없는 예전 토픽 — 지하철 카드 자료를 AI 없이 폴백으로 보여준다.
   const legacy = !textbook ? legacyCardFor(topic.trim()) : undefined;
   // 예전 토픽의 답안 서론 세트 — 교재와 같은 규격(리드문·34~35자 정의·특징 3개)
@@ -326,7 +329,20 @@ function ExplainInner() {
   // 학습 코치 등에서 ?topic= 으로 들어오면 미리 채운다(예전 auto=1은 무시 —
   // 이 페이지는 AI를 부르지 않고 교재·정리 자료만 즉시 보여준다).
   // SPA 이동으로 쿼리만 바뀌어도 반응하도록 searchParams 의존.
+  const router = useRouter();
   const searchParams = useSearchParams();
+  /**
+   * 토픽을 확정했을 때 — 화면과 주소(?topic=)를 함께 바꾼다.
+   * 주소가 그대로면 새로고침·공유·뒤로가기가 엉뚱한 토픽을 가리킨다.
+   */
+  const goTopic = (title: string) => {
+    const t = title.trim();
+    setTopic(t);
+    const m = topics.find((x) => x.title === t);
+    if (m) setRecCat(m.category);
+    setBrowseOpen(false);
+    if (t) router.push(`/explain?topic=${encodeURIComponent(t)}`, { scroll: false });
+  };
   useEffect(() => {
     const title = searchParams.get("topic") || "";
     if (title) {
@@ -348,11 +364,9 @@ function ExplainInner() {
         <TopicAutocomplete
           value={topic}
           onChange={(v) => setTopic(v)}
-          onSelect={(t) => {
-            setTopic(t.title);
-            setRecCat(t.category);
-            setBrowseOpen(false);
-          }}
+          onSelect={(t) => goTopic(t.title)}
+          // 교재 전용 토픽(topics.json 에 없음)도 주소가 따라오게 한다
+          onPickTitle={(title) => goTopic(title)}
           placeholder="문제풀이 검색 — 토픽명·키워드·정의 아무거나 입력 (예: 레인보우, 솔트)"
         />
 
@@ -372,7 +386,7 @@ function ExplainInner() {
           <select
             key={recCat}
             defaultValue=""
-            onChange={(e) => e.target.value && setTopic(e.target.value)}
+            onChange={(e) => e.target.value && goTopic(e.target.value)}
             className="min-w-[12rem] rounded border border-slate-200 bg-white px-2 py-1 text-xs text-slate-600"
           >
             <option value="" disabled>
@@ -413,12 +427,7 @@ function ExplainInner() {
       <div className="mt-6">
         {browseOpen ? (
           <TopicBrowser
-            onPick={(t) => {
-              setTopic(t);
-              const m = topics.find((x) => x.title === t);
-              if (m) setRecCat(m.category);
-              setBrowseOpen(false);
-            }}
+            onPick={goTopic}
           />
         ) : (
           <button
