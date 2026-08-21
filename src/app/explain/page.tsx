@@ -12,6 +12,7 @@ import { PageHeader } from "@/components/ui";
 import TopicAutocomplete from "@/components/TopicAutocomplete";
 import topics from "@/data/topics.json";
 import flashcards from "@/data/flashcards.json";
+import answerExtras from "@/data/answerExtras.json";
 import { TOPIC_INTROS } from "@/data/topicIntros";
 
 const CATS = Array.from(new Set(topics.map((t) => t.category)));
@@ -19,6 +20,7 @@ const IMP_ORDER: Record<string, number> = { 상: 0, 중: 1, 하: 2, 출제예상
 
 // ── 예전 토픽 자료 폴백 — 서브노트가 없을 때 AI 없이 보여줄 지하철 카드 데이터 ──
 type LegacyCard = {
+  id: string;
   title: string;
   category: string;
   definition: string;
@@ -28,13 +30,27 @@ type LegacyCard = {
   features?: string[];
   conceptMap?: string;
   /** 답안지 본론 3단표 — 구분·키워드·설명 */
-  comp?: { group: string; mnemonic: string; rows: [string, string][] }[];
+  comp?: {
+    group: string;
+    mnemonic: string;
+    rows: string[][];
+    notes: string[];
+  }[];
   /** 도식 이름 — 클래스다이어그램·절차 등. 없으면 "개념도" */
   conceptMapLabel?: string;
   defKeywords?: string[];
   apply?: string[];
   plus?: string[];
 };
+
+/** 받침 유무로 을/를 고르기 — "개념도를", "클래스다이어그램을" */
+function objJosa(word: string): string {
+  const ch = (word || "").trim().slice(-1);
+  const code = ch.charCodeAt(0);
+  if (Number.isNaN(code) || code < 0xac00 || code > 0xd7a3) return "를";
+  return (code - 0xac00) % 28 === 0 ? "를" : "을";
+}
+
 const normT = (s: string) =>
   s.trim().toLowerCase().replace(/[\s()·,\-_/]/g, "");
 const bareT = (s: string) => normT(s.replace(/[(（][^)）]*[)）]/g, ""));
@@ -45,10 +61,15 @@ for (const c of flashcards as LegacyCard[]) {
   const b = bareT(c.title);
   if (!CARD_BY_BARE.has(b)) CARD_BY_BARE.set(b, c);
 }
+const EXTRA_BY_ID = answerExtras as unknown as Record<string, Partial<LegacyCard>>;
 function legacyCardFor(title: string): LegacyCard | undefined {
   const t = title.trim();
   if (!t) return undefined;
-  return CARD_BY_NORM.get(normT(t)) || CARD_BY_BARE.get(bareT(t));
+  const card = CARD_BY_NORM.get(normT(t)) || CARD_BY_BARE.get(bareT(t));
+  if (!card) return undefined;
+  // 답안지 템플릿 자료는 별도 파일(answerExtras)에 있다 — 여기서 합쳐 넘긴다.
+  const extra = EXTRA_BY_ID[card.id];
+  return extra ? { ...card, ...extra } : card;
 }
 
 // ── 도메인별 토픽 목록 — 검색어가 생각 안 날 때 눈으로 훑어 찾는 용도 ──
@@ -87,6 +108,11 @@ const BROWSE_GROUPS: BrowseGroup[] = (() => {
   }
   const byCourse = new Map<string, BrowseItem[]>();
   const covered = new Set<string>();
+  // 교재와 topicId 로 연결된 예전 토픽은 제목이 달라도 같은 토픽이다 — 목록에서 뺀다.
+  const coveredIds = new Set<string>();
+  for (const s of SUBNOTES) {
+    if (s.topicId) coveredIds.add(s.topicId);
+  }
   for (const s of SUBNOTES) {
     if (!byCourse.has(s.course)) byCourse.set(s.course, []);
     const imp =
@@ -117,7 +143,7 @@ const BROWSE_GROUPS: BrowseGroup[] = (() => {
   // 원래 붙어 있던 중요도(상·중·하·출제예상)를 유지하고 상부터 정렬한다.
   const byCat = new Map<string, BrowseItem[]>();
   for (const t of topics) {
-    if (covered.has(bareT(t.title))) continue;
+    if (covered.has(bareT(t.title)) || coveredIds.has(t.id)) continue;
     if (!byCat.has(t.category)) byCat.set(t.category, []);
     byCat.get(t.category)!.push({ title: t.title, imp: t.importance });
   }
@@ -501,7 +527,7 @@ function ExplainInner() {
                       가. {extra?.images?.length ? diagramLabel : "개념도"}
                     </span>
                     {extra?.images?.length
-                      ? `이 ${diagramLabel}를 답안지 6줄 내로 옮겨 그린다`
+                      ? `이 ${diagramLabel}${objJosa(diagramLabel)} 답안지 6줄 내로 옮겨 그린다`
                       : "아래 교재 슬라이드의 개념도를 답안지 6줄 내 도식으로 옮겨 그린다"}
                   </p>
                 )}
@@ -681,7 +707,8 @@ function ExplainInner() {
                           <span className="mr-1 font-bold text-slate-500">
                             {letter()}. {legacy.conceptMapLabel || "개념도"}
                           </span>
-                          이 {legacy.conceptMapLabel || "개념도"}를 답안지 6줄 내로
+                          이 {legacy.conceptMapLabel || "개념도"}
+                          {objJosa(legacy.conceptMapLabel || "개념도")} 답안지 6줄 내로
                           옮겨 그린다
                         </p>
                         <div className="mt-2 overflow-x-auto rounded-lg border border-slate-200 bg-white p-2">
@@ -689,62 +716,74 @@ function ExplainInner() {
                         </div>
                       </div>
                     )}
-                    {/* 구성요소 — 답안 규격대로 3단표(구분·키워드·설명)로 옮겨 적는다. */}
-                    {!!legacy.comp?.length && (
-                      <div className="mt-3 pl-4">
-                        <p className="text-[13px] font-bold leading-relaxed text-slate-700">
-                          {letter()}. 구성요소 및 주요 항목
-                          {legacy.comp
-                            .filter((c) => c.mnemonic)
-                            .map((c) => (
-                              <span
-                                key={c.group}
-                                className="ml-1.5 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-700"
-                              >
-                                {c.group} 두음 {c.mnemonic}
+                    {/* 구성요소·유형·절차… — 블록마다 별도 소항목(가/나/다)에 각자 3단표.
+                        구분 열은 두음 글자가 항목 수와 맞으면 그 글자, 아니면 번호를 쓴다. */}
+                    {legacy.comp?.map((c) => {
+                      const mnem = (c.mnemonic || "").replace(/\s/g, "");
+                      const letters = [...mnem];
+                      const aligned = letters.length === c.rows.length;
+                      const hasDesc = c.rows.some((r) => r[1]);
+                      return (
+                        <div key={c.group} className="mt-3 pl-4">
+                          <p className="text-[13px] font-bold leading-relaxed text-slate-700">
+                            {letter()}. {c.group}
+                            {mnem && (
+                              <span className="ml-1.5 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">
+                                두음 {mnem}
                               </span>
-                            ))}
-                        </p>
-                        <div className="mt-1.5 overflow-x-auto">
-                          <table className="w-full border-collapse text-xs">
-                            <thead>
-                              <tr>
-                                {["구분", "키워드", "설명"].map((h) => (
-                                  <th
-                                    key={h}
-                                    className="border border-slate-300 bg-slate-100 px-2 py-1.5 text-left font-bold text-slate-700"
-                                  >
-                                    {h}
-                                  </th>
-                                ))}
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {legacy.comp.flatMap((c) =>
-                                c.rows.map((r, ri) => (
-                                  <tr key={c.group + ri}>
-                                    {ri === 0 && (
-                                      <td
-                                        rowSpan={c.rows.length}
-                                        className="whitespace-nowrap border border-slate-300 bg-slate-50 px-2 py-1.5 align-top font-bold text-slate-700"
+                            )}
+                          </p>
+                          {/* 설명이 있는 블록만 표로 — 나열뿐인 블록은 표에 빈 칸이 생기므로 한 줄로 */}
+                          {hasDesc ? (
+                            <div className="mt-1.5 overflow-x-auto">
+                              <table className="w-full border-collapse text-xs">
+                                <thead>
+                                  <tr>
+                                    {["구분", "키워드", "설명"].map((h) => (
+                                      <th
+                                        key={h}
+                                        className="border border-slate-300 bg-slate-100 px-2 py-1.5 text-left font-bold text-slate-700"
                                       >
-                                        {c.group}
-                                      </td>
-                                    )}
-                                    <td className="whitespace-nowrap border border-slate-300 px-2 py-1.5 align-top font-semibold text-slate-800">
-                                      {r[0]}
-                                    </td>
-                                    <td className="border border-slate-300 px-2 py-1.5 align-top leading-relaxed text-slate-600">
-                                      {r[1]}
-                                    </td>
+                                        {h}
+                                      </th>
+                                    ))}
                                   </tr>
-                                )),
-                              )}
-                            </tbody>
-                          </table>
+                                </thead>
+                                <tbody>
+                                  {c.rows.map((r, ri) => (
+                                    <tr key={ri}>
+                                      <td className="w-10 whitespace-nowrap border border-slate-300 bg-slate-50 px-2 py-1.5 text-center align-top font-bold text-slate-600">
+                                        {aligned ? letters[ri] : ri + 1}
+                                      </td>
+                                      <td className="whitespace-nowrap border border-slate-300 px-2 py-1.5 align-top font-semibold text-slate-800">
+                                        {r[0]}
+                                      </td>
+                                      <td className="border border-slate-300 px-2 py-1.5 align-top leading-relaxed text-slate-600">
+                                        {r[1]}
+                                      </td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          ) : (
+                            !!c.rows.length && (
+                              <p className="mt-1 text-[13px] leading-relaxed text-slate-700">
+                                {c.rows.map((r) => r[0]).join(", ")}
+                              </p>
+                            )
+                          )}
+                          {c.notes?.map((n, ni) => (
+                            <p
+                              key={ni}
+                              className="mt-1 text-[13px] leading-relaxed text-slate-600"
+                            >
+                              {n}
+                            </p>
+                          ))}
                         </div>
-                      </div>
-                    )}
+                      );
+                    })}
                     {/* 3단표가 없는 토픽만 예전 키워드 칩으로 대체 */}
                     {!legacy.comp?.length &&
                       legacy.sections.map((s) => (

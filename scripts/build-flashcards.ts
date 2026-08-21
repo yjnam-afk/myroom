@@ -114,7 +114,13 @@ type Section = { label: string; mnemonic: string; keywords: string[] };
  * 서론(정의)·플러스 알파에서 이미 쓰는 블록은 제외한다.
  */
 const SKIP_BLOCK = /^(정의|등장배경|목적|시사점|최신동향|비교|참고)/;
-type CompGroup = { group: string; mnemonic: string; rows: [string, string][] };
+type CompGroup = {
+  group: string;
+  mnemonic: string;
+  rows: [string, string][];
+  /** 표로 못 만드는 산문 줄(원리 설명 등) — 표 대신 문장으로 보여준다 */
+  notes: string[];
+};
 function compTableOf(detail: string): CompGroup[] {
   const groups: CompGroup[] = [];
   let cur: CompGroup | null = null;
@@ -129,7 +135,7 @@ function compTableOf(detail: string): CompGroup[] {
         continue;
       }
       const mm = (h[2] || "").match(/두음\s*[:：]\s*([가-힣A-Za-z0-9]{2,12})/);
-      cur = { group: name, mnemonic: mm ? mm[1] : "", rows: [] };
+      cur = { group: name, mnemonic: mm ? mm[1] : "", rows: [], notes: [] };
       groups.push(cur);
       continue;
     }
@@ -140,20 +146,25 @@ function compTableOf(detail: string): CompGroup[] {
     const colon = body.search(/[:：]\s/);
     if (colon > 0 && colon <= 40) {
       cur.rows.push([body.slice(0, colon).trim(), body.slice(colon + 1).trim().slice(0, 80)]);
-    } else {
-      // 설명 없이 나열만 된 줄 — 쉼표로 끊어 키워드 행으로 편다.
-      const parts = body.split(", ").map((x) => x.trim()).filter(Boolean);
-      if (parts.length >= 3) for (const p of parts.slice(0, 8)) cur.rows.push([p.slice(0, 40), ""]);
-      else cur.rows.push([body.slice(0, 60), ""]);
+      continue;
     }
+    // 콜론이 없는 줄 — 짧은 항목의 쉼표 나열이면 키워드 행으로 펴고,
+    // 그렇지 않으면(설명 문장이면) 표를 깨뜨리지 않도록 산문으로 남긴다.
+    const parts = body.split(/\s*,\s*/).map((x) => x.trim()).filter(Boolean);
+    const isList =
+      parts.length >= 3 && parts.every((x) => x.length <= 25 && !/[.。]$|다$|음$/.test(x));
+    if (isList) for (const p of parts.slice(0, 8)) cur.rows.push([p.slice(0, 40), ""]);
+    else cur.notes.push(body.slice(0, 160));
   }
   return groups
-    .filter((g) => g.rows.length)
-    .slice(0, 3)
-    .map((g) => ({ ...g, rows: g.rows.slice(0, 8) }));
+    .filter((g) => g.rows.length || g.notes.length)
+    .slice(0, 4)
+    .map((g) => ({ ...g, rows: g.rows.slice(0, 8), notes: g.notes.slice(0, 2) }));
 }
 
 const cards: any[] = [];
+/** 답안지 템플릿 전용 자료(예전 토픽) — id → 템플릿 필드 */
+const answerExtras: Record<string, any> = {};
 
 for (let i = 0; i < SUBNOTES.length; i++) {
   const s: any = SUBNOTES[i];
@@ -193,8 +204,12 @@ const subnoteCount = cards.length;
 
 // ── 예전 토픽 카드(교재에 없는 것만 — 삭제하지 않고 뒤에 유지) ─────────────
 const snBare = new Set((SUBNOTES as any[]).map((s) => bare(s.title)));
+// 교재와 topicId 로 연결된 예전 토픽은 제목이 달라도 같은 토픽 — 카드를 만들지 않는다.
+const snIds = new Set(
+  (SUBNOTES as any[]).map((s) => s.topicId).filter(Boolean) as string[],
+);
 for (const t of topics) {
-  if (snBare.has(bare(t.title))) continue; // 교재 카드가 이미 있음
+  if (snBare.has(bare(t.title)) || snIds.has(t.id)) continue; // 교재 카드가 이미 있음
   const d = details[t.id] || {};
   let sections: Section[] = Array.isArray(d.sections)
     ? d.sections.filter((s: any) => s?.keywords?.length || s?.mnemonic)
@@ -228,25 +243,33 @@ for (const t of topics) {
     sections,
     mnemonic: sections[0]?.mnemonic || "",
     keywords: sections[0]?.keywords || [],
-    // 답안지 템플릿용 — 특징 3개·검증된 개념도·정의/활용/플러스 키워드
+  });
+  // 답안지 템플릿 전용 자료는 별도 파일로 분리한다 — 지하철(통근) 모드가 쓰는
+  // flashcards.json 을 가볍게 유지해 모바일 로딩을 지키기 위해서다.
+  answerExtras[t.id] = {
+    // 특징 3개·검증된 개념도·본론 3단표·정의/활용/플러스 키워드
     features: (d.featureKeywords || []).filter(Boolean).slice(0, 3),
     conceptMap: (d.conceptMap || "").trim(),
-    // 답안지 본론 3단표 — 구분·키워드·설명
     comp: compTableOf(d.detail || ""),
     // 도식 이름 — 그림이 클래스다이어그램·절차 등일 때 "개념도" 대신 실제 이름
     conceptMapLabel: (d.conceptMapLabel || "").trim(),
     defKeywords: (d.defKeywords || []).filter(Boolean),
     apply: (d.applicationKeywords || []).filter(Boolean),
     plus: (d.plusKeywords || []).filter(Boolean),
-  });
+  };
 }
 
 const out = path.join(root, "src/data/flashcards.json");
 fs.writeFileSync(out, JSON.stringify(cards, null, 1), "utf8");
+const outExtra = path.join(root, "src/data/answerExtras.json");
+fs.writeFileSync(outExtra, JSON.stringify(answerExtras, null, 1), "utf8");
 
 // 빌드 ID 고정(기존 로직 유지)
 const buildId = process.env.VERCEL_GIT_COMMIT_SHA || String(Date.now());
 fs.writeFileSync(path.join(root, ".build-id"), buildId, "utf8");
+console.log(
+  `answerExtras.json: ${(fs.statSync(outExtra).size / 1024).toFixed(0)}KB`,
+);
 console.log(
   `flashcards.json: ${cards.length}장 (교재 ${subnoteCount} + 예전 ${cards.length - subnoteCount}, 섹션 ${cards.reduce((n, c) => n + c.sections.length, 0)}개, ${(fs.statSync(out).size / 1024).toFixed(0)}KB)`,
 );

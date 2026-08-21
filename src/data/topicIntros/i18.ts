@@ -363,9 +363,9 @@ export const I: Record<string, AnswerIntro> = {
     features: ["복제 생성", "얕은·깊은 복사", "비용 절감"],
   },
   "se-108": {
-    lead: "단 하나의 인스턴스, Singleton 패턴",
-    defShort: "사설 생성자와 전역 접근자로 클래스 인스턴스를 하나만 생성해 공유하는 생성 패턴",
-    features: ["유일 인스턴스", "전역 접근점", "스레드 안전"],
+    lead: "하나만 존재해야 하는 자원의 통제, 싱글톤 패턴",
+    defShort: "클래스 인스턴스가 하나만 생성되도록 보장하고 전역 접근 지점을 제공하는 생성 패턴",
+    features: ["유일성 보장", "전역 접근", "자원 절약"],
   },
   "se-109": {
     lead: "생성 결정을 서브클래스에, Factory method 패턴",

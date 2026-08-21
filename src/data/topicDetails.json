@@ -18995,7 +18995,7 @@
    "DI 컨테이너 스코프 위임"
   ],
   "mnemonic": "생정전동",
-  "conceptMap": "classDiagram\n  class Client {\n    ...\n  }\n  class Singleton {\n    -instance: Singleton\n    -Singleton()\n    +GetInstance(): Singleton\n  }\n  Client --> Singleton\n  note for Singleton \"if (instance == null) { instance = new Singleton() } return instance;\"",
+  "conceptMap": "classDiagram\n  class Client {\n    ...\n  }\n  class Singleton {\n    -instance: Singleton\n    -Singleton()\n    +GetInstance() Singleton\n  }\n  Client --> Singleton\n  note for Singleton \"if (instance == null) { instance = new Singleton() } return instance;\"",
   "sections": [
    {
     "label": "구성요소",

@@ -47,7 +47,29 @@ function normTitle(s: string): string {
     .replace(/[\s()·,\-_/]/g, "");
 }
 
-const BASE = rawTopics as ReviewTopic[];
+/**
+ * 교재와 topicId 로 연결된 예전 토픽은 제목이 달라도 같은 토픽이다.
+ * 두 번 세지 않도록 예전 항목을 교재 제목·중요도로 갈아끼운다.
+ * (id 는 회독 진도의 저장 키라 그대로 둬야 기존 진도가 유지된다.)
+ */
+const SUB_BY_TOPIC_ID = new Map<string, (typeof SUBNOTES)[number]>();
+for (const s of SUBNOTES) if (s.topicId) SUB_BY_TOPIC_ID.set(s.topicId, s);
+
+const BASE: ReviewTopic[] = (rawTopics as ReviewTopic[]).map((t) => {
+  const s = SUB_BY_TOPIC_ID.get(t.id);
+  if (!s) return t;
+  const cat = COURSE_LABEL[s.course] || s.course;
+  return {
+    ...t,
+    title: s.title,
+    category: cat,
+    group: cat,
+    // 심화반 교재에 실린 토픽은 출제 비중이 높아 '상'으로 본다.
+    importance: "상",
+    summary: s.defShort || s.definition,
+    fromTextbook: true,
+  };
+});
 const SEEN = new Set(BASE.map((t) => normTitle(t.title)));
 
 /** 교재에만 있는 토픽 — 예전 토픽 목록 뒤에 이어 붙인다. */
