@@ -27,6 +27,8 @@ type LegacyCard = {
   /** 답안지 템플릿용(예전 토픽) — 특징 3개·검증된 개념도·활용/플러스 키워드 */
   features?: string[];
   conceptMap?: string;
+  /** 답안지 본론 3단표 — 구분·키워드·설명 */
+  comp?: { group: string; mnemonic: string; rows: [string, string][] }[];
   /** 도식 이름 — 클래스다이어그램·절차 등. 없으면 "개념도" */
   conceptMapLabel?: string;
   defKeywords?: string[];
@@ -661,9 +663,9 @@ function ExplainInner() {
                   채우고, 그마저 없으면 2번 자체를 건너뛰어 빈 소제목을 만들지 않는다. */}
               {(() => {
                 const g = extra?.guide;
-                const useGuideBody = !legacy.sections.length && !!(g?.mechanism || g?.map?.length);
-                const hasBody =
-                  !!legacy.conceptMap || legacy.sections.length > 0 || useGuideBody;
+                const hasList = !!legacy.comp?.length || legacy.sections.length > 0;
+                const useGuideBody = !hasList && !!(g?.mechanism || g?.map?.length);
+                const hasBody = !!legacy.conceptMap || hasList || useGuideBody;
                 if (!hasBody) return null;
                 let li = 0;
                 const letter = () => ["가", "나", "다", "라", "마", "바", "사"][li++];
@@ -687,28 +689,86 @@ function ExplainInner() {
                         </div>
                       </div>
                     )}
-                    {legacy.sections.map((s) => (
-                      <div key={s.label} className="mt-3 pl-4">
+                    {/* 구성요소 — 답안 규격대로 3단표(구분·키워드·설명)로 옮겨 적는다. */}
+                    {!!legacy.comp?.length && (
+                      <div className="mt-3 pl-4">
                         <p className="text-[13px] font-bold leading-relaxed text-slate-700">
-                          {letter()}. {s.label}
-                          {s.mnemonic && (
-                            <span className="ml-1.5 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">
-                              두음 {s.mnemonic}
-                            </span>
-                          )}
+                          {letter()}. 구성요소 및 주요 항목
+                          {legacy.comp
+                            .filter((c) => c.mnemonic)
+                            .map((c) => (
+                              <span
+                                key={c.group}
+                                className="ml-1.5 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-700"
+                              >
+                                {c.group} 두음 {c.mnemonic}
+                              </span>
+                            ))}
                         </p>
-                        <div className="mt-1.5 flex flex-wrap gap-1.5">
-                          {s.keywords.map((k) => (
-                            <span
-                              key={k}
-                              className="rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-indigo-100"
-                            >
-                              {k}
-                            </span>
-                          ))}
+                        <div className="mt-1.5 overflow-x-auto">
+                          <table className="w-full border-collapse text-xs">
+                            <thead>
+                              <tr>
+                                {["구분", "키워드", "설명"].map((h) => (
+                                  <th
+                                    key={h}
+                                    className="border border-slate-300 bg-slate-100 px-2 py-1.5 text-left font-bold text-slate-700"
+                                  >
+                                    {h}
+                                  </th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {legacy.comp.flatMap((c) =>
+                                c.rows.map((r, ri) => (
+                                  <tr key={c.group + ri}>
+                                    {ri === 0 && (
+                                      <td
+                                        rowSpan={c.rows.length}
+                                        className="whitespace-nowrap border border-slate-300 bg-slate-50 px-2 py-1.5 align-top font-bold text-slate-700"
+                                      >
+                                        {c.group}
+                                      </td>
+                                    )}
+                                    <td className="whitespace-nowrap border border-slate-300 px-2 py-1.5 align-top font-semibold text-slate-800">
+                                      {r[0]}
+                                    </td>
+                                    <td className="border border-slate-300 px-2 py-1.5 align-top leading-relaxed text-slate-600">
+                                      {r[1]}
+                                    </td>
+                                  </tr>
+                                )),
+                              )}
+                            </tbody>
+                          </table>
                         </div>
                       </div>
-                    ))}
+                    )}
+                    {/* 3단표가 없는 토픽만 예전 키워드 칩으로 대체 */}
+                    {!legacy.comp?.length &&
+                      legacy.sections.map((s) => (
+                        <div key={s.label} className="mt-3 pl-4">
+                          <p className="text-[13px] font-bold leading-relaxed text-slate-700">
+                            {letter()}. {s.label}
+                            {s.mnemonic && (
+                              <span className="ml-1.5 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">
+                                두음 {s.mnemonic}
+                              </span>
+                            )}
+                          </p>
+                          <div className="mt-1.5 flex flex-wrap gap-1.5">
+                            {s.keywords.map((k) => (
+                              <span
+                                key={k}
+                                className="rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-indigo-100"
+                              >
+                                {k}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
                     {useGuideBody && g?.mechanism && (
                       <div className="mt-3 pl-4">
                         <p className="text-[13px] font-bold leading-relaxed text-slate-700">
@@ -747,6 +807,7 @@ function ExplainInner() {
                 <div className="mt-4">
                   <p className="text-[13px] font-bold leading-relaxed text-slate-800">
                     {!!legacy.conceptMap ||
+                    !!legacy.comp?.length ||
                     legacy.sections.length > 0 ||
                     !!(extra?.guide?.mechanism || extra?.guide?.map?.length)
                       ? "3"

@@ -105,6 +105,54 @@ const cellHead = (s: string) =>
     .slice(0, 40);
 
 type Section = { label: string; mnemonic: string; keywords: string[] };
+
+/**
+ * 예전 토픽 detail → 답안지 3단표(구분·키워드·설명).
+ *
+ * detail 은 "[구성요소] 두음: 생정전동 / - 생성자 은닉: private 선언…" 형태라
+ * 블록명을 구분, "- 키워드: 설명" 을 행으로 바꾸면 그대로 3단표가 된다.
+ * 서론(정의)·플러스 알파에서 이미 쓰는 블록은 제외한다.
+ */
+const SKIP_BLOCK = /^(정의|등장배경|목적|시사점|최신동향|비교|참고)/;
+type CompGroup = { group: string; mnemonic: string; rows: [string, string][] };
+function compTableOf(detail: string): CompGroup[] {
+  const groups: CompGroup[] = [];
+  let cur: CompGroup | null = null;
+  for (const raw of String(detail || "").split("\n")) {
+    const line = raw.trim();
+    if (!line) continue;
+    const h = line.match(/^\[([^\]]+)\]\s*(.*)$/);
+    if (h) {
+      const name = h[1].trim();
+      if (SKIP_BLOCK.test(name)) {
+        cur = null;
+        continue;
+      }
+      const mm = (h[2] || "").match(/두음\s*[:：]\s*([가-힣A-Za-z0-9]{2,12})/);
+      cur = { group: name, mnemonic: mm ? mm[1] : "", rows: [] };
+      groups.push(cur);
+      continue;
+    }
+    if (!cur) continue;
+    const m = line.match(/^[-·•*]\s*(.+)$/);
+    if (!m) continue;
+    const body = m[1].trim();
+    const colon = body.search(/[:：]\s/);
+    if (colon > 0 && colon <= 40) {
+      cur.rows.push([body.slice(0, colon).trim(), body.slice(colon + 1).trim().slice(0, 80)]);
+    } else {
+      // 설명 없이 나열만 된 줄 — 쉼표로 끊어 키워드 행으로 편다.
+      const parts = body.split(", ").map((x) => x.trim()).filter(Boolean);
+      if (parts.length >= 3) for (const p of parts.slice(0, 8)) cur.rows.push([p.slice(0, 40), ""]);
+      else cur.rows.push([body.slice(0, 60), ""]);
+    }
+  }
+  return groups
+    .filter((g) => g.rows.length)
+    .slice(0, 3)
+    .map((g) => ({ ...g, rows: g.rows.slice(0, 8) }));
+}
+
 const cards: any[] = [];
 
 for (let i = 0; i < SUBNOTES.length; i++) {
@@ -183,6 +231,8 @@ for (const t of topics) {
     // 답안지 템플릿용 — 특징 3개·검증된 개념도·정의/활용/플러스 키워드
     features: (d.featureKeywords || []).filter(Boolean).slice(0, 3),
     conceptMap: (d.conceptMap || "").trim(),
+    // 답안지 본론 3단표 — 구분·키워드·설명
+    comp: compTableOf(d.detail || ""),
     // 도식 이름 — 그림이 클래스다이어그램·절차 등일 때 "개념도" 대신 실제 이름
     conceptMapLabel: (d.conceptMapLabel || "").trim(),
     defKeywords: (d.defKeywords || []).filter(Boolean),
