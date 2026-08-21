@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import topics from "@/data/topics.json";
-import { SUBNOTES } from "@/data/textbookSubnotes";
+import { SUBNOTES, subnoteByAlias } from "@/data/textbookSubnotes";
 
 type T = { id: string; title: string; category: string; importance: string };
 
@@ -80,7 +80,10 @@ export default function TopicAutocomplete({
       seen.add(s.title);
     }
     for (const t of topics as T[]) {
-      if (seen.has(t.title)) continue;
+      // 제목이 완전히 같지 않아도 교재에 있는 토픽이면 제안하지 않는다
+      // ("Singleton 패턴" ↔ "싱글턴 패턴 (Singleton pattern)").
+      if (seen.has(t.title) || subnoteByAlias((t as { id?: string }).id, t.title))
+        continue;
       list.push({
         title: t.title,
         badge: t.importance,

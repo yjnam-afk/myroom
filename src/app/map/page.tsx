@@ -7,7 +7,11 @@ import { PageHeader } from "@/components/ui";
 import topics from "@/data/topics.json";
 import { compareSets } from "@/data/compareSets";
 import { memoryTables } from "@/data/memoryTables";
-import { SUBNOTES, subnoteByTitle } from "@/data/textbookSubnotes";
+import {
+  SUBNOTES,
+  subnoteByTitle,
+  subnoteByAlias,
+} from "@/data/textbookSubnotes";
 import { WEEKS } from "@/data/curriculum";
 import { matchSubnoteTitle, findSubnoteByContent } from "@/lib/matchSubnote";
 
@@ -58,7 +62,11 @@ const SUBNOTE_TOPICS: Topic[] = SUBNOTES.filter((s) => !KNOWN.has(s.title)).map(
   }),
 );
 
-const ALL = [...(topics as Topic[]), ...SUBNOTE_TOPICS];
+// 교재에 같은 토픽이 있으면(제목 표기가 달라도) 예전 항목은 빼고 교재 것만 남긴다.
+const ALL = [
+  ...(topics as Topic[]).filter((t) => !subnoteByAlias(t.id, t.title)),
+  ...SUBNOTE_TOPICS,
+];
 const CATS = Array.from(new Set(ALL.map((t) => t.category)));
 const IMP_ORDER: Record<string, number> = { 상: 0, 중: 1, 하: 2, 출제예상: 3 };
 
