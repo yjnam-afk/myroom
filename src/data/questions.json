@@ -1,5 +1,222 @@
 [
  {
+  "id": "k140-101",
+  "period": "1교시",
+  "category": "인공지능",
+  "source": "140회 1교시",
+  "text": "AI 기반의 업무 프로세스 재설계(BPR, Business Process Reengineering) 도입 효과"
+ },
+ {
+  "id": "k140-102",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "140회 1교시",
+  "text": "다크 팩토리(Dark Factory)"
+ },
+ {
+  "id": "k140-103",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "140회 1교시",
+  "text": "ATAM(Architecture Trade-off Analysis Method)"
+ },
+ {
+  "id": "k140-104",
+  "period": "1교시",
+  "category": "프로젝트관리",
+  "source": "140회 1교시",
+  "text": "PMC(Project Management Consultancy)와 PMO(Project Management Office) 비교"
+ },
+ {
+  "id": "k140-105",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "140회 1교시",
+  "text": "ISO/IEC 25010 의 주특성 및 부특성"
+ },
+ {
+  "id": "k140-106",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "140회 1교시",
+  "text": "어휘 검색(Lexical Search)과 의미 검색(Vector Search)을 결합한 하이브리드 검색(Hybrid Search)"
+ },
+ {
+  "id": "k140-107",
+  "period": "1교시",
+  "category": "인공지능",
+  "source": "140회 1교시",
+  "text": "편향(Bias) 감소와 분산(Variance) 추정을 위한 잭나이프(Jackknife) 기법"
+ },
+ {
+  "id": "k140-108",
+  "period": "1교시",
+  "category": "보안",
+  "source": "140회 1교시",
+  "text": "좀비 프로세스(Zombie Process)"
+ },
+ {
+  "id": "k140-109",
+  "period": "1교시",
+  "category": "인공지능",
+  "source": "140회 1교시",
+  "text": "Physical AI 와 생성형 AI 비교"
+ },
+ {
+  "id": "k140-110",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "140회 1교시",
+  "text": "차등적 맨체스터(Differential Manchester) 부호화 방법"
+ },
+ {
+  "id": "k140-111",
+  "period": "1교시",
+  "category": "보안",
+  "source": "140회 1교시",
+  "text": "비인간 신원(NHI, Non-Human Identities)의 보안 취약점"
+ },
+ {
+  "id": "k140-112",
+  "period": "1교시",
+  "category": "보안",
+  "source": "140회 1교시",
+  "text": "디지털 포렌식(Digital Forensics)"
+ },
+ {
+  "id": "k140-113",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "140회 1교시",
+  "text": "프롬프트 엔지니어링(Prompt Engineering)과 하네스 엔지니어링(Harness Engineering) 비교"
+ },
+ {
+  "id": "k140-201",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "source": "140회 2교시",
+  "text": "서버리스 컴퓨팅(Serverless Computing)에 대하여 다음을 설명하시오.\n가. 정의 및 특징\n나. 구성 요소 및 장·단점\n다. 도입 시 고려 사항"
+ },
+ {
+  "id": "k140-202",
+  "period": "2교시",
+  "category": "인공지능",
+  "source": "140회 2교시",
+  "text": "AI 생성 소스코드 및 오픈웨이트(Open-weight) 모델 활용 시 발생하는 오픈소스 라이선스 리스크와 컴플라이언스 대응 방안에 대하여 다음을 설명하시오.\n가. AI 생성 코드 활용 시 주요 오픈소스 라이선스 의무사항 및 위험\n나. 오픈소스 라이선스 위험에 대한 컴플라이언스 주요 점검 항목\n다. AI 거버넌스 관점의 통합 컴플라이언스 프로세스 및 기술적 검증 도구"
+ },
+ {
+  "id": "k140-203",
+  "period": "2교시",
+  "category": "인공지능",
+  "source": "140회 2교시",
+  "text": "인공지능(AI, Artificial Intelligence) 학습용 데이터 품질관리에 대하여 다음을 설명하시오.\n가. 인공지능 학습용 데이터 특성 및 생애주기\n나. 인공지능 학습용 데이터 품질관리 원칙\n다. 인공지능 학습용 데이터 품질관리 범위 및 활동"
+ },
+ {
+  "id": "k140-204",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "source": "140회 2교시",
+  "text": "최근 LLM(Large Language Model) 등 초거대 AI 서비스의 급격한 확산과 텍스트·이미지·음성·영상 등 멀티모달(Multimodal) 데이터 처리 수요의 증가에 따라, 대규모 AI 학습 및 추론을 지원하는 고성능 컴퓨팅 인프라의 중요성이 증대되고 있다. AI 슈퍼컴퓨팅 플랫폼(Supercomputing Platform)에 대하여 다음을 설명하시오.\n가. AI 슈퍼컴퓨팅 플랫폼의 개념 및 등장 배경\n나. AI 슈퍼컴퓨팅 플랫폼의 구성요소별 역할\n다. 전통적 슈퍼컴퓨터, 클라우드 컴퓨팅, AI 슈퍼컴퓨팅 플랫폼과의 비교"
+ },
+ {
+  "id": "k140-205",
+  "period": "2교시",
+  "category": "인공지능",
+  "source": "140회 2교시",
+  "text": "FIFO(First In First Out) 방식과 웨이티드 페어큐잉(Weighted Fair Queuing) 방식을 비교 설명하시오."
+ },
+ {
+  "id": "k140-206",
+  "period": "2교시",
+  "category": "보안",
+  "source": "140회 2교시",
+  "text": "AI 모델의 성능이 좋아지면서 고성능 AI 모델로 인한 위협도 증가하는 상황이다. AI 보안에 대해 다음을 설명하시오.\n가. 고도화된 사이버 공격 지원 위협 및 대응 방안\n나. 자율성으로 인한 통제 상실 위협 및 대응 방안"
+ },
+ {
+  "id": "k140-301",
+  "period": "3교시",
+  "category": "디지털서비스",
+  "source": "140회 3교시",
+  "text": "클라우드 네이티브 환경에서 무중단 아키텍처를 지향하는 시스템을 설계하여도 재해 및 재난 상황을 대비한 재해복구 전략 수립은 필수적이다. 다음을 설명하시오.\n가. RTO (Recovery Time Objective), RPO (Recovery Point Objective)\n나. Active-Active, Active-Passive, Pilot Light"
+ },
+ {
+  "id": "k140-302",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "140회 3교시",
+  "text": "AI 기반 시스템의 신뢰성 확보를 위한 메타모픽 테스트(Metamorphic Test)에 대하여 다음을 설명하시오\n가. 테스트 오라클(Test Oracle) 문제와 메타모픽 테스트의 등장 배경\n나. 핵심 구성요소인 메타모픽 관계와 메타모픽 테스트 수행 절차\n다. 전통적 테스트와 메타모픽 테스트 기법과의 차이점"
+ },
+ {
+  "id": "k140-303",
+  "period": "3교시",
+  "category": "데이터베이스",
+  "source": "140회 3교시",
+  "text": "AI 모델 학습에 필요한 대규모 데이터 확보가 개인정보 보호 규제 및 데이터 부족으로 어려워짐에 따라, 실데이터의 통계적 특성을 모사한 합성데이터(Synthetic Data)의 활용이 확대되고 있다. 다음을 설명하시오.\n가. 합성 데이터의 개념과 생성 기법\n나. 합성 데이터의 품질 평가 지표"
+ },
+ {
+  "id": "k140-304",
+  "period": "3교시",
+  "category": "네트워크",
+  "source": "140회 3교시",
+  "text": "다음 무선 통신 프로토콜을 설명하시오.\n가. CSMA/CA\n나. CDMA\n다. TDMA"
+ },
+ {
+  "id": "k140-305",
+  "period": "3교시",
+  "category": "디지털서비스",
+  "source": "140회 3교시",
+  "text": "클라우드 컴퓨팅 환경에서 대규모 AI 학습 데이터 구축 및 서비스 인프라 구성을 위해 다양한 스토리지 아키텍처가 활용된다. 블록 스토리지(Block Storage), 파일 스토리지(File Storage), 오브젝트 스토리지(Object Storage)를 비교하여 설명하고, 각 스토리지의 최적 활용 방안에 대하여 설명하시오."
+ },
+ {
+  "id": "k140-306",
+  "period": "3교시",
+  "category": "인공지능",
+  "source": "140회 3교시",
+  "text": "「인공지능 발전과 신뢰 기반 조성 등에 관한 기본법」에서 규정한 고영향 인공지능에 대하여 다음을 설명하시오.\n가. 고영향 인공지능의 정의\n나. 고영향 인공지능의 활용 영역\n다. 인공지능 사업자가 고영향 인공지능의 안전성과 신뢰성을 확보하기 위한 활동"
+ },
+ {
+  "id": "k140-401",
+  "period": "4교시",
+  "category": "데이터베이스",
+  "source": "140회 4교시",
+  "text": "데이터는 디지털 경제의 핵심 자산으로 활용되면서 객관적인 가치평가를 위한 평가요인과 평가방법론의 중요성이 중대되고 있다. 다음을 설명하시오.\n가. 데이터 가치평가의 주요 평가 요인\n나. 데이터 가치평가에 활용되는 주요 방법론\n다. 데이터 가치평가의 객관성과 신뢰성을 확보하기 위한 핵심변수"
+ },
+ {
+  "id": "k140-402",
+  "period": "4교시",
+  "category": "인공지능",
+  "source": "140회 4교시",
+  "text": "데이터 기반 의사결정과 AI 학습데이터 구축에서 핵심이 되는 표본추출에 대하여 다음을 설명하시오.\n가. 표본추출의 개념 및 절차\n나. 확률 표본추출과 비확률 표본추출 기법의 비교\n다. AI 학습데이터 구축 관점의 표본추출 적용 방안"
+ },
+ {
+  "id": "k140-403",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "140회 4교시",
+  "text": "소프트웨어 형상관리(Software Configuration Management)에 대하여 다음을 설명하시오.\n가. 소프트웨어 형상관리 정의 및 절차\n나. 소프트웨어 형상관리 기준선\n다. 소프트웨어 형상관리 도구"
+ },
+ {
+  "id": "k140-404",
+  "period": "4교시",
+  "category": "인공지능",
+  "source": "140회 4교시",
+  "text": "시계열 데이터에서 실시간 이상치 탐지는 여러 산업 분야에서 중요성이 증가하고 있다. 다음을 설명하시오.\n가. 시계열 데이터의 이상치 유형\n나. 시계열 데이터 이상치 탐지 방식\n다. 딥러닝 기반 시계열 데이터 이상치 탐지 기법"
+ },
+ {
+  "id": "k140-405",
+  "period": "4교시",
+  "category": "보안",
+  "source": "140회 4교시",
+  "text": "국내 다양한 규제에 따른 정보보호 컴플라이언스에 대하여 다음을 설명하시오.\n가. 정보보호 컴플라이언스 개념\n나. 정보보호 컴플라이언스 필요성\n다. 정보보호 컴플라이언스 대응 방안"
+ },
+ {
+  "id": "k140-406",
+  "period": "4교시",
+  "category": "인공지능",
+  "source": "140회 4교시",
+  "text": "AI 데이터센터(Data Center)에 대하여 다음을 설명하시오.\n가. AI 데이터센터의 정의 및 부상 배경\n나. 기존 데이터센터와 AI 데이터센터의 비교\n다. AI 데이터센터의 구현을 위한 주요 핵심 기술"
+ },
+ {
   "id": "k139-101",
   "period": "1교시",
   "category": "소프트웨어공학",
@@ -14657,5 +14874,5192 @@
   "kind": "NS모의",
   "round": "1주차",
   "text": "디피-헬만 알고리즘(Diffie-Hellman Algorithm)의 키 교환 절차에 대하여 설명하시오."
+ },
+ {
+  "id": "k114-101",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "114회 1교시",
+  "text": "다중연결리스트(Multi-Linked List)"
+ },
+ {
+  "id": "k114-102",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "114회 1교시",
+  "text": "데이터베이스 카디널리티(Database Cardinality)"
+ },
+ {
+  "id": "k114-103",
+  "period": "1교시",
+  "category": "보안",
+  "source": "114회 1교시",
+  "text": "양자 암호(Quantum Cryptography)"
+ },
+ {
+  "id": "k114-104",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "114회 1교시",
+  "text": "스마트 더스트(Smart Dust)"
+ },
+ {
+  "id": "k114-105",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "114회 1교시",
+  "text": "엣지 컴퓨팅(Edge Computing)"
+ },
+ {
+  "id": "k114-106",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "114회 1교시",
+  "text": "그래프 데이터베이스(Graph Database)"
+ },
+ {
+  "id": "k114-107",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "114회 1교시",
+  "text": "우선순위 큐(Priority Queue)"
+ },
+ {
+  "id": "k114-108",
+  "period": "1교시",
+  "category": "인공지능",
+  "source": "114회 1교시",
+  "text": "Q-러닝(Q-Learning)"
+ },
+ {
+  "id": "k114-109",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "114회 1교시",
+  "text": "디지털 트윈(Digital Twin)"
+ },
+ {
+  "id": "k114-110",
+  "period": "1교시",
+  "category": "보안",
+  "source": "114회 1교시",
+  "text": "쉐도우 IT(Shadow IT)"
+ },
+ {
+  "id": "k114-111",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "114회 1교시",
+  "text": "재공학(Re-engineering), 역공학(Reverse Engineering)"
+ },
+ {
+  "id": "k114-112",
+  "period": "1교시",
+  "category": "보안",
+  "source": "114회 1교시",
+  "text": "보안학적 측면에서의 사회공학(Social Engineering)"
+ },
+ {
+  "id": "k114-113",
+  "period": "1교시",
+  "category": "프로젝트관리",
+  "source": "114회 1교시",
+  "text": "품질보증(QA : Quality Assurance), 품질통제(QC : Quality Control)"
+ },
+ {
+  "id": "k114-201",
+  "period": "2교시",
+  "category": "경영전략",
+  "source": "114회 2교시",
+  "text": "로봇과 비즈니스의 융합인 로봇 프로세스 자동화(RPA : Robotics Process Automation)의 개념, 기반기술, 적용분야 및 시사점에 대하여 설명하시오"
+ },
+ {
+  "id": "k114-202",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "source": "114회 2교시",
+  "text": "자율주행자동차의 핵심 장비로 주목받고 있는 라이다(LiDAR : Light Detection and Ranging)의 연혁, 기술종류 및 시사점에 대하여 설명하시오."
+ },
+ {
+  "id": "k114-203",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "114회 2교시",
+  "text": "빅데이터 프로세싱 아키텍처의 필요성, 람다 아키텍처(Lambda Architecture)와 카파 아키텍처(Kappa Architecture)를 비교 설명하시오."
+ },
+ {
+  "id": "k114-204",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "source": "114회 2교시",
+  "text": "소프트웨어 기능안전(Functional Safety)에 대한 사항이다. 다음 질문에 답하시오.\n가. 소프트웨어 안전과 소프트웨어 보안의 차이점\n나. IEC 61508에서 정의한 안전기능 요구사항 도출과정\n다. IEC 61508과 의료기기, 항공기, 자동차 분야의 기능안전 표준들 간 비교"
+ },
+ {
+  "id": "k114-205",
+  "period": "2교시",
+  "category": "네트워크",
+  "source": "114회 2교시",
+  "text": "비즈니스 연속성 계획(BCP : Business Continuity Plan)의 구성방안과 검사방안에 대하여 설명하시오"
+ },
+ {
+  "id": "k114-206",
+  "period": "2교시",
+  "category": "보안",
+  "source": "114회 2교시",
+  "text": "소프트웨어 개발보안을 위해서는 소프트웨어 보안약점을 이해해야 한다. 소프트웨어 보안약점들을 유형별로 열거하고, 대표적인 웹 개발보안 공격방지 방법들을 설명하시오."
+ },
+ {
+  "id": "k114-301",
+  "period": "3교시",
+  "category": "데이터베이스",
+  "source": "114회 3교시",
+  "text": "NoSQL특징, 데이터 모델링 패턴 및 데이터 모델링 절차에 대하여 설명하시오."
+ },
+ {
+  "id": "k114-302",
+  "period": "3교시",
+  "category": "보안",
+  "source": "114회 3교시",
+  "text": "CPU 아키텍처의 보안 취약점인 멜트다운(Meltdown)에 대하여 CPU 마이크로 아키텍처 및 CPU 아키텍처 측면에서 설명하시오."
+ },
+ {
+  "id": "k114-303",
+  "period": "3교시",
+  "category": "경영전략",
+  "source": "114회 3교시",
+  "text": "데이터웨어하우스에서 다차원 온라인분석처리(MOLAP)의 설계방법과 고려사항을 설명하고, 다음의 요구사항에 맞는 다차원 데이터 큐브를 설계하시오.\n====================================================\n- 2017년 2월, 서울 매장에서 팔린 침대의 매출액은 얼마인가?\n- 2017년 2월, 강남 매장에서 팔린 매출액은 얼마인가?\n- 2017년 1월~3월간, 부산 매장에서 팔린 침대의 매출액은 얼마인가?\n- 2017년 1월~3월간, 대전 매장에서 팔린 의자의 매출액은 얼마인가?\n- 2017년 3월, 팔린 의자의 매출액은 얼마인가?\n- 2017년 1월~3월간, 팔린 의자의 매출액은 얼마인가?\n- 2017년 1월~3월간, 팔린 총 매출액은 얼마인가?"
+ },
+ {
+  "id": "k114-304",
+  "period": "3교시",
+  "category": "데이터베이스",
+  "source": "114회 3교시",
+  "text": "시계열분석에 관한 다음 사항에 대하여 답하시오.\n가. 시계열분석의 정상성(Stationary)\n나. 시계열모형의 유형(자기상관 모형, 이동평균 모형, 자기회귀누적이동평균 모형)\n다. 빅데이터의 시계열자료 분석을 위한 심층신경망 기법"
+ },
+ {
+  "id": "k114-305",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "114회 3교시",
+  "text": "국제표준(ISO)에 준하여 정보보호 거버넌스의 6대원리, 핵심 프로세스 및 주요 구성요소에 대하여 설명하시오."
+ },
+ {
+  "id": "k114-306",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "114회 3교시",
+  "text": "소프트웨어 품질의 테스트 방법인 화이트박스 및 블랙박스 테스트의 4가지 검증기준(Coverage)을 예를 들어 설명하고, 테스트 자동화 도구의 유형에 대하여 설명하시오."
+ },
+ {
+  "id": "k114-401",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "114회 4교시",
+  "text": "4차 산업혁명시대의 망 중립성 정책내용, 쟁점 및 정책 이슈에 대하여 설명하시오."
+ },
+ {
+  "id": "k114-402",
+  "period": "4교시",
+  "category": "경영전략",
+  "source": "114회 4교시",
+  "text": "공인인증서 의무화가 폐지되는 상황이다. 다음의 질문에 답하시오.\n가. 기존 공인인증서의 적용기술 및 문제점\n나. 인터넷전문은행의 사설인증방법\n다. 블록체인 방식의 인증방법"
+ },
+ {
+  "id": "k114-403",
+  "period": "4교시",
+  "category": "경영전략",
+  "source": "114회 4교시",
+  "text": "조직경쟁력 강화를 위해 데이터 기반의 인사이트를 활용하고자 한다. 이를 위한 분석주제 도출방안, 도출된 방안을 실행하기 위한 분석 거버넌스 수립방안에 대하여 설명하시오."
+ },
+ {
+  "id": "k114-404",
+  "period": "4교시",
+  "category": "디지털서비스",
+  "source": "114회 4교시",
+  "text": "클라우드 컴퓨팅의 서비스 모델별, 배치 모델별 고려사항에 대하여 설명하시오."
+ },
+ {
+  "id": "k114-405",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "114회 4교시",
+  "text": "초연결 시대의 5G 네트워크의 기술적 특징, 국내외 추진 동향 및 시사점에 대하여 설명하시오."
+ },
+ {
+  "id": "k113-101",
+  "period": "1교시",
+  "category": "보안",
+  "source": "113회 1교시",
+  "text": "크라임웨어(Crimeware)"
+ },
+ {
+  "id": "k113-102",
+  "period": "1교시",
+  "category": "보안",
+  "source": "113회 1교시",
+  "text": "암호화에서의 Challenge-response 방식"
+ },
+ {
+  "id": "k113-103",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "113회 1교시",
+  "text": "MCTS(Monte Carlo Tree Search)"
+ },
+ {
+  "id": "k113-104",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "113회 1교시",
+  "text": "FIDO(Fast Identity Online) 2.0"
+ },
+ {
+  "id": "k113-105",
+  "period": "1교시",
+  "category": "보안",
+  "source": "113회 1교시",
+  "text": "Linux PAM(Pluggable Authentication Modules)"
+ },
+ {
+  "id": "k113-106",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "113회 1교시",
+  "text": "로지스틱 회귀분석(logistic regression)에서의 로짓 변환(logit transformation)"
+ },
+ {
+  "id": "k113-107",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "113회 1교시",
+  "text": "익명 네트워크 TOR(The Onion Routing)"
+ },
+ {
+  "id": "k113-108",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "113회 1교시",
+  "text": "SPA(Single Page Web Application)"
+ },
+ {
+  "id": "k113-109",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "113회 1교시",
+  "text": "CPS(Cyber-physical System)"
+ },
+ {
+  "id": "k113-110",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "113회 1교시",
+  "text": "HCE(Host Card Emulation)"
+ },
+ {
+  "id": "k113-111",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "113회 1교시",
+  "text": "네트워크에서의 Non-blocking I/O"
+ },
+ {
+  "id": "k113-112",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "113회 1교시",
+  "text": "SDDC(Software-defined Data Center)"
+ },
+ {
+  "id": "k113-113",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "113회 1교시",
+  "text": "망중립성(Network Neutrality)"
+ },
+ {
+  "id": "k113-201",
+  "period": "2교시",
+  "category": "경영전략",
+  "source": "113회 2교시",
+  "text": "공공소프트웨어사업 영향평가제를 도입한 배경, 그 적용 범위 그리고 시사점에 대하여 설명하시오."
+ },
+ {
+  "id": "k113-202",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "113회 2교시",
+  "text": "DBMS(Database Management System)에서의 SQL(Structured Query Language)\n처리과정을 설명하고, Statement와 Prepared Statement 방식을 비교하여 설명하시오."
+ },
+ {
+  "id": "k113-203",
+  "period": "2교시",
+  "category": "네트워크",
+  "source": "113회 2교시",
+  "text": "애자일(Agile) 개발방법론을 정의하고, 그 특징을 CBD(Component Based Development) 방법론과 비교하여 설명하시오."
+ },
+ {
+  "id": "k113-204",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "113회 2교시",
+  "text": "멀티프로세스 환경에서 프로그램 실행 시 컴퓨터 내외부에서 발생할 수 있는 인터럽트(Interrupt)의 처리 우선순위에 대하여 설명하시오."
+ },
+ {
+  "id": "k113-205",
+  "period": "2교시",
+  "category": "보안",
+  "source": "113회 2교시",
+  "text": "월드와이드웹(WWW) 프로토콜인 HTTP의 취약점을 설명하고, 그 대안으로 사용하는 HTTPS의 특징에 대하여 설명하시오."
+ },
+ {
+  "id": "k113-206",
+  "period": "2교시",
+  "category": "인공지능",
+  "source": "113회 2교시",
+  "text": "인공 신경망의 가장 단순한 형태인 퍼셉트론(perceptron)의 구조와 활성화 함수(activation function)에 대하여 설명하고, 단층 퍼셉트론으로는 Exclusive-OR 연산을 학습할 수 없는 이유를 설명하시오."
+ },
+ {
+  "id": "k113-301",
+  "period": "3교시",
+  "category": "인공지능",
+  "source": "113회 3교시",
+  "text": "소프트웨어 개발방법론에 있어서 테일러링(Tailoring) 절차와 고려사항에 대하여 설명하시오."
+ },
+ {
+  "id": "k113-302",
+  "period": "3교시",
+  "category": "디지털서비스",
+  "source": "113회 3교시",
+  "text": "직감기술(Intuitive Technology)을 정의하고, 이 기술의 발전과정과 직감기술의 종류에 대하여 설명하시오."
+ },
+ {
+  "id": "k113-303",
+  "period": "3교시",
+  "category": "보안",
+  "source": "113회 3교시",
+  "text": "랜섬웨어 공격에 대하여 사전, 사후적 대응방안을 기술적, 관리적 관점에서 설명하시오."
+ },
+ {
+  "id": "k113-304",
+  "period": "3교시",
+  "category": "경영전략",
+  "source": "113회 3교시",
+  "text": "특정 개인의 프라이버시(privacy)를 보호하면서도 그 개인의 정보를 사용하기 위해 설계된 방법의 하나인 PPDM(Privacy Preserving Data Mining)을 정의하고, 그 기법에 대하여 설명하시오."
+ },
+ {
+  "id": "k113-305",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "113회 3교시",
+  "text": "유전 알고리즘(Genetic algorithm)을 정의하고, 그 알고리즘의 흐름을 설명한 후, 이 알고리즘에서 사용되는 기법인 룰렛 휠 선택(roulette wheel selection)의 역할에 대하여 설명하시오."
+ },
+ {
+  "id": "k113-306",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "113회 3교시",
+  "text": "기업 내부 사용자의 시스템 접근을 더욱 체계적으로 관리하기 위하여 별도의 비밀번호 관리시스템을 구축하고자 한다. 별도의 비밀번호관리시스템을 구축하는 경우의 장단점을 설명하고, 시스템 개념 구성도 및 처리 절차 등에 대하여 설명하시오."
+ },
+ {
+  "id": "k113-401",
+  "period": "4교시",
+  "category": "보안",
+  "source": "113회 4교시",
+  "text": "업무용 망을 인터넷 망에서 분리하는 경우의 장단점과 그 구축 방안을 제시하고, 각 방안을 3가지 관점(보안, 성능, 비용)에서 비교하여 설명하시오."
+ },
+ {
+  "id": "k113-402",
+  "period": "4교시",
+  "category": "디지털서비스",
+  "source": "113회 4교시",
+  "text": "블록체인(Block Chain)기술을 정의하고, 블록체인의 생성주체(Public, Private)별 운영 방식의 특징을 정보 생성, 합의 주체, 규칙 변경, 거래 속도, 거래확정 주체의 관점에서 비교하여 설명하시오."
+ },
+ {
+  "id": "k113-403",
+  "period": "4교시",
+  "category": "데이터베이스",
+  "source": "113회 4교시",
+  "text": "기업경쟁력 제고를 위해 빅데이터(BigData) 분석의 중요성이 대두됨에 따라, 기업의 문제점을 체계적으로 파악하고, 이를 해결하여 사업적 가치를 재평가하기 위해서는 통합적 빅데이터 프로젝트 수행이 필요하다. 빅데이터 분석의 특징을 설명한 후 적절한 수행 절차와 각 단계에서의 처리내용을 설명하시오."
+ },
+ {
+  "id": "k113-404",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "113회 4교시",
+  "text": "CPU의 명령어 처리에 있어서 파이프라인(pipeline) 방식과 비파이프라인 방식에 대하여 각각의 CPU 처리시간을 비교하여 설명하시오.(단, 파이프라인의 단계 수를 m, 각 파인프라인 단계에서의 처리시간을 k, 실행할 명령어들의 수를 n이라고 한다.)"
+ },
+ {
+  "id": "k113-405",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "113회 4교시",
+  "text": "오픈 데이터(Open Data)를 정의하고(특히 오픈의 의미를 구체적으로 설명), 그 데이터의 등급을 5단계로 나누어 설명하시오."
+ },
+ {
+  "id": "k113-406",
+  "period": "4교시",
+  "category": "데이터베이스",
+  "source": "113회 4교시",
+  "text": "유엔(UN)이 세계 각국의 전자정부 수준을 평가하는 데 사용하는 EGDI (E-Government Development Index)의 구성요소와 EGDI 값을 산출하는 방식에 대하여 설명하시오."
+ },
+ {
+  "id": "k111-101",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "111회 1교시",
+  "text": "통계적 가설 검정(Statistical hypothesis Test)과 p-value"
+ },
+ {
+  "id": "k111-102",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "111회 1교시",
+  "text": "MVC(Model View Control) 패턴"
+ },
+ {
+  "id": "k111-103",
+  "period": "1교시",
+  "category": "경영전략",
+  "source": "111회 1교시",
+  "text": "CRISP-DM(Cross Industry Standard Process For Data Mining)"
+ },
+ {
+  "id": "k111-104",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "111회 1교시",
+  "text": "소프트웨어 교육과 CT(Computational Thinking)"
+ },
+ {
+  "id": "k111-105",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "111회 1교시",
+  "text": "블록체인(Block chain) 구성요소 중 마이닝(Mining)"
+ },
+ {
+  "id": "k111-106",
+  "period": "1교시",
+  "category": "컴퓨터구조",
+  "source": "111회 1교시",
+  "text": "GPGPU(General Purpose Graphics Processing Units)"
+ },
+ {
+  "id": "k111-107",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "111회 1교시",
+  "text": "무선 센서 네트워크 구성방법 중 Itinerary Routing"
+ },
+ {
+  "id": "k111-108",
+  "period": "1교시",
+  "category": "인공지능",
+  "source": "111회 1교시",
+  "text": "다중 비전 동시성 제어(MVCC: Multi Version Concurrency Control)"
+ },
+ {
+  "id": "k111-109",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "111회 1교시",
+  "text": "엘가엘(EIGamal)"
+ },
+ {
+  "id": "k111-110",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "111회 1교시",
+  "text": "Open Adoption Software"
+ },
+ {
+  "id": "k111-111",
+  "period": "1교시",
+  "category": "보안",
+  "source": "111회 1교시",
+  "text": "사이버 킬 체인(Cyber kill chain)"
+ },
+ {
+  "id": "k111-112",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "111회 1교시",
+  "text": "바이모달(bimodal) IT"
+ },
+ {
+  "id": "k111-113",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "111회 1교시",
+  "text": "은닉 마르코프 모델(HMM: Hidden Markov Model)"
+ },
+ {
+  "id": "k111-201",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "111회 2교시",
+  "text": "RDBMS의 Dirty Read와 Phanton Read를 설명하시오"
+ },
+ {
+  "id": "k111-202",
+  "period": "2교시",
+  "category": "네트워크",
+  "source": "111회 2교시",
+  "text": "딥러닝(Deep Learning) 구현을 위한 Feed Forward 모델을 설명하고, CNN(Convolutional Neural Network)과의 차이점을 설명하시오"
+ },
+ {
+  "id": "k111-203",
+  "period": "2교시",
+  "category": "보안",
+  "source": "111회 2교시",
+  "text": "사이버버전(Cyber Warfare)의 개념, 특징, 보안 기술을 설명하시오"
+ },
+ {
+  "id": "k111-204",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "111회 2교시",
+  "text": "데브옵스(Devops)와 애자일(Agile)방법론을 비교하여 설명하시오"
+ },
+ {
+  "id": "k111-205",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "source": "111회 2교시",
+  "text": "인공지능, 사물인터넷, 클라우드가 로봇과 접목하여 인간과 상호작용이 가능한 소셜 로봇이 등장하였다. 소셜 로봇의 개념, 특정, 시장 현황 및 전망에 대하여 설명하시오"
+ },
+ {
+  "id": "k111-206",
+  "period": "2교시",
+  "category": "네트워크",
+  "source": "111회 2교시",
+  "text": "사물인테넷(Iot) 네트워크는 초연결성을 가지고 있어 장치 간 신뢰성 확보가 필수적으로 요구된다. 사물 인터넷(IoT) 네트워크 보안기술의 개념, 특성, CoAP/ MQTT/ LwM2M 프로토콜 구조, 보안 이슈에 대하여 설명하시오"
+ },
+ {
+  "id": "k111-301",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "111회 3교시",
+  "text": "제조 공장에서 제품 계측에 활용되는 가상계측(Virtual Metrology) 에 대하여 설명하시오"
+ },
+ {
+  "id": "k111-302",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "111회 3교시",
+  "text": "동일한 규격의 제품이 B공장에서 생산될 때 보다 A공장에서 생산될 때 제품의 무게가 더 적다고 주장하고 있다. 이를 확인하기 위하여 아래 표와 같이 제품을 랜덤하게 뽑아 조사하였다. A와 B 공장의 제품 무게는 모두 정규 분포로 가정하고 A공장 제품이 B공장 제품에 비하여 무게가 적다고 할 수 있는지 가설을 설정하고 검정하시오.(단, 유의수준 5%)"
+ },
+ {
+  "id": "k111-303",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "111회 3교시",
+  "text": "국내 중소기업은 소프트웨어공학 프로세스에 의한 소프트웨어 개발 품질관리를 수행하기에 인력과 비용이 부족하여, 소프트웨어 개발 품질관리를 수행하기 위한 방안으로 소프트웨어 Visualization이 부각되고 있다. 소프트웨어 Visualization을 개발 프로세스 및 소스코드 관점에서 설명하시오"
+ },
+ {
+  "id": "k111-304",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "111회 3교시",
+  "text": "정보시스템 감리와 정보통신공사 감리를 설명하고, 감리보고서의 주요 내용을 비교하시오"
+ },
+ {
+  "id": "k111-305",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "111회 3교시",
+  "text": "기업 측면에서 오픈소스 소프트웨어를 도입하여 시스템을 구축할 때 기업가치가 향상되기를 원한다. 다음을 설명하시오.\n가. 오픈소스 소프트웨어의 정의 \n나. 기업 혁신 탐색(Exploration)과 효율 추구(Exploitation) 관점에서 오픈소스 소프트웨어의 활용 방식 비교 \n다. 오픈소스의 비즈니스 모델 사례 제시"
+ },
+ {
+  "id": "k111-306",
+  "period": "3교시",
+  "category": "보안",
+  "source": "111회 3교시",
+  "text": "공공 클라우드 포렌식(Forensic) 조사 절차, 클라우드 시그니처(Cloud Signature) 탐지 도구의 개념 및 기능에 대하여 설명하시오"
+ },
+ {
+  "id": "k111-401",
+  "period": "4교시",
+  "category": "경영전략",
+  "source": "111회 4교시",
+  "text": "데이터 분석의 분류 모델에서 모델 평가 시 사용되는 혼동행렬(Confusion Matrix)에 대하여 설명하고, 혼동행렬 기반의 모델 성능평가 항목을 산식을 이용하여 설명하시오."
+ },
+ {
+  "id": "k111-402",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "111회 4교시",
+  "text": "네트워크 데이터 분석에서 네트워크 중심성을 평가하는 연결중심성(Degree Centrality), 매개중심성(Betweenness Centrality), 인접중심성(Closeness, Centrality)에 대하여 설명하시오"
+ },
+ {
+  "id": "k111-403",
+  "period": "4교시",
+  "category": "데이터베이스",
+  "source": "111회 4교시",
+  "text": "공간 인덱스 구조에서 MBR(Minimum Bounding Region)을 설명하고, R트리, R+트리, R*트리를 비교하시오"
+ },
+ {
+  "id": "k111-404",
+  "period": "4교시",
+  "category": "인공지능",
+  "source": "111회 4교시",
+  "text": "최근 기업들은 인공지능(AI) 쿨센터를 구축하려고 한다. 인공지능 콜센터는 딥러닝(Deep Learning)을 적용한 인공지능 상담사가 고객과 대화하고 요청된 업무를 처리하는 시스템이다. 도입 시 적용 가능한 서비스를 인바운드, 아웃바운드, 녹취록 분석으로 구분하여 구현 방안을 제시하시오"
+ },
+ {
+  "id": "k111-405",
+  "period": "4교시",
+  "category": "디지털서비스",
+  "source": "111회 4교시",
+  "text": "최근 가상현실(VR)은 ICT 및 인프라의 발달로 확산 되고 있다. 가상현실의 개념, 확산요인, 생태계 현황 및 시사점에 대하여 설명하시오"
+ },
+ {
+  "id": "k111-406",
+  "period": "4교시",
+  "category": "디지털서비스",
+  "source": "111회 4교시",
+  "text": "데이터센터 운영과 기후변화에 대비한 친 환경기업 이미지 구축을 추구하고 있는 IT 기업의 신재생에너지 사업 진출 현황과 관련 생태계 구축 현황에 대하여 설명하시오"
+ },
+ {
+  "id": "k110-101",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "110회 1교시",
+  "text": "EIP(Enterprise Intergration Patterns)에 대해 설명하시오."
+ },
+ {
+  "id": "k110-102",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "110회 1교시",
+  "text": "LPWA(Low Power Wide Area)에 대해 설명하시오."
+ },
+ {
+  "id": "k110-103",
+  "period": "1교시",
+  "category": "경영전략",
+  "source": "110회 1교시",
+  "text": "린 스타트업(Lean Strartup)에 대해 설명하시오."
+ },
+ {
+  "id": "k110-104",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "110회 1교시",
+  "text": "유한 오토마타에 대해 설명하시오."
+ },
+ {
+  "id": "k110-105",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "110회 1교시",
+  "text": "빅데이터 분석기법인 Ramdom Forest에 대해 설명하시오."
+ },
+ {
+  "id": "k110-106",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "110회 1교시",
+  "text": "XMPP, CoAP, MQTT 특징을 비교하시오."
+ },
+ {
+  "id": "k110-107",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "110회 1교시",
+  "text": "패스트 데이터(Fast Data)에 대해 설명하시오."
+ },
+ {
+  "id": "k110-108",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "110회 1교시",
+  "text": "리버스 프록시(Reverse Proxy)에 대해 설명하시오."
+ },
+ {
+  "id": "k110-109",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "110회 1교시",
+  "text": "웹 신디케이션(Web Syndication)에 대해 설명하시오."
+ },
+ {
+  "id": "k110-110",
+  "period": "1교시",
+  "category": "보안",
+  "source": "110회 1교시",
+  "text": "프라이버시 보호모델인 k-익명성(k-anonymity)에 대해 설명하시오."
+ },
+ {
+  "id": "k110-111",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "110회 1교시",
+  "text": "ASN.1(Abstract Syntax Notation One)에 대해 설명하시오."
+ },
+ {
+  "id": "k110-112",
+  "period": "1교시",
+  "category": "인공지능",
+  "source": "110회 1교시",
+  "text": "챗봇(chatbot)에 대해 설명하시오."
+ },
+ {
+  "id": "k110-113",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "110회 1교시",
+  "text": "스턱스넷(Stuxnet)에 대해 설명하시오."
+ },
+ {
+  "id": "k110-201",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "110회 2교시",
+  "text": "4차 산업혁명의 정의와 연혁 특징, 국내 문제점 및 해결방안을 설명하시오."
+ },
+ {
+  "id": "k110-202",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "110회 2교시",
+  "text": "SW(소프트웨어) 사업 분할 발주를 위한 수발주자 가이드라인의 목적과 필요성,내용을 설명하고, 분할 발주 도입 시에 예상되는 문제점과 대책, 그리고 향후 공공SW 사업에 대한 발주 모델을 설명하시오."
+ },
+ {
+  "id": "k110-203",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "110회 2교시",
+  "text": "2016년부터 공공 발주 시 의무화된 상용 SW 품질평과 성능시험(BMT)의 근거 법률과 BMT 도입배경, BMT 제도, \nBMT 적용대상, BMT 절차 및 제도개선을 위한 문제점고 개선방안에 대하여 설명하시오."
+ },
+ {
+  "id": "k110-204",
+  "period": "2교시",
+  "category": "네트워크",
+  "source": "110회 2교시",
+  "text": "무선센서네트워크(WSN)와 이동 가능한 무선단말로 구축되는 애드혹(Ad-hoc) 네트워크의 차이점을 비교하고,\n애드혹 네트워크의 경로제어 방법인 리액티브(Reactive)형 방법과 프로액티브(Proactive)방법에 대하여 비교 설명하시오."
+ },
+ {
+  "id": "k110-205",
+  "period": "2교시",
+  "category": "신기술",
+  "source": "110회 2교시",
+  "text": "동기화 기법인 스핀 락(Read/Write Spin Lock)의 개념을 기술하고 스핀 락을 활용하는 방법을 사례를\n들어 설명하시오."
+ },
+ {
+  "id": "k110-206",
+  "period": "2교시",
+  "category": "경영전략",
+  "source": "110회 2교시",
+  "text": "최근 핀테크 인터넷전문은행, 간편결제 서비스의 등장으로 비대면 거래가 늘어나면서 이에 대한 보안 기술의 중요성이 강조되고 있다. 최근 비대면 보안기술로 각광받는 기술들의 개념과 특징을 열거하고, 이들을 비교 설명하시오."
+ },
+ {
+  "id": "k110-301",
+  "period": "3교시",
+  "category": "경영전략",
+  "source": "110회 3교시",
+  "text": "2016년 공공부분에 매년 시행이 의무화된 정보시스템 운영 성과평가의 근거 법률과 성과측정 대상,\n성과측정 모델, 1차 측정, 2차 측정 저차에 대하여 설명하시오."
+ },
+ {
+  "id": "k110-302",
+  "period": "3교시",
+  "category": "인공지능",
+  "source": "110회 3교시",
+  "text": "인공지능 산업 발전을 위한 (1) 촉진 관련 법제도, (2) 규제 관련 법제도를 기술하고, 현행 법제도의 문제점과\n개선방안에 대하여 설명하시오."
+ },
+ {
+  "id": "k110-303",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "110회 3교시",
+  "text": "CRC(Cyclic Redundancy Check)의 원리를 기술하고, CRC-8 = x8 + x2 + x + 1이 고 데이터워드가 01101011일때 \n코드워드를 계산하는 과정을 설명하고, 그 결과가 옳음을 검증하시오."
+ },
+ {
+  "id": "k110-304",
+  "period": "3교시",
+  "category": "디지털서비스",
+  "source": "110회 3교시",
+  "text": "가상현실(VR) 생태계 현황에 대한 문제점과 해결방안을 C(콘텐츠)-P(플랫폼)-N(네트워크)-D(디바이스) 관점에서 설명하시오."
+ },
+ {
+  "id": "k110-305",
+  "period": "3교시",
+  "category": "보안",
+  "source": "110회 3교시",
+  "text": "최근 발간된 \"개인정보 비식별 조치 가이드라인\"의 추진 배경, 비식별 조치기준을 설명하고 향후 기대되는 효과에 대하여 설명하시오."
+ },
+ {
+  "id": "k110-306",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "110회 3교시",
+  "text": "최근 미국에서 자율자동차의 사고로 인하여 인명 피해가 발생하였다. 이로 인해 자율 시스템에 포함된 소프트ㅞ어의 기능 안전 문제가 크게 대두되고 있는 데 모든 산업에 적용가능한 기능 안전기준을 제시한 IEC61508 시리즈와 전체 프레임워크를 도식화 하여 설명하시오."
+ },
+ {
+  "id": "k110-401",
+  "period": "4교시",
+  "category": "인공지능",
+  "source": "110회 4교시",
+  "text": "다음은 어떤 프로젝트를 수행하기 위한 활동과 그 활동에 필요한 시간, 이를 수행하기 전에 해야 할 선행활동 및 가용인원 수를 나타낸 것이다. 각각의 물음에 답하시오.\n\n가.프로젝트 완료일은 언제인가?\n나.주공정(Critical Path)은 어떤 경로인가?\n다.활동 \"라\"를 2일 앞당긴다면 프로젝트 완료 일정은 어떻게 되는가?\n라.\"가\"번의 경우, 가용인원을 4명/일로 제한한다면 프로젝트 완료 일정은 어떻게 되는가?\n마.\"라\"번의 경우, 주공정연쇄법(critical chain project management)으로 관리한다면 어떤 버퍼를 \n어디에 설치해야 하는가?"
+ },
+ {
+  "id": "k110-402",
+  "period": "4교시",
+  "category": "보안",
+  "source": "110회 4교시",
+  "text": "정보보호 인증제도인 ISMS, G-ISMS, PIPL, PIMS에 대하여 근거 법령, 인증 대상, 인증 평가 내용, 의무여부,\n인증 취득 시 혜택을 설명하시오."
+ },
+ {
+  "id": "k110-403",
+  "period": "4교시",
+  "category": "경영전략",
+  "source": "110회 4교시",
+  "text": "특허 기술가치평가의 법적 근거와 활용분야 및 정성적 평가 항목(기술성, 권리성, 시장성, 사업성)에 대하여 설명하시오."
+ },
+ {
+  "id": "k110-404",
+  "period": "4교시",
+  "category": "데이터베이스",
+  "source": "110회 4교시",
+  "text": "SQL에서 정의하는 JOIN의 유형을 기술하고, JOIN 성능을 높이기 위한 기법을 사례를 들어 설명하시오."
+ },
+ {
+  "id": "k110-405",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "110회 4교시",
+  "text": "프로세스 스레싱(Thrashing)의 발생 원인과 예방책을 설명하시오."
+ },
+ {
+  "id": "k110-406",
+  "period": "4교시",
+  "category": "디지털서비스",
+  "source": "110회 4교시",
+  "text": "가상화폐의 핵심기술로 사용되는 블록체인의 개념과 작동 원리를 설명하고, 블록체인의 오픈플랫폼(Open Platform)인 이더리움(Ethereum)의 개념과 특징을 가상화폐와 비교하여 설명하시오."
+ },
+ {
+  "id": "k108-101",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "108회 1교시",
+  "text": "인터클라우드(Intercloud)에 대하여 설명하시오."
+ },
+ {
+  "id": "k108-102",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "108회 1교시",
+  "text": "자율주행자동차(Self_Driving Car)에 적용되는 IT 요소 기술에 대하여 설명하시오."
+ },
+ {
+  "id": "k108-103",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "108회 1교시",
+  "text": "Health Care 소프트웨어의 기술동향에 대하여 설명하시오."
+ },
+ {
+  "id": "k108-104",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "108회 1교시",
+  "text": "테스트 드라이버(Test Driver)에 대하여 설명하시오."
+ },
+ {
+  "id": "k108-105",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "108회 1교시",
+  "text": "소프트웨어 원격지 개발의 필요성과 문제점에 대하여 설명하시오."
+ },
+ {
+  "id": "k108-106",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "108회 1교시",
+  "text": "동적 쿼리(Dynamic SQL)의 문제점에 대하여 설명하시오."
+ },
+ {
+  "id": "k108-107",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "108회 1교시",
+  "text": "NDN(Named Data Networking)에 대하여 설명하시오.\n[개념] 콘텐츠 기반의 새로운 통신 패러다임인 데이터 이름 기반 네트워킹(NDN: Named-data Networking 또는 CCN:Content-centricNetworking)\n이전 합숙 문제"
+ },
+ {
+  "id": "k108-108",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "108회 1교시",
+  "text": "다중채널네트워크(Multi-Channel Network)에 대하여 설명하시오."
+ },
+ {
+  "id": "k108-109",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "108회 1교시",
+  "text": "단어 구름(Word Cloud)와 코워드 분석(Co-Word Analysis)에 대하여 설명하시오.\n[개념] 태그 구름 ( 영어: tag cloud ) 또는 단어 구름 (word cloud)은 메타 데이터에서 얻어진 태그들을 분석하여 중요도나 인기도 등을 고려하여 시각적으로 늘어 놓아 웹 사이트에 표시하는 방법"
+ },
+ {
+  "id": "k108-110",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "108회 1교시",
+  "text": "ONVIF(Open Network Video Interface Forum) 표준에 대하여 설명하시오.\n현재 IP 카메라와 네트워크 비디오 솔루션의 상호운영성, 개방형표준을 위한 글로벌 상호운용 표준으로, \n시스템 상호운용성에 중점을 두고 범 세계적인 개방형 표준을 개발하는 것이 포럼의 주된 목적."
+ },
+ {
+  "id": "k108-111",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "108회 1교시",
+  "text": "탈린 매뉴얼(Tallinn Manual)에 대하여 설명하시오.\n[개념] 사이버 전쟁에서 적용되는 국제법을 담은 지침서.\n탈린 매뉴얼에서는 사이버 공격을 국가간 무력 분쟁의 한가지로 규정하고 있으며, 사이버 공격을 받았을 경우 이에 대한 대응 조치로 사이버 공격을 하는 것은 원칙적으로 가능하지만 실제적이고 물리적인 무력을 사용한 공격은 사이버 공격으로 인해 실제 사망자나 부상자가 발생하였을 경우에만 허용할 수 있는 것으로 명시."
+ },
+ {
+  "id": "k108-112",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "108회 1교시",
+  "text": "OGC(Open GIS Consortium)의 OGC Web Service(OWS)와 Web Map Service(WMS)에 대하여 설명하시오.\nOGC= 공간정보 분야의 국제표준화 기구, 1994년 설립된 기구\nOGC Web Service(OWS) = http://live.osgeo.org/ko/standards/standards.html 참조"
+ },
+ {
+  "id": "k108-113",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "108회 1교시",
+  "text": "디지털 발자국(Digital Footprint)에 대하여 설명하시오.\n[개념] 디지털 발자국은 사람들이 웹상에 남겨 놓은 다양한 디지털 기록, 온라인 활동을 하면서 남긴 디지털 족적, 잊혀질권리와 연동"
+ },
+ {
+  "id": "k108-201",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "108회 2교시",
+  "text": "Java 언어의 추상 클래스(Abstract Class)와 인터페이스(Interface)에 대하여 다음 질문에 답하시오.\n  가. 자식 클래스명이 Man인 Human 추상 클래스는 name, eat(), sleep() 속성과 메소드로 구성되어 있다.\n      자식 클래스명이 Pants인 Dress 인터페이스는 status, takeOff(), putOn() 속성과 메소드로 구성되어 있다.\n      이에 대한 클래스 다이어그램을 작성하시오.\n  나. Human, Dress, Man, Pants 클래스 및 인터페이스에 대한 선언 부분을 각각 작성하시오."
+ },
+ {
+  "id": "k108-202",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "108회 2교시",
+  "text": "서버 용량 산정에 대하여 다음 질문에 답하시오.\n  가. 용량 산정 개념과 절차를 설명하시오.\n  나. 성능 평가 기준인 TPC(Transaction Processing Performance Council)와 SPEC(Standard Performance Evaluation Corporation)를 설명하시오."
+ },
+ {
+  "id": "k108-203",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "108회 2교시",
+  "text": "소프트웨어 안전성 분석 방법인 FTA(Fault Tree Analysis), FMEA(Failure Modes and Effects Analysis), HAZOP(Hazard and Operability Study)를 비교설명하시오.\n[FTA(Fault Tree Analysis)] 시스템고장을 발생시키는 원인들과의 관계를 논리적으로 사용하여 트리 형태의 분석 기법"
+ },
+ {
+  "id": "k108-204",
+  "period": "2교시",
+  "category": "네트워크",
+  "source": "108회 2교시",
+  "text": "MQTT(Message Queue Telemetry Transport)와 CoAP(Constrained Application Protocol)에 대하여 비교 설명하시오.\nMQTT(Message Queue Telemetry Transport): 퍼블리시/섭스크라이브 메시징 프로토콜로, CoAP와 마찬가지로 자원 제약이 있는 기기를 타깃으로 개발"
+ },
+ {
+  "id": "k108-205",
+  "period": "2교시",
+  "category": "보안",
+  "source": "108회 2교시",
+  "text": "사이버 위협에 효과적으로 대비하기 위해 산업적 수요가 증가할 것으로 예상되는 다음의 기술에 대하여 설명하시오.  \n  가. Advanced Persistent Threat(APT) 탐지 기술\n  나. 디바이스 및 소프트웨어 취약성 분석 기술\n  다. 클라우드 보안서비스 기술(SeCass)"
+ },
+ {
+  "id": "k108-206",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "108회 2교시",
+  "text": "릴레이션 무결성 규칙(Relation Integrity Rules)에 속하는 제약(Constraint)과 사례를 제시하고, 릴레이션 무결성을 데이터베이스(Database)에 구현하는 방법에 대하여 설명하시오."
+ },
+ {
+  "id": "k108-301",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "108회 3교시",
+  "text": "그리디(Greedy) 알고리즘에 대하여 다음 질문에 답하시오. 230원어치를 구매함, 손님이 이때\n  가. 지폐 1000원을 받고 동전으로 770원을 돌려 줄 때 최소 동전수를 찾는 그리디 알고리즘을 설명하시오.\n     (단, 동전의 액면은 500원, 100원, 50원, 10원임)\n  나. 위 알고리즘을 C 또는 Java 언어로 구현하시오."
+ },
+ {
+  "id": "k108-302",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "108회 3교시",
+  "text": "oneM2M 아키텍처에 대하여 다음의 질문에 대하여 답하시오.\n  가. oneM2M 아키텍처의 엔티티에 대하여 설명하시오.\n  나. oneM2M 아키텍처의 참조 포인트에 대하여 설명하시오."
+ },
+ {
+  "id": "k108-303",
+  "period": "3교시",
+  "category": "보안",
+  "source": "108회 3교시",
+  "text": "소프트웨어 취약점을 이용한 공격에 대한 보안을 적용하기 위하여 개발 단계별 보안 기술을 적용하는 것이 필요하다. 소프트웨어 개발 단계별로 적용 가능한 보안 기술을 제시하고 이를 설명하시오."
+ },
+ {
+  "id": "k108-304",
+  "period": "3교시",
+  "category": "데이터베이스",
+  "source": "108회 3교시",
+  "text": "관계형 데이터베이스에서 PK(Primary Key)가 [주문일자+주문순번]으로 구성된 \"주문\" 테이블이 있다. 이 테이블에서 특정 일자의 첫 번째와 마지막 주문 레코드를 추출하는 최적의 SQL을 작성하시오. (단, 해당 일자에 주문 레코드가 한 건도 없으면 0을 리턴해야 함)"
+ },
+ {
+  "id": "k108-305",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "108회 3교시",
+  "text": "디스크 스케쥴링 알고리즘 중 최소 탐색 우선 스케쥴링(Shortest Seek-Time First Scheduling)의 문제점을 해결하기 위한 알고리즘을 제시하고, 엘리베이터 알고리즘(Elevator Algorithm)과 에션바흐 기법(Eshenbach Scheme)을 비교하여 설명하시오."
+ },
+ {
+  "id": "k108-306",
+  "period": "3교시",
+  "category": "인공지능",
+  "source": "108회 3교시",
+  "text": "인공지능의 특이점(Singularity)에 대하여 설명하고, 엑소브레인(Exobrain) 소프트웨어와 딥뷰(Deepview)의 개념과 기술 요소에 대하여 설명하시오."
+ },
+ {
+  "id": "k108-401",
+  "period": "4교시",
+  "category": "보안",
+  "source": "108회 4교시",
+  "text": "화재, 구조, 구급 등의 재난 시점에 119 종합 상황실에서 지자체의 방법 및 교통 CCTV 영상을 실시간으로 전송 받고, 영상을 직접 제어하는 119 영상 지원 서비스를 개발하려고 한다. 다음 질문에 답하시오.\n 가.서비스가 개인정보보호법에 적합한 지 여부를 설명하시오.\n 나.119 종합 상황실 신고 접수자에게 지자체 CCTV 영상을 스트리밍 방식으로 전송하는 서비스를 제공하기 위한 네트워크 구성도를 작성하시오."
+ },
+ {
+  "id": "k108-402",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "108회 4교시",
+  "text": "운영체제(OS)의 문맥 교환(Context Switching)에 대하여 다음 질문에 답하시오.\n  가. 문맥 교환 절차를 도식화하여 설명하시오.\n  나. 문맥 교환시 발생하는 오버헤드 해결 방법을 설명하시오."
+ },
+ {
+  "id": "k108-403",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "108회 4교시",
+  "text": "다음 상태를 기술하는 상태 다이아그램(State Diagram)을 작성하시오.\n  - PC를 켜면 부팅(Booting) 작업이 수행된다.\n  - Do/Bootup의 결과로 GUI는 작동 중 상태로 전이된다.\n  - 여기서 PC를 끄게 되면(Shut Down) 끝 마무리 상태로 전이된다.\n  - PC를 켜 놓은 상태에서 아무것도 하지 않으면(Time out) 스크린 세이버가 작동된다.\n  - 키 입력 또는 마우스 움직임에 따라 다시 작동 중 상태로 바뀐다."
+ },
+ {
+  "id": "k108-404",
+  "period": "4교시",
+  "category": "보안",
+  "source": "108회 4교시",
+  "text": "소프트웨어 보안을 위한 난독화(Obfuscation)의 필요성 및 개념을 설명하시오. 또한 난독화를 위한 기술을 분류하고, 이를 비교 설명하시오."
+ },
+ {
+  "id": "k108-405",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "108회 4교시",
+  "text": "EAI(Enterprise Application Integration)의 구축 유형과 유사 기술을 비교 설명하고, EAI 구축 프로젝트의 특성을 4가지 이상 제시하시오."
+ },
+ {
+  "id": "k108-406",
+  "period": "4교시",
+  "category": "데이터베이스",
+  "source": "108회 4교시",
+  "text": "다음은 국내 및 해외에 다수의 생산 공장을 보유한 B 전자의 SCM(Supply Chain Management) 구축 프로젝트를 수행하기 위해 작성한 정보시스템 현황 및 요구 사항 이다. 요구사항에 따른 Statement Of Work(SOW)와 Gold Plating 방지 방안을 작성하시오.\n <<B전자 SCM 관련 정보시스템 현황>\n   - 기존 SCM 시스템을 운영 중에 있으며, C/S(Client/Server) 환경으로 구성되어 있음\n   - 마스터 정보, BOM(Bill Of Material) 관리, ERP(Enterprise Resource Planning) 등이 운영되고 있으며, BOM의 데이터 누락이 발생하고 있음\n <<신 SCM 구축 요구사항>\n   - 수요 예측 및 경영계획을 바탕으로 3개월 플랜(Plan)을 수립하는 기능 개발\n   - 3개월 플랜에 따른 제품별 주 단위 판매 계획과 생산 계획을 수립하는 기능 개발\n   - 최적화 솔루션을 활용하고, 매출, 수익성 등 변수를 반영한 계획 시나리오 수립\n   - 시나리오별 손인 시뮬레이션 기능 개발\n   - 기존 운영 중인 SCM을 웹 환경으로 전환하고, 데이터 마이그레이션 수행"
+ },
+ {
+  "id": "k107-101",
+  "period": "1교시",
+  "category": "경영전략",
+  "source": "107회 1교시",
+  "text": "인더스트리 4.0을 스마트 팩토리(Smart Factory)중심으로 설명하시오."
+ },
+ {
+  "id": "k107-102",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "107회 1교시",
+  "text": "클라우드 오픈스택(Open Stack)에 대하여 설명하시오."
+ },
+ {
+  "id": "k107-103",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "107회 1교시",
+  "text": "IoT 기술 표준화 단체인 Thread goup과 Allseen alliance를 비교 설명하시오."
+ },
+ {
+  "id": "k107-104",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "107회 1교시",
+  "text": "모바일 OS(Operating System) 주요기술과 발전전망에 대하여 설명하시오."
+ },
+ {
+  "id": "k107-105",
+  "period": "1교시",
+  "category": "보안",
+  "source": "107회 1교시",
+  "text": "랜섬웨어(Ransomware)를 정의하고, 감염경로와 방지방법을 제시하시오."
+ },
+ {
+  "id": "k107-106",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "107회 1교시",
+  "text": "아날로그 정보를 디지털 데이터로 변환하기 위한 PCM(Pulse Code Modulation)의 동작원리를 설명하시오."
+ },
+ {
+  "id": "k107-107",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "107회 1교시",
+  "text": "패킷 데이터 네트워크를 이용하여 데이터를 전송하는 과정에서 발생할 수 있는 전형적인 에러 유형 3가지를 제시하고,\n   각 에러에 대한 대응방안을 설명하시오."
+ },
+ {
+  "id": "k107-108",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "107회 1교시",
+  "text": "컨버지드 인프라(Converged Infrastructure)에 대하여 설명하시오."
+ },
+ {
+  "id": "k107-109",
+  "period": "1교시",
+  "category": "경영전략",
+  "source": "107회 1교시",
+  "text": "AOSP(Android Open Source Project)에 대하여 설명하시오."
+ },
+ {
+  "id": "k107-110",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "107회 1교시",
+  "text": "디지털 사이니지(Digital Signage)의 개념과 서비스 동향에 대하여 설명하시오."
+ },
+ {
+  "id": "k107-111",
+  "period": "1교시",
+  "category": "보안",
+  "source": "107회 1교시",
+  "text": "FIDO(Fast Identity Online) 규격의 도입배경과 FIDO기반 인증 절차에 대하여 설명하시오."
+ },
+ {
+  "id": "k107-112",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "107회 1교시",
+  "text": "데이터 모델링의 4단계에 대하여 설명하시오."
+ },
+ {
+  "id": "k107-113",
+  "period": "1교시",
+  "category": "프로젝트관리",
+  "source": "107회 1교시",
+  "text": "프로젝트 수행 시 역할정의에 필요한 RACI 매트릭스의 작성원칙을 설명하시오."
+ },
+ {
+  "id": "k107-201",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "107회 2교시",
+  "text": "요구사항 도출의 필요성과 도출기법 5가지를 설명하시오."
+ },
+ {
+  "id": "k107-202",
+  "period": "2교시",
+  "category": "인공지능",
+  "source": "107회 2교시",
+  "text": "딥러닝(Deep Learning) 기술을 정의하고, 최근 기업에서 딥러닝을 응용하는 예를 2가지 제시하시오."
+ },
+ {
+  "id": "k107-203",
+  "period": "2교시",
+  "category": "신기술",
+  "source": "107회 2교시",
+  "text": "Project loon과 Internet.org를 비교하고 그 의미를 설명하시오."
+ },
+ {
+  "id": "k107-204",
+  "period": "2교시",
+  "category": "신기술",
+  "source": "107회 2교시",
+  "text": "국내 Beacon 서비스의 주요 응용분야를 제시하고, 활성화에 대한 한계요인을 설명하시오."
+ },
+ {
+  "id": "k107-205",
+  "period": "2교시",
+  "category": "신기술",
+  "source": "107회 2교시",
+  "text": "새로운 Fingerprint를 기존의 클러스터에 매칭하기 위해서 사용되는  KNN(K-Nears Neighbor) 알고리즘의 동작원리를 설명하고\n   장단점을 논하시오."
+ },
+ {
+  "id": "k107-206",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "107회 2교시",
+  "text": "데이터베이스 트랜잭션의 개념, ACID 특성, 직렬성에 대하여 설명하시오."
+ },
+ {
+  "id": "k107-301",
+  "period": "3교시",
+  "category": "디지털서비스",
+  "source": "107회 3교시",
+  "text": "포그 컴퓨팅(Fog Computing)을 클라우드 컴퓨팅과 대비하여 정의하고 적용 예를 제시하시오."
+ },
+ {
+  "id": "k107-302",
+  "period": "3교시",
+  "category": "경영전략",
+  "source": "107회 3교시",
+  "text": "최근 대두되는 인터넷전문은행을 설명하고, 이를 실현하기 위해 핀테크 오픈 플랫폼을 활용할 수 있는 \n   방안을 설명하시오."
+ },
+ {
+  "id": "k107-303",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "107회 3교시",
+  "text": "O2O(Online-to-Offline/Offline-to-Online)를 정의하고 소비자와 기업관점에서 장점을 제시하시오."
+ },
+ {
+  "id": "k107-304",
+  "period": "3교시",
+  "category": "네트워크",
+  "source": "107회 3교시",
+  "text": "BCI(Brain Computer Interface)의 개념과 응용분야에 대하여 설명하시오."
+ },
+ {
+  "id": "k107-305",
+  "period": "3교시",
+  "category": "데이터베이스",
+  "source": "107회 3교시",
+  "text": "빅데이터의 3V(Volume, Variety, Velocity) 특성과 빅데이터 활용에 따른 비즈니스 측면에서의 기대효과를 설명하시오."
+ },
+ {
+  "id": "k107-306",
+  "period": "3교시",
+  "category": "보안",
+  "source": "107회 3교시",
+  "text": "PCI DSS(Payment Card Industry Data Security Standard)의 정의, 필요성, 기준과 요구사항, 활용방안에 대해서 설명하시오."
+ },
+ {
+  "id": "k107-401",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "107회 4교시",
+  "text": "SW중심사회를 설명하고, 공공SW사업 법제도 개선과 관련된 과제 중 5가지를 설명하시오."
+ },
+ {
+  "id": "k107-402",
+  "period": "4교시",
+  "category": "보안",
+  "source": "107회 4교시",
+  "text": "개인정보 비식별화의 개념과 처리기법에 대하여 설명하시오."
+ },
+ {
+  "id": "k107-403",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "107회 4교시",
+  "text": "최근 비즈니스 요구를 혁신적으로 구현하기 위해 소프트웨어를 통해 하드웨어를 완전히 통제하는 기술이 가속화되고 있다.\n   이와 관련된 기술흐름을 소프트웨어 정의 네트워크(Software Defined Network)와 소프트웨어 정의 시스템(Software Defined System) \n   측면에서 설명하시오."
+ },
+ {
+  "id": "k107-404",
+  "period": "4교시",
+  "category": "보안",
+  "source": "107회 4교시",
+  "text": "기존 컴퓨팅 환경과 사물인터넷(IoT) 환경에서 정보보호 차이를 정보보호 대상, 보호기기의 특성, 보안방법, 정보보호 주체 관점에서\n   비교 설명하시오."
+ },
+ {
+  "id": "k107-405",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "107회 4교시",
+  "text": "바이러스가 임의 숙주 프로그램에 감염되었다는 사실을 감추기 위한 압축(Compression) 기법과 암호화(Encrypted) 기법의\n   동작원리를 설명하시오."
+ },
+ {
+  "id": "k107-406",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "107회 4교시",
+  "text": "다음과 같은 Node 구조를 통해 생성된 이진트리에 대해 물음에 답하시오.\n\n    Typedef struct Node{\n        int value;\n        struct Node* left;\n        struct Node* right;\n    } Node;\n\n  이진 탐색 트리의 루트 노드와 정수를 인자로 받아, 주어진 숫자를 이진 탐색 트리에 삽입하는 재귀함수 Node* insertBinaryTree(Node*\n  node, int val)을 작성하시오.\n\n  이진 탐색 트리란 \"트리 내의 임의의 노드에 대해 해당 노드의 값이 해당 노드의 부분트리의 모든 값보다 크고 오른쪽 부분트리의 모든\n  값보다 작은 이진트리\"를 말한다. 여기서 인자로 받은 val값이 트리 내에 존재하지 않는다고 가정하며, 작성한 리턴 값은 삽입이 완료된\n  트리의 루트 노드이다."
+ },
+ {
+  "id": "k105-101",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "105회 1교시",
+  "text": "클라우드소싱 테스트(Crowdingsourcing Test)를 설명하시오"
+ },
+ {
+  "id": "k105-102",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "105회 1교시",
+  "text": "기계학습(Machine Learning)을 정의하고 알고리즘 유형을 설명하시오"
+ },
+ {
+  "id": "k105-103",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "105회 1교시",
+  "text": "핀테크(FinTech)를 정의하고 보안측명의 이슈와 해결방안을 설명하시오"
+ },
+ {
+  "id": "k105-104",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "105회 1교시",
+  "text": "빅데이터 분석방법인 Bagging과 Boosting 기법을 비교하여 설명하시오"
+ },
+ {
+  "id": "k105-105",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "105회 1교시",
+  "text": "반복점증적 개발방법과 폭포수형 개발방법을 비교하여 설명하시오"
+ },
+ {
+  "id": "k105-106",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "105회 1교시",
+  "text": "소프트웨어의 회귀시험(Regression Test)에 대하여 설명하시오"
+ },
+ {
+  "id": "k105-107",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "105회 1교시",
+  "text": "분산컴퓨팅(Distributed Computing) 및 분산처리(Distributed Processing)를 각각 정의하고 투명성(Transparency)에 대하여 설명하시오"
+ },
+ {
+  "id": "k105-108",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "105회 1교시",
+  "text": "데이터베이스의 체크포인트(Checkpoint) 회복기법에 대하여 설명하시오"
+ },
+ {
+  "id": "k105-109",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "105회 1교시",
+  "text": "B-Tree와 비트맵(Bitmap) 인덱스를 비교 설명하시오"
+ },
+ {
+  "id": "k105-110",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "105회 1교시",
+  "text": "DOI(Digital Object Identifier)에 대하여 설명하시오"
+ },
+ {
+  "id": "k105-111",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "105회 1교시",
+  "text": "정보보호를 위한 해시함수(Hash Function) 종류에 대하여 설명하시오"
+ },
+ {
+  "id": "k105-112",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "105회 1교시",
+  "text": "데이터베이스 튜닝(Tunning)의 3단계와 튜닝의 기대효과에 대하여 설명하시오"
+ },
+ {
+  "id": "k105-113",
+  "period": "1교시",
+  "category": "프로젝트관리",
+  "source": "105회 1교시",
+  "text": "Agile의 scrum과 Kahban 방법의 차이점과 보안점을 설명하시오"
+ },
+ {
+  "id": "k105-201",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "105회 2교시",
+  "text": "빅데이터 분산처리시스템인 하둡 MapReduce의 한계점을 중심으로 Apache Spark와 Apache Storm을 비교하여 설명하시오"
+ },
+ {
+  "id": "k105-202",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "105회 2교시",
+  "text": "오픈소스 하드웨어 (Open Source Hardware)의 개념과 구성요소를 설명하고 아두이노(Arduino)와 라즈베리파이(Raspberry Pi)를 비교하여 설명하시오"
+ },
+ {
+  "id": "k105-203",
+  "period": "2교시",
+  "category": "신기술",
+  "source": "105회 2교시",
+  "text": "학사관리시스템에서 아래 스키마(Schema)를 이용할 때 키(Key of Candidate Key), 주키(Primary Key), 외부키(Foreign Key), 슈퍼키(Super Key)를 정의하고 추출하는 과정 및 방법을 설명하시오\n\n\"학생\"스키마 (학번, 주민등록번호, 이름, 전공, 성별, 학과번호)\n\"학과\"스키마(학과번호, 학과명, 설립연도)"
+ },
+ {
+  "id": "k105-204",
+  "period": "2교시",
+  "category": "신기술",
+  "source": "105회 2교시",
+  "text": "자동차에 탑재되는 소프트웨어의 기능안전 국제규격인 ISO26262에 대한 정의,배경,규격 및 기술기준을 설명하시오"
+ },
+ {
+  "id": "k105-205",
+  "period": "2교시",
+  "category": "보안",
+  "source": "105회 2교시",
+  "text": "정보통신망법을 기준으로 개인정보의 기술적 보호조치 기준과 관리적 보호조치 기준의 상세규정내용을 각각 5가지 이상 설명하시오"
+ },
+ {
+  "id": "k105-206",
+  "period": "2교시",
+  "category": "프로젝트관리",
+  "source": "105회 2교시",
+  "text": "기능점구(Function Point) 산출방법에 대하여 설명하고 간이법을 적용하여 아래의 이벤트(Event) 리스트와 \"ISBSG(International Software Benchmark Standard Group) 평균복잡도\"를 근거로 하여 기능점수를 산출하시오\n<이벤트(Event) 리스트)\n가. 담당자는 고객주문을 입력,수정,삭제 한다(고객DB)\n나. 인사담당자는 사원목록을 부서단위로 조회한다(사원DB, 부서DB)\n다. 인사담당자는 사원복록을 단순 출력한다(사원DB)\n라. 인사담당자는 일정 금액 이상의 급여 수령자 사원목록을 검색한다(사원DB, 급여DB)\n마. 원화에 대한 미국 달러(USD) 가치를 찾기 위해 A은행 외환DB에서 환율을 검색한다(외환DB)\n바. 인사담당자는 5년 경력 이상이고, 해당 직무 수행겸험이 있는 사원목록을 추출한다(사원DB)\n사. 인사담당자는 신입/경력사원 입사 시 사원 파일을 갱신한다(사원DB)\n아. 인사담당자는 외국 사원 입사 시 사원의 급여를 결정하기 위해 H연합외 통화정보를 참조한다(사원DB, 급여DB, 통화DB)\n자. 회계시스템은 전표번호(부서번호 중 앞자리 2+년도+일련번호)를 자동채번한다(전표DB)\n차. 인사담당자는 사원현왕을 엑셀 파일을 업로드 시킨다(사원DB)\n\n기능유형 : 평균 복잡도\nEI : 4.3\nEQ : 5.4\nEQ : 3.8\nILF : 7.4\nEIF : 5.5"
+ },
+ {
+  "id": "k105-301",
+  "period": "3교시",
+  "category": "데이터베이스",
+  "source": "105회 3교시",
+  "text": "아래의 스키마(Schema)와 함수종속성(FD:Fuctional Dependency)을 이용하여 함수종속도표(Funcional Dependency Diagram)를 작성한 뒤, 키(Key)를 찾아내는 과정을 설명하고, BCNF(Boyce-Codd Normal Form)의 정의를 기술하고 조건을 만족시키는 테이블을 설계하시오\n\n대출스키마(지점명, 자산, 장소, 대출번호, 고객명, 금액)\nFD : 지점명 -> 자산\n       지점명 -> 장소\n       대출번호 -> 지점명\n       대출번호 -> 금액"
+ },
+ {
+  "id": "k105-302",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "105회 3교시",
+  "text": "귀하는 자세대시스템 구축팀의 아키텍트(Architect)로서 상세화단계(Elaboration Phase)에서 작성해야하는 SAD(Software Architeture Document) 문서의 목차를 작성하시오"
+ },
+ {
+  "id": "k105-303",
+  "period": "3교시",
+  "category": "경영전략",
+  "source": "105회 3교시",
+  "text": "데이터 마이닝에서 데이터를 분류(Classification)하는 의사결정나무(Decision Tree)를 설명하고 의사결정나무의 형성과정과 장담점에 대하여 설명하시오"
+ },
+ {
+  "id": "k105-304",
+  "period": "3교시",
+  "category": "보안",
+  "source": "105회 3교시",
+  "text": "최근 ATP(Advanced Persistent Threats)공격과 변종 악성코드 공격이 늘어나고 있다, APT 공격기법과 악성코드(Malicious codes)에 대하여 설명하시오"
+ },
+ {
+  "id": "k105-305",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "105회 3교시",
+  "text": "소프트웨어 개발 프로젝트 품질보증(Quality Assurance)을 위한 정보시스템 감리 절차에 대하여 설명하시오"
+ },
+ {
+  "id": "k105-306",
+  "period": "3교시",
+  "category": "보안",
+  "source": "105회 3교시",
+  "text": "NAT(Network Address Translation)의 IP Masquerading, Port  Forwarding, Load Balancing에 대하여 설명하시오"
+ },
+ {
+  "id": "k105-401",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "105회 4교시",
+  "text": "충분한 데이터가 확보되지 않은 상황에서 데이터 분석을 수행할 경우 통계적 신뢰도 높이기 위하여 사용하는 \nCross Validation 방법을 3가지 이상 예를 들어 설명하시오"
+ },
+ {
+  "id": "k105-402",
+  "period": "4교시",
+  "category": "프로젝트관리",
+  "source": "105회 4교시",
+  "text": "차세대 시스템 구축 프로젝트에서 기존시스템(AS-IS) 데이터를 차세대시스템(TO-BE)으로 이관작업 하는 절차 및 유의사항에 대하여 설명하시오"
+ },
+ {
+  "id": "k105-403",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "105회 4교시",
+  "text": "반복수행계획서(Iteration Software Deveolment Plan)와 회차 종료 전에 작성되어져야 하는 반복수행평가서(Iteration Assessment)의 목차를 작성하시오"
+ },
+ {
+  "id": "k105-404",
+  "period": "4교시",
+  "category": "데이터베이스",
+  "source": "105회 4교시",
+  "text": "데이터베이스에 저장된 값과 현실세계를 표현하는 실제값이 일치하는가에 대해 정확성을 의미하는 데이터 무결정 제약(Integrity Constraint)의 유형으로 도메인 무결성 제약과 릴레이션 무결정 제약이 있다. 이 두가지에 대하여 설명하시오"
+ },
+ {
+  "id": "k105-405",
+  "period": "4교시",
+  "category": "보안",
+  "source": "105회 4교시",
+  "text": "최근 IT와 법률의 융합서비스 분야의 디지털포렌식 기술이 수사기관에서 기업의 감가영역으로 확대되고 잇다, 기업에서 활용 가능한 디지털포렌식 기술을 설명하고 기업에서 적용 가능한 분야를 설명하시오"
+ },
+ {
+  "id": "k105-406",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "105회 4교시",
+  "text": "Quick Sort 알고리즘에 대하여 설명하고 아래의 C언어 소스 코드에서 필요시 함수등을 추가하여 완성하시오(단, Sort 순서는 오름차순)\n\n#include <stdio.h>\n\n#include<string.h>\n\nvoid QuickSort(int *data, int n)\n{\n}\nvoid main()\n{\n char data[8] = {'B','I','D','O','Z','L','H'};\n puts(data);\n QuickSort(data,7);\n puts(data);\n}"
+ },
+ {
+  "id": "k104-101",
+  "period": "1교시",
+  "category": "프로젝트관리",
+  "source": "104회 1교시",
+  "text": "프로젝트 이해관계자 관리(Stakeholder Management)를 위한 절차와 \n현저성 모델(Salience model)에 대해 설명하시오."
+ },
+ {
+  "id": "k104-102",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "104회 1교시",
+  "text": "V2V(Vehicle to Vehicle)의 개념과 적용시 고려사항에 대해 설명하시오."
+ },
+ {
+  "id": "k104-103",
+  "period": "1교시",
+  "category": "보안",
+  "source": "104회 1교시",
+  "text": "랜섬웨어(Ransom ware)와 파밍(Parming)에 대해 설명하시오."
+ },
+ {
+  "id": "k104-104",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "104회 1교시",
+  "text": "소프트웨어 아키텍처 드라이버(Architecture Driver)에 대해 설명하시오."
+ },
+ {
+  "id": "k104-105",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "104회 1교시",
+  "text": "데브옵스(DevOps)의 최근동향과 전망에 대해 설명하시오."
+ },
+ {
+  "id": "k104-106",
+  "period": "1교시",
+  "category": "보안",
+  "source": "104회 1교시",
+  "text": "기관 내부자에 의해 행해지는 보안위협의 주요 행동적 특성을 설명하시오."
+ },
+ {
+  "id": "k104-107",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "104회 1교시",
+  "text": "UNIX에서 적용되고 있는 파일 접근제어(Access control) 메커니즘을 설명하시오."
+ },
+ {
+  "id": "k104-108",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "104회 1교시",
+  "text": "인터넷에서 subnet 개념이 적용된 배경을 설명하고, subnet mask 255.255.255.224인 \n네트워크를 예로 들어 subnet을 설명하시오."
+ },
+ {
+  "id": "k104-109",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "104회 1교시",
+  "text": "기능성 게임(Serious Game)의 개념과 응용분야에 대해 설명하시오."
+ },
+ {
+  "id": "k104-110",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "104회 1교시",
+  "text": "드론(Drone)의 장점과 상용화시 문제점에 대해 설명하시오."
+ },
+ {
+  "id": "k104-111",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "104회 1교시",
+  "text": "디지털 큐레이션(Digital Curation)의 개념과 서비스 동향에 대해 설명하시오."
+ },
+ {
+  "id": "k104-112",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "104회 1교시",
+  "text": "BaaS(Backend as a Service)의 개념과 기능에 대해 설명하시오."
+ },
+ {
+  "id": "k104-113",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "104회 1교시",
+  "text": "커넥티드카(Connected Car)의 개념과 분류에 대해 설명하시오."
+ },
+ {
+  "id": "k104-201",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "104회 2교시",
+  "text": "A기업은 전국에 산재해 있는 지점의 전산실을 통폐합하여 전국 단위의 전산통합센터를 구축 및 운영하고자 한다. \n다음은 전국에 산재해 있는 자원을 전산통합센터로 이전하기 위해 사업자를 선정하고, 환경변수를 사전에 변경 처리함으로써 \n이전 후 신속하게 서비스를 정상화하고, 업무 중단을 최소화하려고 한다. 다음의 전산실 현황을 고려하여 이전 사업자 입장에서 \n환경변수 사전 처리 방안에 대해 설명하시오.\n\n<<A 기업 전국 전산실 현황>>\n- 전국 지점의 전산실 별로 다른 유지보수 사업자가 운영 및 관리하고 있음\n- 서버는 UNIX, Windows, Linux 등 다양한 OS 및 H/W로 구성되어 있음\n- 이전 시 전산통합센터에서 제공하는 환경변수를 적용하여야 함\n- 이전은 하드웨어, 시스템 소프트웨어, 응용어플리케이션, 데이터를 대상으로 함"
+ },
+ {
+  "id": "k104-202",
+  "period": "2교시",
+  "category": "경영전략",
+  "source": "104회 2교시",
+  "text": "스마트 데이터(Smart Data)에 대한 출현 배경, 3A, 빅 데이터와 스마트 데이터의 구분기준에 대해 설명하고, \nCQL(Continuous Query Language)에 대한 주요 기능, CQL과 스마트 데이터와의 관계에 대해 설명하시오."
+ },
+ {
+  "id": "k104-203",
+  "period": "2교시",
+  "category": "네트워크",
+  "source": "104회 2교시",
+  "text": "범용적인 인터넷 보안 방법론인 IPSec을 보안기능 중심으로 설명하고, VPN(Virtual Private Network) 구축에 \nIPSec이 어떻게 사용되는지 설명하시오."
+ },
+ {
+  "id": "k104-204",
+  "period": "2교시",
+  "category": "인공지능",
+  "source": "104회 2교시",
+  "text": "인터넷 프로토콜에서 3단계 주소체계(Domain name, IP address, Physical address)를 사용하는 이유를 제시하고, 데이터 전송 과정에서 \n각 단계별로 주소가 변환되는 과정을 설명하시오."
+ },
+ {
+  "id": "k104-205",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "source": "104회 2교시",
+  "text": "사물인터넷(IoT : Internet of Things)의 주요 핵심기술 및 국내외 서비스 개발현황에 대해 설명하시오."
+ },
+ {
+  "id": "k104-206",
+  "period": "2교시",
+  "category": "운영체제",
+  "source": "104회 2교시",
+  "text": "가상화 기술의 발전 추이와 최근 가상화 기술의 특징인 1) 동적 배분, 2) ICT 하드웨어 자원 통합, 3) 통합화된 가상화를 설명하시오."
+ },
+ {
+  "id": "k104-301",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "104회 3교시",
+  "text": "객체지향 소프트웨어 설계에 많은 도움을 주는 GoF의 디자인 패턴(Design Pattern)영역을 목적과 범위에 따라 분류하고, 분류별 특성을 설명하시오. \n또한, 객체지향시스템에서 개발된 기능의 재사용을 위해 사용되는 대표적 기법인 화이트박스 재사용(White-box Reuse), \n블랙박스 재사용(Black-box Reuse) 및 위임(Delegation)이 패턴과 어떤 관계가 있는 지 설명하시오."
+ },
+ {
+  "id": "k104-302",
+  "period": "3교시",
+  "category": "데이터베이스",
+  "source": "104회 3교시",
+  "text": "통계 데이터베이스(Statistical Database)에서 통계 질의문(Statistic Query)에 대해 설명하시오. \n그리고 다음의 데이터베이스에서 개별추적자(Individual Tracker) 역할을 하는 Query 문을 예를 들어 작성하고, 이러한 개별추적자가 \n통계 데이터베이스에 \n미치는 영향에 대해 설명하시오."
+ },
+ {
+  "id": "k104-303",
+  "period": "3교시",
+  "category": "네트워크",
+  "source": "104회 3교시",
+  "text": "패킷 데이터의 송수신 과정에서 순방향 에러 발견(Forward Error Detection) 절차를 다이어그램을 이용하여 제시하고, \n전송 데이터가 1011010, 디바이더(divider)가 1101인 경우 CRC(Cyclic Redundancy Check) 값을 구하는 과정을 설명하시오."
+ },
+ {
+  "id": "k104-304",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "104회 3교시",
+  "text": "디지털봉투(Digital Envelopes) 출현 배경을 설명하고, 디지털봉투를 생성하고 개봉하는 과정을 그림을 이용하여 구체적으로 설명하시오."
+ },
+ {
+  "id": "k104-305",
+  "period": "3교시",
+  "category": "보안",
+  "source": "104회 3교시",
+  "text": "개인정보의 개념과 국내 개인정보 법률을 설명하고, 빅 데이터 등 신산업 육성 시 규제측면의 고려 사항에 대해 제시하시오."
+ },
+ {
+  "id": "k104-306",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "104회 3교시",
+  "text": "사용자경험(User Experience) 패러다임의 진화를 4세대로 나누어 각 세대별 특징 및 내용을 설명하고, 주요 이슈를 제시하시오."
+ },
+ {
+  "id": "k104-401",
+  "period": "4교시",
+  "category": "보안",
+  "source": "104회 4교시",
+  "text": "모바일 바이오인식(Mobile Biometrics) 기법의 하나인 바이오(Bio) 보안 토큰에 대해 설명하고, 국제 표준에 따른 \n모바일 기반 바이오 인식기술 사용 서비스를 위한 인증 모델 및 보안 위협에 대해 설명하시오."
+ },
+ {
+  "id": "k104-402",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "104회 4교시",
+  "text": "소프트웨어 산업과 건설, 자동차, 의료 등 타 산업과의 융합이 확대됨에 따라 소프트웨어가 우리 생활 전 분야에 활용되고 있으며, \n안전한 소프트웨어의 구축에 대한 요구가 급증하고 있다. 소프트웨어의 안정성(Safety) 확보를 위한 국제 표준 규격, \n소프트웨어 안정성 평가 기법에 대해 설명하고, 안전한 소프트웨어 개발을 보증하는 방법에 대해 설명하시오."
+ },
+ {
+  "id": "k104-403",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "104회 4교시",
+  "text": "실내에서 WLAN(Wireless LAN)과 같은 상용 통신장치의 전파특성(Radio Properties)을 이용하여 \n이동 단말의 위치를 설정(Localization or Positioning)하는 방안에 대해 설명하시오."
+ },
+ {
+  "id": "k104-404",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "104회 4교시",
+  "text": "정적해싱(Static Hashing) 과정에서 발생하는 오버플로우(Overflow)를 처리하기 위한 전형적인 기법 2가지를 제시하고, \n성능 관점에서 비교하여 설명하시오."
+ },
+ {
+  "id": "k104-405",
+  "period": "4교시",
+  "category": "데이터베이스",
+  "source": "104회 4교시",
+  "text": "빅데이터 분석 도구인 R의 역사와 주요 기능 3가지에 대해 설명하시오."
+ },
+ {
+  "id": "k104-406",
+  "period": "4교시",
+  "category": "디지털서비스",
+  "source": "104회 4교시",
+  "text": "차량용 증강현실 기술 실현을 위한 HUD(Head Up Display) 및 AR(Augmented Reality) 기술 개발 동향과 적용 시 \n고려사항에 대해 설명하시오."
+ },
+ {
+  "id": "k102-101",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "102회 1교시",
+  "text": "UNIX 시스템의 i-node에서 관리하는 자료에 대하여 설명하시오"
+ },
+ {
+  "id": "k102-102",
+  "period": "1교시",
+  "category": "프로젝트관리",
+  "source": "102회 1교시",
+  "text": "PMO(Project Management Office)의 기능에 대하여 5개 이상 설명하시오"
+ },
+ {
+  "id": "k102-103",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "102회 1교시",
+  "text": "데이터베이스에서 Key의 본질적 제약과 내재적 제약에 대하여 설명하시오"
+ },
+ {
+  "id": "k102-104",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "102회 1교시",
+  "text": "대용량 데이터 처리를 위한 Sharding에 대하여 설명하시오"
+ },
+ {
+  "id": "k102-105",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "102회 1교시",
+  "text": "M2M(Machine to Machine)과 IoE(Internet of Everything)를 비교 설명하시오"
+ },
+ {
+  "id": "k102-106",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "102회 1교시",
+  "text": "소프트웨어 유지보수의 4가지 유형과 개발 업무와의 차이점에 대하여 설명하시오"
+ },
+ {
+  "id": "k102-107",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "102회 1교시",
+  "text": "통계처리시 결측치(Missing Value) 처리 방안에 대하여 3개 이상 설명하시오"
+ },
+ {
+  "id": "k102-108",
+  "period": "1교시",
+  "category": "경영전략",
+  "source": "102회 1교시",
+  "text": "IIBA(International Institute of Business Analysis)의 BABOK(Business Analysis Body of Knowledge)에서 정의된 일반적인 분석 기법에 대하여 5개이상 설명하시오."
+ },
+ {
+  "id": "k102-109",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "102회 1교시",
+  "text": "ROC(Receiver Operationg Characteristic) Curve에 대하여 설명하시오."
+ },
+ {
+  "id": "k102-110",
+  "period": "1교시",
+  "category": "인공지능",
+  "source": "102회 1교시",
+  "text": "CCPM(Critical Chain Project Management)과 TOC(Theory Of Constraints)에 대하여 설명하시오"
+ },
+ {
+  "id": "k102-111",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "102회 1교시",
+  "text": "모집단에서 표본을 추출하여 모수를 추정하는 Estimation Theory에 대하여 설명하시오"
+ },
+ {
+  "id": "k102-112",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "102회 1교시",
+  "text": "Wearable Computing System의 장점과 문제점에 대하여 설명하시오"
+ },
+ {
+  "id": "k102-113",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "102회 1교시",
+  "text": "일반인도 쉽게 하드웨어를 만들 수 있는 아두이노(Arduino)에 대하여 설명하시오"
+ },
+ {
+  "id": "k102-201",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "102회 2교시",
+  "text": "상세한 요구사항이 포함된 RFP(Request For Proposal) 체계를 구체화한 \"공공 소프트웨어 사업 제안 요청서 작성 가이드라인\"에서의 기술 제안 요청서 세부 작성 지침에 포함된 항목을 나열하고 설명하시오."
+ },
+ {
+  "id": "k102-202",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "102회 2교시",
+  "text": "분산 데이터베이스의 3가지 설계 전략을 비교하고, 분산 데이터베이스가 갖추어야 할 4가지 특성에 대하여 설명하시오."
+ },
+ {
+  "id": "k102-203",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "102회 2교시",
+  "text": "정보시스템 채해 복구의 수준별 유형을 분류하고 RTO(Recovery Time Object)와 RPO(Recovery Point Object)관점에서 비교 설명하시오"
+ },
+ {
+  "id": "k102-204",
+  "period": "2교시",
+  "category": "인공지능",
+  "source": "102회 2교시",
+  "text": "Big Data 분석에서 모델 평가 방법인 Train-Validation, Cross-Validation , Bootstrap을 비교 설명하시오."
+ },
+ {
+  "id": "k102-205",
+  "period": "2교시",
+  "category": "보안",
+  "source": "102회 2교시",
+  "text": "ISO 25237 의료 정보 데이터 익명화 기법의 개념과 필요성 및 장단점에 대하여 설명하시오."
+ },
+ {
+  "id": "k102-206",
+  "period": "2교시",
+  "category": "네트워크",
+  "source": "102회 2교시",
+  "text": "IMC(In-Memory Computing)의 개념과 IMC에서 In-Memory Data Management에 대하여 설명하시오."
+ },
+ {
+  "id": "k102-301",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "102회 3교시",
+  "text": "공공정보화 부문 사업의 예비 타당성 조사 수행 체계에 대하여 설명하시오"
+ },
+ {
+  "id": "k102-302",
+  "period": "3교시",
+  "category": "네트워크",
+  "source": "102회 3교시",
+  "text": "데이터 마이닝을 위한 신경망(Neural Network) 분석에 대하여 설명하시오."
+ },
+ {
+  "id": "k102-303",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "102회 3교시",
+  "text": "Percentile을 이용하여 Outlier를 찾는 방법을 설명하시오."
+ },
+ {
+  "id": "k102-304",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "102회 3교시",
+  "text": "가상 메모리 동작에 대한 다음의 질문에 대하여 설명하시오.\n 가. 가상 메모리 관리 기법의 기본 동작 원리\n 나. 페이징 기법과 세그먼트 기법\n 다. 구역성(Locality)의 페이징 기법에서 가지는 중요한 의미"
+ },
+ {
+  "id": "k102-305",
+  "period": "3교시",
+  "category": "운영체제",
+  "source": "102회 3교시",
+  "text": "A은행은 기존 운영 사업자인 B사로부터 금번에 새로운 운영 사업자로 선정된 C사에 \"정보시스템 외주 운영\" 업무를 이전하고자 한다.\nA은행은 서비스 이전으로 인한 서비스 중단을 염려하고 있고, 기존 운영 프로세스와 SLA(Service Level Agreement)에 대한 재검토 및 고도화도 고려하고 있다. 귀하가 C사의 PM(Project Manager)이라면 A은행의 효과적인 서비스 이전을 위하여 다음의 질문에 대하여 설명하시오.\n 가. 효과적인 서비스 제공을 위한 최적의 인수 인계 방안\n 나. 운영 프로세스 고도화를 위한 개성 방안\n 다. SLA 고도화를 위한 적용 방안"
+ },
+ {
+  "id": "k102-306",
+  "period": "3교시",
+  "category": "컴퓨터구조",
+  "source": "102회 3교시",
+  "text": "UNIX 시스템의 호출을 이용한 다음 프로그램을 보고 질문에 답하시오.\n(단, 프로그램 수행 권한은 root임)\n단, 위 프로그램을 수행하기 위해서 다음과 같이 UNIX 명령어를 수행한다.\n$ test f1 f2\n(1) 위 프로그램의 동작 과정을 설명하고, 수행 결과에 대하여 설명하시오.\n(2)위 프로그램에서 link 시스템 호출의 장점과 단점에 대하여 설명하시오."
+ },
+ {
+  "id": "k102-401",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "102회 4교시",
+  "text": "Business Intelligence와 Business Analytics를 비교하여 설명하시오."
+ },
+ {
+  "id": "k102-402",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "102회 4교시",
+  "text": "통계적 가설 검정을 p-value로 설명하고, 1종 오류와 2종 오류를 설명하시오."
+ },
+ {
+  "id": "k102-403",
+  "period": "4교시",
+  "category": "보안",
+  "source": "102회 4교시",
+  "text": "최근 카드 3사의 개인 정보 유출로 인해 사회적 파장이 아래와 같이 발생했다\n\n - 개인 측면에서는 스미싱 및 스팸 문자에 노출\n - 기업 측면에서는 카드 재발급 비용 및 집단 소송, 사후 관리로 인한 소요 비용 발생\n - 국가 차원에서는 개인 정보 보호 관련 제도 개선 등 사회적 우려 증가\n\n향우 개인 정보 유출 방지를 위하여 기업 측면에서 강화해야 할 보안 조치 사항을 ISO 27001과 DB보안 관점에서 설명하시오."
+ },
+ {
+  "id": "k102-404",
+  "period": "4교시",
+  "category": "운영체제",
+  "source": "102회 4교시",
+  "text": "다음 프로세스 상태 전이도에 대하여 질문에 답하시오.\n\n\n가. (a),(b),(c ),(d)에 대하여 설명하시오\n나. (b),(c )가 일어나는 이유에 대하여 설명하시오."
+ },
+ {
+  "id": "k102-405",
+  "period": "4교시",
+  "category": "프로젝트관리",
+  "source": "102회 4교시",
+  "text": "새로운 IT 프로젝트를 수행 중에 있다. 각 단계의 일정은 한 달씩 걸리고, 각 단계 마다 10,000천원의 예산이 할당되었다. 각 단계는 해당 단계가 끝난 후에 다음 단계를 수행하도록 되어 있다. 오늘은 3월의 마지막 날이다. 아래의 프로젝트 진척 상황표를 이용하여 Earned Value Analysis 측면에서 다음 질문에 대하여 설명하시오.\n\n가. PV,EV,AC,BAC,CV,CPI,SV,SPI의 계산식과 답을 구하시오.\n나. EAC, ETC, VAC의 계산식과 답을 구하시오.(단, EAC는 향후에도 CPI의 비룔로 지출됨)\n다. 상기 결과를 바탕으로 현재 진행 중인 IT 프로젝트의 상태를 진단하시오."
+ },
+ {
+  "id": "k102-406",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "102회 4교시",
+  "text": "스택을 생성하고 노드를 받아들일 수 있게 준비하는 AS_CreateStack() 함수는 다음과 같이 구현하였다. 다음 함수를 완성하시오.\n 가. 삽입(push)함수(아래  void AS_Push(AS *Stack, ElementType Data))\n 나. 제거(pop) 함수(아래 ElementType AS_Pop(AS *Stack))"
+ },
+ {
+  "id": "k101-101",
+  "period": "1교시",
+  "category": "보안",
+  "source": "101회 1교시",
+  "text": "암호 알고리즘의 보안강도에 대하여 설명하시오."
+ },
+ {
+  "id": "k101-102",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "101회 1교시",
+  "text": "인덱싱(Indexing) 방법을 정적 인덱싱과 동적 인덱싱으로 구분하여 설명하시오."
+ },
+ {
+  "id": "k101-103",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "101회 1교시",
+  "text": "디바이스 리디렉션(Device Redirection)의 개념과 기술동향에 대하여 설명하시오."
+ },
+ {
+  "id": "k101-104",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "101회 1교시",
+  "text": "BWS(Broadcasting Web Site)의 데이터 전송방식의 일종인 MOT(Multimedia Object Transfer) Carousel 프로토콜에 대하여 설명하시오."
+ },
+ {
+  "id": "k101-105",
+  "period": "1교시",
+  "category": "보안",
+  "source": "101회 1교시",
+  "text": "3D 프린팅에 대하여 설명하시오."
+ },
+ {
+  "id": "k101-106",
+  "period": "1교시",
+  "category": "보안",
+  "source": "101회 1교시",
+  "text": "액티브 피싱(Active phishing)에 대하여 설명하시오."
+ },
+ {
+  "id": "k101-107",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "101회 1교시",
+  "text": "오버라이딩(Overriding)과 오버로딩(Overloading)을 예를 들어 설명하시오."
+ },
+ {
+  "id": "k101-108",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "101회 1교시",
+  "text": "렌더링 파이프라인(Rendering pipeline)에 대하여 설명하시오."
+ },
+ {
+  "id": "k101-109",
+  "period": "1교시",
+  "category": "운영체제",
+  "source": "101회 1교시",
+  "text": "하둡분산 파일시스템(Hadoop Distributed File System)의 구조에 대하여 설명하시오."
+ },
+ {
+  "id": "k101-110",
+  "period": "1교시",
+  "category": "보안",
+  "source": "101회 1교시",
+  "text": "Blind SQL Injection에 대하여 설명하시오."
+ },
+ {
+  "id": "k101-111",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "101회 1교시",
+  "text": "BYOD(Bring Your Own Device)의 가상데스크탑 기술에 대하여 설명하시오."
+ },
+ {
+  "id": "k101-112",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "101회 1교시",
+  "text": "인시던트(Incident) 관리와 문제(Problem) 관리에 대하여 설명하시오."
+ },
+ {
+  "id": "k101-113",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "101회 1교시",
+  "text": "UML 스테레오 타입(stereotype)에 대하여 설명하시오."
+ },
+ {
+  "id": "k101-201",
+  "period": "2교시",
+  "category": "네트워크",
+  "source": "101회 2교시",
+  "text": "최근 다양한 형태의 서비스가 가능한 리치 웹 애플리케이션 (Rich Web Application) 기술 및 서비스 플랫폼 기술이 HTML5를 기반으로 개발되고 있다. \n다음의 사항에 대하여 설명하시오. \n1) 기존 HTML과 비교한 HTML5의 개선점 및 특징 \n2) HTML5 기반의 웹 서비스 호환성 향상을 위한 비표준 기술 대체 구현 방안(파일처리 기술, 그래픽/차트 기술, 동영상 및 음악재생 기술 측면) \n3) HTML5의 한계점"
+ },
+ {
+  "id": "k101-202",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "101회 2교시",
+  "text": "로버트 솔로우(Robert Solow)의 IT 생산성 패러독스(Productivity Paradox)에 대하여 설명하고, 소프트웨어 개발 프로젝트에서 IT 생산성 패러독스를 해결할 수 있는 방안을 IT 거버넌스, 시뮬레이션 모델링, 프로토타이핑 모델링을 중심으로 설명하시오."
+ },
+ {
+  "id": "k101-203",
+  "period": "2교시",
+  "category": "보안",
+  "source": "101회 2교시",
+  "text": "스마트폰 포렌식(Smartphone Forensic) 기술에 대하여 다음을 설명하시오. \n1) 스마트폰 포렌식 데이터 \n2) 스마트폰 포렌식 절차 \n3) 스마트폰 데이터를 추출하기 위한 논리적 추출방법과 물리적 추출방법"
+ },
+ {
+  "id": "k101-204",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "101회 2교시",
+  "text": "다음과 같이 구조체 자료형인 _node를 선언하고 이를 이용하여 연결 리스트(linked list)를 만들었다. 다음 소스를 보고 물음에 답하시오. (단 시작함수는 _tmain())\n1) 숫자 10, 5, 8, 3, 1, 7을 삽입하되 작은 수부터 연결 리스트가 유지되도로 함수 ordered_insert(int k)를 작성하시오. (단, k는 삽입하려는 정수)\n2) 연결 리스트를 구성하는 각 node의 변수 data를 모두 출력하는 함수 print_list(node* t)를 작성하시오. (단, t는 node에 대한 시작 포인터이고, 화면에 출력할 함수는 printf()를 사용)\n3) 삭제하려는 숫자를 인수로 받아 그 노드를 삭제하는 함수 delete_node(int k)를 작성하시오. (단, k는 삭제하려는 정수)\n\n====================================\ntypedef struct _node\n{\n      int data;\n      struct _node *next;\n} node;\n\nnode *head, *tail;\n\nvoid init_list(void) \n{\n      head = (node*)malloc(sizeof(node));\n      tail = (node*)malloc(sizeof(node));\n      head->next = tail;\n      tail->next = tail;\n}\n\nnode *ordered_insert(int k) {}\nnode *print_list(node* t) {}\nint delete_node(int k) {} \n\nint _tmain(int argc, _TCHAR* argv[])\n{\n      node *t;\n\n      init_list();\n      ordered_insert(10);\n      ordered_insert(5);\n      ordered_insert(8);   \n      ordered_insert(3);\n      ordered_insert(1);\n      ordered_insert(7);\n\n       printf(\"\\nInitial Linked list is \");\n       print_list(head->next);\n\n      delete_node(8);\n       print_list (head->next);\n\n         return 0;\n}\n===================================="
+ },
+ {
+  "id": "k101-205",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "101회 2교시",
+  "text": "서비스 포트폴리오(Portfolio), 서비스 카탈로그(Catalogue) 및 서비스 파이프라인(Pipeline)에 대하여 각각 설명하고, 각각의 상호 관계에 대하여 설명하시오,."
+ },
+ {
+  "id": "k101-206",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "101회 2교시",
+  "text": "빅데이터 핵심기술을 오픈소스와 클라우드 측면에서 설명하고, 표준화 기구들의 동향을 설명하시오."
+ },
+ {
+  "id": "k101-301",
+  "period": "3교시",
+  "category": "디지털서비스",
+  "source": "101회 3교시",
+  "text": "유비쿼터스 컴퓨팅(Ubiquitous Computing) 및 감성 컴퓨팅(Affective Computing) 기반의 인터넷은 인간의 오감(Five Senses)에 대한 처리가 중요한 의미를 갖게 된다. 이러한 오감 인터넷(Internet of the five senses)은 오감정보를 네트워크를 통해 장소에 제한없이 서비스를 제공하는 것이 주요 서비스이다. 다음의 사항에 대하여 설명하시오. \n1) 오감별 센서 종류와 정보 전송 방법\n2) 멀티모달 인터페이스(MMI, Multi Modal Interface)의 역할 및 종류"
+ },
+ {
+  "id": "k101-302",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "101회 3교시",
+  "text": "패키지 소프트웨어를 적용하여 기업 애플리케이션을 개발할 경우 패키지는 커스터마이징(Customizing) 또는 애드온(Add-On) 되어야 한다. 이 때, 패키지 소프트웨어를 테스트하기 위한 고려사항과 절차에 대하여 설명하시오."
+ },
+ {
+  "id": "k101-303",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "101회 3교시",
+  "text": "교착상태(Deadlock)의 필요조건과 교착상태 회피 방법으로 많이 사용되고 있는 Banker 알고리즘을 설명하시오."
+ },
+ {
+  "id": "k101-304",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "101회 3교시",
+  "text": "B트리와 B+트리와 관련하여 다음을 설명하시오. \n1) B트리와 B+트리의 정의와 차이점\n2) B트리의 삽입 알고리즘\n3) B트리의 삭제 알고리즘 \n4) 26, 57, 5, 33, 72, 45를 순서대로 삽입하고, 72, 33, 45를 순서대로 삭제하는 모든 과정의 B트리를 그리시오. (단, 차수는 3)"
+ },
+ {
+  "id": "k101-305",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "101회 3교시",
+  "text": "은행에서 계좌의 당좌 대월액을 계산하는 프로그램이다. 새로운 계좌 타입이 몇 가지 추가될 예정이고, 이들은 당좌 대월액을 계산하는 각각의 규칙이 필요하여 메소드 overdraftCharge()를 클래스 AccountType으로 옮기려고 한다. 리팩토링 기법 중의 하나인 Move 메소드의 개념과 절차를 설명하고 이를 활용하여 리팩토링한 코드를 작성하시오. \n==============================================\nclass Account\n{\n...중략...\n   double overdraftCharge()\n   {\n      if (_type.isPremium()) //isPremium() 메소드는 AccountType 클래스에 있음 \n      {\n         double result = 10;\n         if (_daysOverdrawn > 7) result += (_daysOverdrawn -7) * 0.85;\n         return result;\n      }\n      else return _daysOverdrawn * 1.75;\n   }\n\n   double bankCharge()\n   {\n     double result = 4.5;\n     if (_daysOverdrawn > 0) result += overdraftCharge();\n     return result;\n    }\n    private AccountType _type;\n    private int _daysOverdrawn;\n}\n=============================================="
+ },
+ {
+  "id": "k101-306",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "101회 3교시",
+  "text": "모바일 앱 개발의 특성과 이슈에 대하여 설명하고, 애자일(Agile)을 활용하여 모바일 개발환경에 적합한 개발방법을 제시하시오."
+ },
+ {
+  "id": "k101-401",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "101회 4교시",
+  "text": "자동차를 생산, 판매하는 A기업은 기존에 산재되어 있는 정보시스템을 통합 및 개선하는 프로젝트를 계획 중에 있다. A기업의 프로젝트 현황이 다음과 같이 주어질 때 아래 항목에 대하여 설명하시오. \n===========================================\n<<A기업 프로젝트 현황>>\nO 기존 정보시스템 : 생산관리, 전자조달, 그룹웨어, 지식관리 \n  (생산관리는 공장에 위치하고, 나머지 시스템은 본사에 위치)\nO 신규 정보시스템 : EIP(Enterprise Information Portal)\nO 사용자 요구사항 \n - 정보시스템 성능, 보안 및 사용자의 편리성이 보장되어야 함 \n - 전자조달은 외부사용자의 경우 공인인증서로 접속가능한 기능 제고 \n - EIP는 기업 임직원이 기업 내부 및 외부에서 사용 가능하도록 처리 \n - 그룹웨어, 지식관리는 EIP로 통합되어야 하고, 통합검색 기능을 제공 \n - 기존시스템에서 수행되는 결재는 EIP에서 진행 가능하도록 처리 \n===========================================\n1) 아래 조건에 따른 소프트웨어 구성도 및 주요 고려사항에 대해 기술하시오. \nO 사용자 요구사항 만족을 위해 필요하다고 판단되는 주요 소프트웨어, 패키지 또는 솔루션도 포함하는 소프트웨어 구성도를 제시 \nO 소프트웨어, 패키지 또는 솔루션은 사각형 형태로 표시 \nO 탑재되는 물리적인 서버가 다를 경우 다른 위치에 표시\nO 서버 간의 네트워크 연결은 실선 (-)으로 표시 \n2) 기존시스템과 EIP간 연계 항목을 2가지 이상 제시하고, 연계정의서를 작성하시오."
+ },
+ {
+  "id": "k101-402",
+  "period": "4교시",
+  "category": "운영체제",
+  "source": "101회 4교시",
+  "text": "웹 응용서비스 환경으로 구성되는 웹 플랫폼은 최근 다양한 서비스와 데이터를 연동하고 서비스할 수 있는 응용 플랫폼의 형태로 발전해 왔다. 웹 플랫폼의 기술 중 W3C의 웹 API 종류, 웹 운영체제(Web Operating System)의 개념과 종류에 대해 설명하시오."
+ },
+ {
+  "id": "k101-403",
+  "period": "4교시",
+  "category": "경영전략",
+  "source": "101회 4교시",
+  "text": "버전관리 시스템의 필요성과 유형을 설명하고, 버전관리를 위해 많이 사용되고 있는 CVS, SVN, Git에 대하여 설명하시오."
+ },
+ {
+  "id": "k101-404",
+  "period": "4교시",
+  "category": "디지털서비스",
+  "source": "101회 4교시",
+  "text": "한번 개발된 소스를 서로 다른 모바일 플랫폼에 동작시키기 위한 OSMU(One Source Multi Use)에 대하여 섦명하시오."
+ },
+ {
+  "id": "k101-405",
+  "period": "4교시",
+  "category": "데이터베이스",
+  "source": "101회 4교시",
+  "text": "데이터마이닝에서 프로토타입 기반의 군집기법인 k-means 알고리즘을 설명하시오."
+ },
+ {
+  "id": "k101-406",
+  "period": "4교시",
+  "category": "디지털서비스",
+  "source": "101회 4교시",
+  "text": "클라우드 컴퓨팅 서비스인 XaaS별 SLA(Service Level Agreement) 요구사항, 서비스 카탈로그(Catalogue) 및 품질지표를 제시하시오."
+ },
+ {
+  "id": "k99-101",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "99회 1교시",
+  "text": "이진 탐색 트리(Binary search tree)의 데이터 삽입 과정에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-102",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "99회 1교시",
+  "text": "가상기억장치(Virtual Memory System)관리기법 중 페이징(Paging)주소 변환에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-103",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "99회 1교시",
+  "text": "안드로이드 시스템에서 JDK(Java Development Kits)를 사용하는 경우와 NDK(Native Development Kits)를 사용하는 경우의 장단점에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-104",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "99회 1교시",
+  "text": "NFC(Near Field Communication)의 개념과 모드별 응용 영역에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-105",
+  "period": "1교시",
+  "category": "경영전략",
+  "source": "99회 1교시",
+  "text": "사물인터넷(Internet of Things)의 특성과 기본 구성 요소에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-106",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "99회 1교시",
+  "text": "데이터 과학자(Data scientist)에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-107",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "99회 1교시",
+  "text": "VoLTE(Voice over Long Term Evolution)에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-108",
+  "period": "1교시",
+  "category": "경영전략",
+  "source": "99회 1교시",
+  "text": "데이터 마이닝(Data mining)의 기법 5가지에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-109",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "99회 1교시",
+  "text": "계수형 세마포어(Countin semaphore)에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-110",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "99회 1교시",
+  "text": "ARP 스푸핑(Addredd Resolution Protocol spoofing)의 개념과 대처방안에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-111",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "99회 1교시",
+  "text": "폭포수형 개발모델(Waterfall development model)과 애자일 개발모델(Agile development model)의 \n     차이를 테스팅 프로세스(Testing process)의 관점에서 비교하여 설명하시오."
+ },
+ {
+  "id": "k99-112",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "99회 1교시",
+  "text": "자바 바이트코드(Java bytecode)에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-113",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "99회 1교시",
+  "text": "좀비 쿠키(Zombie cookie)에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-201",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "99회 2교시",
+  "text": "디스크 스케줄링 알고리즘의 동작 과정을 스캔(SCAN), 룩(LOOK) 알고리즘 중심으로 설명하고, 다음에 주어진 '디스크 대기 큐' 내의 순서를 활용하여 스캔 알고리즘의 디스크 헤드 움직임을 설명하시오. (단, 현재 헤드의 위치는 트랙 50에 있으며 트랙 0번 방향으로 이동 중이다.) \n디스크 대기 큐 : (트랙 번호) 85,179,31,128,10,121,55,66"
+ },
+ {
+  "id": "k99-202",
+  "period": "2교시",
+  "category": "운영체제",
+  "source": "99회 2교시",
+  "text": "운영체제의 디스크 공간 할당 방법과 유닉스(UNIX)의 수퍼 블록(Super block)이 관리하는 자료들에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-203",
+  "period": "2교시",
+  "category": "보안",
+  "source": "99회 2교시",
+  "text": "최근 범죄의 증거 수집 및 분석에 디지털 포렌식이 핵심기술로 활용되고 있다. 디지털 포렌식에 사용되는 주요 기술과 해킹사고 분석 시 활용되는 네트워크 포렌식에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-204",
+  "period": "2교시",
+  "category": "보안",
+  "source": "99회 2교시",
+  "text": "개인정보처리자가 개인정보보호법에 따라 고유식별정보를 컴퓨터에 저장하려는 경우의 개인정보 위험도 분석 절차와 점검항목에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-205",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "99회 2교시",
+  "text": "스프링 프레임워크(Spring Framework)의 개념과 구성 모듈(Module)에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-206",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "99회 2교시",
+  "text": "'RAID 0 (RAID : Redundant Array of Independent Disks)'의 활용 분야와 장애율 (Failure rate), 성능(Performance)에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-301",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "99회 3교시",
+  "text": "아래에 주어진 프로그램이 수행하는 기능에 대하여 설명하시오. 또한 , 버퍼 크기(BUFSIZE)가 성능(Performance)에 미치는 영향에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-302",
+  "period": "3교시",
+  "category": "운영체제",
+  "source": "99회 3교시",
+  "text": "서버 가상화(Server virtualization) 기술의 개요와 사용 상의 장단점에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-303",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "99회 3교시",
+  "text": "정보자원의 효율적 이용과 비용 절감을 위해 VDI(Virtual Desktop Infrastructure)도입을 검토하는 기업이 늘고 있다. 이 기술 도입시 고려사항과 위험요소에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-304",
+  "period": "3교시",
+  "category": "디지털서비스",
+  "source": "99회 3교시",
+  "text": "최근 이슈가 되고 있는 BYOD(Bring Your Own Device)의 보안 이슈에 대처하는 방안으로 모바일 가상화가 부각되고 있다. 모바일 가상화의 유형과 보안위협, 해결방안에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-305",
+  "period": "3교시",
+  "category": "경영전략",
+  "source": "99회 3교시",
+  "text": "최근 급격한 기술변화로 신기술의 수명이 짧아지면서 기술 수명주기(Technology life cycle) 관리가 더욱 중요해졌다. 기술 수명주기를 4단계로 구분할 때, 수명주기 각 단계에서 선택할 수 있는 라이센싱(Licensing) 전략에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-306",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "99회 3교시",
+  "text": "아파치 하둡(Apache Hadoop)의 구조와 작동 개요를 맵리듀스 엔진(MapReduce engine)중심으로 설명하시오."
+ },
+ {
+  "id": "k99-401",
+  "period": "4교시",
+  "category": "디지털서비스",
+  "source": "99회 4교시",
+  "text": "클라우드 컴퓨팅(Cloud computing)의 개념과 제공 서비스의 종류에 대하여 설명하시오."
+ },
+ {
+  "id": "k99-402",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "99회 4교시",
+  "text": "퀵 정렬(Quick sort)알고리즘을 설명하고, 다음 데이터를 퀵 정렬 알고리즘을 사용해서 정렬하는 과정을 설명하시오. 30,15,16,24,38,33,17,29,32"
+ },
+ {
+  "id": "k99-403",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "99회 4교시",
+  "text": "소프트웨어 산업 생태계 조성을 위해 필요한 소프트웨어 엔지니어 육성 방안과 정보기술 융합 정책에 대하여 기술하시오."
+ },
+ {
+  "id": "k99-404",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "99회 4교시",
+  "text": "기업에서 폐쇄형 SNS(Social Network Service)의 인프라 구축시 자체 서버를 활용하는 경우와 외부 클라우드 서비스를 이용하는 경우의 장.단점에 대하여 비교 설명하시오."
+ },
+ {
+  "id": "k99-405",
+  "period": "4교시",
+  "category": "경영전략",
+  "source": "99회 4교시",
+  "text": "A회사는 고품질, 높은 가격의 특수한 주방기구를 카탈로그나 점포를 통해 판매하고 있다. 이 회사는 점포 수가 많지 않고 온라인 비즈니스는 취약하지만 전화를 이용한 고객 서비스가 매우 뛰어나서 좋은 성과를 올리고 있다. 이러한 상황에서 주방기구 분야에도 인터넷 쇼핑이 활성화되고 인터넷 기술로 무장한 경쟁기업들이 대대적으로 생겨나기 시작했다. 한편, 인터넷 상에서의 개인정보 유출, 아이디 도용 등이 새로운 사회적 이슈로 떠오르고 있다. A기업이 취할 수 있는 전략을 SWOT분석을 이용해서 제시하시오."
+ },
+ {
+  "id": "k99-406",
+  "period": "4교시",
+  "category": "운영체제",
+  "source": "99회 4교시",
+  "text": "통계적 프로세스 통계(Statistical process control)의 원리, 절차 및 도구에 대하여 설명하시오."
+ },
+ {
+  "id": "k98-101",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "98회 1교시",
+  "text": "SSPL(System & Software Product Line)에 대해 설명하시오."
+ },
+ {
+  "id": "k98-102",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "98회 1교시",
+  "text": "Digital Signage의 정의 및 주요기술에 대해 설명하시오."
+ },
+ {
+  "id": "k98-103",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "98회 1교시",
+  "text": "Phantom Conflict에 대해 설명하시오."
+ },
+ {
+  "id": "k98-104",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "98회 1교시",
+  "text": "FiFO Anomaly 및 SCR(Second Change Replacement) 에 대해 설명하시오."
+ },
+ {
+  "id": "k98-105",
+  "period": "1교시",
+  "category": "보안",
+  "source": "98회 1교시",
+  "text": "암호화 알고리즘을 정보단위, 키(Key) 적용 방식, 암호화 기술에 따라 분류하여 설명하시오."
+ },
+ {
+  "id": "k98-106",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "98회 1교시",
+  "text": "Folksonomy에 대해 설명 하시오."
+ },
+ {
+  "id": "k98-107",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "98회 1교시",
+  "text": "소프트웨어 테스트 원리 중 살충제 패러독스(Pesticide Paradox)와 오류 부재의 궤변(Absence-errors fallacy)에 대해 설명하시오."
+ },
+ {
+  "id": "k98-108",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "98회 1교시",
+  "text": "ARC(Augmented Reality Continuum)에 대해 설명하시오."
+ },
+ {
+  "id": "k98-109",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "98회 1교시",
+  "text": "M2M(Machine to Machine Communication)에 대해 설명하시오."
+ },
+ {
+  "id": "k98-110",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "98회 1교시",
+  "text": "망 중립성(Net Neutrality)에 대한 논쟁이 대두되고 있다. 이를 다각적인 입장에서 설명하시오."
+ },
+ {
+  "id": "k98-111",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "98회 1교시",
+  "text": "소프트웨어 개발 방법론 Agile Methodology의 정의, 특성, 장단점을 설명하시오."
+ },
+ {
+  "id": "k98-112",
+  "period": "1교시",
+  "category": "경영전략",
+  "source": "98회 1교시",
+  "text": "일반적인 데이터마이닝(Data Mining)의 수행단계를 설명하시오."
+ },
+ {
+  "id": "k98-113",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "98회 1교시",
+  "text": "지식정보시스템 개발을 위하여 지식표현 방법들의 장단점을 비교하여 설명하시오."
+ },
+ {
+  "id": "k98-201",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "98회 2교시",
+  "text": "우리나라의 소프트웨어 산업은 세계 소프트웨어 시장의 1% 미만으로 낮은 수준이지만 국내 시장에서의 성공을 바탕으로 글로벌 시장으로 그 영역을 넓혀 나가는 소프트웨어들이 생겨나고 있다. 이러한 소프트웨어 제품들이 다양한 글로벌 환경과 요구사항에 대응할 수 있도록 개발하고, 세계적 수준의 품질을 확보하기 위한 소프트웨어 글로벌화와 관련하여 다음에 대해 설명하시오.\n\n가. 글로벌 소프트웨어 개발 주기\n나. 글로벌화 테스팅을 위한 테스트 유형과 절차\n다. 소프트웨어 제품의 글로벌화를 위해 목표지역마다 별도 제품을 출시할 경우의 문제점과 해결 방안"
+ },
+ {
+  "id": "k98-202",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "source": "98회 2교시",
+  "text": "클라우드 컴퓨팅의 6대 핵심기술과 적용사례에 대해 설명하시오."
+ },
+ {
+  "id": "k98-203",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "98회 2교시",
+  "text": "데이터베이스의 Inedx 접근 방법에서 가장 중요한 문제는 인덱스 엔트리 자체를 어떻게 조직하느냐 하는 것이다. 다음에 대해 설명하시오.\n\n가. B 트리\n나. B+ 트리"
+ },
+ {
+  "id": "k98-204",
+  "period": "2교시",
+  "category": "보안",
+  "source": "98회 2교시",
+  "text": "최근의 사이버 공격은 보안장비를 우회하거나 Zero Day 공격 등 소프트웨어 자체의 보안 취약점을 악용하는 공격의 증가에 따라 서비스의 보안 취약접을 지속적 진단 및 제거하기 위한 노력은 필수적이다. 이를 위해 정부에서 소프트웨어 개발 보안 가이드를 발표하였으며, 2012년 하반기부터 단계적으로 의무 적용될 예정에 있다. 소프트웨어 개발 보안 가이드와 관련하여 다음에 대해 설명하시오.\n\n가. 소프트웨어 보안 취약점 유형에 따른 공격 기법 및 보안대책\n나. 소프트웨어 개발 보안 가이드의 활성화 방안\n다. 다음의 C 또는 JAVA 언어로 작성된 코드에 대해 안전하지 않은 이유를 설명하고, 안전한 코드로 변경하시오."
+ },
+ {
+  "id": "k98-205",
+  "period": "2교시",
+  "category": "신기술",
+  "source": "98회 2교시",
+  "text": "기업정보시스템의 분석 정보는 추세, 매출액, 제품 통계, 미래 성장률 등이다. 분석 정보 처리를 위한 왓-이프 분석(What-If Analysis), 민감도 분석(Sensitivity Analysis), 목표 탐색 분석(Goal-Seeking Analysis), 최적화 분석(Optimization Analysis)에 대해 설명하시오."
+ },
+ {
+  "id": "k98-206",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "source": "98회 2교시",
+  "text": "지능형 에이전트(Agent) 프로그램의 설계 방법에 따른 아래 4가지 형태의 에이전트에 대해 설명하시오.\n\n가. Simple Reflex Agent\n나. Agent that keep track of the world\n다. Goal-based Agent\n라. Utility-based Agent"
+ },
+ {
+  "id": "k98-301",
+  "period": "3교시",
+  "category": "경영전략",
+  "source": "98회 3교시",
+  "text": "기업에서 오픈 소스 소프트웨어(OSS, Open Source Software)를 활용하여 비즈니스를 수행할 때 고려해야 할 요소가 다수 있다. 다음에 대해 설명하시오.\n\n가. OSS 라이선스 별 특징 비교\n나. 기업에서 OSS 관련 거버넌스의 구축 전략"
+ },
+ {
+  "id": "k98-302",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "98회 3교시",
+  "text": "데이터의 폭증으로 대표되는  Big Data가 최근 다양한 분야에 활용되고, Big Data 처리 및 분석능력이 기업의 경쟁력으로 인식되고 있다. 다음에 대해 설명하시오.\n\n가. Big Data 3대 요소(3V)\n나. Big Data 분석 기법\n다. Big Data 활용 분야"
+ },
+ {
+  "id": "k98-303",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "98회 3교시",
+  "text": "최근 SNS(Social Network Service), 멀티미디어 및 Big Data의 급격한 증가는 정보시스템의 안정성 유지를 위해 디스크의 효율적 관리의 중요성이 부각되었다. 다음에 대해 설명하시오.\n\n가. 디스크 스케줄링의 일반적인 목표\n나. 이동디스크와 고정디스크의 자료접근시간\n다. 이동디스크와 고정디스크에 적합한 디스크 스케줄링 알고리즘 유형 및 특성"
+ },
+ {
+  "id": "k98-304",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "98회 3교시",
+  "text": "최근 정부에서는 공공기관의 전문성을 보완하고, 중소 소프트웨어 기업의 성공적인 사업 추진 및 품질확보를 위해 PMO(Project Management Officier) 제도를 추진하고 있다.\n공공 정보화 사업에서의 PMO 제도 적용과 관련하여 다음에 대해 설명하시오.\n\n가. 프로젝트 단계별 PMO 도입시기에 따른 장,단점\n나. CBD 방법론을 활용한 정보화 사업에서 프로젝트 단계별 PMO 역할\n다. PMO의 도입효과 및 기술사적 입장에서 PMO제도의 성공적인 도입 방안"
+ },
+ {
+  "id": "k98-305",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "98회 3교시",
+  "text": "정보 기술 모니터링(Information Technology monitoring)은 키 입력수, 실수율, 거래처리 건수 같은 수단을 이용해서 사람들의 행동을 추적하는 것이다. 일반적인 모니터링기술(예, Key Logger Software, Spyware 등)을 설명하시오."
+ },
+ {
+  "id": "k98-306",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "98회 3교시",
+  "text": "영상정보 응용시스템의 개발 시 필요한 Culling 기법의 정의 및 다음 3가지 종류에 대해 설명하시오.\n\n가. Back Face Culling\n나. View Frustum Culling\n다. Hidden Surface Culling"
+ },
+ {
+  "id": "k98-401",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "98회 4교시",
+  "text": "인공지능 응용 정보시스템이나 게임 개발 시 길 찾기에 이용되는 Djkstra 알고리즘과 A* 알고리즘을 비교 설명하시오."
+ },
+ {
+  "id": "k98-402",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "98회 4교시",
+  "text": "고객관계관리(CRM : Customer Relationship Management)의 진화 단계인 CRM 보고 기술(Reporting Technique), CRM 분석 기술(Analysis Technique), CRM 예측 기술(Predicting Technique)에 대해 고객을 중심으로 예를 들어 설명하시오."
+ },
+ {
+  "id": "k98-403",
+  "period": "4교시",
+  "category": "디지털서비스",
+  "source": "98회 4교시",
+  "text": "HTML5는 현재 사용되고 있는 W3C(World Wide Web Consortium) 마크업 언어 표준인 HTML4를 대폭 개선한 마크업 언어로서, 단순 텍스트와 하이퍼링크만 표시하던 HTML이 복잡한 어플리케이션까지 제공할 수 있는 플랫폼으로 발전하였다.\n다음에 대해 설명하시오.\n\n가. HTML5 주요 특징 및 기능\n나. HTML5 등장이 웹 환경에 미치는 영향\n다. HTML5 활용 사례"
+ },
+ {
+  "id": "k98-404",
+  "period": "4교시",
+  "category": "보안",
+  "source": "98회 4교시",
+  "text": "악성코드 탐지 기법을 개발하기 위해서는 탐지하고자 하는 악성코드의 종류 및 특징을 분석해야 한다. 다음에 대해 설명하시오.\n\n가. 악성코드의 종류\n나. 악성코드 분석 방법"
+ },
+ {
+  "id": "k98-405",
+  "period": "4교시",
+  "category": "데이터베이스",
+  "source": "98회 4교시",
+  "text": "정부, 공공기관 및 기업의 데이터는 소중하게 보관되어야 할 중요한 자산이다. 데이터 관리를 통해 다양한 통계를 추출하고, 미래 예측을 위한 중요한 의사결정을 할 수 있다.\n이를 위한 체계적이과 효과적인 데이터 이력관리(Data History Management)가 요구된다. 다음에 대해 설명하시오.\n\n가. 이력 데이터(History Data) 종류\n나. 데이터 이력관리(Data History Management)의 유형 및 특성"
+ },
+ {
+  "id": "k98-406",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "98회 4교시",
+  "text": "OSI 7 Layer와 TCP/IP의 다음에 대해 설명하시오.\n\n가. OSI 7 Laye 계층\n나. OSI 7 Laye와 TCP/IP 비교\n다. TCP/IP에서 활용되고 있는 Subnetting과 Supernetting"
+ },
+ {
+  "id": "k96-101",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "96회 1교시",
+  "text": "그래프를 이용하여 최적 경로를 찾는 데 이용되는 최소 신장 트리(Minimal spanning tree) 알고리즘에 대하여 설명하시오"
+ },
+ {
+  "id": "k96-102",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "96회 1교시",
+  "text": "클라우딩 컴퓨팅 환경에서 데이터 정보 보호에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-103",
+  "period": "1교시",
+  "category": "운영체제",
+  "source": "96회 1교시",
+  "text": "UNIX 커널 내에서 파일을 관리하기 위한 자료 구조로 inode를 사용한다. Inode 내에서 데이터 블록을 관리하는 방법에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-104",
+  "period": "1교시",
+  "category": "컴퓨터구조",
+  "source": "96회 1교시",
+  "text": "우선순위(Priority) 기반 CPU 스케쥴링 알고리즘에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-105",
+  "period": "1교시",
+  "category": "보안",
+  "source": "96회 1교시",
+  "text": "PIMS(Personal Information Management System)에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-106",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "96회 1교시",
+  "text": "DB 이상현상(Anomaly)에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-107",
+  "period": "1교시",
+  "category": "보안",
+  "source": "96회 1교시",
+  "text": "OWASP Top 10(Open Web Application Security Project Top 10)에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-108",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "96회 1교시",
+  "text": "하이브리드(Hybrid) MMDBMS에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-109",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "96회 1교시",
+  "text": "복잡한 현상의 분석에 사용하는 대리인 기반 모델(ABM:Agnet-Based Model)에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-110",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "96회 1교시",
+  "text": "시맨틱 웹(Semantic Web)의 필요성과 특징에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-111",
+  "period": "1교시",
+  "category": "경영전략",
+  "source": "96회 1교시",
+  "text": "프로세스 마이닝(Process mining)에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-112",
+  "period": "1교시",
+  "category": "경영전략",
+  "source": "96회 1교시",
+  "text": "시스템 다이내믹스(System Dynamics)에서 활용되는 인과 루프 프로그램(Gausal loop diagram)을 사용하는 신제품이 입소문(word of mouth)에 의해 매출이 증가되는 현상을 설명하시오."
+ },
+ {
+  "id": "k96-113",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "96회 1교시",
+  "text": "테스트 중심 개발(Test-driven development)의 사이틀(cycle)에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-201",
+  "period": "2교시",
+  "category": "보안",
+  "source": "96회 2교시",
+  "text": "스마트 폰의 보안 취약점에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-202",
+  "period": "2교시",
+  "category": "신기술",
+  "source": "96회 2교시",
+  "text": "Java 프로그램을 작성하고 실행시키는 일련의 과정을 JVM(Java Virtual Machine) 중심으로 설명하시오."
+ },
+ {
+  "id": "k96-203",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "96회 2교시",
+  "text": "빅데이터(Big Data) 분석과 기존 경영정보 분석과의 차이점에 대하여 설명하고, 빅데이터 분석의 활용효과에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-204",
+  "period": "2교시",
+  "category": "네트워크",
+  "source": "96회 2교시",
+  "text": "컴퓨터 포렌식(Computer forensics)의 원칙, 유형 및 관련기술에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-205",
+  "period": "2교시",
+  "category": "경영전략",
+  "source": "96회 2교시",
+  "text": "구글과 애플의 비즈니스 생태계 전략을 다면 플랫폼(Multi-sided Platform)차원에서 설명하시오."
+ },
+ {
+  "id": "k96-206",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "source": "96회 2교시",
+  "text": "HTML5에서 사용되는 웹스토리지(Web Storage)를 HTTP 쿠키(cookie)와 비교하여 차이점 중심으로 설명하시오."
+ },
+ {
+  "id": "k96-301",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "96회 3교시",
+  "text": "안드로이드 시스템 구조에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-302",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "96회 3교시",
+  "text": "다음 UNIX 시스템 호출을 이용하는 프로그래(UNIX System V 기준)을 보고 물음에 답하시오.\n\n가) 위 프로그램의 동작 과정을 fork, execl 시스템 호출 중심으로 설명하시오.\n나) 위 프로그램의 동작 과정과 동일한 결과를 얻기 위한 UNIX 명령어를 작성하시오."
+ },
+ {
+  "id": "k96-303",
+  "period": "3교시",
+  "category": "데이터베이스",
+  "source": "96회 3교시",
+  "text": "개인정보 유출을 방지하기 위한 데이터베이스 접근제어 모델 3가지에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-304",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "96회 3교시",
+  "text": "APT(Advanced Persistent Threat) 공격기법과 대응방법에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-305",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "96회 3교시",
+  "text": "워크플로우 패턴(Workflow pattern)을 기본적 제어 패턴(Basic control pattern)중심으로 설명하시오."
+ },
+ {
+  "id": "k96-306",
+  "period": "3교시",
+  "category": "네트워크",
+  "source": "96회 3교시",
+  "text": "소셜 네트워크 분석(Social network analysis)의 개념과 방법에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-401",
+  "period": "4교시",
+  "category": "디지털서비스",
+  "source": "96회 4교시",
+  "text": "자동차용 전장장치(ECU : Electronic Control Unit) 플랫폼인 AUTOSAR(AUTomotive Open System Architecture) 소프트웨어의 구조에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-402",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "96회 4교시",
+  "text": "2-D(Dimensional) 바코드 시스템에서 데이터를 읽는 과정에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-403",
+  "period": "4교시",
+  "category": "경영전략",
+  "source": "96회 4교시",
+  "text": "데이터 마이닝(Data mining)의 과정, 기법 및 활용사례애 대하여 설명하시오."
+ },
+ {
+  "id": "k96-404",
+  "period": "4교시",
+  "category": "보안",
+  "source": "96회 4교시",
+  "text": "효과적인 개인정보보호를 위한 DB 암호화 구축전략, 절차 및 데이터베이스 암호화 기술에 대하여 설명하시오."
+ },
+ {
+  "id": "k96-405",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "96회 4교시",
+  "text": "소프트웨어 테스팅의 주요 이슈들을 제시하고, 이 중 비기능적 테스팅(Non-functional testing)과 \n동적 테스팅(Dynamic testing)을 구체적으로 설명하시오."
+ },
+ {
+  "id": "k96-406",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "96회 4교시",
+  "text": "P2P(Peer-to-peer) 알고리즘의 개념과 시스템 구조를 설명하고, 이 알고리즘이 CDN(Content Delivery Network)에서 어떻게 이용되는지 설명하시오."
+ },
+ {
+  "id": "k95-101",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "95회 1교시",
+  "text": "표준특허의 정의 및 특징을 설명하시오."
+ },
+ {
+  "id": "k95-102",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "95회 1교시",
+  "text": "ISO/IEC 14598을 설명하시오."
+ },
+ {
+  "id": "k95-103",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "95회 1교시",
+  "text": "트리즈(TRIZ)를 설명하시오."
+ },
+ {
+  "id": "k95-104",
+  "period": "1교시",
+  "category": "보안",
+  "source": "95회 1교시",
+  "text": "데이터 카빙(Data Carving) 기법에 대하여 설명하시오."
+ },
+ {
+  "id": "k95-105",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "95회 1교시",
+  "text": "Active FTP와 Passive FTP를 비교 설명하시오."
+ },
+ {
+  "id": "k95-106",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "95회 1교시",
+  "text": "데이터베이스 인덱스 구조의 종류를 나열하시고 설명하시오."
+ },
+ {
+  "id": "k95-107",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "95회 1교시",
+  "text": "CPS(Cyber Physical System)의 태동배경 및 주요기술에 대하여 설명하시오."
+ },
+ {
+  "id": "k95-108",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "95회 1교시",
+  "text": "사물지능통신(M2M)의 개념, 관련기술 및 응용 서비스에 대하여 설명하시오."
+ },
+ {
+  "id": "k95-109",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "95회 1교시",
+  "text": "OVF(Open Virtualization Format) 표준의 개념 및 구성 내용에 대하여 설명하시오."
+ },
+ {
+  "id": "k95-110",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "95회 1교시",
+  "text": "VPLS(Virtual Private LAN Service)에 대하여 설명하시오."
+ },
+ {
+  "id": "k95-111",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "95회 1교시",
+  "text": "COS(Chip Operating System)의 특성 및 사실상 표준(Defacto Standard)에 대하여 설명하시오."
+ },
+ {
+  "id": "k95-112",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "95회 1교시",
+  "text": "Binary XML에 대하여 설명하시오."
+ },
+ {
+  "id": "k95-113",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "95회 1교시",
+  "text": "소프트웨어 역공학(Reverse Engineering)과 코드 난독화(Code Obfuscation)의 관계에 대하여 설명하시오."
+ },
+ {
+  "id": "k95-201",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "95회 2교시",
+  "text": "데이터베이스 정규화과정의 무손실 조인(Lossless Join)분해에 대하여 예를 들고 설명하시오."
+ },
+ {
+  "id": "k95-202",
+  "period": "2교시",
+  "category": "네트워크",
+  "source": "95회 2교시",
+  "text": "정보보호시스템 평가기준에 대하여 다음 질문에 답하시오.\n(1) ITSEC(Information Technology Security Evaluation Criteria), TCSEC(Trusted Computer System Evalation Criteria), CC(Common Criteria) 등 평가기준의 목적, 인증기준 및 특징에 대하여 비교 설명하시오.\n(2) 위 평가기준 중 국내에서 주로 활용하는 기준을 선택하고, 인증체계 및 현황에 대하여 설명하시오."
+ },
+ {
+  "id": "k95-203",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "95회 2교시",
+  "text": "시스템의 대형화·복잡화 대국민서비스의 증가 및 모바일화 등으로 인해 안정적인 정보서비스 지원이 기업의 성장과 생존에 중요한 요소가 되었다. 시스템의 빈번한 유지보수와 데이터의 증가 등에 따라 성능저하가 발생하여 성능테스트를 통한 성능 개선 및 서비스 안정화를 하려고 한다. 다음 질문에 답하시오.\n(1) 성능테스트에 관련된 다음 용어를 설명하시오.\n- Named User, Concurrent User, Response Time, Think Time\n(2) 다음의 성능테스트 유형에 대하여 설명하시오.\n- Loop Back Test, Tier Test, Spike Test\n(3) 성능테스트 시에 고려할 사항에 대하여 설명하시오."
+ },
+ {
+  "id": "k95-204",
+  "period": "2교시",
+  "category": "경영전략",
+  "source": "95회 2교시",
+  "text": "다음의 A보험의 정보시스템 현황이다.\n<<A보험 정보시스템 현황>> \n가. 계정계 DB로부터 ETT(Extraction, Transformation, Transportation)를 활용하여 정보계 DB를 구축 및 운영\n나. 정보계 DB를 활용하여 BI(Business Intelligence)를 구성하고 의사결정 지원 보고서 작성 및 제출\n다. 관리자, 분석가 등 10명의 고급 사용자(Power User)가 SQL 도구를 활용하여 별도의 분석을 수행\n라. IT 조직은 IT기획팀, 준법감사팀, ITO(IT Outsourcing)팀, 총무팀 등으로 구성\n마. 일반사용자는 회사내 또는 원격지에서 업무시스템을 사용하거나 Excel로 자료 다운로드 가능\n바. 고객의 정보로 주민등록번호, 계좌번호, 계약정보, 전화번호, 주소 등을 보유\n \n주어진 A보험의 정보시스템 현황에 따라 다음 질문에 답하시오.\n(1) 정보시스템 현황에 따른 취약점 분석을 수행하시오.\n(2) 고객정보보호, 원칙 및 전략을 수립하여 제시하시오.\n(3) 관리적, 물리적, 기술적 측면에서 고객정보보호 방안을 제시하시오."
+ },
+ {
+  "id": "k95-205",
+  "period": "2교시",
+  "category": "신기술",
+  "source": "95회 2교시",
+  "text": "N스크린 기술에 대하여 다음 질문에 답하시오.\n(1) N스크린 서비스의 개념 및 제공 서비스에 대하여 설명하시오.\n(2) N스크린 관련 개발 기술의 종류 및 내용에 대하여 설명하시오.\n(3) N스크린 시장 관련 사용자 및 정책 관점의 이슈에 대하여 설명하시오."
+ },
+ {
+  "id": "k95-206",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "95회 2교시",
+  "text": "다음은 C언어로 작성된 버블정렬(Bubble Sort) 알고리즘 프로그램의 일부이다. 프로그램을 완성하시오.\n #include <stdion.h>\nint main()\n{\nint data[5] = {2, 5, 1, 4, 3};\nbubble(data, 5);\nfor(int i=0; i<5; i++) {\nprint(\"%d \", data[i]);\n}\nreturn 0;\n}"
+ },
+ {
+  "id": "k95-301",
+  "period": "3교시",
+  "category": "보안",
+  "source": "95회 3교시",
+  "text": "안전한 소프트웨어 개발을 위한 취약점 시험방법인 \"블랙박스(Black Box) 보안시험\" 기법에 대하여 설명하시오."
+ },
+ {
+  "id": "k95-302",
+  "period": "3교시",
+  "category": "데이터베이스",
+  "source": "95회 3교시",
+  "text": "DBMS의 성능 개선 방법론에 대하여 다음 질문에 답하시오.\n(1) 성능 개선 목표의 유형을 나열하고 설명하시오.\n(2) 성능 개선 절차를 제시하고, 설명하시오.\n(3) 시스템 성능 문제의 종류를 나열하고, 성능 개선 접근 방법을 설명하시오."
+ },
+ {
+  "id": "k95-303",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "95회 3교시",
+  "text": "소프트웨어 개발 및 운영 프로젝트에서 소프트웨어 형상관리(Software Configuration Management)에 대하여 다음 질문에 답하시오.\n(1) 프로젝트 단계별 기준선(Baseline)과 FTR(Formal Technical Review)을 설명하시오.\n(2) 개발 프로젝트와 운영 프로젝트의 형상관리를 비교하여 설명하시오."
+ },
+ {
+  "id": "k95-304",
+  "period": "3교시",
+  "category": "네트워크",
+  "source": "95회 3교시",
+  "text": "Web 2.0에서 RIA(Rich Internet Application)를 구현하기 위한 AJAX(Asynchronous Javascript And XML) 기술에 대하여 다음 질문에 답하시오.\n(1) AJAX에 대하여 동작 원리와 취약점을 설명하시오.\n(2) 공격 시나리오와 대응 방안에 대하여 설명하시오."
+ },
+ {
+  "id": "k95-305",
+  "period": "3교시",
+  "category": "인공지능",
+  "source": "95회 3교시",
+  "text": "A전자는 세계 전역에 생산기지 및 판매망을 확보하고 있는 그로벌 기업으로서 글로벌 재정위기, 지구 환경 변화 등 세계의 급변하는 경영환경에 대한 민첩성을 향상하고 미래 지향적인 정보시스템을 구축하기 위하여 정보화 전략계획(ISP)을 수립하고자 한다.\nA전자의 아래 현황에 따라 다음 질문에 답하시오.\n(단, 구체적인 기업 환경 및 정보시스템의 현황은 가정하여 작성)\n<<A전자 정보시스템 현황>>\n가. A전자의 정보화 비전\n    글로벌 환경 변화에 신속한 대응 확보 가능한 스마트 정보시스템 구축\n나. 보유시스템\n    포탈시스템, ERP, CRM, 영업관리시스템, 생산자동화시스템\n\n(1) ISP 수립 절차에 대하여 설명하시오.\n(2) 5-Force, 7S, SWOT 분석을 활용하여 환경분석 결과를 제시하시오.\n(3) A전자의 정보화 비전에 따른 TO-BE 모델을 도출하시오."
+ },
+ {
+  "id": "k95-306",
+  "period": "3교시",
+  "category": "데이터베이스",
+  "source": "95회 3교시",
+  "text": "2011년 5월 7일에 판매되었지만 5월 6일에는 판매되지 않은 상품을 추출하는 다음 SQL문을 부분범위처리(Partial Range Scan)가 가능한 형태로 수정하시오.(단, sale 테이블의 기본키(PK) 인덱스는 [order_date + prod_num ]순으로 구성)\n\nSELECT prod_num\nFROM sale\nWHERE order_date = '20110507'\nMINUS\nSELECT prod_num\nFROM sale\nWHERE order_date = '20110506'"
+ },
+ {
+  "id": "k95-401",
+  "period": "4교시",
+  "category": "보안",
+  "source": "95회 4교시",
+  "text": "디지털 포렌직(Digital Forensic)의 디지털 증거물 수집절차를 설명하고 디지털 증거물 분석기술 중 Slack Space 분석법과 스테가노그래피(Steganography) 분석법을 설명하시오."
+ },
+ {
+  "id": "k95-402",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "95회 4교시",
+  "text": "NAT(Network Address Translation)의 종류와 적용사례 및 향후전망에 대하여 설명하시오."
+ },
+ {
+  "id": "k95-403",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "95회 4교시",
+  "text": "DB Refactoring에 대하여 다음 질문에 답하시오.\n(1) DB Smell에 대하여 설명하시오.\n(2) DB Refactoring 유형 및 절차에 대하여 설명하시오."
+ },
+ {
+  "id": "k95-404",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "95회 4교시",
+  "text": "안드로이드(Android) 개발환경에 대하여 다음 질문에 답하시오.\n(1) 안드로이드 실행환경에 대하여 설명하시오.\n(2) 안드로이드 응용(Application)의 기본 모델에 대하여 설명하시오.\n(3) 안드로이드 응용의 주요 컴포넌트를 나열하고 설명하시오."
+ },
+ {
+  "id": "k95-405",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "95회 4교시",
+  "text": "A기업은 대국민 서비스를 하고 있는 홈페이지, 포탈 및 영업관리 시스템 등을 개발 완료하였다. 시스템에 대한 Application 운영·유지보수는 A기업의 정보시스템 부서에서 진행하고, 하드웨어, 소프트웨어 및 네트워크 운영·유지보수는 전문 협력업체에 외주를 주어 수행하고 있다. 최근 안정적 서비스 지원 및 품질 향상을 위해 SLA(Service Level Agreement)를 도입하고자 한다. 다음의 질문에 답하시오.\n(1) SLA를 도입하기 위한 절차를 제시하시오.\n(2) 하드웨어, 소프트웨어 및 네트워크 운영·유지보수를 위한 SLA 지표를 5개 이상 선정하고, 측정 방법을 제시하시오.\n(3) 선정된 SLA 지표의 개선 활동에 대해 설명하시오."
+ },
+ {
+  "id": "k95-406",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "95회 4교시",
+  "text": "다음 JAVA 코드를 Factory 패턴을 이용하여 수정하시오.\n(1) Factory 패턴 클래스를 작성하시오.\n(2) Factory 클래스를 사용하여 코드를 작성하시오.\n\npublic class PizzaStore{\n public Pizza orderPizza(String Type) {\n  Pizza pizza;\n  if(type.equals(\"combination\")) {\n   pizza = new CombinationPizza();\n  } else if (type.equals(\"cheese\")) {\n   pizza = new CheesePizza();\n  } else if (type.equals(\"potato\")) {\n   pizza = new PotatoPizza();\n  }\n\n  pizza.prepare();\n  pizza.bake();\n  pizza.cut();\n  pizza.box();\n  return pizza();\n }\n}"
+ },
+ {
+  "id": "k93-101",
+  "period": "1교시",
+  "category": "경영전략",
+  "source": "93회 1교시",
+  "text": "개방형 혁신(Open Innovation)과 오픈소스(Open Source)를 비교하여 설명하시오"
+ },
+ {
+  "id": "k93-102",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "93회 1교시",
+  "text": "DDOS(Distributed Denial of Service) 공격의 유형을 설명하시오"
+ },
+ {
+  "id": "k93-103",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "93회 1교시",
+  "text": "이벤트 기반의 시스템 테스팅을 위한 record and replay기법을 설명하시오"
+ },
+ {
+  "id": "k93-104",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "93회 1교시",
+  "text": "VRM(Vendor Relationship Management)을 CRM(Customer Relationship Management)과 비교하여 설명하시오"
+ },
+ {
+  "id": "k93-105",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "93회 1교시",
+  "text": "NFC(Near Field Communication)의 규격 특성과 적용분야를 기술한 후 기존의 블루투스(Bluetooth)와 비교하여 설명하시오"
+ },
+ {
+  "id": "k93-106",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "93회 1교시",
+  "text": "UC(Unified Communications)가 기존 통합 메시징(Unified Messaging)에 비해 어떤 차별화된 특징을 가지고 있는지 설명하시오"
+ },
+ {
+  "id": "k93-107",
+  "period": "1교시",
+  "category": "프로젝트관리",
+  "source": "93회 1교시",
+  "text": "SCRUM의 특성과 프로세스를 설명하시오"
+ },
+ {
+  "id": "k93-108",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "93회 1교시",
+  "text": "NOSQL과 CAP Theorem에 대하여 설명하시오"
+ },
+ {
+  "id": "k93-109",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "93회 1교시",
+  "text": "메타모델링(Metamodeling)을 온톨로지(Ontology)와 비교하여 설명하시오"
+ },
+ {
+  "id": "k93-110",
+  "period": "1교시",
+  "category": "경영전략",
+  "source": "93회 1교시",
+  "text": "크라우드소싱(Crowdsourcing)을 아웃소싱(Outsourcing)과 비교하여 설명하시오"
+ },
+ {
+  "id": "k93-111",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "93회 1교시",
+  "text": "유비쿼터스 가상현실에 대하여 설명하시오"
+ },
+ {
+  "id": "k93-112",
+  "period": "1교시",
+  "category": "인공지능",
+  "source": "93회 1교시",
+  "text": "전문가 시스템에서 추론의 방법인 연역법과 귀납법 및 추론의 방향인 전방향 추론과 후방향 \n추론을 예를 들어 설명하시오"
+ },
+ {
+  "id": "k93-113",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "93회 1교시",
+  "text": "퍼지시스템의 응용에서 소속함수(Membership function)를 예를 들어 설명하시오"
+ },
+ {
+  "id": "k93-201",
+  "period": "2교시",
+  "category": "경영전략",
+  "source": "93회 2교시",
+  "text": "SNS(Social Network Service)가 갖추어야 할 특성과 비즈니스 모델, 그리고 사회에 미친 긍정적, 부정적 영향을 기술한 후, SNS의 응용예로서 나타난 소셜 커머스(Social Commerce)에 대해 설명하시오"
+ },
+ {
+  "id": "k93-202",
+  "period": "2교시",
+  "category": "경영전략",
+  "source": "93회 2교시",
+  "text": "스피드 경영을 위한 BPM(BUSINESS Process Management)과 PI(Process Innovation)의 차이점을 비교하고, 산업 현장에서 BPM프로세스 표준화를 위한 프로세스 매핑의 필요성과 매핑 방법에 대하여 설명하시오"
+ },
+ {
+  "id": "k93-203",
+  "period": "2교시",
+  "category": "경영전략",
+  "source": "93회 2교시",
+  "text": "시스템 다이내믹스(System Dynamics)에서 사용되는 인과 루프 다이어그램(Causal loop diagram)에 대하여 설명하고, 그 적용 사례로 신제품 매출이 입소문(Word of Mouse)에 의해 증가하는 현상을 상기 인과 루프 다이어그램(Causal loop diagram)을 사용하여 표현하시오"
+ },
+ {
+  "id": "k93-204",
+  "period": "2교시",
+  "category": "인공지능",
+  "source": "93회 2교시",
+  "text": "알고 있는 정보는 M(구제역 걸림 표본공간), S(수포발생 표본공간),Pr(M)=0.3, Pr(S)=0.6, Ps(S/M)=0.5 이다. 이것을 이용하여 수포발생때 구제역에 걸릴 확률 Pr(M/S)을 구하려고 한다. 불확실성 추론에서 많이 활용되는 베이즈(Bayes)규칙을 설명하고 이를 이용하여 Pr(M/S)를 구하시오"
+ },
+ {
+  "id": "k93-205",
+  "period": "2교시",
+  "category": "신기술",
+  "source": "93회 2교시",
+  "text": "신경회로망은 어떠한 방법에 의하여 학습하는지 설명하시오"
+ },
+ {
+  "id": "k93-206",
+  "period": "2교시",
+  "category": "프로젝트관리",
+  "source": "93회 2교시",
+  "text": "사업예산은 1,600,000천원, 사업기간은 16개월인 프로젝트가 4개월 경과되어 프로젝트 관리자는 수행업체에게 400,000천원을 지급하였다, 그러나 확인결과 작업 수행률은 20% 이었다. 이문제에 대한 기성고 분석(EVA:Earned Value Analysis)을 수행하였다.\n가. 프로젝트 비용의 계획대비 실적의 차이(CV), 실제 예상 원가효율(CPI)을 각각 구하고 값의 의미를 설명하시오\n나. 프로젝트 일정 진척사항 파악(SV), 일정에 대한 효율(SPI)을 각각 구하고 값의 의미를 설명하시오.\n다. 완료시점 원가 예상치(EAC)를 구해보고, 프로젝트 관리자 입장에서 신뢰성 있는 원가 또는 일정준수를 위해 현장에서 실현가능한 고려사항을 제시하시오"
+ },
+ {
+  "id": "k93-301",
+  "period": "3교시",
+  "category": "인공지능",
+  "source": "93회 3교시",
+  "text": "패턴인식 시스템의 처리단계를 설명하고, 정보시스템에서 활용되는 예를 설명하시오"
+ },
+ {
+  "id": "k93-302",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "93회 3교시",
+  "text": "최근 정부 및 공공기관 소프트웨어 개발 프로젝트에서는 전자정부 표준 공통서비스 및 개발 프레임워크의 적용이 확대되고 있다. 아키텍처 중심의 소프트웨어 개발을 위한 프레임워크 개념과 프레임워크 컴포넌트 구성을 위한 오픈소스 소프트웨어 선정 평가 프로세스에 대하여 설명하시오."
+ },
+ {
+  "id": "k93-303",
+  "period": "3교시",
+  "category": "네트워크",
+  "source": "93회 3교시",
+  "text": "OSGi(Open Service Gateway Initiative) 프레임워크를 기술하고, 서비스 계층(service layer)에서 수행하는 역할을 SOA(Service Oriented Architecture)관점에서 설명하시오"
+ },
+ {
+  "id": "k93-304",
+  "period": "3교시",
+  "category": "디지털서비스",
+  "source": "93회 3교시",
+  "text": "어떤 일을 대신해 주는 프로그램인 에이전트(Agent)에서 숙고형 에이전트 구조(deliberative agent architecture)와 반응형 에이전트 구조(reactive agent architecture)를 비교 설명하시오"
+ },
+ {
+  "id": "k93-305",
+  "period": "3교시",
+  "category": "데이터베이스",
+  "source": "93회 3교시",
+  "text": "전통적인 데이터 모델링과 데이터 아키텍처의 차이점을 비교하고 데이터 아키텍처 수립 방안을 설명하시오"
+ },
+ {
+  "id": "k93-306",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "93회 3교시",
+  "text": "UML(Unified Modeling Language)에서 사용하는 행위 다이어그램(behavior diagram) 인 액티비티 다이어그램(activity diagram), 스테이트 다이어그램(state diagram), 그리고 유스케이스 다이어그램(use-case diagram)에 대하여 설명한 후, 레스토랑에서 일어나는 상황을 고객, 웨이터, 요리사, 그리고 계산대 직원을 고려하여 유스케이스 다이어그램으로 표현하시오."
+ },
+ {
+  "id": "k93-401",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "93회 4교시",
+  "text": "모바일 증강 현실(Mobile Augmented Reality System)을 설명하고 이 기술을 활용한 응용 내용을 설명하시오"
+ },
+ {
+  "id": "k93-402",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "93회 4교시",
+  "text": "고품질의 이미지 출력을 도와주는 앤티앨리어싱(antialiasing)을 설명하고, 앤티앨리어싱 기법인 슈퍼 샘플링(super sampling)기법과 영역 샘플링(area sampling)기법의 차이점을 설명하시오."
+ },
+ {
+  "id": "k93-403",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "93회 4교시",
+  "text": "프로그래밍 언어 컴파일러(compiler)에서 사용되는 이동-축소 파서(shift-reduce parser)를 액션테이블(action table)을 중심으로 기술하고 다음의 문법(grammar)을 사용하여 \"the dog jumps\"라는 문장을 파싱하는 과정을 스택(stack)과 입력문(input sequence)을 사용해 설명하시오"
+ },
+ {
+  "id": "k93-404",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "93회 4교시",
+  "text": "SSD(solid state drive)의 구조와 각 기능에 대하여 기술하고 SSD에서 DRAM이 수행하는 역할에 대해 설명하시오"
+ },
+ {
+  "id": "k93-405",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "93회 4교시",
+  "text": "귀하가 A 기업의 분석용 정보시스템 고도화 프로젝트에 EDW(Enterprise Data Warehouse)설계자로 참여하게 되었다고 가정하고 다음의 물음에 대하여 설명하시오\n가. EDW 설계를 위해 E-R 모델링 기법을 적용하는데 있어 Reverse Modeling의 목적과 과정\n나. 다차원 분석을 위한 Multi Dimensional Modeling 기법과 적용시 고려사항"
+ },
+ {
+  "id": "k93-406",
+  "period": "4교시",
+  "category": "보안",
+  "source": "93회 4교시",
+  "text": "고객의 개인정보가 포함된 신규 정보시스템 개방, 운영 시 정보보안 관리에 대한 다음 물음에 대하여 설명하시오\n가. 개인정보가 정보시스템에 미치는 영향분석을 위한 일반적인 평가절차\n나. 개인정보보호를 위한 서비스(애플리케이션)측면과 데이터베이스 측면의 보안관리 방안"
+ },
+ {
+  "id": "k92-101",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "92회 1교시",
+  "text": "모바일태그(Mobie Tag)를 설명하시오"
+ },
+ {
+  "id": "k92-102",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "92회 1교시",
+  "text": "그린코드(Green Code)를 설명하시오."
+ },
+ {
+  "id": "k92-103",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "92회 1교시",
+  "text": "2D 바코드의 종류 및 특징에 대하여 설명하시오."
+ },
+ {
+  "id": "k92-104",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "92회 1교시",
+  "text": "테스트 오라클(Test Oracle)의 특징과 유형을 설명하시오."
+ },
+ {
+  "id": "k92-105",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "92회 1교시",
+  "text": "SSL(Secure Socket Layer)의 작동원리에 대하여 설명하시오."
+ },
+ {
+  "id": "k92-106",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "92회 1교시",
+  "text": "RPD(Recurrent Pattern Detection) 기술의 목적 및 작동방법에 대하여 설명하시오."
+ },
+ {
+  "id": "k92-107",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "92회 1교시",
+  "text": "GITAMS(Government Information Technology Architecture Management System)의 운영 목적 및 구성내역을 설명하시오."
+ },
+ {
+  "id": "k92-108",
+  "period": "1교시",
+  "category": "경영전략",
+  "source": "92회 1교시",
+  "text": "OHA(Open Handset Alliance)의 목적, 참여업체 및 성과물에 대하여 설명하시오."
+ },
+ {
+  "id": "k92-109",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "92회 1교시",
+  "text": "XML 질의언어(Query Language)를 설명하고, 데이터베이스와의 매핑(Mapping)관계를 설명하시오."
+ },
+ {
+  "id": "k92-110",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "92회 1교시",
+  "text": "마이크로 블로그(Micro BLOG)의 요소기술과 기업의 도입방안을 설명하시오."
+ },
+ {
+  "id": "k92-111",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "92회 1교시",
+  "text": "LAS(Location Aware System) 기술의 종류 및 위치측정방식에 대하여 설명하시오."
+ },
+ {
+  "id": "k92-112",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "92회 1교시",
+  "text": "RTLS(Real-Time Locating Service)와 LBS(Location Based Service)의 목적 및 사용기술의 차이점을 설명하시오."
+ },
+ {
+  "id": "k92-113",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "92회 1교시",
+  "text": "에이전트 소프트웨어(Agent Software)에 필요한 기술, 분류 및 응용 분야에 대하여 설명하시오."
+ },
+ {
+  "id": "k92-201",
+  "period": "2교시",
+  "category": "운영체제",
+  "source": "92회 2교시",
+  "text": "가상화 기술을 구분하고, 데스크탑(Desktop) 가상화를 설명하시오."
+ },
+ {
+  "id": "k92-202",
+  "period": "2교시",
+  "category": "신기술",
+  "source": "92회 2교시",
+  "text": "리스크 기반 테스팅을 설명하시오."
+ },
+ {
+  "id": "k92-203",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "source": "92회 2교시",
+  "text": "클라우드 컴퓨팅(Cloud Computing) 환경에서 디지털 증거수집 및 정보분석 기법인 컴퓨터 포렌식 (Computer Forensics)의 절차에 대하여 설명하시오."
+ },
+ {
+  "id": "k92-204",
+  "period": "2교시",
+  "category": "신기술",
+  "source": "92회 2교시",
+  "text": "생체인식의 한 분야인 얼굴 인식시스템에 대하여 다음 질문에 답하시오.\n(1) 얼굴인식 시스템의 특징 및 인식 절차를 설명하시오.\n(2) 얼굴인식 알고리즘의 종류를 나열하고 비교분석 하시오."
+ },
+ {
+  "id": "k92-205",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "92회 2교시",
+  "text": "소프트웨어 품질평가 표준인 SQuaRE 프레임워크(ISO/IEC 25000)에 대하여 다음\n질문에 답하시오.\n(1) SQuaRE 프레임워크가 대체하려는 기존 표준을 나열하여 설명하시오.\n(2) SQuaRE 프레임워크의 구조를 설명하시오.\n(3) SQuaRE 프레임워크의 각 Division별 표준화 내역을 설명하시오."
+ },
+ {
+  "id": "k92-206",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "92회 2교시",
+  "text": "아래의 코드에 대한 테스트케이스(Test Case)를 작성하는 과정에 대하여 다음 질문에 답하시오.\n\n\n(1) 제어 흐름도를 작성하시오.\n(2) 테스트 경로를 나열하시오.\n(3) 테스트 경로에 따른 테스트케이스를 작성하시오"
+ },
+ {
+  "id": "k92-301",
+  "period": "3교시",
+  "category": "디지털서비스",
+  "source": "92회 3교시",
+  "text": "스마트그리드(Smart Grid)를 설명하고 스마트그리드에서 IT인프라의 역할을 설명하시오."
+ },
+ {
+  "id": "k92-302",
+  "period": "3교시",
+  "category": "인공지능",
+  "source": "92회 3교시",
+  "text": "시스템의 테스트 완전성을 확보하기 위한 소스코드 커버리지(Source Code Coverage)의 종류를 나열하고, 예를 들어 설명하시오."
+ },
+ {
+  "id": "k92-303",
+  "period": "3교시",
+  "category": "디지털서비스",
+  "source": "92회 3교시",
+  "text": "증강현실(AR: Augmented Reality)의 요소기술과 실 응용사례를 설명하시오."
+ },
+ {
+  "id": "k92-304",
+  "period": "3교시",
+  "category": "보안",
+  "source": "92회 3교시",
+  "text": "정보보안의 세가지 특징과 데이터베이스 침해경로, 접근통제 유형에 대하여 설명하시오."
+ },
+ {
+  "id": "k92-305",
+  "period": "3교시",
+  "category": "디지털서비스",
+  "source": "92회 3교시",
+  "text": "웹 접근성에 관련된 다음 질문에 답하시오.\n(1) 웹 접근성, 웹 표준, 웹 보안 및 망 중립성을 비교 설명하시오.\n(2) 인터넷 웹 콘텐츠 접근성 지침 1.0(WCAG 1.0)에서 제시하고 있는 웹 접근성의\n지침 및 검사항목을 나열하여 설명하시오."
+ },
+ {
+  "id": "k92-306",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "92회 3교시",
+  "text": "아래와 같은 간단한 응용에 대한 소프트웨어 아키텍처를 작성하고자 한다. 다음 질문에 답하시오.\n\n\n(1) C&C 뷰(Component & Connector, 프로세스 뷰)를 작성할 때 가장 적당한 아키텍처 스타일을 제시하고 필요한 컴포넌트와 커넥터를 제시하시오.\n(2) 위에서 제시한 아키텍처 스타일에 따라 아키텍처를 작성하시오.\n(3) 위 응용에 대한 모듈 뷰(논리 뷰) 작성을 위한 컴포넌트를 제시하고 아키텍처를 작성하시오."
+ },
+ {
+  "id": "k92-401",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "92회 4교시",
+  "text": "u-City 구축에 대한 정보시스템 감리 프레임워크 및 절차를 설명하시오."
+ },
+ {
+  "id": "k92-402",
+  "period": "4교시",
+  "category": "경영전략",
+  "source": "92회 4교시",
+  "text": "기업에서 스마트 오피스(Smart Office)와 FMC(Fixed Mobile Convergence) 구축으로 무선망의 보안이 중요시 되고 있다. 기업내 무선망 보안침해 유형과 보안강화 방안을 설명하시오."
+ },
+ {
+  "id": "k92-403",
+  "period": "4교시",
+  "category": "디지털서비스",
+  "source": "92회 4교시",
+  "text": "최근 급속히 보급되고 있는 스마트폰에 대한 다음 질문에 답하시오.\n(1) PC와 대비되는 모바일 환경의 특성을 설명하시오.\n(2) 스마트폰에 장착된 센서의 종류를 나열하고, 각 센서별 역할 및 작동원리에 대하여 설명하시오."
+ },
+ {
+  "id": "k92-404",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "92회 4교시",
+  "text": "주기억장치 데이터베이스(MMDBMS)에 대하여 다음 질문에 답하시오.\n(1) MMDBMS의 등장배경 및 특징을 설명하시오.\n(2) 최근에 출시되고 있는 MMDBMS의 종류를 설명하시오.\n(3) MMDBMS의 응용분야를 설명하시오."
+ },
+ {
+  "id": "k92-405",
+  "period": "4교시",
+  "category": "보안",
+  "source": "92회 4교시",
+  "text": "SQL-Injection 취약점에 대하여 다음 질문에 답하시오.\n(1) 공격 기법을 설명하시오.\n(2) 공격 탐지 방법을 설명하시오.\n(3) 조치 방법을 설명하시오."
+ },
+ {
+  "id": "k92-406",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "92회 4교시",
+  "text": "아래와 같은 도서주문 시스템의 가상 시나리오에 대하여 다음 질문에 답하시오.\n\n(1) 위 시나리오의 ERD를 작성하시오.\n(2) 위 시나리오의 기능분해도를 작성하시오."
+ },
+ {
+  "id": "k90-101",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "90회 1교시",
+  "text": "FMC(Fixed Mobile Convergence)에 대해 설명하시오."
+ },
+ {
+  "id": "k90-102",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "90회 1교시",
+  "text": "스마트카드(Smart Card)의 특징과 구조를 설명하시오."
+ },
+ {
+  "id": "k90-103",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "90회 1교시",
+  "text": "와이파이 다이렉트(Wi-Fi Direct)에 대해 설명하시오."
+ },
+ {
+  "id": "k90-104",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "90회 1교시",
+  "text": "게임 소프트웨어를 개발하는데 사용되고 게임엔진의 유형을 나열하고 각각을 설명 하시오."
+ },
+ {
+  "id": "k90-105",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "90회 1교시",
+  "text": "풀 브라우징(Full Browsing)과 웹뷰어(Web Viewer)를 이용한 브라우징의 동작원리를 비교하여 설명하시오"
+ },
+ {
+  "id": "k90-106",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "90회 1교시",
+  "text": "DOM(Document Object Model)과 SAX(Simple API for XML)을 비교하여 설명하시오."
+ },
+ {
+  "id": "k90-107",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "90회 1교시",
+  "text": "IEEE의 컴퓨터분과(Computer Society)에서 정의한 SWEBOK(Software Engineering Body of Knowledge)의 지식영역을 나열하시오."
+ },
+ {
+  "id": "k90-108",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "90회 1교시",
+  "text": "“Factorial n\"을 구하는 재귀(Recursive) 알고리즘을 작성하시오.\n   (단, 프로그래밍 언어에는 제한이 없음, Factorial n(n!): n * (n-1) * (n-2) * ... * 1)"
+ },
+ {
+  "id": "k90-109",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "90회 1교시",
+  "text": "6시그마(Six Sigma) 추진방법 중 DMAIC와 DMADV를 비교하여 설명하시오."
+ },
+ {
+  "id": "k90-110",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "90회 1교시",
+  "text": "자료구조 Heap을 설명하고, Heap의 2가지 유형인 max-heap과 min-heap의 차이점을 설명하시오."
+ },
+ {
+  "id": "k90-111",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "90회 1교시",
+  "text": "소프트웨어공학에서 사용자 요구사항 분석에 사용되는 페르소나(Persona)에 대해 설명하시오."
+ },
+ {
+  "id": "k90-112",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "90회 1교시",
+  "text": "균형성과표(Balance Scorecard) 또는 전략지도(Strategy Map)의 관점 중 내부 프로세스 관점(Internal Process Perspective)에서 다루어야 할 4 종류의 비즈니스 프로세스에 대해 설명하시오."
+ },
+ {
+  "id": "k90-113",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "90회 1교시",
+  "text": "정보시스템 감리 점검프레임워크에 대해 설명하시오."
+ },
+ {
+  "id": "k90-201",
+  "period": "2교시",
+  "category": "네트워크",
+  "source": "90회 2교시",
+  "text": "클라우딩 컴퓨팅을 그리드 컴퓨팅, 유틸리티 컴퓨팅, 사이버기반 컴퓨팅, 네트워크 컴퓨팅과 비교하여 설명하시오."
+ },
+ {
+  "id": "k90-202",
+  "period": "2교시",
+  "category": "신기술",
+  "source": "90회 2교시",
+  "text": "모바일 오픈마켓을 정의하고 여러 모바일 오픈마켓(애플의 앱스토어, 구글의 안드로이드 마켓 등)의 특징을 마켓 참여자의 관점에서 설명하시오."
+ },
+ {
+  "id": "k90-203",
+  "period": "2교시",
+  "category": "프로젝트관리",
+  "source": "90회 2교시",
+  "text": "프로젝트 관리 관점에서 작업분해도(WBS : Work Breakdown Structure)란 무엇이며, PMI(Project Management Institute)가 제시하는 9개 활동영역 각각에서 어떻게 활용될 수 있는지 설명하시오."
+ },
+ {
+  "id": "k90-204",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "90회 2교시",
+  "text": "정렬(Sorting) 알고리즘의 하나인 삽입정렬(insertion sorting) 알고리즘을 기술하고 이 알고리즘이 어떤 경우에 효과적인지 설명하시오. 또한 평균 연산시간(Big O)과 최악의 연산시간을 근거와 함께 설명하시오."
+ },
+ {
+  "id": "k90-205",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "90회 2교시",
+  "text": "데이터베이스관리시스템 (DBMS)이 트랜잭션(transaction) 장애에 대처하는 방법과 절차에 대해 설명하시오, 특히 로깅 시각(또는 Check Point)과 시스템 실패(System Failure) 시각이 트랜잭션에 관련된 복구(Recovery) 처리에 어떻게 활용되는지 설명하시오."
+ },
+ {
+  "id": "k90-206",
+  "period": "2교시",
+  "category": "운영체제",
+  "source": "90회 2교시",
+  "text": "어느 기업의 수작업 프로세스는 다음과 같다. 구매를 요청받은 구매부서에서는 공급업체에게 구매요청서를 보내고 이 사본을 매출채권부서로 보낸다. 공급업체가 상품을 그 기업의 창고에 입고시키면 창고에서는 상품연수 서류를 작성하여 매출채권부서로 넘긴다. 공급업체는 상품 입고 후 매출채권부서에 송장을 보낸다. 매출채권부서에서는 구매요청서 사본, 상품인수 서류, 그리고 송장을 대조하여 3가지가 모두 일치하는 경우에 공급업체에 대금을 지급한다.\n\n  (1) 현재의 수작업 프로세스를 다이어그램 형태로 표현하고, 현행 프로세스의 문제점을 설명하시오.\n  (2) 정보기술을 이용한다면, 새로운 프로세스는 어떤 모습으로 개설될 수 있는지 다이어그램 형태로 표현하시오. 그리고 \n       개선점 또는 기대효과를 설명하시오."
+ },
+ {
+  "id": "k90-301",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "90회 3교시",
+  "text": "디지털 콘텐츠 보호기술에 대하여 설명하시오."
+ },
+ {
+  "id": "k90-302",
+  "period": "3교시",
+  "category": "디지털서비스",
+  "source": "90회 3교시",
+  "text": "스마트폰에서 사용되는 GPOS(General Purpose OS)는 개방화 정도에 따라 완전 개방형(소프트웨어 플랫폼이 개방되어 API를 이용하지 않아도 직접 소스코드의 이용이 가능)과 일부개방형(소프트웨어 플랫폼의 API로 제공)으로 구분할 수 있다. 여러 GPOS를 위의 2 항목으로 분류해보고 각 GPOS의 장단점을 설명하시오."
+ },
+ {
+  "id": "k90-303",
+  "period": "3교시",
+  "category": "프로젝트관리",
+  "source": "90회 3교시",
+  "text": "EVM(Earned Value Method)에 대해 설명하고, 이 기법을 소프트웨어 개발 프로젝트에 적용할 때 문제점 및 해결 방안을 설명하시오."
+ },
+ {
+  "id": "k90-304",
+  "period": "3교시",
+  "category": "경영전략",
+  "source": "90회 3교시",
+  "text": "ISMP(Information Strategy Master Plan)의 개념을 설명하고 ISP(Information Strategy Plan), EA(Enterprise Architecture)와의 차이를 비교하여 설명하시오."
+ },
+ {
+  "id": "k90-305",
+  "period": "3교시",
+  "category": "운영체제",
+  "source": "90회 3교시",
+  "text": "고객 충성도(customer loyalty)를 높여가는 프로세스를 설명하고 고객관계관리(CRM)가 이 프로세스의 어떤 부분에서 어떤 역할을 할 수 있는지를 설명하시오."
+ },
+ {
+  "id": "k90-306",
+  "period": "3교시",
+  "category": "인공지능",
+  "source": "90회 3교시",
+  "text": "데이터베이스에 2개의 필드 A와 B가 있고, A와 B는 모두 정수이며 A와 B를 합한 값은 반드시 100이어야 할 때, \n    다음 사항을 설명하시오.\n    (1) 트랜잭션이 갖추어야 할 ACID  조건 4가지에 대해 설명하시오.\n    (2) 상기 데이터베이스를 고려하여, ACID 4가지 조건 각각에 대해 실패(failure)가 발생할 수 있는 상황을 제시하고, \n        이를 데이터베이스관리시스템(DBMS) 차원에서 해결하는 방법을 설명하시오."
+ },
+ {
+  "id": "k90-401",
+  "period": "4교시",
+  "category": "경영전략",
+  "source": "90회 4교시",
+  "text": "개방형 혁신(Open Innovation)을 정의하고 이를 폐쇄형 혁신(Closed Innovation)과 비교해 설명하시오. 또한 개방형 기술 혁신이 효과적으로 활용되기 위한 조건을 설명하시오."
+ },
+ {
+  "id": "k90-402",
+  "period": "4교시",
+  "category": "경영전략",
+  "source": "90회 4교시",
+  "text": "최근 조직들이 자신들의 핵심역량에 집중함에 따라 새로운 비즈니스 솔루션으로 BPO(Business Process Outsourcing)가 떠오르고 있다. BPO에 대해 서술하고 ITO(Information Technology Outsourcing)와 비교 설명하시오."
+ },
+ {
+  "id": "k90-403",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "90회 4교시",
+  "text": "임의로 배열된 8개 숫자를 1에서 8까지 순서대로 배열하는 8-퍼즐 게임이 있다. A* 알고리즘을 8-퍼즐 게임에 적용하여 설명하시오."
+ },
+ {
+  "id": "k90-404",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "90회 4교시",
+  "text": "소프트웨어 개발방법론은 구조적 방법론, 정보공학방법론, 객체지향방법론, 컴포넌트 기반 방법론의 형태로 발전되어 왔다. 이중 정보공학 방법론의 특징과 의의를 타 방법론과 비교하여 설명하시오."
+ },
+ {
+  "id": "k90-405",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "90회 4교시",
+  "text": "어느 기업이 의자와 탁자를 생산하는데 의자는 개당 7만원 이익이 발생하고 탁자는 개당 5만원의 이익이 발생한다. 목수는 총 2,400시간 이내로 일해야 하며 탁자를 만드는데 3시간, 의자를 만드는 데에는 4시간이 소요된다. 또한 페인트 전문가는 총 1,000시간 이내로 일해야 하는데 탁자를 칭하는 데에는 개당 2시간, 의자는 개당 1시간이 소요된다. 또한 의자는 450개 이하로 만들어야 하며, 탁자는 100개 이상 만들어야 한다. \n   (1) 상기를 표현하는 LP(Linear Programming) 수식을 작성하시오\n   (2) 상기를 좌표 도형으로 표현하고 가능영역(Feasible Region)을 도출하시오.\n   (3) 최대이익을 산출하고 이때의 의자 개수, 탁자 개수를 산출하시오."
+ },
+ {
+  "id": "k90-406",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "90회 4교시",
+  "text": "가상기업의 개념과 가상기업을 위한 정보기술을 설명하시오."
+ },
+ {
+  "id": "k89-101",
+  "period": "1교시",
+  "category": "운영체제",
+  "source": "89회 1교시",
+  "text": "운영체제(OS)의 기능과 역할에 대해 설명하시오."
+ },
+ {
+  "id": "k89-102",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "89회 1교시",
+  "text": "B-tree의 장점과 단점에 대해 설명하시오."
+ },
+ {
+  "id": "k89-103",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "89회 1교시",
+  "text": "공개키 기반 구조(PKI)에 대해 설명하시오."
+ },
+ {
+  "id": "k89-104",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "89회 1교시",
+  "text": "전자ID지갑 시스템에 대해 설명하시오."
+ },
+ {
+  "id": "k89-105",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "89회 1교시",
+  "text": "Smart Dust를 이용한 홈네트워킹에 대해 설명하시오."
+ },
+ {
+  "id": "k89-106",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "89회 1교시",
+  "text": "데이터를 압축할 경우의 장점과 단점에 대해 설명하시오."
+ },
+ {
+  "id": "k89-107",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "89회 1교시",
+  "text": "인터넷 주소로 사용하는 ENUM(tElephone NUmber Mapping)에 대해 설명하시오."
+ },
+ {
+  "id": "k89-108",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "89회 1교시",
+  "text": "CCL(Creative Commons License)을 설명하시오."
+ },
+ {
+  "id": "k89-109",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "89회 1교시",
+  "text": "SaaS 에스크로우(Software as a Service Escrow)에 대해 설명하시오."
+ },
+ {
+  "id": "k89-110",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "89회 1교시",
+  "text": "Open ID를 설명하시오."
+ },
+ {
+  "id": "k89-111",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "89회 1교시",
+  "text": "RIA(Rich Internet Application)와 X-Internet을 비교하여 설명하시오."
+ },
+ {
+  "id": "k89-112",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "89회 1교시",
+  "text": "Hypervisor의 두가지 방식(Type1, Type2)과 두가지 구현 기술(Monolithic 방식, Microkernel 방식)\n     에 대해 설명하시오."
+ },
+ {
+  "id": "k89-113",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "89회 1교시",
+  "text": "메타버스(Metaverse)의 4가지 범주인 증강 현실(Augmented Reality), 가상 세계(Virtual Worlds), \n     라이프로깅(Lifelogging), 미러월드(Mirror Worlds)에 대해 설명하시오."
+ },
+ {
+  "id": "k89-201",
+  "period": "2교시",
+  "category": "운영체제",
+  "source": "89회 2교시",
+  "text": "운영체제에서 프로세스 상태 다이어그램을 그리고, 각 상태와 상태간의 변환 과정에 대해 설명하시오."
+ },
+ {
+  "id": "k89-202",
+  "period": "2교시",
+  "category": "신기술",
+  "source": "89회 2교시",
+  "text": "OSS(0pen Source Software)에 대해 설명하시오."
+ },
+ {
+  "id": "k89-203",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "89회 2교시",
+  "text": "DBMS의 성능 평가 방법에 대해 설명하시오."
+ },
+ {
+  "id": "k89-204",
+  "period": "2교시",
+  "category": "신기술",
+  "source": "89회 2교시",
+  "text": "데이터 Read, Write시에 블록(Block) 단위로 입출력을 하게 된다. 이 블록의 크기가 프로그램에 미치는 \n    영향에 대해 설명하시오."
+ },
+ {
+  "id": "k89-205",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "source": "89회 2교시",
+  "text": "u-City 구축 및 안전한 운영을 보장하기 위한 보안 체계에 대해 설명하시오."
+ },
+ {
+  "id": "k89-206",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "source": "89회 2교시",
+  "text": "전자 여권의 보안 문제점과 적용되는 보안 기술인 PA(Passive Authentication), AA\n   (Active Authentication), BAC(Basic Access Control), EAC(Extended Access Control)를 비교하여 설명하시오."
+ },
+ {
+  "id": "k89-301",
+  "period": "3교시",
+  "category": "프로젝트관리",
+  "source": "89회 3교시",
+  "text": "프로젝트 경제성 분석에 대해 다음 항목을 설명하시오.\n   가. 프로젝트 경제성 분석의 개념과 필요성\n   나. 프로젝트 경제성 분석의 기법\n   다. 일반적으로 적용되는 3단계 절차"
+ },
+ {
+  "id": "k89-302",
+  "period": "3교시",
+  "category": "운영체제",
+  "source": "89회 3교시",
+  "text": "가상화(Virtualization)를 통한 정보시스템의 효율화 방안에 대해 설명하시오."
+ },
+ {
+  "id": "k89-303",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "89회 3교시",
+  "text": "그린(Green) IT 2.0에 대해 설명하시오."
+ },
+ {
+  "id": "k89-304",
+  "period": "3교시",
+  "category": "운영체제",
+  "source": "89회 3교시",
+  "text": "유닉스 운영체제(Unix OS)의 시스템 호출(System Call) 동작 구조에 대해 설명하시오."
+ },
+ {
+  "id": "k89-305",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "89회 3교시",
+  "text": "우리나라 소프트웨어 산업구조를 시장구조, 기업역량 기업간 거래구조 측면에서 현황 및 문제점을 분석하고, \n    소프트웨어 산업구조의 선진화 방향에 대해 설명하시오."
+ },
+ {
+  "id": "k89-306",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "89회 3교시",
+  "text": "다음 사례를 이용하여 블랙박스 테스트를 위한 테스트 케이스(Test Case)를 작성하시오.\n<사례>\n식품점의 전산화를 위한 모듈이 식료품의 이름과 킬로그램(Kg)으로 표시된 무게를 입력받는다. 품명은 영문자 2자리에서 15자리까지 구성되고, 무게는 1에서 48까지의 정수로 구성된 값이다. 무게는 오름차순으로 입력된다. \n품명이 먼저 입력되고 다음에 쉼표가 따라오고, 마지막으로 무게 값의 리스트가 나온다. 쉼표는 각 무게를 구별하기 위하여 쓰인다. 입력에 빈 칸이 나오면 무시된다."
+ },
+ {
+  "id": "k89-401",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "89회 4교시",
+  "text": "알고리즘의 평가 방법인 Time Complexity와 Space Complexity에 대해 설명하시오."
+ },
+ {
+  "id": "k89-402",
+  "period": "4교시",
+  "category": "경영전략",
+  "source": "89회 4교시",
+  "text": "IFRS(International Financial Reporting Standards) 도입과 관련한 기업 업무 시스템의 영향 및 연계 \n    방안에 대해 설명하시오."
+ },
+ {
+  "id": "k89-403",
+  "period": "4교시",
+  "category": "디지털서비스",
+  "source": "89회 4교시",
+  "text": "크라우드 컴퓨팅(Cloud Computing)과 XaaS를 비교하여 설명하시오."
+ },
+ {
+  "id": "k89-404",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "89회 4교시",
+  "text": "최근 DDoS(Distributed Denial of Service) 공격으로 국가적인 혼란에 직면하였는데, 이런 DDoS 공격에 \n    대한 전용 방법 장비의 종류(두가지 방식)와 중가기적인 대첵에 대해 설명하시오."
+ },
+ {
+  "id": "k89-405",
+  "period": "4교시",
+  "category": "운영체제",
+  "source": "89회 4교시",
+  "text": "유닉스 운영체제(Unix OS)의 inode 자료 구조에 대해 설명하시오."
+ },
+ {
+  "id": "k89-406",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "89회 4교시",
+  "text": "아래와 같이 메모리 맵(Memory Map)이 주어졌을 때 마이크로프로세서와 메모리, 병렬입출력(PIO) 칩(Chip)간의 인터페이스 회로를 설계하시오.\n<사례 시나리오>\n① 비디오 대여를 위하여 점원(Clerk)이 처음에 대여 처리를 위한 메뉴를 선택한다.\n② UI를 관리하는 객체(RentUI)는 화면에 입력될 자료나 출력될 자료를 디스플레이하기 위한 창을 만든 후 우선 Rental 객체를 생성한다.\n③ Rental 객체는 대여한 비디오가 무엇이며 누가 빌려갔는지를 기록하기 위한 엔티티 객체이다. 생성된 Rental 객체가 고객의 정보를 알아내기 위하여 Customer 객체에게 고객 정보를 요청한다.\n④ Rental 객체는 화면에서 등록된 고객으로 확인된 후에는 바코드를 스캔하여 해당되는 비디오 테이프를 찾아내고 테이프에 대한 자세한 사항을 Title이라는 클래스에 의뢰한다.\n⑤ 대여하려는 비디오 데이터가 더 없으면 Rental 클래스가 총액을 계산하여 저장한 후 RentUI 에게 디스플레이 하도록 의뢰한다.\n⑥ RentUI가 정상적인 종료를 보고받으면 이벤트가 끝난다."
+ },
+ {
+  "id": "k87-101",
+  "period": "1교시",
+  "category": "인공지능",
+  "source": "87회 1교시",
+  "text": "OCL(Object Constraint Language)로 기술할 수 있는 제약 조건들의 유형 중에서\n불변 가설(Invariant)에 대해 설명하시오."
+ },
+ {
+  "id": "k87-102",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "87회 1교시",
+  "text": "휴리스틱 알고리즘인 A*에 대해 설명하시오."
+ },
+ {
+  "id": "k87-103",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "87회 1교시",
+  "text": "PSP(Personal Software Process)에 대해 설명하시오."
+ },
+ {
+  "id": "k87-104",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "87회 1교시",
+  "text": "성공적인 소프트웨어 정형 검증을 방해하는 상태 폭발 문제(State Explosion\nProblem)에 대해 설명하시오."
+ },
+ {
+  "id": "k87-105",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "87회 1교시",
+  "text": "ISO 12207 국제 표준 중에서 지원 프로세스에 대해 설명하시오."
+ },
+ {
+  "id": "k87-106",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "87회 1교시",
+  "text": "3D GIS(Geographic Information System)을 설명하시오."
+ },
+ {
+  "id": "k87-107",
+  "period": "1교시",
+  "category": "경영전략",
+  "source": "87회 1교시",
+  "text": "HOLAP(Hybrid OnLine Analytical Processing)의 특징을 설명하시오."
+ },
+ {
+  "id": "k87-108",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "87회 1교시",
+  "text": "IPv6 over Low Power WPAN을 설명하시오."
+ },
+ {
+  "id": "k87-109",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "87회 1교시",
+  "text": "COSO(Committee of Sponsoring Organization) 프레임워크에 대해 설명하시오."
+ },
+ {
+  "id": "k87-110",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "87회 1교시",
+  "text": "텔레매틱스 기반 컨버젼스 서비스의 요인 및 필요성을 소비자, 산업, 정책, 그리고\n기술로 구분하여 설명하시오."
+ },
+ {
+  "id": "k87-111",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "87회 1교시",
+  "text": "USIM(Universal Subscriber Identity Module)의 개념과 장단점에 대해 설명하시오."
+ },
+ {
+  "id": "k87-112",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "87회 1교시",
+  "text": "CPC(Cost Per Click)의 개념, 출현 배경과 향후 전망에 대해 설명하시오."
+ },
+ {
+  "id": "k87-113",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "87회 1교시",
+  "text": "알고리즘 설계 기법 중 동적 계획법(Dynamic Programming)에 대해 설명하시오."
+ },
+ {
+  "id": "k87-201",
+  "period": "2교시",
+  "category": "신기술",
+  "source": "87회 2교시",
+  "text": "프로그램 병행성에 대해 다음 물음에 답하시오."
+ },
+ {
+  "id": "k87-202",
+  "period": "2교시",
+  "category": "네트워크",
+  "source": "87회 2교시",
+  "text": "UML(Unified Modeling Language) 2.0에 대해 다음 물음에 답하시오."
+ },
+ {
+  "id": "k87-203",
+  "period": "2교시",
+  "category": "네트워크",
+  "source": "87회 2교시",
+  "text": "BcN(Broadband Convergence Network)에 대해 다음 물음에 답하시오.\n(1) BcN의 출현 배경과 개념에 대해 설명하시오.\n(2) BcN 계층별 특성과 향후 발전 방향에 대해 설명하시오."
+ },
+ {
+  "id": "k87-204",
+  "period": "2교시",
+  "category": "경영전략",
+  "source": "87회 2교시",
+  "text": "가용성 관리는 운영 시스템의 고장을 정확히 측정, 분석하여 장애를 최소화하는\n  활동이다. 다음 물음에 답하시오.\n  (1) 응답 시간 지연 및 시스템 중단 원인을 설명하시오.\n  (2) 결함 허용(Fault Tolerant) 기법을 적용한 가용성 보장 전략을 하드웨어,\n      소프트웨어적인 측면에서 각각 설명하시오."
+ },
+ {
+  "id": "k87-205",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "87회 2교시",
+  "text": "웹 기반의 신규 시스템을 도입할 경우, 효율적인 용량 관리는 비즈니스 요구사항을\n  충족하기 위해 중요하다. 다음 물음에 답하시오.\n  (1) 주요 자원 용량의 적정성을 확보하기 위해 고려해야 할 핵심 요소를 설명하시오.\n  (2) 용량 관리를 위한 프로세스 활동을 설명하시오."
+ },
+ {
+  "id": "k87-206",
+  "period": "2교시",
+  "category": "신기술",
+  "source": "87회 2교시",
+  "text": "다음 이산 확률 분포에 대해 물음에 답하시오."
+ },
+ {
+  "id": "k87-301",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "87회 3교시",
+  "text": "디자인 패턴에 대해 다음 물음에 답하시오.\n (1) GoF(Gang of Four)가 제시한 나머지 디자인 패턴의 개념과 종류를 설명하시오.\n   (2) 인터프리터(Interpreter)라 불리는 디자인 패턴을 설명하시오."
+ },
+ {
+  "id": "k87-302",
+  "period": "3교시",
+  "category": "디지털서비스",
+  "source": "87회 3교시",
+  "text": "사용자의 역할이 단순 콘텐츠 소비자에서 생산자로써의 역할이 확대되고 있는 웹 2.0\n   에 대해 다음 물음에 답하시오.\n   (1) 웹 1.0과 웹 2.0의 차이점을 설명하시오.\n   (2) 웹 2.0의 개념과 플랫폼을 구성하는 5가지 주요 기술에 대해 설명하시오."
+ },
+ {
+  "id": "k87-303",
+  "period": "3교시",
+  "category": "데이터베이스",
+  "source": "87회 3교시",
+  "text": "기업에서 데이터의 품질을 확보하기 위한 ‘데이터 품질 관리’에 대해 다음 물음에 답\n하시오.\n   (1) 데이터 품질 관리의 개념과 장단점을 설명하시오.\n   (2) 관리 대상 및 관리 조직을 기본 축으로 하는 데이터 품질 관리 프레임워크를\n       설명하시오.\n   (3) 관리 조직의 역할을 설명하시오."
+ },
+ {
+  "id": "k87-304",
+  "period": "3교시",
+  "category": "네트워크",
+  "source": "87회 3교시",
+  "text": "IT기반 유비쿼터스 도시 시설을 구축하는데 필요한 기술 중 USN(Ubiquitous Sensor \nNetwork)에 대해 다음 물음에 답하시오.\n(1) USN의 개념과 특징을 설명하시오.\n(2) USN의 구성 요소를 제시하고, 각 구성 요소에 대해 상세히 설명하시오."
+ },
+ {
+  "id": "k87-305",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "87회 3교시",
+  "text": "수치 해석 방법 중에서 수치미적분 해법에 대해 다음 물음에 답하시오."
+ },
+ {
+  "id": "k87-306",
+  "period": "3교시",
+  "category": "프로젝트관리",
+  "source": "87회 3교시",
+  "text": "비용 산정 모델에 대한 다음 물음에 답하시오.\n  (1) 비용 산정을 위한 COCOMO(Constructive Cost Model)와 기능 점수의 특징과\n      장점을 비교 설명하시오.\n  (2) 네 개의 모듈로 구성된 프로젝트가 있다. LOC(Line of Code)를 기반으로 한\n      각 모듈의 규모 추정이 아래와 같을 때, 이 프로젝트의 총 규모는 몇 LOC 인지\n      계산하시오."
+ },
+ {
+  "id": "k87-401",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "87회 4교시",
+  "text": "소프트웨어 시험에 대해 다음 물음에 답하시오.\n  (1) 소프트웨어 시험의 개념을 기술하고 철저한 시험이 왜 어려운 지를\n      설명하시오.\n(2) 자료 흐름 시험과 구조적 시험과의 차이점을 설명하시오."
+ },
+ {
+  "id": "k87-402",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "87회 4교시",
+  "text": "다음과 같이 7개 신도시의 도로 공사를 최소의 비용으로 설계할 때, 다음 물음에 답\n하시오. 단, 노드는 도시 이름을 나타내고 간선은 공사 비용이다."
+ },
+ {
+  "id": "k87-403",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "87회 4교시",
+  "text": "데이터를 관리, 운용하는 데 중요한 데이터 참조 모델에 대해 설명하시오."
+ },
+ {
+  "id": "k87-404",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "87회 4교시",
+  "text": "CMMI(Capability Maturity Model Integration)는 조직의 프로세스 개선 활동을 효율\n적으로 지원하기 위한 모델이다. 다음 물음에 답하시오.\n(1) CMMI 표현 방법중 단계적 표현 방법과 연속적 표현 방법을 비교 설명하시오.\n(2) CMMI 의 단계적 표현방법에서의 모델 구성 요소에 대해 설명하시오.\n(3) 통계적 프로세스 관리에 사용되는 대표적인 도구인 파레토 차트, 산점도, 관리도\n    에 대해 설명하시오."
+ },
+ {
+  "id": "k87-405",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "87회 4교시",
+  "text": "그린 IT는 환경을 의미하는 녹색(Green)과 정보기술(IT)의 합성어로 신성장 산업으\n로 이슈가 되고 있다. 다음 물음에 답하시오.\n(1) 그린 IT의 개념과 범위, 이슈에 대해 설명하시오.\n(2) 그린 IT 도입 및 활성화를 위한 방안을 설명하시오."
+ },
+ {
+  "id": "k87-406",
+  "period": "4교시",
+  "category": "데이터베이스",
+  "source": "87회 4교시",
+  "text": "프로젝트 일정 계획에 대해 다음 물음에 답하시오.\n(1) EVM(Earned Value Management)에 대해 설명하시오.\n(2) 1월 1일부터 6월 1일까지 진행되는 프로젝트에 관한 진행 기록이 다음과 같을 때,\n   EV(Earned Value), SPI(Schedule Performance Index), SV(Schedule Variance),\n   CPI(Cost Performance Index), 그리고 CV(Cost Variance)를 각각 구하시오. 단,\n   현재 일은 3월 1일 이라고 가정한다."
+ },
+ {
+  "id": "k86-101",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "86회 1교시",
+  "text": "준거성 테스트(Compliance Test)와 실증성 테스트(Substantive Test)를 설명하시오."
+ },
+ {
+  "id": "k86-102",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "86회 1교시",
+  "text": "세마포어(Semaphore)의 P 연산과 V 연산을 설명하시오."
+ },
+ {
+  "id": "k86-103",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "86회 1교시",
+  "text": "인터넷 프로토콜인 CoIP에 대해 설명하시오."
+ },
+ {
+  "id": "k86-104",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "86회 1교시",
+  "text": "데이터 품질관리 성숙모형인 DQM3에 대해 설명하시오."
+ },
+ {
+  "id": "k86-105",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "86회 1교시",
+  "text": "USB(Universal Serial Bus) 3.0에 대해 설명하시오."
+ },
+ {
+  "id": "k86-106",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "86회 1교시",
+  "text": "유비쿼터스 네트워크 플랫폼(u-Platform)에 대해 설명하시오."
+ },
+ {
+  "id": "k86-107",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "86회 1교시",
+  "text": "분산객체 컴포넌트 표준을 CORBA, EJB, COM을 중심으로 설명하시오."
+ },
+ {
+  "id": "k86-108",
+  "period": "1교시",
+  "category": "프로젝트관리",
+  "source": "86회 1교시",
+  "text": "소프트웨어 프로젝트 비용(Cost)이나 노력(Effort)을 신뢰성 있게 예측하기 위해 선택할 수 있는 \n   방법들에 대해 설명하시오."
+ },
+ {
+  "id": "k86-109",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "86회 1교시",
+  "text": "데이터 추상화를 정의하고, 데이터베이스에서 이 추상화를 어떻게 실현하는지를 설명하시오."
+ },
+ {
+  "id": "k86-110",
+  "period": "1교시",
+  "category": "경영전략",
+  "source": "86회 1교시",
+  "text": "소프트웨어의 시험(Test) 전략을 소프트웨어 엔지니어링 프로세스(Life Cycle)와 연관 지어 설명하시오."
+ },
+ {
+  "id": "k86-111",
+  "period": "1교시",
+  "category": "프로젝트관리",
+  "source": "86회 1교시",
+  "text": "PMI(Project Management Institute)가 제시하는 일반적인 프로젝트 관리 활동 9개 영역을 간략히 기술하시오."
+ },
+ {
+  "id": "k86-112",
+  "period": "1교시",
+  "category": "인공지능",
+  "source": "86회 1교시",
+  "text": "지식기반 응용소프트웨어 개발시, \"IF A THEN B\" 형태의 조건부와 결론부 형태로 쓰여진 지식을 Production Rule 또는 Rule이라 한다. \n    프로덕션 시스템에서 추론을 위한 실행방법인 전방향 추론(Forward reasoning)과 후방향 추론(Backward reasoning)을 예를 들어 설명하시오."
+ },
+ {
+  "id": "k86-113",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "86회 1교시",
+  "text": "1차원 Bar-Code의 심볼(Symbol)과 심볼로지(Symbology)를 설명하시오."
+ },
+ {
+  "id": "k86-201",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "86회 2교시",
+  "text": "최근 공개 소프트웨어(FOSS : Free & Open Source Software)가 활발히 보급되고 있다. \n   공개 소프트웨어가 국가사회 정보화 발전에 미치는 영향(의미 또는 필요성)을 설명하고, \n   이러한 공개 소프트웨어가 사회에 제대로 정착, 발전하기 위한 성공요인과 품질개선 방안을 제시하시오."
+ },
+ {
+  "id": "k86-301",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "86회 3교시",
+  "text": "소프트웨어 정형기술 검토(Formal Technical Review)의 중요성을 결함증폭모형을 예로 하여 설명하시오."
+ },
+ {
+  "id": "k86-202",
+  "period": "2교시",
+  "category": "인공지능",
+  "source": "86회 2교시",
+  "text": "함수 y=f(x)에서 y를 비즈니스 프로세스에서 만들어내는 최종 가치라고 하고, x는 y를 만들어내는 과정상의 제반 요소들이라고 할때, \n   6 시그마 DMAIC 프로세스 중 Analyze 단계와 Control 단계에서 수행하는 업무를 y와 x의 관점에서 설명하시오."
+ },
+ {
+  "id": "k86-203",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "86회 2교시",
+  "text": "대형 컴퓨터시스템을 공동으로 사용하고 있는 중앙전산실에서 스래싱(Thrashing)이 자주 발생해 업무처리에 많은 지장을 받고 있다. \n   스래싱(Thrashing)이란 무엇이며 그것을 예방하기 위한 \"Working-Set Model\"과 \"페이지 부재 빈도(Page-Fault Frequency) 전략\"을 설명하시오."
+ },
+ {
+  "id": "k86-204",
+  "period": "2교시",
+  "category": "경영전략",
+  "source": "86회 2교시",
+  "text": "전략적으로 추진된 정보시스템은 기업이 경쟁우위를 갖게 되는 원동력이 되지만, 종종 다른 기업에 쉽게 모방되어 그 경쟁 우위를 쉽게 잃기도 한다. \n   모방하기 어려운 정보시스템을 구축하려면 어떠한 조건이 만족되어야 하는지에 대해 논하시오."
+ },
+ {
+  "id": "k86-205",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "source": "86회 2교시",
+  "text": "게임, 가상현실, 세컨드라이프 등 컴퓨터 그래픽스 응용분야의 소프트웨어 개발시 사용되는 곡선 생성 알고리즘인 \n   베지어(Bezier) 곡선 생성 알고리즘을 설명하시오."
+ },
+ {
+  "id": "k86-302",
+  "period": "3교시",
+  "category": "프로젝트관리",
+  "source": "86회 3교시",
+  "text": "정부에서는 2007년 5월에 \"소프트웨어 분리발주 가이드라인\" 을 발표했다. 그러나 이 가이드라인이 정착되기까지는 발주자와 \n   수주자 모두의 노력이 필요할 것으로 보인다. 먼저, 소프트웨어 분리발주의 의미를 설명하고, \n    소프트웨어 분리발주가 성공적으로 수행되기 위한 발주 프로세스 각 단계별 고려사항에 대해 발주자 입장에서 설명하시오."
+ },
+ {
+  "id": "k86-303",
+  "period": "3교시",
+  "category": "네트워크",
+  "source": "86회 3교시",
+  "text": "낱개 제품(Discrete Product)을 생산하는 일반적인 제조업체에서 생산 자동화(Production Automation)와 \n   컴퓨터 통합생산(CIM : Computer Integrated Manufacturing)의 차이를 설명하고, 일반적인 제조업체를 중심으로 하는 CIM 시스템의 구성요소를 설명하시오."
+ },
+ {
+  "id": "k86-304",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "86회 3교시",
+  "text": "객체지향 모델의 표현 방법인 UML(Unified Modeling Language)을 사용하여 \"수강신청 처리\"에 대한 시스템을 설계하시오. \n   반드시 유스케이스 다이어그램(use-case diagram), 시퀀스 다이어그램(sequence diagram), 클래스 다이어그램(class diagram), \n   액티비티 다이어그램(activity diagram)을 작성하고, 필요시 다른 diagram을 추가 작성하시오."
+ },
+ {
+  "id": "k86-305",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "86회 3교시",
+  "text": "소프트웨어 구조와 관련된 모듈성(Modularity)이란 무엇이며, 그것과 소프트웨어 개발 비용(Cost)과의 관계를 설명하시오."
+ },
+ {
+  "id": "k86-306",
+  "period": "3교시",
+  "category": "경영전략",
+  "source": "86회 3교시",
+  "text": "전자장비를 취급하는 어떤 회사가 ERP 도입을 추진하고 있다. \n   이 회사의 본사에는 칼라 프린터 사업부, 측정장비 사업부, 그리고 비디오 사업부를 가지고 있으며, \n   각 사업부는 업무 특성이 다르다. 해외에 7개 지사가 있으며, 각 지사는 본사 3개 사업부의 업무를 모두 취급하고 있다. \n   이 회사는 회계와 구매/매출채권 ERP 모듈을 도입하려고 한다. 귀하가 ERP 도입 책임자라면 어떠한 도입계획을 제시하겠는가? \n   조직의 특성(본사/해외지사, 3개 사업부)과 도입 ERP 모듈 각각(회계, 구매/매출채권)의 특성을 고려하여 \"위험 최소화 전략\" 차원에서 제시하시오."
+ },
+ {
+  "id": "k86-307",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "86회 3교시",
+  "text": "소프트웨어 아키텍처의 정의, 역할, 아키텍처 모델의 중요성을 설명하고, 여러 가지 아키텍처 스타일을 설명하시오."
+ },
+ {
+  "id": "k86-401",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "86회 4교시",
+  "text": "Pareto Principle은 V. Pareto가 처음 발견하여 제시한 사회경제적인 현상의 원칙(법칙)이다. \n   Pareto Principle에 대해 정의하고, IT 분야의 소프트웨어 공학과 운영체제에서의 용용 예를 설명하시오."
+ },
+ {
+  "id": "k86-402",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "86회 4교시",
+  "text": "다중 프로그래밍 운영체제 하에서 발생하는 교착상태(Dead Lock)를 회피(Avoidance)하기 위한 Banker's Algorithm을 설명하시오."
+ },
+ {
+  "id": "k86-403",
+  "period": "4교시",
+  "category": "경영전략",
+  "source": "86회 4교시",
+  "text": "귀하의 회사는 비즈니스 특성상 변화하는 추세에 빠르게 적응해나가야 생존할 수 있으며, \n   직원들의 창의성과 전문성을 매우 중요시하고 있다. 귀하가 지식경영 책임자라면 어떤 특성의 지식경영시스템을 구축하겠는가? \n   지식경영을 정의하고 경제성 모델, 지식관리 전략, 정보기술, 그리고 인력관리를 중심으로 논하시오."
+ },
+ {
+  "id": "k86-404",
+  "period": "4교시",
+  "category": "프로젝트관리",
+  "source": "86회 4교시",
+  "text": "귀하는 10명이 12개월 동안 수행하고 있는 소프트웨어 개발 프로젝트의 책임자이다. \n   10개월이 지난 시점에서, 계획보다 개발진도가 많이 늦어지자 사장은 귀하를 불러 \"신규인력을 더 투입하라\" 고 지시했으나, \n   귀하는 '불가함' 을 보고했다. '불가함' 의 논거를 Brooks 이론을 중심으로 설명하시오."
+ },
+ {
+  "id": "k86-405",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "86회 4교시",
+  "text": "정보기술은 기업에 도입과 적용되는 과정에서 늘 기업 구성원들의 업무를 변화시켜왔다. \n   새로 도입되는 정보기술에 따른 업무변화 정도를 미리 가늠할 수 있다면 정보화 성공률을 높일 수 있다고 본다.\n   이러한 관점에서 정보기술의 범주를 기능 IT(Function IT), 네트워크 IT(Network IT), 그리고 기업IT (Enterprise IT)로 \n    나누어 각각을 정의하고, 그 특성을 설명하시오."
+ },
+ {
+  "id": "k86-406",
+  "period": "4교시",
+  "category": "인공지능",
+  "source": "86회 4교시",
+  "text": "신경회로망은 음성, 이미지 분석, 인공지능 등의 소프트웨어 개발시 활용되고 있다. \n   신경회로망의 기본 구성요소 중 전파규칙(Propagation Rule), 활성화규칙(Activation Rule), 학습규칙(Learning Rule)에 대하여 \n설명하시오"
+ },
+ {
+  "id": "k84-101",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "84회 1교시",
+  "text": "1 허니팟(Honeypot)에 대하여 설명하시오."
+ },
+ {
+  "id": "k84-102",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "84회 1교시",
+  "text": "2 블랙박스테스트(Black Box Test)와 화이트박스테스트(White Box Test)를 비교 설명하시오."
+ },
+ {
+  "id": "k84-103",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "84회 1교시",
+  "text": "3 아날로그컨텐츠 보호를 위한 Watermarking과 Fingerprinting기법을 비교 설명하시오."
+ },
+ {
+  "id": "k84-104",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "84회 1교시",
+  "text": "4 버티컬포털(Vertical Portal)에 대하여 설명하시오."
+ },
+ {
+  "id": "k84-105",
+  "period": "1교시",
+  "category": "경영전략",
+  "source": "84회 1교시",
+  "text": "5 반복점증적(iterative & incremental) 개발방법 적용시 각 회차 마다 작성되는 반복계획서와 평가서에 \n포함될 내용을 목차 형식으로 기술하시오."
+ },
+ {
+  "id": "k84-106",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "84회 1교시",
+  "text": "6 멀티모달(Multi-Modal)인터페이스를 설명하시오."
+ },
+ {
+  "id": "k84-107",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "84회 1교시",
+  "text": "7 IPv4에 대비하여 IPv6의 기술적 특성을 서술하시오."
+ },
+ {
+  "id": "k84-108",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "84회 1교시",
+  "text": "8 클라우드컴퓨팅(Cloud Computing)에 대하여 설명하시오."
+ },
+ {
+  "id": "k84-109",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "84회 1교시",
+  "text": "9 웹  응용소프트웨어 개발을 위한 프레임워크(Web Application Framework)선정을 위한 품질평가체크리스트 항목을 설계하시오."
+ },
+ {
+  "id": "k84-110",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "84회 1교시",
+  "text": "10 COD(Compile on Demand)에 대하여 설명하시오."
+ },
+ {
+  "id": "k84-111",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "84회 1교시",
+  "text": "11 SW 임치제도에 대하여 설명하시오."
+ },
+ {
+  "id": "k84-112",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "84회 1교시",
+  "text": "12 SATA(Serial Advanced Technology Attachment)에 대하여 설명하시오."
+ },
+ {
+  "id": "k84-113",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "84회 1교시",
+  "text": "13 아래의 테이블과 주어진 속성간의 관계에서 발생되는 데이터의 입력, 삭제, 갱신이상(Anomaly)현상의 예를 기술하시오."
+ },
+ {
+  "id": "k84-201",
+  "period": "2교시",
+  "category": "신기술",
+  "source": "84회 2교시",
+  "text": "1. 한 면에 읽기/쓰기가 가능한 2개의 디스크로 구성된 하드디스크의 물리적 구조를 제시하고, \n하드디스크에서 데이터를 읽고 쓰는 과정의 동작특성을 설명하시오."
+ },
+ {
+  "id": "k84-202",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "source": "84회 2교시",
+  "text": "2. “남대문은 1396년 태조에 의해 건립되었다”를 위한 간단한 온톨로지(ontology)와 ‘남대문’과 ‘태조’를 \n태그로하는 시멘틱 태깅(Semantic Tagging)을 제시하고, 이를 바탕으로 시멘틱 웹 기술을 설명하시오."
+ },
+ {
+  "id": "k84-203",
+  "period": "2교시",
+  "category": "프로젝트관리",
+  "source": "84회 2교시",
+  "text": "3. “A\"사는 사전영업분석 결과, 고객사로부터 발주되는 신규사업에 참여하기로 결정하고 제안 PM으로 귀하를 선임했다.  \n수주를 목표로 하는 제안 작업을 위하여, 귀하는 제안요청서(제안서 및 제안요약본 제출, 제안설명회 실시) \n접수에서부터 제안설명회 실시까지의 과정을 기술하시오."
+ },
+ {
+  "id": "k84-204",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "84회 2교시",
+  "text": "4. 관계형데이터베이스 설계시 테이블 스키마(R)와 함수종속성(FD)이 아래와 같이 주어졌을때, 다음 질문에 답하시오.\n   R(A, B, C, D, E, F, G, H, I)\n   FD : 1. A → B\n        2. A → C\n        3. D → E\n        4. AD →  I\n        5. D → F\n        6. F → G\n        7. A D → H\n   주) 스키마 R(A, B, C, D, E, F, G, H, I)은 원자값(Atomic Value)으로 구성되어 있는 1차 정규형테이블이다.\n가) 함수종속도표(FDD : Functional Dependency Diagram)를 작성하시오.\n   나) 스키마 R(A, B, C, D, E, F, G, H, I)에서 키(key)값을 찾아내고 그 과정을 설명하시오.\n   다) 2차 정규형 테이블을 설계하고 각 테이블의 키(key)값을 명시하시오.\n   라) 3차 정규형 테이블을 설계하고 각 테이블의 키(key)값을 명시하시오."
+ },
+ {
+  "id": "k84-205",
+  "period": "2교시",
+  "category": "보안",
+  "source": "84회 2교시",
+  "text": "5. 사이버 공격 등 외부의 다양한 침해행위로부터 기업내부 전산자원을 보호하기 위한 통합위협관리시스템\n(UTMS : Unified Threat Management System)을 구축하고자 한다. 이에대한 개념, 주요 보안기능 5개이상, \n구축시 기대효과 및 고려사항 등에 대하여 기술하시오."
+ },
+ {
+  "id": "k84-206",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "84회 2교시",
+  "text": "6. 최근 정부에서는 SW분리발주제도를 제정하여 정부부처를 중심으로 운영하고 있다.  이와 관련한 사항 중 \n분리발주 정의 및 유형, 기대효과, 이슈별 해결방안과 활성화를 위한 주요 추진방향에 대하여 기술하시오."
+ },
+ {
+  "id": "k84-301",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "84회 3교시",
+  "text": "1. 응용소프트웨어 테스트중에 회귀테스트(Regression Test)에 대하여 설명하시오."
+ },
+ {
+  "id": "k84-302",
+  "period": "3교시",
+  "category": "네트워크",
+  "source": "84회 3교시",
+  "text": "2. 기능점수(Function Point) 측정에 대하여 아래의 내용을 근거로 각 질문에 답하시오.\n<Application Boundary>\n\n [업무기능요건]  \n         가. 인사담당자가 인사기본정보(사원DB, 부서DB)를 관리한다.\n         나.인사담당자가 임직원의 직무정보(사원DB, 직무DB)를 산업인력관리공단의 표준직무 DB와 연계하여 관리한다.\n         다. 인사담당자가 부서별 각종 최신 통계자료(사원DB, 직무DB, 부서DB)를 조회?출력한다.\n         가. 기능점수 산출방법의 간이법과 정규법의 차이점을 비교 설명하시오.\n         나. 간이법을 적용하여 주어진 [업무기능요건]에 대한 트랜잭션 기능(Transaction Function)과 데이터기능(Data Function)을 산출 하시오.\n         다. 간이법을 적용하여 주어진 [업무기능요건]에 대한 기능점수를 산출하시오.\n             (복잡도는 ISBSG의 평균데이타를 이용할 것)\n ISBSG(International Software Benchmarking Standards Group)의 평균복잡도"
+ },
+ {
+  "id": "k84-303",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "84회 3교시",
+  "text": "3. IT에 대한 투자규모가 지속적으로 확대될 것으로 예상되는 A기업은 정보화 투자관리 목표를 IT투자의 효율성을 증대하는 것으로 정하고 \nIT투자관리를 이용한 IT시스템운용의 효율성 향상방안을 강구하고 있다. IT투자관리개념 및 필요성, 구성요소 및 \nIT투자관리 모델(관리 및 조직구조, 제도, 모델구현 측면)구축방안을 제시하시오."
+ },
+ {
+  "id": "k84-304",
+  "period": "3교시",
+  "category": "데이터베이스",
+  "source": "84회 3교시",
+  "text": "4. 고객에게 실시간 서비스를 제공하는 기업에서의 정보시스템 장애등 비상상황 발생 및 대응활동은 매우 중요하다. \nA금융기관에서는 이러한 비상상황에 효율적으로 대처하고자 기존의 Tape 방식의 백업방식에서 \nDisk 기반방식으로의 백업을 고려하고 있다. Disk기반 백업방식중 가상 Tape라이브러리(VTL)방식의 정의 및 특징, \nD2D(Disk TO Disk)방식과 VTL방식을 비교 설명하시오."
+ },
+ {
+  "id": "k84-305",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "84회 3교시",
+  "text": "5. 다음 그래프에 Dijkstra가 제안한 최소비용(least-cost)경로설정 알고리즘이 적용되는 과정을 제시하시오. (그래프의 에지옆 숫자는 비용을 의미함)"
+ },
+ {
+  "id": "k84-306",
+  "period": "3교시",
+  "category": "네트워크",
+  "source": "84회 3교시",
+  "text": "6. 사설공간인 홈(Home)에서 컨텐츠는 다양한 장치에서 자유롭게 사용(Seamless access) 할 수 있어야 한다.  \n반면에 홈의 범위를 벗어난 불법적인 복제나 재분배로부터 컨텐츠는 보호되어야 한다.  \n홈 네트워크환경에서 두가지 조건을 만족할 수 있는 효과적인 컨텐츠보호 구조와 방안을 제시하시오."
+ },
+ {
+  "id": "k84-401",
+  "period": "4교시",
+  "category": "경영전략",
+  "source": "84회 4교시",
+  "text": "1. A기업은 경영의 효율성 확보를 위하여 IT아웃소싱(ITO : IT outsourcing)도입을 검토하고 있다. ITO 개념 및 장단점, \n도입프로세스를 제시하고 도입프로세스중 준비 및 계약단계, 통제단계에 대하여 상세히 기술하시오."
+ },
+ {
+  "id": "k84-402",
+  "period": "4교시",
+  "category": "프로젝트관리",
+  "source": "84회 4교시",
+  "text": "2. 최근 정부부처를 비롯한 공공기관에서는 정보시스템 구축과정에서 협상에 의한 계약체결기준을 준용하여 구축업체를 선정, 계약을 체결하는 사례가 지속적으로 증가하고 있다.\n    1) 동 기준의 필요성에 대하여 기술하시오.\n    2) 동 기준에서 제시하는 평가항목 및 배정한도 중 기술능력 평가항목을 5개이상 기술하시오.\n    3) 입찰참여업체 및 입찰가격이 다음과 같을 경우 동 기준에 의한 평정산식을 기술하고 입찰가격 평가점수를 구하시오. (평가점수는 소숫점 1자리까지)\n      - 추정가격 100기준(배점한도 20점기준)"
+ },
+ {
+  "id": "k84-403",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "84회 4교시",
+  "text": "3. 생활현장에 전개(deployed)되는 소형 센서는 에너지를 절약해야 한다.  무선센서네트워크(Wireless Sensor Network)환경에서 센서가 \n획득한 데이터를 sink로 취합(aggregation)하기 위한 에너지의 효율적인 방법론을 제시하시오."
+ },
+ {
+  "id": "k84-404",
+  "period": "4교시",
+  "category": "디지털서비스",
+  "source": "84회 4교시",
+  "text": "4. 상황인식컴퓨팅(Context-aware Computing)을 정의하고 홈(home)환경을 가정하여 다음상황에 대한 상황요소를 각각 5개 이상 제시하시오.\n   사용자 신체, 공간, 환경, 컴퓨팅자원"
+ },
+ {
+  "id": "k84-405",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "84회 4교시",
+  "text": "5. 응용소프트웨어 개발시 주요 액티비티인 테스트 실시 및 진행과정에 대하여 발생되고 있는 문제점들을 도출하고 각각에 대한 해결방안을 논하시오."
+ },
+ {
+  "id": "k84-406",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "84회 4교시",
+  "text": "6. 귀하는 차세대시스템 구축팀의 아키텍트다. SAD(Software Architecture Document)문서는 상세화단계(Elaboration Phase)까지는 골격이 갖추어져야 된다.  \n이 때 SAD문서에 포함되어야 할 항목들을 목차의 형태로 기술하시오."
+ },
+ {
+  "id": "k83-101",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "83회 1교시",
+  "text": "AOP(Aspect-Oriented Programming)에 관해서 설명하시오.\n   - 구성요소 와 OOP 한계점 들어가야함."
+ },
+ {
+  "id": "k83-102",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "83회 1교시",
+  "text": "AJAX(Asynchronous Javascript and XML)에 대하여 설명하시오"
+ },
+ {
+  "id": "k83-103",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "83회 1교시",
+  "text": "SaaS(Software as a Servive)의 개념을 설명하시오.\n   - 기출문제 중복"
+ },
+ {
+  "id": "k83-104",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "83회 1교시",
+  "text": "Mobile RFID 기술과 응용기술을 설명하시오."
+ },
+ {
+  "id": "k83-105",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "83회 1교시",
+  "text": "OpenAPI를 설명하고 응용기술을 설명하시오.\n    - REST, XML-RPC, SOAP"
+ },
+ {
+  "id": "k83-106",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "83회 1교시",
+  "text": "이벤트 기반의 시스템 테스팅을 위한 Record and Replay 기법에 대하여 설명하시오."
+ },
+ {
+  "id": "k83-107",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "83회 1교시",
+  "text": "XSS(Cross-Site Scripting)란 무엇이며, 2가지 유형을 설명하시오."
+ },
+ {
+  "id": "k83-108",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "83회 1교시",
+  "text": "데이터 프로파일링(Data Profiling)에 대하여 설명하시오.\n   - 데이터에 기반하여 데이터의 정합성을 체크하여 데이터를 구조화하고 보정하는 활동\n   - EA > Data Architecture > SP기반 연동"
+ },
+ {
+  "id": "k83-109",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "83회 1교시",
+  "text": "Use Case Realization-Analysis에 대하여 설명하시오.\n   - 유스케이스(Use Case)와 유스케이스 실체화(Use Case Realization), 분석 기술.\n   - 액터와 시스템간의 관계를 서술함으로 실체화를 진행함\n   - Association: 관계\n   - Dependency: 수용 및 편입 \n   - Generation: 상속관계"
+ },
+ {
+  "id": "k83-110",
+  "period": "1교시",
+  "category": "보안",
+  "source": "83회 1교시",
+  "text": "Tamper-Proofing 기술에 대하여 설명하시오.\n\n4. Tamper-Proofing\nTamper-proof기술은 End-User의 공격을 방지하는 것으로, Screen-capture, Copy & Paste 및 Memory Hooking 등과 관련하여, 컨텐츠를 보호할 수 있는 기술\n tamper-proofing code는\na. 프로그램의 변경 여부를 감지할 수 있어야 함.\nb. tampering이 분명할 때, 프로그램이 fail되도록 해야 함.\n\n와 같은 성격을 가지고 있어야 한다.\n\ntampering을 감지하는 방법에는\n\n1. executable program 자체가 original과 변경되었는지 여부를 조사한다. 해쉬값 등을 이용한다.\n2. 프로그램에 의해서 생성되는 중간값들을 조사한다.\n3. executable 자체를 암호화해서 위조를 방지한다"
+ },
+ {
+  "id": "k83-111",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "83회 1교시",
+  "text": "DOCSIS 3.0의 정의, 특징 및 활용분야에 대하여 설명하시오.\n- HFC 데이터 전송 표준 규격 DataOver Cable Service Interface Specification\n- 케이블 상에서 양방향 신호 교환을 위한 변조방식과 프로토콜 지정."
+ },
+ {
+  "id": "k83-112",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "83회 1교시",
+  "text": "ISM(Industrial Science Medical)band 정의, 특징 및 활용분야 등에 대해서 설명하시오.\n- 주파수대역: 산업, 과학 및 의료용으로 할당된 대역."
+ },
+ {
+  "id": "k83-113",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "83회 1교시",
+  "text": "I-PIN(Internet Personal Identification Number) 정의, 등장배경, 특징 및 활용분야에 대해서 설명하시오."
+ },
+ {
+  "id": "k83-201",
+  "period": "2교시",
+  "category": "보안",
+  "source": "83회 2교시",
+  "text": "최근 사회적 문제로 대두되고 있는 개인정보 노출이슈와 침해기술 유형을 설명하고 이를 해결하기 위한 개인정보보호 아키텍처 구현 방안을 제시하시오.\n- 개인정보노출: 피싱, 파밍, 비싱, 스팸메일 등.\n- 27000 시리즈 기술.\n- 관물기 연동"
+ },
+ {
+  "id": "k83-202",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "83회 2교시",
+  "text": "전사적 데이터베이스 통합 프로젝트환경에서 데이터 중복 및 오류 문제를 줄이고자 데이터 품질 개선을 위해 요구되는 품질기준 4가지 이상을 제시하고, 데이터 표준화 및 메타데이터 구축방안을 설명하시오.\n- DQM; Data Architecture, 개논물\n- MDR: Metadata Registry\n- ISO/IEC 11179는 데이터의 공유를 위한 기본 틀로서, 데이터 요소가 내포하고 있는 의미를 충분히 나타내어 줄 수 있는 구조를 정의하고 메타데이터 레지스트리 구축 및 운영 원칙을 제공하는 국제 표준"
+ },
+ {
+  "id": "k83-203",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "83회 2교시",
+  "text": "정보시스템의 효율적 도입 및 운용 등에 관한 법률안이 공포되어 공공기관을 중심으로 ITA/EA프로젝트가 진행되고 있다. 정보공학 방법론에 기반한 ISP와 EAP를 비교 설명하시오."
+ },
+ {
+  "id": "k83-204",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "83회 2교시",
+  "text": "소프트웨어의 명세기반기법(Specification-Based Technique)테스트와 구조기반기법 (Structure-Based Technique)테스트 방법을 나열하고 설명하시오.\n\n◆ 테스트 설계 기법 분류\n \n▪ 명세기반 기법 \n  - 일반적으로 공식적/비공식적 모델이 명세화를 위해 사용됨\n  - 테스트 케이스를 모델로부터 체계적으로 도출\n  - 문서기반\n  - Equivalence Partitioning, Boundary value analysis, Decision table testing, State transition \n    testting, Use case testing\n \n▪ 구조기반 기법 \n  - SW 코드나 설계 등 구조를 보여주는 정보로부터 테스트 케이스 도출\n  - 소프트웨어의 커버리지 정도가 기존 테스트 케이스로부터 측정되고 커버리지를 늘리기 위하여 \n     추가적 테스트 케이스가 체계적으로 도출\n \n▪ 경험기반 기법 \n - 테스터, 개발자, 사용자 등의 지식활용\n - 발생가능한 결함과 그 분포 등에  대한 지식\n - 문서화 필요"
+ },
+ {
+  "id": "k83-205",
+  "period": "2교시",
+  "category": "운영체제",
+  "source": "83회 2교시",
+  "text": "중앙처리장치 스케줄링 방식에는 비선점(Nonpreemptive)와 선점(preemptive)방식이 있다."
+ },
+ {
+  "id": "k83-206",
+  "period": "2교시",
+  "category": "프로젝트관리",
+  "source": "83회 2교시",
+  "text": "다음 정규 분포(Normal Distribution)에 관해서 약술하시오.\n1) 정규 분포는 어떤곳에서 활용되는지 설명하시오.\n2) 일정한 수입이 있는 한 집단에서 소속된 가정들 27%가 3년에 한번씩 이사를 한다.\n100가정이 소속된 집단에서 20에서 30사이의 가정들이 다음 3년 사이에 이사할 확률을 구하시오.\n단, p(z <= 1.69) = 0.9545, p(z <= 0.79) = 0.7852 이고, = 4.44이다."
+ },
+ {
+  "id": "k83-301",
+  "period": "3교시",
+  "category": "디지털서비스",
+  "source": "83회 3교시",
+  "text": "Web 2.0이 등장한 배경과 Web 2.0기반의 시스템을 개발하기 위한 프로세스, 그리고 프레임워크(framework)를 설명하시오."
+ },
+ {
+  "id": "k83-302",
+  "period": "3교시",
+  "category": "네트워크",
+  "source": "83회 3교시",
+  "text": "지식경영을 위한 지식관리시스템(KMS)을 도입하는 주된 이유와 아키텍처를 ① 하부 구조서비스(Infrastructure Service) ② 지식서비스(Knowledge Service) ③ 화명제공서비스(Presentation Service)로 구분하여 설명하시오."
+ },
+ {
+  "id": "k83-303",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "83회 3교시",
+  "text": "정보화 전략계획수립(ISP)사업에 대한 정보시스템 감리 프레임워크를 제시하고 중요 감리점검사항에 대하여 설명하시오."
+ },
+ {
+  "id": "k83-304",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "83회 3교시",
+  "text": "소프트웨어시스템이 어떤 순서에 의거해서 개발, 운영, 유지보수되어 생명주기를 마칠 때까지의 전체적인 작업 프로세스를 모델화한 소프트웨어 생명주기 모형에 관해서 물음에 답하시오.\n1) 폭포수(Waterfall)모델과 프로토타이핑(Prototyping)모델의 특징을 설명하시오.\n2) 나선형(Spiral)모델을 개발 4단계 절차 중심으로 설명하시오.\n3) 클린룸(Clean Room)모델을 3개의 박스 중심으로 설명하시오.\n\n- 시스템의 가장 핵심이 되는 부분을 최초의 인크리먼트(increment, 실행 가능한 프로토타입)로 개발하여 사용자에게 피드백 하여 새로운 요구를 끄집어내거나 개발 계획 자체를 다시 고쳐서 반복해서 증가분 소프트웨어를 개발시스템에 추가 방식"
+ },
+ {
+  "id": "k83-305",
+  "period": "3교시",
+  "category": "프로젝트관리",
+  "source": "83회 3교시",
+  "text": "신규 소프트웨어 개발 프로젝트 계획단계에서 기능점수를 측정하였더니 아래의 [표1]과 같이 기능이 식별되었다. 측정시점에서 신규 개발기능의 세부내용에 대한 개별복잡도 측정이 어려워 평균복잡도 가중치를 적용키로 하였으며, 다른 요구기능은 없다고 가정하고 다음 질문에 대하여 설명하시오\n[표1] 기능점수 식별 내용 예시\n[표2] 기능점수 평균 복잡도 가중치"
+ },
+ {
+  "id": "k83-401",
+  "period": "4교시",
+  "category": "경영전략",
+  "source": "83회 4교시",
+  "text": "내부관리회계제도(K-SOX)에서 내부통제와 정보기술의 역할을 설명하시오.\n\n- “K-SOX”라고도 불리는 “내부회계관리제도에 대한 경영진 평가 및 외부감사인의 검토”\n- 정형적인 문제(윤리강령 류 문제)"
+ },
+ {
+  "id": "k83-402",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "83회 4교시",
+  "text": "최근 공공기관의 대규모 정보시스템 구축 프로젝트에서는 컨소시엄방식의 사업자 참여가 증가하고 있는 실정이다. 이들 프로젝트에서 예상되는 문제점을 범위, 일정, 위험, 품질, 자원배치, 의사소통 관점에서 이슈사항을 도출해보고 전사적 조직측면의 프로젝트관리 전공전략을 제시하여 보시오."
+ },
+ {
+  "id": "k83-403",
+  "period": "4교시",
+  "category": "운영체제",
+  "source": "83회 4교시",
+  "text": "컴퓨터 알고리즘 중 Greedy method에 관해서 물음에 답하시오.\n1) Greedy method의 특징과 해를 구하는 프로세스 절차에 관해서 설명하시오.\n2) knapsack problem에서 n=3(objects수), m=20(knapsack capacity),그리고\n(p1,p2,p3)=(25,24,15), (w1,w2,w3)=(18,15,10)일 때 물음에 답하시오.\n단, p1,p2,p3은 profit 이고, w1,w2,w3은 weight 이다.\n①4개의 feasible solution을 나타내시오.\n②최적해가 어떤 것인지 설명하시오."
+ },
+ {
+  "id": "k83-404",
+  "period": "4교시",
+  "category": "데이터베이스",
+  "source": "83회 4교시",
+  "text": "데이터베이스의 주요개념에 관해서 물음에 답하시오.\n1) 정규화를 하는 이유를 약술하고, 관계형 DB에서2NF와 3NF의 차이점을 약술하시오.\n2) 비정규화를 고려할 때 가장 중요하게 검토해야 할 기준이 무엇인지 설명하시오.\n3) 데이터웨어하우징 시스템에서 비정규화를 도입하는 주된 이유를 설명하시오."
+ },
+ {
+  "id": "k83-405",
+  "period": "4교시",
+  "category": "프로젝트관리",
+  "source": "83회 4교시",
+  "text": "프로젝트 일정관리에서 임계경로(Critical Path)의 의미를 설명하고, 다음의CPM(Critical Path Method)네트워크에서 임계경로(Critical Path)를 찾으시오."
+ },
+ {
+  "id": "k83-406",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "83회 4교시",
+  "text": "A기관 차세대통합정보시스템 구축 사업에서는 웹서비스 방식으로 모든 서비스를 제공할 계획이다. 고객 제안요청서에서는 CBD (Component Based Development)방법론으로 구축을 요구하고 있으나, 현재 개발업체 입장은 과제해결에 요구되는 몇가지 기존 소프트웨어 컴포넌트 구매가 필요하고, 나머지는 EJB(Enterprise Java Beans)환경으로 개발을 고려하고 있다. 고객과의 이견차이를 좁히기 위한 적합한 응용소프트웨어 아키텍처구현방안을 다음사항을 기준으로 설명하시오.\n1) 개발 방법론(팩키지+CBD) 적용방안을 제시하시오.\n2) 응용 소프트웨어 아키텍처 구성방안을 기술하시오.\n3) 기성 소프트웨어 컴포넌트와 신규개발 컴포넌트간 인터페이스 방안을 설명하시오."
+ },
+ {
+  "id": "k81-101",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "81회 1교시",
+  "text": "공개소프트웨어(OSS)의 라이센스 모델 중 대표적인 GPL과 BSD의 개념을 비교 설명 하시오."
+ },
+ {
+  "id": "k81-102",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "81회 1교시",
+  "text": "소프트웨어 아키텍처(Software Architecture)를 정의 하시오. 세가지 주요요소를 중심으로 \n기술하시오.\n    UML의 4+1View, 프레임워크(FW 모델들), 스타일"
+ },
+ {
+  "id": "k81-103",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "81회 1교시",
+  "text": "디자인 패턴과 아키텍처 스타일의 차이를 설명하시오."
+ },
+ {
+  "id": "k81-104",
+  "period": "1교시",
+  "category": "보안",
+  "source": "81회 1교시",
+  "text": "전자상거래 보안의 4가지 원칙을 설명 하시오."
+ },
+ {
+  "id": "k81-105",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "81회 1교시",
+  "text": "데이터베이스 트랜잭션을 정의하고, 트랜잭션의 특징을 설명하시오.\n   - ACID로 특징 설명\n   - 트랜잭션 상태 전이도와 각 상태의 설명"
+ },
+ {
+  "id": "k81-106",
+  "period": "1교시",
+  "category": "경영전략",
+  "source": "81회 1교시",
+  "text": "UCC(User-Created Contents)의 용어 및 개념을 정의하고 종류에 대해서 설명하시오.\n- UCC 개념 정의, 특징에는 <사용자주도, 참여, 개방성>, \n- 종류는 UGC(User Generated Contents), UMC(User Modified Contents), RCC(Reviewer \nCreated Contents), CCC(Customer Created Contents), PCC(Proteur Created Contents) 적음. \n3단락에 PCC(Pro + Amateur Create Contents)에 대한 비즈니스 모델 언급."
+ },
+ {
+  "id": "k81-107",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "81회 1교시",
+  "text": "대규모 차세대시스템 구축 프로젝트에서 시스템 특성에 따라 적용해야 할 테스트 유형을 \n1) 사용자 인터페이스 테스트(User Interface Testing or Usability Testing), 2) 기능 테스트, \n3) 비즈니스단 성능테스트, 4) WAN 구간 성능 테스트로 구분 시, 각각에 대한 내용을 설명하시오.\n   - 테스트 개념, 필요성, 각각의 테스트에 대한 설명"
+ },
+ {
+  "id": "k81-108",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "81회 1교시",
+  "text": "DBA(DataBase Administrator)의 1) 정의, 2) 주요 직무, 3) 필요 기술, 4) 주요 역할에 대하여 \n설명하시오"
+ },
+ {
+  "id": "k81-109",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "81회 1교시",
+  "text": "업무설계(데이터모델링)를 위한 요구사항정의 시에 애매모호성을 제거하기 위한 규칙에 대하여\n ‘예’를 들어서 설명하시오.\n  - 학사관리: 학사관리 모델링해주세요-> 명사식별(엔티티식별) -> Data 정합성 -> 고객 Discussion\n  - 의사소통의 중요성과 현업이 이해할 수 있는 용어를 Dictionary로 정의 하고 이 용어를 사용하여 \n모델링 수행하는 내용 적음."
+ },
+ {
+  "id": "k81-110",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "81회 1교시",
+  "text": "WRML(Web Reporting Markup Language) 배경 및 구조를 설명하시오.\n    - Language 임에 주의해야 함.\n    - XBRL 등하고 틀림."
+ },
+ {
+  "id": "k81-111",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "81회 1교시",
+  "text": "지능형 네트워크 로봇 구조를 설명하시오.\n    - URC"
+ },
+ {
+  "id": "k81-112",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "81회 1교시",
+  "text": "차세대 이동통신 종류와 특징에 대하여 설명하시오.\n    - HSDPA, HSUPA, HSOPA, LTE, Wibro 등에 대해 적음 / 3.5, 4G로 기술."
+ },
+ {
+  "id": "k81-113",
+  "period": "1교시",
+  "category": "프로젝트관리",
+  "source": "81회 1교시",
+  "text": "수석감리원, 감리원 자격기준에 대하여 설명하시오.\n    [수석감리원]\n- 80억 / 관리/전자계산조직응용기술사 등 수석감리원 등급자 \n    [감리원]"
+ },
+ {
+  "id": "k81-201",
+  "period": "2교시",
+  "category": "프로젝트관리",
+  "source": "81회 2교시",
+  "text": "소프트웨어 프로젝트관리(Software Project Management)에 대하여 다음 질문에 답하시오.\n     가. 프로젝트 정의 및 프로젝트관리의 정의를 설명하시오.\n     나. 프로젝트를 수행하는 업종에 대하여 아는 대로 기술하시오.\n     다. 프로젝트 수행을 위한 ‘업의 특성 및 개념’에 대해서 기술하시오.\n     라. 소프트웨어 프로젝트 수행 과정상, 예상되는 대표적인 위험을 도출하고 이를 극복하기 위한 \n위험관리(Risk management)방안에 대하여 논하시오."
+ },
+ {
+  "id": "k81-202",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "81회 2교시",
+  "text": "“학번?지도교수”릴레이션 학생들이 수강한 과목의 성적을 나타내는 릴레이션이다. \n또한 이 릴레이션은 지도교수 정보로서 지도교수명과 지도교수의 소속 학과 정보도 함께 가지고 \n있다. 즉 한 학생은 여러 과목을 수강 할 수 있기 때문에 특정 튜플을 유일하게 식별하기 위해서는\n학번과 과목번호가 복합 애트리뷰트의 형태로 기본키가 되어야 성적을 식별할 수 있다. 스키마와 \n함께 함수종속성(Functional Dependency)은 다음과 같다.\n\n“수강•지도” 릴레이션 : (학번,과목번호,지도교수명,학과명,성적) \n함수종속성(FD):  1. 학번∥과목번호 → 성적 \n 2. 학번 → 지도교수명 \n 3. 학번 → 학과명 \n 4. 지도교수명 → 학과명 \n     가. 함수종속도표를 작성하시오\n     나. 1차 정규형 스키마인 “수강?지도”테이블에서 부분종속성을 제거하여 2차 정규형 테이블을 \n설계하시오.\n     다. 1차 정규형 테이블에서 2차,3차 정규화 과정을 수행하지 않고서 한번에 보이스-코드 정규형 \n테이블을 설계할 수 있는 방법을 설명하시오."
+ },
+ {
+  "id": "k81-203",
+  "period": "2교시",
+  "category": "경영전략",
+  "source": "81회 2교시",
+  "text": "정보전략 수립시 환경분석을 통해 주요성공요인을 도출하기 위해 사용하는 5-Force 분석 7S 분석,\n SWOT분석의 기법과 연결 절차에 대하여 설명하시오."
+ },
+ {
+  "id": "k81-204",
+  "period": "2교시",
+  "category": "네트워크",
+  "source": "81회 2교시",
+  "text": "정부에서는 기술사 자격의 실효성과 국제통용성을 제고하기 위해 기술사관련법제도 개선을 추진하고 \n있다.\n  가. 최근 개정된 기술사법의 주요내용(업역, 인력관리)과 쟁점\n나. 정보통신공사업법 주요개정내용(배치기준, 기술등급)에 대하여 설명하고 향후 제도개선 방향에 \n대하여 기술하시오."
+ },
+ {
+  "id": "k81-205",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "81회 2교시",
+  "text": "소프트웨어 품질 평가 및 측정 기술에 대하여 다음 질문에 답하시오.\n     가. 품질평가 기술의 유형을 나열하고 비교 설명하시오.\n         - SW 프로덕트 관점, 프로세스 관점(CMMI, SPICE)\n     나. 각 유형별 대표적인 표준 또는 모델을 제시하고 설명하시오.\n     다. GS(Good Software)인증은 이중 어느 유형에 속하며 무슨 모델(표준)을 따르고 있는지 \n설명하시오.\n- 프로덕트 관점."
+ },
+ {
+  "id": "k81-206",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "source": "81회 2교시",
+  "text": "SOA와 Web 2.0에 대하여 다음 질문에 답하시오.\n     가. SOA의 개념을 설명하시오.\n     나. Web 2.0의 개념을 설명하시오.\n     다. SOA와 Web2.0의 차이점을 비교 설명하시오."
+ },
+ {
+  "id": "k81-301",
+  "period": "3교시",
+  "category": "프로젝트관리",
+  "source": "81회 3교시",
+  "text": "대규모 차세대시스템 구축 프로젝트에서 기존시스템(AS-IS system)의 데이터를 \n차세대시스템(TO-BE system)으로 이관(DATA conversion) 작업의 절차 및 유의사항에 대하여 상세히\n설명하시오"
+ },
+ {
+  "id": "k81-302",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "81회 3교시",
+  "text": "기존시스템(AS-IS system)을 CBD체제로의 차세대시스템 IT Upgrade 프로젝트를 수행한 결과 참담한 \n실패로 결론지어졌다. 상황은 다음과 같다.\n     1) 납기 지연 : 12개월에서 16개월로 4개월 지연(지체상금 : 계약금액의 0.3% / 1일)\n     2) 투입 M/M : 180 M/M 투입예상에서 265 M/M 투입으로 85 M/M 추가 투입\n     3) Work Scope : 계약 대비 1.6배 증가(추정치)함. 고객사 업무에 대한 유경험자 부족\n     4) 요구사항 : 프로젝트 착수후 12개월 경과후 확정\n     5) IT환경에 대한 구축 경험 없었음 : NT서버,MS-SQL서버,WAS서버의 EJB 생성,X-internet UI툴,\nReporting 툴, J2EE & EJB framework\n     6) 고객사측의 PM 및 T/F 요원들은 비전산요원임. 끊임없이 추가/변경 요구사항을 수용해 줄 것을\n요구하였고, 또한 그렇게 하는 것이 당연한 “갑”의 권리로 생각함 (언어폭력 난무)\n     7) 통합테스트 및 영업점테스트 기간 : 6주(weeks) 계획에서 16주(weeks)가 경과됨으로서 10주(weeks)간 지연되었음. 이유는 시스템 오류사항과 추가요구사항 및 변경요구사항이 테스트 기간에서도 상상을 초월할 정도로 폭증했음\n상기와 같은 결과를 초래하지 않기 위한 프로젝트관리 방안- 범위관리, 위험관리, 일정관리, \n예산관리, 품질관리, 의사소통관리, 자원관리 - 을 기술하시오."
+ },
+ {
+  "id": "k81-303",
+  "period": "3교시",
+  "category": "경영전략",
+  "source": "81회 3교시",
+  "text": "전자정부의 확산에 따라 안정성과 효율성 제고를 위해 ITA의 도입등 법제도 개선활동이 활발하게 \n진행되고 있다. 최근 행자부에서 발표한 정보자원관리(IRM) 가이드에 대하여 설명하고 ITA와의 관계 \n및 향후 발전 방향에 대하여 기술하시오."
+ },
+ {
+  "id": "k81-304",
+  "period": "3교시",
+  "category": "네트워크",
+  "source": "81회 3교시",
+  "text": "인터넷 및 전자상거래 확산에 따라 관련 범죄가 급격히 지능화, 일반화 되고 있다. 최근에 공인민간\n조사원법(가칭 탐정법)이 국회에서 검토되는 등 대응방안이 필요한 시점에서 과학수사 및 정보분석 \n분야인 Computer Forensics의 구조와 발전 방향에 대하여 기술하시오."
+ },
+ {
+  "id": "k81-305",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "81회 3교시",
+  "text": "소프트에어 테스트 기법의 유형을 나열하여 기술하고, 각 유형별 주요 기술을 설명하시오.\n\nV Diagram 그리고, 세가지 분류(SDLC, 실행, 코드)으로 나누어 각 유형 적고, 유형별 세부내용 \nInspection, PSP/TSP"
+ },
+ {
+  "id": "k81-306",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "81회 3교시",
+  "text": "다음 UML 모델을 자바 코드로 변환하시오. 분기문은 if문을 사용하고 Order 클래스와 \nProduct 클래스를 작성하시오.\n\n     1. A[isDiscount-true]:getDiscountPrice()\n     2. A[isDiscount-false]: get Price()"
+ },
+ {
+  "id": "k81-401",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "81회 4교시",
+  "text": "차세대시스템 IT Upgrade 프로젝트를 수행하는 과정에서 구현이 완료된 뒤, 통합 테스트와 \n영업점테스트 사이에 전반적인 성능향상(performance)을 위한 튜닝을 실시하고자 한다. \n이에 대한 실시 방안을 기술하시오.\n<프로젝트 개요>\n     가. 소요기간 및 투입 M/M : 16개월 , 200M/M\n     나. 적용 IT환경 : NT 서버에 Unix 탑재, MS-SQL서버, WAS서버의 EJB 생성, X-internet UI툴 , \nReporting 툴, J2EE & EJB framework"
+ },
+ {
+  "id": "k81-402",
+  "period": "4교시",
+  "category": "프로젝트관리",
+  "source": "81회 4교시",
+  "text": "건설분야의 사업관리(CM)는 국가기술계약법 및 건설관련 법제도를 통해 체계화되어 있고 정보화 사업\n관리(PMO)분야로 확산되고 있다. PMO의 계약구조 및 정보화 사업관리 구조를 기술하고 법제도 측면에\n서의 발전방향에 대하여 설명하시오."
+ },
+ {
+  "id": "k81-403",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "81회 4교시",
+  "text": "정보기술아키텍처 구축의 단계와 메타모델에 대하여 기술하고 Architecting 과 Modeling의 차이에 \n대하여 설명하시오.\nII. EA/ITA 구축 단계.\n    메타모델: SP, RM에 기술.\nIII. Architecting 과 Modeling의 기술\n    - 비즈니스, 어플리케이션, 데이터, 기술아키텍처링.\n    - SW, DB 모델링 기술."
+ },
+ {
+  "id": "k81-404",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "81회 4교시",
+  "text": "제품계열 방법론 (Software Product Line)에 대하여 다음 질문에 답하시오.\n     가. 제품계열 방법론의 태동배경을 설명하고 정의하시오.\n     나. 제품계열 방법론의 개발 단계를 분류하고 단계별 활동을 설명하시오.\n     다. 제품계열 방법론으로서 제안된 기존의 방법론을 비교 설명하시오."
+ },
+ {
+  "id": "k81-405",
+  "period": "4교시",
+  "category": "프로젝트관리",
+  "source": "81회 4교시",
+  "text": "국가표준으로 제정된 소프트웨어 발주관리 프로세스에 대하여 다음 질문에 답하시오.\n     가. 발주관리 프로세스의 핵심 수명주기 프로세스를 나열하고 설명하시오.\n     나. 핵심 수명주기 프로세스 중 발주 프로세스의 단계를 나열하고 단계별 활동을 설명하시오.\n     다. 핵심 수명주기 프로세스 중 공급 프로세스의 단계를 나열하고 단계별 활동을 설명하시오."
+ },
+ {
+  "id": "k81-406",
+  "period": "4교시",
+  "category": "신기술",
+  "source": "81회 4교시",
+  "text": "SaaS에 대하여 다음 질문에 답하시오.\n     가. SaaS 의 개념을 설명하시오.\n     나. SaaS 모델의 국내외 현황을 설명하시오.\n     다. SaaS 를 적용하고 있는 대표적인 국내외 기업을 제시하고 설명하시오."
+ },
+ {
+  "id": "k80-101",
+  "period": "1교시",
+  "category": "경영전략",
+  "source": "80회 1교시",
+  "text": "C-Commerce(Collaboration- Commerce)"
+ },
+ {
+  "id": "k80-102",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "80회 1교시",
+  "text": "TRM/SP(Technical Reference Model/Standard Profile)."
+ },
+ {
+  "id": "k80-103",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "80회 1교시",
+  "text": "문제해결분석 방법론인 4C(Circumstance, Customer, Competition, Company)와 \n     SWOT(Strengths, Weaknesses, Opportunities, Threats)."
+ },
+ {
+  "id": "k80-104",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "80회 1교시",
+  "text": "DMB의 개념과 서비스"
+ },
+ {
+  "id": "k80-105",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "80회 1교시",
+  "text": "EIP(Enterprise Information portal)관점에서의 SSO(Single Sign On)"
+ },
+ {
+  "id": "k80-106",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "80회 1교시",
+  "text": "인터페이스 방안 중 MCI(Multi Channel Integration)"
+ },
+ {
+  "id": "k80-107",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "80회 1교시",
+  "text": "임베디드 소프트웨어 개발환경과 구성요소."
+ },
+ {
+  "id": "k80-108",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "80회 1교시",
+  "text": "Software Metric"
+ },
+ {
+  "id": "k80-109",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "80회 1교시",
+  "text": "소프트웨어 프로덕트라인에서 프로덕트라인공학의 개념과 장점"
+ },
+ {
+  "id": "k80-110",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "80회 1교시",
+  "text": "Monte Carlo Method"
+ },
+ {
+  "id": "k80-111",
+  "period": "1교시",
+  "category": "신기술",
+  "source": "80회 1교시",
+  "text": "중복투명성(Replication Transparency)."
+ },
+ {
+  "id": "k80-112",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "80회 1교시",
+  "text": "BCNF(Boyce/Codd Normal Form)"
+ },
+ {
+  "id": "k80-201",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "80회 2교시",
+  "text": "EA/ITA(Enterprise Architecture/Information Technology Architecture)를 수렵하\n고자 한다.\n   가. 수립에 필요한 정의, 필요성, 도입효과 등을 기술하시오.\n   나. 관점별(정책결정자-경영자, 관리자-팀장, 실무자-팀원, 구축자-팀원/업무\n아키텍처, 데이터 아키텍처, 어플리케이션 아키텍쳐, 기술아키텍처) 주요\n산출 물을 제시하고 관리자-팀장, 어플리케이션 아키텍쳐의 산출물을 설명하시오."
+ },
+ {
+  "id": "k80-202",
+  "period": "2교시",
+  "category": "경영전략",
+  "source": "80회 2교시",
+  "text": "데이터 웨어하우스에서의 OLAP(On-Line Analytical Processing)의 개념, 그리 고 OLAP의 종류인 MOLAP과 ROLAP을 설명하시오."
+ },
+ {
+  "id": "k80-203",
+  "period": "2교시",
+  "category": "네트워크",
+  "source": "80회 2교시",
+  "text": "업무연속성계획(BCP, Business Continuity Planning) 수립을 검토하고 있다. \n   가. 이를 효율적으로 수행하기 위한 프로세스와 프레임워크를 제시하시오.\n   나. 프레임 워크내의 주요계획(재해예방, 대응 및 복구, 유지보수, 모의훈련)에 \n대하여 기술하시오."
+ },
+ {
+  "id": "k80-204",
+  "period": "2교시",
+  "category": "신기술",
+  "source": "80회 2교시",
+  "text": "비선형방정식의 수치해법에 관해서 다음 물음에 답하시오.\n   가. 비선형방정식의 수치해법의 의의를 기술하시오.\n   나. 비선형방정식의 수치해법 중 Newton-Raphson 방법의 특징을 기술하시오.\n   다. 초기값 X0=1 일때 ƒ(X) = X3 + 2X - 1 의 해를 Newton-Raphson방식으로 X1, X2 \n를 구하는 절차를 기술하시오."
+ },
+ {
+  "id": "k80-205",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "80회 2교시",
+  "text": "소프트웨어 프로젝트 품질보증의 일환으로 품질감사를 시행하려고 한다.\n    가. 프로젝트 감사활동을 위하여 소프트웨어 품질감사를 위한 전체 프로세스와 \n프로세스별 수행내용을 제시하시오.\n    나. 시스템 구현단계의 감사대상의 되는 프로젝트 결과물(산출물)을 기술하시오.\n    다. 시스템 구현단계의 감사체크리스트를 만들기 위한 check point를 제시 하시오."
+ },
+ {
+  "id": "k80-206",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "80회 2교시",
+  "text": "객체지향 방법론을 사용하여 프로젝트를 수행하고 있다. 데이터베이스는 기존 \n시스템과의 관계를 고려하여 관계형을 사용하기로 결정하였다. 이 경우 고려할 OR \nMapping에 관하여 설명하시오."
+ },
+ {
+  "id": "k80-301",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "80회 3교시",
+  "text": "두 개의 입력신호 A,B대소를 비교하여 결과를 출력하는 논리회로를 다음 질의에 \n따라서 기술하시오.\n   가. 입력신호 A,B에 대해서 대소 비교(A>B)하여 출력 Z로 하는 진리표와 논리회로\n를 작성하는 절차를 기술하시오.(10점)\n   나. 입력신호 A,B에 대해서 대소비교(A≥B)하여 출력 Z로 하는 진리표와 논리회로\n를 작성하는 절차를 기술하시오.(15점)"
+ },
+ {
+  "id": "k80-302",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "80회 3교시",
+  "text": "기업내에서 운영중인 업무처리시스템(IBM의 메인프레임)을 유닉스(Unix) 시스템으\n로 전환을 검토하고 있다.\n   가. 검토목적 및 필요성을 기술하시오.\n   나. 주요기술적 검토사항을 기술하시오.\n   다. 핵심성공요인(CSF: Critical Success Factor)에 대하여 실무적 관점에서 기 술\n하시오."
+ },
+ {
+  "id": "k80-303",
+  "period": "3교시",
+  "category": "프로젝트관리",
+  "source": "80회 3교시",
+  "text": "프로젝트 계획수립을 위하여 위험관리계획을 검토하고 있다.\n   가. 위험관리 체계를 기술하시오.\n   나. 정성적 위험분석과 정량적 위험분석에 대하여 설명하시오."
+ },
+ {
+  "id": "k80-304",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "80회 3교시",
+  "text": "소프트웨어개발 프로세스 중 개발 요구자와 개발자와의 관계인 요구사항관리 \n(Requirements Management)가 무엇보다 중요하다.\n   가. 이를 효율적으로 관리하기 위한 필요성 및 목적을 기술하시오.\n   나. 요구사항 관리설계 주요관점 및 종류를 기술하시오.\n   다. 관리활동을 중심으로 기술하시오."
+ },
+ {
+  "id": "k80-305",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "80회 3교시",
+  "text": "작성된 프로그램 검사를 위하여 동료검토를 시행하려고 한다.\n   가. 동료검토를 위한 코드검사표의 제어흐름 검사부분에 포함된 항목들을 기술하시오.\n   나. 코드검사표의 인터페이스 검사부분에 포함될 항목들을 제시하시오."
+ },
+ {
+  "id": "k80-306",
+  "period": "3교시",
+  "category": "신기술",
+  "source": "80회 3교시",
+  "text": "유전자(Genetic) 알고리즘의 특징, 절차,활용방법에 관해서 기술하시오."
+ },
+ {
+  "id": "k80-401",
+  "period": "4교시",
+  "category": "경영전략",
+  "source": "80회 4교시",
+  "text": "A 기업은 IT 조직이 분권형 형태로 구성되어 운영관리되고 있다. IT 추진의 일관\n성 및 효율성을 위하여 조직을 집중형으로 전환검토를 하고 있다. IT 조직의 분권\n형 및 집중형에 대한 장.단점을 중심으로 CIO(Chief Information Officer) 도입의\n필요성 관점에서 기술하시오."
+ },
+ {
+  "id": "k80-402",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "80회 4교시",
+  "text": "지능형 교통시스템(Intelligent Transport System) 도입을 검토하고 있다. ITS의 \n개념, 필요성 및 목적, 주요기술들을 중심으로 기술하시오."
+ },
+ {
+  "id": "k80-403",
+  "period": "4교시",
+  "category": "인공지능",
+  "source": "80회 4교시",
+  "text": "어떤 사건 B 가 서로 배반인 사건 A1, A2......, Ak 중 어느 한 가지 경우로 발생\n하는 경우, 실제 B가 일어날 때 이것이 원인 Ai일 확률을 베이즈(Bayes) 확률이라\n고 한다. \n   가. 베이즈 정리의 식을 위 지문에 따라서 기술하시오.\n   나. 기계 A, B, C 가 생산량의 50%, 30%, 20%를 각각 생산하고, 이들 기계 A, B, C \n에서 만들어진 불량품이 3%, 2%, 1%라고 한다. 이들 기계에서 생산된 제품을\n임의로 뽑았을 때 불량품이 나왔다면 그 제품이 기계 A 에서 생산될 제품일\n확률을 구하는 절차를 기술하시오."
+ },
+ {
+  "id": "k80-404",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "80회 4교시",
+  "text": "CBD 방법론을 적용하여 프로젝트를 수행하려고 한다. 컴포넌트 정의에 앞서 소프\n트웨어 아키텍처에 대해 정의하고자 한다.\n   가. 소프트웨어 아키텍처 단계의 목적(작업완료기준)을 기술하시오.\n   나. 수행내용을 기술하시오.\n   다. 고려할 사항 등에 대하여 기술하시오."
+ },
+ {
+  "id": "k80-405",
+  "period": "4교시",
+  "category": "데이터베이스",
+  "source": "80회 4교시",
+  "text": "전국단위 금융분산시스템을 구축하려는 은행이 분산데이터베이스의 참조구조에 대\n한 자문을 요청하였다. 분산데이터베이스 참조구조에 대해 자문할 내용을 정리하여 \n기술하시오."
+ },
+ {
+  "id": "k80-406",
+  "period": "4교시",
+  "category": "데이터베이스",
+  "source": "80회 4교시",
+  "text": "SS 물산의 상품주문판매 관리시스템의 주문목록 릴레이션 스키마가 다음과 같을 때 \n물음에 답하시오. 주문목록(제품번호, 제품명, 재고량, 주문번호, 고객번호, 주소, \n주문량) 단, 밑줄친 속성은 기본키이다.\n   가. <주문목록> 릴레이션이 제1정규형이 아닌 이유를 설명하시오.\n   나. <주문목록> 릴레이션에서 반복되는 주문정보를 분리하여 제1정규형으로 구성한 \n2개의 릴레이션을 기술하시오. 단, 릴레이션 이름은 제품과 제품주문으로 하고,\n기본키는 속성 밑에 줄을 친다.\n   다. 제 1정규형 과정으로 생성된 <제품주문> 릴레이션에서 기본키는 2개이므로, 함\n수적 종속관계가 성립한다. 이 함수적 종속관계를 기술하시오.\n   라. 제 2정규형이 되기 위한 요건을 기술하고, 제 2정규형의 릴레이션을 작성하시\n오."
  }
 ]
