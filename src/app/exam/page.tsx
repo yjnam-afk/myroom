@@ -6,6 +6,7 @@ import { PageHeader } from "@/components/ui";
 import Markdown from "@/components/Markdown";
 import CopyButton from "@/components/CopyButton";
 import questions from "@/data/questions.json";
+import { relatedTopics } from "@/lib/relatedTopics";
 import { getModelAnswer } from "@/lib/modelAnswers";
 import { matchSubnoteTitle } from "@/lib/matchSubnote";
 import genAnswers from "@/data/genAnswers.json";
@@ -316,6 +317,28 @@ export default function ExamPage() {
                       className="rounded-md border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-100"
                     />
                   </div>
+
+                  {/* 관련 토픽 — 이 문제로 뭘 공부해야 하는지 바로 연결 */}
+                  {(() => {
+                    const rel = relatedTopics(q.text);
+                    if (!rel.length) return null;
+                    return (
+                      <div className="mt-2 flex flex-wrap items-center gap-1 pl-9">
+                        <span className="text-[10px] font-bold text-slate-400">
+                          관련 토픽
+                        </span>
+                        {rel.map((t) => (
+                          <Link
+                            key={t}
+                            href={`/explain?topic=${encodeURIComponent(t)}`}
+                            className="rounded-full border border-slate-200 bg-white px-2 py-0.5 text-[11px] text-slate-600 hover:border-brand-400 hover:bg-brand-50 hover:text-brand-700"
+                          >
+                            {t}
+                          </Link>
+                        ))}
+                      </div>
+                    );
+                  })()}
 
                   {ma && (
                     <details className="mt-3 pl-9">

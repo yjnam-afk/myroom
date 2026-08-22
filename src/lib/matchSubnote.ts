@@ -1,4 +1,5 @@
 import { SUBNOTES } from "@/data/textbookSubnotes";
+import { relatedSubnote } from "@/lib/relatedTopics";
 
 /**
  * 기출 문제 지문 → 서브노트(답안지 템플릿) 자동 매칭.
@@ -26,14 +27,15 @@ const INDEX: { title: string; b: string }[] = (() => {
   return list;
 })();
 
-/** 지문과 매칭되는 서브노트 제목(없으면 undefined). 렌더 시 카드 단위로 호출해도 가볍다. */
+/**
+ * 지문과 매칭되는 서브노트 제목(없으면 undefined).
+ *
+ * ★주의★ 예전에는 defPair 이름("프로세스")까지 키로 써서 "업무 프로세스 재설계"
+ * 같은 지문에 엉뚱한 템플릿(프로세스와 스레드 비교)이 붙었다. 지금은 흔한 낱말을
+ * 걸러내고 짧은 영문 약어는 낱말 단위로만 맞추는 엄격 매처에 위임한다.
+ */
 export function matchSubnoteTitle(text: string): string | undefined {
-  const t = text.toLowerCase().replace(/\s+/g, " ");
-  let best: { title: string; b: string } | undefined;
-  for (const x of INDEX) {
-    if (t.includes(x.b) && (!best || x.b.length > best.b.length)) best = x;
-  }
-  return best?.title;
+  return relatedSubnote(text);
 }
 
 // ── 내용 기반 조회 — 표·키워드 안에만 나오는 하위 개념을 상위 서브노트로 연결 ──

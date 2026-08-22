@@ -6,6 +6,7 @@ import { PageHeader, Button } from "@/components/ui";
 import ShareButton from "@/components/ShareButton";
 import CopyButton from "@/components/CopyButton";
 import questions from "@/data/questions.json";
+import { relatedTopics } from "@/lib/relatedTopics";
 import { matchSubnoteTitle } from "@/lib/matchSubnote";
 
 type Q = {
@@ -264,6 +265,28 @@ export default function BankPage() {
                         ✍️ 답안 연습 →
                       </Link>
                     </div>
+                    {/* 관련 토픽 — 이 문제로 뭘 공부해야 하는지 바로 연결 */}
+                    {(() => {
+                      const rel = relatedTopics(q.text);
+                      if (!rel.length) return null;
+                      return (
+                        <div className="mt-1.5 flex flex-wrap items-center gap-1">
+                          <span className="text-[10px] font-bold text-slate-400">
+                            관련 토픽
+                          </span>
+                          {rel.map((t) => (
+                            <Link
+                              key={t}
+                              href={`/explain?topic=${encodeURIComponent(t)}`}
+                              className="rounded-full border border-slate-200 bg-white px-2 py-0.5 text-[11px] text-slate-600 hover:border-brand-400 hover:bg-brand-50 hover:text-brand-700"
+                            >
+                              {t}
+                            </Link>
+                          ))}
+                        </div>
+                      );
+                    })()}
+
                   </div>
                 </div>
               </li>
