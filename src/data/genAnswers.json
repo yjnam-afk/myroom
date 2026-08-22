@@ -13090,9 +13090,9 @@
   "answer": "문) 인공지능에서 오픈소스 (Open Source) 모델과 오픈웨이트 (Open Weight) 모델을 비교하시오.\n\n답)\n\n## 1. 인공지능의 정의\n- (정의) 인간의 학습능력, 추론능력, 지각능력을 인공적으로 구현한 컴퓨터 프로그램/장치 인간 인지방식 자율학습 연구 '사례: 왓슨(IBM): 신뢰성 높은 빠른 답변, 구글 브레인 프로젝트:\n\n**(끝)**"
  },
  "f00008": {
-  "title": "구성요소",
-  "source": "토픽 자료 — 구성요소",
-  "answer": "문) AI 데이터센터 참조구조 및 구성요소를 설명하시오.\n\n답)\n\n## 1. 구성요소의 정의\n- UNIX 파일 시스템이 하나의 디스크 파티션을 부트블록·슈퍼블록·I-node 블록·데이터블록의 4개 영역으로 나누어 파일과 메타데이터를 관리하는 물리 구조.\n- 특징) 부트블록, 슈퍼블록, 아이노드(I-node) 블록, 데이터블록\n\n## 2. 구성요소의 핵심 구성·키워드\n| 구분 | 두음 | 핵심 키워드 |\n|---|---|---|\n| 구성요소 | 부슈아데 | 부트블록 · 슈퍼블록 · 아이노드(I-node) 블록 · 데이터블록 |\n\n## 3. 플러스 알파 — 추가 어필\n- 블록 그룹·익스텐트 구조 · 저널링(ext4 journal) · I-node 고갈 장애\n- 부슈아데 — 부트·슈퍼·아이노드·데이터. 디스크를 앞에서부터 훑는 순서 그대로다.\n부트(켜고) → 슈퍼(전체 지도) → 아이노드(파일 명세) → 데이터(내용).\n\n**(끝)**"
+  "title": "AI 데이터센터(AI Data Center)",
+  "source": "토픽 자료 — AI 데이터센터(AI Data Center)",
+  "answer": "문) AI 데이터센터 참조구조 및 구성요소를 설명하시오.\n\n답)\n\n## 1. AI 데이터센터의 정의\n- AI 학습·추론에 최적화된 고밀도·고성능 데이터센터로, GPU·NPU 등 AI Accelerator 중심의 컴퓨팅 인프라 위에 Compute·Network·Storage·Power·Cooling을 통합 최적화한 AI 인프라\n- 특징) AI Compute, High-Speed Network, Storage, Power Infrastructure\n\n## 3. 플러스 알파 — 추가 어필\n- Rack-scale Architecture · Memory Pooling · PUE·WUE · Green AI\n- '컴네스전냉' → Compute·Network·Storage·Power·Cooling. 비교 문항은 CPU↔GPU, DDR↔HBM/CXL, Ethernet↔InfiniBand, 공랭↔Liquid Cooling 네 쌍만 잡아도 절반은 쓴다.\n\n**(끝)**"
  },
  "f00009": {
   "title": "Network(3)",
@@ -13543,6 +13543,11 @@
   "title": "UML (정적, 동적 다이어그램)",
   "source": "교재 서브노트 — UML (정적, 동적 다이어그램)",
   "answer": "문) 차세대 시스템이 마이크로서비스 아키텍처(Microservice Architecture)로 전환되면서 서비스 간 호출 관계가 복잡해졌다. MSA 환경에서 UML(Unified Modeling Language)활용의 한계와 보완 방안을 설명하시오.\n\n답)\n\n## 1. 서론 — 설계 표현의 표준 언어, UML의 정의 (1교시 상속·확장)\n- 특정 언어나 공정에 종속되지 않고 시스템 아키텍처를 묘사하기 위한 표준 모델링 언어\n- 특징) 표준성, 언어 독립, 가시성\n\n## 2. 본론1 — UML의 개념도·구성요소\n가. 개념도 — 교재 슬라이드의 개념도를 답안지 6줄 내 도식으로 옮겨 그린다\n\n나. 정적 다이어그램 (Structure Diagram)\n| 다이어그램 | 키워드 | 내용 |\n|---|---|---|\n| Class | – | 시스템 내 클래스들의 정적 구조를 표현 |\n| Component | – | 컴포넌트(component)는 논리적 클래스 혹은 클래스 자신의 구현에 대한 정보를 포함함 |\n| Object | – | Object 이름에 밑줄 표시를 하며, 관계 있는 모든 인스턴스를 표현함 |\n| Deployment | – | HW와 SW간의 물리적 구조를 표현하며, 실질적인 컴퓨터와 Device간의 관계를 표현하는데 이용 |\n| Composite Structure | – | 분류자의 복합 구조를 표현하는 다이어그램. port, part, connector, Collaboration으로 분류자 내부 구조 표현 |\n| Package | – | 패키지들과 패키지 내부의 요소를 표현. 클래스, 인터페이스 분류자 등을 그룹화하여 표기 |\n\n## 3. 본론2 — 승부처 (물어본 것을 안 물어본 것보다 많게)\n\n가. 동적 다이어그램 (Behavior Diagram)\n| 다이어그램 | 키워드 | 내용 |\n|---|---|---|\n| Activity | – | 행위(Activity)의 순서적 흐름을 표시함 |\n| Use Case | – | 외부 행위자(Actor)와 시스템이 제공하는 여러 개의 Use Case(시스템을 사용하는 다양한 경우)에 연결하여, Use Case 다이어그램은 유즈케이스 뷰를 다룬다 |\n| State | – | 클래스의 객체가 가질 수 있는 모든 가능한 상태 기술 |\n| Interaction | – | 4개의 다이어그램을 통합한 그룹 (시퀀스·커뮤니케이션·인터랙션 오버뷰·타이밍) |\n| Sequence | – | 여러 객체 사이에 동적인 협력 사항을 표현함. 오브젝트(Object) 사이에 메시지를 보내는 순서를 보여주기 위해 사용 |\n| Communication | – | 객체들 간의 상호작용을 연결에 초점을 맞춰 기술 |\n| Interaction Overview | – | 액티비티 다이어그램과 시퀀스 다이어그램의 혼합 다이어그램 |\n| Timing | – | 시간의 흐름에 따른 상태를 표현 |\n\n## 4. 결론 — 차별화(+α)\n- 구조 다이어그램(정적) 6개 + 행위 다이어그램(동적) 7개 = 13개. 인터랙션 다이어그램은 행위 다이어그램의 하위 묶음(시퀀스·커뮤니케이션·인터랙션 오버뷰·타이밍)\n\n**(끝)**"
+ },
+ "f00232": {
+  "title": "AI 보안(AI Security)",
+  "source": "토픽 자료 — AI 보안(AI Security)",
+  "answer": "문) AI 보안 플랫폼\n\n답)\n\n## 1. AI 보안의 정의\n- 대규모 데이터·파라미터와 고성능 컴퓨팅으로 학습된 고성능 AI 모델이 초래하는 사이버 공격 고도화와 통제 상실의 양면적 위험에 대응하기 위해, AI 전 생명주기에 보안을 내재화하고 지속 검증하는 전사적 보안 체계\n- 특징) 설계단계 보안내재화, 안전한 AI 개발수명주기, AI 레드팀 검증, 배포 안전성 게이트\n\n## 3. 플러스 알파 — 추가 어필\n- MITRE ATLAS · OWASP Top 10 for Agentic Applications · ISO/IEC 42001 · NIST AI RMF\n- 위협은 '공격 지원'과 '통제 상실' 두 축으로 갈라 쓰고, 통제 상실 대응은 '목권도실행 인정상관비'(목표·권한·도구·실행·행동 / 인간·정책·상태·관제·비상) 10개 통제로 답한다.\n\n**(끝)**"
  },
  "f00236": {
   "title": "테일러링 (Tailoring)",

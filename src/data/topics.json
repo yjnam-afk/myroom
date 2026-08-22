@@ -20822,5 +20822,69 @@
   "group": "기타",
   "importance": "하",
   "summary": "인간에게 쉬운 것은 컴퓨터에게 어렵고 반대로 인간에게 어려운 것은 컴퓨터에게 쉽다는 역설"
+ },
+ {
+  "id": "n140-1",
+  "title": "하이브리드 검색(Hybrid Search)",
+  "category": "디지털서비스",
+  "group": "검색·RAG",
+  "importance": "상",
+  "summary": "어휘 기반 검색(Lexical Search)과 벡터 기반 의미 검색(Vector Search)을 병렬 수행한 후 검색 결과를 융합하여 검색 정확도와 재현율을 향상시키는 검색 방식"
+ },
+ {
+  "id": "n140-2",
+  "title": "잭나이프(Jackknife) 기법",
+  "category": "인공지능",
+  "group": "확률·통계",
+  "importance": "상",
+  "summary": "관측값을 하나씩 제외한 Leave-One-Out 표본에서 통계량을 반복 계산하여 추정량의 편향을 보정하고 분산을 추정하는 재표본추출 기법"
+ },
+ {
+  "id": "n140-3",
+  "title": "비인간 신원(NHI, Non-Human Identities)의 보안 취약점",
+  "category": "보안",
+  "group": "신원·접근관리",
+  "importance": "상",
+  "summary": "애플리케이션·서비스 계정·API Key·토큰·Bot 등 기계 신원의 생성·인증·권한부여·폐기 통제가 미흡하여 발생하는 자격증명 탈취·과도한 권한 등의 보안 위험"
+ },
+ {
+  "id": "n140-4",
+  "title": "좀비 프로세스(Zombie Process)",
+  "category": "소프트웨어공학",
+  "group": "프로세스 관리",
+  "importance": "상",
+  "summary": "자식 프로세스가 종료되었으나 부모가 wait()/waitpid()로 종료 상태를 회수하지 않아 커널 프로세스 테이블에 종료 정보만 남아 있는 프로세스"
+ },
+ {
+  "id": "n140-5",
+  "title": "AI 데이터센터(AI Data Center)",
+  "category": "디지털서비스",
+  "group": "AI 인프라",
+  "importance": "상",
+  "summary": "AI 학습·추론에 최적화된 고밀도·고성능 데이터센터로, GPU·NPU 가속기 중심으로 Compute·Network·Storage·Power·Cooling을 통합 최적화한 인프라"
+ },
+ {
+  "id": "n140-6",
+  "title": "정보보호 컴플라이언스",
+  "category": "보안",
+  "group": "보안 표준(정책) 및 관리적 보안",
+  "importance": "상",
+  "summary": "법률·고시·인증기준 등 정보보호 요구사항을 식별해 내부 정책·절차·보안통제에 반영하고 지속적으로 준수·검증하는 관리 활동"
+ },
+ {
+  "id": "n140-7",
+  "title": "고영향 인공지능(High-Impact AI)",
+  "category": "인공지능",
+  "group": "법 지침 가이드",
+  "importance": "상",
+  "summary": "AI 기본법 제2조 제4호에 따라 사람의 생명·신체의 안전 및 기본권에 중대한 영향을 미치거나 위험을 초래할 우려가 있는 인공지능시스템"
+ },
+ {
+  "id": "n140-8",
+  "title": "AI 보안(AI Security)",
+  "category": "보안",
+  "group": "AI 보안",
+  "importance": "상",
+  "summary": "고성능·자율형 AI가 초래하는 사이버 공격 고도화와 통제 상실 위험에 대응해 AI 전 생명주기에 보안을 내재화하고 지속 검증하는 보안 체계"
  }
 ]

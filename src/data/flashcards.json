@@ -100840,5 +100840,233 @@
    "이족 보행",
    "음성 인식"
   ]
+ },
+ {
+  "id": "n140-1",
+  "title": "하이브리드 검색(Hybrid Search)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "definition": "전통적인 어휘 기반 검색(Lexical Search)과 벡터 기반 의미 검색(Vector Search)을 병렬 수행한 후 검색 결과를 융합(Fusion)하여 검색 정확도와 재현율을 향상시키는 검색 방식",
+  "defShort": "어휘 검색과 벡터 검색을 병렬 수행 후 결과를 융합해 정확도·재현율 높이는 검색 방식",
+  "memo": "'검색융재' — 검색(Lexical·Vector)·색인(Index)·융합(Fusion)·재정렬(Re-Ranker). 융합은 RRF(순위 기반, 정규화 불필요) vs Weighted(점수 가중치)로 짝지어 복원.",
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "상호보완성(Keyword+Semantic)",
+     "검색품질(정확도·재현율)",
+     "정밀성(Re-Ranking)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "상호보완성(Keyword+Semantic)",
+   "검색품질(정확도·재현율)",
+   "정밀성(Re-Ranking)"
+  ]
+ },
+ {
+  "id": "n140-2",
+  "title": "잭나이프(Jackknife) 기법",
+  "category": "인공지능",
+  "importance": "상",
+  "definition": "하나의 표본에서 관측값을 하나씩 제외하여 여러 개의 Leave-One-Out 표본을 생성하고, 각 표본에서 통계량을 반복적으로 계산하여 추정량의 편향(Bias)을 보정하고 분산(Variance)을 추정하는 재표본추출 기법",
+  "defShort": "관측값을 하나씩 제외한 표본으로 통계량을 반복 계산해 편향·분산 추정하는 기법",
+  "memo": "'리반분범' — Leave-One-Out·반복 표본·분포 가정 최소화·범용 적용. 절차는 원표본→제거→계산→평균→편향·분산 5단계로 복원.",
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "리반분범",
+    "keywords": [
+     "Leave-One-Out",
+     "반복 표본 생성",
+     "분포 가정 최소화",
+     "범용 적용"
+    ]
+   }
+  ],
+  "mnemonic": "리반분범",
+  "keywords": [
+   "Leave-One-Out",
+   "반복 표본 생성",
+   "분포 가정 최소화",
+   "범용 적용"
+  ]
+ },
+ {
+  "id": "n140-3",
+  "title": "비인간 신원(NHI, Non-Human Identities)의 보안 취약점",
+  "category": "보안",
+  "importance": "상",
+  "definition": "사람 사용자가 아닌 애플리케이션, 서비스 계정, API Key, 토큰, 인증서, Bot, Workload, IoT 기기 등 기계·소프트웨어 기반 신원에 대해 생성·인증·권한부여·비밀정보 관리·폐기 과정이 적절히 통제되지 않아 발생하는 신원 탈취, 과도한 권한, 자격증명",
+  "defShort": "서비스 계정·API Key·Bot 등 기계 신원 통제 미흡으로 생기는 보안 위험",
+  "memo": "'자과가' — 자격증명 노출·과도한 권한·가시성(생명주기) 미흡이 3대 취약점. 대응은 인증·설계·기술 3축(SSO/단계별 인증 · 수명주기·마이크로 경계 · ITDR/Identity Fabric/생동성 감지).",
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "자과가",
+    "keywords": [
+     "자격증명 노출·장기 사용",
+     "과도한 권한·오남용",
+     "신원 가시성·생명주기 미흡"
+    ]
+   }
+  ],
+  "mnemonic": "자과가",
+  "keywords": [
+   "자격증명 노출·장기 사용",
+   "과도한 권한·오남용",
+   "신원 가시성·생명주기 미흡"
+  ]
+ },
+ {
+  "id": "n140-4",
+  "title": "좀비 프로세스(Zombie Process)",
+  "category": "소프트웨어공학",
+  "importance": "상",
+  "definition": "자식 프로세스가 종료되었지만 부모 프로세스가 자식의 종료 상태를 회수(waitpid)하지 않아 커널 프로세스 테이블에 종료 정보(Entry)만 남아 있는 상태(Zombie State)의 프로세스",
+  "defShort": "자식 종료 후 부모가 상태를 회수하지 않아 프로세스 테이블에 엔트리만 남은 프로세스",
+  "memo": "'생종좀회' — 생성(fork)·종료(exit)·좀비 진입(wait 미호출)·회수(waitpid). 대응은 개발·설계·OS·운영·보안 5축으로 확장.",
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "프로세스 테이블 잔존",
+     "시스템 자원 고갈",
+     "DoS 공격 악용"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "프로세스 테이블 잔존",
+   "시스템 자원 고갈",
+   "DoS 공격 악용"
+  ]
+ },
+ {
+  "id": "n140-5",
+  "title": "AI 데이터센터(AI Data Center)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "definition": "AI 학습·추론에 최적화된 고밀도·고성능 데이터센터로, GPU·NPU 등 AI Accelerator 중심의 컴퓨팅 인프라 위에 Compute·Network·Storage·Power·Cooling을 통합 최적화한 AI 인프라",
+  "defShort": "GPU·NPU 가속기 중심으로 AI 학습·추론에 최적화한 고밀도 데이터센터",
+  "memo": "'컴네스전냉' → Compute·Network·Storage·Power·Cooling. 비교 문항은 CPU↔GPU, DDR↔HBM/CXL, Ethernet↔InfiniBand, 공랭↔Liquid Cooling 네 쌍만 잡아도 절반은 쓴다.",
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "컴네스전냉",
+    "keywords": [
+     "AI Compute",
+     "High-Speed Network",
+     "Storage",
+     "Power Infrastructure",
+     "Cooling"
+    ]
+   }
+  ],
+  "mnemonic": "컴네스전냉",
+  "keywords": [
+   "AI Compute",
+   "High-Speed Network",
+   "Storage",
+   "Power Infrastructure",
+   "Cooling"
+  ]
+ },
+ {
+  "id": "n140-6",
+  "title": "정보보호 컴플라이언스",
+  "category": "보안",
+  "importance": "상",
+  "definition": "조직이 준수해야 하는 법률·시행령·고시·인증기준·가이드라인 등의 정보보호 요구사항을 식별하고, 이를 내부 정책·절차·보안통제에 반영하여 지속적으로 준수·검증하는 관리 활동",
+  "defShort": "정보보호 요구사항을 식별해 정책·통제에 반영하고 지속 준수·검증하는 관리 활동",
+  "memo": "'식매반거증' → 규제식별·요구사항매핑·정책반영·거버넌스정립·증적관리. 대응은 체계 수립(5단계)과 이행·점검(갭분석·보호조치·감사·교육·모니터링) 두 축으로 나눠 쓴다.",
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "식매반거증",
+    "keywords": [
+     "규제 식별",
+     "요구사항 매핑",
+     "정책 반영",
+     "거버넌스 정립",
+     "증적관리"
+    ]
+   }
+  ],
+  "mnemonic": "식매반거증",
+  "keywords": [
+   "규제 식별",
+   "요구사항 매핑",
+   "정책 반영",
+   "거버넌스 정립",
+   "증적관리"
+  ]
+ },
+ {
+  "id": "n140-7",
+  "title": "고영향 인공지능(High-Impact AI)",
+  "category": "인공지능",
+  "importance": "상",
+  "definition": "인공지능 발전과 신뢰 기반 조성 등에 관한 기본법 제2조 제4호에 따라, 사람의 생명, 신체의 안전 및 기본권에 중대한 영향을 미치거나 위험을 초래할 우려가 있는 인공지능시스템",
+  "defShort": "사람의 생명·신체 안전과 기본권에 중대한 영향을 미칠 우려가 있는 인공지능시스템",
+  "memo": "'위설이감문영' → 위험관리·설명·이용자보호·사람감독·문서보관·영향평가. 판단은 '영역(1단계)+맥락상 중대성(2단계) 모두 충족', 확인은 '요청서→과기정통부 검토→전문위 자문→30일 회신→재확인 10일' 순으로 외운다.",
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "위설이감문영",
+    "keywords": [
+     "위험관리방안",
+     "설명방안",
+     "이용자 보호방안",
+     "사람의 관리·감독",
+     "문서 작성·보관",
+     "영향평가"
+    ]
+   }
+  ],
+  "mnemonic": "위설이감문영",
+  "keywords": [
+   "위험관리방안",
+   "설명방안",
+   "이용자 보호방안",
+   "사람의 관리·감독",
+   "문서 작성·보관",
+   "영향평가"
+  ]
+ },
+ {
+  "id": "n140-8",
+  "title": "AI 보안(AI Security)",
+  "category": "보안",
+  "importance": "상",
+  "definition": "대규모 데이터·파라미터와 고성능 컴퓨팅으로 학습된 고성능 AI 모델이 초래하는 사이버 공격 고도화와 통제 상실의 양면적 위험에 대응하기 위해, AI 전 생명주기에 보안을 내재화하고 지속 검증하는 전사적 보안 체계",
+  "defShort": "AI 전 생명주기에 보안을 내재화해 공격 고도화와 통제 상실 위험에 대응하는 체계",
+  "memo": "위협은 '공격 지원'과 '통제 상실' 두 축으로 갈라 쓰고, 통제 상실 대응은 '목권도실행 인정상관비'(목표·권한·도구·실행·행동 / 인간·정책·상태·관제·비상) 10개 통제로 답한다.",
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "설계단계 보안내재화",
+     "안전한 AI 개발수명주기",
+     "AI 레드팀 검증",
+     "배포 안전성 게이트",
+     "지속적 검증"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "설계단계 보안내재화",
+   "안전한 AI 개발수명주기",
+   "AI 레드팀 검증",
+   "배포 안전성 게이트",
+   "지속적 검증"
+  ]
  }
 ]
