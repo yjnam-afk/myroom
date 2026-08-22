@@ -21,6 +21,8 @@ type Q = {
   kind?: "기출" | "셀테" | "모의고사" | "NS모의" | "예상";
   /** 회차/주차 라벨(명시적). 없으면 source 앞토큰. */
   round?: string;
+  image?: string;
+  imageLabel?: string;
 };
 
 // source(회차) 또는 kind가 있는 문제(기출·셀테·모의고사·예상)를 모은다.
@@ -306,6 +308,21 @@ export default function ExamPage() {
                       className="rounded-md border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-100"
                     />
                   </div>
+
+                  {/* 해설집 원본 개념도 — 답안지에 6줄 내로 옮겨 그린다 */}
+                  {q.image && (
+                    <details className="mt-2 pl-9">
+                      <summary className="cursor-pointer text-xs font-semibold text-emerald-700 hover:underline">
+                        📐 {q.imageLabel || "해설집 개념도"} 보기
+                      </summary>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={q.image}
+                        alt={`${q.text.slice(0, 20)} 개념도`}
+                        className="mt-2 w-full max-w-2xl rounded-lg border border-slate-200 bg-white"
+                      />
+                    </details>
+                  )}
 
                   {/* 관련 토픽 — 이 문제로 뭘 공부해야 하는지 바로 연결 */}
                   {(() => {

@@ -17,6 +17,8 @@ type Q = {
   source?: string;
   kind?: "기출" | "셀테" | "모의고사" | "NS모의" | "예상";
   round?: string;
+  image?: string;
+  imageLabel?: string;
 };
 
 // 출처(회차/주차)가 있는 문제 = 기출·셀테·모의고사 전부.
@@ -258,6 +260,21 @@ export default function BankPage() {
                         </Link>
                       )}
                     </div>
+                  {/* 해설집 원본 개념도 — 답안지에 6줄 내로 옮겨 그린다 */}
+                  {q.image && (
+                    <details className="mt-2 ">
+                      <summary className="cursor-pointer text-xs font-semibold text-emerald-700 hover:underline">
+                        📐 {q.imageLabel || "해설집 개념도"} 보기
+                      </summary>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={q.image}
+                        alt={`${q.text.slice(0, 20)} 개념도`}
+                        className="mt-2 w-full max-w-2xl rounded-lg border border-slate-200 bg-white"
+                      />
+                    </details>
+                  )}
+
                     {/* 관련 토픽 — 이 문제로 뭘 공부해야 하는지 바로 연결 */}
                     {(() => {
                       const rel = relatedTopics(q.text);
