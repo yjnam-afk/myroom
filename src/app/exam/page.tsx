@@ -62,11 +62,6 @@ function roundNum(r: string): number {
 }
 const PERIODS = ["전체", "1교시", "2교시", "3교시", "4교시"] as const;
 
-function answerLink(q: Q): string {
-  // 답안 유형: 1교시=용어형 단답, 2·3·4교시=서술형(작성 방법론 동일).
-  const period = q.period === "1교시" ? "1교시" : "2교시";
-  return `/answer?period=${encodeURIComponent(period)}&question=${encodeURIComponent(q.text)}`;
-}
 
 const KIND_LABEL: Record<string, string> = {
   기출: "📜 기출",
@@ -306,12 +301,6 @@ export default function ExamPage() {
                         📝 답안지 템플릿 →
                       </Link>
                     )}
-                    <Link
-                      href={answerLink(q)}
-                      className="rounded-md bg-brand-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-brand-700"
-                    >
-                      ✍️ 이 문제로 답안 연습 →
-                    </Link>
                     <CopyButton
                       text={q.text}
                       className="rounded-md border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-100"

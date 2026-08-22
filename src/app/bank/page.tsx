@@ -90,7 +90,6 @@ export default function BankPage() {
     setDrawn([]);
   }
 
-  const answerPeriod = mode.key === "1교시" ? "1교시" : "2교시";
 
   return (
     <div>
@@ -258,12 +257,6 @@ export default function BankPage() {
                           📝 답안지 템플릿 →
                         </Link>
                       )}
-                      <Link
-                        href={`/answer?period=${encodeURIComponent(answerPeriod)}&question=${encodeURIComponent(q.text)}`}
-                        className="rounded-md bg-brand-600 px-2.5 py-1 text-xs font-medium text-white hover:bg-brand-700"
-                      >
-                        ✍️ 답안 연습 →
-                      </Link>
                     </div>
                     {/* 관련 토픽 — 이 문제로 뭘 공부해야 하는지 바로 연결 */}
                     {(() => {

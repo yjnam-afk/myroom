@@ -25,6 +25,8 @@ const STOP_EN = new Set([
   "model", "analysis", "design", "information", "technology", "control",
   "computing", "engineering", "software", "hardware", "quality", "method",
   "architecture", "platform", "framework", "protocol", "application",
+  "artificialintelligence", "informationtechnology", "informationsecurity",
+  "businessprocess", "computer", "digital", "intelligence", "learning",
 ]);
 
 const lower = (s: string) => s.toLowerCase();
@@ -36,6 +38,12 @@ const tokensOf = (s: string) =>
   new Set(lower(s).split(/[^a-z0-9가-힣]+/).filter(Boolean));
 
 const isLatin = (s: string) => /^[a-z0-9]+$/.test(s);
+
+/** 표기가 완전히 다른 동의어 — 정확히 아는 것만 등록한다(오탐 방지). */
+const SYNONYM: Record<string, string[]> = {
+  WFQ: ["웨이티드페어큐잉", "가중공정큐잉", "weightedfairqueuing"],
+  "맨체스터 코딩": ["차등적맨체스터", "differentialmanchester"],
+};
 
 const CANDS: Cand[] = (() => {
   const seen = new Set<string>();
@@ -49,6 +57,7 @@ const CANDS: Cand[] = (() => {
       list.push({ key, title, book, alias });
     };
     push(squeeze(bare), false);
+    for (const syn of SYNONYM[title] || []) push(squeeze(syn), false);
     // 연도·판번호가 붙은 제목("ISO/IEC 25010:2023")은 연도를 뗀 형태로도 찾는다.
     const noYear = bare.replace(/[\s:]*(20\d{2}|19\d{2})(년|판)?$/, "").trim();
     if (noYear && noYear !== bare) push(squeeze(noYear), false);
@@ -64,6 +73,9 @@ const CANDS: Cand[] = (() => {
 /** 지문과 관련된 토픽 제목을 최대 limit 개 돌려준다(교재 토픽·본제목 우선). */
 export function relatedTopics(text: string, limit = 3): string[] {
   const sq = squeeze(text);
+  // 괄호 병기를 걷어낸 지문 — "인공지능(AI, Artificial Intelligence) 학습용 데이터"
+  // 처럼 괄호가 제목을 끊어 놓는 경우를 위해 따로 만든다.
+  const sqBare = squeeze(text.replace(/[(（][^)）]*[)）]/g, " "));
   const tokens = tokensOf(text);
   if (!sq) return [];
   const hits: Cand[] = [];
@@ -71,7 +83,9 @@ export function relatedTopics(text: string, limit = 3): string[] {
   for (const c of CANDS) {
     // 짧은 영문 약어는 낱말이 정확히 일치할 때만 — 부분 문자열 오탐 차단
     const ok =
-      isLatin(c.key) && c.key.length <= 5 ? tokens.has(c.key) : sq.includes(c.key);
+      isLatin(c.key) && c.key.length <= 5
+        ? tokens.has(c.key)
+        : sq.includes(c.key) || sqBare.includes(c.key);
     if (!ok) continue;
     if (used.some((u) => u.includes(c.key))) continue; // 더 긴 토픽에 포함되면 생략
     used.push(c.key);
@@ -94,13 +108,16 @@ export function relatedTopics(text: string, limit = 3): string[] {
 /** 지문과 맞는 ★교재 서브노트★ 제목 하나(답안지 템플릿 연결용). 없으면 undefined. */
 export function relatedSubnote(text: string): string | undefined {
   const sq = squeeze(text);
+  const sqBare = squeeze(text.replace(/[(（][^)）]*[)）]/g, " "));
   const tokens = tokensOf(text);
   if (!sq) return undefined;
   let best: Cand | undefined;
   for (const c of CANDS) {
     if (!c.book) continue;
     const ok =
-      isLatin(c.key) && c.key.length <= 5 ? tokens.has(c.key) : sq.includes(c.key);
+      isLatin(c.key) && c.key.length <= 5
+        ? tokens.has(c.key)
+        : sq.includes(c.key) || sqBare.includes(c.key);
     if (!ok) continue;
     // 본제목 매칭을 우선하고, 같은 급이면 더 긴(구체적인) 제목을 고른다.
     if (
