@@ -42,4 +42,9 @@ export const I: Record<string, AnswerIntro> = {
     defShort: "AI 전 생명주기에 보안을 내재화해 공격 고도화와 통제 상실 위험에 대응하는 체계",
     features: ["보안 내재화", "다층 방어", "지속 검증"],
   },
+  "n140-9": {
+    lead: "AI 시대의 근본적 프로세스 혁신, AI 기반 BPR",
+    defShort: "AI 활용해 업무방식·의사결정·조직역할·프로세스를 근본 재설계하는 기법",
+    features: ["업무 자동화", "자원 최적화", "데이터 의사결정"],
+  },
 };

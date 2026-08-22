@@ -20886,5 +20886,13 @@
   "group": "AI 보안",
   "importance": "상",
   "summary": "고성능·자율형 AI가 초래하는 사이버 공격 고도화와 통제 상실 위험에 대응해 AI 전 생명주기에 보안을 내재화하고 지속 검증하는 보안 체계"
+ },
+ {
+  "id": "n140-9",
+  "title": "AI 기반 BPR(Business Process Reengineering)",
+  "category": "경영전략",
+  "group": "프로세스 혁신",
+  "importance": "상",
+  "summary": "AI를 핵심 수단으로 업무 수행 방식·의사결정·조직 역할·프로세스 자체를 근본적으로 재설계하여 생산성과 고객경험을 혁신하는 기법"
  }
 ]
