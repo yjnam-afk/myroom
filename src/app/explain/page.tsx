@@ -97,7 +97,7 @@ const COURSE_ORDER = [
   "SC", "AI", "DX", "NW", "DB", "OS", "CA", "SE", "PM", "MG", "AL", "DS", "ST",
 ];
 
-type BrowseItem = { title: string; imp?: string };
+type BrowseItem = { title: string; imp?: string; src?: string };
 type BrowseGroup = { key: string; label: string; badge: string; items: BrowseItem[] };
 
 /** 교재 서브노트를 과목별로, 교재에 없는 예전 토픽은 카테고리별로 묶는다. */
@@ -119,7 +119,7 @@ const BROWSE_GROUPS: BrowseGroup[] = (() => {
       (s.topicId && impById.get(s.topicId)) ||
       impByBare.get(bareT(s.title)) ||
       "상";
-    byCourse.get(s.course)!.push({ title: s.title, imp });
+    byCourse.get(s.course)!.push({ title: s.title, imp, src: "심화반" });
     covered.add(bareT(s.title));
   }
   const groups: BrowseGroup[] = [];
@@ -146,7 +146,12 @@ const BROWSE_GROUPS: BrowseGroup[] = (() => {
     // 교재에 같은 토픽이 있으면(제목 표기가 달라도) 예전 항목은 감춘다.
     if (covered.has(bareT(t.title)) || subnoteByAlias(t.id, t.title)) continue;
     if (!byCat.has(t.category)) byCat.set(t.category, []);
-    byCat.get(t.category)!.push({ title: t.title, imp: t.importance });
+    byCat.get(t.category)!.push({
+      title: t.title,
+      imp: t.importance,
+      // 140회 기출 보고 새로 만든 토픽은 기필반이 아니라 '기출'로 구분한다
+      src: (t as { source?: string }).source === "요청" ? "기출" : "기필반",
+    });
   }
   for (const [cat, list] of Array.from(byCat).sort(
     (a, b) => b[1].length - a[1].length,
@@ -168,6 +173,12 @@ const BROWSE_GROUPS: BrowseGroup[] = (() => {
 })();
 
 const BROWSE_TOTAL = BROWSE_GROUPS.reduce((n, g) => n + g.items.length, 0);
+
+const SRC_CHIP: Record<string, string> = {
+  심화반: "bg-emerald-100 text-emerald-700",
+  기필반: "bg-slate-100 text-slate-500",
+  기출: "bg-amber-100 text-amber-700",
+};
 
 const IMP_CHIP: Record<string, string> = {
   상: "text-red-600",
@@ -230,6 +241,11 @@ function TopicBrowser({ onPick }: { onPick: (title: string) => void }) {
                     </span>
                   )}
                   {m.title}
+                  {m.src && (
+                    <span className={`ml-1 rounded px-1 py-0.5 text-[9px] font-bold ${SRC_CHIP[m.src] || ""}`}>
+                      {m.src}
+                    </span>
+                  )}
                   <span className="ml-1 text-[10px] text-slate-400">
                     {m.group}
                   </span>
@@ -287,6 +303,11 @@ function TopicBrowser({ onPick }: { onPick: (title: string) => void }) {
                         </span>
                       )}
                       {it.title}
+                      {it.src && (
+                        <span className={`ml-1 rounded px-1 py-0.5 text-[9px] font-bold ${SRC_CHIP[it.src] || ""}`}>
+                          {it.src}
+                        </span>
+                      )}
                     </button>
                   ))}
                 </div>
