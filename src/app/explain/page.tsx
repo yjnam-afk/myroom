@@ -129,7 +129,7 @@ const BROWSE_GROUPS: BrowseGroup[] = (() => {
     groups.push({
       key: `course:${c}`,
       label: COURSE_LABEL[c] || c,
-      badge: "교재",
+      badge: "심화반",
       items: list
         .slice()
         .sort(
@@ -154,7 +154,7 @@ const BROWSE_GROUPS: BrowseGroup[] = (() => {
     groups.push({
       key: `cat:${cat}`,
       label: cat,
-      badge: "예전",
+      badge: "기필반",
       items: list
         .slice()
         .sort(
@@ -255,7 +255,7 @@ function TopicBrowser({ onPick }: { onPick: (title: string) => void }) {
                   className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
                     active
                       ? "border-brand-600 bg-brand-600 text-white"
-                      : g.badge === "교재"
+                      : g.badge === "심화반"
                         ? "border-emerald-300 bg-emerald-50 text-emerald-800 hover:border-emerald-500"
                         : "border-slate-200 bg-white text-slate-500 hover:border-slate-400"
                   }`}

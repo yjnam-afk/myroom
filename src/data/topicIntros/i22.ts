@@ -302,11 +302,6 @@ export const I: Record<string, AnswerIntro> = {
     defShort: "LED 조명의 가시광선을 고속 점멸시켜 데이터를 실어 보내는 가시광 무선통신 기술",
     features: ["OOK·OFDM", "높은 보안성", "조명 겸용"],
   },
-  "net-269": {
-    lead: "서버 앞의 방패, 리버스 프록시",
-    defShort: "클라이언트 요청을 서버 대신 받아 내부로 전달하고 응답을 대신 반환하는 프록시 유형",
-    features: ["부하분산", "TLS 오프로딩", "서버 은닉"],
-  },
   "net-270": {
     lead: "이기종을 잇는 문법, ASN.1",
     defShort: "플랫폼과 무관하게 데이터 구조를 정의하고 직렬화하는 국제 표준 추상 구문 표기 언어",

@@ -127,11 +127,6 @@ export const I: Record<string, AnswerIntro> = {
     defShort: "동일 주소를 여러 인터페이스에 부여하고 최근접 노드에만 패킷을 전달하는 통신 방식",
     features: ["최근접 전달", "부하 분산", "장애 우회"],
   },
-  "net-39": {
-    lead: "QUIC 기반 차세대 웹 프로토콜, HTTP V3.0",
-    defShort: "UDP 기반 QUIC 위에서 연결 지연과 HOL 블로킹을 제거한 웹 전송 프로토콜",
-    features: ["QUIC 기반", "0-RTT 연결", "연결 이동"],
-  },
   "net-4": {
     lead: "클록을 품은 자기동기 라인 코딩, 맨체스터 코딩",
     defShort: "비트 구간 중앙에서 신호 전이를 발생시켜 데이터와 클록을 함께 전달하는 라인 코딩",

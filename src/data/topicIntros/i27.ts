@@ -327,11 +327,6 @@ export const I: Record<string, AnswerIntro> = {
     defShort: "백업 데이터를 보존기간 동안 수정·삭제할 수 없게 WORM 방식으로 잠그는 기술",
     features: ["WORM 잠금", "보존기간", "랜섬웨어 대응"],
   },
-  "sec-396": {
-    lead: "매번 새 키로 여는 세션, DHE",
-    defShort: "세션마다 임시 디피-헬만 키 쌍을 생성해 전방향 비밀성을 제공하는 키 합의 알고리즘",
-    features: ["임시 키 쌍", "전방향 비밀성", "서명 결합"],
-  },
   "sec-397": {
     lead: "가볍고 빠른 임시 키 교환, ECDHE",
     defShort: "타원곡선 기반으로 세션마다 임시 키를 생성해 짧은 키로 안전성을 내는 키 교환 방식",

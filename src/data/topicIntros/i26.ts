@@ -177,11 +177,6 @@ export const I: Record<string, AnswerIntro> = {
     defShort: "건축물의 형상·속성 정보를 파라메트릭 객체로 통합해 전 생애주기에 활용하는 기술",
     features: ["파라메트릭", "간섭 검토", "IFC 표준"],
   },
-  "ds-96": {
-    lead: "개별 물품 식별 체계, RFID 코드 체계",
-    defShort: "EPC를 헤더·업체·상품·일련번호로 구성해 단품 단위까지 식별하는 코드 체계",
-    features: ["96비트 구조", "계층 구성", "단품 식별"],
-  },
   "ds-97": {
     lead: "RFID 태그 정보의 위치 안내, ONS",
     defShort: "EPC를 도메인으로 변환해 상품정보 보유 EPCIS의 URL을 알려주는 서비스",

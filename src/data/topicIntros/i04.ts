@@ -47,11 +47,6 @@ export const I: Record<string, AnswerIntro> = {
     defShort: "테스터의 경험과 직관으로 결함 가능 지점을 공략해 TC를 도출하는 테스트 설계 기법",
     features: ["탐색적 테스팅", "오류 추정", "체크리스트"],
   },
-  "se-204": {
-    lead: "살아있는 SW의 진화 법칙, Lehman 소프트웨어 변화",
-    defShort: "SW는 사용되는 한 계속 진화하며 복잡도가 증가한다는 E타입 8법칙의 진화 원리",
-    features: ["SPE 분류", "E타입 8법칙", "복잡도 증가"],
-  },
   "se-209": {
     lead: "검증된 자산의 반복 활용, 재사용",
     defShort: "검증된 개발 지식을 표준화해 반복 사용하게 함으로써 생산성과 품질을 높이는 기술",
@@ -121,11 +116,6 @@ export const I: Record<string, AnswerIntro> = {
     lead: "신기술 사업의 감리 보완, 지능정보기술 감리 실무 가이드",
     defShort: "AI·빅데이터·클라우드 사업 특성을 반영해 기존 점검체계를 보완한 감리 지침",
     features: ["데이터 품질", "모델 검증", "보완형 구조"],
-  },
-  "se-252": {
-    lead: "EISDOM 점검 기준 틀, 정보시스템 감리 Framework",
-    defShort: "사업유형·감리영역·감리관점을 정의해 감리 점검의 일관성을 보장하는 기준 틀",
-    features: ["EISDOM", "감리영역", "점검기준"],
   },
   "se-253": {
     lead: "3단계 표준 수행 체계, 감리 절차",
@@ -342,20 +332,10 @@ export const I: Record<string, AnswerIntro> = {
     defShort: "은닉 상태를 순환 전달해 이전 정보를 반영하며 시퀀스 데이터를 처리하는 신경망 모델",
     features: ["순환 구조", "은닉 상태", "LSTM 발전"],
   },
-  "ai-38": {
-    lead: "여유 있게 가르는 경계, 서포트 벡터 머신",
-    defShort: "두 클래스를 나누는 초평면 중 마진을 최대화하는 결정경계를 찾는 지도학습 분류 모델",
-    features: ["마진 최대화", "커널 트릭", "초평면"],
-  },
   "ai-39": {
     lead: "가까운 이웃의 다수결, KNN",
     defShort: "새 데이터와 가장 가까운 K개 이웃의 다수결·평균으로 예측하는 사례 기반 알고리즘",
     features: ["거리 계산", "게으른 학습", "K값 선정"],
-  },
-  "ai-50": {
-    lead: "경쟁으로 배우는 생성 모델, GAN",
-    defShort: "생성자와 판별자가 적대적 경쟁을 반복하며 실제와 유사한 데이터를 만드는 생성 모델",
-    features: ["생성자", "판별자", "minimax"],
   },
   "ai-58": {
     lead: "손실을 줄이는 길찾기, Optimization Algorithm",
