@@ -227,6 +227,19 @@ for (const t of topics) {
     const dk = (d.defKeywords || []).filter(Boolean);
     if (dk.length >= 2) sections = [{ label: "정의 키워드", mnemonic: "", keywords: dk }];
   }
+  // 기필반 자료처럼 detail 만 있는 토픽 — 본문에서 구획을 뽑아 카드로 만든다.
+  if (!sections.length) {
+    for (const g of compTableOf(d.detail || "")) {
+      const kws = g.rows.map((r) => r[0]).filter(Boolean);
+      if (kws.length >= 2)
+        sections.push({ label: g.group, mnemonic: g.mnemonic, keywords: kws.slice(0, 10) });
+      if (sections.length >= 3) break;
+    }
+  }
+  // 그래도 없으면 암기법(두음)만으로라도 카드를 만들어 빈 토픽을 없앤다.
+  if (!sections.length && (d.mnemonic || "").trim()) {
+    sections = [{ label: "암기법", mnemonic: String(d.mnemonic).trim(), keywords: [] }];
+  }
   cards.push({
     id: t.id,
     title: t.title,

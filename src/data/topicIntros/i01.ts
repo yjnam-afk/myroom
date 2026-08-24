@@ -22,10 +22,20 @@ export const I: Record<string, AnswerIntro> = {
     defShort: "인간 두뇌의 뉴런을 모방해 가중치 조정 반복학습으로 패턴을 모형화하는 분석 기법",
     features: ["가중치 학습", "비선형 패턴", "역전파"],
   },
+  "gj-133": {
+    lead: "API 개방형 생태계, 오픈 플랫폼",
+    defShort: "표준 오픈 API를 외부 공개해 제3자의 서비스 개발을 지원하는 개방형 SW 플랫폼",
+    features: ["오픈 API", "확장성", "생태계 창출"],
+  },
   "gj-16": {
     lead: "위기 속 업무 지속의 보장, BCM",
     defShort: "위기 시 핵심업무 지속 위해 예방·대응·복구·훈련을 전사 관리하는 연속성 체계",
     features: ["BIA·RA", "RTO·RPO", "모의훈련"],
+  },
+  "gj-176": {
+    lead: "비즈니스의 근본적 혁신, 디지털 전환",
+    defShort: "디지털 기술로 사업모델·프로세스·고객경험 혁신해 신가치 창출하는 경영전략",
+    features: ["모델 혁신", "기술 내재화", "고객경험"],
   },
   "gj-194": {
     lead: "알고리즘이 주도하는 담합, 디지털 카르텔",
@@ -262,6 +272,11 @@ export const I: Record<string, AnswerIntro> = {
     defShort: "차량이 무선통신으로 차량·인프라·보행자 등 모든 사물과 정보 교환하는 통신 기술",
     features: ["V2V·V2I", "C-ITS", "5G-V2X"],
   },
+  "net-83": {
+    lead: "하이패스의 기반 통신, DSRC",
+    defShort: "ITS 서비스 위해 노변 기지국과 차량 단말 간 고속 데이터 교환하는 전용 근거리 통신",
+    features: ["5.9GHz", "1대 M 통신", "하이패스"],
+  },
   "net-84": {
     lead: "주행 중 차량 무선 접속, WAVE",
     defShort: "고속 주행 중 V2V·V2I 통신 제공하는 802.11p 기반 차량 무선통신 표준",
@@ -276,6 +291,11 @@ export const I: Record<string, AnswerIntro> = {
     lead: "초고신뢰 차세대 Wi-Fi, IEEE 802.11bn",
     defShort: "속도 향상 넘어 초고신뢰 UHR 목표로 끊김 없는 연결 지향하는 Wi-Fi 8 표준",
     features: ["UHR", "무손실 로밍", "AP 협력"],
+  },
+  "db-103": {
+    lead: "데이터 자원의 가치화, 빅데이터",
+    defShort: "DBMS로 처리 어려운 대규모·다양·고속 데이터와 가치 창출 기술 총칭하는 개념",
+    features: ["3V·6V", "비정형 수용", "가치 창출"],
   },
   "db-104": {
     lead: "가치 추출의 여정, 빅데이터 분석 절차",

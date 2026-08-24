@@ -452,6 +452,24 @@ export const G: Record<string, EasyGuide> = {
     ],
     exam: "Anycast는 동일한 주소를 여러 인터페이스에 부여하고 라우팅 메트릭상 가장 가까운 단 하나의 노드에만 패킷을 전달하는 IPv6 주소지정·통신 방식이다.",
   },
+  "net-39": {
+    hook: "UDP 기반 QUIC 위에서 동작해 연결 지연과 HOL 블로킹을 없앤 HTTP입니다.",
+    scene: "HTTP/2는 TCP 단일 연결이라 패킷 하나만 손실돼도 모든 스트림이 함께 멈춥니다. HTTP/3은 UDP 기반 QUIC 위에서 스트림별 독립 전송과 0-RTT 연결을 제공해, 이동 중 망이 바뀌어도 끊기지 않는 빠른 웹을 만듭니다.",
+    why: "QUIC 스택 구조(IP-UDP 443-QUIC-HTTP/3)와 HTTP/2 비교표가 출제 핵심입니다.",
+    mechanism: "특징: 스트림 다중화(QUIC 스트림 단위 독립 전송으로 전송계층 HOL 제거), 기본 암호화(TLS 1.3을 프로토콜에 통합), 신속 연결(최초 1-RTT·재연결 0-RTT), 연결 마이그레이션(Connection ID로 IP·포트 변경에도 세션 유지), QPACK 헤더 압축(HPACK을 QUIC에 맞게 재설계). 스택: IP > UDP(443) > QUIC(TLS 1.3 내장) > HTTP/3, HTTP/2는 IP > TCP > TLS > HTTP/2. 비교(HTTP/2 vs 3): 전송 TCP→UDP, 암호화 선택→필수, HOL 부분 해소→완전 해소, 연결 이동 불가→가능. 표준: RFC 9114. 동향: 주요 브라우저·CDN 기본 지원, UDP 차단 환경 대비 HTTP/2 폴백·QUIC 인지형 보안장비가 과제.",
+    map: [
+      { as: "차선별 독립 통행", real: "QUIC 스트림 다중화", note: "HOL 완전 해소" },
+      { as: "얼굴 아는 단골 프리패스", real: "0-RTT 재연결", note: "최초는 1-RTT" },
+      { as: "번호 유지 이사", real: "연결 마이그레이션", note: "Connection ID 기반" },
+      { as: "새 압축 규격", real: "QPACK", note: "HPACK 재설계" },
+    ],
+    usage: "모바일 시대 웹 표준 프로토콜입니다. 시험은 스택 구조 그림과 HTTP/2 대비 4개 축 비교입니다.",
+    links: [
+      { topic: "QUIC", how: "HTTP/3의 전송 기반이 되는 프로토콜입니다." },
+      { topic: "MPTCP(Multipath TCP)", how: "TCP 한계를 극복하는 또 다른 전송계층 접근입니다." },
+    ],
+    exam: "HTTP/3은 UDP 기반 QUIC 위에서 동작하여 TCP의 연결 지연과 전송계층 HOL 블로킹을 제거한 HTTP의 세 번째 주요 버전으로, RFC 9114로 표준화되었다.",
+  },
   "net-4": {
     hook: "비트 중앙의 신호 전이로 데이터와 클록을 함께 전달하는 라인 코딩입니다.",
     scene: "같은 비트가 길게 이어지면 수신측이 박자를 잃어 동기가 어긋납니다. 맨체스터 코딩은 모든 비트 구간 중앙에서 반드시 전압을 전이시켜, 별도 클록 없이도 수신측이 타이밍을 복원하게 합니다.",

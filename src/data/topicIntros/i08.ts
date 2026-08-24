@@ -2,6 +2,16 @@ import type { AnswerIntro } from "./index";
 
 /** 예전 토픽 답안 서론 세트 — 청크 08 */
 export const I: Record<string, AnswerIntro> = {
+  "ai-100": {
+    lead: "검색 전후 최적화로 정밀도를 높인 Advanced RAG",
+    defShort: "검색 전후 전처리·후처리 공정으로 정밀도와 신뢰성을 극대화한 검색 증강 생성 기술",
+    features: ["쿼리 재작성", "리랭킹", "환각 저감"],
+  },
+  "ai-101": {
+    lead: "레고처럼 조립하는 모듈형 RAG, Modular RAG",
+    defShort: "검색·라우팅 독립 모듈과 연산자를 자유롭게 조합해 재구성하는 RAG 프레임워크",
+    features: ["모듈 조합", "연산자", "재구성 가능"],
+  },
   "ai-106": {
     lead: "에이전트 간 협업의 공통 언어, A2A",
     defShort: "이종 에이전트가 능력을 발견해 작업을 위임·협업하는 개방형 상호운용 프로토콜",
@@ -182,6 +192,11 @@ export const I: Record<string, AnswerIntro> = {
     defShort: "형태소 분석·시멘틱 기술로 사람의 말과 글을 컴퓨터가 이해·생성하는 언어 기술",
     features: ["형태소 분석", "시멘틱 기술", "언어 이해"],
   },
+  "ai-81": {
+    lead: "개체명 인식과 단어 벡터화, NER과 Word Embedding",
+    defShort: "텍스트 속 개체명을 인식하고 단어를 의미 벡터로 변환하는 NER·워드 임베딩 기술",
+    features: ["개체명 인식", "word2vec", "의미 벡터"],
+  },
   "ai-84": {
     lead: "텍스트 없이 음성으로 배우는 NLP, Textless NLP",
     defShort: "문자 변환 없이 원시 오디오를 이산 단위로 바꿔 언어 모델을 학습하는 자연어 처리 기술",
@@ -196,6 +211,11 @@ export const I: Record<string, AnswerIntro> = {
     lead: "GPT를 대화로 여는 생성형 AI, ChatGPT",
     defShort: "대규모 텍스트로 사전학습된 GPT 모델을 대화형으로 제공하는 생성형 AI 챗봇",
     features: ["GPT 계열", "대화형 UI", "API 제공"],
+  },
+  "ai-90": {
+    lead: "LLM의 기억을 압축하는 가속 기술, 터보퀀트",
+    defShort: "LLM의 KV 캐시를 손실 없이 최대 16분의 1로 압축해 추론 속도를 높이는 기술",
+    features: ["KV 캐시 압축", "무손실 양자화", "추론 가속"],
   },
   "ai-91": {
     lead: "작지만 알찬 경량 언어모델, sLLM",
@@ -262,6 +282,11 @@ export const I: Record<string, AnswerIntro> = {
     defShort: "이해관계자별 현재와 희망 참여 수준을 한 표에 표시해 격차를 찾아 전략을 세우는 기법",
     features: ["5단계 수준", "C-D 격차", "참여 전략"],
   },
+  "pm-70": {
+    lead: "변화에 유연한 반복 개발, 애자일 프로세스",
+    defShort: "4대 가치 기반 짧은 반복 주기로 작동 SW를 인도하며 변화에 적응하는 개발 방법론",
+    features: ["4대 가치", "반복 인도", "변화 대응"],
+  },
   "pm-71": {
     lead: "가치를 행동으로 옮기는 지침, 애자일 12개 원칙",
     defShort: "애자일 4대 가치를 조기 인도·변화 수용 등 행동 기준으로 구체화한 실행 원칙 체계",
@@ -306,6 +331,11 @@ export const I: Record<string, AnswerIntro> = {
     lead: "오픈소스 리스크 전 주기 관리, OSS 거버넌스",
     defShort: "공개SW 도입부터 폐기까지 라이선스·보안·품질 리스크를 통제하는 관리 체계",
     features: ["라이선스 준수", "SBOM", "SCA 점검"],
+  },
+  "gj-11": {
+    lead: "리뷰 속 마음을 읽는 분석, 오피니언 마이닝",
+    defShort: "비정형 텍스트에서 작성자의 의견과 감성을 추출·분류해 정량화하는 마이닝 기술",
+    features: ["감성 분류", "극성 판정", "SNS 분석"],
   },
   "gj-114": {
     lead: "규제 걱정 없는 실험 공간, 규제 샌드박스",

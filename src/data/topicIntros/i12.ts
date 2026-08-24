@@ -2,6 +2,16 @@ import type { AnswerIntro } from "./index";
 
 /** 예전 토픽 답안 서론 세트 — 청크 12 */
 export const I: Record<string, AnswerIntro> = {
+  "db-134": {
+    lead: "저장 효율과 가용성을 개선한 하둡 진화, Hadoop 3.0/HDFS",
+    defShort: "이레이저코딩과 다중 스탠바이 네임노드로 저장 효율과 가용성을 개선한 하둡 버전",
+    features: ["이레이저 코딩", "다중 스탠바이", "저장 효율화"],
+  },
+  "db-135": {
+    lead: "통계 분석 특화 오픈소스 언어, R",
+    defShort: "통계기법과 시각화를 내장하고 패키지로 확장 가능한 통계분석 전용 오픈소스 언어",
+    features: ["통계분석 내장", "패키지 확장", "대화형 분석"],
+  },
   "db-136": {
     lead: "인메모리 분산처리의 표준, Apache Spark",
     defShort: "인메모리 RDD로 디스크 병목을 해소해 배치·스트리밍을 통합 처리하는 분산 엔진",
@@ -56,6 +66,11 @@ export const I: Record<string, AnswerIntro> = {
     lead: "개방 데이터 품질의 잣대, 데이터 등급 5단계 레벨",
     defShort: "개방 라이선스부터 연결데이터까지 데이터 개방 품질을 5단계로 구분하는 평가 모델",
     features: ["5단계 등급", "기계 판독성", "URI 연결"],
+  },
+  "db-156": {
+    lead: "웹을 데이터베이스로 만드는 연결, 개방형 연결 데이터(LOD)",
+    defShort: "URI 식별과 RDF 링크로 웹 데이터를 상호 연결해 공개하는 개방형 연결 데이터",
+    features: ["URI 식별", "RDF 연결", "기계 판독"],
   },
   "db-157": {
     lead: "공공데이터 개방의 실무 기준, 공공데이터 제공·관리 실무매뉴얼",

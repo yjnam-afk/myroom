@@ -542,6 +542,24 @@ export const G: Record<string, EasyGuide> = {
     ],
     exam: "IntServ는 RSVP 신호로 종단 간 경로의 자원을 플로우 단위로 사전 예약하고 수락제어를 수행해 절대적 QoS를 보장하는 통합 서비스 모델이다.",
   },
+  "net-137": {
+    hook: "트래픽을 등급으로 묶어 표시하고 홉마다 차등 대우하는 확장형 QoS 모델입니다.",
+    scene: "승객마다 좌석을 예약해 주는 IntServ 방식은 대형 공항(백본)에서는 감당이 안 됩니다. DiffServ는 티켓에 등급 도장(DSCP)만 찍어두고, 각 게이트가 등급대로 우선 처리하는 무상태 방식으로 확장성을 확보합니다.",
+    why: "구성 두음(분계표정)과 DS 필드·PHB(EF·AF·BE), IntServ 비교가 출제 핵심입니다.",
+    mechanism: "구성: [분계표정] 분류기(헤더 필드·기존 DSCP로 클래스 배정), 계측기 Meter(토큰버킷으로 CIR/PIR 준수 측정), 표시기 Marker(DSCP 설정·초과 트래픽 재표시), 정형기 Shaper/Dropper(초과분 지연 정형 또는 폐기). 기술: DS 필드(IPv4 TOS 대체 8비트, 상위 6비트 DSCP+하위 2비트 ECN), PHB(EF 저지연 음성, AF 4클래스x3단계 폐기우선, BE 기본, CS 호환), 에지에서 분류·조건화·큐잉 정책 적용하고 코어는 DSCP만 보고 전달. 비교: IntServ는 종단 간 예약·상태 유지·절대 보장, DiffServ는 홉 단위 무상태·상대 차등. 동향: 5G 슬라이싱·SD-WAN 정책의 DSCP 매핑, 도메인 간 재표시 합의가 SLA 쟁점.",
+    map: [
+      { as: "티켓 등급 도장", real: "DSCP(DS 필드 6비트)", note: "ECN 2비트 병존" },
+      { as: "등급별 게이트 대우", real: "PHB(EF·AF·BE·CS)", note: "홉 단위 차등" },
+      { as: "속도 위반 측정기", real: "Meter(토큰버킷)", note: "CIR/PIR" },
+      { as: "초과분 대기·폐기", real: "Shaper/Dropper", note: "" },
+    ],
+    usage: "백본·기업망 QoS의 사실상 표준 모델입니다. 시험은 분계표정 구성과 DS 필드 구조, IntServ 비교표입니다.",
+    links: [
+      { topic: "IntServ", how: "플로우 예약형 모델과의 비교가 단골 문제입니다." },
+      { topic: "WFQ", how: "클래스별 차등을 실제 집행하는 스케줄링 기법입니다." },
+    ],
+    exam: "DiffServ는 트래픽을 소수의 클래스로 묶어 IP 헤더 DS 필드의 DSCP 값에 따라 홉 단위 차등 전달(PHB)을 적용하는 확장성 중심의 QoS 모델이다.",
+  },
   "net-138": {
     hook: "IP 주소 대신 짧은 레이블 딱지로 패킷을 고속 전달하는 스위칭 기술입니다.",
     scene: "라우터가 홉마다 긴 IP 주소를 뒤져 최장 일치 검색을 하면 느리고 경로 제어도 어렵습니다. MPLS는 입구에서 화물에 짧은 운송장 번호(레이블)를 붙이고, 중간에서는 번호만 보고 갈아붙이며 지정된 경로로 고속 운송합니다.",
@@ -559,6 +577,24 @@ export const G: Record<string, EasyGuide> = {
       { topic: "IntServ", how: "RSVP-TE가 자원 예약 개념을 계승한 접점입니다." },
     ],
     exam: "MPLS는 IP 헤더 조회 대신 4바이트 고정 레이블을 참조해 2.5계층에서 고속 포워딩과 트래픽 엔지니어링을 수행하는 레이블 스위칭 프로토콜이다.",
+  },
+  "net-139": {
+    hook: "MPLS에서 복잡한 동적 제어를 걷어내고 전송망답게 규격화한 기술입니다.",
+    scene: "IP/MPLS는 IGP·LDP·RSVP-TE가 얽혀 장애 원인 찾기가 어렵습니다. MPLS-TP는 철도 시간표처럼 중앙에서 경로를 확정하고 50ms 절체와 강력한 OAM을 갖춰 SDH 수준의 결정적 운용을 패킷망에서 재현합니다.",
+    why: "구성 두음(보전관제)과 IP/MPLS vs MPLS-TP 비교표가 출제 핵심입니다.",
+    mechanism: "구성: [보전관제] 보호절체(선형 1+1·1:1과 링 보호로 50ms 이내 절체), 전달평면(MPLS 레이블 포워딩 유지, 양방향 Bidirectional LSP), 관리 OAM(Y.1731·G.8113 기반 CC/CV·Loopback·Link Trace 인밴드 OAM), 제어 단순화(PHP·ECMP·LSP Merge 배제, NMS·SDN 컨트롤러 정적 경로 설정). 배경: ITU-T와 IETF 공동 규격화, SDH/SONET 수준 결정적 운용 재현. 비교: IP/MPLS는 동적 제어평면·단방향 LSP·제한적 OAM·경로 예측 곤란, MPLS-TP는 중앙집중 정적·양방향 LSP·전송급 OAM·경로 확정. 동향: 5G 프론트홀·백홀, 전력·철도 미션크리티컬 전용망, SDN 기반 PTN·SRv6 진화.",
+    map: [
+      { as: "50ms 예비 선로 전환", real: "보호절체(1+1, 1:1, 링)", note: "" },
+      { as: "왕복 고정 노선", real: "양방향 LSP", note: "" },
+      { as: "선로 상시 점검반", real: "인밴드 OAM(Y.1731)", note: "CC/CV·Loopback" },
+      { as: "중앙 관제 시간표", real: "NMS/SDN 정적 설정", note: "동적 제어 배제" },
+    ],
+    usage: "5G 백홀·전력·철도 전용 패킷전송망입니다. 시험은 보전관제 구성과 IP/MPLS 비교표입니다.",
+    links: [
+      { topic: "MPLS", how: "MPLS-TP가 전달평면을 물려받은 원천 기술입니다." },
+      { topic: "SONET(동기식 관통신망)", how: "재현 목표가 된 전송망 수준의 운용 모델입니다." },
+    ],
+    exam: "MPLS-TP는 IP/MPLS의 복잡한 동적 제어평면을 걷어내고 중앙 관리·OAM·보호절체를 강화해 전송망 용도로 규격화한 패킷 전달 기술이다.",
   },
   "net-14": {
     hook: "프레임 단위로 데이터를 나르는 가장 대중적인 유선 LAN 표준입니다.",
@@ -595,6 +631,24 @@ export const G: Record<string, EasyGuide> = {
       { topic: "SLA (Service Level Agreement)", how: "체감품질을 계약 지표로 연결하는 접점입니다." },
     ],
     exam: "QoE는 사용자가 서비스를 이용하며 총체적으로 경험하고 주관적으로 인지하는 품질 수준을 정량화해 관리하는 체감품질 지표 체계다.",
+  },
+  "net-141": {
+    hook: "사업자가 관리하는 망 자체의 객관적 성능을 나타내는 척도입니다.",
+    scene: "고객 만족(QoE)도, 서비스 품질(QoS)도 결국 망이라는 도로의 상태에서 출발합니다. NP는 사업자가 설계·통제할 수 있는 망 고유 성능을 분리해 정의하고 지연·손실·처리율로 측정합니다.",
+    why: "구성 두음(정신속)과 NP vs QoS vs QoE 3단 비교가 출제 핵심입니다.",
+    mechanism: "구성: [정신속] 정확성 Accuracy(오류·손실 없는 전달, BER·패킷 손실률), 신뢰성 Dependability(중단 없는 지속, 가용성·MTBF·MTTR), 속도 Speed(전달 소요 시간, 지연·지터·처리율). 표준: ITU-T I.350·E.800에서 NP와 QoS 개념 분리. 측정: 지표는 지연 Latency·지터 Jitter·패킷 손실률 PLR·처리율 Throughput·가용성 Availability, 방식은 시험 트래픽 주입 능동 측정과 실트래픽 관측 수동 측정 병행. 비교: NP는 망 구성요소 성능(사업자), QoS는 서비스 품질(계약·SLA), QoE는 체감(주관), NP는 QoS의 기반이고 QoS는 QoE에 영향. 동향: 5G 슬라이스 SLA 검증용 IOAM·gNMI 텔레메트리, AIOps 이상 탐지.",
+    map: [
+      { as: "도로 포장 상태", real: "NP(망 고유 성능)", note: "사업자 관점" },
+      { as: "오탈자 없는 배달", real: "정확성(BER·손실률)", note: "" },
+      { as: "끊기지 않는 운행", real: "신뢰성(가용성·MTBF·MTTR)", note: "" },
+      { as: "배달 속도", real: "속도(지연·지터·처리율)", note: "" },
+    ],
+    usage: "망 설계·SLA 검증의 기초 지표입니다. 시험은 정신속 구성과 NP·QoS·QoE 3단 비교표입니다.",
+    links: [
+      { topic: "QoE", how: "NP가 기반이 되어 최종 체감품질에 영향을 줍니다." },
+      { topic: "NMS", how: "NP 지표를 수집·감시하는 관리 시스템입니다." },
+    ],
+    exam: "NP는 통신사업자가 관리하는 망 자체의 객관적 성능으로, 망 설계와 구성요소 특성에 의존해 QoS 제공 능력을 나타내는 척도다.",
   },
   "net-142": {
     hook: "산업·과학·의료용으로 지정되어 면허 없이 쓸 수 있는 공용 주파수 대역입니다.",

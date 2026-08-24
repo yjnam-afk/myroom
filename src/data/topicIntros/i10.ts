@@ -152,10 +152,20 @@ export const I: Record<string, AnswerIntro> = {
     defShort: "RSVP로 종단 간 자원을 플로우 단위로 사전 예약해 절대적 QoS를 보장하는 모델",
     features: ["자원 예약", "수락 제어", "절대적 보장"],
   },
+  "net-137": {
+    lead: "클래스 기반 차등 QoS, DiffServ",
+    defShort: "트래픽을 클래스로 묶어 DSCP 값에 따라 홉 단위 차등 전달하는 확장형 QoS 모델",
+    features: ["클래스 기반", "DSCP 마킹", "확장성"],
+  },
   "net-138": {
     lead: "레이블 기반 고속 스위칭, MPLS",
     defShort: "IP 조회 대신 고정 레이블로 고속 포워딩과 트래픽 엔지니어링을 하는 스위칭 기술",
     features: ["레이블 교환", "고속 포워딩", "TE 지원"],
+  },
+  "net-139": {
+    lead: "전송망 특화 레이블 스위칭, MPLS-TP",
+    defShort: "OAM·보호절체를 강화해 전송망 용도로 규격화한 MPLS 기반 패킷 전달 기술",
+    features: ["중앙 관리", "OAM 강화", "보호절체"],
   },
   "net-14": {
     lead: "대표적 유선 LAN 기술, 이더넷(Ethernet)",
@@ -166,6 +176,11 @@ export const I: Record<string, AnswerIntro> = {
     lead: "사용자 체감품질 지표, QoE",
     defShort: "사용자가 서비스에서 총체적으로 경험하고 주관적으로 인지하는 품질의 정량화 지표",
     features: ["주관적 품질", "총체적 경험", "정량화 관리"],
+  },
+  "net-141": {
+    lead: "망 자체의 객관적 성능, NP(Network performance)",
+    defShort: "망 설계와 구성요소 특성에 의존하며 QoS 능력을 나타내는 망의 객관적 성능 척도",
+    features: ["객관적 성능", "망 의존", "측정 가능"],
   },
   "net-142": {
     lead: "면허 없이 쓰는 공용 대역, ISM Band",
