@@ -15,6 +15,7 @@ import {
 import { WEEKS } from "@/data/curriculum";
 import SourceBadge from "@/components/SourceBadge";
 import { matchSubnoteTitle, findSubnoteByContent } from "@/lib/matchSubnote";
+import { topicForConcept } from "@/lib/relatedTopics";
 
 type Topic = {
   id: string;
@@ -111,11 +112,20 @@ const cleanGroup = (name: string) => name.replace(/\s+/g, " ").trim();
 // 답안지 템플릿·교재 서브노트는 AI 없이 즉시 뜨고, AI 설명은 필요할 때만 버튼으로.
 // 비교 세트 항목명("혼돈(Confusion)" 등)은 서브노트 제목과 다를 수 있어,
 // 느슨 매칭으로 답안 템플릿이 있는 제목으로 바꿔 연다(없으면 이름 그대로).
-const explainHref = (name: string) => {
+const explainHref = (name: string, parent?: string) => {
   const resolved =
     subnoteByTitle(name)?.title ||
     matchSubnoteTitle(name) ||
     findSubnoteByContent(name) ||
+    // 항목명이 토픽 제목의 일부이거나 표기가 다른 경우(하이퍼바이저 → 가상화…)
+    topicForConcept(name) ||
+    // 하위 개념(SISD·1NF·빅뱅 통합 등)은 자기 토픽이 없다 — 묶음(부모) 토픽으로 보낸다.
+    (parent
+      ? subnoteByTitle(parent)?.title ||
+        matchSubnoteTitle(parent) ||
+        findSubnoteByContent(parent) ||
+        topicForConcept(parent)
+      : undefined) ||
     name;
   return `/explain?topic=${encodeURIComponent(resolved)}`;
 };
@@ -127,12 +137,14 @@ const TOPIC_TITLE_SET = (() => {
   }
   return s;
 })();
-const hasAnyData = (name: string) =>
+const hasAnyData = (name: string, parent?: string): boolean =>
   !!(
     subnoteByTitle(name)?.title ||
     matchSubnoteTitle(name) ||
     findSubnoteByContent(name) ||
-    TOPIC_TITLE_SET.has(name.trim().toLowerCase().replace(/[\s()·,\-_/]/g, ""))
+    TOPIC_TITLE_SET.has(name.trim().toLowerCase().replace(/[\s()·,\-_/]/g, "")) ||
+    topicForConcept(name) ||
+    (parent ? hasAnyData(parent) : false)
   );
 
 export default function MapPage() {
@@ -333,10 +345,10 @@ function CompareView({
                       <p className="mt-0.5 text-xs text-brand-600">⚖️ {s.axis}</p>
                       <div className="mt-3 flex flex-wrap gap-2">
                         {s.items.map((it) =>
-                          hasAnyData(it.name) ? (
+                          hasAnyData(it.name, s.title) ? (
                             <Link
                               key={it.name}
-                              href={explainHref(it.name)}
+                              href={explainHref(it.name, s.title)}
                               className="group min-w-[130px] flex-1 rounded-xl border border-slate-200 bg-slate-50 p-2.5 transition hover:border-brand-300 hover:bg-brand-50"
                             >
                               <div className="text-[13px] font-semibold leading-snug text-slate-800 group-hover:text-brand-600">
