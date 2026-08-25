@@ -129,6 +129,10 @@ const explainHref = (name: string, parent?: string) => {
     name;
   return `/explain?topic=${encodeURIComponent(resolved)}`;
 };
+// 표 1열처럼 "이름 칸"에 링크를 걸 수 있는지 — 구분선(│)·정도 표기(약/강)는 제외.
+const isLinkableName = (s: string) =>
+  (s || "").replace(/[^0-9A-Za-z가-힣]/g, "").length >= 2;
+
 // 비교 항목이 어디로든(교재 템플릿·예전 토픽 자료) 연결되는지 — 아니면 링크를 안 건다.
 const TOPIC_TITLE_SET = (() => {
   const s = new Set<string>();
@@ -486,7 +490,18 @@ function TablesView({
                                 : "text-slate-600"
                             }`}
                           >
-                            {cell}
+                            {ci === 0 &&
+                            isLinkableName(cell) &&
+                            hasAnyData(cell, t.title) ? (
+                              <Link
+                                href={explainHref(cell, t.title)}
+                                className="text-slate-800 underline decoration-slate-300 underline-offset-2 transition hover:text-brand-600 hover:decoration-brand-400"
+                              >
+                                {cell}
+                              </Link>
+                            ) : (
+                              cell
+                            )}
                           </td>
                         ))}
                       </tr>

@@ -166,16 +166,15 @@ const CONCEPT_ALIAS: Record<string, string> = {
   selectiverepeat: "오류제어",
   gobackn: "오류제어",
   arq재전송기법: "오류제어",
-  지식기반: "생체인식기술",
-  소유기반: "생체인식기술",
   존재생체기반: "생체인식기술",
-  사용자인증유형: "생체인식기술",
   프로토타입모델: "SW 개발방법론",
   반복적증분형모델: "SW 개발방법론",
   sdlc프로세스모델: "SW 개발방법론",
   모놀리식커널: "Monolithic 커널",
   커널구조: "커널",
   web10: "Web 2.0",
+  web20: "Web 2.0",
+  web30: "Web 3.0 / Web 4.0",
   시스템테스트: "테스트 단계 분류",
   인수테스트: "테스트 단계 분류",
   단위테스트: "테스트 단계 분류",
@@ -184,8 +183,63 @@ const CONCEPT_ALIAS: Record<string, string> = {
   dpos위임지분증명: "합의 알고리즘",
   pbft: "합의 알고리즘",
   키스트레칭keystretching: "해시 솔트(Salt)와 키 스트레칭(Key Stretching)",
+  나선형: "Spiral 모델",
+  반복점증: "SW 개발방법론",
+  유스케이스포인트: "SW 개발방법론",
+  체크섬: "오류제어",
+  순환중복검사crc: "오류제어",
+  패리티비트: "오류제어",
+  해밍코드: "오류제어",
+  bb트리: "Balanced Tree\nB-Tree(비트리)",
+  마이크로커널: "Micro 커널",
+  파이프필터: "아키텍처 모델 / 패턴",
+  블랙보드: "아키텍처 모델 / 패턴",
+  embb: "5G(IMT-2020) 주요 기술",
+  urllc: "5G(IMT-2020) 주요 기술",
+  mmtc: "5G(IMT-2020) 주요 기술",
+  itil서비스라이프사이클: "ITIL / ITIL 3.0",
+  서비스전략: "ITIL / ITIL 3.0",
+  서비스설계: "ITIL / ITIL 3.0",
+  서비스전환: "ITIL / ITIL 3.0",
+  서비스운영: "ITIL / ITIL 3.0",
+  지속적서비스개선: "ITIL / ITIL 3.0",
+  wifi세대: "WIFI 6",
+  wifi4: "WIFI 6",
+  wifi5: "WIFI 6",
+  wifi66e: "Wi-Fi 6E",
+  이동통신세대1g5g: "5G(IMT-2020) 주요 기술",
+  광전송계위: "SDH(Synchronous Digital Hierarchy)",
+  ddos공격유형: "DoS, Ddos, Model DoS",
+  대역폭소진: "DoS, Ddos, Model DoS",
+  자원소진: "DoS, Ddos, Model DoS",
+  럼바우객체지향분석omt: "객체지향 개발방법론",
+  객체모델: "객체지향 개발방법론",
+  동적모델: "객체지향 개발방법론",
+  기능모델: "객체지향 개발방법론",
+  디피헬만키교환5단계: "Diffie-Hellman 키 교환",
+  조직구조와pm권한: "프로젝트 조직유형",
+  기능조직: "프로젝트 조직유형",
+  매트릭스조직: "프로젝트 조직유형",
+  프로젝트조직: "프로젝트 조직유형",
+  pos: "합의 알고리즘",
+  pow: "합의 알고리즘",
+  dpos: "합의 알고리즘",
+  파밍pharming: "Phishing",
+  스미싱smishing: "Phishing",
+  비싱vishing: "Phishing",
+  qr싱qrshing: "Phishing",
+  연속할당: "연속할당 기법(Contiguous Allocation)",
+  eprom: "UV EPROM",
+  마스크romMaskROM: "EEPROM",
   보이스코드정규형bcnf: "4차 정규화",
 };
+
+/** 표·비교 항목에 흔히 나오지만 그 자체로는 토픽이 아닌 말 */
+const CONCEPT_STOP = new Set([
+  "신뢰성", "인터넷", "물리적", "논리적", "가용성", "무결성", "기밀성",
+  "효율성", "사용성", "이식성", "확장성", "정확성", "완전성", "일관성",
+  "패킷필터링", "오버헤드", "연속할당", "기능성", "유지보수성",
+]);
 
 /** 묶음 이름 뒤에 붙는 군더더기 — 떼고 다시 찾아본다. */
 const TAIL = /(유형|방식|모델|구조|기법|분류|계층|단계|발전)$/;
@@ -195,7 +249,14 @@ export function topicForConcept(name: string): string | undefined {
   const alias = CONCEPT_ALIAS[key];
   if (alias) return alias;
   // 너무 짧거나 그 자체로 특정이 안 되는 말은 링크를 걸지 않는다(오탐 방지).
-  if (key.length < 4 || STOP.has(name.trim()) || STOP_EN.has(key)) return undefined;
+  const minLen = 3;
+  if (
+    key.length < minLen ||
+    STOP.has(name.trim()) ||
+    STOP_EN.has(key) ||
+    CONCEPT_STOP.has(key)
+  )
+    return undefined;
   let exact: Cand | undefined;
   let contains: Cand | undefined;
   for (const c of CANDS) {
@@ -204,6 +265,9 @@ export function topicForConcept(name: string): string | undefined {
       if (!exact || (exact.alias && !c.alias)) exact = c;
       continue;
     }
+    // 짧은 영문 약어(LRU·DFS 등)는 부분 포함으로 찾으면 엉뚱한 토픽에 붙는다
+    // (LRU→GPGPU…, DFS→HDFS). 이런 키는 제목 완전일치일 때만 연결한다.
+    if (isLatin(key) && key.length <= 5) continue;
     // 토픽 제목이 이 개념을 품고 있는 경우 — 가장 짧은(=군더더기 적은) 제목을 고른다.
     if (!c.alias && c.key.includes(key)) {
       if (!contains || c.key.length < contains.key.length) contains = c;
