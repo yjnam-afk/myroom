@@ -720,7 +720,10 @@ function ExplainInner() {
               {(() => {
                 const g = extra?.guide;
                 const hasList = !!legacy.comp?.length || legacy.sections.length > 0;
-                const useGuideBody = !hasList && !!(g?.mechanism || g?.map?.length);
+                // 3단표가 없으면 커널 학습카드(핵심 동작·핵심 구성요소)로 본론을 채운다.
+                // 키워드 칩만 있는 얇은 토픽도 카드 내용으로 보강해 2번이 비지 않게 한다.
+                const useGuideBody =
+                  !legacy.comp?.length && !!(g?.mechanism || g?.map?.length);
                 const hasBody = !!legacy.conceptMap || hasList || useGuideBody;
                 if (!hasBody) return null;
                 let li = 0;

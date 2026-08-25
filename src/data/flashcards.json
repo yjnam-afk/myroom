@@ -40826,9 +40826,29 @@
   "definition": "[프로젝트관리] 프로젝트 관리 위한 일정, 조직, 인력, 지휘, 통제를 제공하는 기술, 지식 체계",
   "defShort": "프로젝트·프로그램·포트폴리오로 관리 범위와 전략 연계 수준이 나뉘는 관리 체계",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "프로젝트관리",
+    "mnemonic": "",
+    "keywords": [
+     "프로젝트 관리 위한 일정",
+     "조직",
+     "인력",
+     "지휘",
+     "통제를 제공하는 기술",
+     "지식 체계"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "프로젝트 관리 위한 일정",
+   "조직",
+   "인력",
+   "지휘",
+   "통제를 제공하는 기술",
+   "지식 체계"
+  ]
  },
  {
   "id": "pm-10",
@@ -42182,9 +42202,27 @@
   "definition": "Agile 을 이해관계자에게 가장 잘 설명하고 불확실성과 복잡도를 설명 및 해결하기 위한 모델.",
   "defShort": "요구와 기술의 불확실성 정도로 상황을 구분해 적합한 개발방법론 선택을 돕는 모델",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "단계별 적용하는 개발방법론",
+    "mnemonic": "",
+    "keywords": [
+     "간단",
+     "복잡한",
+     "좀더 복잡한:적응형 개발방법",
+     "예측불가",
+     "품질/개선보고서"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "간단",
+   "복잡한",
+   "좀더 복잡한:적응형 개발방법",
+   "예측불가",
+   "품질/개선보고서"
+  ]
  },
  {
   "id": "pm-75",
@@ -47308,9 +47346,31 @@
   "definition": "요구사항으로부터 테스트 모델을 구축하고 이를 테스트 기준으로 활용하여 테스트케이스(TC)를 자동 생성",
   "defShort": "요구사항으로 테스트 모델 구축하고 커버리지 기준 테스트케이스 자동 생성하는 기법",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "절차",
+    "mnemonic": "",
+    "keywords": [
+     "테스트 모델 구축",
+     "테스트 케이스 생성",
+     "테스트 모델의 품질은 테스트 케이스의 품질과 직결",
+     "모델테스트",
+     "모델체킹등을 통한 품질확보",
+     "제어용이성",
+     "관찰가능성"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "테스트 모델 구축",
+   "테스트 케이스 생성",
+   "테스트 모델의 품질은 테스트 케이스의 품질과 직결",
+   "모델테스트",
+   "모델체킹등을 통한 품질확보",
+   "제어용이성",
+   "관찰가능성"
+  ]
  },
  {
   "id": "se-167",
@@ -58102,9 +58162,21 @@
   "definition": "지상의 방송국에서 위성에서 수신한 신호로 확인한 위치와 실제 위치와의 차이를 전송하여 오차를 교정하는 기술",
   "defShort": "기지국이 위성 신호의 위치 오차 보정치를 전송해 GPS 정확도를 높이는 교정 기술",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "동작원리",
+    "mnemonic": "",
+    "keywords": [
+     "기지국",
+     "사용자 수신기"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "기지국",
+   "사용자 수신기"
+  ]
  },
  {
   "id": "ds-197",
@@ -75507,9 +75579,21 @@
   "definition": "암호화와 전자서명을 위해 개발한 암호화 기법으로 유한체(finite field)에서의 이산대수 문제에 바탕을 둔 암호 알고리즘",
   "defShort": "유한체 이산대수 문제에 안전성을 둔 암호화와 전자서명 지원 공개키 암호 알고리즘",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "암호문 길이가 RSA 대비 2배 증가",
+     "평문 2배"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "암호문 길이가 RSA 대비 2배 증가",
+   "평문 2배"
+  ]
  },
  {
   "id": "sec-27",
@@ -77126,9 +77210,23 @@
   "definition": "Common Vulnerabilities and Exposures의 약자 일반적인 취약점 및 노출로, CVE 시스템은 보안 취약점, 위험노출과 같은 공개적으로 잘 알려진 정보에 대한 참조 및 방법 제공",
   "defShort": "공개된 취약점·위험노출에 표준 식별자를 부여해 참조를 제공하는 취약점 관리 체계",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "일반적인 취약점 및 노출로",
+     "CVE 시스템은 보안 취약점",
+     "위험노출과 같은 공개적으로 잘 알려진 정보에 대한 참조 및 방법 제공"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "일반적인 취약점 및 노출로",
+   "CVE 시스템은 보안 취약점",
+   "위험노출과 같은 공개적으로 잘 알려진 정보에 대한 참조 및 방법 제공"
+  ]
  },
  {
   "id": "sec-95",
@@ -77249,6 +77347,19 @@
     "keywords": [
      "정보 노출",
      "동일 작업 반복"
+    ]
+   },
+   {
+    "label": "대응책",
+    "mnemonic": "",
+    "keywords": [
+     "모든 입력 값을 상세히 검증하는 것으로 헤더",
+     "쿠키",
+     "질의 문",
+     "폼 필드",
+     "숨겨진 필드 등과 같은 모든 파라미터들을 엄격한 규칙에 의해서 검증",
+     "HTML을 사용할 경우 태그 내에 html",
+     "& 등이 포함되지 않도록 작성하고 검증은 반드시 서버에서 수행"
     ]
    }
   ],
@@ -79022,9 +79133,23 @@
   "definition": "사용자 Endpoint(PC, 노트북 등)의 NW 접근 시도 시 사전 승인여부 및 보안정책 준수 여부를 확인하고, NW 접속을 승인 또는 차단하는 네트워크 접근제어 시스템",
   "defShort": "단말의 네트워크 접근 시 보안정책 준수를 확인해 접속을 승인·차단하는 접근제어",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "키워드",
+    "mnemonic": "",
+    "keywords": [
+     "네트워크 권한 통제",
+     "위협 모니터링 및 탐지",
+     "정책 관리"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "네트워크 권한 통제",
+   "위협 모니터링 및 탐지",
+   "정책 관리"
+  ]
  },
  {
   "id": "sec-158",
@@ -81693,9 +81818,33 @@
   "definition": "ICT 시스템에서 처리되는 개인 식별 정보를 안전하게 보호하기 위한 High Level Privacy Framework에 대한 국제 표준",
   "defShort": "ICT 시스템의 개인 식별 정보 보호를 위해 11개 원칙을 제시하는 프라이버시 표준",
   "memo": "동합수데사정개참책정보",
-  "sections": [],
+  "sections": [
+   {
+    "label": "프라이버시 원칙",
+    "mnemonic": "",
+    "keywords": [
+     "동의와 선택",
+     "합법성 및 사용목적",
+     "수집 제한",
+     "데이터 최소화",
+     "사용 및 공개 제한",
+     "정확성과 품질",
+     "개방성/투명성",
+     "개인 참여와 접근"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "동의와 선택",
+   "합법성 및 사용목적",
+   "수집 제한",
+   "데이터 최소화",
+   "사용 및 공개 제한",
+   "정확성과 품질",
+   "개방성/투명성",
+   "개인 참여와 접근"
+  ]
  },
  {
   "id": "sec-252",
@@ -81706,9 +81855,33 @@
   "definition": "개인정보 보호를 위한 ISO/IEC 27001 및 ISO/IEC 27002의 확장판으로, 조직이 개인정보보호를 위해 갖추어야하는 요구사항과 가이드라인을 동시에 제공하는 표준",
   "defShort": "27001·27002를 개인정보 보호로 확장한 개인정보 관리체계 국제 표준",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "인증절차",
+    "mnemonic": "",
+    "keywords": [
+     "표준의 적합성 판단",
+     "문서 및 소프트웨어 등에 대한 검토",
+     "주관팀의 구성 및 전략 수립",
+     "필요한 교육의 결정",
+     "문서 개발",
+     "프로세스의 결정",
+     "관리 및 문서화",
+     "실행"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "표준의 적합성 판단",
+   "문서 및 소프트웨어 등에 대한 검토",
+   "주관팀의 구성 및 전략 수립",
+   "필요한 교육의 결정",
+   "문서 개발",
+   "프로세스의 결정",
+   "관리 및 문서화",
+   "실행"
+  ]
  },
  {
   "id": "sec-253",
@@ -81879,9 +82052,31 @@
   "definition": "데이터 값을 범주의 값으로 변환하여 명확한 값을 감추는 기범 (개념)특정 정보를 해당 그룹의 대푯값으로 변환(범주화) 하거나 구간 값으로 변환(범주화) 하여 개인 식별을 방지 (대상)개인을 식별할 수 있는 저보(주소, 생일, 고유식별정보 등) 기관, 단체등의 이용자 계",
   "defShort": "데이터 값을 그룹 대푯값이나 구간 값으로 변환해 개인 식별을 방지하는 비식별 기법",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "개념",
+    "mnemonic": "",
+    "keywords": [
+     "특정 정보를 해당 그룹의 대푯값으로 변환",
+     "하거나 구간 값으로 변환",
+     "개인 식별을 방지"
+    ]
+   },
+   {
+    "label": "대상",
+    "mnemonic": "",
+    "keywords": [
+     "개인을 식별할 수 있는 저보",
+     "단체등의 이용자 계정"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "특정 정보를 해당 그룹의 대푯값으로 변환",
+   "하거나 구간 값으로 변환",
+   "개인 식별을 방지"
+  ]
  },
  {
   "id": "sec-259",
@@ -82276,9 +82471,57 @@
   "definition": "단말기 자체에 내재된 취약점 또는 단말기 사용 부주의로 발생되는 보안 위협",
   "defShort": "단말 결함·사용 부주의 위협에 MDM 등 계층별 대응을 적용하는 모바일 보안 체계",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "기술적 위협",
+    "mnemonic": "",
+    "keywords": [
+     "무선 공격",
+     "바이러스",
+     "침투 공격",
+     "DoS 공격 [관리적 위협] 분실/도난",
+     "다양합 접속 경로",
+     "취약한 업데이트",
+     "설치 시 보안점검",
+     "사회공학위험"
+    ]
+   },
+   {
+    "label": "관점 위협",
+    "mnemonic": "",
+    "keywords": [
+     "단말기",
+     "도청",
+     "파싱 및 파밍",
+     "서비스 거부",
+     "권한탈취",
+     "악성코드해킹",
+     "정보유출",
+     "애플리케이션"
+    ]
+   },
+   {
+    "label": "대응방안",
+    "mnemonic": "",
+    "keywords": [
+     "Contents",
+     "Platform",
+     "Network",
+     "Terminal"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "무선 공격",
+   "바이러스",
+   "침투 공격",
+   "DoS 공격 [관리적 위협] 분실/도난",
+   "다양합 접속 경로",
+   "취약한 업데이트",
+   "설치 시 보안점검",
+   "사회공학위험"
+  ]
  },
  {
   "id": "sec-274",
@@ -82942,9 +83185,47 @@
   "definition": "[보안취약점] Brute Force 공격, Buffer Overflow 공격, Cyber kill Chain, Sniffing, DOS, 악성코드, 펌웨어공격, 기기 루팅",
   "defShort": "스니핑·펌웨어 공격에 IAM·워터마킹·난독화로 대응하는 실감콘텐츠 보안",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "보안취약점",
+    "mnemonic": "",
+    "keywords": [
+     "Brute Force 공격",
+     "Buffer Overflow 공격",
+     "Cyber kill Chain",
+     "Sniffing",
+     "DOS",
+     "악성코드",
+     "펌웨어공격",
+     "기기 루팅"
+    ]
+   },
+   {
+    "label": "대응방안",
+    "mnemonic": "",
+    "keywords": [
+     "통합계정관리",
+     "Secure Coding",
+     "포렌식 워터마킹",
+     "암호화",
+     "ESM",
+     "SIEM",
+     "Anti-DDoS",
+     "백신"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "Brute Force 공격",
+   "Buffer Overflow 공격",
+   "Cyber kill Chain",
+   "Sniffing",
+   "DOS",
+   "악성코드",
+   "펌웨어공격",
+   "기기 루팅"
+  ]
  },
  {
   "id": "sec-296",
@@ -83261,9 +83542,33 @@
   "definition": "정보통신망의 이용을 촉진하고 정보통신서비스를 이용하는 자의 개인정보를 보호함과 아울러 정보통신망을 건전하고 안전하게 이용할 수 있는 환경을 조성하여 국민생활의 향상과 공공복리의 증진에 이바지함을 목적으로 한 법률",
   "defShort": "정보통신망 이용 촉진과 이용자 개인정보 보호, 안전한 이용환경 조성을 위한 법률",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "내용",
+    "mnemonic": "",
+    "keywords": [
+     "( 3은 삭제됨 )",
+     "제1장 총칙",
+     "제2장 정보통신망의 이용촉진",
+     "제4장 개인정보의 보호",
+     "제5장 정보통신망에서의 이용자 보호",
+     "제6장 정보통신망의 안전성 확보 등",
+     "제7장 통신과금서비스",
+     "제8장 국제협력"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "( 3은 삭제됨 )",
+   "제1장 총칙",
+   "제2장 정보통신망의 이용촉진",
+   "제4장 개인정보의 보호",
+   "제5장 정보통신망에서의 이용자 보호",
+   "제6장 정보통신망의 안전성 확보 등",
+   "제7장 통신과금서비스",
+   "제8장 국제협력"
+  ]
  },
  {
   "id": "sec-310",
@@ -84271,9 +84576,33 @@
   "definition": "담당자의 근무태만과 내부통제절차 불완전성으로 발생된 작은 실수가 회복 어려운 피해 결과 초래하는 Miss Use 행위",
   "defShort": "근무태만과 내부통제 미비로 작은 실수가 회복 어려운 피해를 초래하는 오조작 행위",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "발생 원인",
+    "mnemonic": "",
+    "keywords": [
+     "SW설계 측면",
+     "UX",
+     "간과한 UI",
+     "테스트 측면",
+     "입력 값 검증 테스트 부재",
+     "테스트 커버리지",
+     "기술적 측면",
+     "FDS"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "SW설계 측면",
+   "UX",
+   "간과한 UI",
+   "테스트 측면",
+   "입력 값 검증 테스트 부재",
+   "테스트 커버리지",
+   "기술적 측면",
+   "FDS"
+  ]
  },
  {
   "id": "sec-353",
@@ -92925,9 +93254,21 @@
   "definition": "[EfficientNet]",
   "defShort": "복합 스케일링으로 효율을 높인 이미지 분류 모델과 이를 백본으로 한 객체 탐지 모델",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "EfficientNet",
+    "mnemonic": "",
+    "keywords": [
+     "Compound Scaling 통해 적은 파라미터수를 가지고 정확성",
+     "효율성 향상시킨 Image 분류 모델"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "Compound Scaling 통해 적은 파라미터수를 가지고 정확성",
+   "효율성 향상시킨 Image 분류 모델"
+  ]
  },
  {
   "id": "ai-35",
@@ -92984,20 +93325,31 @@
   "memo": "",
   "sections": [
    {
+    "label": "네트워크 구조",
+    "mnemonic": "",
+    "keywords": [
+     "화살표 좌중우위",
+     "시시탄 X+XX",
+     "LSTM Time-Step의 Cell을 조금 더 간소화한 버전"
+    ]
+   },
+   {
     "label": "LSTM vs GRU",
     "mnemonic": "",
     "keywords": [
      "성능",
      "데이터",
-     "state"
+     "[양이 적을 경우] 유리",
+     "state",
+     "[hidden으로 통합]"
     ]
    }
   ],
   "mnemonic": "",
   "keywords": [
-   "성능",
-   "데이터",
-   "state"
+   "화살표 좌중우위",
+   "시시탄 X+XX",
+   "LSTM Time-Step의 Cell을 조금 더 간소화한 버전"
   ]
  },
  {
@@ -93317,9 +93669,21 @@
   "definition": "라벨링 된 데이터가 많지 않은 데이터에서 일부만 학습 시킨 후, 이를 활용해 나머지 데이터를 라벨링하는 하는 오토 라벨링 기법",
   "defShort": "소량 라벨 데이터로 학습한 모델로 나머지 데이터를 자동 라벨링하는 오토 라벨링 기법",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "개념",
+    "mnemonic": "",
+    "keywords": [
+     "라벨링 된 데이터가 많지 않은 데이터에서 일부만 학습 시킨 후",
+     "이를 활용해 나머지 데이터를 라벨링하는 하는 오토 라벨링 기법"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "라벨링 된 데이터가 많지 않은 데이터에서 일부만 학습 시킨 후",
+   "이를 활용해 나머지 데이터를 라벨링하는 하는 오토 라벨링 기법"
+  ]
  },
  {
   "id": "ai-54",
@@ -95342,9 +95706,23 @@
   "definition": "오픈AI에서 발표한 GPT-3를 통해 다른 모델의 백본역할 및 응용서비스 플랫폼, 범용 AI의 특징을 가진 초대규모 AI 모델이 등장함",
   "defShort": "방대한 파라미터로 사전학습되어 백본·플랫폼·범용 AI 역할을 수행하는 모델",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "활성화 전략",
+    "mnemonic": "",
+    "keywords": [
+     "슈퍼컴퓨터 지원",
+     "대규모 데이터셋 구축",
+     "한국어 전용 모델 성능 평가 체계 구축"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "슈퍼컴퓨터 지원",
+   "대규모 데이터셋 구축",
+   "한국어 전용 모델 성능 평가 체계 구축"
+  ]
  },
  {
   "id": "ai-150",
@@ -98009,9 +98387,23 @@
   "definition": "어느 위치에 저장된 데이터이건, 접근하는데 동일한 시간이 걸리는 읽고 쓰기가 가능한 주기억장치 임의기억장치 휘발성 메모리, 읽기, 쓰기 메모리(RWM이 맞음), SRAM(static random access memory): 캐시 사용 DRAM",
   "defShort": "저장 위치와 무관하게 동일한 시간으로 읽고 쓸 수 있는 휘발성 임의 접근 주기억장치",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "휘발성 메모리",
+     "읽기",
+     "쓰기 메모리"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "휘발성 메모리",
+   "읽기",
+   "쓰기 메모리"
+  ]
  },
  {
   "id": "ca-60",
@@ -98099,9 +98491,32 @@
   "definition": "상유전체와는 근본적으로 다른 강유전체의 유전성 발생 메커니즘의 이력현상(히스테리시스)을 이용하여 강유전체막의 전기적 잔류 분극의 극성에 따라 정보를 기록하는 비휘발성 메모리",
   "defShort": "강유전체 히스테리시스로 잔류 분극 극성에 정보를 기록하는 저전압 비휘발성 메모리",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "비휘발성",
+     "낮은 전압",
+     "Polarization"
+    ]
+   },
+   {
+    "label": "유형",
+    "mnemonic": "",
+    "keywords": [
+     "2T2C",
+     "1T1C",
+     "1Tr"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "비휘발성",
+   "낮은 전압",
+   "Polarization"
+  ]
  },
  {
   "id": "ca-66",
@@ -98170,9 +98585,29 @@
   "definition": "데이터를 기록하거나 읽기위한 메모리의 하나로 시스템의 전원이 끊어져도 기록된 데이터들이 소멸되지 않는 비휘발성 메모리 (Non-Volatile Memory)",
   "defShort": "전원이 끊겨도 기록이 소멸되지 않고 소거 방식으로 유형을 나누는 비휘발성 메모리",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "유형",
+    "mnemonic": "",
+    "keywords": [
+     "Masked ROM",
+     "PROM",
+     "EPROM",
+     "Flash Memory",
+     "Flash메모리",
+     "UVEPROM"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "Masked ROM",
+   "PROM",
+   "EPROM",
+   "Flash Memory",
+   "Flash메모리",
+   "UVEPROM"
+  ]
  },
  {
   "id": "ca-71",
@@ -98549,9 +98984,25 @@
   "definition": "자화될 수 있는 물질로 코팅된 플라스틱, 금속을 이용하여 만듬 원형 평판, 헤드, 트랙, 트랙에 데이터를 저장: 디스크 쓰기 보조 기억 장치",
   "defShort": "자성체로 코팅된 평판을 회전시켜 헤드가 트랙 단위로 기록·판독하는 보조기억장치",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "원형 평판",
+     "헤드",
+     "트랙",
+     "트랙에 데이터를 저장"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "원형 평판",
+   "헤드",
+   "트랙",
+   "트랙에 데이터를 저장"
+  ]
  },
  {
   "id": "ca-96",
@@ -98789,9 +99240,23 @@
   "definition": "n 비파이프라인: T = n*(m*k) 파이프라인: T = m(단계)k + (n-1)k",
   "defShort": "수행시간이 n·m·k에서 mk+(n-1)k로 단축되어 m배 향상되는 원리",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "단계별 처리시간은 k이고",
+     "단계수가 m",
+     "명령어 수"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "단계별 처리시간은 k이고",
+   "단계수가 m",
+   "명령어 수"
+  ]
  },
  {
   "id": "ca-107",
@@ -99073,9 +99538,30 @@
   "definition": "병렬처리시스템에서 처리요소들과 기억장치들 사이를 연결하여 주는 네트워크",
   "defShort": "병렬처리시스템의 처리요소와 기억장치를 정적·동적 구조로 연결하는 네트워크",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "정적상호연결망",
+    "mnemonic": "",
+    "keywords": [
+     "시스템 요소들 간에 직접 연결된 경로를 가지며",
+     "연결 구조가 고정된 연결망"
+    ]
+   },
+   {
+    "label": "정적상호연결망 유형",
+    "mnemonic": "",
+    "keywords": [
+     "1차원 토폴리지",
+     "2차원토폴리지",
+     "3차원 토폴로지"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "시스템 요소들 간에 직접 연결된 경로를 가지며",
+   "연결 구조가 고정된 연결망"
+  ]
  },
  {
   "id": "ca-119",
@@ -99167,9 +99653,42 @@
   "definition": "컴퓨터의 가장 중요한 부분으로서 명령을 해독하고 산술논리연산이나 데이터 처리를 실행하는 장치",
   "defShort": "명령을 해독하고 산술논리연산과 데이터 처리를 실행하는 컴퓨터의 핵심 처리 장치",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "ALU",
+     "Register Set",
+     "IR",
+     "AC",
+     "MAR",
+     "MBR",
+     "SP",
+     "Control Unit"
+    ]
+   },
+   {
+    "label": "IF (pc,ir",
+    "mnemonic": "",
+    "keywords": [
+     ">ID > DF",
+     "> DP",
+     ">DS"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "ALU",
+   "Register Set",
+   "IR",
+   "AC",
+   "MAR",
+   "MBR",
+   "SP",
+   "Control Unit"
+  ]
  },
  {
   "id": "ca-124",
@@ -99269,9 +99788,25 @@
   "definition": "명령어는 컴퓨터가 직접 실행할 수 있는 프로그램의 최소 단위이다. 명령어 사이클(Instruction Cycle): 인출 사이클, 실행 사이클 인출 사이클 실행 사이클 PC, MAR, MBR, 기억장치",
   "defShort": "컴퓨터가 직접 실행하는 프로그램 최소 단위로 인출·실행 사이클로 처리되는 코드",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "PC",
+     "MAR",
+     "MBR",
+     "기억장치"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "PC",
+   "MAR",
+   "MBR",
+   "기억장치"
+  ]
  },
  {
   "id": "ca-128",
@@ -99380,9 +99915,27 @@
   "definition": "데이터 센터 인프라에 대한 최소 요구 사항을 지정하는 미국을 포함한 전세계 국가 표준 품질등급 : Tier1, Tier2, Tier3, Tier4, CAB",
   "defShort": "데이터센터 인프라 최소 요구사항을 지정하고 Tier 등급으로 평가하는 국제 표준",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "품질등급",
+    "mnemonic": "",
+    "keywords": [
+     "Tier1",
+     "Tier2",
+     "Tier3",
+     "Tier4",
+     "CAB"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "Tier1",
+   "Tier2",
+   "Tier3",
+   "Tier4",
+   "CAB"
+  ]
  },
  {
   "id": "ca-132",
@@ -99492,9 +100045,25 @@
   "definition": "지리적으로 산재해 있는 처리장치나 데이터베이스를 네트워크로 상호 접속해 작업을 처리하는 기술 분산처리 시스템의 투명성 - 접근(Access) 투명성, 규모(Scaling) 투명성, 고장(Failure) 투명성, 위치(Location) 투명성",
   "defShort": "지리적으로 산재한 처리장치와 DB를 네트워크로 상호 접속해 작업을 처리하는 기술",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "접근",
+     "규모",
+     "고장",
+     "위치"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "접근",
+   "규모",
+   "고장",
+   "위치"
+  ]
  },
  {
   "id": "ca-141",
@@ -99680,9 +100249,21 @@
   "definition": "S(Set), R(Reset)",
   "defShort": "S와 R 입력으로 1비트를 저장하며 S=R=1 금지입력이 존재하는 기본 플립플롭",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "S",
+     "R"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "S",
+   "R"
+  ]
  },
  {
   "id": "ca-149",
@@ -99693,9 +100274,21 @@
   "definition": "S(Set)에, K는 R(Reset)에 대응하는 입력회로",
   "defShort": "J=K=1일 때 출력을 토글시켜 SR의 금지입력 문제를 해결한 개선형 플립플롭",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "S",
+     "K는 R"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "S",
+   "K는 R"
+  ]
  },
  {
   "id": "ca-150",
@@ -99785,9 +100378,31 @@
   "definition": "카르노 맵(Karnaugh map)의 개념 - 복잡한 논리식을 도식화시켜 체계적인 축소 과정을 시각적으로 보여주며, 간략화시킨 등가식 카르노맵, 2변수 카르노맵, 3변수 카르노맵, 4변수 카르노맵, 특성표, 여기표, 논리식 간소화 절차",
   "defShort": "복잡한 논리식을 격자 도표로 도식화해 인접 항을 묶어 간소화하는 논리식 축소 기법",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "카르노맵",
+     "2변수 카르노맵",
+     "3변수 카르노맵",
+     "4변수 카르노맵",
+     "특성표",
+     "여기표",
+     "논리식 간소화 절차"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "카르노맵",
+   "2변수 카르노맵",
+   "3변수 카르노맵",
+   "4변수 카르노맵",
+   "특성표",
+   "여기표",
+   "논리식 간소화 절차"
+  ]
  },
  {
   "id": "ca-156",
@@ -99798,9 +100413,25 @@
   "definition": "SSI, MSI, LSI, VLSI",
   "defShort": "다수의 소자를 하나의 반도체 칩에 집적해 SSI~VLSI로 구분되는 전자회로",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "SSI",
+     "MSI",
+     "LSI",
+     "VLSI"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "SSI",
+   "MSI",
+   "LSI",
+   "VLSI"
+  ]
  },
  {
   "id": "ca-157",
@@ -99830,9 +100461,29 @@
   "definition": "반도체 공정 중 에폭시 소재 위에 직접 칩을 실장하고 칩 바깥쪽까지 솔더볼(Solder Ball)을 재배치시켜 칩 배선에 필수적인 PCB를 사용하지 않고, 칩을 보다 소형화 및 고성능으로 구현할 수 있는 패키징 기술",
   "defShort": "에폭시 위에 칩을 실장하고 솔더볼을 칩 밖까지 재배치해 PCB 없이 만드는 패키징",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "공정",
+    "mnemonic": "",
+    "keywords": [
+     "Tape Iamination",
+     "Pick and Place",
+     "Wafer-level Molding",
+     "Carrier removal",
+     "Standard WLP process",
+     "Dicing"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "Tape Iamination",
+   "Pick and Place",
+   "Wafer-level Molding",
+   "Carrier removal",
+   "Standard WLP process",
+   "Dicing"
+  ]
  },
  {
   "id": "ca-159",
@@ -99843,9 +100494,21 @@
   "definition": "최대 M (<= 2^n)개의 입력과 N개의 출력으로 구성, n비트의 출력 코드를 생성하는 조합 회로",
   "defShort": "최대 2^n개 이하의 입력 신호를 받아 n비트 출력 코드로 변환하는 조합 논리회로",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "개념",
+    "mnemonic": "",
+    "keywords": [
+     "최대 M",
+     "n비트의 출력 코드를 생성하는 조합 회로"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "최대 M",
+   "n비트의 출력 코드를 생성하는 조합 회로"
+  ]
  },
  {
   "id": "ca-160",
@@ -99874,14 +100537,18 @@
     "label": "특징",
     "mnemonic": "",
     "keywords": [
-     "3 가지 출력",
+     "3 가지 출력: High",
+     "Low",
+     "High-Impedance",
      "방향성"
     ]
    }
   ],
   "mnemonic": "",
   "keywords": [
-   "3 가지 출력",
+   "3 가지 출력: High",
+   "Low",
+   "High-Impedance",
    "방향성"
   ]
  },
@@ -99894,9 +100561,23 @@
   "definition": "하드웨어 기술 언어(hardware description language) 파스칼 같은 문법을 이용해서, 이미 만들어 놓은 라이브러리를 사용하여, 동기 카운터 등의 회로를 코딩하는 기술",
   "defShort": "회로의 구조·동작을 코드로 기술해 시뮬레이션·합성으로 구현하는 하드웨어 언어",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "파스칼 같은 문법을 이용해서",
+     "이미 만들어 놓은 라이브러리를 사용하여",
+     "동기 카운터 등의 회로를 코딩하는 기술"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "파스칼 같은 문법을 이용해서",
+   "이미 만들어 놓은 라이브러리를 사용하여",
+   "동기 카운터 등의 회로를 코딩하는 기술"
+  ]
  },
  {
   "id": "ca-163",
@@ -100032,9 +100713,31 @@
   "definition": "반도체의 간섭현상 정의 - 반도체의 집적도를 높이기 위해 셀 간 거리가 좁아지면 전압이 흐를 때, 해당 셀에만 영향을 미치는 것이 아니라 인접한 셀에 영향을 주어 속도가 느려지거나 오류가 발생하는 현상 (키워드) 셀, 보존성, 간섭성, 플로팅게이트, 절연막, 게이트옥사",
   "defShort": "반도체 집적도 향상으로 셀 간격이 좁아져 전압 인가 시 인접 셀에 영향 주는 간섭현상",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "키워드",
+    "mnemonic": "",
+    "keywords": [
+     "셀",
+     "보존성",
+     "간섭성",
+     "플로팅게이트",
+     "절연막",
+     "게이트옥사이드",
+     "수직"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "셀",
+   "보존성",
+   "간섭성",
+   "플로팅게이트",
+   "절연막",
+   "게이트옥사이드",
+   "수직"
+  ]
  },
  {
   "id": "ca-170",
@@ -100122,9 +100825,23 @@
   "definition": "디스크를 통한 2차 저장 공간을 지칭함. 블록 스토리지, 파일 스토리지, 오브젝트 스토리지",
   "defShort": "디스크 기반 2차 저장 공간을 접근 단위에 따라 블록·파일·오브젝트로 나눈 유형",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "블록 스토리지",
+     "파일 스토리지",
+     "오브젝트 스토리지"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "블록 스토리지",
+   "파일 스토리지",
+   "오브젝트 스토리지"
+  ]
  },
  {
   "id": "ca-176",
@@ -100321,9 +101038,21 @@
   "definition": "UNO(우노), Lilypad(릴리패드)",
   "defShort": "MCU 오픈소스 보드와 스케치 환경으로 센서 제어를 구현하는 프로토타이핑 플랫폼",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "UNO",
+     "Lilypad"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "UNO",
+   "Lilypad"
+  ]
  },
  {
   "id": "ca-184",
@@ -100334,9 +101063,23 @@
   "definition": "아두이노 기반의 꽃잎 모양의 마이크로 컨트롤 유닛(Micro Controller Unit)를 가지고 있는 보드 키워드: MCU(아트메가 Atmega328), USB 접속단자, 32K Flash Memory 교육과 패션 등에 연동 적용",
   "defShort": "MCU를 탑재한 꽃잎 모양의 아두이노 기반으로 교육·패션 웨어러블에 쓰이는 보드",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "키워드",
+    "mnemonic": "",
+    "keywords": [
+     "MCU",
+     "USB 접속단자",
+     "32K Flash Memory"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "MCU",
+   "USB 접속단자",
+   "32K Flash Memory"
+  ]
  },
  {
   "id": "ca-185",
@@ -100747,9 +101490,35 @@
   "definition": "스마트폰을 비롯한 스마트 디바이스에 탑재되어 CPU, 메모리, 그래픽카드, 저장장치 등의 각종 제어기능을 하나의 칩에 담은 시스템 반도체",
   "defShort": "스마트 기기에 탑재되어 CPU·GPU·모뎀 등 기능을 한 칩에 담은 시스템 반도체",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "개념",
+    "mnemonic": "",
+    "keywords": [
+     "스마트폰을 비롯한 스마트 디바이스에 탑재되어 CPU",
+     "메모리",
+     "그래픽카드",
+     "저장장치 등의 각종 제어기능을 하나의 칩에 담은 시스템 반도체"
+    ]
+   },
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "연산 장치",
+     "신호 처리",
+     "통신",
+     "인터페이스"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "스마트폰을 비롯한 스마트 디바이스에 탑재되어 CPU",
+   "메모리",
+   "그래픽카드",
+   "저장장치 등의 각종 제어기능을 하나의 칩에 담은 시스템 반도체"
+  ]
  },
  {
   "id": "ca-207",
@@ -100828,9 +101597,45 @@
   "definition": "1 엑사플롭스(ExaFlops) 이상의 처리 능력을 가진, 엑사플롭스 급의 컴퓨팅 시스템 ( 초당 10^18회 - 100경회 연산)",
   "defShort": "초당 100경 회 연산하는 엑사플롭스급 처리 능력을 갖춘 초고성능 컴퓨팅 시스템",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "요소기술",
+    "mnemonic": "",
+    "keywords": [
+     "에너지 기술",
+     "인터커넥트 기술",
+     "메모리 기술",
+     "확장성 기반 시스템 SW",
+     "프로그래밍 시스템",
+     "데이터 관리",
+     "엑사스케일 알고리즘",
+     "발견과 설계"
+    ]
+   },
+   {
+    "label": "동향",
+    "mnemonic": "",
+    "keywords": [
+     "미국(ECP 발족)",
+     "중국",
+     "- 범용 DSP",
+     "일본(Flagship 2020)",
+     "사회적/국가적 의의가 있는 문제 해결 집중",
+     "한국(MAHA (ETRI))"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "에너지 기술",
+   "인터커넥트 기술",
+   "메모리 기술",
+   "확장성 기반 시스템 SW",
+   "프로그래밍 시스템",
+   "데이터 관리",
+   "엑사스케일 알고리즘",
+   "발견과 설계"
+  ]
  },
  {
   "id": "ca-212",
@@ -100841,9 +101646,23 @@
   "definition": "Control 신호를 추가로 입력받아 Control 신호에 의해 3가지 출력 상태를 갖는 논리 소자 3가지 출력 : High, Low, High-Impedance(Z:고저항 상태)",
   "defShort": "Control 신호로 High·Low·Z의 3가지 출력 상태를 갖는 논리 소자",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "3가지 출력",
+     "Low",
+     "High-Impedance"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "3가지 출력",
+   "Low",
+   "High-Impedance"
+  ]
  },
  {
   "id": "ca-213",
@@ -101084,9 +101903,31 @@
   "definition": "이전 본딩 기술과는 다르게 실리콘 산화물(SiO2) 나 구리(Cu)를 사용하여 각 층의 미세한 돌기없이 없이 칩과 칩을 직접 연결하는 새로운 방식의 HBM의 본더(Bonder) 실리콘 산화물(SiO2), 구리(Cu), 범프리스(Bumpless) , 표면준비, 접합, 수",
   "defShort": "SiO2나 Cu로 미세 돌기 없이 칩과 칩을 직접 연결하는 범프리스 HBM 접합 장비",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "실리콘 산화물",
+     "구리",
+     "범프리스",
+     "표면준비",
+     "접합",
+     "수율",
+     "공정제어"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "실리콘 산화물",
+   "구리",
+   "범프리스",
+   "표면준비",
+   "접합",
+   "수율",
+   "공정제어"
+  ]
  },
  {
   "id": "os-1",
@@ -101158,9 +101999,29 @@
   "definition": "클라우드 컴퓨팅 운용환경에서 단일 응용과 커널이 하나의 실행 이미지로 동작하여 보안에 안전하고, 작고 빠르게 실행할 수 있는 운영체제",
   "defShort": "단일 응용과 필요한 커널 기능을 하나의 실행 이미지로 결합한 경량 클라우드 운영체제",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "키워드",
+    "mnemonic": "",
+    "keywords": [
+     "단일 응용과 커널이 하나의 실행 이미지로 동작",
+     "컨테이너",
+     "Osv",
+     "MirageOS",
+     "Rumprun",
+     "IncludeOS"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "단일 응용과 커널이 하나의 실행 이미지로 동작",
+   "컨테이너",
+   "Osv",
+   "MirageOS",
+   "Rumprun",
+   "IncludeOS"
+  ]
  },
  {
   "id": "os-6",
@@ -101171,9 +102032,33 @@
   "definition": "운영체제 특권레벨(Privilege Levels) 정의 - CPU에 의해 제공되는 레벨로 어떤 시점에서의 CPU 상태를 나타내며 구체적으로는 CPU가 어떠한 명령을 실행할 수 있는가, 메모리의 어떤 범위에 접근할 수 있는가와 같은 권한의 정도를 의미 CPU에 의해 제공",
   "defShort": "실행 권한의 정도를 Ring 0~3 링 단위로 구분해 제공하는 하드웨어 보호 레벨",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "CPU에 의해 제공되는 레벨",
+     "Ring 0",
+     "1",
+     "2",
+     "3",
+     "Ring 0",
+     "1",
+     "2"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "CPU에 의해 제공되는 레벨",
+   "Ring 0",
+   "1",
+   "2",
+   "3",
+   "Ring 0",
+   "1",
+   "2"
+  ]
  },
  {
   "id": "os-7",
@@ -101346,9 +102231,23 @@
   "definition": "프로세스를 특정 그룹으로 분류하고 그 그룹에 따라 각기 다른 준비상태 큐를 사용하는 기법",
   "defShort": "프로세스를 특성별로 나눠 그룹마다 별도 준비 큐와 알고리즘을 적용하는 선점형 기법",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "키워드",
+    "mnemonic": "",
+    "keywords": [
+     "선점",
+     "다중 레벨 큐",
+     "다중레벨 피드백 큐"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "선점",
+   "다중 레벨 큐",
+   "다중레벨 피드백 큐"
+  ]
  },
  {
   "id": "os-15",
@@ -101359,9 +102258,23 @@
   "definition": "각 그룹별 준비상태 큐마다 시간할당량을 부여하고 그 시간동안 완료하지 못한 프로세스는 다음단계의 준비상태 큐로 이동하는 기법.",
   "defShort": "할당량을 못 채운 프로세스를 하위 큐로 내려 우선순위를 동적 조정하는 피드백 기법",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "키워드",
+    "mnemonic": "",
+    "keywords": [
+     "선점",
+     "다중레벨 피드백 큐",
+     "라운드로빈"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "선점",
+   "다중레벨 피드백 큐",
+   "라운드로빈"
+  ]
  },
  {
   "id": "os-16",
@@ -101479,9 +102392,21 @@
   "definition": "준비 큐에서 수행시간이 가장 짧은 작업을 먼저 수행. 평균 대기시간이 감소하고 짧은 작업에 유리하지만 긴 작업과 짧은 작업간의 불평등 심화(끝날 때까지 기다림)",
   "defShort": "실행 시간이 가장 짧은 작업에 CPU를 먼저 할당해 평균 대기를 줄이는 비선점 기법",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "키워드",
+    "mnemonic": "",
+    "keywords": [
+     "준비 상태 큐",
+     "실행 시간"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "준비 상태 큐",
+   "실행 시간"
+  ]
  },
  {
   "id": "os-20",
@@ -101756,9 +102681,23 @@
   "definition": "- 세마포어와 관계 설명 가능 - 프로세스 동기화 수행시 세마포어의 단점인 타이밍 문제를 해결하기 위하여 프로그래밍 언어 수준에서 상호배제를 구현하여 동기화를 제공하는 기법. (중요) 프로그램 언어로, 제어한다는 것. 이로인해, 변수로 제어 하겠다는 개념",
   "defShort": "세마포어의 타이밍 문제 해결 위해 언어 수준에서 상호배제를 구현해 동기화하는 기법",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "중요",
+    "mnemonic": "",
+    "keywords": [
+     "프로그램 언어로",
+     "제어한다는 것. 이로인해",
+     "변수로 제어 하겠다는 개념"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "프로그램 언어로",
+   "제어한다는 것. 이로인해",
+   "변수로 제어 하겠다는 개념"
+  ]
  },
  {
   "id": "os-42",
@@ -101949,9 +102888,33 @@
   "definition": "Thread 실행 동안 상태 정보를 유지하기 위해 관리되는 데이터 구조, PCB가 속한 프로세서 상태와 포인터 정보 포함",
   "defShort": "스레드 실행 상태 정보를 유지해 PCB 하위에서 문맥 교환의 대상이 되는 자료 구조",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "키워드",
+    "mnemonic": "",
+    "keywords": [
+     "스레드ID",
+     "스레드PC",
+     "스레드 상태",
+     "스레드 레지스터 스택",
+     "쓰레드 ID",
+     "PC",
+     "상태",
+     "레지스터"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "스레드ID",
+   "스레드PC",
+   "스레드 상태",
+   "스레드 레지스터 스택",
+   "쓰레드 ID",
+   "PC",
+   "상태",
+   "레지스터"
+  ]
  },
  {
   "id": "os-60",
@@ -102593,9 +103556,23 @@
   "definition": "데이터에 우선순위를 부여하여 우선순위가 높은 데이터가 먼저 나갈수 있도록 구현한 자료구조",
   "defShort": "데이터에 우선순위를 부여해 높은 우선순위부터 반출하며 힙으로 구현하는 자료구조",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "구현유형",
+    "mnemonic": "",
+    "keywords": [
+     "Array사용",
+     "Linked List사용",
+     "Heap사용"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "Array사용",
+   "Linked List사용",
+   "Heap사용"
+  ]
  },
  {
   "id": "dst-5",
@@ -102824,9 +103801,25 @@
   "definition": "균형인자(Balance Factor) = 왼쪽트리의 높이 – 오른쪽 트리의 높이 Rotation(회전) 연산 : RR, LL, LR, RL",
   "defShort": "균형인자를 1 이하로 유지하고 RR·LL 등 회전으로 균형 회복하는 이진탐색트리",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "Rotation(회전) 연산",
+     "LL",
+     "LR",
+     "RL"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "Rotation(회전) 연산",
+   "LL",
+   "LR",
+   "RL"
+  ]
  },
  {
   "id": "dst-15",
@@ -102908,9 +103901,23 @@
   "definition": "AVL-Tree의 이진 탐색 특성 및 높이 균형과 B-Tree의 업데이트와 저장 효율(한 노드는 여러 개 데이터 가짐)을 물려 받은 메모리 기반 DBMS에서 선호되는 인덱스 알고리즘 B-tree와 AVL Tree 장점 결합, GLB, LUB",
   "defShort": "AVL 균형과 B-트리 저장 효율을 결합한 메모리 DBMS 인덱스용 균형 트리 구조",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "B-tree와 AVL Tree 장점 결합",
+     "GLB",
+     "LUB"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "B-tree와 AVL Tree 장점 결합",
+   "GLB",
+   "LUB"
+  ]
  },
  {
   "id": "dst-19",
@@ -103006,9 +104013,36 @@
   "definition": "직접 알고리즘을 구현하지 않고 수행시간을 분석하는 기법",
   "defShort": "구현 없이 시간·공간 복잡도를 점근적 표기법으로 분석하는 알고리즘 수행시간 평가",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "유형",
+    "mnemonic": "",
+    "keywords": [
+     "시간복잡도",
+     "공간복잡도",
+     "얼마나 적게 쓰는가?"
+    ]
+   },
+   {
+    "label": "표기법",
+    "mnemonic": "",
+    "keywords": [
+     "Big O",
+     "점근적 상한선",
+     "어떤 최악의 상황에서도 성능보장",
+     "Big Omega",
+     "Big Theta",
+     "수행시간 상한",
+     "하한 동시표현"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "시간복잡도",
+   "공간복잡도",
+   "얼마나 적게 쓰는가?"
+  ]
  },
  {
   "id": "alg-4",
@@ -103513,9 +104547,33 @@
   "definition": "360 VR, MR 및 6-DoF 관련 컨텐츠를 포함한 비디오, 오디오, 시스템요소에 이르는 몰입형 미디어에 대한 MPEG 차세대 규격",
   "defShort": "몰입형 미디어의 비디오·음향·시스템 요소를 표준화하는 MPEG 차세대 규격",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "Part1",
+     "Part2",
+     "Part3",
+     "Part4",
+     "Part5",
+     "Part6",
+     "Part7",
+     "Part8"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "Part1",
+   "Part2",
+   "Part3",
+   "Part4",
+   "Part5",
+   "Part6",
+   "Part7",
+   "Part8"
+  ]
  },
  {
   "id": "alg-31",
@@ -104294,9 +105352,23 @@
   "definition": "CSR을 표준화한 ISO26000의 국제규격 환경경영, 정도(正道)경영, 사회공헌",
   "defShort": "사회적 책임 이행을 위한 일곱 가지 핵심주제를 규정한 인증 대상이 아닌 국제 지침서",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "CSR을 표준화한 ISO26000의 국제규격 환경경영",
+     "정도",
+     "사회공헌"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "CSR을 표준화한 ISO26000의 국제규격 환경경영",
+   "정도",
+   "사회공헌"
+  ]
  },
  {
   "id": "gp-132",
@@ -104488,9 +105560,23 @@
   "definition": "지지도, 신뢰도, 향상도",
   "defShort": "거래 데이터에서 함께 발생하는 항목 간 관계를 세 가지 지표로 평가하여 도출한 규칙",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "지지도",
+     "신뢰도",
+     "향상도"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "지지도",
+   "신뢰도",
+   "향상도"
+  ]
  },
  {
   "id": "gp-31",

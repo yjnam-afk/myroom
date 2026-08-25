@@ -121,40 +121,149 @@ type CompGroup = {
   /** 표로 못 만드는 산문 줄(원리 설명 등) — 표 대신 문장으로 보여준다 */
   notes: string[];
 };
+/** 괄호 밖의 쉼표에서만 자른다 — "Client(SPA, Web App), Front End(...)" 보호 */
+function splitTop(s: string): string[] {
+  const out: string[] = [];
+  let depth = 0, buf = "";
+  for (const ch of s) {
+    if (ch === "(" || ch === "（" || ch === "[") depth++;
+    else if (ch === ")" || ch === "）" || ch === "]") depth = Math.max(0, depth - 1);
+    if ((ch === "," || ch === "、") && depth === 0) { out.push(buf.trim()); buf = ""; continue; }
+    buf += ch;
+  }
+  if (buf.trim()) out.push(buf.trim());
+  return out.filter(Boolean);
+}
+
+/** 한 항목을 [키워드, 설명] 으로 쪼갠다 — "A(x) - y" / "A: y" / "A(x)" / "A" */
+function rowOf(item: string): [string, string] | null {
+  let t = item.replace(/^[-·•*]\s*/, "").replace(/^[①-⑳]\s*/, "").replace(/^\d+[.)]\s*/, "").trim();
+  if (!t) return null;
+  // "키워드 - 설명" / "키워드 : 설명"
+  const dash = t.match(/^(.{1,40}?)\s*[-–—]\s+(.+)$/);
+  const colon = t.match(/^(.{1,40}?)\s*[:：]\s+(.+)$/);
+  const cut = colon || dash;
+  if (cut) return [cut[1].trim().slice(0, 40), cut[2].trim().slice(0, 80)];
+  // "키워드(설명)"
+  const par = t.match(/^([^(（]{1,40})[(（]([^)）]{1,80})[)）]\s*(.*)$/);
+  if (par) {
+    const rest = par[3].trim().replace(/^[-–—:：]\s*/, "");
+    const desc = [par[2].trim(), rest].filter(Boolean).join(" · ").slice(0, 80);
+    return [par[1].trim().slice(0, 40), desc];
+  }
+  if (t.length > 40) return null;
+  return [t.slice(0, 40), ""];
+}
+
+/** 문장인가(표 행으로 쓰면 안 되는 산문)
+ *  "STEEP 프레임"·"추세외삽법" 같은 명사구가 걸리지 않도록 종결어미로만 판정한다. */
+const isProse = (s: string) => {
+  const t = s.trim();
+  return (
+    t.length > 45 ||
+    /[.。]$/.test(t) ||
+    /(이다|한다|된다|있다|없다|하다|이며|되며|하며)$/.test(t) ||
+    (t.length > 14 && /(음|함|됨|임)$/.test(t))
+  );
+};
+
+/**
+ * 예전 토픽 detail → 답안지 3단표(구분·키워드·설명).
+ *
+ * 두 가지 형식을 모두 읽는다.
+ *  ① 불릿형 — "[구성요소] 두음: 생정전동 / - 생성자 은닉: private 선언…"
+ *  ② 기필반 압축형 — "[주요기술] Client(SPA, Web App), Front End(API Gateway…)"
+ *     블록 머리글의 뒷부분과 불릿 없는 다음 줄들도 항목으로 읽고,
+ *     괄호 밖 쉼표로만 잘라 "키워드(설명)" 을 3단표 행으로 만든다.
+ * 서론(정의)·플러스 알파에서 이미 쓰는 블록은 제외한다.
+ */
 function compTableOf(detail: string): CompGroup[] {
   const groups: CompGroup[] = [];
   let cur: CompGroup | null = null;
+  const feed = (cur: CompGroup, body: string) => {
+    if (!body) return;
+    // "배터리 방식(리튬이온, …)과 비배터리 방식(양수발전, …)" 처럼 쉼표가 아니라
+    // 조사로 이어 붙은 "이름(내용)" 묶음 — 괄호 단위로 잘라 행으로 만든다.
+    const paren = Array.from(
+      body.matchAll(/([^,，()（）]{2,30})[(（]([^)）]{1,80})[)）]/g),
+    );
+    if (
+      paren.length >= 2 &&
+      paren.reduce((n, m) => n + m[0].length, 0) >= body.length * 0.7
+    ) {
+      for (const m of paren.slice(0, 8)) {
+        const term = m[1].replace(/^[\s·,、]*(?:과|와|및|그리고)\s*/, "").trim();
+        if (term) cur.rows.push([term.slice(0, 40), m[2].trim().slice(0, 80)]);
+      }
+      if (cur.rows.length) return;
+    }
+    const parts = splitTop(body);
+    // 쉼표로 갈린 짧은 항목들 → 각각 한 행
+    if (parts.length >= 2 && parts.every((x) => !isProse(x))) {
+      for (const p of parts.slice(0, 8)) {
+        const r = rowOf(p);
+        if (r) cur.rows.push(r);
+      }
+      return;
+    }
+    const r = !isProse(body) || /[-–—:：]\s/.test(body) ? rowOf(body) : null;
+    if (r && r[0]) cur.rows.push(r);
+    else cur.notes.push(body.slice(0, 160));
+  };
   for (const raw of String(detail || "").split("\n")) {
     const line = raw.trim();
     if (!line) continue;
-    const h = line.match(/^\[([^\]]+)\]\s*(.*)$/);
+    // 블록 머리글 — 대괄호형 "[구성요소] …" 을 먼저, 없으면 소괄호형 "(목적) …".
+    // 대괄호는 안에 괄호가 들어가도(예: "[OWASP Top 10 for LLM (2025)]") 통째로 읽는다.
+    const h =
+      line.match(/^\[([^\]]{1,60})\]\s*(.*)$/) ||
+      line.match(/^[(（]([^)）]{1,40})[)）]\s*(?![:：])(.*)$/);
     if (h) {
       const name = h[1].trim();
-      if (SKIP_BLOCK.test(name)) {
-        cur = null;
-        continue;
-      }
-      const mm = (h[2] || "").match(/두음\s*[:：]\s*([가-힣A-Za-z0-9]{2,12})/);
-      cur = { group: name, mnemonic: mm ? mm[1] : "", rows: [], notes: [] };
+      if (SKIP_BLOCK.test(name)) { cur = null; continue; }
+      let rest = (h[2] || "").trim();
+      const mm = rest.match(/^두음\s*[:：]\s*([가-힣A-Za-z0-9]{2,12})\s*(.*)$/);
+      let mnemonic = "";
+      if (mm) { mnemonic = mm[1]; rest = (mm[2] || "").trim(); }
+      // "[정보화 수준] 접역활정" 처럼 머리글 뒤에 두음만 붙는 형태
+      else if (/^[가-힣]{2,12}$/.test(rest)) { mnemonic = rest; rest = ""; }
+      cur = { group: name, mnemonic, rows: [], notes: [] };
       groups.push(cur);
+      if (rest) feed(cur, rest);
       continue;
     }
     if (!cur) continue;
-    const m = line.match(/^[-·•*]\s*(.+)$/);
-    if (!m) continue;
-    const body = m[1].trim();
-    const colon = body.search(/[:：]\s/);
-    if (colon > 0 && colon <= 40) {
-      cur.rows.push([body.slice(0, colon).trim(), body.slice(colon + 1).trim().slice(0, 80)]);
-      continue;
-    }
-    // 콜론이 없는 줄 — 짧은 항목의 쉼표 나열이면 키워드 행으로 펴고,
-    // 그렇지 않으면(설명 문장이면) 표를 깨뜨리지 않도록 산문으로 남긴다.
-    const parts = body.split(/\s*,\s*/).map((x) => x.trim()).filter(Boolean);
-    const isList =
-      parts.length >= 3 && parts.every((x) => x.length <= 25 && !/[.。]$|다$|음$/.test(x));
-    if (isList) for (const p of parts.slice(0, 8)) cur.rows.push([p.slice(0, 40), ""]);
-    else cur.notes.push(body.slice(0, 160));
+    feed(cur, line.replace(/^[-·•*]\s*/, "").trim());
+  }
+  // 블록 머리글이 아예 없는 자료(정의 한 줄 + 키워드 나열) — 나열 줄을 모아
+  // "핵심 키워드" 한 블록으로 만든다. 첫 줄(정의)과 "(정의) …" 줄은 제외.
+  if (!groups.some((g) => g.rows.length)) {
+    const lines = String(detail || "").split("\n").map((l) => l.trim()).filter(Boolean);
+    const rows: [string, string][] = [];
+    let label = "";
+    lines.forEach((line, i) => {
+      // 첫 줄은 대개 정의 문장이라 건너뛰지만, 자료 자체가 나열 한 줄뿐이면 살린다.
+      if ((i === 0 && isProse(line)) || /^[\[(（]\s*정의/.test(line) || /^\d+[.)]\s/.test(line))
+        return;
+      if (rows.length >= 8) return;
+      let body = line.replace(/^[-·•*]\s*/, "");
+      // "특징 - 전자상거래, 소셜미디어…" 처럼 앞머리가 블록 이름인 줄
+      const lead = body.match(/^([가-힣A-Za-z][가-힣A-Za-z\s]{1,11})\s*[-–—:：]\s+(.+)$/);
+      if (lead && splitTop(lead[2]).length >= 2) {
+        if (!label) label = lead[1].trim();
+        body = lead[2];
+      }
+      const parts = splitTop(body);
+      const enough =
+        parts.length >= 3 || (parts.length === 2 && parts.every((x) => /[(（]/.test(x)));
+      if (!enough || parts.some((x) => isProse(x))) return;
+      for (const p of parts) {
+        const r = rowOf(p);
+        if (r && r[0] && rows.length < 8) rows.push(r);
+      }
+    });
+    if (rows.length >= 2)
+      groups.push({ group: label || "핵심 키워드", mnemonic: "", rows, notes: [] });
   }
   return groups
     .filter((g) => g.rows.length || g.notes.length)
