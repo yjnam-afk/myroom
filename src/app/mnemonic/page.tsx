@@ -8,6 +8,7 @@ import { PageHeader, Spinner, ErrorBox, Button } from "@/components/ui";
 import ShareButton from "@/components/ShareButton";
 import TopicAutocomplete from "@/components/TopicAutocomplete";
 import topics from "@/data/topics.json";
+import { SRC_SHORT } from "@/components/SourceBadge";
 import { loadReview, saveReview, markReviewed } from "@/lib/storage";
 
 type Item = { term: string; initial: string; desc: string };
@@ -198,7 +199,11 @@ function MnemonicInner() {
               )
               .map((t) => (
                 <option key={t.id} value={t.id}>
-                  [{t.importance}] {t.title}
+                  [{t.importance}]
+                  {(t as { source?: string }).source
+                    ? `(${SRC_SHORT[(t as { source?: string }).source!] || ""}) `
+                    : " "}
+                  {t.title}
                 </option>
               ))}
           </select>

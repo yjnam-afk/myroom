@@ -20,6 +20,8 @@ export type ReviewTopic = {
   summary: string;
   /** 교재 서브노트에서 만들어진 항목인지 */
   fromTextbook?: boolean;
+  /** 토픽 출처 — 심화반(교재) · 기필반(엑셀) · 기출 · 요청 */
+  source?: string;
 };
 
 export const COURSE_LABEL: Record<string, string> = {
@@ -65,6 +67,7 @@ const BASE: ReviewTopic[] = (rawTopics as ReviewTopic[]).map((t) => {
     importance: "상",
     summary: s.defShort || s.definition,
     fromTextbook: true,
+    source: "심화반",
   };
 });
 const SEEN = new Set(BASE.map((t) => normTitle(t.title)));
@@ -84,6 +87,7 @@ for (const s of SUBNOTES) {
     importance: "상",
     summary: s.defShort || s.definition,
     fromTextbook: true,
+    source: "심화반",
   });
 }
 

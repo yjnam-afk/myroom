@@ -192,6 +192,7 @@ for (let i = 0; i < SUBNOTES.length; i++) {
     title: s.title,
     category: COURSE_CAT[s.course] || s.course,
     importance: PRIORITY.get(s.title) || "중",
+    source: "심화반",
     definition: s.definition || "",
     defShort: s.defShort || "",
     memo: (s.notes || [])[0] || "",
@@ -245,6 +246,7 @@ for (const t of topics) {
     title: t.title,
     category: t.category,
     importance: t.importance,
+    source: (t as { source?: string }).source || "",
     definition: cleanDefinition(d.detail, t.summary) || t.summary || "",
     // 예전 토픽의 ✍️ 답안 한 줄 — 교재 규격 34~35자 정의(서론 세트) 우선,
     // 없으면 커널 학습카드의 exam(답안에 그대로 쓸 한 줄)

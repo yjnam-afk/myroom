@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { PageHeader } from "@/components/ui";
+import SourceBadge from "@/components/SourceBadge";
 import {
   REVIEW_TOPICS as topics,
   TEXTBOOK_ONLY_COUNT,
@@ -480,6 +481,7 @@ export default function ReviewPage() {
                       {t.importance}
                     </span>
                   )}
+                  <SourceBadge source={t.source} />
                   <span className="text-xs text-slate-400">{t.group || t.category}</span>
                 </div>
                 <h3 className="mt-1 font-semibold text-slate-900">{t.title}</h3>

@@ -13,6 +13,7 @@ import {
   subnoteByAlias,
 } from "@/data/textbookSubnotes";
 import { WEEKS } from "@/data/curriculum";
+import SourceBadge from "@/components/SourceBadge";
 import { matchSubnoteTitle, findSubnoteByContent } from "@/lib/matchSubnote";
 
 type Topic = {
@@ -22,6 +23,7 @@ type Topic = {
   group: string;
   importance: string;
   summary: string;
+  source?: string;
 };
 
 // ── 심화반 서브노트를 토픽지도에 통합 ─────────────────────────────────
@@ -59,6 +61,7 @@ const SUBNOTE_TOPICS: Topic[] = SUBNOTES.filter((s) => !KNOWN.has(s.title)).map(
     group: `심화반 ${COURSE_CAT[s.course] || s.course} 서브노트`,
     importance: PRIORITY.get(s.title) || "중",
     summary: s.defShort || "",
+    source: "심화반",
   }),
 );
 
@@ -614,6 +617,7 @@ function GroupsView({
                           <div className="min-w-0">
                             <div className="font-medium text-slate-800 group-hover:text-brand-600">
                               {t.title}
+                              <SourceBadge source={t.source} className="ml-1.5 align-middle" />
                             </div>
                             {t.summary && (
                               <div className="mt-0.5 line-clamp-2 text-xs text-slate-500">

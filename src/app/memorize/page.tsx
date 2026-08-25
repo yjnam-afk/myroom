@@ -4,6 +4,7 @@ import { useState } from "react";
 import { PageHeader, Spinner, ErrorBox, Button } from "@/components/ui";
 import { addNote, recordQuiz } from "@/lib/notes";
 import topics from "@/data/topics.json";
+import { SRC_SHORT } from "@/components/SourceBadge";
 
 type Mode = "flashcard" | "quiz";
 type Flashcard = { front: string; back: string };
@@ -124,7 +125,11 @@ export default function MemorizePage() {
               )
               .map((t) => (
                 <option key={t.id} value={t.title}>
-                  [{t.importance}] {t.title}
+                  [{t.importance}]
+                  {(t as { source?: string }).source
+                    ? `(${SRC_SHORT[(t as { source?: string }).source!] || ""}) `
+                    : " "}
+                  {t.title}
                 </option>
               ))}
           </select>

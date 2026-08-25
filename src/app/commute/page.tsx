@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { PageHeader } from "@/components/ui";
 import cards from "@/data/flashcards.json";
+import SourceBadge from "@/components/SourceBadge";
 import { loadReview, saveReview, markReviewed, getItem } from "@/lib/storage";
 
 type Card = {
@@ -124,6 +125,7 @@ export default function CommutePage() {
                 {card.importance}
               </span>
               <span className="text-xs text-slate-400">{card.category}</span>
+              <SourceBadge source={(card as { source?: string }).source} />
               {rounds > 0 && (
                 <span className="text-xs text-amber-600">· {rounds}회독</span>
               )}
