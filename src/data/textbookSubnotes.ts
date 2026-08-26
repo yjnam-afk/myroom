@@ -6154,13 +6154,14 @@ export const SUBNOTES: TextbookSubnote[] = [
     keywords: ["미세조정(Fine Tuning)", "과업/도메인 전이", "Inductive/Transductive/Unsupervised"],
     tables: [
       {
-        caption: "구성요소 [업다프파]",
+        caption: "구성요소 [업다프파인]",
         headers: ["구성요소", "설명"],
         rows: [
           ["업스트림(Upstream) 태스크", "먼저 이루어진 학습"],
           ["다운스트림(Downstream) 태스크", "모델이 전이되어 이루어지는 학습"],
           ["프리트레인(Pretrain)", "업스트림 태스크를 학습하는 과정"],
-          ["파인튜닝(Finetuning)", "다운스트림 태스크를 학습하는 과정. 제로샷(zero-shot)·원샷(one-shot)·퓨샷(few-shot) 러닝 등으로도 불림"],
+          ["파인튜닝(Finetuning)", "다운스트림 태스크를 학습하는 과정 — 다운스트림 데이터로 모델 가중치를 업데이트"],
+          ["인컨텍스트 러닝(In-context)", "가중치 업데이트 없이 프롬프트 예시만으로 다운스트림 수행 — 제로샷(예시 0개)·원샷(1개)·퓨샷(몇 개) 러닝"],
         ],
       },
       {
