@@ -94,7 +94,7 @@ export const G: Record<string, EasyGuide> = {
   },
   "ds-123": {
     hook: "데이터의 구조와 의미를 사용자 정의 태그로 기술하는 확장성 마크업 언어입니다.",
-    scene: "칸이 미리 정해진 관공서 양식에는 내 사정에 맞는 항목을 새로 적을 수가 없습니다. XML은 칸 이름표(태그)를 내가 직접 만들어 붙이는 만능 서류철과 같아서, 데이터의 구조와 의미를 함께 적어 서로 다른 회사 시스템끼리(B2B) 오해 없이 서류를 주고받게 합니다.",
+    scene: "칸이 미리 정해진 관공서 양식에는 내 사정에 맞는 항목을 새로 적을 수가 없습니다. XML은 칸 이름표(태그)를 내가 직접 만들어 붙이는 만능 서류철과 같은 것으로, 데이터의 구조와 의미를 함께 적어 서로 다른 회사 시스템끼리(B2B) 오해 없이 서류를 주고받게 합니다.",
     why: "구성 4요소 두음 스네변링과 작성절차 두음 유분정작스, Well-formed vs Valid 구분이 출제 핵심입니다.",
     mechanism: "구성: [스네변링] 스키마(XML Schema, 요소·속성 구조와 타입·제약 정의로 DTD 대체), 네임스페이스(URI 기반 이름 충돌 방지), 변환(XSL·XSLT로 HTML 등 변환), 링크(XLink·XPointer 참조·위치 지정). 절차: [유분정작스] 유형 선택 → 분석 → 정의(DTD·스키마) → 작성(XML 문서) → 스타일(XSL). 특징: Well-formed(문법 적합)와 Valid(스키마 적합) 구분, XPath·XQuery 질의. 동향: 웹 API는 JSON·YAML로 이동했으나 OOXML·ODF·SOAP·SAML·XBRL 규격 영역 표준 유지, XXE 취약점 대응 외부 엔티티 비활성화 필수.",
     map: [
@@ -130,7 +130,7 @@ export const G: Record<string, EasyGuide> = {
   },
   "ds-127": {
     hook: "XML 문서의 구조·타입·제약을 XML 문법으로 기술해 검증하는 스키마 언어입니다.",
-    scene: "지원서를 아무 형식으로나 받으면 생년월일 칸에 이름을 적어 내도 걸러낼 수가 없습니다. XML Schema(XSD)는 서류의 칸 배치와 적을 값의 형식·범위까지 정해 둔 심사 기준표와 같아서, 제출된 문서(XML)를 기계가 자동 검사하게 하고 옛 기준표(DTD)가 못 하던 값 형식·소속표(네임스페이스) 검사까지 해냅니다.",
+    scene: "지원서를 아무 형식으로나 받으면 생년월일 칸에 이름을 적어 내도 걸러낼 수가 없습니다. XML Schema(XSD)는 서류의 칸 배치와 적을 값의 형식·범위까지 정해 둔 심사 기준표와 같은 것으로, 제출된 문서(XML)를 기계가 자동 검사하게 하고 옛 기준표(DTD)가 못 하던 값 형식·소속표(네임스페이스) 검사까지 해냅니다.",
     why: "구성 4요소 두음 요속타제와 DTD vs XML Schema 비교표가 출제 핵심입니다.",
     mechanism: "구성: [요속타제] 요소 선언(element, 이름·출현 구조), 속성 선언(attribute, 기본값·필수 여부), 타입 정의(simpleType·complexType 정의와 파생), 제약(facet 길이·패턴·범위, minOccurs/maxOccurs 출현 제약). 비교: DTD는 비XML 전용 문법·데이터 타입 미지원·네임스페이스 미지원, XML Schema는 XML 문법 그대로·풍부한 내장 타입과 사용자 정의 타입·네임스페이스 완전 지원·상속·재사용 구조. 동향: REST·마이크로서비스는 JSON Schema·OpenAPI로 이동, 전자문서·XBRL·전자세금계산서 규격 검증에 XSD 지속 사용, 입력값 검증 보안 통제 활용과 XXE 대응 필요.",
     map: [
@@ -155,7 +155,7 @@ export const G: Record<string, EasyGuide> = {
       { as: "정문 경비 초소", real: "API 게이트웨이", note: "인증·속도제한·라우팅" },
       { as: "개발자 셀프서비스 창구", real: "개발자 포털", note: "" },
       { as: "호출 속도 제한", real: "Rate Limiting·쿼터", note: "" },
-      { as: "API의 은퇴 절차", real: "폐기(Deprecation)", note: "수명주기 관리" },
+      { as: "창구의 은퇴 절차", real: "폐기(Deprecation)", note: "수명주기 관리" },
     ],
     usage: "오픈 API·마이크로서비스 거버넌스 인프라입니다. 시험은 배제분수 4요소와 게이트웨이 비교입니다.",
     links: [

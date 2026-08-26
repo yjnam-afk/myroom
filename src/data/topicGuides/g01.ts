@@ -1048,7 +1048,7 @@ export const G: Record<string, EasyGuide> = {
   },
   "db-103": {
     hook: "기존 DB로 감당 못 할 대규모·다양·고속 데이터와 그 활용 기술의 총칭입니다.",
-    scene: "SNS·IoT·로그로 쏟아지는 비정형 데이터는 정형 중심 RDBMS로는 처리 한계에 부딪힙니다. 빅데이터는 3V(규모·다양성·속도) 특성의 데이터에서 통찰과 가치를 뽑아내는 기술·플랫폼을 아우릅니다.",
+    scene: "동네 개울물은 두레박으로 퍼도 되지만, 홍수처럼 불어난 강물은 전용 댐과 수로가 있어야 다룰 수 있습니다. 빅데이터는 이 불어난 강물 같은 데이터로, 규모(Volume)·다양성(Variety)·속도(Velocity)의 3V가 커서 기존 DB로 감당 못 하는 데이터와 그 활용 기술의 총칭입니다.",
     why: "3V와 6V 확장(진실성·시각화·가치)의 구분이 출제 핵심입니다.",
     mechanism: "3V(기본): 규모(Volume, 테라~페타바이트급), 다양성(Variety, 정형·반정형·비정형 혼재), 속도(Velocity, 실시간 생성·스트리밍 처리). 6V(확장): 진실성(Veracity, 품질·신뢰성), 시각화(Visualization, 직관적 표현), 가치(Value, 비즈니스 가치 창출). 비교: 3V는 데이터의 물리적 특성, 6V는 품질·활용 관점 확장. 서술 정석: 3V 정의 → 6V 확장 → 활용 사례·플랫폼(Hadoop 생태계) 순 전개. 동향: 생성형 AI·LLM 학습 데이터 경쟁으로 품질(Veracity)·저작권·데이터 거버넌스 이슈 부각.",
     map: [
@@ -1066,7 +1066,7 @@ export const G: Record<string, EasyGuide> = {
   },
   "db-104": {
     hook: "수집부터 관리까지 6단계로 빅데이터의 가치를 뽑아내는 처리 과정입니다.",
-    scene: "대용량 비정형 데이터는 단계별 전용 기술의 조합 없이는 가치화할 수 없습니다. 빅데이터 처리 절차는 수집·저장·처리·분석·표현·관리의 6단계 파이프라인으로 표준 기술 스택을 정립합니다.",
+    scene: "큰 식당은 장보기, 창고 정리, 조리, 상차림, 뒷정리가 분업으로 착착 돌아갑니다. 빅데이터 처리도 이 주방 분업처럼 수집→저장→처리→분석→표현→관리의 6단계 흐름으로 이어지며, 단계마다 전용 도구(Sqoop·HDFS·Spark 등)를 씁니다.",
     why: "단계별 기술요소 매핑(Sqoop·HDFS·MapReduce·R·YARN)이 출제 핵심입니다.",
     mechanism: "절차: 수집(ETL, Sqoop(RDB 연동), Flume 로그 수집, 크롤러, Open API) → 저장(HDFS, NoSQL(Key-Value·Document·Graph), RDB, 데이터 레이크) → 처리(MapReduce, Hive, Pig, Spark 인메모리 배치·스트리밍) → 분석(R, SAS, Mahout, 기계학습 — 앙상블·배깅·부스팅·Random Forest·신경망) → 표현(R 시각화, D3.js, Tableau) → 관리(YARN 자원 관리, Ganglia 모니터링, Apache Ambari 클러스터 운영). 동향: 배치 중심 하둡에서 Kafka·Spark 실시간 파이프라인·클라우드 관리형·DataOps로 진화, 생성형 AI 학습 데이터 파이프라인도 동일 구조.",
     map: [
