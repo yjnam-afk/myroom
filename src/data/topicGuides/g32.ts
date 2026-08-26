@@ -4,14 +4,14 @@ import type { EasyGuide } from "../subnoteExtras";
 export const G: Record<string, EasyGuide> = {
   "n140-1": {
     hook: "단어가 맞는 검색과 뜻이 맞는 검색을 같이 돌려 결과를 합칩니다.",
-    scene: "제품코드로 물으면 의미 검색이 헤매고, 뜻으로 물으면 키워드 검색이 빈손으로 돌아옵니다. 하이브리드 검색은 두 검색을 나란히 돌린 뒤 결과 목록을 융합하고, Re-Ranker로 최종 순위를 다시 매겨 RAG가 근거 있는 답을 만들게 합니다.",
+    scene: "도서관에서 제목 글자로만 찾는 사서와 줄거리 뜻으로 찾아 주는 사서가 각자 책 목록을 가져오면, 수석 사서가 두 목록을 합쳐 좋은 순서로 다시 세워 건네줍니다. 하이브리드 검색이 딱 이 도서관과 같아서, 단어 일치 검색(Lexical)과 의미 검색(Vector)을 나란히 돌려 결과를 합치고(Result Fusion) 다시 줄 세워(Re-Ranker) 답의 근거로 씁니다.",
     why: "구성요소(Lexical·Vector Search, Index, Result Fusion, Re-Ranker)와 RRF·Weighted 융합 비교가 출제 핵심입니다.",
     mechanism: "구성: 검색(Lexical Search-BM25, Vector Search-k-NN·ANN), 색인(Lexical Index 역색인, Vector Index Embedding), 융합(Result Fusion), 재정렬·생성(Re-Ranker, LLM/RAG). 절차: 질의 입력→어휘·벡터 병렬 검색→Result Fusion으로 결과 통합→Re-Ranker가 관련성 재평가해 최종 순위 결정→검색 Context 기반 근거 중심 답변 생성. 유형(융합방식): RRF는 순위 기반이라 서로 다른 점수 척도의 정규화가 불필요하고 단순·안정적이며 범용 적용이 쉽고, Weighted Fusion은 검색점수에 가중치를 적용해 목적별 비중 조정과 도메인 특성 반영이 가능. 특징: 상호보완성, 정확도·재현율 향상, Re-Ranking 정밀성.",
     map: [
-      { as: "단어가 일치하는 문서 찾기", real: "Lexical Search(BM25)", note: "Lexical Index 역색인" },
-      { as: "뜻이 비슷한 문서 찾기", real: "Vector Search(k-NN·ANN)", note: "Vector Index Embedding" },
-      { as: "두 결과 목록 합치기", real: "Result Fusion(RRF·Weighted)", note: "RRF는 정규화 불필요" },
-      { as: "최종 순위 다시 매기기", real: "Re-Ranker", note: "관련성 재평가" },
+      { as: "제목 글자로 찾는 사서", real: "Lexical Search(BM25)", note: "글자 찾아보기표(역색인) 이용" },
+      { as: "줄거리 뜻으로 찾는 사서", real: "Vector Search(k-NN·ANN)", note: "뜻 지도(Embedding)를 미리 만듦" },
+      { as: "두 목록을 하나로 합치기", real: "Result Fusion(RRF·Weighted)", note: "RRF는 순서만 보고 합침" },
+      { as: "수석 사서의 최종 줄 세우기", real: "Re-Ranker", note: "질문과 맞는지 다시 살핌" },
     ],
     usage: "RAG 검색 단계 설계에 씁니다. 시험은 구성요소 4계층과 RRF·Weighted Fusion 비교입니다.",
     links: [
