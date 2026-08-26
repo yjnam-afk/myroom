@@ -53,7 +53,14 @@ const PRIORITY = (() => {
       if (d.kind === "study") for (const t of d.topics) m.set(t.title, t.priority);
   return m;
 })();
-const KNOWN = new Set((topics as Topic[]).map((t) => t.title));
+// 교재에 같은 토픽이 있는 예전 항목은 빼고(아래 ALL), 교재 것만 남긴다.
+// ★중복 판정 기준은 "남은 예전 토픽"이어야 한다★ — 전체 topics 로 비교하면
+// 이미 제외된 예전 토픽과 제목이 같다는 이유로 교재 서브노트까지 빠져
+// 지도에서 그 토픽이 통째로 사라진다(파이프라인·교착상태 등 94개).
+const LEGACY_KEPT: Topic[] = (topics as Topic[]).filter(
+  (t) => !subnoteByAlias(t.id, t.title),
+);
+const KNOWN = new Set(LEGACY_KEPT.map((t) => t.title));
 const SUBNOTE_TOPICS: Topic[] = SUBNOTES.filter((s) => !KNOWN.has(s.title)).map(
   (s, i) => ({
     id: `sn-${i}`,
@@ -66,11 +73,7 @@ const SUBNOTE_TOPICS: Topic[] = SUBNOTES.filter((s) => !KNOWN.has(s.title)).map(
   }),
 );
 
-// 교재에 같은 토픽이 있으면(제목 표기가 달라도) 예전 항목은 빼고 교재 것만 남긴다.
-const ALL = [
-  ...(topics as Topic[]).filter((t) => !subnoteByAlias(t.id, t.title)),
-  ...SUBNOTE_TOPICS,
-];
+const ALL = [...LEGACY_KEPT, ...SUBNOTE_TOPICS];
 const CATS = Array.from(new Set(ALL.map((t) => t.category)));
 const IMP_ORDER: Record<string, number> = { 상: 0, 중: 1, 하: 2, 출제예상: 3 };
 
