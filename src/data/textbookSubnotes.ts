@@ -6154,6 +6154,16 @@ export const SUBNOTES: TextbookSubnote[] = [
     keywords: ["미세조정(Fine Tuning)", "과업/도메인 전이", "Inductive/Transductive/Unsupervised"],
     tables: [
       {
+        caption: "구성요소 [업다프파]",
+        headers: ["구성요소", "설명"],
+        rows: [
+          ["업스트림(Upstream) 태스크", "먼저 이루어진 학습"],
+          ["다운스트림(Downstream) 태스크", "모델이 전이되어 이루어지는 학습"],
+          ["프리트레인(Pretrain)", "업스트림 태스크를 학습하는 과정"],
+          ["파인튜닝(Finetuning)", "다운스트림 태스크를 학습하는 과정. 제로샷(zero-shot)·원샷(one-shot)·퓨샷(few-shot) 러닝 등으로도 불림"],
+        ],
+      },
+      {
         caption: "주요학습 기법 [파프도레]",
         headers: ["기법", ""],
         rows: [
