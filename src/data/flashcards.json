@@ -8022,10 +8022,10 @@
     "label": "구성요소",
     "mnemonic": "업다프파",
     "keywords": [
-     "업스트림(Upstream) 태스크",
-     "다운스트림(Downstream) 태스크",
-     "프리트레인(Pretrain)",
-     "파인튜닝(Finetuning)"
+     "태스크",
+     "태스크",
+     "학습 과정",
+     "학습 과정"
     ]
    },
    {

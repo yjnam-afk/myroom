@@ -2954,10 +2954,10 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
       why: "'이벤트 발행-구독·느슨한 결합'과 패턴(Pub-Sub·이벤트 소싱·CQRS)이 출제 핵심입니다. MSA와의 결합이 포인트입니다.",
       mechanism: "구성: 이벤트 생산자(Producer)·이벤트 채널(브로커 — 카프카·메시지 큐)·소비자(Consumer). 패턴: 발행-구독(Pub-Sub), 이벤트 스트리밍, 이벤트 소싱(Event Sourcing — 상태 변경을 이벤트로 저장·재생), CQRS(명령/조회 책임 분리). 장점: 느슨한 결합·확장·비동기·실시간 반응. 단점: 최종 일관성·이벤트 순서·디버깅 어려움·이벤트 스키마 관리. MSA의 서비스 간 통신 방식으로 자주 결합.",
       map: [
-        { as: "이벤트 발행", real: "생산자(Producer)", note: "" },
-        { as: "이벤트 구독·반응", real: "소비자(Consumer)", note: "" },
+        { as: "방송으로 소식 알리기", real: "생산자(Producer)", note: "발행" },
+        { as: "필요한 가게만 듣고 움직임", real: "소비자(Consumer)", note: "구독" },
         { as: "누가 듣는지 몰라도 됨", real: "느슨한 결합", note: "핵심" },
-        { as: "상태를 이벤트로 저장", real: "이벤트 소싱", note: "" },
+        { as: "방송 내역을 전부 적어 둠", real: "이벤트 소싱", note: "재생 가능" },
       ],
       usage: "실시간·확장 시스템·MSA입니다. 시험은 Pub-Sub, 이벤트 소싱·CQRS, MSA와의 결합입니다.",
       links: [
@@ -2975,7 +2975,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
       map: [
         { as: "객체 생성 유연화", real: "생성 패턴", note: "싱글턴·팩토리" },
         { as: "객체 조립", real: "구조 패턴", note: "어댑터·프록시" },
-        { as: "책임·알고리즘 분배", real: "행위 패턴", note: "옵서버·전략" },
+        { as: "객체끼리 일 나누는 법", real: "행위 패턴", note: "옵서버·전략" },
         { as: "공통 어휘·재사용", real: "목적", note: "" },
       ],
       usage: "객체지향 설계·소통입니다. 시험은 3분류, 대표 패턴 목적, SOLID와의 관계입니다.",
@@ -3006,15 +3006,15 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     }, image: "/concept/book/singleton.png", easy: "인스턴스를 딱 하나만 만들고 어디서든 그 하나를 쓰게 하는 생성 패턴입니다. 프린터 스풀러나 설정 관리자처럼 '전체에서 하나여야' 하는 것에 씁니다. 구현 3요소 — ① 생성자를 private으로(밖에서 new 금지) ② static 변수에 유일한 인스턴스 보관 ③ public static getInstance()로만 접근. 구현 방식은 Lazy(첫 호출 때 생성), Eager(클래스 로딩 때 즉시), Double-Checked Locking(멀티스레드 안전), Enum(자바에서 가장 안전) 네 가지입니다." },
 "view-4plus1": {
     guide: {
-      hook: "아키텍처를 '5가지 관점'으로 나눠 이해관계자별로 보여 주는 뷰 모델입니다.",
-      scene: "한 그림으로 모든 관심사를 담을 수 없습니다. 4+1 뷰는 논리·프로세스·개발·배치 4뷰로 나누고, 유스케이스(시나리오)로 이들을 엮어 검증합니다. 각 뷰가 다른 이해관계자의 관심사를 답합니다.",
+      hook: "한 건물을 평면도·배관도·전기도처럼 관점별 도면으로 나눠 보는 모델입니다.",
+      scene: "집 한 채를 지어도 입주자용 평면도, 시공자용 구조도, 설비공용 배관도가 따로 있고, 모델하우스 관람 동선이 이들을 하나로 묶어 줍니다. 4+1 뷰가 딱 이 도면 세트로, 설계를 논리·프로세스·개발·물리의 4가지 관점 그림으로 이해관계자별로 그리고, 유스케이스 시나리오(+1)로 엮어 검증합니다.",
       why: "5뷰(논리·프로세스·개발·물리·시나리오)와 각 뷰의 관심사·다이어그램이 출제 핵심입니다. 42010의 구현입니다.",
       mechanism: "4+1 뷰(크루첸): 논리 뷰(Logical — 기능·객체 구조, 클래스·시퀀스, 최종 사용자 관심), 프로세스 뷰(Process — 동시성·성능·프로세스, 액티비티, 통합자 관심), 개발 뷰(Development/Implementation — 모듈·컴포넌트 구조, 컴포넌트, 개발자 관심), 물리 뷰(Physical/Deployment — 하드웨어 배치, 배치 다이어그램, 시스템 엔지니어 관심), +1 시나리오(Use Case — 나머지 4뷰를 엮고 검증). 각 뷰가 특정 이해관계자·관심사·다이어그램에 대응. 42010의 대표 구현.",
       map: [
-        { as: "기능·객체 구조", real: "논리 뷰", note: "사용자" },
-        { as: "동시성·성능", real: "프로세스 뷰", note: "통합자" },
-        { as: "모듈 구조", real: "개발 뷰", note: "개발자" },
-        { as: "4뷰 엮어 검증", real: "+1 시나리오", note: "유스케이스" },
+        { as: "입주자용 평면도", real: "논리 뷰", note: "기능·사용자" },
+        { as: "설비 가동 계획도", real: "프로세스 뷰", note: "동시성·통합자" },
+        { as: "시공자용 자재 구조도", real: "개발 뷰", note: "개발자" },
+        { as: "모델하우스 관람 동선", real: "+1 시나리오", note: "4뷰를 엮음" },
       ],
       usage: "아키텍처 문서화입니다. 시험은 5뷰·관심사·다이어그램, 42010과의 관계입니다.",
       links: [
@@ -3025,15 +3025,15 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     }, image: "/concept/book/view-4plus1.png", easy: "4+1 View 모델은 소프트웨어 아키텍처를 이해관계자별 관점 4개와 이를 묶는 유즈케이스 뷰로 나눠 기술하는 모델입니다. 한 장으로 그리면 이해관계자마다 보고 싶은 게 달라 싸움이 나기 때문입니다 — Logical View(설계자: 클래스 구조), Implementation View(개발자: 소스·모듈), Process View(통합자: 스레드·프로세스 동작), Deployment View(엔지니어: 어느 하드웨어에 배치). 그리고 가운데 +1이 Use Case View(사용자: 기능 시나리오)로, 네 뷰를 하나로 묶는 기준이 됩니다." },
 "mvvm": {
     guide: {
-      hook: "UI(View)와 로직(Model)을 'ViewModel과 데이터 바인딩'으로 분리하는 패턴입니다.",
-      scene: "UI 코드에 비즈니스 로직이 섞이면 테스트·유지보수가 어렵습니다. MVVM은 View(화면)와 Model(데이터) 사이에 ViewModel을 두고, View와 ViewModel을 데이터 바인딩으로 자동 연결해 UI 로직을 분리합니다.",
+      hook: "창고와 진열장 사이에 매니저를 두고, 진열은 자동으로 맞춰지게 한 구조입니다.",
+      scene: "가게 진열장은 창고 사정이 바뀌면 매니저가 정리한 목록에 따라 자동으로 다시 채워지고, 진열 담당이 창고를 직접 뒤질 일이 없습니다. MVVM이 딱 이 구조로, 화면(View)과 데이터(Model) 사이에 매니저(ViewModel)를 두고 화면과 매니저를 자동 동기화(데이터 바인딩)로 이어, 화면 없이도 매니저만 따로 검사(테스트)할 수 있습니다.",
       why: "3요소(Model·View·ViewModel)와 데이터 바인딩, MVC/MVP와의 차이가 출제 핵심입니다.",
       mechanism: "Model(데이터·비즈니스 로직), View(UI, 수동적), ViewModel(View의 상태·명령을 노출, View 로직 담당). 핵심: 데이터 바인딩(View↔ViewModel 자동 동기화 — ViewModel 값 변경 시 View 자동 갱신, 양방향). View는 ViewModel을 참조하지만 ViewModel은 View를 모름(테스트 용이). MVC(Controller가 View·Model 중개)·MVP(Presenter가 View 직접 조작)와 대비 — MVVM은 바인딩으로 결합↓. WPF·Angular·Vue·안드로이드 등.",
       map: [
-        { as: "데이터·로직", real: "Model", note: "" },
-        { as: "수동적 UI", real: "View", note: "" },
-        { as: "View 상태·명령", real: "ViewModel", note: "" },
-        { as: "자동 동기화", real: "데이터 바인딩", note: "핵심" },
+        { as: "창고의 물건과 장부", real: "Model", note: "" },
+        { as: "손님이 보는 진열장", real: "View", note: "수동적" },
+        { as: "진열 목록 만드는 매니저", real: "ViewModel", note: "화면을 모름" },
+        { as: "목록 바뀌면 자동 진열", real: "데이터 바인딩", note: "핵심" },
       ],
       usage: "UI 아키텍처(프론트엔드)입니다. 시험은 3요소·데이터 바인딩, MVC/MVP와의 차이입니다.",
       links: [
