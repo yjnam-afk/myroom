@@ -6154,14 +6154,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     keywords: ["미세조정(Fine Tuning)", "과업/도메인 전이", "Inductive/Transductive/Unsupervised"],
     tables: [
       {
-        caption: "구성요소 [업다프파인]",
-        headers: ["구성요소", "설명"],
+        caption: "구성요소 [업다프파] — 개념도와 1:1 대응",
+        headers: ["구성요소", "개념도 위치", "설명"],
         rows: [
-          ["업스트림(Upstream) 태스크", "먼저 이루어진 학습"],
-          ["다운스트림(Downstream) 태스크", "모델이 전이되어 이루어지는 학습"],
-          ["프리트레인(Pretrain)", "업스트림 태스크를 학습하는 과정"],
-          ["파인튜닝(Finetuning)", "다운스트림 태스크를 학습하는 과정 — 다운스트림 데이터로 모델 가중치를 업데이트"],
-          ["인컨텍스트 러닝(In-context)", "가중치 업데이트 없이 프롬프트 예시만으로 다운스트림 수행 — 제로샷(예시 0개)·원샷(1개)·퓨샷(몇 개) 러닝"],
+          ["업스트림(Upstream) 태스크", "위 상자(Task1)", "먼저 이루어진 학습"],
+          ["다운스트림(Downstream) 태스크", "아래 상자(Task2)", "모델이 전이되어 이루어지는 학습"],
+          ["프리트레인(Pretrain)", "위 상자의 학습 과정", "업스트림 태스크를 학습하는 과정(Data1→Model)"],
+          ["파인튜닝(Finetuning)", "아래 상자의 학습 과정", "다운스트림 태스크를 학습하는 과정(Data2→Model, 가중치 업데이트)"],
         ],
       },
       {
@@ -6184,7 +6183,7 @@ export const SUBNOTES: TextbookSubnote[] = [
         ],
       },
     ],
-    notes: ["개념도: Pretrained A의 하위 계층(Hidden layer 1~3)을 가중치 고정(Freeze)으로 재사용하고 상위 계층만 학습(Trainable)하여 B 모델 구성"],
+    notes: ["다운스트림 학습 방식: 파인튜닝(가중치 업데이트) 외에 인컨텍스트 러닝 — 제로샷(예시 0개)·원샷(1개)·퓨샷(몇 개), 가중치 업데이트 없음 — 이 있다(파인튜닝과 혼동 금지)", "개념도: Pretrained A의 하위 계층(Hidden layer 1~3)을 가중치 고정(Freeze)으로 재사용하고 상위 계층만 학습(Trainable)하여 B 모델 구성"],
   },
   {
     title: "자기지도학습(Self-supervised Learning)",
