@@ -8019,6 +8019,16 @@
     ]
    },
    {
+    "label": "구성요소",
+    "mnemonic": "업다프파",
+    "keywords": [
+     "업스트림(Upstream) 태스크",
+     "다운스트림(Downstream) 태스크",
+     "프리트레인(Pretrain)",
+     "파인튜닝(Finetuning)"
+    ]
+   },
+   {
     "label": "주요학습 기법",
     "mnemonic": "파프도레",
     "keywords": [
