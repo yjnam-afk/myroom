@@ -831,6 +831,22 @@ export const compareSets: CompareSet[] = [
   // ─────────────────────────── 인공지능 ───────────────────────────
   {
     category: "인공지능",
+    title: "거리 공식(Distance Formula)",
+    axis: "무엇을 재나 — 수치·분포·방향·집합·문자열",
+    items: [
+      { name: "유클리드 거리(Euclidean Distance)", hint: "직선 거리(L2)·정규화 선행" },
+      { name: "맨해튼 거리(Manhattan Distance)", hint: "격자 합(L1)·이상치 둔감" },
+      { name: "민코프스키 거리(Minkowski Distance)", hint: "p로 일반화(Lp)" },
+      { name: "체비셰프 거리(Chebyshev Distance)", hint: "최대 성분(L∞)·체스 킹" },
+      { name: "마할라노비스 거리(Mahalanobis Distance)", hint: "공분산 보정·이상치 탐지" },
+      { name: "코사인 유사도(Cosine Similarity)", hint: "각도·문서/임베딩" },
+      { name: "자카드 유사도(Jaccard Similarity)", hint: "교집합/합집합·추천" },
+      { name: "해밍 거리(Hamming Distance)", hint: "같은 길이·다른 자리 수" },
+      { name: "편집 거리(Edit Distance, Levenshtein)", hint: "삽입·삭제·교체 최소 횟수" },
+    ],
+  },
+  {
+    category: "인공지능",
     title: "머신러닝 학습 유형",
     axis: "정답(라벨)이 있나·보상으로 배우나",
     items: [

@@ -24415,5 +24415,95 @@
     "importance": "하",
     "summary": "세션마다 임시 키 쌍을 생성하여 키 교환을 수행하는 방식의 디피-헬만 알고리즘으로, Perfect Forward Secrecy(PFS)를 제공하는 보안 프로토콜",
     "source": "기필반"
+  },
+  {
+    "id": "dm-1",
+    "title": "유클리드 거리(Euclidean Distance)",
+    "category": "인공지능",
+    "group": "거리·유사도 척도",
+    "importance": "중",
+    "summary": "두 점을 잇는 직선의 길이로 차이를 재는 가장 기본적인 거리 척도",
+    "source": "요청"
+  },
+  {
+    "id": "dm-2",
+    "title": "맨해튼 거리(Manhattan Distance)",
+    "category": "인공지능",
+    "group": "거리·유사도 척도",
+    "importance": "중",
+    "summary": "좌표축을 따라 이동한 거리의 합으로 재는 격자형 거리 척도",
+    "source": "요청"
+  },
+  {
+    "id": "dm-3",
+    "title": "민코프스키 거리(Minkowski Distance)",
+    "category": "인공지능",
+    "group": "거리·유사도 척도",
+    "importance": "중",
+    "summary": "차수 p로 유클리드와 맨해튼을 하나의 식으로 일반화한 거리",
+    "source": "요청"
+  },
+  {
+    "id": "dm-4",
+    "title": "체비셰프 거리(Chebyshev Distance)",
+    "category": "인공지능",
+    "group": "거리·유사도 척도",
+    "importance": "중",
+    "summary": "좌표 차이 중 가장 큰 값 하나로 재는 최대 성분 거리",
+    "source": "요청"
+  },
+  {
+    "id": "dm-5",
+    "title": "마할라노비스 거리(Mahalanobis Distance)",
+    "category": "인공지능",
+    "group": "거리·유사도 척도",
+    "importance": "중",
+    "summary": "변수 간 상관과 산포를 반영해 분포 기준으로 재는 통계적 거리",
+    "source": "요청"
+  },
+  {
+    "id": "dm-6",
+    "title": "코사인 유사도(Cosine Similarity)",
+    "category": "인공지능",
+    "group": "거리·유사도 척도",
+    "importance": "중",
+    "summary": "크기를 무시하고 두 벡터가 이루는 각도로 닮음을 재는 척도",
+    "source": "요청"
+  },
+  {
+    "id": "dm-7",
+    "title": "자카드 유사도(Jaccard Similarity)",
+    "category": "인공지능",
+    "group": "거리·유사도 척도",
+    "importance": "중",
+    "summary": "두 집합이 공유하는 원소의 비율로 닮음을 재는 집합 척도",
+    "source": "요청"
+  },
+  {
+    "id": "dm-8",
+    "title": "해밍 거리(Hamming Distance)",
+    "category": "인공지능",
+    "group": "거리·유사도 척도",
+    "importance": "중",
+    "summary": "같은 길이의 두 문자열에서 다른 자리의 개수를 세는 거리",
+    "source": "요청"
+  },
+  {
+    "id": "dm-9",
+    "title": "편집 거리(Edit Distance, Levenshtein)",
+    "category": "인공지능",
+    "group": "거리·유사도 척도",
+    "importance": "중",
+    "summary": "삽입·삭제·교체 몇 번으로 바뀌는지로 문자열 차이를 재는 거리",
+    "source": "요청"
+  },
+  {
+    "id": "dm-0",
+    "title": "거리 공식(Distance Formula)",
+    "category": "인공지능",
+    "group": "거리·유사도 척도",
+    "importance": "상",
+    "summary": "데이터 간 차이·닮음을 수치로 재는 척도의 총칭 — 수치형은 거리, 방향·집합·문자열은 유사도 계열로 구분",
+    "source": "심화반"
   }
 ]

@@ -155998,5 +155998,528 @@
   "defKeywords": [],
   "apply": [],
   "plus": []
+ },
+ "dm-1": {
+  "features": [],
+  "conceptMap": "",
+  "comp": [
+   {
+    "group": "산식",
+    "mnemonic": "",
+    "rows": [
+     [
+      "d",
+      "x,y · = √Σ(xi−yi)²"
+     ]
+    ],
+    "notes": []
+   },
+   {
+    "group": "특징",
+    "mnemonic": "",
+    "rows": [
+     [
+      "직관적",
+      ""
+     ],
+     [
+      "연속형 변수 적합",
+      ""
+     ],
+     [
+      "스케일",
+      "단위 · 에 민감 → 정규화 선행 필요"
+     ],
+     [
+      "고차원에서 변별력 저하",
+      "차원의 저주"
+     ]
+    ],
+    "notes": []
+   },
+   {
+    "group": "활용",
+    "mnemonic": "",
+    "rows": [
+     [
+      "KNN 분류",
+      ""
+     ],
+     [
+      "K-means 군집의 기본 거리",
+      ""
+     ],
+     [
+      "이상치 탐지",
+      ""
+     ]
+    ],
+    "notes": []
+   }
+  ],
+  "conceptMapLabel": "",
+  "defKeywords": [],
+  "apply": [],
+  "plus": []
+ },
+ "dm-2": {
+  "features": [],
+  "conceptMap": "",
+  "comp": [
+   {
+    "group": "산식",
+    "mnemonic": "",
+    "rows": [
+     [
+      "d",
+      "x,y · = Σ|xi−yi|"
+     ]
+    ],
+    "notes": []
+   },
+   {
+    "group": "특징",
+    "mnemonic": "",
+    "rows": [
+     [
+      "이상치에 유클리드보다 덜 민감",
+      ""
+     ],
+     [
+      "격자·이산형 이동 모델에 적합",
+      ""
+     ],
+     [
+      "희소 데이터에서 안정적",
+      ""
+     ]
+    ],
+    "notes": []
+   },
+   {
+    "group": "활용",
+    "mnemonic": "",
+    "rows": [
+     [
+      "라쏘",
+      "L1 · 규제"
+     ],
+     [
+      "격자 경로 탐색",
+      ""
+     ],
+     [
+      "고차원 희소 벡터 비교",
+      ""
+     ]
+    ],
+    "notes": []
+   }
+  ],
+  "conceptMapLabel": "",
+  "defKeywords": [],
+  "apply": [],
+  "plus": []
+ },
+ "dm-3": {
+  "features": [],
+  "conceptMap": "",
+  "comp": [
+   {
+    "group": "산식",
+    "mnemonic": "",
+    "rows": [
+     [
+      "d",
+      "x,y · = (Σ|xi−yi|^p)^(1/p)"
+     ]
+    ],
+    "notes": []
+   },
+   {
+    "group": "특징",
+    "mnemonic": "",
+    "rows": [
+     [
+      "p=1이면 맨해튼",
+      ""
+     ],
+     [
+      "p=2면 유클리드",
+      ""
+     ],
+     [
+      "p→∞면 체비셰프 거리로 수렴",
+      "하나의 식으로 여러 거리를 포괄"
+     ]
+    ],
+    "notes": []
+   },
+   {
+    "group": "활용",
+    "mnemonic": "",
+    "rows": [
+     [
+      "KNN 등에서 p를 하이퍼파라미터로 두고 데이터 특성에 맞는 거리 선택",
+      ""
+     ]
+    ],
+    "notes": []
+   }
+  ],
+  "conceptMapLabel": "",
+  "defKeywords": [],
+  "apply": [],
+  "plus": []
+ },
+ "dm-4": {
+  "features": [],
+  "conceptMap": "",
+  "comp": [
+   {
+    "group": "산식",
+    "mnemonic": "",
+    "rows": [
+     [
+      "d",
+      "x,y · = max|xi−yi|"
+     ]
+    ],
+    "notes": []
+   },
+   {
+    "group": "특징",
+    "mnemonic": "",
+    "rows": [
+     [
+      "민코프스키 거리에서 p→∞인 극한",
+      ""
+     ],
+     [
+      "모든 방향 이동 비용이 같은 격자",
+      "체스 킹의 이동 · 에 대응"
+     ]
+    ],
+    "notes": []
+   },
+   {
+    "group": "활용",
+    "mnemonic": "",
+    "rows": [
+     [
+      "창고 크레인 이동 시간",
+      ""
+     ],
+     [
+      "품질관리 허용 오차",
+      "최악 성분 기준 · 평가"
+     ]
+    ],
+    "notes": []
+   }
+  ],
+  "conceptMapLabel": "",
+  "defKeywords": [],
+  "apply": [],
+  "plus": []
+ },
+ "dm-5": {
+  "features": [],
+  "conceptMap": "",
+  "comp": [
+   {
+    "group": "산식",
+    "mnemonic": "",
+    "rows": [
+     [
+      "d",
+      "x,y · = √((x−y)ᵀ S⁻¹ (x−y))"
+     ],
+     [
+      "S=공분산 행렬",
+      ""
+     ]
+    ],
+    "notes": []
+   },
+   {
+    "group": "특징",
+    "mnemonic": "",
+    "rows": [
+     [
+      "단위·상관에 불변",
+      ""
+     ],
+     [
+      "분포의 모양",
+      "타원 · 을 기준으로 측정"
+     ],
+     [
+      "공분산 추정에 충분한 표본 필요",
+      ""
+     ]
+    ],
+    "notes": []
+   },
+   {
+    "group": "활용",
+    "mnemonic": "",
+    "rows": [
+     [
+      "다변량 이상치 탐지",
+      ""
+     ],
+     [
+      "판별분석",
+      "LDA"
+     ],
+     [
+      "군집 품질 평가",
+      ""
+     ]
+    ],
+    "notes": []
+   }
+  ],
+  "conceptMapLabel": "",
+  "defKeywords": [],
+  "apply": [],
+  "plus": []
+ },
+ "dm-6": {
+  "features": [],
+  "conceptMap": "",
+  "comp": [
+   {
+    "group": "산식",
+    "mnemonic": "",
+    "rows": [
+     [
+      "cos",
+      "θ"
+     ],
+     [
+      "=",
+      "x·y"
+     ],
+     [
+      "거리로 쓸 때는 1−cos",
+      "θ"
+     ]
+    ],
+    "notes": []
+   },
+   {
+    "group": "특징",
+    "mnemonic": "",
+    "rows": [
+     [
+      "벡터 크기",
+      "문서 길이 · 에 불변"
+     ],
+     [
+      "고차원 희소 벡터에 강함",
+      ""
+     ],
+     [
+      "음수 좌표 없는 텍스트에서 0~1",
+      ""
+     ]
+    ],
+    "notes": []
+   },
+   {
+    "group": "활용",
+    "mnemonic": "",
+    "rows": [
+     [
+      "문서·임베딩 유사도",
+      "검색, RAG"
+     ],
+     [
+      "추천 시스템",
+      ""
+     ],
+     [
+      "표절 검사",
+      ""
+     ]
+    ],
+    "notes": []
+   }
+  ],
+  "conceptMapLabel": "",
+  "defKeywords": [],
+  "apply": [],
+  "plus": []
+ },
+ "dm-7": {
+  "features": [],
+  "conceptMap": "",
+  "comp": [
+   {
+    "group": "산식",
+    "mnemonic": "",
+    "rows": [
+     [
+      "J",
+      "A,B · = |A∩B| / |A∪B|"
+     ],
+     [
+      "거리로 쓸 때는 1−J",
+      ""
+     ]
+    ],
+    "notes": []
+   },
+   {
+    "group": "특징",
+    "mnemonic": "",
+    "rows": [
+     [
+      "원소의 존재 여부만 반영",
+      "빈도 무시"
+     ],
+     [
+      "이진·집합 데이터 적합",
+      ""
+     ],
+     [
+      "희소할수록 변별력 큼",
+      ""
+     ]
+    ],
+    "notes": []
+   },
+   {
+    "group": "활용",
+    "mnemonic": "",
+    "rows": [
+     [
+      "추천",
+      "구매 목록 비교"
+     ],
+     [
+      "문서 중복 탐지",
+      "MinHash·LSH"
+     ]
+    ],
+    "notes": []
+   }
+  ],
+  "conceptMapLabel": "",
+  "defKeywords": [],
+  "apply": [],
+  "plus": []
+ },
+ "dm-8": {
+  "features": [],
+  "conceptMap": "",
+  "comp": [
+   {
+    "group": "산식",
+    "mnemonic": "",
+    "rows": [
+     [
+      "d",
+      "x,y · = Σ[xi ≠ yi] (다른 자리 수)"
+     ]
+    ],
+    "notes": []
+   },
+   {
+    "group": "특징",
+    "mnemonic": "",
+    "rows": [
+     [
+      "길이가 같아야 정의됨",
+      ""
+     ],
+     [
+      "비트 연산",
+      "XOR 후 1의 개수 · 으로 고속 계산"
+     ]
+    ],
+    "notes": []
+   },
+   {
+    "group": "활용",
+    "mnemonic": "",
+    "rows": [
+     [
+      "오류 검출·정정 부호의 최소 해밍 거리 설계",
+      "해밍코드"
+     ],
+     [
+      "유전자 서열·해시 지문 비교",
+      ""
+     ]
+    ],
+    "notes": []
+   }
+  ],
+  "conceptMapLabel": "",
+  "defKeywords": [],
+  "apply": [],
+  "plus": []
+ },
+ "dm-9": {
+  "features": [],
+  "conceptMap": "",
+  "comp": [
+   {
+    "group": "산식",
+    "mnemonic": "",
+    "rows": [
+     [
+      "동적 계획법으로 O(mn) 계산",
+      "dp[i][j] = 문자 일치 시 대각선 값"
+     ],
+     [
+      "불일치 시 min",
+      "삽입,삭제,교체 · +1"
+     ]
+    ],
+    "notes": []
+   },
+   {
+    "group": "특징",
+    "mnemonic": "",
+    "rows": [
+     [
+      "길이가 달라도 정의됨",
+      "해밍 거리와 차이"
+     ],
+     [
+      "연산별 가중치 부여 가능",
+      ""
+     ]
+    ],
+    "notes": []
+   },
+   {
+    "group": "활용",
+    "mnemonic": "",
+    "rows": [
+     [
+      "맞춤법 교정·자동완성",
+      ""
+     ],
+     [
+      "DNA 서열 정렬",
+      ""
+     ],
+     [
+      "중복 레코드 판별",
+      ""
+     ]
+    ],
+    "notes": []
+   }
+  ],
+  "conceptMapLabel": "",
+  "defKeywords": [],
+  "apply": [],
+  "plus": []
  }
 }
