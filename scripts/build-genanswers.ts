@@ -20,6 +20,7 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import { fileURLToPath } from "node:url";
 import { SUBNOTES } from "../src/data/textbookSubnotes";
+import { relatedTopics, relatedSubnote } from "../src/lib/relatedTopics";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const questions = JSON.parse(
@@ -462,6 +463,28 @@ for (const q of questions) {
     };
     byTp++;
     continue;
+  }
+  // 폴백 — 문제은행 "관련 토픽"과 같은 매칭기(relatedTopics)로 한 번 더.
+  // 제목이 지문에 통째로 안 들어가는 표기 차이("싱글턴"↔"Singleton 패턴")를 구제한다.
+  const relSn = relatedSubnote(q.text);
+  if (relSn) {
+    const sn2 = (SUBNOTES as any[]).find((x) => x.title === relSn);
+    const a2 = sn2 ? buildFromSubnote(q, sn2) : "";
+    if (a2) {
+      out[q.id] = { title: relSn, source: `교재 서브노트 — ${relSn}`, answer: a2 };
+      bySn++;
+      continue;
+    }
+  }
+  const relTp = relatedTopics(q.text, 1)[0];
+  if (relTp) {
+    const t2 = (topics as any[]).find((x) => x.title === relTp);
+    const a2 = t2 ? buildFromTopic(q, t2) : "";
+    if (a2) {
+      out[q.id] = { title: relTp, source: `토픽 자료 — ${relTp}`, answer: a2 };
+      byTp++;
+      continue;
+    }
   }
   skip++; // 품질 게이트에 걸렸거나 매칭 실패 — 가짜 답안 대신 미제공
 }
