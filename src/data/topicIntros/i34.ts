@@ -2,6 +2,11 @@ import type { AnswerIntro } from "./index";
 
 /** 거리·유사도 척도 — 답안 서론 */
 export const I: Record<string, AnswerIntro> = {
+  "rq-1": {
+    lead: "읽기·쓰기 책임 분리, CQRS 패턴",
+    defShort: "명령과 조회의 책임을 모델 수준에서 분리해 각각 독립적으로 최적화하는 설계 패턴",
+    features: ["모델 분리", "독립 확장", "최종 일관성"],
+  },
   "dm-0": {
     lead: "데이터 차이의 정량화 체계, 거리 공식",
     defShort: "데이터 사이의 차이와 닮음을 수치로 재는 척도의 총칭으로 자료 유형별로 선택해 쓴다",

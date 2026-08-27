@@ -106671,5 +106671,24 @@
    "동적 계획법으로 O(mn) 계산",
    "불일치 시 min"
   ]
+ },
+ {
+  "id": "rq-1",
+  "title": "CQRS(Command Query Responsibility Segregation) 패턴",
+  "category": "소프트웨어공학",
+  "importance": "상",
+  "source": "요청",
+  "definition": "명령(Command, 쓰기)과 조회(Query, 읽기)의 책임을 모델 수준에서 분리하여 각각 독립적으로 설계·확장·최적화하는 아키텍처 패턴",
+  "defShort": "명령과 조회의 책임을 모델 수준에서 분리해 각각 독립적으로 최적화하는 설계 패턴",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "명조저동",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "명조저동",
+  "keywords": []
  }
 ]

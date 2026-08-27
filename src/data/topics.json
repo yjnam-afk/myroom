@@ -24505,5 +24505,14 @@
     "importance": "상",
     "summary": "데이터 간 차이·닮음을 수치로 재는 척도의 총칭 — 수치형은 거리, 방향·집합·문자열은 유사도 계열로 구분",
     "source": "심화반"
+  },
+  {
+    "id": "rq-1",
+    "title": "CQRS(Command Query Responsibility Segregation) 패턴",
+    "category": "소프트웨어공학",
+    "group": "아키텍처 패턴",
+    "importance": "상",
+    "summary": "명령(쓰기)과 조회(읽기)의 책임을 모델 수준에서 분리해 각자 최적화하는 아키텍처 패턴",
+    "source": "요청"
   }
 ]

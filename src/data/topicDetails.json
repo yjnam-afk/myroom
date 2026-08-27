@@ -108513,5 +108513,16 @@
     "mnemonic": "수통방집문",
     "sections": [],
     "memo": ""
+  },
+  "rq-1": {
+    "detail": "[정의] 명령(Command, 쓰기)과 조회(Query, 읽기)의 책임을 모델 수준에서 분리하여 각각 독립적으로 설계·확장·최적화하는 아키텍처 패턴\n[등장배경]\n- 단일 CRUD 모델로는 조회 부하(복잡한 화면·통계)와 쓰기 부하(트랜잭션 정합성)의 요구가 충돌\n- 금융·커머스처럼 읽기와 쓰기의 비율·스키마·확장 전략이 크게 다른 도메인에서 병목 발생\n[구성요소] 두음: 명조저동\n- 명령 모델(Command Model): 도메인 규칙·트랜잭션 중심의 쓰기 전용 모델(정규화 스키마)\n- 조회 모델(Query Model): 화면 최적화된 읽기 전용 모델(비정규화 뷰·캐시·검색엔진)\n- 저장소 분리(Write/Read Store): 쓰기 DB와 읽기 DB를 물리적으로 분리, 읽기는 복제·프로젝션으로 구성\n- 동기화(Projection/Event): 이벤트 발행→프로젝션 갱신으로 쓰기 결과를 조회 모델에 반영(최종 일관성)\n[장점] 읽기·쓰기 독립 확장, 조회 성능 최적화, 도메인 모델 단순화(쓰기 규칙에 집중)\n[단점/고려사항] 최종 일관성(Eventual Consistency) 허용 필요, 동기화 지연·중복 코드, 운영 복잡도 증가 — 단순 CRUD 시스템에는 과설계\n[관련기술] 이벤트 소싱(Event Sourcing)과 결합 시 감사 이력·재구성 용이, MSA·Kafka 기반 프로젝션, Materialized View",
+    "related": "이벤트 소싱, MSA (Micro Service Architecture), 쿼리 오프로딩",
+    "defKeywords": [],
+    "featureKeywords": [],
+    "applicationKeywords": [],
+    "plusKeywords": [],
+    "mnemonic": "명조저동",
+    "sections": [],
+    "memo": ""
   }
 }
