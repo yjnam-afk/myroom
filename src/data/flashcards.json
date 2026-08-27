@@ -106690,5 +106690,537 @@
   ],
   "mnemonic": "명조저동",
   "keywords": []
+ },
+ {
+  "id": "rq-2",
+  "title": "WebRTC(Web Real-Time Communication)",
+  "category": "네트워크",
+  "importance": "상",
+  "source": "요청",
+  "definition": "별도 플러그인 설치 없이 웹 브라우저 간 음성·영상·데이터를 P2P로 실시간 송수신하는 W3C(API)·IETF(프로토콜) 표준 기술",
+  "defShort": "플러그인 없이 브라우저 간 음성과 영상을 피투피로 실시간 송수신하는 웹 표준 기술",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "미피데시나",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "미피데시나",
+  "keywords": []
+ },
+ {
+  "id": "rq-3",
+  "title": "루프 엔지니어링(Loop Engineering)",
+  "category": "인공지능",
+  "importance": "상",
+  "source": "요청",
+  "definition": "프롬프트 단발 응답을 넘어 AI 에이전트의 계획→실행→관찰→수정 반복 루프와 인간 개입(HITL) 지점을 설계·통제하는 엔지니어링 기법",
+  "defShort": "인공지능 에이전트의 계획과 실행, 관찰, 수정 반복 루프를 설계하고 통제하는 기법",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "계실관수인종",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "계실관수인종",
+  "keywords": []
+ },
+ {
+  "id": "rq-4",
+  "title": "데이터 레지던스(Data Residency)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "요청",
+  "definition": "데이터가 물리적으로 저장·처리되는 지리적 위치(국가·리전)를 특정 관할권 내로 지정해 현지 법규를 준수하도록 하는 데이터 위치 관리 원칙",
+  "defShort": "데이터가 저장되고 처리되는 물리적 위치를 지정해 현지 법규 준수를 보장하는 원칙",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "위이주감",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "위이주감",
+  "keywords": []
+ },
+ {
+  "id": "rq-5",
+  "title": "Affective AI",
+  "category": "인공지능",
+  "importance": "상",
+  "source": "요청",
+  "definition": "표정·음성·텍스트·생체신호로부터 인간의 감정 상태를 인식·해석하고 공감적 반응을 생성하는 감성 인공지능(Affective Computing) 기술",
+  "defShort": "표정과 음성, 생체신호에서 감정을 인식하고 공감 반응을 생성하는 인공지능 기술",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "수인해반",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "수인해반",
+  "keywords": []
+ },
+ {
+  "id": "rq-6",
+  "title": "SaaS(Software as a Service)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "요청",
+  "definition": "응용 소프트웨어를 설치 없이 네트워크를 통해 구독 방식으로 이용하고, 공급자가 인프라·플랫폼·앱 전체를 운영하는 클라우드 서비스 모델",
+  "defShort": "응용 소프트웨어를 설치 없이 네트워크로 구독해 이용하는 클라우드 서비스 제공 모델",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "멀구메접",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "멀구메접",
+  "keywords": []
+ },
+ {
+  "id": "rq-7",
+  "title": "인시던트(Incident) 관리와 문제(Problem) 관리",
+  "category": "경영전략",
+  "importance": "상",
+  "source": "요청",
+  "definition": "인시던트 관리는 중단·저하된 IT 서비스를 신속히 복구해 업무 영향을 최소화하는 프로세스, 문제 관리는 인시던트의 근본원인(Root Cause)을 규명·제거해 재발을 방지하는 ITIL/ITSM 핵심 프로세스",
+  "defShort": "중단된 서비스의 신속 복구와 근본 원인 제거로 재발을 방지하는 두 가지 관리 프로세스",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "목활산척",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "목활산척",
+  "keywords": []
+ },
+ {
+  "id": "rq-8",
+  "title": "Shadow AI",
+  "category": "보안",
+  "importance": "상",
+  "source": "요청",
+  "definition": "조직 IT부서의 승인·통제 없이 임직원이 업무에 임의로 사용하는 AI 도구·서비스(생성형 AI 등)와 그에 따른 보안·컴플라이언스 위협",
+  "defShort": "조직의 승인과 통제 없이 임직원이 업무에 임의로 사용하는 인공지능 도구와 그 위협",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "정지규대",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "정지규대",
+  "keywords": []
+ },
+ {
+  "id": "rq-9",
+  "title": "Fagan의 인스펙션(Inspection)",
+  "category": "소프트웨어공학",
+  "importance": "상",
+  "source": "요청",
+  "definition": "훈련된 중재자(Moderator) 주도 하에 정해진 역할과 절차에 따라 산출물의 결함을 조기에 발견·제거하는 가장 공식적(Formal)인 정적 검토 기법(1976, IBM Fagan)",
+  "defShort": "중재자 주도의 공식 절차와 역할 분담으로 산출물 결함을 조기에 발견하는 검토 기법",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "계개준회재후",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "계개준회재후",
+  "keywords": []
+ },
+ {
+  "id": "rq-10",
+  "title": "지오패트리에이션(Geopatriation)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "요청",
+  "definition": "지정학적(Geopolitical) 갈등·규제 리스크에 대비해 해외 클라우드에 있던 데이터·워크로드를 자국 또는 신뢰 가능한 관할권으로 되옮기는(Repatriation) 클라우드 전략",
+  "defShort": "지정학 리스크에 대비해 해외의 데이터와 워크로드를 자국 관할권으로 옮기는 전략",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "리대이검",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "리대이검",
+  "keywords": []
+ },
+ {
+  "id": "rq-11",
+  "title": "케르히호프의 원리(Kerckhoff's Principle)",
+  "category": "보안",
+  "importance": "상",
+  "source": "요청",
+  "definition": "암호 알고리즘 등 시스템의 모든 것이 공개되어도 키(Key)만 비밀로 유지되면 안전해야 한다는 암호 시스템 설계 원칙(1883, Kerckhoffs)",
+  "defShort": "암호 체계가 전부 공개되더라도 키만 비밀이면 안전해야 한다는 현대 암호 설계 원칙",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "공키검샤",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "공키검샤",
+  "keywords": []
+ },
+ {
+  "id": "rq-12",
+  "title": "Shift-Left Test와 Shift-Right Test",
+  "category": "소프트웨어공학",
+  "importance": "상",
+  "source": "요청",
+  "definition": "Shift-Left Test는 테스트 활동을 SDLC 왼쪽(요구·설계·개발 초기)으로 당겨 결함을 조기 발견하는 전략, Shift-Right Test는 배포 이후 운영 환경(오른쪽)에서 실사용 데이터로 검증을 지속하는 전략",
+  "defShort": "테스트 활동을 개발 초기로 당기고 운영 단계까지 늘려서 품질을 지속 검증하는 전략",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "시목기지",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "시목기지",
+  "keywords": []
+ },
+ {
+  "id": "rq-13",
+  "title": "AI Inference와 AI Reasoning",
+  "category": "인공지능",
+  "importance": "상",
+  "source": "요청",
+  "definition": "AI Inference는 학습된 모델이 입력을 받아 순전파 한 번으로 결과를 산출하는 추론 실행 과정, AI Reasoning은 중간 사고 단계(CoT)·검증·탐색을 거쳐 논리적으로 결론에 도달하는 추리 능력",
+  "defShort": "학습된 모델의 즉시 응답 실행과 중간 사고 단계를 거치는 논리적 추리를 구분한 개념",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "방과비활",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "방과비활",
+  "keywords": []
+ },
+ {
+  "id": "rq-14",
+  "title": "Crew AI",
+  "category": "인공지능",
+  "importance": "상",
+  "source": "요청",
+  "definition": "역할(Role)·목표·배경을 가진 AI 에이전트들을 팀(Crew)으로 구성하고 작업(Task)을 분담·협업시키는 오픈소스 멀티 에이전트 프레임워크",
+  "defShort": "역할을 부여한 에이전트들을 한 팀으로 묶어 작업을 분담시키는 멀티 에이전트 도구",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "에태도크프",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "에태도크프",
+  "keywords": []
+ },
+ {
+  "id": "rq-15",
+  "title": "NIST CSF(Cyber Security Framework) 2.0",
+  "category": "보안",
+  "importance": "상",
+  "source": "요청",
+  "definition": "조직의 사이버보안 위험관리를 6대 기능(Govern·Identify·Protect·Detect·Respond·Recover)으로 체계화한 미국 국립표준기술연구소(NIST)의 사이버보안 프레임워크 2.0(2024 개정)",
+  "defShort": "거버넌스를 더한 여섯 개 기능으로 사이버보안 위험관리를 체계화한 보안 프레임워크",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "거식보탐대복",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "거식보탐대복",
+  "keywords": []
+ },
+ {
+  "id": "rq-16",
+  "title": "MSA의 Inner Architecture와 Outer Architecture",
+  "category": "소프트웨어공학",
+  "importance": "상",
+  "source": "요청",
+  "definition": "MSA에서 개별 서비스 내부의 비즈니스 로직·API·데이터 설계를 다루는 Inner Architecture와, 서비스 간 통신·배포·운영 인프라를 다루는 Outer Architecture로 구분하는 설계 관점",
+  "defShort": "개별 서비스 내부 설계와 서비스 간 연계 운영 기반을 나눠 접근하는 MSA 설계 관점",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "내외",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "내외",
+  "keywords": []
+ },
+ {
+  "id": "rq-17",
+  "title": "로봇 저널리즘(Robot Journalism)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "요청",
+  "definition": "데이터 수집·분석·기사 작성·배포 과정을 알고리즘과 AI(NLG·LLM)가 자동 수행하는 자동화 저널리즘",
+  "defShort": "데이터 수집과 분석, 기사 작성, 배포까지 자동으로 수행하는 자동화 저널리즘 기술",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "수분작배",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "수분작배",
+  "keywords": []
+ },
+ {
+  "id": "rq-18",
+  "title": "CEM(Customer Experience Management)",
+  "category": "경영전략",
+  "importance": "상",
+  "source": "요청",
+  "definition": "상품·서비스와 만나는 모든 접점(Touchpoint)에서 고객이 느끼는 경험을 설계·측정·개선하여 충성도와 생애가치를 높이는 고객경험관리 전략",
+  "defShort": "고객이 만나는 모든 접점의 경험을 측정, 개선해 충성도를 높이는 고객경험관리 전략",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "여접측개",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "여접측개",
+  "keywords": []
+ },
+ {
+  "id": "rq-19",
+  "title": "RCS(Rich Communication Suite)",
+  "category": "네트워크",
+  "importance": "상",
+  "source": "요청",
+  "definition": "SMS/MMS를 대체하여 IP 기반으로 읽음 확인·타이핑 표시·대용량 파일·그룹 채팅·기업 챗봇(A2P)을 제공하는 GSMA 표준 차세대 메시징 규격",
+  "defShort": "기존 문자를 대체해 읽음 확인과 대용량 파일, 챗봇 기능을 제공하는 표준 메시징 규격",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "유아채비",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "유아채비",
+  "keywords": []
+ },
+ {
+  "id": "rq-20",
+  "title": "Streaming DBMS",
+  "category": "데이터베이스",
+  "importance": "상",
+  "source": "요청",
+  "definition": "무한히 유입되는 데이터 스트림(Stream)에 등록된 연속 질의(Continuous Query)를 계속 실행하여 실시간으로 결과를 갱신하는 DBMS",
+  "defShort": "유입되는 데이터 스트림에 연속 질의를 계속 실행해 실시간 분석하는 데이터베이스",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "스연윈출",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "스연윈출",
+  "keywords": []
+ },
+ {
+  "id": "rq-21",
+  "title": "주파수 경매제",
+  "category": "네트워크",
+  "importance": "상",
+  "source": "요청",
+  "definition": "한정된 전파 자원인 주파수 이용권을 정부 심사 할당 대신 경매를 통해 최고가 입찰자에게 할당하는 시장 기반 전파자원 배분 제도(국내 2011년 도입)",
+  "defShort": "한정된 주파수 이용권을 경매로 할당하여 시장 가치대로 배분하는 전파 자원 할당 제도",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "동밀혼재",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "동밀혼재",
+  "keywords": []
+ },
+ {
+  "id": "rq-22",
+  "title": "핵티비즘(Hacktivism)",
+  "category": "보안",
+  "importance": "상",
+  "source": "요청",
+  "definition": "정치·사회적 신념을 알리기 위해 해킹을 수단으로 삼는 사이버 행동주의 — DDoS·디페이스·정보 유출이 대표 수법",
+  "defShort": "정치와 사회적 신념을 알리기 위해 해킹을 시위 수단으로 삼는 사이버 공간의 행동주의",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "디디독웹",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "디디독웹",
+  "keywords": []
+ },
+ {
+  "id": "rq-23",
+  "title": "BS10012",
+  "category": "보안",
+  "importance": "상",
+  "source": "요청",
+  "definition": "조직의 개인정보 관리체계(PIMS, Personal Information Management System) 요구사항을 규정한 영국표준협회(BSI)의 표준 — GDPR 정합",
+  "defShort": "조직의 개인정보 보호 관리체계 수립 요구사항을 규정한 영국표준협회의 인증 표준",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "계실점개(PDCA)",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "계실점개(PDCA)",
+  "keywords": []
+ },
+ {
+  "id": "rq-24",
+  "title": "oneM2M",
+  "category": "네트워크",
+  "importance": "상",
+  "source": "요청",
+  "definition": "사물인터넷(M2M/IoT) 서비스의 공통 서비스 계층(Common Service Layer)을 정의하여 응용·네트워크에 독립적인 상호운용성을 보장하는 글로벌 표준(2012, TTA 등 세계 8개 표준화 기관 공동 설립)",
+  "defShort": "사물인터넷의 공통 서비스 계층을 정의하여 상호운용성을 보장하는 글로벌 표준 규격",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "애공네",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "애공네",
+  "keywords": []
+ },
+ {
+  "id": "rq-25",
+  "title": "HTTP/2",
+  "category": "네트워크",
+  "importance": "상",
+  "source": "요청",
+  "definition": "하나의 TCP 연결 위에서 바이너리 프레임 기반 멀티플렉싱·헤더 압축·서버 푸시로 웹 전송 성능을 개선한 HTTP 프로토콜(RFC 7540, 2015 — 구글 SPDY 기반)",
+  "defShort": "멀티플렉싱과 헤더 압축, 서버 푸시로 웹 전송 성능을 개선한 차세대 웹 전송 프로토콜",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "바멀헤푸우",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "바멀헤푸우",
+  "keywords": []
+ },
+ {
+  "id": "rq-26",
+  "title": "NUI(Natural User Interface)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "요청",
+  "definition": "마우스·키보드 같은 인위적 도구 없이 터치·음성·제스처·시선 등 인간의 자연스러운 감각·행동으로 시스템과 상호작용하는 사용자 인터페이스",
+  "defShort": "터치와 음성, 제스처, 시선 등 사람의 자연스러운 행동으로 상호작용하는 접속 방식",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "터음제시",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "터음제시",
+  "keywords": []
+ },
+ {
+  "id": "rq-27",
+  "title": "UCI(Universal Content Identifier)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "요청",
+  "definition": "디지털 콘텐츠에 고유 식별자를 부여하여 소재 확인·유통·거래·저작권 관리를 지원하는 대한민국 국가 디지털콘텐츠 식별체계 표준",
+  "defShort": "디지털 콘텐츠에 고유 식별자를 부여해 유통과 저작권 관리를 지원하는 국가 표준 체계",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "구총등해",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "구총등해",
+  "keywords": []
+ },
+ {
+  "id": "rq-28",
+  "title": "에이전트 재킹(Agent Jacking)",
+  "category": "보안",
+  "importance": "상",
+  "source": "요청",
+  "definition": "프롬프트 인젝션·도구 오염 등으로 AI 에이전트의 제어권을 탈취하여 부여된 권한·도구(API·파일·결제 등)로 공격자가 의도한 작업을 수행시키는 공격",
+  "defShort": "프롬프트 인젝션과 도구 오염으로 AI 에이전트의 권한을 탈취해 악용하는 신종 공격",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "간도메권",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "간도메권",
+  "keywords": []
+ },
+ {
+  "id": "rq-29",
+  "title": "TCP 세션 하이재킹(Session Hijacking)",
+  "category": "보안",
+  "importance": "상",
+  "source": "요청",
+  "definition": "정상 사용자와 서버 간에 이미 인증이 끝난 TCP 세션을 시퀀스 번호 예측·위조로 가로채 인증 절차 없이 통신을 장악하는 공격",
+  "defShort": "인증이 끝난 정상 세션을 시퀀스 번호 예측으로 위조해 가로채 통신을 장악하는 공격",
+  "memo": "",
+  "sections": [
+   {
+    "label": "두음",
+    "mnemonic": "스예비장",
+    "keywords": []
+   }
+  ],
+  "mnemonic": "스예비장",
+  "keywords": []
  }
 ]
