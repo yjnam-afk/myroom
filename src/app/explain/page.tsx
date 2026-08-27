@@ -476,7 +476,7 @@ function ExplainInner() {
                 📝 답안지 템플릿 — {textbook.title}
               </h3>
               <span className="rounded bg-emerald-600 px-2 py-0.5 text-[10px] font-bold text-white">
-                심화반 {textbook.course}
+                심화반 {COURSE_LABEL[textbook.course] || textbook.course}
               </span>
             </div>
 
