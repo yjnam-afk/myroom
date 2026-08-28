@@ -104,13 +104,26 @@ def check_p24(k, a):
         pass
     return errs
 
+# 기출은 id 규칙(k<회차>-1xx = 1교시)으로 교시를 판별하지만,
+# 모의고사·예상문제(yc·m·f·s…)는 id에 교시가 없어 questions.json의 period를 쓴다.
+numeric = rnd.isdigit()
+prefix = f"k{rnd}-" if numeric else rnd
+period_of = {}
+if not numeric:
+    period_of = {q["id"]: q.get("period", "") for q in json.load(open("src/data/questions.json"))}
+
+def is_p1(k):
+    if numeric:
+        return k.startswith(f"k{rnd}-1")
+    return period_of.get(k, "").startswith("1")
+
 bad = tot = 0
 for k in sorted(m):
-    if not k.startswith(f"k{rnd}-"):
+    if not k.startswith(prefix):
         continue
     tot += 1
     a = m[k]["answer"]
-    e = check_p1(k, a) if k.startswith(f"k{rnd}-1") else check_p24(k, a)
+    e = check_p1(k, a) if is_p1(k) else check_p24(k, a)
     if e:
         bad += 1
         print(f"{k}: " + " | ".join(e))
