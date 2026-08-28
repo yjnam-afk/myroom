@@ -11741,7 +11741,7 @@
     "category": "네트워크",
     "group": "라우팅 프로토콜",
     "importance": "중",
-    "summary": "Distance Vector Routing 기반 메트릭 (metric) 정보를 인접 라우터와 주기적 으로 교환하여 라우팅 테이블을 갱신하 고, Dijkstra의 SPF(Shorte",
+    "summary": "각 라우터가 링크 상태(LSA)를 영역 전체에 홍수식으로 전파해 동일한 링크상태 DB를 구성하고, Dijkstra의 SPF로 최단 경로를 계산하는 링크 상태 기반 내부 라우팅 프로토콜",
     "source": "기필반"
   },
   {

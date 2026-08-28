@@ -90324,7 +90324,9 @@
     "detail": "범용 인공지능(AGI: Artificial General Intelligence)의 개발과 활용 과정에서 발생할 수 있\n는 다양한 위험 요소(기술적, 윤리적, 사회적, 법적 등)를 사전에 식별하고, 이를 체계적으\n로 관리하기 위한 종합적이고 선제적인 지침 체계",
     "related": "위험 식별, 분석, 평가 대응, 위험 프로필, 3D 위험 매트릭스",
     "defKeywords": [
-      "이를 체계적으"
+      "AGI 위험 요소 식별",
+      "기술·윤리·사회·법적 위험",
+      "선제적 관리 지침 체계"
     ],
     "featureKeywords": [],
     "applicationKeywords": [],
