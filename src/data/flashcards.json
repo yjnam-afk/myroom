@@ -38134,7 +38134,7 @@
  },
  {
   "id": "gj-110",
-  "title": "Crowd Funding(크라우드",
+  "title": "크라우드 펀딩(Crowd Funding)",
   "category": "경영전략",
   "importance": "하",
   "source": "기필반",
@@ -39192,7 +39192,7 @@
  },
  {
   "id": "gj-147",
-  "title": "TAM;Total Available Market)",
+  "title": "TAM(Total Available Market)",
   "category": "경영전략",
   "importance": "하",
   "source": "기필반",
@@ -48934,7 +48934,7 @@
  },
  {
   "id": "se-219",
-  "title": "SO/IEC 25041",
+  "title": "ISO/IEC 25041",
   "category": "소프트웨어공학",
   "importance": "중",
   "source": "기필반",
@@ -51298,7 +51298,7 @@
  },
  {
   "id": "se-293",
-  "title": "민간투자형 SW 사업 PPP((PPP, Public Private Partnership)",
+  "title": "민간투자형 SW 사업(PPP, Public Private Partnership)",
   "category": "소프트웨어공학",
   "importance": "상",
   "source": "기필반",
@@ -54145,7 +54145,7 @@
  },
  {
   "id": "ds-61",
-  "title": "서버리스 컴퓨팅((Serverless Computing)",
+  "title": "서버리스 컴퓨팅(Serverless Computing)",
   "category": "디지털서비스",
   "importance": "출제예상",
   "source": "기필반",
@@ -55722,7 +55722,7 @@
  },
  {
   "id": "ds-110",
-  "title": "ARC(Augmented Reality",
+  "title": "ARC(Augmented Reality Continuum)",
   "category": "디지털서비스",
   "importance": "하",
   "source": "기필반",
@@ -63936,7 +63936,7 @@
  },
  {
   "id": "ds-372",
-  "title": "ADAS(Advanced Driver",
+  "title": "ADAS(Advanced Driver Assistance Systems)",
   "category": "디지털서비스",
   "importance": "중",
   "source": "기필반",
@@ -74925,35 +74925,6 @@
   ]
  },
  {
-  "id": "net-290",
-  "title": "디지털 트윈 네트워크 (Digital Twin",
-  "category": "네트워크",
-  "importance": "하",
-  "source": "기필반",
-  "definition": "실제 네트워크를 데이터·모델 기반으로 가상 복제해 실시간 매핑·분석·시뮬레이션하고 그 결과를 물리망에 되먹이는 양방향 네트워크 운영 체계.",
-  "defShort": "실제 망을 가상 복제해 실시간 분석 시뮬레이션 결과를 물리망에 되먹이는 운영 체계",
-  "memo": "'데모(demo)를 매인(매핑·인터페이스)' → 데모매인. 단방향 모니터링과 달리 결과를 물리망에 되먹이는 양방향이라는 점이 채점 포인트.",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "데모매인",
-    "keywords": [
-     "데이터",
-     "모델",
-     "매핑",
-     "인터페이스"
-    ]
-   }
-  ],
-  "mnemonic": "데모매인",
-  "keywords": [
-   "데이터",
-   "모델",
-   "매핑",
-   "인터페이스"
-  ]
- },
- {
   "id": "net-291",
   "title": "SRv6(Segment Routing over IPv6)",
   "category": "네트워크",
@@ -76656,7 +76627,7 @@
  },
  {
   "id": "sec-59",
-  "title": "사회공학(Social Engineering",
+  "title": "사회공학(Social Engineering)",
   "category": "보안",
   "importance": "하",
   "source": "기필반",
@@ -85011,7 +84982,7 @@
  },
  {
   "id": "sec-357",
-  "title": "CSAP, CSAP(Cloud Security Assurance Program",
+  "title": "CSAP(Cloud Security Assurance Program)",
   "category": "보안",
   "importance": "출제예상",
   "source": "기필반",
@@ -86478,7 +86449,7 @@
  },
  {
   "id": "db-11",
-  "title": "식별자((Identifiers)",
+  "title": "식별자(Identifiers)",
   "category": "데이터베이스",
   "importance": "하",
   "source": "기필반",
@@ -92973,7 +92944,7 @@
  },
  {
   "id": "ai-12",
-  "title": "귀납적사고(Inductive Reasoning",
+  "title": "귀납적 사고(Inductive Reasoning)",
   "category": "인공지능",
   "importance": "하",
   "source": "기필반",
@@ -93897,44 +93868,6 @@
   ]
  },
  {
-  "id": "ai-50",
-  "title": "GAN (Generative",
-  "category": "인공지능",
-  "importance": "상",
-  "source": "기필반",
-  "definition": "생성자(Generator)와 판별자(Discriminator)가 적대적 경쟁(minimax 게임)을 반복하며 실제와 유사한 데이터를 생성하도록 학습하는 생성형 비지도학습 모델",
-  "defShort": "생성자와 판별자가 적대적 경쟁을 반복하며 실제와 유사한 데이터를 만드는 생성 모델",
-  "memo": "구성요소 '생판적' — 생성자·판별자·적대적 손실, 생판 모르는 적끼리 겨룬다.\n위조지폐범(G) vs 경찰(D) 스토리 하나로 정의·원리·한계까지 전개 가능. 경쟁하며 동반 성장, 너무 잘 속이면 같은 지폐만 찍는 모드 붕괴",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "생판적",
-    "keywords": [
-     "생성자(Generator)",
-     "판별자(Discriminator)",
-     "적대적 손실"
-    ]
-   },
-   {
-    "label": "파생 모델",
-    "mnemonic": "",
-    "keywords": [
-     "DCGAN",
-     "cGAN",
-     "CycleGAN",
-     "StyleGAN",
-     "Defense-GAN"
-    ]
-   }
-  ],
-  "mnemonic": "생판적",
-  "keywords": [
-   "생성자(Generator)",
-   "판별자(Discriminator)",
-   "적대적 손실"
-  ]
- },
- {
   "id": "ai-51",
   "title": "DCGAN",
   "category": "인공지능",
@@ -94594,7 +94527,7 @@
  },
  {
   "id": "ai-79",
-  "title": "AI 신뢰성 인증제도 (Certification of AI Trustworthiness,",
+  "title": "AI 신뢰성 인증제도(Certification of AI Trustworthiness)",
   "category": "인공지능",
   "importance": "상",
   "source": "기필반",
@@ -96339,7 +96272,7 @@
  },
  {
   "id": "ai-165",
-  "title": "GLIGEN Ground Language to Image Generation) 알고리즘",
+  "title": "GLIGEN(Grounded Language to Image Generation) 알고리즘",
   "category": "인공지능",
   "importance": "하",
   "source": "기필반",
@@ -97454,7 +97387,7 @@
  },
  {
   "id": "ca-6",
-  "title": "눈덩이 효과\n-요르돈 법칙(Snowball Effects)",
+  "title": "눈덩이 효과 -요르돈 법칙(Snowball Effects)",
   "category": "소프트웨어공학",
   "importance": "하",
   "source": "기필반",
@@ -97550,7 +97483,7 @@
  },
  {
   "id": "ca-9",
-  "title": "사노프의 법칙 \n(Sarnoff’s law)",
+  "title": "사노프의 법칙 (Sarnoff’s law)",
   "category": "소프트웨어공학",
   "importance": "하",
   "source": "기필반",
@@ -97577,7 +97510,7 @@
  },
  {
   "id": "ca-10",
-  "title": "리드의 법칙\n(Reed’s law)",
+  "title": "리드의 법칙 (Reed’s law)",
   "category": "소프트웨어공학",
   "importance": "하",
   "source": "기필반",
@@ -97861,7 +97794,7 @@
  },
  {
   "id": "ca-21",
-  "title": "GPGPU - CUDA / Blackwell \n/ Rubin",
+  "title": "GPGPU - CUDA / Blackwell / Rubin",
   "category": "소프트웨어공학",
   "importance": "상",
   "source": "기필반",
@@ -97907,7 +97840,7 @@
  },
  {
   "id": "ca-23",
-  "title": "매니코어 프로세서\n(many core CPU(Central Processing Unit))",
+  "title": "매니코어 프로세서 (many core CPU(Central Processing Unit))",
   "category": "소프트웨어공학",
   "importance": "중",
   "source": "기필반",
@@ -98084,7 +98017,7 @@
  },
  {
   "id": "ca-30",
-  "title": "SSD\n(Solid state drive)",
+  "title": "SSD (Solid state drive)",
   "category": "소프트웨어공학",
   "importance": "상",
   "source": "기필반",
@@ -98500,7 +98433,7 @@
  },
  {
   "id": "ca-44",
-  "title": "SCSI RDMA\n(Remote Direct Memory Access)",
+  "title": "SCSI RDMA (Remote Direct Memory Access)",
   "category": "소프트웨어공학",
   "importance": "중",
   "source": "기필반",
@@ -98623,7 +98556,7 @@
  },
  {
   "id": "ca-50",
-  "title": "PCI Express\n(Peripheral Component Interconnect Express)",
+  "title": "PCI Express (Peripheral Component Interconnect Express)",
   "category": "소프트웨어공학",
   "importance": "중",
   "source": "기필반",
@@ -98745,7 +98678,7 @@
  },
  {
   "id": "ca-60",
-  "title": "DRAM\n(Dynamic Random Access Memory)",
+  "title": "DRAM (Dynamic Random Access Memory)",
   "category": "소프트웨어공학",
   "importance": "중",
   "source": "기필반",
@@ -98758,7 +98691,7 @@
  },
  {
   "id": "ca-61",
-  "title": "SDRAM\n(or SDR SDRAM)",
+  "title": "SDRAM (or SDR SDRAM)",
   "category": "소프트웨어공학",
   "importance": "중",
   "source": "기필반",
@@ -98777,7 +98710,7 @@
  },
  {
   "id": "ca-62",
-  "title": "DDR SDRAM\n(Double data rate synchronous dynamic random access memory)",
+  "title": "DDR SDRAM (Double data rate synchronous dynamic random access memory)",
   "category": "소프트웨어공학",
   "importance": "출제예상",
   "source": "기필반",
@@ -98822,7 +98755,7 @@
  },
  {
   "id": "ca-65",
-  "title": "FeRAM(강유전체 메모리)\n(Ferroelectric RAM)",
+  "title": "FeRAM(강유전체 메모리) (Ferroelectric RAM)",
   "category": "소프트웨어공학",
   "importance": "중",
   "source": "기필반",
@@ -98858,7 +98791,7 @@
  },
  {
   "id": "ca-66",
-  "title": "MRAM\n(Magnetoresistive RAM)",
+  "title": "MRAM (Magnetoresistive RAM)",
   "category": "소프트웨어공학",
   "importance": "중",
   "source": "기필반",
@@ -98871,7 +98804,7 @@
  },
  {
   "id": "ca-67",
-  "title": "STT-MRAM\n= STT-RAM",
+  "title": "STT-MRAM = STT-RAM",
   "category": "소프트웨어공학",
   "importance": "중",
   "source": "기필반",
@@ -99048,7 +98981,7 @@
  },
  {
   "id": "ca-80",
-  "title": "집합연관사상\n(Set Associative Mapping)",
+  "title": "집합연관사상 (Set Associative Mapping)",
   "category": "소프트웨어공학",
   "importance": "상",
   "source": "기필반",
@@ -99652,7 +99585,7 @@
  },
  {
   "id": "ca-109",
-  "title": "하이퍼 스레딩\n(Hyperthreading)",
+  "title": "하이퍼 스레딩 (Hyperthreading)",
   "category": "소프트웨어공학",
   "importance": "하",
   "source": "기필반",
@@ -100030,7 +99963,7 @@
  },
  {
   "id": "ca-124",
-  "title": "CPU 제어장치(Control Unit)\n구조 유형 2가지",
+  "title": "CPU 제어장치(Control Unit) 구조 유형 2가지",
   "category": "소프트웨어공학",
   "importance": "상",
   "source": "기필반",
@@ -100825,7 +100758,7 @@
  },
  {
   "id": "ca-159",
-  "title": "인코더\n(Encoder)",
+  "title": "인코더 (Encoder)",
   "category": "소프트웨어공학",
   "importance": "중",
   "source": "기필반",
@@ -100850,7 +100783,7 @@
  },
  {
   "id": "ca-160",
-  "title": "디코더\n(Decoder)",
+  "title": "디코더 (Decoder)",
   "category": "소프트웨어공학",
   "importance": "중",
   "source": "기필반",
@@ -100982,7 +100915,7 @@
  },
  {
   "id": "ca-166",
-  "title": "복합 프로그래머블 논리 소자\n(CPLD)",
+  "title": "복합 프로그래머블 논리 소자 (CPLD)",
   "category": "소프트웨어공학",
   "importance": "중",
   "source": "기필반",
@@ -100995,7 +100928,7 @@
  },
  {
   "id": "ca-167",
-  "title": "현장  프로그래머블 \n게이트 어레이(FPGA)",
+  "title": "현장  프로그래머블 게이트 어레이(FPGA)",
   "category": "소프트웨어공학",
   "importance": "중",
   "source": "기필반",
@@ -101715,7 +101648,7 @@
  },
  {
   "id": "ca-202",
-  "title": "APU\n(Accelerated processing unit, APU)",
+  "title": "APU (Accelerated processing unit, APU)",
   "category": "소프트웨어공학",
   "importance": "하",
   "source": "기필반",
@@ -101821,7 +101754,7 @@
  },
  {
   "id": "ca-206",
-  "title": "모바일 AP\n(Application Processor)",
+  "title": "모바일 AP (Application Processor)",
   "category": "소프트웨어공학",
   "importance": "중",
   "source": "기필반",
@@ -101928,7 +101861,7 @@
  },
  {
   "id": "ca-211",
-  "title": "엑사스케일(Exascale) 컴퓨팅 \n시스템",
+  "title": "엑사스케일(Exascale) 컴퓨팅 시스템",
   "category": "소프트웨어공학",
   "importance": "중",
   "source": "기필반",
@@ -102074,43 +102007,6 @@
    "CXL.io",
    "CXL.cache",
    "CXL.memory"
-  ]
- },
- {
-  "id": "ca-215",
-  "title": "정보시스템\n하드웨어 규모산정 지침 \n- (TTAK.KO 10.0292/R3",
-  "category": "소프트웨어공학",
-  "importance": "상",
-  "source": "기필반",
-  "definition": "정보시스템 구축 시 용량·성능 요구사항을 서버·스토리지 등 하드웨어 규모(시스템 요구사항)로 변환하는 방법과 절차를 규정한 TTA 단체표준 지침(TTAK.KO-10.0292/R3)",
-  "defShort": "용량·성능 요구사항을 수식계산법 등으로 하드웨어 규모로 변환하는 TTA 표준",
-  "memo": "방법은 '수시참'(수식계산법-시뮬레이션법-참조법 = 계산기-모형실험-카탈로그), 절차는 '구기참가(球技 참가)'(구축방향 조사-기초자료 분석-참조모델·규모산정-가중치 적용). 서버별 지표 짝(OLTP=tpmC, WAS=OPS, 스토리지=IOPS)이 1교시 단골.",
-  "sections": [
-   {
-    "label": "규모산정 3방법",
-    "mnemonic": "수시참",
-    "keywords": [
-     "수식계산법",
-     "시뮬레이션법",
-     "참조법"
-    ]
-   },
-   {
-    "label": "절차",
-    "mnemonic": "구기참가",
-    "keywords": [
-     "구축방향·기초자료 조사",
-     "기초자료·업무 분석",
-     "참조모델 결정·서버 규모산정",
-     "가중치 적용"
-    ]
-   }
-  ],
-  "mnemonic": "수시참",
-  "keywords": [
-   "수식계산법",
-   "시뮬레이션법",
-   "참조법"
   ]
  },
  {
@@ -102761,7 +102657,7 @@
  },
  {
   "id": "os-21",
-  "title": "단일 큐 멀티프로세서 스케줄링(SQMS: \nSingle Queue Multiprocessor Scheduling)",
+  "title": "단일 큐 멀티프로세서 스케줄링(SQMS: Single Queue Multiprocessor Scheduling)",
   "category": "소프트웨어공학",
   "importance": "중",
   "source": "기필반",
@@ -102800,7 +102696,7 @@
  },
  {
   "id": "os-26",
-  "title": "엘리베이터 알고리즘(Elevator Algorithm)/\nSCAN 알고리즘",
+  "title": "엘리베이터 알고리즘(Elevator Algorithm)/ SCAN 알고리즘",
   "category": "소프트웨어공학",
   "importance": "하",
   "source": "기필반",
@@ -102854,7 +102750,7 @@
  },
  {
   "id": "os-28",
-  "title": "병행 제어\n(Concurrency control)",
+  "title": "병행 제어 (Concurrency control)",
   "category": "소프트웨어공학",
   "importance": "상",
   "source": "기필반",
@@ -102929,7 +102825,7 @@
  },
  {
   "id": "os-30",
-  "title": "Mutual Exclusion(상호배제)\n/뮤텍스(Mutex)",
+  "title": "Mutual Exclusion(상호배제) /뮤텍스(Mutex)",
   "category": "소프트웨어공학",
   "importance": "상",
   "source": "기필반",
@@ -103474,7 +103370,7 @@
  },
  {
   "id": "os-71",
-  "title": "디스크 블록 할당 기법\n(File Allocation)",
+  "title": "디스크 블록 할당 기법 (File Allocation)",
   "category": "소프트웨어공학",
   "importance": "하",
   "source": "기필반",
@@ -103997,7 +103893,7 @@
  },
  {
   "id": "dst-8",
-  "title": "이진트리\n(Binary Tree)",
+  "title": "이진트리 (Binary Tree)",
   "category": "소프트웨어공학",
   "importance": "상",
   "source": "기필반",
@@ -104024,7 +103920,7 @@
  },
  {
   "id": "dst-10",
-  "title": "Balanced Tree\nB-Tree(비트리)",
+  "title": "Balanced Tree B-Tree(비트리)",
   "category": "소프트웨어공학",
   "importance": "상",
   "source": "기필반",
@@ -104491,7 +104387,7 @@
  },
  {
   "id": "alg-12",
-  "title": "기수정렬((Radix Sort)",
+  "title": "기수정렬(Radix Sort)",
   "category": "소프트웨어공학",
   "importance": "하",
   "source": "기필반",
@@ -105046,7 +104942,7 @@
  },
  {
   "id": "alg-37",
-  "title": "대기행렬이론\n(Queuing Theory)",
+  "title": "대기행렬이론 (Queuing Theory)",
   "category": "소프트웨어공학",
   "importance": "상",
   "source": "기필반",
@@ -105114,7 +105010,7 @@
  },
  {
   "id": "alg-39",
-  "title": "모라벡의 역설\n(Moravec’s Paradox)",
+  "title": "모라벡의 역설 (Moravec’s Paradox)",
   "category": "소프트웨어공학",
   "importance": "하",
   "source": "기필반",
@@ -106091,12 +105987,26 @@
   "category": "확률·통계",
   "importance": "중",
   "source": "기필반",
-  "definition": "(정의) 모집단으로부터 추출된 표본의 크기 n이 충분히 크다면(30 이상) 표본 평균들이 이루는 분포는 모집단의 분포와 상관없이 정규분포를 따른다는 원리. - 관측치 수가 증가함에 따라 합이나 평균은 그 확률히스토그램이 정규분포 곡선으로 수렴해 간다.",
+  "definition": "(정의) 결과가 성공·실패 두 가지뿐인 시행(베르누이 시행)을 한 번 수행했을 때, 성공을 1·실패를 0으로 대응시킨 확률변수가 따르는 이산확률분포 - 확률질량함수: P(X=1)=p, P(X=0)=1−p (0 ≤ p ≤ 1) - 기댓값 E(X)=p, 분산 Var(X)=",
   "defShort": "성공과 실패 두 결과만 갖는 단 한 번의 시행 결과가 따르는 가장 기본적인 이산 확률분포",
   "memo": "",
-  "sections": [],
+  "sections": [
+   {
+    "label": "핵심 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "성공확률 p",
+     "기댓값 p",
+     "분산 p(1−p)"
+    ]
+   }
+  ],
   "mnemonic": "",
-  "keywords": []
+  "keywords": [
+   "성공확률 p",
+   "기댓값 p",
+   "분산 p(1−p)"
+  ]
  },
  {
   "id": "gp-47",
@@ -106559,19 +106469,6 @@
   "source": "기필반",
   "definition": "데이터 내에 포함된 불규칙하고 무의미한 오류 값으로, 외부 환경, 시스템 오작동, 센서 오류 등으로 발생하며 분석 정확성을 저해하는 요인",
   "defShort": "데이터 내에 포함된 불규칙하고 무의미한 오류 값으로 분석 정확성을 저해하는 요인",
-  "memo": "",
-  "sections": [],
-  "mnemonic": "",
-  "keywords": []
- },
- {
-  "id": "gp-85",
-  "title": "FP(Frequent Growth 알고리즘",
-  "category": "확률·통계",
-  "importance": "하",
-  "source": "기필반",
-  "definition": "후보 항목 집합을 생성하지 않고 , 트랜잭션 데이터 를 압축 하여 FP Tree 를 만든 후 , 그 트리에서 빈발 항목 집합 (Frequent (Frequent)을 빠르게 찾는 알고리즘",
-  "defShort": "후보 항목집합 생성 없이 압축한 트리로부터 빈발 항목집합을 찾아내는 알고리즘이다",
   "memo": "",
   "sections": [],
   "mnemonic": "",

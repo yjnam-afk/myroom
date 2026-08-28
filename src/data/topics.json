@@ -982,7 +982,7 @@
   },
   {
     "id": "gj-110",
-    "title": "Crowd Funding(크라우드",
+    "title": "크라우드 펀딩(Crowd Funding)",
     "category": "경영전략",
     "group": "IPO/ICO",
     "importance": "하",
@@ -1315,7 +1315,7 @@
   },
   {
     "id": "gj-147",
-    "title": "TAM;Total Available Market)",
+    "title": "TAM(Total Available Market)",
     "category": "경영전략",
     "group": "투자 평가 관리",
     "importance": "하",
@@ -4618,7 +4618,7 @@
   },
   {
     "id": "se-219",
-    "title": "SO/IEC 25041",
+    "title": "ISO/IEC 25041",
     "category": "소프트웨어공학",
     "group": "SW 품질 표준 및 종합",
     "importance": "중",
@@ -5284,7 +5284,7 @@
   },
   {
     "id": "se-293",
-    "title": "민간투자형 SW 사업 PPP((PPP, Public Private Partnership)",
+    "title": "민간투자형 SW 사업(PPP, Public Private Partnership)",
     "category": "소프트웨어공학",
     "group": "국내 SW 육성 방안",
     "importance": "상",
@@ -6148,7 +6148,7 @@
   },
   {
     "id": "ds-61",
-    "title": "서버리스 컴퓨팅((Serverless Computing)",
+    "title": "서버리스 컴퓨팅(Serverless Computing)",
     "category": "디지털서비스",
     "group": "Cloud Computing",
     "importance": "출제예상",
@@ -6589,7 +6589,7 @@
   },
   {
     "id": "ds-110",
-    "title": "ARC(Augmented Reality",
+    "title": "ARC(Augmented Reality Continuum)",
     "category": "디지털서비스",
     "group": "증강현실/가상현실",
     "importance": "하",
@@ -8947,7 +8947,7 @@
   },
   {
     "id": "ds-372",
-    "title": "ADAS(Advanced Driver",
+    "title": "ADAS(Advanced Driver Assistance Systems)",
     "category": "디지털서비스",
     "group": "자동차/모빌리티",
     "importance": "중",
@@ -9883,7 +9883,7 @@
   },
   {
     "id": "net-5",
-    "title": "PCM((Pulse Code Modulation)",
+    "title": "PCM(Pulse Code Modulation)",
     "category": "네트워크",
     "group": "Network 기본",
     "importance": "중",
@@ -12448,12 +12448,12 @@
   },
   {
     "id": "net-290",
-    "title": "디지털 트윈 네트워크 (Digital Twin",
+    "title": "디지털 트윈 네트워크(Digital Twin Network)",
     "category": "네트워크",
     "group": "기타",
     "importance": "하",
     "summary": "네트워크 운영관리를 최적화하기 위해 데이터, 모델 및 인터페이스 기반 네트워크를 실시간 매칭, 분석, 진단, 에뮬레이션 및 제어하는 양방향 네트워크",
-    "source": "기필반"
+    "source": "심화반"
   },
   {
     "id": "net-291",
@@ -13051,7 +13051,7 @@
   },
   {
     "id": "sec-59",
-    "title": "사회공학(Social Engineering",
+    "title": "사회공학(Social Engineering)",
     "category": "보안",
     "group": "Hacking(해킹)",
     "importance": "하",
@@ -15733,7 +15733,7 @@
   },
   {
     "id": "sec-357",
-    "title": "CSAP, CSAP(Cloud Security Assurance Program",
+    "title": "CSAP(Cloud Security Assurance Program)",
     "category": "보안",
     "group": "기타/시사",
     "importance": "출제예상",
@@ -16201,7 +16201,7 @@
   },
   {
     "id": "db-11",
-    "title": "식별자((Identifiers)",
+    "title": "식별자(Identifiers)",
     "category": "데이터베이스",
     "group": "DB 기본",
     "importance": "하",
@@ -18352,7 +18352,7 @@
   },
   {
     "id": "ai-12",
-    "title": "귀납적사고(Inductive Reasoning",
+    "title": "귀납적 사고(Inductive Reasoning)",
     "category": "인공지능",
     "group": "인공지능 개요",
     "importance": "하",
@@ -18694,12 +18694,12 @@
   },
   {
     "id": "ai-50",
-    "title": "GAN (Generative",
+    "title": "GAN(Generative Adversarial Network)",
     "category": "인공지능",
     "group": "비지도학습 - 잠재변수 모델",
     "importance": "상",
     "summary": "생성자(Generator)와 판별자(Discriminator)가 서로 경쟁하는 과정을 통해 정보를 학 습하는 대표적 비지도학습",
-    "source": "기필반"
+    "source": "심화반"
   },
   {
     "id": "ai-51",
@@ -18955,7 +18955,7 @@
   },
   {
     "id": "ai-79",
-    "title": "AI 신뢰성 인증제도 (Certification of AI Trustworthiness,",
+    "title": "AI 신뢰성 인증제도(Certification of AI Trustworthiness)",
     "category": "인공지능",
     "group": "모델 평가 / 신뢰성",
     "importance": "상",
@@ -19729,7 +19729,7 @@
   },
   {
     "id": "ai-165",
-    "title": "GLIGEN Ground Language to Image Generation) 알고리즘",
+    "title": "GLIGEN(Grounded Language to Image Generation) 알고리즘",
     "category": "인공지능",
     "group": "기타 알고리즘들",
     "importance": "하",
@@ -20170,7 +20170,7 @@
   },
   {
     "id": "ca-6",
-    "title": "눈덩이 효과\n-요르돈 법칙(Snowball Effects)",
+    "title": "눈덩이 효과 -요르돈 법칙(Snowball Effects)",
     "category": "소프트웨어공학",
     "group": "법칙 일반",
     "importance": "하",
@@ -20197,7 +20197,7 @@
   },
   {
     "id": "ca-9",
-    "title": "사노프의 법칙 \n(Sarnoff’s law)",
+    "title": "사노프의 법칙 (Sarnoff’s law)",
     "category": "소프트웨어공학",
     "group": "법칙 일반",
     "importance": "하",
@@ -20206,7 +20206,7 @@
   },
   {
     "id": "ca-10",
-    "title": "리드의 법칙\n(Reed’s law)",
+    "title": "리드의 법칙 (Reed’s law)",
     "category": "소프트웨어공학",
     "group": "법칙 일반",
     "importance": "하",
@@ -20305,7 +20305,7 @@
   },
   {
     "id": "ca-21",
-    "title": "GPGPU - CUDA / Blackwell \n/ Rubin",
+    "title": "GPGPU - CUDA / Blackwell / Rubin",
     "category": "소프트웨어공학",
     "group": "컴퓨터 구조",
     "importance": "상",
@@ -20323,7 +20323,7 @@
   },
   {
     "id": "ca-23",
-    "title": "매니코어 프로세서\n(many core CPU(Central Processing Unit))",
+    "title": "매니코어 프로세서 (many core CPU(Central Processing Unit))",
     "category": "소프트웨어공학",
     "group": "컴퓨터 구조",
     "importance": "중",
@@ -20386,7 +20386,7 @@
   },
   {
     "id": "ca-30",
-    "title": "SSD\n(Solid state drive)",
+    "title": "SSD (Solid state drive)",
     "category": "소프트웨어공학",
     "group": "보조기억장치",
     "importance": "상",
@@ -20512,7 +20512,7 @@
   },
   {
     "id": "ca-44",
-    "title": "SCSI RDMA\n(Remote Direct Memory Access)",
+    "title": "SCSI RDMA (Remote Direct Memory Access)",
     "category": "소프트웨어공학",
     "group": "보조기억장치",
     "importance": "중",
@@ -20539,7 +20539,7 @@
   },
   {
     "id": "ca-47",
-    "title": "I2C\n(Inter Integrated Circuit)",
+    "title": "I2C (Inter Integrated Circuit)",
     "category": "소프트웨어공학",
     "group": "주변장치",
     "importance": "중",
@@ -20566,7 +20566,7 @@
   },
   {
     "id": "ca-50",
-    "title": "PCI Express\n(Peripheral Component Interconnect Express)",
+    "title": "PCI Express (Peripheral Component Interconnect Express)",
     "category": "소프트웨어공학",
     "group": "주변장치",
     "importance": "중",
@@ -20611,7 +20611,7 @@
   },
   {
     "id": "ca-55",
-    "title": "가상기억장치(Virtual Memory)\n가상메모리",
+    "title": "가상기억장치(Virtual Memory) 가상메모리",
     "category": "소프트웨어공학",
     "group": "컴퓨터 메모리/\n기억장치",
     "importance": "상",
@@ -20656,7 +20656,7 @@
   },
   {
     "id": "ca-60",
-    "title": "DRAM\n(Dynamic Random Access Memory)",
+    "title": "DRAM (Dynamic Random Access Memory)",
     "category": "소프트웨어공학",
     "group": "램(RAM)",
     "importance": "중",
@@ -20665,7 +20665,7 @@
   },
   {
     "id": "ca-61",
-    "title": "SDRAM\n(or SDR SDRAM)",
+    "title": "SDRAM (or SDR SDRAM)",
     "category": "소프트웨어공학",
     "group": "램(RAM)",
     "importance": "중",
@@ -20674,7 +20674,7 @@
   },
   {
     "id": "ca-62",
-    "title": "DDR SDRAM\n(Double data rate synchronous dynamic random access memory)",
+    "title": "DDR SDRAM (Double data rate synchronous dynamic random access memory)",
     "category": "소프트웨어공학",
     "group": "램(RAM)",
     "importance": "출제예상",
@@ -20701,7 +20701,7 @@
   },
   {
     "id": "ca-65",
-    "title": "FeRAM(강유전체 메모리)\n(Ferroelectric RAM)",
+    "title": "FeRAM(강유전체 메모리) (Ferroelectric RAM)",
     "category": "소프트웨어공학",
     "group": "램(RAM)",
     "importance": "중",
@@ -20710,7 +20710,7 @@
   },
   {
     "id": "ca-66",
-    "title": "MRAM\n(Magnetoresistive RAM)",
+    "title": "MRAM (Magnetoresistive RAM)",
     "category": "소프트웨어공학",
     "group": "램(RAM)",
     "importance": "중",
@@ -20719,7 +20719,7 @@
   },
   {
     "id": "ca-67",
-    "title": "STT-MRAM\n= STT-RAM",
+    "title": "STT-MRAM = STT-RAM",
     "category": "소프트웨어공학",
     "group": "램(RAM)",
     "importance": "중",
@@ -20809,7 +20809,7 @@
   },
   {
     "id": "ca-77",
-    "title": "Cache 일관성 유지방법/\n일관성 유지(Coherence)",
+    "title": "Cache 일관성 유지방법/ 일관성 유지(Coherence)",
     "category": "소프트웨어공학",
     "group": "Cache Memory",
     "importance": "중",
@@ -20818,7 +20818,7 @@
   },
   {
     "id": "ca-78",
-    "title": "사상 기법 3가지\n직접사상(Direct Mapping)",
+    "title": "사상 기법 3가지 직접사상(Direct Mapping)",
     "category": "소프트웨어공학",
     "group": "Cache Memory",
     "importance": "상",
@@ -20836,7 +20836,7 @@
   },
   {
     "id": "ca-80",
-    "title": "집합연관사상\n(Set Associative Mapping)",
+    "title": "집합연관사상 (Set Associative Mapping)",
     "category": "소프트웨어공학",
     "group": "Cache Memory",
     "importance": "상",
@@ -21097,7 +21097,7 @@
   },
   {
     "id": "ca-109",
-    "title": "하이퍼 스레딩\n(Hyperthreading)",
+    "title": "하이퍼 스레딩 (Hyperthreading)",
     "category": "소프트웨어공학",
     "group": "병렬처리\n(Parallel Processing)",
     "importance": "하",
@@ -21232,7 +21232,7 @@
   },
   {
     "id": "ca-124",
-    "title": "CPU 제어장치(Control Unit)\n구조 유형 2가지",
+    "title": "CPU 제어장치(Control Unit) 구조 유형 2가지",
     "category": "소프트웨어공학",
     "group": "중앙처리장치\n(CPU)",
     "importance": "상",
@@ -21547,7 +21547,7 @@
   },
   {
     "id": "ca-159",
-    "title": "인코더\n(Encoder)",
+    "title": "인코더 (Encoder)",
     "category": "소프트웨어공학",
     "group": "디지털\n논리회로",
     "importance": "중",
@@ -21556,7 +21556,7 @@
   },
   {
     "id": "ca-160",
-    "title": "디코더\n(Decoder)",
+    "title": "디코더 (Decoder)",
     "category": "소프트웨어공학",
     "group": "디지털\n논리회로",
     "importance": "중",
@@ -21610,7 +21610,7 @@
   },
   {
     "id": "ca-166",
-    "title": "복합 프로그래머블 논리 소자\n(CPLD)",
+    "title": "복합 프로그래머블 논리 소자 (CPLD)",
     "category": "소프트웨어공학",
     "group": "디지털\n논리회로",
     "importance": "중",
@@ -21619,7 +21619,7 @@
   },
   {
     "id": "ca-167",
-    "title": "현장  프로그래머블 \n게이트 어레이(FPGA)",
+    "title": "현장  프로그래머블 게이트 어레이(FPGA)",
     "category": "소프트웨어공학",
     "group": "디지털\n논리회로",
     "importance": "중",
@@ -21934,7 +21934,7 @@
   },
   {
     "id": "ca-202",
-    "title": "APU\n(Accelerated processing unit, APU)",
+    "title": "APU (Accelerated processing unit, APU)",
     "category": "소프트웨어공학",
     "group": "기타",
     "importance": "하",
@@ -21970,7 +21970,7 @@
   },
   {
     "id": "ca-206",
-    "title": "모바일 AP\n(Application Processor)",
+    "title": "모바일 AP (Application Processor)",
     "category": "소프트웨어공학",
     "group": "기타",
     "importance": "중",
@@ -22015,7 +22015,7 @@
   },
   {
     "id": "ca-211",
-    "title": "엑사스케일(Exascale) 컴퓨팅 \n시스템",
+    "title": "엑사스케일(Exascale) 컴퓨팅 시스템",
     "category": "소프트웨어공학",
     "group": "신토픽",
     "importance": "중",
@@ -22051,12 +22051,12 @@
   },
   {
     "id": "ca-215",
-    "title": "정보시스템\n하드웨어 규모산정 지침 \n- (TTAK.KO 10.0292/R3",
+    "title": "정보시스템 하드웨어 규모산정 지침(TTAK.KO-10.0292/R3)",
     "category": "소프트웨어공학",
     "group": "신토픽",
     "importance": "상",
     "summary": "기본적인 용량과 성능 요구사항이 제시되었을 때 , 그것을 시스템 요구사항으로 변환하는 방법",
-    "source": "기필반"
+    "source": "심화반"
   },
   {
     "id": "ca-216",
@@ -22294,7 +22294,7 @@
   },
   {
     "id": "os-21",
-    "title": "단일 큐 멀티프로세서 스케줄링(SQMS: \nSingle Queue Multiprocessor Scheduling)",
+    "title": "단일 큐 멀티프로세서 스케줄링(SQMS: Single Queue Multiprocessor Scheduling)",
     "category": "소프트웨어공학",
     "group": "CPU 스케쥴링",
     "importance": "중",
@@ -22339,7 +22339,7 @@
   },
   {
     "id": "os-26",
-    "title": "엘리베이터 알고리즘(Elevator Algorithm)/\nSCAN 알고리즘",
+    "title": "엘리베이터 알고리즘(Elevator Algorithm)/ SCAN 알고리즘",
     "category": "소프트웨어공학",
     "group": "디스크 스케줄링",
     "importance": "하",
@@ -22357,7 +22357,7 @@
   },
   {
     "id": "os-28",
-    "title": "병행 제어\n(Concurrency control)",
+    "title": "병행 제어 (Concurrency control)",
     "category": "소프트웨어공학",
     "group": "병행 제어\n(Concurrency control)",
     "importance": "상",
@@ -22375,7 +22375,7 @@
   },
   {
     "id": "os-30",
-    "title": "Mutual Exclusion(상호배제)\n/뮤텍스(Mutex)",
+    "title": "Mutual Exclusion(상호배제) /뮤텍스(Mutex)",
     "category": "소프트웨어공학",
     "group": "병행 제어\n(Concurrency control)",
     "importance": "상",
@@ -22411,7 +22411,7 @@
   },
   {
     "id": "os-34",
-    "title": "우선순위 역전\n(세마포어 문제)",
+    "title": "우선순위 역전 (세마포어 문제)",
     "category": "소프트웨어공학",
     "group": "병행 제어\n(Concurrency control)",
     "importance": "상",
@@ -22744,7 +22744,7 @@
   },
   {
     "id": "os-71",
-    "title": "디스크 블록 할당 기법\n(File Allocation)",
+    "title": "디스크 블록 할당 기법 (File Allocation)",
     "category": "소프트웨어공학",
     "group": "파일관리\n(파일시스템)",
     "importance": "하",
@@ -22771,7 +22771,7 @@
   },
   {
     "id": "os-74",
-    "title": "시간지역성(Temporal Locality)\n공간지역성(Spatial Locality)",
+    "title": "시간지역성(Temporal Locality) 공간지역성(Spatial Locality)",
     "category": "소프트웨어공학",
     "group": "Locality",
     "importance": "상",
@@ -22960,7 +22960,7 @@
   },
   {
     "id": "dst-8",
-    "title": "이진트리\n(Binary Tree)",
+    "title": "이진트리 (Binary Tree)",
     "category": "소프트웨어공학",
     "group": "트리",
     "importance": "상",
@@ -22978,7 +22978,7 @@
   },
   {
     "id": "dst-10",
-    "title": "Balanced Tree\nB-Tree(비트리)",
+    "title": "Balanced Tree B-Tree(비트리)",
     "category": "소프트웨어공학",
     "group": "트리",
     "importance": "상",
@@ -23176,7 +23176,7 @@
   },
   {
     "id": "alg-12",
-    "title": "기수정렬((Radix Sort)",
+    "title": "기수정렬(Radix Sort)",
     "category": "소프트웨어공학",
     "group": "정렬",
     "importance": "하",
@@ -23401,7 +23401,7 @@
   },
   {
     "id": "alg-37",
-    "title": "대기행렬이론\n(Queuing Theory)",
+    "title": "대기행렬이론 (Queuing Theory)",
     "category": "소프트웨어공학",
     "group": "알고리즘",
     "importance": "상",
@@ -23419,7 +23419,7 @@
   },
   {
     "id": "alg-39",
-    "title": "모라벡의 역설\n(Moravec’s Paradox)",
+    "title": "모라벡의 역설 (Moravec’s Paradox)",
     "category": "소프트웨어공학",
     "group": "기타",
     "importance": "하",
@@ -24355,12 +24355,12 @@
   },
   {
     "id": "gp-85",
-    "title": "FP(Frequent Growth 알고리즘",
+    "title": "FP-Growth(Frequent Pattern Growth) 알고리즘",
     "category": "확률·통계",
     "group": "기타",
     "importance": "하",
     "summary": "후보 항목 집합을 생성하지 않고 , 트랜잭션 데이터 를 압축 하여 FP Tree 를 만든 후 , 그 트리에서 빈발 항목 집합 (Frequent (Frequent)을 빠르게 찾는 알고리즘",
-    "source": "기필반"
+    "source": "심화반"
   },
   {
     "id": "gp-9",
