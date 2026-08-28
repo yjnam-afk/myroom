@@ -287,7 +287,18 @@ for (let i = 0; i < SUBNOTES.length; i++) {
       keywords: s.keywords.map((k: string) => k.replace(/\[[^\]]*\]\s*/g, "").trim()).filter(Boolean),
     });
   for (const tb of (s.tables || []).slice(0, 4)) {
-    const kws = tb.rows.map((r: string[]) => cellHead(r[0])).filter(Boolean);
+    // 1열이 '구분'처럼 여러 행을 묶는 라벨이면 값이 반복돼 키워드로 쓸모가 없다.
+    // 값이 대체로 서로 다른 첫 열을 골라 항목명을 뽑는다.
+    const colKws = (i: number) =>
+      tb.rows
+        .map((r: string[]) => cellHead(r[i] ?? ""))
+        .filter((k: string) => k && !/^[-—–]+$/.test(k.trim()));
+    const distinctRatio = (v: string[]) => (v.length ? new Set(v).size / v.length : 0);
+    let kws = colKws(0);
+    if (distinctRatio(kws) < 0.7) {
+      const alt = colKws(1);
+      if (alt.length >= 2 && distinctRatio(alt) > distinctRatio(kws)) kws = alt;
+    }
     if (kws.length >= 2)
       sections.push({
         label: (tb.caption || "표").replace(/\[[^\]]*\]\s*/g, "").trim().slice(0, 40),
