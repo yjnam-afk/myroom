@@ -420,7 +420,7 @@
   {
     "id": "q2",
     "period": "1교시",
-    "category": "정보보안",
+    "category": "보안",
     "text": "제로 트러스트(Zero Trust) 보안 모델의 핵심 원칙을 설명하시오."
   },
   {
@@ -438,7 +438,7 @@
   {
     "id": "q8",
     "period": "1교시",
-    "category": "정보보안",
+    "category": "보안",
     "text": "OAuth 2.0의 권한 부여 방식(Grant Type)을 설명하시오."
   },
   {
@@ -480,13 +480,13 @@
   {
     "id": "q12",
     "period": "2교시",
-    "category": "데이터/AI",
+    "category": "데이터베이스",
     "text": "데이터 웨어하우스와 데이터 레이크를 비교하고, 기업의 데이터 분석 플랫폼 구축 전략을 제시하시오."
   },
   {
     "id": "q13",
     "period": "2교시",
-    "category": "정보보안",
+    "category": "보안",
     "text": "OWASP Top 10을 기반으로 웹 애플리케이션의 주요 취약점과 대응 방안을 설명하시오."
   },
   {
@@ -14688,7 +14688,7 @@
   {
     "id": "ns1-101",
     "period": "1교시",
-    "category": "정보보안",
+    "category": "보안",
     "kind": "NS모의",
     "round": "1주차",
     "text": "암호화(Encryption)의 목적과 종류에 대하여 설명하시오."
@@ -14696,7 +14696,7 @@
   {
     "id": "ns1-102",
     "period": "1교시",
-    "category": "정보보안",
+    "category": "보안",
     "kind": "NS모의",
     "round": "1주차",
     "text": "Shannon의 암호 설계 원칙에서 혼돈(Confusion)과 확산(Diffusion)을 비교 설명하시오."
@@ -14704,7 +14704,7 @@
   {
     "id": "ns1-103",
     "period": "1교시",
-    "category": "정보보안",
+    "category": "보안",
     "kind": "NS모의",
     "round": "1주차",
     "text": "암호학적 해시 함수가 가져야 하는 3가지 저항성(해시 함수의 안전성)에 대하여 설명하시오."
@@ -14712,7 +14712,7 @@
   {
     "id": "ns1-104",
     "period": "1교시",
-    "category": "정보보안",
+    "category": "보안",
     "kind": "NS모의",
     "round": "1주차",
     "text": "해시 솔트(Salt)와 키 스트레칭(Key Stretching)을 설명하고, 솔트와 페퍼(Pepper)를 비교하시오."
@@ -14720,7 +14720,7 @@
   {
     "id": "ns1-105",
     "period": "1교시",
-    "category": "정보보안",
+    "category": "보안",
     "kind": "NS모의",
     "round": "1주차",
     "text": "디피-헬만 알고리즘(Diffie-Hellman Algorithm)의 키 교환 절차에 대하여 설명하시오."
@@ -38365,7 +38365,7 @@
   {
     "id": "m02062",
     "period": "2교시",
-    "category": "네트워크",
+    "category": "데이터베이스",
     "kind": "모의고사",
     "round": "모의_2016.05",
     "source": "모의_2016.05 2교시",
