@@ -807,7 +807,7 @@
   {
     "id": "k138-201-b",
     "period": "2교시",
-    "category": "데이터베이스",
+    "category": "경영전략",
     "source": "138회 2교시",
     "text": "가. ISP(Information Strategy Planning)의 정의 및 목적\n나. ISP 수행방법론 체계와 절차\n다. ISP와 ISMP(Information System Master Plan) 비교를 설명하시오."
   },
@@ -15071,7 +15071,7 @@
   {
     "id": "k113-301",
     "period": "3교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "source": "113회 3교시",
     "text": "소프트웨어 개발방법론에 있어서 테일러링(Tailoring) 절차와 고려사항에 대하여 설명하시오."
   },
@@ -15204,7 +15204,7 @@
   {
     "id": "k111-108",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "데이터베이스",
     "source": "111회 1교시",
     "text": "다중 비전 동시성 제어(MVCC: Multi Version Concurrency Control)"
   },
@@ -15253,7 +15253,7 @@
   {
     "id": "k111-202",
     "period": "2교시",
-    "category": "네트워크",
+    "category": "인공지능",
     "source": "111회 2교시",
     "text": "딥러닝(Deep Learning) 구현을 위한 Feed Forward 모델을 설명하고, CNN(Convolutional Neural Network)과의 차이점을 설명하시오"
   },
@@ -15547,7 +15547,7 @@
   {
     "id": "k110-401",
     "period": "4교시",
-    "category": "인공지능",
+    "category": "프로젝트관리",
     "source": "110회 4교시",
     "text": "다음은 어떤 프로젝트를 수행하기 위한 활동과 그 활동에 필요한 시간, 이를 수행하기 전에 해야 할 선행활동 및 가용인원 수를 나타낸 것이다. 각각의 물음에 답하시오.\n\n가.프로젝트 완료일은 언제인가?\n나.주공정(Critical Path)은 어떤 경로인가?\n다.활동 \"라\"를 2일 앞당긴다면 프로젝트 완료 일정은 어떻게 되는가?\n라.\"가\"번의 경우, 가용인원을 4명/일로 제한한다면 프로젝트 완료 일정은 어떻게 되는가?\n마.\"라\"번의 경우, 주공정연쇄법(critical chain project management)으로 관리한다면 어떤 버퍼를 \n어디에 설치해야 하는가?"
   },
@@ -16009,7 +16009,7 @@
   {
     "id": "k107-405",
     "period": "4교시",
-    "category": "네트워크",
+    "category": "보안",
     "source": "107회 4교시",
     "text": "바이러스가 임의 숙주 프로그램에 감염되었다는 사실을 감추기 위한 압축(Compression) 기법과 암호화(Encrypted) 기법의\n   동작원리를 설명하시오."
   },
@@ -16282,7 +16282,7 @@
   {
     "id": "k104-107",
     "period": "1교시",
-    "category": "데이터베이스",
+    "category": "운영체제",
     "source": "104회 1교시",
     "text": "UNIX에서 적용되고 있는 파일 접근제어(Access control) 메커니즘을 설명하시오."
   },
@@ -16352,7 +16352,7 @@
   {
     "id": "k104-204",
     "period": "2교시",
-    "category": "인공지능",
+    "category": "네트워크",
     "source": "104회 2교시",
     "text": "인터넷 프로토콜에서 3단계 주소체계(Domain name, IP address, Physical address)를 사용하는 이유를 제시하고, 데이터 전송 과정에서 \n각 단계별로 주소가 변환되는 과정을 설명하시오."
   },
@@ -16520,7 +16520,7 @@
   {
     "id": "k102-110",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "프로젝트관리",
     "source": "102회 1교시",
     "text": "CCPM(Critical Chain Project Management)과 TOC(Theory Of Constraints)에 대하여 설명하시오"
   },
@@ -16597,7 +16597,7 @@
   {
     "id": "k102-302",
     "period": "3교시",
-    "category": "네트워크",
+    "category": "인공지능",
     "source": "102회 3교시",
     "text": "데이터 마이닝을 위한 신경망(Neural Network) 분석에 대하여 설명하시오."
   },
@@ -17290,7 +17290,7 @@
   {
     "id": "k98-402",
     "period": "4교시",
-    "category": "네트워크",
+    "category": "경영전략",
     "source": "98회 4교시",
     "text": "고객관계관리(CRM : Customer Relationship Management)의 진화 단계인 CRM 보고 기술(Reporting Technique), CRM 분석 기술(Analysis Technique), CRM 예측 기술(Predicting Technique)에 대해 고객을 중심으로 예를 들어 설명하시오."
   },
@@ -17703,7 +17703,7 @@
   {
     "id": "k95-305",
     "period": "3교시",
-    "category": "인공지능",
+    "category": "경영전략",
     "source": "95회 3교시",
     "text": "A전자는 세계 전역에 생산기지 및 판매망을 확보하고 있는 그로벌 기업으로서 글로벌 재정위기, 지구 환경 변화 등 세계의 급변하는 경영환경에 대한 민첩성을 향상하고 미래 지향적인 정보시스템을 구축하기 위하여 정보화 전략계획(ISP)을 수립하고자 한다.\nA전자의 아래 현황에 따라 다음 질문에 답하시오.\n(단, 구체적인 기업 환경 및 정보시스템의 현황은 가정하여 작성)\n<<A전자 정보시스템 현황>>\n가. A전자의 정보화 비전\n    글로벌 환경 변화에 신속한 대응 확보 가능한 스마트 정보시스템 구축\n나. 보유시스템\n    포탈시스템, ERP, CRM, 영업관리시스템, 생산자동화시스템\n\n(1) ISP 수립 절차에 대하여 설명하시오.\n(2) 5-Force, 7S, SWOT 분석을 활용하여 환경분석 결과를 제시하시오.\n(3) A전자의 정보화 비전에 따른 TO-BE 모델을 도출하시오."
   },
@@ -17738,7 +17738,7 @@
   {
     "id": "k95-404",
     "period": "4교시",
-    "category": "네트워크",
+    "category": "운영체제",
     "source": "95회 4교시",
     "text": "안드로이드(Android) 개발환경에 대하여 다음 질문에 답하시오.\n(1) 안드로이드 실행환경에 대하여 설명하시오.\n(2) 안드로이드 응용(Application)의 기본 모델에 대하여 설명하시오.\n(3) 안드로이드 응용의 주요 컴포넌트를 나열하고 설명하시오."
   },
@@ -17780,7 +17780,7 @@
   {
     "id": "k93-104",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "경영전략",
     "source": "93회 1교시",
     "text": "VRM(Vendor Relationship Management)을 CRM(Customer Relationship Management)과 비교하여 설명하시오"
   },
@@ -18361,7 +18361,7 @@
   {
     "id": "k90-306",
     "period": "3교시",
-    "category": "인공지능",
+    "category": "데이터베이스",
     "source": "90회 3교시",
     "text": "데이터베이스에 2개의 필드 A와 B가 있고, A와 B는 모두 정수이며 A와 B를 합한 값은 반드시 100이어야 할 때, \n    다음 사항을 설명하시오.\n    (1) 트랜잭션이 갖추어야 할 ACID  조건 4가지에 대해 설명하시오.\n    (2) 상기 데이터베이스를 고려하여, ACID 4가지 조건 각각에 대해 실패(failure)가 발생할 수 있는 상황을 제시하고, \n        이를 데이터베이스관리시스템(DBMS) 차원에서 해결하는 방법을 설명하시오."
   },
@@ -18627,7 +18627,7 @@
   {
     "id": "k87-101",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "source": "87회 1교시",
     "text": "OCL(Object Constraint Language)로 기술할 수 있는 제약 조건들의 유형 중에서\n불변 가설(Invariant)에 대해 설명하시오."
   },
@@ -18837,7 +18837,7 @@
   {
     "id": "k87-406",
     "period": "4교시",
-    "category": "데이터베이스",
+    "category": "프로젝트관리",
     "source": "87회 4교시",
     "text": "프로젝트 일정 계획에 대해 다음 물음에 답하시오.\n(1) EVM(Earned Value Management)에 대해 설명하시오.\n(2) 1월 1일부터 6월 1일까지 진행되는 프로젝트에 관한 진행 기록이 다음과 같을 때,\n   EV(Earned Value), SPI(Schedule Performance Index), SV(Schedule Variance),\n   CPI(Cost Performance Index), 그리고 CV(Cost Variance)를 각각 구하시오. 단,\n   현재 일은 3월 1일 이라고 가정한다."
   },
@@ -18949,7 +18949,7 @@
   {
     "id": "k86-202",
     "period": "2교시",
-    "category": "인공지능",
+    "category": "경영전략",
     "source": "86회 2교시",
     "text": "함수 y=f(x)에서 y를 비즈니스 프로세스에서 만들어내는 최종 가치라고 하고, x는 y를 만들어내는 과정상의 제반 요소들이라고 할때, \n   6 시그마 DMAIC 프로세스 중 Analyze 단계와 Control 단계에서 수행하는 업무를 y와 x의 관점에서 설명하시오."
   },
@@ -19418,7 +19418,7 @@
   {
     "id": "k83-302",
     "period": "3교시",
-    "category": "네트워크",
+    "category": "경영전략",
     "source": "83회 3교시",
     "text": "지식경영을 위한 지식관리시스템(KMS)을 도입하는 주된 이유와 아키텍처를 ① 하부 구조서비스(Infrastructure Service) ② 지식서비스(Knowledge Service) ③ 화명제공서비스(Presentation Service)로 구분하여 설명하시오."
   },
@@ -19719,7 +19719,7 @@
   {
     "id": "k80-103",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "경영전략",
     "source": "80회 1교시",
     "text": "문제해결분석 방법론인 4C(Circumstance, Customer, Competition, Company)와 \n     SWOT(Strengths, Weaknesses, Opportunities, Threats)."
   },
@@ -20149,7 +20149,7 @@
   {
     "id": "m00027",
     "period": "2교시",
-    "category": "보안",
+    "category": "확률·통계",
     "kind": "모의고사",
     "round": "ITPE_2026.06",
     "source": "ITPE_2026.06 2교시",
@@ -20410,7 +20410,7 @@
   {
     "id": "m00056",
     "period": "3교시",
-    "category": "네트워크",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "ITPE_2026.04",
     "source": "ITPE_2026.04 3교시",
@@ -21319,7 +21319,7 @@
   {
     "id": "m00157",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "인공지능",
     "kind": "모의고사",
     "round": "ITPE_2025.11",
     "source": "ITPE_2025.11 1교시",
@@ -21463,7 +21463,7 @@
   {
     "id": "m00173",
     "period": "2교시",
-    "category": "보안",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "ITPE_2025.11",
     "source": "ITPE_2025.11 2교시",
@@ -21985,7 +21985,7 @@
   {
     "id": "m00231",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "ITPE_2025.09",
     "source": "ITPE_2025.09 1교시",
@@ -22282,7 +22282,7 @@
   {
     "id": "m00264",
     "period": "2교시",
-    "category": "데이터베이스",
+    "category": "경영전략",
     "kind": "모의고사",
     "round": "ITPE_2025.07",
     "source": "ITPE_2025.07 2교시",
@@ -22606,7 +22606,7 @@
   {
     "id": "m00300",
     "period": "3교시",
-    "category": "보안",
+    "category": "데이터베이스",
     "kind": "모의고사",
     "round": "ITPE_2025.06",
     "source": "ITPE_2025.06 3교시",
@@ -23497,7 +23497,7 @@
   {
     "id": "m00399",
     "period": "4교시",
-    "category": "경영전략",
+    "category": "인공지능",
     "kind": "모의고사",
     "round": "ITPE_2025.01",
     "source": "ITPE_2025.01 4교시",
@@ -23542,7 +23542,7 @@
   {
     "id": "m00404",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "데이터베이스",
     "kind": "모의고사",
     "round": "ITPE_2024.12",
     "source": "ITPE_2024.12 1교시",
@@ -24847,7 +24847,7 @@
   {
     "id": "m00549",
     "period": "3교시",
-    "category": "데이터베이스",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "ITPE_2024.04",
     "source": "ITPE_2024.04 3교시",
@@ -25081,7 +25081,7 @@
   {
     "id": "m00575",
     "period": "3교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "ITPE_2024.03",
     "source": "ITPE_2024.03 3교시",
@@ -25144,7 +25144,7 @@
   {
     "id": "m00582",
     "period": "4교시",
-    "category": "네트워크",
+    "category": "인공지능",
     "kind": "모의고사",
     "round": "ITPE_2024.03",
     "source": "ITPE_2024.03 4교시",
@@ -25279,7 +25279,7 @@
   {
     "id": "m00597",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "ITPE_2023.12",
     "source": "ITPE_2023.12 1교시",
@@ -25360,7 +25360,7 @@
   {
     "id": "m00606",
     "period": "3교시",
-    "category": "데이터베이스",
+    "category": "운영체제",
     "kind": "모의고사",
     "round": "ITPE_2023.12",
     "source": "ITPE_2023.12 3교시",
@@ -25576,7 +25576,7 @@
   {
     "id": "m00630",
     "period": "2교시",
-    "category": "데이터베이스",
+    "category": "프로젝트관리",
     "kind": "모의고사",
     "round": "ITPE_2023.11",
     "source": "ITPE_2023.11 2교시",
@@ -26332,7 +26332,7 @@
   {
     "id": "m00714",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "경영전략",
     "kind": "모의고사",
     "round": "ITPE_2023.07",
     "source": "ITPE_2023.07 1교시",
@@ -26458,7 +26458,7 @@
   {
     "id": "m00728",
     "period": "3교시",
-    "category": "보안",
+    "category": "데이터베이스",
     "kind": "모의고사",
     "round": "ITPE_2023.07",
     "source": "ITPE_2023.07 3교시",
@@ -26512,7 +26512,7 @@
   {
     "id": "m00734",
     "period": "4교시",
-    "category": "네트워크",
+    "category": "보안",
     "kind": "모의고사",
     "round": "ITPE_2023.07",
     "source": "ITPE_2023.07 4교시",
@@ -26818,7 +26818,7 @@
   {
     "id": "m00768",
     "period": "4교시",
-    "category": "경영전략",
+    "category": "보안",
     "kind": "모의고사",
     "round": "ITPE_2023.04",
     "source": "ITPE_2023.04 4교시",
@@ -26836,7 +26836,7 @@
   {
     "id": "m00770",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "네트워크",
     "kind": "모의고사",
     "round": "ITPE_2023.03",
     "source": "ITPE_2023.03 1교시",
@@ -27295,7 +27295,7 @@
   {
     "id": "m00821",
     "period": "3교시",
-    "category": "데이터베이스",
+    "category": "보안",
     "kind": "모의고사",
     "round": "ITPE_2023.01",
     "source": "ITPE_2023.01 3교시",
@@ -27322,7 +27322,7 @@
   {
     "id": "m00824",
     "period": "3교시",
-    "category": "네트워크",
+    "category": "인공지능",
     "kind": "모의고사",
     "round": "ITPE_2023.01",
     "source": "ITPE_2023.01 3교시",
@@ -27835,7 +27835,7 @@
   {
     "id": "m00881",
     "period": "2교시",
-    "category": "인공지능",
+    "category": "프로젝트관리",
     "kind": "모의고사",
     "round": "ITPE_2022.10",
     "source": "ITPE_2022.10 2교시",
@@ -28627,7 +28627,7 @@
   {
     "id": "m00969",
     "period": "2교시",
-    "category": "데이터베이스",
+    "category": "인공지능",
     "kind": "모의고사",
     "round": "ITPE_2021.12",
     "source": "ITPE_2021.12 2교시",
@@ -30157,7 +30157,7 @@
   {
     "id": "m01140",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "경영전략",
     "kind": "모의고사",
     "round": "ITPE_2021.01",
     "source": "ITPE_2021.01 1교시",
@@ -30346,7 +30346,7 @@
   {
     "id": "m01161",
     "period": "3교시",
-    "category": "네트워크",
+    "category": "데이터베이스",
     "kind": "모의고사",
     "round": "ITPE_2021.01",
     "source": "ITPE_2021.01 3교시",
@@ -31111,7 +31111,7 @@
   {
     "id": "m01246",
     "period": "3교시",
-    "category": "경영전략",
+    "category": "보안",
     "kind": "모의고사",
     "round": "ITPE_2020.06",
     "source": "ITPE_2020.06 3교시",
@@ -31255,7 +31255,7 @@
   {
     "id": "m01262",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "모의_2020.06",
     "source": "모의_2020.06 1교시",
@@ -31723,7 +31723,7 @@
   {
     "id": "m01314",
     "period": "4교시",
-    "category": "데이터베이스",
+    "category": "인공지능",
     "kind": "모의고사",
     "round": "모의_2020.04",
     "source": "모의_2020.04 4교시",
@@ -32137,7 +32137,7 @@
   {
     "id": "m01360",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "인공지능",
     "kind": "모의고사",
     "round": "모의_2019.12",
     "source": "모의_2019.12 1교시",
@@ -32191,7 +32191,7 @@
   {
     "id": "m01366",
     "period": "2교시",
-    "category": "네트워크",
+    "category": "인공지능",
     "kind": "모의고사",
     "round": "모의_2019.12",
     "source": "모의_2019.12 2교시",
@@ -32524,7 +32524,7 @@
   {
     "id": "m01403",
     "period": "4교시",
-    "category": "네트워크",
+    "category": "컴퓨터구조",
     "kind": "모의고사",
     "round": "모의_2019.11",
     "source": "모의_2019.11 4교시",
@@ -34171,7 +34171,7 @@
   {
     "id": "m01596",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "운영체제",
     "kind": "모의고사",
     "round": "모의_2018.10",
     "source": "모의_2018.10 1교시",
@@ -34189,7 +34189,7 @@
   {
     "id": "m01598",
     "period": "2교시",
-    "category": "네트워크",
+    "category": "프로젝트관리",
     "kind": "모의고사",
     "round": "모의_2018.10",
     "source": "모의_2018.10 2교시",
@@ -34261,7 +34261,7 @@
   {
     "id": "m01606",
     "period": "3교시",
-    "category": "네트워크",
+    "category": "인공지능",
     "kind": "모의고사",
     "round": "모의_2018.10",
     "source": "모의_2018.10 3교시",
@@ -35413,7 +35413,7 @@
   {
     "id": "m01734",
     "period": "4교시",
-    "category": "네트워크",
+    "category": "인공지능",
     "kind": "모의고사",
     "round": "모의_2018.01",
     "source": "모의_2018.01 4교시",
@@ -36079,7 +36079,7 @@
   {
     "id": "m01808",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "경영전략",
     "kind": "모의고사",
     "round": "모의_2017.07",
     "source": "모의_2017.07 1교시",
@@ -36106,7 +36106,7 @@
   {
     "id": "m01811",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "프로젝트관리",
     "kind": "모의고사",
     "round": "모의_2017.07",
     "source": "모의_2017.07 1교시",
@@ -36574,7 +36574,7 @@
   {
     "id": "m01863",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "운영체제",
     "kind": "모의고사",
     "round": "모의_2017.04",
     "source": "모의_2017.04 1교시",
@@ -36583,7 +36583,7 @@
   {
     "id": "m01864",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "인공지능",
     "kind": "모의고사",
     "round": "모의_2017.04",
     "source": "모의_2017.04 1교시",
@@ -36880,7 +36880,7 @@
   {
     "id": "m01897",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "모의_2017.01",
     "source": "모의_2017.01 1교시",
@@ -36943,7 +36943,7 @@
   {
     "id": "m01904",
     "period": "2교시",
-    "category": "경영전략",
+    "category": "운영체제",
     "kind": "모의고사",
     "round": "모의_2017.01",
     "source": "모의_2017.01 2교시",
@@ -37276,7 +37276,7 @@
   {
     "id": "m01941",
     "period": "3교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "모의_2016.11",
     "source": "모의_2016.11 3교시",
@@ -37681,7 +37681,7 @@
   {
     "id": "m01986",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "인공지능",
     "kind": "모의고사",
     "round": "모의_2016.07",
     "source": "모의_2016.07 1교시",
@@ -37834,7 +37834,7 @@
   {
     "id": "m02003",
     "period": "3교시",
-    "category": "데이터베이스",
+    "category": "운영체제",
     "kind": "모의고사",
     "round": "모의_2016.07",
     "source": "모의_2016.07 3교시",
@@ -37906,7 +37906,7 @@
   {
     "id": "m02011",
     "period": "4교시",
-    "category": "인공지능",
+    "category": "데이터베이스",
     "kind": "모의고사",
     "round": "모의_2016.07",
     "source": "모의_2016.07 4교시",
@@ -39121,7 +39121,7 @@
   {
     "id": "m02146",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "경영전략",
     "kind": "모의고사",
     "round": "모의_2015.12",
     "source": "모의_2015.12 1교시",
@@ -39247,7 +39247,7 @@
   {
     "id": "m02160",
     "period": "4교시",
-    "category": "인공지능",
+    "category": "경영전략",
     "kind": "모의고사",
     "round": "모의_2015.12",
     "source": "모의_2015.12 4교시",
@@ -39310,7 +39310,7 @@
   {
     "id": "m02167",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "인공지능",
     "kind": "모의고사",
     "round": "모의_2015.11",
     "source": "모의_2015.11 1교시",
@@ -39382,7 +39382,7 @@
   {
     "id": "m02175",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "경영전략",
     "kind": "모의고사",
     "round": "모의_2015.11",
     "source": "모의_2015.11 1교시",
@@ -39652,7 +39652,7 @@
   {
     "id": "m02205",
     "period": "1교시",
-    "category": "디지털서비스",
+    "category": "경영전략",
     "kind": "모의고사",
     "round": "모의_2015.10",
     "source": "모의_2015.10 1교시",
@@ -39769,7 +39769,7 @@
   {
     "id": "m02218",
     "period": "3교시",
-    "category": "네트워크",
+    "category": "보안",
     "kind": "모의고사",
     "round": "모의_2015.10",
     "source": "모의_2015.10 3교시",
@@ -40525,7 +40525,7 @@
   {
     "id": "m02302",
     "period": "2교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "모의_2015.05",
     "source": "모의_2015.05 2교시",
@@ -40984,7 +40984,7 @@
   {
     "id": "m02353",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "모의_2015.01",
     "source": "모의_2015.01 1교시",
@@ -41317,7 +41317,7 @@
   {
     "id": "m02390",
     "period": "2교시",
-    "category": "보안",
+    "category": "데이터베이스",
     "kind": "모의고사",
     "round": "모의_2014.12",
     "source": "모의_2014.12 2교시",
@@ -41398,7 +41398,7 @@
   {
     "id": "m02399",
     "period": "3교시",
-    "category": "데이터베이스",
+    "category": "운영체제",
     "kind": "모의고사",
     "round": "모의_2014.12",
     "source": "모의_2014.12 3교시",
@@ -42082,7 +42082,7 @@
   {
     "id": "m02475",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "운영체제",
     "kind": "모의고사",
     "round": "모의_2014.07",
     "source": "모의_2014.07 1교시",
@@ -42406,7 +42406,7 @@
   {
     "id": "m02511",
     "period": "2교시",
-    "category": "데이터베이스",
+    "category": "보안",
     "kind": "모의고사",
     "round": "모의_2014.06",
     "source": "모의_2014.06 2교시",
@@ -42487,7 +42487,7 @@
   {
     "id": "m02520",
     "period": "3교시",
-    "category": "네트워크",
+    "category": "운영체제",
     "kind": "모의고사",
     "round": "모의_2014.06",
     "source": "모의_2014.06 3교시",
@@ -43126,7 +43126,7 @@
   {
     "id": "m02591",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "데이터베이스",
     "kind": "모의고사",
     "round": "모의_2014.01",
     "source": "모의_2014.01 1교시",
@@ -43396,7 +43396,7 @@
   {
     "id": "m02621",
     "period": "1교시",
-    "category": "보안",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "모의_2013.12",
     "source": "모의_2013.12 1교시",
@@ -43945,7 +43945,7 @@
   {
     "id": "m02682",
     "period": "1교시",
-    "category": "경영전략",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "모의_2013.10",
     "source": "모의_2013.10 1교시",
@@ -44035,7 +44035,7 @@
   {
     "id": "m02692",
     "period": "2교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "모의_2013.10",
     "source": "모의_2013.10 2교시",
@@ -44332,7 +44332,7 @@
   {
     "id": "m02725",
     "period": "3교시",
-    "category": "네트워크",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "모의_2013.07",
     "source": "모의_2013.07 3교시",
@@ -44647,7 +44647,7 @@
   {
     "id": "m02760",
     "period": "4교시",
-    "category": "네트워크",
+    "category": "인공지능",
     "kind": "모의고사",
     "round": "모의_2013.06",
     "source": "모의_2013.06 4교시",
@@ -44710,7 +44710,7 @@
   {
     "id": "m02767",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "경영전략",
     "kind": "모의고사",
     "round": "모의_2013.05",
     "source": "모의_2013.05 1교시",
@@ -45124,7 +45124,7 @@
   {
     "id": "m02813",
     "period": "2교시",
-    "category": "보안",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "모의_2013.04",
     "source": "모의_2013.04 2교시",
@@ -45376,7 +45376,7 @@
   {
     "id": "m02841",
     "period": "2교시",
-    "category": "데이터베이스",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "모의_2013.01",
     "source": "모의_2013.01 2교시",
@@ -46096,7 +46096,7 @@
   {
     "id": "m02921",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "경영전략",
     "kind": "모의고사",
     "round": "모의_2012.10",
     "source": "모의_2012.10 1교시",
@@ -46267,7 +46267,7 @@
   {
     "id": "m02940",
     "period": "3교시",
-    "category": "인공지능",
+    "category": "경영전략",
     "kind": "모의고사",
     "round": "모의_2012.10",
     "source": "모의_2012.10 3교시",
@@ -47140,7 +47140,7 @@
   {
     "id": "m03037",
     "period": "4교시",
-    "category": "네트워크",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "모의_2012.05",
     "source": "모의_2012.05 4교시",
@@ -47248,7 +47248,7 @@
   {
     "id": "m03049",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "운영체제",
     "kind": "모의고사",
     "round": "모의_2012.04",
     "source": "모의_2012.04 1교시",
@@ -47833,7 +47833,7 @@
   {
     "id": "m03114",
     "period": "2교시",
-    "category": "네트워크",
+    "category": "프로젝트관리",
     "kind": "모의고사",
     "round": "모의_2011.12",
     "source": "모의_2011.12 2교시",
@@ -48769,7 +48769,7 @@
   {
     "id": "m03218",
     "period": "4교시",
-    "category": "보안",
+    "category": "데이터베이스",
     "kind": "모의고사",
     "round": "모의_2011.07",
     "source": "모의_2011.07 4교시",
@@ -49795,7 +49795,7 @@
   {
     "id": "m03332",
     "period": "3교시",
-    "category": "네트워크",
+    "category": "컴퓨터구조",
     "kind": "모의고사",
     "round": "모의_2011.03",
     "source": "모의_2011.03 3교시",
@@ -50344,7 +50344,7 @@
   {
     "id": "m03393",
     "period": "3교시",
-    "category": "네트워크",
+    "category": "경영전략",
     "kind": "모의고사",
     "round": "모의_2010.12",
     "source": "모의_2010.12 3교시",
@@ -50398,7 +50398,7 @@
   {
     "id": "m03399",
     "period": "4교시",
-    "category": "인공지능",
+    "category": "프로젝트관리",
     "kind": "모의고사",
     "round": "모의_2010.12",
     "source": "모의_2010.12 4교시",
@@ -50848,7 +50848,7 @@
   {
     "id": "m03449",
     "period": "2교시",
-    "category": "데이터베이스",
+    "category": "운영체제",
     "kind": "모의고사",
     "round": "모의_2010.10-2",
     "source": "모의_2010.10-2 2교시",
@@ -51631,7 +51631,7 @@
   {
     "id": "m03536",
     "period": "1교시",
-    "category": "데이터베이스",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "모의_2010.07",
     "source": "모의_2010.07 1교시",
@@ -51784,7 +51784,7 @@
   {
     "id": "m03553",
     "period": "3교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "모의_2010.07",
     "source": "모의_2010.07 3교시",
@@ -51811,7 +51811,7 @@
   {
     "id": "m03556",
     "period": "4교시",
-    "category": "보안",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "모의_2010.07",
     "source": "모의_2010.07 4교시",
@@ -52027,7 +52027,7 @@
   {
     "id": "m03580",
     "period": "3교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "모의_2010.06",
     "source": "모의_2010.06 3교시",
@@ -52243,7 +52243,7 @@
   {
     "id": "m03604",
     "period": "2교시",
-    "category": "네트워크",
+    "category": "데이터베이스",
     "kind": "모의고사",
     "round": "모의_2010.05",
     "source": "모의_2010.05 2교시",
@@ -52441,7 +52441,7 @@
   {
     "id": "m03626",
     "period": "1교시",
-    "category": "데이터베이스",
+    "category": "경영전략",
     "kind": "모의고사",
     "round": "모의_2010.04",
     "source": "모의_2010.04 1교시",
@@ -52711,7 +52711,7 @@
   {
     "id": "m03656",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "kind": "모의고사",
     "round": "모의_2010.03",
     "source": "모의_2010.03 1교시",
@@ -53080,7 +53080,7 @@
   {
     "id": "m03697",
     "period": "3교시",
-    "category": "인공지능",
+    "category": "운영체제",
     "kind": "모의고사",
     "round": "모의_2010.01",
     "source": "모의_2010.01 3교시",
@@ -53296,7 +53296,7 @@
   {
     "id": "f00015",
     "period": "2교시",
-    "category": "보안",
+    "category": "데이터베이스",
     "kind": "파이널",
     "round": "ITPE FR_2026.08",
     "source": "ITPE FR_2026.08 Day-1",
@@ -53827,7 +53827,7 @@
   {
     "id": "f00074",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "컴퓨터구조",
     "kind": "파이널",
     "round": "ITPE FR_2026.08",
     "source": "ITPE FR_2026.08 Day-5",
@@ -54430,7 +54430,7 @@
   {
     "id": "f00141",
     "period": "2교시",
-    "category": "네트워크",
+    "category": "인공지능",
     "kind": "파이널",
     "round": "ITPE FR_2026.05",
     "source": "ITPE FR_2026.05 Day-3",
@@ -54502,7 +54502,7 @@
   {
     "id": "f00149",
     "period": "2교시",
-    "category": "네트워크",
+    "category": "컴퓨터구조",
     "kind": "파이널",
     "round": "ITPE FR_2026.05",
     "source": "ITPE FR_2026.05 Day-4",
@@ -55285,7 +55285,7 @@
   {
     "id": "f00236",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "kind": "파이널",
     "round": "ITPE FR_2026.02",
     "source": "ITPE FR_2026.02 Day-4",
@@ -55456,7 +55456,7 @@
   {
     "id": "f00255",
     "period": "1교시",
-    "category": "보안",
+    "category": "소프트웨어공학",
     "kind": "파이널",
     "round": "ITPE FR_2026.02",
     "source": "ITPE FR_2026.02 Day-5",
@@ -55861,7 +55861,7 @@
   {
     "id": "f00300",
     "period": "2교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "kind": "파이널",
     "round": "ITPE FR_2025.08",
     "source": "ITPE FR_2025.08 Day-2",
@@ -57139,7 +57139,7 @@
   {
     "id": "f00442",
     "period": "2교시",
-    "category": "디지털서비스",
+    "category": "확률·통계",
     "kind": "파이널",
     "round": "ITPE FR_2025.05",
     "source": "ITPE FR_2025.05 Day-5",
@@ -57463,7 +57463,7 @@
   {
     "id": "f00478",
     "period": "2교시",
-    "category": "보안",
+    "category": "소프트웨어공학",
     "kind": "파이널",
     "round": "ITPE FR_2025.01",
     "source": "ITPE FR_2025.01 Day-2",
@@ -57985,7 +57985,7 @@
   {
     "id": "f00536",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "소프트웨어공학",
     "kind": "파이널",
     "round": "ITPE FR_2024.07",
     "source": "ITPE FR_2024.07 Day-1",
@@ -58291,7 +58291,7 @@
   {
     "id": "f00570",
     "period": "1교시",
-    "category": "경영전략",
+    "category": "컴퓨터구조",
     "kind": "파이널",
     "round": "ITPE FR_2024.07",
     "source": "ITPE FR_2024.07 Day-3",
@@ -58660,7 +58660,7 @@
   {
     "id": "f00611",
     "period": "1교시",
-    "category": "보안",
+    "category": "데이터베이스",
     "kind": "파이널",
     "round": "ITPE FR_2024.07",
     "source": "ITPE FR_2024.07 Day-5",
@@ -58750,7 +58750,7 @@
   {
     "id": "f00621",
     "period": "2교시",
-    "category": "경영전략",
+    "category": "인공지능",
     "kind": "파이널",
     "round": "ITPE FR_2024.07",
     "source": "ITPE FR_2024.07 Day-5",
@@ -59389,7 +59389,7 @@
   {
     "id": "f00691",
     "period": "2교시",
-    "category": "보안",
+    "category": "데이터베이스",
     "kind": "파이널",
     "round": "ITPE FR_2024.05",
     "source": "ITPE FR_2024.05 Day-4",
@@ -59713,7 +59713,7 @@
   {
     "id": "f00727",
     "period": "1교시",
-    "category": "데이터베이스",
+    "category": "보안",
     "kind": "파이널",
     "round": "ITPE FR_2024.01",
     "source": "ITPE FR_2024.01 Day-2",
@@ -60100,7 +60100,7 @@
   {
     "id": "f00770",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "프로젝트관리",
     "kind": "파이널",
     "round": "ITPE FR_2024.01",
     "source": "ITPE FR_2024.01 Day-4",
@@ -60181,7 +60181,7 @@
   {
     "id": "f00779",
     "period": "2교시",
-    "category": "인공지능",
+    "category": "경영전략",
     "kind": "파이널",
     "round": "ITPE FR_2024.01",
     "source": "ITPE FR_2024.01 Day-4",
@@ -60622,7 +60622,7 @@
   {
     "id": "f00828",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "프로젝트관리",
     "kind": "파이널",
     "round": "ITPE FR_2023.08",
     "source": "ITPE FR_2023.08 Day-2",
@@ -60820,7 +60820,7 @@
   {
     "id": "f00850",
     "period": "2교시",
-    "category": "인공지능",
+    "category": "클라우드/인프라",
     "kind": "파이널",
     "round": "ITPE FR_2023.08",
     "source": "ITPE FR_2023.08 Day-4",
@@ -60874,7 +60874,7 @@
   {
     "id": "f00856",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "경영전략",
     "kind": "파이널",
     "round": "ITPE FR_2023.08",
     "source": "ITPE FR_2023.08 Day-4",
@@ -61396,7 +61396,7 @@
   {
     "id": "f00914",
     "period": "2교시",
-    "category": "네트워크",
+    "category": "보안",
     "kind": "파이널",
     "round": "ITPE FR_2023.05",
     "source": "ITPE FR_2023.05 Day-2",
@@ -61405,7 +61405,7 @@
   {
     "id": "f00915",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "kind": "파이널",
     "round": "ITPE FR_2023.05",
     "source": "ITPE FR_2023.05 Day-2",
@@ -61414,7 +61414,7 @@
   {
     "id": "f00916",
     "period": "2교시",
-    "category": "인공지능",
+    "category": "운영체제",
     "kind": "파이널",
     "round": "ITPE FR_2023.05",
     "source": "ITPE FR_2023.05 Day-2",
@@ -63169,7 +63169,7 @@
   {
     "id": "f01111",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "인공지능",
     "kind": "파이널",
     "round": "ITPE FR_2022.06",
     "source": "ITPE FR_2022.06 Day-4",
@@ -63574,7 +63574,7 @@
   {
     "id": "f01156",
     "period": "2교시",
-    "category": "네트워크",
+    "category": "프로젝트관리",
     "kind": "파이널",
     "round": "ITPE FR_2022.04",
     "source": "ITPE FR_2022.04 Day-1",
@@ -63763,7 +63763,7 @@
   {
     "id": "f01177",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "데이터베이스",
     "kind": "파이널",
     "round": "ITPE FR_2022.04",
     "source": "ITPE FR_2022.04 Day-3",
@@ -63934,7 +63934,7 @@
   {
     "id": "f01196",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "경영전략",
     "kind": "파이널",
     "round": "ITPE FR_2022.04",
     "source": "ITPE FR_2022.04 Day-4",
@@ -65122,7 +65122,7 @@
   {
     "id": "f01328",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "경영전략",
     "kind": "파이널",
     "round": "ITPE FR_2021.07",
     "source": "ITPE FR_2021.07 Day-2",
@@ -65248,7 +65248,7 @@
   {
     "id": "f01342",
     "period": "2교시",
-    "category": "인공지능",
+    "category": "네트워크",
     "kind": "파이널",
     "round": "ITPE FR_2021.07",
     "source": "ITPE FR_2021.07 Day-3",
@@ -65653,7 +65653,7 @@
   {
     "id": "f01387",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "인공지능",
     "kind": "파이널",
     "round": "ITPE FR_2021.05",
     "source": "ITPE FR_2021.05 Day-1",
@@ -66283,7 +66283,7 @@
   {
     "id": "f01457",
     "period": "1교시",
-    "category": "보안",
+    "category": "데이터베이스",
     "kind": "파이널",
     "round": "ITPE FR_2021.05",
     "source": "ITPE FR_2021.05 Day-5",
@@ -67345,7 +67345,7 @@
   {
     "id": "f01575",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "kind": "파이널",
     "round": "ITPE합숙_2020.06",
     "source": "ITPE합숙_2020.06 Day-2",
@@ -67660,7 +67660,7 @@
   {
     "id": "f01610",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "인공지능",
     "kind": "파이널",
     "round": "합숙_2020.04",
     "source": "합숙_2020.04 Day-1",
@@ -68416,7 +68416,7 @@
   {
     "id": "f01694",
     "period": "2교시",
-    "category": "데이터베이스",
+    "category": "운영체제",
     "kind": "파이널",
     "round": "합숙_2020.01",
     "source": "합숙_2020.01 Day-2",
@@ -68443,7 +68443,7 @@
   {
     "id": "f01697",
     "period": "1교시",
-    "category": "경영전략",
+    "category": "프로젝트관리",
     "kind": "파이널",
     "round": "합숙_2020.01",
     "source": "합숙_2020.01 Day-3",
@@ -69406,7 +69406,7 @@
   {
     "id": "f01804",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "kind": "파이널",
     "round": "합숙_2019.08",
     "source": "합숙_2019.08 Day-3",
@@ -69838,7 +69838,7 @@
   {
     "id": "f01852",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "kind": "파이널",
     "round": "합숙_2019.05",
     "source": "합숙_2019.05 Day-1",
@@ -70360,7 +70360,7 @@
   {
     "id": "f01910",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "네트워크",
     "kind": "파이널",
     "round": "합숙_2019.05",
     "source": "합숙_2019.05 Day-4",
@@ -70522,7 +70522,7 @@
   {
     "id": "f01928",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "운영체제",
     "kind": "파이널",
     "round": "합숙_2019.05",
     "source": "합숙_2019.05 Day-5",
@@ -70747,7 +70747,7 @@
   {
     "id": "f01953",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "소프트웨어공학",
     "kind": "파이널",
     "round": "합숙_2019.01",
     "source": "합숙_2019.01 Day-2",
@@ -71332,7 +71332,7 @@
   {
     "id": "f02018",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "인공지능",
     "kind": "파이널",
     "round": "합숙_2018.08",
     "source": "합숙_2018.08 Day-1",
@@ -71593,7 +71593,7 @@
   {
     "id": "f02047",
     "period": "2교시",
-    "category": "보안",
+    "category": "데이터베이스",
     "kind": "파이널",
     "round": "합숙_2018.08",
     "source": "합숙_2018.08 Day-2",
@@ -71863,7 +71863,7 @@
   {
     "id": "f02077",
     "period": "1교시",
-    "category": "데이터베이스",
+    "category": "경영전략",
     "kind": "파이널",
     "round": "합숙_2018.08",
     "source": "합숙_2018.08 Day-4",
@@ -72988,7 +72988,7 @@
   {
     "id": "f02202",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "프로젝트관리",
     "kind": "파이널",
     "round": "합숙_2017.08",
     "source": "합숙_2017.08 Day-1",
@@ -74149,7 +74149,7 @@
   {
     "id": "f02331",
     "period": "2교시",
-    "category": "인공지능",
+    "category": "네트워크",
     "kind": "파이널",
     "round": "합숙_2017.01",
     "source": "합숙_2017.01 Day-3",
@@ -74923,7 +74923,7 @@
   {
     "id": "f02417",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "인공지능",
     "kind": "파이널",
     "round": "합숙_2016.07",
     "source": "합숙_2016.07 Day-3",
@@ -76147,7 +76147,7 @@
   {
     "id": "f02553",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "소프트웨어공학",
     "kind": "파이널",
     "round": "합숙_2015.07",
     "source": "합숙_2015.07 Day-1",
@@ -76156,7 +76156,7 @@
   {
     "id": "f02554",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "운영체제",
     "kind": "파이널",
     "round": "합숙_2015.07",
     "source": "합숙_2015.07 Day-1",
@@ -76822,7 +76822,7 @@
   {
     "id": "f02628",
     "period": "2교시",
-    "category": "인공지능",
+    "category": "경영전략",
     "kind": "파이널",
     "round": "합숙_2015.07",
     "source": "합숙_2015.07 Day-5",
@@ -77353,7 +77353,7 @@
   {
     "id": "f02687",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "프로젝트관리",
     "kind": "파이널",
     "round": "합숙_2015.01",
     "source": "합숙_2015.01 Day-3",
@@ -77848,7 +77848,7 @@
   {
     "id": "f02742",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "경영전략",
     "kind": "파이널",
     "round": "합숙_2014.07",
     "source": "합숙_2014.07 Day-2",
@@ -78226,7 +78226,7 @@
   {
     "id": "f02784",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "경영전략",
     "kind": "파이널",
     "round": "합숙_2014.07",
     "source": "합숙_2014.07 Day-4",
@@ -79000,7 +79000,7 @@
   {
     "id": "f02870",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "kind": "파이널",
     "round": "합숙_2014.01",
     "source": "합숙_2014.01 3일차",
@@ -79054,7 +79054,7 @@
   {
     "id": "f02876",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "소프트웨어공학",
     "kind": "파이널",
     "round": "합숙_2014.01",
     "source": "합숙_2014.01 3일차",
@@ -80620,7 +80620,7 @@
   {
     "id": "f03050",
     "period": "1교시",
-    "category": "보안",
+    "category": "소프트웨어공학",
     "kind": "파이널",
     "round": "합숙_2013.01",
     "source": "합숙_2013.01 1일차",
@@ -81016,7 +81016,7 @@
   {
     "id": "f03094",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "소프트웨어공학",
     "kind": "파이널",
     "round": "합숙_2013.01",
     "source": "합숙_2013.01 3일차",
@@ -81286,7 +81286,7 @@
   {
     "id": "f03124",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "경영전략",
     "kind": "파이널",
     "round": "합숙_2013.01",
     "source": "합숙_2013.01 5일차",
@@ -81808,7 +81808,7 @@
   {
     "id": "f03182",
     "period": "2교시",
-    "category": "인공지능",
+    "category": "운영체제",
     "kind": "파이널",
     "round": "합숙_2012.08",
     "source": "합숙_2012.08 2일차",
@@ -81862,7 +81862,7 @@
   {
     "id": "f03188",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "프로젝트관리",
     "kind": "파이널",
     "round": "합숙_2012.08",
     "source": "합숙_2012.08 3일차",
@@ -82888,7 +82888,7 @@
   {
     "id": "f03302",
     "period": "2교시",
-    "category": "보안",
+    "category": "소프트웨어공학",
     "kind": "파이널",
     "round": "합숙_2012.02",
     "source": "합숙_2012.02 4일차",
@@ -83185,7 +83185,7 @@
   {
     "id": "f03335",
     "period": "2교시",
-    "category": "네트워크",
+    "category": "데이터베이스",
     "kind": "파이널",
     "round": "합숙_2012.02",
     "source": "합숙_2012.02 5일차",
@@ -83806,7 +83806,7 @@
   {
     "id": "f03404",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "프로젝트관리",
     "kind": "파이널",
     "round": "합숙_2011.08",
     "source": "합숙_2011.08 1일차",
@@ -83833,7 +83833,7 @@
   {
     "id": "f03407",
     "period": "1교시",
-    "category": "네트워크",
+    "category": "소프트웨어공학",
     "kind": "파이널",
     "round": "합숙_2011.08",
     "source": "합숙_2011.08 1일차",
@@ -84445,7 +84445,7 @@
   {
     "id": "f03475",
     "period": "2교시",
-    "category": "보안",
+    "category": "소프트웨어공학",
     "kind": "파이널",
     "round": "합숙_2011.08",
     "source": "합숙_2011.08 4일차",
@@ -84472,7 +84472,7 @@
   {
     "id": "f03478",
     "period": "2교시",
-    "category": "보안",
+    "category": "소프트웨어공학",
     "kind": "파이널",
     "round": "합숙_2011.08",
     "source": "합숙_2011.08 4일차",
@@ -85750,7 +85750,7 @@
   {
     "id": "f03620",
     "period": "2교시",
-    "category": "네트워크",
+    "category": "경영전략",
     "kind": "파이널",
     "round": "합숙_2011.02",
     "source": "합숙_2011.02 5일차",
