@@ -33248,7 +33248,16 @@
     "kind": "모의고사",
     "round": "모의_2019.07",
     "source": "모의_2019.07 2교시",
-    "text": "Drive By Download 공격 절차와 대응방안을 설명하시오\n가. 요구사항의 분류\n나. 요구공학의 프로세스 및 주요기법\n다. 요구사항 명세서의 평가기준"
+    "text": "Drive By Download 공격 절차와 대응방안을 설명하시오"
+  },
+  {
+    "id": "m01485-b",
+    "period": "2교시",
+    "category": "신기술",
+    "kind": "모의고사",
+    "round": "모의_2019.07",
+    "source": "모의_2019.07 2교시",
+    "text": "가. 요구사항의 분류\n나. 요구공학의 프로세스 및 주요기법\n다. 요구사항 명세서의 평가기준"
   },
   {
     "id": "m01488",
@@ -33500,7 +33509,16 @@
     "kind": "모의고사",
     "round": "모의_2019.03",
     "source": "모의_2019.03 2교시",
-    "text": "머신러닝 모델의 성능을 검증하기 위한 방법에 대해 상세히 설명\n가. OTT 개념과 등장배경\n나. OTT 사업자 계층 분류\n다. HTTP, RTSP, HLS 스트리밍 기술"
+    "text": "머신러닝 모델의 성능을 검증하기 위한 방법에 대해 상세히 설명"
+  },
+  {
+    "id": "m01515-b",
+    "period": "2교시",
+    "category": "인공지능",
+    "kind": "모의고사",
+    "round": "모의_2019.03",
+    "source": "모의_2019.03 2교시",
+    "text": "가. OTT 개념과 등장배경\n나. OTT 사업자 계층 분류\n다. HTTP, RTSP, HLS 스트리밍 기술"
   },
   {
     "id": "m01517",
@@ -33563,7 +33581,16 @@
     "kind": "모의고사",
     "round": "모의_2019.03",
     "source": "모의_2019.03 4교시",
-    "text": "컨테이너 기반 프로젝트인 Docker와 가상머신(Virtual Machine)을 비교해서 설명하고 컨테이너 오케스트레이션 솔루션인 Kubernetes 시스템 구조에 대해 설명하시오.\n가. 오픈소스 Load Balancer 개념\n나. 오픈소스 Load Balancer 알고리즘 및 오픈소스 HAProxy 동작원리\n다. HAProxy 통한 HA 구성방안"
+    "text": "컨테이너 기반 프로젝트인 Docker와 가상머신(Virtual Machine)을 비교해서 설명하고 컨테이너 오케스트레이션 솔루션인 Kubernetes 시스템 구조에 대해 설명하시오."
+  },
+  {
+    "id": "m01523-b",
+    "period": "4교시",
+    "category": "디지털서비스",
+    "kind": "모의고사",
+    "round": "모의_2019.03",
+    "source": "모의_2019.03 4교시",
+    "text": "가. 오픈소스 Load Balancer 개념\n나. 오픈소스 Load Balancer 알고리즘 및 오픈소스 HAProxy 동작원리\n다. HAProxy 통한 HA 구성방안"
   },
   {
     "id": "m01525",
@@ -33716,7 +33743,16 @@
     "kind": "모의고사",
     "round": "모의_2018.12",
     "source": "모의_2018.12 2교시",
-    "text": "보안의 접근통제 모델인 Bell-Lapadulla Model, Bi-Ba Model을 비교하여 설명하고, 추가적으로 무결성을 강조한 Clark Wilson Model을 설명하시오\n가. 품질활동 종류\n나. 품질활동 절차\n다. 품질관리 산출물 사례"
+    "text": "보안의 접근통제 모델인 Bell-Lapadulla Model, Bi-Ba Model을 비교하여 설명하고, 추가적으로 무결성을 강조한 Clark Wilson Model을 설명하시오"
+  },
+  {
+    "id": "m01543-b",
+    "period": "2교시",
+    "category": "보안",
+    "kind": "모의고사",
+    "round": "모의_2018.12",
+    "source": "모의_2018.12 2교시",
+    "text": "가. 품질활동 종류\n나. 품질활동 절차\n다. 품질관리 산출물 사례"
   },
   {
     "id": "m01545",
