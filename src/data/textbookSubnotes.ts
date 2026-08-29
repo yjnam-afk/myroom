@@ -13716,11 +13716,11 @@ export const SUBNOTES: TextbookSubnote[] = [
           ["동작방식 ④", "계산된 경로로 SPF 트리를 생성(Shortest Path First Tree)"],
           ["동작방식 ⑤", "SPF 트리 정보를 활용해 라우팅 테이블 생성"],
           ["프로토콜 — OSPF", "네트워크에 연결된 링크의 상태 정보를 수집하고 이 정보를 사용하여 최적의 경로를 계산하는 방식"],
-          ["프로토콜 — EIGRP", "IGRP 기반 개방형 라우팅 프로토콜. 라우터 내 대역폭/처리 능력의 이용 뿐 아니라, 토폴로지(망 구성 방식) 변경후에 일어나는 불안정한 라우팅을 최소화하는데 최적화된 방식"],
+          ["참고 — EIGRP", "IGRP 기반의 고급 거리벡터(하이브리드) 프로토콜. DUAL 알고리즘으로 무루프 경로를 계산하며, 대역폭·지연 등 복합 메트릭과 토폴로지 변경 후의 빠른 수렴에 최적화된 방식(링크상태 아님)"],
         ],
       },
     ],
-    notes: ["한 줄 비교: 거리벡터는 '이웃이 알려준 거리'만 믿고 홉 수로 판단(벨만-포드, RIP·IGRP), 링크상태는 '전체 지도'를 만들어 최소 비용 경로를 직접 계산(다익스트라, OSPF·EIGRP)"],
+    notes: ["한 줄 비교: 거리벡터는 '이웃이 알려준 거리'만 믿고 홉 수로 판단(벨만-포드, RIP·IGRP), 링크상태는 '전체 지도'를 만들어 최소 비용 경로를 직접 계산(다익스트라, OSPF·IS-IS). EIGRP는 둘의 특성을 섞은 고급 거리벡터(하이브리드)로 분류"],
   },
   {
     title: "FEC(Forward Error Correction) / BEC(Backward Error Correction)",
@@ -17408,7 +17408,7 @@ export const SUBNOTES: TextbookSubnote[] = [
         caption: "지표",
         headers: ["지표", "설명"],
         rows: [
-          ["RPO(Recovery Point Objective)", "업무중단 시점부터 데이터가 복구되어 다시 정상 가동 될 때 까지 시간. 데이터가 복구되어야 하는 시점"],
+          ["RPO(Recovery Point Objective)", "장애 발생 시 감내할 수 있는 데이터 손실의 허용 시점. 어느 시점까지의 데이터를 복구해야 하는가(예: RPO 1시간 = 최근 1시간 치 데이터 유실 허용)"],
           ["RTO(Recovery Time Objective)", "업무중단 시점부터 업무가 복구되어 다시 가동될 때까지 시간. 재해 시 복구 목표 시간 설정"],
           ["RSO(Recovery Scope Objective)", "재해 시 목표 복구 범위의 선정. 계정계, 정보계, 대외계, 인사관리 시스템, CMDB, 메일 등"],
           ["RCO(Recovery Communication Objective)", "각종 통신메체들의 복구를 통해 복구 대상 NW의 정상 가동 재개 시간 범위를 정의하는 NW 복구 목표. 본점과 지점, 영업점 간, 고객 접점 등"],
