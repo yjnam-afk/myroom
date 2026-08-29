@@ -34224,14 +34224,9 @@
     "related": "k8s",
     "defKeywords": [],
     "featureKeywords": [
-      "마스터",
-      "노드",
-      "포드",
-      "컨테이너 포함)",
-      "컨트롤매니저",
-      "master",
-      "agent",
-      "kubectl"
+      "컨테이너 오케스트레이션",
+      "자동 배포·확장",
+      "셀프 힐링"
     ],
     "applicationKeywords": [
       "상태 관리 가능",
