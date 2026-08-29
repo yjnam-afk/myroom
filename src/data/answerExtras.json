@@ -50080,7 +50080,7 @@
      ],
      [
       "노드",
-      "한일 호스트,kubelet실행"
+      "단일 호스트,kubelet실행"
      ],
      [
       "포드",
@@ -50110,8 +50110,8 @@
       "kubernetes master/worker의 상태와 k8s의 key/value 저장)"
      ],
      [
-      "kubectrl",
-      "외부에서 kubenetes 명령어 전송"
+      "kubectl",
+      "외부에서 kubernetes 명령어 전송"
      ]
     ],
     "notes": []
@@ -111117,7 +111117,7 @@
    "본인신용정보 관리회사"
   ],
   "plus": [
-   "Java Web Signiture 규격",
+   "JSON Web Signature 규격",
    "OpenAPI",
    "TLS",
    "JWS",

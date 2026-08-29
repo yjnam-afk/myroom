@@ -57767,7 +57767,7 @@
  },
  {
   "id": "ds-174",
-  "title": "컨테이너 오케스트레이션/쿠버네티스(Kubernates)",
+  "title": "컨테이너 오케스트레이션/쿠버네티스(Kubernetes)",
   "category": "디지털서비스",
   "importance": "출제예상",
   "source": "기필반",
@@ -72451,7 +72451,7 @@
   "category": "네트워크",
   "importance": "출제예상",
   "source": "기필반",
-  "definition": "궤도 위성은 지구 저궤도인 300~1500Km 에 수백기 이상의 대량 생산된 통신 위성을 배치하여 초고속 인터넷 서비스를 제공하는 통신 기술. ISL(Inter Satellite Links, 위성 간 통신 기술) DSP(Digital Signal Processing)",
+  "definition": "저궤도 위성은 지구 저궤도인 300~1500Km 에 수백기 이상의 대량 생산된 통신 위성을 배치하여 초고속 인터넷 서비스를 제공하는 통신 기술. ISL(Inter Satellite Links, 위성 간 통신 기술) DSP(Digital Signal Processing)",
   "defShort": "지구 저궤도에 대량의 통신위성을 배치해 초고속 인터넷을 제공하는 위성통신 기술",
   "memo": "",
   "sections": [
