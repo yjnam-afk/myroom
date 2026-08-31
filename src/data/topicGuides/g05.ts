@@ -430,7 +430,7 @@ export const G: Record<string, EasyGuide> = {
     usage: "장애인 접근성과 사회적 가치 기술의 사례입니다. 시험은 정의와 융합 기술 사례 나열형입니다.",
     links: [
       { topic: "디지털 포용(Digital Inclusion)", how: "소외 없는 기술 혜택이라는 같은 지향의 실현 수단입니다." },
-      { topic: "밀리테크(MiliTch)", how: "같은 X-Tech 융합 계열로 분야만 다른 개념입니다." },
+      { topic: "밀리테크(MiliTech)", how: "같은 X-Tech 융합 계열로 분야만 다른 개념입니다." },
     ],
     exam: "에이블테크는 의료용품과 보조기기를 넘어 인공지능·모빌리티 등 IT 기술과 결합하여 장애인의 불편을 덜어 주는 기술이다.",
   },
@@ -448,7 +448,7 @@ export const G: Record<string, EasyGuide> = {
     usage: "기술 스타트업·국가 R&D 정책의 키워드입니다. 시험은 정의와 특성, 응용 분야 사례입니다.",
     links: [
       { topic: "기후테크(C-Tech)", how: "기후 문제를 푸는 딥테크의 대표 응용 영역입니다." },
-      { topic: "밀리테크(MiliTch)", how: "국방에 적용된 기술 집약 융합 사례입니다." },
+      { topic: "밀리테크(MiliTech)", how: "국방에 적용된 기술 집약 융합 사례입니다." },
     ],
     exam: "딥테크는 과학기술 집약을 기반으로 사회 전반에 복잡성과 혁신적인 영향을 미칠 수 있는 가능성을 가진 기술이다.",
   },

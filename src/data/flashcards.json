@@ -39829,7 +39829,7 @@
  },
  {
   "id": "gj-168",
-  "title": "밀리테크(MiliTch)",
+  "title": "밀리테크(MiliTech)",
   "category": "경영전략",
   "importance": "출제예상",
   "source": "기필반",
@@ -64633,7 +64633,7 @@
  },
  {
   "id": "ds-394",
-  "title": "CPNC",
+  "title": "CNPC",
   "category": "디지털서비스",
   "importance": "하",
   "source": "기필반",
@@ -83141,7 +83141,7 @@
   "category": "보안",
   "importance": "출제예상",
   "source": "기필반",
-  "definition": "선 전파의 유도에 의해서 비행하는 무인항공기의 총칭 (UAV)",
+  "definition": "무선 전파의 유도에 의해서 비행하는 무인항공기의 총칭 (UAV)",
   "defShort": "GPS 기만·도청·악성코드 위협에 관리·기술·물리로 대응하는 드론 보안 체계",
   "memo": "개사범 (개인정보·사생활 침해문제·범죄)",
   "sections": [
@@ -97569,7 +97569,7 @@
  },
  {
   "id": "ca-13",
-  "title": "컴퓨터 구조(폰누이만)",
+  "title": "컴퓨터 구조(폰노이만)",
   "category": "소프트웨어공학",
   "importance": "하",
   "source": "기필반",
@@ -97632,7 +97632,7 @@
  },
  {
   "id": "ca-15",
-  "title": "하바드 아키텍처",
+  "title": "하버드 아키텍처",
   "category": "소프트웨어공학",
   "importance": "하",
   "source": "기필반",
@@ -105483,7 +105483,7 @@
  },
  {
   "id": "gp-121",
-  "title": "정보시스템 갈리 Framework",
+  "title": "정보시스템 감리 Framework",
   "category": "소프트웨어공학",
   "importance": "상",
   "source": "기필반",

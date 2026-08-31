@@ -298,7 +298,7 @@ export const I: Record<string, AnswerIntro> = {
     features: ["탐지 식별", "무력화 대응", "표준 구조"],
   },
   "ds-394": {
-    lead: "드론의 명령과 상태만 나르는 전용 링크, CPNC",
+    lead: "드론의 명령과 상태만 나르는 전용 링크, CNPC",
     defShort: "무인기와 지상통제국 사이에서 비행 제어와 상태 감시 정보를 주고받는 전용 무선 링크",
     features: ["안전 필수", "제어 전용", "전용 주파수"],
   },
