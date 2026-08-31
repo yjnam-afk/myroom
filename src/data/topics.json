@@ -16110,6 +16110,15 @@
     "source": "기필반"
   },
   {
+    "id": "sec-399",
+    "title": "C2PA(Coalition for Content Provenance and Authenticity)",
+    "category": "보안",
+    "group": "컨텐츠 보안",
+    "importance": "상",
+    "summary": "디지털 콘텐츠의 촬영·편집·AI 생성 이력을 매니페스트에 담고 인증서로 서명해 출처와 진위를 검증하는 콘텐츠 출처 표준",
+    "source": "기필반"
+  },
+  {
     "id": "db-1",
     "title": "데이터베이스의 개념",
     "category": "데이터베이스",
