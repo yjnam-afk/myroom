@@ -77987,7 +77987,7 @@
     "kind": "파이널",
     "round": "합숙_2014.07",
     "source": "합숙_2014.07 Day-2",
-    "text": "SW공학에서 리팩토링(Refactoring)은 SW의 가치와 품질을 높이는 기술로 매우 중요한 의미를 가진다.\n가. SW 리팩토링의 리팩토링의 개념을 개념을 설명하시오\n나. 전 코드 악취 (Bad Smells in Code) 유형을 유형을 5개 이상 제시하시오 제시하시오 제시하시오 .\n다. SW 리팩토링 기법 중, ‘Replace Temp with Query’를 설명하고, 이를 활용하여\n아래 제시된 코드를 리팩토링 하시오."
+    "text": "SW공학에서 리팩토링(Refactoring)은 SW의 가치와 품질을 높이는 기술로 매우 중요한 의미를 가진다.\n가. SW 리팩토링의 개념을 설명하시오\n나. 전 코드 악취 (Bad Smells in Code) 유형을 5개 이상 제시하시오.\n다. SW 리팩토링 기법 중, ‘Replace Temp with Query’를 설명하고, 이를 활용하여\n아래 제시된 코드를 리팩토링 하시오."
   },
   {
     "id": "f02758",
@@ -78752,7 +78752,7 @@
     "kind": "파이널",
     "round": "합숙_2014.01",
     "source": "합숙_2014.01 2일차",
-    "text": "BOYD 보안을 위한 주요 기술"
+    "text": "BYOD(Bring Your Own Device) 보안을 위한 주요 기술"
   },
   {
     "id": "f02843",
