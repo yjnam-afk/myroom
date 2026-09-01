@@ -56,7 +56,7 @@
   {
     "id": "k140-107",
     "period": "1교시",
-    "category": "인공지능",
+    "category": "확률·통계",
     "source": "140회 1교시",
     "text": "편향(Bias) 감소와 분산(Variance) 추정을 위한 잭나이프(Jackknife) 기법",
     "image": "/concept/haesul140/k140-107.webp",
@@ -65,7 +65,7 @@
   {
     "id": "k140-108",
     "period": "1교시",
-    "category": "보안",
+    "category": "운영체제",
     "source": "140회 1교시",
     "text": "좀비 프로세스(Zombie Process)",
     "image": "/concept/haesul140/k140-108.webp",

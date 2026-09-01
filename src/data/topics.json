@@ -23447,8 +23447,8 @@
   {
     "id": "n140-2",
     "title": "잭나이프(Jackknife) 기법",
-    "category": "인공지능",
-    "group": "확률·통계",
+    "category": "확률·통계",
+    "group": "추정통계\n(Statistical Estimation)",
     "importance": "상",
     "summary": "관측값을 하나씩 제외한 Leave-One-Out 표본에서 통계량을 반복 계산하여 추정량의 편향을 보정하고 분산을 추정하는 재표본추출 기법",
     "source": "요청"
@@ -23466,7 +23466,7 @@
     "id": "n140-4",
     "title": "좀비 프로세스(Zombie Process)",
     "category": "소프트웨어공학",
-    "group": "프로세스 관리",
+    "group": "OS(운영체제)",
     "importance": "상",
     "summary": "자식 프로세스가 종료되었으나 부모가 wait()/waitpid()로 종료 상태를 회수하지 않아 커널 프로세스 테이블에 종료 정보만 남아 있는 프로세스",
     "source": "요청"
