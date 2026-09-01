@@ -47,6 +47,14 @@ export default function Markdown({ children }: { children: string }) {
             if (/language-mermaid/.test(className || "")) return null;
             return <code className={className}>{children}</code>;
           },
+          // 답안작성방법론: 핵심 키워드는 굵게 + 밑줄(답안지에서 밑줄 긋는 자리).
+          strong(props) {
+            return (
+              <strong className="underline decoration-slate-500 decoration-[1.5px] underline-offset-2">
+                {props.children}
+              </strong>
+            );
+          },
         }}
       >
         {repairTables(children)}
