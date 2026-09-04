@@ -11,9 +11,33 @@ m = json.load(open(path))
 def plain(s):
     return re.sub(r"\*\*(.+?)\*\*", r"\1", s).replace(" ", "")
 
+def check_tables(a):
+    """표 규격은 교시 공통이다 — 3단표 설명 열 8자, 표 아래 간글 1줄."""
+    errs = []
+    tables = re.findall(r"(\|[^\n]*\|\n\|[-\s|:]+\|\n(?:\|[^\n]*\|\n?)+)", a)
+    long_cells = 0
+    for t in tables:
+        rows = [r for r in t.strip().split("\n") if r.startswith("|")]
+        header = [c.strip() for c in rows[0].strip("|").split("|")]
+        # 3열이라도 헤더가 '설명'이 아니면 비교표이므로 길이 제한 대상이 아니다.
+        if len(header) != 3 or header[2] != "설명":
+            continue
+        for r in rows[2:]:
+            cells = [c.strip() for c in r.strip("|").split("|")]
+            if len(cells) == 3 and len(plain(cells[2])) > 8:
+                long_cells += 1
+    if long_cells:
+        errs.append(f"3단표 3열 설명 8자 초과 {long_cells}칸(5~7글자 명사구)")
+    for t in tables:
+        idx = a.find(t) + len(t)
+        after = [l for l in a[idx:].split("\n")[:3] if l.strip()]
+        if not after or not after[0].strip().startswith(("-", "·")):
+            errs.append("표 아래 간글 1줄 없음"); break
+    return errs
+
 def check_p1(k, a):
     lines = [l.rstrip() for l in a.split("\n")]
-    errs = []
+    errs = check_tables(a)
     try:
         i = next(i for i, l in enumerate(lines) if l.startswith("## 1."))
     except StopIteration:
@@ -68,26 +92,9 @@ def check_p24(k, a):
         errs.append(f"절이 {len(heads)}개(4단락 초과)")
     if "```" in a:
         errs.append("코드블록/mermaid 사용(규칙 6-1 위반)")
-    tables = re.findall(r"(\|[^\n]*\|\n\|[-\s|:]+\|\n(?:\|[^\n]*\|\n?)+)", a)
-    if not tables:
+    if not re.findall(r"(\|[^\n]*\|\n\|[-\s|:]+\|\n(?:\|[^\n]*\|\n?)+)", a):
         errs.append("3단표 없음")
-    long_cells = 0
-    for t in tables:
-        rows = [r for r in t.strip().split("\n") if r.startswith("|")]
-        header = [c.strip() for c in rows[0].strip("|").split("|")]
-        if len(header) != 3:
-            continue
-        for r in rows[2:]:
-            cells = [c.strip() for c in r.strip("|").split("|")]
-            if len(cells) == 3 and len(plain(cells[2])) > 8:
-                long_cells += 1
-    if long_cells:
-        errs.append(f"3단표 3열 설명 8자 초과 {long_cells}칸(5~7글자 명사구)")
-    for t in tables:
-        idx = a.find(t) + len(t)
-        after = [l for l in a[idx:].split("\n")[:3] if l.strip()]
-        if not after or not after[0].strip().startswith(("-", "·")):
-            errs.append("표 아래 간글 1줄 없음"); break
+    errs += check_tables(a)
     try:
         i = next(x for x, l in enumerate(lines) if l.startswith("## I."))
         seg = [l.strip() for l in lines[i + 1 : i + 8] if l.strip()]
