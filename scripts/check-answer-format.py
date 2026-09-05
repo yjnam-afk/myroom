@@ -11,23 +11,34 @@ m = json.load(open(path))
 def plain(s):
     return re.sub(r"\*\*(.+?)\*\*", r"\1", s).replace(" ", "")
 
+# 표 3열의 상한은 표 종류에 따라 다르다. 나열표('설명')는 짧은 명사구로 족하지만,
+# 판정·대응표는 수치·표준명 같은 기준값이 들어가야 답안 가치가 생긴다.
+LIST_MAX = 12   # | 구분 | 키워드 | 설명 |
+JUDGE_MAX = 20  # | 구분 | 점검 항목 | 판정·조치 | 등
+
 def check_tables(a):
-    """표 규격은 교시 공통이다 — 3단표 설명 열 8자, 표 아래 간글 1줄."""
+    """표 규격은 교시 공통이다 — 3단표 3열 길이, 표 아래 간글 1줄."""
     errs = []
     tables = re.findall(r"(\|[^\n]*\|\n\|[-\s|:]+\|\n(?:\|[^\n]*\|\n?)+)", a)
     long_cells = 0
     for t in tables:
         rows = [r for r in t.strip().split("\n") if r.startswith("|")]
         header = [c.strip() for c in rows[0].strip("|").split("|")]
-        # 3열이라도 헤더가 '설명'이 아니면 비교표이므로 길이 제한 대상이 아니다.
-        if len(header) != 3 or header[2] != "설명":
+        if len(header) != 3:
+            continue
+        # 2열이 '키워드'가 아니면 비교표이므로 길이 제한 대상이 아니다.
+        if header[1] == "키워드":
+            cap = LIST_MAX
+        elif header[1] in ("점검 항목", "점검항목", "문제점", "위험", "이슈"):
+            cap = JUDGE_MAX
+        else:
             continue
         for r in rows[2:]:
             cells = [c.strip() for c in r.strip("|").split("|")]
-            if len(cells) == 3 and len(plain(cells[2])) > 8:
+            if len(cells) == 3 and len(plain(cells[2])) > cap:
                 long_cells += 1
     if long_cells:
-        errs.append(f"3단표 3열 설명 8자 초과 {long_cells}칸(5~7글자 명사구)")
+        errs.append(f"3단표 3열 길이 초과 {long_cells}칸(나열표 {LIST_MAX}자·판정표 {JUDGE_MAX}자)")
     for t in tables:
         idx = a.find(t) + len(t)
         after = [l for l in a[idx:].split("\n")[:3] if l.strip()]
