@@ -27,7 +27,7 @@ def check_tables(a):
         if len(header) != 3:
             continue
         # 2열이 '키워드'가 아니면 비교표이므로 길이 제한 대상이 아니다.
-        if header[1] == "키워드":
+        if header[1] in ("키워드", "특성", "구성요소"):
             cap = LIST_MAX
         elif header[1] in ("점검 항목", "점검항목", "문제점", "위험", "이슈"):
             cap = JUDGE_MAX
