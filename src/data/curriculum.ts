@@ -136,8 +136,8 @@ const OS_MEM: CurriculumTopic[] = [
 ];
 
 const OS_PROC: CurriculumTopic[] = [
-  { title: "스케줄러(Scheduler)", topicId: "os-23", priority: "하" },
-  { title: "프로세스 상태 전이도", priority: "상", level: "점검", note: "출제 여부는 애매. 다만 그림은 그릴 수 있어야 한다." },
+  { title: "스케줄러(Scheduler)", topicId: "os-23", priority: "하", note: "프로세스 상태 전이도와 한 쌍 — 어느 전이를 누가 일으키는지로 묶어서 볼 것." },
+  { title: "프로세스 상태 전이도", priority: "상", level: "점검", note: "출제 여부는 애매. 다만 그림은 그릴 수 있어야 한다. 스케줄러와 한 쌍으로 볼 것." },
   { title: "CPU 스케줄링(CPU Scheduling)", priority: "중" },
   { title: "기한부(Deadline) 스케줄링", priority: "하" },
   { title: "문맥교환(Context Switching)", topicId: "os-47", priority: "상" },

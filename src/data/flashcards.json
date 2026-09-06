@@ -2368,7 +2368,7 @@
   "source": "심화반",
   "definition": "하나의 프로세스가 시스템 내에 존재하는 동안 그 프로세스가 가지는 상태",
   "defShort": "프로세스가 생성부터 종료까지 가지는 여러 상태와 그 사이의 전이 관계를 나타낸 그림",
-  "memo": "상태 전이 Diagram: 생성(New) → 준비(Ready) ⇄ 실행(Running) → 종료(Finished) / 준비→실행: 디스패칭, 실행→준비: 시간 만료, 실행→대기(Waiting): 보류, 대기→준비: 조건만족",
+  "memo": "스케줄러 이름 대조: 같은 것을 교재마다 달리 부른다 — 장기=Job Scheduler, 단기=Process Scheduler(CPU Scheduler), 중기=Swapper. '스케줄러(Scheduler)' 토픽은 장기·중기·단기로, 이 토픽은 Job·Process로 적혀 있으니 한 쌍으로 외운다",
   "sections": [
    {
     "label": "특징",
@@ -2399,6 +2399,19 @@
      "실행",
      "대기",
      "종료"
+    ]
+   },
+   {
+    "label": "상태 전이별 담당 스케줄러 — 어느 전이를 누가 일으키는가",
+    "mnemonic": "",
+    "keywords": [
+     "생성 → 준비 (Admit)",
+     "준비 → 실행 (Dispatch)",
+     "실행 → 준비 (Timeout)",
+     "실행 → 대기 (Block)",
+     "대기 → 준비 (Wake-up)",
+     "준비·대기 ↔ 보류 (Swap)",
+     "실행 → 종료 (Exit)"
     ]
    }
   ],
