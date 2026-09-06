@@ -7,7 +7,8 @@ import { subnoteExtraFor } from "@/data/subnoteExtras";
  * 학습 카드 — 처음 보는 개념을 ★이해 → 기억 → 인출★ 순서로 태운다.
  *
  * 용어를 용어로 설명하면 외워지지 않는다. 그래서 화면 순서를 고정한다.
- *  한 문장 → 한 장면(비유) → 왜 필요한가 → 비유↔용어 매핑 → 옆 토픽 → 답안 한 줄
+ *  한 문장 → 실제 동작 → 왜 필요한가 → 쉬운 말↔용어 매핑 → 옆 토픽 → 답안 한 줄
+ * 비유는 넣지 않는다 — 일상 소재로 바꾸면 오히려 개념이 흐려진다.
  * guide 가 없는 토픽은 예전 줄글(easy)을 그대로 보여준다.
  */
 export default function EasyCard({
@@ -56,21 +57,13 @@ export default function EasyCard({
           </div>
         )}
 
-        {/* 2. 한 장면 — 비유는 접어 둔다.
-            비유가 오히려 방해가 되는 경우가 많다(일상 소재가 유치하게 읽히고,
-            원래 개념과 어긋나는 부분까지 같이 외워진다). 위의 실제 동작 설명만으로
-            충분한 사람은 펼치지 않아도 되도록 기본은 닫아 둔다. */}
-        <details className="group rounded-xl bg-slate-50 p-4">
-          <summary className="cursor-pointer list-none text-xs font-bold text-slate-500 hover:text-slate-700">
-            🎬 비유로 한 번 더
-            <span className="ml-1 font-medium text-slate-400 group-open:hidden">
-              (펼치기)
-            </span>
-          </summary>
-          <p className="mt-2 text-[15px] leading-[1.95] text-slate-800">
-            {g.scene}
-          </p>
-        </details>
+        {/* 비유(g.scene)는 화면에서 내렸다.
+            일상 소재로 바꾼 설명이 오히려 유치하게 읽혀 이해를 방해하고,
+            원래 개념과 어긋나는 부분까지 함께 외워지는 문제가 있었다.
+            바로 위 "정확히는 이렇게 돌아갑니다"가 2,547개 카드 전부에
+            들어 있어 비유 없이도 설명이 완결된다.
+            데이터(EasyGuide.scene)는 그대로 두었으므로 되살리려면
+            이 자리에 <p>{g.scene}</p> 한 줄만 되돌리면 된다. */}
 
         {/* 2. 왜 필요한가 — 이유를 알면 안 잊는다 */}
         <div className="rounded-xl border-l-4 border-rose-300 bg-rose-50/60 p-4">
@@ -80,7 +73,7 @@ export default function EasyCard({
           <p className="text-[15px] leading-[1.95] text-slate-800">{g.why}</p>
         </div>
 
-        {/* 3. 비유 ↔ 진짜 용어 — 여기가 핵심. 비유에 용어를 붙여 준다 */}
+        {/* 3. 쉬운 말 ↔ 진짜 용어 — 여기가 핵심. 풀어 쓴 말에 시험 용어를 붙여 준다 */}
         <div>
           <div className="mb-2 text-xs font-bold text-slate-500">
             🧩 쉬운 말을 시험 용어로 바꿔 보면
