@@ -190,7 +190,7 @@ const CA_ALL: CurriculumTopic[] = [
   { title: "캐시메모리의 쓰기정책(Write Policy)", topicId: "ca-76", priority: "하" },
   { title: "MESI", topicId: "ca-81", priority: "중" },
   { title: "메모리 인터리빙(Interleaving)", topicId: "ca-56", priority: "중" },
-  { title: "메모리 단편화(Fragmentation)", priority: "상" },
+  { title: "메모리 단편화(Fragmentation)", priority: "상", level: "숙지", note: "내부·외부 구분과 통합·집약, 버디·슬랩까지. OS 단편화 토픽과 한 쌍." },
   { title: "DMA(Direct Memory Access)", topicId: "ca-25", priority: "상" },
   { title: "I2C와 SPI", topicId: "ca-47", priority: "하" },
   { title: "HA(High Availability)", topicId: "ca-135", priority: "상" },
