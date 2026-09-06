@@ -157,7 +157,7 @@ const OS_SYNC: CurriculumTopic[] = [
   { title: "자원할당 그래프(Resource Allocation Graph)", topicId: "os-39", priority: "중", level: "점검", note: "나올 때가 됐는데 아직 안 나왔다." },
   { title: "Banker's 알고리즘(은행가 알고리즘)", topicId: "os-41", priority: "중", level: "참고", note: "당분간 안 나올 것으로 본다." },
   { title: "Wait-Die와 Wound-Wait", topicId: "os-38", priority: "하" },
-  { title: "디스크 스케줄링(Disk Scheduling)", topicId: "os-24", priority: "하" },
+  { title: "디스크 스케줄링(Disk Scheduling)", topicId: "os-24", priority: "하", level: "점검", note: "탐색시간 최소화가 목적. CPU 스케줄링과 이름만 같고 대상이 디스크 헤드다." },
   { title: "파일 시스템(유닉스 파일시스템)", topicId: "os-58", priority: "하" },
   { title: "유닉스의 inode", topicId: "os-57", priority: "하" },
 ];
