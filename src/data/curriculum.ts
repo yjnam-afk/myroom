@@ -136,9 +136,9 @@ const OS_MEM: CurriculumTopic[] = [
 ];
 
 const OS_PROC: CurriculumTopic[] = [
-  { title: "스케줄러(Scheduler)", topicId: "os-23", priority: "하", note: "프로세스 상태 전이도와 한 쌍 — 어느 전이를 누가 일으키는지로 묶어서 볼 것." },
+  { title: "스케줄러(Scheduler)", topicId: "os-23", priority: "하", note: "상태 전이도와 한 쌍(어느 전이를 누가), CPU 스케줄링·간트 차트와도 한 줄(무엇을 좋게 vs 어떻게 재나)." },
   { title: "프로세스 상태 전이도", priority: "상", level: "점검", note: "출제 여부는 애매. 다만 그림은 그릴 수 있어야 한다. 스케줄러와 한 쌍으로 볼 것." },
-  { title: "CPU 스케줄링(CPU Scheduling)", priority: "중" },
+  { title: "CPU 스케줄링(CPU Scheduling)", priority: "중", note: "알고리즘별로 간트 차트를 그려 평균 대기·반환시간을 계산하는 것이 출제 형태." },
   { title: "기한부(Deadline) 스케줄링", priority: "하", level: "점검", note: "한 번 훑어둘 것." },
   { title: "문맥교환(Context Switching)", topicId: "os-47", priority: "상" },
   { title: "기아(Starvation)", topicId: "os-37", priority: "하" },
