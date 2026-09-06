@@ -149,7 +149,7 @@ const OS_PROC: CurriculumTopic[] = [
 ];
 
 const OS_SYNC: CurriculumTopic[] = [
-  { title: "경쟁조건(Race Condition) 해결 방안", topicId: "os-45", priority: "중" },
+  { title: "경쟁조건(Race Condition) 해결 방안", topicId: "os-45", priority: "중", level: "숙지", note: "소프트웨어·하드웨어·동기화 세 갈래와 임계영역 3요건까지. 세마포어·모니터·스핀락·뮤텍스가 여기서 갈라진다." },
   { title: "세마포어(Semaphore)", topicId: "os-32", priority: "상" },
   { title: "우선순위 역전(Priority Inversion) 현상", topicId: "os-34", priority: "중", level: "숙지", note: "발생 조건과 해결 기법까지 숙지." },
   { title: "프로세스간 통신(IPC)", topicId: "os-59", priority: "중" },
