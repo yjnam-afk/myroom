@@ -140,6 +140,9 @@ bad = tot = 0
 for k in sorted(m):
     if not k.startswith(prefix):
         continue
+    # 별칭 항목(중복 출제라 정본 답안을 공유)은 정본 쪽에서 검사한다.
+    if "aliasOf" in m[k]:
+        continue
     tot += 1
     a = m[k]["answer"]
     e = check_p1(k, a) if is_p1(k) else check_p24(k, a)

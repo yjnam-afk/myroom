@@ -7,7 +7,7 @@ import Markdown from "@/components/Markdown";
 import CopyButton from "@/components/CopyButton";
 import questions from "@/data/questions.json";
 import { relatedTopics } from "@/lib/relatedTopics";
-import { getModelAnswer } from "@/lib/modelAnswers";
+import { canonicalAnswerId, getModelAnswer } from "@/lib/modelAnswers";
 import { matchSubnoteTitle } from "@/lib/matchSubnote";
 import genAnswers from "@/data/genAnswers.json";
 
@@ -273,6 +273,11 @@ export default function ExamPage() {
                     ];
                 const ma = hand || gen;
                 const tpl = matchSubnoteTitle(q.text);
+                // 같은 문제가 기출·모의고사에 중복 출제되면 답안 페이지를 공유한다.
+                const sharedFrom = canonicalAnswerId(q.id);
+                const sharedLabel = sharedFrom
+                  ? ALL.find((x) => x.id === sharedFrom)?.source
+                  : undefined;
                 return (
                 <div
                   key={q.id}
@@ -295,6 +300,11 @@ export default function ExamPage() {
                     {hand && (
                       <span className="self-center rounded-md bg-amber-100 px-2 py-1 text-[10px] font-bold text-amber-700">
                         📘 모범답안 제공
+                      </span>
+                    )}
+                    {sharedLabel && (
+                      <span className="self-center rounded-md bg-sky-100 px-2 py-1 text-[10px] font-bold text-sky-700">
+                        🔁 {sharedLabel}와 동일 — 답안 공유
                       </span>
                     )}
                     {gen && (

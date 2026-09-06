@@ -13,12 +13,36 @@ export type ModelAnswer = {
   source: string;
 };
 
-const MA = data as Record<string, ModelAnswer>;
+/** 같은 문제가 기출·모의고사에 중복 출제되면 답안을 새로 쓰지 않고 한 페이지를 공유한다. */
+type AnswerAlias = { aliasOf: string; note?: string };
+type Entry = ModelAnswer | AnswerAlias;
 
-/** 문제 id로 모범답안 조회(예: k139-101). */
+const MA = data as Record<string, Entry>;
+
+function isAlias(e: Entry): e is AnswerAlias {
+  return typeof (e as AnswerAlias).aliasOf === "string";
+}
+
+/** 문제 id로 모범답안 조회(예: k139-101). 별칭이면 정본 답안을 따라간다. */
 export function getModelAnswer(id?: string): ModelAnswer | null {
   if (!id) return null;
-  return MA[id] || null;
+  const seen = new Set<string>();
+  let key: string | undefined = id;
+  while (key && !seen.has(key)) {
+    seen.add(key);
+    const e: Entry | undefined = MA[key];
+    if (!e) return null;
+    if (!isAlias(e)) return e;
+    key = e.aliasOf;
+  }
+  return null;
+}
+
+/** 이 문제가 다른 문제의 답안을 공유하고 있으면 정본 문제 id. */
+export function canonicalAnswerId(id?: string): string | null {
+  if (!id) return null;
+  const e = MA[id];
+  return e && isAlias(e) ? e.aliasOf : null;
 }
 
 /** 문제 본문으로 모범답안 조회(questions.json의 id 매칭). */
@@ -33,5 +57,5 @@ export function getModelAnswerByQuestion(text?: string): ModelAnswer | null {
 
 /** 모범답안이 존재하는 문제 id 집합. */
 export function hasModelAnswer(id?: string): boolean {
-  return Boolean(id && MA[id]);
+  return Boolean(getModelAnswer(id));
 }
