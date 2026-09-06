@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { navDepth } from "@/components/NavDepth";
+import { canGoBack } from "@/components/NavDepth";
 
 export function PageHeader({
   title,
@@ -18,7 +18,7 @@ export function PageHeader({
    * history.length 를 쓰면 검색·메신저를 타고 들어온 경우 앱 밖으로 나가버린다.
    */
   function goBack() {
-    if (navDepth() > 1) {
+    if (canGoBack()) {
       router.back();
     } else {
       router.push("/");
