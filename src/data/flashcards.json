@@ -2806,7 +2806,7 @@
   "id": "sn-45",
   "title": "Wait-Die와 Wound-Wait",
   "category": "운영체제",
-  "importance": "하",
+  "importance": "중",
   "source": "심화반",
   "definition": "[Wait-Die] 자원 요청 프로세스와 보유 프로세스의 타임 스템프를 비교하여 대기하거나 롤백하는 비선점 기반 DeadLock 회피 기법 / [Wound-Wait] 자원 요청 프로세스와 보유 프로세스의 타임 스템프를 비교하여 대기하거나 강제 종료하는 선점 기반 DeadLock 회피 기법",
   "defShort": "요청과 보유의 타임스탬프 비교로 대기·롤백을 정하는 비선점 교착상태 회피 기법",

@@ -137,7 +137,9 @@ function studyDays(subjects: Subject[], totalDays = 4): CurriculumDay[] {
 }
 
 // ── 1주차: 운영체제(OS) + 컴퓨터구조(CA) ──────────────────────────────
-const OS_MEM: CurriculumTopic[] = [
+// ── 운영체제(OS) — NS 교재 CONTENTS 31토픽. 순서·Priority 그대로. ──
+//    ★=하, ★★=중, ★★★=상.
+const OS_ALL: CurriculumTopic[] = [
   { title: "커널(Kernel)", topicId: "os-2", priority: "하" },
   { title: "CPU Ring Level", priority: "하" },
   { title: "기억장치 계층 구조(Memory Hierarchy)", topicId: "ca-51", priority: "중", level: "숙지", note: "개념만 확실히 잡아두면 되는 토픽." },
@@ -149,22 +151,12 @@ const OS_MEM: CurriculumTopic[] = [
   { title: "스레싱(Thrashing)", topicId: "os-75", priority: "상", level: "점검", note: "나온 지 오래됐다. 한 번 다시 볼 것." },
   { title: "지역성(Locality)", topicId: "os-74", priority: "중" },
   { title: "단편화(Fragmentation)", topicId: "ca-58", priority: "중", level: "숙지", note: "내부·외부 구분과 해소 방안까지 개념 숙지." },
-];
-
-const OS_PROC: CurriculumTopic[] = [
   { title: "스케줄러(Scheduler)", topicId: "os-23", priority: "하", note: "상태 전이도와 한 쌍(어느 전이를 누가), CPU 스케줄링·간트 차트와도 한 줄(무엇을 좋게 vs 어떻게 재나)." },
   { title: "프로세스 상태 전이도", priority: "상", level: "점검", note: "출제 여부는 애매. 다만 그림은 그릴 수 있어야 한다. 스케줄러와 한 쌍으로 볼 것." },
   { title: "CPU 스케줄링(CPU Scheduling)", priority: "중", note: "알고리즘별로 간트 차트를 그려 평균 대기·반환시간을 계산하는 것이 출제 형태." },
   { title: "기한부(Deadline) 스케줄링", priority: "하", level: "점검", note: "한 번 훑어둘 것." },
   { title: "문맥교환(Context Switching)", topicId: "os-47", priority: "상", level: "숙지", note: "PCB 저장·복원 절차와 오버헤드까지. 디스패처가 하는 일이라 스케줄러와 이어진다." },
   { title: "기아(Starvation)", topicId: "os-37", priority: "하" },
-  { title: "인터럽트(Interrupt)", topicId: "os-63", priority: "상", level: "점검", note: "봐야 하는 토픽." },
-  { title: "PCB(Process Control Block)", topicId: "os-48", priority: "중", level: "점검", note: "봐야 하는 토픽." },
-  { title: "프로세스(Process)와 스레드(Thread) 비교", topicId: "os-53", priority: "중" },
-  { title: "멀티 쓰레드(Multi-Thread)", topicId: "os-54", priority: "하" },
-];
-
-const OS_SYNC: CurriculumTopic[] = [
   { title: "경쟁조건(Race Condition) 해결 방안", topicId: "os-45", priority: "중", level: "숙지", note: "소프트웨어·하드웨어·동기화 세 갈래와 임계영역 3요건까지. 세마포어·모니터·스핀락·뮤텍스가 여기서 갈라진다." },
   { title: "세마포어(Semaphore)", topicId: "os-32", priority: "상" },
   { title: "우선순위 역전(Priority Inversion) 현상", topicId: "os-34", priority: "중", level: "숙지", note: "발생 조건과 해결 기법까지 숙지." },
@@ -172,7 +164,10 @@ const OS_SYNC: CurriculumTopic[] = [
   { title: "교착상태(Deadlock)", topicId: "os-36", priority: "상", level: "암기", note: "무조건 암기 — 4대 조건과 해결 기법을 그대로." },
   { title: "자원할당 그래프(Resource Allocation Graph)", topicId: "os-39", priority: "중", level: "점검", note: "나올 때가 됐는데 아직 안 나왔다." },
   { title: "Banker's 알고리즘(은행가 알고리즘)", topicId: "os-41", priority: "중", level: "참고", note: "당분간 안 나올 것으로 본다." },
-  { title: "Wait-Die와 Wound-Wait", topicId: "os-38", priority: "하" },
+  { title: "인터럽트(Interrupt)", topicId: "os-63", priority: "상", level: "점검", note: "봐야 하는 토픽." },
+  { title: "PCB(Process Control Block)", topicId: "os-48", priority: "중", level: "점검", note: "봐야 하는 토픽." },
+  { title: "프로세스(Process)와 스레드(Thread) 비교", topicId: "os-53", priority: "중" },
+  { title: "멀티 쓰레드(Multi-Thread)", topicId: "os-54", priority: "하" },
   { title: "디스크 스케줄링(Disk Scheduling)", topicId: "os-24", priority: "하", level: "점검", note: "탐색시간 최소화가 목적. CPU 스케줄링과 이름만 같고 대상이 디스크 헤드다." },
   { title: "파일 시스템(유닉스 파일시스템)", topicId: "os-58", priority: "하" },
   { title: "유닉스의 inode", topicId: "os-57", priority: "하" },
@@ -362,7 +357,7 @@ const WEEK2_DAYS: CurriculumDay[] = studyDays([
 ]);
 
 const STUDY_DAYS: CurriculumDay[] = studyDays([
-  { name: "운영체제(OS)", topics: [...OS_MEM, ...OS_PROC, ...OS_SYNC] },
+  { name: "운영체제(OS)", topics: OS_ALL },
   { name: "컴퓨터구조(CA)", topics: CA_ALL },
 ]);
 
