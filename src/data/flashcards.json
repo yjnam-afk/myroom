@@ -339,7 +339,7 @@
   "importance": "하",
   "source": "심화반",
   "definition": "컴퓨터 하드웨어와 응용 프로그램과의 연계를 위하여 자원관리, 프로세스/네트워크 관리 및 추상화를 수행하는 운영체제의 핵심 프로그램",
-  "defShort": "하드웨어와 응용 프로그램을 잇고 자원·프로세스 관리와 추상화를 맡는 OS 핵심부",
+  "defShort": "하드웨어와 응용을 잇고 자원·프로세스·네트워크 관리와 추상화를 맡는 핵심부",
   "memo": "커널의 구조: System Call Interface → 파일 시스템 관리 / I/O 관리(Device Drivers) / 메모리 관리 / 프로세스 관리 · 스케줄러 · IPC · 동기화 / Protection → Hardware Control(Interrupt Handler..) → Hardware",
   "sections": [
    {
@@ -1381,7 +1381,7 @@
   "importance": "하",
   "source": "심화반",
   "definition": "우선순위 기반 CPU 스케줄링 시 높은 우선순위 프로세스의 지속적 진입으로 인해, 낮은 우선순위 프로세스가 수행되지 못하고 무한대기 하는 현상",
-  "defShort": "높은 우선순위 프로세스가 계속 들어와 낮은 쪽이 실행되지 못하고 무한 대기하는 현상",
+  "defShort": "우선순위 스케줄링에서 낮은 우선순위 프로세스가 계속 밀려나 무한 대기하는 현상",
   "memo": "사례 개념도 — 문제 상황: Process1(실행시간 10, 우선순위 10), Process2(4, 7), Process3(5, 1), Process4(6, 5)",
   "sections": [
    {
@@ -1653,7 +1653,7 @@
   "importance": "하",
   "source": "심화반",
   "definition": "시스템이 운영체제 및 소프트웨어의 실행 권한을 관리하기 위해 설계된 프로세서의 권한 수준(Privilege Level)를 나타내는 (보안) 계층적 구조",
-  "defShort": "운영체제와 소프트웨어의 실행 권한을 나눠 관리하는 프로세서의 권한 계층적 구조",
+  "defShort": "운영체제·소프트웨어 실행 권한을 나누는 프로세서의 권한 수준 기반 보안 계층 구조",
   "memo": "구조도(동심원, 바깥→안): User Programs → Standard Libraries → Device Drivers → Kernel",
   "sections": [
    {
@@ -2104,7 +2104,7 @@
   "importance": "상",
   "source": "심화반",
   "definition": "멀티프로세싱 환경에서 페이지 부재로 인해 CPU가 프로세스 실행보다 페이지 교체에 더 많은 시간을 소요하는 비 정상적인 현상",
-  "defShort": "페이지 부재가 잦아져 프로세스 실행보다 페이지 교체에 시간을 더 쓰는 비정상 현상",
+  "defShort": "페이지 부재로 CPU가 프로세스 실행보다 페이지 교체에 시간을 더 쓰는 비정상 현상",
   "memo": "개념도: CPU 이용율이 다중 프로그래밍 정도에 따라 상승하다 임계점 이후 급락 → Thrashing 구간",
   "sections": [
    {
@@ -2708,7 +2708,7 @@
   "importance": "하",
   "source": "심화반",
   "definition": "[Wait-Die] 자원 요청 프로세스와 보유 프로세스의 타임 스템프를 비교하여 대기하거나 롤백하는 비선점 기반 DeadLock 회피 기법 / [Wound-Wait] 자원 요청 프로세스와 보유 프로세스의 타임 스템프를 비교하여 대기하거나 강제 종료하는 선점 기반 DeadLock 회피 기법",
-  "defShort": "요청과 보유 프로세스의 타임스탬프를 비교해 대기·롤백을 정하는 교착 회피 기법",
+  "defShort": "요청과 보유의 타임스탬프 비교로 대기·롤백을 정하는 비선점 교착상태 회피 기법",
   "memo": "Wait-Die 동작: 낮은 Timestamp(Old Tr) T1 → T2(자원 점유) ← T3(높은 Timestamp, Young TR) — T1은 Wait, T3는 Die / Young(젊은) 트랜잭션(프로세스)는 롤백을 수행하고, 여러 번 발생 가능",
   "sections": [
    {
