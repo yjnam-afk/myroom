@@ -126,7 +126,7 @@ const OS_MEM: CurriculumTopic[] = [
   { title: "CPU Ring Level", priority: "하" },
   { title: "기억장치 계층 구조(Memory Hierarchy)", topicId: "ca-51", priority: "중", level: "숙지", note: "개념만 확실히 잡아두면 되는 토픽." },
   { title: "가상메모리 관리기법", topicId: "ca-55", priority: "상", level: "숙지", note: "최근 출제 — 재출제 간격을 감안하면 개념 유지 수준." },
-  { title: "가상메모리의 페이징과 세그멘테이션", priority: "중" },
+  { title: "가상메모리의 페이징과 세그멘테이션", priority: "중", level: "점검", note: "단편화와 엮어서 다시 볼 것. 고정=내부, 가변=외부 대응이 핵심." },
   { title: "직접 사상과 연관 사상 페이징 기법", topicId: "ca-87", priority: "중" },
   { title: "페이지 교체 알고리즘(Paging Replacement Algorithm)", topicId: "ca-84", priority: "중" },
   { title: "Belady's Anomaly(FIFO 이상현상)", topicId: "ca-90", priority: "중", level: "숙지", note: "프레임을 늘렸는데 페이지 부재가 되레 늘어나는 역설. FIFO에서만 나고 LRU·OPT는 안 난다는 대비까지." },
