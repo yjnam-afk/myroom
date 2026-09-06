@@ -178,6 +178,8 @@ const OS_SYNC: CurriculumTopic[] = [
   { title: "유닉스의 inode", topicId: "os-57", priority: "하" },
 ];
 
+// ── 컴퓨터구조(CA) — NS 교재 CONTENTS 19토픽. 순서·Priority 그대로. ──
+//    ★=하, ★★=중, ★★★=상.
 const CA_ALL: CurriculumTopic[] = [
   { title: "CPU 처리과정", topicId: "ca-17", priority: "하" },
   { title: "CISC vs RISC", topicId: "ca-120", priority: "하" },
@@ -192,14 +194,12 @@ const CA_ALL: CurriculumTopic[] = [
   { title: "메모리 인터리빙(Interleaving)", topicId: "ca-56", priority: "중" },
   { title: "메모리 단편화(Fragmentation)", priority: "상", level: "숙지", note: "내부·외부 구분과 통합·집약, 버디·슬랩까지. OS 단편화 토픽과 한 쌍." },
   { title: "DMA(Direct Memory Access)", topicId: "ca-25", priority: "상" },
-  { title: "I2C와 SPI", topicId: "ca-47", priority: "하" },
   { title: "HA(High Availability)", topicId: "ca-135", priority: "상" },
   { title: "결함허용 컴퓨터(FTS)", topicId: "ca-136", priority: "상" },
-  { title: "워치독 타이머(WDT)", topicId: "os-81", priority: "중" },
+  { title: "워치독 타이머(WDT, Watchdog timer)", topicId: "os-81", priority: "중" },
   { title: "RAID", topicId: "ca-140", priority: "상" },
-  { title: "이레이저 코딩(erasure coding)", priority: "하" },
-  { title: "지능형 반도체", priority: "중" },
   { title: "TPU(Tensor Processing Unit)", topicId: "ca-22", priority: "상" },
+  { title: "CXL(Compute Express Link) 3.0", topicId: "ca-214", priority: "중" },
 ];
 
 // ── 2주차: 프로젝트 관리(PM) 33토픽 ───────────────────────────────────

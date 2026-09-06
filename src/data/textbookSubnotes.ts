@@ -552,6 +552,56 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
+    topicId: "ca-214",
+    title: "CXL(Compute Express Link) 3.0",
+    course: "CA",
+    definition:
+      "CPU와 메모리·가속기 간 저지연 데이터 통신과 캐시 일관성을 지원하며, CXL Switch/Fabric을 통해 메모리 공유·Pooling 및 확장을 제공하는 차세대 컴퓨팅 인터페이스",
+    defShort: "CPU와 가속기를 저지연 연결하고 캐시 일관성과 메모리 공유를 주는 인터페이스",
+    lead: "메모리 벽을 넘는 연결, CXL 3.0",
+    features: ["저지연 캐시 일관성", "Fabric 확장", "메모리 풀링과 공유"],
+    keywords: ["PCIe 6.0 기반", "Fabric 구조", "메모리 Pooling/Sharing"],
+    tables: [
+      {
+        caption: "특징",
+        headers: ["특징", "설명"],
+        rows: [
+          ["PCIe 6.0 기반 도입", "대역폭이 2배 향상되어 최대 64GT/s(x16 링크 기준 약 256GB/s)의 성능을 제공"],
+          ["패브릭(Fabric) 구조 지원", "다단계 스위칭을 통해 단일 서버 랙을 넘어 여러 랙을 연결, 최대 4,096개의 노드를 유연하게 확장할 수 있음"],
+          ["메모리 풀링 및 공유", "중앙 CPU를 거치지 않고 장치끼리 직접 메모리에 접근해 데이터 병목 현상을 극복"],
+        ],
+      },
+      {
+        caption: "구성 요소",
+        headers: ["구분", "구성요소", "설명"],
+        rows: [
+          ["Host", "CPU / SoC", "CXL Root Port를 통해 CXL Device와 고속 연결"],
+          ["인터페이스", "CXL Link", "PCIe 물리 계층을 기반으로 Host와 Device 간 고속 데이터 전송"],
+        ],
+      },
+      {
+        caption: "프로토콜·Fabric·Device·메모리 관리",
+        headers: ["구분", "요소", "설명"],
+        rows: [
+          ["프로토콜", "CXL.io", "장치 검색·설정 및 I/O 통신을 담당"],
+          ["프로토콜", "CXL.cache", "Device가 Host 메모리를 접근할 때 Cache Coherency 지원"],
+          ["프로토콜", "CXL.mem", "Host가 CXL Device의 메모리에 직접 접근하도록 지원"],
+          ["Fabric", "CXL Switch", "하나의 Host가 여러 CXL Device에 연결될 수 있도록 확장"],
+          ["Fabric", "Multi-Level Switching", "다단계 Switch를 통한 대규모 CXL Fabric 구성 지원"],
+          ["Device", "CXL Memory", "DRAM 등의 외부 메모리를 연결하여 Host 메모리 용량 확장"],
+          ["Device", "Accelerator", "GPU·NPU 등 가속기와 CPU 간 일관성 기반 데이터 공유"],
+          ["메모리 관리", "Memory Pooling", "여러 Host가 CXL 메모리 자원을 공유하여 메모리 활용률 향상"],
+          ["메모리 관리", "Memory Sharing", "Host·Device 간 메모리 공유를 통해 데이터 복사 및 이동 비용 감소"],
+        ],
+      },
+    ],
+    notes: [
+      "개념도: Accelerator(Accelerator Logic + Accelerator Memory) ↔ CXL.io(PCIe: 검색·설정·초기화·인터럽트·DMA·ATS·오류신호) / CXL.cache(Coherent requests) / CXL.mem(Memory Flows) ↔ Host Processor(Coherence·Cache Logic, PCIe Logic, IA Core, I/O Device) ↔ Host Memory",
+      "세 프로토콜의 방향: CXL.io는 장치 관리, CXL.cache는 Device→Host 메모리 접근, CXL.mem은 Host→Device 메모리 접근 — 누가 누구의 메모리를 보는지로 갈라 외운다",
+      "연결 구조: 캐시 일관성(Cache Coherence)·MESI와 한 줄 — 가속기가 Host 메모리를 캐시할 때 일관성을 어떻게 유지하는가가 CXL.cache의 일이다",
+    ],
+  },
+  {
     topicId: "ca-47",
     title: "I2C(Inter Integrated Circuit)와 SPI(Serial Peripheral Interface)",
     course: "CA",

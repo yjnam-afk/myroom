@@ -526,6 +526,74 @@
  },
  {
   "id": "sn-9",
+  "title": "CXL(Compute Express Link) 3.0",
+  "category": "컴퓨터구조",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "CPU와 메모리·가속기 간 저지연 데이터 통신과 캐시 일관성을 지원하며, CXL Switch/Fabric을 통해 메모리 공유·Pooling 및 확장을 제공하는 차세대 컴퓨팅 인터페이스",
+  "defShort": "CPU와 가속기를 저지연 연결하고 캐시 일관성과 메모리 공유를 주는 인터페이스",
+  "memo": "개념도: Accelerator(Accelerator Logic + Accelerator Memory) ↔ CXL.io(PCIe: 검색·설정·초기화·인터럽트·DMA·ATS·오류신호) / CXL.cache(Coherent requests) / CXL.mem(Memory Flows) ↔ Host Processor(Coherence·Cache Logic, PCIe Logic, IA Core, I/O Device) ↔ Host Memory",
+  "sections": [
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "저지연 캐시 일관성",
+     "Fabric 확장",
+     "메모리 풀링과 공유"
+    ]
+   },
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "PCIe 6.0 기반",
+     "Fabric 구조",
+     "메모리 Pooling/Sharing"
+    ]
+   },
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "PCIe 6.0 기반 도입",
+     "패브릭(Fabric) 구조 지원",
+     "메모리 풀링 및 공유"
+    ]
+   },
+   {
+    "label": "구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "Host",
+     "인터페이스"
+    ]
+   },
+   {
+    "label": "프로토콜·Fabric·Device·메모리 관리",
+    "mnemonic": "",
+    "keywords": [
+     "CXL.io",
+     "CXL.cache",
+     "CXL.mem",
+     "CXL Switch",
+     "Multi-Level Switching",
+     "CXL Memory",
+     "Accelerator",
+     "Memory Pooling",
+     "Memory Sharing"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "저지연 캐시 일관성",
+   "Fabric 확장",
+   "메모리 풀링과 공유"
+  ]
+ },
+ {
+  "id": "sn-10",
   "title": "I2C(Inter Integrated Circuit)와 SPI(Serial Peripheral Interface)",
   "category": "컴퓨터구조",
   "importance": "중",
@@ -579,7 +647,7 @@
   ]
  },
  {
-  "id": "sn-10",
+  "id": "sn-11",
   "title": "캐시메모리의 쓰기정책(Write Policy)",
   "category": "컴퓨터구조",
   "importance": "하",
@@ -626,7 +694,7 @@
   ]
  },
  {
-  "id": "sn-11",
+  "id": "sn-12",
   "title": "캐시 플러시(Cache Flush)",
   "category": "컴퓨터구조",
   "importance": "하",
@@ -680,7 +748,7 @@
   ]
  },
  {
-  "id": "sn-12",
+  "id": "sn-13",
   "title": "캐시 일관성(Cache Coherence)",
   "category": "컴퓨터구조",
   "importance": "중",
@@ -743,7 +811,7 @@
   ]
  },
  {
-  "id": "sn-13",
+  "id": "sn-14",
   "title": "메모리 인터리빙(Interleaving)",
   "category": "컴퓨터구조",
   "importance": "중",
@@ -798,7 +866,7 @@
   ]
  },
  {
-  "id": "sn-14",
+  "id": "sn-15",
   "title": "MESI",
   "category": "컴퓨터구조",
   "importance": "중",
@@ -846,7 +914,7 @@
   ]
  },
  {
-  "id": "sn-15",
+  "id": "sn-16",
   "title": "HA(High Availability)",
   "category": "컴퓨터구조",
   "importance": "상",
@@ -892,7 +960,7 @@
   ]
  },
  {
-  "id": "sn-16",
+  "id": "sn-17",
   "title": "결함허용 컴퓨터(FTS)",
   "category": "컴퓨터구조",
   "importance": "상",
@@ -972,7 +1040,7 @@
   ]
  },
  {
-  "id": "sn-17",
+  "id": "sn-18",
   "title": "워치독 타이머(WDT, Watchdog timer)",
   "category": "컴퓨터구조",
   "importance": "중",
@@ -1039,7 +1107,7 @@
   ]
  },
  {
-  "id": "sn-18",
+  "id": "sn-19",
   "title": "RAID (Redundant Array of Independent Disks)",
   "category": "컴퓨터구조",
   "importance": "중",
@@ -1091,10 +1159,10 @@
   ]
  },
  {
-  "id": "sn-19",
+  "id": "sn-20",
   "title": "이레이저 코딩(erasure coding)",
   "category": "컴퓨터구조",
-  "importance": "하",
+  "importance": "중",
   "source": "심화반",
   "definition": "분할과 패리티를 이용하여 데이터를 인코딩하고, 데이터 손실 시 디코딩 과정을 거쳐 원본 데이터를 복구하는 기술",
   "defShort": "데이터를 분할하고 패리티로 인코딩해 손실 시 디코딩으로 원본을 복구하는 저장 기술",
@@ -1149,7 +1217,7 @@
   ]
  },
  {
-  "id": "sn-20",
+  "id": "sn-21",
   "title": "지능형 반도체",
   "category": "컴퓨터구조",
   "importance": "중",
@@ -1217,7 +1285,7 @@
   ]
  },
  {
-  "id": "sn-21",
+  "id": "sn-22",
   "title": "TPU (Tensor Processing Unit)",
   "category": "컴퓨터구조",
   "importance": "중",
@@ -1292,7 +1360,7 @@
   ]
  },
  {
-  "id": "sn-22",
+  "id": "sn-23",
   "title": "경쟁조건(Race Condition) 해결 방안",
   "category": "운영체제",
   "importance": "중",
@@ -1375,7 +1443,7 @@
   ]
  },
  {
-  "id": "sn-23",
+  "id": "sn-24",
   "title": "기아(Starvation)",
   "category": "운영체제",
   "importance": "하",
@@ -1444,7 +1512,7 @@
   ]
  },
  {
-  "id": "sn-24",
+  "id": "sn-25",
   "title": "문맥교환(Context Switching)",
   "category": "운영체제",
   "importance": "상",
@@ -1507,7 +1575,7 @@
   ]
  },
  {
-  "id": "sn-25",
+  "id": "sn-26",
   "title": "우선순위 역전(Priority Inversion) 현상",
   "category": "운영체제",
   "importance": "중",
@@ -1563,7 +1631,7 @@
   ]
  },
  {
-  "id": "sn-26",
+  "id": "sn-27",
   "title": "세마포어(Semaphore)",
   "category": "운영체제",
   "importance": "상",
@@ -1647,7 +1715,7 @@
   ]
  },
  {
-  "id": "sn-27",
+  "id": "sn-28",
   "title": "CPU Ring Level",
   "category": "운영체제",
   "importance": "하",
@@ -1702,7 +1770,7 @@
   ]
  },
  {
-  "id": "sn-28",
+  "id": "sn-29",
   "title": "기억장치 계층 구조 (Memory Hierarchy)",
   "category": "운영체제",
   "importance": "중",
@@ -1750,7 +1818,7 @@
   ]
  },
  {
-  "id": "sn-29",
+  "id": "sn-30",
   "title": "가상메모리 관리기법",
   "category": "운영체제",
   "importance": "상",
@@ -1824,7 +1892,7 @@
   ]
  },
  {
-  "id": "sn-30",
+  "id": "sn-31",
   "title": "가상메모리의 페이징과 세그멘테이션",
   "category": "운영체제",
   "importance": "중",
@@ -1905,7 +1973,7 @@
   ]
  },
  {
-  "id": "sn-31",
+  "id": "sn-32",
   "title": "직접 사상과 연관 사상 페이징 기법",
   "category": "운영체제",
   "importance": "중",
@@ -1966,7 +2034,7 @@
   ]
  },
  {
-  "id": "sn-32",
+  "id": "sn-33",
   "title": "페이지 교체 알고리즘(Paging Replacement Algorithm)",
   "category": "운영체제",
   "importance": "중",
@@ -2042,7 +2110,7 @@
   ]
  },
  {
-  "id": "sn-33",
+  "id": "sn-34",
   "title": "Belady's Anomaly(FIFO 이상현상)",
   "category": "운영체제",
   "importance": "중",
@@ -2098,7 +2166,7 @@
   ]
  },
  {
-  "id": "sn-34",
+  "id": "sn-35",
   "title": "스레싱(Thrashing)",
   "category": "운영체제",
   "importance": "상",
@@ -2172,7 +2240,7 @@
   ]
  },
  {
-  "id": "sn-35",
+  "id": "sn-36",
   "title": "지역성(Locality)",
   "category": "운영체제",
   "importance": "중",
@@ -2228,7 +2296,7 @@
   ]
  },
  {
-  "id": "sn-36",
+  "id": "sn-37",
   "title": "단편화(Fragmentation)",
   "category": "운영체제",
   "importance": "중",
@@ -2290,7 +2358,7 @@
   ]
  },
  {
-  "id": "sn-37",
+  "id": "sn-38",
   "title": "스케줄러(Scheduler)",
   "category": "운영체제",
   "importance": "하",
@@ -2361,7 +2429,7 @@
   ]
  },
  {
-  "id": "sn-38",
+  "id": "sn-39",
   "title": "프로세스 상태 전이도",
   "category": "운영체제",
   "importance": "상",
@@ -2423,7 +2491,7 @@
   ]
  },
  {
-  "id": "sn-39",
+  "id": "sn-40",
   "title": "CPU 스케줄링(CPU Scheduling)",
   "category": "운영체제",
   "importance": "중",
@@ -2499,7 +2567,7 @@
   ]
  },
  {
-  "id": "sn-40",
+  "id": "sn-41",
   "title": "기한부(Deadline) 스케줄링",
   "category": "운영체제",
   "importance": "하",
@@ -2555,7 +2623,7 @@
   ]
  },
  {
-  "id": "sn-41",
+  "id": "sn-42",
   "title": "교착상태(Deadlock)",
   "category": "운영체제",
   "importance": "상",
@@ -2616,7 +2684,7 @@
   ]
  },
  {
-  "id": "sn-42",
+  "id": "sn-43",
   "title": "자원할당 그래프(Resource Allocation Graph)",
   "category": "운영체제",
   "importance": "중",
@@ -2676,7 +2744,7 @@
   ]
  },
  {
-  "id": "sn-43",
+  "id": "sn-44",
   "title": "Banker's 알고리즘(은행가 알고리즘)",
   "category": "운영체제",
   "importance": "중",
@@ -2735,7 +2803,7 @@
   ]
  },
  {
-  "id": "sn-44",
+  "id": "sn-45",
   "title": "Wait-Die와 Wound-Wait",
   "category": "운영체제",
   "importance": "하",
@@ -2783,7 +2851,7 @@
   ]
  },
  {
-  "id": "sn-45",
+  "id": "sn-46",
   "title": "인터럽트(Interrupt)",
   "category": "운영체제",
   "importance": "상",
@@ -2860,7 +2928,7 @@
   ]
  },
  {
-  "id": "sn-46",
+  "id": "sn-47",
   "title": "프로세스(Process)와 스레드(Thread) 비교",
   "category": "운영체제",
   "importance": "중",
@@ -2921,7 +2989,7 @@
   ]
  },
  {
-  "id": "sn-47",
+  "id": "sn-48",
   "title": "PCB(Process Control Block)",
   "category": "운영체제",
   "importance": "중",
@@ -2976,7 +3044,7 @@
   ]
  },
  {
-  "id": "sn-48",
+  "id": "sn-49",
   "title": "멀티 쓰레드(Multi-Thread)",
   "category": "운영체제",
   "importance": "하",
@@ -3025,7 +3093,7 @@
   ]
  },
  {
-  "id": "sn-49",
+  "id": "sn-50",
   "title": "파일 시스템(유닉스 파일시스템)",
   "category": "운영체제",
   "importance": "하",
@@ -3086,7 +3154,7 @@
   ]
  },
  {
-  "id": "sn-50",
+  "id": "sn-51",
   "title": "유닉스의 inode",
   "category": "운영체제",
   "importance": "하",
@@ -3155,7 +3223,7 @@
   ]
  },
  {
-  "id": "sn-51",
+  "id": "sn-52",
   "title": "프로세스간 통신(IPC)",
   "category": "운영체제",
   "importance": "중",
@@ -3227,7 +3295,7 @@
   ]
  },
  {
-  "id": "sn-52",
+  "id": "sn-53",
   "title": "디스크 스케줄링(Disk Scheduling)",
   "category": "운영체제",
   "importance": "하",
@@ -3282,7 +3350,7 @@
   ]
  },
  {
-  "id": "sn-53",
+  "id": "sn-54",
   "title": "경제성 분석 기법",
   "category": "프로젝트관리",
   "importance": "중",
@@ -3329,7 +3397,7 @@
   ]
  },
  {
-  "id": "sn-54",
+  "id": "sn-55",
   "title": "프로젝트 관리 계획서",
   "category": "프로젝트관리",
   "importance": "하",
@@ -3386,7 +3454,7 @@
   ]
  },
  {
-  "id": "sn-55",
+  "id": "sn-56",
   "title": "범위관리",
   "category": "프로젝트관리",
   "importance": "중",
@@ -3437,7 +3505,7 @@
   ]
  },
  {
-  "id": "sn-56",
+  "id": "sn-57",
   "title": "요구사항 수집기법",
   "category": "프로젝트관리",
   "importance": "상",
@@ -3492,7 +3560,7 @@
   ]
  },
  {
-  "id": "sn-57",
+  "id": "sn-58",
   "title": "요구사항 명세서 SRS",
   "category": "프로젝트관리",
   "importance": "중",
@@ -3569,7 +3637,7 @@
   ]
  },
  {
-  "id": "sn-58",
+  "id": "sn-59",
   "title": "WBS (Work Breakdown Structure)",
   "category": "프로젝트관리",
   "importance": "상",
@@ -3620,7 +3688,7 @@
   ]
  },
  {
-  "id": "sn-59",
+  "id": "sn-60",
   "title": "Scope Creep vs Gold-Plating",
   "category": "프로젝트관리",
   "importance": "중",
@@ -3678,7 +3746,7 @@
   ]
  },
  {
-  "id": "sn-60",
+  "id": "sn-61",
   "title": "활동기간 산정기법",
   "category": "프로젝트관리",
   "importance": "하",
@@ -3733,7 +3801,7 @@
   ]
  },
  {
-  "id": "sn-61",
+  "id": "sn-62",
   "title": "3점 산정",
   "category": "프로젝트관리",
   "importance": "하",
@@ -3792,7 +3860,7 @@
   ]
  },
  {
-  "id": "sn-62",
+  "id": "sn-63",
   "title": "CPM (Critical Path Management)",
   "category": "프로젝트관리",
   "importance": "중",
@@ -3845,7 +3913,7 @@
   ]
  },
  {
-  "id": "sn-63",
+  "id": "sn-64",
   "title": "CCM (Critical Chain Management)",
   "category": "프로젝트관리",
   "importance": "중",
@@ -3900,7 +3968,7 @@
   ]
  },
  {
-  "id": "sn-64",
+  "id": "sn-65",
   "title": "일정단축 기법",
   "category": "프로젝트관리",
   "importance": "상",
@@ -3946,7 +4014,7 @@
   ]
  },
  {
-  "id": "sn-65",
+  "id": "sn-66",
   "title": "EVM(Earned Value Management, 획득 가치 관리)",
   "category": "프로젝트관리",
   "importance": "중",
@@ -4023,7 +4091,7 @@
   ]
  },
  {
-  "id": "sn-66",
+  "id": "sn-67",
   "title": "품질통제도구, QC 7",
   "category": "프로젝트관리",
   "importance": "중",
@@ -4074,7 +4142,7 @@
   ]
  },
  {
-  "id": "sn-67",
+  "id": "sn-68",
   "title": "형상 관리",
   "category": "프로젝트관리",
   "importance": "상",
@@ -4140,7 +4208,7 @@
   ]
  },
  {
-  "id": "sn-68",
+  "id": "sn-69",
   "title": "SW 품질비용",
   "category": "프로젝트관리",
   "importance": "하",
@@ -4195,7 +4263,7 @@
   ]
  },
  {
-  "id": "sn-69",
+  "id": "sn-70",
   "title": "RACI 매트릭스",
   "category": "프로젝트관리",
   "importance": "하",
@@ -4252,7 +4320,7 @@
   ]
  },
  {
-  "id": "sn-70",
+  "id": "sn-71",
   "title": "자원 최적화",
   "category": "프로젝트관리",
   "importance": "중",
@@ -4298,7 +4366,7 @@
   ]
  },
  {
-  "id": "sn-71",
+  "id": "sn-72",
   "title": "동기부여 이론",
   "category": "프로젝트관리",
   "importance": "중",
@@ -4357,7 +4425,7 @@
   ]
  },
  {
-  "id": "sn-72",
+  "id": "sn-73",
   "title": "터크만 팀 개발 5단계",
   "category": "프로젝트관리",
   "importance": "중",
@@ -4418,7 +4486,7 @@
   ]
  },
  {
-  "id": "sn-73",
+  "id": "sn-74",
   "title": "갈등관리",
   "category": "프로젝트관리",
   "importance": "중",
@@ -4480,7 +4548,7 @@
   ]
  },
  {
-  "id": "sn-74",
+  "id": "sn-75",
   "title": "프로젝트 위험관리",
   "category": "프로젝트관리",
   "importance": "중",
@@ -4543,7 +4611,7 @@
   ]
  },
  {
-  "id": "sn-75",
+  "id": "sn-76",
   "title": "정성적 위험 분석",
   "category": "프로젝트관리",
   "importance": "상",
@@ -4597,7 +4665,7 @@
   ]
  },
  {
-  "id": "sn-76",
+  "id": "sn-77",
   "title": "정량적 위험 분석",
   "category": "프로젝트관리",
   "importance": "상",
@@ -4648,7 +4716,7 @@
   ]
  },
  {
-  "id": "sn-77",
+  "id": "sn-78",
   "title": "몬테카를로 시뮬레이션",
   "category": "프로젝트관리",
   "importance": "중",
@@ -4697,7 +4765,7 @@
   ]
  },
  {
-  "id": "sn-78",
+  "id": "sn-79",
   "title": "위험 대응",
   "category": "프로젝트관리",
   "importance": "중",
@@ -4754,7 +4822,7 @@
   ]
  },
  {
-  "id": "sn-79",
+  "id": "sn-80",
   "title": "PMBOK 8개 성과 영역 및 프로젝트 관리 12원칙(PMBOK 7판)",
   "category": "프로젝트관리",
   "importance": "하",
@@ -4819,7 +4887,7 @@
   ]
  },
  {
-  "id": "sn-80",
+  "id": "sn-81",
   "title": "감리/PMO 비교표",
   "category": "프로젝트관리",
   "importance": "상",
@@ -4869,7 +4937,7 @@
   ]
  },
  {
-  "id": "sn-81",
+  "id": "sn-82",
   "title": "Agile 선언문과 12개 원칙",
   "category": "프로젝트관리",
   "importance": "하",
@@ -4932,7 +5000,7 @@
   ]
  },
  {
-  "id": "sn-82",
+  "id": "sn-83",
   "title": "스크럼 (SCRUM)",
   "category": "프로젝트관리",
   "importance": "상",
@@ -4997,7 +5065,7 @@
   ]
  },
  {
-  "id": "sn-83",
+  "id": "sn-84",
   "title": "번다운차트 (Burn Down Chart)",
   "category": "프로젝트관리",
   "importance": "상",
@@ -5057,7 +5125,7 @@
   ]
  },
  {
-  "id": "sn-84",
+  "id": "sn-85",
   "title": "XP (eXtreme Programming)",
   "category": "프로젝트관리",
   "importance": "하",
@@ -5135,7 +5203,7 @@
   ]
  },
  {
-  "id": "sn-85",
+  "id": "sn-86",
   "title": "린 (Lean) 방법론",
   "category": "프로젝트관리",
   "importance": "하",
@@ -5193,7 +5261,7 @@
   ]
  },
  {
-  "id": "sn-86",
+  "id": "sn-87",
   "title": "소프트웨어 개발 방법론",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -5253,7 +5321,7 @@
   ]
  },
  {
-  "id": "sn-87",
+  "id": "sn-88",
   "title": "소프트웨어 설계의 원리",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -5315,7 +5383,7 @@
   ]
  },
  {
-  "id": "sn-88",
+  "id": "sn-89",
   "title": "객체지향 프로그래밍 특징",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -5364,7 +5432,7 @@
   ]
  },
  {
-  "id": "sn-89",
+  "id": "sn-90",
   "title": "다형성 (Polymorphism)",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -5410,7 +5478,7 @@
   ]
  },
  {
-  "id": "sn-90",
+  "id": "sn-91",
   "title": "객체지향 설계 원리",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -5460,7 +5528,7 @@
   ]
  },
  {
-  "id": "sn-91",
+  "id": "sn-92",
   "title": "데메테르의 법칙 (Law of Demeter)",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -5511,7 +5579,7 @@
   ]
  },
  {
-  "id": "sn-92",
+  "id": "sn-93",
   "title": "Product Line",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -5556,7 +5624,7 @@
   ]
  },
  {
-  "id": "sn-93",
+  "id": "sn-94",
   "title": "AOP (Aspect Oriented Programming)",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -5609,7 +5677,7 @@
   ]
  },
  {
-  "id": "sn-94",
+  "id": "sn-95",
   "title": "테일러링 (Tailoring)",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -5673,7 +5741,7 @@
   ]
  },
  {
-  "id": "sn-95",
+  "id": "sn-96",
   "title": "요구공학 (Requirements Engineering)",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -5738,7 +5806,7 @@
   ]
  },
  {
-  "id": "sn-96",
+  "id": "sn-97",
   "title": "페르소나 (Persona)",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -5799,7 +5867,7 @@
   ]
  },
  {
-  "id": "sn-97",
+  "id": "sn-98",
   "title": "ISO/IEC/IEEE 42010:2022",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -5849,7 +5917,7 @@
   ]
  },
  {
-  "id": "sn-98",
+  "id": "sn-99",
   "title": "SW Architecture 구축 절차",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -5903,7 +5971,7 @@
   ]
  },
  {
-  "id": "sn-99",
+  "id": "sn-100",
   "title": "Clean Architecture",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -5951,7 +6019,7 @@
   ]
  },
  {
-  "id": "sn-100",
+  "id": "sn-101",
   "title": "소프트웨어 아키텍처 드라이버 (SW Architecture Driver)",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -6006,7 +6074,7 @@
   ]
  },
  {
-  "id": "sn-101",
+  "id": "sn-102",
   "title": "유틸리티 트리 (Utility Tree)",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -6065,7 +6133,7 @@
   ]
  },
  {
-  "id": "sn-102",
+  "id": "sn-103",
   "title": "소프트웨어 품질 속성 시나리오",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -6125,7 +6193,7 @@
   ]
  },
  {
-  "id": "sn-103",
+  "id": "sn-104",
   "title": "소프트웨어 아키텍처 스타일",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -6178,7 +6246,7 @@
   ]
  },
  {
-  "id": "sn-104",
+  "id": "sn-105",
   "title": "SW Architecture 평가",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -6229,7 +6297,7 @@
   ]
  },
  {
-  "id": "sn-105",
+  "id": "sn-106",
   "title": "CBAM(Cost Benefit Analysis Method)",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -6290,7 +6358,7 @@
   ]
  },
  {
-  "id": "sn-106",
+  "id": "sn-107",
   "title": "UML (정적, 동적 다이어그램)",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -6355,7 +6423,7 @@
   ]
  },
  {
-  "id": "sn-107",
+  "id": "sn-108",
   "title": "클래스 다이어그램 (Class Diagram)",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -6424,7 +6492,7 @@
   ]
  },
  {
-  "id": "sn-108",
+  "id": "sn-109",
   "title": "유즈케이스 다이어그램",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -6489,7 +6557,7 @@
   ]
  },
  {
-  "id": "sn-109",
+  "id": "sn-110",
   "title": "상태 다이어그램 (State Diagram)",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -6538,7 +6606,7 @@
   ]
  },
  {
-  "id": "sn-110",
+  "id": "sn-111",
   "title": "시퀀스 다이어그램 (Sequence Diagram)",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -6591,7 +6659,7 @@
   ]
  },
  {
-  "id": "sn-111",
+  "id": "sn-112",
   "title": "Interaction overview diagram",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -6638,7 +6706,7 @@
   ]
  },
  {
-  "id": "sn-112",
+  "id": "sn-113",
   "title": "MSA (Micro Service Architecture)",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -6688,7 +6756,7 @@
   ]
  },
  {
-  "id": "sn-113",
+  "id": "sn-114",
   "title": "API Gateway",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -6752,7 +6820,7 @@
   ]
  },
  {
-  "id": "sn-114",
+  "id": "sn-115",
   "title": "SAGA패턴",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -6797,7 +6865,7 @@
   ]
  },
  {
-  "id": "sn-115",
+  "id": "sn-116",
   "title": "DDD (Domain Driven Design)",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -6865,7 +6933,7 @@
   ]
  },
  {
-  "id": "sn-116",
+  "id": "sn-117",
   "title": "Event Driven Architecture",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -6920,7 +6988,7 @@
   ]
  },
  {
-  "id": "sn-117",
+  "id": "sn-118",
   "title": "디자인 패턴 (Design Pattern)",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -6977,7 +7045,7 @@
   ]
  },
  {
-  "id": "sn-118",
+  "id": "sn-119",
   "title": "싱글턴 패턴 (Singleton pattern)",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -7032,7 +7100,7 @@
   ]
  },
  {
-  "id": "sn-119",
+  "id": "sn-120",
   "title": "UML의 4+1 View Model",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -7090,7 +7158,7 @@
   ]
  },
  {
-  "id": "sn-120",
+  "id": "sn-121",
   "title": "MVVM (Model, View, View Model)",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -7149,7 +7217,7 @@
   ]
  },
  {
-  "id": "sn-121",
+  "id": "sn-122",
   "title": "TDD (Test Driven Development)",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -7206,7 +7274,7 @@
   ]
  },
  {
-  "id": "sn-122",
+  "id": "sn-123",
   "title": "데브옵스 (DevOps)",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -7256,7 +7324,7 @@
   ]
  },
  {
-  "id": "sn-123",
+  "id": "sn-124",
   "title": "SRE (Site Reliability Engineering)",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -7318,7 +7386,7 @@
   ]
  },
  {
-  "id": "sn-124",
+  "id": "sn-125",
   "title": "무중단 배포",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -7363,7 +7431,7 @@
   ]
  },
  {
-  "id": "sn-125",
+  "id": "sn-126",
   "title": "릴리즈 엔지니어링",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -7420,7 +7488,7 @@
   ]
  },
  {
-  "id": "sn-126",
+  "id": "sn-127",
   "title": "카오스 엔지니어링 (Chaos Engineering)",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -7470,7 +7538,7 @@
   ]
  },
  {
-  "id": "sn-127",
+  "id": "sn-128",
   "title": "DevSecOps",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -7533,7 +7601,7 @@
   ]
  },
  {
-  "id": "sn-128",
+  "id": "sn-129",
   "title": "테스트 원리",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -7596,7 +7664,7 @@
   ]
  },
  {
-  "id": "sn-129",
+  "id": "sn-130",
   "title": "리뷰(Review)",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -7669,7 +7737,7 @@
   ]
  },
  {
-  "id": "sn-130",
+  "id": "sn-131",
   "title": "블랙박스 테스트",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -7726,7 +7794,7 @@
   ]
  },
  {
-  "id": "sn-131",
+  "id": "sn-132",
   "title": "화이트박스 테스트",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -7789,7 +7857,7 @@
   ]
  },
  {
-  "id": "sn-132",
+  "id": "sn-133",
   "title": "코드 커버리지(Code Coverage)",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -7841,7 +7909,7 @@
   ]
  },
  {
-  "id": "sn-133",
+  "id": "sn-134",
   "title": "탐색적 테스트",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -7901,7 +7969,7 @@
   ]
  },
  {
-  "id": "sn-134",
+  "id": "sn-135",
   "title": "경험 기반 테스트",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -7955,7 +8023,7 @@
   ]
  },
  {
-  "id": "sn-135",
+  "id": "sn-136",
   "title": "위험 기반 테스트",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -8014,7 +8082,7 @@
   ]
  },
  {
-  "id": "sn-136",
+  "id": "sn-137",
   "title": "테스트 오라클",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -8069,7 +8137,7 @@
   ]
  },
  {
-  "id": "sn-137",
+  "id": "sn-138",
   "title": "머신러닝 학습방법",
   "category": "인공지능",
   "importance": "하",
@@ -8118,7 +8186,7 @@
   ]
  },
  {
-  "id": "sn-138",
+  "id": "sn-139",
   "title": "전이학습(Transfer Learning)",
   "category": "인공지능",
   "importance": "상",
@@ -8183,7 +8251,7 @@
   ]
  },
  {
-  "id": "sn-139",
+  "id": "sn-140",
   "title": "자기지도학습(Self-supervised Learning)",
   "category": "인공지능",
   "importance": "중",
@@ -8245,7 +8313,7 @@
   ]
  },
  {
-  "id": "sn-140",
+  "id": "sn-141",
   "title": "연합학습(Federated Learning)",
   "category": "인공지능",
   "importance": "중",
@@ -8300,7 +8368,7 @@
   ]
  },
  {
-  "id": "sn-141",
+  "id": "sn-142",
   "title": "머신 언러닝(Machine Unlearning)",
   "category": "인공지능",
   "importance": "중",
@@ -8363,7 +8431,7 @@
   ]
  },
  {
-  "id": "sn-142",
+  "id": "sn-143",
   "title": "버티컬 AI(Vertical AI)",
   "category": "인공지능",
   "importance": "하",
@@ -8415,7 +8483,7 @@
   ]
  },
  {
-  "id": "sn-143",
+  "id": "sn-144",
   "title": "Physical AI",
   "category": "인공지능",
   "importance": "중",
@@ -8502,7 +8570,7 @@
   ]
  },
  {
-  "id": "sn-144",
+  "id": "sn-145",
   "title": "온디바이스 AI",
   "category": "인공지능",
   "importance": "하",
@@ -8581,7 +8649,7 @@
   ]
  },
  {
-  "id": "sn-145",
+  "id": "sn-146",
   "title": "AEI(Artificial Emotional Intelligence)",
   "category": "인공지능",
   "importance": "하",
@@ -8639,7 +8707,7 @@
   ]
  },
  {
-  "id": "sn-146",
+  "id": "sn-147",
   "title": "활성화함수(Activation Function)",
   "category": "인공지능",
   "importance": "중",
@@ -8699,7 +8767,7 @@
   ]
  },
  {
-  "id": "sn-147",
+  "id": "sn-148",
   "title": "손실함수(Loss Function)",
   "category": "인공지능",
   "importance": "중",
@@ -8760,7 +8828,7 @@
   ]
  },
  {
-  "id": "sn-148",
+  "id": "sn-149",
   "title": "머신러닝 옵티마이저(Optimizer)",
   "category": "인공지능",
   "importance": "중",
@@ -8817,7 +8885,7 @@
   ]
  },
  {
-  "id": "sn-149",
+  "id": "sn-150",
   "title": "서포트 벡터 머신 SVM(Support Vector Machine)",
   "category": "인공지능",
   "importance": "중",
@@ -8879,7 +8947,7 @@
   ]
  },
  {
-  "id": "sn-150",
+  "id": "sn-151",
   "title": "데이터라벨링과 어노테이션",
   "category": "인공지능",
   "importance": "하",
@@ -8933,7 +9001,7 @@
   ]
  },
  {
-  "id": "sn-151",
+  "id": "sn-152",
   "title": "지식 증류(Knowledge Distillation)",
   "category": "인공지능",
   "importance": "중",
@@ -9004,7 +9072,7 @@
   ]
  },
  {
-  "id": "sn-152",
+  "id": "sn-153",
   "title": "배치 정규화(Batch Normalization)",
   "category": "인공지능",
   "importance": "중",
@@ -9059,7 +9127,7 @@
   ]
  },
  {
-  "id": "sn-153",
+  "id": "sn-154",
   "title": "정규화, 규제화, 표준화",
   "category": "인공지능",
   "importance": "중",
@@ -9115,7 +9183,7 @@
   ]
  },
  {
-  "id": "sn-154",
+  "id": "sn-155",
   "title": "Dropout",
   "category": "인공지능",
   "importance": "중",
@@ -9180,7 +9248,7 @@
   ]
  },
  {
-  "id": "sn-155",
+  "id": "sn-156",
   "title": "밀도기반 클러스터링(DBSCAN)",
   "category": "인공지능",
   "importance": "상",
@@ -9239,7 +9307,7 @@
   ]
  },
  {
-  "id": "sn-156",
+  "id": "sn-157",
   "title": "오류 역전파(Backpropagation)",
   "category": "인공지능",
   "importance": "중",
@@ -9298,7 +9366,7 @@
   ]
  },
  {
-  "id": "sn-157",
+  "id": "sn-158",
   "title": "K-NN(Nearest Neighbor) Classification",
   "category": "인공지능",
   "importance": "중",
@@ -9370,7 +9438,7 @@
   ]
  },
  {
-  "id": "sn-158",
+  "id": "sn-159",
   "title": "기울기 소실과 기울기 폭주",
   "category": "인공지능",
   "importance": "하",
@@ -9424,7 +9492,7 @@
   ]
  },
  {
-  "id": "sn-159",
+  "id": "sn-160",
   "title": "K-평균 알고리즘",
   "category": "인공지능",
   "importance": "중",
@@ -9485,7 +9553,7 @@
   ]
  },
  {
-  "id": "sn-160",
+  "id": "sn-161",
   "title": "PCA(Principal Component Analysis)",
   "category": "인공지능",
   "importance": "중",
@@ -9543,7 +9611,7 @@
   ]
  },
  {
-  "id": "sn-161",
+  "id": "sn-162",
   "title": "차원 축소(Dimensionality Reduction)",
   "category": "인공지능",
   "importance": "상",
@@ -9603,7 +9671,7 @@
   ]
  },
  {
-  "id": "sn-162",
+  "id": "sn-163",
   "title": "유전 알고리즘(Genetic Algorithm)",
   "category": "인공지능",
   "importance": "하",
@@ -9662,7 +9730,7 @@
   ]
  },
  {
-  "id": "sn-163",
+  "id": "sn-164",
   "title": "앙상블 학습(Ensemble Learning)",
   "category": "인공지능",
   "importance": "상",
@@ -9708,7 +9776,7 @@
   ]
  },
  {
-  "id": "sn-164",
+  "id": "sn-165",
   "title": "유사도(Similarity)",
   "category": "인공지능",
   "importance": "하",
@@ -9755,7 +9823,7 @@
   ]
  },
  {
-  "id": "sn-165",
+  "id": "sn-166",
   "title": "LDA(Linear Discriminant Analysis)",
   "category": "인공지능",
   "importance": "중",
@@ -9814,7 +9882,7 @@
   ]
  },
  {
-  "id": "sn-166",
+  "id": "sn-167",
   "title": "거리 공식(Distance Formula)",
   "category": "인공지능",
   "importance": "하",
@@ -9862,7 +9930,7 @@
   ]
  },
  {
-  "id": "sn-167",
+  "id": "sn-168",
   "title": "트랜스포머(Transformer)",
   "category": "인공지능",
   "importance": "상",
@@ -9913,7 +9981,7 @@
   ]
  },
  {
-  "id": "sn-168",
+  "id": "sn-169",
   "title": "자연어처리(NLP, Natural Language Processing)",
   "category": "인공지능",
   "importance": "중",
@@ -9974,7 +10042,7 @@
   ]
  },
  {
-  "id": "sn-169",
+  "id": "sn-170",
   "title": "VAE(Variational Autoencoder)",
   "category": "인공지능",
   "importance": "상",
@@ -10039,7 +10107,7 @@
   ]
  },
  {
-  "id": "sn-170",
+  "id": "sn-171",
   "title": "GAN(Generative Adversarial Network)",
   "category": "인공지능",
   "importance": "상",
@@ -10108,7 +10176,7 @@
   ]
  },
  {
-  "id": "sn-171",
+  "id": "sn-172",
   "title": "SVD(Singular Value Decomposition)",
   "category": "인공지능",
   "importance": "중",
@@ -10177,7 +10245,7 @@
   ]
  },
  {
-  "id": "sn-172",
+  "id": "sn-173",
   "title": "검색 삽입 생성(RIG, Retrieval Interleaved Generation)",
   "category": "인공지능",
   "importance": "중",
@@ -10239,7 +10307,7 @@
   ]
  },
  {
-  "id": "sn-173",
+  "id": "sn-174",
   "title": "검색 증강 생성(RAG, Retrieval Augmented Generation)",
   "category": "인공지능",
   "importance": "중",
@@ -10299,7 +10367,7 @@
   ]
  },
  {
-  "id": "sn-174",
+  "id": "sn-175",
   "title": "할루시네이션(Hallucination)",
   "category": "인공지능",
   "importance": "상",
@@ -10363,7 +10431,7 @@
   ]
  },
  {
-  "id": "sn-175",
+  "id": "sn-176",
   "title": "초거대 언어 모델(Large Language Model)",
   "category": "인공지능",
   "importance": "하",
@@ -10431,7 +10499,7 @@
   ]
  },
  {
-  "id": "sn-176",
+  "id": "sn-177",
   "title": "어텐션 메커니즘(Attention Mechanism)",
   "category": "인공지능",
   "importance": "상",
@@ -10491,7 +10559,7 @@
   ]
  },
  {
-  "id": "sn-177",
+  "id": "sn-178",
   "title": "랭체인(LangChain)",
   "category": "인공지능",
   "importance": "중",
@@ -10552,7 +10620,7 @@
   ]
  },
  {
-  "id": "sn-178",
+  "id": "sn-179",
   "title": "파인 튜닝(Fine-tuning)",
   "category": "인공지능",
   "importance": "상",
@@ -10625,7 +10693,7 @@
   ]
  },
  {
-  "id": "sn-179",
+  "id": "sn-180",
   "title": "프롬프트 튜닝(Prompt Tuning)",
   "category": "인공지능",
   "importance": "중",
@@ -10674,7 +10742,7 @@
   ]
  },
  {
-  "id": "sn-180",
+  "id": "sn-181",
   "title": "컨텍스트 엔지니어링(Context Engineering)",
   "category": "인공지능",
   "importance": "하",
@@ -10739,7 +10807,7 @@
   ]
  },
  {
-  "id": "sn-181",
+  "id": "sn-182",
   "title": "프롬프트 엔지니어링(Prompt Engineering)",
   "category": "인공지능",
   "importance": "중",
@@ -10801,7 +10869,7 @@
   ]
  },
  {
-  "id": "sn-182",
+  "id": "sn-183",
   "title": "LoRA(Low-rank adaptation)",
   "category": "인공지능",
   "importance": "중",
@@ -10854,7 +10922,7 @@
   ]
  },
  {
-  "id": "sn-183",
+  "id": "sn-184",
   "title": "대규모 언어 모델(LLM) 성능 향상 기술",
   "category": "인공지능",
   "importance": "상",
@@ -10914,7 +10982,7 @@
   ]
  },
  {
-  "id": "sn-184",
+  "id": "sn-185",
   "title": "대형개념모델(LCM, Large Concept Models)",
   "category": "인공지능",
   "importance": "중",
@@ -10978,7 +11046,7 @@
   ]
  },
  {
-  "id": "sn-185",
+  "id": "sn-186",
   "title": "LAM(Large Action Model)",
   "category": "인공지능",
   "importance": "중",
@@ -11041,7 +11109,7 @@
   ]
  },
  {
-  "id": "sn-186",
+  "id": "sn-187",
   "title": "LangGraph",
   "category": "인공지능",
   "importance": "중",
@@ -11101,7 +11169,7 @@
   ]
  },
  {
-  "id": "sn-187",
+  "id": "sn-188",
   "title": "COT(Chain of Thought)",
   "category": "인공지능",
   "importance": "중",
@@ -11149,7 +11217,7 @@
   ]
  },
  {
-  "id": "sn-188",
+  "id": "sn-189",
   "title": "MOE(Mixture of Experts)",
   "category": "인공지능",
   "importance": "중",
@@ -11206,7 +11274,7 @@
   ]
  },
  {
-  "id": "sn-189",
+  "id": "sn-190",
   "title": "PEFT(Parameter-Efficient Fine-Tuning)",
   "category": "인공지능",
   "importance": "중",
@@ -11263,7 +11331,7 @@
   ]
  },
  {
-  "id": "sn-190",
+  "id": "sn-191",
   "title": "MLPerf",
   "category": "인공지능",
   "importance": "중",
@@ -11330,7 +11398,7 @@
   ]
  },
  {
-  "id": "sn-191",
+  "id": "sn-192",
   "title": "테스트 타임 스케일링(Test-Time Scaling, TTS)",
   "category": "인공지능",
   "importance": "중",
@@ -11404,7 +11472,7 @@
   ]
  },
  {
-  "id": "sn-192",
+  "id": "sn-193",
   "title": "MLOps",
   "category": "인공지능",
   "importance": "중",
@@ -11461,7 +11529,7 @@
   ]
  },
  {
-  "id": "sn-193",
+  "id": "sn-194",
   "title": "LLMOps",
   "category": "인공지능",
   "importance": "상",
@@ -11533,7 +11601,7 @@
   ]
  },
  {
-  "id": "sn-194",
+  "id": "sn-195",
   "title": "인공지능 생성물 워터마크 적용 기술",
   "category": "인공지능",
   "importance": "하",
@@ -11609,7 +11677,7 @@
   ]
  },
  {
-  "id": "sn-195",
+  "id": "sn-196",
   "title": "생성형 인공지능 서비스 이용자 보호 가이드라인",
   "category": "인공지능",
   "importance": "상",
@@ -11682,7 +11750,7 @@
   ]
  },
  {
-  "id": "sn-196",
+  "id": "sn-197",
   "title": "생성형 AI 서비스 이용자 보호 가이드라인(2025.02.28)",
   "category": "인공지능",
   "importance": "중",
@@ -11737,7 +11805,7 @@
   ]
  },
  {
-  "id": "sn-197",
+  "id": "sn-198",
   "title": "ISO/IEC TS 42119-2",
   "category": "인공지능",
   "importance": "중",
@@ -11790,7 +11858,7 @@
   ]
  },
  {
-  "id": "sn-198",
+  "id": "sn-199",
   "title": "BrainBody LLM",
   "category": "인공지능",
   "importance": "하",
@@ -11836,7 +11904,7 @@
   ]
  },
  {
-  "id": "sn-199",
+  "id": "sn-200",
   "title": "혼동행렬(Confusion Matrix)",
   "category": "인공지능",
   "importance": "상",
@@ -11898,7 +11966,7 @@
   ]
  },
  {
-  "id": "sn-200",
+  "id": "sn-201",
   "title": "클래스 불균형(Class Imbalance)",
   "category": "인공지능",
   "importance": "중",
@@ -11976,7 +12044,7 @@
   ]
  },
  {
-  "id": "sn-201",
+  "id": "sn-202",
   "title": "Diffusion 모델",
   "category": "인공지능",
   "importance": "하",
@@ -12028,7 +12096,7 @@
   ]
  },
  {
-  "id": "sn-202",
+  "id": "sn-203",
   "title": "AutoML",
   "category": "인공지능",
   "importance": "중",
@@ -12080,7 +12148,7 @@
   ]
  },
  {
-  "id": "sn-203",
+  "id": "sn-204",
   "title": "편향",
   "category": "인공지능",
   "importance": "상",
@@ -12138,7 +12206,7 @@
   ]
  },
  {
-  "id": "sn-204",
+  "id": "sn-205",
   "title": "AI TRiSM(AI Trust, Risk and Security Management)",
   "category": "인공지능",
   "importance": "상",
@@ -12186,7 +12254,7 @@
   ]
  },
  {
-  "id": "sn-205",
+  "id": "sn-206",
   "title": "딥페이크(Deepfake)",
   "category": "인공지능",
   "importance": "상",
@@ -12249,7 +12317,7 @@
   ]
  },
  {
-  "id": "sn-206",
+  "id": "sn-207",
   "title": "프롬프트 인젝션(Prompt Injection)",
   "category": "인공지능",
   "importance": "중",
@@ -12319,7 +12387,7 @@
   ]
  },
  {
-  "id": "sn-207",
+  "id": "sn-208",
   "title": "인공지능 적대적 공격",
   "category": "인공지능",
   "importance": "상",
@@ -12377,7 +12445,7 @@
   ]
  },
  {
-  "id": "sn-208",
+  "id": "sn-209",
   "title": "모델 드리프트(Model Drift) — 컨셉 드리프트 & 데이터 드리프트",
   "category": "인공지능",
   "importance": "중",
@@ -12422,7 +12490,7 @@
   ]
  },
  {
-  "id": "sn-209",
+  "id": "sn-210",
   "title": "AI 레드팀(Red team) 테스트",
   "category": "인공지능",
   "importance": "상",
@@ -12485,7 +12553,7 @@
   ]
  },
  {
-  "id": "sn-210",
+  "id": "sn-211",
   "title": "AI 시스템 테스트",
   "category": "인공지능",
   "importance": "상",
@@ -12543,7 +12611,7 @@
   ]
  },
  {
-  "id": "sn-211",
+  "id": "sn-212",
   "title": "파운데이션 모델(Foundation Model)",
   "category": "인공지능",
   "importance": "중",
@@ -12607,7 +12675,7 @@
   ]
  },
  {
-  "id": "sn-212",
+  "id": "sn-213",
   "title": "멀티모달(Multimodal) AI",
   "category": "인공지능",
   "importance": "중",
@@ -12656,7 +12724,7 @@
   ]
  },
  {
-  "id": "sn-213",
+  "id": "sn-214",
   "title": "범용 인공지능 위험관리 프레임워크",
   "category": "인공지능",
   "importance": "중",
@@ -12713,7 +12781,7 @@
   ]
  },
  {
-  "id": "sn-214",
+  "id": "sn-215",
   "title": "AI Agent",
   "category": "인공지능",
   "importance": "상",
@@ -12766,7 +12834,7 @@
   ]
  },
  {
-  "id": "sn-215",
+  "id": "sn-216",
   "title": "A2A(Agent2Agent) 프로토콜",
   "category": "인공지능",
   "importance": "중",
@@ -12823,7 +12891,7 @@
   ]
  },
  {
-  "id": "sn-216",
+  "id": "sn-217",
   "title": "바이브코딩(Vibe Coding)",
   "category": "인공지능",
   "importance": "중",
@@ -12881,7 +12949,7 @@
   ]
  },
  {
-  "id": "sn-217",
+  "id": "sn-218",
   "title": "MCP(Model Context Protocol)",
   "category": "인공지능",
   "importance": "중",
@@ -12957,7 +13025,7 @@
   ]
  },
  {
-  "id": "sn-218",
+  "id": "sn-219",
   "title": "MCP 보안취약점 및 대응방안",
   "category": "인공지능",
   "importance": "중",
@@ -13035,7 +13103,7 @@
   ]
  },
  {
-  "id": "sn-219",
+  "id": "sn-220",
   "title": "합성 데이터(Synthetic Data)",
   "category": "인공지능",
   "importance": "상",
@@ -13114,7 +13182,7 @@
   ]
  },
  {
-  "id": "sn-220",
+  "id": "sn-221",
   "title": "소버린 AI(Artificial Intelligence)",
   "category": "인공지능",
   "importance": "중",
@@ -13169,7 +13237,7 @@
   ]
  },
  {
-  "id": "sn-221",
+  "id": "sn-222",
   "title": "인공지능 경영시스템(ISO 42001:2023)",
   "category": "인공지능",
   "importance": "중",
@@ -13236,7 +13304,7 @@
   ]
  },
  {
-  "id": "sn-222",
+  "id": "sn-223",
   "title": "AX(AI Transformation)",
   "category": "인공지능",
   "importance": "하",
@@ -13294,7 +13362,7 @@
   ]
  },
  {
-  "id": "sn-223",
+  "id": "sn-224",
   "title": "에이전틱 AI(Agentic AI)",
   "category": "인공지능",
   "importance": "중",
@@ -13356,7 +13424,7 @@
   ]
  },
  {
-  "id": "sn-224",
+  "id": "sn-225",
   "title": "인공지능 학습용 데이터 품질관리 가이드라인 v3.1",
   "category": "인공지능",
   "importance": "상",
@@ -13418,7 +13486,7 @@
   ]
  },
  {
-  "id": "sn-225",
+  "id": "sn-226",
   "title": "공공부문 초거대AI 도입, 활용 가이드라인 2.0(2025.04)",
   "category": "인공지능",
   "importance": "중",
@@ -13488,7 +13556,7 @@
   ]
  },
  {
-  "id": "sn-226",
+  "id": "sn-227",
   "title": "AI 신뢰성 인증",
   "category": "인공지능",
   "importance": "상",
@@ -13560,7 +13628,7 @@
   ]
  },
  {
-  "id": "sn-227",
+  "id": "sn-228",
   "title": "AI Ready Data",
   "category": "인공지능",
   "importance": "상",
@@ -13624,7 +13692,7 @@
   ]
  },
  {
-  "id": "sn-228",
+  "id": "sn-229",
   "title": "AI 기본법",
   "category": "인공지능",
   "importance": "상",
@@ -13697,7 +13765,7 @@
   ]
  },
  {
-  "id": "sn-229",
+  "id": "sn-230",
   "title": "인공지능(AI) 도입 사업비 산정 절차",
   "category": "인공지능",
   "importance": "중",
@@ -13757,7 +13825,7 @@
   ]
  },
  {
-  "id": "sn-230",
+  "id": "sn-231",
   "title": "생성형AI 데이터 품질관리 가이드 v2.0",
   "category": "인공지능",
   "importance": "중",
@@ -13818,7 +13886,7 @@
   ]
  },
  {
-  "id": "sn-231",
+  "id": "sn-232",
   "title": "MAS(Multi Agent System)",
   "category": "인공지능",
   "importance": "중",
@@ -13883,7 +13951,7 @@
   ]
  },
  {
-  "id": "sn-232",
+  "id": "sn-233",
   "title": "확률분포",
   "category": "확률·통계",
   "importance": "중",
@@ -13948,7 +14016,7 @@
   ]
  },
  {
-  "id": "sn-233",
+  "id": "sn-234",
   "title": "확률분포와 확률 밀도 함수",
   "category": "확률·통계",
   "importance": "하",
@@ -14010,7 +14078,7 @@
   ]
  },
  {
-  "id": "sn-234",
+  "id": "sn-235",
   "title": "정규분포(Normal Distribution)",
   "category": "확률·통계",
   "importance": "중",
@@ -14072,7 +14140,7 @@
   ]
  },
  {
-  "id": "sn-235",
+  "id": "sn-236",
   "title": "중심극한정리",
   "category": "확률·통계",
   "importance": "하",
@@ -14127,7 +14195,7 @@
   ]
  },
  {
-  "id": "sn-236",
+  "id": "sn-237",
   "title": "데이터 유형",
   "category": "확률·통계",
   "importance": "하",
@@ -14184,7 +14252,7 @@
   ]
  },
  {
-  "id": "sn-237",
+  "id": "sn-238",
   "title": "표본 추출(Sampling)",
   "category": "확률·통계",
   "importance": "중",
@@ -14240,7 +14308,7 @@
   ]
  },
  {
-  "id": "sn-238",
+  "id": "sn-239",
   "title": "왜도(Skewness) & 첨도(Kurtosis)",
   "category": "확률·통계",
   "importance": "중",
@@ -14302,7 +14370,7 @@
   ]
  },
  {
-  "id": "sn-239",
+  "id": "sn-240",
   "title": "이상치(Outlier)",
   "category": "확률·통계",
   "importance": "중",
@@ -14375,7 +14443,7 @@
   ]
  },
  {
-  "id": "sn-240",
+  "id": "sn-241",
   "title": "결측치(Missing Value)",
   "category": "확률·통계",
   "importance": "중",
@@ -14433,7 +14501,7 @@
   ]
  },
  {
-  "id": "sn-241",
+  "id": "sn-242",
   "title": "시계열분석",
   "category": "확률·통계",
   "importance": "중",
@@ -14503,7 +14571,7 @@
   ]
  },
  {
-  "id": "sn-242",
+  "id": "sn-243",
   "title": "베이즈 정리(Bayes's theorem)",
   "category": "확률·통계",
   "importance": "중",
@@ -14562,7 +14630,7 @@
   ]
  },
  {
-  "id": "sn-243",
+  "id": "sn-244",
   "title": "기술 통계(Descriptive statistics)",
   "category": "확률·통계",
   "importance": "중",
@@ -14615,7 +14683,7 @@
   ]
  },
  {
-  "id": "sn-244",
+  "id": "sn-245",
   "title": "추론 통계(Inferential Statistics)",
   "category": "확률·통계",
   "importance": "중",
@@ -14675,7 +14743,7 @@
   ]
  },
  {
-  "id": "sn-245",
+  "id": "sn-246",
   "title": "추정 이론(Estimation Theory)",
   "category": "확률·통계",
   "importance": "상",
@@ -14747,7 +14815,7 @@
   ]
  },
  {
-  "id": "sn-246",
+  "id": "sn-247",
   "title": "연관성 분석(association analysis) - 기초통계",
   "category": "확률·통계",
   "importance": "하",
@@ -14819,7 +14887,7 @@
   ]
  },
  {
-  "id": "sn-247",
+  "id": "sn-248",
   "title": "회귀분석(Regression Analysis)",
   "category": "확률·통계",
   "importance": "상",
@@ -14899,7 +14967,7 @@
   ]
  },
  {
-  "id": "sn-248",
+  "id": "sn-249",
   "title": "AIC(Akaike information Criterion) & BIC(Bayesian information Criterion)",
   "category": "확률·통계",
   "importance": "하",
@@ -14963,7 +15031,7 @@
   ]
  },
  {
-  "id": "sn-249",
+  "id": "sn-250",
   "title": "통계적 가설검정(Hypothesis Testing)",
   "category": "확률·통계",
   "importance": "중",
@@ -15045,7 +15113,7 @@
   ]
  },
  {
-  "id": "sn-250",
+  "id": "sn-251",
   "title": "ANOVA(Analysis of variance)",
   "category": "확률·통계",
   "importance": "중",
@@ -15116,7 +15184,7 @@
   ]
  },
  {
-  "id": "sn-251",
+  "id": "sn-252",
   "title": "뮤테이션 테스트 (Mutation Test)",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -15172,7 +15240,7 @@
   ]
  },
  {
-  "id": "sn-252",
+  "id": "sn-253",
   "title": "성능 테스트",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -15247,7 +15315,7 @@
   ]
  },
  {
-  "id": "sn-253",
+  "id": "sn-254",
   "title": "퍼징 테스트 (Fuzzing Test)",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -15314,7 +15382,7 @@
   ]
  },
  {
-  "id": "sn-254",
+  "id": "sn-255",
   "title": "리그레이션(회귀, Regression) 테스트",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -15369,7 +15437,7 @@
   ]
  },
  {
-  "id": "sn-255",
+  "id": "sn-256",
   "title": "튜링 테스트",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -15422,7 +15490,7 @@
   ]
  },
  {
-  "id": "sn-256",
+  "id": "sn-257",
   "title": "Keyword Driven Testing",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -15486,7 +15554,7 @@
   ]
  },
  {
-  "id": "sn-257",
+  "id": "sn-258",
   "title": "카오스 테스트 (Chaos Test)",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -15545,7 +15613,7 @@
   ]
  },
  {
-  "id": "sn-258",
+  "id": "sn-259",
   "title": "Back to Back 테스트",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -15602,7 +15670,7 @@
   ]
  },
  {
-  "id": "sn-259",
+  "id": "sn-260",
   "title": "Test Process",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -15647,7 +15715,7 @@
   ]
  },
  {
-  "id": "sn-260",
+  "id": "sn-261",
   "title": "ISO 29119",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -15696,7 +15764,7 @@
   ]
  },
  {
-  "id": "sn-261",
+  "id": "sn-262",
   "title": "ISO 29119-11",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -15758,7 +15826,7 @@
   ]
  },
  {
-  "id": "sn-262",
+  "id": "sn-263",
   "title": "Test Exit Criteria",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -15819,7 +15887,7 @@
   ]
  },
  {
-  "id": "sn-263",
+  "id": "sn-264",
   "title": "Lehman의 Software 변화의 원리",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -15876,7 +15944,7 @@
   ]
  },
  {
-  "id": "sn-264",
+  "id": "sn-265",
   "title": "3R",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -15941,7 +16009,7 @@
   ]
  },
  {
-  "id": "sn-265",
+  "id": "sn-266",
   "title": "소프트웨어 리팩토링",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -16004,7 +16072,7 @@
   ]
  },
  {
-  "id": "sn-266",
+  "id": "sn-267",
   "title": "유지보수",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -16066,7 +16134,7 @@
   ]
  },
  {
-  "id": "sn-267",
+  "id": "sn-268",
   "title": "ISO/IEC/IEEE 14764",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -16134,7 +16202,7 @@
   ]
  },
  {
-  "id": "sn-268",
+  "id": "sn-269",
   "title": "오픈소스 SW 보안위협",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -16206,7 +16274,7 @@
   ]
  },
  {
-  "id": "sn-269",
+  "id": "sn-270",
   "title": "오픈소스 거버넌스",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -16262,7 +16330,7 @@
   ]
  },
  {
-  "id": "sn-270",
+  "id": "sn-271",
   "title": "CMMI 3.0",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -16320,7 +16388,7 @@
   ]
  },
  {
-  "id": "sn-271",
+  "id": "sn-272",
   "title": "GS 인증",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -16387,7 +16455,7 @@
   ]
  },
  {
-  "id": "sn-272",
+  "id": "sn-273",
   "title": "SP 인증",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -16448,7 +16516,7 @@
   ]
  },
  {
-  "id": "sn-273",
+  "id": "sn-274",
   "title": "ISO/IEC 25010:2023",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -16517,7 +16585,7 @@
   ]
  },
  {
-  "id": "sn-274",
+  "id": "sn-275",
   "title": "상용소프트웨어 품질성능 평가 시험",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -16578,7 +16646,7 @@
   ]
  },
  {
-  "id": "sn-275",
+  "id": "sn-276",
   "title": "McCabe 회전 복잡도",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -16630,7 +16698,7 @@
   ]
  },
  {
-  "id": "sn-276",
+  "id": "sn-277",
   "title": "FTA (Fault Tree Analysis)",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -16693,7 +16761,7 @@
   ]
  },
  {
-  "id": "sn-277",
+  "id": "sn-278",
   "title": "FMEA (Failure Mode and Effects Analysis)",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -16757,7 +16825,7 @@
   ]
  },
  {
-  "id": "sn-278",
+  "id": "sn-279",
   "title": "HAZOP (Hazard and Operability Study)",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -16821,7 +16889,7 @@
   ]
  },
  {
-  "id": "sn-279",
+  "id": "sn-280",
   "title": "ETA (Event Tree Analysis)",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -16878,7 +16946,7 @@
   ]
  },
  {
-  "id": "sn-280",
+  "id": "sn-281",
   "title": "STPA (System-Theoretic Process Analysis)",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -16937,7 +17005,7 @@
   ]
  },
  {
-  "id": "sn-281",
+  "id": "sn-282",
   "title": "SW 규모산정",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -17007,7 +17075,7 @@
   ]
  },
  {
-  "id": "sn-282",
+  "id": "sn-283",
   "title": "Function Point",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -17075,7 +17143,7 @@
   ]
  },
  {
-  "id": "sn-283",
+  "id": "sn-284",
   "title": "SW 사업대가 ('25년 개정판)",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -17134,7 +17202,7 @@
   ]
  },
  {
-  "id": "sn-284",
+  "id": "sn-285",
   "title": "난독화",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -17193,7 +17261,7 @@
   ]
  },
  {
-  "id": "sn-285",
+  "id": "sn-286",
   "title": "SBOM",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -17255,7 +17323,7 @@
   ]
  },
  {
-  "id": "sn-286",
+  "id": "sn-287",
   "title": "정보시스템 운영/유지보수 감리",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -17314,7 +17382,7 @@
   ]
  },
  {
-  "id": "sn-287",
+  "id": "sn-288",
   "title": "정보시스템 감리 의무 대상과 관점별 점검 기준",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -17383,7 +17451,7 @@
   ]
  },
  {
-  "id": "sn-288",
+  "id": "sn-289",
   "title": "공통감리 절차",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -17443,7 +17511,7 @@
   ]
  },
  {
-  "id": "sn-289",
+  "id": "sn-290",
   "title": "정보시스템 감리결과보고서 (구성, 보고사항)",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -17515,7 +17583,7 @@
   ]
  },
  {
-  "id": "sn-290",
+  "id": "sn-291",
   "title": "정보시스템 운영 성과관리",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -17588,7 +17656,7 @@
   ]
  },
  {
-  "id": "sn-291",
+  "id": "sn-292",
   "title": "소프트웨어 안전 확보를 위한 지침",
   "category": "소프트웨어공학",
   "importance": "상",
@@ -17645,7 +17713,7 @@
   ]
  },
  {
-  "id": "sn-292",
+  "id": "sn-293",
   "title": "공공기관 정보화사업 예비타당성",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -17700,7 +17768,7 @@
   ]
  },
  {
-  "id": "sn-293",
+  "id": "sn-294",
   "title": "소프트웨어사업 영향평가",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -17758,7 +17826,7 @@
   ]
  },
  {
-  "id": "sn-294",
+  "id": "sn-295",
   "title": "상용 소프트웨어 직접구매 제도",
   "category": "소프트웨어공학",
   "importance": "하",
@@ -17813,7 +17881,7 @@
   ]
  },
  {
-  "id": "sn-295",
+  "id": "sn-296",
   "title": "사용성 평가",
   "category": "소프트웨어공학",
   "importance": "중",
@@ -17890,7 +17958,7 @@
   ]
  },
  {
-  "id": "sn-296",
+  "id": "sn-297",
   "title": "선형 자료구조와 비선형 자료구조",
   "category": "자료구조",
   "importance": "상",
@@ -17943,7 +18011,7 @@
   ]
  },
  {
-  "id": "sn-297",
+  "id": "sn-298",
   "title": "링크드 리스트(Linked List)",
   "category": "자료구조",
   "importance": "중",
@@ -18005,7 +18073,7 @@
   ]
  },
  {
-  "id": "sn-298",
+  "id": "sn-299",
   "title": "Stack",
   "category": "자료구조",
   "importance": "상",
@@ -18065,7 +18133,7 @@
   ]
  },
  {
-  "id": "sn-299",
+  "id": "sn-300",
   "title": "Queue",
   "category": "자료구조",
   "importance": "상",
@@ -18125,7 +18193,7 @@
   ]
  },
  {
-  "id": "sn-300",
+  "id": "sn-301",
   "title": "이진 탐색 트리(Binary Search Tree)",
   "category": "자료구조",
   "importance": "상",
@@ -18180,7 +18248,7 @@
   ]
  },
  {
-  "id": "sn-301",
+  "id": "sn-302",
   "title": "AVL 트리",
   "category": "자료구조",
   "importance": "중",
@@ -18240,7 +18308,7 @@
   ]
  },
  {
-  "id": "sn-302",
+  "id": "sn-303",
   "title": "힙(Heap)",
   "category": "자료구조",
   "importance": "중",
@@ -18295,7 +18363,7 @@
   ]
  },
  {
-  "id": "sn-303",
+  "id": "sn-304",
   "title": "B-Tree(Balanced Tree)",
   "category": "자료구조",
   "importance": "하",
@@ -18354,7 +18422,7 @@
   ]
  },
  {
-  "id": "sn-304",
+  "id": "sn-305",
   "title": "방향성 비순환 그래프(DAG, Directed Acyclic Graph)",
   "category": "자료구조",
   "importance": "하",
@@ -18412,7 +18480,7 @@
   ]
  },
  {
-  "id": "sn-305",
+  "id": "sn-306",
   "title": "알고리즘 성능평가",
   "category": "알고리즘",
   "importance": "하",
@@ -18476,7 +18544,7 @@
   ]
  },
  {
-  "id": "sn-306",
+  "id": "sn-307",
   "title": "빅오 표기법(O-Notation)",
   "category": "알고리즘",
   "importance": "상",
@@ -18524,7 +18592,7 @@
   ]
  },
  {
-  "id": "sn-307",
+  "id": "sn-308",
   "title": "퀵 정렬(Quick Sort)",
   "category": "알고리즘",
   "importance": "중",
@@ -18595,7 +18663,7 @@
   ]
  },
  {
-  "id": "sn-308",
+  "id": "sn-309",
   "title": "삽입 정렬(Insertion Sort)",
   "category": "알고리즘",
   "importance": "하",
@@ -18661,7 +18729,7 @@
   ]
  },
  {
-  "id": "sn-309",
+  "id": "sn-310",
   "title": "버블 정렬(Bubble Sort)",
   "category": "알고리즘",
   "importance": "하",
@@ -18728,7 +18796,7 @@
   ]
  },
  {
-  "id": "sn-310",
+  "id": "sn-311",
   "title": "병합 정렬(Merge Sort)",
   "category": "알고리즘",
   "importance": "중",
@@ -18781,7 +18849,7 @@
   ]
  },
  {
-  "id": "sn-311",
+  "id": "sn-312",
   "title": "해시 테이블",
   "category": "알고리즘",
   "importance": "하",
@@ -18837,7 +18905,7 @@
   ]
  },
  {
-  "id": "sn-312",
+  "id": "sn-313",
   "title": "해싱과 충돌해결방법",
   "category": "알고리즘",
   "importance": "상",
@@ -18896,7 +18964,7 @@
   ]
  },
  {
-  "id": "sn-313",
+  "id": "sn-314",
   "title": "동적 계획법(Dynamic Programming)",
   "category": "알고리즘",
   "importance": "중",
@@ -18950,7 +19018,7 @@
   ]
  },
  {
-  "id": "sn-314",
+  "id": "sn-315",
   "title": "그리디(탐욕) 알고리즘",
   "category": "알고리즘",
   "importance": "하",
@@ -19017,7 +19085,7 @@
   ]
  },
  {
-  "id": "sn-315",
+  "id": "sn-316",
   "title": "허프만(Huffman) 코딩",
   "category": "알고리즘",
   "importance": "중",
@@ -19082,7 +19150,7 @@
   ]
  },
  {
-  "id": "sn-316",
+  "id": "sn-317",
   "title": "런랭스(Run Length) 코딩",
   "category": "알고리즘",
   "importance": "중",
@@ -19128,7 +19196,7 @@
   ]
  },
  {
-  "id": "sn-317",
+  "id": "sn-318",
   "title": "다익스트라(Dijkstra) 알고리즘",
   "category": "알고리즘",
   "importance": "중",
@@ -19177,7 +19245,7 @@
   ]
  },
  {
-  "id": "sn-318",
+  "id": "sn-319",
   "title": "TF-IDF(Term Frequency - Inverse Document Frequency)",
   "category": "알고리즘",
   "importance": "중",
@@ -19244,7 +19312,7 @@
   ]
  },
  {
-  "id": "sn-319",
+  "id": "sn-320",
   "title": "최소 신장 트리(MST, Minimum Spanning Tree)",
   "category": "알고리즘",
   "importance": "상",
@@ -19315,7 +19383,7 @@
   ]
  },
  {
-  "id": "sn-320",
+  "id": "sn-321",
   "title": "트리 순회(Tree Traversal)",
   "category": "알고리즘",
   "importance": "중",
@@ -19360,7 +19428,7 @@
   ]
  },
  {
-  "id": "sn-321",
+  "id": "sn-322",
   "title": "그래프 순회(Graph Traversal)",
   "category": "알고리즘",
   "importance": "중",
@@ -19415,7 +19483,7 @@
   ]
  },
  {
-  "id": "sn-322",
+  "id": "sn-323",
   "title": "전송부호화(소스 코딩, 채널 코딩, 라인 코딩)",
   "category": "네트워크",
   "importance": "하",
@@ -19480,7 +19548,7 @@
   ]
  },
  {
-  "id": "sn-323",
+  "id": "sn-324",
   "title": "PCM(Pulse-Code Modulation)",
   "category": "네트워크",
   "importance": "하",
@@ -19545,7 +19613,7 @@
   ]
  },
  {
-  "id": "sn-324",
+  "id": "sn-325",
   "title": "QAM(Quadrature Amplitude Modulation)",
   "category": "네트워크",
   "importance": "하",
@@ -19603,7 +19671,7 @@
   ]
  },
  {
-  "id": "sn-325",
+  "id": "sn-326",
   "title": "CSMA/CD",
   "category": "네트워크",
   "importance": "중",
@@ -19660,7 +19728,7 @@
   ]
  },
  {
-  "id": "sn-326",
+  "id": "sn-327",
   "title": "빔 탐색(Beam Search)",
   "category": "알고리즘",
   "importance": "하",
@@ -19717,7 +19785,7 @@
   ]
  },
  {
-  "id": "sn-327",
+  "id": "sn-328",
   "title": "CSMA/CA",
   "category": "네트워크",
   "importance": "중",
@@ -19777,7 +19845,7 @@
   ]
  },
  {
-  "id": "sn-328",
+  "id": "sn-329",
   "title": "다중화(Multiplexing)",
   "category": "네트워크",
   "importance": "중",
@@ -19837,7 +19905,7 @@
   ]
  },
  {
-  "id": "sn-329",
+  "id": "sn-330",
   "title": "서비스 프리미티브(Service Primitive)",
   "category": "네트워크",
   "importance": "중",
@@ -19894,7 +19962,7 @@
   ]
  },
  {
-  "id": "sn-330",
+  "id": "sn-331",
   "title": "OSI 7 Layer (ISO 7498)",
   "category": "네트워크",
   "importance": "상",
@@ -19956,7 +20024,7 @@
   ]
  },
  {
-  "id": "sn-331",
+  "id": "sn-332",
   "title": "HTTP/3",
   "category": "네트워크",
   "importance": "중",
@@ -20035,7 +20103,7 @@
   ]
  },
  {
-  "id": "sn-332",
+  "id": "sn-333",
   "title": "TCP 연결의 설정 및 해제(Handshaking)",
   "category": "네트워크",
   "importance": "상",
@@ -20103,7 +20171,7 @@
   ]
  },
  {
-  "id": "sn-333",
+  "id": "sn-334",
   "title": "TCP 혼잡제어",
   "category": "네트워크",
   "importance": "상",
@@ -20163,7 +20231,7 @@
   ]
  },
  {
-  "id": "sn-334",
+  "id": "sn-335",
   "title": "TCP 와 UDP 비교",
   "category": "네트워크",
   "importance": "상",
@@ -20238,7 +20306,7 @@
   ]
  },
  {
-  "id": "sn-335",
+  "id": "sn-336",
   "title": "IPv4와 IPv6 터널링",
   "category": "네트워크",
   "importance": "상",
@@ -20292,7 +20360,7 @@
   ]
  },
  {
-  "id": "sn-336",
+  "id": "sn-337",
   "title": "DNS(Domain Name System)",
   "category": "네트워크",
   "importance": "중",
@@ -20352,7 +20420,7 @@
   ]
  },
  {
-  "id": "sn-337",
+  "id": "sn-338",
   "title": "라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)",
   "category": "네트워크",
   "importance": "상",
@@ -20419,7 +20487,7 @@
   ]
  },
  {
-  "id": "sn-338",
+  "id": "sn-339",
   "title": "FEC(Forward Error Correction) / BEC(Backward Error Correction)",
   "category": "네트워크",
   "importance": "상",
@@ -20485,7 +20553,7 @@
   ]
  },
  {
-  "id": "sn-339",
+  "id": "sn-340",
   "title": "해밍코드(Hamming code)",
   "category": "네트워크",
   "importance": "중",
@@ -20543,7 +20611,7 @@
   ]
  },
  {
-  "id": "sn-340",
+  "id": "sn-341",
   "title": "CRC(Cyclic Redundancy Check)",
   "category": "네트워크",
   "importance": "중",
@@ -20598,7 +20666,7 @@
   ]
  },
  {
-  "id": "sn-341",
+  "id": "sn-342",
   "title": "QoS(Quality of Service)",
   "category": "네트워크",
   "importance": "상",
@@ -20672,7 +20740,7 @@
   ]
  },
  {
-  "id": "sn-342",
+  "id": "sn-343",
   "title": "ARP(Address Resolution Protocol)",
   "category": "네트워크",
   "importance": "중",
@@ -20725,7 +20793,7 @@
   ]
  },
  {
-  "id": "sn-343",
+  "id": "sn-344",
   "title": "RARP(Reverse Address Resolution Protocol)",
   "category": "네트워크",
   "importance": "중",
@@ -20779,7 +20847,7 @@
   ]
  },
  {
-  "id": "sn-344",
+  "id": "sn-345",
   "title": "DHCP(Dynamic Host Configuration Protocol)",
   "category": "네트워크",
   "importance": "상",
@@ -20835,7 +20903,7 @@
   ]
  },
  {
-  "id": "sn-345",
+  "id": "sn-346",
   "title": "SCTP(Stream Control Transmission Protocol)",
   "category": "네트워크",
   "importance": "중",
@@ -20894,7 +20962,7 @@
   ]
  },
  {
-  "id": "sn-346",
+  "id": "sn-347",
   "title": "C-RAN(Centralized / Cloud RAN)",
   "category": "네트워크",
   "importance": "하",
@@ -20949,7 +21017,7 @@
   ]
  },
  {
-  "id": "sn-347",
+  "id": "sn-348",
   "title": "O-RAN",
   "category": "네트워크",
   "importance": "상",
@@ -21008,7 +21076,7 @@
   ]
  },
  {
-  "id": "sn-348",
+  "id": "sn-349",
   "title": "RAN(Radio Access Network) Sharing",
   "category": "네트워크",
   "importance": "하",
@@ -21053,7 +21121,7 @@
   ]
  },
  {
-  "id": "sn-349",
+  "id": "sn-350",
   "title": "5G 특화망",
   "category": "네트워크",
   "importance": "중",
@@ -21126,7 +21194,7 @@
   ]
  },
  {
-  "id": "sn-350",
+  "id": "sn-351",
   "title": "네트워크 슬라이싱",
   "category": "네트워크",
   "importance": "상",
@@ -21191,7 +21259,7 @@
   ]
  },
  {
-  "id": "sn-351",
+  "id": "sn-352",
   "title": "NWDAF(Network Data Analytics Function)",
   "category": "네트워크",
   "importance": "중",
@@ -21246,7 +21314,7 @@
   ]
  },
  {
-  "id": "sn-352",
+  "id": "sn-353",
   "title": "네트워크 지능",
   "category": "네트워크",
   "importance": "하",
@@ -21312,7 +21380,7 @@
   ]
  },
  {
-  "id": "sn-353",
+  "id": "sn-354",
   "title": "6G",
   "category": "네트워크",
   "importance": "상",
@@ -21388,7 +21456,7 @@
   ]
  },
  {
-  "id": "sn-354",
+  "id": "sn-355",
   "title": "디지털 트윈 네트워크(Digital Twin Network)",
   "category": "네트워크",
   "importance": "중",
@@ -21456,7 +21524,7 @@
   ]
  },
  {
-  "id": "sn-355",
+  "id": "sn-356",
   "title": "비지상네트워크(NTN, Non-Terrestrial Networks)",
   "category": "네트워크",
   "importance": "상",
@@ -21521,7 +21589,7 @@
   ]
  },
  {
-  "id": "sn-356",
+  "id": "sn-357",
   "title": "Wi-Fi 7(IEEE 802.11be)",
   "category": "네트워크",
   "importance": "중",
@@ -21593,7 +21661,7 @@
   ]
  },
  {
-  "id": "sn-357",
+  "id": "sn-358",
   "title": "Wi-Fi 8(IEEE 802.11bn)",
   "category": "네트워크",
   "importance": "중",
@@ -21662,7 +21730,7 @@
   ]
  },
  {
-  "id": "sn-358",
+  "id": "sn-359",
   "title": "Passive WiFi",
   "category": "네트워크",
   "importance": "하",
@@ -21724,7 +21792,7 @@
   ]
  },
  {
-  "id": "sn-359",
+  "id": "sn-360",
   "title": "SDN(Software Defined Network)",
   "category": "네트워크",
   "importance": "상",
@@ -21790,7 +21858,7 @@
   ]
  },
  {
-  "id": "sn-360",
+  "id": "sn-361",
   "title": "IoT Matter",
   "category": "네트워크",
   "importance": "하",
@@ -21852,7 +21920,7 @@
   ]
  },
  {
-  "id": "sn-361",
+  "id": "sn-362",
   "title": "오픈플로우(OpenFlow)",
   "category": "네트워크",
   "importance": "상",
@@ -21900,7 +21968,7 @@
   ]
  },
  {
-  "id": "sn-362",
+  "id": "sn-363",
   "title": "SD-WAN(Software Defined-Wide Area Network)",
   "category": "네트워크",
   "importance": "중",
@@ -21955,7 +22023,7 @@
   ]
  },
  {
-  "id": "sn-363",
+  "id": "sn-364",
   "title": "SDR(Software Defined Radio)",
   "category": "네트워크",
   "importance": "중",
@@ -22037,7 +22105,7 @@
   ]
  },
  {
-  "id": "sn-364",
+  "id": "sn-365",
   "title": "CDN(Contents Delivery Network)",
   "category": "네트워크",
   "importance": "상",
@@ -22113,7 +22181,7 @@
   ]
  },
  {
-  "id": "sn-365",
+  "id": "sn-366",
   "title": "망 중립성(Network Neutrality)",
   "category": "네트워크",
   "importance": "중",
@@ -22174,7 +22242,7 @@
   ]
  },
  {
-  "id": "sn-366",
+  "id": "sn-367",
   "title": "인텐트 기반 네트워킹(Intent-Based Networking)",
   "category": "네트워크",
   "importance": "중",
@@ -22238,7 +22306,7 @@
   ]
  },
  {
-  "id": "sn-367",
+  "id": "sn-368",
   "title": "무선 충전 기술",
   "category": "네트워크",
   "importance": "중",
@@ -22308,7 +22376,7 @@
   ]
  },
  {
-  "id": "sn-368",
+  "id": "sn-369",
   "title": "Sliding Window & 네이글(Nagle's) 알고리즘",
   "category": "네트워크",
   "importance": "중",
@@ -22379,7 +22447,7 @@
   ]
  },
  {
-  "id": "sn-369",
+  "id": "sn-370",
   "title": "BGP(Border Gateway Protocol)",
   "category": "네트워크",
   "importance": "하",
@@ -22447,7 +22515,7 @@
   ]
  },
  {
-  "id": "sn-370",
+  "id": "sn-371",
   "title": "IPv6",
   "category": "네트워크",
   "importance": "중",
@@ -22523,7 +22591,7 @@
   ]
  },
  {
-  "id": "sn-371",
+  "id": "sn-372",
   "title": "트랜잭션",
   "category": "데이터베이스",
   "importance": "상",
@@ -22581,7 +22649,7 @@
   ]
  },
  {
-  "id": "sn-372",
+  "id": "sn-373",
   "title": "Isolation Level(격리 레벨)",
   "category": "데이터베이스",
   "importance": "중",
@@ -22645,7 +22713,7 @@
   ]
  },
  {
-  "id": "sn-373",
+  "id": "sn-374",
   "title": "ANSI/SPARC 모델(3-단계 데이터베이스 구조) / 데이터 독립성",
   "category": "데이터베이스",
   "importance": "중",
@@ -22700,7 +22768,7 @@
   ]
  },
  {
-  "id": "sn-374",
+  "id": "sn-375",
   "title": "데이터베이스 모델링",
   "category": "데이터베이스",
   "importance": "상",
@@ -22774,7 +22842,7 @@
   ]
  },
  {
-  "id": "sn-375",
+  "id": "sn-376",
   "title": "데이터베이스 무결성",
   "category": "데이터베이스",
   "importance": "상",
@@ -22835,7 +22903,7 @@
   ]
  },
  {
-  "id": "sn-376",
+  "id": "sn-377",
   "title": "릴레이션 키(key)",
   "category": "데이터베이스",
   "importance": "중",
@@ -22902,7 +22970,7 @@
   ]
  },
  {
-  "id": "sn-377",
+  "id": "sn-378",
   "title": "엔티티(Entity)",
   "category": "데이터베이스",
   "importance": "하",
@@ -22970,7 +23038,7 @@
   ]
  },
  {
-  "id": "sn-378",
+  "id": "sn-379",
   "title": "함수적 종속성(Functional Dependency)",
   "category": "데이터베이스",
   "importance": "중",
@@ -23035,7 +23103,7 @@
   ]
  },
  {
-  "id": "sn-379",
+  "id": "sn-380",
   "title": "암스트롱 공리(Armstrong's Axioms)",
   "category": "데이터베이스",
   "importance": "중",
@@ -23109,7 +23177,7 @@
   ]
  },
  {
-  "id": "sn-380",
+  "id": "sn-381",
   "title": "데이터베이스 정규화(Normalization)",
   "category": "데이터베이스",
   "importance": "상",
@@ -23183,7 +23251,7 @@
   ]
  },
  {
-  "id": "sn-381",
+  "id": "sn-382",
   "title": "데이터베이스 반정규화(De-Normalization)",
   "category": "데이터베이스",
   "importance": "상",
@@ -23243,7 +23311,7 @@
   ]
  },
  {
-  "id": "sn-382",
+  "id": "sn-383",
   "title": "연결함정(Connection Trap)",
   "category": "데이터베이스",
   "importance": "중",
@@ -23296,7 +23364,7 @@
   ]
  },
  {
-  "id": "sn-383",
+  "id": "sn-384",
   "title": "관계대수(Relational Algebra)",
   "category": "데이터베이스",
   "importance": "하",
@@ -23352,7 +23420,7 @@
   ]
  },
  {
-  "id": "sn-384",
+  "id": "sn-385",
   "title": "관계해석(Relational Calculus)",
   "category": "데이터베이스",
   "importance": "하",
@@ -23408,7 +23476,7 @@
   ]
  },
  {
-  "id": "sn-385",
+  "id": "sn-386",
   "title": "DB 회복기법",
   "category": "데이터베이스",
   "importance": "상",
@@ -23470,7 +23538,7 @@
   ]
  },
  {
-  "id": "sn-386",
+  "id": "sn-387",
   "title": "DB 동시성제어",
   "category": "데이터베이스",
   "importance": "상",
@@ -23530,7 +23598,7 @@
   ]
  },
  {
-  "id": "sn-387",
+  "id": "sn-388",
   "title": "낙관적 검증(Validation) 기법",
   "category": "데이터베이스",
   "importance": "하",
@@ -23586,7 +23654,7 @@
   ]
  },
  {
-  "id": "sn-388",
+  "id": "sn-389",
   "title": "MVCC(다중 버전 동시성 제어) 2가지 유형",
   "category": "데이터베이스",
   "importance": "하",
@@ -23646,7 +23714,7 @@
   ]
  },
  {
-  "id": "sn-389",
+  "id": "sn-390",
   "title": "분산 DB",
   "category": "데이터베이스",
   "importance": "중",
@@ -23719,7 +23787,7 @@
   ]
  },
  {
-  "id": "sn-390",
+  "id": "sn-391",
   "title": "2PC",
   "category": "데이터베이스",
   "importance": "하",
@@ -23773,7 +23841,7 @@
   ]
  },
  {
-  "id": "sn-391",
+  "id": "sn-392",
   "title": "NoSQL",
   "category": "데이터베이스",
   "importance": "중",
@@ -23836,7 +23904,7 @@
   ]
  },
  {
-  "id": "sn-392",
+  "id": "sn-393",
   "title": "NoSQL 데이터모델링 패턴",
   "category": "데이터베이스",
   "importance": "하",
@@ -23899,7 +23967,7 @@
   ]
  },
  {
-  "id": "sn-393",
+  "id": "sn-394",
   "title": "CAP 이론과 BASE 이론",
   "category": "데이터베이스",
   "importance": "중",
@@ -23964,7 +24032,7 @@
   ]
  },
  {
-  "id": "sn-394",
+  "id": "sn-395",
   "title": "PACELC",
   "category": "데이터베이스",
   "importance": "중",
@@ -24020,7 +24088,7 @@
   ]
  },
  {
-  "id": "sn-395",
+  "id": "sn-396",
   "title": "NewSQL",
   "category": "데이터베이스",
   "importance": "하",
@@ -24092,7 +24160,7 @@
   ]
  },
  {
-  "id": "sn-396",
+  "id": "sn-397",
   "title": "벡터 데이터베이스(Vector Database)",
   "category": "데이터베이스",
   "importance": "상",
@@ -24157,7 +24225,7 @@
   ]
  },
  {
-  "id": "sn-397",
+  "id": "sn-398",
   "title": "ANN(Approximate Nearest Neighbor) 알고리즘",
   "category": "데이터베이스",
   "importance": "하",
@@ -24217,7 +24285,7 @@
   ]
  },
  {
-  "id": "sn-398",
+  "id": "sn-399",
   "title": "SQL(Structured Query Language)",
   "category": "데이터베이스",
   "importance": "하",
@@ -24266,7 +24334,7 @@
   ]
  },
  {
-  "id": "sn-399",
+  "id": "sn-400",
   "title": "조인(Join)",
   "category": "데이터베이스",
   "importance": "하",
@@ -24338,7 +24406,7 @@
   ]
  },
  {
-  "id": "sn-400",
+  "id": "sn-401",
   "title": "RDBMS 인덱스(index)",
   "category": "데이터베이스",
   "importance": "하",
@@ -24408,7 +24476,7 @@
   ]
  },
  {
-  "id": "sn-401",
+  "id": "sn-402",
   "title": "쿼리오프로딩(Query offloading)",
   "category": "데이터베이스",
   "importance": "하",
@@ -24475,7 +24543,7 @@
   ]
  },
  {
-  "id": "sn-402",
+  "id": "sn-403",
   "title": "데이터베이스 파티셔닝(Partitioning)",
   "category": "데이터베이스",
   "importance": "중",
@@ -24551,7 +24619,7 @@
   ]
  },
  {
-  "id": "sn-403",
+  "id": "sn-404",
   "title": "데이터베이스 샤딩(Sharding)",
   "category": "데이터베이스",
   "importance": "중",
@@ -24618,7 +24686,7 @@
   ]
  },
  {
-  "id": "sn-404",
+  "id": "sn-405",
   "title": "데이터 표준화",
   "category": "데이터베이스",
   "importance": "중",
@@ -24677,7 +24745,7 @@
   ]
  },
  {
-  "id": "sn-405",
+  "id": "sn-406",
   "title": "데이터 거버넌스(Data Governance)",
   "category": "데이터베이스",
   "importance": "중",
@@ -24736,7 +24804,7 @@
   ]
  },
  {
-  "id": "sn-406",
+  "id": "sn-407",
   "title": "데이터 프로파일링(Data Profiling)",
   "category": "데이터베이스",
   "importance": "중",
@@ -24809,7 +24877,7 @@
   ]
  },
  {
-  "id": "sn-407",
+  "id": "sn-408",
   "title": "데이터 분석 거버넌스(Data Analytics Governance)",
   "category": "데이터베이스",
   "importance": "하",
@@ -24871,7 +24939,7 @@
   ]
  },
  {
-  "id": "sn-408",
+  "id": "sn-409",
   "title": "데이터 분석 준비도와 데이터 분석 성숙도",
   "category": "데이터베이스",
   "importance": "중",
@@ -24939,7 +25007,7 @@
   ]
  },
  {
-  "id": "sn-409",
+  "id": "sn-410",
   "title": "데이터 마이닝 방법론",
   "category": "데이터베이스",
   "importance": "중",
@@ -25009,7 +25077,7 @@
   ]
  },
  {
-  "id": "sn-410",
+  "id": "sn-411",
   "title": "탐색적 데이터 분석과 확증적 데이터 분석",
   "category": "데이터베이스",
   "importance": "하",
@@ -25056,7 +25124,7 @@
   ]
  },
  {
-  "id": "sn-411",
+  "id": "sn-412",
   "title": "데이터 시각화",
   "category": "데이터베이스",
   "importance": "중",
@@ -25126,7 +25194,7 @@
   ]
  },
  {
-  "id": "sn-412",
+  "id": "sn-413",
   "title": "데이터 레이크하우스(Data Lakehouse)",
   "category": "데이터베이스",
   "importance": "중",
@@ -25182,7 +25250,7 @@
   ]
  },
  {
-  "id": "sn-413",
+  "id": "sn-414",
   "title": "아파치 카프카(Apache Kafka)",
   "category": "데이터베이스",
   "importance": "중",
@@ -25240,7 +25308,7 @@
   ]
  },
  {
-  "id": "sn-414",
+  "id": "sn-415",
   "title": "공공데이터 예방적 품질관리 진단 가이드",
   "category": "데이터베이스",
   "importance": "하",
@@ -25298,7 +25366,7 @@
   ]
  },
  {
-  "id": "sn-415",
+  "id": "sn-416",
   "title": "공공데이터 품질인증 매뉴얼(2025.07.)",
   "category": "데이터베이스",
   "importance": "중",
@@ -25359,7 +25427,7 @@
   ]
  },
  {
-  "id": "sn-416",
+  "id": "sn-417",
   "title": "공공기관 데이터베이스 표준화지침(2023년 4월 개정 고시)",
   "category": "데이터베이스",
   "importance": "하",
@@ -25432,7 +25500,7 @@
   ]
  },
  {
-  "id": "sn-417",
+  "id": "sn-418",
   "title": "데이터 품질인증 가이드라인 - DQ인증 (2025.02.26)",
   "category": "데이터베이스",
   "importance": "상",
@@ -25501,7 +25569,7 @@
   ]
  },
  {
-  "id": "sn-418",
+  "id": "sn-419",
   "title": "데이터 가치 평가",
   "category": "데이터베이스",
   "importance": "중",
@@ -25566,7 +25634,7 @@
   ]
  },
  {
-  "id": "sn-419",
+  "id": "sn-420",
   "title": "연관성 분석(association analysis) - 데이터마이닝",
   "category": "데이터베이스",
   "importance": "상",
@@ -25624,7 +25692,7 @@
   ]
  },
  {
-  "id": "sn-420",
+  "id": "sn-421",
   "title": "Apriori 알고리즘",
   "category": "데이터베이스",
   "importance": "하",
@@ -25672,7 +25740,7 @@
   ]
  },
  {
-  "id": "sn-421",
+  "id": "sn-422",
   "title": "DHP(Direct Hashing & Pruning) 알고리즘",
   "category": "데이터베이스",
   "importance": "하",
@@ -25719,7 +25787,7 @@
   ]
  },
  {
-  "id": "sn-422",
+  "id": "sn-423",
   "title": "FP(Frequent Pattern)-Growth 알고리즘",
   "category": "데이터베이스",
   "importance": "하",
@@ -25767,7 +25835,7 @@
   ]
  },
  {
-  "id": "sn-423",
+  "id": "sn-424",
   "title": "DaaP(Data as a product)",
   "category": "데이터베이스",
   "importance": "중",
@@ -25839,7 +25907,7 @@
   ]
  },
  {
-  "id": "sn-424",
+  "id": "sn-425",
   "title": "기술 부채(Technical Debt)",
   "category": "경영전략",
   "importance": "중",
@@ -25906,7 +25974,7 @@
   ]
  },
  {
-  "id": "sn-425",
+  "id": "sn-426",
   "title": "리빙랩(Living Lab), S.O.S랩",
   "category": "경영전략",
   "importance": "하",
@@ -25974,7 +26042,7 @@
   ]
  },
  {
-  "id": "sn-426",
+  "id": "sn-427",
   "title": "ITIL(IT Infrastructure Library) 4.0",
   "category": "경영전략",
   "importance": "상",
@@ -26038,7 +26106,7 @@
   ]
  },
  {
-  "id": "sn-427",
+  "id": "sn-428",
   "title": "ITSM(Information Technology Service Management)",
   "category": "경영전략",
   "importance": "중",
@@ -26120,7 +26188,7 @@
   ]
  },
  {
-  "id": "sn-428",
+  "id": "sn-429",
   "title": "서비스 수준 관리 (SLM, Service Level Management)",
   "category": "경영전략",
   "importance": "중",
@@ -26180,7 +26248,7 @@
   ]
  },
  {
-  "id": "sn-429",
+  "id": "sn-430",
   "title": "BCP (Business Continuity Planning)",
   "category": "경영전략",
   "importance": "중",
@@ -26244,7 +26312,7 @@
   ]
  },
  {
-  "id": "sn-430",
+  "id": "sn-431",
   "title": "BIA (Business Impact Analysis)",
   "category": "경영전략",
   "importance": "중",
@@ -26318,7 +26386,7 @@
   ]
  },
  {
-  "id": "sn-431",
+  "id": "sn-432",
   "title": "BCP 지표 중 MBCO, MTPD, MAO",
   "category": "경영전략",
   "importance": "하",
@@ -26380,7 +26448,7 @@
   ]
  },
  {
-  "id": "sn-432",
+  "id": "sn-433",
   "title": "DRS (Disaster Recovery System)",
   "category": "경영전략",
   "importance": "중",
@@ -26456,7 +26524,7 @@
   ]
  },
  {
-  "id": "sn-433",
+  "id": "sn-434",
   "title": "ISO 22301",
   "category": "경영전략",
   "importance": "중",
@@ -26520,7 +26588,7 @@
   ]
  },
  {
-  "id": "sn-434",
+  "id": "sn-435",
   "title": "DRaaS(Disaster Recovery as a Service)",
   "category": "경영전략",
   "importance": "중",
@@ -26576,7 +26644,7 @@
   ]
  },
  {
-  "id": "sn-435",
+  "id": "sn-436",
   "title": "디지털 안전 3법",
   "category": "경영전략",
   "importance": "하",
@@ -26623,7 +26691,7 @@
   ]
  },
  {
-  "id": "sn-436",
+  "id": "sn-437",
   "title": "IT 거버넌스(IT-Governance)",
   "category": "경영전략",
   "importance": "중",
@@ -26693,7 +26761,7 @@
   ]
  },
  {
-  "id": "sn-437",
+  "id": "sn-438",
   "title": "ISO 38500:2024",
   "category": "경영전략",
   "importance": "중",
@@ -26757,7 +26825,7 @@
   ]
  },
  {
-  "id": "sn-438",
+  "id": "sn-439",
   "title": "IT-Compliance",
   "category": "경영전략",
   "importance": "하",
@@ -26822,7 +26890,7 @@
   ]
  },
  {
-  "id": "sn-439",
+  "id": "sn-440",
   "title": "환경분석",
   "category": "경영전략",
   "importance": "상",
@@ -26882,7 +26950,7 @@
   ]
  },
  {
-  "id": "sn-440",
+  "id": "sn-441",
   "title": "Ansoff Matrix",
   "category": "경영전략",
   "importance": "하",
@@ -26931,7 +26999,7 @@
   ]
  },
  {
-  "id": "sn-441",
+  "id": "sn-442",
   "title": "BCG Matrix",
   "category": "경영전략",
   "importance": "하",
@@ -26988,7 +27056,7 @@
   ]
  },
  {
-  "id": "sn-442",
+  "id": "sn-443",
   "title": "정보시스템 하드웨어 규모산정 지침",
   "category": "경영전략",
   "importance": "상",
@@ -27061,7 +27129,7 @@
   ]
  },
  {
-  "id": "sn-443",
+  "id": "sn-444",
   "title": "가치사슬(Value Chain)",
   "category": "경영전략",
   "importance": "하",
@@ -27111,7 +27179,7 @@
   ]
  },
  {
-  "id": "sn-444",
+  "id": "sn-445",
   "title": "PDCA(Plan-Do-Check-Act, Deming Cycle)",
   "category": "경영전략",
   "importance": "하",
@@ -27158,7 +27226,7 @@
   ]
  },
  {
-  "id": "sn-445",
+  "id": "sn-446",
   "title": "MECE와 LISS",
   "category": "경영전략",
   "importance": "하",
@@ -27215,7 +27283,7 @@
   ]
  },
  {
-  "id": "sn-446",
+  "id": "sn-447",
   "title": "ISP 및 ISMP 수립 공통가이드 9판(2025.05)",
   "category": "경영전략",
   "importance": "상",
@@ -27289,7 +27357,7 @@
   ]
  },
  {
-  "id": "sn-447",
+  "id": "sn-448",
   "title": "ISP (Information Strategy Planning)",
   "category": "경영전략",
   "importance": "중",
@@ -27343,7 +27411,7 @@
   ]
  },
  {
-  "id": "sn-448",
+  "id": "sn-449",
   "title": "ISMP (Information System Master Plan)",
   "category": "경영전략",
   "importance": "중",
@@ -27403,7 +27471,7 @@
   ]
  },
  {
-  "id": "sn-449",
+  "id": "sn-450",
   "title": "TRL(Technology Readiness Level)",
   "category": "경영전략",
   "importance": "하",
@@ -27468,7 +27536,7 @@
   ]
  },
  {
-  "id": "sn-450",
+  "id": "sn-451",
   "title": "기술수용 주기(Technology Adoption Life Cycle)",
   "category": "경영전략",
   "importance": "하",
@@ -27532,7 +27600,7 @@
   ]
  },
  {
-  "id": "sn-451",
+  "id": "sn-452",
   "title": "IT 투자성과 평가",
   "category": "경영전략",
   "importance": "상",
@@ -27602,7 +27670,7 @@
   ]
  },
  {
-  "id": "sn-452",
+  "id": "sn-453",
   "title": "기술 가치 평가",
   "category": "경영전략",
   "importance": "중",
@@ -27668,7 +27736,7 @@
   ]
  },
  {
-  "id": "sn-453",
+  "id": "sn-454",
   "title": "지식재산권",
   "category": "경영전략",
   "importance": "하",
@@ -27724,7 +27792,7 @@
   ]
  },
  {
-  "id": "sn-454",
+  "id": "sn-455",
   "title": "OKR",
   "category": "경영전략",
   "importance": "하",
@@ -27799,7 +27867,7 @@
   ]
  },
  {
-  "id": "sn-455",
+  "id": "sn-456",
   "title": "BSC (Balanced Scorecard), IT-BSC (IT-Balanced Scorecard)",
   "category": "경영전략",
   "importance": "하",
@@ -27854,7 +27922,7 @@
   ]
  },
  {
-  "id": "sn-456",
+  "id": "sn-457",
   "title": "ESG 경영",
   "category": "경영전략",
   "importance": "하",
@@ -27918,7 +27986,7 @@
   ]
  },
  {
-  "id": "sn-457",
+  "id": "sn-458",
   "title": "디자인 씽킹(Design Thinking)",
   "category": "경영전략",
   "importance": "하",
@@ -27974,7 +28042,7 @@
   ]
  },
  {
-  "id": "sn-458",
+  "id": "sn-459",
   "title": "서비타이제이션(Servitization)",
   "category": "경영전략",
   "importance": "하",
@@ -28019,7 +28087,7 @@
   ]
  },
  {
-  "id": "sn-459",
+  "id": "sn-460",
   "title": "프로토콜 경제(Protocol Economy)",
   "category": "경영전략",
   "importance": "하",
@@ -28066,7 +28134,7 @@
   ]
  },
  {
-  "id": "sn-460",
+  "id": "sn-461",
   "title": "의도 경제(Intention Economy)",
   "category": "경영전략",
   "importance": "하",
@@ -28126,7 +28194,7 @@
   ]
  },
  {
-  "id": "sn-461",
+  "id": "sn-462",
   "title": "그로스 해킹(Growth hacking)",
   "category": "경영전략",
   "importance": "하",
@@ -28186,7 +28254,7 @@
   ]
  },
  {
-  "id": "sn-462",
+  "id": "sn-463",
   "title": "시빅 해킹(Civic Hacking)",
   "category": "경영전략",
   "importance": "하",
@@ -28246,7 +28314,7 @@
   ]
  },
  {
-  "id": "sn-463",
+  "id": "sn-464",
   "title": "암호화(Encryption)",
   "category": "보안",
   "importance": "중",
@@ -28311,7 +28379,7 @@
   ]
  },
  {
-  "id": "sn-464",
+  "id": "sn-465",
   "title": "Shannon의 암호 설계 원칙",
   "category": "보안",
   "importance": "중",
@@ -28372,7 +28440,7 @@
   ]
  },
  {
-  "id": "sn-465",
+  "id": "sn-466",
   "title": "해시 함수의 안전성",
   "category": "보안",
   "importance": "상",
@@ -28427,7 +28495,7 @@
   ]
  },
  {
-  "id": "sn-466",
+  "id": "sn-467",
   "title": "해시 솔트(Salt)와 키 스트레칭(Key Stretching)",
   "category": "보안",
   "importance": "상",
@@ -28496,7 +28564,7 @@
   ]
  },
  {
-  "id": "sn-467",
+  "id": "sn-468",
   "title": "디피-헬만 알고리즘(Diffie-Hellman Algorithm)",
   "category": "보안",
   "importance": "중",
@@ -28544,7 +28612,7 @@
   ]
  },
  {
-  "id": "sn-468",
+  "id": "sn-469",
   "title": "블록 암호화(Block Cipher)",
   "category": "보안",
   "importance": "중",
@@ -28605,7 +28673,7 @@
   ]
  },
  {
-  "id": "sn-469",
+  "id": "sn-470",
   "title": "암호학적 보안 강도(Security Strength)",
   "category": "보안",
   "importance": "하",
@@ -28677,7 +28745,7 @@
   ]
  },
  {
-  "id": "sn-470",
+  "id": "sn-471",
   "title": "동형 암호(Homomorphic Encryption)",
   "category": "보안",
   "importance": "하",
@@ -28734,7 +28802,7 @@
   ]
  },
  {
-  "id": "sn-471",
+  "id": "sn-472",
   "title": "암호 분석 공격(Cryptanalysis Attacks) 기법",
   "category": "보안",
   "importance": "중",
@@ -28791,7 +28859,7 @@
   ]
  },
  {
-  "id": "sn-472",
+  "id": "sn-473",
   "title": "양자 암호(Quantum Cryptography)",
   "category": "보안",
   "importance": "상",
@@ -28864,7 +28932,7 @@
   ]
  },
  {
-  "id": "sn-473",
+  "id": "sn-474",
   "title": "포스트 양자 암호(Post-Quantum Cryptography)",
   "category": "보안",
   "importance": "상",
@@ -28932,7 +29000,7 @@
   ]
  },
  {
-  "id": "sn-474",
+  "id": "sn-475",
   "title": "딥보이스(Deep Voice) 피싱",
   "category": "보안",
   "importance": "중",
@@ -28994,7 +29062,7 @@
   ]
  },
  {
-  "id": "sn-475",
+  "id": "sn-476",
   "title": "OWASP Top 10 for LLM Application 2025",
   "category": "보안",
   "importance": "중",
@@ -29066,7 +29134,7 @@
   ]
  },
  {
-  "id": "sn-476",
+  "id": "sn-477",
   "title": "사이버전(Cyber Warfare)",
   "category": "보안",
   "importance": "중",
@@ -29128,7 +29196,7 @@
   ]
  },
  {
-  "id": "sn-477",
+  "id": "sn-478",
   "title": "APT(Advanced Persistent Threat) 공격",
   "category": "보안",
   "importance": "하",
@@ -29190,7 +29258,7 @@
   ]
  },
  {
-  "id": "sn-478",
+  "id": "sn-479",
   "title": "스니핑(Sniffing) & 스푸핑(Spoofing)",
   "category": "보안",
   "importance": "하",
@@ -29253,7 +29321,7 @@
   ]
  },
  {
-  "id": "sn-479",
+  "id": "sn-480",
   "title": "BPF(Berkeley Packet Filter) Door",
   "category": "보안",
   "importance": "하",
@@ -29315,7 +29383,7 @@
   ]
  },
  {
-  "id": "sn-480",
+  "id": "sn-481",
   "title": "부채널 공격(Side Channel Attack)",
   "category": "보안",
   "importance": "하",
@@ -29377,7 +29445,7 @@
   ]
  },
  {
-  "id": "sn-481",
+  "id": "sn-482",
   "title": "드라이브 바이 다운로드(Drive By Download)",
   "category": "보안",
   "importance": "중",
@@ -29437,7 +29505,7 @@
   ]
  },
  {
-  "id": "sn-482",
+  "id": "sn-483",
   "title": "공급망 공격(Supply Chain Attack)",
   "category": "보안",
   "importance": "상",
@@ -29497,7 +29565,7 @@
   ]
  },
  {
-  "id": "sn-483",
+  "id": "sn-484",
   "title": "DoS(Denial of Service)",
   "category": "보안",
   "importance": "하",
@@ -29561,7 +29629,7 @@
   ]
  },
  {
-  "id": "sn-484",
+  "id": "sn-485",
   "title": "DRDoS(Distributed Reflection DoS)",
   "category": "보안",
   "importance": "하",
@@ -29633,7 +29701,7 @@
   ]
  },
  {
-  "id": "sn-485",
+  "id": "sn-486",
   "title": "RaaS(Ransomware as a Service)",
   "category": "보안",
   "importance": "하",
@@ -29691,7 +29759,7 @@
   ]
  },
  {
-  "id": "sn-486",
+  "id": "sn-487",
   "title": "루트킷(Rootkit)",
   "category": "보안",
   "importance": "중",
@@ -29754,7 +29822,7 @@
   ]
  },
  {
-  "id": "sn-487",
+  "id": "sn-488",
   "title": "OWASP Top 10:2021",
   "category": "보안",
   "importance": "하",
@@ -29813,7 +29881,7 @@
   ]
  },
  {
-  "id": "sn-488",
+  "id": "sn-489",
   "title": "OWASP Top 10:2025",
   "category": "보안",
   "importance": "하",
@@ -29872,7 +29940,7 @@
   ]
  },
  {
-  "id": "sn-489",
+  "id": "sn-490",
   "title": "시큐어 코딩(Secure Coding)",
   "category": "보안",
   "importance": "상",
@@ -29939,7 +30007,7 @@
   ]
  },
  {
-  "id": "sn-490",
+  "id": "sn-491",
   "title": "SSRF(Server-Side Request Forgery)",
   "category": "보안",
   "importance": "상",
@@ -30009,7 +30077,7 @@
   ]
  },
  {
-  "id": "sn-491",
+  "id": "sn-492",
   "title": "SW난독화",
   "category": "보안",
   "importance": "하",
@@ -30069,7 +30137,7 @@
   ]
  },
  {
-  "id": "sn-492",
+  "id": "sn-493",
   "title": "DevSecOps",
   "category": "보안",
   "importance": "상",
@@ -30140,7 +30208,7 @@
   ]
  },
  {
-  "id": "sn-493",
+  "id": "sn-494",
   "title": "개인정보보호 중심 설계(Privacy by Design)",
   "category": "보안",
   "importance": "상",
@@ -30207,7 +30275,7 @@
   ]
  },
  {
-  "id": "sn-494",
+  "id": "sn-495",
   "title": "PbD(Privacy by Design) 인증제도",
   "category": "보안",
   "importance": "중",
@@ -30269,7 +30337,7 @@
   ]
  },
  {
-  "id": "sn-495",
+  "id": "sn-496",
   "title": "가명처리(Pseudonymization) 기법",
   "category": "보안",
   "importance": "상",
@@ -30335,7 +30403,7 @@
   ]
  },
  {
-  "id": "sn-496",
+  "id": "sn-497",
   "title": "가명정보 처리 가이드라인",
   "category": "보안",
   "importance": "중",
@@ -30404,7 +30472,7 @@
   ]
  },
  {
-  "id": "sn-497",
+  "id": "sn-498",
   "title": "Secure Software Development Framework(SSDF)",
   "category": "보안",
   "importance": "중",
@@ -30452,7 +30520,7 @@
   ]
  },
  {
-  "id": "sn-498",
+  "id": "sn-499",
   "title": "DNS 싱크홀(Sinkhole)",
   "category": "보안",
   "importance": "하",
@@ -30498,7 +30566,7 @@
   ]
  },
  {
-  "id": "sn-499",
+  "id": "sn-500",
   "title": "DNSSEC(Domain Name System Security Extension)",
   "category": "보안",
   "importance": "중",
@@ -30559,7 +30627,7 @@
   ]
  },
  {
-  "id": "sn-500",
+  "id": "sn-501",
   "title": "IPSec",
   "category": "보안",
   "importance": "중",
@@ -30621,7 +30689,7 @@
   ]
  },
  {
-  "id": "sn-501",
+  "id": "sn-502",
   "title": "TLS/SSL(Secure Socket Layer)",
   "category": "보안",
   "importance": "상",
@@ -30679,7 +30747,7 @@
   ]
  },
  {
-  "id": "sn-502",
+  "id": "sn-503",
   "title": "VPN(Virtual Private Network)",
   "category": "보안",
   "importance": "중",
@@ -30749,7 +30817,7 @@
   ]
  },
  {
-  "id": "sn-503",
+  "id": "sn-504",
   "title": "CWPP(Cloud Workload Protection Platform) & CSPM(Cloud Security Posture Management)",
   "category": "보안",
   "importance": "중",
@@ -30803,7 +30871,7 @@
   ]
  },
  {
-  "id": "sn-504",
+  "id": "sn-505",
   "title": "SASE(Secure Access Service Edge)",
   "category": "보안",
   "importance": "중",
@@ -30854,7 +30922,7 @@
   ]
  },
  {
-  "id": "sn-505",
+  "id": "sn-506",
   "title": "SECaaS(Security as a Service)",
   "category": "보안",
   "importance": "중",
@@ -30916,7 +30984,7 @@
   ]
  },
  {
-  "id": "sn-506",
+  "id": "sn-507",
   "title": "이중 서명(Dual Signature)",
   "category": "보안",
   "importance": "상",
@@ -30977,7 +31045,7 @@
   ]
  },
  {
-  "id": "sn-507",
+  "id": "sn-508",
   "title": "다중 서명(Multi Signature)",
   "category": "보안",
   "importance": "상",
@@ -31045,7 +31113,7 @@
   ]
  },
  {
-  "id": "sn-508",
+  "id": "sn-509",
   "title": "간편인증 인터페이스 가이드라인",
   "category": "보안",
   "importance": "중",
@@ -31102,7 +31170,7 @@
   ]
  },
  {
-  "id": "sn-509",
+  "id": "sn-510",
   "title": "전자봉투(Digital Envelope)",
   "category": "보안",
   "importance": "상",
@@ -31163,7 +31231,7 @@
   ]
  },
  {
-  "id": "sn-510",
+  "id": "sn-511",
   "title": "DRM(Digital Right Management)",
   "category": "보안",
   "importance": "하",
@@ -31232,7 +31300,7 @@
   ]
  },
  {
-  "id": "sn-511",
+  "id": "sn-512",
   "title": "디지털 워터마킹(Digital Watermarking)",
   "category": "보안",
   "importance": "하",
@@ -31299,7 +31367,7 @@
   ]
  },
  {
-  "id": "sn-512",
+  "id": "sn-513",
   "title": "핑거프린팅(Fingerprinting)",
   "category": "보안",
   "importance": "하",
@@ -31361,7 +31429,7 @@
   ]
  },
  {
-  "id": "sn-513",
+  "id": "sn-514",
   "title": "생체 인증(텔레바이오 인증)",
   "category": "보안",
   "importance": "중",
@@ -31427,7 +31495,7 @@
   ]
  },
  {
-  "id": "sn-514",
+  "id": "sn-515",
   "title": "생체정보 보호 안내서(24.12)",
   "category": "보안",
   "importance": "중",
@@ -31502,7 +31570,7 @@
   ]
  },
  {
-  "id": "sn-515",
+  "id": "sn-516",
   "title": "OAuth(Open Authorize) 2.0",
   "category": "보안",
   "importance": "중",
@@ -31567,7 +31635,7 @@
   ]
  },
  {
-  "id": "sn-516",
+  "id": "sn-517",
   "title": "패스키(Passkey)",
   "category": "보안",
   "importance": "상",
@@ -31617,7 +31685,7 @@
   ]
  },
  {
-  "id": "sn-517",
+  "id": "sn-518",
   "title": "공격 표면 관리(Attack Surface Management)",
   "category": "보안",
   "importance": "상",
@@ -31677,7 +31745,7 @@
   ]
  },
  {
-  "id": "sn-518",
+  "id": "sn-519",
   "title": "차세대 SIEM(Security Information and Event Management)",
   "category": "보안",
   "importance": "중",
@@ -31743,7 +31811,7 @@
   ]
  },
  {
-  "id": "sn-519",
+  "id": "sn-520",
   "title": "위협 헌팅(Threat Hunting)",
   "category": "보안",
   "importance": "중",
@@ -31807,7 +31875,7 @@
   ]
  },
  {
-  "id": "sn-520",
+  "id": "sn-521",
   "title": "위협 모델링(Threat Modeling)",
   "category": "보안",
   "importance": "중",
@@ -31866,7 +31934,7 @@
   ]
  },
  {
-  "id": "sn-521",
+  "id": "sn-522",
   "title": "WAAP(Web Application and API Protection)",
   "category": "보안",
   "importance": "중",
@@ -31925,7 +31993,7 @@
   ]
  },
  {
-  "id": "sn-522",
+  "id": "sn-523",
   "title": "EDR(Endpoint Detection and Response)",
   "category": "보안",
   "importance": "중",
@@ -31974,7 +32042,7 @@
   ]
  },
  {
-  "id": "sn-523",
+  "id": "sn-524",
   "title": "XDR(eXtended Detection Response)",
   "category": "보안",
   "importance": "중",
@@ -32027,7 +32095,7 @@
   ]
  },
  {
-  "id": "sn-524",
+  "id": "sn-525",
   "title": "DMARC(Domain-based Message Authentication, Reporting and Conformance)",
   "category": "보안",
   "importance": "하",
@@ -32083,7 +32151,7 @@
   ]
  },
  {
-  "id": "sn-525",
+  "id": "sn-526",
   "title": "사이버 디셉션(Cyber Deception)",
   "category": "보안",
   "importance": "중",
@@ -32143,7 +32211,7 @@
   ]
  },
  {
-  "id": "sn-526",
+  "id": "sn-527",
   "title": "디지털 면역 시스템(DIS, Digital Immune System)",
   "category": "보안",
   "importance": "중",
@@ -32194,7 +32262,7 @@
   ]
  },
  {
-  "id": "sn-527",
+  "id": "sn-528",
   "title": "사이버 레질리언스(Cyber Resilience)",
   "category": "보안",
   "importance": "중",
@@ -32255,7 +32323,7 @@
   ]
  },
  {
-  "id": "sn-528",
+  "id": "sn-529",
   "title": "PEC(Privacy-Enhancing Computation)",
   "category": "보안",
   "importance": "상",
@@ -32307,7 +32375,7 @@
   ]
  },
  {
-  "id": "sn-529",
+  "id": "sn-530",
   "title": "영지식증명(Zero Knowledge Proof)",
   "category": "보안",
   "importance": "상",
@@ -32363,7 +32431,7 @@
   ]
  },
  {
-  "id": "sn-530",
+  "id": "sn-531",
   "title": "기밀컴퓨팅(Confidential Computing)",
   "category": "보안",
   "importance": "중",
@@ -32415,7 +32483,7 @@
   ]
  },
  {
-  "id": "sn-531",
+  "id": "sn-532",
   "title": "ISO 27017",
   "category": "보안",
   "importance": "하",
@@ -32469,7 +32537,7 @@
   ]
  },
  {
-  "id": "sn-532",
+  "id": "sn-533",
   "title": "개인정보 프라이버시 8원칙",
   "category": "보안",
   "importance": "상",
@@ -32524,7 +32592,7 @@
   ]
  },
  {
-  "id": "sn-533",
+  "id": "sn-534",
   "title": "개인정보 보호기술",
   "category": "보안",
   "importance": "상",
@@ -32591,7 +32659,7 @@
   ]
  },
  {
-  "id": "sn-534",
+  "id": "sn-535",
   "title": "위험분석 방법론 (ISO/IEC 1335-1, 위험분석 전략/평가)",
   "category": "보안",
   "importance": "중",
@@ -32648,7 +32716,7 @@
   ]
  },
  {
-  "id": "sn-535",
+  "id": "sn-536",
   "title": "IEC 62443",
   "category": "보안",
   "importance": "중",
@@ -32710,7 +32778,7 @@
   ]
  },
  {
-  "id": "sn-536",
+  "id": "sn-537",
   "title": "ISO 27018",
   "category": "보안",
   "importance": "하",
@@ -32765,7 +32833,7 @@
   ]
  },
  {
-  "id": "sn-537",
+  "id": "sn-538",
   "title": "차량 사이버 보안 국제 표준(ISO 21434)",
   "category": "보안",
   "importance": "상",
@@ -32817,7 +32885,7 @@
   ]
  },
  {
-  "id": "sn-538",
+  "id": "sn-539",
   "title": "ISO 27701",
   "category": "보안",
   "importance": "중",
@@ -32881,7 +32949,7 @@
   ]
  },
  {
-  "id": "sn-539",
+  "id": "sn-540",
   "title": "ISO/IEC 20889",
   "category": "보안",
   "importance": "중",
@@ -32948,7 +33016,7 @@
   ]
  },
  {
-  "id": "sn-540",
+  "id": "sn-541",
   "title": "전자증거개시제도(e-Discovery)",
   "category": "보안",
   "importance": "중",
@@ -33009,7 +33077,7 @@
   ]
  },
  {
-  "id": "sn-541",
+  "id": "sn-542",
   "title": "제로트러스트 가이드라인 2.0",
   "category": "보안",
   "importance": "상",
@@ -33070,7 +33138,7 @@
   ]
  },
  {
-  "id": "sn-542",
+  "id": "sn-543",
   "title": "SDP(Software Defined Perimeter)",
   "category": "보안",
   "importance": "상",
@@ -33141,7 +33209,7 @@
   ]
  },
  {
-  "id": "sn-543",
+  "id": "sn-544",
   "title": "접근 제어/접근 통제(Access Control)",
   "category": "보안",
   "importance": "중",
@@ -33214,7 +33282,7 @@
   ]
  },
  {
-  "id": "sn-544",
+  "id": "sn-545",
   "title": "접근 통제 모델",
   "category": "보안",
   "importance": "중",
@@ -33261,7 +33329,7 @@
   ]
  },
  {
-  "id": "sn-545",
+  "id": "sn-546",
   "title": "정보보호제품 평가·인증(CC 평가·인증) 제도",
   "category": "보안",
   "importance": "중",
@@ -33328,7 +33396,7 @@
   ]
  },
  {
-  "id": "sn-546",
+  "id": "sn-547",
   "title": "개인정보 영향평가(Privacy Impact Assessment)",
   "category": "보안",
   "importance": "중",
@@ -33386,7 +33454,7 @@
   ]
  },
  {
-  "id": "sn-547",
+  "id": "sn-548",
   "title": "정보보호 및 개인정보보호 관리체계 인증(ISMS-P)",
   "category": "보안",
   "importance": "상",
@@ -33435,7 +33503,7 @@
   ]
  },
  {
-  "id": "sn-548",
+  "id": "sn-549",
   "title": "정보보호 공시제도",
   "category": "보안",
   "importance": "상",
@@ -33494,7 +33562,7 @@
   ]
  },
  {
-  "id": "sn-549",
+  "id": "sn-550",
   "title": "안티 포렌식(Anti-forensic)",
   "category": "보안",
   "importance": "상",
@@ -33554,7 +33622,7 @@
   ]
  },
  {
-  "id": "sn-550",
+  "id": "sn-551",
   "title": "블록체인 암호기술 가이드라인",
   "category": "보안",
   "importance": "중",
@@ -33625,7 +33693,7 @@
   ]
  },
  {
-  "id": "sn-551",
+  "id": "sn-552",
   "title": "자율주행 자동차 보안취약점 및 대응방안",
   "category": "보안",
   "importance": "상",
@@ -33701,7 +33769,7 @@
   ]
  },
  {
-  "id": "sn-552",
+  "id": "sn-553",
   "title": "사이버 보안 성숙도 모델 인증(CMMC, Cybersecurity Maturity Model Certification)",
   "category": "보안",
   "importance": "하",
@@ -33750,7 +33818,7 @@
   ]
  },
  {
-  "id": "sn-553",
+  "id": "sn-554",
   "title": "사이버 게놈(Cyber genome)",
   "category": "보안",
   "importance": "하",
@@ -33798,7 +33866,7 @@
   ]
  },
  {
-  "id": "sn-554",
+  "id": "sn-555",
   "title": "디지털 포렌식(Digital Forensic)",
   "category": "보안",
   "importance": "상",
@@ -33863,7 +33931,7 @@
   ]
  },
  {
-  "id": "sn-555",
+  "id": "sn-556",
   "title": "클라우드 포렌식(Cloud Forensic)",
   "category": "보안",
   "importance": "상",
@@ -33913,7 +33981,7 @@
   ]
  },
  {
-  "id": "sn-556",
+  "id": "sn-557",
   "title": "스마트시티 보안취약점 및 대응방안",
   "category": "보안",
   "importance": "중",
@@ -33962,7 +34030,7 @@
   ]
  },
  {
-  "id": "sn-557",
+  "id": "sn-558",
   "title": "스마트팩토리 보안취약점 및 대응방안",
   "category": "보안",
   "importance": "상",
@@ -34011,7 +34079,7 @@
   ]
  },
  {
-  "id": "sn-558",
+  "id": "sn-559",
   "title": "클라우드 컴퓨팅 취약점, 대응기술",
   "category": "보안",
   "importance": "중",
@@ -34067,7 +34135,7 @@
   ]
  },
  {
-  "id": "sn-559",
+  "id": "sn-560",
   "title": "디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안",
   "category": "보안",
   "importance": "상",
@@ -34118,7 +34186,7 @@
   ]
  },
  {
-  "id": "sn-560",
+  "id": "sn-561",
   "title": "국가 망 보안체계(N2SF)",
   "category": "보안",
   "importance": "상",
@@ -34189,7 +34257,7 @@
   ]
  },
  {
-  "id": "sn-561",
+  "id": "sn-562",
   "title": "ISO/IEC 25059:2023(AI 품질모델)",
   "category": "인공지능",
   "importance": "중",
@@ -34263,7 +34331,7 @@
   ]
  },
  {
-  "id": "sn-562",
+  "id": "sn-563",
   "title": "AP2(Agent Payment Protocol)",
   "category": "DX",
   "importance": "중",
@@ -34326,7 +34394,7 @@
   ]
  },
  {
-  "id": "sn-563",
+  "id": "sn-564",
   "title": "UCP(Universal Commerce Protocol)",
   "category": "DX",
   "importance": "중",
@@ -34391,7 +34459,7 @@
   ]
  },
  {
-  "id": "sn-564",
+  "id": "sn-565",
   "title": "ACP(Agentic Commerce Protocol)",
   "category": "DX",
   "importance": "중",
@@ -34440,7 +34508,7 @@
   ]
  },
  {
-  "id": "sn-565",
+  "id": "sn-566",
   "title": "스테이블 코인(Stable coin)",
   "category": "DX",
   "importance": "중",
@@ -34525,7 +34593,7 @@
   ]
  },
  {
-  "id": "sn-566",
+  "id": "sn-567",
   "title": "데이터 스페이스(Data Space)",
   "category": "DX",
   "importance": "중",
@@ -34598,7 +34666,7 @@
   ]
  },
  {
-  "id": "sn-567",
+  "id": "sn-568",
   "title": "도메인 특화 언어 모델(Domain-Specific Language Model)",
   "category": "DX",
   "importance": "중",
@@ -34649,7 +34717,7 @@
   ]
  },
  {
-  "id": "sn-568",
+  "id": "sn-569",
   "title": "AI 프라이버시 리스크 관리",
   "category": "보안",
   "importance": "중",
@@ -34713,7 +34781,7 @@
   ]
  },
  {
-  "id": "sn-569",
+  "id": "sn-570",
   "title": "데이터 상호 운용성 & 데이터 이동권",
   "category": "DX",
   "importance": "중",
@@ -34774,7 +34842,7 @@
   ]
  },
  {
-  "id": "sn-570",
+  "id": "sn-571",
   "title": "AI Agent 보안위협",
   "category": "보안",
   "importance": "중",
@@ -34845,7 +34913,7 @@
   ]
  },
  {
-  "id": "sn-571",
+  "id": "sn-572",
   "title": "AI-DLC(AI-Driven SDLC)와 SDD(Spec Driven Development)",
   "category": "DX",
   "importance": "중",
@@ -34919,7 +34987,7 @@
   ]
  },
  {
-  "id": "sn-572",
+  "id": "sn-573",
   "title": "AI OS(Artificial Intelligence Operating System)",
   "category": "DX",
   "importance": "중",
@@ -34986,7 +35054,7 @@
   ]
  },
  {
-  "id": "sn-573",
+  "id": "sn-574",
   "title": "OWASP Agentic AI 위협 및 대응방안(Agentic AI Threats and Mitigations)",
   "category": "보안",
   "importance": "중",
@@ -102053,42 +102121,6 @@
    "DRAM 적층 다이",
    "베이스 다이",
    "인터포저"
-  ]
- },
- {
-  "id": "ca-214",
-  "title": "CXL(Computer Express Link)",
-  "category": "소프트웨어공학",
-  "importance": "상",
-  "source": "기필반",
-  "definition": "PCIe 인터페이스를 기반으로 CPU와 가속기·메모리 확장장치 등 여러 장치를 캐시 일관성을 유지하며 연결하는 개방형 고속 인터커넥트 표준(Compute Express Link)",
-  "defShort": "CPU와 가속기·메모리 확장장치를 캐시 일관성 있게 연결하는 PCIe 기반 표준",
-  "memo": "프로토콜 3형제: io는 '길', cache는 '장치가 호스트 것을 빌려 씀', memory는 '호스트가 장치 것을 내 것처럼 씀'. Type 3=순수 메모리 확장 장치가 시험 포인트.",
-  "sections": [
-   {
-    "label": "3대 프로토콜",
-    "mnemonic": "",
-    "keywords": [
-     "CXL.io",
-     "CXL.cache",
-     "CXL.memory"
-    ]
-   },
-   {
-    "label": "디바이스 타입",
-    "mnemonic": "",
-    "keywords": [
-     "Type 1(캐싱 가속기)",
-     "Type 2(메모리 보유 가속기)",
-     "Type 3(메모리 확장)"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "CXL.io",
-   "CXL.cache",
-   "CXL.memory"
   ]
  },
  {

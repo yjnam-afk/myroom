@@ -22051,8 +22051,8 @@
   },
   {
     "id": "ca-214",
-    "title": "CXL(Computer Express Link)",
-    "category": "소프트웨어공학",
+    "title": "CXL(Compute Express Link)",
+    "category": "컴퓨터구조",
     "group": "신토픽",
     "importance": "상",
     "summary": "PCI 익스프레스(PCIe) 인터페이스 기반으로 컴퓨터 중앙연산장치(CPU) 등 여러 장치와 메모리를 연결하는 통합 고속 인터페이스 표준",
