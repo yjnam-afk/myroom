@@ -11,10 +11,30 @@
 /** 교재 Priority — ★★★=상, ★★=중, ★=하 */
 export type Priority = "상" | "중" | "하";
 
+/**
+ * 출제 대비 강도 — 교재 Priority(상·중·하)와 ★다른 축★.
+ * Priority가 "교재가 얼마나 중요하게 다루나"라면, Level은 "시험을 앞두고
+ * 내가 이걸 어떻게 다룰까"다. 교재 중요도가 중이어도 출제 공백이 길면 점검이고,
+ * 중요도가 상이어도 방금 나왔으면 참고로 내려간다.
+ */
+export type StudyLevel =
+  /** 통째로 외운다 — 정의·유형·조건까지 그대로 나와야 한다. */
+  | "암기"
+  /** 개념과 구조를 이해해 둔다 — 설명할 수 있으면 된다. */
+  | "숙지"
+  /** 출제 공백이 길거나 기억이 흔들려 한 번 훑어야 한다. */
+  | "점검"
+  /** 당분간 출제 가능성이 낮다 — 시간 남을 때. */
+  | "참고";
+
 export type CurriculumTopic = {
   title: string;
   topicId?: string;
   priority: Priority;
+  /** 출제 대비 강도(선택). 안 적으면 표시하지 않는다. */
+  level?: StudyLevel;
+  /** 왜 그 강도인지 한 줄 메모(선택). */
+  note?: string;
 };
 
 export type CurriculumDay =
@@ -104,26 +124,26 @@ function studyDays(subjects: Subject[], totalDays = 4): CurriculumDay[] {
 const OS_MEM: CurriculumTopic[] = [
   { title: "커널(Kernel)", topicId: "os-2", priority: "하" },
   { title: "CPU Ring Level", priority: "하" },
-  { title: "기억장치 계층 구조(Memory Hierarchy)", topicId: "ca-51", priority: "중" },
-  { title: "가상메모리 관리기법", topicId: "ca-55", priority: "상" },
+  { title: "기억장치 계층 구조(Memory Hierarchy)", topicId: "ca-51", priority: "중", level: "숙지", note: "개념만 확실히 잡아두면 되는 토픽." },
+  { title: "가상메모리 관리기법", topicId: "ca-55", priority: "상", level: "숙지", note: "최근 출제 — 재출제 간격을 감안하면 개념 유지 수준." },
   { title: "가상메모리의 페이징과 세그멘테이션", priority: "중" },
   { title: "직접 사상과 연관 사상 페이징 기법", topicId: "ca-87", priority: "중" },
   { title: "페이지 교체 알고리즘(Paging Replacement Algorithm)", topicId: "ca-84", priority: "중" },
   { title: "Belady's Anomaly(FIFO 이상현상)", topicId: "ca-90", priority: "중" },
-  { title: "스레싱(Thrashing)", topicId: "os-75", priority: "상" },
+  { title: "스레싱(Thrashing)", topicId: "os-75", priority: "상", level: "점검", note: "나온 지 오래됐다. 한 번 다시 볼 것." },
   { title: "지역성(Locality)", topicId: "os-74", priority: "중" },
-  { title: "단편화(Fragmentation)", topicId: "ca-58", priority: "중" },
+  { title: "단편화(Fragmentation)", topicId: "ca-58", priority: "중", level: "숙지", note: "내부·외부 구분과 해소 방안까지 개념 숙지." },
 ];
 
 const OS_PROC: CurriculumTopic[] = [
   { title: "스케줄러(Scheduler)", topicId: "os-23", priority: "하" },
-  { title: "프로세스 상태 전이도", priority: "상" },
+  { title: "프로세스 상태 전이도", priority: "상", level: "점검", note: "출제 여부는 애매. 다만 그림은 그릴 수 있어야 한다." },
   { title: "CPU 스케줄링(CPU Scheduling)", priority: "중" },
   { title: "기한부(Deadline) 스케줄링", priority: "하" },
   { title: "문맥교환(Context Switching)", topicId: "os-47", priority: "상" },
   { title: "기아(Starvation)", topicId: "os-37", priority: "하" },
-  { title: "인터럽트(Interrupt)", topicId: "os-63", priority: "상" },
-  { title: "PCB(Process Control Block)", topicId: "os-48", priority: "중" },
+  { title: "인터럽트(Interrupt)", topicId: "os-63", priority: "상", level: "점검", note: "봐야 하는 토픽." },
+  { title: "PCB(Process Control Block)", topicId: "os-48", priority: "중", level: "점검", note: "봐야 하는 토픽." },
   { title: "프로세스(Process)와 스레드(Thread) 비교", topicId: "os-53", priority: "중" },
   { title: "멀티 쓰레드(Multi-Thread)", topicId: "os-54", priority: "하" },
 ];
@@ -131,11 +151,11 @@ const OS_PROC: CurriculumTopic[] = [
 const OS_SYNC: CurriculumTopic[] = [
   { title: "경쟁조건(Race Condition) 해결 방안", topicId: "os-45", priority: "중" },
   { title: "세마포어(Semaphore)", topicId: "os-32", priority: "상" },
-  { title: "우선순위 역전(Priority Inversion) 현상", topicId: "os-34", priority: "중" },
+  { title: "우선순위 역전(Priority Inversion) 현상", topicId: "os-34", priority: "중", level: "숙지", note: "발생 조건과 해결 기법까지 숙지." },
   { title: "프로세스간 통신(IPC)", topicId: "os-59", priority: "중" },
-  { title: "교착상태(Deadlock)", topicId: "os-36", priority: "상" },
-  { title: "자원할당 그래프(Resource Allocation Graph)", topicId: "os-39", priority: "중" },
-  { title: "Banker's 알고리즘(은행가 알고리즘)", topicId: "os-41", priority: "중" },
+  { title: "교착상태(Deadlock)", topicId: "os-36", priority: "상", level: "암기", note: "무조건 암기 — 4대 조건과 해결 기법을 그대로." },
+  { title: "자원할당 그래프(Resource Allocation Graph)", topicId: "os-39", priority: "중", level: "점검", note: "나올 때가 됐는데 아직 안 나왔다." },
+  { title: "Banker's 알고리즘(은행가 알고리즘)", topicId: "os-41", priority: "중", level: "참고", note: "당분간 안 나올 것으로 본다." },
   { title: "Wait-Die와 Wound-Wait", topicId: "os-38", priority: "하" },
   { title: "디스크 스케줄링(Disk Scheduling)", topicId: "os-24", priority: "하" },
   { title: "파일 시스템(유닉스 파일시스템)", topicId: "os-58", priority: "하" },

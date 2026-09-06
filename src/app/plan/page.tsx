@@ -15,6 +15,7 @@ import {
   monthGrid,
   todayISO,
 } from "@/data/curriculum";
+import type { StudyLevel } from "@/data/curriculum";
 import { subnoteByTopicId, subnoteByTitle } from "@/data/textbookSubnotes";
 
 const DAY_NAMES = ["월", "화", "수", "목", "금", "토", "일"];
@@ -24,6 +25,30 @@ const PRIORITY_STYLE: Record<Priority, { cls: string; star: string }> = {
   중: { cls: "bg-blue-100 text-blue-700 ring-blue-200", star: "★★" },
   하: { cls: "bg-slate-100 text-slate-600 ring-slate-200", star: "★" },
 };
+
+/**
+ * 출제 대비 강도 — 교재 중요도(상·중·하)와 다른 축이라 색·모양을 따로 준다.
+ * 중요도는 채워진 배지, 레벨은 테두리만 있는 배지로 한눈에 구분한다.
+ */
+const LEVEL_STYLE: Record<StudyLevel, { cls: string; mark: string }> = {
+  암기: { cls: "border-rose-400 text-rose-700 bg-rose-50", mark: "●●●" },
+  숙지: { cls: "border-amber-400 text-amber-700 bg-amber-50", mark: "●●" },
+  점검: { cls: "border-sky-400 text-sky-700 bg-sky-50", mark: "●" },
+  참고: { cls: "border-slate-300 text-slate-500 bg-white", mark: "○" },
+};
+
+function LevelBadge({ level, note }: { level: StudyLevel; note?: string }) {
+  const s = LEVEL_STYLE[level];
+  return (
+    <span
+      className={`inline-flex shrink-0 items-center gap-1 rounded border px-1.5 py-0.5 text-[10px] font-bold ${s.cls}`}
+      title={note ? `${level} — ${note}` : level}
+    >
+      {level}
+      <span className="text-[8px] leading-none">{s.mark}</span>
+    </span>
+  );
+}
 
 function PriorityBadge({ p }: { p: Priority }) {
   const s = PRIORITY_STYLE[p];
@@ -449,12 +474,16 @@ export default function PlanPage() {
                               ✓
                             </button>
                             <PriorityBadge p={t.priority} />
+                            {t.level && (
+                              <LevelBadge level={t.level} note={t.note} />
+                            )}
                             <span
                               className={`min-w-0 flex-1 truncate text-sm ${
                                 checked
                                   ? "text-slate-400 line-through"
                                   : "text-slate-800"
                               }`}
+                              title={t.note}
                             >
                               {t.title}
                             </span>
