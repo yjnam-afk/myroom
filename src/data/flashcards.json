@@ -2478,6 +2478,17 @@
      "호위효과",
      "기아상태"
     ]
+   },
+   {
+    "label": "간트 차트로 성능 평가 — 알고리즘 우열을 숫자로 가른다",
+    "mnemonic": "",
+    "keywords": [
+     "간트 차트(Gantt Chart)",
+     "반환시간(Turnaround Time)",
+     "대기시간(Waiting Time)",
+     "응답시간(Response Time)",
+     "평균값 비교"
+    ]
    }
   ],
   "mnemonic": "",
