@@ -618,7 +618,8 @@ export default function PlanPage() {
                         : day.kind === "open"
                           ? "📥 "
                           : "🌙 "}
-                      {day.note}
+                      {/* 진도일(study)에는 note 가 없다 — 토픽이 비었을 때만 오는 자리라 안전하게 좁힌다. */}
+                      {"note" in day ? day.note : null}
                     </p>
                   )}
                 </div>
