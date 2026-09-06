@@ -86604,7 +86604,8 @@
     "category": "디지털서비스",
     "kind": "NS모의",
     "round": "1주차",
-    "text": "다크 팩토리(Dark Factory)에 대하여 설명하시오."
+    "text": "다크 팩토리(Dark Factory)에 대하여 설명하시오.",
+    "cohort": "19기"
   },
   {
     "id": "ns1-102",
@@ -86612,7 +86613,8 @@
     "category": "소프트웨어공학",
     "kind": "NS모의",
     "round": "1주차",
-    "text": "ATAM(Architecture Trade-off Analysis Method)에 대하여 설명하시오."
+    "text": "ATAM(Architecture Trade-off Analysis Method)에 대하여 설명하시오.",
+    "cohort": "19기"
   },
   {
     "id": "ns1-103",
@@ -86620,7 +86622,8 @@
     "category": "프로젝트관리",
     "kind": "NS모의",
     "round": "1주차",
-    "text": "PMC(Project Management Consultancy)와 PMO(Project Management Office)를 비교하여 설명하시오."
+    "text": "PMC(Project Management Consultancy)와 PMO(Project Management Office)를 비교하여 설명하시오.",
+    "cohort": "19기"
   },
   {
     "id": "ns1-104",
@@ -86628,7 +86631,8 @@
     "category": "보안",
     "kind": "NS모의",
     "round": "1주차",
-    "text": "디지털 포렌식(Digital Forensics)에 대하여 설명하시오."
+    "text": "디지털 포렌식(Digital Forensics)에 대하여 설명하시오.",
+    "cohort": "19기"
   },
   {
     "id": "ns1-105",
@@ -86636,7 +86640,8 @@
     "category": "소프트웨어공학",
     "kind": "NS모의",
     "round": "1주차",
-    "text": "CI/CD(Continuous Integration/Continuous Delivery, Deployment)에 대하여 설명하시오."
+    "text": "CI/CD(Continuous Integration/Continuous Delivery, Deployment)에 대하여 설명하시오.",
+    "cohort": "19기"
   },
   {
     "id": "ns1-106",
@@ -86644,7 +86649,8 @@
     "category": "네트워크",
     "kind": "NS모의",
     "round": "1주차",
-    "text": "5세대 이동통신 네트워크 슬라이싱(5G Network Slicing)에 대하여 설명하시오."
+    "text": "5세대 이동통신 네트워크 슬라이싱(5G Network Slicing)에 대하여 설명하시오.",
+    "cohort": "19기"
   },
   {
     "id": "ns1-107",
@@ -86652,6 +86658,7 @@
     "category": "보안",
     "kind": "NS모의",
     "round": "1주차",
-    "text": "개인정보보호위원회 『가명정보 처리 가이드라인』 상의 가명정보 처리 단계에 대하여 설명하시오."
+    "text": "개인정보보호위원회 『가명정보 처리 가이드라인』 상의 가명정보 처리 단계에 대하여 설명하시오.",
+    "cohort": "19기"
   }
 ]
