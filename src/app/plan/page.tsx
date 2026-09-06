@@ -270,10 +270,22 @@ function Legend({ cls, label }: { cls: string; label: string }) {
   );
 }
 
-/** 주차 선택 칩 라벨 — "선행 1주" / "심화 5주" */
+/**
+ * 주차 선택 칩 라벨 — "선행 1주" / "휴식" / "회독" / "5주".
+ *
+ * 제목 아무 데서나 "N주차"를 주워 오면 안 된다. 휴식 주간 제목에 들어 있는
+ * "NS 19기 01주차 모의고사"의 01주차를 집어 8/31 칩이 "심화 1주"로 찍혔다.
+ * 그래서 제목 맨 앞만 본다.
+ */
 function weekChipLabel(title: string): string {
-  const n = title.match(/(\d)주차/)?.[1] ?? "?";
-  return `${title.startsWith("선행") ? "선행" : "심화"} ${n}주`;
+  if (title.startsWith("휴식")) return "휴식";
+  if (title.startsWith("회독")) return "회독";
+  if (title.startsWith("선행")) {
+    const n = title.match(/^선행 학습 · (?:심화반 )?(\d+)주차/)?.[1];
+    return n ? `선행 ${n}주` : "선행";
+  }
+  const n = title.match(/^(\d+)주차/)?.[1];
+  return n ? `${n}주` : title.slice(0, 4);
 }
 
 /** 이 탭에서 마지막으로 보던 주차·날짜 */
