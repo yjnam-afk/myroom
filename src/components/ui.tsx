@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { navDepth } from "@/components/NavDepth";
 
 export function PageHeader({
   title,
@@ -11,9 +12,13 @@ export function PageHeader({
   desc: string;
 }) {
   const router = useRouter();
-  // 이전 페이지로 돌아간다(설명→데일리계획 등). 직접 진입(히스토리 없음)이면 홈으로.
+  /**
+   * 이전 페이지로 돌아간다(설명→데일리계획 등).
+   * 앱 안에서 한 번도 이동하지 않았으면(외부 링크로 바로 진입) 홈으로 보낸다.
+   * history.length 를 쓰면 검색·메신저를 타고 들어온 경우 앱 밖으로 나가버린다.
+   */
   function goBack() {
-    if (typeof window !== "undefined" && window.history.length > 1) {
+    if (navDepth() > 1) {
       router.back();
     } else {
       router.push("/");

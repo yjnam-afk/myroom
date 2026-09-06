@@ -96,7 +96,9 @@ export default function LoginPage() {
         );
       }
       // 세션이 모든 화면(헤더·게이트)에 확실히 반영되도록 전체 새로고침으로 이동
-      window.location.href = next;
+      // replace 로 이동해야 로그인 화면이 히스토리에 남지 않는다.
+      // href 대입은 push 라서, 들어가자마자 뒤로 누르면 다시 로그인 화면이 뜬다.
+      window.location.replace(next);
     } catch (e) {
       setError(e instanceof Error ? e.message : "오류가 발생했습니다.");
     } finally {
@@ -114,7 +116,7 @@ export default function LoginPage() {
             님으로 로그인 중입니다.
           </p>
           <div className="mt-4 flex gap-2">
-            <Button onClick={() => (window.location.href = next)}>
+            <Button onClick={() => window.location.replace(next)}>
               {next === "/" ? "학습 시작" : "이어서 하기"}
             </Button>
             <button

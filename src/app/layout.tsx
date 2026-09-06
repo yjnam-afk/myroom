@@ -3,6 +3,7 @@ import Link from "next/link";
 import AuthNav from "@/components/AuthNav";
 import AuthGate from "@/components/AuthGate";
 import ProgressSync from "@/components/ProgressSync";
+import NavDepth from "@/components/NavDepth";
 import DeployBanner from "@/components/DeployBanner";
 import "./globals.css";
 
@@ -52,6 +53,7 @@ export default function RootLayout({
             </div>
           </div>
         </header>
+        <NavDepth />
         <ProgressSync />
         <DeployBanner />
         <main className="mx-auto max-w-5xl px-4 py-8">
