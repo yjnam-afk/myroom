@@ -6,7 +6,7 @@ import { PageHeader } from "@/components/ui";
 import {
   WEEKS,
   Priority,
-  CurriculumDay,
+  CurriculumTopic,
   planForToday,
   loadDone,
   saveDone,
@@ -321,19 +321,23 @@ export default function PlanPage() {
     }, 60);
   }
 
-  function toggle(weekStart: string, title: string) {
-    const k = doneKey(weekStart, title);
+  function toggle(weekStart: string, title: string, scope = "") {
+    const k = doneKey(weekStart, title, scope);
     const next = new Set(done);
     next.has(k) ? next.delete(k) : next.add(k);
     setDone(next);
     saveDone(next);
   }
 
-  function toggleDay(weekStart: string, day: CurriculumDay, allDone: boolean) {
-    if (day.kind !== "study") return;
+  function toggleDay(
+    weekStart: string,
+    topics: CurriculumTopic[],
+    allDone: boolean,
+    scope = "",
+  ) {
     const next = new Set(done);
-    for (const t of day.topics) {
-      const k = doneKey(weekStart, t.title);
+    for (const t of topics) {
+      const k = doneKey(weekStart, t.title, scope);
       allDone ? next.delete(k) : next.add(k);
     }
     setDone(next);
@@ -444,9 +448,16 @@ export default function PlanPage() {
           <div className="space-y-3">
             {week.days.map((day, di) => {
               const isToday = todayKey === `${week.start}#${di}`;
-              const topics = day.kind === "study" ? day.topics : [];
+              // 정독일(review)도 그 주 범위 전체를 토픽으로 들고 있다.
+              const topics =
+                day.kind === "study" || day.kind === "review"
+                  ? (day.topics ?? [])
+                  : [];
+              // 회독 차수를 따로 센다 — 월 정독에서 체크한 것이 진도 완료로
+              // 보이면 안 되고, 토 정독도 월과 별개로 세야 한다.
+              const scope = day.kind === "review" ? `d${di}` : "";
               const dDone = topics.filter((t) =>
-                done.has(doneKey(week.start, t.title)),
+                done.has(doneKey(week.start, t.title, scope)),
               ).length;
               const allDone = topics.length > 0 && dDone === topics.length;
               return (
@@ -485,13 +496,13 @@ export default function PlanPage() {
                         </span>
                       )}
                     </div>
-                    {day.kind === "study" && (
+                    {topics.length > 0 && (
                       <div className="flex items-center gap-2">
                         <span className="text-xs font-semibold text-slate-500">
                           {dDone}/{topics.length}
                         </span>
                         <button
-                          onClick={() => toggleDay(week.start, day, allDone)}
+                          onClick={() => toggleDay(week.start, topics, allDone, scope)}
                           className="rounded-md border border-slate-300 bg-white px-2 py-1 text-[11px] font-medium text-slate-600 hover:bg-slate-50"
                         >
                           {allDone ? "전체 해제" : "전체 완료"}
@@ -500,10 +511,18 @@ export default function PlanPage() {
                     )}
                   </div>
 
-                  {day.kind === "study" ? (
+                  {topics.length > 0 ? (
+                    <>
+                      {day.kind === "review" && (
+                        <p className="border-b border-slate-100 bg-indigo-50/50 px-4 py-2.5 text-sm text-indigo-900">
+                          🔁 {day.note}
+                        </p>
+                      )}
                     <ol className="divide-y divide-slate-100">
                       {topics.map((t, i) => {
-                        const checked = done.has(doneKey(week.start, t.title));
+                        const checked = done.has(
+                          doneKey(week.start, t.title, scope),
+                        );
                         const sub =
                           subnoteByTopicId(t.topicId) || subnoteByTitle(t.title);
                         return (
@@ -517,7 +536,7 @@ export default function PlanPage() {
                               {i + 1}
                             </span>
                             <button
-                              onClick={() => toggle(week.start, t.title)}
+                              onClick={() => toggle(week.start, t.title, scope)}
                               aria-label="완료"
                               className={`grid h-5 w-5 shrink-0 place-items-center rounded border text-[11px] font-bold transition ${
                                 checked
@@ -568,6 +587,7 @@ export default function PlanPage() {
                         );
                       })}
                     </ol>
+                    </>
                   ) : (
                     <p
                       className={`px-4 py-3 text-sm ${

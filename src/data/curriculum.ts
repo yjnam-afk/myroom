@@ -46,7 +46,14 @@ export type ReadMode = "정독" | "평독";
 
 export type CurriculumDay =
   | { kind: "study"; label: string; topics: CurriculumTopic[]; mode?: ReadMode }
-  | { kind: "review"; label: string; note: string; mode?: ReadMode }
+  | {
+      kind: "review";
+      label: string;
+      note: string;
+      mode?: ReadMode;
+      /** 정독일에 훑을 범위 — 그 주 진도 토픽 전체. */
+      topics?: CurriculumTopic[];
+    }
   | { kind: "rest"; label: string; note: string }
   /** 학원 수업일 — 심화반 강의를 듣는 날. */
   | { kind: "class"; label: string; note: string }
@@ -799,52 +806,88 @@ const WEEK6_DAYS: CurriculumDay[] = studyDays([
   { name: "보안(SC)", topics: SC_ALL },
 ]);
 
+/**
+ * 강서님 회독법으로 한 주를 짠다 — 월 전체 정독, 화~금 진도 평독, 토 전체 정독.
+ * 정독일에도 그 주 진도 토픽 전부를 달아 둔다. 범위가 안 보이면 무엇을 정독할지
+ * 매번 다시 찾아야 한다.
+ */
+function readCycle(studyDays: CurriculumDay[], sunday: CurriculumDay): CurriculumDay[] {
+  const all = studyDays.flatMap((d) => (d.kind === "study" ? d.topics : []));
+  return [
+    {
+      kind: "review",
+      label: "정독",
+      mode: "정독",
+      note: "이번 주 범위 전체를 정독합니다 — 한 줄씩 뜯어 읽고 모르는 곳을 표시해 둡니다.",
+      topics: all,
+    },
+    ...studyDays,
+    {
+      kind: "review",
+      label: "정독",
+      mode: "정독",
+      note: "이번 주 범위를 다시 정독합니다 — 주중에 평독으로 넘긴 곳을 여기서 메웁니다.",
+      topics: all,
+    },
+    sunday,
+  ];
+}
+
+/** 진도일 배열에서 토픽만 뽑는다. */
+function topicsOf(days: CurriculumDay[]): CurriculumTopic[] {
+  return days.flatMap((d) => (d.kind === "study" ? d.topics : []));
+}
+
+const REST_SUNDAY: CurriculumDay = {
+  kind: "rest",
+  label: "휴식",
+  note: "개강(9/7) 전이라 수업이 없습니다 — 쉬거나 밀린 회독을 합니다.",
+};
+const CLASS_SUNDAY: CurriculumDay = {
+  kind: "class",
+  label: "학원",
+  note: "심화반 수업일 — 이번 주 배운 내용을 강의로 확인합니다.",
+};
+
+/** 개강 전 정리 주간이 도는 범위 — 선행 1~4주차 전체. */
+const PRE_ALL: CurriculumTopic[] = [
+  ...topicsOf(STUDY_DAYS),
+  ...topicsOf(WEEK2_DAYS),
+  ...topicsOf(WEEK3_DAYS),
+  ...topicsOf(WEEK4_DAYS),
+];
+
 export const WEEKS: CurriculumWeek[] = [
   {
     // 심화반(9월) 전에 미리 도는 선행 학습 — 오늘부터 시작.
     // 새 서브노트를 올리면 해당 요일 topics 배열에 추가하면 된다.
     start: "2026-08-03",
     title: "선행 학습 · 심화반 1주차 미리 돌기",
-    days: [
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위 전체를 정독합니다 — 한 줄씩 뜯어 읽고 모르는 곳을 표시해 둡니다." },
-      ...STUDY_DAYS,
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위를 다시 정독합니다 — 주중에 평독으로 넘긴 곳을 여기서 메웁니다." },
-      { kind: "rest", label: "휴식", note: "개강(9/7) 전이라 수업이 없습니다 — 쉬거나 밀린 회독을 합니다." },
-    ],
+    days: readCycle([...STUDY_DAYS], REST_SUNDAY),
   },
   {
     // 선행 2주차 — 프로젝트 관리
     start: "2026-08-10",
     title: "선행 학습 · 심화반 2주차 미리 돌기 (PM + 소프트웨어공학)",
-    days: [
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위 전체를 정독합니다 — 한 줄씩 뜯어 읽고 모르는 곳을 표시해 둡니다." },
-      ...WEEK2_DAYS,
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위를 다시 정독합니다 — 주중에 평독으로 넘긴 곳을 여기서 메웁니다." },
-      { kind: "rest", label: "휴식", note: "개강(9/7) 전이라 수업이 없습니다 — 쉬거나 밀린 회독을 합니다." },
-    ],
+    days: readCycle([...WEEK2_DAYS], REST_SUNDAY),
   },
   {
     // 선행 3주차 — 인공지능
     start: "2026-08-17",
     title: "선행 학습 · 심화반 3주차 미리 돌기 (인공지능 + 확률·통계)",
-    days: [
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위 전체를 정독합니다 — 한 줄씩 뜯어 읽고 모르는 곳을 표시해 둡니다." },
-      ...WEEK3_DAYS,
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위를 다시 정독합니다 — 주중에 평독으로 넘긴 곳을 여기서 메웁니다." },
-      { kind: "rest", label: "휴식", note: "개강(9/7) 전이라 수업이 없습니다 — 쉬거나 밀린 회독을 합니다." },
-    ],
+    days: readCycle([...WEEK3_DAYS], REST_SUNDAY),
   },
   {
     // 개강 직전 한 주 — 선행 4주차까지 돈 내용을 회독하고 주간 모의고사로 점검.
     start: "2026-08-31",
     title: "개강 전 정리 주간 · 선행 회독 + NS 19기 01주차 모의고사",
     days: [
-      { kind: "review", label: "정독", mode: "정독", note: "선행 1~4주차 범위 전체를 정독합니다 — 개강 전 기준선을 잡는 날." },
-      { kind: "review", label: "평독", mode: "평독", note: "선행 1주차(OS·CA)를 평독합니다." },
-      { kind: "review", label: "평독", mode: "평독", note: "선행 2주차(PM·SE)를 평독합니다." },
-      { kind: "review", label: "평독", mode: "평독", note: "선행 3주차(AI·ST)를 평독합니다." },
-      { kind: "review", label: "평독", mode: "평독", note: "선행 4주차(DS·AL·NW)를 평독합니다." },
-      { kind: "review", label: "정독", mode: "정독", note: "전체를 다시 정독합니다 — 내일 모의고사 범위 점검." },
+      { kind: "review", label: "정독", mode: "정독", note: "선행 1~4주차 범위 전체를 정독합니다 — 개강 전 기준선을 잡는 날.", topics: PRE_ALL },
+      { kind: "review", label: "평독", mode: "평독", note: "선행 1주차(OS·CA)를 평독합니다.", topics: topicsOf(STUDY_DAYS) },
+      { kind: "review", label: "평독", mode: "평독", note: "선행 2주차(PM·SE)를 평독합니다.", topics: topicsOf(WEEK2_DAYS) },
+      { kind: "review", label: "평독", mode: "평독", note: "선행 3주차(AI·ST)를 평독합니다.", topics: topicsOf(WEEK3_DAYS) },
+      { kind: "review", label: "평독", mode: "평독", note: "선행 4주차(DS·AL·NW)를 평독합니다.", topics: topicsOf(WEEK4_DAYS) },
+      { kind: "review", label: "정독", mode: "정독", note: "전체를 다시 정독합니다 — 내일 모의고사 범위 점검.", topics: PRE_ALL },
       { kind: "class", label: "모의고사", note: "NS·단합반 19기 01주차 주간 실전모의고사(1교시·2교시)." },
     ],
   },
@@ -852,78 +895,43 @@ export const WEEKS: CurriculumWeek[] = [
     // ★ 심화반 입과 — 2026-09-07(월) 개강. 확정.
     start: "2026-09-07",
     title: "심화반 1주차 · 운영체제(OS) + 컴퓨터구조(CA)",
-    days: [
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위 전체를 정독합니다 — 한 줄씩 뜯어 읽고 모르는 곳을 표시해 둡니다." },
-      ...STUDY_DAYS,
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위를 다시 정독합니다 — 주중에 평독으로 넘긴 곳을 여기서 메웁니다." },
-      { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 배운 내용을 강의로 확인합니다." },
-    ],
+    days: readCycle([...STUDY_DAYS], CLASS_SUNDAY),
   },
   {
     // 심화반 2주차 — 프로젝트 관리
     start: "2026-09-14",
     title: "심화반 2주차 · 프로젝트 관리(PM) + 소프트웨어공학(SE)",
-    days: [
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위 전체를 정독합니다 — 한 줄씩 뜯어 읽고 모르는 곳을 표시해 둡니다." },
-      ...WEEK2_DAYS,
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위를 다시 정독합니다 — 주중에 평독으로 넘긴 곳을 여기서 메웁니다." },
-      { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 배운 내용을 강의로 확인합니다." },
-    ],
+    days: readCycle([...WEEK2_DAYS], CLASS_SUNDAY),
   },
   {
     // 심화반 3주차 — 인공지능 + 확률·통계
     start: "2026-09-21",
     title: "심화반 3주차 · 인공지능(AI) + 확률·통계(ST)",
-    days: [
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위 전체를 정독합니다 — 한 줄씩 뜯어 읽고 모르는 곳을 표시해 둡니다." },
-      ...WEEK3_DAYS,
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위를 다시 정독합니다 — 주중에 평독으로 넘긴 곳을 여기서 메웁니다." },
-      { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 배운 내용을 강의로 확인합니다." },
-    ],
+    days: readCycle([...WEEK3_DAYS], CLASS_SUNDAY),
   },
   {
     // 선행 4주차 — 자료구조 + 알고리즘
     start: "2026-08-24",
     title: "선행 학습 · 심화반 4주차 미리 돌기 (자료구조 + 알고리즘 + 네트워크)",
-    days: [
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위 전체를 정독합니다 — 한 줄씩 뜯어 읽고 모르는 곳을 표시해 둡니다." },
-      ...WEEK4_DAYS,
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위를 다시 정독합니다 — 주중에 평독으로 넘긴 곳을 여기서 메웁니다." },
-      { kind: "rest", label: "휴식", note: "개강(9/7) 전이라 수업이 없습니다 — 쉬거나 밀린 회독을 합니다." },
-    ],
+    days: readCycle([...WEEK4_DAYS], REST_SUNDAY),
   },
   {
     // 심화반 4주차 — 자료구조 + 알고리즘
     start: "2026-09-28",
     title: "심화반 4주차 · 자료구조(DS) + 알고리즘(AL) + 네트워크(NW)",
-    days: [
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위 전체를 정독합니다 — 한 줄씩 뜯어 읽고 모르는 곳을 표시해 둡니다." },
-      ...WEEK4_DAYS,
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위를 다시 정독합니다 — 주중에 평독으로 넘긴 곳을 여기서 메웁니다." },
-      { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 배운 내용을 강의로 확인합니다." },
-    ],
+    days: readCycle([...WEEK4_DAYS], CLASS_SUNDAY),
   },
   {
     // 심화반 5주차 — 데이터베이스
     start: "2026-10-05",
     title: "심화반 5주차 · 데이터베이스(DB) + 경영전략(MG)",
-    days: [
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위 전체를 정독합니다 — 한 줄씩 뜯어 읽고 모르는 곳을 표시해 둡니다." },
-      ...WEEK5_DAYS,
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위를 다시 정독합니다 — 주중에 평독으로 넘긴 곳을 여기서 메웁니다." },
-      { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 배운 내용을 강의로 확인합니다." },
-    ],
+    days: readCycle([...WEEK5_DAYS], CLASS_SUNDAY),
   },
   {
     // 심화반 6주차 — 보안
     start: "2026-10-12",
     title: "심화반 6주차 · 보안(SC)",
-    days: [
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위 전체를 정독합니다 — 한 줄씩 뜯어 읽고 모르는 곳을 표시해 둡니다." },
-      ...WEEK6_DAYS,
-      { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위를 다시 정독합니다 — 주중에 평독으로 넘긴 곳을 여기서 메웁니다." },
-      { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 배운 내용을 강의로 확인합니다." },
-    ],
+    days: readCycle([...WEEK6_DAYS], CLASS_SUNDAY),
   },
 ];
 
@@ -1099,8 +1107,14 @@ const DONE_KEY = "myroom:curriculum-done";
  * 완료 체크의 저장 키. 주차별로 따로 센다 —
  * 선행 학습에서 체크한 토픽이 9월 심화반에서 이미 끝난 것으로 보이면 안 되므로.
  */
-export function doneKey(weekStart: string, title: string): string {
-  return `${weekStart}#${title}`;
+/**
+ * 완료 체크 키.
+ * scope 를 주면 같은 토픽이라도 회독 차수별로 따로 센다 — 월 정독에서 체크한 것이
+ * 화~금 진도까지 끝난 것으로 보이면 안 되기 때문이다. 진도일은 scope 없이 쓴다
+ * (기존에 체크해 둔 기록을 그대로 살린다).
+ */
+export function doneKey(weekStart: string, title: string, scope = ""): string {
+  return scope ? `${weekStart}#${scope}#${title}` : `${weekStart}#${title}`;
 }
 
 export function loadDone(): Set<string> {
