@@ -46,12 +46,28 @@ export function previousPath(): string | null {
   return s.length > 1 ? s[s.length - 2] : null;
 }
 
+/**
+ * 이 모듈이 평가된 시점 = 새 문서가 열린 시점.
+ * 주소 직접 입력·새로고침·로그인 후 location.replace 처럼 문서가 통째로 다시
+ * 뜨면 브라우저의 앱 내 기록도 이 페이지 하나뿐이다. 그런데 sessionStorage 는
+ * 살아남으므로, 초기화하지 않으면 이전 스택을 보고 "돌아갈 곳이 있다"고
+ * 잘못 판단해 router.back() 이 아무 데도 못 간다.
+ */
+let freshDocument = true;
+
 function Tracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   useEffect(() => {
+    // 로그인 화면은 거쳐 가는 곳이라 돌아갈 대상이 아니다.
+    if (pathname === "/login") return;
     const qs = searchParams.toString();
     const here = qs ? `${pathname}?${qs}` : pathname;
+    if (freshDocument) {
+      freshDocument = false;
+      write([here]); // 새 문서 — 여기서부터 다시 센다
+      return;
+    }
     const stack = read();
     const last = stack[stack.length - 1];
     if (last === here) return; // 같은 주소로 다시 렌더된 경우
