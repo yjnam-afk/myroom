@@ -2271,6 +2271,15 @@
      "통합(Coalescing)",
      "집약(Compaction)"
     ]
+   },
+   {
+    "label": "커널 메모리 할당자 — 어느 단편화를 줄이는가",
+    "mnemonic": "",
+    "keywords": [
+     "버디(Buddy) 시스템",
+     "슬랩(Slab) 할당자",
+     "두 할당자의 관계"
+    ]
    }
   ],
   "mnemonic": "",
