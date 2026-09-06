@@ -809,7 +809,7 @@ export const WEEKS: CurriculumWeek[] = [
       { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위 전체를 정독합니다 — 한 줄씩 뜯어 읽고 모르는 곳을 표시해 둡니다." },
       ...STUDY_DAYS,
       { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위를 다시 정독합니다 — 주중에 평독으로 넘긴 곳을 여기서 메웁니다." },
-      { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 선행한 내용을 강의로 확인합니다." },
+      { kind: "rest", label: "휴식", note: "개강(9/7) 전이라 수업이 없습니다 — 쉬거나 밀린 회독을 합니다." },
     ],
   },
   {
@@ -820,7 +820,7 @@ export const WEEKS: CurriculumWeek[] = [
       { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위 전체를 정독합니다 — 한 줄씩 뜯어 읽고 모르는 곳을 표시해 둡니다." },
       ...WEEK2_DAYS,
       { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위를 다시 정독합니다 — 주중에 평독으로 넘긴 곳을 여기서 메웁니다." },
-      { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 선행한 내용을 강의로 확인합니다." },
+      { kind: "rest", label: "휴식", note: "개강(9/7) 전이라 수업이 없습니다 — 쉬거나 밀린 회독을 합니다." },
     ],
   },
   {
@@ -831,7 +831,7 @@ export const WEEKS: CurriculumWeek[] = [
       { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위 전체를 정독합니다 — 한 줄씩 뜯어 읽고 모르는 곳을 표시해 둡니다." },
       ...WEEK3_DAYS,
       { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위를 다시 정독합니다 — 주중에 평독으로 넘긴 곳을 여기서 메웁니다." },
-      { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 선행한 내용을 강의로 확인합니다." },
+      { kind: "rest", label: "휴식", note: "개강(9/7) 전이라 수업이 없습니다 — 쉬거나 밀린 회독을 합니다." },
     ],
   },
   {
@@ -889,7 +889,7 @@ export const WEEKS: CurriculumWeek[] = [
       { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위 전체를 정독합니다 — 한 줄씩 뜯어 읽고 모르는 곳을 표시해 둡니다." },
       ...WEEK4_DAYS,
       { kind: "review", label: "정독", mode: "정독", note: "이번 주 범위를 다시 정독합니다 — 주중에 평독으로 넘긴 곳을 여기서 메웁니다." },
-      { kind: "class", label: "학원", note: "심화반 수업일 — 이번 주 선행한 내용을 강의로 확인합니다." },
+      { kind: "rest", label: "휴식", note: "개강(9/7) 전이라 수업이 없습니다 — 쉬거나 밀린 회독을 합니다." },
     ],
   },
   {
