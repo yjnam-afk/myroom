@@ -841,13 +841,21 @@ function topicsOf(days: CurriculumDay[]): CurriculumTopic[] {
 const REST_SUNDAY: CurriculumDay = {
   kind: "rest",
   label: "휴식",
-  note: "개강(9/7) 전이라 수업이 없습니다 — 쉬거나 밀린 회독을 합니다.",
+  note: "개강(9/6) 전이라 수업이 없습니다 — 쉬거나 밀린 회독을 합니다.",
 };
-const CLASS_SUNDAY: CurriculumDay = {
-  kind: "class",
-  label: "학원",
-  note: "심화반 수업일 — 이번 주 배운 내용을 강의로 확인합니다.",
-};
+/**
+ * 심화반 수업일 — 매주 일요일.
+ * 같은 날 NS 주간 실전모의고사도 함께 치르므로 회차를 붙여 표시한다.
+ * 01주차는 개강일(9/6)이라 휴식 주간 쪽에 들어 있고, 여기서는 02주차부터다.
+ */
+function classSunday(round: number): CurriculumDay {
+  const n = String(round).padStart(2, "0");
+  return {
+    kind: "class",
+    label: `학원·모의고사`,
+    note: `심화반 수업일(일요일) — NS 19기 ${n}주차 주간 실전모의고사를 함께 치릅니다.`,
+  };
+}
 
 /** 개강 전 정리 주간이 도는 범위 — 선행 1~4주차 전체. */
 const PRE_ALL: CurriculumTopic[] = [
@@ -893,22 +901,22 @@ export const WEEKS: CurriculumWeek[] = [
   },
   {
     // ★ 심화반 개강은 2026-09-06(일) 첫 수업이고, 진도는 다음 날인
-    //   2026-09-07(월)부터 이 주차로 돈다. 확정.
+    //   2026-09-07(월)부터 이 주차로 돈다. 수업은 매주 일요일. 확정.
     start: "2026-09-07",
     title: "심화반 1주차 · 운영체제(OS) + 컴퓨터구조(CA)",
-    days: readCycle([...STUDY_DAYS], CLASS_SUNDAY),
+    days: readCycle([...STUDY_DAYS], classSunday(2)),
   },
   {
     // 심화반 2주차 — 프로젝트 관리
     start: "2026-09-14",
     title: "심화반 2주차 · 프로젝트 관리(PM) + 소프트웨어공학(SE)",
-    days: readCycle([...WEEK2_DAYS], CLASS_SUNDAY),
+    days: readCycle([...WEEK2_DAYS], classSunday(3)),
   },
   {
     // 심화반 3주차 — 인공지능 + 확률·통계
     start: "2026-09-21",
     title: "심화반 3주차 · 인공지능(AI) + 확률·통계(ST)",
-    days: readCycle([...WEEK3_DAYS], CLASS_SUNDAY),
+    days: readCycle([...WEEK3_DAYS], classSunday(4)),
   },
   {
     // 선행 4주차 — 자료구조 + 알고리즘
@@ -920,19 +928,19 @@ export const WEEKS: CurriculumWeek[] = [
     // 심화반 4주차 — 자료구조 + 알고리즘
     start: "2026-09-28",
     title: "심화반 4주차 · 자료구조(DS) + 알고리즘(AL) + 네트워크(NW)",
-    days: readCycle([...WEEK4_DAYS], CLASS_SUNDAY),
+    days: readCycle([...WEEK4_DAYS], classSunday(5)),
   },
   {
     // 심화반 5주차 — 데이터베이스
     start: "2026-10-05",
     title: "심화반 5주차 · 데이터베이스(DB) + 경영전략(MG)",
-    days: readCycle([...WEEK5_DAYS], CLASS_SUNDAY),
+    days: readCycle([...WEEK5_DAYS], classSunday(6)),
   },
   {
     // 심화반 6주차 — 보안
     start: "2026-10-12",
     title: "심화반 6주차 · 보안(SC)",
-    days: readCycle([...WEEK6_DAYS], CLASS_SUNDAY),
+    days: readCycle([...WEEK6_DAYS], classSunday(7)),
   },
 ];
 
