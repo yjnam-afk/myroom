@@ -20,6 +20,23 @@ import { subnoteByTopicId, subnoteByTitle } from "@/data/textbookSubnotes";
 
 const DAY_NAMES = ["월", "화", "수", "목", "금", "토", "일"];
 
+/** 읽기 방식 — 정독은 한 줄씩, 평독은 아는 곳을 넘기며 빠르게. */
+const MODE_STYLE: Record<string, string> = {
+  정독: "bg-indigo-600 text-white",
+  평독: "bg-indigo-100 text-indigo-700",
+};
+
+function ModeBadge({ mode }: { mode: string }) {
+  return (
+    <span
+      className={`inline-flex shrink-0 items-center rounded-md px-1.5 py-0.5 text-[10px] font-bold ${MODE_STYLE[mode] || "bg-slate-100 text-slate-600"}`}
+      title={mode === "정독" ? "한 줄씩 뜯어 읽습니다" : "아는 곳은 넘기며 빠르게 훑습니다"}
+    >
+      {mode}
+    </span>
+  );
+}
+
 const PRIORITY_STYLE: Record<Priority, { cls: string; star: string }> = {
   상: { cls: "bg-red-100 text-red-700 ring-red-200", star: "★★★" },
   중: { cls: "bg-blue-100 text-blue-700 ring-blue-200", star: "★★" },
@@ -461,6 +478,7 @@ export default function PlanPage() {
                       <span className="text-sm font-bold text-slate-800">
                         {day.label}
                       </span>
+                      {"mode" in day && day.mode && <ModeBadge mode={day.mode} />}
                       {isToday && (
                         <span className="rounded-full bg-brand-600 px-2 py-0.5 text-[10px] font-bold text-white">
                           오늘
