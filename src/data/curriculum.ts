@@ -806,8 +806,22 @@ export const WEEKS: CurriculumWeek[] = [
     ],
   },
   {
-    // ★ 심화반 입과 — 9월 첫주(9/1이 포함된 주) 월요일. 확정.
+    // 개강 직전 한 주 — 선행 4주차까지 돈 내용을 회독하고 주간 모의고사로 점검.
     start: "2026-08-31",
+    title: "개강 전 정리 주간 · 선행 회독 + NS 19기 01주차 모의고사",
+    days: [
+      { kind: "review", label: "회독", note: "선행 1주차(OS·CA) 토픽을 다시 돌립니다." },
+      { kind: "review", label: "회독", note: "선행 2주차(PM·SE) 토픽을 다시 돌립니다." },
+      { kind: "review", label: "회독", note: "선행 3주차(AI·ST) 토픽을 다시 돌립니다." },
+      { kind: "review", label: "회독", note: "선행 4주차(DS·AL·NW) 토픽을 다시 돌립니다." },
+      { kind: "review", label: "회독", note: "약한 토픽 위주로 한 번 더." },
+      { kind: "rest", label: "휴식", note: "모의고사 전날 — 무리하지 않습니다." },
+      { kind: "class", label: "모의고사", note: "NS·단합반 19기 01주차 주간 실전모의고사(1교시·2교시)." },
+    ],
+  },
+  {
+    // ★ 심화반 입과 — 2026-09-07(월) 개강. 확정.
+    start: "2026-09-07",
     title: "심화반 1주차 · 운영체제(OS) + 컴퓨터구조(CA)",
     days: [
       ...STUDY_DAYS,
@@ -818,7 +832,7 @@ export const WEEKS: CurriculumWeek[] = [
   },
   {
     // 심화반 2주차 — 프로젝트 관리
-    start: "2026-09-07",
+    start: "2026-09-14",
     title: "심화반 2주차 · 프로젝트 관리(PM) + 소프트웨어공학(SE)",
     days: [
       ...WEEK2_DAYS,
@@ -829,7 +843,7 @@ export const WEEKS: CurriculumWeek[] = [
   },
   {
     // 심화반 3주차 — 인공지능 + 확률·통계
-    start: "2026-09-14",
+    start: "2026-09-21",
     title: "심화반 3주차 · 인공지능(AI) + 확률·통계(ST)",
     days: [
       ...WEEK3_DAYS,
@@ -851,7 +865,7 @@ export const WEEKS: CurriculumWeek[] = [
   },
   {
     // 심화반 4주차 — 자료구조 + 알고리즘
-    start: "2026-09-21",
+    start: "2026-09-28",
     title: "심화반 4주차 · 자료구조(DS) + 알고리즘(AL) + 네트워크(NW)",
     days: [
       ...WEEK4_DAYS,
@@ -862,7 +876,7 @@ export const WEEKS: CurriculumWeek[] = [
   },
   {
     // 심화반 5주차 — 데이터베이스
-    start: "2026-09-28",
+    start: "2026-10-05",
     title: "심화반 5주차 · 데이터베이스(DB) + 경영전략(MG)",
     days: [
       ...WEEK5_DAYS,
@@ -873,7 +887,7 @@ export const WEEKS: CurriculumWeek[] = [
   },
   {
     // 심화반 6주차 — 보안
-    start: "2026-10-05",
+    start: "2026-10-12",
     title: "심화반 6주차 · 보안(SC)",
     days: [
       ...WEEK6_DAYS,
