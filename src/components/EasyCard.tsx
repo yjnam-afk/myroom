@@ -56,13 +56,21 @@ export default function EasyCard({
           </div>
         )}
 
-        {/* 2. 한 장면 — 이해를 돕는 보조 비유 */}
-        <div className="rounded-xl bg-slate-50 p-4">
-          <div className="mb-1.5 text-xs font-bold text-slate-500">
+        {/* 2. 한 장면 — 비유는 접어 둔다.
+            비유가 오히려 방해가 되는 경우가 많다(일상 소재가 유치하게 읽히고,
+            원래 개념과 어긋나는 부분까지 같이 외워진다). 위의 실제 동작 설명만으로
+            충분한 사람은 펼치지 않아도 되도록 기본은 닫아 둔다. */}
+        <details className="group rounded-xl bg-slate-50 p-4">
+          <summary className="cursor-pointer list-none text-xs font-bold text-slate-500 hover:text-slate-700">
             🎬 비유로 한 번 더
-          </div>
-          <p className="text-[15px] leading-[1.95] text-slate-800">{g.scene}</p>
-        </div>
+            <span className="ml-1 font-medium text-slate-400 group-open:hidden">
+              (펼치기)
+            </span>
+          </summary>
+          <p className="mt-2 text-[15px] leading-[1.95] text-slate-800">
+            {g.scene}
+          </p>
+        </details>
 
         {/* 2. 왜 필요한가 — 이유를 알면 안 잊는다 */}
         <div className="rounded-xl border-l-4 border-rose-300 bg-rose-50/60 p-4">
@@ -75,7 +83,7 @@ export default function EasyCard({
         {/* 3. 비유 ↔ 진짜 용어 — 여기가 핵심. 비유에 용어를 붙여 준다 */}
         <div>
           <div className="mb-2 text-xs font-bold text-slate-500">
-            🧩 비유를 시험 용어로 바꿔 보면
+            🧩 쉬운 말을 시험 용어로 바꿔 보면
           </div>
           <div className="overflow-hidden rounded-xl border border-slate-200">
             {g.map.map((m, i) => (
