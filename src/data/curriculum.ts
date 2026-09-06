@@ -129,7 +129,7 @@ const OS_MEM: CurriculumTopic[] = [
   { title: "가상메모리의 페이징과 세그멘테이션", priority: "중" },
   { title: "직접 사상과 연관 사상 페이징 기법", topicId: "ca-87", priority: "중" },
   { title: "페이지 교체 알고리즘(Paging Replacement Algorithm)", topicId: "ca-84", priority: "중" },
-  { title: "Belady's Anomaly(FIFO 이상현상)", topicId: "ca-90", priority: "중" },
+  { title: "Belady's Anomaly(FIFO 이상현상)", topicId: "ca-90", priority: "중", level: "숙지", note: "프레임을 늘렸는데 페이지 부재가 되레 늘어나는 역설. FIFO에서만 나고 LRU·OPT는 안 난다는 대비까지." },
   { title: "스레싱(Thrashing)", topicId: "os-75", priority: "상", level: "점검", note: "나온 지 오래됐다. 한 번 다시 볼 것." },
   { title: "지역성(Locality)", topicId: "os-74", priority: "중" },
   { title: "단편화(Fragmentation)", topicId: "ca-58", priority: "중", level: "숙지", note: "내부·외부 구분과 해소 방안까지 개념 숙지." },
