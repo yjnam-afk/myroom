@@ -810,10 +810,13 @@ const WEEK6_DAYS: CurriculumDay[] = studyDays([
  * 강서님 회독법으로 한 주를 짠다 — 월 전체 정독, 화~금 진도 평독, 토 전체 정독.
  * 정독일에도 그 주 진도 토픽 전부를 달아 둔다. 범위가 안 보이면 무엇을 정독할지
  * 매번 다시 찾아야 한다.
+ *
+ * 수업일은 주마다 요일이 다를 수 있어(10주차 토요일 등) 날짜로 찾아 그 칸을
+ * 덮어쓴다. 수업이 없는 주는 그 자리가 휴식으로 남는다.
  */
-function readCycle(studyDays: CurriculumDay[], sunday: CurriculumDay): CurriculumDay[] {
+function buildWeek(weekStart: string, studyDays: CurriculumDay[]): CurriculumDay[] {
   const all = studyDays.flatMap((d) => (d.kind === "study" ? d.topics : []));
-  return [
+  const days: CurriculumDay[] = [
     {
       kind: "review",
       label: "정독",
@@ -829,8 +832,34 @@ function readCycle(studyDays: CurriculumDay[], sunday: CurriculumDay): Curriculu
       note: "이번 주 범위를 다시 정독합니다 — 주중에 평독으로 넘긴 곳을 여기서 메웁니다.",
       topics: all,
     },
-    sunday,
+    { kind: "rest", label: "휴식", note: "수업이 없는 날입니다 — 쉬거나 밀린 회독을 합니다." },
   ];
+  const c = classDayIn(weekStart);
+  if (c) days[c.index] = c.day;
+  return days;
+}
+
+/**
+ * 수업이 없는 주 — 새 진도 없이 지금까지 배운 범위를 회독한다.
+ * 월·토는 전체 정독, 화~금은 범위를 넷으로 나눠 평독한다.
+ */
+function reviewWeek(weekStart: string, scope: CurriculumTopic[], what: string): CurriculumDay[] {
+  const parts = splitEvenly(scope, 4);
+  const days: CurriculumDay[] = [
+    { kind: "review", label: "정독", mode: "정독", note: `${what} 전체를 정독합니다.`, topics: scope },
+    ...parts.map((topics, i): CurriculumDay => ({
+      kind: "review",
+      label: `평독 ${i + 1}/4`,
+      mode: "평독",
+      note: `${what}를 넷으로 나눠 ${i + 1}번째 묶음을 평독합니다.`,
+      topics,
+    })),
+    { kind: "review", label: "정독", mode: "정독", note: `${what} 전체를 다시 정독합니다.`, topics: scope },
+    { kind: "rest", label: "휴식", note: "수업이 없는 날입니다 — 쉬거나 밀린 회독을 합니다." },
+  ];
+  const c = classDayIn(weekStart);
+  if (c) days[c.index] = c.day;
+  return days;
 }
 
 /** 진도일 배열에서 토픽만 뽑는다. */
@@ -838,23 +867,48 @@ function topicsOf(days: CurriculumDay[]): CurriculumTopic[] {
   return days.flatMap((d) => (d.kind === "study" ? d.topics : []));
 }
 
-const REST_SUNDAY: CurriculumDay = {
-  kind: "rest",
-  label: "휴식",
-  note: "개강(9/6) 전이라 수업이 없습니다 — 쉬거나 밀린 회독을 합니다.",
-};
 /**
- * 심화반 수업일 — 매주 일요일.
- * 같은 날 NS 주간 실전모의고사도 함께 치르므로 회차를 붙여 표시한다.
- * 01주차는 개강일(9/6)이라 휴식 주간 쪽에 들어 있고, 여기서는 02주차부터다.
+ * ITPE 심화반 실제 강의 일정(스프린트 I·II).
+ * 수업은 대체로 일요일이지만 10주차·15주차는 토요일이고, 9/27·10/25처럼
+ * 수업이 없는 주도 있다. 그래서 요일을 가정하지 않고 날짜를 그대로 적는다.
  */
-function classSunday(round: number): CurriculumDay {
-  const n = String(round).padStart(2, "0");
-  return {
-    kind: "class",
-    label: `학원·모의고사`,
-    note: `심화반 수업일(일요일) — NS 19기 ${n}주차 주간 실전모의고사를 함께 치릅니다.`,
-  };
+const CLASSES: { date: string; round: number; subject: string }[] = [
+  { date: "2026-09-06", round: 1, subject: "핵심토픽 — 컴퓨터구조 / 운영체제" },
+  { date: "2026-09-13", round: 2, subject: "핵심토픽 — 소프트웨어공학 / 프로젝트관리" },
+  { date: "2026-09-20", round: 3, subject: "핵심토픽 — 인공지능 / 확률통계" },
+  { date: "2026-10-04", round: 4, subject: "핵심토픽 — 네트워크 / 알고리즘 / 자료구조" },
+  { date: "2026-10-11", round: 5, subject: "핵심토픽 — 데이터베이스 / 경영전략" },
+  { date: "2026-10-18", round: 6, subject: "핵심토픽 — 보안" },
+  { date: "2026-11-01", round: 7, subject: "핵심토픽 — 디지털서비스" },
+  { date: "2026-11-08", round: 8, subject: "스프린트1 신토픽 강의" },
+  { date: "2026-11-15", round: 9, subject: "로드맵 #컴퓨터구조 / 운영체제" },
+  { date: "2026-11-21", round: 10, subject: "로드맵 #소프트웨어공학 / 프로젝트관리" },
+  { date: "2026-11-29", round: 11, subject: "로드맵 #인공지능 / 확률통계" },
+  { date: "2026-12-06", round: 12, subject: "로드맵 #네트워크 / 알고리즘 / 자료구조" },
+  { date: "2026-12-13", round: 13, subject: "로드맵 #데이터베이스 / 경영전략" },
+  { date: "2026-12-20", round: 14, subject: "로드맵 #보안" },
+  { date: "2026-12-26", round: 15, subject: "141회 대비 출제 예상 문제 찍기 강의" },
+  { date: "2027-01-03", round: 16, subject: "로드맵 #디지털서비스" },
+];
+
+/** 그 주(월요일 시작) 안에 있는 강의를 찾아 수업일 칸을 만든다. */
+function classDayIn(weekStart: string): { index: number; day: CurriculumDay } | null {
+  const base = parseDate(weekStart);
+  for (const c of CLASSES) {
+    const d = parseDate(c.date);
+    const i = Math.round((d.getTime() - base.getTime()) / 86400000);
+    if (i >= 0 && i <= 6) {
+      return {
+        index: i,
+        day: {
+          kind: "class",
+          label: `${c.round}주차 수업`,
+          note: `${c.subject} — NS 19기 ${String(c.round).padStart(2, "0")}주차 주간 실전모의고사를 함께 치릅니다.`,
+        },
+      };
+    }
+  }
+  return null;
 }
 
 /** 개강 전 정리 주간이 도는 범위 — 선행 1~4주차 전체. */
@@ -865,25 +919,44 @@ const PRE_ALL: CurriculumTopic[] = [
   ...topicsOf(WEEK4_DAYS),
 ];
 
+/** 회독 주간이 도는 범위 — 그때까지 배운 과목 누적. */
+const SPRINT1_TO_W3: CurriculumTopic[] = [
+  ...topicsOf(STUDY_DAYS),
+  ...topicsOf(WEEK2_DAYS),
+  ...topicsOf(WEEK3_DAYS),
+];
+const SPRINT1_TO_W6: CurriculumTopic[] = [
+  ...SPRINT1_TO_W3,
+  ...topicsOf(WEEK4_DAYS),
+  ...topicsOf(WEEK5_DAYS),
+  ...topicsOf(WEEK6_DAYS),
+];
+
 export const WEEKS: CurriculumWeek[] = [
   {
     // 심화반(9월) 전에 미리 도는 선행 학습 — 오늘부터 시작.
     // 새 서브노트를 올리면 해당 요일 topics 배열에 추가하면 된다.
     start: "2026-08-03",
     title: "선행 학습 · 심화반 1주차 미리 돌기",
-    days: readCycle([...STUDY_DAYS], REST_SUNDAY),
+    days: buildWeek("2026-08-03", [...STUDY_DAYS]),
   },
   {
     // 선행 2주차 — 프로젝트 관리
     start: "2026-08-10",
     title: "선행 학습 · 심화반 2주차 미리 돌기 (PM + 소프트웨어공학)",
-    days: readCycle([...WEEK2_DAYS], REST_SUNDAY),
+    days: buildWeek("2026-08-10", [...WEEK2_DAYS]),
   },
   {
     // 선행 3주차 — 인공지능
     start: "2026-08-17",
     title: "선행 학습 · 심화반 3주차 미리 돌기 (인공지능 + 확률·통계)",
-    days: readCycle([...WEEK3_DAYS], REST_SUNDAY),
+    days: buildWeek("2026-08-17", [...WEEK3_DAYS]),
+  },
+  {
+    // 선행 4주차 — 자료구조 + 알고리즘 + 네트워크
+    start: "2026-08-24",
+    title: "선행 학습 · 4주차 미리 돌기 (자료구조 + 알고리즘 + 네트워크)",
+    days: buildWeek("2026-08-24", [...WEEK4_DAYS]),
   },
   {
     // 심화반 개강(9/6) 직전 한 주 — 선행 학습을 마치고 쉬어 가는 주간.
@@ -900,47 +973,68 @@ export const WEEKS: CurriculumWeek[] = [
     ],
   },
   {
-    // ★ 심화반 개강은 2026-09-06(일) 첫 수업이고, 진도는 다음 날인
-    //   2026-09-07(월)부터 이 주차로 돈다. 수업은 매주 일요일. 확정.
+    // ★ 스프린트 I — 수업일은 CLASSES 에 있는 실제 일정. 수업 다음 날부터
+    //   그 과목을 도는 구조라, 주 시작(월)의 과목은 직전 일요일 수업 과목이다.
     start: "2026-09-07",
-    title: "심화반 1주차 · 운영체제(OS) + 컴퓨터구조(CA)",
-    days: readCycle([...STUDY_DAYS], classSunday(2)),
+    title: "1주차 · 컴퓨터구조(CA) + 운영체제(OS)",
+    days: buildWeek("2026-09-07", [...STUDY_DAYS]),
   },
   {
-    // 심화반 2주차 — 프로젝트 관리
     start: "2026-09-14",
-    title: "심화반 2주차 · 프로젝트 관리(PM) + 소프트웨어공학(SE)",
-    days: readCycle([...WEEK2_DAYS], classSunday(3)),
+    title: "2주차 · 소프트웨어공학(SE) + 프로젝트관리(PM)",
+    days: buildWeek("2026-09-14", [...WEEK2_DAYS]),
   },
   {
-    // 심화반 3주차 — 인공지능 + 확률·통계
     start: "2026-09-21",
-    title: "심화반 3주차 · 인공지능(AI) + 확률·통계(ST)",
-    days: readCycle([...WEEK3_DAYS], classSunday(4)),
+    title: "3주차 · 인공지능(AI) + 확률·통계(ST)",
+    days: buildWeek("2026-09-21", [...WEEK3_DAYS]),
   },
   {
-    // 선행 4주차 — 자료구조 + 알고리즘
-    start: "2026-08-24",
-    title: "선행 학습 · 심화반 4주차 미리 돌기 (자료구조 + 알고리즘 + 네트워크)",
-    days: readCycle([...WEEK4_DAYS], REST_SUNDAY),
-  },
-  {
-    // 심화반 4주차 — 자료구조 + 알고리즘
+    // 9/27 은 수업이 없다 — 새 진도 없이 1~3주차를 회독한다.
     start: "2026-09-28",
-    title: "심화반 4주차 · 자료구조(DS) + 알고리즘(AL) + 네트워크(NW)",
-    days: readCycle([...WEEK4_DAYS], classSunday(5)),
+    title: "회독 주간 · 1~3주차 되돌리기 (수업 없음)",
+    days: reviewWeek("2026-09-28", SPRINT1_TO_W3, "1~3주차 범위"),
   },
   {
-    // 심화반 5주차 — 데이터베이스
     start: "2026-10-05",
-    title: "심화반 5주차 · 데이터베이스(DB) + 경영전략(MG)",
-    days: readCycle([...WEEK5_DAYS], classSunday(6)),
+    title: "4주차 · 네트워크(NW) + 알고리즘(AL) + 자료구조(DS)",
+    days: buildWeek("2026-10-05", [...WEEK4_DAYS]),
   },
   {
-    // 심화반 6주차 — 보안
     start: "2026-10-12",
-    title: "심화반 6주차 · 보안(SC)",
-    days: readCycle([...WEEK6_DAYS], classSunday(7)),
+    title: "5주차 · 데이터베이스(DB) + 경영전략(MG)",
+    days: buildWeek("2026-10-12", [...WEEK5_DAYS]),
+  },
+  {
+    start: "2026-10-19",
+    title: "6주차 · 보안(SC)",
+    days: buildWeek("2026-10-19", [...WEEK6_DAYS]),
+  },
+  {
+    // 10/25 도 수업이 없다 — 1~6주차 전체를 회독한다.
+    start: "2026-10-26",
+    title: "회독 주간 · 1~6주차 되돌리기 (수업 없음)",
+    days: reviewWeek("2026-10-26", SPRINT1_TO_W6, "1~6주차 범위"),
+  },
+  {
+    // 7주차 디지털서비스 — 교재 토픽 목록을 아직 받지 못했다.
+    start: "2026-11-02",
+    title: "7주차 · 디지털서비스(DX)",
+    days: [
+      { kind: "open", label: "토픽 대기", note: "디지털서비스 토픽 목록을 넣으면 이 주가 채워집니다." },
+      { kind: "open", label: "토픽 대기", note: "디지털서비스 토픽 목록을 넣으면 이 주가 채워집니다." },
+      { kind: "open", label: "토픽 대기", note: "디지털서비스 토픽 목록을 넣으면 이 주가 채워집니다." },
+      { kind: "open", label: "토픽 대기", note: "디지털서비스 토픽 목록을 넣으면 이 주가 채워집니다." },
+      { kind: "open", label: "토픽 대기", note: "디지털서비스 토픽 목록을 넣으면 이 주가 채워집니다." },
+      { kind: "open", label: "토픽 대기", note: "디지털서비스 토픽 목록을 넣으면 이 주가 채워집니다." },
+      { kind: "class", label: "8주차 수업", note: "스프린트1 신토픽 강의 — NS 19기 08주차 주간 실전모의고사를 함께 치릅니다." },
+    ],
+  },
+  {
+    // 8주차 신토픽 강의 뒤 한 주 — 스프린트 I 전체를 회독한다.
+    start: "2026-11-09",
+    title: "회독 주간 · 스프린트 I 전체 되돌리기",
+    days: reviewWeek("2026-11-09", SPRINT1_TO_W6, "스프린트 I 범위"),
   },
 ];
 
