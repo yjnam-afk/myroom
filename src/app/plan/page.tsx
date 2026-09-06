@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { PageHeader } from "@/components/ui";
 import {
@@ -242,6 +242,9 @@ function weekChipLabel(title: string): string {
   return `${title.startsWith("선행") ? "선행" : "심화"} ${n}주`;
 }
 
+/** 이 탭에서 마지막으로 보던 주차·날짜 */
+const SEEN_KEY = "myroom:planSeen";
+
 export default function PlanPage() {
   const [done, setDone] = useState<Set<string>>(new Set());
   const [todayKey, setTodayKey] = useState<string | null>(null);
@@ -249,18 +252,51 @@ export default function PlanPage() {
   // 아래 리스트에 펼칠 주차 — 기본은 오늘이 속한 주차 하나만("all"이면 전체).
   const [sel, setSel] = useState<string | "all">("all");
 
+  /**
+   * 보고 있던 주차를 이 탭에만 기억해 둔다.
+   * 토픽을 보고 뒤로 돌아오면 컴포넌트가 다시 마운트되는데, 기억해 두지
+   * 않으면 늘 오늘 주차로 되돌아가 보던 자리를 잃는다.
+   * 주소(?w=)에 남기지 않는 이유는, replace 로 주소를 바꾸면 뒤로가기
+   * 추적(NavDepth)이 이동으로 오해해 스택이 엉키기 때문이다.
+   */
+  const remember = useCallback((weekStart: string | "all", date?: string) => {
+    try {
+      sessionStorage.setItem(SEEN_KEY, JSON.stringify({ w: weekStart, d: date }));
+    } catch {
+      // 사생활 보호 모드 등에서 막히면 기억하지 않는다(오늘 주차로 열림).
+    }
+  }, []);
+
   useEffect(() => {
     setDone(loadDone());
     setToday(todayISO());
     const t = planForToday();
     // "오늘" 강조는 진짜 오늘일 때만. 커리큘럼 밖이라 대신 채운 날은 강조하지 않는다.
     if (t?.isToday) setTodayKey(`${t.week.start}#${t.dayIndex}`);
+    // 보던 주차가 있으면 그것을 먼저 연다(뒤로 돌아온 경우).
+    let seen: { w?: string; d?: string } | null = null;
+    try {
+      const raw = sessionStorage.getItem(SEEN_KEY);
+      seen = raw ? JSON.parse(raw) : null;
+    } catch {
+      seen = null;
+    }
+    if (seen?.w) {
+      setSel(seen.w);
+      if (seen.d) {
+        setTimeout(() => {
+          document.getElementById(`d-${seen!.d}`)?.scrollIntoView({ block: "start" });
+        }, 60);
+      }
+      return;
+    }
     if (t) setSel(t.week.start);
   }, []);
 
   /** 달력 학습일 클릭 — 그 주차만 펼치고 해당 날짜 카드로 스크롤 */
   function pick(weekStart: string, date: string) {
     setSel(weekStart);
+    remember(weekStart, date);
     setTimeout(() => {
       document
         .getElementById(`d-${date}`)
@@ -349,7 +385,7 @@ export default function PlanPage() {
       <div className="mb-4 flex flex-wrap gap-1.5">
         <button
           type="button"
-          onClick={() => setSel("all")}
+          onClick={() => { setSel("all"); remember("all"); }}
           className={`rounded-full border px-3 py-1.5 text-xs font-bold transition ${
             sel === "all"
               ? "border-brand-500 bg-brand-600 text-white"
@@ -364,7 +400,7 @@ export default function PlanPage() {
             <button
               key={w.start}
               type="button"
-              onClick={() => setSel(w.start)}
+              onClick={() => { setSel(w.start); remember(w.start); }}
               className={`rounded-full border px-3 py-1.5 text-xs font-bold transition ${
                 sel === w.start
                   ? "border-brand-500 bg-brand-600 text-white"
