@@ -86696,5 +86696,50 @@
     "round": "1주차",
     "cohort": "19기",
     "text": "가용성(Availability) Five Nines(99.999%) 달성을 위한 이중화 아키텍처 구조와 위험요소, 성능 평가 방안을 설명하시오."
+  },
+  {
+    "id": "yc1-301",
+    "kind": "예상",
+    "round": "예상",
+    "period": "1교시",
+    "category": "운영체제",
+    "source": "예상 1교시",
+    "text": "세마포어(Semaphore)에 대하여 설명하시오."
+  },
+  {
+    "id": "yc1-302",
+    "kind": "예상",
+    "round": "예상",
+    "period": "1교시",
+    "category": "운영체제",
+    "source": "예상 1교시",
+    "text": "모니터(Monitor)에 대하여 설명하시오."
+  },
+  {
+    "id": "yc1-303",
+    "kind": "예상",
+    "round": "예상",
+    "period": "1교시",
+    "category": "운영체제",
+    "source": "예상 1교시",
+    "text": "스핀락(Spin Lock)에 대하여 설명하시오."
+  },
+  {
+    "id": "yc1-304",
+    "kind": "예상",
+    "round": "예상",
+    "period": "1교시",
+    "category": "운영체제",
+    "source": "예상 1교시",
+    "text": "뮤텍스(Mutex)와 이진 세마포어(Binary Semaphore)를 비교하여 설명하시오."
+  },
+  {
+    "id": "yc2-301",
+    "kind": "예상",
+    "round": "예상",
+    "period": "2교시",
+    "category": "운영체제",
+    "source": "예상 2교시",
+    "text": "프로세스 동기화 기법에 대하여 다음을 설명하시오.\n가. 임계 영역과 동기화의 필요성\n나. 세마포어·모니터·스핀락·뮤텍스의 동작 원리\n다. 상황별 선택 기준"
   }
 ]
