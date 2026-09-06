@@ -155,9 +155,16 @@ function Calendar({
           if (!c.date) return <div key={i} />;
           const day = c.plan?.day;
           const isToday = c.date === today;
-          const topics = day?.kind === "study" ? day.topics : [];
+          // 정독일도 그 주 범위를 토픽으로 들고 있으므로 달력에서도 같이 센다.
+          const topics =
+            day?.kind === "study" || day?.kind === "review"
+              ? (day.topics ?? [])
+              : [];
           const ws = c.plan?.week.start ?? "";
-          const dDone = topics.filter((t) => done.has(doneKey(ws, t.title))).length;
+          const scope = day?.kind === "review" ? `d${c.plan?.dayIndex ?? 0}` : "";
+          const dDone = topics.filter((tp) =>
+            done.has(doneKey(ws, tp.title, scope)),
+          ).length;
           const allDone = topics.length > 0 && dDone === topics.length;
           const tone =
             day?.kind === "study"
@@ -165,7 +172,9 @@ function Calendar({
                 ? "border-amber-300 bg-amber-50"
                 : "border-brand-200 bg-brand-50"
               : day?.kind === "review"
-                ? "border-emerald-200 bg-emerald-50"
+                ? allDone
+                  ? "border-amber-300 bg-amber-50"
+                  : "border-emerald-200 bg-emerald-50"
                 : day?.kind === "open"
                   ? "border-dashed border-slate-300 bg-white"
                   : day?.kind === "class"
@@ -197,9 +206,16 @@ function Calendar({
                 </>
               )}
               {day?.kind === "review" && (
-                <span className="mt-0.5 text-[9px] font-semibold text-emerald-700">
-                  🔁 회독
-                </span>
+                <>
+                  <span className="mt-0.5 line-clamp-2 text-[9px] font-semibold leading-tight text-emerald-800">
+                    🔁 {day.label}
+                  </span>
+                  {topics.length > 0 && (
+                    <span className="mt-auto text-[9px] font-bold tabular-nums text-emerald-700">
+                      {dDone}/{topics.length}
+                    </span>
+                  )}
+                </>
               )}
               {day?.kind === "class" && (
                 <span className="mt-0.5 text-[9px] font-semibold text-indigo-700">
@@ -218,7 +234,8 @@ function Calendar({
               )}
             </div>
           );
-          return day?.kind === "study" ? (
+          return day?.kind === "study" ||
+            (day?.kind === "review" && topics.length > 0) ? (
             <button
               key={i}
               type="button"

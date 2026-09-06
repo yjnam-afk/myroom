@@ -1036,6 +1036,59 @@ export const WEEKS: CurriculumWeek[] = [
     title: "회독 주간 · 스프린트 I 전체 되돌리기",
     days: reviewWeek("2026-11-09", SPRINT1_TO_W6, "스프린트 I 범위"),
   },
+
+  // ── 스프린트 II — 로드맵 강의. 새 진도가 아니라 같은 과목을 다시 도는
+  //    구조라, 각 주를 그 과목 회독으로 짠다. 강의일은 CLASSES 가 넣는다.
+  {
+    start: "2026-11-16",
+    title: "9주차 · 로드맵 컴퓨터구조(CA) + 운영체제(OS)",
+    days: reviewWeek("2026-11-16", topicsOf(STUDY_DAYS), "컴퓨터구조·운영체제"),
+  },
+  {
+    start: "2026-11-23",
+    title: "10주차 · 로드맵 소프트웨어공학(SE) + 프로젝트관리(PM)",
+    days: reviewWeek("2026-11-23", topicsOf(WEEK2_DAYS), "소프트웨어공학·프로젝트관리"),
+  },
+  {
+    start: "2026-11-30",
+    title: "11주차 · 로드맵 인공지능(AI) + 확률·통계(ST)",
+    days: reviewWeek("2026-11-30", topicsOf(WEEK3_DAYS), "인공지능·확률통계"),
+  },
+  {
+    start: "2026-12-07",
+    title: "12주차 · 로드맵 네트워크(NW) + 알고리즘(AL) + 자료구조(DS)",
+    days: reviewWeek("2026-12-07", topicsOf(WEEK4_DAYS), "네트워크·알고리즘·자료구조"),
+  },
+  {
+    start: "2026-12-14",
+    title: "13주차 · 로드맵 데이터베이스(DB) + 경영전략(MG)",
+    days: reviewWeek("2026-12-14", topicsOf(WEEK5_DAYS), "데이터베이스·경영전략"),
+  },
+  {
+    start: "2026-12-21",
+    title: "14주차 · 로드맵 보안(SC)",
+    days: reviewWeek("2026-12-21", topicsOf(WEEK6_DAYS), "보안"),
+  },
+  {
+    // 15주차는 141회 대비 찍기 강의 — 전 과목을 훑는다.
+    start: "2026-12-28",
+    title: "15주차 · 141회 대비 예상문제 정리",
+    days: reviewWeek("2026-12-28", SPRINT1_TO_W6, "전 과목"),
+  },
+  {
+    // 16주차 로드맵 디지털서비스 — 토픽 목록을 받으면 채운다.
+    start: "2027-01-04",
+    title: "16주차 · 로드맵 디지털서비스(DX)",
+    days: [
+      { kind: "open", label: "토픽 대기", note: "디지털서비스 토픽 목록을 넣으면 이 주가 채워집니다." },
+      { kind: "open", label: "토픽 대기", note: "디지털서비스 토픽 목록을 넣으면 이 주가 채워집니다." },
+      { kind: "open", label: "토픽 대기", note: "디지털서비스 토픽 목록을 넣으면 이 주가 채워집니다." },
+      { kind: "open", label: "토픽 대기", note: "디지털서비스 토픽 목록을 넣으면 이 주가 채워집니다." },
+      { kind: "open", label: "토픽 대기", note: "디지털서비스 토픽 목록을 넣으면 이 주가 채워집니다." },
+      { kind: "open", label: "토픽 대기", note: "디지털서비스 토픽 목록을 넣으면 이 주가 채워집니다." },
+      { kind: "rest", label: "휴식", note: "수업이 없는 날입니다 — 쉬거나 밀린 회독을 합니다." },
+    ],
+  },
 ];
 
 const DAY_NAMES = ["월", "화", "수", "목", "금", "토", "일"];
