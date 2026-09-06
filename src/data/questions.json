@@ -14686,46 +14686,6 @@
     "text": "[컴퓨터시스템응용기술사 선택문제] AI의 대용량 데이터를 CPU 개입 없이 GPU/NPU와 메모리 간에 초고속으로 직접 전송하여 데이터 병목을 해결하기 위해 DMA(Direct Memory Access) 기술이 활용된다. 아래에 대해서 설명하시오.\n가. DMA 구조\n나. DMA 동작과정\n다. DMA 전송모드"
   },
   {
-    "id": "ns1-101",
-    "period": "1교시",
-    "category": "보안",
-    "kind": "NS모의",
-    "round": "1주차",
-    "text": "암호화(Encryption)의 목적과 종류에 대하여 설명하시오."
-  },
-  {
-    "id": "ns1-102",
-    "period": "1교시",
-    "category": "보안",
-    "kind": "NS모의",
-    "round": "1주차",
-    "text": "Shannon의 암호 설계 원칙에서 혼돈(Confusion)과 확산(Diffusion)을 비교 설명하시오."
-  },
-  {
-    "id": "ns1-103",
-    "period": "1교시",
-    "category": "보안",
-    "kind": "NS모의",
-    "round": "1주차",
-    "text": "암호학적 해시 함수가 가져야 하는 3가지 저항성(해시 함수의 안전성)에 대하여 설명하시오."
-  },
-  {
-    "id": "ns1-104",
-    "period": "1교시",
-    "category": "보안",
-    "kind": "NS모의",
-    "round": "1주차",
-    "text": "해시 솔트(Salt)와 키 스트레칭(Key Stretching)을 설명하고, 솔트와 페퍼(Pepper)를 비교하시오."
-  },
-  {
-    "id": "ns1-105",
-    "period": "1교시",
-    "category": "보안",
-    "kind": "NS모의",
-    "round": "1주차",
-    "text": "디피-헬만 알고리즘(Diffie-Hellman Algorithm)의 키 교환 절차에 대하여 설명하시오."
-  },
-  {
     "id": "k114-101",
     "period": "1교시",
     "category": "신기술",
@@ -86637,5 +86597,61 @@
     "category": "디지털서비스",
     "source": "42회 모의 4교시",
     "text": "BCI(Brain-Computer Interface)에 대하여 다음을 설명하시오. 가. BCI의 개념 및 주요 기술 요소 나. BCI의 추진 방향과 추진 과제"
+  },
+  {
+    "id": "ns1-101",
+    "period": "1교시",
+    "category": "디지털서비스",
+    "kind": "NS모의",
+    "round": "1주차",
+    "text": "다크 팩토리(Dark Factory)에 대하여 설명하시오."
+  },
+  {
+    "id": "ns1-102",
+    "period": "1교시",
+    "category": "소프트웨어공학",
+    "kind": "NS모의",
+    "round": "1주차",
+    "text": "ATAM(Architecture Trade-off Analysis Method)에 대하여 설명하시오."
+  },
+  {
+    "id": "ns1-103",
+    "period": "1교시",
+    "category": "프로젝트관리",
+    "kind": "NS모의",
+    "round": "1주차",
+    "text": "PMC(Project Management Consultancy)와 PMO(Project Management Office)를 비교하여 설명하시오."
+  },
+  {
+    "id": "ns1-104",
+    "period": "1교시",
+    "category": "보안",
+    "kind": "NS모의",
+    "round": "1주차",
+    "text": "디지털 포렌식(Digital Forensics)에 대하여 설명하시오."
+  },
+  {
+    "id": "ns1-105",
+    "period": "1교시",
+    "category": "소프트웨어공학",
+    "kind": "NS모의",
+    "round": "1주차",
+    "text": "CI/CD(Continuous Integration/Continuous Delivery, Deployment)에 대하여 설명하시오."
+  },
+  {
+    "id": "ns1-106",
+    "period": "1교시",
+    "category": "네트워크",
+    "kind": "NS모의",
+    "round": "1주차",
+    "text": "5세대 이동통신 네트워크 슬라이싱(5G Network Slicing)에 대하여 설명하시오."
+  },
+  {
+    "id": "ns1-107",
+    "period": "1교시",
+    "category": "보안",
+    "kind": "NS모의",
+    "round": "1주차",
+    "text": "개인정보보호위원회 『가명정보 처리 가이드라인』 상의 가명정보 처리 단계에 대하여 설명하시오."
   }
 ]
