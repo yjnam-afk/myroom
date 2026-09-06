@@ -878,21 +878,22 @@ export const WEEKS: CurriculumWeek[] = [
     days: readCycle([...WEEK3_DAYS], REST_SUNDAY),
   },
   {
-    // 개강 직전 한 주 — 선행 4주차까지 돈 내용을 회독하고 주간 모의고사로 점검.
+    // 심화반 개강(9/6) 직전 한 주 — 선행 학습을 마치고 쉬어 가는 주간.
     start: "2026-08-31",
-    title: "개강 전 정리 주간 · 선행 회독 + NS 19기 01주차 모의고사",
+    title: "휴식 주간 · 심화반 개강(9/6)과 NS 19기 01주차 모의고사",
     days: [
-      { kind: "review", label: "정독", mode: "정독", note: "선행 1~4주차 범위 전체를 정독합니다 — 개강 전 기준선을 잡는 날.", topics: PRE_ALL },
-      { kind: "review", label: "평독", mode: "평독", note: "선행 1주차(OS·CA)를 평독합니다.", topics: topicsOf(STUDY_DAYS) },
-      { kind: "review", label: "평독", mode: "평독", note: "선행 2주차(PM·SE)를 평독합니다.", topics: topicsOf(WEEK2_DAYS) },
-      { kind: "review", label: "평독", mode: "평독", note: "선행 3주차(AI·ST)를 평독합니다.", topics: topicsOf(WEEK3_DAYS) },
-      { kind: "review", label: "평독", mode: "평독", note: "선행 4주차(DS·AL·NW)를 평독합니다.", topics: topicsOf(WEEK4_DAYS) },
-      { kind: "review", label: "정독", mode: "정독", note: "전체를 다시 정독합니다 — 내일 모의고사 범위 점검.", topics: PRE_ALL },
-      { kind: "class", label: "모의고사", note: "NS·단합반 19기 01주차 주간 실전모의고사(1교시·2교시)." },
+      { kind: "rest", label: "휴식", note: "선행 학습을 마쳤습니다 — 개강 전까지 쉬어 갑니다." },
+      { kind: "rest", label: "휴식", note: "선행 학습을 마쳤습니다 — 개강 전까지 쉬어 갑니다." },
+      { kind: "rest", label: "휴식", note: "선행 학습을 마쳤습니다 — 개강 전까지 쉬어 갑니다." },
+      { kind: "rest", label: "휴식", note: "선행 학습을 마쳤습니다 — 개강 전까지 쉬어 갑니다." },
+      { kind: "rest", label: "휴식", note: "선행 학습을 마쳤습니다 — 개강 전까지 쉬어 갑니다." },
+      { kind: "rest", label: "휴식", note: "내일 개강입니다 — 무리하지 않습니다." },
+      { kind: "class", label: "개강·모의고사", note: "심화반 개강일 — NS 19기 01주차 주간 실전모의고사(1교시·2교시)를 함께 치릅니다." },
     ],
   },
   {
-    // ★ 심화반 입과 — 2026-09-07(월) 개강. 확정.
+    // ★ 심화반 개강은 2026-09-06(일) 첫 수업이고, 진도는 다음 날인
+    //   2026-09-07(월)부터 이 주차로 돈다. 확정.
     start: "2026-09-07",
     title: "심화반 1주차 · 운영체제(OS) + 컴퓨터구조(CA)",
     days: readCycle([...STUDY_DAYS], CLASS_SUNDAY),
