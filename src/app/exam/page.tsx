@@ -6,6 +6,8 @@ import { PageHeader } from "@/components/ui";
 import Markdown from "@/components/Markdown";
 import CopyButton from "@/components/CopyButton";
 import questions from "@/data/questions.json";
+import { peerAnswersForQuestion } from "@/data/peerAnswers";
+import PeerAnswers from "@/components/PeerAnswers";
 import { relatedTopics } from "@/lib/relatedTopics";
 import { canonicalAnswerId, getModelAnswer } from "@/lib/modelAnswers";
 import { matchSubnoteTitle } from "@/lib/matchSubnote";
@@ -417,6 +419,16 @@ export default function ExamPage() {
                         ))}
                       </div>
                     );
+                  })()}
+
+                  {/* 남이 쓴 답안 — 같은 문제의 실제 시험지 스캔과 첨삭 */}
+                  {(() => {
+                    const peers = peerAnswersForQuestion(q.text);
+                    return peers.length ? (
+                      <div className="mt-3 pl-9">
+                        <PeerAnswers items={peers} />
+                      </div>
+                    ) : null;
                   })()}
 
                   {ma && (

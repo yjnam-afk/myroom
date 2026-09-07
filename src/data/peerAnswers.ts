@@ -44,6 +44,25 @@ export type PeerAnswer = {
 
 export const PEER_ANSWERS: PeerAnswer[] = [
   {
+    id: "peer-dx-darkfactory-1",
+    period: "1교시",
+    no: "1",
+    question: "다크 팩토리(Dark Factory)에 대하여 설명하시오.",
+    exam: "NS반 19기 1주차 모의고사(2026-09-06)",
+    topicTitles: ["다크 팩토리(Dark Factory)", "스마트 팩토리"],
+    // 점수는 시험지에 안 적혀 있다. 첨삭은 목차 옆의 '기술 목차' 세 곳뿐.
+    maxScore: 10,
+    feedback: [
+      "답안 머리 위에 빨간 글씨로 '기술 목차'.",
+      "II. 개념도 및 구성요소 제목 옆에 '기술목차'.",
+      "가. 개념도 · 나. 구성 요소 제목 옆에도 '기술목차'.",
+    ],
+    pages: [
+      { src: "/answers/dx-darkfactory-1.jpg", label: "1쪽 — 개요·개념도·구성요소" },
+      { src: "/answers/dx-darkfactory-2.jpg", label: "2쪽 — 구성요소 표 계속·운영 사례" },
+    ],
+  },
+  {
     id: "peer-os-ctx-01",
     period: "2교시",
     no: "",
