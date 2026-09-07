@@ -12,6 +12,7 @@ import {
 import MyDiagrams from "@/components/MyDiagrams";
 import EasyCard from "@/components/EasyCard";
 import PeerAnswers from "@/components/PeerAnswers";
+import TopicMapCard from "@/components/TopicMapCard";
 import { peerAnswersFor, peerAnswersForQuestion } from "@/data/peerAnswers";
 import Mermaid from "@/components/Mermaid";
 import { subnoteExtraFor } from "@/data/subnoteExtras";
@@ -21,6 +22,7 @@ import topics from "@/data/topics.json";
 import flashcards from "@/data/flashcards.json";
 import answerExtras from "@/data/answerExtras.json";
 import { TOPIC_INTROS } from "@/data/topicIntros";
+import { DOMAINS, DOMAIN_LABEL, domainOrder } from "@/lib/domains";
 
 const CATS = Array.from(new Set(topics.map((t) => t.category)));
 const IMP_ORDER: Record<string, number> = { 상: 0, 중: 1, 하: 2, 출제예상: 3 };
@@ -80,24 +82,11 @@ function legacyCardFor(title: string): LegacyCard | undefined {
 }
 
 // ── 도메인별 토픽 목록 — 검색어가 생각 안 날 때 눈으로 훑어 찾는 용도 ──
-const COURSE_LABEL: Record<string, string> = {
-  OS: "운영체제",
-  CA: "컴퓨터구조",
-  PM: "프로젝트관리",
-  SE: "SW공학",
-  AI: "인공지능",
-  ST: "확률·통계",
-  DS: "자료구조",
-  AL: "알고리즘",
-  NW: "네트워크",
-  DB: "데이터베이스",
-  MG: "경영전략",
-  SC: "보안",
-  DX: "디지털서비스",
-};
-const COURSE_ORDER = [
-  "SC", "AI", "DX", "NW", "DB", "OS", "CA", "SE", "PM", "MG", "AL", "DS", "ST",
-];
+// 과목 이름·순서는 lib/domains 한 곳에서만 정한다.
+// 예전엔 여기서 SE 를 "SW공학"이라 따로 적고 순서도 토픽 수 많은 순이라,
+// 지금 배우는 컴퓨터구조·운영체제가 목록 한참 뒤에 있었다.
+const COURSE_LABEL = DOMAIN_LABEL;
+const COURSE_ORDER = DOMAINS.map((d) => d.code);
 
 type BrowseItem = { title: string; imp?: string; src?: string };
 type BrowseGroup = { key: string; label: string; badge: string; items: BrowseItem[] };
@@ -155,8 +144,9 @@ const BROWSE_GROUPS: BrowseGroup[] = (() => {
       src: (t as { source?: string }).source === "요청" ? "기출" : "기필반",
     });
   }
+  // 예전 토픽 묶음도 커리큘럼 순서로 — 교재 묶음과 순서가 어긋나면 눈이 헤맨다.
   for (const [cat, list] of Array.from(byCat).sort(
-    (a, b) => b[1].length - a[1].length,
+    (a, b) => domainOrder(a[0]) - domainOrder(b[0]) || b[1].length - a[1].length,
   )) {
     groups.push({
       key: `cat:${cat}`,
@@ -983,6 +973,11 @@ function ExplainInner() {
             title={topic.trim()}
           />
         )}
+
+        {/* 무엇과 짝인가 — 토픽 지도의 비교 세트·암기표를 이 자리로 끌어온다.
+            시험은 개념 하나보다 나란히 놓고 묻는데, 그 짝을 보려면 지도로
+            나갔다 와야 했다. */}
+        <TopicMapCard title={topic.trim()} />
 
         {/* 남이 쓴 답안 — 교재 정의·템플릿을 먼저 본 다음에 오도록 여기에 둔다.
             처음부터 남의 답안을 보면 그 구성에 갇힌다. */}

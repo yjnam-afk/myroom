@@ -113,8 +113,10 @@ function groupsOf(items: Topic[]): { name: string; items: Topic[] }[] {
     .sort((a, b) => b.items.length - a.items.length || a.name.localeCompare(b.name, "ko"));
 }
 
-const CMP_CATS = Array.from(new Set(compareSets.map((s) => s.category)));
-const TBL_CATS = Array.from(new Set(memoryTables.map((t) => t.category)));
+// 비교·암기표 탭의 분류도 토픽 탭과 같은 커리큘럼 순서로 둔다.
+// 세 탭이 서로 다른 순서로 깔리면 같은 화면에서 과목을 찾는 눈이 매번 다시 헤맨다.
+const CMP_CATS = sortDomains(Array.from(new Set(compareSets.map((s) => s.category))));
+const TBL_CATS = sortDomains(Array.from(new Set(memoryTables.map((t) => t.category))));
 // 묶음 이름의 개행·중복공백 정규화(표시용) — 데이터엔 "병행 제어\n(...)" 같은 값이 섞여 있다.
 const cleanGroup = (name: string) => name.replace(/\s+/g, " ").trim();
 // 토픽지도 → 설명 링크는 AI 자동 생성(auto=1) 없이 연다.

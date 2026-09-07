@@ -105,7 +105,7 @@ export const compareSets: CompareSet[] = [
     ],
   },
   {
-    category: "소프트웨어공학",
+    category: "운영체제",
     title: "CPU 스케줄링 방식",
     axis: "실행 중 CPU를 뺏을 수 있나",
     items: [
@@ -114,20 +114,7 @@ export const compareSets: CompareSet[] = [
     ],
   },
   {
-    category: "소프트웨어공학",
-    title: "CPU 스케줄링 알고리즘",
-    axis: "무엇을 기준으로 다음 프로세스를 고르나",
-    items: [
-      { name: "FCFS", hint: "도착 순서·비선점" },
-      { name: "SJF", hint: "짧은 작업 우선·기아 위험" },
-      { name: "SRT", hint: "SJF의 선점형" },
-      { name: "Round Robin", hint: "타임슬라이스·공평" },
-      { name: "HRN", hint: "대기시간 반영·기아 완화" },
-      { name: "MLFQ", hint: "다단계 피드백 큐" },
-    ],
-  },
-  {
-    category: "소프트웨어공학",
+    category: "운영체제",
     title: "실시간 스케줄링(RM vs EDF)",
     axis: "우선순위를 고정하나 vs 마감으로 정하나",
     items: [
@@ -136,88 +123,7 @@ export const compareSets: CompareSet[] = [
     ],
   },
   {
-    category: "소프트웨어공학",
-    title: "동기화 기법(상호배제)",
-    axis: "임계구역을 어떻게 보호하나",
-    items: [
-      { name: "뮤텍스(Mutex)", hint: "1개 자원·소유 개념·잠들어 대기" },
-      { name: "세마포어(Semaphore)", hint: "카운터·다수 자원·소유 없음" },
-      { name: "스핀락(Spinlock)", hint: "바쁜 대기·짧은 임계구역" },
-      { name: "모니터(Monitor)", hint: "언어 차원 캡슐화·조건변수" },
-    ],
-  },
-  {
-    category: "소프트웨어공학",
-    title: "교착상태(Deadlock) 해결",
-    axis: "언제·어떻게 데드락을 다루나",
-    items: [
-      { name: "교착 예방(Prevention)", hint: "4대 조건 원천 차단" },
-      { name: "교착 회피(Avoidance)", hint: "은행가 알고리즘" },
-      { name: "교착 탐지(Detection)", hint: "자원할당 그래프" },
-      { name: "교착 회복(Recovery)", hint: "프로세스·자원 강제 회수" },
-    ],
-  },
-  {
-    category: "소프트웨어공학",
-    title: "페이지 교체 알고리즘",
-    axis: "어떤 페이지를 내보낼지 고르는 기준",
-    items: [
-      { name: "FIFO", hint: "먼저 들어온 것·벨레이디 이상" },
-      { name: "LRU", hint: "가장 오래 미참조" },
-      { name: "LFU", hint: "참조 횟수 최소" },
-      { name: "Optimal", hint: "미래 최장 미사용(이론상)" },
-    ],
-  },
-  {
-    category: "소프트웨어공학",
-    title: "가상메모리 분할 방식",
-    axis: "고정 크기 vs 논리 단위",
-    items: [
-      { name: "페이징(Paging)", hint: "고정 분할·내부 단편화" },
-      { name: "세그먼테이션(Segmentation)", hint: "가변 분할·외부 단편화" },
-    ],
-  },
-  {
-    category: "소프트웨어공학",
-    title: "캐시 사상(Mapping) 기법",
-    axis: "메모리 블록을 캐시 어디에 놓나",
-    items: [
-      { name: "직접 사상(Direct)", hint: "고정 위치·단순·충돌↑" },
-      { name: "연관 사상(Associative)", hint: "어디든·유연·비용↑" },
-      { name: "집합연관 사상(Set-Associative)", hint: "절충안" },
-    ],
-  },
-  {
-    category: "소프트웨어공학",
-    title: "캐시 쓰기 정책",
-    axis: "메모리에 언제 반영하나",
-    items: [
-      { name: "Write-Through", hint: "즉시 반영·일관성↑·느림" },
-      { name: "Write-Back", hint: "나중 반영·빠름·일관성 관리" },
-    ],
-  },
-  {
-    category: "소프트웨어공학",
-    title: "디스크 스케줄링",
-    axis: "헤드 이동을 어떻게 줄이나",
-    items: [
-      { name: "FCFS", hint: "요청 순서·단순" },
-      { name: "SSTF", hint: "가까운 것 우선·기아" },
-      { name: "SCAN", hint: "끝까지 왕복(엘리베이터)" },
-      { name: "C-SCAN", hint: "한 방향·복귀 후 재시작" },
-    ],
-  },
-  {
-    category: "소프트웨어공학",
-    title: "명령어 집합(CISC vs RISC)",
-    axis: "명령어를 복잡하게 vs 단순하게",
-    items: [
-      { name: "CISC", hint: "복잡·가변길이·명령↓" },
-      { name: "RISC", hint: "단순·고정길이·파이프라인" },
-    ],
-  },
-  {
-    category: "소프트웨어공학",
+    category: "컴퓨터구조",
     title: "컴퓨터 구조(폰노이만 vs 하버드)",
     axis: "명령·데이터 메모리를 공유하나",
     items: [
@@ -226,17 +132,7 @@ export const compareSets: CompareSet[] = [
     ],
   },
   {
-    category: "소프트웨어공학",
-    title: "커널 구조",
-    axis: "커널에 기능을 얼마나 넣나",
-    items: [
-      { name: "모놀리식 커널", hint: "전부 커널·빠름·큼" },
-      { name: "마이크로 커널", hint: "최소 커널·안정·오버헤드" },
-      { name: "유니커널(Unikernel)", hint: "앱+최소 OS 단일 이미지" },
-    ],
-  },
-  {
-    category: "소프트웨어공학",
+    category: "컴퓨터구조",
     title: "병렬처리 Flynn 분류",
     axis: "명령·데이터 스트림 수",
     items: [
@@ -247,74 +143,13 @@ export const compareSets: CompareSet[] = [
     ],
   },
   {
-    category: "소프트웨어공학",
-    title: "I/O 제어 방식",
-    axis: "CPU가 얼마나 개입하나",
-    items: [
-      { name: "Programmed I/O", hint: "CPU 폴링·비효율" },
-      { name: "인터럽트 I/O", hint: "완료 시 통지" },
-      { name: "DMA", hint: "CPU 없이 메모리 직접 전송" },
-      { name: "채널 제어", hint: "전용 채널 프로세서" },
-    ],
-  },
-  {
-    category: "소프트웨어공학",
-    title: "정렬 알고리즘",
-    axis: "평균 시간복잡도·방식",
-    items: [
-      { name: "버블·삽입·선택 정렬", hint: "O(n²)·단순" },
-      { name: "퀵 정렬", hint: "평균 O(n log n)·분할정복" },
-      { name: "병합 정렬", hint: "O(n log n)·안정·추가공간" },
-      { name: "힙 정렬", hint: "O(n log n)·제자리" },
-    ],
-  },
-  {
-    category: "소프트웨어공학",
+    category: "자료구조",
     title: "탐색 트리(B계열)",
     axis: "데이터·포인터를 어디에 두나",
     items: [
       { name: "B-Tree", hint: "모든 노드에 키·데이터" },
       { name: "B+ Tree", hint: "리프에만 데이터·순차↑" },
       { name: "B* Tree", hint: "노드 사용률↑(2/3)" },
-    ],
-  },
-  {
-    category: "소프트웨어공학",
-    title: "균형 트리(AVL vs 레드블랙)",
-    axis: "얼마나 엄격히 균형을 잡나",
-    items: [
-      { name: "AVL 트리", hint: "엄격 균형·조회↑" },
-      { name: "레드블랙 트리", hint: "느슨 균형·삽입·삭제↑" },
-    ],
-  },
-  {
-    category: "소프트웨어공학",
-    title: "그래프 순회(DFS vs BFS)",
-    axis: "깊이 먼저 vs 너비 먼저",
-    items: [
-      { name: "DFS(깊이 우선 탐색)", hint: "스택·재귀·경로 탐색" },
-      { name: "BFS(너비 우선 탐색)", hint: "큐·최단 경로(무가중)" },
-    ],
-  },
-  {
-    category: "소프트웨어공학",
-    title: "알고리즘 설계 기법",
-    axis: "문제를 어떻게 쪼개·푸나",
-    items: [
-      { name: "분할정복", hint: "나눠서 풀고 합침(퀵·병합)" },
-      { name: "동적계획법(DP)", hint: "중복 부분문제·메모이제이션" },
-      { name: "그리디(탐욕법)", hint: "매 순간 최적 선택" },
-      { name: "백트래킹", hint: "가지치기·되돌아가기" },
-    ],
-  },
-  {
-    category: "소프트웨어공학",
-    title: "최단경로 알고리즘",
-    axis: "음수 간선·범위 처리",
-    items: [
-      { name: "다익스트라", hint: "단일 출발·음수 불가" },
-      { name: "벨만-포드", hint: "음수 간선 허용" },
-      { name: "플로이드-와샬", hint: "모든 쌍 최단경로" },
     ],
   },
   {
@@ -345,15 +180,6 @@ export const compareSets: CompareSet[] = [
       { name: "재사용(Reuse)", hint: "기존 모듈 활용" },
       { name: "역공학(Reverse)", hint: "코드→설계 복원" },
       { name: "재공학(Re-engineering)", hint: "재구조화·현대화" },
-    ],
-  },
-  {
-    category: "소프트웨어공학",
-    title: "프로세스 vs 스레드",
-    axis: "자원을 공유하나·독립인가",
-    items: [
-      { name: "프로세스(Process)", hint: "독립 메모리·문맥교환 무거움" },
-      { name: "스레드(Thread)", hint: "메모리 공유·가벼움" },
     ],
   },
 
@@ -1422,4 +1248,448 @@ export const compareSets: CompareSet[] = [
       { name: "Feistel(피스텔)", hint: "N/2 분할·R라운드 XOR 반복·DES/SEED" },
     ],
   },
+
+  // ─────────────────────────── 운영체제 ───────────────────────────
+  // 심화반 1주차 과목. 교재 OS CONTENTS 순서에 맞춰 넣었다.
+  {
+    category: "운영체제",
+    title: "커널의 종류",
+    axis: "커널 안에 기능을 얼마나 넣나",
+    items: [
+      { name: "모놀리식 커널", hint: "모든 기능을 커널에·성능 유리·UNIX/Linux" },
+      { name: "마이크로 커널", hint: "최소 기능만·나머지는 서버 프로세스·IPC 비용" },
+      { name: "하이브리드 커널", hint: "마이크로에 가깝되 성능 위해 일부를 커널로·Windows/macOS" },
+      { name: "엑소 커널", hint: "자원 보호만 하고 추상화는 라이브러리로·경량" },
+      { name: "유니 커널", hint: "앱과 필요한 커널 기능만 한 덩어리로·단일 주소공간" },
+    ],
+  },
+  {
+    category: "운영체제",
+    title: "스케줄러 3종",
+    axis: "무엇을 고르나 — 작업이냐 프로세스냐 CPU냐",
+    items: [
+      { name: "장기 스케줄러", hint: "잡 스케줄러·어느 작업을 메모리에 올릴까·다중 프로그래밍 정도 결정" },
+      { name: "중기 스케줄러", hint: "스와퍼·메모리가 모자라면 프로세스를 통째로 내림(보류)" },
+      { name: "단기 스케줄러", hint: "CPU 스케줄러·준비 큐에서 다음 실행 프로세스 선택·가장 자주 동작" },
+    ],
+  },
+  {
+    category: "운영체제",
+    title: "CPU 스케줄링 알고리즘",
+    axis: "선점하나, 무엇을 기준으로 다음을 고르나",
+    items: [
+      { name: "FCFS", hint: "비선점·도착 순서·호위 효과(Convoy)" },
+      { name: "SJF", hint: "비선점·실행시간 짧은 것 먼저·평균 대기 최소지만 기아" },
+      { name: "SRT", hint: "선점형 SJF·남은 시간 짧은 것이 오면 뺏음" },
+      { name: "라운드 로빈(RR)", hint: "선점·타임 퀀텀 순환·시분할의 기본" },
+      { name: "HRN", hint: "비선점·(대기+실행)/실행 이 큰 것 먼저·SJF의 기아 완화" },
+      { name: "우선순위 스케줄링", hint: "우선순위 순·기아 발생 → 에이징으로 해소" },
+      { name: "다단계 피드백 큐(MLFQ)", hint: "큐를 여러 층으로·오래 쓴 프로세스는 아래 큐로 강등" },
+    ],
+  },
+  {
+    category: "운영체제",
+    title: "프로세스 동기화 기법",
+    axis: "소유권이 있나, 기다릴 때 CPU를 놓나",
+    items: [
+      { name: "뮤텍스(Mutex)", hint: "소유권 있음·잠근 스레드만 풀 수 있음·이진 상태" },
+      { name: "세마포어(Semaphore)", hint: "소유권 없음·계수형으로 N개 자원 허용·P/V 연산" },
+      { name: "모니터(Monitor)", hint: "언어 차원 캡슐화·조건 변수·한 번에 한 스레드만 진입" },
+      { name: "스핀락(Spinlock)", hint: "잠길 때까지 계속 확인·문맥교환 없음·짧은 임계영역 전용" },
+    ],
+  },
+  {
+    category: "운영체제",
+    title: "임계영역 해결의 3요건",
+    axis: "동기화 기법이 반드시 만족해야 하는 조건",
+    items: [
+      { name: "상호배제(Mutual Exclusion)", hint: "한 번에 하나만 임계영역에 들어간다" },
+      { name: "진행(Progress)", hint: "아무도 안 들어가 있으면 대기자 중에서 반드시 뽑는다" },
+      { name: "한정 대기(Bounded Waiting)", hint: "무한정 밀리지 않는다·기아 방지" },
+    ],
+  },
+  {
+    category: "운영체제",
+    title: "교착상태 해결 기법",
+    axis: "언제 손을 대나 — 사전에, 진행 중에, 사후에",
+    items: [
+      { name: "예방(Prevention)", hint: "4대 조건 중 하나를 원천 차단·자원 이용률 낮아짐" },
+      { name: "회피(Avoidance)", hint: "안전 상태를 유지하며 할당·은행가 알고리즘" },
+      { name: "탐지(Detection)", hint: "일단 걸리게 두고 자원할당 그래프로 주기 검출" },
+      { name: "회복(Recovery)", hint: "프로세스 강제 종료 또는 자원 선점·롤백" },
+    ],
+  },
+  {
+    category: "운영체제",
+    title: "교착상태 4대 필요조건",
+    axis: "넷이 동시에 성립해야 교착이 생긴다",
+    items: [
+      { name: "상호배제", hint: "자원을 한 번에 하나만 쓸 수 있다" },
+      { name: "점유와 대기", hint: "가진 채로 다른 것을 기다린다" },
+      { name: "비선점", hint: "남의 자원을 강제로 뺏을 수 없다" },
+      { name: "환형 대기", hint: "대기 관계가 원을 그린다" },
+    ],
+  },
+  {
+    category: "운영체제",
+    title: "페이지 교체 알고리즘",
+    axis: "무엇을 기준으로 내보낼 페이지를 고르나",
+    items: [
+      { name: "FIFO", hint: "먼저 들어온 것부터·Belady's Anomaly 발생" },
+      { name: "LRU", hint: "가장 오래 안 쓴 것·지역성 활용·구현 비용 큼" },
+      { name: "LFU", hint: "가장 적게 쓴 것·초기 참조 편중에 약함" },
+      { name: "NUR(Clock)", hint: "참조·변형 비트 2개로 근사·LRU의 실용판" },
+      { name: "OPT", hint: "앞으로 가장 늦게 쓸 것·구현 불가·성능 상한 기준" },
+    ],
+  },
+  {
+    category: "운영체제",
+    title: "페이징 vs 세그멘테이션",
+    axis: "나누는 단위가 고정 크기냐 논리 단위냐",
+    items: [
+      { name: "페이징(Paging)", hint: "고정 크기 페이지·내부 단편화 발생·외부 단편화 없음" },
+      { name: "세그멘테이션(Segmentation)", hint: "논리 단위(코드·데이터·스택) 가변 크기·외부 단편화 발생" },
+      { name: "페이지드 세그멘테이션", hint: "세그먼트를 다시 페이지로·두 단점을 함께 완화" },
+    ],
+  },
+  {
+    category: "운영체제",
+    title: "내부 단편화 vs 외부 단편화",
+    axis: "낭비되는 공간이 어디에 생기나",
+    items: [
+      { name: "내부 단편화", hint: "할당한 블록 안에 남는 자투리·고정 분할·페이징에서 발생" },
+      { name: "외부 단편화", hint: "블록 사이에 흩어진 빈 공간·가변 분할·세그멘테이션에서 발생" },
+      { name: "통합(Coalescing)", hint: "인접한 빈 공간을 합친다" },
+      { name: "집약(Compaction)", hint: "쓰는 영역을 한쪽으로 몰아 빈 공간을 하나로" },
+    ],
+  },
+  {
+    category: "운영체제",
+    title: "커널 메모리 할당자",
+    axis: "어느 단편화를 잡으려고 만든 것인가",
+    items: [
+      { name: "버디 할당자(Buddy)", hint: "2의 거듭제곱으로 쪼개고 짝끼리 합침·외부 단편화 완화" },
+      { name: "슬랩 할당자(Slab)", hint: "객체 크기별 캐시를 미리 만들어 재사용·내부 단편화 완화" },
+    ],
+  },
+  {
+    category: "운영체제",
+    title: "프로세스 vs 스레드",
+    axis: "무엇을 따로 갖고 무엇을 공유하나",
+    items: [
+      { name: "프로세스", hint: "독립 주소공간·PCB·문맥교환 비용 큼" },
+      { name: "스레드", hint: "코드·데이터·힙 공유, 스택과 레지스터만 따로·전환 가벼움" },
+    ],
+  },
+  {
+    category: "운영체제",
+    title: "프로세스 상태",
+    axis: "상태 전이도에서 어디에 놓이나",
+    items: [
+      { name: "생성(New)", hint: "PCB 만들어진 직후" },
+      { name: "준비(Ready)", hint: "CPU만 받으면 바로 실행 가능" },
+      { name: "실행(Running)", hint: "CPU를 점유 중·디스패치로 진입" },
+      { name: "대기(Blocked)", hint: "I/O 등 사건을 기다림·CPU를 줘도 못 씀" },
+      { name: "종료(Terminated)", hint: "실행 끝·자원 회수" },
+    ],
+  },
+  {
+    category: "운영체제",
+    title: "프로세스간 통신(IPC) 기법",
+    axis: "주고받을 데이터를 어디에 두나",
+    items: [
+      { name: "파이프(Pipe)", hint: "단방향 바이트 스트림·부모-자식" },
+      { name: "메시지 큐", hint: "커널이 보관하는 메시지 단위·비동기" },
+      { name: "공유 메모리", hint: "같은 물리 메모리를 함께 매핑·가장 빠름·동기화 필요" },
+      { name: "소켓(Socket)", hint: "네트워크 경유 가능·다른 호스트와도 통신" },
+      { name: "시그널(Signal)", hint: "사건 알림만·데이터 못 실음" },
+    ],
+  },
+  {
+    category: "운영체제",
+    title: "디스크 스케줄링",
+    axis: "헤드를 어떻게 움직여 탐색시간을 줄이나",
+    items: [
+      { name: "FCFS", hint: "요청 순서 그대로·공평하지만 이동 많음" },
+      { name: "SSTF", hint: "현재 위치에서 가장 가까운 것·안쪽 요청 기아" },
+      { name: "SCAN(엘리베이터)", hint: "끝까지 갔다가 되돌아오며 처리" },
+      { name: "C-SCAN", hint: "한 방향만 처리하고 끝에서 처음으로 점프·대기시간 균등" },
+      { name: "LOOK / C-LOOK", hint: "요청이 없으면 끝까지 안 가고 되돌아섬" },
+    ],
+  },
+  {
+    category: "운영체제",
+    title: "지역성(Locality)",
+    axis: "다음에 무엇을 참조할지 예측하는 근거",
+    items: [
+      { name: "시간 지역성", hint: "방금 쓴 것을 곧 또 쓴다·반복문 변수" },
+      { name: "공간 지역성", hint: "옆 주소를 쓴다·배열 순회" },
+      { name: "순차 지역성", hint: "명령어를 주소 순서대로 실행한다" },
+    ],
+  },
+  {
+    category: "운영체제",
+    title: "인터럽트의 종류",
+    axis: "어디서 발생하나",
+    items: [
+      { name: "외부 인터럽트", hint: "전원·타이머·I/O 완료 등 CPU 바깥" },
+      { name: "내부 인터럽트(트랩)", hint: "0으로 나누기·잘못된 명령 등 실행 중 오류" },
+      { name: "소프트웨어 인터럽트", hint: "System Call·프로그램이 의도적으로 발생시킴" },
+    ],
+  },
+  {
+    category: "운영체제",
+    title: "우선순위 역전 해결 기법",
+    axis: "낮은 우선순위가 자원을 쥔 상황을 어떻게 푸나",
+    items: [
+      { name: "우선순위 상속", hint: "자원을 쥔 쪽을 기다리는 쪽 우선순위까지 일시 상승" },
+      { name: "우선순위 상한(Ceiling)", hint: "자원마다 상한을 정해 잡는 순간 그 값으로 올림" },
+    ],
+  },
+
+  // ─────────────────────────── 컴퓨터구조 ───────────────────────────
+  {
+    category: "컴퓨터구조",
+    title: "CISC vs RISC",
+    axis: "명령어를 복잡하게 만드나 단순하게 만드나",
+    items: [
+      { name: "CISC", hint: "복잡·가변길이 명령어·명령 수 적음·마이크로프로그램 제어" },
+      { name: "RISC", hint: "단순·고정길이·레지스터 많음·파이프라인 유리·하드와이어드 제어" },
+    ],
+  },
+  {
+    category: "컴퓨터구조",
+    title: "캐시 사상(Mapping) 방식",
+    axis: "블록이 들어갈 자리를 얼마나 자유롭게 주나",
+    items: [
+      { name: "직접 사상", hint: "자리가 하나로 정해짐·구현 단순·충돌 잦음" },
+      { name: "연관 사상", hint: "어디든 가능·적중률 높음·비교기 비용 큼" },
+      { name: "집합 연관 사상", hint: "집합 안에서만 자유·둘의 절충·실제 캐시의 표준" },
+    ],
+  },
+  {
+    category: "컴퓨터구조",
+    title: "캐시 쓰기 정책",
+    axis: "주기억장치에 언제 반영하나",
+    items: [
+      { name: "Write-Through", hint: "쓸 때마다 즉시 반영·일관성 좋음·쓰기 트래픽 큼" },
+      { name: "Write-Back", hint: "교체될 때 몰아서 반영·빠름·Dirty Bit 필요" },
+      { name: "Write-Allocate", hint: "쓰기 미스 때 블록을 캐시로 올린 뒤 씀" },
+      { name: "No-Write-Allocate", hint: "쓰기 미스 때 캐시를 건너뛰고 메모리에 바로" },
+    ],
+  },
+  {
+    category: "컴퓨터구조",
+    title: "캐시 일관성 유지 방식",
+    axis: "누가 다른 캐시의 변경을 알아채나",
+    items: [
+      { name: "스누핑(Snooping)", hint: "각 캐시가 공용 버스를 엿봄·소규모에 적합" },
+      { name: "디렉터리(Directory)", hint: "중앙 디렉터리가 블록 보유자를 기록·대규모 확장성" },
+    ],
+  },
+  {
+    category: "컴퓨터구조",
+    title: "MESI 캐시 상태",
+    axis: "이 블록을 나만 갖고 있나, 고쳤나",
+    items: [
+      { name: "Modified", hint: "나만 보유·수정됨·메모리와 다름" },
+      { name: "Exclusive", hint: "나만 보유·수정 안 됨·메모리와 같음" },
+      { name: "Shared", hint: "여럿이 보유·읽기 전용 상태" },
+      { name: "Invalid", hint: "무효·다시 읽어와야 함" },
+    ],
+  },
+  {
+    category: "컴퓨터구조",
+    title: "파이프라인 해저드",
+    axis: "무엇 때문에 파이프가 멈추나",
+    items: [
+      { name: "구조적 해저드", hint: "같은 하드웨어를 두 단계가 동시에 원함·자원 중복으로 해소" },
+      { name: "데이터 해저드", hint: "앞 명령의 결과를 기다림·포워딩·스톨로 해소" },
+      { name: "제어 해저드", hint: "분기 결과를 몰라 다음 명령을 못 정함·분기 예측으로 해소" },
+    ],
+  },
+  {
+    category: "컴퓨터구조",
+    title: "기억장치 계층구조",
+    axis: "위로 갈수록 빠르고 비싸고 작다",
+    items: [
+      { name: "레지스터", hint: "CPU 안·가장 빠름·용량 최소" },
+      { name: "캐시 메모리", hint: "SRAM·L1/L2/L3" },
+      { name: "주기억장치", hint: "DRAM·휘발성" },
+      { name: "보조기억장치", hint: "SSD·HDD·비휘발성·가장 느리고 큼" },
+    ],
+  },
+  {
+    category: "컴퓨터구조",
+    title: "I/O 제어 방식",
+    axis: "CPU가 데이터 전송에 얼마나 개입하나",
+    items: [
+      { name: "프로그램 I/O", hint: "CPU가 상태를 계속 확인(폴링)·CPU 낭비 최대" },
+      { name: "인터럽트 구동 I/O", hint: "끝나면 알려줌·바이트 단위마다 CPU 개입" },
+      { name: "DMA", hint: "블록 단위를 CPU 없이 전송·끝날 때만 인터럽트" },
+      { name: "채널 I/O", hint: "전용 입출력 프로세서가 채널 프로그램을 수행" },
+    ],
+  },
+  {
+    category: "컴퓨터구조",
+    title: "RAID 레벨",
+    axis: "성능을 사나 가용성을 사나",
+    items: [
+      { name: "RAID 0", hint: "스트라이핑만·성능 최고·중복 없음" },
+      { name: "RAID 1", hint: "미러링·용량 절반·복구 빠름" },
+      { name: "RAID 5", hint: "패리티 분산·디스크 1개 고장 견딤" },
+      { name: "RAID 6", hint: "이중 패리티·2개 고장까지 견딤" },
+      { name: "RAID 10", hint: "미러링 후 스트라이핑·성능과 가용성 모두" },
+    ],
+  },
+  {
+    category: "컴퓨터구조",
+    title: "메모리 인터리빙",
+    axis: "주소의 어느 부분으로 뱅크를 고르나",
+    items: [
+      { name: "하위 인터리빙", hint: "하위 비트로 뱅크 선택·연속 주소가 여러 뱅크로 분산·병렬 접근 유리" },
+      { name: "상위 인터리빙", hint: "상위 비트로 뱅크 선택·한 뱅크에 연속 주소가 몰림" },
+    ],
+  },
+  {
+    category: "컴퓨터구조",
+    title: "CPU Ring Level",
+    axis: "권한이 높을수록 안쪽 링",
+    items: [
+      { name: "Ring 0", hint: "커널 모드·모든 명령 실행 가능" },
+      { name: "Ring 1·2", hint: "디바이스 드라이버 계층·실제로는 잘 안 씀" },
+      { name: "Ring 3", hint: "사용자 모드·특권 명령은 System Call 경유" },
+    ],
+  },
+
+  // ─────────────────────────── 알고리즘 ───────────────────────────
+  {
+    category: "알고리즘",
+    title: "알고리즘 설계 기법",
+    axis: "문제를 어떻게 쪼개고 언제 결정하나",
+    items: [
+      { name: "분할정복", hint: "쪼개서 풀고 합침·병합정렬·퀵정렬" },
+      { name: "동적계획법(DP)", hint: "겹치는 부분문제를 저장해 재사용·최적 부분구조" },
+      { name: "탐욕법(Greedy)", hint: "매 순간 최선을 선택·최적 보장 조건 필요" },
+      { name: "백트래킹", hint: "가능성 없는 가지를 잘라내며 완전탐색" },
+    ],
+  },
+  {
+    category: "알고리즘",
+    title: "정렬 알고리즘",
+    axis: "평균 시간복잡도와 안정성",
+    items: [
+      { name: "버블·선택·삽입 정렬", hint: "O(n²)·구현 단순·삽입은 거의 정렬된 데이터에 강함" },
+      { name: "병합 정렬", hint: "O(n log n) 보장·안정 정렬·추가 메모리 필요" },
+      { name: "퀵 정렬", hint: "평균 O(n log n)·최악 O(n²)·제자리 정렬" },
+      { name: "힙 정렬", hint: "O(n log n) 보장·제자리·불안정" },
+    ],
+  },
+  {
+    category: "알고리즘",
+    title: "최단경로 알고리즘",
+    axis: "음수 간선을 다루나, 몇 쌍을 구하나",
+    items: [
+      { name: "다익스트라", hint: "단일 출발점·음수 간선 불가·O(E log V)" },
+      { name: "벨만-포드", hint: "단일 출발점·음수 간선 가능·음수 사이클 탐지·O(VE)" },
+      { name: "플로이드-워셜", hint: "모든 쌍·DP 기반·O(V³)" },
+    ],
+  },
+  {
+    category: "알고리즘",
+    title: "그래프 탐색",
+    axis: "깊이로 파고드나 넓이로 퍼지나",
+    items: [
+      { name: "DFS", hint: "스택·재귀·경로 존재 확인·위상정렬" },
+      { name: "BFS", hint: "큐·가중치 없는 그래프의 최단경로" },
+    ],
+  },
+
+  // ─────────────────────────── 자료구조 ───────────────────────────
+  {
+    category: "자료구조",
+    title: "선형 자료구조",
+    axis: "어디로 넣고 어디로 빼나",
+    items: [
+      { name: "배열", hint: "인덱스 임의접근 O(1)·삽입·삭제 O(n)·크기 고정" },
+      { name: "연결 리스트", hint: "삽입·삭제 O(1)·탐색 O(n)·포인터 오버헤드" },
+      { name: "스택", hint: "LIFO·한쪽 끝에서만·함수 호출·되돌리기" },
+      { name: "큐", hint: "FIFO·양 끝에서·스케줄링·버퍼" },
+    ],
+  },
+  {
+    category: "자료구조",
+    title: "트리 순회",
+    axis: "루트를 언제 방문하나",
+    items: [
+      { name: "전위(Preorder)", hint: "루트 → 왼쪽 → 오른쪽·트리 복사" },
+      { name: "중위(Inorder)", hint: "왼쪽 → 루트 → 오른쪽·이진탐색트리에서 정렬 순서" },
+      { name: "후위(Postorder)", hint: "왼쪽 → 오른쪽 → 루트·트리 삭제·수식 계산" },
+      { name: "레벨 순회", hint: "큐로 층별 방문·BFS" },
+    ],
+  },
+  {
+    category: "자료구조",
+    title: "균형 탐색 트리",
+    axis: "무엇으로 균형을 잡고 어디에 쓰나",
+    items: [
+      { name: "AVL 트리", hint: "높이 차 1 이하로 엄격·회전 잦음·조회 위주에 유리" },
+      { name: "레드-블랙 트리", hint: "색 규칙으로 느슨하게·삽입·삭제가 잦을 때" },
+      { name: "B-트리", hint: "노드 하나에 키 여러 개·디스크 접근 최소화" },
+      { name: "B+트리", hint: "데이터는 리프에만·리프끼리 연결·범위 검색 유리·DB 인덱스" },
+    ],
+  },
+  {
+    category: "자료구조",
+    title: "해시 충돌 해결",
+    axis: "충돌하면 어디에 두나",
+    items: [
+      { name: "체이닝", hint: "같은 버킷에 연결 리스트로 매달기·적재율에 덜 민감" },
+      { name: "개방 주소법", hint: "비어 있는 다른 버킷을 찾아 넣음·선형·이차·이중 해싱" },
+    ],
+  },
+
+  // ─────────────────────────── 확률·통계 ───────────────────────────
+  {
+    category: "확률·통계",
+    title: "측정 척도",
+    axis: "무엇까지 말할 수 있나",
+    items: [
+      { name: "명목척도", hint: "분류만·성별·혈액형·크기 비교 불가" },
+      { name: "서열척도", hint: "순서까지·만족도 등급·간격은 무의미" },
+      { name: "등간척도", hint: "간격까지·섭씨온도·절대영점 없음" },
+      { name: "비율척도", hint: "비율까지·길이·무게·절대영점 있음" },
+    ],
+  },
+  {
+    category: "확률·통계",
+    title: "대표 확률분포",
+    axis: "이산이냐 연속이냐, 무엇을 세나",
+    items: [
+      { name: "이항분포", hint: "이산·n번 시행 중 성공 횟수" },
+      { name: "포아송분포", hint: "이산·단위 시간에 드물게 일어나는 사건 수" },
+      { name: "정규분포", hint: "연속·좌우대칭 종형·중심극한정리" },
+      { name: "지수분포", hint: "연속·사건 사이의 대기 시간·무기억성" },
+    ],
+  },
+  {
+    category: "확률·통계",
+    title: "표본추출 방법",
+    axis: "모집단을 어떻게 나눠서 뽑나",
+    items: [
+      { name: "단순 무작위", hint: "전부 같은 확률로·가장 기본" },
+      { name: "층화 추출", hint: "동질 집단(층)으로 나눠 각 층에서·층 내 동질·층 간 이질" },
+      { name: "군집 추출", hint: "이질 집단(군집) 단위로 통째 선택·비용 절감" },
+      { name: "계통 추출", hint: "일정 간격으로·주기성이 있으면 편향" },
+    ],
+  },
+  {
+    category: "확률·통계",
+    title: "가설검정의 오류",
+    axis: "무엇을 잘못 판정했나",
+    items: [
+      { name: "제1종 오류(α)", hint: "맞는 귀무가설을 기각·유의수준이 이 확률" },
+      { name: "제2종 오류(β)", hint: "틀린 귀무가설을 채택·검정력은 1-β" },
+    ],
+  }
 ];
