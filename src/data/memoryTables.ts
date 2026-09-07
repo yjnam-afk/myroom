@@ -32,7 +32,7 @@ export const memoryTables: MemoryTable[] = [
   },
   // ───────────── 소프트웨어공학 ─────────────
   {
-    category: "소프트웨어공학",
+    category: "알고리즘",
     title: "정렬 알고리즘",
     intro:
       "데이터를 순서대로 나열하는 알고리즘. 평균 시간복잡도와 '안정성(같은 값의 원래 순서 유지 여부)'이 핵심 비교 포인트다.",
@@ -49,7 +49,7 @@ export const memoryTables: MemoryTable[] = [
       "'평균 O(nlogn)=퀵·병합·힙 / 안정=버블·삽입·병합'으로 그룹핑해 표로 제시.",
   },
   {
-    category: "소프트웨어공학",
+    category: "운영체제",
     title: "CPU 스케줄링 알고리즘",
     intro:
       "준비 큐에서 다음에 CPU를 줄 프로세스를 고르는 규칙. '선점(실행 중 뺏기 가능) vs 비선점'이 1차 분류다.",
@@ -67,7 +67,7 @@ export const memoryTables: MemoryTable[] = [
       "첫 문단에 '선점=RR·SRT·MLFQ / 비선점=FCFS·SJF·HRN' 분류표 → 기아 여부 컬럼 강조.",
   },
   {
-    category: "소프트웨어공학",
+    category: "운영체제",
     title: "페이지 교체 알고리즘",
     intro:
       "물리 메모리가 꽉 찼을 때 어떤 페이지를 내보낼지 결정. 참조 지역성을 얼마나 반영하는지가 관건이다.",
@@ -85,7 +85,7 @@ export const memoryTables: MemoryTable[] = [
       "Belady 이상현상(프레임↑인데 부재↑)은 FIFO에서만 — 단골 함정. Clock=LRU 근사, 2차기회=FIFO 개선.",
   },
   {
-    category: "소프트웨어공학",
+    category: "운영체제",
     title: "스래싱(Thrashing)·워킹셋",
     intro:
       "다중 프로그래밍 정도가 과해 페이지 부재가 폭증하고 CPU 이용률이 급락하는 현상. 워킹셋·PFF로 예방한다.",
@@ -175,7 +175,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "경계값분석·결정테이블·기본경로는 답안 단골 — 정의+예시 준비.",
   },
   {
-    category: "소프트웨어공학",
+    category: "알고리즘",
     title: "그래프 순회·최단경로",
     intro:
       "그래프를 훑는 방법(DFS·BFS)과 최단경로 알고리즘. 자료구조와 음수 간선 허용 여부로 구분한다.",
@@ -397,7 +397,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "'회전완수(위협) ↔ 활공증수(기회)' 대칭으로 암기.",
   },
   {
-    category: "소프트웨어공학",
+    category: "컴퓨터구조",
     title: "RAID 레벨",
     intro:
       "여러 디스크를 묶어 성능·안정성을 높이는 기술. 스트라이핑(분산)·미러링(복제)·패리티(오류복구) 조합으로 갈린다.",
@@ -415,7 +415,7 @@ export const memoryTables: MemoryTable[] = [
   // ═══════════ 2차 추가 ═══════════
   // ── 소프트웨어공학 ──
   {
-    category: "소프트웨어공학",
+    category: "컴퓨터구조",
     title: "캐시 사상(Mapping) 기법",
     intro:
       "메모리 블록을 캐시 어디에 놓을지 정하는 방식. 유연성과 검색 비용의 트레이드오프다. 쓰기정책(Write-through/back)과 세트로 외운다.",
@@ -428,7 +428,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "쓰기정책 Write-through(즉시·일관성)·Write-back(지연·성능) 함께 언급.",
   },
   {
-    category: "소프트웨어공학",
+    category: "운영체제",
     title: "디스크 스케줄링",
     intro:
       "디스크 헤드 이동을 줄여 접근시간을 최소화하는 규칙. 이동 방향·거리 처리 방식이 다르다.",
@@ -443,7 +443,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "'SSTF=기아, SCAN=엘리베이터, C-SCAN=균일' 키워드로 구분.",
   },
   {
-    category: "소프트웨어공학",
+    category: "컴퓨터구조",
     title: "병렬처리 Flynn 분류",
     intro:
       "명령어(Instruction)와 데이터(Data) 스트림 개수로 컴퓨터 구조를 4가지로 분류한다.",
@@ -457,7 +457,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "'SIMD=GPU, MIMD=멀티코어'가 답안 핵심 예시.",
   },
   {
-    category: "소프트웨어공학",
+    category: "컴퓨터구조",
     title: "I/O 제어 방식",
     intro:
       "입출력을 처리할 때 CPU가 얼마나 개입하는지로 나뉜다. 개입이 적을수록 효율적이다.",
@@ -471,7 +471,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "'대량 전송=DMA'로 CPU 병목 해소 — 최신 컴시응 기출 단골.",
   },
   {
-    category: "소프트웨어공학",
+    category: "컴퓨터구조",
     title: "CISC vs RISC",
     intro:
       "명령어 집합 설계 철학. 복잡한 명령을 소수로(CISC) vs 단순 명령을 다수로(RISC).",
@@ -486,7 +486,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "'RISC=고정·파이프라인·저전력=모바일' 흐름으로 서술.",
   },
   {
-    category: "소프트웨어공학",
+    category: "운영체제",
     title: "프로세스 상태 전이",
     intro:
       "프로세스가 생성부터 종료까지 거치는 상태와 전이. 각 전이 용어(dispatch·preempt·wakeup)가 답안 포인트.",
@@ -501,7 +501,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "dispatch(준비→실행)·preempt(실행→준비)·wakeup(대기→준비) 용어 명시.",
   },
   {
-    category: "소프트웨어공학",
+    category: "운영체제",
     title: "교착상태(Deadlock)",
     intro:
       "서로 상대의 자원을 기다리며 무한 대기하는 상태. 4대 조건이 모두 성립할 때 발생하며, 해결은 예방·회피·탐지·회복 4가지.",
@@ -516,7 +516,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "'상점비환' 4조건 두문자. 예방은 조건 부정, 회피는 은행가 알고리즘.",
   },
   {
-    category: "소프트웨어공학",
+    category: "운영체제",
     title: "동기화 기법(상호배제)",
     intro:
       "임계구역을 여러 프로세스가 동시에 접근하지 못하게 막는 도구. 소유권·카운터·언어 캡슐화 방식이 다르다.",
@@ -917,7 +917,7 @@ export const memoryTables: MemoryTable[] = [
 
   // ═══════════ 3차 추가 (OS·메모리 심화 등) ═══════════
   {
-    category: "소프트웨어공학",
+    category: "운영체제",
     title: "참조 지역성(Locality of Reference)",
     intro:
       "프로그램이 최근에 쓴 것·근처의 것을 다시 참조하는 경향. 캐시·가상메모리가 효과를 내는 이론적 근거다.",
@@ -930,7 +930,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "'시간=최근, 공간=인접'. 캐시 적중률·페이지 교체(LRU) 근거로 활용.",
   },
   {
-    category: "소프트웨어공학",
+    category: "운영체제",
     title: "문맥교환(Context Switching)",
     intro:
       "실행 중인 프로세스를 멈추고 다른 프로세스로 CPU를 넘기는 작업. 그 자체는 유용한 일을 하지 않는 순수 오버헤드다.",
@@ -945,7 +945,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "스레드는 주소공간을 공유해 문맥교환 비용↓ — 프로세스와 대비 포인트.",
   },
   {
-    category: "소프트웨어공학",
+    category: "컴퓨터구조",
     title: "메모리 계층구조",
     intro:
       "속도·용량·비용을 절충해 계층으로 쌓은 구조. 위로 갈수록 빠르고 비싸며 작다. 지역성이 이 계층을 효과적으로 만든다.",
@@ -959,7 +959,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "'위=빠름·비쌈·작음'. 캐시·가상메모리가 계층 간 속도차를 메움.",
   },
   {
-    category: "소프트웨어공학",
+    category: "컴퓨터구조",
     title: "캐시 쓰기 정책",
     intro:
       "캐시에서 변경된 데이터를 주기억장치에 언제 반영할지 정하는 정책. 일관성과 성능의 트레이드오프다.",
@@ -973,7 +973,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "'일관성=Write-through, 성능=Write-back'. 사상 기법 표와 세트.",
   },
   {
-    category: "소프트웨어공학",
+    category: "컴퓨터구조",
     title: "파이프라인 해저드(Hazard)",
     intro:
       "명령어 파이프라인의 중첩 실행을 방해하는 요인. 3가지 유형과 각 해결책을 세트로 외운다.",
@@ -986,7 +986,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "'구조·데이터·제어' 3종. 데이터=포워딩, 제어=분기예측.",
   },
   {
-    category: "소프트웨어공학",
+    category: "컴퓨터구조",
     title: "명령어 주소지정 방식",
     intro:
       "명령어에서 실제 데이터(오퍼랜드)의 위치를 지정하는 방법. 접근 속도와 유연성이 다르다.",
@@ -1001,7 +1001,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "'즉시=값, 직접=주소, 간접=주소의 주소' 계층으로 이해.",
   },
   {
-    category: "소프트웨어공학",
+    category: "운영체제",
     title: "파일(디스크 블록) 할당 기법",
     intro:
       "파일을 디스크 블록에 배치하는 방법. 연속 배치와 불연속(연결·색인) 배치로 나뉜다.",
@@ -1073,7 +1073,7 @@ export const memoryTables: MemoryTable[] = [
   // ═══════════ 4차 추가 (대량 보강) ═══════════
   // ── 소프트웨어공학 (컴퓨터구조·자료구조·설계) ──
   {
-    category: "소프트웨어공학",
+    category: "컴퓨터구조",
     title: "RAM 종류",
     intro:
       "전원이 꺼지면 내용이 사라지는 휘발성 주기억. 재충전 필요 여부(S/DRAM)와 속도·용도가 비교 포인트.",
@@ -1088,7 +1088,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "'SRAM=캐시(빠름), DRAM=주기억(리프레시 필요)' 핵심 구분.",
   },
   {
-    category: "소프트웨어공학",
+    category: "컴퓨터구조",
     title: "ROM 종류",
     intro:
       "전원과 무관하게 유지되는 비휘발성 메모리. 기록·소거 방식으로 세대가 나뉜다.",
@@ -1103,7 +1103,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "소거 방식: 'UV=EPROM, 전기=EEPROM/플래시'로 세대 구분.",
   },
   {
-    category: "소프트웨어공학",
+    category: "컴퓨터구조",
     title: "플립플롭(Flip-Flop)",
     intro:
       "1비트를 저장하는 순차 논리회로. 입력 구성과 (1,1) 처리 방식이 종류를 가른다.",
@@ -1117,7 +1117,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "'JK=금지 해결, D=저장, T=토글' 용도 매핑.",
   },
   {
-    category: "소프트웨어공학",
+    category: "자료구조",
     title: "트리 자료구조",
     intro:
       "계층 관계를 표현하는 자료구조. 균형 유지 방식과 용도(탐색·인덱스·우선순위)로 구분한다.",
@@ -1132,7 +1132,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "'DB 인덱스=B+트리, 우선순위=힙, 균형=AVL/RB'.",
   },
   {
-    category: "소프트웨어공학",
+    category: "컴퓨터구조",
     title: "명령어 수준 병렬처리",
     intro:
       "한 프로세서 안에서 명령어를 겹쳐 처리해 처리율을 높이는 기법들. 누가 병렬을 스케줄하느냐가 관건.",
@@ -1566,7 +1566,7 @@ export const memoryTables: MemoryTable[] = [
   },
   // ── 소프트웨어공학 ──
   {
-    category: "소프트웨어공학",
+    category: "컴퓨터구조",
     title: "캐시 일관성(MESI)",
     intro:
       "멀티코어에서 각 코어 캐시의 데이터 일관성을 유지하는 프로토콜. 캐시 라인 상태를 4가지로 관리(스누핑).",
@@ -1766,7 +1766,7 @@ export const memoryTables: MemoryTable[] = [
   // ═══════════ 6차 (남은 빈출 묶음 42종 스윕) ═══════════
   // ── 소프트웨어공학 ──
   {
-    category: "소프트웨어공학",
+    category: "운영체제",
     title: "인터럽트 유형",
     intro: "실행 중인 작업을 멈추고 급한 처리를 하도록 알리는 신호. 발생 원인으로 분류한다.",
     columns: ["유형", "발생 원인", "예"],
@@ -1778,7 +1778,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "'내부=예외, 외부=하드웨어, SW=시스템콜'.",
   },
   {
-    category: "소프트웨어공학",
+    category: "운영체제",
     title: "파일 시스템 구조",
     intro: "파일과 메타데이터를 디스크에 조직하는 방식. OS 계열마다 다르다.",
     columns: ["방식", "특징", "사용"],
@@ -1790,7 +1790,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "'UNIX=i-node, Windows=FAT/NTFS'. 저널링=장애 복구.",
   },
   {
-    category: "소프트웨어공학",
+    category: "운영체제",
     title: "RTOS vs GPOS",
     intro: "정해진 시간 내 처리가 생명인 실시간 OS와, 평균 성능을 노리는 범용 OS의 차이.",
     columns: ["구분", "RTOS", "GPOS"],
@@ -1828,7 +1828,7 @@ export const memoryTables: MemoryTable[] = [
     examTip: "'문장<분기<조건<MC/DC' 강도. 안전필수=MC/DC.",
   },
   {
-    category: "소프트웨어공학",
+    category: "컴퓨터구조",
     title: "저장장치 인터페이스",
     intro: "저장장치와 시스템을 잇는 연결 규격. 속도·신뢰성·용도가 다르다.",
     columns: ["인터페이스", "특징", "용도"],
@@ -2480,5 +2480,100 @@ export const memoryTables: MemoryTable[] = [
       ["교체(Replacement)", "누구와(Who) 교체하나", "FIFO · LRU · LFU · OPT · NUR"],
     ],
     examTip: "페이징·세그멘테이션은 이 4형제가 아니라 그 전 단계인 '분할 구조' — 고정 분할=페이징(내부 단편화), 가변 분할=세그멘테이션(외부 단편화). 배치 기법이 외부 단편화 크기를 좌우하고, 해결은 통합·집약.",
+  },
+
+  // ─────────────────────────── 확률·통계 ───────────────────────────
+  // 심화반 3주차 과목. 암기표가 한 장도 없던 도메인이라 새로 만든다.
+  {
+    category: "확률·통계",
+    title: "측정 척도 4종 [명서등비]",
+    intro:
+      "데이터를 어떤 자로 쟀느냐에 따라 쓸 수 있는 통계가 달라진다. 위로 갈수록 정보가 많아지고, 아래 척도에 쓰는 방법은 위 척도에도 다 쓸 수 있다.",
+    columns: ["척도", "가능한 것", "예시", "대표값"],
+    rows: [
+      ["명목(Nominal)", "분류만", "성별 · 혈액형 · 지역", "최빈값"],
+      ["서열(Ordinal)", "분류 + 순서", "만족도 등급 · 학점", "최빈값 · 중앙값"],
+      ["등간(Interval)", "+ 간격 비교", "섭씨온도 · IQ", "+ 산술평균"],
+      ["비율(Ratio)", "+ 비율 비교", "길이 · 무게 · 소득", "+ 기하평균"],
+    ],
+    examTip:
+      "등간과 비율의 갈림길은 절대영점이다. 섭씨 20도가 10도의 두 배로 덥지 않은 이유가 그것. 명목·서열은 비모수 검정, 등간·비율은 모수 검정으로 이어진다.",
+  },
+  {
+    category: "확률·통계",
+    title: "대표 확률분포",
+    intro:
+      "무엇을 세느냐(이산)와 무엇을 재느냐(연속)로 먼저 갈린다. 시험은 '이 상황에 어떤 분포를 쓰나'로 묻는다.",
+    columns: ["분포", "이산/연속", "무엇을 다루나", "모수"],
+    rows: [
+      ["이항(Binomial)", "이산", "n번 시행 중 성공 횟수", "n, p"],
+      ["포아송(Poisson)", "이산", "단위 시간·공간에 드물게 일어나는 사건 수", "λ"],
+      ["기하(Geometric)", "이산", "첫 성공까지 걸린 시행 횟수", "p"],
+      ["정규(Normal)", "연속", "좌우대칭 종형·자연 현상의 기본", "μ, σ²"],
+      ["지수(Exponential)", "연속", "사건 사이의 대기 시간·무기억성", "λ"],
+      ["균등(Uniform)", "연속", "구간 안에서 확률이 같음", "a, b"],
+    ],
+    examTip:
+      "포아송과 지수는 한 쌍이다 — 같은 현상을 '몇 번 일어났나'(포아송)와 '다음까지 얼마나 걸리나'(지수)로 본 것. 이항에서 n이 크고 p가 작으면 포아송, n이 크고 p가 중간이면 정규로 근사한다.",
+  },
+  {
+    category: "확률·통계",
+    title: "표본추출 방법 [단층군계]",
+    intro:
+      "모집단을 어떻게 나눠서 뽑느냐의 문제. 층화와 군집은 '나눈 덩어리가 속으로 같은가 다른가'에서 정반대다.",
+    columns: ["방법", "나누는 방식", "무엇을 뽑나", "특징"],
+    rows: [
+      ["단순 무작위", "안 나눔", "개체를 무작위로", "가장 기본 · 모집단 명부 필요"],
+      ["층화(Stratified)", "동질 집단(층)으로", "각 층에서 조금씩", "층 내 동질 · 층 간 이질 · 정밀도↑"],
+      ["군집(Cluster)", "이질 집단(군집)으로", "군집을 통째로", "군집 내 이질 · 비용↓ · 오차↑"],
+      ["계통(Systematic)", "일렬로 세움", "K번째마다", "간편 · 주기성 있으면 편향"],
+    ],
+    examTip:
+      "층화 vs 군집이 단골이다. 층화는 '각 층을 다 대표하게' 뽑고, 군집은 '몇 덩어리만 통째로' 뽑는다. 그래서 층화는 정밀하고 군집은 싸다.",
+  },
+  {
+    category: "확률·통계",
+    title: "가설검정 오류와 검정력",
+    intro:
+      "귀무가설(H0)을 기각하느냐 채택하느냐 × 실제로 참이냐 거짓이냐 = 네 칸. 대각선 둘이 오류다.",
+    columns: ["판정 \\ 실제", "H0 참", "H0 거짓"],
+    rows: [
+      ["H0 기각", "제1종 오류 (α) — 유의수준", "옳은 기각 — 검정력 (1−β)"],
+      ["H0 채택", "옳은 채택 (1−α)", "제2종 오류 (β)"],
+    ],
+    examTip:
+      "α를 낮추면 β가 오른다 — 둘을 동시에 줄이려면 표본을 늘려야 한다. 보안·의료처럼 놓치면 큰일 나는 분야는 β를 줄이는 쪽(검정력 확보)이 우선이다.",
+  },
+  {
+    category: "확률·통계",
+    title: "기술통계 대표값과 산포도",
+    intro:
+      "데이터를 한 숫자로 요약하는 자(대표값)와, 얼마나 퍼져 있는지 재는 자(산포도). 이상치가 있으면 골라야 하는 것이 달라진다.",
+    columns: ["구분", "지표", "성질"],
+    rows: [
+      ["대표값", "산술평균", "모든 값 반영 · 이상치에 민감"],
+      ["대표값", "중앙값", "순서 기준 · 이상치에 강함"],
+      ["대표값", "최빈값", "가장 잦은 값 · 명목척도에도 사용"],
+      ["산포도", "분산 · 표준편차", "평균에서 떨어진 정도 · 단위 복원은 표준편차"],
+      ["산포도", "범위 · 사분위범위(IQR)", "IQR은 이상치에 강함 · 상자그림의 몸통"],
+      ["산포도", "변동계수(CV)", "표준편차÷평균 · 단위 다른 집단 비교"],
+    ],
+    examTip:
+      "소득처럼 오른쪽으로 긴 꼬리를 가진 데이터는 평균 > 중앙값이 된다. 이럴 때 대표값으로 중앙값을 쓰는 이유를 쓰면 좋다. 단위가 다른 두 집단의 산포 비교는 변동계수.",
+  },
+  {
+    category: "확률·통계",
+    title: "상관분석과 회귀분석",
+    intro:
+      "둘 다 변수 사이의 관계를 보지만, 상관은 '같이 움직이나'를, 회귀는 '무엇이 무엇을 설명하나'를 본다.",
+    columns: ["구분", "상관분석", "회귀분석"],
+    rows: [
+      ["목적", "관계의 방향과 세기", "원인으로 결과를 예측"],
+      ["변수 구분", "대등 — 없음", "독립변수 → 종속변수"],
+      ["지표", "상관계수 r (−1 ~ 1)", "회귀계수 β · 결정계수 R²"],
+      ["주의", "상관이 인과는 아님", "다중공선성 · 잔차 정규성 확인"],
+    ],
+    examTip:
+      "'상관관계는 인과관계가 아니다'는 답안에 반드시 한 줄 넣는다. 아이스크림 판매와 익사 사고가 같이 오르는 건 기온이라는 제3의 변수(교란변수) 때문이다.",
   },
 ];

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { PageHeader } from "@/components/ui";
 import cards from "@/data/flashcards.json";
 import SourceBadge from "@/components/SourceBadge";
@@ -187,6 +188,15 @@ export default function CommutePage() {
             <h2 className="mt-3 text-2xl font-bold leading-snug text-slate-900">
               {card.title}
             </h2>
+            {/* 토픽 설명으로 — 카드를 넘기다 "이게 뭐였지" 싶을 때 바로 간다.
+                카드 전체가 뒤집기 버튼이라 링크는 클릭 전파를 막는다. */}
+            <Link
+              href={`/explain?topic=${encodeURIComponent(card.title)}`}
+              onClick={(e) => e.stopPropagation()}
+              className="mt-1.5 inline-block rounded-md border border-slate-200 px-2 py-0.5 text-xs font-medium text-slate-600 hover:border-brand-400 hover:bg-brand-50 hover:text-brand-700"
+            >
+              💡 토픽 설명 보기 →
+            </Link>
             {card.levelNote ? (
               <p className="mt-1 text-sm font-medium text-brand-700">
                 {card.levelNote}
