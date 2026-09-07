@@ -117,9 +117,22 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "CA",
     definition: "명령어 구성 방식에 따른 CPU 유형",
     defShort: "명령어 구성 방식에 따라 복잡한 CISC와 축소한 RISC로 나뉘는 CPU 유형",
-    lead:
-      "명령어 집합 구조의 양대 방식, CISC vs RISC",
+    lead: "명령어 집합의 양대 방식, CISC vs RISC",
     features: ["복잡도 상반", "성능 상충", "용도 특화"],
+    defPair: [
+      {
+        name: "CISC(Complex Instruction Set Computer)",
+        lead: "복잡 명령어 집합의 CPU",
+        def: "여러 사이클의 복잡한 가변 명령어를 마이크로 프로그램으로 제어하는 CPU 유형",
+        features: ["가변 명령어", "마이크로 프로그램 제어", "Intel 계열"],
+      },
+      {
+        name: "RISC(Reduced Instruction Set Computer)",
+        lead: "축소 명령어 집합의 CPU",
+        def: "한 사이클의 단순한 고정 길이 명령어를 하드와이어 방식으로 제어하는 CPU 유형",
+        features: ["고정 명령어", "하드와이어 제어", "ARM 계열"],
+      },
+    ],
     keywords: [
       "Instruction Set",
       "마이크로 프로그램/하드와이어드",
@@ -168,8 +181,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "CPU의 프로그램 처리 속도를 높이기 위해 CPU의 명령어 처리 과정을 여러 단계로 나누어 동시에 처리하는 기술",
     defShort: "CPU 처리 속도를 높이려 명령어 처리 과정을 여러 단계로 나눠 동시에 처리하는 기술",
-    lead:
-      "명령어 중첩 처리의 속도 향상, 파이프라인",
+    lead: "명령어 중첩의 속도 향상, 파이프라인",
     features: ["병렬성", "처리량 증대", "단계 분할"],
     keywords: [
       "단일 파이프라인",
@@ -290,8 +302,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "CA",
     definition: "주기억장치에서 필요한 정보를 캐시기억장치에 정보를 교환하는 기법",
     defShort: "주기억장치의 정보를 직접·연관·집합연관으로 캐시기억장치와 교환하는 기법",
-    lead:
-      "주기억장치와 캐시의 대응 기법, 캐시 사상 방식",
+    lead: "주기억장치·캐시 대응 기법, 캐시 사상 방식",
     features: ["속도·비용 상충", "충돌 관리", "방식 3종"],
     keywords: [
       "직접 사상(태그, 라인, 단어)",
@@ -439,8 +450,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "CPU를 통하지 않고 주변장치(I/O 장치)와 주기억장치 사이의 데이터 전송을 담당하는 장치",
     defShort: "CPU를 거치지 않고 입출력 장치와 주기억장치 사이의 데이터 전송을 담당하는 장치",
-    lead:
-      "CPU 개입 없는 데이터 전송, DMA",
+    lead: "CPU 개입 없는 전송, DMA",
     features: ["CPU 부담 경감", "고속 전송", "독립 동작"],
     keywords: [
       "단일버스분리식",
@@ -613,9 +623,22 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "CA",
     definition: "시리얼(Serial) 통신 방식",
     defShort: "임베디드 보드의 장치 사이에서 적은 신호선으로 데이터를 주고받는 직렬 통신 방식",
-    lead:
-      "임베디드 시리얼 통신의 양대 방식, I2C와 SPI",
+    lead: "임베디드 직렬 통신 방식, I2C와 SPI",
     features: ["직렬 전송", "선 수 차이", "속도 상반"],
+    defPair: [
+      {
+        name: "I2C(Inter Integrated Circuit)",
+        lead: "2선 공유의 직렬 통신",
+        def: "SCL·SDA 두 라인을 마스터와 슬레이브가 공유하는 반이중 저속 직렬 통신 방식",
+        features: ["2선 공유", "반이중", "100kbps"],
+      },
+      {
+        name: "SPI(Serial Peripheral Interface)",
+        lead: "4선 1:1의 직렬 통신",
+        def: "네 라인으로 마스터와 슬레이브를 1:1로 직접 연결하는 전이중 고속 직렬 통신 방식",
+        features: ["CS·SCLK·MOSI·MISO 4선", "전이중", "70MHz"],
+      },
+    ],
     keywords: ["SCL", "SDA", "CS", "SCLK", "MOSI", "MISO", "100kbps", "70MHz"],
     tables: [
       {
@@ -647,8 +670,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "CA",
     definition: "캐시(Cache)와 주기억장치에 기록하는 시점에 대한 정책",
     defShort: "캐시에 기록한 내용을 주기억장치에 언제 반영할지 그 시점을 정하는 캐시 쓰기 정책",
-    lead:
-      "캐시 기록 반영 시점의 정책, 캐시 쓰기정책",
+    lead: "캐시 기록 반영 시점 정책, 캐시 쓰기정책",
     features: ["일관성 상충", "성능 상충", "방식 2종"],
     keywords: ["Write Through", "Write Back", "Cache Coherence"],
     tables: [
@@ -1011,8 +1033,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "디스크의 가용성 및 성능 향상을 위해 스트라이핑 및 미러링 기술 이용하는 디스크 고가용성 기술",
     defShort: "스트라이핑과 미러링 기술로 디스크의 가용성과 성능을 함께 높이는 고가용성 기술",
-    lead:
-      "디스크 가용성·성능 향상 기술, RAID",
+    lead: "디스크 가용성·성능 향상, RAID",
     features: ["중복 저장", "분산 기록", "레벨 다양"],
     keywords: ["스트라이핑", "미러링", "해밍", "패리티", "분산 패리티", "0+1", "1+0"],
     tables: [
@@ -1108,8 +1129,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "데이터를 저장하는 메모리 반도체와 연산 기능을 수행할 수 있는 시스템 반도체의 융합된 형태를 가지는 반도체",
     defShort: "데이터를 저장하는 메모리 반도체와 연산하는 시스템 반도체가 융합된 형태의 반도체",
-    lead:
-      "메모리·시스템 반도체의 융합, 지능형 반도체",
+    lead: "메모리·시스템 반도체 융합, 지능형 반도체",
     features: ["융합 구조", "저전력", "연산 내장"],
     keywords: [
       "지능화",
@@ -1172,11 +1192,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     defPair: [
       {
         name: "TPU (Tensor Processing Unit)",
+        lead: "행렬 연산 특화 반도체",
         def: "딥러닝의 행렬 연산 전용으로 특화 설계되어 학습과 추론을 가속하는 주문형 반도체",
         features: ["전용성", "전력 효율 높음", "폐쇄적 생태계"],
       },
       {
         name: "GPU (Graphics Processing Unit)",
+        lead: "병렬 연산의 범용 프로세서",
         def: "수천 개 코어의 동시 연산으로 그래픽과 대규모 범용 계산을 처리하는 병렬 프로세서",
         features: ["범용성", "전력 소비 높음", "개방적 생태계"],
       },
@@ -1364,8 +1386,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "우선순위 기반 CPU 스케줄링 시 높은 우선순위 프로세스의 지속적 진입으로 인해, 낮은 우선순위 프로세스가 수행되지 못하고 무한대기 하는 현상",
     defShort: "우선순위 스케줄링에서 낮은 우선순위 프로세스가 계속 밀려나 무한 대기하는 현상",
-    lead:
-      "저순위 프로세스의 무한 대기, 기아(Starvation)",
+    lead: "저순위 프로세스 무한 대기, 기아(Starvation)",
     features: ["무한 대기", "우선순위 기인", "에이징 해소"],
     keywords: ["무한대기", "Aging기법 적용", "HRN 스케줄링", "MLFQ 스케줄링"],
     tables: [
@@ -1935,6 +1956,20 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "가상 주소 변환의 두 방식, 직접 사상과 연관 사상",
     features: ["속도 차등", "비용 상충", "테이블 참조"],
+    defPair: [
+      {
+        name: "직접 사상(Direct Mapping)",
+        lead: "사상표 참조의 주소 변환",
+        def: "페이지 사상 테이블(PMT)을 참고해 가상 주소를 실제 주소로 변환하는 사상 기법",
+        features: ["PMT 참조", "구현 단순", "메모리 2회 접근"],
+      },
+      {
+        name: "연관 사상(Associative Mapping)",
+        lead: "병렬 검색의 고속 변환",
+        def: "주소 변환을 위해 연관 메모리 또는 내용 주소 지정 기억장치를 사용하는 페이징 기법",
+        features: ["병렬 검색", "고속 변환", "고비용"],
+      },
+    ],
     keywords: [
       "페이지 사상표 시작 주소",
       "가상 주소",
@@ -2134,8 +2169,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "멀티프로세싱 환경에서 페이지 부재로 인해 CPU가 프로세스 실행보다 페이지 교체에 더 많은 시간을 소요하는 비 정상적인 현상",
     defShort: "페이지 부재로 CPU가 프로세스 실행보다 페이지 교체에 시간을 더 쓰는 비정상 현상",
-    lead:
-      "과도한 페이지 교체의 성능 붕괴, 스레싱",
+    lead: "과도한 페이지 교체 붕괴, 스레싱",
     features: ["부재율 급증", "CPU 활용 급감", "워킹셋 해소"],
     keywords: [
       "리소스 부족",
@@ -2204,8 +2238,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "OS",
     definition: "CPU가 어느 순간에 정보를 특정 부분만 집중적으로 참조하는 특성",
     defShort: "CPU가 어느 순간에 기억장치의 특정 부분만 집중 참조하는 시간적·공간적 특성",
-    lead:
-      "참조 집중의 성질, 지역성(Locality)",
+    lead: "참조 집중 경향의 성질, 지역성(Locality)",
     features: ["시간적", "공간적", "캐시 근거"],
     keywords: ["시간적", "공간적", "순차적"],
     tables: [
@@ -2630,8 +2663,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "OS",
     definition: "작업이 주어진 기한(마감시간) 안에 완료되도록 계획하는 스케줄링 기법",
     defShort: "각 작업이 주어진 기한 안에 완료되도록 우선순위를 계획하는 실시간 스케줄링 기법",
-    lead:
-      "마감시간 보장의 실시간 계획, 기한부 스케줄링",
+    lead: "마감시간 보장 실시간 계획, 기한부 스케줄링",
     features: ["실시간성", "마감 보장", "주기 기반"],
     keywords: [
       "실시간 운영체제(Real-Time OS, RTOS)",
@@ -2819,8 +2851,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "프로세스가 자원을 요구할 때 시스템은 자원을 할당한 후에도 안정 상태로 남아있게 되는 지를 사전에 검사하여 교착상태의 발생을 회피하는 기법",
     defShort: "프로세스가 자원을 요구할 때 할당 후 안정 상태인지 검사해 교착상태를 회피하는 기법",
-    lead:
-      "안정 상태 검사의 교착 회피, Banker's 알고리즘",
+    lead: "안정 상태 검사 교착 회피, Banker's 알고리즘",
     features: ["사전 검사", "안정 상태 유지", "보수적 할당"],
     keywords: ["안정상태", "Available", "Max", "Need", "Allocation", "Request"],
     tables: [
@@ -2880,6 +2911,20 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "타임스탬프 기반 교착 회피, Wait-Die와 Wound-Wait",
     features: ["나이 비교", "선점 여부 상반", "롤백 활용"],
+    defPair: [
+      {
+        name: "Wait-Die",
+        lead: "비선점의 교착 회피 기법",
+        def: "타임스탬프 비교로 대기·롤백을 정하는 비선점 기반 DeadLock 회피 기법",
+        features: ["비선점", "Old는 대기", "Young은 롤백"],
+      },
+      {
+        name: "Wound-Wait",
+        lead: "선점의 교착 회피 기법",
+        def: "타임스탬프 비교로 대기·강제 종료를 정하는 선점 기반 DeadLock 회피 기법",
+        features: ["선점", "Old가 Young 강제종료", "Young은 대기"],
+      },
+    ],
     keywords: ["타임스템프", "Old", "Young", "롤백", "강제종료", "선점", "비선점"],
     tables: [
       {
@@ -3002,11 +3047,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     defPair: [
       {
         name: "프로세스(Process)",
+        lead: "자원 할당의 기본 단위",
         def: "운영체제로부터 독립된 메모리와 자원을 할당받아 CPU가 실행하는 프로그램 단위",
         features: ["독립성", "전환 비용 높음", "장애 격리"],
       },
       {
         name: "스레드(Thread)",
+        lead: "실행 흐름의 경량 단위",
         def: "하나의 프로세스 안에서 자원을 공유하며 실행 부분을 담당하는 경량화된 실행 단위",
         features: ["공유성", "전환 비용 낮음", "동기화 필요"],
       },
@@ -3141,8 +3188,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "하나의 Processor 내에서 둘 이상의 흐름(Thread)이 동시에 존재하며 독립적으로 실행될 수 있는 구조",
     defShort: "하나의 프로세스 내에서 둘 이상의 스레드가 동시에 독립적으로 실행될 수 있는 구조",
-    lead:
-      "단일 프로세스 내 병행 실행, 멀티 쓰레드",
+    lead: "프로세스 내 병행 실행, 멀티 쓰레드",
     features: ["자원 공유", "경량 전환", "병행성"],
     keywords: [
       "Single Thread",
@@ -3717,9 +3763,22 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "PM",
     definition: "범위 관리 실패 원인",
     defShort: "통제되지 않은 요구 증가와 요구 외 임의 기능 추가로 범위가 부푸는 범위관리 실패 원인",
-    lead:
-      "범위 관리 실패 원인, Scope Creep vs Gold-Plating",
+    lead: "범위 관리 실패의 두 원인, Scope Creep vs Gold-Plating",
     features: ["원인 상반", "범위 확산", "통제 실패"],
+    defPair: [
+      {
+        name: "Scope Creep",
+        lead: "통제 안 된 범위 확장",
+        def: "요구사항 관리 오류로 시간·원가·자원 조정 없이 진행되는 통제되지 않은 범위 확장",
+        features: ["범위관리 실패", "예산 조기 소모", "변경 승인 필요"],
+      },
+      {
+        name: "Gold Plating",
+        lead: "요구 초과의 기능 추가",
+        def: "고객 요구 이상으로 범위 외 기능·특성을 추가해 비용과 일정을 초과하는 낭비현상",
+        features: ["품질관리 실패", "시간·비용 낭비", "PM 승인 없는 추가 금지"],
+      },
+    ],
     keywords: ["통제 되지 않은 요구사항 관리", "고객이 요구한 것 이상으로 기능이나 특성을 추가"],
     tables: [
       {
@@ -3780,8 +3839,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "프로젝트 일정산정에 있어 낙관치(O), 비관치(P), 평균치(M) 의 산정 값을 계산하여 일정을 산정하는 기법",
     defShort: "낙관치와 비관치, 평균치를 가중 평균하여 프로젝트의 전체 일정을 산정하는 기법",
-    lead:
-      "불확실성을 반영한 일정 산정, 3점 산정",
+    lead: "불확실성 반영 일정 산정, 3점 산정",
     features: ["불확실성 반영", "가중 평균", "위험 계량화"],
     keywords: ["낙관치", "비관치", "평균치"],
     tables: [
@@ -3903,8 +3961,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "사업의 업무 범위, 일정 및 비용에 대한 개발 성과를 통합 관리 함으로써, 프로젝트의 최종 사업 일정과 비용을 예측하여 Risk 를 사전에 조치 할 수 있는 관리 기법",
     defShort: "업무 범위와 일정, 비용 성과를 통합 관리해 최종 일정과 비용을 예측하는 관리 기법",
-    lead:
-      "일정·원가의 통합 성과 측정, EVM(획득 가치 관리)",
+    lead: "일정·원가 통합 성과 측정, EVM(획득 가치 관리)",
     features: ["일정·원가 통합", "조기 경보", "예측 가능"],
     keywords: ["PV", "EV", "AC", "SV", "CV", "SPI", "CPI", "ETC", "EAC", "VAC", "TCPI"],
     tables: [
@@ -4454,8 +4511,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "PM",
     definition: "고객 요구사항에 유연한 대응을 하는 Agile 방법론의 4가지 선언문과 12 원칙",
     defShort: "고객 요구사항에 유연하게 대응하는 애자일 방법론의 4가지 선언문과 12가지 원칙",
-    lead:
-      "변화 대응 중심의 가치 선언, Agile 선언문과 12개 원칙",
+    lead: "변화 대응 중심 가치 선언, Agile 선언문과 12개 원칙",
     features: ["변화 수용", "협업 중시", "우선순위 선언"],
     keywords: ["개인과 상호작용", "변화에 대응", "작동하는 소프트웨어", "고객과의 협력"],
     tables: [
@@ -4578,8 +4634,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "의사소통과 TDD(Test driven development)를 기반으로 짧은 개발 주기를 통해 SW를 생산하는 애자일 개발 방법론",
     defShort: "의사소통과 테스트 주도 개발을 기반으로 짧은 개발 주기로 생산하는 애자일 방법론",
-    lead:
-      "의사소통과 TDD 기반 개발, XP(eXtreme Programming)",
+    lead: "소통·TDD 기반 개발, XP(eXtreme Programming)",
     features: ["짧은 피드백", "실천 중심", "고객 참여"],
     keywords: ["용기", "단순함", "커뮤니케이션", "피드백", "존중", "12가지 실천 항목"],
     tables: [
@@ -4633,8 +4688,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "제품을 개발하는 전 과정에서 고객의 피드백을 수시로 반영하며, 불필요한 작업을 최소화하여 생산성을 높이는 것을 목표하는 방법론",
     defShort: "고객 피드백을 수시로 반영하고 불필요한 작업을 최소화해 생산성을 높이는 방법론",
-    lead:
-      "개발 낭비의 제거, 린(Lean) 방법론",
+    lead: "낭비 제거의 가치 흐름, 린(Lean) 방법론",
     features: ["낭비 제거", "흐름 중시", "권한 위임"],
     keywords: ["나배결빠위통씨", "미가재작이지결"],
     tables: [
@@ -4671,8 +4725,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "소프트웨어 개발에 관한 계획, 분석, 설계 및 구축에 관련 정형화된 방법과 절차, 도구 등이 공학적 기법으로 체계적으로 정리하여 표준화한 이론",
     defShort: "SW 개발의 계획과 분석, 설계, 구축에 관한 방법과 절차, 도구를 표준화한 이론",
-    lead:
-      "개발 절차와 산출물의 표준화, 소프트웨어 개발 방법론",
+    lead: "개발 절차·산출물 표준화, 소프트웨어 개발 방법론",
     features: ["표준화", "재현성", "유형 진화"],
     keywords: ["표준화", "절방산관기도", "구정객CAP"],
     tables: [
@@ -4945,8 +4998,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "요구사항의 수집, 분석, 명세, 검증, 변경, 관리 등의 원칙과 제반 활동에 대한 총체적인 접근 체계",
     defShort: "요구사항의 수집·분석·명세·검증·변경관리 원칙과 활동의 총체적 접근 체계",
-    lead:
-      "요구사항 관리의 총체적 체계, 요구공학",
+    lead: "요구사항 관리 총체적 체계, 요구공학",
     features: ["체계성", "추적성", "변경 통제"],
     keywords: ["정명완검일수추리해", "추분명검", "협기변검"],
     tables: [
@@ -5025,8 +5077,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "SW 집약적 시스템의 아키텍처에서 표현해야 하는 내용 및 이들간 관계를 제공하는 아키텍처 명세 위한 표준 메타모델",
     defShort: "SW 집약적 시스템 아키텍처가 표현할 내용과 그 관계를 제공하는 명세 표준 메타모델",
-    lead:
-      "아키텍처 기술의 표준 메타모델, ISO/IEC/IEEE 42010",
+    lead: "아키텍처 기술 메타모델, ISO/IEC/IEEE 42010",
     features: ["표준화", "관점 분리", "추적 가능"],
     keywords: ["구성요소들 전부"],
     tables: [
@@ -5248,8 +5299,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "제시된 소프트웨어 아키텍처가 개발될 소프트웨어에 대해서 요구되는 품질 특성을 충족시킬 수 있는지 아키텍처 수준에서 평가하는 절차",
     defShort: "제시된 아키텍처가 요구되는 품질 특성을 충족하는지 아키텍처 수준에서 보는 절차",
-    lead:
-      "품질 충족 여부의 사전 검증, SW Architecture 평가",
+    lead: "품질 충족 여부 사전 검증, SW Architecture 평가",
     features: ["사전 검증", "트레이드오프 규명", "이해관계자 참여"],
     keywords: ["SAAM", "CBAM", "ATAM", "EATAM", "ADR", "ARID"],
     tables: [
@@ -5672,8 +5722,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "소프트웨어 개발의 여러 가지 문제 해결 설계 사례를 분류하고, 각 문제 유형별로 가장 적합한 설계를 일반화한 패턴",
     defShort: "소프트웨어 개발 문제 해결 사례를 분류해 유형별 가장 적합한 설계를 일반화한 패턴",
-    lead:
-      "반복 설계 문제의 정형 해법, 디자인 패턴",
+    lead: "반복 설계 문제 정형 해법, 디자인 패턴",
     features: ["재사용성", "검증된 해법", "의사소통 용이"],
     keywords: ["개발 중 문제 해결 사례 모음", "생성 패턴", "구조 패턴", "행위 패턴"],
     tables: [
@@ -5935,8 +5984,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "소프트웨어 개발 과정에 신뢰성과 효율성을 추구하여 안정적이고 예측 가능한 배포·구현·개선 방법을 포괄적으로 연구하는 소프트웨어 엔지니어링",
     defShort: "안정적이고 예측 가능한 배포와 구현, 개선 방법을 포괄적으로 연구하는 엔지니어링",
-    lead:
-      "예측 가능한 배포 파이프라인, 릴리즈 엔지니어링",
+    lead: "예측 가능한 배포 체계, 릴리즈 엔지니어링",
     features: ["자동화", "재현성", "예측 가능성"],
     keywords: ["배포·구현·유지보수", "파이프라인(pipeline)"],
     tables: [
@@ -6350,8 +6398,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "대량의 데이터를 스스로 학습하고 정리하여 문제에 대한 해답을 찾아내는 기법, 학습된 내용을 기반으로 미래를 예측하기 위한 기법",
     defShort: "대량의 데이터를 스스로 학습·정리해 해답을 찾고 그로써 미래를 예측하는 기법",
-    lead:
-      "정답 유무에 따른 학습의 갈래, 머신러닝 학습방법",
+    lead: "정답 유무별 학습 갈래, 머신러닝 학습방법",
     features: ["지도·비지도", "강화학습", "데이터 의존"],
     keywords: ["지도학습", "비지도학습", "준지도학습", "강화학습", "진화학습"],
     tables: [
@@ -6458,8 +6505,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "저장 데이터를 직접 공유하지 않는 다수의 로컬 기기와 하나의 중앙 서버가 협력하여 AI 모델을 학습하는 분산형 머신 러닝",
     defShort: "데이터를 공유하지 않고 다수 로컬 기기와 중앙 서버가 협력 학습하는 분산 머신러닝",
-    lead:
-      "데이터 이동 없는 협력 학습, 연합학습",
+    lead: "원본 이동 없는 협력 학습, 연합학습",
     features: ["프라이버시 보호", "분산 학습", "모델만 교환"],
     keywords: ["전역모델", "지역모델", "FedSGD", "FedAVG"],
     tables: [
@@ -6557,8 +6603,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "로봇, 자율주행차와 같은 물리적 기기에 탑재되어, 물리적 세계를 인식하고 이해하며 상호작용하는 인공지능",
     defShort: "로봇·자율주행차에 탑재돼 물리 세계를 인식·이해하며 상호작용하는 인공지능",
-    lead:
-      "물리 세계와 상호작용하는 AI, Physical AI",
+    lead: "물리 세계와 상호작용 AI, Physical AI",
     features: ["실세계 인식", "기기 탑재", "실시간성"],
     keywords: ["LWM", "Tokenizer", "디지털트윈", "온디바이스AI", "모델 경량화", "sLLM", "벡터DB", "휴머노이드", "자율주행"],
     tables: [
@@ -6752,8 +6797,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "신경망의 최적 가중치를 찾기 위해 실제 값과 신경망의 예측 값의 차이를 수치화(오차계산)해주는 함수",
     defShort: "최적의 가중치 탐색을 위해 실제 값과 신경망 예측 값의 오차를 수치화하는 평가 함수",
-    lead:
-      "오차의 수치화, 손실함수",
+    lead: "예측 오차의 수치화 척도, 손실함수",
     features: ["오차 계량", "최적화 기준", "문제별 선택"],
     keywords: ["오차 계산", "MSE", "RMSE", "MAE", "BCE", "CCE", "SCCE"],
     tables: [
@@ -6849,6 +6893,20 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "학습 데이터의 정답 부착, 데이터라벨링과 어노테이션",
     features: ["정답 생성", "품질 좌우", "수작업 비중"],
+    defPair: [
+      {
+        name: "데이터라벨링(Data Labeling)",
+        lead: "학습 정답 부착의 활동",
+        def: "기계학습에 활용하도록 기능·목적에 부합하는 정보를 원천데이터에 부착하는 활동",
+        features: ["정보 부착", "원천데이터", "학습 목적"],
+      },
+      {
+        name: "어노테이션(Annotation)",
+        lead: "기계 인식용 정보 기입",
+        def: "인간의 식별기준을 기계가 인식하도록 정보를 기입해 알고리즘이 이해하게 하는 과정",
+        features: ["식별기준 기입", "바운딩박스·폴리곤", "알고리즘 이해"],
+      },
+    ],
     keywords: ["라벨링", "어노테이션", "바운딩박스", "폴리곤", "텍스트 전사"],
     tables: [
       {
@@ -7097,8 +7155,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "라벨링 된 데이터로부터 거리가 가까운 'k'개의 다른 데이터의 레이블을 참조하여 분류하는 알고리즘",
     defShort: "라벨링된 데이터에서 거리가 가까운 K개 이웃의 레이블을 참조해 분류하는 알고리즘",
-    lead:
-      "이웃 참조의 분류, K-NN",
+    lead: "최근접 이웃 참조의 분류, K-NN",
     features: ["거리 기반", "비모수적", "계산 지연"],
     keywords: ["Classification", "회귀", "지도학습", "예측", "거리기반"],
     tables: [
@@ -7147,6 +7204,20 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "심층 학습의 두 실패 현상, 기울기 소실과 폭주",
     features: ["소멸·발산 상반", "깊이 기인", "ReLU 완화"],
+    defPair: [
+      {
+        name: "기울기 소실(Gradient Vanishing)",
+        lead: "역전파 기울기의 소멸",
+        def: "깊은 신경망의 역전파에서 기울기가 점차 작아져 가중치가 업데이트되지 않는 현상",
+        features: ["기울기 감소", "가중치 정체", "ReLU 완화"],
+      },
+      {
+        name: "기울기 폭주(Gradient Exploding)",
+        lead: "역전파 기울기의 발산",
+        def: "역전파 과정에서 기울기가 점차 커져 가중치가 비정상적으로 큰 값으로 발산하는 현상",
+        features: ["기울기 증가", "가중치 발산", "Gradient Clipping"],
+      },
+    ],
     keywords: ["ReLU", "Leaky ReLU", "Gradient Clipping"],
     tables: [
       {
@@ -7246,8 +7317,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "매우 많은 피처로 구성된 다차원 데이터 세트의 차원을 축소해 새로운 차원의 데이터 세트를 생성",
     defShort: "매우 많은 피처의 다차원 데이터 세트 차원을 축소해 새로운 차원의 데이터 세트를 생성",
-    lead:
-      "차원의 저주 극복, 차원 축소",
+    lead: "차원의 저주 극복 기법, 차원 축소",
     features: ["피처 압축", "연산 절감", "시각화 용이"],
     keywords: ["차원의 저주", "PCA", "LDA", "ISOMAP", "로컬 선형 임베딩"],
     tables: [
@@ -7810,8 +7880,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "언어모델을 활용한 서비스 개발 시 여러 언어 모델과 통합을 간소화 하도록 설계된 SDK이자 다양한 언어모델을 기반으로 하는 애플리케이션 개발을 위한 프레임워크",
     defShort: "여러 언어모델의 통합을 간소화해 LLM 응용 개발을 돕는 SDK이자 프레임워크",
-    lead:
-      "LLM 응용 개발 프레임워크, 랭체인",
+    lead: "LLM 앱 개발 프레임워크, 랭체인",
     features: ["통합 간소화", "모듈 조합", "외부 연동"],
     keywords: ["Agent", "Memory", "Model I/O", "Data Connection", "Chains", "Callbacks"],
     tables: [
@@ -7968,8 +8037,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "컴퓨터와 상호작용을 하는 사용자를 위한 AI 인터페이스 개발 분야로 높은 수준의 결과물을 얻기 위해 적절한 프롬프트를 구성하는 작업 또는 엔지니어링 기법",
     defShort: "높은 수준의 결과물을 얻기 위해 적절한 프롬프트를 구성하는 작업 또는 엔지니어링 기법",
-    lead:
-      "질문 설계의 기술, 프롬프트 엔지니어링",
+    lead: "LLM 질문 설계의 기술, 프롬프트 엔지니어링",
     features: ["출력 품질 좌우", "기법 다양", "비용 효율"],
     keywords: ["생성형AI", "Task Description", "Input Indicator", "Output Indicator", "Zero-shot Prompting"],
     tables: [
@@ -8076,8 +8144,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "\"개념(Concept)\"을 의미 단위로 사용하여 토큰 기반 제약을 벗어나 보다 의미론적인 추론을 수행하는 모델",
     defShort: "개념을 의미 단위로 삼아 토큰 기반의 제약을 벗어나 의미론적 추론을 수행하는 모델",
-    lead:
-      "토큰을 넘는 개념 단위 추론, 대형개념모델",
+    lead: "토큰 넘는 개념 단위 추론, 대형개념모델",
     features: ["개념 단위", "언어 독립", "의미 추론"],
     keywords: ["SONAR 임베딩 공간", "메타AI"],
     tables: [
@@ -8119,8 +8186,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "LLM의 언어 이해 능력에 실제 행동 수행 능력을 결합한 모델로 물리적인 세계와 상호작용하는 인공지능 모델",
     defShort: "LLM의 언어 이해 능력에 실제 행동 수행 능력을 결합한 물리 세계 상호작용형 모델",
-    lead:
-      "언어 이해에서 행동 수행으로, LAM",
+    lead: "언어 이해 넘어 행동 수행, LAM",
     features: ["행동 결합", "작업 분해", "실세계 연동"],
     keywords: ["AI Agent", "의도분류", "계층적작업분해", "Neuro-symbolic Programming", "RLHF"],
     tables: [
@@ -8424,8 +8490,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "대형 언어 모델(LLMs)의 설계부터 관리, 배포, 유지 관리를 통합하고 효율화하는 과정 및 패러다임",
     defShort: "대형 언어 모델의 설계·관리·배포·유지보수를 통합해 효율화하는 운영 패러다임",
-    lead:
-      "대형 언어 모델의 운영 체계, LLMOps",
+    lead: "대형 언어 모델 운영 체계, LLMOps",
     features: ["LLM 특화", "전 주기 관리", "효율화"],
     keywords: ["LLM", "DevOps", "자동화", "CI/CD"],
     tables: [
@@ -8837,8 +8902,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "AI의 부적절한 사용 방지 위해 가트너에서 제시한 AI 신뢰성, 위험, 보안 관리에 관한 프레임워크",
     defShort: "AI의 부적절한 사용을 막고자 가트너가 낸 신뢰성·위험·보안 관리 프레임워크",
-    lead:
-      "AI 신뢰·위험·보안의 통합 관리, AI TRiSM",
+    lead: "AI 신뢰·위험·보안 관리, AI TRiSM",
     features: ["설명 가능성", "모델 감시", "보안·프라이버시"],
     keywords: ["AI 악용", "Explainability/Model Monitoring", "ModelOps", "AI Application Security", "Privacy"],
     tables: [
@@ -8980,6 +9044,20 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "환경 변화의 성능 저하, 모델 드리프트",
     features: ["분포 변화", "관계 변화", "재학습 필요"],
+    defPair: [
+      {
+        name: "컨셉 드리프트(Concept Drift)",
+        lead: "라벨 관계 변화 성능 저하",
+        def: "입력 데이터와 정답 라벨의 관계성이 훈련 때와 달라져 모델 예측 성능이 저하되는 현상",
+        features: ["관계성 변화", "정의 변경 사례", "Online Learning"],
+      },
+      {
+        name: "데이터 드리프트(Data Drift)",
+        lead: "입력 분포 변화 성능 저하",
+        def: "훈련 시와 배포 환경의 입력 데이터 분포 차이의 편향으로 예측 성능이 저하되는 현상",
+        features: ["분포 변화", "계절성 사례", "재학습·재배포"],
+      },
+    ],
     keywords: ["데이터와 라벨의 관계성 변화", "입력데이터의 분포 변화"],
     tables: [
       {
@@ -9269,8 +9347,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "LLM 애플리케이션과 외부 데이터 소스 및 도구들 간의 원활한 통합을 가능하게 하는 개방형 프로토콜",
     defShort: "LLM 애플리케이션과 외부 데이터 소스, 도구를 원활히 통합하는 개방형 프로토콜",
-    lead:
-      "LLM과 외부 도구의 표준 연결, MCP",
+    lead: "LLM·도구 표준 연결, MCP",
     features: ["개방형 표준", "통합 간소화", "맥락 제공"],
     keywords: ["맥락", "프로토콜", "통합", "JSON-RPC 요청"],
     tables: [
@@ -9375,8 +9452,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "통계적 방법 등을 이용하여 추정된 모형에서 새롭게 생성되어 실제 데이터와 통계 속성이 동일한 모의 데이터",
     defShort: "통계적 방법으로 추정한 모형에서 새로 만들어 낸 실제와 통계 속성이 같은 모의 데이터",
-    lead:
-      "통계 속성 복제의 모의 데이터, 합성 데이터",
+    lead: "통계 속성을 복제한 데이터, 합성 데이터",
     features: ["프라이버시 보호", "속성 동일", "생성 다양"],
     keywords: ["통계적 속성", "모의 데이터", "완전합성", "부분합성", "복합합성", "전통적 통계 또는 베이지안", "기계학습 모형", "차등정보보호"],
     tables: [
@@ -9613,8 +9689,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "초거대AI 등장에 따라 기업 및 공공부문의 일하는 방식이 변화되고 있는 과정에서 초거대AI를 도입하기 위한 절차 및 내용에 대한 가이드라인",
     defShort: "공공부문이 초거대AI를 도입하기 위한 절차와 내용을 제시한 정부의 가이드라인",
-    lead:
-      "공공 초거대AI 도입의 지침, 공공부문 가이드라인 2.0",
+    lead: "공공 초거대AI 도입 지침, 공공부문 가이드라인 2.0",
     features: ["보안 등급화", "절차 제시", "성과 관리"],
     keywords: ["데이터 보안 등급", "서비스 도입 방식", "서비스 레벨 목표", "유지보수 및 운영", "성과관리"],
     tables: [
@@ -9746,8 +9821,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "인공지능의 건전한 발전과 신뢰기반 조성에 필요한 기본적인 사항을 규정하는 것을 목적으로 제정된 법",
     defShort: "인공지능의 건전한 발전과 신뢰기반 조성에 필요한 기본 사항을 규정하려 제정된 법",
-    lead:
-      "AI 발전과 신뢰의 법적 기반, AI 기본법",
+    lead: "AI 발전·신뢰 법적 기반, AI 기본법",
     features: ["고영향 규율", "투명성 의무", "산업 육성"],
     keywords: ["국가인공지능위원회", "고영향 인공지능", "생성형 인공지능", "인공지능산업", "인공지능사업자"],
     tables: [
@@ -9834,8 +9908,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "생성형AI 데이터 관점의 품질관리 역량 확보를 위한 품질관리 방법 및 절차의 체계적으로 제시하는 품질관리 가이드라인",
     defShort: "생성형AI 데이터 관점의 품질관리 역량 확보를 위한 방법과 절차를 담은 가이드라인",
-    lead:
-      "생성형AI 데이터 품질 기준, 생성형AI 데이터 품질관리 가이드",
+    lead: "생성형AI 데이터 품질기준, 생성형AI 데이터 품질관리 가이드",
     features: ["생성형 특화", "전 주기 관리", "절차 체계화"],
     keywords: ["구축계획 수립", "데이터 획득/수집", "데이터 정제", "데이터 가공", "데이터 학습", "데이터 운영·활용"],
     tables: [
@@ -9951,6 +10024,20 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "연속 확률의 수학적 표현, 확률분포와 확률 밀도 함수",
     features: ["밀도 표현", "적분 확률", "분포 다양"],
+    defPair: [
+      {
+        name: "확률분포(Probability Distribution)",
+        lead: "시행 결과 확률의 분포",
+        def: "여러 번의 독립적 시행에서 각각의 값이 특정 횟수만큼 나타날 확률을 정의하는 분포",
+        features: ["이산·연속", "정규·지수분포", "확률질량함수"],
+      },
+      {
+        name: "확률밀도함수(Probability Density Function)",
+        lead: "연속 분포의 수학적 표현",
+        def: "연속확률변수의 확률분포를 구간 적분으로 확률을 얻도록 수학적으로 표현한 함수",
+        features: ["연속확률변수", "적분 확률", "전체 면적 1"],
+      },
+    ],
     keywords: ["이산확률분포", "연속확률분포", "정규분포", "지수분포", "확률질량함수"],
     tables: [
       {
@@ -9986,8 +10073,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "평균을 중심으로 종모양의 좌우 대칭인 분포로 평균과 분산(또는 표준편차)에 따라 분포의 위치와 모양이 결정되는 확률분포",
     defShort: "평균 중심의 좌우대칭 종모양으로 평균과 분산이 위치와 모양을 결정하는 확률분포",
-    lead:
-      "통계의 중심 분포, 정규분포",
+    lead: "통계 추론의 중심 분포, 정규분포",
     features: ["좌우대칭", "종모양", "두 모수 결정"],
     keywords: ["확률변수", "종모양", "표준편차", "평균", "분산", "표준정규 분포", "Z값"],
     tables: [
@@ -10124,6 +10210,20 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "분포 모양의 두 측정값, 왜도와 첨도",
     features: ["비대칭 측정", "뾰족함 측정", "정규성 검정"],
+    defPair: [
+      {
+        name: "왜도(Skewness)",
+        lead: "분포 비대칭의 측정값",
+        def: "분포의 비대칭성 정도로서 평균을 중심으로 분포가 어느 쪽으로 기울어진 정도와 방향",
+        features: ["비대칭", "좌·우 편향", "0이면 대칭"],
+      },
+      {
+        name: "첨도(Kurtosis)",
+        lead: "분포 뾰족함의 측정값",
+        def: "정규 분포와 비교해 분포의 꼬리와 봉우리가 중심에서 얼마나 더 뾰족한지 측정한 값",
+        features: ["뾰족함", "꼬리 두께", "3이면 정규"],
+      },
+    ],
     keywords: ["분포의 비대칭성 정도", "얼마나 더 뾰족한 지 측정", "정규성 검정"],
     tables: [
       {
@@ -10159,8 +10259,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "ST",
     definition: "보통 관측된 데이터의 범위에서 많이 벗어난 아주 작은 값이나 큰 값",
     defShort: "관측된 데이터의 범위에서 많이 벗어나 분석 결과를 왜곡하는 아주 작은 값이나 큰 값",
-    lead:
-      "범위를 벗어난 값, 이상치",
+    lead: "정상 범위를 벗어난 값, 이상치",
     features: ["결과 왜곡", "탐지 기법 다양", "처리 판단"],
     keywords: ["결과 왜곡", "적정성 위협", "Percentile", "variance", "Likelihood", "Nearest-Neighbor", "Density", "Clustering"],
     tables: [
@@ -10282,8 +10381,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "ST",
     definition: "두 확률 변수의 사전 확률과 사후 확률 사이의 관계를 나타내는 정리",
     defShort: "두 확률 변수의 사전 확률과 사후 확률 사이의 관계를 나타내어 확률을 갱신하는 정리",
-    lead:
-      "확률 갱신의 원리, 베이즈 정리",
+    lead: "사전·사후 확률 갱신 원리, 베이즈 정리",
     features: ["사전·사후", "우도 활용", "조건부 기반"],
     keywords: ["사전확률", "우도(Likelihood)", "사후확률", "조건부확률", "확률의 곱셈정리", "전 확률의 정리"],
     tables: [
@@ -10386,8 +10484,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "ST",
     definition: "모집단으로부터 표본을 추출하여 모집단의 특성을 나타내는 모수에 대한 정보를 얻기 위한 일련의 과정",
     defShort: "모집단에서 표본을 추출하여 모수에 대한 정보를 얻기 위한 점 추정과 구간 추정 과정",
-    lead:
-      "모수 근사의 이론, 추정 이론",
+    lead: "표본으로 모수 근사 이론, 추정 이론",
     features: ["점 추정", "구간 추정", "신뢰수준"],
     keywords: ["추정", "추정량", "추정값", "점 추정", "구간 추정"],
     tables: [
@@ -10533,6 +10630,20 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "모델 선택의 두 잣대, AIC와 BIC",
     features: ["적합도·복잡도", "패널티 차등", "비교 선택"],
+    defPair: [
+      {
+        name: "AIC(Akaike Information Criterion)",
+        lead: "적합도·복잡도의 균형 지표",
+        def: "모델의 적합도와 변수 개수인 복잡도를 동시에 고려해 최적 모델을 선택하는 평가 지표",
+        features: ["적합도+2p", "복잡도 패널티", "예측 중시"],
+      },
+      {
+        name: "BIC(Bayesian Information Criterion)",
+        lead: "표본 크기 반영 패널티",
+        def: "표본 크기 n을 고려하여 복잡한 모델에 더 큰 패널티를 부여하는 모델 선택 평가 지표",
+        features: ["log(n)p", "큰 패널티", "참 모델 선택"],
+      },
+    ],
     keywords: ["회귀", "모델 적합도·복잡도 균형 평가 기준"],
     tables: [
       {
@@ -10755,8 +10866,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "제품에 랜덤 데이터를 입력하여 발생되는 예외, 오류 등을 분석, 보안 취약점을 찾아내는 테스팅 기법",
     defShort: "제품에 랜덤 데이터를 입력해 예외와 오류를 분석하고 보안 취약점을 찾는 테스팅 기법",
-    lead:
-      "비정상 입력 기반 취약점 탐지, 퍼징 테스트",
+    lead: "비정상 입력의 취약점 탐지, 퍼징 테스트",
     features: ["무작위성", "자동화", "취약점 특화"],
     keywords: ["Valid Case Fuzzing", "Invalid Case Skip Fuzzing", "Invalid Case Fail Fuzzing", "보안취약점", "블랙박스", "화이트박스"],
     tables: [
@@ -10861,8 +10971,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "테스트 대상 어플리케이션과 관련된 키워드 테스트 케이스를 포함하여 해석기, 시퀀서 이용한 ISO/IEC/IEEE 29119 Part 5에 명시된 소프트웨어 국제 표준 테스트 기법",
     defShort: "키워드 테스트 케이스와 해석기, 시퀀서를 이용해 자동 실행하는 국제 표준 시험 기법",
-    lead:
-      "키워드 조립식 테스트 자동화, Keyword Driven Testing",
+    lead: "키워드 조립 테스트 자동화, Keyword Driven Testing",
     features: ["재사용성", "비개발자 참여", "유지보수 용이"],
     keywords: ["편집기", "해석기", "데이터 시퀀서", "툴 브릿지", "실행 엔진", "테스트 대상", "테스트 라이브러리 저장소", "테스트 데이터 저장소"],
     tables: [
@@ -10991,8 +11100,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "SW개발 생명주기 전 과정에 걸쳐 있는 테스팅 프로세스와 관련 산출물에 대한 국제 표준",
     defShort: "SW 개발 생명주기 전 과정에 걸쳐 있는 테스팅 프로세스와 관련 산출물의 국제 표준",
-    lead:
-      "테스팅 프로세스의 국제 표준, ISO 29119",
+    lead: "테스팅 프로세스 국제 표준, ISO 29119",
     features: ["국제 표준", "전 생명주기", "프로세스 체계화"],
     keywords: ["[개프도테키]", "개념", "프로세스", "문서화", "테스트 기법", "키워드 기반 테스팅"],
     tables: [
@@ -11341,8 +11449,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "OSS를 안전하게 사용·적용 및 배포하기 위해 필요한 사항을 다양한 관점에서 활용할 수 있도록 소프트웨어 라이프 사이클 단계별로 제시한 절차 및 체계",
     defShort: "OSS의 안전한 사용·적용·배포를 생명주기 단계별로 통제하는 절차와 관리 체계",
-    lead:
-      "OSS 생명주기의 통제 체계, 오픈소스 거버넌스",
+    lead: "OSS 생명주기 통제 체계, 오픈소스 거버넌스",
     features: ["생명주기 관리", "라이선스 준수", "통제 체계"],
     keywords: ["거버넌스", "프레임워크", "정책수립", "획득", "적용", "운영 및 유지", "관리 및 개선"],
     tables: [
@@ -11418,8 +11525,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "국산 SW 제품의 품질 향상을 통한 국내 SW 산업 활성화 정책으로 SW 시험 인증 센터가 국제표준을 기반으로 개발한 한국형 SW 품질 인증제도",
     defShort: "국제표준을 기반으로 국산 SW 제품 품질을 시험해 등급을 부여하는 국가 인증 제도",
-    lead:
-      "국산 SW 제품의 품질 인증, GS 인증",
+    lead: "국산 SW 제품 품질 인증, GS 인증",
     features: ["제품 대상", "국제표준 기반", "조달 혜택"],
     keywords: ["기능성", "신뢰성", "사용성", "성능효율성", "유지보수성", "이식성", "보안성", "호환성", "일반적 요구사항", "SW산업진흥법"],
     tables: [
@@ -11506,8 +11612,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "소프트웨어 품질의 특성을 정의하고, 품질 평가의 Metrics를 정의한 국제표준",
     defShort: "SW 품질 특성과 품질 평가 Metrics를 9개 주특성 체계로 정의한 국제표준",
-    lead:
-      "SW 품질 특성의 국제 표준, ISO/IEC 25010",
+    lead: "SW 품질 특성 국제 표준, ISO/IEC 25010",
     features: ["품질 특성 체계", "국제 표준", "평가 지표"],
     keywords: ["기능적합성", "신뢰성", "상호작용 능력", "성능 효율성", "유지 보수성", "유연성", "보안성", "호환성", "안전성"],
     tables: [
@@ -11585,8 +11690,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "제어 흐름 그래프를 통해 회전(사이크로매틱)수를 구하여 SW 복잡도를 계산하는 방법",
     defShort: "제어 흐름 그래프에서 사이크로매틱 회전수를 구해 SW의 복잡도를 계산하는 방법",
-    lead:
-      "제어 흐름 기반 복잡도 측정, McCabe 회전 복잡도",
+    lead: "제어 흐름 기반 복잡도, McCabe 회전 복잡도",
     features: ["정량 측정", "구조 기반", "케이스 산정"],
     keywords: ["복잡도 = (edge − node + 2) = (폐구간 + 1) = (의사결정 수 + 조건 수 + 1)"],
     tables: [
@@ -11778,8 +11882,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "STAMP를 기반으로 하는 위험분석 기법으로, 시스템의 각 요소간의 상호작용이 시스템의 안전성에 위협가능한지 분석하는 기법",
     defShort: "STAMP 기반으로 시스템 각 요소 간 상호작용이 안전성을 위협하는지 보는 기법",
-    lead:
-      "요소 간 상호작용의 안전 분석, STPA",
+    lead: "상호작용 기반 안전 분석, STPA",
     features: ["상호작용 중심", "시스템 이론", "제어 관점"],
     keywords: ["STAMP", "요소간 상호작용", "사고 및 위험정의", "Control Structure 도식화", "Unsafe Control Action 도출", "원인 시나리오 도출"],
     tables: [
@@ -12092,8 +12195,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "정보시스템 개발사업, EA, ISP수립, DB구축 등 모든 유형의 정보화 사업에 공통적으로 적용되는 감리절차",
     defShort: "개발과 EA, ISP 등 모든 유형의 정보화 사업에 공통으로 적용되는 감리의 절차",
-    lead:
-      "모든 정보화 사업의 공통 절차, 공통감리 절차",
+    lead: "정보화 사업 공통 절차, 공통감리 절차",
     features: ["표준화", "3단계 구성", "전 유형 적용"],
     keywords: ["[예현조]", "예비조사", "현장감리", "조치 확인", "준실감", "감착감보종보", "준시작보"],
     tables: [
@@ -12286,8 +12388,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "국가기관 등에서 소프트웨어사업의 예산편성, 발주, 소프트웨어 배포 및 서비스 제공을 추진하는 경우 민간 소프트웨어 시장 침해 등 소프트웨어 산업 생태계에 미치는 영향을 검토하여 사전 조정하는 제도",
     defShort: "공공 SW사업이 민간 소프트웨어 시장에 미치는 영향을 검토해 사전 조정하는 제도",
-    lead:
-      "민간 시장 침해의 사전 조정, 소프트웨어사업 영향평가",
+    lead: "민간 시장 침해 사전 조정, 소프트웨어사업 영향평가",
     features: ["사전 조정", "민간 보호", "이의 절차"],
     keywords: ["소프트웨어 진흥법 43조", "민간 시장 위축 방지", "대상사업 명확화", "SW사업자에게 재평가 요청권 부여"],
     tables: [
@@ -12406,6 +12507,20 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "데이터 대응 구조의 분류, 선형과 비선형 자료구조",
     features: ["1:1 대 1:N", "용도 구분", "기본 분류"],
+    defPair: [
+      {
+        name: "선형 자료구조(Linear Data Structure)",
+        lead: "1:1 대응의 순차 구조",
+        def: "데이터가 1:1 대응 구조로 저장되어 구조가 간단하고 접근 속도가 빠른 자료구조",
+        features: ["Array·Linked List", "Stack·Queue", "순차 접근"],
+      },
+      {
+        name: "비선형 자료구조(Non-linear Data Structure)",
+        lead: "1:N 관계의 계층 구조",
+        def: "데이터가 1:N 또는 M:N 구조로 관계를 맺어 자료 간의 관계를 표현하는 자료구조",
+        features: ["Tree·Graph", "관계 표현", "계층·망 구조"],
+      },
+    ],
     keywords: ["선형자료구조(Array, Linked List, 스택(LIFO), 큐(FIFO))", "비선형자료구조(트리, 그래프)"],
     tables: [
       {
@@ -12643,8 +12758,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "DS",
     definition: "하나의 노드가 가질 수 있는 자식 노드의 최대 숫자가 2보다 큰 이진 트리의 확장형 트리 구조",
     defShort: "하나의 노드가 가질 수 있는 자식 노드의 최대 수가 2보다 큰 이진 트리의 확장형 구조",
-    lead:
-      "다분기 균형 트리, B-Tree",
+    lead: "다분기 균형 탐색 트리, B-Tree",
     features: ["다중 자식", "균형 유지", "디스크 효율"],
     keywords: ["m/2", "분할", "균형 유지"],
     tables: [
@@ -12678,8 +12792,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "DS",
     definition: "개별 요소들이 특정한 방향을 향하고 있으며, 서로 순환하지 않는 구조로 구성된 그래프",
     defShort: "개별 요소들이 방향을 가지며 서로 순환하지 않아 위상 정렬이 가능한 방향성 그래프",
-    lead:
-      "방향은 있고 순환은 없는 구조, DAG",
+    lead: "방향 있고 순환 없는 구조, DAG",
     features: ["방향성", "비순환", "위상 정렬 가능"],
     keywords: ["위상 정렬", "유향 비순환", "진입차수"],
     tables: [
@@ -13277,8 +13390,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "AL",
     definition: "계층적 구조를 갖는 트리(Tree)의 모든 노드(node)를 한 번씩 체계적으로 방문하는 과정",
     defShort: "루트와 서브트리의 방문 순서에 따라 모든 노드를 한 번씩 체계적으로 방문하는 과정",
-    lead:
-      "트리 방문의 체계, 트리 순회",
+    lead: "노드 방문 순서의 체계, 트리 순회",
     features: ["전·중·후위", "전체 방문", "재귀 기반"],
     keywords: ["전위 순회(Pre-Order Traversal)", "중위 순회(In-Order Traversal)", "후위 순회(Post-Order Traversal)"],
     tables: [
@@ -13666,8 +13778,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "UDP+TLS 웹 페이지 로딩 시간 개선과 동시에 혼잡제어 및 손실 복구 가능한 구글 QUIC 기반의 응용계층 프로토콜",
     defShort: "로딩 시간을 줄이고 혼잡제어·손실 복구가 가능한 구글 QUIC 응용계층 프로토콜",
-    lead:
-      "QUIC 기반의 차세대 웹 규약, HTTP/3",
+    lead: "QUIC 기반 웹 규약, HTTP/3",
     features: ["UDP 기반", "지연 감소", "HOL 해소"],
     keywords: ["QUIC(QUICK UDP Internet Connections)", "TLS 1.3", "UDP", "HTTP 1.1 HOL 블로킹 문제 해결", "0-RTT", "1-RTT Handshake"],
     tables: [
@@ -14029,8 +14140,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "이진 나눗셈 연산을 기반으로 오류를 검출하는 방식으로 성능이 우수하며, 여러 비트에서 발생하는 집단 오류(Burst Error)도 검출 가능한 오류 검출 기법",
     defShort: "이진 나눗셈 연산을 기반으로 집단 오류까지 검출하는 성능이 우수한 오류 검출 기법",
-    lead:
-      "집단 오류의 검출, CRC",
+    lead: "다항식 나눗셈 오류 검출, CRC",
     features: ["다항식 나눗셈", "집단 오류 대응", "검출 전용"],
     keywords: ["Divisor", "다항식", "나머지 연산"],
     tables: [
@@ -14141,8 +14251,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "IP호스트가 자신의 물리 네트워크 주소(MAC)는 알지만 IP주소를 모르는 경우, 서버로부터 IP주소를 요청하기 위해 사용하는 프로토콜",
     defShort: "물리 주소는 알지만 IP 주소를 모를 때 서버에 IP를 요청하기 위해 쓰는 프로토콜",
-    lead:
-      "MAC에서 IP로, RARP",
+    lead: "MAC로 IP 주소 획득, RARP",
     features: ["역방향 변환", "서버 의존", "디스크리스 활용"],
     keywords: ["MAC을 IP로 변환"],
     tables: [
@@ -14338,8 +14447,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "기존 이동통신 상용망이 아닌 전용 주파수를 통해 특정공간(건물, 시설, 장소 등)에서 수요기업이 도입하는 최첨단 서비스 구현할 수 있는 맞춤형 네트워크",
     defShort: "상용망이 아닌 전용 주파수를 통해 특정 공간에 구축하는 기업 맞춤형 5G 네트워크",
-    lead:
-      "기업 전용의 5G, 5G 특화망",
+    lead: "기업·기관 전용의 5G 망, 5G 특화망",
     features: ["전용 주파수", "공간 한정", "보안·저지연"],
     keywords: ["전용 주파수", "4.7GHz", "28GHz", "자가구축", "On-Premise형", "5G Core CP 공유형", "5G Core 전체 공유형", "MEC", "SDN", "NFV", "Open RAN"],
     tables: [
@@ -14497,8 +14605,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "5G의 20Gbps보다 50배 빠른 1Tbps 최대 전송 용량과 10배 우수한 1Gbps 사용자 체감 속도 등을 지원하는 이동 통신 기술",
     defShort: "5G의 20Gbps보다 50배 빠른 1Tbps 용량을 지원하는 이동 통신 기술",
-    lead:
-      "1Tbps의 차세대 이동통신, 6G",
+    lead: "1Tbps 차세대 이동통신, 6G",
     features: ["초성능", "초공간", "초지능"],
     keywords: ["초대역", "초성능", "초공간", "초정밀", "초지능", "초현실"],
     tables: [
@@ -14547,8 +14654,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "물리적 네트워크를 실시간 복제하여 6G 무선네트워크의 설계, 진단, 분석, AI/ML 기반 실시간 최적화 및 제어를 하기 위한 네트워크",
     defShort: "물리적 네트워크를 실시간 복제해 6G 망의 설계와 진단, 최적화를 하려는 네트워크",
-    lead:
-      "망의 실시간 복제, 디지털 트윈 네트워크",
+    lead: "망의 실시간 가상 복제, 디지털 트윈 네트워크",
     features: ["실시간 매핑", "사전 검증", "최적화 순환"],
     keywords: ["물리적 네트워크", "가상 네트워크", "Network Application Layer", "Digital Twin Layer", "Physical Network Layer"],
     tables: [
@@ -14677,8 +14783,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "향상된 효율성을 핵심 목표로 UHR(Ultra High Reliability, 극도로 높은 신뢰성)을 제공하는 차세대 Wi-Fi 표준",
     defShort: "효율성 향상을 핵심 목표로 UHR 극도의 신뢰성을 제공하는 차세대 Wi-Fi 표준",
-    lead:
-      "신뢰성 중심의 차세대 무선랜, Wi-Fi 8",
+    lead: "신뢰성 중심 차세대 무선랜, Wi-Fi 8",
     features: ["UHR 지향", "AP 협력", "혼잡 대응"],
     keywords: ["IEEE 802.11bn", "UHR(Ultra High Reliability)", "대역폭(2.4GHz, 5GHz, 6GHz)", "최대속도(100Gbps)"],
     tables: [
@@ -15152,6 +15257,20 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "흐름 제어와 부하 감소, Sliding Window와 네이글",
     features: ["윈도우 조절", "패킷 절감", "효율 전송"],
+    defPair: [
+      {
+        name: "Sliding Window",
+        lead: "윈도우 크기의 흐름 제어",
+        def: "수신 측 윈도우 크기만큼 ACK 없이 전송하도록 흐름을 동적 조절하는 제어 알고리즘",
+        features: ["윈도우 열림·닫힘", "cwnd·rwnd", "ACK 없이 전송"],
+      },
+      {
+        name: "네이글(Nagle's) 알고리즘",
+        lead: "작은 패킷 병합 부하 감소",
+        def: "작은 패킷 여러 개를 모아 전송해 네트워크의 패킷 수를 줄여 부하를 감소시키는 기법",
+        features: ["패킷 병합", "ACK 대기", "패킷 수 절감"],
+      },
+    ],
     keywords: ["윈도우 열림, 닫힘, 축소 동작", "수신 Window Size만큼 전송", "송신 데이터 종료 시 즉시 전송", "데이터 축적 후 전송"],
     tables: [
       {
@@ -15334,8 +15453,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "트랜잭션 실행 중 중간 연산 결과가 다른 트랜잭션으로 접근 불가하도록 하는 고립성을 유지하기 위해 데이터를 허용하는 수준",
     defShort: "고립성 유지를 위해 실행 중인 중간 연산 결과에 다른 트랜잭션 접근을 허용하는 수준",
-    lead:
-      "고립성 유지의 데이터 허용 수준, Isolation Level(격리 레벨)",
+    lead: "고립성의 데이터 허용 수준, Isolation Level(격리 레벨)",
     features: ["4단계 레벨", "고립성-동시성 상충", "이상현상 통제"],
     keywords: ["2PC", "투명성"],
     tables: [
@@ -15673,8 +15791,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "이상현상을 발생시키는 속성 간의 종속성, 중복성을 제거하고 무결성을 보장하기 위해 릴레이션을 분해하는 과정",
     defShort: "이상현상을 일으키는 속성 간 종속성과 중복성을 제거하려 릴레이션을 분해하는 과정",
-    lead:
-      "종속성·중복성 제거의 릴레이션 분해, 데이터베이스 정규화(Normalization)",
+    lead: "종속·중복 제거의 분해, 데이터베이스 정규화(Normalization)",
     features: ["이상현상 제거", "중복 최소화", "무결성 보장"],
     keywords: ["삽입·삭제·갱신 이상 현상(Anomaly)", "무손실", "중복 분해", "함수적 종속성"],
     tables: [
@@ -15760,8 +15877,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "데이터 간에 관계가 모호해져서 원하는 결과를 얻을 수 없거나 업무 처리시 영향을 주는 ER모델의 문제점",
     defShort: "데이터 간의 관계가 모호해져서 원하는 결과를 얻을 수 없게 되는 ER모델의 문제점",
-    lead:
-      "관계 모호성의 ER모델 문제, 연결함정(Connection Trap)",
+    lead: "관계 모호성의 ER 문제, 연결함정(Connection Trap)",
     features: ["관계 모호", "부채꼴 함정", "균열 함정"],
     keywords: ["데이터 모델링 문제점", "무결성 분해 원칙 미준수", "부채꼴 함정", "균열 함정"],
     tables: [
@@ -15789,8 +15905,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "관계형 데이터베이스에서 원하는 정보를 검색하기 위해 어떻게 유도하는가(how)를 기술하는 절차적인 언어",
     defShort: "관계형 DB에서 원하는 정보를 어떻게 유도하는지를 기술하는 절차적인 질의 언어",
-    lead:
-      "How를 기술하는 절차적 언어, 관계대수(Relational Algebra)",
+    lead: "How 기술의 절차적 언어, 관계대수(Relational Algebra)",
     features: ["절차적 언어", "일반집합 연산자", "순수관계 연산자"],
     keywords: ["절차적 언어", "일반집합 연산자", "순수관계 연산자"],
     tables: [
@@ -15822,8 +15937,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "관계형 데이터베이스에서 수학적 논리를 사용하여 데이터를 질의하는 선언적(비절차적) 언어",
     defShort: "관계형 DB에서 수학적 논리를 사용하여 데이터를 질의하는 선언적인 비절차 언어",
-    lead:
-      "What을 기술하는 선언적 언어, 관계해석(Relational Calculus)",
+    lead: "What 기술 선언적 언어, 관계해석(Relational Calculus)",
     features: ["비절차적 언어", "수학적 논리", "프레디킷 해석"],
     keywords: ["비절차적 언어", "수학적 논리", "원하는 데이터만 명시", "프레디킷 해석(Predicate Calculus)"],
     tables: [
@@ -15931,8 +16045,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "트랜잭션을 실행하는 동안 모든 갱신은 지역 사본에만 반영되고 트랜잭션 종료 시 확인 단계를 통해 직렬 가능성에 위반되지 않으면 실행하고 위반되면 복귀하는 기법",
     defShort: "갱신을 지역 사본에만 반영하고 종료 시 직렬 가능성을 확인해 반영·복귀하는 기법",
-    lead:
-      "종료 시 일괄 검증의 동시성 제어, 낙관적 검증(Validation) 기법",
+    lead: "종료 시 일괄 검증 제어, 낙관적 검증(Validation) 기법",
     features: ["지역 사본 갱신", "종료 시 검증", "위반 시 복귀"],
     keywords: ["판독", "기록", "확인", "직렬 가능성", "유효성 검사"],
     tables: [
@@ -16115,8 +16228,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "Key/Value 저장 구조에 Put/Get 밖에 없는 DBMS에 다양한 형태의 Query 지원을 위한 테이블 디자인 가이드",
     defShort: "Put/Get뿐인 키·값 구조에 다양한 쿼리를 지원하는 테이블 디자인 가이드",
-    lead:
-      "쿼리 지원 테이블 설계 가이드, NoSQL 데이터모델링 패턴",
+    lead: "쿼리 중심 테이블 설계, NoSQL 데이터모델링 패턴",
     features: ["기본 패턴", "확장 패턴", "계층 패턴"],
     keywords: ["기본 데이터 모델링 패턴", "확장 데이터 모델링 패턴", "계층 데이터 모델링 패턴"],
     tables: [
@@ -16155,9 +16267,22 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "CAP: 분산시스템이 갖출 수 있는 일관성, 가용성, 부분결함허용 3가지 특성 중 2가지만 선택 가능하다는 이론 / BASE: 가용성, 성능 향상을 중시하며 일관성 유지하는 분산시스템 특성",
     defShort: "3특성 중 2개만 택하는 CAP와 가용성·성능 중시의 BASE의 분산시스템 특성",
-    lead:
-      "분산시스템 특성의 선택 이론, CAP 이론과 BASE 이론",
+    lead: "분산시스템 특성 선택 이론, CAP 이론과 BASE 이론",
     features: ["2가지만 선택", "가용성 중시", "결과적 일관성"],
+    defPair: [
+      {
+        name: "CAP 이론",
+        lead: "3특성 중 2택의 이론",
+        def: "분산시스템의 일관성·가용성·부분결함허용 중 두 가지만 선택 가능하다는 이론",
+        features: ["일관성", "가용성", "파티션 허용"],
+      },
+      {
+        name: "BASE 이론",
+        lead: "가용성 우선 결과적 일관성",
+        def: "가용성과 성능 향상을 중시하며 결과적으로 일관성을 유지하는 분산시스템의 특성",
+        features: ["Basically Available", "Soft State", "Eventually Consistent"],
+      },
+    ],
     keywords: ["일관성", "가용성", "파티션 허용성", "가용성"],
     tables: [
       {
@@ -16197,8 +16322,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "CAP 이론의 단점을 보완하기 위해 네트워크 장애 상황과 정상 상황으로 나누어서 설명하는 이론",
     defShort: "CAP 이론의 단점을 보완하기 위해 장애 상황과 정상 상황으로 나누어 설명하는 이론",
-    lead:
-      "장애·정상 상황의 상충 이론, PACELC",
+    lead: "장애·정상 상황 상충 이론, PACELC",
     features: ["장애 시 A-C 상충", "정상 시 L-C 상충", "4가지 분류"],
     keywords: ["Partition", "Availability", "Consistency", "Latency", "Consistency"],
     tables: [
@@ -16276,8 +16400,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "방대한 양의 고차원 데이터를 벡터 형태로 최적화하여 저장하고 검색하기 위한 데이터베이스",
     defShort: "방대한 양의 고차원 데이터를 벡터 형태로 최적화해 저장하고 검색하는 데이터베이스",
-    lead:
-      "고차원 데이터의 벡터 저장·검색, 벡터 데이터베이스(Vector Database)",
+    lead: "고차원 벡터 저장·검색, 벡터 데이터베이스(Vector Database)",
     features: ["임베딩", "유사도 측정", "유사성 검색"],
     keywords: ["임베딩", "유사도 측정", "유사성 검색"],
     tables: [
@@ -16319,8 +16442,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "고차원 벡터 공간에서 주어진 쿼리 벡터에 가장 가까운 이웃(neighbor)을 빠르게 찾기 위한 근사 최근접 이웃 알고리즘",
     defShort: "고차원 벡터 공간에서 쿼리 벡터에 가장 가까운 이웃을 빠르게 찾기 위한 근사 알고리즘",
-    lead:
-      "쿼리 벡터의 근사 이웃 탐색, ANN 알고리즘",
+    lead: "쿼리 벡터 근사 이웃 탐색, ANN 알고리즘",
     features: ["공간 분할", "그래프 탐색", "압축·양자화"],
     keywords: ["고차원 벡터 유사성 탐색", "k-d 트리", "LSH", "HNSW", "NSG", "IVF", "PQ", "벡터DB"],
     tables: [
@@ -16352,8 +16474,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "관계형 데이터베이스 관리시스템(RDBMS)에서 자료 검색과 관리, 스키마 생성 및 수정, 객체 접근 조정 관리를 위한 프로그래밍 언어",
     defShort: "RDBMS에서 자료 검색과 관리, 스키마 생성·수정, 접근 조정을 위한 표준 언어",
-    lead:
-      "RDBMS의 표준 질의 언어, SQL(Structured Query Language)",
+    lead: "RDBMS 표준 질의 언어, SQL(Structured Query Language)",
     features: ["DDL·DML", "DCL·TCL", "비절차적 언어"],
     keywords: ["비절차적 언어", "DDL", "DML", "DCL", "TCL", "SQL-99"],
     tables: [
@@ -16505,8 +16626,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "대규모 테이블의 데이터를 파티션 키를 기준으로 여러 물리적 세그먼트에 나누어 저장함으로써 관리와 성능을 최적화하는 데이터베이스 설계 기법",
     defShort: "대규모 테이블을 파티션 키 기준 여러 물리적 세그먼트로 나누어 저장하는 설계 기법",
-    lead:
-      "파티션 키 기준 테이블 분할, 데이터베이스 파티셔닝(Partitioning)",
+    lead: "파티션 키 기준 분할, 데이터베이스 파티셔닝(Partitioning)",
     features: ["수평·수직 분할", "동일서버 저장", "성능 최적화"],
     keywords: ["성능향상", "수직분할", "수평분할", "레인지", "리스트", "해시", "결합", "참조", "인터벌 파티셔닝", "로컬 파티션", "비파티션", "글로벌파티션"],
     tables: [
@@ -16596,8 +16716,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "시스템별로 산재해 있는 데이터 정보 요소에 대한 명칭, 정의, 형식, 규칙에 대한 원칙을 수립하여 전사적으로 적용하는 활동",
     defShort: "데이터 명칭과 정의, 형식, 규칙에 대한 원칙을 수립해 전사적으로 적용하는 활동",
-    lead:
-      "명칭·정의·형식·규칙 원칙 수립, 데이터 표준화",
+    lead: "명칭·정의·형식·규칙 통일, 데이터 표준화",
     features: ["전사 적용", "명칭·형식 통일", "불일치 해소"],
     keywords: ["표준 원칙 수립", "데이터 표준", "관리조직", "표준화 프로세스"],
     tables: [
@@ -16667,8 +16786,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "정형, 비정형 데이터 값을 중심으로 비지니스 규칙 및 분석 알고리즘 등 통계적 기법을 사용하여 데이터의 품질을 확보하기 위한 데이터의 특징을 분석하는 과정",
     defShort: "정형·비정형 데이터에 통계적 기법을 적용해 품질 확보 위한 특징을 분석하는 과정",
-    lead:
-      "품질 확보 위한 데이터 특징 분석, 데이터 프로파일링(Data Profiling)",
+    lead: "품질 확보 위한 특징 분석, 데이터 프로파일링(Data Profiling)",
     features: ["통계적 기법", "구조·관계 발견", "품질 확보"],
     keywords: ["데이터 품질 확보", "통계적 기법", "구조", "컨텐츠", "관계의 발견", "관계분석", "테이블구조분석", "컬럼 분석"],
     tables: [
@@ -16751,6 +16869,20 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "분석 수준진단 두 축, 데이터 분석 준비도와 성숙도",
     features: ["준비도 진단", "성숙도 평가", "4유형 분류"],
+    defPair: [
+      {
+        name: "데이터 분석 준비도(Readiness)",
+        lead: "분석 도입 수준의 진단",
+        def: "데이터 분석 도입 수준을 6개 영역(업조기데문인)으로 파악하기 위한 진단방법",
+        features: ["6개 영역", "업조기데문인", "도입 수준"],
+      },
+      {
+        name: "데이터 분석 성숙도(Maturity)",
+        lead: "분석 활용 능력의 평가",
+        def: "기업의 분석 능력과 결과 활용에 대한 조직의 성숙도 수준을 4단계로 평가하는 모델",
+        features: ["4단계", "도활확최", "CMMI 기반"],
+      },
+    ],
     keywords: ["수준", "성숙도"],
     tables: [
       {
@@ -16842,9 +16974,22 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "탐색적 데이터분석(EDA): 시각화 기법을 통해 데이터의 구조를 이해하고 인사이트를 도출하기 위한 데이터 분석 기법 / 확증적 데이터분석(CDA): 가설을 설정한 후 수집한 데이터로 가설을 평가하고 추정하는 전통적인 분석기법",
     defShort: "시각화로 인사이트를 도출하는 EDA와 가설을 검정·추정하는 CDA 분석 기법",
-    lead:
-      "인사이트 도출 vs 가설 검정, 탐색적·확증적 데이터 분석",
+    lead: "인사이트 도출과 가설 검정, 탐색적·확증적 데이터 분석",
     features: ["시각화 탐색", "가설 검정", "상호 보완"],
+    defPair: [
+      {
+        name: "탐색적 데이터 분석(EDA)",
+        lead: "시각화 인사이트 도출 분석",
+        def: "시각화 기법을 통해 데이터의 구조를 이해하고 인사이트를 도출하기 위한 분석 기법",
+        features: ["시각화", "구조 이해", "가설 생성"],
+      },
+      {
+        name: "확증적 데이터 분석(CDA)",
+        lead: "가설 검정의 전통적 분석",
+        def: "가설을 먼저 설정한 후 수집한 데이터로 가설을 평가하고 추정하는 전통적인 분석기법",
+        features: ["가설 설정", "통계 검정", "추정"],
+      },
+    ],
     keywords: ["인사이트 도출", "가설 검증"],
     tables: [
       {
@@ -17012,8 +17157,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "공공데이터법에 따라 기관 전체의 공공데이터 품질관리 체계 및 보유 DB 전반의 품질이 인증기준에 적합한지 심사해 우수 기관에 인증을 부여하는 제도",
     defShort: "공공데이터 품질관리 체계와 보유 DB 품질을 심사하여 우수 기관에 인증하는 제도",
-    lead:
-      "품질관리 체계·DB 품질 심사, 공공데이터 품질인증 매뉴얼",
+    lead: "품질관리 체계·DB 심사, 공공데이터 품질인증 매뉴얼",
     features: ["3개 영역 심사", "등급 인증", "법정 제도"],
     keywords: ["공공데이터법 제22조 2항", "품질인증"],
     tables: [
@@ -17055,8 +17199,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "전자정부법 50조, 공공데이터법 23조에 따라 공공기관이 생성 또는 취득하여 관리하는 데이터베이스의 표준화에 필요한 세부 사항을 정의",
     defShort: "전자정부법·공공데이터법에 따른 공공기관 관리 DB 표준화의 세부 사항을 정의",
-    lead:
-      "공공 DB 표준화 세부 지침, 공공기관 데이터베이스 표준화지침",
+    lead: "공공 DB 표준화 지침, 공공기관 데이터베이스 표준화지침",
     features: ["법령 기반", "표준사전 관리", "산출물 표준"],
     keywords: ["데이터베이스 정의서", "논리데이터모델 다이어그램", "엔티티정의서", "애트리뷰트 정의서", "물리데이터모델 다이어그램", "컬럼정의서"],
     tables: [
@@ -17252,8 +17395,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "많은 후보 항목이 생성되어 계산 비용이 증가하는 것을 막기 위해 해싱(hashing)과 가지치기(pruning) 기법을 이용하여 빠르게 빈발 항목 집합(Frequent Itemset)을 탐색하는 연관 분석 기법",
     defShort: "후보 항목 폭증을 막기 위해 해싱과 가지치기로 빈발 항목 집합을 탐색하는 분석 기법",
-    lead:
-      "해시로 후보를 미리 걸러내기, DHP 알고리즘",
+    lead: "해시 기반 후보 가지치기, DHP 알고리즘",
     features: ["해시 테이블", "가지치기", "후보 축소"],
     keywords: ["가지치기(Pruning)", "해시 테이블(Hash Table)"],
     tables: [
@@ -17350,8 +17492,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "소프트웨어 설계·개발·테스트·배포 전 과정에서 장기적 관점의 솔루션 대신 짧은 기간 내 임시 방편의 해법을 선택해 차후 발생 가능한 추가적 위험 비용",
     defShort: "SW 개발 전 과정에서 장기 솔루션 대신 임시방편을 선택해 발생하는 추가 위험 비용",
-    lead:
-      "임시방편의 이자, 기술 부채(Technical Debt)",
+    lead: "임시방편이 낳는 이자, 기술 부채(Technical Debt)",
     features: ["임시방편 누적", "품질 저하", "위험 비용"],
     keywords: ["추가적 위험 비용", "임시방편", "품질"],
     tables: [
@@ -17442,8 +17583,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "IT 서비스를 비즈니스 요구 사항과 연계하는 데 중점을 둔 서비스 가치 사슬 이용한 ITSM 및 ITAM(IT Asset Management)과 같은 IT 활동에 대한 Best Practice",
     defShort: "비즈니스 요구와 연계된 서비스 가치 사슬의 IT 활동 Best Practice",
-    lead:
-      "서비스 가치 사슬의 모범 사례, ITIL 4.0",
+    lead: "IT 서비스 관리 모범사례, ITIL 4.0",
     features: ["가치 시스템", "4차원 모델", "34 Practices"],
     keywords: ["서비스 가치 시스템", "4차원 모델", "Practice", "Agile"],
     tables: [
@@ -17483,8 +17623,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "고객과 합의된 SLA(Service Level Agreement) 수준에 맞게 품질 유지하도록 프로세스, 조직, 자원, 기술의 종합적 관리 위한 선진 IT 서비스 관리 기법",
     defShort: "SLA 수준에 맞게 프로세스·조직·자원·기술을 종합 관리하는 IT 서비스 기법",
-    lead:
-      "SLA 기반 IT 서비스 관리, ITSM",
+    lead: "SLA 기반 서비스 관리, ITSM",
     features: ["SLA 기반", "종합적 관리", "프레임워크"],
     keywords: ["SLA", "SLM", "ITIL", "eSCM(ISO 20000)", "CMMI", "SPICE", "SoW"],
     tables: [
@@ -17539,8 +17678,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "IT 서비스 조직에서 사용자의 관점으로 서비스 요구사항을 파악하고, 서비스 수준 개선을 위한 우선순위를 판단하기 위한 도구 및 체계",
     defShort: "사용자 관점으로 서비스 요구를 파악하고 수준 개선 우선순위를 판단하는 도구·체계",
-    lead:
-      "사용자 관점 서비스 수준 개선, 서비스 수준 관리(SLM)",
+    lead: "사용자 관점 수준 개선, 서비스 수준 관리(SLM)",
     features: ["사용자 관점", "SLA·OLA 연계", "지표 측정"],
     keywords: ["Service Catalog", "SLA", "OLA", "Quality Plan", "Service Report", "SLM 엔진"],
     tables: [
@@ -17616,8 +17754,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "기업의 각 비즈니스 업무에 대하여 긴급 재난사태, 비상상황 발생 시의 영향도를 평가하고 복구우선순위 및 복구목표를 정의하는 분석활동",
     defShort: "비상상황 발생 시 업무 영향도를 평가하고 복구 우선순위와 목표를 정의하는 분석 활동",
-    lead:
-      "재해 영향 평가와 복구 우선순위, BIA(Business Impact Analysis)",
+    lead: "재해 영향과 복구 우선순위, BIA(Business Impact Analysis)",
     features: ["영향도 평가", "복구 우선순위", "RTO·RPO 도출"],
     keywords: ["핵심프로세스", "발생가능성", "손실평가", "우선순위 산정", "RSO", "RTO", "RPO", "RCO 도출"],
     tables: [
@@ -17741,8 +17878,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "기업의 비즈니스 연속성을 위해 BCP 수립에서 도입, 운영, 검토까지 지속적인 개선에 대한 요구사항을 규정한 BCMS의 국제표준",
     defShort: "업무 연속성 위해 BCP 도입부터 개선까지 요구사항을 규정한 BCMS 국제표준",
-    lead:
-      "업무 연속성 관리의 국제표준, ISO 22301",
+    lead: "업무 연속성 관리 국제표준, ISO 22301",
     features: ["PDCA 순환", "BCMS 표준", "지속적 개선"],
     keywords: ["PDCA", "조직", "리더십", "계획수립", "지원", "운영", "성과평가", "개선"],
     tables: [
@@ -17810,8 +17946,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "방송통신발전법, 정보통신망법, 전기통신사업법 등 디지털 재난 예방과 대응을 위해 개정된 3개 법률",
     defShort: "디지털 재난 대비 개정된 방송통신발전법·정보통신망법·전기통신사업법 법률",
-    lead:
-      "디지털 재난 대응 법제 정비, 디지털 안전 3법",
+    lead: "디지털 재난 대응 법제, 디지털 안전 3법",
     features: ["재난관리 의무", "보호조치", "안정성 확보"],
     keywords: ["방송통신발전법", "정보통신망법", "전기통신사업법"],
     tables: [
@@ -17834,8 +17969,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "기업의 전략과 목표에 부합되도록 IT와 관련된 Resource와 Process를 통제/관리 하는 체계",
     defShort: "기업 전략과 목표에 부합되도록 IT 관련 자원과 프로세스를 통제·관리하는 체계",
-    lead:
-      "전략-IT 정렬의 통제 체계, IT 거버넌스",
+    lead: "전략·IT 정렬 통제 체계, IT 거버넌스",
     features: ["전략적 연계", "통제·관리", "프레임워크"],
     keywords: ["전가위자성", "통제", "관리"],
     tables: [
@@ -17882,8 +18016,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "조직의 IT가 효율적이고, 효과적이고, 책임성 있게 활용될 수 있도록 IT의 활용을 평가하고(Evaluate), 지휘하고(Direct), 감독(Monitoring) 하기 위해 IT Governance 구현 원칙 프레임워크를 제시하는 국제표준",
     defShort: "IT 활용을 평가·지휘·감독 위한 IT 거버넌스 구현 원칙을 제시하는 국제표준",
-    lead:
-      "평가·지휘·감독의 거버넌스 원칙, ISO 38500:2024",
+    lead: "평가·지휘·감독의 원칙, ISO 38500:2024",
     features: ["EDM 모델", "11개 원칙", "ISO 37000 연계"],
     keywords: ["평가(Evaluate)", "지휘(Direct)", "감독(Monitor)", "이해관계자 참여", "ISO37000"],
     tables: [
@@ -17923,8 +18056,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "기업의 투명성 강화, 리스크 관리를 위하여 정부나 관련 기관이 제시한 각종 규제, 법안 등에 만족될 수 있도록 IT 관점에서 시스템을 재 정비하는 활동",
     defShort: "투명성 강화와 리스크 관리 위해 규제·법안에 맞게 IT 시스템을 재정비하는 활동",
-    lead:
-      "규제 준수 위한 IT 재정비, IT-Compliance",
+    lead: "규제 준수 위한 IT 정비, IT-Compliance",
     features: ["규제 대응", "투명성 확보", "내부통제"],
     keywords: ["Sarbanes-Oxley", "Basel-II", "개인정보보호", "정보관리", "정보보안", "COBIT", "패널티", "자금세탁방지"],
     tables: [
@@ -17960,8 +18092,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "기업경영에 영향을 주는 기업환경들로 부터 나타나는 그 어떤 징후나 신호 같은 것들을 가능한 한 포착하여 이들 자료나 정보를 이용하여 장래 기업 경영에 영향을 미칠 수 있는 요인들을 분석하는 것",
     defShort: "기업환경의 징후와 신호를 포착하여 장래 경영에 영향을 미칠 요인들을 분석하는 것",
-    lead:
-      "기회·위협과 강점·약점 진단, 환경분석",
+    lead: "기회·위협·강점·약점 진단, 환경분석",
     features: ["외부 기회·위협", "내부 강점·약점", "SWOT 기반"],
     keywords: ["내부환경분석", "외부환경분석", "강점/약점", "기회/위협"],
     tables: [
@@ -18158,9 +18289,22 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "MECE(Mutually Exclusive Collectively Exhaustive): 서로 중복되는 것이 없으며 누락되는 것도 없이 문제의 전체를 파악하는 사고방식 또는 방법론 / LISS(Linearly Independent Spanning Set): 문제를 종합했을 때 중복 없이 하위 분석 대상들의 핵심만을 산출해내는 전략적 분석 기법",
     defShort: "중복·누락 없이 전체를 파악하는 MECE와 핵심만 산출하는 LISS 분석 기법",
-    lead:
-      "빠짐없이 겹침없이, MECE와 LISS",
+    lead: "문제 구조화의 두 기법, MECE와 LISS",
     features: ["상호 배제", "전체 포괄", "핵심 산출"],
+    defPair: [
+      {
+        name: "MECE(Mutually Exclusive Collectively Exhaustive)",
+        lead: "중복·누락 없는 전체 파악",
+        def: "서로 중복되는 것도 누락되는 것도 없이 문제의 전체를 파악하는 사고방식 또는 방법론",
+        features: ["상호 배제", "전체 포괄", "논리 트리"],
+      },
+      {
+        name: "LISS(Linearly Independent Spanning Set)",
+        lead: "핵심만 산출의 전략 분석",
+        def: "문제를 종합할 때 중복 없이 하위 분석 대상들의 핵심만을 산출해내는 전략적 분석 기법",
+        features: ["선형 독립", "핵심 산출", "중복 제거"],
+      },
+    ],
     keywords: ["MECE: 상호 배제, 전체 포괄", "LISS: 핵심 산출, 중복 제거"],
     tables: [
       {
@@ -18194,8 +18338,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "2025.5월 발표된 ISP·ISMP 수립 공통 가이드 제9판에서는 사업기간 단축과 자원투입 절감을 위해 소규모 정보시스템 구축 시 ISP·ISMP 수립 의무를 면제하도록 개정",
     defShort: "소규모 정보시스템 구축 시 ISP·ISMP 수립 의무를 면제하도록 9판에서 개정",
-    lead:
-      "소규모 사업 ISP 면제 개정, ISP·ISMP 수립 공통가이드 9판",
+    lead: "소규모 ISP 면제 개정판, ISP·ISMP 수립 공통가이드 9판",
     features: ["수립 면제", "20억 기준", "클라우드 우선"],
     keywords: ["소규모 정보시스템 구축 사업계획수립 안내", "클라우드 우선 적용", "ISP", "ISMP"],
     tables: [
@@ -18669,8 +18812,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "기존 제품 판매에서 제품 서비스를 판매하는 시스템의 변화를 통해 부가가치를 창출하는 기업의 경쟁력 개선에 대한 혁신 및 기업 전략",
     defShort: "기존 제품 판매에서 제품 서비스 판매로 전환해 부가가치를 창출하는 혁신 기업 전략",
-    lead:
-      "제품에서 서비스로 패러다임 시프트, 서비타이제이션(Servitization)",
+    lead: "제품에서 서비스로의 전환, 서비타이제이션(Servitization)",
     features: ["서비스화", "제품화", "PSS 통합"],
     keywords: ["Product Servitization", "Service Productization", "Product Service System"],
     tables: [
@@ -18932,11 +19074,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     defPair: [
       {
         name: "해시 솔트(Salt)",
+        lead: "레인보우 테이블 대응 기법",
         def: "해시 함수 입력 값에 사용자별 임의의 문자열을 추가하여 다이제스트를 생성하는 기법",
         features: ["무작위성", "사용자별 상이", "레인보우 테이블 대응"],
       },
       {
         name: "키 스트레칭(Key Stretching)",
+        lead: "무차별 대입 지연 기법",
         def: "해시 함수 결과 값을 다시 입력 값으로 반복 실행하여 다이제스트를 생성하는 보안 기법",
         features: ["반복성", "횟수만큼 지연", "무차별 대입 대응"],
       },
@@ -19212,7 +19356,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "양자 컴퓨터의 계산 능력에 대항하여 양자 컴퓨팅 환경에서 안전한 암호 기술을 이용할 수 있도록 하는 새로운 암호 체계",
     defShort: "양자 컴퓨터의 계산 능력에 대항하여 양자 환경에서도 안전하도록 설계된 암호 체계",
-    lead: "양자 시대의 방패, 포스트 양자 암호",
+    lead: "양자 컴퓨터 시대의 방패, 포스트 양자 암호",
     features: ["수학 난제 기반", "양자 공격 내성", "유형 다양성"],
     keywords: ["다변수기반", "코드", "격자", "아이소제니", "해시기반 전자서명"],
     tables: [
@@ -19293,7 +19437,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "대규모 언어 모델(LLM) 기반 애플리케이션에서 발생할 수 있는 상위 10개의 보안 취약점을 기술한 보안 가이드라인",
     defShort: "대규모 언어 모델 기반 애플리케이션의 상위 10대 보안 취약점을 정리한 가이드라인",
-    lead: "LLM 애플리케이션의 10대 위협, OWASP LLM 2025",
+    lead: "LLM 앱의 10대 위협, OWASP LLM 2025",
     features: ["LLM 특화 취약점", "취약점별 대응", "가이드라인"],
     keywords: ["프롬프트 인젝션", "민감정보 공개", "공급망", "데이터·모델 중독", "부적절한 출력 처리", "과도한 대행", "시스템 프롬프트 노출", "벡터·임베딩", "잘못된 정보", "무제한 소비", "[프민공데부 과시벡잘무]"],
     tables: [
@@ -19416,16 +19560,18 @@ export const SUBNOTES: TextbookSubnote[] = [
     defPair: [
       {
         name: "스니핑(Sniffing)",
+        lead: "패킷 감청의 수동적 공격",
         def: "네트워크 패킷을 몰래 감청하여 내부 데이터를 탈취하는 수동적 가로채기 공격 기법",
         features: ["수동적 감청", "기밀성 침해", "패시브·액티브"],
       },
       {
         name: "스푸핑(Spoofing)",
+        lead: "위장 기만의 능동적 공격",
         def: "가짜 정보로 속여 신뢰받는 시스템으로 위장한 뒤 공격 대상을 기만하는 능동적 공격",
         features: ["능동적 위장", "무결성 침해", "ARP·IP·DNS"],
       },
     ],
-    lead: "엿보기와 속이기, 스니핑과 스푸핑",
+    lead: "엿보기와 속이기의 공격, 스니핑과 스푸핑",
     features: ["수동적 감청", "능동적 위장", "세션 하이재킹 연계"],
     keywords: ["MITM", "ARP 캐시변조", "Mac Address Table 오버플로우", "Fail Safe", "IP Forward", "Ack Storm", "RST(Reset)"],
     tables: [
@@ -19464,7 +19610,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "리눅스 커널의 BPF 기술을 악용하여 네트워크 패킷을 감시하며 외부 명령을 수신하고 실행하는 리눅스 기반 백도어 유형의 공격 기법",
     defShort: "리눅스 커널 BPF를 악용해 패킷을 감시하고 외부 명령을 실행하는 백도어 공격 기법",
-    lead: "커널 패킷 필터 악용 백도어, BPF Door",
+    lead: "패킷 필터 악용 백도어, BPF Door",
     features: ["포트 미개방", "매직 패킷 트리거", "방화벽 우회"],
     keywords: ["리눅스 커널", "BPF", "BPF Filter", "매직 패킷", "백도어", "리버스 셸", "iptables"],
     tables: [
@@ -19541,7 +19687,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "직접 파일 다운로드하거나 실행하지 않아도 웹사이트 접속하는 것만으로 악성 코드가 자동으로 다운로드 및 실행되는 공격 기법",
     defShort: "파일 실행 없이 웹사이트 접속만으로 악성코드가 자동 다운로드·실행되는 공격 기법",
-    lead: "접속만으로 감염, 드라이브 바이 다운로드",
+    lead: "웹 접속만으로 감염 유도, 드라이브 바이 다운로드",
     features: ["무자각 감염", "리다이렉션 연쇄", "브라우저 취약점 악용"],
     keywords: ["Landing Site", "Exploit Server", "Malware Server", "Dropper", "API 오용", "브라우저 취약점"],
     tables: [
@@ -19701,7 +19847,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "다크웹과 같은 익명 네트워크를 이용하여 비용만 지급하면 랜섬웨어 공격을 할 수 있도록 서비스 형태로 제공되는 랜섬웨어",
     defShort: "다크웹에서 비용만 내면 랜섬웨어 공격이 가능하도록 서비스로 제공하는 랜섬웨어",
-    lead: "구독형 랜섬웨어, RaaS",
+    lead: "구독형 랜섬웨어 서비스, RaaS",
     features: ["서비스형 제공", "수익 배분", "비전문가 공격 가능"],
     keywords: ["익명 네트워크", "랜섬웨어", "서비스", "다크웹", "수익 배분", "비트코인"],
     tables: [
@@ -19837,7 +19983,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "해킹 등 사이버 공격의 원인인 보안취약점을 제거해 안전한 소프트웨어를 개발하는 SW 개발 기법",
     defShort: "사이버 공격의 원인인 보안취약점을 제거하여 안전한 소프트웨어를 개발하는 기법",
-    lead: "취약점 없는 개발, 시큐어 코딩",
+    lead: "취약점 원천 차단 개발, 시큐어 코딩",
     features: ["취약점 사전 제거", "7대 진단 항목", "개발 단계 적용"],
     keywords: ["입보시에코캡A", "입력데이터 검증 및 표현", "보안 기능", "시간 및 상태", "에러 처리", "코드 오류", "캡슐화", "API 오용"],
     tables: [
@@ -20052,7 +20198,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "일상생활에서 밀접하게 활용되는 기기를 중심으로 개인정보가 안전하게 보호되는지 개인정보 보호 중심 설계(PbD)를 검증하는 제도",
     defShort: "기기 중심으로 개인정보가 안전하게 보호되는지 PbD 설계를 검증하는 인증제도",
-    lead: "설계 검증의 인증, PbD 인증제도",
+    lead: "설계 단계 보호의 인증, PbD 인증제도",
     features: ["4대 인증영역", "8대 전략", "ISO 31700 기반"],
     keywords: ["기본적인 요구사항", "개인정보 처리의 적법성", "정보보안 및 프라이버시 강화", "조직적 보호조치", "ISO 31700"],
     tables: [
@@ -20383,11 +20529,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     defPair: [
       {
         name: "CWPP(Cloud Workload Protection Platform)",
+        lead: "워크로드 보호의 플랫폼",
         def: "가상 머신·컨테이너·서버리스 등 클라우드 서버 워크로드를 보호하는 보안 플랫폼",
         features: ["워크로드 보호", "호스트 방화벽", "내부 실행 위협 대응"],
       },
       {
         name: "CSPM(Cloud Security Posture Management)",
+        lead: "구성 오류 감시의 프로세스",
         def: "클라우드 인프라의 잘못된 구성과 규정 준수 위험을 지속적으로 모니터링하는 체계",
         features: ["설정 관리", "규정 준수 점검", "외부 위협 대응"],
       },
@@ -20670,7 +20818,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "오디오, 비디오, 이미지 등의 콘텐츠에 특정 마크를 삽입하여, 불법 복제 시 소유권 정보를 추적할 수 있는 정보은닉 기술",
     defShort: "콘텐츠에 특정 마크를 삽입해 불법 복제 시 소유권 정보를 추적할 수 있는 정보은닉 기술",
-    lead: "소유권 은닉 삽입, 디지털 워터마킹",
+    lead: "소유권 정보의 은닉 삽입, 디지털 워터마킹",
     features: ["소유권 표시", "비가시성", "견고성"],
     keywords: ["삽입기술(공간영역, 주파수영역)", "검출기술(공개형, 비공개형)", "비가시성", "견조성", "복잡성", "효율성"],
     tables: [
@@ -20714,7 +20862,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "디지털 콘텐츠에 저작권 정보와 구매한 사용자의 정보를 삽입하여 컨텐츠 불법 배포자 추적을 위한 기술",
     defShort: "콘텐츠에 저작권 정보와 구매자 정보를 삽입해 불법 배포자를 추적하는 정보은닉 기술",
-    lead: "구매자 추적 삽입, 핑거프린팅",
+    lead: "구매자 정보의 추적 삽입, 핑거프린팅",
     features: ["구매자 정보 삽입", "불법 유통 추적", "공모 공격 대응"],
     keywords: ["불법 유통 구매자 확인", "공모공격", "대칭형/비대칭형", "구매자 정보 삽입", "평균화 공격", "모자이크 공격"],
     tables: [
@@ -20753,7 +20901,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "유무선 통신 환경에서 원거리 사용자의 신분을 바이오인식 기술을 이용하여 식별하는 기술",
     defShort: "유무선 통신 환경에서 원거리 사용자의 신분을 바이오인식 기술로 식별하는 인증 기술",
-    lead: "원격 바이오 인증, 텔레바이오 인증",
+    lead: "비대면 원격 바이오 인증, 텔레바이오 인증",
     features: ["생체 고유성", "비대면 식별", "FAR·FRR 지표"],
     keywords: ["보편성", "유일성", "영구성", "획득성", "정확성", "접근성", "기만성", "[지열홍정 음걸행서]", "FRR", "FAR", "EER"],
     tables: [
@@ -20842,7 +20990,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "Third-Party 프로그램에게 리소스 소유자를 대신하여 리소스 서버에서 제공하는 자원에 대한 접근 권한을 위임하는 개방형 표준 프로토콜",
     defShort: "제3자 앱에 리소스 소유자를 대신해 자원 접근 권한을 위임하는 개방형 표준 프로토콜",
-    lead: "권한 위임의 표준, OAuth 2.0",
+    lead: "접근 권한 위임의 표준, OAuth 2.0",
     features: ["권한 위임", "토큰 기반", "4대 부여 방식"],
     keywords: ["자원 소유자", "클라이언트", "권한 서버", "자원 서버", "액세스 토큰", "리프레시 토큰", "Authorization Code", "Implicit", "Password Credentials", "Client Credentials"],
     tables: [
@@ -20978,7 +21126,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "네트워크와 엔드 포인트(End Point)를 검색하여 보안 통제를 우회하는 위협이 공격을 실행하거나 목표를 달성하기 전 위협을 사전에 식별하는 프로세스",
     defShort: "네트워크·엔드포인트를 뒤져 보안 통제를 우회하는 위협을 미리 식별하는 프로세스",
-    lead: "선제적 위협 탐색, 위협 헌팅",
+    lead: "선제적 잠재 위협 탐색, 위협 헌팅",
     features: ["가설 기반", "선제 탐색", "ATT&CK 활용"],
     keywords: ["수집", "가설 수립", "헌팅", "탐지자 개발", "위협 탐지", "조사 및 대응", "Cyber Kill Chain", "Active/Passive Threat Hunting", "TTP Based", "IOC Based"],
     tables: [
@@ -21139,7 +21287,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "메일서버 등록 방식인 SPF(Sender Policy Framework)와 도메인 키 인증 메일인 DKIM(DomainKeys Identified Mail)를 이용한 메일 인증 프로토콜",
     defShort: "SPF·DKIM으로 발신 도메인의 진위를 검증하는 이메일 발신 인증 프로토콜",
-    lead: "이메일 위조 방어, DMARC",
+    lead: "이메일 발신자 위조 방어, DMARC",
     features: ["SPF·DKIM 결합", "정책 기반 처리", "리포트 발송"],
     keywords: ["SPF", "DKIM", "e-mail 인증", "RFC 7489", "DMARC 정책 설정", "인증실패시 보고서 발송"],
     tables: [
@@ -21172,7 +21320,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "사이버상의 공격자가 서버 또는 시스템을 공격할 때 미끼(Decoy)를 이용하여 유인하는 함정(Traps)",
     defShort: "사이버 공격자가 서버·시스템을 공격할 때 미끼를 이용해 능동적으로 유인하는 함정",
-    lead: "미끼로 유인 탐지, 사이버 디셉션",
+    lead: "미끼로 유인하는 탐지, 사이버 디셉션",
     features: ["능동 방어", "미끼 유인", "행위 기록"],
     keywords: ["미끼(Decoy)", "함정(Traps)", "허니팟(HoneyPot)", "Deception System", "EndPoint", "Network", "OS"],
     tables: [
@@ -21273,7 +21421,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "보안 및 개인 정보 보호를 보장하면서 데이터 공유와 처리를 보장하기 위한 기술의 총칭",
     defShort: "보안·개인정보 보호를 보장하면서 데이터 공유와 처리를 가능하게 하는 기술의 총칭",
-    lead: "보호하며 활용, PEC",
+    lead: "보호하며 활용하는 연산, PEC",
     features: ["프라이버시 보존", "데이터 활용", "3영역 기술"],
     keywords: ["데이터 변환", "소프트웨어 Computation", "하드웨어 환경", "재현 데이터", "동형 암호", "차분 프라이버시", "다자간 컴퓨팅", "영지식 증명", "연합학습", "기밀 컴퓨팅"],
     tables: [
@@ -21298,7 +21446,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "어떤 정보를 직접 공개하지 않고도, 특정 명제가 참임을 증명할 수 있는 암호학적 기법",
     defShort: "어떤 정보를 직접 공개하지 않고도 특정 명제가 참임을 증명할 수 있는 암호학적 기법",
-    lead: "정보 없이 증명, 영지식증명",
+    lead: "비밀 노출 없는 증명, 영지식증명",
     features: ["완전성", "건전성", "영지식성"],
     keywords: ["증명자(Prover)", "검증자(Verifier)", "완전성", "건전성", "영지식성", "zk-SNARK"],
     tables: [
@@ -21998,7 +22146,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "자신에게 불리하게 작용할 가능성이 있는 디지털 증거를 훼손하거나 숨겨서 포렌식을 방해하는 일련의 행위",
     defShort: "자신에게 불리한 디지털 증거를 훼손·은닉하여 포렌식 수사를 방해하는 일련의 행위",
-    lead: "증거 훼손과 은닉, 안티 포렌식",
+    lead: "디지털 증거 훼손과 은닉, 안티 포렌식",
     features: ["증거 삭제", "데이터 은닉", "탐지 대응"],
     keywords: ["디가우징(Degaussing)", "와이핑(Wiping)", "스테가노그래피(Steganography)", "데이터 암호화", "데이터 변조", "슬랙공간 은닉"],
     tables: [
@@ -22078,7 +22226,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "자율주행 자동차의 차량·통신채널·백엔드 인프라 구간에서 발생하는 보안 위협을 식별하고 구간별 보안 기술로 대응하는 방안",
     defShort: "자율주행차의 차량·통신·백엔드 구간별 보안 위협을 식별하고 대응하는 보안 방안",
-    lead: "구간별 차량 보안, 자율주행 보안취약점",
+    lead: "구간별 자율주행 보안, 자율주행 보안취약점",
     features: ["구간별 위협", "점검 절차", "다층 대응"],
     keywords: ["도청", "위변조", "DoS", "원격해킹", "펌웨어 변조", "정보유출", "Secure Boot", "HSM", "Secure Diagnosis", "IDS", "IPSec"],
     tables: [
@@ -22241,7 +22389,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "스마트시티를 구성하는 서비스·플랫폼·인프라 계층의 보안 위협을 식별하고 계층별 보안 대책을 적용하는 방안",
     defShort: "스마트시티의 서비스·플랫폼·인프라 계층별 보안 위협을 식별하고 대응하는 방안",
-    lead: "도시 인프라 보안, 스마트시티 보안취약점",
+    lead: "도시 인프라 융합 보안, 스마트시티 보안취약점",
     features: ["계층별 위협", "융합 인프라", "다중 대응"],
     keywords: ["서비스 계층", "플랫폼 계층", "인프라 계층", "IoT 보안", "관제 시스템", "CCTV", "제로트러스트"],
     tables: [
@@ -22266,7 +22414,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "스마트팩토리의 IT·OT 융합 환경에서 발생하는 보안 위협을 식별하고 계층별·영역별 보안 대책을 적용하는 방안",
     defShort: "스마트팩토리의 IT·OT 융합 환경 보안 위협을 식별하고 계층별로 대응하는 방안",
-    lead: "제조 융합 보안, 스마트팩토리 보안취약점",
+    lead: "제조 OT·IT 융합 보안, 스마트팩토리 보안취약점",
     features: ["IT·OT 융합", "가용성 우선", "제어시스템 보호"],
     keywords: ["ICS/SCADA", "PLC", "IT-OT 융합", "IEC 62443", "망 분리", "가용성", "안전(Safety)"],
     tables: [
@@ -22323,7 +22471,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "디지털 트윈의 생성·전달·종합과 분석·이해·행동 프로세스 각 단계에서 발생하는 보안 위협을 식별하고 대응하는 방안",
     defShort: "디지털 트윈 생성·전달·분석·이해·행동 전 단계의 보안 위협에 대응하는 방안",
-    lead: "가상 복제의 보안, 디지털 트윈 보안취약점",
+    lead: "가상 복제 동기화의 보안, 디지털 트윈 보안취약점",
     features: ["프로세스별 위협", "제로트러스트 적용", "AIOps 대응"],
     keywords: ["생성(Create)", "전달(Communicate)", "종합과 분석(Aggregate & Analyze)", "이해(Insight)", "행동(Act)", "PETs", "제로트러스트"],
     tables: [
@@ -22396,7 +22544,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "소프트웨어 제품 품질 표준을 기반으로 AI 시스템 고유 속성인 비결정성, 데이터 의존성 등이 반영된 AI 시스템 전용 품질모델 확장 표준",
     defShort: "SW 제품 품질 표준에 AI 고유 속성을 반영해 확장한 AI 시스템 전용 품질모델 표준",
-    lead: "AI 시스템 전용 품질모델 확장 표준, ISO/IEC 25059:2023",
+    lead: "AI 시스템 품질모델 확장, ISO/IEC 25059:2023",
     features: ["비결정성 반영", "데이터 의존성", "8특성 확장"],
     keywords: ["기능 적합성", "신뢰성", "사용성", "성능 효율성", "유지보수성", "이식성", "호환성", "보안성", "견고성", "설명가능성", "강건성"],
     tables: [
@@ -22449,7 +22597,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "AI 에이전트가 사용자 지시에 따라 안전하고 검증가능한 결제를 수행할 수 있게 하는 오픈 표준 결제 프로토콜",
     defShort: "AI 에이전트가 사용자 지시대로 검증 가능한 결제를 수행하는 오픈 표준 프로토콜",
-    lead: "에이전트 커머스의 결제 표준, AP2",
+    lead: "에이전트 커머스 결제 표준, AP2",
     features: ["3중 위임장", "검증가능 자격증명", "A2A x402"],
     keywords: ["AI Agent", "역할기반 결제", "위임장(Mandate)", "A2A", "x402", "MCP", "A2A x402 Extension", "스마트계약"],
     tables: [
@@ -22488,7 +22636,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "AI 에이전트가 다양한 쇼핑몰과 상거래 시스템에서 데이터를 표준화된 방식으로 교환하고, 상품 탐색부터 결제, 주문까지 전 과정을 자동화하도록 돕는 개방형 프로토콜",
     defShort: "AI 에이전트가 쇼핑몰과 데이터를 표준 교환해 결제·주문을 자동화하는 프로토콜",
-    lead: "Google 주도 에이전틱 상거래 프로토콜, UCP",
+    lead: "구글 주도 상거래 규약, UCP",
     features: ["표준 데이터 교환", "전 과정 자동화", "개방형 규격"],
     keywords: ["Google 주도 에이전틱 상거래 프로토콜", "Checkout", "Identity Linking", "Order", "Payment Token Exchange", "REST API", "MCP", "A2A", "JSON-RPC", "OAuth 2.0", "PCI-DSS"],
     tables: [
@@ -22525,7 +22673,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "구매자가 AI에이전트와 소통을 통해 원하는 제품을 찾고 안전하게 상거래를 할 수 있도록 하는데 중점을 둔 개방형 프로토콜",
     defShort: "구매자가 AI 에이전트와 소통해 제품을 찾고 안전하게 상거래하는 개방형 프로토콜",
-    lead: "OpenAI 주도 에이전틱 상거래 프로토콜, ACP",
+    lead: "OpenAI의 상거래 규약, ACP",
     features: ["공유 결제 토큰", "위임 결제", "REST 4엔드포인트"],
     keywords: ["OpenAI 주도 에이전틱 상거래 프로토콜", "Shared Payment Token(SPT)", "Delegated Payment", "REST 엔드포인트", "API 버전 헤더", "HTTPS"],
     tables: [
@@ -22551,7 +22699,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "암호화폐의 급격한 가격변동성을 방지하기 위해 법정 화폐 또는 실물 자산과 연동하여 가격 안전성을 보장하도록 설계된 암호 화폐",
     defShort: "암호화폐 가격변동성을 막기 위해 법정화폐·실물자산과 연동한 가격 안정 암호화폐",
-    lead: "가격 안정성을 보장하는 암호화폐, 스테이블 코인",
+    lead: "가격 안정성 보장 암호화폐, 스테이블 코인",
     features: ["법정화폐 담보형", "암호화폐 담보형", "무담보 알고리즘형"],
     keywords: ["법정화폐 담보형", "암호화폐 담보형", "무담보 알고리즘형", "발행(Mint)", "소각(Burn)"],
     tables: [
@@ -22614,7 +22762,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "데이터 공유·활용 생태계로 기업, 기관, 개인이 만든 데이터를 공유 및 교환하면서 보안·주권을 유지할 수 있도록 만든 체계",
     defShort: "기업·기관·개인이 만든 데이터를 공유·교환하며 주권과 보안을 유지하는 체계",
-    lead: "데이터 주권을 지키는 공유·활용 생태계, 데이터 스페이스",
+    lead: "데이터 주권의 공유 생태계, 데이터 스페이스",
     features: ["데이터 주권", "연합형 구조", "상호운용성"],
     keywords: ["데이터 주권", "연합형 네트워크", "상호운용성", "신뢰성/투명성 확보"],
     tables: [
@@ -22670,7 +22818,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "금융, 의료, 법률 등 특정 산업군이나 비즈니스 기능에 최적화된 데이터셋으로 학습 또는 미세 조정하여 높은 정확도 및 실용성을 제공하는 AI 모델",
     defShort: "특정 산업군이나 비즈니스 기능에 최적화된 데이터로 학습·조정한 고정확도 모델",
-    lead: "산업 도메인에 최적화된 AI 모델, DSLM",
+    lead: "산업 도메인 특화 모델, DSLM",
     features: ["도메인 특화 학습", "높은 정확도", "sLLM 기반"],
     keywords: ["Vertical AI", "도메인 지식", "sLLM", "RAG", "프롬프트 엔지니어링"],
     tables: [
@@ -22699,7 +22847,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "AI가 프라이버시 친화적으로 활용될 수 있도록 AI 프라이버시 리스크 요인을 체계화하고, 리스크 관리의 방향과 원칙을 제시하기 위해 체계",
     defShort: "AI 프라이버시 리스크 요인을 체계화하고 관리의 방향과 원칙을 제시하는 관리 체계",
-    lead: "AI 활용에 따른 프라이버시 침해 대응, AI 프라이버시 리스크 관리",
+    lead: "AI 프라이버시 침해 대응, AI 프라이버시 리스크 관리",
     features: ["4단계 절차", "관리적·기술적 조치", "생애주기 식별"],
     keywords: ["AI의 유형 및 용례 파악", "리스크의 식별", "리스크의 측정", "리스크의 경감"],
     tables: [
@@ -22747,11 +22895,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     defPair: [
       {
         name: "데이터 상호 운용성",
+        lead: "시스템 간 호환 보장 능력",
         def: "시스템 간 제약 없는 데이터 호환을 위해 교환 능력과 의미의 일관성을 보장하는 능력",
         features: ["구문 표준화", "의미 일관성", "기술적 안정성"],
       },
       {
         name: "데이터 이동권",
+        lead: "개인 데이터 통제의 권리",
         def: "개인이 의료·금융·통신 등 자신의 데이터를 지정한 위치로 이동시킬 수 있는 권리",
         features: ["개인 통제권", "구조화된 전송", "실시간 이동"],
       },
@@ -22790,7 +22940,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "AI 에이전트가 자율적 의사결정, 메모리 활용, 외부 도구 및 시스템 호출, 인증 및 권한 관리, 인간 개입, 다중 에이전트의 6단계에서 발생하는 보안 위협과 그에 대응하는 방안(금융보안원)",
     defShort: "AI 에이전트의 의사결정·메모리·도구 호출 등 6단계의 보안 위협과 대응 방안",
-    lead: "자율 에이전트 확산에 따른 신종 위협 대응, AI Agent 보안위협",
+    lead: "자율 에이전트의 신종 위협, AI Agent 보안위협",
     features: ["6단계 위협 식별", "단계별 대응방안", "다중 에이전트 위험"],
     keywords: ["자율적 의사결정", "메모리 활용", "외부 도구 및 시스템 호출", "인증 및 권한 관리", "인간 개입", "다중 에이전트"],
     tables: [
@@ -22847,16 +22997,18 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "AI-DLC는 SW SDLC에 인공지능을 통합하여, AI가 계획 수립과 코딩을 주도하고 사람이 검증하는 개발방법론이며, SDD는 기계가 읽을 수 있는 구체적인 사양을 중심으로, AI가 코드, 테스트, 문서를 자동으로 파생하여 생성하는 개발 방법론",
     defShort: "AI가 계획·코딩을 주도하고 사람이 검증하며 명세에서 산출물을 파생하는 방법론",
-    lead: "AI가 주도하는 개발 방법론, AI-DLC와 SDD",
+    lead: "AI 주도 개발 방법론, AI-DLC와 SDD",
     features: ["AI 주도 개발", "사람 검증", "명세 단일 원천"],
     defPair: [
       {
         name: "AI-DLC(AI-Driven SDLC)",
+        lead: "AI 주도·사람 검증 개발",
         def: "SW 생명주기에 AI를 결합해 계획과 코딩은 AI가, 검증은 사람이 맡는 방법론",
         features: ["AI 역량 정렬", "단계 최소화", "고속 반복"],
       },
       {
         name: "SDD(Spec Driven Development)",
+        lead: "명세 중심 자동 파생 개발",
         def: "기계가 읽는 사양 중심으로 AI가 코드·테스트·문서를 자동 파생 생성하는 방법론",
         features: ["실행 가능 명세", "의미적 정합성", "단일 진실 원천"],
       },
@@ -22911,7 +23063,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "AI 중심의 컴퓨팅 자원, 모델, 데이터를 통합 관리 및 제어하는 차세대 운영체제",
     defShort: "AI 중심의 컴퓨팅 자원과 모델·데이터를 통합 관리·제어하는 차세대 운영체제",
-    lead: "LLM을 커널로 삼는 차세대 운영체제, AI OS",
+    lead: "LLM 커널의 운영체제, AI OS",
     features: ["LLM 중심 자원관리", "컨텍스트 스위칭", "에이전트 실행환경"],
     keywords: ["LLMCore", "LLMScheduler", "Context Manager", "Memory Manager", "Storage Manager", "Tool Manager", "Access Manager"],
     tables: [
@@ -22955,7 +23107,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "OWASP GenAI Security Project가 자율적으로 계획을 세우고 도구를 호출하며 다른 에이전트와 협업하는 AI 에이전트에서 새로 발생하는 보안 위협 15가지(T1~T15)와 위협별 완화 방안을 정리한 위협 참조 모델",
     defShort: "자율 AI 에이전트에서 새로 생기는 보안 위협과 완화 방안을 정리한 위협 참조 모델",
-    lead: "자율 에이전트 확산에 따른 신종 위협 체계화, OWASP Agentic AI",
+    lead: "자율 에이전트 위협 체계화, OWASP Agentic AI",
     features: ["15개 위협 분류", "위협별 완화 매핑", "다중 에이전트 위험"],
     keywords: ["OWASP Top 10 for Agentic AI", "Agentic Security Initiative", "Memory Poisoning", "Tool Misuse", "Privilege Compromise", "Cascading Hallucination", "Intent Breaking", "Rogue Agents", "Human-in-the-Loop", "Agent Communication Poisoning"],
     tables: [
