@@ -68,16 +68,10 @@ export default function PeerAnswers({ items }: { items: PeerAnswer[] }) {
 
               {isOpen && (
                 <div className="border-t border-slate-100 bg-slate-50/60 px-5 py-4">
-                  {a.takeaway && (
-                    <p className="mb-3 rounded-xl border-l-4 border-brand-300 bg-white p-3 text-[14px] font-medium leading-relaxed text-slate-800">
-                      {a.takeaway}
-                    </p>
-                  )}
-
                   {a.feedback && a.feedback.length > 0 && (
                     <div className="mb-4">
                       <div className="mb-1.5 text-xs font-bold text-rose-700">
-                        🖍️ 첨삭에서 읽어낸 것
+                        🖍️ 첨삭(빨간 글씨 그대로)
                       </div>
                       <ul className="space-y-1.5">
                         {a.feedback.map((f, i) => (
