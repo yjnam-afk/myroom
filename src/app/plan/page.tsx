@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
+import { ExamHistoryChip } from "@/components/ExamHistory";
 import { PageHeader } from "@/components/ui";
 import {
   WEEKS,
@@ -601,6 +602,8 @@ export default function PlanPage() {
                                 📖
                               </span>
                             )}
+                            {/* NS 주간 모의고사 출제 이력 — 몇 번, 언제. 자주·최근이면 붉게. */}
+                            <ExamHistoryChip title={t.title} />
                             {/* 교재 서브노트만 있어도(topicId 없어도) 두음신공은 열린다 */}
                             {(t.topicId || sub) && (
                               <Link

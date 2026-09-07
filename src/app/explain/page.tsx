@@ -13,6 +13,7 @@ import MyDiagrams from "@/components/MyDiagrams";
 import EasyCard from "@/components/EasyCard";
 import PeerAnswers from "@/components/PeerAnswers";
 import TopicMapCard from "@/components/TopicMapCard";
+import { ExamHistoryCard } from "@/components/ExamHistory";
 import { peerAnswersFor, peerAnswersForQuestion } from "@/data/peerAnswers";
 import Mermaid from "@/components/Mermaid";
 import { subnoteExtraFor } from "@/data/subnoteExtras";
@@ -996,6 +997,10 @@ function ExplainInner() {
         {/* 무엇과 짝인가 — 토픽 지도의 비교 세트·암기표를 이 자리로 끌어온다.
             시험은 개념 하나보다 나란히 놓고 묻는데, 그 짝을 보려면 지도로
             나갔다 와야 했다. */}
+        {/* NS 주간 모의고사 출제 이력 — 언제, 몇 번, 어떤 문구로 나왔나.
+            빈도·최근성이 높으면 붉게 띄운다(꼭 볼 것). */}
+        <ExamHistoryCard title={topic.trim()} />
+
         <TopicMapCard title={topic.trim()} />
 
         {/* 남이 쓴 답안 — 교재 정의·템플릿을 먼저 본 다음에 오도록 여기에 둔다.

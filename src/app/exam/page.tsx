@@ -23,6 +23,10 @@ type Q = {
   round?: string;
   /** 기수(NS 주간 모의고사처럼 기수별로 문제가 갈리는 경우). */
   cohort?: string;
+  /** 출제일(NS 주간 모의고사). */
+  date?: string;
+  /** 실전 Simulation 회차 라벨(예: "139회 실전 Simulation"). */
+  exam?: string;
   image?: string;
   imageLabel?: string;
 };
@@ -37,7 +41,7 @@ function kindOf(q: Q): "기출" | "셀테" | "모의고사" | "NS모의" | "예�
 }
 // "139회 1교시" → 회차 "139회". round가 있으면 그대로.
 function roundOf(q: Q): string {
-  const r = q.round || (q.source || "").split(" ")[0] || "기타";
+  const r = (q.round || (q.source || "").split(" ")[0] || "기타").replace(/^0+(\d)/, "$1");
   // 기수가 다르면 같은 "1주차"라도 다른 시험이므로 라벨을 분리한다.
   return q.cohort ? `${q.cohort} ${r}` : r;
 }
@@ -58,13 +62,15 @@ const KIND_DESC: Record<string, string> = {
   셀테: "주차별 실전 셀프테스트(셀테)입니다. 시험처럼 골라 답안을 연습해 보세요.",
   모의고사: "실전 명품 모의고사입니다. 교시별로 실제 시험처럼 풀어 보세요.",
   예상: "출제 흐름(AI·클라우드·보안·데이터)을 반영해 만든 예상문제입니다. 참고용으로 연습하세요.",
-  NS모의: "ITPE NS·단합반 19기 주간 실전모의고사입니다. 주차별 실제 출제 문항과 해설집 기준 답안입니다.",
+  NS모의: "ITPE NS·단합반 주간 실전모의고사(11기~19기, 2022~2026). 주차별 실제 출제 문항과 출제일·도메인입니다. 해설집 본문은 싣지 않습니다.",
 };
 
 // 회차 정렬: 숫자(회/주차) 큰 순.
 function roundNum(r: string): number {
-  // "19기 1주차"는 기수가 아니라 주차로 정렬해야 하므로 주차·회 숫자를 먼저 본다.
+  // "18기 9주차"처럼 기수가 붙으면 기수 → 주차 순으로(최신 기수의 최신 주차가 맨 앞).
+  const c = r.match(/(\d+)\s*기/);
   const w = r.match(/(\d+)\s*(?:주차|회)/);
+  if (c && w) return parseInt(c[1]) * 100 + parseInt(w[1]);
   if (w) return parseInt(w[1]);
   const m = r.match(/\d+/);
   return m ? parseInt(m[0]) : 0;
@@ -97,13 +103,28 @@ export default function ExamPage() {
   const [query, setQuery] = useState("");
   const nq = query.trim().toLowerCase();
 
+  // 기수(NS 주간 모의고사) — 11기~19기가 섞이면 주차 목록이 수백 줄이라 기수로 먼저 거른다.
+  const [cohort, setCohort] = useState<string>("전체");
+  const cohorts = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          EXAMS.filter((q) => kindOf(q) === kind && q.cohort).map((q) => q.cohort!),
+        ),
+      ).sort((a, b) => parseInt(b) - parseInt(a)),
+    [kind],
+  );
+  useEffect(() => setCohort("전체"), [kind]);
+  const inCohort = (q: Q) => cohort === "전체" || q.cohort === cohort;
+
   // 선택 구분에 존재하는 회차/주차만.
   const rounds = useMemo(
     () =>
       Array.from(
-        new Set(EXAMS.filter((q) => kindOf(q) === kind).map(roundOf)),
+        new Set(EXAMS.filter((q) => kindOf(q) === kind && inCohort(q)).map(roundOf)),
       ).sort((a, b) => roundNum(b) - roundNum(a)),
-    [kind],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [kind, cohort],
   );
 
   // 선택 구분에 실제 존재하는 교시만 노출(셀테는 3·4교시가 없음).
@@ -133,15 +154,17 @@ export default function ExamPage() {
     return EXAMS.filter(
       (q) =>
         kindOf(q) === kind &&
+        inCohort(q) &&
         (round === "전체" || roundOf(q) === round) &&
         (period === "전체" || q.period === period),
     );
-  }, [kind, round, period, nq]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [kind, cohort, round, period, nq]);
 
   // 페이지네이션 — 처음엔 일부만 렌더(수백 문제를 한 번에 그리지 않게). 필터가 바뀌면 리셋.
   const PAGE = 20;
   const [visible, setVisible] = useState(PAGE);
-  useEffect(() => setVisible(PAGE), [kind, round, period, nq]);
+  useEffect(() => setVisible(PAGE), [kind, cohort, round, period, nq]);
   const capped = useMemo(() => list.slice(0, visible), [list, visible]);
 
   // 교시별 그룹(현재 렌더 대상 capped 기준) — 검색 모드에선 구분 라벨까지 붙인다.
@@ -206,6 +229,26 @@ export default function ExamPage() {
       )}
 
       <div className="mb-5 flex flex-wrap items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        {cohorts.length > 1 && (
+          <div className="flex items-center gap-2">
+            <span className="text-xs text-slate-400">기수</span>
+            <select
+              value={cohort}
+              onChange={(e) => {
+                setCohort(e.target.value);
+                setRound("전체");
+              }}
+              className="rounded border border-slate-200 bg-white px-2 py-1 text-sm text-slate-700"
+            >
+              <option value="전체">전체</option>
+              {cohorts.map((c) => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
         <div className="flex items-center gap-2">
           <span className="text-xs text-slate-400">
             {kind === "셀테" || kind === "NS모의" ? "주차" : "회차"}
@@ -260,6 +303,12 @@ export default function ExamPage() {
               <span className="text-xs font-normal text-slate-400">
                 {qs.length}문제
               </span>
+              {qs[0]?.date && (
+                <span className="text-xs font-normal text-slate-400">
+                  📅 {qs[0].date}
+                  {qs[0].exam ? ` · ${qs[0].exam}` : ""}
+                </span>
+              )}
             </h3>
             <div className="space-y-2">
               {qs.map((q, i) => {
