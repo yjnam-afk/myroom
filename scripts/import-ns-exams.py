@@ -4,7 +4,7 @@
 #
 # 해설집의 모범답안(해설 본문)은 가져오지 않는다 — 문제·도메인·키워드 메타만.
 # 기수는 날짜로 정한다(사용자 확인):
-#   2022-09~2023-01 11기 · 2023-03~08 12기 · 2023-09~2024-01 13기 · 2024-02~07 14기 · 2024-08~2025-01 15기 · 2025-02~06 16기
+#   2022-02~07 10기 · 2022-09~2023-01 11기 · 2023-03~08 12기 · 2023-09~2024-01 13기 · 2024-02~07 14기 · 2024-08~2025-01 15기 · 2025-02~06 16기
 #   2025-09~12 17기 · 2026-03~07 18기 · 2026-08~ 19기(현재)
 # 실전 Simulation(133·135·136·139회…)은 그 기수에서 직전 NS 주차 + 1 주차로 넣는다.
 import glob, json, os, re, sys
@@ -37,6 +37,7 @@ def norm_domain(s):
 
 def cohort_of(date):  # YYYYMMDD
     y, m = int(date[:4]), int(date[4:6])
+    if y == 2022 and m <= 7: return "10기"
     if y == 2022 or (y == 2023 and m <= 1): return "11기"
     if y == 2023 and m <= 8: return "12기"
     if y == 2023 or (y == 2024 and m == 1): return "13기"
@@ -52,12 +53,18 @@ def parse_name(b):
     """(week|None, period, date, sim회차|None)"""
     m = re.search(r"NS_+(\d\d)_+(\d)_+(?:\d{3}_+)?(\d{8})", b)
     if m: return m.group(1), m.group(2), m.group(3), None
-    m = re.search(r"NS_+(\d\d)_+(\d)_*\.pdf$", b)  # 파일명에 날짜가 없으면 본문에서 찾는다
+    m = re.search(r"(?:NS|ITPE)_+(\d\d)_+(\d)_*\.pdf$", b)  # 파일명에 날짜가 없으면 본문에서 찾는다
     if m: return m.group(1), m.group(2), None, None
+    m = re.search(r"^[0-9a-f]+-(\d)_+(\d{8})\.pdf$", b)  # "1_____20220220.pdf": 교시·날짜만, 주차는 본문/같은 날짜 파일에서
+    if m: return "??", m.group(1), m.group(2), None
     s = re.search(r"(\d{3})_+ITPE_+Simulation_+(\d)_+(\d{8})", b)
     if s: return None, s.group(2), s.group(3), s.group(1)
     s = re.search(r"Simulation_+(\d)_+(\d)_+(\d{8})", b)  # 13기: 회차 없이 'Simulation_1'
     if s: return None, s.group(2), s.group(3), "실전" + s.group(1)
+    s = re.search(r"Simulation_+(\d)_+(\d)_*\.pdf$", b)  # 10기: 날짜도 없음 → 본문에서
+    if s: return None, s.group(2), None, "실전" + s.group(1)
+    s = re.search(r"Simulation_+(\d)_*\.pdf$", b)  # 회차 번호도 없음
+    if s: return None, s.group(1), None, "실전"
     return None
 
 JUNK = re.compile(r"Copyright|Simulation Test|해설집|^\d+\s*-\s*\d+$|^\d{1,3}$|All rights reserved|^ITPE ")
@@ -181,32 +188,67 @@ def solution_meta(lines):
         meta[no] = entry
     return meta
 
-files = {}  # (cohort, week|sim, period) -> list of docs
+from datetime import date as _date
+def _d(s): return _date(int(s[:4]), int(s[4:6]), int(s[6:]))
+def near(a, b): return abs((_d(a) - _d(b)).days) <= 2
+
+# 1) 파일을 (기수, 라벨, 교시)로 모은다. 라벨 = 파일명 주차 / "S실전N"(Simulation) / None(모름).
+raw = []  # (cohort, label, period, date, f, b)
 skipped = []
 for f in sorted(glob.glob(os.path.join(SRC, "*.pdf"))):
     b = os.path.basename(f)
     pn = parse_name(b)
     if not pn: continue
     week, period, date, sim = pn
+    head = None
+    if not date or week == "??":
+        d0 = pymupdf.open(f)
+        head = "".join(d0[i].get_text() for i in range(min(2, d0.page_count)))
     if not date:
-        head = "".join(pymupdf.open(f)[i].get_text() for i in range(min(2, pymupdf.open(f).page_count)))
         dm = re.search(r"(20\d\d)\s*[.년]\s*(\d{1,2})\s*[.월]\s*(\d{1,2})", head)
         if not dm:
             skipped.append((b, "날짜 없음")); continue
         date = f"{dm.group(1)}{int(dm.group(2)):02d}{int(dm.group(3)):02d}"
-    files.setdefault((cohort_of(date), week or f"S{sim}", period), []).append((date, f, b))
+    if week == "??":
+        wm = re.search(r"(\d{1,2})\s*주차", head)
+        week = f"{int(wm.group(1)):02d}" if wm else None
+    label = week if week else (f"S{sim}" if sim else None)
+    raw.append((cohort_of(date), label, period, date, f, b))
 
-# Simulation 주차 = 그 기수에서 직전 NS 주차 + 1
-def sim_week(cohort, date):
-    prev = [int(w) for (c, w, p), v in files.items() if c == cohort and not w.startswith("S") and v[0][0] < date]
-    return f"{(max(prev) if prev else 8) + 1:02d}"
+# 2) 같은 기수 안에서 날짜(±2일)로 시험을 묶는다. 라벨이 같아도 날짜가 다르면 다른 시험.
+groups = []  # {"cohort", "label", "sim", "date", "periods": {period: [(date,f,b)]}}
+for cohort, label, period, date, f, b in sorted(raw, key=lambda r: r[3]):
+    g = None
+    for x in groups:
+        if x["cohort"] != cohort or not near(x["date"], date): continue
+        if label is None or x["label"] is None or x["label"] == label:
+            g = x; break
+    if g is None:
+        g = {"cohort": cohort, "label": label, "date": date, "periods": {}}
+        groups.append(g)
+    if g["label"] is None and label: g["label"] = label
+    g["periods"].setdefault(period, []).append((date, f, b))
+
+# 3) 주차 번호 — 파일명 주차를 쓰되, 없거나(실전 Simulation·문제지만 있는 주) 이미 쓰인
+#    번호면 그 기수에서 지금까지 나온 가장 큰 주차 + 1 (사용자 지시: "쭉 이어서 다음 주차").
+by_cohort = {}
+for g in groups: by_cohort.setdefault(g["cohort"], []).append(g)
+for cohort, gs in by_cohort.items():
+    used = set()
+    for g in sorted(gs, key=lambda x: x["date"]):
+        lab = g["label"]
+        n = int(lab) if lab and lab.isdigit() else None
+        if n is None or n in used:
+            n = (max(used) if used else 0) + 1
+        used.add(n)
+        g["week"] = f"{n:02d}"
+        g["sim"] = lab[1:] if lab and lab.startswith("S") else None
 
 exams = {}  # (cohort, week, period) -> {...}
-for (cohort, week, period), lst in files.items():
-    date = lst[0][0]
-    sim = week[1:] if week.startswith("S") else None
-    if sim: week = sim_week(cohort, date)
-    e = exams.setdefault((cohort, week, period), {"date": date, "sim": sim, "questions": [], "meta": {}, "files": []})
+for g in groups:
+  cohort, week = g["cohort"], g["week"]
+  for period, lst in g["periods"].items():
+    e = exams.setdefault((cohort, week, period), {"date": g["date"], "sim": g["sim"], "questions": [], "meta": {}, "files": []})
     seen_len = set()
     for date, f, b in lst:
         doc = pymupdf.open(f)
@@ -248,7 +290,7 @@ for (cohort, week, period), e in sorted(exams.items()):
             "text": q["text"],
         }
         if q.get("points"): item["points"] = q["points"]
-        if e["sim"]: item["exam"] = f"실전 Simulation {e['sim'][2:]}" if e["sim"].startswith("실전") else f"{e['sim']}회 실전 Simulation"
+        if e["sim"]: item["exam"] = f"실전 Simulation {e['sim'][2:]}".strip() if e["sim"].startswith("실전") else f"{e['sim']}회 실전 Simulation"
         if m.get("keywords"): item["keywords"] = m["keywords"]
         out.append(item)
 
@@ -282,11 +324,12 @@ if WRITE:
         if q.get("kind") == "NS모의" and q.get("cohort") == "19기" and q.get("round") == "1주차" and not q.get("date"):
             q["date"] = "2026-09-06"
     out2 = [q for q in out if not (q["cohort"] == "19기" and q["round"] == "01주차")]
-    ids = {q["id"] for q in data}
-    added = [q for q in out2 if q["id"] not in ids]
-    by = {q["id"]: q for q in out2}
-    for q in data:
-        if q["id"] in by: q.update(by[q["id"]])
-    data.extend(added)
+    # 이 스크립트가 만든 항목(ns<기수>w<주차>-…)은 통째로 갈아끼운다 — 주차가 다시 매겨져도 찌꺼기가 안 남게.
+    mine = re.compile(r"^ns\d+w\d\d-")
+    before = len(data)
+    data = [q for q in data if not mine.match(q["id"])]
+    removed = before - len(data)
+    data.extend(out2)
     json.dump(data, open(qp, "w", encoding="utf8"), ensure_ascii=False, indent=1)
-    print(f"questions.json 에 {len(added)}개 추가, {len(out2) - len(added)}개 갱신")
+    added = len(out2) - removed
+    print(f"questions.json: NS 문항 {removed}개 → {len(out2)}개 (순증 {added:+d})")

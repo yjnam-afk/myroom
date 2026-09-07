@@ -369,6 +369,13 @@ export default function ExamPage() {
                         📝 답안지 템플릿 →
                       </Link>
                     )}
+                    {/* 답안 생성 — 답안 작성 화면으로 문제를 들고 간다(교재 근거로 AI 작성). */}
+                    <Link
+                      href={`/answer?period=${encodeURIComponent(q.period === "1교시" ? "1교시" : "2교시")}&question=${encodeURIComponent(q.text)}`}
+                      className="rounded-md bg-brand-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-brand-700"
+                    >
+                      ✍️ 답안 생성
+                    </Link>
                     <CopyButton
                       text={q.text}
                       className="rounded-md border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-100"
