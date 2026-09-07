@@ -169,12 +169,15 @@ function overlapScore(item: string, tb: any): number {
 const GLOSS = JSON.parse(
   fs.readFileSync(path.join(root, "src/data/gloss.json"), "utf8"),
 ) as Record<string, { d?: string; t: string[] }>;
+function glossFor(sn: any) {
+  return GLOSS[`${sn.title}@${sn.course ?? ""}`] ?? GLOSS[sn.title];
+}
 function pushDiagramGloss(parts: string[], sn: any) {
-  const g = GLOSS[sn.title];
+  const g = glossFor(sn);
   if (g?.d) parts.push(`- ${g.d}`);
 }
 function pushTableGloss(parts: string[], sn: any, tb: any) {
-  const g = GLOSS[sn.title];
+  const g = glossFor(sn);
   const i = (sn.tables || []).indexOf(tb);
   const line = g?.t?.[i];
   if (line) parts.push(`- ${line}`);

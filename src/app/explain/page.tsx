@@ -170,6 +170,11 @@ const BROWSE_GROUPS: BrowseGroup[] = (() => {
 /** 접힌 버튼에 보여줄 개수 — 교재(심화반) 토픽만 센다. */
 /** 간글 — 개념도(d)·표(t, 표 순서대로)마다 한 줄. 교재 표를 읽고 다음 단락으로 넘어가게 돕는 문장. */
 const GLOSS = glossData as Record<string, { d?: string; t: string[] }>;
+/** 같은 제목의 서브노트가 과목별로 둘일 때(DevSecOps) "제목@과목" 키를 먼저 본다 */
+function glossFor(sn: { title: string; course?: string } | undefined) {
+  if (!sn) return undefined;
+  return GLOSS[`${sn.title}@${sn.course ?? ""}`] ?? GLOSS[sn.title];
+}
 const BOOK_TOTAL = BROWSE_GROUPS.filter((g) => g.badge === "심화반").reduce((n, g) => n + g.items.length, 0);
 
 const SRC_CHIP: Record<string, string> = {
@@ -587,9 +592,9 @@ function ExplainInner() {
                   </p>
                 )}
                 {/* 간글 — 개념도 부연 한 줄 */}
-                {GLOSS[textbook.title]?.d && (
+                {glossFor(textbook)?.d && (
                   <p className="mt-1 pl-8 text-[12.5px] leading-relaxed text-slate-500">
-                    – {GLOSS[textbook.title]!.d}
+                    – {glossFor(textbook)!.d}
                   </p>
                 )}
                 {!!extra?.images?.length && (
@@ -649,9 +654,9 @@ function ExplainInner() {
                     </table>
                   </div>
                   {/* 간글 — 표 부연 또는 다음 단락으로 잇는 한 줄 */}
-                  {GLOSS[textbook.title]?.t?.[ti] && (
+                  {glossFor(textbook)?.t?.[ti] && (
                     <p className="mt-1 pl-4 text-[12.5px] leading-relaxed text-slate-500">
-                      – {GLOSS[textbook.title]!.t[ti]}
+                      – {glossFor(textbook)!.t[ti]}
                     </p>
                   )}
                 </div>
@@ -1008,6 +1013,12 @@ function ExplainInner() {
               alt={`${topic.trim()} 교재 슬라이드`}
               className="w-full bg-white"
             />
+            {/* 간글 — 이 슬라이드(개념도) 한 줄 부연 */}
+            {glossFor(textbook)?.d && (
+              <p className="border-t border-slate-100 px-4 py-2 text-[12.5px] leading-relaxed text-slate-500">
+                – {glossFor(textbook)!.d}
+              </p>
+            )}
           </section>
         )}
 
