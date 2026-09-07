@@ -95,64 +95,14 @@ const mnemOf = (texts: string[]): string => {
 };
 
 /**
- * 두음 자동 생성 — 항목마다 첫 글자를 이어 붙인다.
+ * 두음은 교재 캡션·키워드에 적힌 [두음] 만 쓴다. 자동으로 만들지 않는다.
  *
- * 교재 서브노트에는 [두음] 표기가 거의 없어서(575개 중 16건, 그마저 대부분
- * [표현]·[출력] 같은 비두음) 교재 카드 575장이 전부 두음 없이 나갔다.
- * "틈새 두음" 모드에 정작 교재 토픽 두음이 하나도 없던 것이다.
- *
- * 두음신공은 결국 "항목 첫 글자 잇기"라 기계적으로 만들어도 틀리지 않는다.
- * 한글은 첫 음절, 영문은 첫 글자 대문자, 숫자는 그대로. 2~8개 항목일 때만
- * 만든다 — 하나면 두음이 아니고 아홉 넘어가면 외울 수 없다.
+ * 한때 항목 첫 글자를 이어 붙여 교재 카드 559장에 두음을 만들어 넣었다.
+ * 그러나 교재는 두음을 강조하지 않고, 있는 두음은 캡션에 명시돼 있다
+ * ([구데제]·[할배호교]·[나폴리는 중세기다]…). 교재에 없는 두음을 만들면
+ * 교재 표기와 다른 것을 외우게 된다. 두음이 없는 구획은 키워드 순서로 외운다.
  */
-const autoMnem = (keywords: string[]): string => {
-  const items = keywords
-    .map((k) =>
-      String(k || "")
-        .replace(/^[①-⑳]\s*/, "")
-        .replace(/^\d+[.)]\s*/, "")
-        .replace(/^[가-힣][.)]\s*/, "")
-        .replace(/^[-•·]\s*/, "")
-        .replace(/^\([^)]*\)\s*/, "")
-        .trim(),
-    )
-    .filter(Boolean);
-  if (items.length < 2 || items.length > 8) return "";
-  const heads: string[] = [];
-  for (const it of items) {
-    const ch = it[0];
-    if (/[가-힣]/.test(ch)) heads.push(ch);
-    else if (/[A-Za-z]/.test(ch)) heads.push(ch.toUpperCase());
-    else if (/\d/.test(ch)) heads.push(ch);
-    else return ""; // 기호로 시작하면 두음이 안 된다
-  }
-  return heads.join("");
-};
-
-/**
- * 비교표의 1열은 "정의·구성·성능·활용" 같은 비교 축이라 외울 항목이 아니다.
- * 여기서 두음을 만들면 "정구성활" 같은 헛것이 카드 앞면에 박힌다.
- * 캡션에 비교·vs 가 있거나 항목 절반 이상이 축 낱말이면 자동 두음을 만들지 않는다.
- */
-const AXIS_WORDS = new Set([
-  "정의", "특징", "구성", "구성요소", "장점", "단점", "목적", "활용", "사례",
-  "성능", "안정성", "개념", "원리", "방식", "종류", "설명", "비고", "예시",
-  "용도", "기법", "구분", "지원", "조건", "주체", "특성", "범위", "시기",
-  "대상", "방법", "도구", "산출물", "역할", "기능", "한계", "효과", "비용",
-  "속도", "구조", "형태", "처리", "관리", "공통점", "차이점", "상호작용",
-]);
-const looksLikeAxis = (caption: string, keywords: string[]): boolean => {
-  if (/비교|vs\.?|차이|대비/i.test(caption)) return true;
-  const hits = keywords.filter((k) =>
-    AXIS_WORDS.has(String(k || "").replace(/\s*\(.*$/, "").trim()),
-  ).length;
-  return keywords.length > 0 && hits * 2 >= keywords.length;
-};
-
-/** [두음] 표기가 있으면 그것을, 없으면 자동 생성(비교 축이면 만들지 않음). */
-const mnemFor = (texts: string[], keywords: string[]): string =>
-  mnemOf(texts) ||
-  (looksLikeAxis(texts.join(" "), keywords) ? "" : autoMnem(keywords));
+const mnemFor = (texts: string[], _keywords: string[]): string => mnemOf(texts);
 /** 표 첫 열 값 정리 — "① 사용자 Data 입력" → "사용자 Data 입력" */
 const cellHead = (s: string) =>
   String(s || "")
@@ -337,7 +287,7 @@ for (let i = 0; i < SUBNOTES.length; i++) {
   const s: any = SUBNOTES[i];
   const sections: Section[] = [];
   if (s.features?.length)
-    sections.push({ label: "특징", mnemonic: autoMnem(s.features), keywords: s.features });
+    sections.push({ label: "특징", mnemonic: "", keywords: s.features });
   if (s.keywords?.length) {
     const kws = s.keywords.map((k: string) => k.replace(/\[[^\]]*\]\s*/g, "").trim()).filter(Boolean);
     sections.push({ label: "교재 키워드", mnemonic: mnemFor(s.keywords, kws), keywords: kws });

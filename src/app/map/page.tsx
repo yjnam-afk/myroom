@@ -290,7 +290,8 @@ function CompareView({
   q: string;
   searching: boolean;
 }) {
-  const [pick, setPick] = useState<string>("전체");
+  // 기본은 첫 과목(커리큘럼 1주차) — "전체"로 두면 교재 세트 850개가 한 번에 그려진다.
+  const [pick, setPick] = useState<string>(CMP_CATS[0] ?? "전체");
   // 검색 중엔 분류 필터 무시, 아니면 선택 분류로 좁힘
   const shown =
     searching || pick === "전체"
@@ -357,12 +358,19 @@ function CompareView({
                       <h3 className="flex flex-wrap items-center gap-1.5 text-sm font-bold text-slate-900">
                         {s.title}
                         {/* 교재 서브노트 표를 그대로 옮긴 세트 — ref 가 원본 토픽 */}
-                        {s.source === "교재" && (
+                        {s.source === "교재" ? (
                           <span
                             title={s.ref ? `교재 서브노트 「${s.ref}」의 표` : "교재 표"}
                             className="rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700"
                           >
                             교재
+                          </span>
+                        ) : (
+                          <span
+                            title="교재 이전에 만든 세트 — 교재 표기와 다를 수 있다"
+                            className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-medium text-slate-400"
+                          >
+                            교재 외
                           </span>
                         )}
                       </h3>
@@ -419,7 +427,8 @@ function TablesView({
   q: string;
   searching: boolean;
 }) {
-  const [pick, setPick] = useState<string>("전체");
+  // 기본은 첫 과목 — "전체"는 교재 표 1,200개를 한 번에 그린다.
+  const [pick, setPick] = useState<string>(TBL_CATS[0] ?? "전체");
   const shown =
     searching || pick === "전체"
       ? tblResults
@@ -475,12 +484,19 @@ function TablesView({
               <div className="border-b border-slate-100 p-4">
                 <div className="flex items-center gap-2">
                   <h3 className="text-sm font-bold text-slate-900">{t.title}</h3>
-                  {t.source === "교재" && (
+                  {t.source === "교재" ? (
                     <span
                       title={t.ref ? `교재 서브노트 「${t.ref}」의 표` : "교재 표"}
                       className="rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700"
                     >
                       교재
+                    </span>
+                  ) : (
+                    <span
+                      title="교재 이전에 만든 표 — 교재 표기와 다를 수 있다"
+                      className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-medium text-slate-400"
+                    >
+                      교재 외
                     </span>
                   )}
                   <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] text-slate-500">

@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prebuild": "tsx scripts/build-flashcards.ts && tsx scripts/build-genanswers.ts"
+    "prebuild": "tsx scripts/build-textbook-map.ts && tsx scripts/build-flashcards.ts && tsx scripts/build-genanswers.ts"
   },
   "dependencies": {
     "@breezystack/lamejs": "^1.2.7",
