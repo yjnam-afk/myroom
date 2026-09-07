@@ -307,7 +307,7 @@ export default function PlanPage() {
    */
   const remember = useCallback((weekStart: string | "all", date?: string) => {
     try {
-      sessionStorage.setItem(SEEN_KEY, JSON.stringify({ w: weekStart, d: date }));
+      sessionStorage.setItem(SEEN_KEY, JSON.stringify({ w: weekStart, d: date, at: Date.now() }));
     } catch {
       // 사생활 보호 모드 등에서 막히면 기억하지 않는다(오늘 주차로 열림).
     }
@@ -319,15 +319,18 @@ export default function PlanPage() {
     const t = planForToday();
     // "오늘" 강조는 진짜 오늘일 때만. 커리큘럼 밖이라 대신 채운 날은 강조하지 않는다.
     if (t?.isToday) setTodayKey(`${t.week.start}#${t.dayIndex}`);
-    // 보던 주차가 있으면 그것을 먼저 연다(뒤로 돌아온 경우).
-    let seen: { w?: string; d?: string } | null = null;
+    // 보던 주차는 토픽을 보고 곧 돌아온 경우에만 다시 연다(10분).
+    // 시간 제한이 없으면 며칠 전 탭에서 보던 8월 주차가 메인의 '학습계획'을
+    // 눌러도 그대로 열려 "왜 8/21로 가지"가 된다. 기본은 오늘 주차다.
+    let seen: { w?: string; d?: string; at?: number } | null = null;
     try {
       const raw = sessionStorage.getItem(SEEN_KEY);
       seen = raw ? JSON.parse(raw) : null;
     } catch {
       seen = null;
     }
-    if (seen?.w) {
+    const fresh = !!seen?.at && Date.now() - seen.at < 10 * 60 * 1000;
+    if (seen?.w && fresh) {
       setSel(seen.w);
       if (seen.d) {
         setTimeout(() => {

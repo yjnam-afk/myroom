@@ -164,7 +164,9 @@ const BROWSE_GROUPS: BrowseGroup[] = (() => {
   return groups;
 })();
 
-const BROWSE_TOTAL = BROWSE_GROUPS.reduce((n, g) => n + g.items.length, 0);
+
+/** 접힌 버튼에 보여줄 개수 — 교재(심화반) 토픽만 센다. */
+const BOOK_TOTAL = BROWSE_GROUPS.filter((g) => g.badge === "심화반").reduce((n, g) => n + g.items.length, 0);
 
 const SRC_CHIP: Record<string, string> = {
   심화반: "bg-emerald-100 text-emerald-700",
@@ -183,17 +185,20 @@ function TopicBrowser({ onPick }: { onPick: (title: string) => void }) {
   // 기본은 아무 도메인도 안 펼친다 — 칩 한 줄만 보이는 상태가 시작점.
   const [sel, setSel] = useState<string | null>(null);
   const [filter, setFilter] = useState("");
+  // 기본은 교재(심화반) 묶음만. 예전(기필반) 묶음은 토글로 편다.
+  const [legacy, setLegacy] = useState(false);
+  const groups = legacy ? BROWSE_GROUPS : BROWSE_GROUPS.filter((g) => g.badge === "심화반");
 
   const q = filter.trim().toLowerCase();
   // 걸러보기 입력 중에는 도메인 무관하게 맞는 토픽만 모아 한 판에 보여준다.
   const matched = q
-    ? BROWSE_GROUPS.flatMap((g) =>
+    ? groups.flatMap((g) =>
         g.items
           .filter((it) => it.title.toLowerCase().includes(q))
           .map((it) => ({ ...it, group: g.label })),
       )
     : [];
-  const selGroup = BROWSE_GROUPS.find((g) => g.key === sel);
+  const selGroup = groups.find((g) => g.key === sel);
 
   const pick = (t: string) => {
     onPick(t);
@@ -205,7 +210,9 @@ function TopicBrowser({ onPick }: { onPick: (title: string) => void }) {
       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 bg-slate-50 px-5 py-3">
         <h3 className="text-sm font-bold text-slate-700">
           📂 도메인별 토픽 목록{" "}
-          <span className="font-normal text-slate-400">({BROWSE_TOTAL}개)</span>
+          <span className="font-normal text-slate-400">
+            ({groups.reduce((n, g) => n + g.items.length, 0)}개)
+          </span>
         </h3>
         <input
           value={filter}
@@ -254,7 +261,7 @@ function TopicBrowser({ onPick }: { onPick: (title: string) => void }) {
         <>
           {/* 도메인 칩 — 여기서 하나를 고르면 그 도메인만 아래에 펼쳐진다. */}
           <div className="flex flex-wrap gap-1.5 p-4">
-            {BROWSE_GROUPS.map((g) => {
+            {groups.map((g) => {
               const active = sel === g.key;
               return (
                 <button
@@ -277,6 +284,18 @@ function TopicBrowser({ onPick }: { onPick: (title: string) => void }) {
                 </button>
               );
             })}
+            {/* 기본은 교재 묶음만. 예전(기필반) 묶음은 회독 진도가 걸려 있어 토글 뒤에 둔다. */}
+            <button
+              onClick={() => { setLegacy(!legacy); setSel(null); }}
+              title="심화반 교재에 없는 예전(기필반) 토픽 묶음까지 보여줍니다"
+              className={`rounded-full border px-3 py-1.5 text-xs font-medium transition ${
+                legacy
+                  ? "border-slate-500 bg-slate-600 text-white"
+                  : "border-dashed border-slate-300 bg-white text-slate-400 hover:border-slate-400"
+              }`}
+            >
+              {legacy ? "예전 토픽 포함 중" : "+ 예전 토픽 포함"}
+            </button>
           </div>
 
           {selGroup && (
@@ -447,7 +466,7 @@ function ExplainInner() {
             onClick={() => setBrowseOpen(true)}
             className="mb-6 w-full rounded-2xl border border-dashed border-slate-300 bg-white px-5 py-3 text-sm font-medium text-slate-500 hover:border-brand-400 hover:text-brand-700"
           >
-            📂 도메인별 토픽 목록에서 다른 토픽 찾기 ({BROWSE_TOTAL}개)
+            📂 도메인별 토픽 목록에서 다른 토픽 찾기 ({BOOK_TOTAL}개)
           </button>
         )}
       </div>

@@ -45,7 +45,7 @@ export default function RootLayout({
                 <Link href="/explain" className="hover:text-brand-600">💡 토픽 설명</Link>
                 <Link href="/basics" className="hover:text-brand-600">🧱 용어사전</Link>
                 <Link href="/commute" className="hover:text-brand-600">🚇 지하철</Link>
-                <Link href="/exam" className="hover:text-brand-600">기출문제</Link>
+                <Link href="/exam" className="hover:text-brand-600">📝 기출문제</Link>
                 <Link href="/bank" className="hover:text-brand-600">🏦 문제은행</Link>
                 <Link href="/map" className="hover:text-brand-600">🗺️ 토픽지도</Link>
               </nav>

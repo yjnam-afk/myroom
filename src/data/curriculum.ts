@@ -906,14 +906,6 @@ function classDayIn(weekStart: string): { index: number; day: CurriculumDay } | 
   return null;
 }
 
-/** 개강 전 정리 주간이 도는 범위 — 선행 1~4주차 전체. */
-const PRE_ALL: CurriculumTopic[] = [
-  ...topicsOf(STUDY_DAYS),
-  ...topicsOf(WEEK2_DAYS),
-  ...topicsOf(WEEK3_DAYS),
-  ...topicsOf(WEEK4_DAYS),
-];
-
 /** 회독 주간이 도는 범위 — 그때까지 배운 과목 누적. */
 const SPRINT1_TO_W3: CurriculumTopic[] = [
   ...topicsOf(STUDY_DAYS),
@@ -927,46 +919,12 @@ const SPRINT1_TO_W6: CurriculumTopic[] = [
   ...topicsOf(WEEK6_DAYS),
 ];
 
+/**
+ * 학원(심화반) 1주차부터 시작한다. 개강 전 선행 학습 4주와 휴식 주는 기록째
+ * 걷어냈다 — 지금은 학원 진도가 기준이고, 선행 때 체크한 완료 기록이
+ * 심화반 진도처럼 보이면 안 된다. 그 주차들의 완료 기록은 loadDone 이 버린다.
+ */
 export const WEEKS: CurriculumWeek[] = [
-  {
-    // 심화반(9월) 전에 미리 도는 선행 학습 — 오늘부터 시작.
-    // 새 서브노트를 올리면 해당 요일 topics 배열에 추가하면 된다.
-    start: "2026-08-03",
-    title: "선행 학습 · 심화반 1주차 미리 돌기",
-    days: buildWeek("2026-08-03", [...STUDY_DAYS]),
-  },
-  {
-    // 선행 2주차 — 프로젝트 관리
-    start: "2026-08-10",
-    title: "선행 학습 · 심화반 2주차 미리 돌기 (PM + 소프트웨어공학)",
-    days: buildWeek("2026-08-10", [...WEEK2_DAYS]),
-  },
-  {
-    // 선행 3주차 — 인공지능
-    start: "2026-08-17",
-    title: "선행 학습 · 심화반 3주차 미리 돌기 (인공지능 + 확률·통계)",
-    days: buildWeek("2026-08-17", [...WEEK3_DAYS]),
-  },
-  {
-    // 선행 4주차 — 자료구조 + 알고리즘 + 네트워크
-    start: "2026-08-24",
-    title: "선행 학습 · 4주차 미리 돌기 (자료구조 + 알고리즘 + 네트워크)",
-    days: buildWeek("2026-08-24", [...WEEK4_DAYS]),
-  },
-  {
-    // 심화반 개강(9/6) 직전 한 주 — 선행 학습을 마치고 쉬어 가는 주간.
-    start: "2026-08-31",
-    title: "휴식 주간 · 심화반 개강(9/6)과 NS 19기 01주차 모의고사",
-    days: [
-      { kind: "rest", label: "휴식", note: "선행 학습을 마쳤습니다 — 개강 전까지 쉬어 갑니다." },
-      { kind: "rest", label: "휴식", note: "선행 학습을 마쳤습니다 — 개강 전까지 쉬어 갑니다." },
-      { kind: "rest", label: "휴식", note: "선행 학습을 마쳤습니다 — 개강 전까지 쉬어 갑니다." },
-      { kind: "rest", label: "휴식", note: "선행 학습을 마쳤습니다 — 개강 전까지 쉬어 갑니다." },
-      { kind: "rest", label: "휴식", note: "선행 학습을 마쳤습니다 — 개강 전까지 쉬어 갑니다." },
-      { kind: "rest", label: "휴식", note: "내일 개강입니다 — 무리하지 않습니다." },
-      { kind: "class", label: "개강·모의고사", note: "심화반 개강일 — NS 19기 01주차 주간 실전모의고사(1교시·2교시)를 함께 치릅니다." },
-    ],
-  },
   {
     // ★ 스프린트 I — 수업일은 CLASSES 에 있는 실제 일정. 수업 다음 날부터
     //   그 과목을 도는 구조라, 주 시작(월)의 과목은 직전 일요일 수업 과목이다.
@@ -1273,9 +1231,10 @@ export function loadDone(): Set<string> {
   try {
     const raw = window.localStorage.getItem(DONE_KEY);
     const arr = raw ? (JSON.parse(raw) as string[]) : [];
-    // 예전(제목만) 키는 첫 주차 것으로 이관.
+    // 학원 1주차(WEEKS[0]) 전의 기록은 버린다 — 선행 학습 때 체크한 것이
+    // 심화반 진도로 보이면 안 된다. 주차 없는 옛 키(제목만)도 선행 기록이다.
     const first = WEEKS[0]?.start ?? "";
-    return new Set(arr.map((k) => (k.includes("#") ? k : doneKey(first, k))));
+    return new Set(arr.filter((k) => k.includes("#") && k.slice(0, 10) >= first));
   } catch {
     return new Set();
   }

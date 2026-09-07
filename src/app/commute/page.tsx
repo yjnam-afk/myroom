@@ -31,9 +31,10 @@ type Card = {
   levelNote?: string;
 };
 
+// 교재(심화반) 카드만 쓴다. 예전 카드는 flashcards.json 에 남아 있지만(토픽 설명의
+// 폴백 자료) 지하철에는 올리지 않는다 — 교재와 표기가 달라 헷갈리게 했다.
 // 과목 이름을 정식 이름으로 맞추고, 학습계획의 레벨·코멘트를 실어 준다.
-// 지하철에서 "오늘 급한 것만" 돌릴 수 있어야 하기 때문이다.
-const ALL: Card[] = (cards as Card[]).map((c) => {
+const ALL: Card[] = (cards as Card[]).filter((c) => c.source === "심화반").map((c) => {
   const p = planInfo(c.title, c.id);
   return {
     ...c,
@@ -52,21 +53,12 @@ const CATS = [
 const IMP: Record<string, number> = { 상: 0, 중: 1, 출제예상: 2, 하: 3 };
 /** 레벨 필터 — "전체"는 레벨 무관, 나머지는 그 레벨만. */
 const LEVELS = ["전체", "암기", "숙지", "점검", "참고"];
-/**
- * 출처 우선순위 — 교재가 무조건 먼저다.
- * 예전엔 중요도로만 정렬해서 기필반 "상" 카드가 교재 "중" 카드보다 앞에 왔고,
- * 교재 카드 575장이 기필반 2,400장 사이에 묻혔다. 시험은 교재로 채점한다.
- */
-const SRC_ORDER: Record<string, number> = { 심화반: 0, 기출: 1, 요청: 1, 기필반: 2 };
-const srcOrder = (s?: string) => SRC_ORDER[s || ""] ?? 3;
-const TEXTBOOK_COUNT = ALL.filter((c) => c.source === "심화반").length;
+
 
 export default function CommutePage() {
   const [cat, setCat] = useState("전체");
   const [sangOnly, setSangOnly] = useState(false);
   const [lvl, setLvl] = useState("전체");
-  // 기본은 교재 카드만 — 끄면 예전 카드도 뒤에 붙는다(교재가 여전히 먼저).
-  const [textbookOnly, setTextbookOnly] = useState(true);
   const [idx, setIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [done, setDone] = useState(0);
@@ -76,20 +68,18 @@ export default function CommutePage() {
       (c) =>
         (cat === "전체" || c.category === cat) &&
         (!sangOnly || c.importance === "상") &&
-        (lvl === "전체" || c.level === lvl) &&
-        (!textbookOnly || c.source === "심화반"),
+        (lvl === "전체" || c.level === lvl),
     )
       .slice()
-      // 교재 먼저 → 레벨 급한 것(암기 → 숙지 → 점검 → 참고) → 중요도.
+      // 레벨 급한 것(암기 → 숙지 → 점검 → 참고) → 교재 중요도.
       .sort(
         (a, b) =>
-          srcOrder(a.source) - srcOrder(b.source) ||
           levelOrder(a.level as never) - levelOrder(b.level as never) ||
           (IMP[a.importance] ?? 9) - (IMP[b.importance] ?? 9),
       );
     return list;
     // 필터가 바뀌면 새 큐
-  }, [cat, sangOnly, lvl, textbookOnly]);
+  }, [cat, sangOnly, lvl]);
 
   const card = queue[idx];
 
@@ -104,11 +94,10 @@ export default function CommutePage() {
     setIdx((i) => (i + 1) % Math.max(1, queue.length));
   }
 
-  function reset(newCat: string, newSang: boolean, newLvl = lvl, newTb = textbookOnly) {
+  function reset(newCat: string, newSang: boolean, newLvl = lvl) {
     setCat(newCat);
     setSangOnly(newSang);
     setLvl(newLvl);
-    setTextbookOnly(newTb);
     setIdx(0);
     setFlipped(false);
   }
@@ -119,7 +108,7 @@ export default function CommutePage() {
     <div>
       <PageHeader
         title="🚇 지하철 모드 — 틈새 두음"
-        desc="한 손으로 넘기는 두음 암기. AI 없이 즉시 동작하니 통신이 약해도 OK."
+        desc="심화반 교재 카드만. 두음은 교재에 적힌 것만 보여주고, 없으면 교재 키워드 순서로 외웁니다."
       />
 
       {/* 필터 */}
@@ -147,17 +136,6 @@ export default function CommutePage() {
             </option>
           ))}
         </select>
-        <button
-          onClick={() => reset(cat, sangOnly, lvl, !textbookOnly)}
-          title={`심화반 교재 서브노트로 만든 카드 ${TEXTBOOK_COUNT}장만 돌립니다. 끄면 예전 카드도 뒤에 붙습니다.`}
-          className={`rounded-lg border px-3 py-2 text-sm font-medium transition ${
-            textbookOnly
-              ? "border-emerald-500 bg-emerald-50 text-emerald-700"
-              : "border-slate-300 bg-white text-slate-600"
-          }`}
-        >
-          📘 교재만
-        </button>
         <button
           onClick={() => reset(cat, !sangOnly)}
           className={`rounded-lg border px-3 py-2 text-sm font-medium transition ${

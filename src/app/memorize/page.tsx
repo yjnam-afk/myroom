@@ -23,7 +23,9 @@ type QuizItem = {
  * 심화반 1주차 과목인데 암기 페이지에서 고를 수조차 없었다.
  * 과목 순서도 개수 순이 아니라 커리큘럼 진행 순서다.
  */
-const CATS = Array.from(new Set(topics.map((t) => t.category))).sort(
+// 교재(심화반) 토픽만 고른다 — 카드·퀴즈는 교재 근거로 만들므로 교재에 없는 토픽은 근거가 없다.
+const BOOK = topics.filter((t) => t.fromTextbook);
+const CATS = Array.from(new Set(BOOK.map((t) => t.category))).sort(
   (a, b) => domainOrder(a) - domainOrder(b) || a.localeCompare(b, "ko"),
 );
 const IMP_ORDER: Record<string, number> = { 상: 0, 중: 1, 하: 2, 출제예상: 3 };
@@ -124,9 +126,9 @@ export default function MemorizePage() {
             className="min-w-[12rem] rounded border border-slate-200 bg-white px-2 py-1 text-xs text-slate-600"
           >
             <option value="" disabled>
-              토픽 선택… ({topics.filter((t) => t.category === recCat).length}개)
+              토픽 선택… ({BOOK.filter((t) => t.category === recCat).length}개)
             </option>
-            {topics
+            {BOOK
               .filter((t) => t.category === recCat)
               .slice()
               // 학습계획에 레벨을 매긴 토픽이 먼저 온다 — 지금 급한 것부터 고르게.

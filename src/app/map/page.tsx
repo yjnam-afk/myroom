@@ -65,7 +65,7 @@ const SUBNOTE_TOPICS: Topic[] = SUBNOTES.filter((s) => !KNOWN.has(s.title)).map(
 
 // 예전 토픽도 과목 이름을 정식 이름으로 맞추고, 커리큘럼에 있으면 레벨을 붙인다.
 // (이름을 안 맞추면 "SW공학"처럼 같은 과목이 칩 두 개로 갈라진다.)
-const ALL: Topic[] = [...LEGACY_KEPT, ...SUBNOTE_TOPICS].map((t) => {
+const withPlan = (t: Topic): Topic => {
   const p = planInfo(t.title);
   return {
     ...t,
@@ -73,7 +73,11 @@ const ALL: Topic[] = [...LEGACY_KEPT, ...SUBNOTE_TOPICS].map((t) => {
     level: t.level ?? p?.level,
     levelNote: t.levelNote ?? p?.note,
   };
-});
+};
+// 기본은 교재(심화반) 토픽만. 예전 토픽은 회독 진도가 걸려 있어 지우지 않고
+// "예전 토픽 포함" 토글 뒤에 둔다 — 교재와 표기가 달라 헷갈리게 했다.
+const BOOK_TOPICS: Topic[] = SUBNOTE_TOPICS.map(withPlan);
+const ALL: Topic[] = [...LEGACY_KEPT, ...SUBNOTE_TOPICS].map(withPlan);
 // 분류 칩 순서는 데이터 분포가 아니라 심화반 커리큘럼 진행 순서를 따른다.
 // 예전엔 topics.json 등장 순서라, topics.json 에 아예 없는 운영체제·컴퓨터구조·
 // 알고리즘·자료구조가 맨 뒤로 밀려 화면 밖으로 나갔다(1주차 과목인데도).
@@ -165,6 +169,8 @@ const hasAnyData = (name: string, parent?: string): boolean =>
 export default function MapPage() {
   const [view, setView] = useState<"compare" | "tables" | "groups">("compare");
   const [cat, setCat] = useState(CATS[0]);
+  const [legacy, setLegacy] = useState(false);
+  const pool = legacy ? ALL : BOOK_TOPICS;
   const [q, setQ] = useState("");
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
 
@@ -195,14 +201,14 @@ export default function MapPage() {
 
   // 검색 중이면 전 분류에서 제목/요약 매칭, 아니면 선택 분류 전체
   const scope = useMemo(() => {
-    if (!searching) return ALL.filter((t) => t.category === cat);
-    return ALL.filter(
+    if (!searching) return pool.filter((t) => t.category === cat);
+    return pool.filter(
       (t) =>
         t.title.toLowerCase().includes(query) ||
         (t.summary || "").toLowerCase().includes(query) ||
         (t.group || "").toLowerCase().includes(query),
     );
-  }, [cat, query, searching]);
+  }, [cat, query, searching, pool]);
 
   const groups = useMemo(() => groupsOf(scope), [scope]);
 
@@ -265,6 +271,9 @@ export default function MapPage() {
         <TablesView tblResults={tblResults} q={q} searching={searching} />
       ) : (
         <GroupsView
+          pool={pool}
+          legacy={legacy}
+          setLegacy={setLegacy}
           cat={cat}
           setCat={setCat}
           q={q}
@@ -569,6 +578,9 @@ function TablesView({
 
 /* ─────────────── 묶음 뷰 (기존) ─────────────── */
 function GroupsView({
+  pool,
+  legacy,
+  setLegacy,
   cat,
   setCat,
   q,
@@ -579,6 +591,9 @@ function GroupsView({
   setExpanded,
   toggle,
 }: {
+  pool: Topic[];
+  legacy: boolean;
+  setLegacy: (v: boolean) => void;
   cat: string;
   setCat: (c: string) => void;
   q: string;
@@ -595,7 +610,7 @@ function GroupsView({
       {!searching && (
         <div className="mb-5 flex flex-wrap gap-2">
           {CATS.map((c) => {
-            const n = ALL.filter((t) => t.category === c).length;
+            const n = pool.filter((t) => t.category === c).length;
             const active = c === cat;
             return (
               <button
@@ -611,6 +626,18 @@ function GroupsView({
               </button>
             );
           })}
+          {/* 기본은 교재 토픽만. 예전(기필반) 토픽은 회독 진도가 걸려 있어 토글 뒤에 둔다. */}
+          <button
+            onClick={() => setLegacy(!legacy)}
+            title="심화반 교재에 없는 예전(기필반) 토픽까지 보여줍니다"
+            className={`ml-auto rounded-full border px-3 py-1.5 text-xs font-medium transition ${
+              legacy
+                ? "border-slate-500 bg-slate-600 text-white"
+                : "border-dashed border-slate-300 bg-white text-slate-400 hover:border-slate-400"
+            }`}
+          >
+            {legacy ? "예전 토픽 포함 중" : "+ 예전 토픽 포함"}
+          </button>
         </div>
       )}
 

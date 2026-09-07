@@ -276,8 +276,7 @@ const answerExtras: Record<string, any> = {};
 for (let i = 0; i < SUBNOTES.length; i++) {
   const s: any = SUBNOTES[i];
   const sections: Section[] = [];
-  // 교재 구획이 먼저 — 키워드, 표. 특징 3개는 교재가 아니라 답안 서론용으로
-  // 지어 넣은 것이라 맨 뒤에 '답안용'으로 붙인다(아래).
+  // 교재 구획만 — 키워드, 표.
   if (s.keywords?.length) {
     const kws = s.keywords.map((k: string) => stripMnemTag(k)).filter(Boolean);
     sections.push({ label: "교재 키워드", mnemonic: keywordMnem(s.keywords), keywords: kws });
@@ -302,8 +301,7 @@ for (let i = 0; i < SUBNOTES.length; i++) {
         keywords: kws.slice(0, 10),
       });
   }
-  if (s.features?.length)
-    sections.push({ label: "특징(답안 서론용 — 교재 아님)", mnemonic: "", keywords: s.features });
+  // 특징 3개(features)는 답안 서론용으로 지어 넣은 것이라 암기 카드에 올리지 않는다.
   if (!sections.length) continue;
   cards.push({
     id: `sn-${i}`,

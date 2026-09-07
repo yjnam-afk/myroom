@@ -107,9 +107,6 @@ export function subnoteFor(opts: { topicId?: string; topicTitle?: string }): {
           keywords: rows.slice(0, 10),
         });
     }
-    // 특징 3개는 교재가 아니라 답안 서론용 — 맨 뒤에, 그렇다고 표시해서
-    if (bk.features?.length)
-      sections.push({ label: "특징(답안 서론용 — 교재 아님)", mnemonic: "", keywords: bk.features });
     const first = sections.find((x) => x.mnemonic);
     return {
       mnemonic: first?.mnemonic || "",

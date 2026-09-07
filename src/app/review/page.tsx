@@ -62,7 +62,8 @@ export default function ReviewPage() {
   const [ready, setReady] = useState(false);
   const [impFilter, setImpFilter] = useState("전체");
   const [catFilter, setCatFilter] = useState("전체");
-  const [bookOnly, setBookOnly] = useState(false);
+  // 기본은 교재 토픽만. 예전(기필반) 토픽은 회독 진도가 걸려 있어 지우지 않고 토글 뒤에 둔다.
+  const [bookOnly, setBookOnly] = useState(true);
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(0);
   const [session, setSession] = useState<Session | null>(null);
