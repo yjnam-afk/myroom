@@ -192,47 +192,72 @@ from datetime import date as _date
 def _d(s): return _date(int(s[:4]), int(s[4:6]), int(s[6:]))
 def near(a, b): return abs((_d(a) - _d(b)).days) <= 2
 
-# 1) 파일을 (기수, 라벨, 교시)로 모은다. 라벨 = 파일명 주차 / "S실전N"(Simulation) / None(모름).
-raw = []  # (cohort, label, period, date, f, b)
+# 1) 파일을 모은다. 라벨 = 파일명 주차 / "S실전N"(Simulation) / None(모름).
+#    날짜는 파일명 것을 기본으로 쓰고, 시험지 안의 "일시" 날짜는 후보로만 들고 간다 —
+#    파일명(14기 6주차 0423→0323)도 "일시"(11기 10주차 1113→1013)도 오타가 있어서,
+#    어느 쪽이 맞는지는 3)에서 앞뒤 주차 사이에 들어가는 쪽으로 정한다.
+raw = []  # (cohort, label, period, date, idates, f, b)
 skipped = []
+DATE = r"(20\d\d)\s*[.년]\s*(\d{1,2})\s*[.월]\s*(\d{1,2})"
+def _fmt(m): return f"{m.group(1)}{int(m.group(2)):02d}{int(m.group(3)):02d}"
+def _ok(m): return 1 <= int(m.group(2)) <= 12 and 1 <= int(m.group(3)) <= 31
 for f in sorted(glob.glob(os.path.join(SRC, "*.pdf"))):
     b = os.path.basename(f)
     pn = parse_name(b)
     if not pn: continue
     week, period, date, sim = pn
-    head = None
-    if not date or week == "??":
-        d0 = pymupdf.open(f)
-        head = "".join(d0[i].get_text() for i in range(min(2, d0.page_count)))
+    d0 = pymupdf.open(f)
+    head = "".join(d0[i].get_text() for i in range(min(2, d0.page_count)))
+    cands = [_fmt(m) for m in re.finditer(DATE, head) if _ok(m)]
     if not date:
-        dm = re.search(r"(20\d\d)\s*[.년]\s*(\d{1,2})\s*[.월]\s*(\d{1,2})", head)
-        if not dm:
+        if not cands:
             skipped.append((b, "날짜 없음")); continue
-        date = f"{dm.group(1)}{int(dm.group(2)):02d}{int(dm.group(3)):02d}"
+        date = cands[0]  # 표지 날짜. "일시" 줄은 연도 오타가 있는 파일이 있다(10기 11주차 3교시: 2021).
+    idates = {c for c in cands if 2 < abs((_d(c) - _d(date)).days) <= 60}
     if week == "??":
         wm = re.search(r"(\d{1,2})\s*주차", head)
         week = f"{int(wm.group(1)):02d}" if wm else None
     label = week if week else (f"S{sim}" if sim else None)
-    raw.append((cohort_of(date), label, period, date, f, b))
+    raw.append((cohort_of(date), label, period, date, idates, f, b))
 
 # 2) 같은 기수 안에서 날짜(±2일)로 시험을 묶는다. 라벨이 같아도 날짜가 다르면 다른 시험.
-groups = []  # {"cohort", "label", "sim", "date", "periods": {period: [(date,f,b)]}}
-for cohort, label, period, date, f, b in sorted(raw, key=lambda r: r[3]):
+groups = []  # {"cohort", "label", "sim", "date", "idates", "periods": {period: [(date,f,b)]}}
+for cohort, label, period, date, idates, f, b in sorted(raw, key=lambda r: r[3]):
     g = None
     for x in groups:
         if x["cohort"] != cohort or not near(x["date"], date): continue
         if label is None or x["label"] is None or x["label"] == label:
             g = x; break
     if g is None:
-        g = {"cohort": cohort, "label": label, "date": date, "periods": {}}
+        g = {"cohort": cohort, "label": label, "date": date, "idates": set(), "periods": {}}
         groups.append(g)
     if g["label"] is None and label: g["label"] = label
+    g["idates"] |= idates
     g["periods"].setdefault(period, []).append((date, f, b))
 
-# 3) 주차 번호 — 파일명 주차를 쓰되, 없거나(실전 Simulation·문제지만 있는 주) 이미 쓰인
-#    번호면 그 기수에서 지금까지 나온 가장 큰 주차 + 1 (사용자 지시: "쭉 이어서 다음 주차").
+# 3) 날짜 확정 — 라벨(주차)이 있는 시험은 앞뒤 주차 사이에 들어가는 날짜를 고른다.
+#    파일명 날짜가 들어가면 그대로, 아니면 "일시" 후보 중 들어가는 것, 그것도 없으면 파일명 날짜.
 by_cohort = {}
 for g in groups: by_cohort.setdefault(g["cohort"], []).append(g)
+for cohort, gs in by_cohort.items():
+    labeled = sorted([g for g in gs if g["label"] and g["label"].isdigit()], key=lambda g: (int(g["label"]), g["date"]))
+    for i, g in enumerate(labeled):
+        prev = labeled[i - 1]["date"] if i > 0 else "00000000"
+        nxt = labeled[i + 1]["date"] if i + 1 < len(labeled) else "99999999"
+        fits = lambda d: prev < d < nxt
+        if fits(g["date"]): continue
+        ok = sorted(d for d in g["idates"] if fits(d))
+        if ok: g["date"] = ok[0]
+    # 날짜가 같아진 같은 라벨 시험(교시별 파일의 날짜 표기가 어긋난 경우)은 합친다.
+    labeled = sorted([g for g in gs if g["label"] and g["label"].isdigit()], key=lambda g: (int(g["label"]), g["date"]))
+    for i in range(len(labeled) - 1):
+        a, bg = labeled[i], labeled[i + 1]
+        if a["label"] == bg["label"] and near(a["date"], bg["date"]) and bg in groups:
+            for p, v in bg["periods"].items(): a["periods"].setdefault(p, []).extend(v)
+            groups.remove(bg); gs.remove(bg)
+
+# 4) 주차 번호 — 파일명 주차를 쓰되, 없거나(실전 Simulation·문제지만 있는 주) 이미 쓰인
+#    번호면 그 기수에서 지금까지 나온 가장 큰 주차 + 1 (사용자 지시: "쭉 이어서 다음 주차").
 for cohort, gs in by_cohort.items():
     used = set()
     for g in sorted(gs, key=lambda x: x["date"]):
@@ -271,6 +296,12 @@ for g in groups:
     for no, m in sorted(e["meta"].items()):
         if no not in have and m.get("text") and no <= limit:
             e["questions"].append({"no": no, "text": m["text"], "from_meta": True})
+    # 문제지 글꼴 문제로 띄어쓰기가 사라진 문구는, 해설 머리 문구가 멀쩡하면 그걸 쓴다
+    run = lambda t: max((len(m) for m in re.findall(r"[가-힣]+", t)), default=0)
+    for q in e["questions"]:
+        mt = (e["meta"].get(q["no"]) or {}).get("text")
+        if mt and run(q["text"]) >= 15 and run(mt) < run(q["text"]) - 5:
+            q["text"] = mt
     e["questions"].sort(key=lambda q: q["no"])
 
 PERIOD = {"1": "1교시", "2": "2교시", "3": "3교시", "4": "4교시"}
@@ -301,6 +332,16 @@ for q in out:
 for q in out:
     if not q["category"]:
         q["category"] = by_text.get(re.sub(r"\s+", "", q["text"]), "")
+# 그래도 비면 같은 시험(기수·주차·교시)의 지배 도메인 — 주간 모의고사는 과목별로 출제되므로 60% 이상이면 따른다
+by_exam = {}
+for q in out: by_exam.setdefault((q["cohort"], q["round"], q["period"]), []).append(q)
+for k, qs in by_exam.items():
+    cats = [x["category"] for x in qs if x["category"]]
+    if not cats: continue
+    top, n = max(((c, cats.count(c)) for c in set(cats)), key=lambda t: t[1])
+    if n >= 0.6 * len(qs):
+        for x in qs:
+            if not x["category"]: x["category"] = top
 
 print(f"시험 {len(exams)}개(기수·주차·교시) · 문항 {len(out)}개 · 도메인 없음 {sum(1 for q in out if not q['category'])}")
 for (cohort, week, period), e in sorted(exams.items()):
@@ -325,7 +366,7 @@ if WRITE:
             q["date"] = "2026-09-06"
     out2 = [q for q in out if not (q["cohort"] == "19기" and q["round"] == "01주차")]
     # 이 스크립트가 만든 항목(ns<기수>w<주차>-…)은 통째로 갈아끼운다 — 주차가 다시 매겨져도 찌꺼기가 안 남게.
-    mine = re.compile(r"^ns\d+w\d\d-")
+    mine = re.compile(r"^ns[^-]*w\d\d-")
     before = len(data)
     data = [q for q in data if not mine.match(q["id"])]
     removed = before - len(data)

@@ -87929,7 +87929,7 @@
  {
   "id": "ns10w04-205",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "kind": "NS모의",
   "round": "04주차",
   "cohort": "10기",
@@ -87939,7 +87939,7 @@
  {
   "id": "ns10w04-206",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "kind": "NS모의",
   "round": "04주차",
   "cohort": "10기",
@@ -88291,7 +88291,7 @@
  {
   "id": "ns10w05-205",
   "period": "2교시",
-  "category": "",
+  "category": "보안",
   "kind": "NS모의",
   "round": "05주차",
   "cohort": "10기",
@@ -88301,7 +88301,7 @@
  {
   "id": "ns10w05-206",
   "period": "2교시",
-  "category": "",
+  "category": "보안",
   "kind": "NS모의",
   "round": "05주차",
   "cohort": "10기",
@@ -89837,7 +89837,7 @@
  {
   "id": "ns10w09-105",
   "period": "1교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "kind": "NS모의",
   "round": "09주차",
   "cohort": "10기",
@@ -90080,7 +90080,7 @@
  {
   "id": "ns10w09-205",
   "period": "2교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "kind": "NS모의",
   "round": "09주차",
   "cohort": "10기",
@@ -90103,7 +90103,7 @@
  {
   "id": "ns10w09-206",
   "period": "2교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "kind": "NS모의",
   "round": "09주차",
   "cohort": "10기",
@@ -94394,7 +94394,7 @@
  {
   "id": "ns11w03-203",
   "period": "2교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "kind": "NS모의",
   "round": "03주차",
   "cohort": "11기",
@@ -98137,7 +98137,7 @@
   "kind": "NS모의",
   "round": "14주차",
   "cohort": "11기",
-  "date": "2022-12-04",
+  "date": "2022-12-11",
   "text": "전략수립을 위한 환경 분석",
   "keywords": [
    "강점",
@@ -98160,7 +98160,7 @@
   "kind": "NS모의",
   "round": "14주차",
   "cohort": "11기",
-  "date": "2022-12-04",
+  "date": "2022-12-11",
   "text": "SLM(Service Level Management) 프레임워크의 구성요소",
   "keywords": [
    "Service Catalog",
@@ -98178,7 +98178,7 @@
   "kind": "NS모의",
   "round": "14주차",
   "cohort": "11기",
-  "date": "2022-12-04",
+  "date": "2022-12-11",
   "text": "IT-Compliance",
   "keywords": [
    "투명성",
@@ -98194,7 +98194,7 @@
   "kind": "NS모의",
   "round": "14주차",
   "cohort": "11기",
-  "date": "2022-12-04",
+  "date": "2022-12-11",
   "text": "애자일 선언문의 4 가지 가치와 개발 선언의 원칙",
   "keywords": [
    "Manifesto",
@@ -98210,7 +98210,7 @@
   "kind": "NS모의",
   "round": "14주차",
   "cohort": "11기",
-  "date": "2022-12-04",
+  "date": "2022-12-11",
   "text": "시빅 해킹(Civic Hacking)",
   "keywords": [
    "시민 협업",
@@ -98227,7 +98227,7 @@
   "kind": "NS모의",
   "round": "14주차",
   "cohort": "11기",
-  "date": "2022-12-04",
+  "date": "2022-12-11",
   "text": "롱테일 법칙과 파레토 법칙 비교",
   "keywords": [
    "20/80 법칙",
@@ -98241,7 +98241,7 @@
   "kind": "NS모의",
   "round": "14주차",
   "cohort": "11기",
-  "date": "2022-12-04",
+  "date": "2022-12-11",
   "text": "IT 거버넌스 프레임워크(IT Governance Framework)",
   "keywords": [
    "IT거버넌스 모델",
@@ -98259,7 +98259,7 @@
   "kind": "NS모의",
   "round": "14주차",
   "cohort": "11기",
-  "date": "2022-12-04",
+  "date": "2022-12-11",
   "text": "MVP(Minimum Viable Product)",
   "keywords": [
    "핵심 가치(기능)",
@@ -98273,7 +98273,7 @@
   "kind": "NS모의",
   "round": "14주차",
   "cohort": "11기",
-  "date": "2022-12-04",
+  "date": "2022-12-11",
   "text": "프로젝트 일정 추정과 일정 단축 기법",
   "keywords": [
    "전문가 판단",
@@ -98294,7 +98294,7 @@
   "kind": "NS모의",
   "round": "14주차",
   "cohort": "11기",
-  "date": "2022-12-04",
+  "date": "2022-12-11",
   "text": "소프트웨어 형상관리",
   "keywords": [
    "형상식별",
@@ -98312,7 +98312,7 @@
   "kind": "NS모의",
   "round": "14주차",
   "cohort": "11기",
-  "date": "2022-12-04",
+  "date": "2022-12-11",
   "text": "상주감리 업무 수행 범위와 절차",
   "keywords": [
    "계획수립",
@@ -98329,7 +98329,7 @@
   "kind": "NS모의",
   "round": "14주차",
   "cohort": "11기",
-  "date": "2022-12-04",
+  "date": "2022-12-11",
   "text": "디지털 카르텔(Digital Cartel)",
   "keywords": [
    "모니터링",
@@ -98349,7 +98349,7 @@
   "kind": "NS모의",
   "round": "14주차",
   "cohort": "11기",
-  "date": "2022-12-04",
+  "date": "2022-12-11",
   "text": "프로젝트 위험 관리 중 위험 요소의 대응 방안",
   "keywords": [
    "긍정적",
@@ -98370,7 +98370,7 @@
   "kind": "NS모의",
   "round": "14주차",
   "cohort": "11기",
-  "date": "2022-12-04",
+  "date": "2022-12-11",
   "text": "XP(eXtreme Programming)의 특징 및 실천 방법(practice)들을 설명하시오.",
   "keywords": [
    "용기",
@@ -98394,7 +98394,7 @@
   "kind": "NS모의",
   "round": "14주차",
   "cohort": "11기",
-  "date": "2022-12-04",
+  "date": "2022-12-11",
   "text": "IT 투자성과 평가에 대하여 설명하시오\n가. 품질지표, 이용지표, 효과지표\n나. 정보화 투자 성과평가 측정 기법",
   "keywords": [
    "ROI",
@@ -98414,7 +98414,7 @@
   "kind": "NS모의",
   "round": "14주차",
   "cohort": "11기",
-  "date": "2022-12-04",
+  "date": "2022-12-11",
   "text": "코로나19 이후 프로젝트 관리가 점차 어려워지고 있다. 특히, 프로젝트 성패를 결정하는 가장 중요한 요소로 프로젝트 인적자원 관리가 존재한다. 아래에 물음에 답하시오.\n가. Tuckman 의 팀 구축 5 단계\n나. 갈등관리 해결방안\n다. 동기 부여 이론",
   "keywords": [
    "형성기",
@@ -98438,7 +98438,7 @@
   "kind": "NS모의",
   "round": "14주차",
   "cohort": "11기",
-  "date": "2022-12-04",
+  "date": "2022-12-11",
   "text": "프로젝트 획득가치관리(Earned Value Management) 보고서의 EV(Earned Value)가 500 만원, PV(Planned Value)가 600 만원 그리고 AC(Actual Cost)가 450 만원일 때, 다음을 설명하시오.\n가. 획득가치관리를 분석하고, 일정과 비용에 대한 위험(Risk)요소를 설명하시오.\n나. 부정적인 위험대응 방법을 설명하고, 일정과 비용에 대한 부정적인 위험대응 방안을 예시로 설명하시오.",
   "keywords": [
    "EV",
@@ -98462,7 +98462,7 @@
   "kind": "NS모의",
   "round": "14주차",
   "cohort": "11기",
-  "date": "2022-12-04",
+  "date": "2022-12-11",
   "text": "ICT 는 비대면 경제를 가능하게 할 뿐만 아니라 비대면 경제의 성과 창출을 결정하는 핵심요인이다. 우리나라 비대면 경제를 구성하는 ICT 생태계의 기술과 법・제도 측면에서 설명하고 강화 방안을 제시하시오.",
   "keywords": [
    "빅데이터",
@@ -98479,7 +98479,7 @@
   "kind": "NS모의",
   "round": "14주차",
   "cohort": "11기",
-  "date": "2022-12-04",
+  "date": "2022-12-11",
   "text": "소프트웨어 품질 보증 활동은 소프트웨어 시스템의 요구사항과 품질 표준을 만족시키는지 확인하기 위해 수행한다. 다음을 설명하시오.\n가. 소프트웨어 품질 표준\n나. 소프트웨어 품질 확인 및 검증 기법\n다. 소프트웨어 품질 측정 도구",
   "keywords": [
    "ISO 12207",
@@ -100368,7 +100368,7 @@
  {
   "id": "ns12w03-304",
   "period": "3교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "kind": "NS모의",
   "round": "03주차",
   "cohort": "12기",
@@ -101404,7 +101404,7 @@
  {
   "id": "ns12w05-302",
   "period": "3교시",
-  "category": "",
+  "category": "보안",
   "kind": "NS모의",
   "round": "05주차",
   "cohort": "12기",
@@ -102688,7 +102688,7 @@
  {
   "id": "ns12w08-105",
   "period": "1교시",
-  "category": "",
+  "category": "데이터베이스",
   "kind": "NS모의",
   "round": "08주차",
   "cohort": "12기",
@@ -103861,7 +103861,7 @@
  {
   "id": "ns12w10-203",
   "period": "2교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "12기",
@@ -105472,7 +105472,7 @@
   "round": "14주차",
   "cohort": "12기",
   "date": "2023-07-02",
-  "text": "4 차산업혁명의핵심요소인클라우드(Cloud), 빅데이터(Big Data), IoT(Internet of Things)등의기술발전으로산업간융∙복합이촉발되었다. 이로인해ICT 환경의 복잡성이증대됨에따라위협을식별하고대응하는것이한계에미치게되었다. 이를 대응하기위한방안인공격표면관리(Attack Surface Management)에대해설명하시오.",
+  "text": "4 차산업혁명의핵심요소인클라우드(Cloud), 빅데이터(Big Data), IoT(Internet of Things)등의 기술발전으로 산업간 융∙복합이 촉발되었다. 이로 인해 ICT 환경의 복잡성이 증대됨에 따라 위협을 식별하고대응하는것이한계에미치게되었다. 이를대응하기위한방안인공격표면관리(Attack Surface Management)에대해설명하시오.",
   "keywords": [
    "ASM(Attack Surface Management)",
    "EASM(External Attack Surface Management)",
@@ -108584,7 +108584,7 @@
   "round": "05주차",
   "cohort": "13기",
   "date": "2023-10-15",
-  "text": "최근\"지능형전력망의구축및이용촉진에관한법률\"에따라\"제3 차 지능형전력망기본계획\"이확정되었다. 이와관련다음을기술하시오.\n가. 지능형전력망의구축목표및추진전략\n나. 분산에너지자원(DER, Distributed Energy Resource) 관리기술\n다. [응용] 6. SCADA(Supervisory Control and Data Acquisition) 시스템의구성요소, 감시(Monitoring)와제어(Control)의차이점을설명하시오.",
+  "text": "SCADA(Supervisory Control and Data Acquisition) 시스템의구성요소, 감시(Monitoring)와제어 (Control)의차이점을설명하시오.",
   "keywords": [
    "원격제어/감시",
    "중앙관제",
@@ -113635,7 +113635,7 @@
  {
   "id": "ns14w03-203",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "kind": "NS모의",
   "round": "03주차",
   "cohort": "14기",
@@ -114450,7 +114450,7 @@
   "kind": "NS모의",
   "round": "06주차",
   "cohort": "14기",
-  "date": "2024-04-23",
+  "date": "2024-03-23",
   "text": "Value Driver Tree",
   "keywords": [
    "성과 동인",
@@ -114465,7 +114465,7 @@
   "kind": "NS모의",
   "round": "06주차",
   "cohort": "14기",
-  "date": "2024-04-23",
+  "date": "2024-03-23",
   "text": "DB 의 리플리케이션(Replication)과 클러스터링(Clustering)",
   "keywords": [
    "HA",
@@ -114483,7 +114483,7 @@
   "kind": "NS모의",
   "round": "06주차",
   "cohort": "14기",
-  "date": "2024-04-23",
+  "date": "2024-03-23",
   "text": "IMT-2030 프레임워크",
   "keywords": [
    "몰입형통신",
@@ -114501,7 +114501,7 @@
   "kind": "NS모의",
   "round": "06주차",
   "cohort": "14기",
-  "date": "2024-04-23",
+  "date": "2024-03-23",
   "text": "C-TAS(Cyber Threat Analysis & Sharing)",
   "keywords": [
    "C-TAS API",
@@ -114517,7 +114517,7 @@
   "kind": "NS모의",
   "round": "06주차",
   "cohort": "14기",
-  "date": "2024-04-23",
+  "date": "2024-03-23",
   "text": "앙상블 기법의 Random Forest 기법에 대해 설명하시오.",
   "keywords": [
    "의사결정트리",
@@ -114532,7 +114532,7 @@
   "kind": "NS모의",
   "round": "06주차",
   "cohort": "14기",
-  "date": "2024-04-23",
+  "date": "2024-03-23",
   "text": "LTE-V2X 와 WAVE 비교",
   "keywords": [
    "5.9GHz",
@@ -114552,7 +114552,7 @@
   "kind": "NS모의",
   "round": "06주차",
   "cohort": "14기",
-  "date": "2024-04-23",
+  "date": "2024-03-23",
   "text": "OSI 7계층 별 VPN 의 구축 종류에 대해 설명하시오.",
   "keywords": [
    "SSLVPN",
@@ -114570,7 +114570,7 @@
   "kind": "NS모의",
   "round": "06주차",
   "cohort": "14기",
-  "date": "2024-04-23",
+  "date": "2024-03-23",
   "text": "AI 모델의 과적합 발생원인 및 해결방안",
   "keywords": [
    "차원의 저주",
@@ -114588,7 +114588,7 @@
   "kind": "NS모의",
   "round": "06주차",
   "cohort": "14기",
-  "date": "2024-04-23",
+  "date": "2024-03-23",
   "text": "선형회귀분석의 결정계수에 대해서 설명하시오.",
   "keywords": [
    "설명력",
@@ -114607,7 +114607,7 @@
   "kind": "NS모의",
   "round": "06주차",
   "cohort": "14기",
-  "date": "2024-04-23",
+  "date": "2024-03-23",
   "text": "EU 디지털시장법(Digital Markets Act)",
   "keywords": [
    "게이트 키퍼",
@@ -114623,7 +114623,7 @@
   "kind": "NS모의",
   "round": "06주차",
   "cohort": "14기",
-  "date": "2024-04-23",
+  "date": "2024-03-23",
   "text": "소형언어모델(sLLM, smaller Large Language Model)",
   "keywords": [
    "매개변수(parameter)를 줄여 비용을 아끼고",
@@ -114643,7 +114643,7 @@
   "kind": "NS모의",
   "round": "06주차",
   "cohort": "14기",
-  "date": "2024-04-23",
+  "date": "2024-03-23",
   "text": "검색 증강 생성(RAG, Retrieval Augmented Generation)",
   "keywords": [
    "내부 리소스와 외부 데이터(리소스) 결합",
@@ -114658,7 +114658,7 @@
   "kind": "NS모의",
   "round": "06주차",
   "cohort": "14기",
-  "date": "2024-04-23",
+  "date": "2024-03-23",
   "text": "Circuit Breaker 패턴",
   "keywords": [
    "Robust",
@@ -114677,7 +114677,7 @@
   "kind": "NS모의",
   "round": "06주차",
   "cohort": "14기",
-  "date": "2024-04-23",
+  "date": "2024-03-23",
   "text": "지도학습 라벨데이터 품질검증 방법에 대해 컴퓨터 비전 분야 중심으로 설명하시오",
   "keywords": [
    "정확도",
@@ -114701,7 +114701,7 @@
   "kind": "NS모의",
   "round": "06주차",
   "cohort": "14기",
-  "date": "2024-04-23",
+  "date": "2024-03-23",
   "text": "애자일 테스팅의 개념 및 프로세스에 대하여 설명하고, 전통적인 테스팅과 애자일 테스팅을 비교하시오.",
   "keywords": [
    "프로젝트 착수",
@@ -114718,7 +114718,7 @@
   "kind": "NS모의",
   "round": "06주차",
   "cohort": "14기",
-  "date": "2024-04-23",
+  "date": "2024-03-23",
   "text": "정보시스템 감리 기준(제2021-4 호, 2021.1.19)에 대해 다음을 설명하시오.\n가. 정보시스템 감리의 의무 대상\n나. 감리 점검 프레임워크 V3.0\n다. 감리수행 절차\n라. 감리 산출물",
   "keywords": [
    "민간 5억이상",
@@ -114742,7 +114742,7 @@
   "kind": "NS모의",
   "round": "06주차",
   "cohort": "14기",
-  "date": "2024-04-23",
+  "date": "2024-03-23",
   "text": "블록(Block) 암호에 대한 아래의 사항을 설명하시오.\n가. 블록 암호화 알고리즘의 개념과 종류\n나. SPN 과 Feistel 구조\n다. 블록암호화 스트림암호화 비교",
   "keywords": [
    "블록단위",
@@ -114759,7 +114759,7 @@
   "kind": "NS모의",
   "round": "06주차",
   "cohort": "14기",
-  "date": "2024-04-23",
+  "date": "2024-03-23",
   "text": "OSI 7 Layer 의 오류제어기법에 대하여 다음을 설명하시오.\n가. 4 계층 오류제어\n나. 2 계층 오류제어\n다. 4 계층과 2 계층 오류제어를 같이 사용하는 이유",
   "keywords": [
    "전송계층",
@@ -114778,7 +114778,7 @@
   "kind": "NS모의",
   "round": "06주차",
   "cohort": "14기",
-  "date": "2024-04-23",
+  "date": "2024-03-23",
   "text": "EU, 데이터 거버넌스 법안 최신 모델 보고서에서 제시한 데이터 거버넌스 개념 및 6 가지 데이터 중개자 유형을 설명하시오.",
   "keywords": [
    "개인 정보 관리 시스템(PIMS)",
@@ -120937,7 +120937,7 @@
  {
   "id": "ns15w07-110",
   "period": "1교시",
-  "category": "",
+  "category": "인공지능",
   "kind": "NS모의",
   "round": "07주차",
   "cohort": "15기",
@@ -130260,7 +130260,7 @@
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "17기",
-  "date": "2025-11-06",
+  "date": "2025-11-16",
   "text": "블록 암호 운영모드",
   "keywords": [
    "ECB",
@@ -130282,7 +130282,7 @@
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "17기",
-  "date": "2025-11-06",
+  "date": "2025-11-16",
   "text": "프롬프트 인젝션(Prompt Injection)",
   "keywords": [
    "악성입력",
@@ -130299,7 +130299,7 @@
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "17기",
-  "date": "2025-11-06",
+  "date": "2025-11-16",
   "text": "Privacy by Design 의 7 대 원칙 및 8 대 전략",
   "keywords": [
    "Design",
@@ -130322,7 +130322,7 @@
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "17기",
-  "date": "2025-11-06",
+  "date": "2025-11-16",
   "text": "생체인식 스푸핑 공격",
   "keywords": [
    "위조",
@@ -130337,7 +130337,7 @@
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "17기",
-  "date": "2025-11-06",
+  "date": "2025-11-16",
   "text": "종단간 암호화(E2EE)",
   "keywords": [
    "PGP",
@@ -130355,7 +130355,7 @@
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "17기",
-  "date": "2025-11-06",
+  "date": "2025-11-16",
   "text": "AI Agent 보안위협",
   "keywords": [
    "AI 에이전트 하이재킹",
@@ -130370,7 +130370,7 @@
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "17기",
-  "date": "2025-11-06",
+  "date": "2025-11-16",
   "text": "CSRF(Cross Site Request Forgery)와 SSRF(Server Side Request Forgery)를 비교",
   "keywords": [
    "키워드를 입력하십시오."
@@ -130383,7 +130383,7 @@
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "17기",
-  "date": "2025-11-06",
+  "date": "2025-11-16",
   "text": "생체인식정보 보호 6 대 원칙과 생체인식 정보 보호조치 5 단계",
   "keywords": [
    "특정 개인",
@@ -130407,7 +130407,7 @@
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "17기",
-  "date": "2025-11-06",
+  "date": "2025-11-16",
   "text": "딥 보이스(Deep Voice) 피싱",
   "keywords": [
    "딥페이크",
@@ -130428,7 +130428,7 @@
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "17기",
-  "date": "2025-11-06",
+  "date": "2025-11-16",
   "text": "IPSec 의 구성과 전송 모드",
   "keywords": [
    "IP 계층 보안",
@@ -130449,7 +130449,7 @@
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "17기",
-  "date": "2025-11-06",
+  "date": "2025-11-16",
   "text": "SDP(Software Defined Perimeter)",
   "keywords": [
    "선인증",
@@ -130470,7 +130470,7 @@
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "17기",
-  "date": "2025-11-06",
+  "date": "2025-11-16",
   "text": "DNSSEC(Domain Name Server Security Extensions)",
   "keywords": [
    "DNSKEY",
@@ -130486,7 +130486,7 @@
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "17기",
-  "date": "2025-11-06",
+  "date": "2025-11-16",
   "text": "디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안",
   "keywords": [
    "생성-> 전달-> 종합과 분석-> 이해-> 행동"
@@ -130499,7 +130499,7 @@
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "17기",
-  "date": "2025-11-06",
+  "date": "2025-11-16",
   "text": "전자 상거래에서 보안 및 기밀성 강화를 위해 사용되는 이중서명(Dual Signature)에 대해 다음을 설명하시오.\n가. 이중서명의 개념과 기술요소\n나. 이중서명의 암호화 복호화 과정",
   "keywords": [
    "SET",
@@ -130521,7 +130521,7 @@
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "17기",
-  "date": "2025-11-06",
+  "date": "2025-11-16",
   "text": "최근 대형 유통 계열사에서 사용자 계정에 무단 접근을 시도하는 공격을 받아 개인정보 유출 사고가 발생했다. 이와 관련하여 다음을 설명하시오.\n가. 크리덴셜 스터핑(Credential Stuffing)\n나. 무차별 대입 공격(Brute Force Attack)과 크리덴셜 스터핑(Credential Stuffing) 비교\n다. 사이버 회복탄력성(Cyber Resilience)",
   "keywords": [
    "유출 계정 정보",
@@ -130539,7 +130539,7 @@
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "17기",
-  "date": "2025-11-06",
+  "date": "2025-11-16",
   "text": "타이포스쿼팅(Typosquatting) 기법 등을 통한 소프트웨어 패키지 혼란 사고는 패키지에 악의적인 기능이 있는 경우 인프라 전체 보안에 심각한 영향을 미칠 수 있어 공급망 보안의 심각한 위험을 초래할 수 있다. 클라우드 네이티브 환경에서 타이포스쿼팅 위협에 대해 설명하시오.\n가. 타이포스쿼팅 개념\n나. 타이포스쿼팅 위협\n다. 타이포스쿼팅 대응 방안",
   "keywords": [
    "오픈소스 패키지",
@@ -130555,7 +130555,7 @@
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "17기",
-  "date": "2025-11-06",
+  "date": "2025-11-16",
   "text": "공급망 보안(Supply Chain Security)을 설명하고, 제로트러스트(Zero Trust) 기반 공급망 보안 아키텍처를 설명하시오.",
   "keywords": [
    "SBOM",
@@ -130572,7 +130572,7 @@
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "17기",
-  "date": "2025-11-06",
+  "date": "2025-11-16",
   "text": "단방향 해시 함수(Hash Function)에 대하여 설명하시오.\n가. 단방향 해시 함수의 문제점과 안정성 요건\n나. 해시 솔트(Hash Salt)와 키 스트레칭(Key Stretching)\n다. 적응형 키 유도 함수(Adaptive Key Derivation Function)",
   "keywords": [
    "레인보우 테이블",
@@ -130590,7 +130590,7 @@
   "kind": "NS모의",
   "round": "10주차",
   "cohort": "17기",
-  "date": "2025-11-06",
+  "date": "2025-11-16",
   "text": "생성형 AI 와 LLM 의 발전은 보안 운영 자동화(AI for Security)뿐 아니라, AI 시스템 자체가 공격 대상이 되는 위협(Security for AI)도 증가시키고 있다. 이에 따라 AI 를 활용한 보안 기술과 AI 시스템 보호를 위한 기술적ㆍ운영적 대책이 동시에 요구된다. 다음 항목에 대해 설명하시오.\n가. AI for Security 와 Security for AI 비교\n나. AI for Security 관리적ㆍ기술적 적용 사례\n다. Security for AI 위협 유형 및 대응방안",
   "keywords": [
    "SOC 자동화",
@@ -133680,7 +133680,7 @@
   "round": "08주차",
   "cohort": "18기",
   "date": "2026-04-19",
-  "text": "정부가2030 년까지기존정보시스템의90%를클라우드네이티브로전환하고, 서비스형소프트웨어(SaaS)는70%까지적용하겠다는방침을세웠다. 기존레거시 시스템을공공클라우드로전환하기위한절차와설계방안을제시하시오.",
+  "text": "정부가2030 년까지기존정보시스템의90%를클라우드네이티브로전환하고, 서비스형소프트 웨어(SaaS)는70%까지적용하겠다는방침을세웠다. 기존레거시시스템을공공클라우드로전환 하기위한절차와설계방안을제시하시오.",
   "keywords": [
    "대상선정",
    "현황조사",
@@ -136115,7 +136115,7 @@
  {
   "id": "ns18w16-105",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "kind": "NS모의",
   "round": "16주차",
   "cohort": "18기",
