@@ -11,6 +11,8 @@ import {
 } from "@/data/textbookSubnotes";
 import MyDiagrams from "@/components/MyDiagrams";
 import EasyCard from "@/components/EasyCard";
+import PeerAnswers from "@/components/PeerAnswers";
+import { peerAnswersFor, peerAnswersForQuestion } from "@/data/peerAnswers";
 import Mermaid from "@/components/Mermaid";
 import { subnoteExtraFor } from "@/data/subnoteExtras";
 import { PageHeader } from "@/components/ui";
@@ -981,6 +983,10 @@ function ExplainInner() {
             title={topic.trim()}
           />
         )}
+
+        {/* 남이 쓴 답안 — 교재 정의·템플릿을 먼저 본 다음에 오도록 여기에 둔다.
+            처음부터 남의 답안을 보면 그 구성에 갇힌다. */}
+        <PeerAnswers items={peerAnswersFor(topic.trim())} />
 
         {/* 어떤 자료도 못 찾은 경우 — AI를 부르지 않고 상황만 안내한다 */}
         {topic.trim() && !textbook && !legacy && !extra?.image && (

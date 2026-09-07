@@ -7,6 +7,8 @@ import ShareButton from "@/components/ShareButton";
 import CopyButton from "@/components/CopyButton";
 import questions from "@/data/questions.json";
 import { relatedTopics } from "@/lib/relatedTopics";
+import PeerAnswers from "@/components/PeerAnswers";
+import { peerAnswersFor, peerAnswersForQuestion } from "@/data/peerAnswers";
 import { matchSubnoteTitle } from "@/lib/matchSubnote";
 
 type Q = {
@@ -274,6 +276,21 @@ export default function BankPage() {
                       />
                     </details>
                   )}
+
+                    {/* 남이 쓴 답안 — 같은 문제이거나, 관련 토픽에 걸린 실제 시험지가 있으면. */}
+                    {(() => {
+                      const seen = new Set<string>();
+                      const found = [
+                        ...peerAnswersForQuestion(q.text),
+                        ...relatedTopics(q.text).flatMap((t) => peerAnswersFor(t)),
+                      ].filter((a) => !seen.has(a.id) && seen.add(a.id));
+                      if (!found.length) return null;
+                      return (
+                        <div className="mt-2">
+                          <PeerAnswers items={found} />
+                        </div>
+                      );
+                    })()}
 
                     {/* 관련 토픽 — 이 문제로 뭘 공부해야 하는지 바로 연결 */}
                     {(() => {
