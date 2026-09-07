@@ -354,8 +354,17 @@ function CompareView({
                       key={`${s.category}::${s.title}`}
                       className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
                     >
-                      <h3 className="text-sm font-bold text-slate-900">
+                      <h3 className="flex flex-wrap items-center gap-1.5 text-sm font-bold text-slate-900">
                         {s.title}
+                        {/* 교재 서브노트 표를 그대로 옮긴 세트 — ref 가 원본 토픽 */}
+                        {s.source === "교재" && (
+                          <span
+                            title={s.ref ? `교재 서브노트 「${s.ref}」의 표` : "교재 표"}
+                            className="rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700"
+                          >
+                            교재
+                          </span>
+                        )}
                       </h3>
                       <p className="mt-0.5 text-xs text-brand-600">⚖️ {s.axis}</p>
                       <div className="mt-3 flex flex-wrap gap-2">
@@ -466,6 +475,14 @@ function TablesView({
               <div className="border-b border-slate-100 p-4">
                 <div className="flex items-center gap-2">
                   <h3 className="text-sm font-bold text-slate-900">{t.title}</h3>
+                  {t.source === "교재" && (
+                    <span
+                      title={t.ref ? `교재 서브노트 「${t.ref}」의 표` : "교재 표"}
+                      className="rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700"
+                    >
+                      교재
+                    </span>
+                  )}
                   <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] text-slate-500">
                     {t.category}
                   </span>

@@ -75,8 +75,14 @@ export function compareSetsFor(title?: string): MapLink[] {
     }
   }
 
+  // 교재에서 옮긴 세트가 먼저, 그 안에서 짝 비교(item)가 먼저.
+  const src = (x: MapLink) => (x.set.source === "교재" ? 0 : 1);
   return out
-    .sort((a, b) => (a.kind === "item" ? 0 : 1) - (b.kind === "item" ? 0 : 1))
+    .sort(
+      (a, b) =>
+        src(a) - src(b) ||
+        (a.kind === "item" ? 0 : 1) - (b.kind === "item" ? 0 : 1),
+    )
     .slice(0, MAX_SETS);
 }
 

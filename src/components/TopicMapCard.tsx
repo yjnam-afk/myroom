@@ -39,6 +39,14 @@ export default function TopicMapCard({ title }: { title?: string }) {
           <div key={`${set.category}::${set.title}`}>
             <div className="mb-1.5 flex flex-wrap items-baseline gap-2">
               <b className="text-[15px] text-slate-900">{set.title}</b>
+              {set.source === "교재" && (
+                <span
+                  title={set.ref ? `교재 서브노트 「${set.ref}」의 표` : "교재 표"}
+                  className="rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700"
+                >
+                  교재
+                </span>
+              )}
               {kind === "title" && (
                 <span className="rounded border border-sky-200 bg-sky-50 px-1.5 py-0.5 text-[10px] font-bold text-sky-700">
                   이 토픽을 쪼갠 표

@@ -14,6 +14,8 @@ type Card = {
   title: string;
   category: string;
   importance: string;
+  /** 심화반(교재) · 기필반 · 요청 — 교재 카드가 무조건 먼저 나온다. */
+  source?: string;
   definition: string;
   /** 답안 서론용 2줄(한 줄 17자 × 2줄) 압축 정의. */
   defShort?: string;
@@ -50,11 +52,21 @@ const CATS = [
 const IMP: Record<string, number> = { 상: 0, 중: 1, 출제예상: 2, 하: 3 };
 /** 레벨 필터 — "전체"는 레벨 무관, 나머지는 그 레벨만. */
 const LEVELS = ["전체", "암기", "숙지", "점검", "참고"];
+/**
+ * 출처 우선순위 — 교재가 무조건 먼저다.
+ * 예전엔 중요도로만 정렬해서 기필반 "상" 카드가 교재 "중" 카드보다 앞에 왔고,
+ * 교재 카드 575장이 기필반 2,400장 사이에 묻혔다. 시험은 교재로 채점한다.
+ */
+const SRC_ORDER: Record<string, number> = { 심화반: 0, 기출: 1, 요청: 1, 기필반: 2 };
+const srcOrder = (s?: string) => SRC_ORDER[s || ""] ?? 3;
+const TEXTBOOK_COUNT = ALL.filter((c) => c.source === "심화반").length;
 
 export default function CommutePage() {
   const [cat, setCat] = useState("전체");
   const [sangOnly, setSangOnly] = useState(false);
   const [lvl, setLvl] = useState("전체");
+  // 기본은 교재 카드만 — 끄면 예전 카드도 뒤에 붙는다(교재가 여전히 먼저).
+  const [textbookOnly, setTextbookOnly] = useState(true);
   const [idx, setIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [done, setDone] = useState(0);
@@ -64,18 +76,20 @@ export default function CommutePage() {
       (c) =>
         (cat === "전체" || c.category === cat) &&
         (!sangOnly || c.importance === "상") &&
-        (lvl === "전체" || c.level === lvl),
+        (lvl === "전체" || c.level === lvl) &&
+        (!textbookOnly || c.source === "심화반"),
     )
       .slice()
-      // 레벨이 급한 카드부터 나온다(암기 → 숙지 → 점검 → 참고 → 레벨 없음).
+      // 교재 먼저 → 레벨 급한 것(암기 → 숙지 → 점검 → 참고) → 중요도.
       .sort(
         (a, b) =>
+          srcOrder(a.source) - srcOrder(b.source) ||
           levelOrder(a.level as never) - levelOrder(b.level as never) ||
           (IMP[a.importance] ?? 9) - (IMP[b.importance] ?? 9),
       );
     return list;
-    // cat/sangOnly/lvl 바뀌면 새 큐
-  }, [cat, sangOnly, lvl]);
+    // 필터가 바뀌면 새 큐
+  }, [cat, sangOnly, lvl, textbookOnly]);
 
   const card = queue[idx];
 
@@ -90,10 +104,11 @@ export default function CommutePage() {
     setIdx((i) => (i + 1) % Math.max(1, queue.length));
   }
 
-  function reset(newCat: string, newSang: boolean, newLvl = lvl) {
+  function reset(newCat: string, newSang: boolean, newLvl = lvl, newTb = textbookOnly) {
     setCat(newCat);
     setSangOnly(newSang);
     setLvl(newLvl);
+    setTextbookOnly(newTb);
     setIdx(0);
     setFlipped(false);
   }
@@ -132,6 +147,17 @@ export default function CommutePage() {
             </option>
           ))}
         </select>
+        <button
+          onClick={() => reset(cat, sangOnly, lvl, !textbookOnly)}
+          title={`심화반 교재 서브노트로 만든 카드 ${TEXTBOOK_COUNT}장만 돌립니다. 끄면 예전 카드도 뒤에 붙습니다.`}
+          className={`rounded-lg border px-3 py-2 text-sm font-medium transition ${
+            textbookOnly
+              ? "border-emerald-500 bg-emerald-50 text-emerald-700"
+              : "border-slate-300 bg-white text-slate-600"
+          }`}
+        >
+          📘 교재만
+        </button>
         <button
           onClick={() => reset(cat, !sangOnly)}
           className={`rounded-lg border px-3 py-2 text-sm font-medium transition ${
