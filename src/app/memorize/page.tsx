@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { PageHeader, Spinner, ErrorBox, Button } from "@/components/ui";
 import { addNote, recordQuiz } from "@/lib/notes";
-import topics from "@/data/topics.json";
+import { REVIEW_TOPICS as topics } from "@/data/reviewTopics";
 import { SRC_SHORT } from "@/components/SourceBadge";
+import { domainOrder } from "@/lib/domains";
+import { levelOrder } from "@/lib/studyPlan";
 
 type Mode = "flashcard" | "quiz";
 type Flashcard = { front: string; back: string };
@@ -15,7 +17,15 @@ type QuizItem = {
   explanation: string;
 };
 
-const CATS = Array.from(new Set(topics.map((t) => t.category)));
+/**
+ * 토픽 목록은 회독 관리와 같은 통합 목록(topics.json + 심화반 교재 서브노트)을 쓴다.
+ * 예전엔 topics.json 만 봐서 운영체제 0개·컴퓨터구조 2개였다 —
+ * 심화반 1주차 과목인데 암기 페이지에서 고를 수조차 없었다.
+ * 과목 순서도 개수 순이 아니라 커리큘럼 진행 순서다.
+ */
+const CATS = Array.from(new Set(topics.map((t) => t.category))).sort(
+  (a, b) => domainOrder(a) - domainOrder(b) || a.localeCompare(b, "ko"),
+);
 const IMP_ORDER: Record<string, number> = { 상: 0, 중: 1, 하: 2, 출제예상: 3 };
 
 export default function MemorizePage() {
@@ -119,16 +129,16 @@ export default function MemorizePage() {
             {topics
               .filter((t) => t.category === recCat)
               .slice()
+              // 학습계획에 레벨을 매긴 토픽이 먼저 온다 — 지금 급한 것부터 고르게.
               .sort(
                 (a, b) =>
+                  levelOrder(a.level as never) - levelOrder(b.level as never) ||
                   (IMP_ORDER[a.importance] ?? 9) - (IMP_ORDER[b.importance] ?? 9),
               )
               .map((t) => (
                 <option key={t.id} value={t.title}>
-                  [{t.importance}]
-                  {(t as { source?: string }).source
-                    ? `(${SRC_SHORT[(t as { source?: string }).source!] || ""}) `
-                    : " "}
+                  [{t.level || t.importance}]
+                  {t.source ? `(${SRC_SHORT[t.source] || ""}) ` : " "}
                   {t.title}
                 </option>
               ))}

@@ -12,7 +12,8 @@ import {
   subnoteByTitle,
   subnoteByAlias,
 } from "@/data/textbookSubnotes";
-import { WEEKS } from "@/data/curriculum";
+import { DOMAIN_LABEL, domainLabel, sortDomains } from "@/lib/domains";
+import { planInfo, LEVEL_STYLE, LEVEL_HINT, levelOrder } from "@/lib/studyPlan";
 import SourceBadge from "@/components/SourceBadge";
 import { matchSubnoteTitle, findSubnoteByContent } from "@/lib/matchSubnote";
 import { topicForConcept } from "@/lib/relatedTopics";
@@ -25,34 +26,17 @@ type Topic = {
   importance: string;
   summary: string;
   source?: string;
+  /** 커리큘럼에 적어 둔 학습 레벨(암기·숙지·점검·참고) — 없을 수 있다. */
+  level?: string;
+  /** 왜 그 레벨인지 한 줄 메모 */
+  levelNote?: string;
 };
 
 // ── 심화반 서브노트를 토픽지도에 통합 ─────────────────────────────────
 // topics.json(기존 8도메인)에 없는 심화반 토픽 389+개를 과목별 도메인으로 합친다.
 // 컴퓨터구조·운영체제·확률통계·자료구조·알고리즘은 새 도메인으로 생긴다.
-const COURSE_CAT: Record<string, string> = {
-  CA: "컴퓨터구조",
-  OS: "운영체제",
-  PM: "프로젝트관리",
-  SE: "소프트웨어공학",
-  AI: "인공지능",
-  ST: "확률·통계",
-  DS: "자료구조",
-  AL: "알고리즘",
-  NW: "네트워크",
-  DB: "데이터베이스",
-  MG: "경영전략",
-  SC: "보안",
-  DX: "디지털서비스",
-};
-// 커리큘럼 우선순위(상·중·하)를 제목으로 찾는다 — 지도의 중요도 배지에 사용.
-const PRIORITY = (() => {
-  const m = new Map<string, string>();
-  for (const w of WEEKS)
-    for (const d of w.days)
-      if (d.kind === "study") for (const t of d.topics) m.set(t.title, t.priority);
-  return m;
-})();
+// 과목 이름·순서는 lib/domains 한 곳에서만 정한다.
+const COURSE_CAT = DOMAIN_LABEL;
 // 교재에 같은 토픽이 있는 예전 항목은 빼고(아래 ALL), 교재 것만 남긴다.
 // ★중복 판정 기준은 "남은 예전 토픽"이어야 한다★ — 전체 topics 로 비교하면
 // 이미 제외된 예전 토픽과 제목이 같다는 이유로 교재 서브노트까지 빠져
@@ -62,19 +46,38 @@ const LEGACY_KEPT: Topic[] = (topics as Topic[]).filter(
 );
 const KNOWN = new Set(LEGACY_KEPT.map((t) => t.title));
 const SUBNOTE_TOPICS: Topic[] = SUBNOTES.filter((s) => !KNOWN.has(s.title)).map(
-  (s, i) => ({
-    id: `sn-${i}`,
-    title: s.title,
-    category: COURSE_CAT[s.course] || s.course,
-    group: `심화반 ${COURSE_CAT[s.course] || s.course} 서브노트`,
-    importance: PRIORITY.get(s.title) || "중",
-    summary: s.defShort || "",
-    source: "심화반",
-  }),
+  (s, i) => {
+    const cat = COURSE_CAT[s.course] || s.course;
+    const p = planInfo(s.title, s.topicId);
+    return {
+      id: `sn-${i}`,
+      title: s.title,
+      category: cat,
+      group: `심화반 ${cat} 서브노트`,
+      importance: p?.priority || "중",
+      summary: s.defShort || "",
+      source: "심화반",
+      level: p?.level,
+      levelNote: p?.note,
+    };
+  },
 );
 
-const ALL = [...LEGACY_KEPT, ...SUBNOTE_TOPICS];
-const CATS = Array.from(new Set(ALL.map((t) => t.category)));
+// 예전 토픽도 과목 이름을 정식 이름으로 맞추고, 커리큘럼에 있으면 레벨을 붙인다.
+// (이름을 안 맞추면 "SW공학"처럼 같은 과목이 칩 두 개로 갈라진다.)
+const ALL: Topic[] = [...LEGACY_KEPT, ...SUBNOTE_TOPICS].map((t) => {
+  const p = planInfo(t.title);
+  return {
+    ...t,
+    category: domainLabel(t.category),
+    level: t.level ?? p?.level,
+    levelNote: t.levelNote ?? p?.note,
+  };
+});
+// 분류 칩 순서는 데이터 분포가 아니라 심화반 커리큘럼 진행 순서를 따른다.
+// 예전엔 topics.json 등장 순서라, topics.json 에 아예 없는 운영체제·컴퓨터구조·
+// 알고리즘·자료구조가 맨 뒤로 밀려 화면 밖으로 나갔다(1주차 과목인데도).
+const CATS = sortDomains(Array.from(new Set(ALL.map((t) => t.category))));
 const IMP_ORDER: Record<string, number> = { 상: 0, 중: 1, 하: 2, 출제예상: 3 };
 
 const IMP_BADGE: Record<string, string> = {
@@ -97,8 +100,11 @@ function groupsOf(items: Topic[]): { name: string; items: Topic[] }[] {
       name,
       items: list
         .slice()
+        // 학습계획에 레벨을 매긴 토픽이 먼저 온다(암기 → 숙지 → 점검 → 참고).
+        // 레벨은 "지금 급한 것"이라 교재 중요도보다 앞선다.
         .sort(
           (a, b) =>
+            levelOrder(a.level as never) - levelOrder(b.level as never) ||
             (IMP_ORDER[a.importance] ?? 9) - (IMP_ORDER[b.importance] ?? 9) ||
             a.title.localeCompare(b.title, "ko"),
         ),
@@ -648,7 +654,25 @@ function GroupsView({
                             <div className="font-medium text-slate-800 group-hover:text-brand-600">
                               {t.title}
                               <SourceBadge source={t.source} className="ml-1.5 align-middle" />
+                              {/* 학습계획에 매긴 레벨 — 교재 중요도(왼쪽 배지)와 다른 축이다.
+                                  중요도는 "교재가 얼마나 크게 다루나",
+                                  레벨은 "시험을 앞두고 내가 어떻게 다룰까". */}
+                              {t.level && (
+                                <span
+                                  title={LEVEL_HINT[t.level]}
+                                  className={`ml-1.5 inline-block rounded border px-1.5 py-0.5 align-middle text-[11px] font-bold ${
+                                    LEVEL_STYLE[t.level] || ""
+                                  }`}
+                                >
+                                  {t.level}
+                                </span>
+                              )}
                             </div>
+                            {t.levelNote ? (
+                              <div className="mt-0.5 text-xs font-medium text-brand-700">
+                                {t.levelNote}
+                              </div>
+                            ) : null}
                             {t.summary && (
                               <div className="mt-0.5 line-clamp-2 text-xs text-slate-500">
                                 {t.summary}

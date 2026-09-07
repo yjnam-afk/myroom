@@ -5,6 +5,8 @@ import { PageHeader } from "@/components/ui";
 import cards from "@/data/flashcards.json";
 import SourceBadge from "@/components/SourceBadge";
 import { loadReview, saveReview, markReviewed, getItem } from "@/lib/storage";
+import { domainLabel, domainOrder } from "@/lib/domains";
+import { planInfo, LEVEL_STYLE, LEVEL_HINT, levelOrder } from "@/lib/studyPlan";
 
 type Card = {
   id: string;
@@ -20,15 +22,38 @@ type Card = {
   sections: { label: string; mnemonic: string; keywords: string[] }[];
   mnemonic: string;
   keywords: string[];
+  /** 학습계획에 매긴 레벨(암기·숙지·점검·참고) — 아래에서 붙인다. */
+  level?: string;
+  /** 왜 그 레벨인지 한 줄 메모 */
+  levelNote?: string;
 };
 
-const ALL = cards as Card[];
-const CATS = ["전체", ...Array.from(new Set(ALL.map((c) => c.category)))];
+// 과목 이름을 정식 이름으로 맞추고, 학습계획의 레벨·코멘트를 실어 준다.
+// 지하철에서 "오늘 급한 것만" 돌릴 수 있어야 하기 때문이다.
+const ALL: Card[] = (cards as Card[]).map((c) => {
+  const p = planInfo(c.title, c.id);
+  return {
+    ...c,
+    category: domainLabel(c.category),
+    level: p?.level,
+    levelNote: p?.note,
+  };
+});
+// 과목 순서는 심화반 커리큘럼 진행 순서 — 개수 순이 아니다.
+const CATS = [
+  "전체",
+  ...Array.from(new Set(ALL.map((c) => c.category))).sort(
+    (a, b) => domainOrder(a) - domainOrder(b) || a.localeCompare(b, "ko"),
+  ),
+];
 const IMP: Record<string, number> = { 상: 0, 중: 1, 출제예상: 2, 하: 3 };
+/** 레벨 필터 — "전체"는 레벨 무관, 나머지는 그 레벨만. */
+const LEVELS = ["전체", "암기", "숙지", "점검", "참고"];
 
 export default function CommutePage() {
   const [cat, setCat] = useState("전체");
   const [sangOnly, setSangOnly] = useState(false);
+  const [lvl, setLvl] = useState("전체");
   const [idx, setIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [done, setDone] = useState(0);
@@ -37,13 +62,19 @@ export default function CommutePage() {
     const list = ALL.filter(
       (c) =>
         (cat === "전체" || c.category === cat) &&
-        (!sangOnly || c.importance === "상"),
+        (!sangOnly || c.importance === "상") &&
+        (lvl === "전체" || c.level === lvl),
     )
       .slice()
-      .sort((a, b) => (IMP[a.importance] ?? 9) - (IMP[b.importance] ?? 9));
+      // 레벨이 급한 카드부터 나온다(암기 → 숙지 → 점검 → 참고 → 레벨 없음).
+      .sort(
+        (a, b) =>
+          levelOrder(a.level as never) - levelOrder(b.level as never) ||
+          (IMP[a.importance] ?? 9) - (IMP[b.importance] ?? 9),
+      );
     return list;
-    // cat/sangOnly 바뀌면 새 큐
-  }, [cat, sangOnly]);
+    // cat/sangOnly/lvl 바뀌면 새 큐
+  }, [cat, sangOnly, lvl]);
 
   const card = queue[idx];
 
@@ -58,9 +89,10 @@ export default function CommutePage() {
     setIdx((i) => (i + 1) % Math.max(1, queue.length));
   }
 
-  function reset(newCat: string, newSang: boolean) {
+  function reset(newCat: string, newSang: boolean, newLvl = lvl) {
     setCat(newCat);
     setSangOnly(newSang);
+    setLvl(newLvl);
     setIdx(0);
     setFlipped(false);
   }
@@ -84,6 +116,18 @@ export default function CommutePage() {
           {CATS.map((c) => (
             <option key={c} value={c}>
               {c}
+            </option>
+          ))}
+        </select>
+        {/* 학습 레벨 — 학습계획에 매겨 둔 "지금 얼마나 급한가". */}
+        <select
+          value={lvl}
+          onChange={(e) => reset(cat, sangOnly, e.target.value)}
+          className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+        >
+          {LEVELS.map((l) => (
+            <option key={l} value={l}>
+              {l === "전체" ? "학습 레벨 전체" : l}
             </option>
           ))}
         </select>
@@ -124,6 +168,16 @@ export default function CommutePage() {
               <span className="rounded bg-slate-100 px-2 py-0.5 text-[11px] font-bold text-brand-700">
                 {card.importance}
               </span>
+              {card.level && (
+                <span
+                  title={LEVEL_HINT[card.level]}
+                  className={`rounded border px-1.5 py-0.5 text-[11px] font-bold ${
+                    LEVEL_STYLE[card.level] || ""
+                  }`}
+                >
+                  {card.level}
+                </span>
+              )}
               <span className="text-xs text-slate-400">{card.category}</span>
               <SourceBadge source={(card as { source?: string }).source} />
               {rounds > 0 && (
@@ -133,6 +187,11 @@ export default function CommutePage() {
             <h2 className="mt-3 text-2xl font-bold leading-snug text-slate-900">
               {card.title}
             </h2>
+            {card.levelNote ? (
+              <p className="mt-1 text-sm font-medium text-brand-700">
+                {card.levelNote}
+              </p>
+            ) : null}
 
             {!flipped ? (
               <p className="mt-8 text-center text-sm text-slate-400">

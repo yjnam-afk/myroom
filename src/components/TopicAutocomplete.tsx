@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import topics from "@/data/topics.json";
 import { SUBNOTES, subnoteByAlias } from "@/data/textbookSubnotes";
+import { DOMAIN_LABEL } from "@/lib/domains";
 
 type T = { id: string; title: string; category: string; importance: string };
 
@@ -27,12 +28,9 @@ type Entry = {
  * - onChange: 사용자가 직접 타이핑(데이터 연결 해제)
  * - onSelect: 제안을 선택(토픽 id까지 연결 → 교재 근거 사용)
  */
-// 교재 과목 코드 → 도메인 이름 (자동완성 부제 표기용)
-const COURSE_LABEL: Record<string, string> = {
-  OS: "운영체제", CA: "컴퓨터구조", PM: "프로젝트관리", SE: "SW공학",
-  AI: "인공지능", ST: "확률·통계", DS: "자료구조", AL: "알고리즘",
-  NW: "네트워크", DB: "데이터베이스", MG: "경영전략", SC: "보안", DX: "디지털서비스",
-};
+// 교재 과목 코드 → 도메인 이름 (자동완성 부제 표기용).
+// 이름은 lib/domains 한 곳에서만 정한다.
+const COURSE_LABEL = DOMAIN_LABEL;
 
 export default function TopicAutocomplete({
   value,

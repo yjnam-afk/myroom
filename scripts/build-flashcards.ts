@@ -10,6 +10,7 @@ import * as path from "node:path";
 import { fileURLToPath } from "node:url";
 import { SUBNOTES, subnoteByAlias } from "../src/data/textbookSubnotes";
 import { WEEKS } from "../src/data/curriculum";
+import { DOMAIN_LABEL, domainLabel } from "../src/lib/domains";
 import { TOPIC_GUIDES } from "../src/data/topicGuides";
 import { TOPIC_INTROS } from "../src/data/topicIntros";
 
@@ -65,25 +66,22 @@ function cleanDefinition(detail: string, summary: string) {
 }
 
 // ── 교재 서브노트 카드 ───────────────────────────────────────────────────
-const COURSE_CAT: Record<string, string> = {
-  CA: "컴퓨터구조",
-  OS: "운영체제",
-  PM: "프로젝트관리",
-  SE: "소프트웨어공학",
-  AI: "인공지능",
-  ST: "확률·통계",
-  DS: "자료구조",
-  AL: "알고리즘",
-  NW: "네트워크",
-  DB: "데이터베이스",
-  MG: "경영전략",
-  SC: "보안",
-};
-const PRIORITY = (() => {
-  const m = new Map<string, string>();
+// 과목 이름은 lib/domains 한 곳에서만 정한다.
+// 여기 목록에 DX 를 빠뜨려 디지털서비스 카드 9장이 "DX" 라는 분류로 새어 나갔다.
+const COURSE_CAT = DOMAIN_LABEL;
+// 커리큘럼 우선순위·학습 레벨 — 정독일(review)의 토픽까지 함께 본다.
+// 진도일만 보면 정독 주차에만 들어간 토픽이 통째로 빠진다.
+const PLAN = (() => {
+  const m = new Map<string, { priority: string; level?: string; note?: string }>();
   for (const w of WEEKS as any[])
-    for (const d of w.days)
-      if (d.kind === "study") for (const t of d.topics) m.set(t.title, t.priority);
+    for (const d of w.days) {
+      const list = d.kind === "study" || d.kind === "review" ? d.topics ?? [] : [];
+      for (const t of list) {
+        const prev = m.get(t.title);
+        if (!prev || (!prev.level && t.level) || (!prev.note && t.note))
+          m.set(t.title, { priority: t.priority, level: t.level, note: t.note });
+      }
+    }
   return m;
 })();
 
@@ -311,7 +309,9 @@ for (let i = 0; i < SUBNOTES.length; i++) {
     id: `sn-${i}`,
     title: s.title,
     category: COURSE_CAT[s.course] || s.course,
-    importance: PRIORITY.get(s.title) || "중",
+    importance: PLAN.get(s.title)?.priority || "중",
+    level: PLAN.get(s.title)?.level,
+    levelNote: PLAN.get(s.title)?.note,
     source: "심화반",
     definition: s.definition || "",
     defShort: s.defShort || "",
@@ -364,7 +364,9 @@ for (const t of topics) {
   cards.push({
     id: t.id,
     title: t.title,
-    category: t.category,
+    category: domainLabel(t.category),
+    level: PLAN.get(t.title)?.level,
+    levelNote: PLAN.get(t.title)?.note,
     importance: t.importance,
     source: (t as { source?: string }).source || "",
     definition: cleanDefinition(d.detail, t.summary) || t.summary || "",

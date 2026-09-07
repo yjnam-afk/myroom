@@ -10,6 +10,8 @@
  */
 import rawTopics from "@/data/topics.json";
 import { SUBNOTES, subnoteByAlias } from "@/data/textbookSubnotes";
+import { DOMAIN_LABEL, domainLabel } from "@/lib/domains";
+import { planInfo } from "@/lib/studyPlan";
 
 export type ReviewTopic = {
   id: string;
@@ -22,23 +24,18 @@ export type ReviewTopic = {
   fromTextbook?: boolean;
   /** 토픽 출처 — 심화반(교재) · 기필반(엑셀) · 기출 · 요청 */
   source?: string;
+  /** 학습계획에 매긴 레벨(암기·숙지·점검·참고) — 없을 수 있다. */
+  level?: string;
+  /** 왜 그 레벨인지 한 줄 메모 */
+  levelNote?: string;
 };
 
-export const COURSE_LABEL: Record<string, string> = {
-  OS: "운영체제",
-  CA: "컴퓨터구조",
-  PM: "프로젝트관리",
-  SE: "SW공학",
-  AI: "인공지능",
-  ST: "확률·통계",
-  DS: "자료구조",
-  AL: "알고리즘",
-  NW: "네트워크",
-  DB: "데이터베이스",
-  MG: "경영전략",
-  SC: "보안",
-  DX: "디지털서비스",
-};
+/**
+ * 과목 이름은 lib/domains 한 곳에서만 정한다.
+ * 예전엔 여기서 SE 를 "SW공학"이라 적어, topics.json 의 "소프트웨어공학"과
+ * 갈라져 같은 과목이 목록에 두 번 나왔다.
+ */
+export const COURSE_LABEL = DOMAIN_LABEL;
 
 /** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */
 function normTitle(s: string): string {
@@ -56,7 +53,17 @@ function normTitle(s: string): string {
  */
 const BASE: ReviewTopic[] = (rawTopics as ReviewTopic[]).map((t) => {
   const s = subnoteByAlias(t.id, t.title);
-  if (!s) return t;
+  const p = planInfo(s?.title ?? t.title, s?.topicId ?? t.id);
+  if (!s) {
+    // 교재에 없는 예전 토픽 — 과목 이름만 정식 이름으로 맞추고 레벨을 붙인다.
+    return {
+      ...t,
+      category: domainLabel(t.category),
+      group: t.group ? domainLabel(t.group) : t.group,
+      level: p?.level,
+      levelNote: p?.note,
+    };
+  }
   const cat = COURSE_LABEL[s.course] || s.course;
   return {
     ...t,
@@ -68,6 +75,8 @@ const BASE: ReviewTopic[] = (rawTopics as ReviewTopic[]).map((t) => {
     summary: s.defShort || s.definition,
     fromTextbook: true,
     source: "심화반",
+    level: p?.level,
+    levelNote: p?.note,
   };
 });
 const SEEN = new Set(BASE.map((t) => normTitle(t.title)));
@@ -78,6 +87,7 @@ for (const s of SUBNOTES) {
   const key = normTitle(s.title);
   if (SEEN.has(key)) continue;
   SEEN.add(key);
+  const p = planInfo(s.title, s.topicId);
   TEXTBOOK_ONLY.push({
     id: `tb-${s.course}-${key}`,
     title: s.title,
@@ -88,6 +98,8 @@ for (const s of SUBNOTES) {
     summary: s.defShort || s.definition,
     fromTextbook: true,
     source: "심화반",
+    level: p?.level,
+    levelNote: p?.note,
   });
 }
 

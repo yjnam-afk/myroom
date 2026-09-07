@@ -4,6 +4,8 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { PageHeader } from "@/components/ui";
 import { SUBNOTES } from "@/data/textbookSubnotes";
+import { DOMAINS, DOMAIN_LABEL } from "@/lib/domains";
+import { planInfo, LEVEL_STYLE, LEVEL_HINT } from "@/lib/studyPlan";
 
 /**
  * 용어 사전 — 두 켜로 구성한다.
@@ -330,37 +332,14 @@ const FLOOR = [
   "CA는 몸(하드웨어), OS는 관리인(소프트웨어). 하드웨어가 제공, OS가 활용.",
 ];
 
-const COURSE_LABEL: Record<string, string> = {
-  OS: "운영체제",
-  CA: "컴퓨터구조",
-  PM: "프로젝트관리",
-  SE: "SW공학",
-  AI: "인공지능",
-  ST: "확률·통계",
-  DS: "자료구조",
-  AL: "알고리즘",
-  NW: "네트워크",
-  DB: "데이터베이스",
-  MG: "경영전략",
-  SC: "보안",
-  DX: "디지털서비스",
-};
-const COURSE_KEYS = [
+// 과목 이름은 lib/domains 한 곳에서만 정한다(여기서 SE 를 "SW공학"이라
+// 따로 적어 다른 페이지와 이름이 갈렸던 적이 있다).
+const COURSE_LABEL = DOMAIN_LABEL;
+// 과목 칩 순서는 심화반 커리큘럼 진행 순서 — CA·OS 가 맨 앞이다.
+const COURSE_KEYS: readonly string[] = [
   "전체",
-  "OS",
-  "CA",
-  "PM",
-  "SE",
-  "AI",
-  "ST",
-  "DS",
-  "AL",
-  "NW",
-  "DB",
-  "MG",
-  "SC",
-  "DX",
-] as const;
+  ...DOMAINS.map((d) => d.code),
+];
 
 export default function BasicsPage() {
   const [tab, setTab] = useState<"book" | "easy">("book");
@@ -483,6 +462,20 @@ export default function BasicsPage() {
                     {COURSE_LABEL[s.course]}
                   </span>
                   <b className="text-[15px] text-slate-900">{s.title}</b>
+                  {/* 학습계획에 매긴 레벨 — 사전에서도 급한 용어가 눈에 띄게. */}
+                  {(() => {
+                    const lv = planInfo(s.title, s.topicId)?.level;
+                    return lv ? (
+                      <span
+                        title={LEVEL_HINT[lv]}
+                        className={`rounded border px-1.5 py-0.5 text-[10px] font-bold ${
+                          LEVEL_STYLE[lv] || ""
+                        }`}
+                      >
+                        {lv}
+                      </span>
+                    ) : null;
+                  })()}
                   <span className="ml-auto flex gap-1.5">
                     <Link
                       href={`/explain?topic=${encodeURIComponent(s.title)}`}

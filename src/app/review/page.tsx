@@ -20,6 +20,8 @@ import {
 } from "@/lib/storage";
 import { loadSession, Session } from "@/lib/auth";
 import { syncNow } from "@/lib/sync";
+import { domainOrder } from "@/lib/domains";
+import { LEVEL_STYLE, LEVEL_HINT, levelOrder } from "@/lib/studyPlan";
 
 const STATUS_LABEL: Record<string, string> = {
   todo: "시작 전",
@@ -42,11 +44,17 @@ const IMP_STYLE: Record<string, string> = {
 const IMP_FILTERS = ["전체", "상", "중", "하", "출제예상"];
 const PAGE_SIZE = 50;
 
-// 분야 목록 — 토픽 수가 많은 순. 교재 과목(보안·인공지능 등)이 여기에 함께 들어온다.
+/**
+ * 분야 목록 — 심화반 커리큘럼 진행 순서.
+ * 예전엔 토픽 수 많은 순이라 지금 배우는 컴퓨터구조(23개)·운영체제(32개)가
+ * 목록 맨 끝으로 밀려 찾기 어려웠다. 개수가 아니라 순서가 기준이다.
+ */
 const CAT_OPTIONS: [string, number][] = (() => {
   const m = new Map<string, number>();
   for (const t of topics) m.set(t.category, (m.get(t.category) || 0) + 1);
-  return Array.from(m).sort((a, b) => b[1] - a[1]);
+  return Array.from(m).sort(
+    (a, b) => domainOrder(a[0]) - domainOrder(b[0]) || b[1] - a[1],
+  );
 })();
 
 export default function ReviewPage() {
@@ -428,8 +436,10 @@ export default function ReviewPage() {
               (t.category || "").toLowerCase().includes(q) ||
               (t.summary || "").toLowerCase().includes(q),
           )
+          // 학습계획에 레벨을 매긴 토픽이 먼저 온다(암기 → 숙지 → 점검 → 참고).
           .sort(
             (a, b) =>
+              levelOrder(a.level as never) - levelOrder(b.level as never) ||
               (IMP_ORDER[a.importance] ?? 9) - (IMP_ORDER[b.importance] ?? 9),
           );
         const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
@@ -481,10 +491,27 @@ export default function ReviewPage() {
                       {t.importance}
                     </span>
                   )}
+                  {/* 학습계획에 매긴 레벨 — 교재 중요도와 다른 축이다.
+                      중요도는 교재가 얼마나 크게 다루나, 레벨은 지금 얼마나 급한가. */}
+                  {t.level && (
+                    <span
+                      title={LEVEL_HINT[t.level]}
+                      className={`rounded-full border px-2 py-0.5 text-xs font-bold ${
+                        LEVEL_STYLE[t.level] || ""
+                      }`}
+                    >
+                      {t.level}
+                    </span>
+                  )}
                   <SourceBadge source={t.source} />
                   <span className="text-xs text-slate-400">{t.group || t.category}</span>
                 </div>
                 <h3 className="mt-1 font-semibold text-slate-900">{t.title}</h3>
+                {t.levelNote ? (
+                  <p className="text-sm font-medium leading-relaxed text-brand-700">
+                    {t.levelNote}
+                  </p>
+                ) : null}
                 <p className="line-clamp-2 text-sm leading-relaxed text-slate-500">
                   {t.summary}
                 </p>
