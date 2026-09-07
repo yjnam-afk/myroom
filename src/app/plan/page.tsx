@@ -278,6 +278,7 @@ function Legend({ cls, label }: { cls: string; label: string }) {
  * 그래서 제목 맨 앞만 본다.
  */
 function weekChipLabel(title: string): string {
+  if (title.startsWith("개강")) return "개강";
   if (title.startsWith("휴식")) return "휴식";
   if (title.startsWith("회독")) return "회독";
   if (title.startsWith("선행")) {
