@@ -18,13 +18,21 @@ import {
  * 통산 4번 이상이면 붉게 칠해 "꼭 볼 것"으로 띄운다. 누르면 언제·몇 교시에
  * 어떤 문구로 나왔는지 펼친다.
  */
-function AppearanceList({ items }: { items: ExamAppearance[] }) {
+/**
+ * 출제 문항 목록.
+ * full: 토픽 설명 카드 — 문제 전문을 줄바꿈 그대로, 생략 없이 보여준다.
+ *       (가./나./다. 소문항이 있는 2교시 문제는 줄이 잘리면 무엇을 묻는지 알 수 없다.)
+ * 아니면(학습계획 칩의 팝업) 세 줄까지만 보이고, 누르면 펼쳐진다.
+ */
+function AppearanceList({ items, full = false }: { items: ExamAppearance[]; full?: boolean }) {
+  const [opened, setOpened] = useState<Set<string>>(new Set());
   return (
     <ul className="divide-y divide-slate-100">
       {items.map((h) => {
         const recent = isRecent(h.date);
+        const open = full || opened.has(h.id);
         return (
-          <li key={h.id} className="px-3 py-2 text-xs">
+          <li key={h.id} className={`px-3 py-2 ${full ? "px-5 py-3 text-[13px]" : "text-xs"}`}>
             <div className="flex flex-wrap items-center gap-1.5">
               <span
                 className={`rounded px-1.5 py-0.5 font-bold ${
@@ -37,7 +45,21 @@ function AppearanceList({ items }: { items: ExamAppearance[] }) {
               <span className="text-slate-400">· {h.period}</span>
               {h.exam && <span className="text-amber-700">· {h.exam}</span>}
             </div>
-            <p className="mt-1 line-clamp-2 whitespace-pre-line leading-relaxed text-slate-700">
+            <p
+              onClick={() => {
+                if (full) return;
+                setOpened((prev) => {
+                  const n = new Set(prev);
+                  if (n.has(h.id)) n.delete(h.id);
+                  else n.add(h.id);
+                  return n;
+                });
+              }}
+              className={`mt-1 whitespace-pre-line break-words leading-relaxed text-slate-800 ${
+                open ? "" : "line-clamp-3 cursor-pointer"
+              }`}
+              title={open ? undefined : "누르면 전문이 보입니다"}
+            >
               {h.text}
             </p>
           </li>
@@ -127,7 +149,7 @@ export function ExamHistoryCard({ title }: { title: string }) {
             : `마지막 출제 ${s.latest}. 어떤 문구로 나왔는지 확인해 두세요.`}
         </p>
       </div>
-      <AppearanceList items={shown} />
+      <AppearanceList items={shown} full />
       <div className="flex items-center justify-between border-t border-slate-100 px-4 py-2 text-xs">
         {hist.length > 5 ? (
           <button
