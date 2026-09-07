@@ -119,20 +119,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "명령어 구성 방식에 따라 복잡한 CISC와 축소한 RISC로 나뉘는 CPU 유형",
     lead: "명령어 집합의 양대 방식, CISC vs RISC",
     features: ["복잡도 상반", "성능 상충", "용도 특화"],
-    defPair: [
-      {
-        name: "CISC(Complex Instruction Set Computer)",
-        lead: "복잡 명령어 집합의 CPU",
-        def: "여러 사이클의 복잡한 가변 명령어를 마이크로 프로그램으로 제어하는 CPU 유형",
-        features: ["가변 명령어", "마이크로 프로그램 제어", "Intel 계열"],
-      },
-      {
-        name: "RISC(Reduced Instruction Set Computer)",
-        lead: "축소 명령어 집합의 CPU",
-        def: "한 사이클의 단순한 고정 길이 명령어를 하드와이어 방식으로 제어하는 CPU 유형",
-        features: ["고정 명령어", "하드와이어 제어", "ARM 계열"],
-      },
-    ],
     keywords: [
       "Instruction Set",
       "마이크로 프로그램/하드와이어드",
@@ -625,20 +611,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "임베디드 보드의 장치 사이에서 적은 신호선으로 데이터를 주고받는 직렬 통신 방식",
     lead: "임베디드 직렬 통신 방식, I2C와 SPI",
     features: ["직렬 전송", "선 수 차이", "속도 상반"],
-    defPair: [
-      {
-        name: "I2C(Inter Integrated Circuit)",
-        lead: "2선 공유의 직렬 통신",
-        def: "SCL·SDA 두 라인을 마스터와 슬레이브가 공유하는 반이중 저속 직렬 통신 방식",
-        features: ["2선 공유", "반이중", "100kbps"],
-      },
-      {
-        name: "SPI(Serial Peripheral Interface)",
-        lead: "4선 1:1의 직렬 통신",
-        def: "네 라인으로 마스터와 슬레이브를 1:1로 직접 연결하는 전이중 고속 직렬 통신 방식",
-        features: ["CS·SCLK·MOSI·MISO 4선", "전이중", "70MHz"],
-      },
-    ],
     keywords: ["SCL", "SDA", "CS", "SCLK", "MOSI", "MISO", "100kbps", "70MHz"],
     tables: [
       {
@@ -1960,13 +1932,13 @@ export const SUBNOTES: TextbookSubnote[] = [
       {
         name: "직접 사상(Direct Mapping)",
         lead: "사상표 참조의 주소 변환",
-        def: "페이지 사상 테이블(PMT)을 참고해 가상 주소를 실제 주소로 변환하는 사상 기법",
+        def: "페이지 사상 테이블(PMT)을 참고하여 가상 주소를 실제 주소로 변환하는 기법",
         features: ["PMT 참조", "구현 단순", "메모리 2회 접근"],
       },
       {
         name: "연관 사상(Associative Mapping)",
         lead: "병렬 검색의 고속 변환",
-        def: "주소 변환을 위해 연관 메모리 또는 내용 주소 지정 기억장치를 사용하는 페이징 기법",
+        def: "메모리 주소 변환에 연관 메모리 또는 내용 주소 지정 기억장치를 사용하는 기법",
         features: ["병렬 검색", "고속 변환", "고비용"],
       },
     ],
@@ -2911,20 +2883,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "타임스탬프 기반 교착 회피, Wait-Die와 Wound-Wait",
     features: ["나이 비교", "선점 여부 상반", "롤백 활용"],
-    defPair: [
-      {
-        name: "Wait-Die",
-        lead: "비선점의 교착 회피 기법",
-        def: "타임스탬프 비교로 대기·롤백을 정하는 비선점 기반 DeadLock 회피 기법",
-        features: ["비선점", "Old는 대기", "Young은 롤백"],
-      },
-      {
-        name: "Wound-Wait",
-        lead: "선점의 교착 회피 기법",
-        def: "타임스탬프 비교로 대기·강제 종료를 정하는 선점 기반 DeadLock 회피 기법",
-        features: ["선점", "Old가 Young 강제종료", "Young은 대기"],
-      },
-    ],
     keywords: ["타임스템프", "Old", "Young", "롤백", "강제종료", "선점", "비선점"],
     tables: [
       {
@@ -3765,20 +3723,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "통제되지 않은 요구 증가와 요구 외 임의 기능 추가로 범위가 부푸는 범위관리 실패 원인",
     lead: "범위 관리 실패의 두 원인, Scope Creep vs Gold-Plating",
     features: ["원인 상반", "범위 확산", "통제 실패"],
-    defPair: [
-      {
-        name: "Scope Creep",
-        lead: "통제 안 된 범위 확장",
-        def: "요구사항 관리 오류로 시간·원가·자원 조정 없이 진행되는 통제되지 않은 범위 확장",
-        features: ["범위관리 실패", "예산 조기 소모", "변경 승인 필요"],
-      },
-      {
-        name: "Gold Plating",
-        lead: "요구 초과의 기능 추가",
-        def: "고객 요구 이상으로 범위 외 기능·특성을 추가해 비용과 일정을 초과하는 낭비현상",
-        features: ["품질관리 실패", "시간·비용 낭비", "PM 승인 없는 추가 금지"],
-      },
-    ],
     keywords: ["통제 되지 않은 요구사항 관리", "고객이 요구한 것 이상으로 기능이나 특성을 추가"],
     tables: [
       {
@@ -6893,20 +6837,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "학습 데이터의 정답 부착, 데이터라벨링과 어노테이션",
     features: ["정답 생성", "품질 좌우", "수작업 비중"],
-    defPair: [
-      {
-        name: "데이터라벨링(Data Labeling)",
-        lead: "학습 정답 부착의 활동",
-        def: "기계학습에 활용하도록 기능·목적에 부합하는 정보를 원천데이터에 부착하는 활동",
-        features: ["정보 부착", "원천데이터", "학습 목적"],
-      },
-      {
-        name: "어노테이션(Annotation)",
-        lead: "기계 인식용 정보 기입",
-        def: "인간의 식별기준을 기계가 인식하도록 정보를 기입해 알고리즘이 이해하게 하는 과정",
-        features: ["식별기준 기입", "바운딩박스·폴리곤", "알고리즘 이해"],
-      },
-    ],
     keywords: ["라벨링", "어노테이션", "바운딩박스", "폴리곤", "텍스트 전사"],
     tables: [
       {
@@ -7204,20 +7134,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "심층 학습의 두 실패 현상, 기울기 소실과 폭주",
     features: ["소멸·발산 상반", "깊이 기인", "ReLU 완화"],
-    defPair: [
-      {
-        name: "기울기 소실(Gradient Vanishing)",
-        lead: "역전파 기울기의 소멸",
-        def: "깊은 신경망의 역전파에서 기울기가 점차 작아져 가중치가 업데이트되지 않는 현상",
-        features: ["기울기 감소", "가중치 정체", "ReLU 완화"],
-      },
-      {
-        name: "기울기 폭주(Gradient Exploding)",
-        lead: "역전파 기울기의 발산",
-        def: "역전파 과정에서 기울기가 점차 커져 가중치가 비정상적으로 큰 값으로 발산하는 현상",
-        features: ["기울기 증가", "가중치 발산", "Gradient Clipping"],
-      },
-    ],
     keywords: ["ReLU", "Leaky ReLU", "Gradient Clipping"],
     tables: [
       {
@@ -9044,20 +8960,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "환경 변화의 성능 저하, 모델 드리프트",
     features: ["분포 변화", "관계 변화", "재학습 필요"],
-    defPair: [
-      {
-        name: "컨셉 드리프트(Concept Drift)",
-        lead: "라벨 관계 변화 성능 저하",
-        def: "입력 데이터와 정답 라벨의 관계성이 훈련 때와 달라져 모델 예측 성능이 저하되는 현상",
-        features: ["관계성 변화", "정의 변경 사례", "Online Learning"],
-      },
-      {
-        name: "데이터 드리프트(Data Drift)",
-        lead: "입력 분포 변화 성능 저하",
-        def: "훈련 시와 배포 환경의 입력 데이터 분포 차이의 편향으로 예측 성능이 저하되는 현상",
-        features: ["분포 변화", "계절성 사례", "재학습·재배포"],
-      },
-    ],
     keywords: ["데이터와 라벨의 관계성 변화", "입력데이터의 분포 변화"],
     tables: [
       {
@@ -10024,20 +9926,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "연속 확률의 수학적 표현, 확률분포와 확률 밀도 함수",
     features: ["밀도 표현", "적분 확률", "분포 다양"],
-    defPair: [
-      {
-        name: "확률분포(Probability Distribution)",
-        lead: "시행 결과 확률의 분포",
-        def: "여러 번의 독립적 시행에서 각각의 값이 특정 횟수만큼 나타날 확률을 정의하는 분포",
-        features: ["이산·연속", "정규·지수분포", "확률질량함수"],
-      },
-      {
-        name: "확률밀도함수(Probability Density Function)",
-        lead: "연속 분포의 수학적 표현",
-        def: "연속확률변수의 확률분포를 구간 적분으로 확률을 얻도록 수학적으로 표현한 함수",
-        features: ["연속확률변수", "적분 확률", "전체 면적 1"],
-      },
-    ],
     keywords: ["이산확률분포", "연속확률분포", "정규분포", "지수분포", "확률질량함수"],
     tables: [
       {
@@ -10210,20 +10098,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "분포 모양의 두 측정값, 왜도와 첨도",
     features: ["비대칭 측정", "뾰족함 측정", "정규성 검정"],
-    defPair: [
-      {
-        name: "왜도(Skewness)",
-        lead: "분포 비대칭의 측정값",
-        def: "분포의 비대칭성 정도로서 평균을 중심으로 분포가 어느 쪽으로 기울어진 정도와 방향",
-        features: ["비대칭", "좌·우 편향", "0이면 대칭"],
-      },
-      {
-        name: "첨도(Kurtosis)",
-        lead: "분포 뾰족함의 측정값",
-        def: "정규 분포와 비교해 분포의 꼬리와 봉우리가 중심에서 얼마나 더 뾰족한지 측정한 값",
-        features: ["뾰족함", "꼬리 두께", "3이면 정규"],
-      },
-    ],
     keywords: ["분포의 비대칭성 정도", "얼마나 더 뾰족한 지 측정", "정규성 검정"],
     tables: [
       {
@@ -10630,20 +10504,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "모델 선택의 두 잣대, AIC와 BIC",
     features: ["적합도·복잡도", "패널티 차등", "비교 선택"],
-    defPair: [
-      {
-        name: "AIC(Akaike Information Criterion)",
-        lead: "적합도·복잡도의 균형 지표",
-        def: "모델의 적합도와 변수 개수인 복잡도를 동시에 고려해 최적 모델을 선택하는 평가 지표",
-        features: ["적합도+2p", "복잡도 패널티", "예측 중시"],
-      },
-      {
-        name: "BIC(Bayesian Information Criterion)",
-        lead: "표본 크기 반영 패널티",
-        def: "표본 크기 n을 고려하여 복잡한 모델에 더 큰 패널티를 부여하는 모델 선택 평가 지표",
-        features: ["log(n)p", "큰 패널티", "참 모델 선택"],
-      },
-    ],
     keywords: ["회귀", "모델 적합도·복잡도 균형 평가 기준"],
     tables: [
       {
@@ -12507,20 +12367,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "데이터 대응 구조의 분류, 선형과 비선형 자료구조",
     features: ["1:1 대 1:N", "용도 구분", "기본 분류"],
-    defPair: [
-      {
-        name: "선형 자료구조(Linear Data Structure)",
-        lead: "1:1 대응의 순차 구조",
-        def: "데이터가 1:1 대응 구조로 저장되어 구조가 간단하고 접근 속도가 빠른 자료구조",
-        features: ["Array·Linked List", "Stack·Queue", "순차 접근"],
-      },
-      {
-        name: "비선형 자료구조(Non-linear Data Structure)",
-        lead: "1:N 관계의 계층 구조",
-        def: "데이터가 1:N 또는 M:N 구조로 관계를 맺어 자료 간의 관계를 표현하는 자료구조",
-        features: ["Tree·Graph", "관계 표현", "계층·망 구조"],
-      },
-    ],
     keywords: ["선형자료구조(Array, Linked List, 스택(LIFO), 큐(FIFO))", "비선형자료구조(트리, 그래프)"],
     tables: [
       {
@@ -15257,20 +15103,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "흐름 제어와 부하 감소, Sliding Window와 네이글",
     features: ["윈도우 조절", "패킷 절감", "효율 전송"],
-    defPair: [
-      {
-        name: "Sliding Window",
-        lead: "윈도우 크기의 흐름 제어",
-        def: "수신 측 윈도우 크기만큼 ACK 없이 전송하도록 흐름을 동적 조절하는 제어 알고리즘",
-        features: ["윈도우 열림·닫힘", "cwnd·rwnd", "ACK 없이 전송"],
-      },
-      {
-        name: "네이글(Nagle's) 알고리즘",
-        lead: "작은 패킷 병합 부하 감소",
-        def: "작은 패킷 여러 개를 모아 전송해 네트워크의 패킷 수를 줄여 부하를 감소시키는 기법",
-        features: ["패킷 병합", "ACK 대기", "패킷 수 절감"],
-      },
-    ],
     keywords: ["윈도우 열림, 닫힘, 축소 동작", "수신 Window Size만큼 전송", "송신 데이터 종료 시 즉시 전송", "데이터 축적 후 전송"],
     tables: [
       {
@@ -16269,20 +16101,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "3특성 중 2개만 택하는 CAP와 가용성·성능 중시의 BASE의 분산시스템 특성",
     lead: "분산시스템 특성 선택 이론, CAP 이론과 BASE 이론",
     features: ["2가지만 선택", "가용성 중시", "결과적 일관성"],
-    defPair: [
-      {
-        name: "CAP 이론",
-        lead: "3특성 중 2택의 이론",
-        def: "분산시스템의 일관성·가용성·부분결함허용 중 두 가지만 선택 가능하다는 이론",
-        features: ["일관성", "가용성", "파티션 허용"],
-      },
-      {
-        name: "BASE 이론",
-        lead: "가용성 우선 결과적 일관성",
-        def: "가용성과 성능 향상을 중시하며 결과적으로 일관성을 유지하는 분산시스템의 특성",
-        features: ["Basically Available", "Soft State", "Eventually Consistent"],
-      },
-    ],
     keywords: ["일관성", "가용성", "파티션 허용성", "가용성"],
     tables: [
       {
@@ -16869,20 +16687,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "분석 수준진단 두 축, 데이터 분석 준비도와 성숙도",
     features: ["준비도 진단", "성숙도 평가", "4유형 분류"],
-    defPair: [
-      {
-        name: "데이터 분석 준비도(Readiness)",
-        lead: "분석 도입 수준의 진단",
-        def: "데이터 분석 도입 수준을 6개 영역(업조기데문인)으로 파악하기 위한 진단방법",
-        features: ["6개 영역", "업조기데문인", "도입 수준"],
-      },
-      {
-        name: "데이터 분석 성숙도(Maturity)",
-        lead: "분석 활용 능력의 평가",
-        def: "기업의 분석 능력과 결과 활용에 대한 조직의 성숙도 수준을 4단계로 평가하는 모델",
-        features: ["4단계", "도활확최", "CMMI 기반"],
-      },
-    ],
     keywords: ["수준", "성숙도"],
     tables: [
       {
@@ -16976,20 +16780,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "시각화로 인사이트를 도출하는 EDA와 가설을 검정·추정하는 CDA 분석 기법",
     lead: "인사이트 도출과 가설 검정, 탐색적·확증적 데이터 분석",
     features: ["시각화 탐색", "가설 검정", "상호 보완"],
-    defPair: [
-      {
-        name: "탐색적 데이터 분석(EDA)",
-        lead: "시각화 인사이트 도출 분석",
-        def: "시각화 기법을 통해 데이터의 구조를 이해하고 인사이트를 도출하기 위한 분석 기법",
-        features: ["시각화", "구조 이해", "가설 생성"],
-      },
-      {
-        name: "확증적 데이터 분석(CDA)",
-        lead: "가설 검정의 전통적 분석",
-        def: "가설을 먼저 설정한 후 수집한 데이터로 가설을 평가하고 추정하는 전통적인 분석기법",
-        features: ["가설 설정", "통계 검정", "추정"],
-      },
-    ],
     keywords: ["인사이트 도출", "가설 검증"],
     tables: [
       {
@@ -18291,20 +18081,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "중복·누락 없이 전체를 파악하는 MECE와 핵심만 산출하는 LISS 분석 기법",
     lead: "문제 구조화의 두 기법, MECE와 LISS",
     features: ["상호 배제", "전체 포괄", "핵심 산출"],
-    defPair: [
-      {
-        name: "MECE(Mutually Exclusive Collectively Exhaustive)",
-        lead: "중복·누락 없는 전체 파악",
-        def: "서로 중복되는 것도 누락되는 것도 없이 문제의 전체를 파악하는 사고방식 또는 방법론",
-        features: ["상호 배제", "전체 포괄", "논리 트리"],
-      },
-      {
-        name: "LISS(Linearly Independent Spanning Set)",
-        lead: "핵심만 산출의 전략 분석",
-        def: "문제를 종합할 때 중복 없이 하위 분석 대상들의 핵심만을 산출해내는 전략적 분석 기법",
-        features: ["선형 독립", "핵심 산출", "중복 제거"],
-      },
-    ],
     keywords: ["MECE: 상호 배제, 전체 포괄", "LISS: 핵심 산출, 중복 제거"],
     tables: [
       {
