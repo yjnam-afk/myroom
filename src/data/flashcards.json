@@ -299,7 +299,7 @@
   "importance": "하",
   "source": "심화반",
   "definition": "컴퓨터 하드웨어와 응용 프로그램과의 연계를 위하여 자원관리, 프로세스/네트워크 관리 및 추상화를 수행하는 운영체제의 핵심 프로그램",
-  "defShort": "하드웨어와 응용을 잇고 자원·프로세스·네트워크 관리와 추상화를 맡는 핵심부",
+  "defShort": "하드웨어와 응용을 연계해 자원·프로세스·네트워크 관리와 추상화를 맡는 핵심부",
   "memo": "커널의 구조: System Call Interface → 파일 시스템 관리 / I/O 관리(Device Drivers) / 메모리 관리 / 프로세스 관리 · 스케줄러 · IPC · 동기화 / Protection → Hardware Control(Interrupt Handler..) → Hardware",
   "sections": [
    {
