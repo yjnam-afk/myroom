@@ -47,7 +47,13 @@ export type TextbookSubnote = {
    * "A와 B 비교" 류는 두 개념 각각의 34~35자(공백 제외) 정의가 필요하다.
    * defPair 가 있으면 답안 서론에서 defShort 대신 개념별로 보여준다.
    */
-  defPair?: { name: string; def: string; features?: string[] }[];
+  defPair?: {
+    name: string;
+    def: string;
+    features?: string[];
+    /** 개념별 리드문 — 소제목 "가. {lead}, {name}의 정의" 로 쓴다 */
+    lead?: string;
+  }[];
   /** 교재 '■ 키워드' 그대로 — 두음신공·답안의 정답 근거 */
   keywords: string[];
   tables: SubnoteTable[];
@@ -1806,11 +1812,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     defPair: [
       {
         name: "페이징(Paging)",
+        lead: "고정 크기 블록 분할로 메모리를 관리하는 기법",
         def: "물리와 가상 메모리를 일정한 크기의 페이지 블록으로 나누어 관리하는 메모리 기법",
         features: ["고정 크기 분할", "내부 단편화", "페이지 테이블 매핑"],
       },
       {
         name: "세그멘테이션(Segmentation)",
+        lead: "논리 단위의 가변 크기 분할로 공유·보호에 유리한 기법",
         def: "프로세스의 메모리를 가변 크기의 논리적 블록인 세그먼트로 나누어 관리하는 기법",
         features: ["가변 크기 분할", "외부 단편화", "세그먼트 테이블 매핑"],
       },

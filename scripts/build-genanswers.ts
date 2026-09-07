@@ -165,12 +165,28 @@ function overlapScore(item: string, tb: any): number {
   return n;
 }
 
+// ── 간글 — 개념도·표마다 붙는 한 줄(부연 또는 다음 단락으로 잇는 매개 설명). src/data/gloss.json ──
+const GLOSS = JSON.parse(
+  fs.readFileSync(path.join(root, "src/data/gloss.json"), "utf8"),
+) as Record<string, { d?: string; t: string[] }>;
+function pushDiagramGloss(parts: string[], sn: any) {
+  const g = GLOSS[sn.title];
+  if (g?.d) parts.push(`- ${g.d}`);
+}
+function pushTableGloss(parts: string[], sn: any, tb: any) {
+  const g = GLOSS[sn.title];
+  const i = (sn.tables || []).indexOf(tb);
+  const line = g?.t?.[i];
+  if (line) parts.push(`- ${line}`);
+}
+
 // ── 교재 서브노트 기반 생성 ──────────────────────────────────────────────
 function introLines(sn: any): string[] {
   const parts: string[] = [];
   if (sn.defPair?.length) {
     sn.defPair.forEach((p: any, i: number) => {
-      parts.push(`${GA[i]}. ${p.name}: ${p.def}`);
+      if (p.lead) parts.push(`${GA[i]}. ${p.lead}, ${p.name}의 정의`, `- ${p.def}`);
+      else parts.push(`${GA[i]}. ${p.name}: ${p.def}`);
       if (p.features?.length) parts.push(`- 특징) ${p.features.join(", ")}`);
     });
   } else {
@@ -201,10 +217,12 @@ function buildFromSubnote(q: any, sn: any): string {
     parts.push("");
     parts.push(`## 2. ${bt}의 개념도 및 구성요소`);
     parts.push("가. 개념도 — 교재 슬라이드의 개념도를 답안지 6줄 내 도식으로 옮겨 그린다");
+    pushDiagramGloss(parts, sn);
     tables.forEach((tb: any, ti: number) => {
       parts.push("");
       parts.push(`${GA[ti + 1] || "•"}. ${tb.caption || "구성요소"}`);
       parts.push(mdTable(tb));
+      pushTableGloss(parts, sn, tb);
     });
     if (sn.notes?.length) {
       parts.push("");
@@ -275,6 +293,7 @@ function buildFromSubnote(q: any, sn: any): string {
         parts.push("");
         parts.push(`■ ${tb.caption || "관련 표"}`);
         parts.push(mdTable(tb));
+      pushTableGloss(parts, sn, tb);
       });
       parts.push("");
     });
@@ -286,10 +305,12 @@ function buildFromSubnote(q: any, sn: any): string {
     );
     if (sec) parts.push(...defOneLiner(sn));
     parts.push("가. 개념도 — 교재 슬라이드의 개념도를 답안지 6줄 내 도식으로 옮겨 그린다");
+    pushDiagramGloss(parts, sn);
     body1.forEach((tb: any, ti: number) => {
       parts.push("");
       parts.push(`${GA[ti + 1] || "•"}. ${tb.caption || "구성요소"}`);
       parts.push(mdTable(tb));
+      pushTableGloss(parts, sn, tb);
     });
     if (body2.length) {
       parts.push("");
@@ -298,6 +319,7 @@ function buildFromSubnote(q: any, sn: any): string {
         parts.push("");
         parts.push(`${GA[ti] || "•"}. ${tb.caption || "상세"}`);
         parts.push(mdTable(tb));
+      pushTableGloss(parts, sn, tb);
       });
     }
     parts.push("");

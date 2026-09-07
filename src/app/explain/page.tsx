@@ -13,6 +13,7 @@ import MyDiagrams from "@/components/MyDiagrams";
 import EasyCard from "@/components/EasyCard";
 import PeerAnswers from "@/components/PeerAnswers";
 import TopicMapCard from "@/components/TopicMapCard";
+import glossData from "@/data/gloss.json";
 import { ExamHistoryCard } from "@/components/ExamHistory";
 import { peerAnswersFor, peerAnswersForQuestion } from "@/data/peerAnswers";
 import Mermaid from "@/components/Mermaid";
@@ -167,6 +168,8 @@ const BROWSE_GROUPS: BrowseGroup[] = (() => {
 
 
 /** 접힌 버튼에 보여줄 개수 — 교재(심화반) 토픽만 센다. */
+/** 간글 — 개념도(d)·표(t, 표 순서대로)마다 한 줄. 교재 표를 읽고 다음 단락으로 넘어가게 돕는 문장. */
+const GLOSS = glossData as Record<string, { d?: string; t: string[] }>;
 const BOOK_TOTAL = BROWSE_GROUPS.filter((g) => g.badge === "심화반").reduce((n, g) => n + g.items.length, 0);
 
 const SRC_CHIP: Record<string, string> = {
@@ -514,12 +517,22 @@ function ExplainInner() {
                     // 비교 토픽 — 개념별 정의(각 34~35자)와 특징을 가/나로 나눠 적는다.
                     textbook.defPair.map((p, i) => (
                       <div key={p.name}>
-                        <p className="text-[13px] leading-relaxed text-slate-800">
-                          <span className="mr-1 font-bold text-slate-500">
-                            {["가", "나", "다", "라"][i]}. {p.name}:
-                          </span>
-                          {p.def}
-                        </p>
+                        {/* 개념별 리드문이 있으면 소제목을 "리드문, 이름의 정의"로 세우고 정의를 아래 줄에 쓴다 */}
+                        {p.lead ? (
+                          <>
+                            <p className="text-[13px] font-bold leading-relaxed text-slate-700">
+                              {["가", "나", "다", "라"][i]}. {p.lead}, {p.name}의 정의
+                            </p>
+                            <p className="pl-4 text-[13px] leading-relaxed text-slate-800">{p.def}</p>
+                          </>
+                        ) : (
+                          <p className="text-[13px] leading-relaxed text-slate-800">
+                            <span className="mr-1 font-bold text-slate-500">
+                              {["가", "나", "다", "라"][i]}. {p.name}:
+                            </span>
+                            {p.def}
+                          </p>
+                        )}
                         {!!p.features?.length && (
                           <p className="pl-4 text-[13px] leading-relaxed text-slate-700">
                             <span className="mr-1 font-bold text-slate-500">특징)</span>
@@ -571,6 +584,12 @@ function ExplainInner() {
                     {extra?.images?.length
                       ? `이 ${diagramLabel}${objJosa(diagramLabel)} 답안지 6줄 내로 옮겨 그린다`
                       : "아래 교재 슬라이드의 개념도를 답안지 6줄 내 도식으로 옮겨 그린다"}
+                  </p>
+                )}
+                {/* 간글 — 개념도 부연 한 줄 */}
+                {GLOSS[textbook.title]?.d && (
+                  <p className="mt-1 pl-8 text-[12.5px] leading-relaxed text-slate-500">
+                    – {GLOSS[textbook.title]!.d}
                   </p>
                 )}
                 {!!extra?.images?.length && (
@@ -629,6 +648,12 @@ function ExplainInner() {
                       </tbody>
                     </table>
                   </div>
+                  {/* 간글 — 표 부연 또는 다음 단락으로 잇는 한 줄 */}
+                  {GLOSS[textbook.title]?.t?.[ti] && (
+                    <p className="mt-1 pl-4 text-[12.5px] leading-relaxed text-slate-500">
+                      – {GLOSS[textbook.title]!.t[ti]}
+                    </p>
+                  )}
                 </div>
               ))}
 
