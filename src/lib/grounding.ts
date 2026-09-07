@@ -3,6 +3,7 @@
  * 큰 JSON을 import 하므로 API 라우트(서버)에서만 사용한다(클라이언트 번들 금지).
  */
 import topics from "@/data/topics.json";
+import { bracketMnem, keywordMnem, stripMnemTag } from "@/lib/mnemonic";
 import topicDetails from "@/data/topicDetails.json";
 import {
   subnoteByTopicId,
@@ -86,14 +87,8 @@ export function subnoteFor(opts: { topicId?: string; topicTitle?: string }): {
   // 두음신공 화면에 뜨는 것이 전부 기필반 자료였다. 두음은 교재 캡션에
   // 적힌 [두음]만 쓴다 — 교재는 두음을 강조하지 않고, 있는 것은 명시돼 있다.
   if (book) {
-    const mnemOf = (texts: string[]): string => {
-      for (const t of texts) {
-        const m = String(t || "").match(/\[([가-힣A-Za-z0-9·\s]{2,12})\]/);
-        if (m) return m[1].replace(/\s/g, "");
-      }
-      return "";
-    };
-    const stripTag = (k: string) => k.replace(/\[[^\]]*\]\s*/g, "").trim();
+    const mnemOf = bracketMnem;
+    const stripTag = stripMnemTag;
     const head = (c: string) =>
       String(c || "").replace(/\*\*/g, "").replace(/^[①-⑳]\s*/, "").replace(/^\d+[.)]\s*/, "").split("/")[0].trim().slice(0, 40);
     const sections: SubnoteSection[] = [];
@@ -101,9 +96,8 @@ export function subnoteFor(opts: { topicId?: string; topicTitle?: string }): {
       features?: string[]; keywords?: string[]; notes?: string[];
       tables?: { caption?: string; rows: string[][] }[];
     };
-    if (bk.features?.length) sections.push({ label: "특징", mnemonic: "", keywords: bk.features });
     const kws = (bk.keywords || []).map(stripTag).filter(Boolean);
-    if (kws.length) sections.push({ label: "교재 키워드", mnemonic: mnemOf(bk.keywords || []), keywords: kws });
+    if (kws.length) sections.push({ label: "교재 키워드", mnemonic: keywordMnem(bk.keywords || []), keywords: kws });
     for (const tb of (bk.tables || []).slice(0, 4)) {
       const rows = tb.rows.map((r) => head(r[0] ?? "")).filter((k) => k && !/^[-—–]+$/.test(k));
       if (rows.length >= 2)
@@ -113,6 +107,9 @@ export function subnoteFor(opts: { topicId?: string; topicTitle?: string }): {
           keywords: rows.slice(0, 10),
         });
     }
+    // 특징 3개는 교재가 아니라 답안 서론용 — 맨 뒤에, 그렇다고 표시해서
+    if (bk.features?.length)
+      sections.push({ label: "특징(답안 서론용 — 교재 아님)", mnemonic: "", keywords: bk.features });
     const first = sections.find((x) => x.mnemonic);
     return {
       mnemonic: first?.mnemonic || "",

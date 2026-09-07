@@ -219,14 +219,22 @@ export function explainPrompt(
   ].join("\n");
 }
 
-export function flashcardPrompt(topic: string, count: number): string {
+/**
+ * 암기훈련장 플래시카드. reference(교재 서브노트 발췌)가 있으면 그 정의·키워드·
+ * 표 항목만 출제한다 — 교재 없이 토픽 이름만 주면 모델 지식으로 카드를 지어내,
+ * 교재 표기와 다른 것을 외우게 된다.
+ */
+export function flashcardPrompt(topic: string, count: number, reference?: string): string {
   return [
     `정보관리기술사 학습용 플래시카드를 ${count}개 생성하세요. 토픽: "${topic}".`,
-    ``,
+    ...refBlock(reference),
     `[요구사항]`,
     `- 앞면(front): 핵심 질문 또는 용어.`,
     `- 뒷면(back): 시험 답안 수준의 간결하고 정확한 설명(2~4문장).`,
     `- 토픽의 중요 개념을 고르게 다룰 것.`,
+    ...(reference?.trim()
+      ? [`- ★참고자료의 정의·키워드·표 항목에서만 출제한다. 참고자료 표기(용어·순서·두음)를 그대로 쓰고, 참고자료에 없는 사실은 카드로 만들지 않는다.★`]
+      : []),
     ``,
     `[출력 형식] 반드시 아래 JSON 배열만 출력(설명·코드블록 텍스트 금지):`,
     `[{"front":"질문/용어","back":"답"}]`,
@@ -247,13 +255,17 @@ export function describePrompt(topic: string, terms: string[]): string {
   ].join("\n");
 }
 
-export function quizPrompt(topic: string, count: number): string {
+/** 암기훈련장 퀴즈. reference(교재 발췌)가 있으면 정답·해설의 근거를 교재에 둔다. */
+export function quizPrompt(topic: string, count: number, reference?: string): string {
   return [
     `정보관리기술사 학습용 4지선다 객관식 퀴즈를 ${count}개 생성하세요. 토픽: "${topic}".`,
-    ``,
+    ...refBlock(reference),
     `[요구사항]`,
     `- 각 문제는 보기 4개(options), 정답 인덱스(answer, 0~3), 해설(explanation) 포함.`,
     `- 난이도는 기술사 수준으로, 헷갈리는 오답을 포함.`,
+    ...(reference?.trim()
+      ? [`- ★정답과 해설은 참고자료의 정의·키워드·표 항목에 근거한다. 참고자료 표기를 그대로 쓰고, 참고자료에 없는 사실을 정답으로 삼지 않는다.★`]
+      : []),
     ``,
     `[출력 형식] 반드시 아래 JSON 배열만 출력(설명·코드블록 텍스트 금지):`,
     `[{"question":"문제","options":["a","b","c","d"],"answer":0,"explanation":"해설"}]`,

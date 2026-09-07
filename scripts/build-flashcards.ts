@@ -11,6 +11,7 @@ import { fileURLToPath } from "node:url";
 import { SUBNOTES, subnoteByAlias } from "../src/data/textbookSubnotes";
 import { WEEKS } from "../src/data/curriculum";
 import { DOMAIN_LABEL, domainLabel } from "../src/lib/domains";
+import { bracketMnem, keywordMnem, stripMnemTag } from "../src/lib/mnemonic";
 import { TOPIC_GUIDES } from "../src/data/topicGuides";
 import { TOPIC_INTROS } from "../src/data/topicIntros";
 
@@ -85,24 +86,13 @@ const PLAN = (() => {
   return m;
 })();
 
-/** 키워드·캡션 속 [두음] 추출 — "[대전압불확] 대치" → "대전압불확" */
-const mnemOf = (texts: string[]): string => {
-  for (const t of texts) {
-    const m = String(t || "").match(/\[([가-힣A-Za-z0-9·\s]{2,12})\]/);
-    if (m) return m[1].replace(/\s/g, "");
-  }
-  return "";
-};
-
 /**
- * 두음은 교재 캡션·키워드에 적힌 [두음] 만 쓴다. 자동으로 만들지 않는다.
- *
- * 한때 항목 첫 글자를 이어 붙여 교재 카드 559장에 두음을 만들어 넣었다.
- * 그러나 교재는 두음을 강조하지 않고, 있는 두음은 캡션에 명시돼 있다
- * ([구데제]·[할배호교]·[나폴리는 중세기다]…). 교재에 없는 두음을 만들면
- * 교재 표기와 다른 것을 외우게 된다. 두음이 없는 구획은 키워드 순서로 외운다.
+ * 두음은 교재에 적힌 것만 읽는다(lib/mnemonic). 자동으로 만들지 않는다.
+ * 한때 첫 글자를 이어 559장에 두음을 만들어 넣었다가 걷어냈다 — 교재는
+ * 두음을 강조하지 않고, 있는 두음은 캡션·키워드에 명시돼 있다.
  */
-const mnemFor = (texts: string[], _keywords: string[]): string => mnemOf(texts);
+const mnemOf = bracketMnem;
+const mnemFor = (texts: string[], _keywords: string[]): string => bracketMnem(texts);
 /** 표 첫 열 값 정리 — "① 사용자 Data 입력" → "사용자 Data 입력" */
 const cellHead = (s: string) =>
   String(s || "")
@@ -286,11 +276,11 @@ const answerExtras: Record<string, any> = {};
 for (let i = 0; i < SUBNOTES.length; i++) {
   const s: any = SUBNOTES[i];
   const sections: Section[] = [];
-  if (s.features?.length)
-    sections.push({ label: "특징", mnemonic: "", keywords: s.features });
+  // 교재 구획이 먼저 — 키워드, 표. 특징 3개는 교재가 아니라 답안 서론용으로
+  // 지어 넣은 것이라 맨 뒤에 '답안용'으로 붙인다(아래).
   if (s.keywords?.length) {
-    const kws = s.keywords.map((k: string) => k.replace(/\[[^\]]*\]\s*/g, "").trim()).filter(Boolean);
-    sections.push({ label: "교재 키워드", mnemonic: mnemFor(s.keywords, kws), keywords: kws });
+    const kws = s.keywords.map((k: string) => stripMnemTag(k)).filter(Boolean);
+    sections.push({ label: "교재 키워드", mnemonic: keywordMnem(s.keywords), keywords: kws });
   }
   for (const tb of (s.tables || []).slice(0, 4)) {
     // 1열이 '구분'처럼 여러 행을 묶는 라벨이면 값이 반복돼 키워드로 쓸모가 없다.
@@ -312,6 +302,8 @@ for (let i = 0; i < SUBNOTES.length; i++) {
         keywords: kws.slice(0, 10),
       });
   }
+  if (s.features?.length)
+    sections.push({ label: "특징(답안 서론용 — 교재 아님)", mnemonic: "", keywords: s.features });
   if (!sections.length) continue;
   cards.push({
     id: `sn-${i}`,
