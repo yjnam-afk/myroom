@@ -2091,8 +2091,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "FIFO 페이지 교체 알고리즘에서, 페이지 프레임의 개수 증가 불구하고 page fault 발생이 오히려 증가하는 현상",
     defShort: "FIFO 교체에서 페이지 프레임을 늘렸는데 페이지 부재가 오히려 증가하는 현상",
-    lead:
-      "프레임 증설의 역설, Belady's Anomaly",
+    lead: "프레임 늘려도 부재 증가, Belady's Anomaly",
     features: ["직관 배반", "FIFO 한계", "LRU로 회피"],
     keywords: ["FIFO", "page fault 증가", "Page Frame 증가", "LRU", "OPT"],
     tables: [
