@@ -561,6 +561,17 @@ function ExplainInner() {
                       )}
                     </>
                   )}
+                  {/* 정의 아래 하위 개념 정의 — 가./나. 로 덧붙인다(예: 단편화 → 내부·외부 단편화) */}
+                  {!!textbook.subDefs?.length &&
+                    textbook.subDefs.map((p, i) => (
+                      <div key={p.name} className="pt-1">
+                        <p className="text-[13px] font-bold leading-relaxed text-slate-700">
+                          {["가", "나", "다", "라"][i]}. {p.lead ? `${p.lead}, ` : ""}
+                          {p.name}의 정의
+                        </p>
+                        <p className="pl-4 text-[13px] leading-relaxed text-slate-800">{p.def}</p>
+                      </div>
+                    ))}
                 </div>
               </div>
 

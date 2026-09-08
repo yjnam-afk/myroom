@@ -54,6 +54,15 @@ export type TextbookSubnote = {
     /** 개념별 리드문 — 소제목 "가. {lead}, {name}의 정의" 로 쓴다 */
     lead?: string;
   }[];
+  /**
+   * 정의 아래에 덧붙이는 하위 개념 정의 — defPair 와 달리 defShort 를 대체하지 않는다.
+   * 예) 단편화 정의 → 가. 내부 단편화 정의 / 나. 외부 단편화 정의.
+   */
+  subDefs?: {
+    name: string;
+    def: string;
+    lead?: string;
+  }[];
   /** 교재 '■ 키워드' 그대로 — 두음신공·답안의 정답 근거 */
   keywords: string[];
   tables: SubnoteTable[];
@@ -2271,6 +2280,18 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "할당 불일치의 공간 낭비, 단편화",
     features: ["내부·외부 구분", "공간 낭비", "통합·집약 해소"],
+    subDefs: [
+      {
+        name: "내부 단편화",
+        lead: "고정 분할의 잔여 공간",
+        def: "분할된 메모리에 프로세스를 할당했을 때 할당된 메모리 내에 남아 사용 못하는 공간",
+      },
+      {
+        name: "외부 단편화",
+        lead: "가변 분할의 할당 불가",
+        def: "영역의 크기가 작아 어느 작업에도 할당되지 못하고 일정 분할 전체가 비어 있는 상태",
+      },
+    ],
     keywords: ["내부 단편화", "외부 단편화", "통합(Coalescing)", "집약(Compaction)"],
     tables: [
       {

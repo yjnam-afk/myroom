@@ -49,6 +49,7 @@ const CONTENT_INDEX: { title: string; hay: string }[] = SUBNOTES.map((s) => ({
     ...(s.features || []),
     ...(s.keywords || []),
     ...(s.defPair || []).flatMap((p) => [p.name, p.def]),
+    ...(s.subDefs || []).flatMap((p) => [p.name, p.def]),
     ...(s.notes || []),
     ...s.tables.flatMap((tb) => [tb.caption || "", ...tb.rows.flat()]),
   ]

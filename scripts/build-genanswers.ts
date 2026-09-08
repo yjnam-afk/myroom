@@ -196,6 +196,10 @@ function introLines(sn: any): string[] {
     if (sn.defShort) parts.push(`- ${sn.defShort}`);
     if (sn.features?.length) parts.push(`- 특징) ${sn.features.join(", ")}`);
   }
+  // 정의 아래 하위 개념 정의(예: 단편화 → 내부·외부 단편화)
+  (sn.subDefs || []).forEach((p: any, i: number) => {
+    parts.push(`${GA[i]}. ${p.lead ? `${p.lead}, ` : ""}${p.name}의 정의`, `- ${p.def}`);
+  });
   return parts;
 }
 function defOneLiner(sn: any): string[] {
