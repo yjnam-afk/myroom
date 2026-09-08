@@ -1993,9 +1993,8 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "OS",
     definition:
       "페이지 부재(page fault)가 발생하였을 경우, 가상기억장치의 필요한 페이지를 주기억장치의 어떤 페이지 프레임을 선택, 교체 해야하는가를 결정하는 기법",
-    defShort: "페이지 부재 시 주기억장치의 어느 페이지 프레임을 교체해야 하는지 결정하는 기법",
-    lead:
-      "페이지 부재 시 희생 선택, 페이지 교체 알고리즘",
+    defShort: "페이지 부재 시 주기억장치의 어느 페이지 프레임을 교체해야 할지 결정하는 알고리즘",
+    lead: "빈 프레임 확보 위한 선택, 페이지 교체 알고리즘",
     features: ["부재 최소화", "정책 다양", "지역성 활용"],
     keywords: [
       "페이지 부재(page fault)",
@@ -2820,7 +2819,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "OS",
     definition:
       "프로세스가 자원을 요구할 때 시스템은 자원을 할당한 후에도 안정 상태로 남아있게 되는 지를 사전에 검사하여 교착상태의 발생을 회피하는 기법",
-    defShort: "프로세스가 자원을 요구할 때 할당 후 안정 상태인지 검사해 교착상태를 회피하는 기법",
+    defShort: "프로세스 자원 요구 시 할당 후 안정 상태인지 검사해 교착상태를 회피하는 알고리즘",
     lead: "안정 상태 검사 교착 회피, Banker's 알고리즘",
     features: ["사전 검사", "안정 상태 유지", "보수적 할당"],
     keywords: ["안정상태", "Available", "Max", "Need", "Allocation", "Request"],
