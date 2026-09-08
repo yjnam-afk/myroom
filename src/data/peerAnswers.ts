@@ -149,6 +149,21 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [{ src: "/answers/os-ps-b-1.jpg", label: "6쪽" }],
   },
   {
+    id: "peer-ca-cache-map-1",
+    period: "3교시",
+    no: "4",
+    question: "① 캐시 메모리 3가지 사상기법 ② 동작 방식",
+    exam: "Simulation 2차 3교시",
+    topicTitles: ["캐시(Cache) 메모리의 사상 방식(Mapping Scheme)"],
+    // 점수·빨간 첨삭이 없는 모범답안 스캔. 형광펜은 답안 작성자가 키워드에 친 것.
+    maxScore: 25,
+    pages: [
+      { src: "/answers/ca-cache-map-1.jpg", label: "1쪽 — 개요·3가지 사상기법 개념도" },
+      { src: "/answers/ca-cache-map-2.jpg", label: "2쪽 — 사상기법 개념 표·직접사상 동작방식" },
+      { src: "/answers/ca-cache-map-3.jpg", label: "3쪽 — 연관사상·집합연관사상 동작방식" },
+    ],
+  },
+  {
     id: "peer-dx-darkfactory-1",
     period: "1교시",
     no: "1",
