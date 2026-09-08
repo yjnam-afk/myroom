@@ -609,7 +609,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "11",
     question: "CPU 스케줄링의 프로세스 상태 전이도",
     exam: "ITPE 모의고사",
-    topicTitles: ["프로세스 상태 전이도"],
+    topicTitles: ["프로세스 상태 전이도", "CPU 스케줄링(CPU Scheduling)"],
     score: 6.3,
     maxScore: 10,
     feedback: [
@@ -621,7 +621,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
     pages: [
       { src: "/answers/os-pst-a-1.jpg", label: "1쪽 — 정의·상태 전이도·상세설명" },
-      { src: "/answers/os-pst-a-2.jpg", label: "2쪽 — 단기 스케줄링·문맥교환 발생시점" },
+      { src: "/answers/os-pst-a-2.jpg", label: "2쪽 — 단기 스케줄링·문맥교환 발생시점 (아래는 다음 문제 워치독 타이머)" },
     ],
   },
   {
