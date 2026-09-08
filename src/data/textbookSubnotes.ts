@@ -2138,7 +2138,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "멀티프로세싱 환경에서 페이지 부재로 인해 CPU가 프로세스 실행보다 페이지 교체에 더 많은 시간을 소요하는 비 정상적인 현상",
     defShort: "페이지 부재로 CPU가 프로세스 실행보다 페이지 교체에 시간을 더 쓰는 비정상 현상",
-    lead: "페이지 교체 과다, 스레싱",
+    lead: "잦은 교체의 성능 저하, 스레싱",
     features: ["부재율 급증", "CPU 활용 급감", "워킹셋 해소"],
     keywords: [
       "리소스 부족",
