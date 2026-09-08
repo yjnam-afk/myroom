@@ -2542,8 +2542,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "다중 프로세스 환경에서 운영체제(스케줄러)가 프로세스에 합리적으로 CPU 자원을 할당(dispatch)하는 정책",
     defShort: "다중 프로세스 환경에서 각 프로세스에 CPU 자원을 합리적으로 할당하는 관리 정책",
-    lead:
-      "CPU 자원의 합리적 배분, CPU 스케줄링",
+    lead: "효율적 CPU 이용, CPU 스케줄링",
     features: ["선점·비선점", "공정성", "효율성"],
     keywords: [
       "선점(RR, SRT, MLQ, MLFQ)",
