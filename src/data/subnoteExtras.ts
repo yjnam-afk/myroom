@@ -2545,6 +2545,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   },
 "os-23": {
     image: "/concept/book/os-23.webp",
+    images: ["/concept/extra/scheduler-hand.webp"],
     guide: {
       hook: "누가 다음으로 일할지 정하는 순서 결정자이고, 시간 단위에 따라 세 명입니다.",
       scene: "식당 주방을 떠올려 보세요. 요리사는 한 명(CPU)인데 주문이 밀립니다. 사장은 오늘 주방에 들일 주문 수 자체를 조절하고(너무 받으면 주방이 마비되니까), 홀 매니저는 '요리사가 다음에 잡을 주문'을 매 순간 고릅니다. 주방이 터질 것 같으면 부매니저가 일부 주문을 잠시 밖으로 빼 둡니다.",
@@ -3204,7 +3205,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-58": {
-    image: "/concept/book/ca-58.webp", images: ["/concept/extra/internal-fragmentation.png", "/concept/extra/external-fragmentation.png"],
+    image: "/concept/book/ca-58.webp", images: ["/concept/extra/fragmentation-hand.webp", "/concept/extra/internal-fragmentation.png", "/concept/extra/external-fragmentation.png"],
     guide: {
       hook: "빈 공간은 분명히 있는데, 쓸 수가 없는 상태입니다.",
       scene:
@@ -3230,7 +3231,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-87": {
-    image: "/concept/book/ca-87.webp", images: ["/concept/extra/direct-mapping-hand.webp"],
+    image: "/concept/book/ca-87.webp", images: ["/concept/extra/direct-mapping-hand.webp", "/concept/extra/associative-mapping-hand.webp"],
     guide: {
       hook: "프로그램이 부르는 가짜 주소를, 진짜 메모리 주소로 바꿔 찾아가는 방법입니다.",
       scene:
@@ -3258,6 +3259,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   },
 "ca-84": {
     image: "/concept/book/ca-84.webp",
+    images: ["/concept/extra/page-replacement-hand.webp", "/concept/extra/page-replacement-kinds-hand.webp", "/concept/extra/page-replacement-scr-belady-hand.webp"],
     guide: {
       hook: "메모리가 꽉 찼을 때, 누구를 내보낼지 정하는 규칙입니다.",
       scene:
@@ -3286,6 +3288,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   },
 "ca-90": {
     image: "/concept/book/ca-90.webp",
+    images: ["/concept/extra/belady-anomaly-hand.webp"],
     guide: {
       hook: "책상을 넓혔는데 오히려 책을 더 자주 나르게 되는, 말도 안 되는 현상입니다.",
       scene:
@@ -3312,6 +3315,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   },
 "os-75": {
     image: "/concept/book/os-75.webp",
+    images: ["/concept/extra/thrashing-hand.webp"],
     guide: {
       hook: "일은 안 하고 메모리에 넣었다 뺐다만 하다가 하루가 끝나는 상태입니다.",
       scene:
