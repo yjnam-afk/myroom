@@ -170,11 +170,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question:
       "① 페이지 교체 알고리즘 사용 이유\n② 교체 알고리즘의 종류, 각 종류별 동작과정\n③ FIFO Anomaly와 해결방안",
     exam: "ITPE 모의고사",
-    topicTitles: [
-      "페이지 교체 알고리즘(Paging Replacement Algorithm)",
-      "Belady's Anomaly(FIFO 이상현상)",
-      "가상메모리 관리기법",
-    ],
+    topicTitles: ["페이지 교체 알고리즘(Paging Replacement Algorithm)", "Belady's Anomaly(FIFO 이상현상)"],
     score: 15,
     maxScore: 25,
     feedback: [
@@ -196,11 +192,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "6",
     question: "페이지교체알고리즘 ① 이유 ② 종류, 동작 ③ Anomaly, 방안",
     exam: "ITPE 모의고사",
-    topicTitles: [
-      "페이지 교체 알고리즘(Paging Replacement Algorithm)",
-      "Belady's Anomaly(FIFO 이상현상)",
-      "가상메모리 관리기법",
-    ],
+    topicTitles: ["페이지 교체 알고리즘(Paging Replacement Algorithm)", "Belady's Anomaly(FIFO 이상현상)"],
     score: 16,
     maxScore: 25,
     feedback: [
@@ -248,7 +240,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "4",
     question: "FIFO Anomaly",
     exam: "ITPE 모의고사",
-    topicTitles: ["Belady's Anomaly(FIFO 이상현상)", "페이지 교체 알고리즘(Paging Replacement Algorithm)"],
+    topicTitles: ["Belady's Anomaly(FIFO 이상현상)"],
     score: 6.5,
     maxScore: 10,
     feedback: [
@@ -292,7 +284,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "4",
     question: "Belady's Anomaly",
     exam: "ITPE 모의고사",
-    topicTitles: ["Belady's Anomaly(FIFO 이상현상)", "페이지 교체 알고리즘(Paging Replacement Algorithm)"],
+    topicTitles: ["Belady's Anomaly(FIFO 이상현상)"],
     score: 6,
     maxScore: 10,
     feedback: [
@@ -341,7 +333,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "5",
     question: "프로세스 스레싱(Thrashing)의 발생원인, 예방책",
     exam: "KPC 기술사 모의고사",
-    topicTitles: ["스레싱(Thrashing)", "지역성(Locality)"],
+    topicTitles: ["스레싱(Thrashing)"],
     // 점수·빨간 첨삭이 없다. 마지막 쪽 아래 연필로 '20170413'.
     maxScore: 25,
     pages: [
@@ -356,7 +348,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "13",
     question: "스레싱(Thrashing)",
     exam: "ITPE TOP반 (멘토 유술사, 김민PE)",
-    topicTitles: ["스레싱(Thrashing)", "지역성(Locality)"],
+    topicTitles: ["스레싱(Thrashing)"],
     score: 7,
     maxScore: 10,
     feedback: [
@@ -398,7 +390,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "13",
     question: "프로세스 스레싱",
     exam: "ITPE 모의고사",
-    topicTitles: ["스레싱(Thrashing)", "지역성(Locality)"],
+    topicTitles: ["스레싱(Thrashing)"],
     score: 6.2,
     maxScore: 10,
     feedback: [
@@ -440,7 +432,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "4",
     question: "프로세스 스레싱(Thrashing)에 대해 설명하시오.\n가. 스레싱의 발생과정\n나. 스레싱 예방책, Working Set과 PFF(Page Fault Frequency)",
     exam: "제88회 KPC 기술사 IMPACT 실전모의고사 (2019년 6월)",
-    topicTitles: ["스레싱(Thrashing)", "지역성(Locality)"],
+    topicTitles: ["스레싱(Thrashing)"],
     score: 16,
     maxScore: 25,
     feedback: ["답안 제목 옆에 '16'. 그 밖의 빨간 표시는 없다."],
@@ -486,7 +478,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "6",
     question: "가상메모리 단편화 발생원인, 해결방안",
     exam: "ITPE 모의고사",
-    topicTitles: ["단편화(Fragmentation)", "메모리 단편화(Fragmentation)", "가상메모리의 페이징과 세그멘테이션"],
+    topicTitles: ["단편화(Fragmentation)", "메모리 단편화(Fragmentation)"],
     score: 6,
     maxScore: 10,
     feedback: [
@@ -748,7 +740,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "10",
     question: "CPU 스케줄링",
     exam: "ITPE 모의고사",
-    topicTitles: ["CPU 스케줄링(CPU Scheduling)", "스케줄러(Scheduler)"],
+    topicTitles: ["CPU 스케줄링(CPU Scheduling)"],
     score: 6.5,
     maxScore: 10,
     feedback: [
@@ -768,7 +760,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "10",
     question: "CPU 스케줄링",
     exam: "ITPE 모의고사",
-    topicTitles: ["CPU 스케줄링(CPU Scheduling)", "프로세스 상태 전이도"],
+    topicTitles: ["CPU 스케줄링(CPU Scheduling)"],
     score: 6.3,
     maxScore: 10,
     feedback: [
@@ -787,7 +779,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "12",
     question: "호위효과, 기아상태",
     exam: "ITPE 모의고사",
-    topicTitles: ["기아(Starvation)", "CPU 스케줄링(CPU Scheduling)"],
+    topicTitles: ["기아(Starvation)"],
     score: 6.1,
     maxScore: 10,
     feedback: [
@@ -808,7 +800,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "7",
     question: "호위효과와 기아상태",
     exam: "NS반 모의고사",
-    topicTitles: ["기아(Starvation)", "CPU 스케줄링(CPU Scheduling)"],
+    topicTitles: ["기아(Starvation)"],
     score: 6,
     maxScore: 10,
     feedback: [
@@ -827,7 +819,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "6",
     question: "① 경쟁조건\n② SW 측면 임계영역 제어 기법\n③ HW 측면 임계영역 제어 기법",
     exam: "ITPE 모의고사",
-    topicTitles: ["경쟁조건(Race Condition) 해결 방안", "세마포어(Semaphore)"],
+    topicTitles: ["경쟁조건(Race Condition) 해결 방안"],
     score: 15.3,
     maxScore: 25,
     feedback: [
@@ -850,7 +842,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "6",
     question: "① 경쟁조건\n② SW 측면 임계영역 제어 기법\n③ HW 측면 임계영역 제어 기법",
     exam: "ITPE 모의고사",
-    topicTitles: ["경쟁조건(Race Condition) 해결 방안", "세마포어(Semaphore)"],
+    topicTitles: ["경쟁조건(Race Condition) 해결 방안"],
     // 점수는 스캔에 안 보인다(첫 쪽 위가 잘려 있다).
     maxScore: 25,
     feedback: [
@@ -892,7 +884,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "4",
     question: "운영체제 동기화 기법 스핀락, 뮤텍스, 세마포어",
     exam: "ITPE 모의고사",
-    topicTitles: ["세마포어(Semaphore)", "경쟁조건(Race Condition) 해결 방안"],
+    topicTitles: ["세마포어(Semaphore)"],
     score: 6.2,
     maxScore: 10,
     feedback: [
@@ -943,7 +935,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "2",
     question: "뮤텍스, 세마포어, 스핀락",
     exam: "ITPE 모의고사",
-    topicTitles: ["세마포어(Semaphore)", "경쟁조건(Race Condition) 해결 방안"],
+    topicTitles: ["세마포어(Semaphore)"],
     score: 6.2,
     maxScore: 10,
     feedback: [
@@ -964,7 +956,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "2",
     question: "뮤텍스, 세마포어, 스핀락",
     exam: "ITPE 모의고사",
-    topicTitles: ["세마포어(Semaphore)", "경쟁조건(Race Condition) 해결 방안"],
+    topicTitles: ["세마포어(Semaphore)"],
     score: 6.1,
     maxScore: 10,
     feedback: [
