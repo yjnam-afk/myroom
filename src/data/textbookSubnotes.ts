@@ -2544,6 +2544,18 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "다중 프로세스 환경에서 각 프로세스에 CPU 자원을 합리적으로 할당하는 관리 정책",
     lead: "효율적 CPU 이용, CPU 스케줄링",
     features: ["선점·비선점", "공정성", "효율성"],
+    subDefs: [
+      {
+        name: "선점형 스케줄링",
+        lead: "실행 중 CPU 회수",
+        def: "OS 판단으로 실행중인 프로세스를 중단하고 다른 프로세스에 CPU 자원을 할당",
+      },
+      {
+        name: "비선점형 스케줄링",
+        lead: "종료까지 CPU 보장",
+        def: "할당된 CPU를 강제로 빼앗지 않고 사용이 끝난 후 다른 프로세스에 할당하는 정책",
+      },
+    ],
     keywords: [
       "선점(RR, SRT, MLQ, MLFQ)",
       "비선점(Priority, FCFS, SJF, HRN)",
