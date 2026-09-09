@@ -1093,6 +1093,20 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
+    id: "peer-os-ctx-16",
+    period: "4교시",
+    no: "6",
+    question: "문맥교환(Context Switching)",
+    exam: "110회 컴퓨터시스템응용기술사 4교시 2번 (모범답안)",
+    topicTitles: ["문맥교환(Context Switching)"],
+    // 점수·빨간 첨삭이 없는 형광펜 모범답안. 여백에 연필로 '110회(컴시응) 4.2 / KPC 모의 2016.10 컴시응 3.7 / KPC 2016.1 컴시응 7 / 2012.10 컴시응 1.7'.
+    maxScore: 25,
+    pages: [
+      { src: "/answers/os-ctx-l-1.jpg", label: "1쪽 — 정의·문맥교환 메커니즘" },
+      { src: "/answers/os-ctx-l-2.jpg", label: "2쪽 — 메커니즘 설명·오버헤드 해결방안" },
+    ],
+  },
+  {
     id: "peer-os-kernel-1",
     period: "1교시",
     no: "9",
