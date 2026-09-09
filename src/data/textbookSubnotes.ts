@@ -1532,9 +1532,8 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "OS",
     definition:
       "멀티프로세스 환경에서 상호 배제를 보장하고 동기화를 제어하기 위해 사용하는 동기화 기법",
-    defShort: "멀티프로세스 환경에서 상호 배제와 동기화를 보장하는 정수 변수 기반 동기화 기법",
-    lead:
-      "정수 기반 동기화 기법, 세마포어",
+    defShort: "멀티프로세스 환경에서 상호 배제를 보장하고 동기화를 제어하기 위한 동기화 기법",
+    lead: "공유 자원의 상호 배제, 세마포어",
     features: ["상호배제", "P·V 연산", "계수 가능"],
     keywords: [
       "상호배제",
