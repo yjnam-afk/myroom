@@ -2279,6 +2279,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   },
 "os-45": {
     image: "/concept/book/os-45.webp",
+    images: ["/concept/extra/race-condition-hand.webp"],
     guide: {
       hook: "둘이 같은 장부에 동시에 쓰면, 실행 순서에 따라 결과가 달라지는 사고입니다.",
       scene: "잔고 1,000원인 통장에 두 명이 동시에 500원씩 입금합니다. 둘 다 '1,000원'을 먼저 읽고 각자 1,500원이라고 적으면 — 최종 잔고는 2,000원이 아니라 1,500원이 됩니다. 500원이 증발했는데, 누가 먼저 적었느냐에 따라 결과가 달라집니다.",
@@ -2304,6 +2305,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   },
 "os-32": {
     image: "/concept/book/os-32.webp",
+    images: ["/concept/extra/semaphore-hand.png"],
     guide: {
       hook: "공용 자원의 '열쇠 개수'를 숫자 하나로 관리하는 장치입니다.",
       scene: "공용 화장실 앞에 열쇠 3개가 걸려 있습니다. 들어갈 때 하나 가져가고(P연산, 숫자 −1), 나올 때 다시 겁니다(V연산, +1). 열쇠가 0개면 문 앞에서 줄을 섭니다(대기 큐). 열쇠가 1개뿐이면 '한 명씩만' — 이게 이진 세마포어(상호배제)이고, 여러 개면 계수형입니다.",
@@ -2596,7 +2598,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   },
 "cpu-scheduling": {
     image: "/concept/book/cpu-scheduling.webp",
-    images: ["/concept/extra/cpu-scheduling-hand.png", "/concept/extra/rr-hand.png", "/concept/extra/srt-hand.png"],
+    images: ["/concept/extra/cpu-scheduling-hand.png", "/concept/extra/rr-hand.png", "/concept/extra/srt-hand.png", "/concept/extra/mlq-hand.webp", "/concept/extra/mlfq-hand.png", "/concept/extra/priority-hand.webp", "/concept/extra/fcfs-hand.png", "/concept/extra/sjf-hand.webp", "/concept/extra/hrn-hand.png"],
     guide: {
       hook: "대기줄에서 다음 주문을 어떤 규칙으로 고를지의 문제 — 하던 걸 뺏을 수 있느냐로 두 갈래입니다.",
       scene: "온 순서대로 하면(FCFS) 공평한데, 3시간짜리 스테이크 뒤에 라면 주문 열 개가 줄줄이 굶습니다(호위효과). 짧은 것부터 하면(SJF) 효율적인데 긴 주문은 계속 밀립니다. 그래서 '하던 요리도 중간에 내려놓게 하는' 규칙이 나옵니다 — 타이머로 조금씩 돌아가며(RR), 더 짧은 게 오면 뺏고(SRT), 오래 도는 주문은 뒷줄로 강등(MLFQ).",
@@ -2644,7 +2646,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-47": {
-    image: "/concept/book/os-47.webp", images: ["/concept/extra/context-switch-pcb.png"],
+    image: "/concept/book/os-47.webp", images: ["/concept/extra/context-switch-hand.webp", "/concept/extra/context-switch-pcb.png"],
     guide: {
       hook: "요리사가 주문 A를 내려놓고 B로 갈아타는 동작 — 그 시간엔 요리가 한 개도 안 됩니다.",
       scene: "갈아타려면 A가 어디까지 됐는지(불 세기·남은 시간)를 A의 관리 카드(PCB)에 적고, B의 카드를 읽어 그 상태를 복원해야 합니다. 적고 읽는 동안 손은 완전히 멈춰 있습니다.",
@@ -2669,6 +2671,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   },
 "os-37": {
     image: "/concept/book/os-37.webp",
+    images: ["/concept/extra/starvation-hand.png"],
     guide: {
       hook: "줄은 서 있는데 내 차례가 영원히 안 오는 것입니다.",
       scene: "VIP 주문이 끊임없이 들어오는 식당에서 일반 주문 하나가 하루 종일 밀립니다. 사장이 규칙 하나를 더합니다 — '30분 이상 기다린 주문은 VIP로 승격'. 그러자 오래 기다릴수록 등급이 올라 결국 차례가 옵니다. 이 승격이 Aging입니다.",
