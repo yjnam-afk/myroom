@@ -157,6 +157,56 @@ export function examHistory(title: string): ExamAppearance[] {
   return out;
 }
 
+// ── 기술사 기출 — "몇 회 몇 교시 몇 번으로 나왔나" ────────────────────────────
+// 문제은행의 기출 문항은 id 가 k{회차}-{교시}{번호} 꼴이다(예: k140-106 = 140회 1교시 6번).
+export type PastAppearance = {
+  id: string;
+  round: number;   // 140
+  period: string;  // "1교시"
+  no: number;      // 6
+  text: string;
+};
+
+const PAST: { q: Q; sq: string; tokens: Set<string>; round: number; no: number }[] = (
+  questions as Q[]
+)
+  .map((q) => ({ q, m: /^k(\d+)-(\d)(\d{2})$/.exec(q.id) }))
+  .filter((x): x is { q: Q; m: RegExpExecArray } => !!x.m)
+  .map(({ q, m }) => ({
+    q,
+    sq: squeeze(q.text),
+    tokens: new Set(
+      q.text
+        .toLowerCase()
+        .split(/[^a-z0-9+#]+/)
+        .filter(Boolean),
+    ),
+    round: Number(m[1]),
+    no: Number(m[3]),
+  }));
+
+const pastCache = new Map<string, PastAppearance[]>();
+
+/** 토픽 제목으로 기술사 기출 이력을 찾는다. 최신 회차 순. */
+export function pastExams(title: string): PastAppearance[] {
+  const t = (title || "").trim();
+  if (!t) return [];
+  const c = pastCache.get(t);
+  if (c) return c;
+  const keys = keysOf(t);
+  const out: PastAppearance[] = [];
+  if (keys.all.length || keys.any.length) {
+    for (const e of PAST) {
+      if (hit(e, keys)) {
+        out.push({ id: e.q.id, round: e.round, period: e.q.period, no: e.no, text: e.q.text });
+      }
+    }
+  }
+  out.sort((a, b) => b.round - a.round || a.period.localeCompare(b.period) || a.no - b.no);
+  pastCache.set(t, out);
+  return out;
+}
+
 /** "2026-05-03" → "26.05" */
 export const ym = (d: string) => (d ? `${d.slice(2, 4)}.${d.slice(5, 7)}` : "");
 
