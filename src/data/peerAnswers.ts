@@ -1635,25 +1635,12 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "RAID",
     exam: "122회 컴퓨터시스템응용기술사 1교시 4번 (모범답안)",
     topicTitles: ["RAID (Redundant Array of Independent Disks)"],
-    // 점수·빨간 첨삭이 없는 형광펜 모범답안. 여백에 연필로 '122회 컴시응 1교시'.
+    // 점수·빨간 첨삭이 없는 형광펜 모범답안. 같은 답안을 두 번 쓴 것(문11 판, Hybrid RAID 단락 없음)은 뺐다.
+    // 여백에 연필로 '122회 컴시응 1교시 / 120회 관리 1교시 / 117회 컴시응'.
     maxScore: 10,
     pages: [
       { src: "/answers/ca-raid-a-1.jpg", label: "1쪽 — 정의·패리티 미사용 유형·RAID 2~4" },
       { src: "/answers/ca-raid-a-2.jpg", label: "2쪽 — RAID 5·6·Hybrid RAID" },
-    ],
-  },
-  {
-    id: "peer-ca-raid-2",
-    period: "1교시",
-    no: "11",
-    question: "RAID",
-    exam: "122회 컴퓨터시스템응용기술사 1교시 (모범답안)",
-    topicTitles: ["RAID (Redundant Array of Independent Disks)"],
-    // 점수·빨간 첨삭이 없는 형광펜 모범답안. 여백에 연필로 '122회 컴시응 1교시 / 120회 관리 1교시 / 117회 컴시응'.
-    maxScore: 10,
-    pages: [
-      { src: "/answers/ca-raid-b-1.jpg", label: "1쪽 — 정의·패리티 미사용·사용 유형" },
-      { src: "/answers/ca-raid-b-2.jpg", label: "2쪽 — RAID 5·6" },
     ],
   },
   {
