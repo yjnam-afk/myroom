@@ -1835,7 +1835,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-136": {
-    image: "/concept/book/ca-136.webp",
+    image: "/concept/book/ca-136.webp", images: ["/concept/extra/fts-hand.png"],
     guide: {
       hook: "고장이 나도 완전히 멈추지 않게 만드는 설계 — 흐름은 감·진·통·복입니다.",
       scene: "비행기 설계를 떠올리세요. 엔진 하나가 꺼져도 날 수 있어야 합니다. 하드웨어는 — 같은 계산을 3곳에 시켜 다수결(TMR), 2개 돌려 비교(Duplication), 여분 부품 대기(Stand-by Sparing). 소프트웨어는 — 저장 지점으로 돌아가 다시 하기(체크포인트), 같은 기능의 다른 구현으로 갈아타기(Recovery Block), 독립 개발한 N개 버전을 비교하기(N-version).",
@@ -1881,7 +1881,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-140": {
-    image: "/concept/book/ca-140.webp",
+    image: "/concept/book/ca-140.webp", images: ["/concept/extra/raid-hand.png"],
     guide: {
       hook: "디스크 여러 장을 묶어 '빠르게' 또는 '안 죽게' 만드는 조합 레시피입니다.",
       scene: "장부 쓰는 법으로 보세요 — 반씩 나눠 두 명이 동시에 쓰면 빠르지만 한 권만 잃어도 끝(RAID 0). 두 권에 똑같이 쓰면 안전하지만 종이가 2배(RAID 1). 세 권 이상에 나눠 쓰되 복구용 요약(패리티)을 섞어 두면, 한 권을 잃어도 나머지로 계산해 복원(RAID 5). 복사해 둔 쌍을 다시 나눠 쓰면 빠르고 안전(RAID 10).",
