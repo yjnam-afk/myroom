@@ -1812,7 +1812,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-135": {
-    image: "/concept/book/ca-135.webp",
+    image: "/concept/book/ca-135.webp", images: ["/concept/extra/ha-hand.png", "/concept/extra/ha-types-hand.png"],
     guide: {
       hook: "서버 한 대가 죽어도 장사가 안 끊기게, 두 대 이상을 묶는 세 가지 방법입니다.",
       scene: "가게 운영으로 보면 — ① 대타 직원이 놀면서 대기(Hot Standby): 사고 나면 즉시 교대하지만 평소엔 인건비 낭비. ② 두 직원이 각자 다른 일을 하다, 한 명이 쓰러지면 남은 사람이 둘 다 떠맡기(Mutual Takeover): 안 놀지만 혼자 2인분을 감당할 체력이 필요. ③ 처음부터 같은 일을 나눠 하기(Concurrent Access): 하나가 빠져도 교대 자체가 필요 없음.",
@@ -2111,7 +2111,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-77": {
-    image: "/concept/book/ca-77.webp",
+    image: "/concept/book/ca-77.webp", images: ["/concept/extra/cache-coherence-hand.png"],
     guide: {
       hook: "코어마다 수첩(캐시)에 베껴 적다 보면, 서로 다른 값을 들고 있게 되는 문제입니다.",
       scene: "팀원 넷이 화이트보드(메모리)의 값을 각자 수첩에 베껴 놓고 일합니다. 한 명이 자기 수첩만 고치면 나머지 셋은 낡은 값으로 일하게 됩니다. 해결책은 둘 — '누가 어느 값을 베꼈는지' 명부를 두고 관리하거나(디렉토리), 모두가 서로의 말을 엿듣다가 누가 고치면 자기 수첩을 지우거나 갱신하거나(스누피).",
@@ -2206,7 +2206,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-56": {
-    image: "/concept/book/ca-56.webp",
+    image: "/concept/book/ca-56.webp", images: ["/concept/extra/interleaving-hand.png", "/concept/extra/interleaving-types-hand.png"],
     guide: {
       hook: "메모리를 여러 창구로 쪼개 번갈아 접근하게 해서, 줄 서는 시간을 없애는 기법입니다.",
       scene: "은행 창구가 하나면 손님이 줄을 섭니다. 창구를 4개로 늘리고 번호표 '끝자리'로 창구를 배정하면(하위 인터리빙) 1·2·3·4번 손님이 각각 다른 창구로 흩어져 동시에 처리됩니다. '앞자리'로 배정하면(상위) 연속 번호 손님이 같은 창구에 몰립니다.",
