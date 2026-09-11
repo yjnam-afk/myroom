@@ -2333,6 +2333,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   },
 "os-34": {
     image: "/concept/book/os-34.webp",
+    images: ["/concept/extra/priority-inversion-hand.webp"],
     guide: {
       hook: "급한 작업이, 한가한 작업 때문에 밀리는 역전 사고입니다.",
       scene: "인턴(낮음)이 회의실 열쇠를 쥔 채 일하고 있는데, 사장(높음)이 그 회의실이 필요해 기다립니다. 그 사이 대리(중간)가 '나는 회의실 필요 없는데?' 하며 인턴을 밀어내고 자기 일을 합니다. 결과 — 제일 급한 사장이 제일 늦게 일을 시작합니다.",
@@ -2356,6 +2357,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   },
 "os-59": {
     image: "/concept/book/os-59.webp",
+    images: ["/concept/extra/ipc-hand.webp", "/concept/extra/ipc-shared-vs-message-hand.webp", "/concept/extra/ipc-shared-memory-hand.webp", "/concept/extra/ipc-message-passing-hand.webp"],
     guide: {
       hook: "떨어져 있는 프로세스끼리 데이터를 주고받는 길은 딱 두 갈래입니다.",
       scene: "옆 가게와 재료를 주고받는 방법 — 하나는 창고를 같이 쓰는 것(공유 메모리). 제일 빠르지만 동시에 꺼내다 부딪히니 규칙(동기화)이 꼭 필요합니다. 다른 하나는 배달(메시지 전달). 파이프·우편함·전화처럼 중간(커널)을 거치면 순서는 지켜 주지만 배달비(복사 비용)가 듭니다.",
@@ -2381,6 +2383,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   },
 "os-36": {
     image: "/concept/book/os-36.webp",
+    images: ["/concept/extra/deadlock-hand.png"],
     guide: {
       hook: "서로 상대가 쥔 것을 기다리며 전원이 영원히 멈춘 상태입니다.",
       scene: "요리사 A는 칼을 쥔 채 도마를 기다리고, B는 도마를 쥔 채 칼을 기다립니다. 아무도 먼저 놓지 않으니 둘 다 영원히 멈춥니다. 이 사고는 네 조건이 '동시에' 성립해야만 일어납니다 — 그래서 하나만 깨도 예방이 됩니다.",
@@ -2406,6 +2409,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   },
 "os-39": {
     image: "/concept/book/os-39.webp",
+    images: ["/concept/extra/rag-hand.webp"],
     guide: {
       hook: "교착이 났는지 그림 한 장으로 판별하는 도구입니다.",
       scene: "동그라미(프로세스)와 네모(자원, 안의 점이 개수)를 화살표로 잇습니다. 프로세스→자원 화살표는 '주세요', 자원→프로세스는 '이미 줬음'. 다 그린 뒤 화살표를 따라가 봤을 때 원(사이클)이 생기면 의심 상황입니다.",
@@ -2429,6 +2433,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   },
 "os-41": {
     image: "/concept/book/os-41.webp",
+    images: ["/concept/extra/bankers-hand.png"],
     guide: {
       hook: "'빌려줘도 모두가 끝까지 갚을 수 있나'를 먼저 계산해 보고 빌려주는 은행원의 규칙입니다.",
       scene: "은행원의 장부는 네 칸입니다 — 금고에 남은 돈(Available), 고객별 대출 한도(Max), 이미 빌려간 돈(Allocation), 앞으로 더 필요한 돈(Need = Max − Allocation). 대출 요청이 오면 '준 셈 치고' 시뮬레이션해서, 모든 고객을 어떤 순서로든 완제시킬 수 있으면(안전 상태) 실제로 빌려주고, 아니면 기다리게 합니다.",
@@ -2696,6 +2701,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   },
 "os-63": {
     image: "/concept/book/os-63.webp",
+    images: ["/concept/extra/interrupt-hand.png"],
     guide: {
       hook: "하던 일을 잠깐 멈추게 하는 끼어들기 신호와, 그것을 처리하는 정해진 절차입니다.",
       scene: "요리 중에 화재경보가 울립니다. 요리사는 ① 지금 불 세기를 메모하고 ② 경보 매뉴얼 목차에서 '화재' 페이지를 찾아 ③ 그대로 처리한 뒤 ④ 메모를 보고 요리로 복귀합니다. 처리 중에 또 경보가 오면 더 급한 것만 끼어들게 하고(선점), 아니면 줄을 세웁니다(대기).",
