@@ -1949,7 +1949,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-22": {
-    image: "/concept/book/ca-22.webp",
+    image: "/concept/book/ca-22.webp", images: ["/concept/extra/tpu-hand.webp"],
     guide: {
       hook: "구글이 딥러닝의 행렬 곱셈만을 위해 만든 전용 계산 공장입니다.",
       scene: "곱셈기 수만 개를 격자로 깔아 놓고, 데이터가 옆 칸으로 물결처럼 흘러가며 계산됩니다(시스톨릭 어레이). 한 번 들어온 숫자가 칸을 옮겨 다니며 재사용되므로, 창고(메모리)를 다시 다녀올 일이 확 줄고 — 그래서 전력 효율이 높습니다.",
