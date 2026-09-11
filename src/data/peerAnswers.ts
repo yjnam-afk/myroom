@@ -1741,6 +1741,21 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
+    id: "peer-os-deadlock-4",
+    period: "3교시",
+    no: "3",
+    question: "교착상태 필요조건과 해결방안",
+    exam: "KPC 모의고사 2017.6 정보관리 3교시 (모범답안)",
+    topicTitles: ["교착상태(Deadlock)"],
+    // 점수·빨간 첨삭이 없는 형광펜 모범답안. 여백에 연필로 '모의 KPC 2017.6, 관리, 3교시'.
+    // 116회 1교시 판(peer-os-deadlock-3)과는 구성이 다르다(원인·핵심·설명 표, 예시 개념도가 끝에).
+    maxScore: 25,
+    pages: [
+      { src: "/answers/os-dl-d-1.jpg", label: "1쪽 — 정의·필요조건·해결방안(예방)" },
+      { src: "/answers/os-dl-d-2.jpg", label: "2쪽 — 회피·발견·회복·교착상태 예시" },
+    ],
+  },
+  {
     id: "peer-dx-darkfactory-1",
     period: "1교시",
     no: "1",
