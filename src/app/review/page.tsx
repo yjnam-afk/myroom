@@ -249,13 +249,7 @@ export default function ReviewPage() {
             </p>
           ) : (
             <p className="text-slate-600">
-              로그인하면 이 계정에 저장된 회독 기록을 서버에서 불러올 수 있어요.{" "}
-              <Link
-                href="/login"
-                className="font-semibold text-brand-600 hover:underline"
-              >
-                로그인 →
-              </Link>
+              회독 기록은 이 기기의 브라우저에 저장돼요. 다른 기기로 옮기려면 내보내기·가져오기를 쓰세요.
             </p>
           )}
         </div>

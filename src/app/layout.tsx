@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import AuthNav from "@/components/AuthNav";
-import AuthGate from "@/components/AuthGate";
-import ProgressSync from "@/components/ProgressSync";
 import NavDepth from "@/components/NavDepth";
 import DeployBanner from "@/components/DeployBanner";
 import "./globals.css";
@@ -49,15 +46,13 @@ export default function RootLayout({
                 <Link href="/bank" className="hover:text-brand-600">🏦 문제은행</Link>
                 <Link href="/map" className="hover:text-brand-600">🗺️ 토픽지도</Link>
               </nav>
-              <AuthNav />
             </div>
           </div>
         </header>
         <NavDepth />
-        <ProgressSync />
         <DeployBanner />
         <main className="mx-auto max-w-5xl px-4 py-8">
-          <AuthGate>{children}</AuthGate>
+          {children}
         </main>
         <footer className="mx-auto max-w-5xl px-4 py-10 text-center text-xs text-slate-400">
           나의 공간 · 정보관리기술사 학습 · AI 응답은 참고용이며 실제 채점 기준과 다를 수 있습니다.
