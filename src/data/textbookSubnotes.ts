@@ -388,7 +388,7 @@ export const SUBNOTES: TextbookSubnote[] = [
         headers: ["구조", "설명", "특징"],
         rows: [
           ["단일(Monolithic) 구조", "파일·메모리·프로세스·I/O 관리를 모두 하나의 커널 안에 구성", "성능 좋으나 커널이 커져 버그 가능성 높음"],
-          ["계층(Layered) 구조", "System Call Interface → 관리 계층 → Protection → Hardware Control 순으로 층을 나눠 구성", "상위 층이 하위 층 서비스를 이용"],
+          ["계층(Layered) 구조", "System Call Interface → 관리 계층 → Hardware Control 순으로 층을 나눠 구성", "상위 층이 하위 층 서비스를 이용"],
           ["마이크로(Micro) 구조", "기본 IPC·스케줄러·메모리 관리만 커널에 두고 나머지는 사용자 영역 서버로 구성", "커널이 작아 안정성·품질 관리 용이"],
         ],
       },
@@ -396,11 +396,11 @@ export const SUBNOTES: TextbookSubnote[] = [
         caption: "커널의 종류",
         headers: ["종류", "설명", "적용 사례"],
         rows: [
-          ["모놀리틱(Monolithic) 커널", "커널이 모든 기능을 가지고 있어 성능이 좋음", "UNIX, Linux"],
-          ["마이크로(Micro) 커널", "커널은 최소한의 기능만 수행하고 경량화됨", "Mach, QNX"],
-          ["하이브리드(Hybrid) 커널", "마이크로에 가깝지만 일부 성능 개선 기능을 커널에 포함", "Windows, macOS"],
-          ["엑소(Exo) 커널", "빠르고 경량화된 Super Kernel", "Embedded OS"],
-          ["유니(Uni) 커널", "단일 응용에 필요한 OS 기능만 묶어 하나의 이미지로 구성", "클라우드 경량 VM"],
+          ["모놀리틱(Monolithic) 커널", "커널이 모든 기능을 갖고 SW를 직접 제어하며 강력한 추상화로 편리", "UNIX, Linux"],
+          ["마이크로(Micro) 커널", "커널은 기본 기능만 제공하고 Server를 통해 App을 제어해 경량화", "–"],
+          ["하이브리드(Hybrid) 커널", "모놀리식과 마이크로 커널의 합성 구성으로 일부 성능 개선 기능 포함", "Windows, macOS"],
+          ["엑소(Exo) 커널", "커널의 수직적 구조와 약한 추상화로 Library가 SW를 제어하는 경량 커널", "Embedded OS"],
+          ["유니(Uni) 커널", "App·File 시스템·Device를 한 주소 공간에 두는 커널별 기능 구현의 경량화 구성", "–"],
         ],
       },
       {
@@ -414,7 +414,7 @@ export const SUBNOTES: TextbookSubnote[] = [
           ],
           [
             "구성",
-            "VFS, 장치 드라이버, IPC, file system, 스케줄러, 메모리 관리 등을 모두 커널 안에서 구성",
+            "VFS, 장치 드라이버, IPC, file system, 스케줄러, 메모리 관리를 모두 커널 안에 구성",
             "기본적인 IPC, 스케줄러, 메모리 관리만을 커널에 구성함",
           ],
           [
@@ -454,7 +454,8 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
     ],
     notes: [
-      "커널의 구조: System Call Interface → 파일 시스템 관리 / I/O 관리(Device Drivers) / 메모리 관리 / 프로세스 관리 · 스케줄러 · IPC · 동기화 / Protection → Hardware Control(Interrupt Handler..) → Hardware",
+      "교재 구조도: System Call Interface → 파일 시스템 관리 / I/O 관리(Device Drivers) / 메모리 관리 / 프로세스 관리 · 스케줄러 · IPC · 동기화 / Protection → Hardware Control(Interrupt Handler..) → Hardware",
+      "커널 보호: 사용자 모드와 Supervisor 모드를 분리하는 CPU Level Ring(Ring 0 커널 ~ Ring 3 사용자)으로 답안을 닫으면 좋다 — 15점 답안에서 Good",
     ],
   },
   {
