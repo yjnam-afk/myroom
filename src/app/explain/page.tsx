@@ -597,9 +597,6 @@ function ExplainInner() {
                     <span className="mr-1 font-bold text-slate-500">
                       가. {extra?.images?.length ? diagramLabel : "개념도"}
                     </span>
-                    {extra?.images?.length
-                      ? `이 ${diagramLabel}${objJosa(diagramLabel)} 답안지 6줄 내로 옮겨 그린다`
-                      : "아래 교재 슬라이드의 개념도를 답안지 6줄 내 도식으로 옮겨 그린다"}
                   </p>
                 )}
                 {/* 간글 — 개념도 부연 한 줄 */}
@@ -793,9 +790,6 @@ function ExplainInner() {
                           <span className="mr-1 font-bold text-slate-500">
                             {letter()}. {legacy.conceptMapLabel || "개념도"}
                           </span>
-                          이 {legacy.conceptMapLabel || "개념도"}
-                          {objJosa(legacy.conceptMapLabel || "개념도")} 답안지 6줄 내로
-                          옮겨 그린다
                         </p>
                         <div className="mt-2 overflow-x-auto rounded-lg border border-slate-200 bg-white p-2">
                           <Mermaid chart={legacy.conceptMap} />

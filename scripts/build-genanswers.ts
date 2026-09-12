@@ -223,7 +223,7 @@ function buildFromSubnote(q: any, sn: any): string {
     parts.push(...introLines(sn));
     parts.push("");
     parts.push(`## 2. ${bt}의 개념도 및 구성요소`);
-    parts.push("가. 개념도 — 교재 슬라이드의 개념도를 답안지 6줄 내 도식으로 옮겨 그린다");
+    parts.push("가. 개념도");
     pushDiagramGloss(parts, sn);
     tables.forEach((tb: any, ti: number) => {
       parts.push("");
@@ -311,7 +311,7 @@ function buildFromSubnote(q: any, sn: any): string {
       `## ${no++}. 본론1 — ${bt}의 ${sec ? "정의 및 " : ""}개념도·구성요소`,
     );
     if (sec) parts.push(...defOneLiner(sn));
-    parts.push("가. 개념도 — 교재 슬라이드의 개념도를 답안지 6줄 내 도식으로 옮겨 그린다");
+    parts.push("가. 개념도");
     pushDiagramGloss(parts, sn);
     body1.forEach((tb: any, ti: number) => {
       parts.push("");
