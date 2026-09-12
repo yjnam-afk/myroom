@@ -2567,7 +2567,7 @@ export const SUBNOTES: TextbookSubnote[] = [
         rows: [
           [
             "RR(Round Robin)",
-            "단위시간 동안 CPU를 할당 받고 시간 내 처리하지 못한 경우 준비 큐 마지막으로 이동",
+            "단위시간 동안 CPU를 할당 받고 시간 내 처리하지 못한 경우 준비 큐 마지막으로 이동하는 알고리즘",
           ],
           [
             "SRT(Shortest Remaining Time)",
