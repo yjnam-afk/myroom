@@ -317,7 +317,7 @@
     ]
    },
    {
-    "label": "커널의 기능",
+    "label": "커널의 역할(기능)",
     "mnemonic": "",
     "keywords": [
      "프로세스 관리 및 CPU Scheduling",
@@ -329,16 +329,19 @@
     ]
    },
    {
-    "label": "CPU의 2가지 실행 모드",
+    "label": "커널의 구조(Architecture)",
     "mnemonic": "",
     "keywords": [
-     "운영 모드(user mode)",
-     "시스템 호출(system call)",
-     "커널 모드(kernel mode)"
+     "System Call Interface",
+     "관리 계층",
+     "관리 계층",
+     "Protection",
+     "Hardware Control",
+     "Hardware"
     ]
    },
    {
-    "label": "모놀리틱 커널과 마이크로 커널의 비교",
+    "label": "커널의 종류 — 모놀리틱 커널과 마이크로 커널의 비교",
     "mnemonic": "",
     "keywords": [
      "정의",
@@ -346,6 +349,15 @@
      "안정성",
      "성능",
      "활용"
+    ]
+   },
+   {
+    "label": "CPU의 2가지 실행 모드",
+    "mnemonic": "",
+    "keywords": [
+     "운영 모드(user mode)",
+     "시스템 호출(system call)",
+     "커널 모드(kernel mode)"
     ]
    }
   ],
