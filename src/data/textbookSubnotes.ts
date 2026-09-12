@@ -384,8 +384,8 @@ export const SUBNOTES: TextbookSubnote[] = [
         ],
       },
       {
-        caption: "커널의 구조",
-        headers: ["구조", "설명", "특징"],
+        caption: "커널 구조의 유형 — 단일·계층·마이크로",
+        headers: ["구조 유형", "설명", "특징"],
         rows: [
           ["단일(Monolithic) 구조", "파일·메모리·프로세스·I/O 관리를 모두 하나의 커널 안에 구성", "성능 좋으나 커널이 커져 버그 가능성 높음"],
           ["계층(Layered) 구조", "System Call Interface → 관리 계층 → Hardware Control 순으로 층을 나눠 구성", "상위 층이 하위 층 서비스를 이용"],

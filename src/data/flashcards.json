@@ -328,7 +328,7 @@
     ]
    },
    {
-    "label": "커널의 구조",
+    "label": "커널 구조의 유형 — 단일·계층·마이크로",
     "mnemonic": "",
     "keywords": [
      "단일(Monolithic) 구조",

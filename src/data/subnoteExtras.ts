@@ -3055,7 +3055,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
       exam: "MVVM은 Model·View·ViewModel로 UI를 분리하고 View와 ViewModel을 데이터 바인딩으로 자동 동기화하는 패턴으로, ViewModel이 View를 몰라 테스트가 용이하다.",
     }, image: "/concept/book/mvvm.png", easy: "화면(View)과 데이터(Model) 사이에 View Model을 두고, View와 View Model을 Data Binding으로 자동 동기화하는 패턴입니다. 흐름은 — 사용자 Action이 View로 들어오면 → Command로 View Model에 전달 → View Model이 Model에 데이터 요청·응답받아 가공 → Data Binding이 알아서 화면 갱신. 핵심 이득은 View와 View Model이 서로를 직접 모른다는 것(독립) — 그래서 화면 없이도 View Model을 테스트할 수 있습니다. View:ViewModel = n:1 입니다." },
 "os-2": {
-    image: "/concept/book/os-2.webp", images: ["/concept/extra/kernel-hand.webp"],
+    image: "/concept/book/os-2.webp", images: ["/concept/extra/kernel-hand.webp"], imagesLabel: "구조(Architecture)",
     guide: {
       hook: "컴퓨터의 자원을 누구에게 얼마나 줄지 정하는, 운영체제의 알맹이입니다.",
       scene:
