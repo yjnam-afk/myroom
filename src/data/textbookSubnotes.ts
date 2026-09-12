@@ -2567,19 +2567,19 @@ export const SUBNOTES: TextbookSubnote[] = [
         rows: [
           [
             "RR(Round Robin)",
-            "단위시간 동안 CPU를 할당 받고 시간 내 처리하지 못한 경우 준비 큐 마지막으로 이동하는 알고리즘",
+            "단위시간 동안 CPU를 할당받고 미처리 시 준비 큐 마지막으로 이동하는 알고리즘",
           ],
           [
             "SRT(Shortest Remaining Time)",
-            "준비 큐에 처리시간이 짧은 프로세스가 발생하면 선점하는 알고리즘",
+            "준비 큐에 남은 처리시간이 짧은 프로세스가 발생하면 선점하는 알고리즘",
           ],
           [
             "MLQ(Multi Level Queue)",
-            "프로세스를 종류별로 분류, 다수의 큐를 이용하여 높은 우선순위를 가진 프로세스가 선점하여 CPU 할당받는 알고리즘",
+            "종류별 다수 큐로 분류해 높은 우선순위 프로세스가 CPU를 선점하는 알고리즘",
           ],
           [
             "MLFQ(Multi Level Feedback Queue)",
-            "각각의 큐에 다른 Time Quantum을 부여하고 프로세스 수행시간이 길어질수록 낮은 우선순위의 큐로 이동하여 CPU를 할당하는 알고리즘",
+            "큐별 Time Quantum을 달리해 오래 수행하면 하위 큐로 내리는 알고리즘",
           ],
         ],
       },
@@ -2587,18 +2587,18 @@ export const SUBNOTES: TextbookSubnote[] = [
         caption: "비선점형 스케줄링(Non-preemptive Scheduling)",
         headers: ["알고리즘 유형", "설명"],
         rows: [
-          ["Priority", "프로세스에 우선순위 부여, 해당 순위에 따라 CPU 할당하는 알고리즘"],
+          ["Priority", "프로세스에 우선순위를 부여하고 해당 순위에 따라 CPU를 할당하는 알고리즘"],
           [
             "FCFS(First Come First Served)",
             "프로세스들이 대기 큐에 도착한 순서에 따라 CPU를 할당하는 알고리즘",
           ],
           [
             "SJF (Shortest Job First)",
-            "준비 큐 내의 작업 중 Burst Time 이 가장 짧다고 판단되는 것을 먼저 수행하는 알고리즘",
+            "준비 큐 내 작업 중 Burst Time이 가장 짧은 것을 먼저 수행하는 알고리즘",
           ],
           [
             "HRN (Highest Response Ratio Next)",
-            "SJF의 약점을 보완한 기법으로 긴 작업과 짧은 작업간의 불평들을 완화하는 알고리즘 / 우선순위 = (대기 시간 + 버스트 시간) / 버스트 시간",
+            "SJF 약점을 보완해 긴 작업과 짧은 작업 간 불평등을 완화하는 알고리즘 / 우선순위 = (대기 시간 + 버스트 시간) / 버스트 시간",
           ],
         ],
       },
