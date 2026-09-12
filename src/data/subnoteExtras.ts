@@ -2603,7 +2603,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   },
 "cpu-scheduling": {
     image: "/concept/book/cpu-scheduling.webp",
-    images: ["/concept/extra/cpu-scheduling-hand.png", "/concept/extra/rr-hand.png", "/concept/extra/srt-hand.png", "/concept/extra/mlq-hand.webp", "/concept/extra/mlfq-hand.png", "/concept/extra/priority-hand.webp", "/concept/extra/fcfs-hand.png", "/concept/extra/sjf-hand.webp", "/concept/extra/hrn-hand.png"],
+    images: ["/concept/extra/cpu-scheduling-scan-1.jpg", "/concept/extra/cpu-scheduling-scan-2.jpg", "/concept/extra/cpu-scheduling-scan-3.jpg", "/concept/extra/cpu-scheduling-scan-4.jpg", "/concept/extra/cpu-scheduling-scan-5.jpg"],
     guide: {
       hook: "대기줄에서 다음 주문을 어떤 규칙으로 고를지의 문제 — 하던 걸 뺏을 수 있느냐로 두 갈래입니다.",
       scene: "온 순서대로 하면(FCFS) 공평한데, 3시간짜리 스테이크 뒤에 라면 주문 열 개가 줄줄이 굶습니다(호위효과). 짧은 것부터 하면(SJF) 효율적인데 긴 주문은 계속 밀립니다. 그래서 '하던 요리도 중간에 내려놓게 하는' 규칙이 나옵니다 — 타이머로 조금씩 돌아가며(RR), 더 짧은 게 오면 뺏고(SRT), 오래 도는 주문은 뒷줄로 강등(MLFQ).",
