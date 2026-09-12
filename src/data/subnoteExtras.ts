@@ -1741,7 +1741,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
       exam: "테스트 오라클은 테스트 결과의 정오를 판정하는 기대값 원천으로, AI·복잡 계산처럼 기대값을 알기 어려운 오라클 문제는 변성 테스트·백투백으로 해결한다.",
     }, image: "/concept/book/se-163.png", easy: "테스트 결과가 '맞았는지 틀렸는지'를 판정해 주는 채점 기준입니다 [참샘휴일]. 참 오라클(모든 입력의 정답을 다 앎 — 이상적이나 비쌈), 샘플링(특정 입력 몇 개만 정답 보유 — sin 함수의 0°·90°·180°처럼), 휴리스틱(샘플은 정확히, 나머지는 추정으로 — 샘플링의 개선), 일관성 검사(이전 실행 결과와 같은지 비교 — 회귀 테스트·자동화 도구가 사용). 요즘 단골 연계 — AI 시스템은 확률적이고 재현이 안 돼 참 오라클이 불가능하므로, 백투백·A/B·변성(Metamorphic) 테스트 같은 대안을 씁니다." },
 "memory-fragmentation": {
-    image: "/concept/book/memory-fragmentation.webp", images: ["/concept/extra/internal-fragmentation.png", "/concept/extra/external-fragmentation.png"],
+    image: "/concept/book/memory-fragmentation.webp", images: ["/concept/extra/fragmentation-hand.webp", "/concept/extra/internal-fragmentation.png", "/concept/extra/external-fragmentation.png"],
     guide: {
       hook: "빈 메모리는 있는데 못 쓰는 낭비 — CA 교재는 '예방 도구'까지 다룹니다.",
       scene: "주차장으로 보세요. 대형차 칸에 경차가 서면 칸 안에 틈이 남고(내부), 빈 칸이 띄엄띄엄이면 버스를 댈 수가 없습니다(외부). 관리인의 대응 — 붙어 있는 빈 칸 합치기(통합), 차들을 한쪽으로 몰아 큰 빈 공간 만들기(압축). 그리고 아예 처음부터 잘 배치하는 도구들이 있습니다.",
