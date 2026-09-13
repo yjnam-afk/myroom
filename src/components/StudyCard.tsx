@@ -4,46 +4,21 @@ import Link from "next/link";
 import type { SubnoteExtra } from "@/data/subnoteExtras";
 
 /**
- * 학습 카드 — 실제 동작 → 왜 필요한가 → 쉬운 말↔용어 매핑 → 실전 쓰임 → 옆 토픽 → 답안 한 줄.
+ * 학습 카드 — 쉬운 말↔용어 매핑 → 옆 토픽 → 답안 한 줄.
  *
- * 원래 맨 위에 있던 "🍯 쉽게 이해하기" 머리말(한 줄 훅)만 뺐다 — 그 줄이 이해에
- * 도움이 안 된다는 피드백이었지, 아래 절들까지 치우라는 뜻이 아니었다.
- * 비유(scene)는 계속 넣지 않는다 — 일상 소재로 바꾸면 오히려 개념이 흐려진다.
+ * "쉽게 이해하기" 머리말과 줄글 설명(실제 동작·왜 필요한가·실전 쓰임·비유)은
+ * 전부 뺐다 — 풀어 쓴 설명은 이해에 도움이 안 된다는 피드백. 남긴 건 시험 용어
+ * 매핑표, 옆 토픽 링크, 답안 한 줄처럼 구조화된 것뿐이다.
  * 자료(extra)는 서버(explainData)가 골라 props 로 준다.
  */
 export default function StudyCard({ extra }: { extra?: SubnoteExtra }) {
   const g = extra?.guide;
 
-  if (!g) {
-    if (!extra?.easy) return null;
-    return (
-      <section className="mb-6 rounded-2xl border border-amber-200 bg-amber-50/60 p-5">
-        <EasyProse text={extra.easy} />
-      </section>
-    );
-  }
+  if (!g) return null;
 
   return (
     <section className="mb-6 space-y-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-      {/* 1. 실제 동작 — 정확히 무엇이고 어떻게 돌아가는지부터 */}
-      {g.mechanism && (
-        <div className="rounded-xl border-l-4 border-sky-300 bg-sky-50/60 p-4">
-          <div className="mb-1.5 text-xs font-bold text-sky-700">
-            ⚙️ 정확히는 이렇게 돌아갑니다
-          </div>
-          <p className="text-[15px] leading-[1.95] text-slate-800">{g.mechanism}</p>
-        </div>
-      )}
-
-      {/* 2. 왜 필요한가 — 이유를 알면 안 잊는다 */}
-      <div className="rounded-xl border-l-4 border-rose-300 bg-rose-50/60 p-4">
-        <div className="mb-1.5 text-xs font-bold text-rose-700">
-          🤔 이게 없으면 무슨 일이 나냐면
-        </div>
-        <p className="text-[15px] leading-[1.95] text-slate-800">{g.why}</p>
-      </div>
-
-      {/* 3. 쉬운 말 ↔ 진짜 용어 — 풀어 쓴 말에 시험 용어를 붙여 준다 */}
+      {/* 1. 쉬운 말 ↔ 진짜 용어 — 풀어 쓴 말에 시험 용어를 붙여 준다 */}
       {g.map.length > 0 && (
         <div>
           <div className="mb-2 text-xs font-bold text-slate-500">
@@ -73,17 +48,7 @@ export default function StudyCard({ extra }: { extra?: SubnoteExtra }) {
         </div>
       )}
 
-      {/* 4. 실전 쓰임 — 어디에 있고, 시험엔 어떻게 나오나 */}
-      {g.usage && (
-        <div className="rounded-xl border-l-4 border-violet-300 bg-violet-50/60 p-4">
-          <div className="mb-1.5 text-xs font-bold text-violet-700">
-            💼 어디에 쓰이고, 시험엔 어떻게 나오냐면
-          </div>
-          <p className="text-[15px] leading-[1.95] text-slate-800">{g.usage}</p>
-        </div>
-      )}
-
-      {/* 5. 옆 토픽 — 지식은 낱개가 아니라 그물로 저장된다 */}
+      {/* 2. 옆 토픽 — 지식은 낱개가 아니라 그물로 저장된다 */}
       {g.links.length > 0 && (
         <div>
           <div className="mb-2 text-xs font-bold text-slate-500">
@@ -105,7 +70,7 @@ export default function StudyCard({ extra }: { extra?: SubnoteExtra }) {
         </div>
       )}
 
-      {/* 6. 답안 한 줄 — 인출 목표 */}
+      {/* 3. 답안 한 줄 — 인출 목표 */}
       <div className="rounded-xl border-2 border-brand-300 bg-brand-50/70 p-4">
         <div className="mb-1.5 text-xs font-bold text-brand-700">✍️ 시험지엔 이렇게 씁니다</div>
         <p className="text-[15px] font-medium leading-[1.95] text-slate-900">{g.exam}</p>
@@ -114,62 +79,3 @@ export default function StudyCard({ extra }: { extra?: SubnoteExtra }) {
   );
 }
 
-/**
- * 줄글 easy 텍스트를 읽히게 렌더링한다.
- * 첫 문장은 리드로 키우고, 나머지는 문장 단위 불릿으로 끊는다. [두음] 토큰은 굵게.
- */
-function EasyProse({ text }: { text: string }) {
-  // 괄호 안 마침표(2025.04)와 소수점(0.5, v3.1)은 지키고, 진짜 문장 경계에서만 자른다.
-  const sentences: string[] = [];
-  let buf = "";
-  let depth = 0;
-  for (let i = 0; i < text.length; i++) {
-    const ch = text[i];
-    buf += ch;
-    if (ch === "(" || ch === "[") depth++;
-    else if (ch === ")" || ch === "]") depth = Math.max(0, depth - 1);
-    else if (
-      (ch === "." || ch === "!" || ch === "?") &&
-      depth === 0 &&
-      (i === text.length - 1 || text[i + 1] === " ")
-    ) {
-      sentences.push(buf.trim());
-      buf = "";
-    }
-  }
-  if (buf.trim()) sentences.push(buf.trim());
-  const [lead, ...rest] = sentences;
-
-  const emphasize = (s: string, key: number) => {
-    const parts = s.split(/(\[[^\]]{2,20}\])/g);
-    return (
-      <span key={key}>
-        {parts.map((p, i) =>
-          /^\[[^\]]+\]$/.test(p) ? (
-            <b key={i} className="rounded bg-amber-100 px-1 font-bold text-amber-800">
-              {p}
-            </b>
-          ) : (
-            p
-          ),
-        )}
-      </span>
-    );
-  };
-
-  return (
-    <div className="text-[15px] leading-[1.85] text-slate-800">
-      {lead && <p className="font-semibold text-slate-900">{emphasize(lead, -1)}</p>}
-      {rest.length > 0 && (
-        <ul className="mt-2 space-y-1.5">
-          {rest.map((s, i) => (
-            <li key={i} className="flex gap-2">
-              <span className="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-amber-400" />
-              <span>{emphasize(s, i)}</span>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-}
