@@ -281,7 +281,7 @@ export default function BankPage() {
                     {(() => {
                       const seen = new Set<string>();
                       const found = [
-                        ...peerAnswersForQuestion(q.text),
+                        ...peerAnswersForQuestion(q.text, q.id),
                         ...relatedTopics(q.text).flatMap((t) => peerAnswersFor(t)),
                       ].filter((a) => !seen.has(a.id) && seen.add(a.id));
                       if (!found.length) return null;

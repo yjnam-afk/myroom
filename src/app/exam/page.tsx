@@ -423,7 +423,7 @@ export default function ExamPage() {
 
                   {/* 남이 쓴 답안 — 같은 문제의 실제 시험지 스캔과 첨삭 */}
                   {(() => {
-                    const peers = peerAnswersForQuestion(q.text);
+                    const peers = peerAnswersForQuestion(q.text, q.id);
                     return peers.length ? (
                       <div className="mt-3 pl-9">
                         <PeerAnswers items={peers} />

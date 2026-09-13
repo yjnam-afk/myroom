@@ -34,6 +34,11 @@ export type PeerAnswer = {
   exam?: string;
   /** 이 답안이 걸릴 토픽 제목들(교재 서브노트 제목과 같게) */
   topicTitles: string[];
+  /**
+   * 문제은행에서 이 답안이 붙을 문항 id — 같은 문제가 그대로 다시 나왔을 때(NS 19기 02주차
+   * 2교시 4번 = peer-ca-coh-1 의 ①②③). 문구 부분 일치로는 못 잡는 긴 2교시 문제용.
+   */
+  questionIds?: string[];
   /** 받은 점수와 배점 — 눈높이를 잡는 데 이게 제일 중요하다 */
   score?: number;
   maxScore?: number;
@@ -165,6 +170,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-os-page-repl-1",
+    questionIds: ["ns19w02-205"],
     period: "2교시",
     no: "3",
     question:
@@ -188,6 +194,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-os-page-repl-2",
+    questionIds: ["ns19w02-205"],
     period: "2교시",
     no: "6",
     question: "페이지교체알고리즘 ① 이유 ② 종류, 동작 ③ Anomaly, 방안",
@@ -815,6 +822,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-os-race-1",
+    questionIds: ["ns19w02-206"],
     period: "2교시",
     no: "6",
     question: "① 경쟁조건\n② SW 측면 임계영역 제어 기법\n③ HW 측면 임계영역 제어 기법",
@@ -838,6 +846,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-os-race-2",
+    questionIds: ["ns19w02-206"],
     period: "2교시",
     no: "6",
     question: "① 경쟁조건\n② SW 측면 임계영역 제어 기법\n③ HW 측면 임계영역 제어 기법",
@@ -1276,6 +1285,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-os-intr-1",
+    questionIds: ["ns19w02-105"],
     period: "1교시",
     no: "4",
     question: "운영체제(OS)에서의 인터럽트(Interrupt)에 대해 설명하시오.",
@@ -1294,6 +1304,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-os-intr-2",
+    questionIds: ["ns19w02-105"],
     period: "1교시",
     no: "4",
     question: "운영체제(OS)에서의 인터럽트(Interrupt)에 대해 설명하시오.",
@@ -1313,6 +1324,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-os-intr-3",
+    questionIds: ["ns19w02-105"],
     period: "1교시",
     no: "4",
     question: "운영체제(OS)에서의 인터럽트(Interrupt)에 대해 설명하시오.",
@@ -1414,6 +1426,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-ca-coh-1",
+    questionIds: ["ns19w02-204"],
     period: "2교시",
     no: "3",
     question: "① 캐시 일관성의 개념\n② Write Through와 Write Back 비교설명\n③ 캐시 일관성 유지를 위한 기법",
@@ -2048,6 +2061,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-os-ctx-15",
+    questionIds: ["ns19w02-202"],
     period: "2교시",
     no: "5",
     question: "① 문맥의 개념, 유형 및 내용\n② 문맥교환 절차\n③ 문맥교환 시 발생하는 오버헤드 해결 방법",
@@ -2147,14 +2161,28 @@ export function peerAnswersFor(title?: string): PeerAnswer[] {
   return BY_TOPIC.get(norm(title)) ?? [];
 }
 
-/** 문제 문장으로 찾는다 — 문제은행·기출에서 같은 문제를 만났을 때. */
-export function peerAnswersForQuestion(question?: string): PeerAnswer[] {
-  if (!question) return [];
+const BY_QID = new Map<string, PeerAnswer[]>();
+for (const a of PEER_ANSWERS) {
+  for (const id of a.questionIds ?? []) {
+    if (!BY_QID.has(id)) BY_QID.set(id, []);
+    BY_QID.get(id)!.push(a);
+  }
+}
+
+/**
+ * 문제로 찾는다 — 문제은행·기출에서 같은 문제를 만났을 때.
+ * 문항 id 로 직접 연결된 답안(questionIds)을 먼저, 그 다음 문구 부분 일치.
+ */
+export function peerAnswersForQuestion(question?: string, questionId?: string): PeerAnswer[] {
+  const out: PeerAnswer[] = questionId ? [...(BY_QID.get(questionId) ?? [])] : [];
+  if (!question) return out;
   const q = norm(question);
-  return PEER_ANSWERS.filter((a) => {
+  for (const a of PEER_ANSWERS) {
+    if (out.includes(a)) continue;
     const mine = norm(a.question);
-    return q.includes(mine) || mine.includes(q);
-  });
+    if (q.includes(mine) || mine.includes(q)) out.push(a);
+  }
+  return out;
 }
 
 export const PEER_ANSWER_COUNT = PEER_ANSWERS.length;
