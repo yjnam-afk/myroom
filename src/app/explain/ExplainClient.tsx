@@ -3,7 +3,6 @@
 import { useEffect, useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import MyDiagrams from "@/components/MyDiagrams";
 import StudyCard from "@/components/StudyCard";
 import PeerAnswers from "@/components/PeerAnswers";
 import TopicMapCard from "@/components/TopicMapCard";
@@ -314,7 +313,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
     <div>
       <PageHeader
         title="💡 토픽 설명"
-        desc="여기는 이해 전용입니다 — 교재 슬라이드 + 답안지 템플릿 + 용어 매핑·옆 토픽 + 내 도식 + 남이 쓴 답안. 암기는 🥷암기 훈련장에서."
+        desc="여기는 이해 전용입니다 — 교재 슬라이드 + 답안지 템플릿 + 용어 매핑·옆 토픽 + 남이 쓴 답안. 암기는 🥷암기 훈련장에서."
       />
 
       <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -967,11 +966,6 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
 
         {/* 학습 카드 — 용어 매핑·옆 토픽만. 줄글 설명·답안 한 줄은 뺐다. 교재 다음에 온다. */}
         <StudyCard extra={extra} />
-
-        {/* 내 도식 — 교재 도식을 사진/캡처로 직접 넣어 둔다(AI가 그린 그림 대신 원본) */}
-        {cur && (
-          <MyDiagrams topicId={topicId} title={cur} />
-        )}
 
         {/* 무엇과 짝인가 — 토픽 지도의 비교 세트·암기표를 이 자리로 끌어온다.
             시험은 개념 하나보다 나란히 놓고 묻는데, 그 짝을 보려면 지도로
