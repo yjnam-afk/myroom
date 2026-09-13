@@ -4,7 +4,6 @@ import { useEffect, useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import MyDiagrams from "@/components/MyDiagrams";
-import EasyCard from "@/components/EasyCard";
 import PeerAnswers from "@/components/PeerAnswers";
 import TopicMapCard from "@/components/TopicMapCard";
 import { ExamHistoryCard } from "@/components/ExamHistoryCard";
@@ -314,7 +313,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
     <div>
       <PageHeader
         title="💡 토픽 설명"
-        desc="여기는 이해 전용입니다 — 학습 카드(비유·실제 동작·실전 쓰임) + 교재 원본 + 슬라이드 + 내 도식. 암기는 🥷암기 훈련장에서."
+        desc="여기는 이해 전용입니다 — 답안지 템플릿 + 교재 원본 + 슬라이드 + 내 도식 + 남이 쓴 답안. 암기는 🥷암기 훈련장에서."
       />
 
       <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -396,8 +395,6 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
       </div>
 
       <div className="mt-6">
-        {/* 쉽게 이해하기— 비유 → 용어 매핑 → 연관 토픽 → 답안. AI 호출 없음. */}
-        <EasyCard extra={extra} />
 
         {/* 교재 원본 서브노트 → 답안지 템플릿 — 시험지에 옮겨 적는 순서 그대로 보여준다.
             교재 원문(정의·키워드·표 원본)은 바로 아래 슬라이드 이미지에 있으므로 중복 표기하지 않는다. */}
