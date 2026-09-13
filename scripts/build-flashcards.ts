@@ -98,7 +98,8 @@ const cellHead = (s: string) =>
   String(s || "")
     .replace(/^[①-⑳]\s*/, "")
     .replace(/^\d+[.)]\s*/, "")
-    .split("/")[0]
+    // 3단표 셀은 줄바꿈(\n)으로 1~2줄 — 첫 줄이 항목명
+    .split(/\n|\//)[0]
     .trim()
     .slice(0, 40);
 

@@ -90,7 +90,8 @@ const cut = (s: string, n: number) => (s.length > n ? s.slice(0, n - 1) + "…" 
 /** 표 안 항목 구분은 '/' 대신 '–' (작성론: 표는 점 대신 '–'로 줄 구분) */
 const dashJoin = (s: string) =>
   String(s || "")
-    .split(" / ")
+    // 3단표 셀의 줄바꿈(\n)도 마크다운 표 안에서는 '–' 구분으로 편다
+    .split(/ \/ |\n/)
     .map((x) => x.trim())
     .filter(Boolean)
     .join(" – ");
