@@ -13,7 +13,7 @@ import { PageHeader } from "@/components/ui";
 import TopicAutocomplete from "@/components/TopicAutocomplete";
 import { DOMAIN_LABEL } from "@/lib/domains";
 import { loadExplainIndex } from "@/lib/explainIndexClient";
-import type { BrowseGroup, ExplainIndex, ExplainTopicData } from "@/lib/explainData";
+import type { BrowseGroup, ExplainIndex, ExplainNav, ExplainTopicData } from "@/lib/explainData";
 
 /**
  * 토픽 설명 화면(클라이언트).
@@ -25,6 +25,56 @@ import type { BrowseGroup, ExplainIndex, ExplainTopicData } from "@/lib/explainD
  */
 
 const IMP_ORDER: Record<string, number> = { 상: 0, 중: 1, 하: 2, 출제예상: 3 };
+
+/**
+ * 이전/다음 토픽 — 같은 과목 안에서 교재 순서대로 넘겨 본다.
+ * 검색으로 하나 열고 나면 다음 토픽으로 가려고 목록을 다시 펼쳐야 했다. 위·아래 두 곳에 둔다.
+ */
+function TopicNav({
+  nav,
+  onGo,
+  where,
+}: {
+  nav: ExplainNav;
+  onGo: (title: string, opts?: { scrollTop?: boolean }) => void;
+  where: "top" | "bottom";
+}) {
+  const go = (t: string) => onGo(t, { scrollTop: where === "bottom" });
+  return (
+    <nav
+      aria-label="이전·다음 토픽"
+      className={`flex items-stretch gap-2 ${where === "top" ? "mt-4" : "mt-2 mb-6"}`}
+    >
+      <button
+        type="button"
+        disabled={!nav.prev}
+        onClick={() => nav.prev && go(nav.prev)}
+        className="flex min-w-0 flex-1 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-left text-sm hover:border-brand-400 hover:bg-brand-50 disabled:cursor-default disabled:opacity-40 disabled:hover:border-slate-200 disabled:hover:bg-white"
+      >
+        <span className="shrink-0 text-slate-400">←</span>
+        <span className="min-w-0">
+          <span className="block text-[10px] font-bold text-slate-400">이전</span>
+          <span className="block truncate font-medium text-slate-800">{nav.prev ?? "처음 토픽"}</span>
+        </span>
+      </button>
+      <span className="hidden shrink-0 items-center px-1 text-[11px] tabular-nums text-slate-400 sm:flex">
+        {nav.courseLabel} {nav.index}/{nav.total}
+      </span>
+      <button
+        type="button"
+        disabled={!nav.next}
+        onClick={() => nav.next && go(nav.next)}
+        className="flex min-w-0 flex-1 items-center justify-end gap-2 rounded-xl border border-brand-200 bg-brand-50/60 px-3 py-2 text-right text-sm hover:border-brand-400 hover:bg-brand-50 disabled:cursor-default disabled:opacity-40"
+      >
+        <span className="min-w-0">
+          <span className="block text-[10px] font-bold text-brand-600">다음</span>
+          <span className="block truncate font-semibold text-slate-900">{nav.next ?? "마지막 토픽"}</span>
+        </span>
+        <span className="shrink-0 text-brand-500">→</span>
+      </button>
+    </nav>
+  );
+}
 const COURSE_LABEL = DOMAIN_LABEL;
 
 const SRC_CHIP: Record<string, string> = {
@@ -245,11 +295,15 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
    * 주소가 그대로면 새로고침·공유·뒤로가기가 엉뚱한 토픽을 가리킨다.
    */
   const router = useRouter();
-  const goTopic = (title: string) => {
+  const goTopic = (title: string, opts?: { scrollTop?: boolean }) => {
     const t = title.trim();
     setTopic(t);
     setBrowseOpen(false);
-    if (t) startTransition(() => router.push(`/explain?topic=${encodeURIComponent(t)}`, { scroll: false }));
+    // 화면 아래쪽 '다음 토픽' 버튼으로 넘어갈 때는 새 토픽의 머리부터 보여 준다.
+    if (t)
+      startTransition(() =>
+        router.push(`/explain?topic=${encodeURIComponent(t)}`, { scroll: !!opts?.scrollTop }),
+      );
   };
 
   const catTopics = (idx?.topicOptions ?? [])
@@ -317,6 +371,9 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
           )}
         </div>
       </div>
+
+      {/* 이전·다음 토픽 — 같은 과목 안에서 교재 순서대로 */}
+      {data?.nav && <TopicNav nav={data.nav} onGo={goTopic} where="top" />}
 
       {/* 도메인별 목록 — 아무것도 안 골랐으면 펼쳐서, 고른 뒤에는 접어서 보여준다. */}
       <div className="mt-6">
@@ -899,6 +956,8 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
         {/* 남이 쓴 답안 — 교재 정의·템플릿을 먼저 본 다음에 오도록 여기에 둔다.
             처음부터 남의 답안을 보면 그 구성에 갇힌다. */}
         <PeerAnswers items={data?.peers ?? []} />
+
+        {data?.nav && <TopicNav nav={data.nav} onGo={goTopic} where="bottom" />}
 
         {/* 어떤 자료도 못 찾은 경우 — AI를 부르지 않고 상황만 안내한다 */}
         {cur && !textbook && !legacy && !extra?.image && (

@@ -107,7 +107,41 @@ export type ExplainTopicData = {
   past: PastAppearance[];
   mapSets: MapLink[];
   mapTables: MemoryTable[];
+  /** 같은 과목 안에서 앞뒤 토픽 — 교재 순서(SUBNOTES 배열 순서)대로 넘겨 본다 */
+  nav?: ExplainNav;
 };
+
+export type ExplainNav = {
+  courseLabel: string;
+  /** 1부터 */
+  index: number;
+  total: number;
+  prev?: string;
+  next?: string;
+};
+
+/** 교재 토픽은 같은 과목의 서브노트 순서, 예전 토픽은 같은 카테고리의 topics.json 순서로 이웃을 찾는다. */
+function navFor(textbook: TextbookSubnote | undefined, t: TopicRow | undefined): ExplainNav | undefined {
+  if (textbook) {
+    const list = SUBNOTES.filter((x) => x.course === textbook.course);
+    const i = list.indexOf(textbook);
+    if (i < 0) return undefined;
+    return {
+      courseLabel: DOMAIN_LABEL[textbook.course] || textbook.course,
+      index: i + 1,
+      total: list.length,
+      prev: list[i - 1]?.title,
+      next: list[i + 1]?.title,
+    };
+  }
+  if (t) {
+    const list = TOPICS.filter((x) => x.category === t.category);
+    const i = list.findIndex((x) => x.id === t.id);
+    if (i < 0) return undefined;
+    return { courseLabel: t.category, index: i + 1, total: list.length, prev: list[i - 1]?.title, next: list[i + 1]?.title };
+  }
+  return undefined;
+}
 
 export function explainTopicData(rawTitle: string): ExplainTopicData {
   const title = rawTitle.trim();
@@ -134,6 +168,7 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
     past: pastExams(title),
     mapSets: compareSetsFor(title),
     mapTables: memoryTablesFor(title),
+    nav: navFor(textbook, t),
   };
 }
 
