@@ -337,3 +337,66 @@ export function explainIndex(): ExplainIndex {
   };
   return INDEX;
 }
+
+// ── 도메인별 토픽 정리표(/sheet) — 엑셀로 정리하던 것을 앱 한 페이지에서 본다 ──
+export type SheetRow = {
+  title: string;
+  /** 상·중·하 — 예전 토픽(topics.json)과 맞으면 그 값, 교재 전용 토픽은 '상' */
+  imp: string;
+  lead?: string;
+  /** 29~30자 정의. 비교 토픽은 pairs 로 대신 채운다 */
+  def?: string;
+  pairs: { name: string; def: string }[];
+  features: string[];
+  keywords: string[];
+  /** 표 제목들 — 본론에 무엇을 쓰는지 한눈에 */
+  tables: string[];
+  /** NS 모의고사 출제 횟수 / 기술사 기출 횟수 */
+  ns: number;
+  past: number;
+  /** 가장 최근 출제 표기(예: 19기 2주차 1교시 5번) */
+  last?: string;
+};
+export type SheetGroup = { code: string; label: string; week: number; rows: SheetRow[] };
+
+export function buildSheet(): SheetGroup[] {
+  const impById = new Map<string, string>();
+  const impByBare = new Map<string, string>();
+  for (const t of TOPICS) {
+    impById.set(t.id, t.importance);
+    const b = bareT(t.title);
+    if (!impByBare.has(b)) impByBare.set(b, t.importance);
+  }
+  const byCourse = new Map<string, SheetRow[]>();
+  for (const s of SUBNOTES) {
+    const hist = examHistory(s.title);
+    const past = pastExams(s.title);
+    const latest = hist.slice().sort((a, b) => (a.date < b.date ? 1 : -1))[0];
+    const row: SheetRow = {
+      title: s.title,
+      imp: (s.topicId && impById.get(s.topicId)) || impByBare.get(bareT(s.title)) || "상",
+      lead: s.lead,
+      def: s.defPair?.length ? undefined : s.defShort,
+      pairs: [...(s.defPair || []), ...(s.subDefs || [])].map((p) => ({ name: p.name, def: p.def })),
+      features: s.features || [],
+      keywords: s.keywords,
+      tables: s.tables.map((t) => t.caption).filter(Boolean),
+      ns: hist.length,
+      past: past.length,
+      last: latest
+        ? `${latest.cohort} ${latest.round.replace(/^0/, "")} ${latest.period}`
+        : past.length
+          ? `${Math.max(...past.map((p) => p.round))}회`
+          : undefined,
+    };
+    if (!byCourse.has(s.course)) byCourse.set(s.course, []);
+    byCourse.get(s.course)!.push(row);
+  }
+  // 교재 순서(SUBNOTES 등장 순서) 그대로 — 정리표는 교재 목차와 같은 줄 순서여야 찾기 쉽다.
+  return DOMAINS.filter((d) => byCourse.has(d.code)).map((d) => ({
+    code: d.code,
+    label: d.label,
+    week: d.week,
+    rows: byCourse.get(d.code)!,
+  }));
+}

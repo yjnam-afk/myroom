@@ -120,8 +120,15 @@ const menuGroups = [
         href: "/explain",
         emoji: "💡",
         title: "토픽 설명",
-        desc: "어려운 개념을 비유·도식으로 이해",
+        desc: "교재 슬라이드·답안지 템플릿·학습 카드로 이해",
         color: "from-amber-500 to-amber-600",
+      },
+      {
+        href: "/sheet",
+        emoji: "📋",
+        title: "토픽 정리표",
+        desc: "도메인별 토픽 정의·키워드·출제 이력을 한 표로",
+        color: "from-emerald-500 to-emerald-700",
       },
       {
         href: "/review",

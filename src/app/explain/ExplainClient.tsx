@@ -4,6 +4,7 @@ import { useEffect, useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import MyDiagrams from "@/components/MyDiagrams";
+import StudyCard from "@/components/StudyCard";
 import PeerAnswers from "@/components/PeerAnswers";
 import TopicMapCard from "@/components/TopicMapCard";
 import { ExamHistoryCard } from "@/components/ExamHistoryCard";
@@ -313,7 +314,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
     <div>
       <PageHeader
         title="💡 토픽 설명"
-        desc="여기는 이해 전용입니다 — 답안지 템플릿 + 교재 원본 + 슬라이드 + 내 도식 + 남이 쓴 답안. 암기는 🥷암기 훈련장에서."
+        desc="여기는 이해 전용입니다 — 교재 슬라이드 + 답안지 템플릿 + 학습 카드(실제 동작·실전 쓰임) + 내 도식 + 남이 쓴 답안. 암기는 🥷암기 훈련장에서."
       />
 
       <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -368,8 +369,34 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
               🥷 이 토픽 암기 훈련 →
             </Link>
           )}
+          {textbook && (
+            <Link
+              href={`/sheet#${textbook.course}`}
+              className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100"
+            >
+              📋 {COURSE_LABEL[textbook.course] || textbook.course} 정리표 →
+            </Link>
+          )}
         </div>
       </div>
+
+      {/* 지금 보는 토픽 — 검색창 글씨만으로는 무슨 토픽인지 안 보여서 크게 박는다 */}
+      {cur && (
+        <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1">
+          <h2 className="text-2xl font-extrabold leading-tight text-slate-900 sm:text-3xl">
+            {cur}
+          </h2>
+          {textbook ? (
+            <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-bold text-emerald-700">
+              심화반 {COURSE_LABEL[textbook.course] || textbook.course}
+            </span>
+          ) : legacy ? (
+            <span className="rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-bold text-indigo-700">
+              {legacy.category}
+            </span>
+          ) : null}
+        </div>
+      )}
 
       {/* 이전·다음 토픽 — 같은 과목 안에서 교재 순서대로 */}
       {data?.nav && <TopicNav nav={data.nav} onGo={goTopic} where="top" />}
@@ -395,9 +422,40 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
       </div>
 
       <div className="mt-6">
+        {/* 교재 슬라이드 원본 — 맨 위. 교재가 항상 먼저고, 아래 템플릿·카드는 그걸 답안으로 옮기는 순서다.
+            도식을 다시 그리지 않고 교재 그림 그대로 보여준다. */}
+        {extra?.image && (
+          <section className="mb-6 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+            <div className="flex items-center justify-between gap-2 border-b border-slate-100 px-4 py-2">
+              <span className="text-xs font-bold text-slate-600">
+                📊 교재 슬라이드 원본 (도식 포함)
+              </span>
+              <a
+                href={extra.image}
+                target="_blank"
+                rel="noreferrer"
+                className="text-[11px] font-medium text-brand-600 hover:underline"
+              >
+                크게 보기 ↗
+              </a>
+            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={extra.image}
+              alt={`${cur} 교재 슬라이드`}
+              className="w-full bg-white"
+            />
+            {/* 간글 — 이 슬라이드(개념도) 한 줄 부연 */}
+            {gloss?.d && (
+              <p className="border-t border-slate-100 px-4 py-2 text-[12.5px] leading-relaxed text-slate-500">
+                – {gloss.d}
+              </p>
+            )}
+          </section>
+        )}
 
         {/* 교재 원본 서브노트 → 답안지 템플릿 — 시험지에 옮겨 적는 순서 그대로 보여준다.
-            교재 원문(정의·키워드·표 원본)은 바로 아래 슬라이드 이미지에 있으므로 중복 표기하지 않는다. */}
+            교재 원문(정의·키워드·표 원본)은 위 슬라이드 이미지에 있으므로 중복 표기하지 않는다. */}
         {textbook && (
           <section className="mb-6 overflow-hidden rounded-2xl border-2 border-emerald-200 bg-white shadow-sm">
             <div className="flex items-center justify-between gap-2 bg-emerald-50 px-5 py-3">
@@ -905,36 +963,9 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
           </section>
         )}
 
-        {/* 교재 슬라이드 원본 — 도식을 다시 그리지 않고 교재 그림 그대로 */}
-        {extra?.image && (
-          <section className="mb-6 overflow-hidden rounded-2xl border border-slate-200 bg-white">
-            <div className="flex items-center justify-between gap-2 border-b border-slate-100 px-4 py-2">
-              <span className="text-xs font-bold text-slate-600">
-                📊 교재 슬라이드 원본 (도식 포함)
-              </span>
-              <a
-                href={extra.image}
-                target="_blank"
-                rel="noreferrer"
-                className="text-[11px] font-medium text-brand-600 hover:underline"
-              >
-                크게 보기 ↗
-              </a>
-            </div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={extra.image}
-              alt={`${cur} 교재 슬라이드`}
-              className="w-full bg-white"
-            />
-            {/* 간글 — 이 슬라이드(개념도) 한 줄 부연 */}
-            {gloss?.d && (
-              <p className="border-t border-slate-100 px-4 py-2 text-[12.5px] leading-relaxed text-slate-500">
-                – {gloss.d}
-              </p>
-            )}
-          </section>
-        )}
+        {/* 학습 카드 — 실제 동작·왜 필요한가·용어 매핑·실전 쓰임·옆 토픽·답안 한 줄.
+            맨 위 "쉽게 이해하기" 머리말만 뺐고 나머지 절은 그대로 둔다. 교재 다음에 온다. */}
+        <StudyCard extra={extra} />
 
         {/* 내 도식 — 교재 도식을 사진/캡처로 직접 넣어 둔다(AI가 그린 그림 대신 원본) */}
         {cur && (
