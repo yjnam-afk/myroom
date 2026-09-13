@@ -4,17 +4,17 @@ import Link from "next/link";
 import type { SubnoteExtra } from "@/data/subnoteExtras";
 
 /**
- * 학습 카드 — 쉬운 말↔용어 매핑 → 옆 토픽 → 답안 한 줄.
+ * 학습 카드 — 쉬운 말↔용어 매핑 → 옆 토픽.
  *
  * "쉽게 이해하기" 머리말과 줄글 설명(실제 동작·왜 필요한가·실전 쓰임·비유)은
  * 전부 뺐다 — 풀어 쓴 설명은 이해에 도움이 안 된다는 피드백. 남긴 건 시험 용어
- * 매핑표, 옆 토픽 링크, 답안 한 줄처럼 구조화된 것뿐이다.
+ * 매핑표, 옆 토픽 링크뿐이다(답안 한 줄도 뺐다).
  * 자료(extra)는 서버(explainData)가 골라 props 로 준다.
  */
 export default function StudyCard({ extra }: { extra?: SubnoteExtra }) {
   const g = extra?.guide;
 
-  if (!g) return null;
+  if (!g || (g.map.length === 0 && g.links.length === 0)) return null;
 
   return (
     <section className="mb-6 space-y-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -70,11 +70,6 @@ export default function StudyCard({ extra }: { extra?: SubnoteExtra }) {
         </div>
       )}
 
-      {/* 3. 답안 한 줄 — 인출 목표 */}
-      <div className="rounded-xl border-2 border-brand-300 bg-brand-50/70 p-4">
-        <div className="mb-1.5 text-xs font-bold text-brand-700">✍️ 시험지엔 이렇게 씁니다</div>
-        <p className="text-[15px] font-medium leading-[1.95] text-slate-900">{g.exam}</p>
-      </div>
     </section>
   );
 }
