@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 /**
  * 루트(레이아웃) 수준 에러 바운더리. 청크 로드 에러는 조용히 새로고침해 복구한다.
@@ -18,13 +18,26 @@ export default function GlobalError({
       `${error?.name} ${error?.message}`,
     );
 
+  // 자동 새로고침을 한 번 시도하는 동안만 비운다. 막히면 안내와 오류 문구를 보여 준다.
+  const [reloading, setReloading] = useState(false);
+
   useEffect(() => {
     if (isChunk) {
       const key = "chunk-reload-at";
-      const last = Number(sessionStorage.getItem(key) || "0");
+      let last = 0;
+      try {
+        last = Number(sessionStorage.getItem(key) || "0");
+      } catch {
+        /* 저장소 차단 환경 */
+      }
       const now = Date.now();
       if (now - last > 10000) {
-        sessionStorage.setItem(key, String(now));
+        try {
+          sessionStorage.setItem(key, String(now));
+        } catch {
+          /* 무시 */
+        }
+        setReloading(true);
         window.location.reload();
       }
     }
@@ -33,7 +46,7 @@ export default function GlobalError({
   return (
     <html lang="ko">
       <body style={{ fontFamily: "sans-serif", textAlign: "center", padding: "64px 16px" }}>
-        {!isChunk && (
+        {!(isChunk && reloading) && (
           <>
             <div style={{ fontSize: 40 }}>📘</div>
             <h2 style={{ marginTop: 12, fontSize: 18, fontWeight: 700 }}>
@@ -41,6 +54,9 @@ export default function GlobalError({
             </h2>
             <p style={{ marginTop: 8, fontSize: 14, color: "#64748b" }}>
               일시적인 오류예요. 다시 시도하면 대부분 해결됩니다.
+            </p>
+            <p style={{ marginTop: 8, fontSize: 12, color: "#94a3b8", wordBreak: "break-all" }}>
+              {error?.name}: {error?.message}
             </p>
             <button
               onClick={() => reset()}

@@ -58,6 +58,9 @@ export default function Error({
       <p className="mt-2 text-sm text-slate-500">
         일시적인 오류예요. 다시 시도하면 대부분 해결됩니다.
       </p>
+      <p className="mt-2 break-all text-xs text-slate-400">
+        {error?.name}: {error?.message}
+      </p>
       <div className="mt-5 flex justify-center gap-2">
         <button
           onClick={() => reset()}
