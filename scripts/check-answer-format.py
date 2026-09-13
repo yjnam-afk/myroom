@@ -70,8 +70,8 @@ def check_p1(k, a):
             if d is None:
                 errs.append(f"{sec[x].strip()[:12]} 정의 줄 없음"); continue
             n = len(plain(d))
-            if n < 34 or n > 35:
-                errs.append(f"{sec[x].strip()[:6]} 정의 {n}자(34~35 필요)")
+            if n < 29 or n > 35:
+                errs.append(f"{sec[x].strip()[:6]} 정의 {n}자(29~30 필요, 기존 답안 35까지 허용)")
             if not any("특징)" in l for l in blk):
                 errs.append(f"{sec[x].strip()[:6]} 특징) 줄 없음")
         return errs
@@ -80,8 +80,8 @@ def check_p1(k, a):
         errs.append("정의 줄 없음")
     else:
         n = len(plain(d))
-        if n < 34 or n > 35:
-            errs.append(f"정의 {n}자(34~35 필요) → {d[:30]}")
+        if n < 29 or n > 35:
+            errs.append(f"정의 {n}자(29~30 필요, 기존 답안 35까지 허용) → {d[:30]}")
     feat = next((l for l in sec if "특징)" in l), None)
     if feat is None:
         errs.append("특징) 3개 줄 없음")
@@ -115,8 +115,8 @@ def check_p24(k, a):
             errs.append("서론 정의 줄 없음")
         else:
             n = len(plain(d))
-            if n < 34 or n > 35:
-                errs.append(f"서론 정의 {n}자(34~35 필요)")
+            if n < 29 or n > 35:
+                errs.append(f"서론 정의 {n}자(29~30 필요, 기존 답안 35까지 허용)")
         if not any("특징)" in l for l in seg):
             errs.append("서론 특징 3개 줄 없음")
     except StopIteration:

@@ -428,7 +428,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
                 </p>
                 <div className="mt-1 space-y-1.5 pl-4">
                   {textbook.defPair?.length ? (
-                    // 비교 토픽 — 개념별 정의(각 34~35자)와 특징을 가/나로 나눠 적는다.
+                    // 비교 토픽 — 개념별 정의(각 29~30자)와 특징을 가/나로 나눠 적는다.
                     textbook.defPair.map((p, i) => (
                       <div key={p.name}>
                         {/* 개념별 리드문이 있으면 소제목을 "리드문, 이름의 정의"로 세우고 정의를 아래 줄에 쓴다 */}
@@ -651,7 +651,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
               </p>
               <p className="mt-1 text-[13px] font-bold text-slate-400">답)</p>
 
-              {/* 1. 서론 — 교재와 같은 규격: 리드문의 정의 → 34~35자(공백 제외) 압축
+              {/* 1. 서론 — 교재와 같은 규격: 리드문의 정의 → 29~30자(공백 제외) 압축
                   정의 → 특징) 3가지. 서론 세트가 없는 토픽만 커널 카드 한 줄로 폴백. */}
               <div className="mt-2">
                 <p className="text-[13px] font-bold leading-relaxed text-slate-800">
