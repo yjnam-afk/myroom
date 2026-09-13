@@ -1656,8 +1656,44 @@ export const SUBNOTES: TextbookSubnote[] = [
       "② 스택 중심의 시스템에서는 스택 포인터를 변경하여 프로세스간 문맥교환 수행",
       "③ Light weight 프로세스인 스레드를 이용하여 Context switch 부하 최소화",
       "동작 메커니즘 도식: process P0 ↔ operating system ↔ process P1 — save state into PCB0 → reload state from PCB1 → (P1 executing, P0 idle) → save state into PCB1 → reload state from PCB0",
-      "문맥(Context)의 해설집 정의: 문맥교환 발생 시 반환된 자원에 대해 이전 프로세스 상태를 재현할 수 있도록 지원하는 자원 정보",
+      "문맥(Context)의 해설집 정의: 문맥교환 발생 시 반환된 자원에 대해 이전 프로세스 상태를 재현할 수 있도록 지원하는 자원 정보 — 유형·내용은 '문맥(Context)' 토픽에 따로 정리",
       "잦은 문맥교환은 PCB 저장 등 I/O에 시스템 자원을 과다 소비 — 1차로 횟수를 줄이고, 경량 프로세스(쓰레드)로 상태 전환 정보를 일부 공유해 해결 (NS 19기 2주차 2교시 2번)",
+    ],
+  },
+  {
+    title: "문맥(Context)",
+    course: "OS",
+    // 교재에는 문맥교환 안에서만 다뤄진다 — NS 19기 02주차 해설집 2교시 2번 '가. 문맥의 개념과 유형·내용'을 따로 세웠다.
+    definition:
+      "멀티 프로세스 환경에서 문맥교환 발생 시 반환된 자원에 대해 이전 프로세스 상태를 재현할 수 있도록 지원하는 자원정보",
+    defShort: "문맥교환 시 반환된 자원에 대해 이전 프로세스 상태를 재현하도록 지원하는 자원 정보",
+    lead: "프로세스 상태 재현 정보, 문맥(Context)",
+    features: ["상태 재현", "유형 3종", "PCB 저장"],
+    keywords: ["시스템 문맥", "메모리 문맥", "하드웨어 문맥", "PCB", "Program Counter", "Stack·Heap"],
+    tables: [
+      {
+        caption: "문맥의 유형과 내용",
+        headers: ["문맥 유형", "문맥 내용", "설명"],
+        rows: [
+          ["시스템 문맥", "PCB 정보 — PID·State·schedule·register·계정", "커널이 할당한 자료구조로 프로세스 자원 정보를 담음"],
+          ["메모리 문맥", "Stack·Heap·Swap 공간·Data·Text", "프로세스에 할당된 메모리 정보"],
+          ["하드웨어 문맥", "실행 위치 — HW register·Program Counter", "대기·준비로 전이할 때 어디까지 실행했는지 기억"],
+        ],
+      },
+      {
+        caption: "문맥과 문맥교환의 관계 — 저장·복원·오버헤드",
+        headers: ["구분", "시점", "설명"],
+        rows: [
+          ["저장", "인터럽트·시스템 콜 발생", "실행 중 프로세스의 현재 상태를 PCB에 저장"],
+          ["복원", "디스패치", "준비 큐에서 고른 다음 프로세스를 PCB에서 복구"],
+          ["오버헤드", "잦은 상태 전이", "PCB 저장 등 I/O에 시스템 자원 과다 소비"],
+        ],
+      },
+    ],
+    notes: [
+      "프로세스 상태 전이 시 문맥을 활용해 문맥교환을 수행 — Stack·PCB·Register가 문맥교환의 재료",
+      "한 쌍으로 볼 것: 절차·오버헤드 해결은 '문맥교환(Context Switching)' 토픽 — 이 토픽은 '무엇을 저장하는가', 그쪽은 '어떻게 바꾸는가'",
+      "출처: ITPE NS·단합반 19기 02주차 해설집(2026-09-13) 2교시 2번 가. 문맥의 개념과 문맥의 유형 및 내용",
     ],
   },
   {
