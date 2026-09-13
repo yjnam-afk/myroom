@@ -2319,13 +2319,12 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "13",
     question: "시스템 콜(System Call)의 종류와 커널 모드/유저 모드 전환 과정",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 단합반 멘토(110회) 출제 (모범답안, 난이도 중)",
-    topicTitles: ["커널(Kernel)", "CPU Ring Level"],
+    topicTitles: ["시스템 콜(System Call)", "커널(Kernel)", "CPU Ring Level"],
     questionIds: ["ns19w02-113"],
     maxScore: 10,
     pages: [
       { src: "/answers/sol-ns19w02-113-1.jpg", label: "1쪽 — 커널 진입 구간, 시스템 콜의 개요 · 시스템 호출의 종류와 커널 모드/" },
       { src: "/answers/sol-ns19w02-113-2.jpg", label: "2쪽 — 커널 모드와 유저 모드의 비교" },
-      { src: "/answers/sol-ns19w02-113-3.jpg", label: "3쪽 — 앞 항목 계속" },
     ],
   },
   {
@@ -2423,7 +2422,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/sol-ns19w02-206-3.jpg", label: "3쪽 — 소프트웨어 측면 임계 영역 제어 기법 상세설명" },
       { src: "/answers/sol-ns19w02-206-4.jpg", label: "4쪽 — 하드웨어 측면 임계 영역 제어 기법 설명" },
       { src: "/answers/sol-ns19w02-206-5.jpg", label: "5쪽 — 앞 항목 계속" },
-      { src: "/answers/sol-ns19w02-206-6.jpg", label: "6쪽 — 앞 항목 계속" },
     ],
   },
 ];

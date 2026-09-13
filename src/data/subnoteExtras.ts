@@ -71,6 +71,7 @@ const TITLE_SLUG: Record<string, string> = {
   "프로세스 상태 전이도": "process-state-transition",
   "가상메모리의 페이징과 세그멘테이션": "paging-segmentation",
   "CPU Ring Level": "cpu-ring-level",
+  "시스템 콜(System Call)": "system-call",
   "요구사항 명세서 SRS": "srs",
   "프로젝트 관리 계획서": "pm-plan-doc",
   "활동기간 산정기법": "duration-estimating",
@@ -3082,7 +3083,11 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         "커널은 하드웨어와 응용 프로그램 사이에서 프로세스·메모리·I/O·IPC·네트워크·파일시스템을 관리하는 운영체제의 핵심으로, 응용은 시스템 호출을 통해서만 커널 모드에 진입한다.",
     },
   },
-"cpu-ring-level": {
+"system-call": {
+    // 해설집(NS 19기 02주차 1교시 13번) "나. 시스템 콜의 기능" 개념도 — 응용 프로그램이 시스템 호출로 운영체제 안쪽에 들어가는 동심원
+    images: ["/concept/extra/system-call-sol.jpg"],
+  },
+  "cpu-ring-level": {
     image: "/concept/book/cpu-ring-level.webp", images: ["/concept/extra/cpu-ring-level-hand.webp"],
     guide: {
       hook: "'이 코드에 어디까지 허락할까'를 CPU가 등급으로 관리하는 구조입니다.",
