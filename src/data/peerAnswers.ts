@@ -2135,14 +2135,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/os-kernel-p2-4.jpg", label: "4쪽" },
     ],
   },
-  // ── ITPE NS·단합반 19기 02주차(2026-09-13) 해설집 — 문항별 모범답안 원본 페이지 ──
+  // ── ITPE NS·단합반 19기 02주차(2026-09-13) 해설집 — 문항별 모범답안 원본 페이지.
+  //    토픽 설명에는 걸지 않는다(해설집은 참고해서 토픽 내용을 고치는 자료이지 그대로 보여 줄 자료가 아니다) — 문제풀이의 해당 문항에서만 보인다. ──
   {
     id: "peer-sol-ns19w02-101",
     period: "1교시",
     no: "1",
     question: "프로세스 스레싱(Thrashing)",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 백현 기술사 출제 (모범답안, 난이도 하)",
-    topicTitles: ["스레싱(Thrashing)"],
+    topicTitles: [],
     questionIds: ["ns19w02-101"],
     maxScore: 10,
     pages: [
@@ -2157,7 +2158,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "2",
     question: "우선순위 역전(Priority Inversion) 현상",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 백현 기술사 출제 (모범답안, 난이도 하)",
-    topicTitles: ["우선순위 역전(Priority Inversion) 현상"],
+    topicTitles: [],
     questionIds: ["ns19w02-102"],
     maxScore: 10,
     pages: [
@@ -2171,7 +2172,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "3",
     question: "운영체제에서 PCB(Process Control Block) 및 TCB(Thread Control Block)가 스케줄링에 활용되는 방식",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 백현 기술사 출제 (모범답안, 난이도 하)",
-    topicTitles: ["PCB(Process Control Block)"],
+    topicTitles: [],
     questionIds: ["ns19w02-103"],
     maxScore: 10,
     pages: [
@@ -2185,7 +2186,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "4",
     question: "운영체제에서 페이지 교체 알고리즘",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 백현 기술사 출제 (모범답안, 난이도 하)",
-    topicTitles: ["페이지 교체 알고리즘(Paging Replacement Algorithm)"],
+    topicTitles: [],
     questionIds: ["ns19w02-104"],
     maxScore: 10,
     pages: [
@@ -2200,7 +2201,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "5",
     question: "운영체제(Operating System)의 인터럽트",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 백현 기술사 출제 (모범답안, 난이도 하)",
-    topicTitles: ["인터럽트(Interrupt)"],
+    topicTitles: [],
     questionIds: ["ns19w02-105"],
     maxScore: 10,
     pages: [
@@ -2215,7 +2216,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "6",
     question: "HBF(High Bandwidth Flash)",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 김민재 기술사 출제 (모범답안, 난이도 중)",
-    topicTitles: ["HBF(High Bandwidth Flash)"],
+    topicTitles: [],
     questionIds: ["ns19w02-106"],
     maxScore: 10,
     pages: [
@@ -2229,7 +2230,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "7",
     question: "GPU(Graphics Processing Unit)와 TPU(Tensor Processing Unit) 비교",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 김민재 기술사 출제 (모범답안, 난이도 중)",
-    topicTitles: ["TPU (Tensor Processing Unit)"],
+    topicTitles: [],
     questionIds: ["ns19w02-107"],
     maxScore: 10,
     pages: [
@@ -2243,7 +2244,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "8",
     question: "CXL(Compute Express Link) 3.0",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 김민재 기술사 출제 (모범답안, 난이도 중)",
-    topicTitles: ["CXL(Compute Express Link) 3.0"],
+    topicTitles: [],
     questionIds: ["ns19w02-108"],
     maxScore: 10,
     pages: [
@@ -2259,7 +2260,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "9",
     question: "자원할당 그래프 (Resource Allocation Graph)",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 김민재 기술사 출제 (모범답안, 난이도 중)",
-    topicTitles: ["자원할당 그래프(Resource Allocation Graph)"],
+    topicTitles: [],
     questionIds: ["ns19w02-109"],
     maxScore: 10,
     pages: [
@@ -2273,7 +2274,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "10",
     question: "메모리에서 지역성(Locality)의 개념과 유형",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 단합반 멘토(110회) 출제 (모범답안, 난이도 하)",
-    topicTitles: ["지역성(Locality)"],
+    topicTitles: [],
     questionIds: ["ns19w02-110"],
     maxScore: 10,
     pages: [
@@ -2289,7 +2290,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "11",
     question: "RAID(Redundant Array of Inexpensive Disks)",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 단합반 멘토(110회) 출제 (모범답안, 난이도 중)",
-    topicTitles: ["RAID (Redundant Array of Independent Disks)"],
+    topicTitles: [],
     questionIds: ["ns19w02-111"],
     maxScore: 10,
     pages: [
@@ -2304,7 +2305,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "12",
     question: "교착 상태(Deadlock)와 기아현상(Starvation) 비교",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 단합반 멘토(110회) 출제 (모범답안, 난이도 하)",
-    topicTitles: ["교착상태(Deadlock)", "기아(Starvation)"],
+    topicTitles: [],
     questionIds: ["ns19w02-112"],
     maxScore: 10,
     pages: [
@@ -2319,7 +2320,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "13",
     question: "시스템 콜(System Call)의 종류와 커널 모드/유저 모드 전환 과정",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 단합반 멘토(110회) 출제 (모범답안, 난이도 중)",
-    topicTitles: ["시스템 콜(System Call)", "커널(Kernel)", "CPU Ring Level"],
+    topicTitles: [],
     questionIds: ["ns19w02-113"],
     maxScore: 10,
     pages: [
@@ -2333,7 +2334,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "1",
     question: "운영체제의 스케줄링에 대하여 다음을 설명하시오.\n가. CPU 스케줄링 유형\n나. 운영체제 스케줄러(Operating System Scheduler)\n다. 프로세스 상태 전이도",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 백현 기술사 출제 (모범답안, 난이도 중)",
-    topicTitles: ["CPU 스케줄링(CPU Scheduling)", "스케줄러(Scheduler)", "프로세스 상태 전이도"],
+    topicTitles: [],
     questionIds: ["ns19w02-201"],
     maxScore: 25,
     pages: [
@@ -2349,7 +2350,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "2",
     question: "운영 체제(OS)의 문맥 교환(Context Switching)에 대하여 다음 질문에 답하시오.\n가. 문맥의 개념과 문맥의 유형 및 내용\n나. 문맥 교환 절차\n다. 문맥 교환 시 발생하는 오버헤드 해결 방법",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 백현 기술사 출제 (모범답안, 난이도 중)",
-    topicTitles: ["문맥교환(Context Switching)"],
+    topicTitles: [],
     questionIds: ["ns19w02-202"],
     maxScore: 25,
     pages: [
@@ -2364,7 +2365,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "3",
     question: "가상 메모리 관리 기법에 대하여 다음을 설명하시오.\n가. 가상 메모리 관리기법\n나. 페이징(Paging) 기법과 세그멘테이션(Segmentation) 기법\n다. 메모리 단편화",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 김민재 기술사 출제 (모범답안, 난이도 하)",
-    topicTitles: ["가상메모리 관리기법", "가상메모리의 페이징과 세그멘테이션", "메모리 단편화(Fragmentation)", "단편화(Fragmentation)"],
+    topicTitles: [],
     questionIds: ["ns19w02-203"],
     maxScore: 25,
     pages: [
@@ -2381,7 +2382,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "4",
     question: "캐시 메모리(Cache Memory)에 대하여 다음에 답하시오.\n가. 캐시 일관성(Cache Coherence)의 개념\n나. Write through 와 Write Back 의 비교 설명\n다. 캐시 일관성 유지를 위한 기법",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 김민재 기술사 출제 (모범답안, 난이도 중)",
-    topicTitles: ["캐시 일관성(Cache Coherence)", "캐시메모리의 쓰기정책(Write Policy)"],
+    topicTitles: [],
     questionIds: ["ns19w02-204"],
     maxScore: 25,
     pages: [
@@ -2396,7 +2397,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "5",
     question: "운영체제에서 가상메모리 관리 방법으로 페이지 교체 알고리즘을 사용한다. 다음을 설명 하시오.\n가. 페이지 교체 알고리즘을 사용하는 이유\n나. 페이지 교체 알고리즘의 종류, 각 종류별 동작 과정\n다. FIFO Anomaly 와 해결방안",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 단합반 멘토(110회) 출제 (모범답안, 난이도 중)",
-    topicTitles: ["페이지 교체 알고리즘(Paging Replacement Algorithm)", "Belady's Anomaly(FIFO 이상현상)"],
+    topicTitles: [],
     questionIds: ["ns19w02-205"],
     maxScore: 25,
     pages: [
@@ -2413,7 +2414,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "6",
     question: "멀티 프로세스 환경에서 임계 영역을 제어하는 것은 매우 중요한 이슈이다. 다음을 설명하시오.\n가. 경쟁조건(Race Condition)\n나. 소프트웨어 측면 임계 영역 제어 기법\n다. 하드웨어 측면 임계 영역 제어 기법",
     exam: "ITPE NS·단합반 19기 02주차 주간 실전모의고사 해설집(2026-09-13) · 단합반 멘토(110회) 출제 (모범답안, 난이도 중)",
-    topicTitles: ["경쟁조건(Race Condition) 해결 방안"],
+    topicTitles: [],
     questionIds: ["ns19w02-206"],
     maxScore: 25,
     pages: [
