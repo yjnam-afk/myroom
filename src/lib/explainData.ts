@@ -349,8 +349,10 @@ export type SheetRow = {
   pairs: { name: string; def: string }[];
   features: string[];
   keywords: string[];
-  /** 표 제목들 — 본론에 무엇을 쓰는지 한눈에 */
-  tables: string[];
+  /** 본론 3단표 전체 — 서브노트 표를 그대로(캡션·헤더·행) */
+  tables: { caption: string; headers: string[]; rows: string[][] }[];
+  /** 플러스 알파 메모 */
+  notes: string[];
   /** NS 모의고사 출제 횟수 / 기술사 기출 횟수 */
   ns: number;
   past: number;
@@ -380,7 +382,8 @@ export function buildSheet(): SheetGroup[] {
       pairs: [...(s.defPair || []), ...(s.subDefs || [])].map((p) => ({ name: p.name, def: p.def })),
       features: s.features || [],
       keywords: s.keywords,
-      tables: s.tables.map((t) => t.caption).filter(Boolean),
+      tables: s.tables.map((t) => ({ caption: t.caption, headers: t.headers, rows: t.rows })),
+      notes: s.notes || [],
       ns: hist.length,
       past: past.length,
       last: latest

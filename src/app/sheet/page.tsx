@@ -3,8 +3,10 @@ import { PageHeader } from "@/components/ui";
 import { buildSheet } from "@/lib/explainData";
 
 /**
- * 도메인별 토픽 정리표 — 선생님이 엑셀로 하라던 정리를 앱 한 페이지에서 본다.
- * 다운로드 없이, 도메인마다 표 하나. 줄 순서는 교재 목차(SUBNOTES 등장 순서) 그대로.
+ * 도메인별 토픽 정리표 — 손으로 쓰던 서브노트(엑셀식 정리)를 앱 한 페이지에 옮긴 것.
+ *
+ * 한 토픽이 한 줄이고, 그 줄 안에 정의·키워드·본론 3단표가 모두 들어간다.
+ * 다운로드 없이 도메인마다 표 하나. 줄 순서는 교재 목차(SUBNOTES 등장 순서) 그대로.
  * 자료는 빌드 때 서브노트에서 뽑는다(AI 호출 없음, 정적 페이지).
  */
 export const metadata = { title: "토픽 정리표 — 나의 공간" };
@@ -24,7 +26,7 @@ export default function SheetPage() {
     <div>
       <PageHeader
         title="📋 토픽 정리표"
-        desc={`심화반 교재 토픽 ${total}개를 도메인별 한 표로 — 리드문·정의(29~30자)·특징·키워드·본론 표·출제 이력. 토픽 이름을 누르면 설명으로 갑니다.`}
+        desc={`심화반 교재 토픽 ${total}개 — 한 줄에 정의·키워드·본론 3단표를 모두 넣은 서브노트식 정리. 토픽 이름을 누르면 설명으로 갑니다.`}
       />
 
       {/* 도메인 바로가기 — 위에 붙어 다닌다 */}
@@ -53,82 +55,102 @@ export default function SheetPage() {
               </span>
             </div>
 
-            <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
-              <table className="w-full min-w-[1000px] border-collapse text-[12.5px] leading-relaxed">
-                <thead className="bg-slate-50 text-left text-[11px] font-bold text-slate-500">
+            <div className="overflow-x-auto rounded-xl border border-slate-300 bg-white">
+              <table className="w-full min-w-[1100px] border-collapse text-[11.5px] leading-[1.45]">
+                <thead className="bg-slate-100 text-left text-[10.5px] font-bold text-slate-600">
                   <tr>
-                    <th className="w-9 border-b border-slate-200 px-2 py-2 text-right">#</th>
-                    <th className="w-10 border-b border-slate-200 px-2 py-2">중요</th>
-                    <th className="w-[11rem] border-b border-slate-200 px-2 py-2">토픽</th>
-                    <th className="w-[7.5rem] border-b border-slate-200 px-2 py-2">리드문</th>
-                    <th className="w-[13rem] border-b border-slate-200 px-2 py-2">정의(29~30자)</th>
-                    <th className="w-[8rem] border-b border-slate-200 px-2 py-2">특징</th>
-                    <th className="border-b border-slate-200 px-2 py-2">키워드</th>
-                    <th className="w-[9rem] border-b border-slate-200 px-2 py-2">본론 표</th>
-                    <th className="w-[6rem] border-b border-slate-200 px-2 py-2">출제</th>
+                    <th className="w-[10rem] border border-slate-300 px-2 py-1.5">토픽</th>
+                    <th className="w-[11rem] border border-slate-300 px-2 py-1.5">키워드</th>
+                    <th className="w-[15rem] border border-slate-300 px-2 py-1.5">정의 · 특징</th>
+                    <th className="border border-slate-300 px-2 py-1.5">본론 3단표</th>
                   </tr>
                 </thead>
                 <tbody>
                   {g.rows.map((r, i) => (
-                    <tr
-                      key={r.title}
-                      className={`align-top ${i % 2 ? "bg-slate-50/50" : "bg-white"} hover:bg-brand-50/40`}
-                    >
-                      <td className="border-b border-slate-100 px-2 py-2 text-right tabular-nums text-slate-400">
-                        {i + 1}
-                      </td>
-                      <td className="border-b border-slate-100 px-2 py-2">
+                    <tr key={r.title} className={`align-top ${i % 2 ? "bg-slate-50/40" : "bg-white"}`}>
+                      {/* 토픽 — 중요도·출제 이력까지 한 칸에 */}
+                      <td className="border border-slate-300 px-2 py-1.5">
                         <span
-                          className={`inline-block rounded px-1.5 py-0.5 text-[11px] font-bold ${
+                          className={`mr-1 inline-block rounded px-1 py-[1px] text-[10px] font-bold ${
                             IMP_CHIP[r.imp] || "bg-slate-100 text-slate-500"
                           }`}
                         >
                           {r.imp}
                         </span>
-                      </td>
-                      <td className="border-b border-slate-100 px-2 py-2 font-semibold text-slate-900">
                         <Link
                           href={`/explain?topic=${encodeURIComponent(r.title)}`}
-                          className="hover:text-brand-700 hover:underline"
+                          className="font-bold text-slate-900 hover:text-brand-700 hover:underline"
                         >
                           {r.title}
                         </Link>
+                        {r.ns + r.past > 0 && (
+                          <div className="mt-1 text-[10px] text-slate-500">
+                            <span className={r.ns >= 2 ? "font-bold text-red-600" : ""}>NS {r.ns}</span>
+                            {r.past > 0 && <span> · 기출 {r.past}</span>}
+                            {r.last && <div className="text-slate-400">최근 {r.last}</div>}
+                          </div>
+                        )}
                       </td>
-                      <td className="border-b border-slate-100 px-2 py-2 text-slate-600">{r.lead}</td>
-                      <td className="border-b border-slate-100 px-2 py-2 text-slate-800">
-                        {r.def}
+
+                      {/* 키워드 — 교재 '■ 키워드' 그대로, 채점 근거 */}
+                      <td className="border border-slate-300 px-2 py-1.5 text-slate-700">
+                        {r.keywords.map((k, ki) => (
+                          <div key={ki}>· {k}</div>
+                        ))}
+                      </td>
+
+                      {/* 정의 · 특징 — 답안 서론에 그대로 옮겨 적는 부분 */}
+                      <td className="border border-slate-300 px-2 py-1.5 text-slate-800">
+                        {r.lead && <div className="text-[10.5px] text-slate-500">{r.lead}</div>}
+                        {r.def && <div className="mt-0.5">{r.def}</div>}
                         {r.pairs.map((p) => (
-                          <div key={p.name} className="mt-1 first:mt-0">
-                            <span className="font-semibold text-slate-700">{p.name}</span>
-                            <span className="text-slate-400"> — </span>
-                            {p.def}
+                          <div key={p.name} className="mt-1">
+                            <span className="font-bold text-slate-700">{p.name}</span>
+                            <div>{p.def}</div>
                           </div>
                         ))}
+                        {r.features.length > 0 && (
+                          <div className="mt-1 text-slate-500">특징) {r.features.join(", ")}</div>
+                        )}
                       </td>
-                      <td className="border-b border-slate-100 px-2 py-2 text-slate-600">
-                        {r.features.join(", ")}
-                      </td>
-                      <td className="border-b border-slate-100 px-2 py-2 text-slate-700">
-                        {r.keywords.join(", ")}
-                      </td>
-                      <td className="border-b border-slate-100 px-2 py-2 text-slate-500">
-                        {r.tables.map((t, k) => (
-                          <div key={k}>· {t}</div>
+
+                      {/* 본론 — 3단표를 캡션과 함께 그대로 */}
+                      <td className="border border-slate-300 px-2 py-1.5">
+                        {r.tables.map((tb, ti) => (
+                          <div key={ti} className={ti ? "mt-2" : ""}>
+                            <div className="font-bold text-slate-700">
+                              {["가", "나", "다", "라", "마", "바", "사", "아"][ti] ?? "·"}. {tb.caption}
+                            </div>
+                            <table className="mt-0.5 w-full border-collapse text-[11px]">
+                              <tbody>
+                                {tb.rows.map((row, ri) => (
+                                  <tr key={ri}>
+                                    {row.map((c, ci) => (
+                                      <td
+                                        key={ci}
+                                        className={`border border-slate-200 px-1.5 py-[3px] align-top ${
+                                          ci === 0
+                                            ? "w-[7.5rem] font-semibold text-slate-700"
+                                            : ci === 1
+                                              ? "w-[7rem] whitespace-pre-line text-slate-700"
+                                              : "whitespace-pre-line text-slate-600"
+                                        }`}
+                                      >
+                                        {c}
+                                      </td>
+                                    ))}
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
                         ))}
-                      </td>
-                      <td className="border-b border-slate-100 px-2 py-2 text-slate-600">
-                        {r.ns + r.past > 0 ? (
-                          <>
-                            <span className={r.ns >= 2 ? "font-bold text-red-600" : ""}>
-                              NS {r.ns}
-                            </span>
-                            {r.past > 0 && <span> · 기출 {r.past}</span>}
-                            {r.last && (
-                              <div className="text-[11px] text-slate-400">최근 {r.last}</div>
-                            )}
-                          </>
-                        ) : (
-                          <span className="text-slate-300">–</span>
+                        {r.notes.length > 0 && (
+                          <div className="mt-1.5 text-[10.5px] text-slate-500">
+                            {r.notes.map((n, ni) => (
+                              <div key={ni}>+ {n}</div>
+                            ))}
+                          </div>
                         )}
                       </td>
                     </tr>
