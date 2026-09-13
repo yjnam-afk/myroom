@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 /**
  * 라우트 에러 바운더리.
@@ -19,23 +19,35 @@ export default function Error({
     /ChunkLoadError|Loading chunk|Loading CSS chunk|dynamically imported module|Failed to fetch/i.test(
       `${error?.name} ${error?.message}`,
     );
+  // 청크 에러로 자동 새로고침을 이미 한 번 했는데도 또 났으면 빈 화면 대신 안내를 보여 준다.
+  const [reloading, setReloading] = useState(false);
 
   useEffect(() => {
     if (isChunk) {
       // 배포 갱신으로 청크가 바뀐 경우 → 한 번만 하드 리로드해 최신 빌드 로드.
       const key = "chunk-reload-at";
-      const last = Number(sessionStorage.getItem(key) || "0");
+      let last = 0;
+      try {
+        last = Number(sessionStorage.getItem(key) || "0");
+      } catch {
+        /* 저장소 차단 환경 */
+      }
       const now = Date.now();
       // 리로드 루프 방지: 10초 내 재발이면 리로드하지 않고 안내 표시.
       if (now - last > 10000) {
-        sessionStorage.setItem(key, String(now));
+        try {
+          sessionStorage.setItem(key, String(now));
+        } catch {
+          /* 무시 */
+        }
+        setReloading(true);
         window.location.reload();
       }
     }
   }, [isChunk]);
 
-  // 청크 에러면 리로드가 곧 일어나므로 빈 화면(깜빡임 최소화).
-  if (isChunk) return null;
+  // 리로드가 진행 중일 때만 잠깐 비운다. 리로드가 막힌 경우엔 아래 안내가 뜬다.
+  if (isChunk && reloading) return null;
 
   return (
     <div className="mx-auto max-w-md py-16 text-center">
