@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 /**
  * 새 배포 감지 배너.
  * 현재 탭이 받은 빌드 ID(NEXT_PUBLIC_BUILD_ID)와, 라이브 서버의 /api/version 빌드 ID를
- * 주기적으로 비교한다. 다르면 = 새 버전이 배포된 것 → "새로고침" 안내를 띄운다.
+ * 주기적으로 비교한다. 다르면 = 새 버전이 배포된 것 → "새로고침" 안내를 띄우고,
+ * 탭으로 돌아온 순간이면 한 번 자동 새로고침한다.
  * (브라우저는 Vercel의 '빌드 중' 상태를 직접 알 수 없어, 새 버전이 라이브로 올라온 순간을 잡는다.)
  */
 export default function DeployBanner() {
@@ -21,32 +22,48 @@ export default function DeployBanner() {
       const t = el?.tagName;
       return t === "INPUT" || t === "TEXTAREA" || el?.isContentEditable === true;
     };
-    const handleStale = (liveId: string) => {
-      // 새 배포를 받았으면 자동으로 한 번만 새로고침(모바일은 수동 새로고침이 번거로움).
-      // 같은 빌드로는 다시 시도하지 않아 무한 새로고침을 막는다.
+    const safeGet = (k: string) => {
+      try {
+        return sessionStorage.getItem(k);
+      } catch {
+        return "1"; // 저장소를 못 쓰면 자동 새로고침을 하지 않는다(루프 방지)
+      }
+    };
+    const safeSet = (k: string) => {
+      try {
+        sessionStorage.setItem(k, "1");
+      } catch {
+        /* 무시 */
+      }
+    };
+    /**
+     * 새 배포를 받았을 때.
+     * - 자동 새로고침은 "탭으로 돌아온 순간"에만 한다. 보고 있는 도중에 화면이
+     *   갑자기 갈리면 읽던 자리를 잃는다 — 배포가 잇달아 올라간 날은 몇 번씩 그랬다.
+     * - 같은 빌드로는 한 번만 시도한다(무한 새로고침 방지). 못 했으면 배너로 안내.
+     */
+    const handleStale = (liveId: string, returning: boolean) => {
       const key = `deploy-reloaded-${liveId}`;
-      const alreadyTried = sessionStorage.getItem(key);
-      if (!alreadyTried && document.visibilityState === "visible" && !isTyping()) {
-        sessionStorage.setItem(key, "1");
+      if (returning && !safeGet(key) && document.visibilityState === "visible" && !isTyping()) {
+        safeSet(key);
         window.location.reload();
         return;
       }
-      // 자동 새로고침을 못 한 경우(입력 중·재시도 방지)엔 수동 배너로 안내.
       setStale(true);
     };
-    const check = async () => {
+    const check = async (returning = false) => {
       try {
         const res = await fetch("/api/version", { cache: "no-store" });
         if (!res.ok) return;
         const data = (await res.json()) as { id?: string };
-        if (active && data.id && data.id !== mine) handleStale(data.id);
+        if (active && data.id && data.id !== mine) handleStale(data.id, returning);
       } catch {
         // 네트워크 일시 오류는 무시
       }
     };
     check();
-    const iv = setInterval(check, 30000); // 30초마다
-    const onFocus = () => check();
+    const iv = setInterval(() => check(), 30000); // 30초마다 — 배너만 띄운다
+    const onFocus = () => check(true); // 탭으로 돌아왔을 때 — 이때만 자동 새로고침
     window.addEventListener("focus", onFocus);
     document.addEventListener("visibilitychange", onFocus);
     return () => {
