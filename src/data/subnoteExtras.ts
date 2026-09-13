@@ -2579,6 +2579,8 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
 "process-state-transition": {
     image: "/concept/book/process-state-transition.webp",
     images: ["/concept/extra/process-state-hand.png"],
+    // 토픽 자체가 다이어그램 — 2번 항목을 "개념도"가 아니라 "다이어그램"으로 부른다
+    imagesLabel: "다이어그램",
     guide: {
       hook: "주문서 한 장이 태어나서 나갈 때까지 서는 줄이 다섯 개 있습니다.",
       scene: "주문이 접수되고(생성), 조리 대기줄에 걸리고(준비), 요리사가 잡으면 조리 중(실행). 그런데 재료 배달을 기다려야 하면 옆 선반으로 잠시 빠지고(대기), 재료가 도착하면 다시 대기줄 맨 뒤로 돌아옵니다. 완성되면 나갑니다(종료).",
