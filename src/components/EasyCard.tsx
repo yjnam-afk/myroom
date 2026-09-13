@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { subnoteExtraFor } from "@/data/subnoteExtras";
+import type { SubnoteExtra } from "@/data/subnoteExtras";
 
 /**
  * 학습 카드 — 처음 보는 개념을 ★이해 → 기억 → 인출★ 순서로 태운다.
@@ -10,15 +10,9 @@ import { subnoteExtraFor } from "@/data/subnoteExtras";
  *  한 문장 → 실제 동작 → 왜 필요한가 → 쉬운 말↔용어 매핑 → 옆 토픽 → 답안 한 줄
  * 비유는 넣지 않는다 — 일상 소재로 바꾸면 오히려 개념이 흐려진다.
  * guide 가 없는 토픽은 예전 줄글(easy)을 그대로 보여준다.
+ * 자료(extra)는 서버(explainData)가 골라 props 로 준다 — 학습카드 전체를 번들에 싣지 않는다.
  */
-export default function EasyCard({
-  topicId,
-  title,
-}: {
-  topicId?: string;
-  title?: string;
-}) {
-  const extra = subnoteExtraFor(topicId, title);
+export default function EasyCard({ extra }: { extra?: SubnoteExtra }) {
   const g = extra?.guide;
 
   if (!g) {

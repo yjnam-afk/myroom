@@ -6,7 +6,7 @@
  * 비로그인(개인 모드)에서는 예전처럼 이 브라우저의 IndexedDB에만 저장한다.
  * 브라우저에 남아 있던 예전 도식은 서버 모드 첫 조회 때 자동으로 올려보낸다(1회 마이그레이션).
  */
-import { loadSession, isLocalSession } from "@/lib/auth";
+import { loadSession, isLocalSession } from "@/lib/session";
 
 const DB_NAME = "myroom-diagrams";
 const STORE = "images";

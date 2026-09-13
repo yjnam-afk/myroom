@@ -1,25 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import topics from "@/data/topics.json";
-import { SUBNOTES, subnoteByAlias } from "@/data/textbookSubnotes";
-import { DOMAIN_LABEL } from "@/lib/domains";
-
-type T = { id: string; title: string; category: string; importance: string };
-
-/** 검색 한 줄 — 서브노트(답안 템플릿)와 AI 토픽 목록을 합친 통합 후보 */
-type Entry = {
-  title: string;
-  /** 배지: 서브노트면 "답안", 아니면 중요도 */
-  badge: string;
-  /** 오른쪽 보조 표기: 과목 또는 카테고리 */
-  sub: string;
-  /** 검색 대상 문자열(소문자): 제목 + 키워드 + 34자 정의 */
-  hay: string;
-  /** topics.json 항목이 있으면 연결(토픽 id → AI 설명 근거) */
-  t?: T;
-  isSubnote: boolean;
-};
+import { useEffect, useMemo, useState } from "react";
+import { loadExplainIndex } from "@/lib/explainIndexClient";
+import type { SearchEntry as Entry, TopicOption as T } from "@/lib/explainData";
 
 /**
  * 토픽/키워드 직접 입력 시, 비슷한 토픽을 드롭다운으로 노출해 빠르게 선택.
@@ -27,10 +10,10 @@ type Entry = {
  *   예) "레인보우" → 해시 솔트와 키 스트레칭, "S-Box" → Shannon의 암호 설계 원칙
  * - onChange: 사용자가 직접 타이핑(데이터 연결 해제)
  * - onSelect: 제안을 선택(토픽 id까지 연결 → 교재 근거 사용)
+ *
+ * 검색 인덱스(제목·키워드·정의·표 내용)는 /api/explain-index 에서 한 번만 받는다.
+ * 예전엔 교재 서브노트 전체를 이 컴포넌트가 import 해 번들이 수 MB 로 불었다.
  */
-// 교재 과목 코드 → 도메인 이름 (자동완성 부제 표기용).
-// 이름은 lib/domains 한 곳에서만 정한다.
-const COURSE_LABEL = DOMAIN_LABEL;
 
 export default function TopicAutocomplete({
   value,
@@ -54,52 +37,23 @@ export default function TopicAutocomplete({
   const [active, setActive] = useState(0);
   const q = value.trim().toLowerCase();
 
-  // 통합 검색 인덱스 — 서브노트 우선, topics.json은 서브노트에 없는 제목만 추가
-  const entries = useMemo(() => {
-    const byTitle = new Map<string, T>();
-    for (const t of topics as T[]) byTitle.set(t.title, t);
-    const list: Entry[] = [];
-    const seen = new Set<string>();
-    for (const s of SUBNOTES) {
-      // 제목·정의·리드문·특징·키워드에 표 내용·비고까지 — 답안 어디에 나온 단어로든 찾을 수 있게
-      const hay = [
-        s.title,
-        s.defShort,
-        s.lead || "",
-        ...(s.features || []),
-        ...(s.keywords || []),
-        ...(s.defPair || []).flatMap((p) => [p.name, p.def, ...(p.features || [])]),
-        ...(s.notes || []),
-        ...s.tables.flatMap((tb) => [tb.caption || "", ...tb.rows.flat()]),
-      ]
-        .join(" ")
-        .toLowerCase();
-      list.push({
-        title: s.title,
-        badge: "답안",
-        sub: COURSE_LABEL[s.course] || s.course,
-        hay,
-        t: byTitle.get(s.title),
-        isSubnote: true,
+  // 통합 검색 인덱스 — 입력창을 처음 건드릴 때 받아 둔다(모듈 단위 캐시).
+  const [entries, setEntries] = useState<Entry[]>([]);
+  const [wanted, setWanted] = useState(false);
+  useEffect(() => {
+    if (!wanted) return;
+    let alive = true;
+    loadExplainIndex()
+      .then((idx) => {
+        if (alive) setEntries(idx.entries);
+      })
+      .catch(() => {
+        /* 인덱스를 못 받으면 제안 없이 직접 입력만 된다 */
       });
-      seen.add(s.title);
-    }
-    for (const t of topics as T[]) {
-      // 제목이 완전히 같지 않아도 교재에 있는 토픽이면 제안하지 않는다
-      // ("Singleton 패턴" ↔ "싱글턴 패턴 (Singleton pattern)").
-      if (seen.has(t.title) || subnoteByAlias((t as { id?: string }).id, t.title))
-        continue;
-      list.push({
-        title: t.title,
-        badge: t.importance,
-        sub: t.category,
-        hay: t.title.toLowerCase(),
-        t,
-        isSubnote: false,
-      });
-    }
-    return list;
-  }, []);
+    return () => {
+      alive = false;
+    };
+  }, [wanted]);
 
   const matches = useMemo(() => {
     if (q.length < 1) return [] as Entry[];
@@ -139,8 +93,12 @@ export default function TopicAutocomplete({
           onChange(e.target.value);
           setOpen(true);
           setActive(0);
+          setWanted(true);
         }}
-        onFocus={() => setOpen(true)}
+        onFocus={() => {
+          setOpen(true);
+          setWanted(true);
+        }}
         onBlur={() => setTimeout(() => setOpen(false), 150)}
         onKeyDown={(e) => {
           if (!open || matches.length === 0) return;

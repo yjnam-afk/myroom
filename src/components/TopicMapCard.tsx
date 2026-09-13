@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { compareSetsFor, memoryTablesFor } from "@/lib/topicMapLinks";
+import type { MapLink } from "@/lib/topicMapLinks";
+import type { MemoryTable } from "@/data/memoryTables";
 
 /**
  * 토픽 설명 안에 토픽 지도를 끌어온다.
@@ -13,11 +14,19 @@ import { compareSetsFor, memoryTablesFor } from "@/lib/topicMapLinks";
  * 그래서 이 토픽이 등장하는 비교 세트를 여기서 바로 펼친다. 지금 보는 토픽은
  * 굵게 칠해 어디에 서 있는지 보이게 하고, 나머지 항목은 그 토픽 설명으로
  * 바로 넘어가게 링크를 건다.
+ *
+ * 세트·표는 서버(explainData)가 찾아 props 로 준다 — 토픽 지도 자료 전체를 번들에 싣지 않는다.
  */
-export default function TopicMapCard({ title }: { title?: string }) {
+export default function TopicMapCard({
+  title,
+  sets,
+  tables,
+}: {
+  title?: string;
+  sets: MapLink[];
+  tables: MemoryTable[];
+}) {
   const t = (title || "").trim();
-  const sets = compareSetsFor(t);
-  const tables = memoryTablesFor(t);
   if (sets.length === 0 && tables.length === 0) return null;
 
   const key = norm(t);

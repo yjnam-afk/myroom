@@ -12,15 +12,9 @@ import questions from "@/data/questions.json";
  *  - 괄호 속 영문 이름(흔한 한 낱말 제외)이 들어 있으면 출제된 것으로 본다.
  * 짧은 영문 약어(6자 이하)는 낱말 단위로만 맞춘다 — "OS"가 "OSPF"에 걸리지 않게.
  */
-export type ExamAppearance = {
-  id: string;
-  cohort: string;      // "18기"
-  round: string;       // "09주차"
-  date: string;        // "2026-05-03"
-  period: string;      // "1교시"
-  exam?: string;       // "139회 실전 Simulation"
-  text: string;
-};
+import type { ExamAppearance, PastAppearance } from "@/lib/examHistoryUtil";
+export type { ExamAppearance, PastAppearance } from "@/lib/examHistoryUtil";
+export { ym, weekLabel, isRecent, summarize } from "@/lib/examHistoryUtil";
 
 type Q = {
   id: string;
@@ -159,13 +153,6 @@ export function examHistory(title: string): ExamAppearance[] {
 
 // ── 기술사 기출 — "몇 회 몇 교시 몇 번으로 나왔나" ────────────────────────────
 // 문제은행의 기출 문항은 id 가 k{회차}-{교시}{번호} 꼴이다(예: k140-106 = 140회 1교시 6번).
-export type PastAppearance = {
-  id: string;
-  round: number;   // 140
-  period: string;  // "1교시"
-  no: number;      // 6
-  text: string;
-};
 
 const PAST: { q: Q; sq: string; tokens: Set<string>; round: number; no: number }[] = (
   questions as Q[]
@@ -207,28 +194,3 @@ export function pastExams(title: string): PastAppearance[] {
   return out;
 }
 
-/** "2026-05-03" → "26.05" */
-export const ym = (d: string) => (d ? `${d.slice(2, 4)}.${d.slice(5, 7)}` : "");
-
-/** "09주차" → "9주차" */
-export const weekLabel = (r: string) => r.replace(/^0/, "");
-
-/** 최근 12개월 안에 나왔는가 — 강조 기준. */
-export function isRecent(date: string, now = new Date()): boolean {
-  if (!date) return false;
-  const d = new Date(date);
-  const ms = now.getTime() - d.getTime();
-  return ms >= 0 && ms < 365 * 24 * 3600 * 1000;
-}
-
-/** 이력 한 줄 요약 — 배지에 쓴다. */
-export function summarize(hist: ExamAppearance[], now = new Date()) {
-  const recent = hist.filter((h) => isRecent(h.date, now)).length;
-  return {
-    count: hist.length,
-    recent,
-    latest: hist[0]?.date || "",
-    /** 최근 1년에 2번 이상 또는 통산 4번 이상이면 "꼭 볼 것" */
-    must: recent >= 2 || hist.length >= 4,
-  };
-}
