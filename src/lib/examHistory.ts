@@ -98,7 +98,24 @@ function keysOf(title: string): Keys {
     if (!k) continue;
     if (isLatin(p)) {
       if (k.length >= 2) all.push(k);
-    } else if (k.length >= 2) all.push(k);
+      continue;
+    }
+    // 한글 뒤에 영문 약어가 붙은 제목("요구사항 명세서 SRS")은 통째로 열쇠를 만들면
+    // 아무 문항도 못 찾는다 — 문항에는 "요구사항명세서" 로만 나오기 때문이다.
+    // 한글 부분이 그 자체로 충분히 구체적일 때만(5자 이상·일반어 아님) 그것을 열쇠로 쓴다.
+    // 반대로 "ANN 알고리즘"처럼 한글이 일반어면 통째로 둔다 — 안 그러면 '알고리즘'이
+    // 든 문항을 전부 끌어온다.
+    const tail = /^(.*[가-힣])\s+([A-Za-z0-9][A-Za-z0-9 .-]*)$/.exec(p.trim());
+    if (tail) {
+      const ko = squeeze(tail[1]);
+      const lat = squeeze(tail[2]);
+      if (ko.length >= 5 && !KO_GENERIC.has(ko)) {
+        all.push(ko);
+        if (lat.length >= 3 && !GENERIC.has(lat)) any.push(lat);
+        continue;
+      }
+    }
+    if (k.length >= 2) all.push(k);
   }
   for (const m of title.matchAll(/[(（]([^)）]+)[)）]/g)) {
     const inner = m[1].trim();
