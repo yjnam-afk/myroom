@@ -114,13 +114,30 @@ function keysOf(title: string): Keys {
   return { all: Array.from(new Set(all)), any: Array.from(new Set(any)) };
 }
 
+/**
+ * 열쇠가 더 긴 낱말에 먹히는 경우 — 그 낱말만 나오는 문항은 이 토픽이 아니다.
+ * 예) "암호화"는 "암호화폐" 문항을 끌어왔고, "개인정보 보호기술"은 끝말 '기술'을 떼어
+ *     "개인정보보호"가 되면서 개인정보보호위원회·영향평가 문항까지 자기 이력으로 삼았다.
+ */
+const TRAP: Record<string, RegExp> = {
+  암호화: /암호화폐|암호화페/,
+  개인정보보호: /개인정보보호위원회|개인정보보호법|개인정보영향평가/,
+};
+
+function trapped(entry: { sq: string }, key: string): boolean {
+  const re = TRAP[key];
+  if (!re) return false;
+  // 덫이 되는 낱말을 지우고도 열쇠가 남아 있으면 진짜로 다룬 문항이다.
+  return !entry.sq.replace(new RegExp(re.source, "g"), "").includes(key);
+}
+
 function has(entry: { sq: string; tokens: Set<string> }, key: string): boolean {
   if (isLatin(key) && !/\s/.test(key) && key.length <= 6) return entry.tokens.has(key);
   return entry.sq.includes(key);
 }
 
 function hit(entry: { sq: string; tokens: Set<string> }, keys: Keys): boolean {
-  if (keys.all.length && keys.all.every((k) => has(entry, k))) return true;
+  if (keys.all.length && keys.all.every((k) => has(entry, k) && !trapped(entry, k))) return true;
   return keys.any.some((k) => has(entry, k));
 }
 

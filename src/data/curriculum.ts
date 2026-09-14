@@ -244,7 +244,7 @@ const PM_AGILE: CurriculumTopic[] = [
 ];
 
 
-// ── 2주차: 소프트웨어공학(SE) 101토픽 ─────────────────────────────────
+// ── 2주차: 소프트웨어공학(SE) 100토픽 ─────────────────────────────────
 // 교재 CONTENTS(80개판) 순서·Priority 그대로. CONTENTS 밖 토픽은 원래 자리에 남긴다. 슬라이드는 받는 대로 채운다.
 const SE_1: CurriculumTopic[] = [
   { title: "소프트웨어 개발 방법론", priority: "하" },
@@ -294,7 +294,6 @@ const SE_2: CurriculumTopic[] = [
   { title: "무중단 배포", priority: "중" },
   { title: "릴리즈 엔지니어링", priority: "하" },
   { title: "카오스 엔지니어링 (Chaos Engineering)", topicId: "se-144", priority: "중" },
-  { title: "DevSecOps", topicId: "sec-341", priority: "상" },
   { title: "테스트 원리", topicId: "se-149", priority: "중" },
   { title: "리뷰(Review)", priority: "하" },
   { title: "블랙박스 테스트", topicId: "se-156", priority: "상" },
