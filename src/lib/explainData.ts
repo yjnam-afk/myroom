@@ -23,7 +23,15 @@ import {
 import { subnoteExtraFor, type SubnoteExtra } from "@/data/subnoteExtras";
 import glossData from "@/data/gloss.json";
 import { peerAnswersFor, type PeerAnswer } from "@/data/peerAnswers";
-import { examHistory, pastExams, type ExamAppearance, type PastAppearance } from "@/lib/examHistory";
+import {
+  examHistory,
+  pastExams,
+  questionIdsForTitle,
+  type ExamAppearance,
+  type PastAppearance,
+} from "@/lib/examHistory";
+import { getModelAnswer } from "@/lib/modelAnswers";
+import allQuestions from "@/data/questions.json";
 import { compareSetsFor, memoryTablesFor, type MapLink } from "@/lib/topicMapLinks";
 import type { MemoryTable } from "@/data/memoryTables";
 import topics from "@/data/topics.json";
@@ -107,8 +115,22 @@ export type ExplainTopicData = {
   past: PastAppearance[];
   mapSets: MapLink[];
   mapTables: MemoryTable[];
+  /** 이 토픽으로 나온 문항 중 모범답안이 있는 것 — 토픽에서 바로 답안으로 간다 */
+  answers: TopicAnswer[];
   /** 같은 과목 안에서 앞뒤 토픽 — 교재 순서(SUBNOTES 배열 순서)대로 넘겨 본다 */
   nav?: ExplainNav;
+};
+
+/** 토픽 화면에 거는 모범답안 한 줄. */
+export type TopicAnswer = {
+  id: string;
+  period: string;
+  /** 문제 전문 — /answer 는 문제 본문으로 답안을 찾는다 */
+  question: string;
+  /** 답안 제목(모범답안 쪽 표기) */
+  title: string;
+  /** 출처 표기 — 기출·NS모의·파이널 등 */
+  kind: string;
 };
 
 export type ExplainNav = {
@@ -143,6 +165,42 @@ function navFor(textbook: TextbookSubnote | undefined, t: TopicRow | undefined):
   return undefined;
 }
 
+/**
+ * 이 토픽으로 나온 문항 중 모범답안이 달린 것들.
+ *
+ * 답안은 문항 id 로만 매달려 있어서 기출·문제은행에서 문항을 찾아야만 볼 수 있었다.
+ * 토픽 설명에서 "이 토픽 모범답안이 어디 있냐"가 안 보이던 이유다. 여기서 토픽
+ * 제목으로 문항을 찾아 답안이 있는 것만 추려 화면에 건다. 교시 순 → 최신 순.
+ */
+const Q_BY_ID = new Map(
+  (allQuestions as { id: string; period?: string; kind?: string; text: string; date?: string }[]).map(
+    (q) => [q.id, q],
+  ),
+);
+
+function topicAnswers(title: string): TopicAnswer[] {
+  const out: TopicAnswer[] = [];
+  const seen = new Set<string>();
+  for (const id of questionIdsForTitle(title)) {
+    const a = getModelAnswer(id);
+    const q = Q_BY_ID.get(id);
+    if (!a || !q) continue;
+    // 별칭으로 한 답안을 공유하는 문항이 여럿이면 한 줄만 건다.
+    const key = a.title + "|" + a.period;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push({
+      id,
+      period: a.period || q.period || "",
+      question: q.text,
+      title: a.title,
+      kind: q.kind || (id.startsWith("k") ? "기출" : ""),
+    });
+  }
+  out.sort((x, y) => x.period.localeCompare(y.period) || x.title.localeCompare(y.title));
+  return out;
+}
+
 export function explainTopicData(rawTitle: string): ExplainTopicData {
   const title = rawTitle.trim();
   const t = TOPICS.find((x) => x.title === title);
@@ -168,6 +226,7 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
     past: pastExams(title),
     mapSets: compareSetsFor(title),
     mapTables: memoryTablesFor(title),
+    answers: topicAnswers(title),
     nav: navFor(textbook, t),
   };
 }

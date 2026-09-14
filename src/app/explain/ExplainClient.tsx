@@ -968,6 +968,35 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
             나갔다 와야 했다. */}
         {/* NS 주간 모의고사 출제 이력 — 언제, 몇 번, 어떤 문구로 나왔나.
             빈도·최근성이 높으면 붉게 띄운다(꼭 볼 것). */}
+        {/* 이 토픽의 모범답안 — 문항 id 로만 매달려 있어 기출·문제은행에서
+            문항을 찾아야만 볼 수 있었다. 토픽에서 바로 가게 한다. */}
+        {(data?.answers?.length ?? 0) > 0 && (
+          <section className="mb-6 rounded-2xl border border-emerald-200 bg-emerald-50/40 p-5">
+            <h2 className="mb-1 text-base font-bold text-emerald-900">
+              ✍️ 이 토픽 모범답안 <span className="text-emerald-600">{data!.answers.length}</span>
+            </h2>
+            <p className="mb-3 text-[11.5px] text-emerald-700">
+              눌러서 바로 답안을 봅니다. 클로드가 답안작성방법론대로 미리 써 둔 것이라 AI 호출 없이 열립니다.
+            </p>
+            <ul className="space-y-1.5">
+              {data!.answers.map((a) => (
+                <li key={a.id}>
+                  <Link
+                    href={`/answer?period=${encodeURIComponent(a.period)}&question=${encodeURIComponent(a.question)}`}
+                    className="flex flex-wrap items-baseline gap-x-2 rounded-lg bg-white px-3 py-2 text-[13px] shadow-sm ring-1 ring-emerald-100 hover:ring-emerald-300"
+                  >
+                    <span className="shrink-0 rounded bg-emerald-100 px-1.5 py-[1px] text-[10.5px] font-bold text-emerald-700">
+                      {a.period}
+                    </span>
+                    <span className="font-medium text-slate-800">{a.title}</span>
+                    {a.kind && <span className="text-[10.5px] text-slate-400">{a.kind}</span>}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         <ExamHistoryCard hist={data?.hist ?? []} past={data?.past ?? []} />
 
         <TopicMapCard title={cur} sets={data?.mapSets ?? []} tables={data?.mapTables ?? []} />
