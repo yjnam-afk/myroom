@@ -41,6 +41,8 @@ python3 scripts/check-answer-format.py <회차>   # 140, ns1-, yc1-30 …
   - 항상 3열: 1열 구분(교재 그대로), 2열 키워드, 3열 설명.
   - 2열·3열은 1~2줄. 줄은 문자열 안의 `\n`. **한 줄은 공백 제외 5~7자**.
   - 2열과 3열은 줄 수가 같고, 1줄째↔1줄째·2줄째↔2줄째로 내용이 대응한다.
+  - 두 줄이면 서로 다른 항목이라는 뜻이다. 화면은 각 줄 앞에 `-` 를 붙여 구분해 그린다
+    (`src/components/TableCell.tsx`). 데이터에는 `-` 를 넣지 않는다 — 글자 수에 들어간다.
   - 교재 강조 키워드는 빼지 않는다. 화면은 `whitespace-pre` 로 줄바꿈을 그대로 그린다.
   - 검사: `npx tsx scripts/check-subnote-tables.ts` (빌드 전에 돌린다).
 - 커리큘럼(`src/data/curriculum.ts`)의 과목 토픽 목록은 교재 CONTENTS 의
