@@ -2673,6 +2673,138 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/se-poly-d-2.jpg", label: "2쪽 — 오버로딩" },
     ],
   },
+  // ── 구글 드라이브 「기술사 › 모범답안 › 08. 답안정리 › 02. SW공학」에서 가져온 정리 답안 ──
+  // 채점 답안지가 아니라 형광펜으로 정리해 둔 모범답안이라 점수가 없다.
+  {
+    id: "peer-drv-tailor",
+    period: "1교시",
+    no: "1",
+    question: "테일러링(Tailoring)",
+    exam: "정리 답안 (드라이브 02. SW공학)",
+    topicTitles: ["테일러링 (Tailoring)", "테일러링", "소프트웨어 개발 방법론"],
+    pages: [
+      { src: "/answers/drv-tailor-1.jpg", label: "1쪽" },
+      { src: "/answers/drv-tailor-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-drv-ad",
+    period: "1교시",
+    question: "Architecture Driver",
+    exam: "정리 답안 (드라이브 02. SW공학)",
+    topicTitles: ["소프트웨어 아키텍처 드라이버 (SW Architecture Driver)", "소프트웨어 아키텍처 드라이버", "아키텍처 드라이버"],
+    pages: [{ src: "/answers/drv-ad-1.jpg", label: "전면" }],
+  },
+  {
+    id: "peer-drv-solid",
+    period: "1교시",
+    question: "객체지향 설계 원리",
+    exam: "정리 답안 (드라이브 02. SW공학)",
+    topicTitles: ["객체지향 설계 원리", "SOLID"],
+    pages: [
+      { src: "/answers/drv-solid-1.jpg", label: "1쪽" },
+      { src: "/answers/drv-solid-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-drv-archeval",
+    period: "1교시",
+    question: "SW 아키텍처 평가 모델",
+    exam: "정리 답안 (드라이브 02. SW공학)",
+    topicTitles: ["소프트웨어 아키텍처 평가", "소프트웨어 아키텍처 평가 모델", "ATAM", "CBAM"],
+    pages: [
+      { src: "/answers/drv-archeval-1.jpg", label: "1쪽" },
+      { src: "/answers/drv-archeval-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-drv-archmodel",
+    period: "1교시",
+    question: "SW 아키텍처 모델 유형",
+    exam: "정리 답안 (드라이브 02. SW공학)",
+    topicTitles: ["소프트웨어 아키텍처 스타일", "아키텍처 스타일", "소프트웨어 아키텍처"],
+    pages: [
+      { src: "/answers/drv-archmodel-1.jpg", label: "1쪽" },
+      { src: "/answers/drv-archmodel-2.jpg", label: "2쪽" },
+      { src: "/answers/drv-archmodel-3.jpg", label: "3쪽" },
+    ],
+  },
+  {
+    id: "peer-drv-uml",
+    period: "1교시",
+    no: "5",
+    question: "UML(Unified Modeling Language)의 관계",
+    exam: "102회 커시응 1교시 정리 답안",
+    topicTitles: ["UML (정적, 동적 다이어그램)", "UML", "UML의 4+1 View Model"],
+    feedback: [
+      "관계 분류도 — 연관관계 → 전체/부분 관계 → 특수연관 → Life Cycle 동일 → 복합연관, 아니면 집합연관.",
+      "종류 표 — 연관(Association)·의존(Dependency)·일반화(Generalization)·실체화(Realization)와 UML 표기.",
+    ],
+    pages: [
+      { src: "/answers/drv-uml-1.jpg", label: "1쪽 — 정의·관계 분류도·종류" },
+      { src: "/answers/drv-uml-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-drv-qas",
+    period: "1교시",
+    no: "8",
+    question: "품질 속성 시나리오",
+    exam: "2019.8 합숙 · KPC 2017.7 정리 답안",
+    topicTitles: ["소프트웨어 품질 속성 시나리오", "품질 속성 시나리오"],
+    feedback: [
+      "구성도 — 자극 유발원(사람·시스템) → 환경(대상체) → 응답 측정(검증 가능·측정 결과).",
+      "구성요소 표 — 자극 유발원/자극/환경/대상체/응답/응답 측정.",
+    ],
+    pages: [
+      { src: "/answers/drv-qas-1.jpg", label: "1쪽 — 개요·구성도·구성요소" },
+      { src: "/answers/drv-qas-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-drv-fta",
+    period: "1교시",
+    no: "4",
+    question: "FTA, FMEA",
+    exam: "KPC 2019.7 합숙 1교시 정리 답안",
+    topicTitles: ["FTA (Fault Tree Analysis)", "FMEA (Failure Mode and Effects Analysis)", "FTA", "FMEA"],
+    feedback: [
+      "FTA — 위험의 원인을 논리게이트 조합의 트리 다이어그램으로 분석하는 기법(연역).",
+      "FMEA — 시스템 고장 요인 도출, 우선순위 등급에 따라 대응방법 수행(귀납).",
+      "비교표 — 개념도, 유형(사상기호·Basic Event·게이트기호 / 설계·공정·시스템 FMEA), 분석 방법.",
+    ],
+    pages: [
+      { src: "/answers/drv-fta-1.jpg", label: "1쪽 — 개념과 세부 비교" },
+      { src: "/answers/drv-fta-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-drv-tdd",
+    period: "1교시",
+    no: "8",
+    question: "TDD(Test Driven Development)",
+    exam: "정리 답안 (드라이브 02. SW공학)",
+    topicTitles: ["TDD (Test Driven Development)", "TDD"],
+    feedback: [
+      "개념도 — 요구사항 → Test Case → Code → (Bad Smell) Refactoring → 단순화, 자동화.",
+      "절차 표 — 테스트 작성(Add a Test) / 코드 작성(Make it Pass) / 리팩 (Make it ...).",
+    ],
+    pages: [
+      { src: "/answers/drv-tdd-1.jpg", label: "1쪽 — 개요·개념도·절차" },
+      { src: "/answers/drv-tdd-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-drv-poly",
+    period: "1교시",
+    question: "객체지향 다형성",
+    exam: "단합반 모범답안",
+    topicTitles: ["다형성 (Polymorphism)", "다형성", "객체지향"],
+    pages: [
+      { src: "/answers/drv-poly-1.jpg", label: "1쪽" },
+      { src: "/answers/drv-poly-2.jpg", label: "2쪽" },
+    ],
+  },
 ];
 
 /** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */
