@@ -2230,7 +2230,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "4",
     question: "S/W Architecture Style",
     exam: "ITPE 주간 실전모의고사",
-    topicTitles: ["소프트웨어 아키텍처 스타일", "아키텍처 스타일"],
+    topicTitles: ["소프트웨어 아키텍처 스타일", "아키텍처 스타일", "다형성 (Polymorphism)", "다형성"],
     score: 6,
     maxScore: 10,
     feedback: [
