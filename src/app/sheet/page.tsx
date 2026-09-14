@@ -33,7 +33,7 @@ export default function SheetPage() {
       {/* 도메인 바로가기 — 위에 붙어 다닌다 */}
       <nav
         aria-label="도메인 바로가기"
-        className="sticky top-[57px] z-[5] -mx-4 mb-6 flex gap-2 overflow-x-auto border-b border-slate-200 bg-white/90 px-4 py-2 backdrop-blur"
+        className="sticky top-[84px] z-[5] xl:top-[57px] -mx-4 mb-6 flex gap-2 overflow-x-auto border-b border-slate-200 bg-white/90 px-4 py-2 backdrop-blur"
       >
         {groups.map((g) => (
           <a

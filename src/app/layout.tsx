@@ -29,25 +29,29 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <header className="sticky top-0 z-10 border-b border-slate-200 bg-white/80 backdrop-blur">
-          <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+          {/*
+            메뉴는 화면이 좁아도 숨기지 않는다. 예전에는 xl 아래에서 nav 를 통째로
+            감춰서 휴대폰에서는 로고 말고 메인으로 갈 길이 없었다.
+            좁으면 아래 줄로 내려가 가로 스크롤한다.
+          */}
+          <div className="mx-auto flex max-w-5xl flex-col gap-1 px-4 py-2 xl:flex-row xl:items-center xl:justify-between xl:py-3">
             <Link href="/" className="flex items-center gap-2 whitespace-nowrap font-bold text-slate-900 shrink-0">
               <span className="grid h-8 w-8 place-items-center rounded-2xl bg-gradient-to-br from-brand-400 to-brand-500 text-base shadow-sm">
                 🏠
               </span>
               나의 공간
             </Link>
-            <div className="flex items-center gap-4">
-              <nav className="hidden gap-4 text-sm font-medium text-slate-600 xl:flex">
-                <Link href="/plan" className="font-semibold text-brand-600 hover:text-brand-700">🗓️ 계획</Link>
-                <Link href="/explain" className="hover:text-brand-600">💡 토픽 설명</Link>
-                <Link href="/sheet" className="hover:text-brand-600">📋 정리표</Link>
-                <Link href="/basics" className="hover:text-brand-600">🧱 용어사전</Link>
-                <Link href="/commute" className="hover:text-brand-600">🚇 지하철</Link>
-                <Link href="/exam" className="hover:text-brand-600">📝 기출문제</Link>
-                <Link href="/bank" className="hover:text-brand-600">🏦 문제은행</Link>
-                <Link href="/map" className="hover:text-brand-600">🗺️ 토픽지도</Link>
-              </nav>
-            </div>
+            <nav className="-mx-1 flex gap-3 overflow-x-auto px-1 pb-1 text-sm font-medium text-slate-600 xl:gap-4 xl:overflow-visible xl:pb-0">
+              <Link href="/" className="shrink-0 hover:text-brand-600 xl:hidden">🏠 메인</Link>
+              <Link href="/plan" className="shrink-0 font-semibold text-brand-600 hover:text-brand-700">🗓️ 계획</Link>
+              <Link href="/explain" className="shrink-0 hover:text-brand-600">💡 토픽 설명</Link>
+              <Link href="/sheet" className="shrink-0 hover:text-brand-600">📋 정리표</Link>
+              <Link href="/basics" className="shrink-0 hover:text-brand-600">🧱 용어사전</Link>
+              <Link href="/commute" className="shrink-0 hover:text-brand-600">🚇 지하철</Link>
+              <Link href="/exam" className="shrink-0 hover:text-brand-600">📝 기출문제</Link>
+              <Link href="/bank" className="shrink-0 hover:text-brand-600">🏦 문제은행</Link>
+              <Link href="/map" className="shrink-0 hover:text-brand-600">🗺️ 토픽지도</Link>
+            </nav>
           </div>
         </header>
         <NavDepth />
