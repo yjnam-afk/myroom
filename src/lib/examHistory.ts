@@ -215,3 +215,33 @@ export function pastExams(title: string): PastAppearance[] {
   return out;
 }
 
+
+// ── 문제은행 전체 매칭 — "이 토픽에 모범답안이 있나" 를 따질 때 쓴다 ──────────
+// examHistory·pastExams 는 NS 모의고사와 기술사 기출만 본다. 모범답안은 모의고사·
+// 파이널·예상·셀테 문항에도 달려 있어서, 그 둘만으로 세면 있는 답안을 없다고 센다.
+
+const ALL: { id: string; sq: string; tokens: Set<string> }[] = (questions as Q[]).map((q) => ({
+  id: q.id,
+  sq: squeeze(q.text),
+  tokens: new Set(
+    q.text
+      .toLowerCase()
+      .split(/[^a-z0-9+#]+/)
+      .filter(Boolean),
+  ),
+}));
+
+const allCache = new Map<string, string[]>();
+
+/** 토픽 제목과 맞는 문제은행 문항 id 전부(출처 무관). */
+export function questionIdsForTitle(title: string): string[] {
+  const t = (title || "").trim();
+  if (!t) return [];
+  const c = allCache.get(t);
+  if (c) return c;
+  const keys = keysOf(t);
+  const out =
+    keys.all.length || keys.any.length ? ALL.filter((e) => hit(e, keys)).map((e) => e.id) : [];
+  allCache.set(t, out);
+  return out;
+}
