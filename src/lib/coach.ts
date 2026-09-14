@@ -116,17 +116,6 @@ export function buildPlan(
 
   const tasks: CoachTask[] = [];
 
-  if (due.length > 0) {
-    tasks.push({
-      kind: "wrong",
-      emoji: "📕",
-      title: `오답 ${due.length}개 다시 풀기`,
-      detail: "틀린 문제는 잊기 직전이에요. 가장 먼저 잡으세요.",
-      href: "/notes",
-      priority: 0,
-      tone: "rose",
-    });
-  }
   if (reviewDue.length > 0) {
     tasks.push({
       kind: "review",
@@ -136,17 +125,6 @@ export function buildPlan(
       href: "/review",
       priority: 1,
       tone: "amber",
-    });
-  }
-  if (accuracy >= 0 && accuracy < 70) {
-    tasks.push({
-      kind: "weak",
-      emoji: "🎯",
-      title: `정답률 ${accuracy}% — 약점 보강`,
-      detail: "퀴즈 정답률이 낮아요. 암기 퀴즈로 키워드를 더 굳히세요.",
-      href: "/memorize",
-      priority: 2,
-      tone: "sky",
     });
   }
   if (newPicks.length > 0) {

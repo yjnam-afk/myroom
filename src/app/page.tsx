@@ -64,20 +64,6 @@ const menuGroups = [
         desc: "한 손으로 넘기는 두음 카드 · AI 없이 즉시 · 통신 약해도 OK",
         color: "from-slate-500 to-gray-600",
       },
-      {
-        href: "/memorize",
-        emoji: "🧠",
-        title: "암기 (카드·퀴즈)",
-        desc: "플래시카드·퀴즈로 키워드 반복 암기",
-        color: "from-amber-500 to-orange-600",
-      },
-      {
-        href: "/notes",
-        emoji: "📕",
-        title: "오답노트",
-        desc: "자주 틀린 키워드 집중 복습",
-        color: "from-slate-400 to-brand-500",
-      },
     ],
   },
   {
@@ -472,9 +458,8 @@ export default function Home() {
       <h2 className="mb-3 mt-10 text-lg font-bold text-slate-900">
         📊 내 학습 현황
       </h2>
-      <div className="mb-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+      <div className="mb-4 grid grid-cols-3 gap-4">
         <Stat label="완료 진도" value={`${progress}%`} accent />
-        <Stat label="퀴즈 정답률" value={stats.total > 0 ? `${accuracy}%` : "—"} />
         <Stat label="총 회독 수" value={`${totalRounds}회`} />
         <Stat label="오늘 복습" value={`${dueCount}개`} />
       </div>
@@ -498,40 +483,6 @@ export default function Home() {
             {total - doneCount - learningCount}개
           </p>
 
-          <div className="mt-4 border-t border-slate-100 pt-4 text-sm text-slate-600">
-            {stats.total > 0 ? (
-              <>
-                퀴즈 <span className="font-semibold">{stats.total}</span>문제 중{" "}
-                <span className="font-semibold text-amber-600">
-                  {stats.correct}
-                </span>
-                문제 정답 (정답률 {accuracy}%).
-                {notesCount > 0 && (
-                  <>
-                    {" "}
-                    <Link
-                      href="/notes"
-                      className="font-medium text-brand-600 hover:underline"
-                    >
-                      오답노트
-                    </Link>
-                    에서 복습하세요.
-                  </>
-                )}
-              </>
-            ) : (
-              <>
-                아직 푼 퀴즈가 없습니다.{" "}
-                <Link
-                  href="/memorize"
-                  className="font-medium text-brand-600 hover:underline"
-                >
-                  암기 퀴즈
-                </Link>
-                를 풀면 정답률이 기록됩니다.
-              </>
-            )}
-          </div>
         </div>
 
         <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
