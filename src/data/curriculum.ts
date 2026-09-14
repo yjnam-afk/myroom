@@ -244,10 +244,11 @@ const PM_AGILE: CurriculumTopic[] = [
 ];
 
 
-// ── 2주차: 소프트웨어공학(SE) 96토픽 ─────────────────────────────────
-// 교재 CONTENTS(96개판) 순서·Priority 그대로. 슬라이드는 받는 대로 채운다.
+// ── 2주차: 소프트웨어공학(SE) 101토픽 ─────────────────────────────────
+// 교재 CONTENTS(80개판) 순서·Priority 그대로. CONTENTS 밖 토픽은 원래 자리에 남긴다. 슬라이드는 받는 대로 채운다.
 const SE_1: CurriculumTopic[] = [
   { title: "소프트웨어 개발 방법론", priority: "하" },
+  { title: "AI-DLC(AI-Driven SDLC)", priority: "중" },
   { title: "소프트웨어 설계의 원리", priority: "하" },
   { title: "객체지향 프로그래밍 특징", topicId: "se-18", priority: "상" },
   { title: "다형성 (Polymorphism)", priority: "중" },
@@ -285,7 +286,9 @@ const SE_2: CurriculumTopic[] = [
   { title: "SAGA패턴", priority: "하" },
   { title: "DDD (Domain Driven Design)", priority: "중" },
   { title: "Event Driven Architecture", priority: "중" },
+  { title: "이벤트 스토밍(Event Storming)과 헥사고날(Hexagonal) 아키텍처", priority: "하" },
   { title: "TDD (Test Driven Development)", priority: "중" },
+  { title: "SDD(Spec-Driven Development)", priority: "중" },
   { title: "데브옵스 (DevOps)", priority: "상" },
   { title: "SRE (Site Reliability Engineering)", topicId: "se-141", priority: "중" },
   { title: "무중단 배포", priority: "중" },
@@ -339,6 +342,8 @@ const SE_3: CurriculumTopic[] = [
   { title: "SW 사업대가 ('25년 개정판)", priority: "중" },
   { title: "난독화", topicId: "se-296", priority: "중" },
   { title: "정보시스템 운영/유지보수 감리", priority: "중" },
+  { title: "지능정보기술 감리 실무 가이드 - 클라우드 감리", priority: "중" },
+  { title: "지능정보기술 감리 실무 가이드 - 빅데이터 감리", priority: "중" },
   { title: "정보시스템 감리 의무 대상과 관점별 점검 기준", priority: "상" },
   { title: "공통감리 절차", priority: "상" },
   { title: "정보시스템 감리결과보고서 (구성, 보고사항)", priority: "중" },

@@ -571,7 +571,6 @@ const TITLE_SLUG: Record<string, string> = {
   "AI 프라이버시 리스크 관리": "sc-ai-privacy-risk",
   "데이터 상호 운용성 & 데이터 이동권": "dx-data-interop",
   "AI Agent 보안위협": "sc-ai-agent-threat",
-  "AI-DLC(AI-Driven SDLC)와 SDD(Spec Driven Development)": "dx-ai-dlc-sdd",
   "AI OS(Artificial Intelligence Operating System)": "dx-aios",
   "연관성 분석(association analysis) — 기초통계": "st-association",
   "회귀분석(Regression Analysis)": "st-regression",
