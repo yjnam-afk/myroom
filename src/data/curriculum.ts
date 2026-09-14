@@ -199,11 +199,11 @@ const CA_ALL: CurriculumTopic[] = [
 
 // ── 2주차: 프로젝트 관리(PM) 33토픽 ───────────────────────────────────
 const PM_PLAN: CurriculumTopic[] = [
-  { title: "경제성 분석 기법", topicId: "gj-144", priority: "중" },
+  { title: "경제성 분석 기법", topicId: "gj-144", priority: "하" },
   { title: "프로젝트 관리 계획서", priority: "하" },
   { title: "범위관리", topicId: "pm-24", priority: "중" },
   { title: "요구사항 수집기법", topicId: "pm-25", priority: "상" },
-  { title: "요구사항 명세서 SRS", priority: "중" },
+  { title: "요구사항 명세서 SRS", priority: "상" },
   { title: "WBS (Work Breakdown Structure)", topicId: "pm-27", priority: "상" },
   { title: "Scope Creep vs Gold-Plating", topicId: "pm-30", priority: "중" },
   { title: "활동기간 산정기법", priority: "하" },
@@ -213,11 +213,11 @@ const PM_SCHEDULE: CurriculumTopic[] = [
   { title: "3점 산정", topicId: "pm-35", priority: "하" },
   { title: "CPM (Critical Path Management)", topicId: "pm-36", priority: "중" },
   { title: "CCM (Critical Chain Management)", topicId: "pm-37", priority: "중" },
-  { title: "일정단축 기법", priority: "상" },
+  { title: "일정단축 기법", priority: "중" },
   { title: "EVM(Earned Value Management, 획득 가치 관리)", topicId: "pm-46", priority: "중" },
   { title: "품질통제도구, QC 7", topicId: "pm-50", priority: "중" },
   { title: "형상 관리", topicId: "pm-51", priority: "상" },
-  { title: "SW 품질비용", priority: "하" },
+  { title: "SW 품질비용", priority: "중" },
 ];
 
 const PM_TEAM: CurriculumTopic[] = [
@@ -227,20 +227,20 @@ const PM_TEAM: CurriculumTopic[] = [
   { title: "터크만 팀 개발 5단계", topicId: "pm-56", priority: "중" },
   { title: "갈등관리", priority: "중" },
   { title: "프로젝트 위험관리", topicId: "pm-59", priority: "중" },
-  { title: "정성적 위험 분석", topicId: "pm-60", priority: "상" },
+  { title: "정성적 위험 분석", topicId: "pm-60", priority: "중" },
   { title: "정량적 위험 분석", topicId: "pm-62", priority: "상" },
 ];
 
 const PM_AGILE: CurriculumTopic[] = [
-  { title: "몬테카를로 시뮬레이션", priority: "중" },
-  { title: "위험 대응", topicId: "pm-64", priority: "중" },
+  { title: "몬테카를로 시뮬레이션", priority: "하" },
+  { title: "위험 대응", topicId: "pm-64", priority: "상" },
   { title: "PMBOK 8개 성과 영역 및 프로젝트 관리 12원칙(PMBOK 7판)", topicId: "pm-14", priority: "하" },
   { title: "감리/PMO 비교표", topicId: "pm-90", priority: "상" },
   { title: "Agile 선언문과 12개 원칙", priority: "하" },
   { title: "스크럼 (SCRUM)", topicId: "pm-73", priority: "상" },
-  { title: "번다운차트 (Burn Down Chart)", topicId: "pm-86", priority: "상" },
-  { title: "XP (eXtreme Programming)", topicId: "pm-74", priority: "하" },
-  { title: "린 (Lean) 방법론", topicId: "pm-77", priority: "하" },
+  { title: "번다운차트 (Burn Down Chart)", topicId: "pm-86", priority: "하" },
+  { title: "XP (eXtreme Programming)", topicId: "pm-74", priority: "중" },
+  { title: "린 (Lean) 방법론", topicId: "pm-77", priority: "중" },
 ];
 
 
