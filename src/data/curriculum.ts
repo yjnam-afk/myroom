@@ -94,7 +94,7 @@ type Subject = { name: string; topics: CurriculumTopic[] };
  *
  * 날짜 배분은 토픽 수에 비례하되 과목마다 최소 1일은 보장한다.
  *   1주차 OS 32 / CA 21, 4일 → OS 2일(16·16), CA 2일(11·10)
- *   2주차 PM 33 / SE 96, 4일 → PM 1일(33), SE 3일(32·32·32)
+ *   2주차 SE 100 / PM 33, 4일 → SE 3일(34·33·33), PM 1일(33)
  */
 function studyDays(subjects: Subject[], totalDays = 4): CurriculumDay[] {
   const total = subjects.reduce((a, s) => a + s.topics.length, 0);
@@ -356,8 +356,8 @@ const SE_3: CurriculumTopic[] = [
 ];
 
 const WEEK2_DAYS: CurriculumDay[] = studyDays([
-  { name: "프로젝트 관리(PM)", topics: [...PM_PLAN, ...PM_SCHEDULE, ...PM_TEAM, ...PM_AGILE] },
   { name: "소프트웨어공학(SE)", topics: [...SE_1, ...SE_2, ...SE_3] },
+  { name: "프로젝트 관리(PM)", topics: [...PM_PLAN, ...PM_SCHEDULE, ...PM_TEAM, ...PM_AGILE] },
 ]);
 
 const STUDY_DAYS: CurriculumDay[] = studyDays([

@@ -297,8 +297,10 @@ export default function PlanPage() {
   const [done, setDone] = useState<Set<string>>(new Set());
   const [todayKey, setTodayKey] = useState<string | null>(null);
   const [today, setToday] = useState<string | null>(null);
-  // 아래 리스트에 펼칠 주차 — 기본은 오늘이 속한 주차 하나만("all"이면 전체).
-  const [sel, setSel] = useState<string | "all">("all");
+  // 아래 리스트에 펼칠 주차 — 한 번에 한 주씩 본다("all"은 눌러서 고를 때만).
+  // 처음에는 null(정하는 중)로 두고 useEffect 가 오늘 주차를 넣는다. 기본을 "all"로
+  // 두면 첫 화면이 16주치를 한꺼번에 그려 스크롤이 끝없이 길어졌다.
+  const [sel, setSel] = useState<string | "all" | null>(null);
 
   /**
    * 보고 있던 주차를 이 탭에만 기억해 둔다.
@@ -341,8 +343,26 @@ export default function PlanPage() {
       }
       return;
     }
-    if (t) setSel(t.week.start);
+    if (t) {
+      setSel(t.week.start);
+      return;
+    }
+    // 커리큘럼 밖의 날이면 오늘 이후 가장 가까운 주, 그것도 없으면 마지막 주를 연다.
+    const iso = todayISO();
+    const sorted = [...WEEKS].sort((a, b) => a.start.localeCompare(b.start));
+    setSel((sorted.find((w) => w.start >= iso) ?? sorted[sorted.length - 1])?.start ?? "all");
   }, []);
+
+  /** 주 단위 이동 — 한 칸씩 넘기며 본다. */
+  const ordered = [...WEEKS].sort((a, b) => a.start.localeCompare(b.start));
+  const at = sel && sel !== "all" ? ordered.findIndex((w) => w.start === sel) : -1;
+  const goWeek = (step: number) => {
+    const next = ordered[at + step];
+    if (!next) return;
+    setSel(next.start);
+    remember(next.start);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   /** 달력 학습일 클릭 — 그 주차만 펼치고 해당 날짜 카드로 스크롤 */
   function pick(weekStart: string, date: string) {
@@ -437,6 +457,43 @@ export default function PlanPage() {
       </div>
 
       {/* 주차 선택 — 달력에서 날짜를 눌러도 해당 주차로 바뀐다 */}
+      {/* 주 단위 이동 — 한 주씩 넘겨 본다 */}
+      {at >= 0 && (
+        <div className="mb-3 flex items-stretch gap-2">
+          <button
+            type="button"
+            disabled={at <= 0}
+            onClick={() => goWeek(-1)}
+            className="flex min-w-0 flex-1 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-left text-sm hover:border-brand-400 hover:bg-brand-50 disabled:cursor-default disabled:opacity-40"
+          >
+            <span className="shrink-0 text-slate-400">←</span>
+            <span className="min-w-0">
+              <span className="block text-[10px] font-bold text-slate-400">이전 주</span>
+              <span className="block truncate font-medium text-slate-800">
+                {at > 0 ? weekChipLabel(ordered[at - 1].title) : "처음 주"}
+              </span>
+            </span>
+          </button>
+          <span className="hidden shrink-0 items-center px-1 text-[11px] tabular-nums text-slate-400 sm:flex">
+            {at + 1}/{ordered.length}
+          </span>
+          <button
+            type="button"
+            disabled={at >= ordered.length - 1}
+            onClick={() => goWeek(1)}
+            className="flex min-w-0 flex-1 items-center justify-end gap-2 rounded-xl border border-brand-200 bg-brand-50/60 px-3 py-2 text-right text-sm hover:border-brand-400 hover:bg-brand-50 disabled:cursor-default disabled:opacity-40"
+          >
+            <span className="min-w-0">
+              <span className="block text-[10px] font-bold text-brand-600">다음 주</span>
+              <span className="block truncate font-semibold text-slate-900">
+                {at < ordered.length - 1 ? weekChipLabel(ordered[at + 1].title) : "마지막 주"}
+              </span>
+            </span>
+            <span className="shrink-0 text-brand-500">→</span>
+          </button>
+        </div>
+      )}
+
       <div className="mb-4 flex flex-wrap gap-1.5">
         <button
           type="button"
@@ -470,7 +527,7 @@ export default function PlanPage() {
           ))}
       </div>
 
-      {WEEKS.filter((w) => sel === "all" || w.start === sel).map((week) => (
+      {WEEKS.filter((w) => sel !== null && (sel === "all" || w.start === sel)).map((week) => (
         <section key={week.start} className="mb-8">
           <h2 className="mb-3 text-base font-bold text-slate-900">
             {week.title}{" "}

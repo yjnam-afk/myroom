@@ -455,64 +455,6 @@ export default function Home() {
         </div>
       )}
 
-      <h2 className="mb-3 mt-10 text-lg font-bold text-slate-900">
-        📊 내 학습 현황
-      </h2>
-      <div className="mb-4 grid grid-cols-3 gap-4">
-        <Stat label="완료 진도" value={`${progress}%`} accent />
-        <Stat label="총 회독 수" value={`${totalRounds}회`} />
-        <Stat label="오늘 복습" value={`${dueCount}개`} />
-      </div>
-
-      <div className="mb-6 grid gap-6 lg:grid-cols-2">
-        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div className="mb-2 flex justify-between text-sm">
-            <span className="font-medium text-slate-700">
-              토픽 완료 ({doneCount}/{total})
-            </span>
-            <span className="text-slate-500">{progress}%</span>
-          </div>
-          <div className="h-3 w-full overflow-hidden rounded-full bg-slate-100">
-            <div
-              className="h-full rounded-full bg-gradient-to-r from-brand-500 to-brand-600 transition-all"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-          <p className="mt-3 text-xs text-slate-500">
-            학습 중 {learningCount}개 · 시작 전{" "}
-            {total - doneCount - learningCount}개
-          </p>
-
-        </div>
-
-        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h3 className="mb-4 text-sm font-semibold text-slate-700">
-            분야별 완료 현황
-          </h3>
-          <div className="space-y-3">
-            {byCategory.map((c) => {
-              const pct = c.total ? Math.round((c.done / c.total) * 100) : 0;
-              return (
-                <div key={c.cat}>
-                  <div className="mb-1 flex justify-between text-xs">
-                    <span className="text-slate-600">{c.cat}</span>
-                    <span className="text-slate-400">
-                      {c.done}/{c.total}
-                    </span>
-                  </div>
-                  <div className="h-2 w-full overflow-hidden rounded-full bg-slate-100">
-                    <div
-                      className="h-full rounded-full bg-brand-500 transition-all"
-                      style={{ width: `${pct}%` }}
-                    />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-
       <h2 className="mb-1 mt-10 text-lg font-bold text-slate-900">메뉴</h2>
       <p className="mb-4 text-sm text-slate-500">
         이해 → 암기 → 답안 → 복습 순서로 학습하면 효과적입니다.
