@@ -604,15 +604,6 @@ export default function PlanPage() {
                             )}
                             {/* NS 주간 모의고사 출제 이력 — 몇 번, 언제. 자주·최근이면 붉게. */}
                             <ExamHistoryChip title={t.title} />
-                            {/* 교재 서브노트만 있어도(topicId 없어도) 두음신공은 열린다 */}
-                            {(t.topicId || sub) && (
-                              <Link
-                                href={`/mnemonic?topic=${encodeURIComponent(t.title)}${t.topicId ? `&topicId=${t.topicId}` : ""}`}
-                                className="shrink-0 rounded-md bg-brand-600 px-2 py-1 text-[11px] font-medium text-white hover:bg-brand-700"
-                              >
-                                🥷
-                              </Link>
-                            )}
                             <Link
                               href={`/explain?topic=${encodeURIComponent(t.title)}`}
                               className="shrink-0 rounded-md border border-slate-200 bg-white px-2 py-1 text-[11px] font-medium text-slate-600 hover:bg-slate-100"

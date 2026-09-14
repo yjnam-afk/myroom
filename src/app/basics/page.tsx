@@ -483,12 +483,6 @@ export default function BasicsPage() {
                     >
                       💡 설명
                     </Link>
-                    <Link
-                      href={`/mnemonic?topic=${encodeURIComponent(s.title)}`}
-                      className="rounded-md bg-brand-600 px-2 py-0.5 text-[11px] font-medium text-white hover:bg-brand-700"
-                    >
-                      🥷 암기
-                    </Link>
                   </span>
                 </div>
                 {/* 답안 2줄 정의(17자×2=34자) — 시험지에 쓰는 그 문장 */}

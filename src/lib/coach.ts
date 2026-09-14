@@ -43,12 +43,12 @@ export type CoachPlan = {
 
 const IMP_ORDER: Record<string, number> = { 상: 0, 출제예상: 1, 중: 2, 하: 3 };
 
-/** 토픽을 두음신공에 바로 연결해서 여는 링크. auto=true면 도착 즉시 생성. */
+/** 토픽을 설명 화면에 연결해서 여는 링크(암기 훈련장을 없앤 뒤 이쪽으로 보낸다). */
 export function mnemonicLink(
   t: { id: string; title: string },
   auto = false,
 ): string {
-  const q = `/mnemonic?topicId=${encodeURIComponent(t.id)}&topic=${encodeURIComponent(t.title)}`;
+  const q = `/explain?topic=${encodeURIComponent(t.title)}`;
   return auto ? `${q}&auto=1` : q;
 }
 
@@ -155,7 +155,7 @@ export function buildPlan(
       kind: "new",
       emoji: "🆕",
       title: `새 토픽 ${newPicks.length}개 시작 (중요도 ${imp} 우선)`,
-      detail: "암기 훈련장에서 키워드부터 외우고 답안 소설을 써보세요.",
+      detail: "토픽 설명에서 답안지 템플릿을 보고 답안 소설을 써보세요.",
       href: mnemonicLink(newPicks[0], true),
       priority: 3,
       tone: "violet",
@@ -191,7 +191,7 @@ export function buildPlan(
   let subline: string;
   if (due.length + reviewDue.length === 0 && stats.total === 0) {
     headline = "오늘부터 시작해 볼까요? 🚀";
-    subline = "중요도 '상' 토픽부터 암기 훈련장에서 키워드를 외워보세요.";
+    subline = "중요도 '상' 토픽부터 토픽 설명에서 키워드를 익혀보세요.";
   } else if (due.length > 0) {
     headline = `잊기 전에 오답 ${due.length}개부터 잡아요 📕`;
     subline = "복습은 타이밍이 전부예요. 가장 급한 것부터 코치가 정리했어요.";

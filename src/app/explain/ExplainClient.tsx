@@ -313,7 +313,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
     <div>
       <PageHeader
         title="💡 토픽 설명"
-        desc="여기는 이해 전용입니다 — 교재 슬라이드 + 답안지 템플릿 + 용어 매핑·옆 토픽 + 남이 쓴 답안. 암기는 🥷암기 훈련장에서."
+        desc="교재 슬라이드 + 답안지 템플릿 + 용어 매핑·옆 토픽 + 남이 쓴 답안."
       />
 
       <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -358,16 +358,6 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
 
         <div className="mt-5 flex flex-wrap items-center gap-3">
           {pending && <span className="text-xs text-slate-400">불러오는 중…</span>}
-          {cur && (
-            <Link
-              href={`/mnemonic?topic=${encodeURIComponent(cur)}${
-                topicId ? `&topicId=${topicId}` : ""
-              }&auto=1`}
-              className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-brand-700 hover:bg-slate-100"
-            >
-              🥷 이 토픽 암기 훈련 →
-            </Link>
-          )}
           {textbook && (
             <Link
               href={`/sheet#${textbook.course}`}

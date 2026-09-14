@@ -327,12 +327,6 @@ export default function ReviewPage() {
                       <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-medium text-red-600">
                         {overdue > 0 ? `${overdue}일 지남` : "오늘"}
                       </span>
-                      <Link
-                        href={`/mnemonic?topicId=${encodeURIComponent(t.id)}&topic=${encodeURIComponent(t.title)}&auto=1`}
-                        className="rounded-lg border border-amber-300 bg-white px-3 py-1.5 text-xs font-semibold text-amber-700 hover:bg-amber-100"
-                      >
-                        🥷 학습
-                      </Link>
                       <button
                         onClick={() => update(markReviewed(state, t.id))}
                         className="rounded-lg bg-amber-500 px-3 py-1.5 text-xs font-semibold text-white hover:bg-amber-600"
@@ -537,12 +531,6 @@ export default function ReviewPage() {
                   </span>
                 </div>
 
-                <Link
-                  href={`/mnemonic?topicId=${encodeURIComponent(t.id)}&topic=${encodeURIComponent(t.title)}&auto=1`}
-                  className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs text-slate-600 hover:bg-slate-50"
-                >
-                  🥷 복습
-                </Link>
                 <button
                   onClick={() => update(markReviewed(state, t.id))}
                   className="rounded-lg bg-brand-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-brand-700"

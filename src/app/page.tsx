@@ -51,13 +51,6 @@ const menuGroups = [
     group: "🧠 1단계 · 키워드 암기 (소설의 재료)",
     items: [
       {
-        href: "/mnemonic",
-        emoji: "🥷",
-        title: "암기 훈련장",
-        desc: "가리고-떠올리기 인출 훈련 · 교재 두음은 힌트로 · 확인 퀴즈",
-        color: "from-brand-600 to-brand-800",
-      },
-      {
         href: "/plan",
         emoji: "🗓️",
         title: "학습 계획",
@@ -136,13 +129,6 @@ const menuGroups = [
         title: "회독 관리",
         desc: "망각곡선 간격으로 오늘 복습 추천",
         color: "from-brand-500 to-brand-600",
-      },
-      {
-        href: "/room",
-        emoji: "🛋️",
-        title: "마이룸 꾸미기",
-        desc: "공부 쉬는 시간, 이모지 스티커로 내 방 꾸미기",
-        color: "from-yellow-500 to-amber-600",
       },
     ],
   },
@@ -371,14 +357,6 @@ export default function Home() {
                             (제목으로 찾는다). topicId 유무로 버튼을 감추면
                             프로세스 상태 전이도·CPU 스케줄링처럼 topics.json 에
                             없는 교재 전용 토픽이 학습을 못 하게 된다. */}
-                        {(t.topicId || sub) && (
-                          <Link
-                            href={`/mnemonic?topic=${encodeURIComponent(t.title)}${t.topicId ? `&topicId=${t.topicId}` : ""}`}
-                            className="flex-1 rounded-md bg-brand-600 px-2.5 py-1.5 text-center text-xs font-medium text-white hover:bg-brand-700 sm:flex-initial sm:py-1"
-                          >
-                            🥷 학습
-                          </Link>
-                        )}
                         <Link
                           href={`/explain?topic=${encodeURIComponent(t.title)}${t.topicId ? `&topicId=${t.topicId}` : ""}`}
                           className="flex-1 rounded-md border border-slate-200 bg-white px-2.5 py-1.5 text-center text-xs font-medium text-slate-600 hover:bg-slate-100 sm:flex-initial sm:py-1"
@@ -617,18 +595,6 @@ export default function Home() {
             </div>
           </section>
         ))}
-      </div>
-
-      <div className="mt-10 flex flex-col items-center gap-2 rounded-2xl border border-slate-200 bg-slate-50 p-5 text-center sm:flex-row sm:justify-between sm:text-left">
-        <p className="text-sm text-slate-600">
-          🛋️ 공부하다 지치면 <b>마이룸</b>에서 잠깐 쉬어 가요.
-        </p>
-        <Link
-          href="/room"
-          className="inline-flex items-center gap-1.5 rounded-xl bg-brand-600 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-brand-700"
-        >
-          내 방 꾸미러 가기 →
-        </Link>
       </div>
     </div>
   );
