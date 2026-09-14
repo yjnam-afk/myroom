@@ -28,6 +28,26 @@ export default function AnswersClient({ rows }: { rows: AnswerRow[] }) {
 
   const pages = hits.reduce((n, r) => n + r.pages.length, 0);
 
+  /**
+   * 토픽으로 묶는다 — 답안지는 토픽 하나에 여러 건이 쌓인다(테일러링 5건,
+   * ATAM 5건). 흩어 놓으면 같은 문제 답안을 비교할 수가 없다.
+   * 묶음 기준은 첫 번째 토픽 제목이고, 건수가 많은 토픽부터 올린다.
+   */
+  const groups = useMemo(() => {
+    const by = new Map<string, AnswerRow[]>();
+    for (const r of hits) {
+      const k = r.topicTitles[0] ?? r.question;
+      (by.get(k) ?? by.set(k, []).get(k)!).push(r);
+    }
+    return Array.from(by, ([topic, items]) => ({
+      topic,
+      items: items.slice().sort((a, b) => a.period.localeCompare(b.period) || (b.score ?? 0) - (a.score ?? 0)),
+      scores: items
+        .filter((i) => i.score != null)
+        .map((i) => `${i.score}${i.maxScore ? `/${i.maxScore}` : ""}`),
+    })).sort((a, b) => b.items.length - a.items.length || a.topic.localeCompare(b.topic, "ko"));
+  }, [hits]);
+
   return (
     <div>
       <PageHeader
@@ -72,24 +92,24 @@ export default function AnswersClient({ rows }: { rows: AnswerRow[] }) {
           찾는 답안지가 없어요. 검색어를 줄이거나 교시 필터를 푸세요.
         </p>
       ) : (
-        /* 교시마다 큰 제목을 단다 — 1교시(10점)와 3·4교시(25점)는 쓰는 분량이
-           아예 다르므로 어느 교시 답안을 보고 있는지가 먼저 보여야 한다. */
-        PERIODS.slice(1).map((p) => {
-          const group = hits.filter((r) => r.period === p);
-          if (group.length === 0) return null;
-          return (
-            <section key={p} className="mb-8">
-              <div className="mb-3 flex flex-wrap items-baseline gap-x-3 border-b-2 border-slate-800 pb-1.5">
-                <h2 className="text-2xl font-bold text-slate-900">{p}</h2>
-                <span className="text-xs text-slate-500">
-                  {group.length}건 · 스캔 {group.reduce((n, r) => n + r.pages.length, 0)}장
-                  {p === "1교시" ? " · 10점 만점" : " · 25점 만점"}
+        /* 토픽마다 큰 제목을 단다. 같은 토픽 답안이 여러 건이면 나란히 놓고
+           비교하는 게 이 자료의 쓸모다 — 6점짜리와 6.5점짜리가 뭐가 다른지. */
+        groups.map((g) => (
+          <section key={g.topic} className="mb-8">
+            <div className="mb-3 flex flex-wrap items-baseline gap-x-3 border-b-2 border-slate-800 pb-1.5">
+              <h2 className="text-2xl font-bold text-slate-900">{g.topic}</h2>
+              <span className="text-xs text-slate-500">
+                {g.items.length}건 · 스캔 {g.items.reduce((n, r) => n + r.pages.length, 0)}장
+              </span>
+              {g.scores.length > 0 && (
+                <span className="text-xs font-medium text-slate-700">
+                  받은 점수 {g.scores.join(" · ")}
                 </span>
-              </div>
-              <PeerAnswers items={group} />
-            </section>
-          );
-        })
+              )}
+            </div>
+            <PeerAnswers items={g.items} />
+          </section>
+        ))
       )}
     </div>
   );

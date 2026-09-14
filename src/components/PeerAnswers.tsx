@@ -60,15 +60,14 @@ export default function PeerAnswers({ items }: { items: PeerAnswer[] }) {
                       </span>
                     )}
                   </div>
-                  {/* 큰 제목은 토픽 이름이다. 문제 문구만 있으면
-                      "① 캐시 메모리 3가지 사상기법 ② 동작 방식" 처럼
-                      무슨 토픽 답안인지 목록에서 알아볼 수 없다. */}
-                  <p className="mt-1 text-[17px] font-bold leading-snug text-slate-900">
-                    {a.topicTitles[0] ?? a.question}
-                  </p>
-                  <p className="mt-0.5 whitespace-pre-line text-[13px] leading-relaxed text-slate-500">
+                  {/* 큰 제목은 시험지에 적힌 문제 그대로다 — 무엇에 답한
+                      답안인지는 문제 문구가 말해 준다. 토픽은 작게 덧붙인다. */}
+                  <p className="mt-1 whitespace-pre-line text-[15px] font-bold leading-snug text-slate-900">
                     {a.question}
                   </p>
+                  {a.topicTitles[0] && (
+                    <p className="mt-0.5 text-[11px] text-slate-400">{a.topicTitles[0]}</p>
+                  )}
                 </div>
               </button>
 
