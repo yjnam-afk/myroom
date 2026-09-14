@@ -69,6 +69,10 @@ function trimTail(p: string): string {
     const next = cur.replace(TAIL, "").trim();
     if (next === cur) break;
     if (next.length < 3 || KO_GENERIC.has(next)) break;
+    // 남은 말이 전부 일반어면 열쇠가 헐거워진다 — 떼지 않는다.
+    // "소프트웨어 개발 방법론"에서 방법론을 떼면 "소프트웨어 개발"이 되어
+    // 그 말이 든 문항을 모조리 끌어왔다(요구공학·형상관리·기능점수까지).
+    if (next.split(/\s+/).every((w) => KO_GENERIC.has(w))) break;
     cur = next;
   }
   return cur;
