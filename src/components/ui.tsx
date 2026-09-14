@@ -7,9 +7,15 @@ import { canGoBack } from "@/components/NavDepth";
 export function PageHeader({
   title,
   desc,
+  up,
 }: {
   title: string;
   desc: string;
+  /**
+   * 이 화면이 속한 목록으로 가는 링크(토픽 설명 → 토픽 지도 등).
+   * 「뒤로」는 바로 앞 페이지, 「홈」은 메인이라 목록으로 갈 길이 없었다.
+   */
+  up?: { href: string; label: string }[];
 }) {
   const router = useRouter();
   /**
@@ -36,6 +42,15 @@ export function PageHeader({
         <Link href="/" className="text-slate-400 hover:text-brand-600">
           홈
         </Link>
+        {(up ?? []).map((u) => (
+          <Link
+            key={u.href}
+            href={u.href}
+            className="rounded-full border border-slate-200 px-2 py-[2px] text-xs text-slate-500 hover:border-brand-400 hover:text-brand-700"
+          >
+            {u.label}
+          </Link>
+        ))}
       </div>
       <h1 className="mt-2 text-2xl font-bold text-slate-900">{title}</h1>
       <p className="mt-1 text-sm text-slate-500">{desc}</p>

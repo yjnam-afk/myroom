@@ -572,6 +572,10 @@ const TITLE_SLUG: Record<string, string> = {
   "데이터 상호 운용성 & 데이터 이동권": "dx-data-interop",
   "AI Agent 보안위협": "sc-ai-agent-threat",
   "AI OS(Artificial Intelligence Operating System)": "dx-aios",
+  // 교재가 AI-DLC 와 SDD 를 따로 다루면서 토픽을 둘로 나눴다. 슬라이드는 둘을 함께
+  // 담은 한 장뿐이라 두 토픽에 같은 장을 붙인다.
+  "AI-DLC(AI-Driven SDLC)": "dx-ai-dlc-sdd",
+  "SDD(Spec-Driven Development)": "dx-ai-dlc-sdd",
   "연관성 분석(association analysis) — 기초통계": "st-association",
   "회귀분석(Regression Analysis)": "st-regression",
   "AIC(Akaike information Criterion) & BIC(Bayesian information Criterion)": "st-aic-bic",
