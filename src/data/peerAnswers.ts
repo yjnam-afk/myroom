@@ -2573,6 +2573,106 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/se-solid-c-2.jpg", label: "7쪽 — SOLID 유형 설명" },
     ],
   },
+  {
+    id: "peer-se-poly-a1",
+    period: "1교시",
+    no: "4",
+    question: "객체지향의 특징인 다형성",
+    exam: "ITPE 14기 1교시",
+    topicTitles: ["다형성 (Polymorphism)", "다형성", "객체지향"],
+    score: 6,
+    maxScore: 10,
+    feedback: [
+      "정의 칸에 'OK', '다양하게'에 동그라미 — 메소드를 다양하게 갖는 기능과 오버로딩·오버라이딩.",
+      "목적 ①오버로딩 사용 ②오버라이딩 사용에 밑줄.",
+      "오버로딩 예제(getDate)에 'OK', 객체지향 특징 추가 설명에 'OK'.",
+    ],
+    pages: [
+      { src: "/answers/se-poly-a-1.jpg", label: "개요 — 메소드 사용 다양화" },
+      { src: "/answers/se-poly-a-2.jpg", label: "4쪽 — 오버로딩·오버라이딩 예제, 객체지향 특징" },
+      { src: "/answers/se-poly-a-3.jpg", label: "5쪽 — 마무리" },
+    ],
+  },
+  {
+    id: "peer-se-poly-a2",
+    period: "1교시",
+    no: "4",
+    question: "객체지향 특성, 다형성",
+    exam: "ITPE 14기 1교시",
+    topicTitles: ["다형성 (Polymorphism)", "다형성", "객체지향"],
+    score: 6,
+    maxScore: 10,
+    feedback: [
+      "정의 칸에 'OK' — 동일한 형태·이름으로 기능을 구현하는 원리.",
+      "오버로딩 예시(int Add)에 'OK', 오버라이딩 개념도에 'OK'.",
+    ],
+    pages: [
+      { src: "/answers/se-poly-a-4.jpg", label: "1쪽 — 개요·오버로딩·오버라이딩" },
+      { src: "/answers/se-poly-a-5.jpg", label: "2쪽" },
+      { src: "/answers/se-poly-a-6.jpg", label: "3쪽" },
+      { src: "/answers/se-poly-a-7.jpg", label: "4쪽" },
+    ],
+  },
+  {
+    id: "peer-se-poly-b",
+    period: "1교시",
+    no: "1",
+    question: "다형성(Polymorphism)",
+    exam: "ITPE 주간 실전모의고사",
+    topicTitles: ["다형성 (Polymorphism)", "다형성", "객체지향"],
+    score: 6,
+    maxScore: 10,
+    feedback: [
+      "정의 줄의 '재정의'에 밑줄, '객체지향의 주요 특징'에 체크.",
+      "개념도 — Overload(상속 관계없이 메소드 재정의)와 Override(상속 기반 재정의) 코드 예시.",
+    ],
+    pages: [
+      { src: "/answers/se-poly-b-1.jpg", label: "1쪽 — 개념과 Overload·Override 개념도" },
+      { src: "/answers/se-poly-b-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-se-poly-c",
+    period: "1교시",
+    no: "6",
+    question: "객체지향 다형성",
+    exam: "ITPE 주간 실전모의고사",
+    topicTitles: ["다형성 (Polymorphism)", "다형성", "객체지향"],
+    score: 6,
+    maxScore: 10,
+    feedback: [
+      "개념 줄의 '같은 이름 다른 기능을 수행할 수 있도록 하는 객체지향 특성'에 밑줄.",
+      "오버로딩 설명의 '같은 함수 이름 사용하지만 다른 type, 다른 개수의 파라미터'에 동그라미.",
+      "func A(int a, int b) / func A(float a) 예시에 ①같은 이름 ②다른 type, 다른 개수 표시.",
+      "오버라이딩 설명의 '부모의 함수를 자식이 똑같은 이름으로 재정의'에 동그라미.",
+      "같은 묶음에 「객체지향의 다형성」 6점 답안이 하나 더 있다.",
+    ],
+    pages: [
+      { src: "/answers/se-poly-c-1.jpg", label: "9쪽 — 개념·오버로딩·오버라이딩" },
+      { src: "/answers/se-poly-c-2.jpg", label: "10쪽" },
+      { src: "/answers/se-poly-c-3.jpg", label: "다른 답안 — 정의와 개념도(오버로드·오버라이드)" },
+      { src: "/answers/se-poly-c-4.jpg", label: "이어지는 쪽" },
+    ],
+  },
+  {
+    id: "peer-se-poly-d",
+    period: "1교시",
+    no: "7",
+    question: "객체지향 특성인 다형성",
+    exam: "ITPE 주간 실전모의고사",
+    topicTitles: ["다형성 (Polymorphism)", "다형성", "객체지향"],
+    score: 6.0,
+    maxScore: 10,
+    feedback: [
+      "개념도의 오버라이딩·오버로딩에 동그라미.",
+      "유형 설명의 '자식 클래스에서 부모 클래스 메소드를 상속 후 재정의하여 사용'에 밑줄.",
+      "특징 칸의 매개변수·반환형(부모 클래스와 동일)에 동그라미.",
+    ],
+    pages: [
+      { src: "/answers/se-poly-d-1.jpg", label: "1쪽 — 개념·개념도와 오버라이딩" },
+      { src: "/answers/se-poly-d-2.jpg", label: "2쪽 — 오버로딩" },
+    ],
+  },
 ];
 
 /** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */
@@ -2586,8 +2686,9 @@ function norm(s: string): string {
 
 const BY_TOPIC = new Map<string, PeerAnswer[]>();
 for (const a of PEER_ANSWERS) {
-  for (const t of a.topicTitles) {
-    const k = norm(t);
+  // norm 이 괄호를 떼므로 "다형성 (Polymorphism)" 과 "다형성" 이 같은 열쇠가 된다.
+  // 둘 다 적어 둔 답안이 화면에 두 번 나오지 않도록 열쇠를 먼저 추린다.
+  for (const k of new Set(a.topicTitles.map(norm))) {
     if (!BY_TOPIC.has(k)) BY_TOPIC.set(k, []);
     BY_TOPIC.get(k)!.push(a);
   }
