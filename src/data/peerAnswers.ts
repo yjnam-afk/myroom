@@ -2520,6 +2520,59 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/se-tailor-e-4.jpg", label: "4쪽 — 테일러링 사례(MSA·애자일 혼용)" },
     ],
   },
+  {
+    id: "peer-se-solid-a",
+    period: "1교시",
+    no: "1",
+    question: "객체지향 설계원리 SOLID",
+    exam: "ITPE 주간 실전모의고사",
+    topicTitles: ["객체지향 설계 원리", "SOLID"],
+    feedback: [
+      "개념도 — SOLID(설계원리) → 캡슐화·다형성(특징) → White Box Reuse(목적).",
+      "SRP 개념도의 Class(DB Logic·Login Logic) 분리와 목적(높은 응집도)에 동그라미.",
+      "OCP 개념도의 Close·Open 표시에 동그라미.",
+    ],
+    pages: [
+      { src: "/answers/se-solid-a-1.jpg", label: "문제 머리 — White Box Reuse 개요" },
+      { src: "/answers/se-solid-a-2.jpg", label: "5쪽 — 개념과 SRP·OCP 상세" },
+      { src: "/answers/se-solid-a-3.jpg", label: "6쪽" },
+      { src: "/answers/se-solid-a-4.jpg", label: "7쪽" },
+    ],
+  },
+  {
+    id: "peer-se-solid-b",
+    period: "1교시",
+    no: "3",
+    question: "객체 지향 설계 원리",
+    exam: "121회 관리 1교시 합격답안",
+    topicTitles: ["객체지향 설계 원리", "SOLID"],
+    feedback: [
+      "형광펜 강조 — 객체지향 프로그래밍을 통한 White-Box Reuse를 극대화하기 위한 설계관점 원칙.",
+      "설계원리별 개념도 — SRP(단일책임), OCP(개방폐쇄), LSP(리스코프 치환), DIP(의존역전).",
+    ],
+    pages: [
+      { src: "/answers/se-solid-b-1.jpg", label: "1쪽 — 정의와 SRP·OCP·LSP·DIP 개념도" },
+      { src: "/answers/se-solid-b-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-se-solid-c",
+    period: "1교시",
+    no: "4",
+    question: "객체지향 설계원리(SOLID)",
+    exam: "ITPE 주간 실전모의고사",
+    topicTitles: ["객체지향 설계 원리", "SOLID"],
+    score: 6.2,
+    maxScore: 10,
+    feedback: [
+      "정의 줄의 '수행되어야 하는 추상화'에 동그라미, '모듈과 정상적인 호출로 저장, 응집도 향상'에 밑줄.",
+      "앞 문제(리팩토링) 답안이 같은 장 위쪽에 이어진다.",
+    ],
+    pages: [
+      { src: "/answers/se-solid-c-1.jpg", label: "6쪽 — SOLID 개요(위는 리팩토링 답안)" },
+      { src: "/answers/se-solid-c-2.jpg", label: "7쪽 — SOLID 유형 설명" },
+    ],
+  },
 ];
 
 /** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */

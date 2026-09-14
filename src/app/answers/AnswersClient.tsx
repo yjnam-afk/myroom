@@ -72,7 +72,24 @@ export default function AnswersClient({ rows }: { rows: AnswerRow[] }) {
           찾는 답안지가 없어요. 검색어를 줄이거나 교시 필터를 푸세요.
         </p>
       ) : (
-        <PeerAnswers items={hits} />
+        /* 교시마다 큰 제목을 단다 — 1교시(10점)와 3·4교시(25점)는 쓰는 분량이
+           아예 다르므로 어느 교시 답안을 보고 있는지가 먼저 보여야 한다. */
+        PERIODS.slice(1).map((p) => {
+          const group = hits.filter((r) => r.period === p);
+          if (group.length === 0) return null;
+          return (
+            <section key={p} className="mb-8">
+              <div className="mb-3 flex flex-wrap items-baseline gap-x-3 border-b-2 border-slate-800 pb-1.5">
+                <h2 className="text-2xl font-bold text-slate-900">{p}</h2>
+                <span className="text-xs text-slate-500">
+                  {group.length}건 · 스캔 {group.reduce((n, r) => n + r.pages.length, 0)}장
+                  {p === "1교시" ? " · 10점 만점" : " · 25점 만점"}
+                </span>
+              </div>
+              <PeerAnswers items={group} />
+            </section>
+          );
+        })
       )}
     </div>
   );
