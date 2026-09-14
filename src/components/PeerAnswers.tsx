@@ -23,11 +23,11 @@ export default function PeerAnswers({ items }: { items: PeerAnswer[] }) {
     <section className="mb-6 overflow-hidden rounded-2xl border-2 border-slate-300 bg-white shadow-sm">
       <div className="bg-slate-100 px-5 py-3">
         <h3 className="text-sm font-bold text-slate-800">
-          ✍️ 남이 쓴 답안 {items.length}건 — 실제 시험지와 첨삭
+          ✍️ 모범답안 {items.length}건 — 실제 시험지와 첨삭
         </h3>
         <p className="mt-0.5 text-xs text-slate-500">
-          모범답안이 아니라 <b>실제로 제출되어 점수를 받은</b> 답안입니다. 배점
-          대비 점수와 빨간 첨삭이 채점 기준을 그대로 보여 줍니다.
+          <b>실제로 제출되어 점수를 받은</b> 답안지 스캔입니다. 배점 대비 점수와
+          빨간 첨삭이 채점 기준을 그대로 보여 줍니다.
         </p>
       </div>
 
