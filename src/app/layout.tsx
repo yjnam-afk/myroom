@@ -45,6 +45,7 @@ export default function RootLayout({
               <Link href="/" className="shrink-0 hover:text-brand-600 xl:hidden">🏠 메인</Link>
               <Link href="/plan" className="shrink-0 font-semibold text-brand-600 hover:text-brand-700">🗓️ 계획</Link>
               <Link href="/explain" className="shrink-0 hover:text-brand-600">💡 토픽 설명</Link>
+              <Link href="/answers" className="shrink-0 hover:text-brand-600">🧾 모범답안</Link>
               <Link href="/sheet" className="shrink-0 hover:text-brand-600">📋 정리표</Link>
               <Link href="/basics" className="shrink-0 hover:text-brand-600">🧱 용어사전</Link>
               <Link href="/commute" className="shrink-0 hover:text-brand-600">🚇 지하철</Link>

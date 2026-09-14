@@ -39,6 +39,17 @@ export default function AnswerPage() {
     if (p === "1교시" || p === "2교시") setPeriod(p);
     const q = sp.get("question");
     if (q) setQuestion(q);
+    // 모범답안 목록·토픽 설명에서 ?id= 로 들어오는 경우 — 문항 id 로 본문을 채운다.
+    const id = sp.get("id");
+    if (id) {
+      const found = (questions as { id: string; period?: string; text: string }[]).find(
+        (x) => x.id === id,
+      );
+      if (found) {
+        setQuestion(found.text);
+        if (found.period === "1교시" || found.period === "2교시") setPeriod(found.period);
+      }
+    }
   }, []);
 
   const [hint, setHint] = useState<Hint | null>(null);
