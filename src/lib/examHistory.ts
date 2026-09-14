@@ -111,11 +111,15 @@ function keysOf(title: string): Keys {
       const lat = squeeze(tail[2]);
       if (ko.length >= 5 && !KO_GENERIC.has(ko)) {
         all.push(ko);
+        gapRe(tail[1], ko);
         if (lat.length >= 3 && !GENERIC.has(lat)) any.push(lat);
         continue;
       }
     }
-    if (k.length >= 2) all.push(k);
+    if (k.length >= 2) {
+      all.push(k);
+      gapRe(p, k);
+    }
   }
   for (const m of title.matchAll(/[(（]([^)）]+)[)）]/g)) {
     const inner = m[1].trim();
@@ -128,6 +132,7 @@ function keysOf(title: string): Keys {
       any.push(k);
     }
   }
+  for (const k of EXTRA_ANY[title.trim()] ?? []) any.push(k);
   return { all: Array.from(new Set(all)), any: Array.from(new Set(any)) };
 }
 
@@ -159,9 +164,45 @@ function variants(key: string): string[] {
   return out;
 }
 
+/**
+ * 여러 낱말로 된 열쇠는 문항에서 낱말 사이에 다른 말이 끼어 있어도 같은 뜻이다.
+ * 교재 "객체지향 설계 원리" 는 문항에서 "객체 지향 프로그래밍의 설계 원칙" 으로
+ * 나오는데, 공백을 지운 열쇠를 통째로 찾으면 '프로그래밍의' 때문에 못 잇는다.
+ * 낱말 사이에 6자까지 끼는 것만 허용한다 — 낱말을 통째로 빼면(예전에 '방법론'을
+ * 떼서 '소프트웨어 개발'이 된 사고) 엉뚱한 문항이 쏟아지므로 낱말은 다 있어야 한다.
+ */
+const GAP = new Map<string, RegExp | null>();
+const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+function gapRe(part: string, key: string): void {
+  if (GAP.has(key)) return;
+  const words = part.trim().split(/\s+/).map(squeeze).filter(Boolean);
+  if (words.length < 2) {
+    GAP.set(key, null);
+    return;
+  }
+  const pat = words.map((w, i) => {
+    if (i < words.length - 1) return esc(w);
+    // 끝 낱말은 표기 차이를 함께 본다(원리 ↔ 원칙).
+    const vs = variants(w).map(esc);
+    return vs.length > 1 ? `(?:${vs.join("|")})` : vs[0];
+  });
+  GAP.set(key, new RegExp(pat.join(".{0,6}")));
+}
+
+/**
+ * 제목 열쇠로는 도저히 안 잡히는 표기 — 토픽마다 손으로 붙인다.
+ * 문항이 교재 제목을 한 글자도 안 쓰는 경우다(SOLID 원칙 → "객체지향 설계 원리").
+ */
+const EXTRA_ANY: Record<string, string[]> = {
+  "객체지향 설계 원리": ["solid원칙", "solid원리"],
+};
+
 function has(entry: { sq: string; tokens: Set<string> }, key: string): boolean {
   if (isLatin(key) && !/\s/.test(key) && key.length <= 6) return entry.tokens.has(key);
-  return variants(key).some((k) => entry.sq.includes(k));
+  if (variants(key).some((k) => entry.sq.includes(k))) return true;
+  const re = GAP.get(key);
+  return re ? re.test(entry.sq) : false;
 }
 
 function hit(entry: { sq: string; tokens: Set<string> }, keys: Keys): boolean {

@@ -316,6 +316,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
         title="💡 토픽 설명"
         desc="교재 슬라이드 + 답안지 템플릿 + 용어 매핑·옆 토픽 + 남이 쓴 답안."
         up={[
+          { href: "/plan", label: "🗓️ 학습 계획" },
           { href: "/map", label: "🗺️ 토픽 목록" },
           { href: "/sheet", label: "📋 토픽 정리표" },
         ]}
