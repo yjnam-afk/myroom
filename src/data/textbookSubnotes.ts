@@ -4491,18 +4491,29 @@ export const SUBNOTES: TextbookSubnote[] = [
     keywords: ["SOLID", "SRP", "OCP", "LSP", "ISP", "DIP"],
     tables: [
       {
-        caption: "SOLID 설계 원리",
+        caption: "응집도 측면 설계 원리 (SRP·ISP)",
         headers: ["설계원리", "키워드", "설명"],
         rows: [
           ["SRP (Single Responsibility Principle)", "단일 책임 원칙", "하나의 역할 수행"],
+          ["ISP (Interface Segregation Principle)", "인터페이스 분리", "역할별 분리 제공"],
+        ],
+      },
+      {
+        caption: "결합도 측면 설계 원리 (OCP·LSP·DIP)",
+        headers: ["설계원리", "키워드", "설명"],
+        rows: [
           ["OCP (Open Closed Principle)", "확장에는 개방\n수정에는 폐쇄", "확장 열린 설계\n수정 닫힌 설계"],
           ["LSP (Liskov Substitution Principle)", "하위 객체 대체", "부모 사용처 치환"],
-          ["ISP (Interface Segregation Principle)", "인터페이스 분리", "하나의 역할 수행"],
           ["DIP (Dependency Inversion Principle)", "의존관계 역전", "저차원 의존 금지"],
         ],
       },
     ],
-    notes: ["두음: SOLID = SRP · OCP · LSP · ISP · DIP"],
+    notes: [
+      "두음: SOLID = SRP · OCP · LSP · ISP · DIP",
+      "응집도 축(SRP·ISP)은 하나를 쪼개는 원리다 — 한 클래스·한 인터페이스가 한 가지 일만 하게 만든다.",
+      "결합도 축(OCP·LSP·DIP)은 쪼갠 것을 느슨하게 잇는 원리다 — 구체 타입 대신 추상에 기대게 만든다.",
+      "쪼개기(응집도)를 먼저 하고 잇기(결합도)를 뒤에 한다. 순서를 뒤집으면 추상만 늘어난다.",
+    ],
   },
   {
     title: "데메테르의 법칙 (Law of Demeter)",

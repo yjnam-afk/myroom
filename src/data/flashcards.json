@@ -5458,13 +5458,19 @@
     ]
    },
    {
-    "label": "SOLID 설계 원리",
+    "label": "응집도 측면 설계 원리 (SRP·ISP)",
     "mnemonic": "",
     "keywords": [
      "SRP (Single Responsibility Principle)",
+     "ISP (Interface Segregation Principle)"
+    ]
+   },
+   {
+    "label": "결합도 측면 설계 원리 (OCP·LSP·DIP)",
+    "mnemonic": "",
+    "keywords": [
      "OCP (Open Closed Principle)",
      "LSP (Liskov Substitution Principle)",
-     "ISP (Interface Segregation Principle)",
      "DIP (Dependency Inversion Principle)"
     ]
    }
