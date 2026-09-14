@@ -5442,7 +5442,7 @@
   "importance": "상",
   "source": "심화반",
   "definition": "소프트웨어 개발 및 유지보수성 향상을 위한 설계관점의 기본원칙",
-  "defShort": "개발과 유지보수성 향상을 위해 따르는 객체지향 설계 관점의 기본 원칙",
+  "defShort": "개발과 유지보수성 향상을 위해 따르는 객체지향 설계 관점 기본 원칙",
   "memo": "두음: SOLID = SRP · OCP · LSP · ISP · DIP",
   "sections": [
    {

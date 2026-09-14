@@ -4484,7 +4484,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     title: "객체지향 설계 원리",
     course: "SE",
     definition: "소프트웨어 개발 및 유지보수성 향상을 위한 설계관점의 기본원칙",
-    defShort: "개발과 유지보수성 향상을 위해 따르는 객체지향 설계 관점의 기본 원칙",
+    defShort: "개발과 유지보수성 향상을 위해 따르는 객체지향 설계 관점 기본 원칙",
     lead:
       "유지보수성 향상 원칙, 객체지향 설계 원리 SOLID",
     features: ["낮은 결합도", "높은 응집도", "확장 용이성"],
@@ -4494,17 +4494,17 @@ export const SUBNOTES: TextbookSubnote[] = [
         caption: "응집도 측면 설계 원리 (SRP·ISP)",
         headers: ["설계원리", "키워드", "설명"],
         rows: [
-          ["SRP (Single Responsibility Principle)", "단일 책임 원칙", "하나의 역할 수행"],
-          ["ISP (Interface Segregation Principle)", "인터페이스 분리", "역할별 분리 제공"],
+          ["SRP (Single Responsibility Principle)\n단일 책임 원리", "하나의 책임", "변경 이유 하나"],
+          ["ISP (Interface Segregation Principle)\n인터페이스 분리 원리", "역할별 분리", "안 쓰는 기능 배제"],
         ],
       },
       {
         caption: "결합도 측면 설계 원리 (OCP·LSP·DIP)",
         headers: ["설계원리", "키워드", "설명"],
         rows: [
-          ["OCP (Open Closed Principle)", "확장에는 개방\n수정에는 폐쇄", "확장 열린 설계\n수정 닫힌 설계"],
-          ["LSP (Liskov Substitution Principle)", "하위 객체 대체", "부모 사용처 치환"],
-          ["DIP (Dependency Inversion Principle)", "의존관계 역전", "저차원 의존 금지"],
+          ["OCP (Open Closed Principle)\n개방 폐쇄 원리", "확장에는 개방\n수정에는 폐쇄", "확장 열린 설계\n수정 닫힌 설계"],
+          ["LSP (Liskov Substitution Principle)\n리스코프 치환 원리", "하위 객체 대체", "부모 사용처 치환"],
+          ["DIP (Dependency Inversion Principle)\n의존관계 역전 원리", "추상에만 의존", "저차원 의존 금지"],
         ],
       },
     ],
