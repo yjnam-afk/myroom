@@ -148,9 +148,20 @@ function trapped(entry: { sq: string }, key: string): boolean {
   return !entry.sq.replace(new RegExp(re.source, "g"), "").includes(key);
 }
 
+/**
+ * 같은 말을 다르게 적는 경우 — 교재는 "설계 원리", 문항은 "설계 원칙" 으로 쓴다.
+ * 이 둘을 못 잇는 바람에 객체지향 설계 원리 토픽이 관련 문항을 하나도 못 찾았다.
+ */
+function variants(key: string): string[] {
+  const out = [key];
+  if (key.endsWith("원리")) out.push(key.slice(0, -2) + "원칙");
+  else if (key.endsWith("원칙")) out.push(key.slice(0, -2) + "원리");
+  return out;
+}
+
 function has(entry: { sq: string; tokens: Set<string> }, key: string): boolean {
   if (isLatin(key) && !/\s/.test(key) && key.length <= 6) return entry.tokens.has(key);
-  return entry.sq.includes(key);
+  return variants(key).some((k) => entry.sq.includes(k));
 }
 
 function hit(entry: { sq: string; tokens: Set<string> }, keys: Keys): boolean {
