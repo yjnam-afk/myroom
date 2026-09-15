@@ -143,30 +143,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-os-page-repl-1",
-    questionIds: ["ns19w02-205"],
-    period: "2교시",
-    no: "3",
-    question:
-      "① 페이지 교체 알고리즘 사용 이유\n② 교체 알고리즘의 종류, 각 종류별 동작과정\n③ FIFO Anomaly와 해결방안",
-    exam: "ITPE 모의고사",
-    topicTitles: ["페이지 교체 알고리즘(Paging Replacement Algorithm)", "Belady's Anomaly(FIFO 이상현상)"],
-    score: 15,
-    maxScore: 25,
-    feedback: [
-      "문 3) 옆에 '15'.",
-      "II.가 페이지 교체 알고리즘 종류 트리의 FIFO·LRU·LFU·OPT·NUR 상자 다섯 개에 각각 빨간 동그라미.",
-      "II.나 동작과정 표에서 LFU '가장 적게 사용된 페이지', LRU '가장 최근에 사용안한 페이지'에 빨간 밑줄.",
-      "III.가 FIFO Anomaly 개념도 오른쪽에 'Frame 증가 3개', 'Frame 4개 비교' 화살표 표시.",
-      "III.나 해결방안 표에서 'Second Chance'·'OPT' 동그라미, 'Thrashing' 옆에 '→?'와 'Working set', 'LRU/LFU' 행 옆에 'PFF'. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/os-pr-a-1.jpg", label: "1쪽 — 사용 이유·알고리즘 종류" },
-      { src: "/answers/os-pr-a-2.jpg", label: "2쪽 — FIFO·LFU·LRU·NUR 동작과정" },
-      { src: "/answers/os-pr-a-3.jpg", label: "3쪽 — FIFO Anomaly와 해결방안" },
-    ],
-  },
-  {
     id: "peer-os-page-repl-2",
     questionIds: ["ns19w02-205"],
     period: "2교시",
@@ -193,29 +169,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-os-belady-1",
-    period: "2교시",
-    no: "6",
-    question:
-      "가상메모리 교체 알고리즘에서 다음을 참조 페이지 번호와 할당 프레임 수 기반으로 설명하시오.\n가. FIFO 알고리즘에서 Belady's Anomaly 설명 (참조 페이지 번호: 0 1 2 3 0 1 4 0 1 2 3 4, 할당 페이지 프레임 수: 3개→4개, 초기 페이지 프레임은 모두 비었음)\n나. Belady's Anomaly를 해결하기 위한 SCR(Second Chance Replacement) (참조 페이지 번호: 7 0 1 2 0 3 0 4 2 3 0 3 2 1 2, 할당 페이지 프레임 수: 3개, FIFO Queue)",
-    exam: "제92회 KPC 기술사 IMPACT 실전모의고사 (2019년 12월, 정보처리기술사)",
-    topicTitles: ["Belady's Anomaly(FIFO 이상현상)", "페이지 교체 알고리즘(Paging Replacement Algorithm)"],
-    score: 15,
-    maxScore: 25,
-    feedback: [
-      "답안 제목 옆에 '15'.",
-      "I.가 FIFO 이상현상 개념도에서 'Belady's Anomaly' 표시에 큰 동그라미, 그 아래 'OR'.",
-      "I.나 FIFO 문제 풀이의 'PF: 9'·'PF: 10'에 동그라미, 오른쪽에 'ok'.",
-      "II.가 SCR 정의의 '모든 참조 페이지에 0이란 초기값 설정 후 참조될 경우 1로 bit를 변경' 두 줄에 빨간 밑줄.",
-      "II.나 SCR 문제 풀이 아래 'FIFO 이상현상 문제 해결'에 빨간 밑줄. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/os-bel-a-1.jpg", label: "1쪽 — FIFO 이상현상 정의·개념도" },
-      { src: "/answers/os-bel-a-2.jpg", label: "2쪽 — FIFO 문제 풀이·SCR 정의" },
-      { src: "/answers/os-bel-a-3.jpg", label: "3쪽 — SCR 문제 풀이·해결방안" },
-    ],
-  },
-  {
     id: "peer-os-belady-2",
     period: "1교시",
     no: "4",
@@ -235,59 +188,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/os-bel-b-1.jpg", label: "1쪽 — 개념·3Frame/4Frame 계산" },
       { src: "/answers/os-bel-b-2.jpg", label: "2쪽 — 해결방안" },
     ],
-  },
-  {
-    id: "peer-os-belady-3",
-    period: "2교시",
-    no: "3",
-    question: "페이지 교체 기법 중 FIFO 페이지 교체 기법에 대해 설명하고 이때 발생하는 FIFO 이상현상(FIFO Anomaly)에 대해 설명하시오.",
-    exam: "제84회 KPC 기술사 IMPACT 실전모의고사 (2018년 10월, 컴퓨터시스템응용기술사)",
-    topicTitles: ["Belady's Anomaly(FIFO 이상현상)", "페이지 교체 알고리즘(Paging Replacement Algorithm)"],
-    // 답안 제목 옆 빨간 글씨는 '15'로 읽힌다.
-    score: 15,
-    maxScore: 25,
-    feedback: [
-      "답안 제목 옆에 빨간 글씨 '15'.",
-      "2.가 FIFO 페이지 교체 기법 정의 아래 빨간 밑줄, 특징 표 ①②와 ③④ 사이에 빨간 사선. 2.나 동작 사례 왼쪽에 세로 빨간 줄.",
-      "2쪽 동작 사례 표 옆 'ok'. 3.가 FIFO 이상현상 개념 제목 옆 'ok'.",
-      "3.나 발생 사례 표의 '총 9회 fault'·'총 10회 fault'에 동그라미.",
-      "3쪽 4. FIFO Anomaly 극복 위한 SCR 사례 제목 옆에 빨간 표시, 왼쪽에 세로 빨간 줄. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/os-bel-c-1.jpg", label: "1쪽 — 개념·FIFO 교체 기법" },
-      { src: "/answers/os-bel-c-2.jpg", label: "2쪽 — 동작 사례·FIFO 이상현상 개념·발생 사례" },
-      { src: "/answers/os-bel-c-3.jpg", label: "3쪽 — SCR 사례" },
-    ],
-  },
-  {
-    id: "peer-os-belady-4",
-    period: "1교시",
-    no: "4",
-    question: "Belady's Anomaly",
-    exam: "ITPE 모의고사",
-    topicTitles: ["Belady's Anomaly(FIFO 이상현상)"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "문 4) 옆에 '6'.",
-      "I. 개념 문장 왼쪽에 'ok'와 빨간 괄호.",
-      "6쪽 III. 해결방안 개념도의 'LFU, OPT 등'·'WS, PFF' 아래 빨간 밑줄. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/os-bel-d-1.jpg", label: "5쪽 — 개념·3개 Frame FIFO" },
-      { src: "/answers/os-bel-d-2.jpg", label: "6쪽 — 4개 Frame FIFO·해결방안" },
-    ],
-  },
-  {
-    id: "peer-os-thrash-1",
-    period: "1교시",
-    question: "스레싱(Thrashing)",
-    exam: "ITPE 모의고사",
-    topicTitles: ["스레싱(Thrashing)"],
-    score: 6,
-    maxScore: 10,
-    feedback: ["답) 옆에 '6.0'. 그 밖의 빨간 표시는 없다."],
-    pages: [{ src: "/answers/os-thr-a-1.jpg", label: "10쪽" }],
   },
   {
     id: "peer-os-thrash-2",
@@ -424,21 +324,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-os-frag-1",
-    period: "1교시",
-    no: "17",
-    question: "메모리 단편화",
-    exam: "NS반 모의고사",
-    topicTitles: ["단편화(Fragmentation)", "메모리 단편화(Fragmentation)"],
-    score: 6,
-    maxScore: 10,
-    feedback: ["문 17) 옆에 '6'. 그 밖의 빨간 표시는 없다."],
-    pages: [
-      { src: "/answers/os-frag-a1-1.jpg", label: "2쪽 — 개념·유형" },
-      { src: "/answers/os-frag-a1-2.jpg", label: "3쪽 — 해결 방안" },
-    ],
-  },
-  {
     id: "peer-os-frag-2",
     period: "1교시",
     no: "1",
@@ -451,48 +336,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/os-frag-a2-1.jpg", label: "1쪽 — 개념·내부/외부 단편화" },
       { src: "/answers/os-frag-a2-2.jpg", label: "2쪽 — 해결방안" },
-    ],
-  },
-  {
-    id: "peer-os-frag-3",
-    period: "1교시",
-    no: "6",
-    question: "가상메모리 단편화 발생원인, 해결방안",
-    exam: "ITPE 모의고사",
-    topicTitles: ["단편화(Fragmentation)", "메모리 단편화(Fragmentation)"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "문 6) 옆에 '6'.",
-      "I.가 내부 단편화 개념의 '고정크기'에 동그라미, '사용후 낭비되는' 밑줄. 개념도 옆 '페이징 분할'에 동그라미.",
-      "6쪽 I.나 외부 단편화 개념도의 '가변크기 분할'·'세그멘테이션 분할'에 동그라미.",
-      "왼쪽 여백에 체크 두 개, 'III'에 동그라미와 'II 단락 없어요'.",
-      "III. 해결방안 표의 '공통'·'외부 단편화'·'내부 단편화' 구분 동그라미, '통합'·'압축'에 큰 동그라미, 'Buddy System'·'Slab Allocator' 동그라미.",
-      "맨 아래 'Buddy System은 Chunked list 자료구조'·'Slab Allocator는 자주 사용하는 size로 우선 분할 후 외부 프로그램에 대한 특별할당' 밑줄. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/os-frag-b-1.jpg", label: "5쪽 — 내부·외부 단편화" },
-      { src: "/answers/os-frag-b-2.jpg", label: "6쪽 — 해결방안" },
-    ],
-  },
-  {
-    id: "peer-os-frag-4",
-    period: "1교시",
-    no: "13",
-    question: "메모리 단편화 원인, 해결방안",
-    exam: "ITPE 모의고사",
-    topicTitles: ["단편화(Fragmentation)", "메모리 단편화(Fragmentation)"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "문 13) 옆에 '6'. I. 개념 두 줄에 밑줄.",
-      "II.가 원인 표 왼쪽에 빨간 괄호. 내부 단편화 개념도와 '고정크기', 외부 단편화의 '가변 분할' 설명에 동그라미.",
-      "II.나 해결방안 표 왼쪽에 빨간 괄호, '집약'·'통합/압축'·'Memory Pool'에 동그라미.",
-      "14쪽 '페이징'·'버디 메모리'·'세그멘테이션'·'Slab Allocator'에 동그라미, 왼쪽에 괄호. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/os-frag-c-1.jpg", label: "13쪽 — 개요·원인·해결방안" },
-      { src: "/answers/os-frag-c-2.jpg", label: "14쪽 — 해결방안 계속" },
     ],
   },
   {
@@ -527,29 +370,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/os-frag-e-1.jpg", label: "2쪽 — 정의·원인" },
       { src: "/answers/os-frag-e-2.jpg", label: "3쪽 — 원인 계속·해결 방안" },
-    ],
-  },
-  {
-    id: "peer-os-frag-7",
-    period: "2교시",
-    no: "6",
-    question: "가상메모리\n① 관리기법\n② 단편화/해결방안",
-    exam: "NS반 모의고사",
-    topicTitles: ["단편화(Fragmentation)", "메모리 단편화(Fragmentation)", "가상메모리 관리기법"],
-    score: 15,
-    maxScore: 25,
-    feedback: [
-      "문 6) 옆에 '15'.",
-      "2.가 관리 기법 유형 개념도의 '할당'·'배치'·'인출'·'교체' 상자에 각각 동그라미.",
-      "2.나 상세설명 표 왼쪽에 세로 빨간 줄. 'Paging 기법'·'Segmentation 기법'·'최초/최적/최악/순차 적합'·'요구 인출/On-Demand'·'Pre-Fetch 방식'·'FIFO/LFU/LRU'·'OPT/Random'·'SCR/NUR'에 동그라미, 옆에 '시간 빈도'·'예측'·'참조 비트'.",
-      "3.가 개념 왼쪽에 'ok'. 개념도의 '가변분할(Segmentation)' 쪽에 동그라미, 개념 문장의 '적재불가'에 동그라미.",
-      "3.나 Buddy Allocator 옆 '외부 단편화 해결', Slab Allocator 옆 '내부 단편화 해결', '통합·압축'에 동그라미. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/os-frag-f-1.jpg", label: "1쪽 — 개요·관리 기법 유형" },
-      { src: "/answers/os-frag-f-2.jpg", label: "2쪽 — 관리 기법 상세" },
-      { src: "/answers/os-frag-f-3.jpg", label: "3쪽 — 단편화 개념·Buddy" },
-      { src: "/answers/os-frag-f-4.jpg", label: "4쪽 — Slab·공통 해결" },
     ],
   },
   {
@@ -773,25 +593,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/os-starv-a-1.jpg", label: "3쪽 — 문제·호위효과 설명" },
       { src: "/answers/os-starv-a-2.jpg", label: "4쪽 — 호위효과·기아상태" },
       { src: "/answers/os-starv-a-3.jpg", label: "5쪽 — 해결 방안" },
-    ],
-  },
-  {
-    id: "peer-os-starv-2",
-    period: "1교시",
-    no: "7",
-    question: "호위효과와 기아상태",
-    exam: "NS반 모의고사",
-    topicTitles: ["기아(Starvation)"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "문 7) 옆에 '6'.",
-      "I. 호위효과 개념 문장에 큰 동그라미. 특징 왼쪽에 빨간 괄호, 'HRN'에 취소선, 아래 빨간 글씨 '해결방법?'.",
-      "10쪽 II. 기아상태 설명 왼쪽에 큰 괄호. III. 해결방안 왼쪽에 괄호, 맨 아래 빨간 글씨 '대안 스케줄링 기법 제시'. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/os-starv-b-1.jpg", label: "9쪽 — 호위효과 설명" },
-      { src: "/answers/os-starv-b-2.jpg", label: "10쪽 — 기아상태·해결방안" },
     ],
   },
   {
@@ -1041,50 +842,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-os-ipc-2",
-    period: "2교시",
-    no: "2",
-    question: "IPC 설명",
-    exam: "ITPE 모의고사",
-    topicTitles: ["프로세스간 통신(IPC)"],
-    score: 15,
-    maxScore: 25,
-    // 첨삭이 빨간 펜이 아니라 파란 펜이다.
-    feedback: [
-      "4쪽 문 2) 옆에 파란 글씨 '15.0'.",
-      "I.가 개념도의 '공유 메모리·메시지 큐·세마포어' 위로 큰 파란 곡선.",
-      "I.나 목적 표의 '동기화·자원공유·데이터 교환·모듈화/구조화 시스템 구축·클라이언트 서버 구조'에 이어지는 파란 동그라미.",
-      "5쪽 II.가 메시지 전달 기법 왼쪽에 큰 파란 괄호. 7쪽 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/os-ipc-b-1.jpg", label: "4쪽 — 개념·목적" },
-      { src: "/answers/os-ipc-b-2.jpg", label: "5쪽 — 메시지 전달·공유 메모리 기법" },
-      { src: "/answers/os-ipc-b-3.jpg", label: "6쪽 — 세마포어 기법·충돌 해결(H/W)" },
-      { src: "/answers/os-ipc-b-4.jpg", label: "7쪽 — 충돌 해결(S/W)" },
-    ],
-  },
-  {
-    id: "peer-os-ipc-3",
-    period: "2교시",
-    no: "2",
-    question: "IPC",
-    exam: "ITPE 모의고사",
-    topicTitles: ["프로세스간 통신(IPC)"],
-    score: 15,
-    maxScore: 25,
-    feedback: [
-      "문 2) 옆에 '15.0'.",
-      "I. 개념·역할 전체 왼쪽에 큰 곡선 괄호. 역할 표의 '자원 공유'·'자원 최적화'·'Application 모듈화 지원'에 체크.",
-      "2쪽 II.가·나 왼쪽에 큰 괄호. 마지막 줄 '안정적인 IPC 구현 위해서는 동기화 기법 적용 필요'에 밑줄과 체크.",
-      "3쪽 III. 제목의 '동기화 기법'에 동그라미, III.가·나 왼쪽에 큰 괄호. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/os-ipc-c-1.jpg", label: "1쪽 — 개념·역할" },
-      { src: "/answers/os-ipc-c-2.jpg", label: "2쪽 — 공유 메모리·메시지 전달 기반 구현 기법" },
-      { src: "/answers/os-ipc-c-3.jpg", label: "3쪽 — OS·SW·HW 수준 동기화 기법" },
-    ],
-  },
-  {
     id: "peer-os-deadlock-1",
     period: "1교시",
     no: "4",
@@ -1141,26 +898,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-os-rag-1",
-    period: "1교시",
-    no: "10",
-    question: "자원 할당 그래프",
-    exam: "ITPE 모의고사",
-    topicTitles: ["자원할당 그래프(Resource Allocation Graph)"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "문 10) 위에 '6.0'.",
-      "I. 정의의 '정점(Vertex)'·'간선(Edge)'·'방향성 그래프'에 동그라미, 왼쪽에 'good'.",
-      "10쪽 II. 구성요소 '프로세스'·'자원'·'요청간선'·'할당간선'에 동그라미, 정점·간선 구분 왼쪽에 큰 괄호.",
-      "III. 교착상태 표현 개념도(P1·P2·자원 두 개)에 큰 동그라미, 옆에 'ok'. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/os-rag-a-1.jpg", label: "9쪽 — 정의 (위는 앞 문제 끝)" },
-      { src: "/answers/os-rag-a-2.jpg", label: "10쪽 — 구성요소·교착상태 표현" },
-    ],
-  },
-  {
     id: "peer-os-rag-2",
     period: "1교시",
     no: "10",
@@ -1193,26 +930,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/os-rag-c-1.jpg", label: "1쪽 — 정의·구성(정점·간선)" },
       { src: "/answers/os-rag-c-2.jpg", label: "2쪽 — 교착상태 탐지 방법·해결 방안" },
-    ],
-  },
-  {
-    id: "peer-os-rag-4",
-    period: "1교시",
-    no: "10",
-    question: "자원할당 그래프",
-    exam: "ITPE 모의고사",
-    topicTitles: ["자원할당 그래프(Resource Allocation Graph)"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "4쪽 문 10) 위에 '6'.",
-      "II.가 작성 사례 그래프 오른쪽에 빨간 글씨 '쉽게 이해 안되는 中', 그래프 해석 표 왼쪽에 세로 빨간 줄.",
-      "II.나 구성요소 '프로세스'·'자원'·'요청간선'에 밑줄과 동그라미, 표 오른쪽에 세로 빨간 줄. 5쪽 '할당간선'에 동그라미와 'ok'.",
-      "III. 탐지 조건 개념도와 설명 왼쪽에 큰 곡선. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/os-rag-d-1.jpg", label: "4쪽 — 정의·작성 사례·구성요소" },
-      { src: "/answers/os-rag-d-2.jpg", label: "5쪽 — 할당간선·교착상태 탐지 조건 (아래는 다음 문제 FTS·HA)" },
     ],
   },
   {
@@ -1340,88 +1057,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-os-intr-5",
-    period: "2교시",
-    no: "2",
-    question: "가. 인터럽트 개념 및 종류\n나. 인터럽트 벡터 테이블\n다. 인터럽트 서비스 루틴",
-    exam: "ITPE 모의고사",
-    topicTitles: ["인터럽트(Interrupt)"],
-    score: 15,
-    maxScore: 25,
-    feedback: [
-      "4쪽 문 2) 옆에 '15.0'.",
-      "I.나 종류 표의 'Kernel 레벨 인터럽트·Application 레벨 인터럽트·System Call'에 큰 동그라미. 5쪽 'I/O Interrupt'에 동그라미.",
-      "II.가 IVT 개념도 왼쪽에 큰 곡선, '인터럽트 ID/Type 조회'에 곡선. II.나 동작 프로세스 표 왼쪽에 큰 곡선.",
-      "6쪽 III. ISR 개념도와 프로세스 설명 왼쪽에 큰 곡선. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/os-int-c-1.jpg", label: "4쪽 — 개념·종류" },
-      { src: "/answers/os-int-c-2.jpg", label: "5쪽 — 인터럽트 벡터 테이블" },
-      { src: "/answers/os-int-c-3.jpg", label: "6쪽 — 인터럽트 서비스 루틴" },
-    ],
-  },
-  {
-    id: "peer-os-intr-6",
-    period: "1교시",
-    no: "1",
-    question: "인터럽트 처리과정",
-    exam: "ITPE 모의고사",
-    topicTitles: ["인터럽트(Interrupt)"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "문 1) 옆에 '6'.",
-      "I. 제목 '작업중단 후 긴급처리'·'인터럽트 처리개념' 밑줄, 개념 문장 '작업을 중단후'·'인터럽트를 처리·복귀하는 과정' 밑줄.",
-      "II.가 개념도의 '② IPR(IVT)'·'③ ISR'에 동그라미. 2쪽 III. 제목 오른쪽에 체크. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/os-int-d-1.jpg", label: "1쪽 — 처리 개념·처리 과정 개념도·상세" },
-      { src: "/answers/os-int-d-2.jpg", label: "2쪽 — 중첩 인터럽트 처리 방안 (아래는 다음 문제 CPU 주소지정)" },
-    ],
-  },
-  {
-    id: "peer-os-intr-7",
-    period: "1교시",
-    no: "3",
-    question: "운영체제에서 인터럽트 처리과정 및 종류",
-    exam: "ITPE 모의고사",
-    topicTitles: ["인터럽트(Interrupt)"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "문 3) 옆에 '6.0'.",
-      "1. 처리 과정 개념도 전체에 큰 동그라미, 안에 빨간 글씨 '+상세 설명 쓰기'.",
-      "10쪽 종류 설명 표의 H/W·S/W·처리 요소 열에 큰 동그라미. 맨 아래 빨간 글씨 '※ 1단락이 정의 쓰고 작성하는 방법도 있음'. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/os-int-e-1.jpg", label: "9쪽 — 처리 과정" },
-      { src: "/answers/os-int-e-2.jpg", label: "10쪽 — 종류 설명" },
-    ],
-  },
-  {
-    id: "peer-ca-coh-1",
-    questionIds: ["ns19w02-204"],
-    period: "2교시",
-    no: "3",
-    question: "① 캐시 일관성의 개념\n② Write Through와 Write Back 비교설명\n③ 캐시 일관성 유지를 위한 기법",
-    exam: "ITPE 모의고사",
-    topicTitles: ["캐시 일관성(Cache Coherence)", "캐시메모리의 쓰기정책(Write Policy)"],
-    score: 15,
-    maxScore: 25,
-    feedback: [
-      "문 3) 옆에 '15'.",
-      "I. 개념 문장의 '캐시에 저장'에 동그라미, '될 때'에 밑줄.",
-      "2쪽 II.나 비교 표의 '장점'·'단점' 행 이름에 동그라미와 화살표. III.가 '공유캐시'에 동그라미.",
-      "3쪽 III.나 '공유 캐시'(미사용)에 동그라미, III.다 'HW적'에 동그라미. 4쪽 IV. 'MESI 프로토콜'에 동그라미. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/ca-coh-a-1.jpg", label: "1쪽 — 캐시 일관성 개념·Write Through/Back 개념 비교" },
-      { src: "/answers/ca-coh-a-2.jpg", label: "2쪽 — 비교 상세·공유캐시 사용" },
-      { src: "/answers/ca-coh-a-3.jpg", label: "3쪽 — 공유캐시 미사용·HW적 해결(Snoop)" },
-      { src: "/answers/ca-coh-a-4.jpg", label: "4쪽 — MESI 프로토콜" },
-    ],
-  },
-  {
     id: "peer-ca-coh-2",
     period: "1교시",
     no: "2",
@@ -1461,26 +1096,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-ca-ilv-2",
-    period: "1교시",
-    no: "1",
-    question: "메모리 인터리빙",
-    exam: "ITPE 모의고사",
-    topicTitles: ["메모리 인터리빙(Interleaving)"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "문 1) 옆에 '6.0'. I. 특징 '① 모듈화 ② 동시 Access ③ CPU 효율증가'에 큰 동그라미.",
-      "3쪽 II.가 메커니즘 개념도의 M1·M2·M3·P 부분에 큰 동그라미, '모듈 분할' 옆에 빨간 글씨 '뱅크 용어 추가', 'P-Access'에 동그라미.",
-      "II.나 요소 표의 '상위·하위·혼합 인터리빙'과 'C-Access·S-Access'에 곡선, 왼쪽 여백에 빨간 글씨 'P-Access 어디에?'.",
-      "III. 활용사례 개념도(파이프라인·DDR DRAM)에 큰 동그라미. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/ca-ilv-b-1.jpg", label: "2쪽 — 개요·정의·특징" },
-      { src: "/answers/ca-ilv-b-2.jpg", label: "3쪽 — 메커니즘·요소·활용사례" },
-    ],
-  },
-  {
     id: "peer-ca-ilv-3",
     period: "1교시",
     no: "13",
@@ -1514,25 +1129,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-ca-ha-1",
-    period: "1교시",
-    no: "2",
-    question: "FTS와 HA 비교",
-    exam: "ITPE 모의고사",
-    topicTitles: ["결함허용 컴퓨터(FTS)", "HA(High Availability)"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "문 2) 옆에 '6.0'.",
-      "1. 개념 비교 표 왼쪽에 큰 곡선과 'Good'. FTS 개념 '규정된 기능 수행'에 밑줄과 큰 동그라미, HA 개념 'Fail-Over'에 밑줄과 동그라미.",
-      "4쪽 2. 상세 비교의 FTS 유형 'Rollback, 이중화'에 동그라미, HA 유형 'Hot standby…'에 체크. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/ca-ha-a-1.jpg", label: "3쪽 — 개념 비교" },
-      { src: "/answers/ca-ha-a-2.jpg", label: "4쪽 — 상세 비교·관계" },
-    ],
-  },
-  {
     id: "peer-ca-ha-2",
     period: "1교시",
     no: "4",
@@ -1549,40 +1145,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-ca-ha-3",
-    period: "1교시",
-    no: "6",
-    question: "FTS와 HA 비교",
-    exam: "ITPE 모의고사",
-    topicTitles: ["결함허용 컴퓨터(FTS)", "HA(High Availability)"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "4쪽 문 6) 옆에 '6'.",
-      "I. 개념 비교 표의 FTS·HA 개념과 개념도 'Graceful Degradation'·'Heartbeat'에 걸쳐 큰 곡선.",
-      "II. 상세 비교 표의 '동작절차~HW/OS'에 큰 동그라미. 5쪽 주요기법 FTS 'TMR·RAID·Watchdog Timer·Recovery Block'에 큰 동그라미, HA 'Hot Standby·Mutual Take-over'에 동그라미, '주요목표·활용사례'에 큰 곡선. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/ca-ha-c-1.jpg", label: "4쪽 — 개념 비교·상세 비교" },
-      { src: "/answers/ca-ha-c-2.jpg", label: "5쪽 — 주요기법·목표·활용사례" },
-    ],
-  },
-  {
-    id: "peer-ca-fts-1",
-    period: "1교시",
-    no: "9",
-    question: "FTS(Fault Tolerant System)에 대하여 설명하시오",
-    exam: "제85회 KPC 기술사 IMPACT 실전모의고사 (2018년 11월, 정보관리기술사)",
-    topicTitles: ["결함허용 컴퓨터(FTS)"],
-    score: 6,
-    maxScore: 10,
-    feedback: ["문 9) 옆에 '6'. 그 밖의 빨간 표시는 없다."],
-    pages: [
-      { src: "/answers/ca-fts-e-1.jpg", label: "1쪽 — 개념·구성·핵심기술" },
-      { src: "/answers/ca-fts-e-2.jpg", label: "2쪽 — Mutual·Concurrent Access" },
-    ],
-  },
-  {
     id: "peer-ca-fts-2",
     period: "1교시",
     no: "14",
@@ -1594,25 +1156,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/ca-fts-g-1.jpg", label: "1쪽 — 정의·주요 단계·HW 기법" },
       { src: "/answers/ca-fts-g-2.jpg", label: "2쪽 — SW·DB 기법·FTS와 HA 비교" },
-    ],
-  },
-  {
-    id: "peer-ca-fts-3",
-    period: "1교시",
-    no: "8",
-    question: "FTS 결함허용 기법",
-    exam: "ITPE 모의고사",
-    topicTitles: ["결함허용 컴퓨터(FTS)"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "10쪽 문 8) 옆에 '6'. I. 개념 문장에 큰 동그라미.",
-      "II.가 HW 및 DBMS 기법 표의 'HW'·'DBMS' 구분과 기법 열 'TMR·Watchdog Timer·Hot Spare·RAID·Check Point'에 큰 동그라미, 오른쪽에 세로 곡선.",
-      "II.나 SW 기반 기법 'N-Version'에 큰 동그라미. 11쪽 'Self-Leveling·Conversation·Replication'에 큰 동그라미, 왼쪽에 세로 곡선. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/ca-fts-h-1.jpg", label: "10쪽 — 개요·HW·DBMS 기법" },
-      { src: "/answers/ca-fts-h-2.jpg", label: "11쪽 — SW 기법" },
     ],
   },
   {
@@ -1646,25 +1189,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/ca-raid-c-1.jpg", label: "7쪽 — 개념·RAID 0·1" },
       { src: "/answers/ca-raid-c-2.jpg", label: "8쪽 — RAID 2~6·0+1·1+0" },
-    ],
-  },
-  {
-    id: "peer-ca-raid-4",
-    period: "1교시",
-    no: "3",
-    question: "RAID 0+1, RAID 1+0",
-    exam: "ITPE 모의고사",
-    topicTitles: ["RAID (Redundant Array of Independent Disks)"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "문 3) 옆에 '6'. 문제의 'RAID 0+1'·'RAID 1+0'에 밑줄.",
-      "I. 제목 '0+1'에 동그라미. 개념도의 'RAID 0+1'·'mirroring'·'Striping'에 밑줄과 동그라미, 오른쪽에 세로 곡선. 개념 '2개씩 Striping하고, 그 묶음을 Mirroring 하는 구조' 밑줄, 특징 '최소 Disk 4개 필요'·'빠른 응답' 밑줄, '빠른 응답이 필요한 경우 RAID 0+1 사용' 밑줄.",
-      "II. 제목 '설명'에 동그라미, 개념도 'RAID 1+0'·'Striping'·'mirroring'과 디스크 항목에 밑줄. 2쪽 개념 '2개씩 Mirroring' 밑줄과 체크, 특징 '안정성 확보'·'Disk 최소 4개 이상 필요' 밑줄, '최근 현업에서는 RAID 1+0 구조를 많이 사용' 밑줄. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/ca-raid-d-1.jpg", label: "1쪽 — RAID 0+1·RAID 1+0 개념도" },
-      { src: "/answers/ca-raid-d-2.jpg", label: "2쪽 — RAID 1+0 개념·특징 (아래는 다음 문제 가상메모리 단편화)" },
     ],
   },
   {
@@ -1827,26 +1351,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-os-ctx-05",
-    period: "2교시",
-    no: "2",
-    question: "① 문맥교환 발생 시점\n② 문맥교환 과정",
-    exam: "NS반 모의고사",
-    topicTitles: ["문맥교환(Context Switching)", "프로세스 상태 전이도"],
-    score: 15.0,
-    maxScore: 25,
-    feedback: [
-      "개요 정의의 '메커니즘'에 동그라미.",
-      "상태 전이도(생성·준비·실행·대기·완료, Dispatch·Time Slicing·I/O·System call)에 큰 동그라미.",
-      "발생 시점 4가지를 개념도 + 설명 표로, 과정을 9단계 주체별 표로 정리.",
-    ],
-    pages: [
-      { src: "/answers/os-ctx-d-1.jpg", label: "1쪽" },
-      { src: "/answers/os-ctx-d-2.jpg", label: "2쪽" },
-      { src: "/answers/os-ctx-d-3.jpg", label: "3쪽" },
-    ],
-  },
-  {
     id: "peer-os-ctx-06",
     period: "1교시",
     no: "8",
@@ -1960,25 +1464,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-os-ctx-12",
-    period: "1교시",
-    no: "9",
-    question: "문맥교환 절차와 PCB",
-    exam: "NS반 모의고사",
-    topicTitles: ["문맥교환(Context Switching)", "PCB(Process Control Block)"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "정의 '하나의 프로세스가 실행, 인터럽트 등 발생 → PCB 저장 및 다른 프로세스 복원 실행 과정'에 밑줄·동그라미.",
-      "절차 3단계 표와 PCB 구성요소(PID·레지스터·계정 정보)에 동그라미.",
-      "2쪽 PCB 개념도(Stack·Data·Code, PID·Registers·Account·Memory Info)에 동그라미.",
-    ],
-    pages: [
-      { src: "/answers/os-ctx-h-1.jpg", label: "1쪽" },
-      { src: "/answers/os-ctx-h-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
     id: "peer-os-ctx-13",
     period: "2교시",
     no: "4",
@@ -2074,29 +1559,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-os-kernel-2",
-    period: "2교시",
-    no: "1",
-    question:
-      "가. 운영체제의 종류, 기능, 목적에 대하여 설명하시오.\n나. 커널의 정의, 종류에 대하여 설명하시오.",
-    exam: "NS반 모의고사",
-    topicTitles: ["커널(Kernel)", "CPU Ring Level"],
-    score: 15.0,
-    maxScore: 25,
-    feedback: [
-      "전체 Good. 커널 종류를 개념도까지 그려 다섯 가지(모놀리식·마이크로·하이브리드·엑소·유니)로 편 것이 강점.",
-      "서론 정의문 '응용 SW 및 HW, I/O 장치의 제어 및 추상화, 응용 SW를 관리하는 시스템 SW' 에 표시 — 정의를 한 문장으로 맺은 점.",
-      "마지막에 CPU Level Ring(Ring 0~3)으로 커널 보호를 붙여 답안을 닫았다.",
-    ],
-    pages: [
-      { src: "/answers/os-kernel-p2-1.jpg", label: "1쪽" },
-      { src: "/answers/os-kernel-p2-2.jpg", label: "2쪽" },
-      { src: "/answers/os-kernel-p2-3.jpg", label: "3쪽" },
-      { src: "/answers/os-kernel-p2-4.jpg", label: "4쪽" },
-    ],
-  },
-  // ── 2026-09 추가: 소프트웨어공학 요구공학·아키텍처·테일러링 답안지 ──
-  {
     id: "peer-se-req-a",
     period: "1교시",
     no: "10",
@@ -2185,28 +1647,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [{ src: "/answers/se-ad-b-1.jpg", label: "합격자 답안지 전면" }],
   },
   {
-    id: "peer-se-style-a",
-    period: "1교시",
-    no: "4",
-    question: "S/W Architecture Style",
-    exam: "ITPE 주간 실전모의고사",
-    topicTitles: [
-      "소프트웨어 아키텍처 스타일",
-    ],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "정의 줄에 'OK', 품질 속성·Best Practice에 밑줄.",
-      "유형 표의 MVVM·Pipe & Filter·Data Repository·MSA Style·Layered Style에 동그라미.",
-      "마무리 줄에 'OK' — 스타일은 배치·C/S 등 다양하게 구성.",
-      "같은 장 아래에 객체지향 특징 다형성(6점) 답안이 이어진다.",
-    ],
-    pages: [
-      { src: "/answers/se-style-a-1.jpg", label: "5쪽 — 정의와 유형(MVVM·Pipe&Filter·Repository)" },
-      { src: "/answers/se-style-a-2.jpg", label: "6쪽 — MSA·Layered + 다형성 답안(6점)" },
-    ],
-  },
-  {
     id: "peer-se-style-b",
     period: "2교시",
     no: "6",
@@ -2224,26 +1664,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/se-style-b-1.jpg", label: "1쪽 — 개념·필요성과 효과" },
       { src: "/answers/se-style-b-2.jpg", label: "2쪽 — 유형별 특징과 적용 사례, MVC 상세" },
       { src: "/answers/se-style-b-3.jpg", label: "3쪽 — View·Control과 적용 제언" },
-    ],
-  },
-  {
-    id: "peer-se-style-c",
-    period: "1교시",
-    no: "1",
-    question:
-      "소프트웨어 아키텍처 스타일(Software Architecture Style)과 디자인 패턴(Design Pattern) 비교",
-    exam: "ITPE NS 10기 16주차 1교시",
-    topicTitles: ["소프트웨어 아키텍처 스타일", "아키텍처 스타일", "디자인 패턴"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "개념 비교표의 '반복되는 문제 해결·품질속성 달성'과 '자주 사용하여 템플릿으로 만든 Best Practice'에 동그라미, 옆에 '객체지향'.",
-      "개념도의 기본설계↔상세설계 구분에 표시.",
-      "상세 비교표의 주요 기법(Repository·MVC / SAGA·MVC 패턴)에 동그라미, '리팩토링' 추가.",
-    ],
-    pages: [
-      { src: "/answers/se-style-c-1.jpg", label: "개념 비교와 개념도" },
-      { src: "/answers/se-style-c-2.jpg", label: "9쪽 — 목적·주요 기법·특징 비교" },
     ],
   },
   {
@@ -2307,25 +1727,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-se-atam-a",
-    period: "1교시",
-    no: "5",
-    question: "ATAM(Architecture Trade-off 분석)",
-    exam: "ITPE 주간 실전모의고사",
-    topicTitles: ["SW Architecture 평가", "ATAM", "소프트웨어 아키텍처 평가", "소프트웨어 아키텍처 평가 모델"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "개념 줄의 '품질 향상 요건 평가 기법'에 동그라미.",
-      "주요 요소 표의 유틸리티 트리에 동그라미.",
-      "평가 기법 계보도(SAAM·ATAM·ARD·EATAM·CBAM·ARID)에 표시.",
-    ],
-    pages: [
-      { src: "/answers/se-atam-a-1.jpg", label: "1쪽 — 개념과 절차도" },
-      { src: "/answers/se-atam-a-2.jpg", label: "2쪽 — 주요 요소와 평가 기법 계보" },
-    ],
-  },
-  {
     id: "peer-se-atam-cbam-a",
     period: "1교시",
     no: "9",
@@ -2342,28 +1743,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/se-atam-cbam-a-1.jpg", label: "11쪽 — ATAM 개념과 개념도" },
       { src: "/answers/se-atam-cbam-a-2.jpg", label: "12쪽 — CBAM 개념·절차와 평가 방법론 정리" },
-    ],
-  },
-  {
-    id: "peer-se-atam-cbam-b",
-    period: "1교시",
-    no: "6",
-    question: "ATAM과 CBAM",
-    exam: "ITPE 주간 실전모의고사",
-    topicTitles: ["SW Architecture 평가", "CBAM(Cost Benefit Analysis Method)", "ATAM", "CBAM", "소프트웨어 아키텍처 평가", "소프트웨어 아키텍처 평가 모델"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "ATAM 개념 줄의 '품질 속성 간 트레이드 오프'에 동그라미.",
-      "ATAM 절차 ①협력/준비 ②기본 평가(Top-down) ③상세 평가(Bottom-up) ④최종 협의/결정에 동그라미.",
-      "CBAM 개념의 '평가에 비용 효율을 고려'와 절차 ②비용 효용 분석에 동그라미.",
-      "SW 아키텍처 평가 모델 계보도에 표시.",
-    ],
-    pages: [
-      { src: "/answers/se-atam-cbam-b-1.jpg", label: "1쪽 — ATAM 개념과 절차" },
-      { src: "/answers/se-atam-cbam-b-2.jpg", label: "2쪽" },
-      { src: "/answers/se-atam-cbam-b-3.jpg", label: "3쪽 — CBAM 개념·절차와 평가 모델 계보" },
-      { src: "/answers/se-atam-cbam-b-4.jpg", label: "4쪽" },
     ],
   },
   {
@@ -2387,25 +1766,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-se-tailor-a",
-    period: "1교시",
-    no: "8",
-    question: "테일러링(Tailoring)",
-    exam: "ITPE 주간 실전모의고사",
-    topicTitles: ["소프트웨어 개발 방법론", "개발방법론 테일러링", "테일러링"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "정의 줄의 '맞춤형으로 커스터마이징'에 동그라미.",
-      "절차 ①프로젝트 특성 정의 ②표준 프로세스 ③상위 수준 ④상세 커스터마이징 ⑤문서화에 동그라미.",
-      "유의사항 표(People·Process·Technology·Organization) 아래에 'ts. O'.",
-    ],
-    pages: [
-      { src: "/answers/se-tailor-a-1.jpg", label: "정의와 절차" },
-      { src: "/answers/se-tailor-a-2.jpg", label: "4쪽 — 절차별 수행 내용과 유의사항" },
-    ],
-  },
-  {
     id: "peer-se-tailor-b",
     period: "1교시",
     no: "11",
@@ -2422,24 +1782,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/se-tailor-b-1.jpg", label: "1쪽 — 개념도와 절차별 산출물" },
       { src: "/answers/se-tailor-b-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-se-tailor-c",
-    period: "1교시",
-    no: "2",
-    question: "테일러링(Tailoring)",
-    exam: "ITPE 주간 실전모의고사",
-    topicTitles: ["소프트웨어 개발 방법론", "개발방법론 테일러링", "테일러링"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "정의 칸 전체에 동그라미 — 조직의 표준 프로세스를 프로젝트에 맞게 조정하여 인력·비용·프로세스 설계를 간소화하는 기법.",
-      "수행 절차표의 '프로젝트 특징 정의'에 동그라미.",
-    ],
-    pages: [
-      { src: "/answers/se-tailor-c-1.jpg", label: "표준 프로세스 재활용 — 정의와 수행 절차" },
-      { src: "/answers/se-tailor-c-2.jpg", label: "2쪽" },
     ],
   },
   {
@@ -2535,108 +1877,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/se-solid-c-2.jpg", label: "7쪽 — SOLID 유형 설명" },
     ],
   },
-  {
-    id: "peer-se-poly-a1",
-    period: "1교시",
-    no: "4",
-    question: "객체지향의 특징인 다형성",
-    exam: "ITPE 14기 1교시",
-    topicTitles: ["다형성 (Polymorphism)", "다형성", "객체지향"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "정의 칸에 'OK', '다양하게'에 동그라미 — 메소드를 다양하게 갖는 기능과 오버로딩·오버라이딩.",
-      "목적 ①오버로딩 사용 ②오버라이딩 사용에 밑줄.",
-      "오버로딩 예제(getDate)에 'OK', 객체지향 특징 추가 설명에 'OK'.",
-    ],
-    pages: [
-      { src: "/answers/se-poly-a-1.jpg", label: "개요 — 메소드 사용 다양화" },
-      { src: "/answers/se-poly-a-2.jpg", label: "4쪽 — 오버로딩·오버라이딩 예제, 객체지향 특징" },
-      { src: "/answers/se-poly-a-3.jpg", label: "5쪽 — 마무리" },
-    ],
-  },
-  {
-    id: "peer-se-poly-a2",
-    period: "1교시",
-    no: "4",
-    question: "객체지향 특성, 다형성",
-    exam: "ITPE 14기 1교시",
-    topicTitles: ["다형성 (Polymorphism)", "다형성", "객체지향"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "정의 칸에 'OK' — 동일한 형태·이름으로 기능을 구현하는 원리.",
-      "오버로딩 예시(int Add)에 'OK', 오버라이딩 개념도에 'OK'.",
-    ],
-    pages: [
-      { src: "/answers/se-poly-a-4.jpg", label: "1쪽 — 개요·오버로딩·오버라이딩" },
-      { src: "/answers/se-poly-a-5.jpg", label: "2쪽" },
-      { src: "/answers/se-poly-a-6.jpg", label: "3쪽" },
-      { src: "/answers/se-poly-a-7.jpg", label: "4쪽" },
-    ],
-  },
-  {
-    id: "peer-se-poly-b",
-    period: "1교시",
-    no: "1",
-    question: "다형성(Polymorphism)",
-    exam: "ITPE 주간 실전모의고사",
-    topicTitles: ["다형성 (Polymorphism)", "다형성", "객체지향"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "정의 줄의 '재정의'에 밑줄, '객체지향의 주요 특징'에 체크.",
-      "개념도 — Overload(상속 관계없이 메소드 재정의)와 Override(상속 기반 재정의) 코드 예시.",
-    ],
-    pages: [
-      { src: "/answers/se-poly-b-1.jpg", label: "1쪽 — 개념과 Overload·Override 개념도" },
-      { src: "/answers/se-poly-b-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-se-poly-c",
-    period: "1교시",
-    no: "6",
-    question: "객체지향 다형성",
-    exam: "ITPE 주간 실전모의고사",
-    topicTitles: ["다형성 (Polymorphism)", "다형성", "객체지향"],
-    score: 6,
-    maxScore: 10,
-    feedback: [
-      "개념 줄의 '같은 이름 다른 기능을 수행할 수 있도록 하는 객체지향 특성'에 밑줄.",
-      "오버로딩 설명의 '같은 함수 이름 사용하지만 다른 type, 다른 개수의 파라미터'에 동그라미.",
-      "func A(int a, int b) / func A(float a) 예시에 ①같은 이름 ②다른 type, 다른 개수 표시.",
-      "오버라이딩 설명의 '부모의 함수를 자식이 똑같은 이름으로 재정의'에 동그라미.",
-      "같은 묶음에 「객체지향의 다형성」 6점 답안이 하나 더 있다.",
-    ],
-    pages: [
-      { src: "/answers/se-poly-c-1.jpg", label: "9쪽 — 개념·오버로딩·오버라이딩" },
-      { src: "/answers/se-poly-c-2.jpg", label: "10쪽" },
-      { src: "/answers/se-poly-c-3.jpg", label: "다른 답안 — 정의와 개념도(오버로드·오버라이드)" },
-      { src: "/answers/se-poly-c-4.jpg", label: "이어지는 쪽" },
-    ],
-  },
-  {
-    id: "peer-se-poly-d",
-    period: "1교시",
-    no: "7",
-    question: "객체지향 특성인 다형성",
-    exam: "ITPE 주간 실전모의고사",
-    topicTitles: ["다형성 (Polymorphism)", "다형성", "객체지향"],
-    score: 6.0,
-    maxScore: 10,
-    feedback: [
-      "개념도의 오버라이딩·오버로딩에 동그라미.",
-      "유형 설명의 '자식 클래스에서 부모 클래스 메소드를 상속 후 재정의하여 사용'에 밑줄.",
-      "특징 칸의 매개변수·반환형(부모 클래스와 동일)에 동그라미.",
-    ],
-    pages: [
-      { src: "/answers/se-poly-d-1.jpg", label: "1쪽 — 개념·개념도와 오버라이딩" },
-      { src: "/answers/se-poly-d-2.jpg", label: "2쪽 — 오버로딩" },
-    ],
-  },
-  // ── 구글 드라이브 「기술사 › 모범답안 › 08. 답안정리 › 02. SW공학」에서 가져온 정리 답안 ──
-  // 채점 답안지가 아니라 형광펜으로 정리해 둔 모범답안이라 점수가 없다.
   {
     id: "peer-drv-archeval",
     period: "1교시",
@@ -4965,53 +4205,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-sw25h-아키텍처-드라이브",
-    period: "1교시",
-    no: "2",
-    question: "소프트웨어 아키텍처 드라이버",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "소프트웨어 아키텍처 드라이버 (SW Architecture Driver)",
-    ],
-    score: 5.7,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/sw25h-아키텍처-드라이브-1.jpg", label: "1쪽" },
-    ],
-  },
-  {
-    id: "peer-sw25h-요구사항-추적표",
-    period: "1교시",
-    no: "3",
-    question: "요구사항 추적표 설명",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "요구공학 (Requirements Engineering)",
-    ],
-    score: 5.7,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/sw25h-요구사항-추적표-1.jpg", label: "1쪽" },
-    ],
-  },
-  {
-    id: "peer-sw25h-devsecops",
-    period: "1교시",
-    no: "1",
-    question: "CI/CD 파이프라인에서 DevSecOps 적용방안",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "DevSecOps",
-    ],
-    score: 5.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/sw25h-devsecops-1.jpg", label: "1쪽" },
-      { src: "/answers/sw25h-devsecops-2.jpg", label: "2쪽" },
-      { src: "/answers/sw25h-devsecops-3.jpg", label: "3쪽" },
-    ],
-  },
-  {
     id: "peer-sw25h-hw-규모-산정",
     period: "1교시",
     no: "7",
@@ -5028,22 +4221,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-sw25h-기술부채",
-    period: "1교시",
-    no: "2",
-    question: "소프트웨어 기술부채 유형, 관리방법",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "기술 부채(Technical Debt)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/sw25h-기술부채-1.jpg", label: "1쪽" },
-      { src: "/answers/sw25h-기술부채-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
     id: "peer-sw25h-좋은-소프트웨어",
     period: "2교시",
     no: "1",
@@ -5057,23 +4234,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/sw25h-좋은-소프트웨어-2.jpg", label: "2쪽" },
       { src: "/answers/sw25h-좋은-소프트웨어-3.jpg", label: "3쪽" },
       { src: "/answers/sw25h-좋은-소프트웨어-4.jpg", label: "4쪽" },
-    ],
-  },
-  {
-    id: "peer-sw25h-객체지향-특징와-설계원리",
-    period: "1교시",
-    no: "3",
-    question: "객체지향 프로그래밍 특징과 설계의 원리",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "객체지향 프로그래밍 특징",
-      "객체지향 설계 원리",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/sw25h-객체지향-특징와-설계원리-1.jpg", label: "1쪽" },
-      { src: "/answers/sw25h-객체지향-특징와-설계원리-2.jpg", label: "2쪽" },
     ],
   },
   {
@@ -5109,25 +4269,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-sw25h-리팩토링-디자인패턴",
-    period: "2교시",
-    no: "4",
-    question: "리팩토링, 디자인 패턴 정의 / 공통점, 차이점",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "소프트웨어 리팩토링",
-      "디자인 패턴 (Design Pattern)",
-    ],
-    score: 14.7,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/sw25h-리팩토링-디자인패턴-1.jpg", label: "1쪽" },
-      { src: "/answers/sw25h-리팩토링-디자인패턴-2.jpg", label: "2쪽" },
-      { src: "/answers/sw25h-리팩토링-디자인패턴-3.jpg", label: "3쪽" },
-      { src: "/answers/sw25h-리팩토링-디자인패턴-4.jpg", label: "4쪽" },
-    ],
-  },
-  {
     id: "peer-sw25h-sw-아키텍처2",
     period: "2교시",
     no: "5",
@@ -5147,43 +4288,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-sw25h-evm",
-    period: "2교시",
-    no: "6",
-    question: "EVM",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "EVM(Earned Value Management, 획득 가치 관리)",
-    ],
-    score: 13.7,
-    maxScore: 25,
-    feedback: [
-      "결과 해석 맞으면 16점 가능",
-    ],
-    pages: [
-      { src: "/answers/sw25h-evm-1.jpg", label: "1쪽" },
-      { src: "/answers/sw25h-evm-2.jpg", label: "2쪽" },
-      { src: "/answers/sw25h-evm-3.jpg", label: "3쪽" },
-    ],
-  },
-  {
-    id: "peer-sw25h-soa-msa",
-    period: "1교시",
-    no: "3",
-    question: "SOA와 MSA",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "MSA (Micro Service Architecture)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/sw25h-soa-msa-1.jpg", label: "1쪽" },
-      { src: "/answers/sw25h-soa-msa-2.jpg", label: "2쪽" },
-      { src: "/answers/sw25h-soa-msa-3.jpg", label: "3쪽" },
-    ],
-  },
-  {
     id: "peer-sw25h-cmmi-3-0",
     period: "1교시",
     no: "1",
@@ -5200,24 +4304,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-sw25h-fta-fmea-hazop",
-    period: "1교시",
-    no: "12",
-    question: "FTA, FMEA, HAZOP",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "FTA (Fault Tree Analysis)",
-      "FMEA (Failure Mode and Effects Analysis)",
-      "HAZOP (Hazard and Operability Study)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/sw25h-fta-fmea-hazop-1.jpg", label: "1쪽" },
-      { src: "/answers/sw25h-fta-fmea-hazop-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
     id: "peer-sw25h-cmmi-3-0-2",
     period: "1교시",
     no: "1",
@@ -5231,53 +4317,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/sw25h-cmmi-3-0-2-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-cmmi-3-0-2-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-sw25h-요구공학",
-    period: "1교시",
-    no: "2",
-    question: "요구공학 프로세스와 도출기법",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "요구공학 (Requirements Engineering)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/sw25h-요구공학-1.jpg", label: "1쪽" },
-      { src: "/answers/sw25h-요구공학-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-sw25h-테스트-stub-driver-비교",
-    period: "1교시",
-    no: "7",
-    question: "테스트 스텁, 테스트 드라이버 비교",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "테스트 원리",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/sw25h-테스트-stub-driver-비교-1.jpg", label: "1쪽" },
-      { src: "/answers/sw25h-테스트-stub-driver-비교-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-sw25h-아키텍처-스타일과-디자인-패턴",
-    period: "1교시",
-    question: "SW 아키텍처 스타일과 디자인 패턴 비교",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "소프트웨어 아키텍처 스타일",
-      "디자인 패턴 (Design Pattern)",
-    ],
-    score: 5.8,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/sw25h-아키텍처-스타일과-디자인-패턴-1.jpg", label: "1쪽" },
     ],
   },
   {
@@ -5359,54 +4398,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-sw25h-요구사항-추적성",
-    period: "1교시",
-    no: "10",
-    question: "요구사항의 정방향 추적성과 역방향 추적성",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "요구공학 (Requirements Engineering)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/sw25h-요구사항-추적성-1.jpg", label: "1쪽" },
-      { src: "/answers/sw25h-요구사항-추적성-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-sw25h-단계별-감리-비교",
-    period: "1교시",
-    no: "2",
-    question: "2단계 감리, 3단계 감리 차이점",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "공통감리 절차",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/sw25h-단계별-감리-비교-1.jpg", label: "1쪽" },
-      { src: "/answers/sw25h-단계별-감리-비교-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-sw25h-saga-패턴",
-    period: "1교시",
-    no: "9",
-    question: "SAGA 패턴",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "SAGA패턴",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/sw25h-saga-패턴-1.jpg", label: "1쪽" },
-      { src: "/answers/sw25h-saga-패턴-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
     id: "peer-sw25h-api-gateway",
     period: "1교시",
     no: "5",
@@ -5435,94 +4426,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/sw25h-devops-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-devops-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-sw25h-개발비-산정-방법",
-    period: "1교시",
-    question: "기능점수 방법, SW 개발비 산정 방법",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "Function Point",
-      "SW 규모산정",
-      "SW 사업대가 ('25년 개정판)",
-    ],
-    score: 5.7,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/sw25h-개발비-산정-방법-1.jpg", label: "1쪽" },
-    ],
-  },
-
-  // ── 2025년 하반기 프로젝트관리 정리 답안 (드라이브 08. 답안정리) ──
-  {
-    id: "peer-pm25h-wbs-3",
-    period: "1교시",
-    no: "8",
-    question: "WBS 구성요소, 작성원칙",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "WBS (Work Breakdown Structure)",
-    ],
-    score: 5.3,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/pm25h-wbs-3-1.jpg", label: "1쪽" },
-      { src: "/answers/pm25h-wbs-3-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-pm25h-범위관리-2",
-    period: "2교시",
-    no: "1",
-    question: "① 공공프로젝트 문제점 ② 범위 관리 실패원인 ③ 범위관리 실패 개선방안",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "범위관리",
-      "Scope Creep vs Gold-Plating",
-    ],
-    score: 15.0,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/pm25h-범위관리-2-1.jpg", label: "1쪽" },
-      { src: "/answers/pm25h-범위관리-2-2.jpg", label: "2쪽" },
-      { src: "/answers/pm25h-범위관리-2-3.jpg", label: "3쪽" },
-    ],
-  },
-  {
-    id: "peer-pm25h-범위관리-3",
-    period: "2교시",
-    no: "1",
-    question: "① 범위관리 실패 원인 ② 해결 방안",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "범위관리",
-      "Scope Creep vs Gold-Plating",
-    ],
-    score: 15.0,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/pm25h-범위관리-3-1.jpg", label: "1쪽" },
-      { src: "/answers/pm25h-범위관리-3-2.jpg", label: "2쪽" },
-      { src: "/answers/pm25h-범위관리-3-3.jpg", label: "3쪽" },
-    ],
-  },
-  {
-    id: "peer-pm25h-범위관리",
-    period: "2교시",
-    no: "1",
-    question: "① 범위 관리 실패 원인 ② 해결하기 위한 방안",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "범위관리",
-      "Scope Creep vs Gold-Plating",
-    ],
-    score: 14.0,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/pm25h-범위관리-1.jpg", label: "1쪽" },
-      { src: "/answers/pm25h-범위관리-2.jpg", label: "2쪽" },
-      { src: "/answers/pm25h-범위관리-3.jpg", label: "3쪽" },
     ],
   },
   {
@@ -5606,24 +4509,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-pm25h-감리-pmo-비교",
-    period: "1교시",
-    no: "4",
-    question: "정보시스템 감리와 PMO 비교",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "감리/PMO 비교표",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/pm25h-감리-pmo-비교-1.jpg", label: "1쪽" },
-      { src: "/answers/pm25h-감리-pmo-비교-2.jpg", label: "2쪽" },
-    ],
-  },
-
-  // ── 2025년 하반기 데이터베이스 정리 답안 (드라이브 08. 답안정리) ──
-  {
     id: "peer-db25h-합성-데이터-2",
     period: "2교시",
     no: "6",
@@ -5657,25 +4542,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/db25h-데이터패브릭-매시-2-2.jpg", label: "2쪽" },
       { src: "/answers/db25h-데이터패브릭-매시-2-3.jpg", label: "3쪽" },
       { src: "/answers/db25h-데이터패브릭-매시-2-4.jpg", label: "4쪽" },
-    ],
-  },
-  {
-    id: "peer-db25h-데이터패브릭-매시-3",
-    period: "2교시",
-    no: "1",
-    question:
-      "① 데이터 패브릭, 데이터 메시 차이점 ② 데이터 메시 원칙 및 구성요소 ③ 데이터 메시 구축 방안",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "데이터 패브릭·데이터 메시",
-    ],
-    score: 15,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/db25h-데이터패브릭-매시-3-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-데이터패브릭-매시-3-2.jpg", label: "2쪽" },
-      { src: "/answers/db25h-데이터패브릭-매시-3-3.jpg", label: "3쪽" },
-      { src: "/answers/db25h-데이터패브릭-매시-3-4.jpg", label: "4쪽" },
     ],
   },
   {
@@ -5717,25 +4583,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-db25h-준비도-성숙도",
-    period: "2교시",
-    no: "1",
-    question: "① 데이터 분석 준비도와 성숙도 ② 데이터 분석 거버넌스 수립방안",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "데이터 분석 준비도와 데이터 분석 성숙도",
-      "데이터 분석 거버넌스(Data Analytics Governance)",
-    ],
-    score: 15.0,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/db25h-준비도-성숙도-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-준비도-성숙도-2.jpg", label: "2쪽" },
-      { src: "/answers/db25h-준비도-성숙도-3.jpg", label: "3쪽" },
-      { src: "/answers/db25h-준비도-성숙도-4.jpg", label: "4쪽" },
-    ],
-  },
-  {
     id: "peer-db25h-데이터-표준화",
     period: "1교시",
     no: "8",
@@ -5764,22 +4611,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/db25h-정규화-역정규화-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-정규화-역정규화-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-db25h-샤딩",
-    period: "1교시",
-    no: "9",
-    question: "샤딩 개념 및 보호방안",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "데이터베이스 샤딩(Sharding)",
-    ],
-    score: 5.7,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/db25h-샤딩-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-샤딩-2.jpg", label: "2쪽" },
     ],
   },
   {
@@ -5816,60 +4647,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-db25h-cap-pacelc",
-    period: "1교시",
-    no: "1",
-    question: "CAP 이론의 한계와 PACELC 이론",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "CAP 이론과 BASE 이론",
-      "PACELC",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/db25h-cap-pacelc-1.jpg", label: "1쪽" },
-    ],
-  },
-  {
-    id: "peer-db25h-데이터패브릭-매시",
-    period: "2교시",
-    no: "1",
-    question:
-      "① 데이터 패브릭, 메시 차이점 ② 데이터 메시 원칙, 구성요소 ③ 데이터 메시 구축방안",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "데이터 패브릭·데이터 메시",
-    ],
-    score: 15,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/db25h-데이터패브릭-매시-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-데이터패브릭-매시-2.jpg", label: "2쪽" },
-      { src: "/answers/db25h-데이터패브릭-매시-3.jpg", label: "3쪽" },
-      { src: "/answers/db25h-데이터패브릭-매시-4.jpg", label: "4쪽" },
-      { src: "/answers/db25h-데이터패브릭-매시-5.jpg", label: "5쪽" },
-    ],
-  },
-  {
-    id: "peer-db25h-빅데이터-노이즈",
-    period: "2교시",
-    no: "4",
-    question: "① 빅데이터 노이즈 방지 요소 ② 빅데이터 노이즈 방지 해결 방안",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "이상치(Outlier)",
-      "결측치(Missing Value)",
-    ],
-    score: 15,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/db25h-빅데이터-노이즈-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-빅데이터-노이즈-2.jpg", label: "2쪽" },
-      { src: "/answers/db25h-빅데이터-노이즈-3.jpg", label: "3쪽" },
-    ],
-  },
-  {
     id: "peer-db25h-무결성",
     period: "1교시",
     no: "10",
@@ -5883,25 +4660,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/db25h-무결성-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-무결성-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-db25h-트랜잭션-동시성-제어기법",
-    period: "2교시",
-    no: "4",
-    question: "① 트랜잭션 ② 동시성 제어기법",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "트랜잭션",
-      "DB 동시성제어",
-    ],
-    score: 15,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/db25h-트랜잭션-동시성-제어기법-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-트랜잭션-동시성-제어기법-2.jpg", label: "2쪽" },
-      { src: "/answers/db25h-트랜잭션-동시성-제어기법-3.jpg", label: "3쪽" },
-      { src: "/answers/db25h-트랜잭션-동시성-제어기법-4.jpg", label: "4쪽" },
     ],
   },
   {
@@ -5942,41 +4700,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-db25h-준비도-성숙도-2",
-    period: "2교시",
-    no: "1",
-    question: "① 데이터 분석 준비도와 성숙도 ② 데이터 분석 거버넌스 수립 방안",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "데이터 분석 준비도와 데이터 분석 성숙도",
-      "데이터 분석 거버넌스(Data Analytics Governance)",
-    ],
-    score: 15.0,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/db25h-준비도-성숙도-2-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-준비도-성숙도-2-2.jpg", label: "2쪽" },
-      { src: "/answers/db25h-준비도-성숙도-2-3.jpg", label: "3쪽" },
-      { src: "/answers/db25h-준비도-성숙도-2-4.jpg", label: "4쪽" },
-    ],
-  },
-  {
-    id: "peer-db25h-연결함정-2",
-    period: "1교시",
-    no: "1",
-    question: "연결함정",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "연결함정(Connection Trap)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/db25h-연결함정-2-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-연결함정-2-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
     id: "peer-db25h-데이터-모델링-2",
     period: "1교시",
     no: "1",
@@ -6009,22 +4732,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-db25h-데이터-모델링-3",
-    period: "1교시",
-    no: "1",
-    question: "데이터 모델링의 기본원칙과 모델링 단계",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "데이터베이스 모델링",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/db25h-데이터-모델링-3-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-데이터-모델링-3-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
     id: "peer-db25h-암스트롱-공리",
     period: "1교시",
     no: "6",
@@ -6038,55 +4745,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/db25h-암스트롱-공리-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-암스트롱-공리-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-db25h-이상치-결측치-3",
-    period: "1교시",
-    no: "3",
-    question: "데이터 전처리 과정, 결측치와 이상치 처리",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "결측치(Missing Value)",
-      "이상치(Outlier)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/db25h-이상치-결측치-3-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-이상치-결측치-3-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-db25h-그래프db-벡터db",
-    period: "1교시",
-    question: "그래프 DB, 벡터 DB",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "벡터 데이터베이스(Vector Database)",
-      "NoSQL",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/db25h-그래프db-벡터db-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-그래프db-벡터db-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-db25h-ware-house-vs-lake-house",
-    period: "1교시",
-    no: "5",
-    question: "Data Warehouse와 Data LakeHouse 비교",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "데이터 레이크하우스(Data Lakehouse)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/db25h-ware-house-vs-lake-house-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-ware-house-vs-lake-house-2.jpg", label: "2쪽" },
     ],
   },
   {
@@ -6105,76 +4763,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/db25h-데이터-품질-클렌징-프로파일링-2-2.jpg", label: "2쪽" },
       { src: "/answers/db25h-데이터-품질-클렌징-프로파일링-2-3.jpg", label: "3쪽" },
       { src: "/answers/db25h-데이터-품질-클렌징-프로파일링-2-4.jpg", label: "4쪽" },
-    ],
-  },
-  {
-    id: "peer-db25h-데이터-품질-클렌징-프로파일링",
-    period: "2교시",
-    no: "6",
-    question: "가. 데이터 품질 요소 나. 데이터 클렌징 다. 데이터 프로파일링",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "데이터 프로파일링(Data Profiling)",
-    ],
-    score: 14,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/db25h-데이터-품질-클렌징-프로파일링-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-데이터-품질-클렌징-프로파일링-2.jpg", label: "2쪽" },
-      { src: "/answers/db25h-데이터-품질-클렌징-프로파일링-3.jpg", label: "3쪽" },
-      { src: "/answers/db25h-데이터-품질-클렌징-프로파일링-4.jpg", label: "4쪽" },
-    ],
-  },
-  {
-    id: "peer-db25h-트랜잭션-회복기법-2",
-    period: "2교시",
-    no: "2",
-    question: "DB 트랜잭션 회복기법 ① REDO, UNDO ② 체크포인트 ③ 그림자 페이징",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "DB 회복기법",
-      "트랜잭션",
-    ],
-    score: 15.0,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/db25h-트랜잭션-회복기법-2-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-트랜잭션-회복기법-2-2.jpg", label: "2쪽" },
-      { src: "/answers/db25h-트랜잭션-회복기법-2-3.jpg", label: "3쪽" },
-      { src: "/answers/db25h-트랜잭션-회복기법-2-4.jpg", label: "4쪽" },
-    ],
-  },
-  {
-    id: "peer-db25h-데이터-랭글러",
-    period: "1교시",
-    no: "6",
-    question: "데이터 랭글링",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "데이터 프로파일링(Data Profiling)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/db25h-데이터-랭글러-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-데이터-랭글러-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-db25h-모델링-절차",
-    period: "1교시",
-    no: "3",
-    question: "RDBMS의 4단계 모델링 절차와 NoSQL 조화",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "데이터베이스 모델링",
-      "NoSQL 데이터모델링 패턴",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/db25h-모델링-절차-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-모델링-절차-2.jpg", label: "2쪽" },
     ],
   },
   {
@@ -6209,40 +4797,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-db25h-이상치-결측치",
-    period: "1교시",
-    no: "3",
-    question: "결측치와 이상치 처리 방안",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "결측치(Missing Value)",
-      "이상치(Outlier)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/db25h-이상치-결측치-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-이상치-결측치-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-db25h-이상치-결측치-2",
-    period: "1교시",
-    no: "3",
-    question: "데이터 전처리 과정 결측치와 이상치 처리방안",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "결측치(Missing Value)",
-      "이상치(Outlier)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/db25h-이상치-결측치-2-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-이상치-결측치-2-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
     id: "peer-db25h-벡터-db",
     period: "1교시",
     no: "1",
@@ -6256,95 +4810,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/db25h-벡터-db-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-벡터-db-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-db25h-데이터-모델링",
-    period: "1교시",
-    no: "11",
-    question: "데이터베이스에서 데이터 모델링 기본원칙, 모델링 단계",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "데이터베이스 모델링",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/db25h-데이터-모델링-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-데이터-모델링-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-db25h-ware-house-vs-lake-house-2",
-    period: "1교시",
-    no: "5",
-    question: "Data Warehouse, Lakehouse 비교",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "데이터 레이크하우스(Data Lakehouse)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/db25h-ware-house-vs-lake-house-2-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-ware-house-vs-lake-house-2-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-db25h-팬텀-충돌",
-    period: "1교시",
-    no: "1",
-    question: "팬텀 충돌 설명",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "Isolation Level(격리 레벨)",
-      "DB 동시성제어",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    feedback: [
-      "good",
-    ],
-    pages: [
-      { src: "/answers/db25h-팬텀-충돌-1.jpg", label: "1쪽" },
-      { src: "/answers/db25h-팬텀-충돌-2.jpg", label: "2쪽" },
-    ],
-  },
-
-  // ── 2025년 하반기 네트워크 정리 답안 (드라이브 08. 답안정리) ──
-  {
-    id: "peer-nw25h-cast-방식",
-    period: "2교시",
-    no: "4",
-    question:
-      "① Unicast ② Broadcast ③ Multicast ④ Anycast ⑤ Incast",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "IPv6",
-    ],
-    score: 15,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/nw25h-cast-방식-1.jpg", label: "1쪽" },
-      { src: "/answers/nw25h-cast-방식-2.jpg", label: "2쪽" },
-      { src: "/answers/nw25h-cast-방식-3.jpg", label: "3쪽" },
-      { src: "/answers/nw25h-cast-방식-4.jpg", label: "4쪽" },
-    ],
-  },
-  {
-    id: "peer-nw25h-vpn",
-    period: "1교시",
-    no: "4",
-    question: "VPN 구성 방식",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "VPN(Virtual Private Network)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/nw25h-vpn-1.jpg", label: "1쪽" },
-      { src: "/answers/nw25h-vpn-2.jpg", label: "2쪽" },
     ],
   },
   {
@@ -6377,27 +4842,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/nw25h-5g-ntn-5-1.jpg", label: "1쪽" },
       { src: "/answers/nw25h-5g-ntn-5-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-nw25h-osi-7-layer",
-    period: "2교시",
-    no: "4",
-    question: "① ISO 7498의 각 계층 설명 ② TCP/IP 프로토콜과 비교",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "OSI 7 Layer (ISO 7498)",
-    ],
-    score: 15,
-    maxScore: 25,
-    feedback: [
-      "그림 크게 작성하세요",
-    ],
-    pages: [
-      { src: "/answers/nw25h-osi-7-layer-1.jpg", label: "1쪽" },
-      { src: "/answers/nw25h-osi-7-layer-2.jpg", label: "2쪽" },
-      { src: "/answers/nw25h-osi-7-layer-3.jpg", label: "3쪽" },
-      { src: "/answers/nw25h-osi-7-layer-4.jpg", label: "4쪽" },
     ],
   },
   {
@@ -6466,22 +4910,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-nw25h-queue-관리",
-    period: "1교시",
-    no: "4",
-    question: "QoS 기법 중 Queue 관리",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "QoS(Quality of Service)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/nw25h-queue-관리-1.jpg", label: "1쪽" },
-      { src: "/answers/nw25h-queue-관리-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
     id: "peer-nw25h-의도기반-네트워킹-1",
     period: "1교시",
     no: "1",
@@ -6547,22 +4975,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-nw25h-5g-ntn",
-    period: "1교시",
-    no: "9",
-    question: "5G NTN",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "비지상네트워크(NTN, Non-Terrestrial Networks)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/nw25h-5g-ntn-1.jpg", label: "1쪽" },
-      { src: "/answers/nw25h-5g-ntn-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
     id: "peer-nw25h-http-3-0",
     period: "1교시",
     no: "10",
@@ -6595,24 +5007,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-nw25h-nwdaf",
-    period: "1교시",
-    no: "10",
-    question: "NWDAF",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "NWDAF(Network Data Analytics Function)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/nw25h-nwdaf-1.jpg", label: "1쪽" },
-      { src: "/answers/nw25h-nwdaf-2.jpg", label: "2쪽" },
-    ],
-  },
-
-  // ── 2025년 하반기 인공지능·통계 정리 답안 (드라이브 08. 답안정리) ──
-  {
     id: "peer-ai25h-선형회귀-로지스틱회귀",
     period: "1교시",
     no: "8",
@@ -6624,47 +5018,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/ai25h-선형회귀-로지스틱회귀-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-선형회귀-로지스틱회귀-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-ai25h-기술통계-추론통계",
-    period: "2교시",
-    no: "3",
-    question:
-      "가. 기술통계와 추론통계 차이점 나. 표본추출 방법 다. P-value와 1종/2종 오류",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "기술 통계(Descriptive statistics)",
-      "추론 통계(Inferential Statistics)",
-      "표본 추출(Sampling)",
-      "통계적 가설검정(Hypothesis Testing)",
-    ],
-    score: 15,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/ai25h-기술통계-추론통계-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-기술통계-추론통계-2.jpg", label: "2쪽" },
-      { src: "/answers/ai25h-기술통계-추론통계-3.jpg", label: "3쪽" },
-      { src: "/answers/ai25h-기술통계-추론통계-4.jpg", label: "4쪽" },
-      { src: "/answers/ai25h-기술통계-추론통계-5.jpg", label: "5쪽" },
-    ],
-  },
-  {
-    id: "peer-ai25h-회귀분석-2교시형",
-    period: "2교시",
-    no: "1",
-    question: "① 회귀분석 개념 및 가정 ② 회귀분석 절차 ③ 회귀분석 유형과 특징",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "회귀분석(Regression Analysis)",
-    ],
-    score: 15.0,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/ai25h-회귀분석-2교시형-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-회귀분석-2교시형-2.jpg", label: "2쪽" },
-      { src: "/answers/ai25h-회귀분석-2교시형-3.jpg", label: "3쪽" },
-      { src: "/answers/ai25h-회귀분석-2교시형-4.jpg", label: "4쪽" },
     ],
   },
   {
@@ -6802,25 +5155,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-ai25h-생성형-인공지능-저작권",
-    period: "2교시",
-    no: "3",
-    question: "① 생성형 인공지능 저작권 이슈 ② 생성형 AI 저작권 문제 해결방안",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "인공지능 생성물 워터마크 적용 기술",
-      "생성형 인공지능 서비스 이용자 보호 가이드라인",
-    ],
-    score: 15,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/ai25h-생성형-인공지능-저작권-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-생성형-인공지능-저작권-2.jpg", label: "2쪽" },
-      { src: "/answers/ai25h-생성형-인공지능-저작권-3.jpg", label: "3쪽" },
-      { src: "/answers/ai25h-생성형-인공지능-저작권-4.jpg", label: "4쪽" },
-    ],
-  },
-  {
     id: "peer-ai25h-인공지능-신뢰성",
     period: "1교시",
     question: "인공지능 신뢰성",
@@ -6831,59 +5165,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/ai25h-인공지능-신뢰성-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-인공지능-신뢰성-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-ai25h-knn-k-means",
-    period: "2교시",
-    no: "2",
-    question:
-      "① K-NN 개념, K의 의미 ② K-Means 개념 ③ K-NN, K-Means 성능평가 방법",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "K-NN(Nearest Neighbor) Classification",
-      "K-평균 알고리즘",
-    ],
-    score: 15,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/ai25h-knn-k-means-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-knn-k-means-2.jpg", label: "2쪽" },
-      { src: "/answers/ai25h-knn-k-means-3.jpg", label: "3쪽" },
-    ],
-  },
-  {
-    id: "peer-ai25h-ai-기본법-2교시형-2",
-    period: "2교시",
-    no: "6",
-    question: "AI 기본법 주요내용, 고려 사항",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "AI 기본법",
-    ],
-    score: 15,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/ai25h-ai-기본법-2교시형-2-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-ai-기본법-2교시형-2-2.jpg", label: "2쪽" },
-      { src: "/answers/ai25h-ai-기본법-2교시형-2-3.jpg", label: "3쪽" },
-      { src: "/answers/ai25h-ai-기본법-2교시형-2-4.jpg", label: "4쪽" },
-    ],
-  },
-  {
-    id: "peer-ai25h-소버린-ai-2",
-    period: "1교시",
-    no: "4",
-    question: "소버린 AI",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "소버린 AI(Artificial Intelligence)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/ai25h-소버린-ai-2-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-소버린-ai-2-2.jpg", label: "2쪽" },
     ],
   },
   {
@@ -6954,87 +5235,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-ai25h-소버린-ai",
-    period: "1교시",
-    no: "4",
-    question: "소버린 AI",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "소버린 AI(Artificial Intelligence)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/ai25h-소버린-ai-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-소버린-ai-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-ai25h-생성형-llm",
-    period: "2교시",
-    no: "6",
-    question: "① 생성형 AI 한계 ② LLM 도입 이슈 ③ LLM 도입 아키텍처",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "초거대 언어 모델(Large Language Model)",
-    ],
-    score: 15,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/ai25h-생성형-llm-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-생성형-llm-2.jpg", label: "2쪽" },
-      { src: "/answers/ai25h-생성형-llm-3.jpg", label: "3쪽" },
-    ],
-  },
-  {
-    id: "peer-ai25h-llm-reasoning",
-    period: "1교시",
-    no: "7",
-    question: "LLM Reasoning",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "COT(Chain of Thought)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/ai25h-llm-reasoning-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-llm-reasoning-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-ai25h-피지컬-ai-2",
-    period: "1교시",
-    no: "4",
-    question: "피지컬 AI",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "Physical AI",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/ai25h-피지컬-ai-2-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-피지컬-ai-2-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-ai25h-개발비-산정-절차-2",
-    period: "1교시",
-    no: "1",
-    question: "인공지능 도입 방식에 의한 SW 개발비 산정 절차",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "인공지능(AI) 도입 사업비 산정 절차",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/ai25h-개발비-산정-절차-2-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-개발비-산정-절차-2-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
     id: "peer-ai25h-적응형-ai",
     period: "1교시",
     no: "2",
@@ -7073,59 +5273,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-ai25h-ml-성능평가",
-    period: "2교시",
-    no: "7",
-    question:
-      "① ML 성능 평가 방식 ② 생성형 AI 성능 평가 방식 ③ ML 성능 평가 방식, 생성형 AI 성능 평가 방식 비교",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "혼동행렬(Confusion Matrix)",
-    ],
-    score: 14.1,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/ai25h-ml-성능평가-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-ml-성능평가-2.jpg", label: "2쪽" },
-      { src: "/answers/ai25h-ml-성능평가-3.jpg", label: "3쪽" },
-    ],
-  },
-  {
-    id: "peer-ai25h-버티컬-ai",
-    period: "2교시",
-    no: "6",
-    question:
-      "① 버티컬 AI의 개념 ② 수평적 AI와 비교 ③ 버티컬 AI 기술 활성화를 위한 기술·관리·제도 방안",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "버티컬 AI(Vertical AI)",
-    ],
-    score: 15,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/ai25h-버티컬-ai-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-버티컬-ai-2.jpg", label: "2쪽" },
-      { src: "/answers/ai25h-버티컬-ai-3.jpg", label: "3쪽" },
-    ],
-  },
-  {
-    id: "peer-ai25h-멀티모달-llm",
-    period: "1교시",
-    no: "5",
-    question: "Multimodal LLM",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "멀티모달(Multimodal) AI",
-      "초거대 언어 모델(Large Language Model)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/ai25h-멀티모달-llm-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-멀티모달-llm-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
     id: "peer-ai25h-drop-out-3",
     period: "1교시",
     no: "3",
@@ -7142,22 +5289,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-ai25h-실루엣-계수-2",
-    period: "1교시",
-    no: "1",
-    question: "실루엣 계수",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "K-평균 알고리즘",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/ai25h-실루엣-계수-2-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-실루엣-계수-2-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
     id: "peer-ai25h-ai-기본법-1교시형-2",
     period: "1교시",
     no: "4",
@@ -7171,22 +5302,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/ai25h-ai-기본법-1교시형-2-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-ai-기본법-1교시형-2-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-ai25h-xai-2",
-    period: "1교시",
-    no: "2",
-    question: "XAI",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "AI TRiSM(AI Trust, Risk and Security Management)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/ai25h-xai-2-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-xai-2-2.jpg", label: "2쪽" },
     ],
   },
   {
@@ -7207,22 +5322,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-ai25h-drop-out-2",
-    period: "1교시",
-    no: "3",
-    question: "드랍아웃 동작원리",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "Dropout",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/ai25h-drop-out-2-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-drop-out-2-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
     id: "peer-ai25h-ai-trism",
     period: "1교시",
     question: "AI TRiSM",
@@ -7238,42 +5337,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-ai25h-drop-out",
-    period: "1교시",
-    no: "13",
-    question: "Drop Out 동작원리",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "Dropout",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    feedback: [
-      "good",
-    ],
-    pages: [
-      { src: "/answers/ai25h-drop-out-1.jpg", label: "1쪽" },
-    ],
-  },
-  {
-    id: "peer-ai25h-rag-rig",
-    period: "1교시",
-    no: "10",
-    question: "RAG와 RIG",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "검색 증강 생성(RAG, Retrieval Augmented Generation)",
-      "검색 삽입 생성(RIG, Retrieval Interleaved Generation)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/ai25h-rag-rig-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-rag-rig-2.jpg", label: "2쪽" },
-      { src: "/answers/ai25h-rag-rig-3.jpg", label: "3쪽" },
-    ],
-  },
-  {
     id: "peer-ai25h-ai-기본법-2교시형-1",
     period: "1교시",
     no: "4",
@@ -7286,24 +5349,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     maxScore: 10,
     pages: [
       { src: "/answers/ai25h-ai-기본법-2교시형-1-1.jpg", label: "1쪽" },
-    ],
-  },
-  {
-    id: "peer-ai25h-ml-성능평가-2",
-    period: "2교시",
-    question:
-      "① ML 성능 평가 방식 ② 생성형 AI 성능평가 방식 ③ ML 성능평가 방식과 생성형 AI 성능평가 비교",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "혼동행렬(Confusion Matrix)",
-    ],
-    score: 14.7,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/ai25h-ml-성능평가-2-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-ml-성능평가-2-2.jpg", label: "2쪽" },
-      { src: "/answers/ai25h-ml-성능평가-2-3.jpg", label: "3쪽" },
-      { src: "/answers/ai25h-ml-성능평가-2-4.jpg", label: "4쪽" },
     ],
   },
   {
@@ -7326,22 +5371,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-ai25h-실루엣-계수-1",
-    period: "1교시",
-    no: "1",
-    question: "실루엣 계수",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "K-평균 알고리즘",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/ai25h-실루엣-계수-1-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-실루엣-계수-1-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
     id: "peer-ai25h-전이학습-파인튜닝-2",
     period: "1교시",
     no: "1",
@@ -7358,39 +5387,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/ai25h-전이학습-파인튜닝-2-2.jpg", label: "2쪽" },
     ],
   },
-  {
-    id: "peer-ai25h-bagging-boosting",
-    period: "1교시",
-    no: "9",
-    question: "앙상블 모형의 Bagging과 Boosting 알고리즘",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "앙상블 학습(Ensemble Learning)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/ai25h-bagging-boosting-1.jpg", label: "1쪽" },
-    ],
-  },
-  {
-    id: "peer-ai25h-xai",
-    period: "1교시",
-    no: "2",
-    question: "XAI",
-    exam: "2025년 하반기 정리",
-    topicTitles: [
-      "AI TRiSM(AI Trust, Risk and Security Management)",
-    ],
-    score: 6.0,
-    maxScore: 10,
-    pages: [
-      { src: "/answers/ai25h-xai-1.jpg", label: "1쪽" },
-      { src: "/answers/ai25h-xai-2.jpg", label: "2쪽" },
-    ],
-  },
-
-  // ── 객체지향 프로그래밍 특징 — 채점 답안지 (118회·기필반·모의) ──
   {
     id: "peer-oopchar-118-2-5",
     period: "2교시",
@@ -7422,56 +5418,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/oopchar-2-4.jpg", label: "4쪽" },
     ],
   },
-  {
-    id: "peer-oopchar-char-solid-a",
-    period: "1교시",
-    no: "4",
-    score: 6.0,
-    maxScore: 10,
-    question: "객체지향 프로그래밍의 특징과 설계 원리",
-    topicTitles: ["객체지향 프로그래밍 특징", "객체지향 설계 원리"],
-    pages: [
-      { src: "/answers/oopchar-4-1.jpg", label: "1쪽" },
-      { src: "/answers/oopchar-4-2.jpg", label: "2쪽" },
-      { src: "/answers/oopchar-4-3.jpg", label: "3쪽" },
-    ],
-  },
-  {
-    id: "peer-oopchar-gof-observer",
-    period: "2교시",
-    no: "3",
-    score: 15,
-    maxScore: 25,
-    question:
-      "① 객체지향 설계의 특징 ② GoF 디자인 패턴 종류 ③ Observer Pattern",
-    topicTitles: [
-      "객체지향 프로그래밍 특징",
-      "디자인 패턴 (Design Pattern)",
-      "객체지향 설계 원리",
-    ],
-    pages: [
-      { src: "/answers/oopchar-5-1.jpg", label: "1쪽" },
-      { src: "/answers/oopchar-5-2.jpg", label: "2쪽" },
-      { src: "/answers/oopchar-5-3.jpg", label: "3쪽" },
-      { src: "/answers/oopchar-5-4.jpg", label: "4쪽" },
-    ],
-  },
-  {
-    id: "peer-oopchar-char-solid-b",
-    period: "1교시",
-    no: "4",
-    score: 6.0,
-    maxScore: 10,
-    question: "객체지향 프로그래밍 특징과 설계의 원리",
-    topicTitles: ["객체지향 프로그래밍 특징", "객체지향 설계 원리"],
-    pages: [
-      { src: "/answers/oopchar-6-1.jpg", label: "1쪽" },
-      { src: "/answers/oopchar-6-2.jpg", label: "2쪽" },
-      { src: "/answers/oopchar-6-3.jpg", label: "3쪽" },
-    ],
-  },
-
-  // ── UML 관계 4개 — 채점 답안지 2건 ──
   {
     id: "peer-uml-relations-a",
     period: "1교시",
@@ -7514,21 +5460,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-msa-lightweight",
-    period: "2교시",
-    no: "1",
-    question: "MSA 경량화 고려사항",
-    topicTitles: ["MSA (Micro Service Architecture)"],
-    score: 15,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/msa-3-1.jpg", label: "1쪽" },
-      { src: "/answers/msa-3-2.jpg", label: "2쪽" },
-      { src: "/answers/msa-3-3.jpg", label: "3쪽" },
-      { src: "/answers/msa-3-4.jpg", label: "4쪽" },
-    ],
-  },
-  {
     id: "peer-msa-bluegreen-canary",
     period: "3교시",
     no: "4",
@@ -7558,23 +5489,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/msa2-1-5.jpg", label: "5쪽" },
     ],
   },
-  {
-    id: "peer-msa-transition",
-    period: "2교시",
-    no: "4",
-    question: "① MSA 개념 ② 전환 시 사전준비 ③ 설계 시 고려사항",
-    topicTitles: ["MSA (Micro Service Architecture)"],
-    score: 14.5,
-    maxScore: 25,
-    pages: [
-      { src: "/answers/msa2-2-1.jpg", label: "1쪽" },
-      { src: "/answers/msa2-2-2.jpg", label: "2쪽" },
-      { src: "/answers/msa2-2-3.jpg", label: "3쪽" },
-      { src: "/answers/msa2-2-4.jpg", label: "4쪽" },
-    ],
-  },
-
-  // ── MSA — SAGA·CQRS·DDD 연계 답안 3건 ──
   {
     id: "peer-msa-saga-cqrs",
     period: "2교시",
@@ -7608,18 +5522,52 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-msa-cloud",
+    id: "peer-dp-classify",
+    period: "1교시",
+    no: "7",
+    question: "디자인패턴 3가지 분류, 5가지 패턴 나열",
+    exam: "NS반 모의고사 10기 9주차",
+    topicTitles: ["디자인 패턴 (Design Pattern)"],
+    score: 7.5,
+    maxScore: 10,
+    feedback: [
+      "개념 '유지보수성을 극대화하기 위해 GoF가 제안한 프로그램 작성 패턴'에 동그라미·밑줄.",
+      "3가지 분류 생성·구조·행위 각각에 동그라미.",
+    ],
+    pages: [
+      { src: "/answers/dp-1-1.jpg", label: "1쪽" },
+      { src: "/answers/dp-1-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-dp-arch-style-vs-pattern",
+    period: "2교시",
+    question:
+      "① SW 아키텍처 개요 ② SW 아키텍처 스타일과 디자인패턴 차이 ③ 아키텍처 평가모델",
+    exam: "ITPE 주간 실전모의고사",
+    topicTitles: ["소프트웨어 아키텍처 스타일", "디자인 패턴 (Design Pattern)", "SW Architecture 평가"],
+    score: 15.5,
+    maxScore: 25,
+    feedback: ["1쪽 아키텍처 개념의 'SW 설계 구조'에 동그라미, 옆에 '자질 설계'."],
+    pages: [
+      { src: "/answers/dp-2-1.jpg", label: "1쪽" },
+      { src: "/answers/dp-2-2.jpg", label: "2쪽" },
+      { src: "/answers/dp-2-3.jpg", label: "3쪽" },
+      { src: "/answers/dp-2-4.jpg", label: "4쪽" },
+    ],
+  },
+  {
+    id: "peer-dp-arch-lib-platform",
     period: "2교시",
     no: "2",
-    question: "MSA(Micro Service Architecture)",
-    topicTitles: ["MSA (Micro Service Architecture)"],
-    score: 15,
-    maxScore: 25,
+    question: "가. 아키텍처·디자인패턴 나. 라이브러리·프레임워크 다. 플랫폼",
+    exam: "ITPE 주간 실전모의고사",
+    topicTitles: ["디자인 패턴 (Design Pattern)"],
     pages: [
-      { src: "/answers/msa3-3-1.jpg", label: "1쪽" },
-      { src: "/answers/msa3-3-2.jpg", label: "2쪽" },
-      { src: "/answers/msa3-3-3.jpg", label: "3쪽" },
-      { src: "/answers/msa3-3-4.jpg", label: "4쪽" },
+      { src: "/answers/dp-4-1.jpg", label: "1쪽" },
+      { src: "/answers/dp-4-2.jpg", label: "2쪽" },
+      { src: "/answers/dp-4-3.jpg", label: "3쪽" },
+      { src: "/answers/dp-4-4.jpg", label: "4쪽" },
     ],
   },
 ];
