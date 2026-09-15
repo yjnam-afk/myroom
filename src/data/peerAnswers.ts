@@ -112,32 +112,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-os-paging-seg-1",
-    period: "2교시",
-    no: "6",
-    question:
-      "가상 메모리 동작에 대한 다음의 질문에 대하여 설명하시오.\n가. 가상 메모리 관리 기법의 기본 동작 원리\n나. 페이징 기법과 세그먼트 기법\n다. 구역성(Locality)의 페이징 기법에서 가지는 중요한 의미",
-    exam: "NS반 모의고사 15기 2주차",
-    topicTitles: ["가상메모리의 페이징과 세그멘테이션", "가상메모리 관리기법", "지역성(Locality)"],
-    score: 14.8,
-    maxScore: 25,
-    feedback: [
-      "문 6) 위에 '14.8'. I. 중요성 개념도의 복잡도 증가·대량 I/O·탄력적 대응 상자 옆에 빨간 꺾쇠 표시.",
-      "II.가 개념도의 '가상메모리 관리'에 동그라미, 할당 상자로 화살표를 그리고 '할당만 관리영역 같아보이네'.",
-      "II.나 표의 기술 열(페이징·세그멘테이션, First·Best·Worst Fit, 예상·즉시, FIFO·LRU·LFU·NUR·OPT)에 세로로 큰 동그라미, 옆에 '표작성은 good'.",
-      "III.가 페이징 개념도의 '고정분할 관리'에 동그라미, 개념·특징(고정분할 통합·직접할당·연관할당·직-연할당·내부단편화 발생→Buddy 해결)에 동그라미, 아래 '구체적'.",
-      "III.나 세그먼트 개념도의 '가변분할 관리'에 동그라미, 개념·특징(가변분할해 할당 탄력성 높인 관리기법·외부단편화 발생→Slab Allocator 해결)에 동그라미, 옆에 'OK'.",
-      "IV.가 Locality 개념도와 중요의미(최근 Access한 것을 다시 참조·근접 공간을 연쇄 참조)에 큰 동그라미, 위에 '여기보완!'.",
-      "IV.나 시간 지역성·공간 지역성 성질 표 전체에 큰 동그라미. 답안 끝 '끝'.",
-    ],
-    pages: [
-      { src: "/answers/os-ps-a-1.jpg", label: "4쪽 — 문제·중요성" },
-      { src: "/answers/os-ps-a-2.jpg", label: "5쪽 — 기본 동작 원리" },
-      { src: "/answers/os-ps-a-3.jpg", label: "6쪽 — 페이징·세그먼트 기법" },
-      { src: "/answers/os-ps-a-4.jpg", label: "7쪽 — Locality의 중요 의미" },
-    ],
-  },
-  {
     id: "peer-os-paging-seg-2",
     period: "1교시",
     no: "13",
@@ -1848,24 +1822,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/os-ctx-b-2.jpg", label: "8쪽" },
       { src: "/answers/os-ctx-b-3.jpg", label: "9쪽" },
       { src: "/answers/os-ctx-b-4.jpg", label: "10쪽" },
-    ],
-  },
-  {
-    id: "peer-os-ctx-04",
-    period: "1교시",
-    no: "5",
-    question: "문맥교환 절차와 PCB",
-    exam: "NS반 모의고사",
-    topicTitles: ["문맥교환(Context Switching)", "PCB(Process Control Block)"],
-    score: 5.7,
-    maxScore: 10,
-    feedback: [
-      "절차 도식(PCB1 저장 → PCB2 복구 → PCB2 저장 → PCB1 복구)에 큰 동그라미.",
-      "PCB 설명에 '7줄은 많아요.",
-    ],
-    pages: [
-      { src: "/answers/os-ctx-c-1.jpg", label: "6쪽" },
-      { src: "/answers/os-ctx-c-2.jpg", label: "7쪽" },
     ],
   },
   {
