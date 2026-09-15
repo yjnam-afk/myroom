@@ -1748,7 +1748,9 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "1",
     question: "다크 팩토리(Dark Factory)에 대하여 설명하시오.",
     exam: "NS반 19기 1주차 모의고사(2026-09-06)",
-    topicTitles: ["스마트팩토리 보안취약점 및 대응방안", "다크 팩토리(Dark Factory)", "스마트 팩토리"],
+    topicTitles: [
+      "다크 팩토리(Dark Factory)",
+    ],
     // 점수는 시험지에 안 적혀 있다. 첨삭은 목차 옆의 '기술 목차' 세 곳뿐.
     maxScore: 10,
     feedback: [
@@ -2056,7 +2058,9 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "9",
     question: "운영체제 커널 역할과 구조, 종류에 대하여 설명하시오.",
     exam: "NS반 모의고사",
-    topicTitles: ["커널(Kernel)", "CPU Ring Level"],
+    topicTitles: [
+      "커널(Kernel)",
+    ],
     score: 6.2,
     maxScore: 10,
     feedback: [
@@ -2186,7 +2190,9 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "4",
     question: "S/W Architecture Style",
     exam: "ITPE 주간 실전모의고사",
-    topicTitles: ["소프트웨어 아키텍처 스타일", "아키텍처 스타일", "다형성 (Polymorphism)", "다형성"],
+    topicTitles: [
+      "소프트웨어 아키텍처 스타일",
+    ],
     score: 6,
     maxScore: 10,
     feedback: [
@@ -2649,7 +2655,9 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "5",
     question: "UML(Unified Modeling Language)의 관계",
     exam: "102회 커시응 1교시 정리 답안",
-    topicTitles: ["UML (정적, 동적 다이어그램)", "UML", "UML의 4+1 View Model"],
+    topicTitles: [
+      "UML (정적, 동적 다이어그램)",
+    ],
     feedback: [
       "관계 분류도 — 연관관계 → 전체/부분 관계 → 특수연관 → Life Cycle 동일 → 복합연관, 아니면 집합연관.",
       "종류 표 — 연관(Association)·의존(Dependency)·일반화(Generalization)·실체화(Realization)와 UML 표기.",
@@ -2976,7 +2984,9 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     period: "1교시",
     question: "부트로더",
     exam: "정리 답안 (드라이브 07. CAOS)",
-    topicTitles: ["커널(Kernel)", "부트로더(Boot Loader)", "부트로더"],
+    topicTitles: [
+      "부트로더(Boot Loader)",
+    ],
     pages: [
       { src: "/answers/caos-부트로더-1.jpg", label: "1쪽" },
       { src: "/answers/caos-부트로더-2.jpg", label: "2쪽" },
@@ -3376,7 +3386,10 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     period: "1교시",
     question: "카디널리티",
     exam: "정리 답안 (드라이브 06. DB)",
-    topicTitles: ["데이터베이스 정규화(Normalization)", "카디널리티"],
+    topicTitles: [
+      "엔티티(Entity)",
+      "릴레이션 키(key)",
+    ],
     pages: [
       { src: "/answers/db-카디널리티-1.jpg", label: "1쪽" },
       { src: "/answers/db-카디널리티-2.jpg", label: "2쪽" },
@@ -4620,7 +4633,10 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     period: "1교시",
     question: "은행가 알고리즘",
     exam: "정리 답안 (드라이브 2025년 하반기)",
-    topicTitles: ["은행원 알고리즘(Banker's Algorithm)", "교착상태(Deadlock)"],
+    topicTitles: [
+      "Banker's 알고리즘(은행가 알고리즘)",
+      "교착상태(Deadlock)",
+    ],
     pages: [
       { src: "/answers/h25-은행가-알고리즘-1.jpg", label: "1쪽" },
       { src: "/answers/h25-은행가-알고리즘-2.jpg", label: "2쪽" },
@@ -7480,6 +7496,81 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/umlrel-2-1.jpg", label: "1쪽" },
       { src: "/answers/umlrel-2-2.jpg", label: "2쪽" },
+    ],
+  },
+
+  // ── MSA — 채점 답안지 5건 ──
+  {
+    id: "peer-msa-micro-arch",
+    period: "1교시",
+    no: "6",
+    question: "Microservice Architecture",
+    topicTitles: ["MSA (Micro Service Architecture)"],
+    score: 6.5,
+    maxScore: 10,
+    pages: [
+      { src: "/answers/msa-2-1.jpg", label: "1쪽" },
+      { src: "/answers/msa-2-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-msa-lightweight",
+    period: "2교시",
+    no: "1",
+    question: "MSA 경량화 고려사항",
+    topicTitles: ["MSA (Micro Service Architecture)"],
+    score: 15,
+    maxScore: 25,
+    pages: [
+      { src: "/answers/msa-3-1.jpg", label: "1쪽" },
+      { src: "/answers/msa-3-2.jpg", label: "2쪽" },
+      { src: "/answers/msa-3-3.jpg", label: "3쪽" },
+      { src: "/answers/msa-3-4.jpg", label: "4쪽" },
+    ],
+  },
+  {
+    id: "peer-msa-bluegreen-canary",
+    period: "3교시",
+    no: "4",
+    exam: "KPC 83회",
+    question:
+      "최근 대규모의 소프트웨어 개발에 적용하기 위한 다양한 아키텍처가 사용되고 있다. 아래 항목에 대해 설명하시오.\n가. 마이크로 서비스 아키텍처(Micro Service Architecture)의 필요성과 개념\n나. 마이크로 서비스의 장단점\n다. 블루그린배포(Blue Green Deployment)와 카나리아 배포(Canary Deployment)",
+    topicTitles: ["MSA (Micro Service Architecture)", "무중단 배포"],
+    pages: [
+      { src: "/answers/msa-4-1.jpg", label: "1쪽" },
+      { src: "/answers/msa-4-2.jpg", label: "2쪽" },
+      { src: "/answers/msa-4-3.jpg", label: "3쪽" },
+      { src: "/answers/msa-4-4.jpg", label: "4쪽" },
+    ],
+  },
+  {
+    id: "peer-msa-concept-mesh",
+    period: "2교시",
+    no: "6",
+    question:
+      "① MSA 개념, 특징 ② 구현 시 절차 ③ 모놀리틱과 MSA 비교 ④ 서비스 메시",
+    topicTitles: ["MSA (Micro Service Architecture)"],
+    pages: [
+      { src: "/answers/msa2-1-1.jpg", label: "1쪽" },
+      { src: "/answers/msa2-1-2.jpg", label: "2쪽" },
+      { src: "/answers/msa2-1-3.jpg", label: "3쪽" },
+      { src: "/answers/msa2-1-4.jpg", label: "4쪽" },
+      { src: "/answers/msa2-1-5.jpg", label: "5쪽" },
+    ],
+  },
+  {
+    id: "peer-msa-transition",
+    period: "2교시",
+    no: "4",
+    question: "① MSA 개념 ② 전환 시 사전준비 ③ 설계 시 고려사항",
+    topicTitles: ["MSA (Micro Service Architecture)"],
+    score: 14.5,
+    maxScore: 25,
+    pages: [
+      { src: "/answers/msa2-2-1.jpg", label: "1쪽" },
+      { src: "/answers/msa2-2-2.jpg", label: "2쪽" },
+      { src: "/answers/msa2-2-3.jpg", label: "3쪽" },
+      { src: "/answers/msa2-2-4.jpg", label: "4쪽" },
     ],
   },
 ];
