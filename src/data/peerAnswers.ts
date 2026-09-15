@@ -5152,10 +5152,20 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-sw25h-sw-아키텍처",
-    period: "1교시",
-    question: "SW 아키텍처",
+    period: "2교시",
+    no: "6",
+    question:
+      "① SW 아키텍처 분석 필요성 ② 정방향, 역방향 분석 개념 ③ ATAM",
     exam: "2025년 하반기 정리",
-    topicTitles: ["SW Architecture 구축 절차"],
+    topicTitles: [
+      "SW Architecture 평가",
+      "SW Architecture 구축 절차",
+      "3R",
+      "CBAM(Cost Benefit Analysis Method)",
+    ],
+    score: 15.5,
+    maxScore: 25,
+    feedback: ["개념과 Merge", "+ Bottom up"],
     pages: [
       { src: "/answers/sw25h-sw-아키텍처-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-sw-아키텍처-2.jpg", label: "2쪽" },
