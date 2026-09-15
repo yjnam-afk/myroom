@@ -6,6 +6,9 @@
  *  - 3열(구분 | 키워드 | 설명), 각 행 셀 3개
  *  - 2열·3열은 1~2줄(\n), 두 열의 줄 수가 같다
  *  - 한 줄은 공백 제외 1~7자(목표 5~7)
+ *  - 예외: 공백이 없어 접을 수 없는 한 낱말은 12자까지 둔다
+ *    (Thrashing·IR(addr)·PCB·스케줄링 같은 교재 용어. 교재 용어를 줄이지
+ *     않기로 했으므로, 접을 데가 있으면 두 줄로 접고 없으면 그대로 둔다.)
  */
 import { SUBNOTES } from "../src/data/textbookSubnotes";
 
@@ -31,7 +34,9 @@ for (const s of SUBNOTES) {
       for (const [ci, lines] of [[2, l2], [3, l3]] as const)
         for (const ln of lines) {
           const n = plain(ln).length;
-          if (n < 1 || n > 7) errs.push(`${where} 행${ri + 1} ${ci}열: '${ln}' ${n}자`);
+          // 공백이 없으면 접을 데가 없다는 뜻이다 — 교재 용어를 줄이지 않는다.
+          const max = /\s/.test(ln.trim()) ? 7 : 12;
+          if (n < 1 || n > max) errs.push(`${where} 행${ri + 1} ${ci}열: '${ln}' ${n}자`);
         }
     });
   });
