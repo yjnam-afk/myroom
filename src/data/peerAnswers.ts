@@ -4906,7 +4906,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "정보시스템 운영/유지보수 감리",
-      "공통감리 절차",
     ],
     pages: [
       { src: "/answers/sw25h-책임감리-운영감리-1.jpg", label: "1쪽" },
@@ -4923,7 +4922,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "클래스 다이어그램 (Class Diagram)",
-      "UML (정적, 동적 다이어그램)",
     ],
     score: 16,
     maxScore: 25,
@@ -4988,7 +4986,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "DevSecOps",
-      "데브옵스 (DevOps)",
     ],
     score: 5.0,
     maxScore: 10,
@@ -5038,7 +5035,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "소프트웨어 설계의 원리",
-      "ISO/IEC 25010:2023",
     ],
     pages: [
       { src: "/answers/sw25h-좋은-소프트웨어-1.jpg", label: "1쪽" },
@@ -5072,7 +5068,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "유틸리티 트리 (Utility Tree)",
-      "소프트웨어 품질 속성 시나리오",
     ],
     pages: [
       { src: "/answers/sw25h-유틸리티-트리-1.jpg", label: "1쪽" },
@@ -5246,7 +5241,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "테스트 원리",
-      "Test Process",
     ],
     score: 6.0,
     maxScore: 10,
@@ -5281,7 +5275,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       "SW Architecture 평가",
       "SW Architecture 구축 절차",
       "3R",
-      "CBAM(Cost Benefit Analysis Method)",
     ],
     score: 15.5,
     maxScore: 25,
@@ -5302,7 +5295,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "소프트웨어 리팩토링",
-      "3R",
     ],
     score: 16,
     maxScore: 25,
@@ -5320,7 +5312,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "SW 안전성 분석 기법",
     exam: "2025년 하반기 정리",
     topicTitles: [
-      "소프트웨어 안전 확보를 위한 지침",
       "FTA (Fault Tree Analysis)",
       "FMEA (Failure Mode and Effects Analysis)",
       "STPA (System-Theoretic Process Analysis)",
@@ -5375,7 +5366,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "공통감리 절차",
-      "정보시스템 감리 의무 대상과 관점별 점검 기준",
     ],
     score: 6.0,
     maxScore: 10,
@@ -5392,7 +5382,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "SAGA패턴",
-      "MSA (Micro Service Architecture)",
     ],
     score: 6.0,
     maxScore: 10,
@@ -5643,8 +5632,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "데이터 패브릭, 메시 비교 / 메시 원칙·구성요소·구축안",
     exam: "2025년 하반기 정리",
     topicTitles: [
-      "데이터 거버넌스(Data Governance)",
-      "데이터 레이크하우스(Data Lakehouse)",
+      "데이터 패브릭·데이터 메시",
     ],
     score: 15.3,
     maxScore: 25,
@@ -5663,8 +5651,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       "① 데이터 패브릭, 데이터 메시 차이점 ② 데이터 메시 원칙 및 구성요소 ③ 데이터 메시 구축 방안",
     exam: "2025년 하반기 정리",
     topicTitles: [
-      "데이터 거버넌스(Data Governance)",
-      "데이터 레이크하우스(Data Lakehouse)",
+      "데이터 패브릭·데이터 메시",
     ],
     score: 15,
     maxScore: 25,
@@ -5684,7 +5671,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "DB 회복기법",
-      "트랜잭션",
     ],
     score: 15.3,
     maxScore: 25,
@@ -5741,7 +5727,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "데이터 표준화",
-      "공공기관 데이터베이스 표준화지침(2023년 4월 개정 고시)",
     ],
     pages: [
       { src: "/answers/db25h-데이터-표준화-1.jpg", label: "1쪽" },
@@ -5838,8 +5823,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       "① 데이터 패브릭, 메시 차이점 ② 데이터 메시 원칙, 구성요소 ③ 데이터 메시 구축방안",
     exam: "2025년 하반기 정리",
     topicTitles: [
-      "데이터 거버넌스(Data Governance)",
-      "데이터 레이크하우스(Data Lakehouse)",
+      "데이터 패브릭·데이터 메시",
     ],
     score: 15,
     maxScore: 25,
@@ -5860,7 +5844,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     topicTitles: [
       "이상치(Outlier)",
       "결측치(Missing Value)",
-      "데이터 프로파일링(Data Profiling)",
     ],
     score: 15,
     maxScore: 25,
@@ -5913,7 +5896,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "트랜잭션",
-      "DB 동시성제어",
     ],
     score: 15.5,
     maxScore: 25,
@@ -6034,7 +6016,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "암스트롱 공리(Armstrong's Axioms)",
-      "함수적 종속성(Functional Dependency)",
     ],
     score: 6.3,
     maxScore: 10,
@@ -6100,7 +6081,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "데이터 프로파일링(Data Profiling)",
-      "데이터 품질인증 가이드라인 - DQ인증 (2025.02.26)",
     ],
     score: 15.5,
     maxScore: 25,
@@ -6119,7 +6099,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "데이터 프로파일링(Data Profiling)",
-      "데이터 품질인증 가이드라인 - DQ인증 (2025.02.26)",
     ],
     score: 14,
     maxScore: 25,
@@ -6157,7 +6136,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "데이터 프로파일링(Data Profiling)",
-      "탐색적 데이터 분석과 확증적 데이터 분석",
     ],
     score: 6.0,
     maxScore: 10,
@@ -6256,7 +6234,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "벡터 데이터베이스(Vector Database)",
-      "ANN(Approximate Nearest Neighbor) 알고리즘",
     ],
     score: 6.7,
     maxScore: 10,
@@ -6328,7 +6305,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "IPv6",
-      "OSI 7 Layer (ISO 7498)",
     ],
     score: 15,
     maxScore: 25,
@@ -6347,7 +6323,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "VPN(Virtual Private Network)",
-      "IPSec",
     ],
     score: 6.0,
     maxScore: 10,
@@ -6547,7 +6522,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "서비스 프리미티브(Service Primitive)",
-      "OSI 7 Layer (ISO 7498)",
     ],
     score: 6.3,
     maxScore: 10,
@@ -6773,7 +6747,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "LLMOps",
-      "MLOps",
     ],
     pages: [
       { src: "/answers/ai25h-llmops-1.jpg", label: "1쪽" },
@@ -6821,7 +6794,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     topicTitles: [
       "인공지능 생성물 워터마크 적용 기술",
       "생성형 인공지능 서비스 이용자 보호 가이드라인",
-      "AI 기본법",
     ],
     score: 15,
     maxScore: 25,
@@ -6839,7 +6811,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "AI 신뢰성 인증",
-      "AI TRiSM(AI Trust, Risk and Security Management)",
     ],
     pages: [
       { src: "/answers/ai25h-인공지능-신뢰성-1.jpg", label: "1쪽" },
@@ -6990,7 +6961,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "초거대 언어 모델(Large Language Model)",
-      "할루시네이션(Hallucination)",
     ],
     score: 15,
     maxScore: 25,
@@ -7008,7 +6978,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "COT(Chain of Thought)",
-      "테스트 타임 스케일링(Test-Time Scaling, TTS)",
     ],
     score: 6.0,
     maxScore: 10,
@@ -7096,7 +7065,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "혼동행렬(Confusion Matrix)",
-      "MLPerf",
     ],
     score: 14.1,
     maxScore: 25,
@@ -7165,7 +7133,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "K-평균 알고리즘",
-      "밀도기반 클러스터링(DBSCAN)",
     ],
     score: 6.0,
     maxScore: 10,
@@ -7313,7 +7280,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "혼동행렬(Confusion Matrix)",
-      "MLPerf",
     ],
     score: 14.7,
     maxScore: 25,
@@ -7333,7 +7299,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "혼동행렬(Confusion Matrix)",
-      "MLPerf",
     ],
     score: 15.3,
     maxScore: 25,
@@ -7352,7 +7317,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     exam: "2025년 하반기 정리",
     topicTitles: [
       "K-평균 알고리즘",
-      "밀도기반 클러스터링(DBSCAN)",
     ],
     score: 6.0,
     maxScore: 10,
@@ -7488,6 +7452,34 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/oopchar-6-1.jpg", label: "1쪽" },
       { src: "/answers/oopchar-6-2.jpg", label: "2쪽" },
       { src: "/answers/oopchar-6-3.jpg", label: "3쪽" },
+    ],
+  },
+
+  // ── UML 관계 4개 — 채점 답안지 2건 ──
+  {
+    id: "peer-uml-relations-a",
+    period: "1교시",
+    no: "12",
+    question: "UML의 관계 4개, 다이어그램 설명",
+    topicTitles: [
+      "UML (정적, 동적 다이어그램)",
+    ],
+    pages: [
+      { src: "/answers/umlrel-1-1.jpg", label: "1쪽" },
+      { src: "/answers/umlrel-1-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-uml-relations-b",
+    period: "1교시",
+    no: "2",
+    question: "UML의 관계 4개, 다이어그램으로 설명",
+    topicTitles: [
+      "UML (정적, 동적 다이어그램)",
+    ],
+    pages: [
+      { src: "/answers/umlrel-2-1.jpg", label: "1쪽" },
+      { src: "/answers/umlrel-2-2.jpg", label: "2쪽" },
     ],
   },
 ];
