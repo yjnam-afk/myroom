@@ -452,7 +452,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "단편화 발생 원인",
-        headers: ["유형", "키워드", "설명"],
+        headers: ["유형", "원인", "설명"],
         rows: [
           ["내부 단편화", "할당 크기 차이", "분할 영역 초과"],
           ["내부 단편화", "고정 분할 기법", "크기 무관 분할"],
@@ -488,7 +488,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "구성 요소",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "구성요소", "설명"],
         rows: [
           ["Host", "루트 포트 연결", "장치 고속 연결"],
           ["인터페이스", "PCIe 기반\n고속 데이터 전송", "물리 계층 활용\n호스트↔장치"],
@@ -496,7 +496,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "프로토콜·Fabric·Device·메모리 관리",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "요소", "설명"],
         rows: [
           ["프로토콜", "CXL.io\n장치 검색·설정", "I/O 통신 담당\n구성 정보 설정"],
           ["프로토콜", "CXL 캐시\n장치 접근 시", "호스트 메모리\n캐시 일관성 지원"],
@@ -511,7 +511,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "서브 프로토콜 상세",
-        headers: ["서브 프로토콜", "키워드", "설명"],
+        headers: ["서브 프로토콜", "주요 목적", "설명"],
         rows: [
           ["CXL.io", "PCIe 기능\n낮은 접근 지연", "탐색·DMA\n모든 유형 공통"],
           ["CXL.cache", "비대칭형 일관성\nMESI 사용", "호스트가 책임\n스눕 트랜잭션"],
@@ -733,7 +733,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "MESI 상태",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "세부 상태", "설명"],
         rows: [
           ["수정(Modify)", "데이터 변경 상태\n이 캐시만 보유", "주기억과 다름\n타 캐시에 없음"],
           ["배타(Exclusive)", "유일한 복사본\n주기억과 동일", "타 캐시에 없음\n내용 일치 상태"],
@@ -936,7 +936,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "동작 방식",
-        headers: ["동작", "키워드", "설명"],
+        headers: ["동작", "절차", "설명"],
         rows: [
           ["분할", "n개 블록 분할", "동일 크기 블록화"],
           ["저장(인코딩)", "n+k 코드 생성\nRS 등 알고리즘", "패리티 블록 저장\n리드솔로몬 적용"],
@@ -1091,7 +1091,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "GPU와 TPU의 협업 시스템 설계",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "시스템 역할", "설명"],
         rows: [
           ["시간차 협업", "TPU 학습\nGPU 서비스", "Pod 고속 학습\n서버 추론 배포"],
           ["전처리 구조", "GPU 전처리\nTPU 학습", "회전·디코딩\n행렬 연산 학습"],
@@ -1240,7 +1240,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "기아 현상 발생 조건 — 네 측면",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "발생 조건", "설명"],
         rows: [
           ["우선순위 측면", "우선순위 기반\n고순위 지속 생성", "순위 기준 할당\n저순위 기회 없음"],
           ["스케줄링 알고리즘 측면", "비선점 스케줄링\nFCFS 순서", "긴 프로세스 우선\n짧은 것 오래 대기"],
@@ -1250,7 +1250,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "기아 방지 기법 — 우선순위·스케줄링·자원관리·가중치",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "방지 기법", "설명"],
         rows: [
           ["우선순위", "우선순위 승격\nAging 기법", "대기 시간 반영\n점진적 순위 상향"],
           ["스케줄링", "타임 퀀텀 설정\n선점형 조정", "퀀텀 크기 조정\n공정 CPU 할당"],
@@ -1300,7 +1300,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "문맥교환 동작 메커니즘",
-        headers: ["메커니즘", "키워드", "설명"],
+        headers: ["메커니즘", "주체", "설명"],
         rows: [
           ["① 실행", "P1 CPU 할당", "P1 실행중 상태"],
           ["② Interrupt/System call", "인터럽트\n시스템 호출", "운영체제 개입\nP1 대기 전환"],
@@ -1323,7 +1323,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "문맥의 유형과 내용",
-        headers: ["문맥 유형", "키워드", "설명"],
+        headers: ["문맥 유형", "문맥 내용", "설명"],
         rows: [
           ["시스템 문맥", "PCB 정보\nPID 식별자", "커널 자료구조\n프로세스 구분"],
           ["시스템 문맥", "State 상태\n스케줄 정보", "실행 상태 표시\n우선순위 관리"],
@@ -1386,7 +1386,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "문맥이 오가는 시점",
-        headers: ["시점", "키워드", "설명"],
+        headers: ["시점", "동작", "설명"],
         rows: [
           ["인터럽트·시스템 콜", "실행 문맥 저장", "PCB 기록 보존"],
           ["디스패치", "다음 문맥 복원", "PCB→CPU"],
@@ -1477,7 +1477,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "세마포어(Semaphore) 연산의 종류",
-        headers: ["연산 종류", "키워드", "설명"],
+        headers: ["연산 종류", "연산", "설명"],
         rows: [
           ["초기화 연산", "정수값 설정", "S=공유자원 수"],
           ["P 연산", "Wait 진입\nS=S−1 감소", "S<0 대기 큐\nS>0 계속 진행"],
@@ -1932,7 +1932,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "페이지 교체 알고리즘을 사용하는 이유",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "사용 이유", "설명"],
         rows: [
           ["Size", "크기 제약 탈피", "메모리보다 커도"],
           ["Size", "메모리 제약 탈피", "부족 공간 확보"],
@@ -1943,7 +1943,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "페이지 교체의 문제점과 해결방안",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "주요 내용", "설명"],
         rows: [
           ["문제점", "요구 페이징\n다수 프로세스", "필요 시에만 적재\n적재 수 증가"],
           ["문제점", "페이지 부재\nOS 요구", "미적재 사용 시\n부재 발생 처리"],
@@ -1983,7 +1983,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "Belady's Anomaly 극복 방안",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "극복 방안", "설명"],
         rows: [
           ["페이지 교체 정책", "LRU 사용", "최근 미참조 교체"],
           ["페이지 교체 정책", "OPT 사용", "향후 최장 미사용"],
@@ -2019,7 +2019,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "스레싱 발생 원인",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "발생원인", "설명"],
         rows: [
           ["① 리소스 부족", "CPU 성능 부족", "저사양 자원 부족"],
           ["① 리소스 부족", "저용량 메모리", "리소스 추가 불가"],
@@ -2039,7 +2039,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "스레싱 해결 방안",
-        headers: ["기법", "키워드", "설명"],
+        headers: ["기법", "정의", "설명"],
         rows: [
           ["Working Set", "지역성 집합\n주기억 유지", "일정시간 참조\n페이지 부재 감소"],
           ["PFF", "PFF 상·하한\n부재 시만 조정", "초과 시 프레임↑\n오버헤드 낮음"],
@@ -2178,7 +2178,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "단편화 발생 원인",
-        headers: ["유형", "키워드", "설명"],
+        headers: ["유형", "원인", "설명"],
         rows: [
           ["내부 단편화", "할당 영역 크기 차", "영역>프로그램"],
           ["내부 단편화", "고정 분할 기법", "크기 무관 할당"],
@@ -2220,7 +2220,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "스케줄러의 종류",
-        headers: ["종류", "키워드", "설명"],
+        headers: ["종류", "프로세스 상태", "설명"],
         rows: [
           ["장기(Long-Term) 스케줄러", "생성→준비\n준비 수 제어", "작업풀 준비 전환\n다중화 정도 결정"],
           ["중기(Medium-Term) 스케줄러", "실행→대기\n스와핑 담당", "상태 전이 관리\n메인↔보조 기억"],
@@ -2229,7 +2229,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "스케줄러의 정책 요구 사항",
-        headers: ["요구사항", "키워드", "설명"],
+        headers: ["요구사항", "증가 방법", "설명"],
         rows: [
           ["처리량 (Maximum throughput)", "짧은 작업 우선\n무인터럽트 수행", "시간당 작업량\n중단 없이 처리"],
           ["최소 응답 시간 (Minimum Response time)", "대화형 선수행\n일괄 처리 후수행", "요청→반응 간격\n반응 시작 단축"],
@@ -2285,7 +2285,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "프로세스 상태",
-        headers: ["상태", "키워드", "설명"],
+        headers: ["상태", "스케줄러", "설명"],
         rows: [
           ["생성", "Job 스케줄러\n작업 특성 큐", "생성 상태 관리\n특성별 큐 생성"],
           ["생성", "예상 CPU 시간\n우선 순위", "자원 소요 기록\n처리 순서 기록"],
@@ -2303,7 +2303,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "상태 전이별 담당 스케줄러 — 어느 전이를 누가 일으키는가",
-        headers: ["전이", "키워드", "설명"],
+        headers: ["전이", "담당", "설명"],
         rows: [
           ["생성 → 준비 (Admit)", "장기 스케줄러\n다중화 정도 결정", "작업 풀→준비 큐\n준비 수 조절"],
           ["준비 → 실행 (Dispatch)", "단기 스케줄러\n디스패처", "실행 대상 선택\n문맥교환 제어권"],
@@ -2328,7 +2328,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "상태 전이에서 문맥교환이 발생하는 시점",
-        headers: ["발생 시점", "키워드", "설명"],
+        headers: ["발생 시점", "상태 전이", "설명"],
         rows: [
           ["① Dispatch", "준비→실행", "CPU 받아 실행"],
           ["② Time Slice", "실행→준비", "할당 시간 종료"],
@@ -2548,7 +2548,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "자원할당 그래프 구성 요소",
-        headers: ["구성 요소", "키워드", "설명"],
+        headers: ["구성 요소", "세부 요소", "설명"],
         rows: [
           ["정점(Vertex)", "프로세스 pi\n원으로 표시", "자원 요청 주체\nV={P,R}"],
           ["정점(Vertex)", "자원 rj\n사각형 내 원", "공유 자원 대상\n단위 자원 수 표시"],
@@ -2673,7 +2673,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "인터럽트 처리 절차",
-        headers: ["구성 모듈", "키워드", "설명"],
+        headers: ["구성 모듈", "세부 동작 절차", "설명"],
         rows: [
           ["인터럽트 벡터 테이블(IVT)", "요청 신호 검출", "신호 모니터링"],
           ["인터럽트 벡터 테이블(IVT)", "인터럽트 벡터\nID 조회", "IVT 검색\n처리 루틴 분기"],
@@ -2686,7 +2686,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "인터럽트 발생 원인과 종류",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "종류", "설명"],
         rows: [
           ["H/W 인터럽트", "기계 착오", "정전 기계 문제"],
           ["H/W 인터럽트", "재시작 인터럽트", "타 프로세서 명령"],
@@ -2707,7 +2707,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "인터럽트 우선순위 — 전원 이상부터 SVC까지",
-        headers: ["순위", "키워드", "설명"],
+        headers: ["순위", "인터럽트", "설명"],
         rows: [
           ["1", "전원 이상", "정전·모듈 이상"],
           ["2", "기계 착오", "CPU 기능 오류"],
@@ -3219,7 +3219,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "요구사항 수집기법",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "수집 기법", "설명"],
         rows: [
           ["데이터 수집", "인터뷰 직접대화", "대화로 정보 수집"],
           ["데이터 수집", "포커스 그룹\n핵심 전문가", "대화식 토론\n선별 집단 수집"],
@@ -3280,7 +3280,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "목차 (개요, 범목개제, 기외성논DB속성하기)",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "항목", "설명"],
         rows: [
           ["개요", "범위 Scope", "요구 범위 기술"],
           ["개요", "명세 작성 목적", "작성 이유 기술"],
@@ -3402,7 +3402,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "3점 산정 기법 구성요소",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "요소", "설명"],
         rows: [
           ["추정치 요소", "낙관치(o)", "낙관적 추정치"],
           ["추정치 요소", "평균치(m)", "가능성 최고치"],
@@ -3439,7 +3439,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "절차 및 주 경로 도출방법",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "항목", "설명"],
         rows: [
           ["전진계산(Forward pass)", "ES 빠른 개시일", "선행 EF + 1"],
           ["전진계산(Forward pass)", "EF 빠른 종료일", "ES + 기간 − 1"],
@@ -4405,7 +4405,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "설계 원리",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "설계원리", "설명"],
         rows: [
           ["일반화", "추상화 원리\n필수정보 추출", "본질 문제 집중\n세부사항 생략"],
           ["일반화", "정보은닉 원리\n처리내용 은폐", "모듈 상세 은닉\n타 부분 비공개"],
@@ -4416,7 +4416,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "SW 설계 유형",
-        headers: ["종류", "키워드", "설명"],
+        headers: ["종류", "주요 활동", "설명"],
         rows: [
           ["상위 설계", "아키텍처 설계\n컴포넌트 관계", "전체 구조 기술\n상위 수준 설계"],
           ["상위 설계", "데이터 설계\n자료구조·DB", "필요 정보 반영\n저장 구조 설계"],
@@ -4535,7 +4535,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "데메테르 법칙의 호출 가능 메소드",
-        headers: ["호출 가능 메소드", "키워드", "설명"],
+        headers: ["호출 가능 메소드", "코드", "설명"],
         rows: [
           ["객체 자체", "this 호출", "객체 자체 메소드"],
           ["메소드의 변수", "파라미터 객체", "전달 객체 메소드"],
@@ -4673,17 +4673,20 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "요구공학 프로세스 설명",
-        headers: ["구성요소", "키워드", "설명"],
+        // 2열은 교재의 「대상」 그대로다 — 추출·분석·명세·검증 / 협상·기준선·
+        // 변경관리·확인및검증. 두음 추분명검·협기변검이 이 여덟 개를 가리킨다.
+        // 줄여 쓰지 말 것: 전에 「요구사항 추출」을 지우고 도출 대상 선정·
+        // 제안서로 쪼갰다가 단계 이름이 통째로 사라진 적이 있다.
+        headers: ["구성요소", "대상", "설명"],
         rows: [
-          ["요구사항 개발 (CMMi L3 PA)", "도출 대상 선정", "추출 범위 확정"],
-          ["요구사항 개발 (CMMi L3 PA)", "제안서·계획서\n프로토타이핑", "사업수행 참조\n인터뷰·시제품"],
-          ["요구사항 개발 (CMMi L3 PA)", "요구사항 분석\n정보공학 UML", "기능 명확 파악\n분석 기법 활용"],
+          ["요구사항 개발 (CMMi L3 PA)", "요구사항 추출\n인터뷰·프로토", "도출 대상 선정\n제안서·계획서"],
+          ["요구사항 개발 (CMMi L3 PA)", "요구사항 분석\n정보공학 UML", "기능 명확 파악\n분석법 활용"],
           ["요구사항 개발 (CMMi L3 PA)", "요구사항 명세", "시스템 행동 기술"],
-          ["요구사항 개발 (CMMi L3 PA)", "요구사항 검증\n타당성·일치성", "명세 일치 확인\n완전성·현실성"],
+          ["요구사항 개발 (CMMi L3 PA)", "요구사항 검증\n타당성·일치성", "명세 일치 승인\n완전성·현실성"],
           ["요구사항 변경관리 (CMMi L2 PA)", "요구사항 협상\n가용 자원·위험", "구현 기능 합의\n수용 수준 검토"],
-          ["요구사항 변경관리 (CMMi L2 PA)", "요구 기준선\n합의 명세서", "공식 검토 합의\n개발 기준 확정"],
-          ["요구사항 변경관리 (CMMi L2 PA)", "요구 변경관리", "기준선 공식 통제"],
-          ["요구사항 변경관리 (CMMi L2 PA)", "확인 및 검증", "기대 요구 부합"],
+          ["요구사항 변경관리 (CMMi L2 PA)", "요구사항 기준선\n합의 명세서", "공식 검토 합의\n개발 기준 확정"],
+          ["요구사항 변경관리 (CMMi L2 PA)", "요구 변경관리\n기준선 기반", "모든 변경 통제\n공식적 통제"],
+          ["요구사항 변경관리 (CMMi L2 PA)", "확인 및 검증\n구축 시스템", "기대 요구 부합\n이해관계자 기대"],
         ],
       },
       {
@@ -4702,7 +4705,10 @@ export const SUBNOTES: TextbookSubnote[] = [
         ],
       },
     ],
-    notes: ["교재 두음: 정명완검일수추리해 / 추분명검(개발) / 협기변검(변경관리)"],
+    notes: [
+      "교재 두음: 정명완검일수추리해 / 추분명검(개발) / 협기변검(변경관리)",
+      "프로세스 표 2열은 교재의 「대상」 여덟 개를 그대로 쓴 것이다. 두음 추분명검·협기변검이 이 이름을 가리키므로 바꾸지 않는다.",
+    ],
   },
   {
     topicId: "se-34",
@@ -4785,7 +4791,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구축 절차",
-        headers: ["설계단계", "키워드", "설명"],
+        headers: ["설계단계", "설계항목", "설명"],
         rows: [
           ["요구사항 분석", "요구사항 분석\n기능·비기능", "식별·명세 수행\n요구 분류 검증"],
           ["아키텍처 분석", "품질속성 식별", "우선순위 결정"],
@@ -4816,7 +4822,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성 요소 (4계층)",
-        headers: ["계층", "키워드", "설명"],
+        headers: ["계층", "특징", "설명"],
         rows: [
           ["Entity", "핵심업무 규칙\n속성·메소드", "규칙 캡슐화\n클래스 내부 작성"],
           ["Use Case", "Use Case\n데이터 흐름 조정", "시스템 기능 구현\n엔티티 규칙 사용"],
@@ -4840,7 +4846,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성 요소",
-        headers: ["구성 요소", "키워드", "설명"],
+        headers: ["구성 요소", "사례", "설명"],
         rows: [
           ["기능 요구 사항", "필수 기본기능\n트래픽 제공", "시스템 보유 기능\n차량 정보 예시"],
           ["품질 요구 사항", "기능 도달목표\n1분·10만명", "기능 달성 수준\n간격·규모 명시"],
@@ -4849,7 +4855,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "비기능 요구사항 영역",
-        headers: ["영역", "키워드", "설명"],
+        headers: ["영역", "특징", "설명"],
         rows: [
           ["기술적 제약", "레거시·신기술\n구현기술 제한", "기존 시스템 영향\n사용 기술 명시"],
           ["비즈니스 제약", "대부분 타협불가\n거버넌스·전략", "협상 여지 없음\n지속·성장 목적"],
@@ -4943,7 +4949,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "유형",
-        headers: ["유형", "키워드", "설명"],
+        headers: ["유형", "서브타입", "설명"],
         rows: [
           ["데이터 중심(Data-Centered)", "칠판형 공유\n정확성 확보", "공유 저장소 활용\n데이터 품질 목적"],
           ["데이터 중심(Data-Centered)", "저장소형\n접근·갱신", "광범위 접근 대상\n갱신 작업 초점"],
@@ -5012,7 +5018,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "CBAM 상세 절차",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "절차", "설명"],
         rows: [
           ["시나리오 결정", "시나리오 수집", "기존·신규 수집"],
           ["시나리오 결정", "시나리오 정제\n반응값 확인", "시나리오 집합화\n최선·최악 산정"],
@@ -5270,7 +5276,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "역할",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "역할", "설명"],
         rows: [
           ["보안", "내부 데이터 보호\n민감정보 암호화", "내부 인프라 보호\n외부 유출 차단"],
           ["보안", "계정 증명 인증\n보안정책 적용", "비인가자 차단\n접근 권한 통제"],
@@ -5281,7 +5287,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "주요 기능",
-        headers: ["기능", "키워드", "설명"],
+        headers: ["기능", "세부 기능", "설명"],
         rows: [
           ["보안", "인증 및 인가\nAPI 토큰", "클라이언트 인증\n발급·검증 수행"],
           ["보안", "SSL 암호화\n인증서 관리", "데이터 보호 통신\n키·인증서 운영"],
@@ -5339,7 +5345,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "구성 요소",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "구성요소", "설명"],
         rows: [
           ["계층 구조", "UI 표현 계층\n사용자 요청", "화면 접점 담당\n하위 계층 전달"],
           ["계층 구조", "App 계층\nApp 상태 관리", "응용 계층 담당\n도메인에 요청"],
@@ -5553,7 +5559,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성 요소",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "관점", "설명"],
         rows: [
           ["Logical View", "설계자·분석가\n클래스 도식", "요구사항 표현\n구조·행동 명세"],
           ["Implementation View", "개발자 관점\n소프트웨어 모듈", "프로그래머 시각\n물리 모듈 표현"],
@@ -5597,7 +5603,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "패턴의 동작",
-        headers: ["순번", "키워드", "설명"],
+        headers: ["순번", "동작", "설명"],
         rows: [
           ["1", "View 진입\n사용자 액션", "사용자 요청 시작\n화면 통해 진입"],
           ["2", "커맨드 패턴\n뷰모델 전달", "액션 전달 방식\n요청 수신 처리"],
@@ -5717,7 +5723,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성 요소",
-        headers: ["측면", "키워드", "설명"],
+        headers: ["측면", "구성요소", "설명"],
         rows: [
           ["품질", "품질 기준 정의\n시나리오 기반", "품질 특성 기술\n상황 기반 정의"],
           ["품질", "테스트 자동화\nXunit 활용", "단위 검증 자동화\n도구 기반 수행"],
@@ -5821,7 +5827,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "파이프라인 단계",
-        headers: ["단계", "키워드", "설명"],
+        headers: ["단계", "주요 업무", "설명"],
         rows: [
           ["A. 통합(Integration)", "브랜칭·병합", "마스터로 이동"],
           ["A. 통합(Integration)", "VCS 활용\nSVN·Git", "버전 관리 체계\n대표 형상 도구"],
@@ -5858,7 +5864,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "프로세스 상세 설명",
-        headers: ["절차", "키워드", "설명"],
+        headers: ["절차", "세부 활동", "설명"],
         rows: [
           ["Step 1: Creating a Hypothesis", "정상 상태 정의\n임계값 기준", "측정 통계치 설정\n지연·요청 측정"],
           ["Step 1: Creating a Hypothesis", "정상상태 가설\n정상 값 예측", "기대 상태 정의\n장애 시 동작 예상"],
@@ -5899,7 +5905,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "살충제 패러독스와 오류부재의 궤변 개선방안",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "개선방안", "설명"],
         rows: [
           ["살충제 패러독스", "케이스 개선\n기법 재적용", "잠재 결함 발견\n다른 시각 적용"],
           ["살충제 패러독스", "케이스 추가\n신규 시나리오", "다수 케이스 보강\n커버 범위 확대"],
@@ -5950,7 +5956,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "리뷰의 참여자 역할 (관중기작검)",
-        headers: ["리뷰 역할", "키워드", "설명"],
+        headers: ["리뷰 역할", "주요 특징", "설명"],
         rows: [
           ["관리자", "실행 여부 결정\n리뷰 시간 할당", "리뷰 목적 승인\n자원 배분 결정"],
           ["중재자(Moderator)", "리뷰 리더 교육\n다양 관점 중재", "계획·진행 관리\n참석자 의견 조정"],
@@ -6043,7 +6049,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "코드 커버리지 종류 (포함 관계: SC ⊂ DC ⊂ C/DC ⊂ MC/DC ⊂ MCC ⊂ 경로)",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "기술", "설명"],
         rows: [
           ["SC 구문", "모든 문장 호출\n참·거짓 무관", "각 문장 1회 실행\n조건 결과 미고려"],
           ["DC 결정", "분기문 선정\n참·거짓 결과", "모든 분기 수행\n결정 결과 만족"],
@@ -6242,7 +6248,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성요소 [업다프파]",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "구성요소", "설명"],
         rows: [
           ["태스크", "업스트림 태스크", "선행 학습 수행"],
           ["태스크", "다운스트림", "모델 전이 후 학습"],
@@ -6260,7 +6266,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "학습방법 유형 [적태도 레귀변자]",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "유형", "설명"],
         rows: [
           ["적용 범위", "응용분야 변경\n동결·미세조정", "영상→음성 인식\n계층 재사용 학습"],
           ["적용 범위", "확률분포 상이\n특징공간 맞춤", "영불→영한 번역\n확장·화이트닝"],
@@ -6367,7 +6373,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "기술 요소와 평가",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "핵심", "설명"],
         rows: [
           ["기술 요소", "loss 극대화\n노이즈 생성", "제거 데이터 대상\n학습 영향 제거"],
           ["기술 요소", "손상 후 복구\n2단계 접근", "성능 복구 절차\n효율·성능 동시"],
@@ -6422,7 +6428,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성요소",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "핵심 기술", "설명"],
         rows: [
           ["피지컬AI", "카메라·라이다", "현실 객체 감지"],
           ["피지컬AI", "온디바이스AI", "단말 내 AI 구동"],
@@ -6487,7 +6493,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "한계점 (레이턴시 & 비용)",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "한계점", "설명"],
         rows: [
           ["클라우드 AI 한계점", "요청 왕복 지연", "단말은 지연 없음"],
           ["클라우드 AI 한계점", "전력·정비 비용", "운영비 크게 증가"],
@@ -6510,7 +6516,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "모델 실행을 위한 기술 스택",
-        headers: ["스택", "키워드", "설명"],
+        headers: ["스택", "핵심 기술", "설명"],
         rows: [
           ["하드웨어", "NPU 전용 칩\n저전력 고효율", "딥러닝 연산 특화\n엣지 실시간 추론"],
           ["하드웨어", "GPU 병렬 연산", "대규모 행렬 가속"],
@@ -6544,7 +6550,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "기술구성",
-        headers: ["기술구성", "키워드", "설명"],
+        headers: ["기술구성", "기술요소", "설명"],
         rows: [
           ["감성 인식기술", "ECG·PGG\n생리신호 반응", "심혈관계 측정\n외부 자극 분석"],
           ["감성 인식기술", "GSR·SKT\nEEG 측정", "피부 반응 계측\n중추신경계 신호"],
@@ -6743,7 +6749,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성요소 및 동작절차",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "핵심", "설명"],
         rows: [
           ["구성요소", "대형 고성능 모델", "소프트 라벨 생성"],
           ["구성요소", "교사 지식 모방", "경량 모델 학습"],
@@ -6791,7 +6797,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "절차",
-        headers: ["수행절차", "키워드", "설명"],
+        headers: ["수행절차", "수행활동", "설명"],
         rows: [
           ["1. Input 미니배치 평균/분산 계산", "피처별 분류\n미니배치 분리", "평균·표준편차\n배치 단위 로드"],
           ["2. BN층 활성화값/출력값 정규화", "Modify\n활성함수 산출", "입력값 수정 전달\n정규화 값 산출"],
@@ -6863,7 +6869,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "동작원리",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "동작원리", "설명"],
         rows: [
           ["학습", "하이퍼파라미터\n0.5→50%", "제거 랜덤 결정\n절반 비활성화"],
           ["학습", "은닉층 임의 노드\n확률 P 기준", "노드 비활성화\n선택적 제거"],
@@ -6928,7 +6934,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "역전파 절차",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "절차", "설명"],
         rows: [
           ["오차 계산 및 역전파", "출력값-실제값", "출력층 오차 계산"],
           ["오차 계산 및 역전파", "경사하강법", "가중치별 기울기"],
@@ -6976,7 +6982,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "성능평가 방법 (정정재F RA)",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "방법", "설명"],
         rows: [
           ["혼동행렬 환산수식", "정확도 전체 비율", "TP+TN 비율"],
           ["혼동행렬 환산수식", "양성 예측 정확", "TP/예측 양성"],
@@ -7012,7 +7018,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "발생원인",
-        headers: ["분류", "키워드", "설명"],
+        headers: ["분류", "구분", "설명"],
         rows: [
           ["활성화 함수 측면", "시그모이드 사용\n임계값 초과 전달", "0·1 수렴 소실\n기울기 발산 폭주"],
           ["가중치 측면", "역전파 중 폭주\n부적합 가중치", "가중치 값 발산\n모델 부적합 사용"],
@@ -7020,7 +7026,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "해결방안",
-        headers: ["분류", "키워드", "설명"],
+        headers: ["분류", "구분", "설명"],
         rows: [
           ["활성화 함수 측면", "ReLU·변형\n시그모이드 지양", "수렴·발산 방지\n은닉층 사용 지양"],
           ["가중치 측면", "기울기 자름", "임계값 초과 방지"],
@@ -7043,7 +7049,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "성능평가 방법 (실엘)",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "방법", "설명"],
         rows: [
           ["실루엣 계수", "인접 군집 비중", "높은 값 다수 적정"],
           ["응집도", "중심 거리 기반", "오차 제곱 합"],
@@ -7090,7 +7096,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "주요수식",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "수식", "설명"],
         rows: [
           ["공분산", "편차곱 평균\nC 부호 판별", "두 변수 상관관계\n양·음·독립"],
           ["Eigen Vector", "Ax=λx의 x\n선형변환 불변", "상수배 되는 벡터\n방향 보존 축"],
@@ -7147,7 +7153,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "절차 (선교변대반)",
-        headers: ["No.", "키워드", "설명"],
+        headers: ["No.", "절차", "설명"],
         rows: [
           ["1", "해→유전자 표현", "랜덤 유전자 준비"],
           ["2", "적합도 계산\n룰렛휠 선택", "차세대 후보 선정\n순위·토너먼트"],
@@ -7159,7 +7165,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "기법 (룰랭토 일다균산)",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "기법", "설명"],
         rows: [
           ["선택", "적합도 비례 확률", "선택 확률 차등화"],
           ["선택", "적합도 순위화", "상위 해 순차 선택"],
@@ -7292,7 +7298,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성요소 [입포 인언피 디마인피 출리소]",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "구성요소", "설명"],
         rows: [
           ["입력", "단어 위치 값 추가\n사인·코사인", "RNN 부재 보완\n위치 값 산출"],
           ["인코더", "멀티헤드 어텐션\nQ=K=V", "토큰 병렬 처리\n6개 인코더 참조"],
@@ -7328,7 +7334,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "자연어 처리 주요기술 [형구의담]",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "주요 기술", "설명"],
         rows: [
           ["NLP", "형태소 분석\n명사·동사", "발화 문장 품사\n품사 정보 인식"],
           ["NLP", "형용사·조사", "품사 종류 구분"],
@@ -7364,7 +7370,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성요소",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "구성 요소", "설명"],
         rows: [
           ["인코더(Encoder)", "입력 데이터 x", "학습 대상 입력"],
           ["인코더(Encoder)", "차원 축소 학습", "오토인코더 활용"],
@@ -7406,7 +7412,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "생성방법 [가신간디]",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "요소", "설명"],
         rows: [
           ["생성자", "가짜 데이터 생성\nV 최소화 방향", "판별 확률 1 목표\nmin 방향 학습"],
           ["판별자", "진짜 1·가짜 0\nV 최대화 방향", "진위 판별 목표\nmax 방향 학습"],
@@ -7540,7 +7546,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "처리 단계 [저쿼정답출]",
-        headers: ["단계", "키워드", "설명"],
+        headers: ["단계", "기술 요소", "설명"],
         rows: [
           ["1. 문서 변환 & 저장", "문장 임베딩\n벡터 DB 저장", "로드·분할 파싱\n인덱싱 후 저장"],
           ["2. 입력 쿼리 & 문서 검색", "입력 쿼리 처리\n문서 검색 수행", "검색용 쿼리 변환\n관련 스니펫 추출"],
@@ -7600,7 +7606,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성도 [컴데모]",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "기술 요소", "설명"],
         rows: [
           ["컴퓨팅 파워", "GPU·슈퍼컴\n추론 성능 고려", "학습 시간 대응\n정부·민간 협업"],
           ["데이터", "대규모 데이터셋\n비지도학습 활성", "학습 성능 향상\n라벨링 부담 완화"],
@@ -7609,7 +7615,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "기술요소",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "기술 요소", "설명"],
         rows: [
           ["학습모델", "명시적 훈련 없음", "프롬프트로 응답"],
           ["학습모델", "적은 데이터 학습", "신규 작업 학습"],
@@ -7675,7 +7681,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성요소 [모커에 체메콜]",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "구성요소", "설명"],
         rows: [
           ["메인 모듈", "Model IO\n빌딩 블록 제공", "언어모델 연결\n모든 LM 대응"],
           ["메인 모듈", "데이터 연결\n로드·변환", "앱별 데이터 접근\n사용자 데이터"],
@@ -7739,7 +7745,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "고려사항",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "고려사항", "설명"],
         rows: [
           ["학습측면", "가중치 훼손 방지", "학습률 조정 중요"],
           ["데이터 측면", "타깃 셋 크기", "튜닝 효과 좌우"],
@@ -7800,7 +7806,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "구성요소 및 구현기술",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "구성요소", "설명"],
         rows: [
           ["핵심 구성요소", "프롬프트 설계\n외부 지식 검색", "최적 맥락 정제\n모델 주입 과정"],
           ["핵심 구성요소", "긴 텍스트 처리\n자기 개선 기법", "구조 정보 통합\n맥락 이해 지원"],
@@ -7834,7 +7840,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성요소 [태인커아 제원퓨C]",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "구성요소", "설명"],
         rows: [
           ["질문", "수행 상황 설명", "원하는 작업 기술"],
           ["질문", "입력 지시자", "입력 데이터 설명"],
@@ -7983,7 +7989,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "LAM 단계",
-        headers: ["단계", "키워드", "설명"],
+        headers: ["단계", "핵심", "설명"],
         rows: [
           ["입력처리 단계", "데이터 수집", "원시 상태 구성"],
           ["분석 단계", "특화 프롬프트\n프로세스 그래프", "도메인별 구성\nAPI로 생성"],
@@ -7992,7 +7998,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "핵심기술",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "핵심기술", "설명"],
         rows: [
           ["Input Processing", "멀티모달 입력", "통합 공간 매핑"],
           ["Input Processing", "요청 의도 분류", "카테고리 매칭"],
@@ -8065,7 +8071,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "특징 및 구성요소 [문사최]",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "항목", "설명"],
         rows: [
           ["특징", "단계적 추론", "중간 과정 생성"],
           ["특징", "문제 해결력", "복잡 문제 성능"],
@@ -8100,7 +8106,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "특징 및 구성요소",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "항목", "설명"],
         rows: [
           ["특징", "희소 연산 방식", "일부만 활성화"],
           ["특징", "전문가 분담", "하위 문제 처리"],
@@ -8139,7 +8145,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "PEFT 기법",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "방법론", "설명"],
         rows: [
           ["Adapter", "병목 신경망", "PLM 중간 삽입"],
           ["Prefix Tuning", "학습 가능 벡터\nSoftmax", "입력 앞단 추가\n영향도 조절"],
@@ -8180,7 +8186,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "구성요소",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "구성요소", "설명"],
         rows: [
           ["벤치마크 측면", "이미지 분류", "최고 확률 분류"],
           ["벤치마크 측면", "객체탐지 IoU", "겹침 영역 평균"],
@@ -8308,7 +8314,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "데이터 수집 및 모델 개발 단계 구현 기술",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "구현 기술", "설명"],
         rows: [
           ["Data 수집, 처리", "Spark\nKafka", "대용량 텍스트\n실시간 스트림"],
           ["Data 수집, 처리", "S3·Blob", "오브젝트 저장"],
@@ -8324,7 +8330,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "모델 운영 및 평가 단계 구현 기술",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "구현 기술", "설명"],
         rows: [
           ["테스트", "신뢰 AI 검증", "RAI 확보"],
           ["버전 관리", "CI/CD 도구", "지속 통합 배포"],
@@ -8348,7 +8354,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "인지 불가능 워터마크 분류별 기술",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "활용 범위", "설명"],
         rows: [
           ["공간 기반", "이미지·동영상", "최하위 비트"],
           ["변환 기반", "주파수 변환", "도메인 삽입"],
@@ -8358,7 +8364,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "이미지 및 동영상 워터마크 적용 기술",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "핵심 기술", "설명"],
         rows: [
           ["공간 기반", "LSB 하위비트", "이미지 픽셀"],
           ["변환 기반", "DCT 블록", "주파수 계수"],
@@ -8369,7 +8375,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "오디오 및 텍스트 워터마크 적용 기술",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "핵심 기술", "설명"],
         rows: [
           ["변환 기반", "미세 샘플 단위", "고해상도 삽입"],
           ["변환 기반", "시간 패턴 정렬", "특정 시점 삽입"],
@@ -8400,7 +8406,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "기본원칙 [인설안공비]",
-        headers: ["원칙", "키워드", "설명"],
+        headers: ["원칙", "핵심내용", "설명"],
         rows: [
           ["인간 존엄성 보호", "인간 중심 운영", "존엄 보호 설계"],
           ["설명 가능성과 투명성 확보", "이해 중심 제공", "결과 근거 설명"],
@@ -8410,7 +8416,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "실행 방안 — 이용자 권익 보호 [이결다입]",
-        headers: ["실행방안", "키워드", "설명"],
+        headers: ["실행방안", "핵심내용", "설명"],
         rows: [
           ["이용자 인격권 보호", "인격권 보호", "필터·신고 차단"],
           ["결정 과정의 설명 노력", "AI 생성 고지", "출처 정보 제공"],
@@ -8420,7 +8426,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "실행 방안 — 콘텐츠 관리 및 책임 중심 [책건]",
-        headers: ["실행방안", "키워드", "설명"],
+        headers: ["실행방안", "핵심내용", "설명"],
         rows: [
           ["문제 해결을 위한 책임과 참여", "책임 범위 정의", "신고·조치 절차"],
           ["건전한 유통·배포 노력", "유해물 차단", "청소년 보호"],
@@ -8498,7 +8504,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "품질관리 활동",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "구성요소", "설명"],
         rows: [
           ["서문", "범위 Scope\n29119 한정", "적용 범위 규정\nAI 테스트 개요"],
           ["서문", "인용 표준 규정\n23894 등", "표준 시리즈 참조\nAI 표준 연계"],
@@ -8668,7 +8674,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "프로세스 [피하신]",
-        headers: ["프로세스", "키워드", "설명"],
+        headers: ["프로세스", "주요 기법", "설명"],
         rows: [
           ["① 피처 엔지니어링(Feature Engineering)", "PCA·BoW\nEDA 해석", "차원·표현 변환\n통계·시각 해석"],
           ["② 하이퍼 파라미터 최적화", "그리드·랜덤\n베이지안 탐색", "탐색 기법 적용\n성능 제어 튜닝"],
@@ -8677,7 +8683,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "현황",
-        headers: ["현황", "키워드", "설명"],
+        headers: ["현황", "기업", "설명"],
         rows: [
           ["Cloud AutoML", "Google\n심층 전이학습", "구글 서비스\n구조 검색 구현"],
           ["Azure Machine Learning", "Azure\n탐색·튜닝", "MS 서비스\n피처·파라미터"],
@@ -8700,7 +8706,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "유형 [인숨데롱고]",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "편향성 유형", "설명"],
         rows: [
           ["Data 관점", "인간의 편향", "원시 자료 개입"],
           ["Data 관점", "숨겨진 편향", "의도 없는 편향"],
@@ -8796,7 +8802,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "공격절차",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "주요동작", "설명"],
         rows: [
           ["LLM 프롬프트", "시스템 프롬프트\n악성 데이터 주입", "명령 데이터 혼재\n조작 입력값 주입"],
           ["LLM 모델처리", "탈옥 보안 우회\n간접 인젝션", "악성 명령 처리\n공격 범위 확대"],
@@ -8895,7 +8901,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "상세설명 — 팀",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "핵심", "설명"],
         rows: [
           ["팀 구성", "10~100명\n수십 명 구성", "규모 목표 결정\n일반적 편성"],
           ["팀 구성", "기술·윤리·법\n도메인·유저", "다양 구성원 편성\n사회문화 해악"],
@@ -8912,7 +8918,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "테스트 기법과 절차",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "핵심", "설명"],
         rows: [
           ["모델 테스트 기법", "프롬프트 인젝션", "악의적 내용 주입"],
           ["모델 테스트 기법", "탈옥 적대적 입력", "안전장치 우회"],
@@ -9024,7 +9030,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "요소기술",
-        headers: ["처리기술", "키워드", "설명"],
+        headers: ["처리기술", "요소기술", "설명"],
         rows: [
           ["지식/언어지능", "NLP NLU\nNLG 생성", "단어 분리 이해\n문장 자동 생성"],
           ["지식/언어지능", "워드 임베딩\nSeq2Seq", "단어 벡터화\n시퀀스 변환"],
@@ -9067,7 +9073,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "위험관리 절차",
-        headers: ["구성요소", "키워드", "설명"],
+        headers: ["구성요소", "세부 내용", "설명"],
         rows: [
           ["위험 식별(Risk Identification)", "기지 위험 인식\n미지 위험 발굴", "알려진 위험 파악\n잠재 위험 도출"],
           ["위험 식별(Risk Identification)", "위험 프로필\n위험 목록화", "프로필 작성\n체계적 목록"],
@@ -9096,7 +9102,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "기술요소 및 유형",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "세부항목", "설명"],
         rows: [
           ["기술요소", "환경 데이터 수집", "카메라·웹 검색"],
           ["기술요소", "데이터 처리", "의사결정 수행"],
@@ -9126,7 +9132,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성요소",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "구성요소", "설명"],
         rows: [
           ["설계 원칙", "비공유 협업", "맥락 공유 불필요"],
           ["설계 원칙", "HTTP SSE\nJSON RPC", "기존 웹 표준\n원격 호출 표준"],
@@ -9155,7 +9161,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "바이브코딩 도구",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "도구", "설명"],
         rows: [
           ["기반 기술", "LLM 핵심 엔진", "자연어 명령 변환"],
           ["기반 기술", "요구사항 분석", "코딩 목적 추론"],
@@ -9243,7 +9249,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "보안취약점",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "보안위협", "설명"],
         rows: [
           ["MCP Tool 측면", "툴 중독공격\n악성코드 은닉", "도구 설명 조작\nAI 실행 유도"],
           ["MCP Tool 측면", "숨겨진 명령어\n무해한 외형", "AI 몰래 실행\n사용자 오인"],
@@ -9259,7 +9265,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "대응방안 — 인증 및 실행",
-        headers: ["취약점", "키워드", "설명"],
+        headers: ["취약점", "대응방안", "설명"],
         rows: [
           ["인증/인가", "HTTPS 적용\nPKCE 강제", "전 구간 암호화\n인가 코드 보호"],
           ["인증/인가", "RFC 8707\n토큰 바인딩", "리소스 지정\n토큰 귀속 강제"],
@@ -9278,7 +9284,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "대응방안 — 서버 & 클라이언트",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "대응방안", "설명"],
         rows: [
           ["MCP Server 측면", "서버 간 격리\n영향 전파 차단", "손상 범위 한정\n타 도구 보호"],
           ["MCP Server 측면", "실행 전 검토\n명령어 공개", "동작 사전 확인\n수행 내용 제시"],
@@ -9303,7 +9309,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "종류 [완부복]",
-        headers: ["종류", "키워드", "설명"],
+        headers: ["종류", "특징", "설명"],
         rows: [
           ["완전 합성 데이터", "가상 생성 데이터\n강력한 보안성", "실데이터 미포함\n정보보호 우수"],
           ["부분 합성 데이터", "일부 변수 대체\n민감정보 치환", "선택 속성 합성\n민감 변수 대치"],
@@ -9364,7 +9370,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "기술요소",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "기술요소", "설명"],
         rows: [
           ["데이터", "저장 관리 기술\n자체 클라우드", "자국 내 보관\n데이터센터 저장"],
           ["데이터", "데이터 보안\n암호화 접근제어", "보안 기술 적용\n무단 접근 차단"],
@@ -9401,7 +9407,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "표준 구성 [조리기지운성개] — PDCA 매핑",
-        headers: ["PDCA", "키워드", "설명"],
+        headers: ["PDCA", "구성요소", "설명"],
         rows: [
           ["Plan", "조직상황 이해\n이해관계자", "내외부 환경 파악\n적용 범위 설정"],
           ["Plan", "리더십 의지\nAI 방침 수립", "경영진 의지 표명\n역할·책임 부여"],
@@ -9452,7 +9458,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "기술요소 [서인거]",
-        headers: ["구성요소", "키워드", "설명"],
+        headers: ["구성요소", "특징 기술", "설명"],
         rows: [
           ["AI 서비스", "자연어 처리\n영상 분석", "언어 이해 처리\n얼굴 물체 인식"],
           ["AI 서비스", "패턴 인식\n기계학습 ML", "영상 패턴 식별\n자체 모델 학습"],
@@ -9525,7 +9531,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "품질관리 프로세스 [구획정가학운]",
-        headers: ["단계", "키워드", "설명"],
+        headers: ["단계", "프로세스", "설명"],
         rows: [
           ["100. 준비·계획", "구축계획 수립\n품질지표 목표", "목적 일관성 확보\n점검 기준 마련"],
           ["200. 구축", "데이터 획득\n원시데이터 관리", "수집 프로세스\n원시 품질 확보"],
@@ -9827,7 +9833,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "활용분야(특성별 핵심 기술)",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "핵심 기술", "설명"],
         rows: [
           ["자율", "GPT 에이전트\n강화학습 로봇", "독립 판단·동작\n중앙 통제 불요"],
           ["분산", "이벤트 기반 구조\n내결함 설계", "제어 권한 분산\n장애시 전체 유지"],
@@ -9839,7 +9845,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "유형",
-        headers: ["대분류", "키워드", "설명"],
+        headers: ["대분류", "세부 유형", "설명"],
         rows: [
           ["Independent", "이산형 독립", "각자 목표 추구"],
           ["Independent", "창발적 협력\n명시적 협력 없음", "상호작용 결과\n협력 행동 발현"],
@@ -10646,7 +10652,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "Mutation 연산자의 종류",
-        headers: ["연산자", "키워드", "설명"],
+        headers: ["연산자", "연산자 사례", "설명"],
         rows: [
           ["대치", "상수·변수 대치\n배열 값 대치", "값 교체 수행\n다른 값 적용"],
           ["변형(치환)", "입출력 값 변경\n서비스 순서 변경", "입력 출력 치환\n속성 변경 적용"],
@@ -10691,7 +10697,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "성능 테스트 유형",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "유형", "설명"],
         rows: [
           ["테스트 방법 측면", "일정 시간 부하\n최대 TPS", "지속 부하 인가\n응답시간 산출"],
           ["테스트 방법 측면", "초과 부하 인가\n최대 수용범위", "정상 이상 부하\n한계 범위 측정"],
@@ -10741,7 +10747,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "유형",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "종류", "설명"],
         rows: [
           ["데이터 생성", "Dumb 퍼징\n기존 데이터 변이", "단순 변형 방식\nTC 데이터 정의"],
           ["데이터 생성", "Smart 퍼징\nInput 모델", "모델 기반 생성\n신규 유형 데이터"],
@@ -10802,7 +10808,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "절차도 및 세부 절차",
-        headers: ["단계", "키워드", "설명"],
+        headers: ["단계", "세부 절차", "설명"],
         rows: [
           ["1", "테스트 환경 구축\n제3 심사위원", "AI·사람 차단\n격리 공간 위치"],
           ["2", "테스트 수행\nA·B 문자 답변", "심사위원 질문\n상호 정보 없음"],
@@ -10811,7 +10817,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "활용 사례",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "활용 사례", "설명"],
         rows: [
           ["이미지 인식분야", "CAPTCHA\n사람 여부 구별", "접근 사용자 확인\n프로그램 판별"],
           ["이미지 인식분야", "문학작품 전자화\n캡차 형식 활용", "인류 자산 배포\n미인식 글자 인식"],
@@ -11074,7 +11080,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "Lehman의 System Type",
-        headers: ["System Type", "키워드", "설명"],
+        headers: ["System Type", "특징", "설명"],
         rows: [
           ["S-Type (Static Type System)", "고정된 사양\n비진화 유형", "공식 사양 정의\n변화 없는 형태"],
           ["P-Type (Practical Type System)", "요구 정확 정의\n사양 반복 개선", "고정 사양 기반\n환경 의존 수용"],
@@ -11166,7 +11172,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "리팩토링 기법",
-        headers: ["측면", "키워드", "설명"],
+        headers: ["측면", "기법", "설명"],
         rows: [
           ["결합도 측면", "Move 이동\n속성·메소드", "사용 많은 곳으로\n클래스 간 이전"],
           ["결합도 측면", "Extract\n클래스·메소드", "작은 단위 분리\n인터페이스 추출"],
@@ -11203,7 +11209,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "유지보수 유형 [계예응지 / 데프문시 / 수완예적]",
-        headers: ["분류기준", "키워드", "설명"],
+        headers: ["분류기준", "종류", "설명"],
         rows: [
           ["시점에 의한 유지보수", "계획 유지보수", "주기적 수행"],
           ["시점에 의한 유지보수", "예방 유지보수", "사전 예방 차원"],
@@ -11247,7 +11253,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "변경유형에 따른 S/W 유지보수 분류",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "분류", "설명"],
         rows: [
           ["반응적(Reactive)", "수정 유지보수\n납품 후 문제", "발견 결함 시정\n반응적 대응"],
           ["반응적(Reactive)", "적응 유지보수\n변화된 환경", "계속 사용 위한\n제품 수정 수행"],
@@ -11280,7 +11286,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "관리적 측면의 보안 위협과 관리방안",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "보안 위협", "설명"],
         rows: [
           ["사용", "현황 파악 부재\n자유로운 배포", "사용 현황 미관리\n배포처 추적 불가"],
           ["사용", "맹목적 신뢰\n타이포스쿼팅", "대형 커뮤니티\n유사명 악용 위협"],
@@ -11290,7 +11296,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "기술적 측면의 보안 위협과 관리방안",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "보안 위협", "설명"],
         rows: [
           ["공격", "소스코드 공개\nZero Day", "공개 특징 노출\n취약 코드 확산"],
           ["공격", "원격 제어 코드\n크립토재킹", "악성코드 배포\n가상화폐 채굴"],
@@ -11300,7 +11306,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "보안 관리 방안",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "보안 관리 방안", "설명"],
         rows: [
           ["사용", "전용 스캔 툴", "사용 현황 파악"],
           ["사용", "Hash 값 확인\n공신력 배포자", "악성코드 탐지\n인증 소스 사용"],
@@ -11326,7 +11332,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "프레임워크 [정획적운관]",
-        headers: ["FW", "키워드", "설명"],
+        headers: ["FW", "활동요소", "설명"],
         rows: [
           ["정책수립", "적용 전략 자문", "자문 서비스 제공"],
           ["정책수립", "정책 수립 규정", "목표·전략 반영"],
@@ -11367,7 +11373,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성 요소",
-        headers: ["구성 요소", "키워드", "설명"],
+        headers: ["구성 요소", "세부 항목", "설명"],
         rows: [
           ["Category Area", "Doing 수행\n관리 조력 개선", "실행 관행 영역\n4대 활동 구분"],
           ["Capability Area", "12개 영역\n유사성 묶음", "의도·가치 달성\n영역별 개선 진행"],
@@ -11464,7 +11470,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "소프트웨어 프로세스 품질인증 기준",
-        headers: ["영역", "키워드", "설명"],
+        headers: ["영역", "평가 항목", "설명"],
         rows: [
           ["프로젝트 관리", "목표 일정 자원", "계획 수립 능력"],
           ["프로젝트 관리", "진행 모니터링", "통제 체계 운영"],
@@ -11625,7 +11631,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "프로세스",
-        headers: ["단계", "키워드", "설명"],
+        headers: ["단계", "프로세스", "설명"],
         rows: [
           ["Step 1", "Top 이벤트", "위험도 고려 선정"],
           ["Step 2", "공정·작업 파악", "위험 관련 조사"],
@@ -11637,7 +11643,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "표기법",
-        headers: ["FTA 기호", "키워드", "설명"],
+        headers: ["FTA 기호", "구분", "설명"],
         rows: [
           ["사상 기호", "사상 사각형", "고장·불량 사상"],
           ["사상 기호", "기본사상 원", "최하위 미전개"],
@@ -11761,7 +11767,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "위험관계 분석 기법 관계",
-        headers: ["기법", "키워드", "설명"],
+        headers: ["기법", "추론 방향", "설명"],
         rows: [
           ["FMEA", "귀납적 추론", "원인→가능 영향"],
           ["FTA", "연역적 추론", "영향→가능 원인"],
@@ -11876,7 +11882,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "상세 내역",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "항목", "설명"],
         rows: [
           ["측정 유형 결정", "개발 프로젝트", "종료 후 인도 SW"],
           ["측정 유형 결정", "개선 프로젝트", "추가·수정 삭제"],
@@ -11925,7 +11931,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "SW사업 기획 단계 대가 산정 방법",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "산정 방법", "설명"],
         rows: [
           ["ISP/ISP/BPR", "컨설팅 업무량\n가중치×난이도", "업무범위 난이도\n단가 곱 경비 가산"],
           ["EA/ITA", "EA/ITA\n컨설팅 업무량", "가중치×난이도\n공수 곱 경비 가산"],
@@ -12251,7 +12257,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "구성요소", "설명"],
         rows: [
           ["1. 종합의견", "작성 시점 전제", "보고서 전제조건"],
           ["1. 종합의견", "감리의견 총괄", "사업 의견 총정리"],
@@ -12384,7 +12390,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "예비타당성 조사 제도 필요성",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "필요성", "설명"],
         rows: [
           ["경제적 측면", "예산낭비 최소화", "비경제 사업 배제"],
           ["기술적 측면", "사업 리스크 완화", "증액·변경 방지"],
@@ -12478,7 +12484,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "법적 근거",
-        headers: ["근거법령", "키워드", "설명"],
+        headers: ["근거법령", "조항", "설명"],
         rows: [
           ["소프트웨어 진흥법", "제54조 구매", "상용SW 구매"],
           ["소프트웨어사업 계약 및 관리감독에 관한 지침", "제7조 대상", "직접구매 대상"],
@@ -12521,7 +12527,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "사용성 평가 항목 및 측정 지표",
-        headers: ["평가항목", "키워드", "설명"],
+        headers: ["평가항목", "측정지표", "설명"],
         rows: [
           ["작업시간", "완료·로딩 시간", "목표 완료 시간"],
           ["작업시간", "이벤트 도달 시간", "특정 모드 체류"],
@@ -12582,7 +12588,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성요소",
-        headers: ["구성요소", "키워드", "설명"],
+        headers: ["구성요소", "개념", "설명"],
         rows: [
           ["Head", "리스트 시작점\n최초 접근 주소", "시작 알림 노드\n외부 참조 진입"],
           ["Tail", "리스트 종료점", "끝 알림 노드"],
@@ -12632,7 +12638,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "연산",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "항목", "설명"],
         rows: [
           ["연산", "item 추가", "스택 최상단 삽입"],
           ["연산", "최상단 제거", "항목 제거·반환"],
@@ -12789,7 +12795,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구조와 특징",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "항목", "설명"],
         rows: [
           ["구조", "최소 2개 자식", "최소 1개 값 보유"],
           ["구조", "최대 m개 자식", "차수 m 기준 보유"],
@@ -12857,7 +12863,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "성능 평가 유형",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "유형", "설명"],
         rows: [
           ["성능분석", "복잡도 분석\n연산 횟수 측정", "미구현 시간 분석\nn의 함수로 비교"],
           ["성능측정", "실제 수행시간\n실제 구현물", "구동 시간 측정\n동일 H/W 필요"],
@@ -13000,7 +13006,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "예시 (31, 25, 12, 22, 11)",
-        headers: ["단계", "키워드", "설명"],
+        headers: ["단계", "데이터", "설명"],
         rows: [
           ["초기", "초기 5개 원소", "처음 미정렬 상태"],
           ["1", "정렬부 31\n[25] 삽입", "초기 정렬 부분\n두 번째 원소 위치"],
@@ -13139,7 +13145,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "충돌 해결방법 [선이중무 체코]",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "해결 방법", "설명"],
         rows: [
           ["개방 주소법", "순차 다음 주소", "빈자리까지 이동"],
           ["개방 주소법", "제곱 간격 이동", "충돌 시 주소 점프"],
@@ -13174,7 +13180,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "접근방법",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "코드", "설명"],
         rows: [
           ["Top Down", "메모이제이션\n재귀 방식", "저장 내역 참조\n하위 항 재귀 합산"],
           ["Bottom Up", "타뷸레이션\n반복문 방식", "테이블 순차 채움\ncache 누적"],
@@ -13355,7 +13361,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "산출 절차",
-        headers: ["순서", "키워드", "설명"],
+        headers: ["순서", "절차", "설명"],
         rows: [
           ["1", "DTM 작성", "문서 행렬 표현"],
           ["2", "TF 등장 빈도\n단어 수 정규화", "문서 내 단어 횟수\n전체 단어 수 나눔"],
@@ -13619,7 +13625,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "동작원리",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "항목", "설명"],
         rows: [
           ["송신 준비", "송신 데이터 준비", "디바이스 준비"],
           ["채널 감시", "채널 Free\n미충돌", "송신 후 채널 감시\n프레임 전송 완료"],
@@ -13871,7 +13877,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "동작 과정",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "동작 과정", "설명"],
         rows: [
           ["Initial 1-RTT Handshake", "CHLO 전송\n미암호 패킷", "시작 단계 개시\n암호화 없이 전송"],
           ["Initial 1-RTT Handshake", "거절 응답 전송\n암호 토큰 포함", "서버 설정 전달\n토큰 패킷 수신"],
@@ -13955,7 +13961,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "알고리즘 유형",
-        headers: ["유형", "키워드", "설명"],
+        headers: ["유형", "단계", "설명"],
         rows: [
           ["Tahoe 알고리즘", "느린 출발\n지수 증가", "임계치 도달까지\n윈도우 확대"],
           ["Tahoe 알고리즘", "혼잡 회피\n선형 증가", "임계치 도달 후\n윈도우 1씩 증가"],
@@ -14146,7 +14152,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "FEC (전진 오류 정정)",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "기법", "설명"],
         rows: [
           ["정의", "잉여비트 추가\n수신측 정정", "송신 시 부가\n자체 오류 복원"],
           ["블록 코드(Block Code)", "해밍 코드\n패리티 비트", "오류 위치 검출\n정정 가능 코드"],
@@ -14157,7 +14163,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "BEC (후진 오류 정정)",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "기법", "설명"],
         rows: [
           ["정의", "오류 검출 통보\n재전송 정정", "송신측에 통보\n재전송 방식"],
           ["오류 검출(Error Detect)", "패리티 검사\n1비트 추가", "끝에 비트 부가\n1의 개수 판단"],
@@ -14330,7 +14336,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "동작 원리",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "순서", "설명"],
         rows: [
           ["RARP Request", "주소 미인지\n브로드캐스트", "서버 주소 모름\n요청 전파"],
           ["RARP Request", "전체 수신\n서버만 응답", "모든 컴퓨터 수신\n서버가 회신"],
@@ -14364,7 +14370,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "DHCP IP 할당 과정 (UDP 68 → UDP 67)",
-        headers: ["단계", "키워드", "설명"],
+        headers: ["단계", "할당 과정", "설명"],
         rows: [
           ["①", "DHCP 탐색\n브로드캐스트", "클라이언트 요청\n패킷 전송"],
           ["②", "OFFER 제안\n임대시간 안내", "서버 유니캐스트\nIP 정보 전달"],
@@ -14374,7 +14380,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "IP 갱신 과정",
-        headers: ["단계", "키워드", "설명"],
+        headers: ["단계", "갱신 과정", "설명"],
         rows: [
           ["①", "REQUEST\n연장 요청", "유니캐스트 전달\n임대 절반 시점"],
           ["②", "ACK 승인\n연장 확정", "서버 최종 승인\nIP 사용 연장"],
@@ -14382,7 +14388,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "IP 해제 과정",
-        headers: ["단계", "키워드", "설명"],
+        headers: ["단계", "해제 과정", "설명"],
         rows: [
           ["①", "RELEASE\n해제 통보", "유니캐스트 전달\n응답 없이 종료"],
         ],
@@ -14469,7 +14475,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성 요소",
-        headers: ["구성 요소", "키워드", "설명"],
+        headers: ["구성 요소", "기반 기술", "설명"],
         rows: [
           ["RIC(RAN Intelligent Controller)", "near RT\nnon RT", "실시간 최적화\n정책 분석 제어"],
           ["O-CU(O-RAN Centralized Unit)", "RRC 수행\nPDCP 처리", "중앙 집중 장치\nO-DU 제어"],
@@ -14613,7 +14619,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "표준 기능 — 분석·학습",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "핵심 기능", "설명"],
         rows: [
           ["AnLF(Analytics Logical Function)", "분석 논리 기능\nML 기반 추론", "통계 예측 도출\n소비자 응답"],
           ["MTLF(Model Training Logical Function)", "모델 학습 기능\nML 모델 제공", "머신러닝 학습\n추론 모델 배포"],
@@ -14621,7 +14627,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "표준 기능 — 데이터 관리",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "핵심 기능", "설명"],
         rows: [
           ["DCCF(Data Collection Coordination and Delivery Function)", "데이터 요청 관리\n중복 요청 처리", "수집 조정 전달\n기존 결과 재사용"],
           ["ADRF(Analytical Data Repository Function)", "데이터 저장소", "과거 이력 저장"],
@@ -14819,7 +14825,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "성능 스펙",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "성능 Spec", "설명"],
         rows: [
           ["최대 속도", "30Gbps", "3배 속도 향상"],
           ["최대 대역폭", "320MHz", "고속 전송 기반"],
@@ -14831,7 +14837,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "기술 요소",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "기술 요소", "설명"],
         rows: [
           ["MAC(Media Access Control)", "AP 간 협력", "정보 공유 제어"],
           ["MAC(Media Access Control)", "320MHz\n비연속 대역", "대역폭 확대\n효율적 이용"],
@@ -14867,7 +14873,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "성능 스펙",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "성능Spec", "설명"],
         rows: [
           ["최대 채널 대역폭(MHz)", "320MHz", "최대 채널 폭"],
           ["주파수 대역(GHz)", "2.4 5GHz\n6GHz 포함", "비면허 대역\n3개 대역 지원"],
@@ -15002,7 +15008,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "기술 요소",
-        headers: ["계층", "키워드", "설명"],
+        headers: ["계층", "기술요소", "설명"],
         rows: [
           ["Application", "IP 기반 통신\n응용 계층 처리", "스마트홈 연동\n기기 호환 해결"],
           ["Transport", "연결 지향 전송", "신뢰성 안전성"],
@@ -15124,7 +15130,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "기술 요소 — 통신 기술 / 시스템 기술",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "핵심 기술", "설명"],
         rows: [
           ["통신 기술", "망 간 핸드오버", "네트워크 탐지"],
           ["통신 기술", "OTA 방식", "무선 전송 규약"],
@@ -15258,7 +15264,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "기술 요소",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "기술 요소", "설명"],
         rows: [
           ["의도 명령(Intent command)", "NMS·관리자\n선언적 명령", "관리시스템 주체\n서비스 목적 명령"],
           ["의도 번역(Intent translation)", "번역·최적화\n음성·텍스트", "상위 수준 정책\n의도 형태 번역"],
@@ -15479,7 +15485,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "개념도 및 특징 [ACID]",
-        headers: ["특징", "키워드", "설명"],
+        headers: ["특징", "상태관리", "설명"],
         rows: [
           ["Atomicity(원자성)", "전부·전무\n회복기법", "연산 전체 처리\n실패 시 원복"],
           ["Consistency(일관성)", "모순 없는 상태\n무결성·동시성", "일관 상태 보존\n제약조건 준수"],
@@ -15489,7 +15495,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "상태전이도 [활부완실천]",
-        headers: ["작업 구분", "키워드", "설명"],
+        headers: ["작업 구분", "상태", "설명"],
         rows: [
           ["시작", "Active\n초기 활동 상태", "트랜잭션 실행 중\n동작 상태 판단"],
           ["성공", "부분 완료 상태\nPartial", "마지막 명령 실행\nDB 반영 대기"],
@@ -15523,7 +15529,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "격리성 수준별 설명",
-        headers: ["격리성 수준", "키워드", "설명"],
+        headers: ["격리성 수준", "가능한 비일관성 현상", "설명"],
         rows: [
           ["Read Uncommitted", "미커밋 데이터\n3현상 모두 발생", "커밋 전 값 판독\n일관성 가장 낮음"],
           ["Read Committed", "커밋 데이터만\n비반복·팬텀", "확정 값만 판독\n재조회 값 변동"],
@@ -15741,7 +15747,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "엔티티 유형 [유개사기중행]",
-        headers: ["분류", "키워드", "설명"],
+        headers: ["분류", "유형", "설명"],
         rows: [
           ["유무형", "유형 엔티티\n물리적 실체존재", "유무형 구분 유형\n지속적 활용 대상"],
           ["유무형", "사원·물품\n강사 엔티티", "유형 엔티티 예\n업무 구분 용이"],
@@ -15933,7 +15939,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "반정규화 기법 [테칼관 병분추 중계이 중]",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "주요 기법", "설명"],
         rows: [
           ["테이블 레벨", "테이블 병합\n서브타입·코드", "Join 수 감소\n코드명 속성 추가"],
           ["테이블 레벨", "테이블 분할\n수직·수평 분할", "접근 빈도별 분리\n파티션 성능 향상"],
@@ -16273,7 +16279,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "NoSQL의 절차",
-        headers: ["단계", "키워드", "설명"],
+        headers: ["단계", "절차", "설명"],
         rows: [
           ["탐색", "도메인 모델 파악\n개체·관계 분석", "저장 도메인 파악\nERD 도식화"],
           ["설계", "쿼리 결과 디자인\n출력 내용 기반", "도메인 모델 기반\n쿼리 결과값 정의"],
@@ -16365,7 +16371,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "BASE 이론 [가분데비일]",
-        headers: ["속성", "키워드", "설명"],
+        headers: ["속성", "목적", "설명"],
         rows: [
           ["Basically Available", "분산 가용성 확보\n다수 복사본", "일부 실패 시 가용\n여러 저장소 저장"],
           ["Soft State", "노드 간 데이터\n외부 정보 결정", "내부 정보 무관\n도달 시점 갱신"],
@@ -16418,7 +16424,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "NewSQL 기능 [트아 SA비 노병]",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "기능", "설명"],
         rows: [
           ["트랜잭션", "SQL 상호작용\nDBMS 연계", "표준 SQL 통신\n입력·조회 갱신"],
           ["트랜잭션", "ACID 지원\nRDBMS 핵심", "커밋 필수 속성\n트랜잭션 보장"],
@@ -16429,7 +16435,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "NewSQL 기술요소 [R노 인M샤 스인D]",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "기술요소", "설명"],
         rows: [
           ["RDBMS 측면", "인덱싱 구조\n독립 저장공간", "검색 속도 향상\n테이블 연관 관리"],
           ["RDBMS 측면", "MVCC 제어\n다중 버전 관리", "동시성 제어 기법\n트랜잭션 직렬화"],
@@ -16463,7 +16469,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "알고리즘 및 유사도 측정 방법 [랜양LHI]",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "알고리즘/유사도", "설명"],
         rows: [
           ["알고리즘", "랜덤 투영\n고차원→저차원", "무작위 투영 기법\n차원 축소 수행"],
           ["알고리즘", "제품 양자화\n개별 양자화", "저차원 공간 분할\n전체 벡터 압축"],
@@ -16478,7 +16484,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "동작 과정",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "핵심 작동 원리", "설명"],
         rows: [
           ["① 벡터 임베딩", "텍스트·이미지\n고차원 벡터", "원본 데이터 입력\n숫자 벡터 변환"],
           ["② 데이터 저장 및 인덱싱", "해싱 기반\n해시 버킷", "유사 벡터 매핑\n동일 버킷 할당"],
@@ -16607,7 +16613,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "인덱스 유형 [트해비 함조도 정동 논물]",
-        headers: ["분류", "키워드", "설명"],
+        headers: ["분류", "인덱스 구조", "설명"],
         rows: [
           ["형태", "트리 기반 구조\nB-tree", "RDBMS 기본\n대부분 사용"],
           ["형태", "해시 기반\n등호 연산 한정", "해시테이블 검색\n=·<= 만 가능"],
@@ -16655,7 +16661,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "구성요소 [마스슬C로]",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "구성요소", "설명"],
         rows: [
           ["DB", "갱신 전용 DB\nC/D/U 수행", "쓰기 트랜잭션\n조회는 미수행"],
           ["DB", "복제 중간 경유\n성능저하 방지", "슬레이브 중계\n직접 복제 회피"],
@@ -16747,7 +16753,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "샤딩 분할방법 [해레디]",
-        headers: ["분할방법", "키워드", "설명"],
+        headers: ["분할방법", "분할원리", "설명"],
         rows: [
           ["Hash Sharding", "해시 값 라우트\n샤드 추가 시", "균일 분산 저장\n데이터 재정렬"],
           ["Range Sharding", "범위 기준 라우트\n추가 시 재정렬", "특정 범위로 분산\n비용·집중 위험"],
@@ -16911,7 +16917,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "데이터 분석 거버넌스 체계 [조프인수교]",
-        headers: ["체계", "키워드", "설명"],
+        headers: ["체계", "세부업무", "설명"],
         rows: [
           ["분석조직", "분석 컨트롤 타워\n분석 과제 정의", "분석 가치 발견\n인사이트 실행"],
           ["프로세스", "EDA·CDA\n탐색·확증 분석", "요건·모델링\n검증·적용"],
@@ -16970,7 +16976,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "데이터 분석 수준진단 결과 활용 방안",
-        headers: ["유형", "키워드", "설명"],
+        headers: ["유형", "위치", "설명"],
         rows: [
           ["도입형", "준비도 높음\n성숙도 낮음", "인프라 준비 완료\n업무·기법 부족"],
           ["확산형", "준비도 높음\n성숙도 높음", "6가지 요소 구비\n지속 확산 필요"],
@@ -16993,7 +16999,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "KDD 절차 — 1996년 Fayyad, 인사이트 발굴을 위한 5개 프로세스",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "절차", "설명"],
         rows: [
           ["데이터 처리", "데이터 선택\n데이터셋 생성", "분석 대상 선정\n분석 집합 구성"],
           ["데이터 처리", "잡음·이상값\n결측값 식별", "오류 데이터 식별\n필요 시 제거"],
@@ -17079,7 +17085,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "시각화 프로세스 [구시표]",
-        headers: ["프로세스", "키워드", "설명"],
+        headers: ["프로세스", "구분", "설명"],
         rows: [
           ["① 정보 구조화", "정보 탐색·분류\n배열·그룹핑", "구조적 그룹핑\n정보 구조화 활동"],
           ["① 정보 구조화", "자료·논거 수집\n고유 특성 유지", "데이터 수집 탐색\n특성 훼손 방지"],
@@ -17104,7 +17110,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "인사이트 프로세스 [탐분활]",
-        headers: ["절차", "키워드", "설명"],
+        headers: ["절차", "구분", "설명"],
         rows: [
           ["① 탐색", "자료 확인·의미\n자료 간 관계", "가용 자료 확인\n가능 관계 탐색"],
           ["① 탐색", "데이터 명세화", "구성원리 정의"],
@@ -17135,7 +17141,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성도 및 기술요소",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "기술요소", "설명"],
         rows: [
           ["데이터 수집, 변환, 처리", "일괄 배치 처리\n정형·비정형", "배치 단위 수집\n통합 수집·적재"],
           ["데이터 수집, 변환, 처리", "CDC·CEP\n실시간 스트리밍", "실시간성 제공\n수집·변환 전달"],
@@ -17255,7 +17261,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "특징 — 인증 등급",
-        headers: ["등급", "키워드", "설명"],
+        headers: ["등급", "심사기준", "설명"],
         rows: [
           ["최우수", "DB 개별 40점\n값 관리 심사", "개별 점수 만점\n전체 DB 심사"],
           ["최우수", "만점의 95%\n충족 필요", "관리체계·개방\n활용 측면 심사"],
@@ -17499,7 +17505,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "Apriori 알고리즘 절차",
-        headers: ["절차", "키워드", "설명"],
+        headers: ["절차", "세부 기술", "설명"],
         rows: [
           ["① 항목 별 등장 횟수(빈도) 수집", "DB 스캐닝", "트랜잭션 수 계산"],
           ["② 지지도(Support) 계산", "지지도 산출", "항목 포함 비율"],
@@ -17524,7 +17530,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "DHP 알고리즘 절차",
-        headers: ["절차", "키워드", "설명"],
+        headers: ["절차", "세부 기술", "설명"],
         rows: [
           ["① 1-빈발 항목 집합(Frequent 1-itemset) 생성", "첫 DB 스캔\n최소 지지도", "항목 지지도 계산\n빈발 항목 선택"],
           ["② 후보 (k+1)-항목 집합 생성", "빈발 k집합 기반\n해시 테이블", "후보 조합 생성\n해시 함수 준비"],
@@ -17550,7 +17556,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "FP-Growth 절차",
-        headers: ["절차", "키워드", "설명"],
+        headers: ["절차", "세부 기술", "설명"],
         rows: [
           ["① 지지도(Support) 계산 및 빈발 항목 추출", "첫 데이터 스캔\n최소 지지도", "항목 지지도 계산\n빈발 항목 선정"],
           ["② 빈발 항목 정렬", "빈발 항목만 유지\n지지도 내림차순", "비빈발 항목 제거\n트리 구축 효율화"],
@@ -17635,7 +17641,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "기술 부채의 유형",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "유형", "설명"],
         rows: [
           ["설계 부채", "악취·결합도\n설계 규칙 위반", "모듈성 부족\n일정 우선 진행"],
           ["코드 부채", "정적분석 위반\n코드리뷰 생략", "컨벤션 미준수\nLint 미활용"],
@@ -18855,7 +18861,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "주요 미팅 및 원칙",
-        headers: ["항목", "키워드", "설명"],
+        headers: ["항목", "OKR", "설명"],
         rows: [
           ["주요 미팅", "당기 KR 공유\n차기 KR 발표", "결과 전사 공유\n다음 분기 계획"],
           ["주요 미팅", "진행 모니터링\n차기 KR 초안", "당기 상황 평가\n임시버전 개발"],
@@ -19175,7 +19181,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "암호화(Encryption)의 종류",
-        headers: ["분류", "키워드", "설명"],
+        headers: ["분류", "유형", "설명"],
         rows: [
           ["정보단위", "스트림 암호\n고속·저오류", "1비트씩 암호화\n에러 파급 최소"],
           ["정보단위", "블록 암호화\n혼돈성 부여", "평문 블록 분할\n암호문 변경 곤란"],
@@ -19217,7 +19223,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "암호화 기법 [대전압불확]",
-        headers: ["기법", "키워드", "설명"],
+        headers: ["기법", "예시", "설명"],
         rows: [
           ["전치(치환)(Transposition)", "레일 펜스\n위치 재배열", "대표 예시 암호\n문자 값은 유지"],
           ["대치(Substitution)", "카이사르\n문자 값 치환", "대표 예시 암호\n위치는 그대로"],
@@ -19241,7 +19247,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "암호학적 해시함수가 가져야 하는 속성(성질, 특징)",
-        headers: ["성질(속성)", "키워드", "설명"],
+        headers: ["성질(속성)", "특징", "설명"],
         rows: [
           ["역상 저항성", "일방향 함수\n입력 역산 불가", "출력→입력 곤란\n제1역상 공격"],
           ["제2역상 저항성", "약한 충돌 저항성\n동일 해시 탐색", "주어진 X 기준\n다른 입력 곤란"],
@@ -19332,7 +19338,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "디피-헬먼 키 교환(Diffie-Hellman key exchange) 절차",
-        headers: ["절차", "키워드", "설명"],
+        headers: ["절차", "생성키", "설명"],
         rows: [
           ["① 사전 공개 값 공유", "큰 소수 p\n원시근 g", "경우의 수 증대\n1~p-1 생성"],
           ["② 각자의 비공개 정수(키) 선정", "비공개 정수\n모듈러 멱승", "각자 임의 선택\nR1·R2 산출"],
@@ -19397,7 +19403,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "암호학적 보안 강도(Security Strength)의 결정 요소",
-        headers: ["보안 강도 결정 요소", "키워드", "설명"],
+        headers: ["보안 강도 결정 요소", "주요 판단 기준", "설명"],
         rows: [
           ["암호 키 길이", "키 공간 크기\n무차별 대입", "경우의 수 증가\n계산량 증대"],
           ["해시 출력 길이", "출력 비트 수\n공격 저항성", "길이 비례 강도\n충돌·역상 저항"],
@@ -19442,7 +19448,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "동형 암호의 유형, 설계원리와 알고리즘",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "항목", "설명"],
         rows: [
           ["유형", "부분 동형 PHE\n단일 연산만", "한 연산만 지원\n제한적 활용"],
           ["유형", "준 동형 SHE\n덧셈·곱셈 지원", "일부 연산 지원\n값 보존 처리"],
@@ -19518,7 +19524,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "양자 암호 구현 기술",
-        headers: ["구현기술", "키워드", "설명"],
+        headers: ["구현기술", "주요역할", "설명"],
         rows: [
           ["양자광원", "단일광자광원\n보안성 확보", "광자 하나 방사\n도청 공격 차단"],
           ["단일광자 검출기", "광자 검출기\n광·전기 특성", "단일광자 감지\n특성 이용 검출"],
@@ -19618,7 +19624,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "딥보이스(Deep Voice) 피싱 공격 절차",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "단계", "설명"],
         rows: [
           ["사전준비", "음성 수집\nSNS 영상", "대상 음성 확보\n공개 자료 수집"],
           ["사전준비", "통화 녹음\n유튜브 SNS", "녹취 음성 확보\n영상 음성 추출"],
@@ -19655,7 +19661,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "보안취약점 [프민공데부 과시벡잘무]",
-        headers: ["NO", "키워드", "설명"],
+        headers: ["NO", "보안 취약점", "설명"],
         rows: [
           ["LLM01", "프롬프트 인젝션\n악의적 조작", "프롬프트 변조\n의도 외 출력"],
           ["LLM02", "민감정보 공개\n기밀 데이터", "개인정보 유출\n독점 정보 노출"],
@@ -19747,7 +19753,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "APT 공격 절차와 기법",
-        headers: ["단계", "키워드", "설명"],
+        headers: ["단계", "공격기법", "설명"],
         rows: [
           ["침투(Incursion)", "사회공학\n제로데이", "인증정보 탈취\n활동 거점 구축"],
           ["탐색(Discovery)", "다중벡터\n은밀한 활동", "시스템 정보 수집\n기밀 자동 검색"],
@@ -19809,7 +19815,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "스니핑·스푸핑 공격 유형",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "공격 방식", "설명"],
         rows: [
           ["스니핑", "패시브 스니핑", "허브 기반 감청"],
           ["스니핑", "액티브 스니핑", "스위치망 탈취"],
@@ -19837,7 +19843,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "BPF Door Attack Flow",
-        headers: ["공격 단계", "키워드", "설명"],
+        headers: ["공격 단계", "주요 기술", "설명"],
         rows: [
           ["1. 잠입 및 설치", "프로세스 위장\n악성코드 설치", "정상 데몬 사칭\n시스템 침투"],
           ["2. BPF 필터 로드", "BPF 필터\n리눅스 커널", "커널 필터 등록\n패킷 감청 역할"],
@@ -19849,7 +19855,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "BPF Door 대응 방안",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "대응방안", "설명"],
         rows: [
           ["관리적 측면", "접근통제 강화\n최소권한 원칙", "루트 접근 제한\n불필요 포트 차단"],
           ["관리적 측면", "정기 보안 점검\n침투 테스트", "레드팀 점검\n보안 체계 검증"],
@@ -19963,7 +19969,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "공급망 공격 대응 방안",
-        headers: ["분류", "키워드", "설명"],
+        headers: ["분류", "대응 방안", "설명"],
         rows: [
           ["기술적 방안", "인증서 관리\n사용 로그 기록", "관리 체계 구축\n이력 상시 보관"],
           ["기술적 방안", "개발 시스템 관리\n망분리", "개발환경 분리\n접근통제 구성"],
@@ -20006,7 +20012,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "DoS 대응 절차와 방법",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "대응", "설명"],
         rows: [
           ["대응 절차", "공격 인지\n유형 파악", "DoS 여부 판단\n공격 유형 식별"],
           ["대응 절차", "유형별 차단\n사후 조치", "가용성 확보\n정책 업데이트"],
@@ -20038,7 +20044,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "DRDoS 공격 절차",
-        headers: ["공격 절차", "키워드", "설명"],
+        headers: ["공격 절차", "Actor/대상", "설명"],
         rows: [
           ["IP Spoofing", "출발지 위조\n경유지 전송", "피해자 IP 위장\nSYN 패킷 전송"],
           ["Reflection & Amplification", "반사·증폭\n경유지 서버", "응답 대량 전송\n피해자로 반사"],
@@ -20047,7 +20053,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "Protocol별 DRDoS 공격 방식과 증폭 대상",
-        headers: ["Service", "키워드", "설명"],
+        headers: ["Service", "증폭 대상", "설명"],
         rows: [
           ["DNS", "RR 레코드\nANY 질의", "DNS 질의 악용\n대량 트래픽"],
           ["NTP", "MONLIST\n접속 서버 목록", "NTP 목록 요청\n대량 트래픽"],
@@ -20117,7 +20123,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "루트킷의 침투 매커니즘(동작원리)",
-        headers: ["단계", "키워드", "설명"],
+        headers: ["단계", "동작원리", "설명"],
         rows: [
           ["초기침투", "취약점 사회공학\n악성코드 실행", "SW 취약점 침투\n사용자 모드 시작"],
           ["초기침투", "권한상승\n커널 권한 획득", "사용자 권한 초과\n핵심 접근 권한"],
@@ -20129,7 +20135,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "루트킷의 유형",
-        headers: ["분류", "키워드", "설명"],
+        headers: ["분류", "유형", "설명"],
         rows: [
           ["실행 레벨", "사용자 모드\nAPI 후킹 조작", "프로세스 은폐\n탐지 비교적 쉬움"],
           ["부팅 과정", "부트킷 MBR\nVBR 감염", "OS 로드 전 감염\n재설치 후 지속"],
@@ -20187,7 +20193,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "OWASP Top 10:2025 취약점",
-        headers: ["순위·제목", "키워드", "설명"],
+        headers: ["순위·제목", "주요 키워드·기술", "설명"],
         rows: [
           ["A01 Broken Access Control(취약한 접근 제어)", "권한 우회·상승\nSSRF 통합", "타인 데이터 접근\n항목 통합 편입"],
           ["A02 Security Misconfiguration(보안 설정 오류)", "클라우드 설정\n기본 계정·포트", "불완전 구성 실수\n불안전 기본값"],
@@ -20279,7 +20285,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "SSRF 공격 유형과 대응",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "항목", "설명"],
         rows: [
           ["공격 유형", "논블라인드형\n응답 결과 노출", "악의 요청 결과\n반환 데이터 노출"],
           ["공격 유형", "블라인드형\n유해 작업 수행", "데이터 유출 아닌\n작업 수행 초점"],
@@ -20317,7 +20323,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "SW 난독화 분류",
-        headers: ["기법", "키워드", "설명"],
+        headers: ["기법", "주요 기술", "설명"],
         rows: [
           ["구획 난독화", "형식 변환·주석\n식별자 손상", "세부 요소 변경\n영향 적은 요소"],
           ["데이터 난독화", "변수 자르기\n정적 자료 절차화", "데이터 변수 분할\n읽기 어렵게 변환"],
@@ -20403,7 +20409,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "PbD의 7대 기본 원칙",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "원칙", "설명"],
         rows: [
           ["Design", "① 사전예방\n침해 사건 예상", "사후조치 아닌\n사전 예방 조치"],
           ["Design", "② 초기설정 보호\n기본값 설정", "IT시스템 기본\n자동 최대 보장"],
@@ -20587,7 +20593,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "SSDF의 구성과 단계",
-        headers: ["구성", "키워드", "설명"],
+        headers: ["구성", "주요 수행 활동", "설명"],
         rows: [
           ["조직 준비(PO, Prepare the Organization)", "보안 요구 정의\n역할·책임 구분", "개발 요구 명세\n담당 책임 부여"],
           ["조직 준비(PO, Prepare the Organization)", "툴체인 구현\n안전한 개발환경", "지원 도구 구축\n시행·유지 관리"],
@@ -20655,7 +20661,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "DNSSEC 각 리소스 레코드의 역할",
-        headers: ["Resource Record", "키워드", "설명"],
+        headers: ["Resource Record", "역할", "설명"],
         rows: [
           ["상위 DNS Server의 공개키", "DNSKEY", "존 공개키 포함"],
           ["원본 데이터", "일반 레코드\nNSEC·DS", "전달할 레코드\nNSEC3 포함"],
@@ -20680,7 +20686,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "IPSec 구조와 구성 요소",
-        headers: ["분류", "키워드", "설명"],
+        headers: ["분류", "구성 요소", "설명"],
         rows: [
           ["프로토콜", "AH 인증 헤더\n무결성·인증", "인증 프로토콜\n재전송 공격 방지"],
           ["프로토콜", "ESP 캡슐화\n패킷 암호화", "보안 페이로드\n기밀성 제공"],
@@ -20847,7 +20853,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "SASE 구성 요소",
-        headers: ["구성요소", "키워드", "설명"],
+        headers: ["구성요소", "핵심기술", "설명"],
         rows: [
           ["네트워크 서비스", "SD-WAN\n제어기·CPE", "WAN 확장 적용\n사업자 망 구성"],
           ["네트워크 서비스", "SD-브랜치\n지사 인프라 확대", "중앙 집중 제어\n무선·보안 통합"],
@@ -20944,7 +20950,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "블록체인에서의 다중서명 절차",
-        headers: ["절차", "키워드", "설명"],
+        headers: ["절차", "핵심 기술", "설명"],
         rows: [
           ["① 조건설정", "스마트계약\nM of N 서명", "조건설정 사전\n3 of 5 등 조건"],
           ["② 키생성", "개인키·공개키\n모든 서명자", "검증·주소생성\n전원 키 생성"],
@@ -21478,7 +21484,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "위협 모델링의 DFD 구성 요소",
-        headers: ["요소", "키워드", "설명"],
+        headers: ["요소", "기호", "설명"],
         rows: [
           ["외부 개체", "사각형 표기\n통제 밖 개체", "외부 상호작용\n사용자·API"],
           ["프로세스", "원형 표기\n데이터 변환", "실행 주체 표현\n웹서버·API"],
@@ -21889,7 +21895,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "개인정보보호 기술적 통제방안",
-        headers: ["분류", "키워드", "설명"],
+        headers: ["분류", "통제요소", "설명"],
         rows: [
           ["필터링(개인정보 노출차단)", "방화벽·IDS\nIPS·TMS", "네트워크 방어\n침해행위 탐지"],
           ["필터링(개인정보 노출차단)", "ILP·DLP", "유출 탐지 차단"],
@@ -22976,7 +22982,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "표준 구성 (모델·항목별 평가 내용)",
-        headers: ["모델", "키워드", "설명"],
+        headers: ["모델", "항목", "설명"],
         rows: [
           ["기능 적합성", "기능 정확성", "정확 수행 평가"],
           ["기능 적합성", "기능 적응성", "다양 상황 적응"],
@@ -23015,7 +23021,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "역할기반 아키텍처 — 구성요소",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "구성요소", "설명"],
         rows: [
           ["사용자", "상거래 개시 주체\n의도·재정 권한", "에이전트에 위임\n궁극적 원천"],
           ["사용자", "AI 인터페이스\nCart 구축", "직접 상호작용\n서명권한 확보"],
@@ -23151,7 +23157,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "발행절차(Mint)",
-        headers: ["단계", "키워드", "설명"],
+        headers: ["단계", "절차", "설명"],
         rows: [
           ["M.0", "입금 정보 검증", "정확성·무결성"],
           ["M.1", "입금 예상 주문", "DB 항목 생성"],
@@ -23166,7 +23172,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "소각절차(Burn)",
-        headers: ["단계", "키워드", "설명"],
+        headers: ["단계", "절차", "설명"],
         rows: [
           ["B.1", "API 소각 요청", "토큰 판매 요청"],
           ["B.2", "오프체인 서명\nPermit", "사용자 승인 부여\n소각 권한 허용"],
@@ -23206,7 +23212,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "개발 및 활용 단계별 개인정보 침해 방지를 위한 방안",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "구성 요소", "설명"],
         rows: [
           ["데이터 스페이스 거버넌스", "연합·분산 구조\n공통 규칙 기반", "데이터 주권 보장\n합의 규칙 구성"],
           ["데이터 스페이스 거버넌스", "신뢰 보안 투명성\n서비스 모델", "신뢰 기반 교환\n운영 체계 구성"],
@@ -23255,7 +23261,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "핵심 기술",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "핵심 기술", "설명"],
         rows: [
           ["데이터", "데이터 큐레이션", "말뭉치 수집 정제"],
           ["데이터", "벡터 DB 저장", "유사도 기반 검색"],
@@ -23377,7 +23383,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "데이터 이동권의 3가지 핵심요소",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "핵심 요소", "설명"],
         rows: [
           ["데이터 유형(Type of Data)", "무엇을 전송\n자발 관찰 파생", "전송 대상 정의\n획득 데이터 포함"],
           ["수혜자(Beneficiaries)", "데이터 이동권\n개인·기업", "누구의 데이터\n정보주체·법인"],
@@ -23460,7 +23466,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성요소",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "핵심 활동", "설명"],
         rows: [
           ["LLM", "LLMCore", "인스턴스 추상화"],
           ["LLM", "LLM 스케줄러", "GPU 자원 배정"],
