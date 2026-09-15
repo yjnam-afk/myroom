@@ -7573,6 +7573,55 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/msa2-2-4.jpg", label: "4쪽" },
     ],
   },
+
+  // ── MSA — SAGA·CQRS·DDD 연계 답안 3건 ──
+  {
+    id: "peer-msa-saga-cqrs",
+    period: "2교시",
+    no: "5",
+    question: "MSA 설명, SAGA, CQRS",
+    topicTitles: ["MSA (Micro Service Architecture)", "SAGA패턴"],
+    score: 15.5,
+    maxScore: 25,
+    feedback: ["빠지지 않은 점 GOOD"],
+    pages: [
+      { src: "/answers/msa3-1-1.jpg", label: "1쪽" },
+      { src: "/answers/msa3-1-2.jpg", label: "2쪽" },
+      { src: "/answers/msa3-1-3.jpg", label: "3쪽" },
+      { src: "/answers/msa3-1-4.jpg", label: "4쪽" },
+    ],
+  },
+  {
+    id: "peer-msa-ddd-compare",
+    period: "2교시",
+    no: "2",
+    question:
+      "① 모놀리식 아키텍처와 MSA 비교 ② MSA의 DDD ③ MSA 문제점, 개선방안",
+    topicTitles: ["MSA (Micro Service Architecture)", "DDD (Domain Driven Design)"],
+    score: 15.3,
+    maxScore: 25,
+    pages: [
+      { src: "/answers/msa3-2-1.jpg", label: "1쪽" },
+      { src: "/answers/msa3-2-2.jpg", label: "2쪽" },
+      { src: "/answers/msa3-2-3.jpg", label: "3쪽" },
+      { src: "/answers/msa3-2-4.jpg", label: "4쪽" },
+    ],
+  },
+  {
+    id: "peer-msa-cloud",
+    period: "2교시",
+    no: "2",
+    question: "MSA(Micro Service Architecture)",
+    topicTitles: ["MSA (Micro Service Architecture)"],
+    score: 15,
+    maxScore: 25,
+    pages: [
+      { src: "/answers/msa3-3-1.jpg", label: "1쪽" },
+      { src: "/answers/msa3-3-2.jpg", label: "2쪽" },
+      { src: "/answers/msa3-3-3.jpg", label: "3쪽" },
+      { src: "/answers/msa3-3-4.jpg", label: "4쪽" },
+    ],
+  },
 ];
 
 /** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */
