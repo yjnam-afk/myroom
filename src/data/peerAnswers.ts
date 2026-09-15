@@ -55,6 +55,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "가상메모리 관리기법",
     exam: "NS반 모의고사",
     topicTitles: ["가상메모리 관리기법", "가상메모리의 페이징과 세그멘테이션"],
+    questionIds: ["k139-404", "k102-304"],
     score: 6.5,
     maxScore: 10,
     feedback: [
@@ -76,6 +77,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "가상메모리 관리기법",
     exam: "NS반 모의고사",
     topicTitles: ["가상메모리 관리기법", "가상메모리의 페이징과 세그멘테이션"],
+    questionIds: ["k139-404", "k102-304"],
     score: 6.3,
     maxScore: 10,
     feedback: [
@@ -175,6 +177,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "FIFO Anomaly",
     exam: "ITPE 모의고사",
     topicTitles: ["Belady's Anomaly(FIFO 이상현상)"],
+    questionIds: ["k98-104"],
     score: 6.5,
     maxScore: 10,
     feedback: [
@@ -215,7 +218,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "프로세스 스레싱(Thrashing)의 발생원인, 예방책",
     exam: "KPC 기술사 모의고사",
     topicTitles: ["스레싱(Thrashing)"],
-    questionIds: ["k110-405"],
+    questionIds: ["k110-405", "k126-110"],
     // 점수·빨간 첨삭이 없다. 마지막 쪽 아래 연필로 '20170413'.
     maxScore: 25,
     pages: [
@@ -231,7 +234,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "스레싱(Thrashing)",
     exam: "ITPE TOP반 (멘토 유술사, 김민PE)",
     topicTitles: ["스레싱(Thrashing)"],
-    questionIds: ["k126-110"],
+    questionIds: ["k126-110", "k110-405"],
     score: 7,
     maxScore: 10,
     feedback: [
@@ -426,6 +429,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "프로세스 상태 전이도",
     exam: "ITPE 모의고사",
     topicTitles: ["프로세스 상태 전이도"],
+    questionIds: ["k102-404"],
     score: 6.5,
     maxScore: 10,
     feedback: [
@@ -447,6 +451,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "프로세스 상태 전이도",
     exam: "ITPE 모의고사",
     topicTitles: ["프로세스 상태 전이도"],
+    questionIds: ["k102-404"],
     score: 6.5,
     maxScore: 10,
     feedback: [
@@ -466,6 +471,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "프로세스 상태 전이도",
     exam: "ITPE 모의고사",
     topicTitles: ["프로세스 상태 전이도"],
+    questionIds: ["k102-404"],
     score: 6.5,
     maxScore: 10,
     feedback: [
@@ -776,6 +782,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "우선순위역전(Priority Inversion) 현상에 대하여 설명하시오.",
     exam: "제86회 KPC 기술사 IMPACT 실전모의고사 (2018년 12월, 정보관리기술사)",
     topicTitles: ["우선순위 역전(Priority Inversion) 현상"],
+    questionIds: ["k126-402"],
     score: 6.5,
     maxScore: 10,
     feedback: [
@@ -832,7 +839,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "IPC(Inter Process Communication)",
     exam: "제84회 KPC 기술사 IMPACT 실전모의고사 (2018년 10월, 정보관리기술사)",
     topicTitles: ["프로세스간 통신(IPC)"],
-    questionIds: ["k117-204"],
+    questionIds: ["k117-204", "k136-402"],
     score: 6.5,
     maxScore: 10,
     feedback: [
@@ -1361,6 +1368,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "문맥교환(Context Switching)",
     exam: "NS반 모의고사",
     topicTitles: ["문맥교환(Context Switching)"],
+    questionIds: ["k108-402"],
     score: 6.5,
     maxScore: 10,
     feedback: [
@@ -1379,6 +1387,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "문맥교환(Context Switching)",
     exam: "NS반 모의고사",
     topicTitles: ["문맥교환(Context Switching)"],
+    questionIds: ["k108-402"],
     score: 6.5,
     maxScore: 10,
     feedback: [
@@ -1397,6 +1406,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "문맥교환(Context Switching)",
     exam: "NS반 모의고사",
     topicTitles: ["문맥교환(Context Switching)"],
+    questionIds: ["k108-402"],
     score: 6.5,
     maxScore: 10,
     feedback: [
@@ -1415,6 +1425,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "문맥교환(Context Switching)",
     exam: "NS반 모의고사",
     topicTitles: ["문맥교환(Context Switching)"],
+    questionIds: ["k108-402"],
     score: 6.5,
     maxScore: 10,
     feedback: [
@@ -1433,6 +1444,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "가. 문맥교환 절차 도식화, 설명\n나. 문맥교환 시 발생 오버헤드 해결 방법",
     exam: "NS반 모의고사",
     topicTitles: ["문맥교환(Context Switching)"],
+    questionIds: ["k108-402"],
     score: 16,
     maxScore: 25,
     feedback: [
@@ -1453,6 +1465,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "① 문맥교환 절차 도식화\n② 문맥교환 시 발생 오버헤드 해결",
     exam: "NS반 모의고사",
     topicTitles: ["문맥교환(Context Switching)"],
+    questionIds: ["k108-402"],
     score: 16.0,
     maxScore: 25,
     feedback: [
@@ -1534,6 +1547,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "문맥교환(Context Switching)",
     exam: "110회 컴퓨터시스템응용기술사 4교시 2번 (모범답안)",
     topicTitles: ["문맥교환(Context Switching)"],
+    questionIds: ["k108-402"],
     // 점수·빨간 첨삭이 없는 형광펜 모범답안. 여백에 연필로 '110회(컴시응) 4.2 / KPC 모의 2016.10 컴시응 3.7 / KPC 2016.1 컴시응 7 / 2012.10 컴시응 1.7'.
     maxScore: 25,
     pages: [
@@ -1660,6 +1674,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       "소프트웨어 아키텍처에서 사용되는 아키텍처 스타일에 대하여 3가지 이상 설명하시오.",
     exam: "제10회 KPC 기술사 IMPACT 실전 모의고사(5월) 2교시",
     topicTitles: ["소프트웨어 아키텍처 스타일", "아키텍처 스타일"],
+    questionIds: ["k86-307"],
     score: 16.5,
     maxScore: 25,
     feedback: [
@@ -1779,6 +1794,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "테일러링(Tailoring)",
     exam: "ITPE 주간 실전모의고사",
     topicTitles: ["소프트웨어 개발 방법론", "개발방법론 테일러링", "테일러링"],
+    questionIds: ["k113-301", "k138-106"],
     score: 6.2,
     maxScore: 10,
     feedback: [
@@ -1798,6 +1814,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "테일러링(Tailoring)",
     exam: "ITPE 주간 실전모의고사",
     topicTitles: ["소프트웨어 개발 방법론", "개발방법론 테일러링", "테일러링"],
+    questionIds: ["k113-301", "k138-106"],
     feedback: [
       "수행 프로세스 5단계 — 프로젝트 특징 정의 / 표준프로세스 선정·검증 / 상위 Level Customizing / 세부 Customizing / 문서화.",
       "절차 설명표에 프로파일 파악·PM 인터뷰·의사결정 트리 활용·Biz Needs 생명주기 정의.",
@@ -1891,6 +1908,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "소프트웨어 아키텍처 평가 모델",
     exam: "KPC 2019.7 관리 1교시 정리 답안",
     topicTitles: ["SW Architecture 평가", "CBAM(Cost Benefit Analysis Method)", "소프트웨어 아키텍처 평가", "소프트웨어 아키텍처 평가 모델", "ATAM", "CBAM"],
+    questionIds: ["k128-107"],
     pages: [
       { src: "/answers/drv-archeval-1.jpg", label: "1쪽" },
       { src: "/answers/drv-archeval-2.jpg", label: "2쪽" },
@@ -1955,6 +1973,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "TDD(Test Driven Development)",
     exam: "정리 답안 (드라이브 02. SW공학)",
     topicTitles: ["TDD (Test Driven Development)", "TDD"],
+    questionIds: ["k96-113"],
     feedback: [
       "개념도 — 요구사항 → Test Case → Code → (Bad Smell) Refactoring → 단순화, 자동화.",
       "절차 표 — 테스트 작성(Add a Test) / 코드 작성(Make it Pass) / 리팩 (Make it ...).",
@@ -1965,17 +1984,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   // ── 구글 드라이브 「모범답안 › 08. 답안정리 › 07. CAOS」 정리 답안 ──
-  {
-    id: "peer-caos-자원할당그래프",
-    period: "1교시",
-    question: "자원할당그래프",
-    exam: "정리 답안 (드라이브 07. CAOS)",
-    topicTitles: ["자원할당 그래프(Resource Allocation Graph)"],
-    pages: [
-      { src: "/answers/caos-자원할당그래프-1.jpg", label: "1쪽" },
-      { src: "/answers/caos-자원할당그래프-2.jpg", label: "2쪽" },
-    ],
-  },
   {
     id: "peer-caos-파이프라인해저드",
     period: "1교시",
@@ -2012,39 +2020,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-caos-교착상태-필요조건과-해결방안",
-    period: "1교시",
-    question: "교착상태 필요조건과 해결방안",
-    exam: "정리 답안 (드라이브 07. CAOS)",
-    topicTitles: ["교착상태(Deadlock)"],
-    pages: [
-      { src: "/answers/caos-교착상태-필요조건과-해결방안-1.jpg", label: "1쪽" },
-      { src: "/answers/caos-교착상태-필요조건과-해결방안-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-caos-교착상태",
-    period: "1교시",
-    question: "교착상태",
-    exam: "정리 답안 (드라이브 07. CAOS)",
-    topicTitles: ["교착상태(Deadlock)"],
-    pages: [
-      { src: "/answers/caos-교착상태-1.jpg", label: "1쪽" },
-      { src: "/answers/caos-교착상태-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-caos-raid",
-    period: "1교시",
-    question: "RAID",
-    exam: "정리 답안 (드라이브 07. CAOS)",
-    topicTitles: ["RAID (Redundant Array of Independent Disks)"],
-    pages: [
-      { src: "/answers/caos-raid-1.jpg", label: "1쪽" },
-      { src: "/answers/caos-raid-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
     id: "peer-caos-raid-추가",
     period: "1교시",
     question: "RAID_추가",
@@ -2056,86 +2031,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-caos-fts",
-    period: "1교시",
-    question: "FTS",
-    exam: "정리 답안 (드라이브 07. CAOS)",
-    topicTitles: ["결함허용 컴퓨터(FTS)"],
-    pages: [
-      { src: "/answers/caos-fts-1.jpg", label: "1쪽" },
-      { src: "/answers/caos-fts-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-caos-메모리-인터리빙",
-    period: "1교시",
-    question: "메모리 인터리빙",
-    exam: "정리 답안 (드라이브 07. CAOS)",
-    topicTitles: ["메모리 인터리빙(Interleaving)"],
-    pages: [
-      { src: "/answers/caos-메모리-인터리빙-1.jpg", label: "1쪽" },
-      { src: "/answers/caos-메모리-인터리빙-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-caos-우선순위-역전현상",
-    period: "1교시",
-    question: "우선순위 역전현상",
-    exam: "정리 답안 (드라이브 07. CAOS)",
-    topicTitles: ["우선순위 역전(Priority Inversion) 현상"],
-    pages: [
-      { src: "/answers/caos-우선순위-역전현상-1.jpg", label: "1쪽" },
-      { src: "/answers/caos-우선순위-역전현상-2.jpg", label: "2쪽" },
-      { src: "/answers/caos-우선순위-역전현상-3.jpg", label: "3쪽" },
-    ],
-  },
-  {
-    id: "peer-caos-세마포어-모니터",
-    period: "1교시",
-    question: "세마포어, 모니터",
-    exam: "정리 답안 (드라이브 07. CAOS)",
-    topicTitles: ["세마포어(Semaphore)"],
-    pages: [
-      { src: "/answers/caos-세마포어-모니터-1.jpg", label: "1쪽" },
-      { src: "/answers/caos-세마포어-모니터-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-caos-세마포어",
-    period: "1교시",
-    question: "세마포어",
-    exam: "정리 답안 (드라이브 07. CAOS)",
-    topicTitles: ["세마포어(Semaphore)"],
-    pages: [
-      { src: "/answers/caos-세마포어-1.jpg", label: "1쪽" },
-      { src: "/answers/caos-세마포어-2.jpg", label: "2쪽" },
-      { src: "/answers/caos-세마포어-3.jpg", label: "3쪽" },
-    ],
-  },
-  {
-    id: "peer-caos-문맥교환",
-    period: "1교시",
-    question: "문맥교환",
-    exam: "정리 답안 (드라이브 07. CAOS)",
-    topicTitles: ["문맥교환(Context Switching)"],
-    pages: [
-      { src: "/answers/caos-문맥교환-1.jpg", label: "1쪽" },
-      { src: "/answers/caos-문맥교환-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-caos-캐시메모리-3가지-사상기법-동작방식",
-    period: "1교시",
-    question: "캐시메모리 3가지 사상기법, 동작방식",
-    exam: "정리 답안 (드라이브 07. CAOS)",
-    topicTitles: ["캐시(Cache) 메모리의 사상 방식(Mapping Scheme)", "직접 사상과 연관 사상 페이징 기법"],
-    pages: [
-      { src: "/answers/caos-캐시메모리-3가지-사상기법-동작방식-1.jpg", label: "1쪽" },
-      { src: "/answers/caos-캐시메모리-3가지-사상기법-동작방식-2.jpg", label: "2쪽" },
-      { src: "/answers/caos-캐시메모리-3가지-사상기법-동작방식-3.jpg", label: "3쪽" },
-    ],
-  },
-  {
     id: "peer-caos-파이프라인-해저드",
     period: "1교시",
     question: "파이프라인 해저드",
@@ -2144,18 +2039,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/caos-파이프라인-해저드-1.jpg", label: "1쪽" },
       { src: "/answers/caos-파이프라인-해저드-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-caos-cpu-스케줄링",
-    period: "1교시",
-    question: "CPU 스케줄링",
-    exam: "정리 답안 (드라이브 07. CAOS)",
-    topicTitles: ["CPU 스케줄링(CPU Scheduling)"],
-    pages: [
-      { src: "/answers/caos-cpu-스케줄링-1.jpg", label: "1쪽" },
-      { src: "/answers/caos-cpu-스케줄링-2.jpg", label: "2쪽" },
-      { src: "/answers/caos-cpu-스케줄링-3.jpg", label: "3쪽" },
     ],
   },
   {
@@ -2232,9 +2115,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     period: "1교시",
     question: "부트로더",
     exam: "정리 답안 (드라이브 07. CAOS)",
-    topicTitles: [
-      "부트로더(Boot Loader)",
-    ],
+    topicTitles: ["부트로더(Boot Loader)", "커널(Kernel)"],
     pages: [
       { src: "/answers/caos-부트로더-1.jpg", label: "1쪽" },
       { src: "/answers/caos-부트로더-2.jpg", label: "2쪽" },
@@ -2510,6 +2391,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "Agile_SCRUM_프로세스",
     exam: "정리 답안 (드라이브 00. PM)",
     topicTitles: ["스크럼 (SCRUM)", "Agile 선언문과 12개 원칙"],
+    questionIds: ["k93-107", "k123-101"],
     pages: [
       { src: "/answers/pm-18-agile-scrum-프로세스-1.jpg", label: "1쪽" },
       { src: "/answers/pm-18-agile-scrum-프로세스-2.jpg", label: "2쪽" },
@@ -2716,7 +2598,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     period: "1교시",
     question: "마이데이터 개념, 제공,공유 주요기술, 기대효과, 활성화 방안",
     exam: "정리 답안 (드라이브 06. DB)",
-    topicTitles: ["마이데이터"],
+    topicTitles: ["마이데이터", "데이터 상호 운용성 & 데이터 이동권"],
     pages: [
       { src: "/answers/db-마이데이터-개념-제공-공유-주요기술-기대효과-활성화-방안-1.jpg", label: "1쪽" },
       { src: "/answers/db-마이데이터-개념-제공-공유-주요기술-기대효과-활성화-방안-2.jpg", label: "2쪽" },
@@ -2741,7 +2623,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     period: "1교시",
     question: "마이데이터",
     exam: "정리 답안 (드라이브 06. DB)",
-    topicTitles: ["마이데이터"],
+    topicTitles: ["마이데이터", "데이터 상호 운용성 & 데이터 이동권"],
     pages: [
       { src: "/answers/db-마이데이터-1.jpg", label: "1쪽" },
       { src: "/answers/db-마이데이터-2.jpg", label: "2쪽" },
@@ -2768,6 +2650,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "Isolation Level",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: ["Isolation Level(격리 레벨)"],
+    questionIds: ["k119-113", "k134-206", "k137-304"],
     pages: [
       { src: "/answers/db-isolation-level-1.jpg", label: "1쪽" },
       { src: "/answers/db-isolation-level-2.jpg", label: "2쪽" },
@@ -2779,6 +2662,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "트랜잭션 개념, ACID, 고립성레벨",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: ["트랜잭션"],
+    questionIds: ["k107-206"],
     pages: [
       { src: "/answers/db-트랜잭션-개념-acid-고립성레벨-1.jpg", label: "1쪽" },
       { src: "/answers/db-트랜잭션-개념-acid-고립성레벨-2.jpg", label: "2쪽" },
@@ -2871,7 +2755,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "NoSQL",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: ["SQL(Structured Query Language)", "NoSQL"],
-    questionIds: ["k117-109"],
+    questionIds: ["k117-109", "k128-106", "k133-103"],
     pages: [
       { src: "/answers/db-nosql-1.jpg", label: "1쪽" },
       { src: "/answers/db-nosql-2.jpg", label: "2쪽" },
@@ -2906,6 +2790,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "In memory computing",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: ["In-Memory Computing"],
+    questionIds: ["k102-206"],
     pages: [
       { src: "/answers/db-in-memory-computing-1.jpg", label: "1쪽" },
       { src: "/answers/db-in-memory-computing-2.jpg", label: "2쪽" },
@@ -2929,6 +2814,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "Anomaly",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: ["데이터베이스 정규화(Normalization)", "이상현상(Anomaly)"],
+    questionIds: ["k96-106"],
     pages: [
       { src: "/answers/db-anomaly-1.jpg", label: "1쪽" },
       { src: "/answers/db-anomaly-2.jpg", label: "2쪽" },
@@ -2986,6 +2872,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "CAP이론, 한계, PACELC 이론",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: ["CAP 이론", "PACELC"],
+    questionIds: ["k126-107"],
     pages: [
       { src: "/answers/db-cap이론-한계-pacelc-이론-1.jpg", label: "1쪽" },
       { src: "/answers/db-cap이론-한계-pacelc-이론-2.jpg", label: "2쪽" },
@@ -3263,6 +3150,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "사설인증서의 종류, 전자서명 발전방향",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["간편인증 인터페이스 가이드라인", "패스키(Passkey)", "전자서명", "사설인증서"],
+    questionIds: ["k122-403"],
     pages: [
       { src: "/answers/sec-사설인증서의-종류-전자서명-발전방향-1.jpg", label: "1쪽" },
       { src: "/answers/sec-사설인증서의-종류-전자서명-발전방향-2.jpg", label: "2쪽" },
@@ -3367,6 +3255,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "악성코드 탐지기법",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["EDR(Endpoint Detection and Response)", "루트킷(Rootkit)", "악성코드(Malware)", "악성코드 탐지기법"],
+    questionIds: ["k98-404"],
     pages: [
       { src: "/answers/sec-악성코드-탐지기법-1.jpg", label: "1쪽" },
       { src: "/answers/sec-악성코드-탐지기법-2.jpg", label: "2쪽" },
@@ -3436,6 +3325,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "블록체인 플랫폼 구축 성능, 보안",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["블록체인 암호기술 가이드라인", "블록체인"],
+    questionIds: ["k120-406"],
     pages: [
       { src: "/answers/sec-블록체인-플랫폼-구축-성능-보안-1.jpg", label: "1쪽" },
       { src: "/answers/sec-블록체인-플랫폼-구축-성능-보안-2.jpg", label: "2쪽" },
@@ -3483,6 +3373,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "블록 암호화",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["블록 암호화(Block Cipher)", "암호화(Encryption)"],
+    questionIds: ["k130-106"],
     pages: [
       { src: "/answers/sec-블록-암호화-1.jpg", label: "1쪽" },
       { src: "/answers/sec-블록-암호화-2.jpg", label: "2쪽" },
@@ -3528,6 +3419,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "대칭, 비대칭, 블록 암호화 유형, 양자 암호화",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["양자 암호(Quantum Cryptography)", "블록 암호화(Block Cipher)", "암호화(Encryption)"],
+    questionIds: ["k132-104"],
     pages: [
       { src: "/answers/sec-대칭-비대칭-블록-암호화-유형-양자-암호화-1.jpg", label: "1쪽" },
       { src: "/answers/sec-대칭-비대칭-블록-암호화-유형-양자-암호화-2.jpg", label: "2쪽" },
@@ -3541,7 +3433,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "개인정보 비식별조치 가이드라인",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["개인정보 보호기술", "비식별 조치"],
-    questionIds: ["k120-405"],
+    questionIds: ["k120-405", "k110-305"],
     pages: [
       { src: "/answers/sec-개인정보-비식별조치-가이드라인-1.jpg", label: "1쪽" },
       { src: "/answers/sec-개인정보-비식별조치-가이드라인-2.jpg", label: "2쪽" },
@@ -3656,6 +3548,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "얼굴인식 알고리즘",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["생체 인증(텔레바이오 인증)", "얼굴인식"],
+    questionIds: ["k92-204"],
     pages: [
       { src: "/answers/sec-얼굴인식-알고리즘-1.jpg", label: "1쪽" },
       { src: "/answers/sec-얼굴인식-알고리즘-2.jpg", label: "2쪽" },
@@ -3760,17 +3653,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-h25-fts-ha-비교2",
-    period: "1교시",
-    question: "FTS HA 비교2",
-    exam: "정리 답안 (드라이브 2025년 하반기)",
-    topicTitles: ["결함허용 컴퓨터(FTS)", "고가용성(HA)"],
-    pages: [
-      { src: "/answers/h25-fts-ha-비교2-1.jpg", label: "1쪽" },
-      { src: "/answers/h25-fts-ha-비교2-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
     id: "peer-h25-raid01-raid10",
     period: "1교시",
     question: "RAID01 RAID10",
@@ -3815,17 +3697,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-h25-캐시-일관성",
-    period: "1교시",
-    question: "캐시 일관성",
-    exam: "정리 답안 (드라이브 2025년 하반기)",
-    topicTitles: ["캐시 일관성(Cache Coherence)"],
-    pages: [
-      { src: "/answers/h25-캐시-일관성-1.jpg", label: "1쪽" },
-      { src: "/answers/h25-캐시-일관성-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
     id: "peer-h25-hbm-vs-cxl-비교",
     period: "1교시",
     question: "HBM vs CXL 비교",
@@ -3850,24 +3721,12 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-h25-우선순위-역전1",
-    period: "1교시",
-    question: "우선순위 역전1",
-    exam: "정리 답안 (드라이브 2025년 하반기)",
-    topicTitles: ["우선순위 역전(Priority Inversion) 현상"],
-    pages: [
-      { src: "/answers/h25-우선순위-역전1-1.jpg", label: "1쪽" },
-      { src: "/answers/h25-우선순위-역전1-2.jpg", label: "2쪽" },
-      { src: "/answers/h25-우선순위-역전1-3.jpg", label: "3쪽" },
-      { src: "/answers/h25-우선순위-역전1-4.jpg", label: "4쪽" },
-    ],
-  },
-  {
     id: "peer-h25-운영체제-기능과-커널",
     period: "1교시",
     question: "운영체제 기능과 커널",
     exam: "정리 답안 (드라이브 2025년 하반기)",
     topicTitles: ["커널(Kernel)", "운영체제"],
+    questionIds: ["k89-101"],
     pages: [
       { src: "/answers/h25-운영체제-기능과-커널-1.jpg", label: "1쪽" },
       { src: "/answers/h25-운영체제-기능과-커널-2.jpg", label: "2쪽" },
@@ -3882,21 +3741,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/h25-커널-1.jpg", label: "1쪽" },
       { src: "/answers/h25-커널-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-h25-은행가-알고리즘",
-    period: "1교시",
-    question: "은행가 알고리즘",
-    exam: "정리 답안 (드라이브 2025년 하반기)",
-    topicTitles: [
-      "Banker's 알고리즘(은행가 알고리즘)",
-      "교착상태(Deadlock)",
-    ],
-    pages: [
-      { src: "/answers/h25-은행가-알고리즘-1.jpg", label: "1쪽" },
-      { src: "/answers/h25-은행가-알고리즘-2.jpg", label: "2쪽" },
-      { src: "/answers/h25-은행가-알고리즘-3.jpg", label: "3쪽" },
     ],
   },
   {
@@ -4005,40 +3849,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-h25-교착상태",
-    period: "1교시",
-    question: "교착상태",
-    exam: "정리 답안 (드라이브 2025년 하반기)",
-    topicTitles: ["교착상태(Deadlock)"],
-    pages: [
-      { src: "/answers/h25-교착상태-1.jpg", label: "1쪽" },
-      { src: "/answers/h25-교착상태-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-h25-프로세스-상태-전이도",
-    period: "1교시",
-    question: "프로세스 상태 전이도",
-    exam: "정리 답안 (드라이브 2025년 하반기)",
-    topicTitles: ["프로세스(Process)", "프로세스 상태 전이도"],
-    pages: [
-      { src: "/answers/h25-프로세스-상태-전이도-1.jpg", label: "1쪽" },
-      { src: "/answers/h25-프로세스-상태-전이도-2.jpg", label: "2쪽" },
-      { src: "/answers/h25-프로세스-상태-전이도-3.jpg", label: "3쪽" },
-    ],
-  },
-  {
-    id: "peer-h25-세마포어",
-    period: "1교시",
-    question: "세마포어",
-    exam: "정리 답안 (드라이브 2025년 하반기)",
-    topicTitles: ["세마포어(Semaphore)"],
-    pages: [
-      { src: "/answers/h25-세마포어-1.jpg", label: "1쪽" },
-      { src: "/answers/h25-세마포어-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
     id: "peer-h25-벨러디-변이2",
     period: "1교시",
     question: "벨러디 변이2",
@@ -4074,32 +3884,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-h25-cpu-스케줄링",
-    period: "1교시",
-    question: "CPU 스케줄링",
-    exam: "정리 답안 (드라이브 2025년 하반기)",
-    topicTitles: ["CPU 스케줄링(CPU Scheduling)"],
-    pages: [
-      { src: "/answers/h25-cpu-스케줄링-1.jpg", label: "1쪽" },
-      { src: "/answers/h25-cpu-스케줄링-2.jpg", label: "2쪽" },
-      { src: "/answers/h25-cpu-스케줄링-3.jpg", label: "3쪽" },
-      { src: "/answers/h25-cpu-스케줄링-4.jpg", label: "4쪽" },
-    ],
-  },
-  {
-    id: "peer-h25-가상메모리",
-    period: "1교시",
-    question: "가상메모리",
-    exam: "정리 답안 (드라이브 2025년 하반기)",
-    topicTitles: ["가상메모리 관리기법", "가상메모리의 페이징과 세그멘테이션"],
-    pages: [
-      { src: "/answers/h25-가상메모리-1.jpg", label: "1쪽" },
-      { src: "/answers/h25-가상메모리-2.jpg", label: "2쪽" },
-      { src: "/answers/h25-가상메모리-3.jpg", label: "3쪽" },
-      { src: "/answers/h25-가상메모리-4.jpg", label: "4쪽" },
-    ],
-  },
-  {
     id: "peer-h25-상호배제",
     period: "1교시",
     question: "상호배제",
@@ -4132,40 +3916,6 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/h25-프로세스-상태-전이도2-1.jpg", label: "1쪽" },
       { src: "/answers/h25-프로세스-상태-전이도2-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-h25-자원-할당-그래프",
-    period: "1교시",
-    question: "자원 할당 그래프",
-    exam: "정리 답안 (드라이브 2025년 하반기)",
-    topicTitles: ["자원할당 그래프(Resource Allocation Graph)"],
-    pages: [
-      { src: "/answers/h25-자원-할당-그래프-1.jpg", label: "1쪽" },
-      { src: "/answers/h25-자원-할당-그래프-2.jpg", label: "2쪽" },
-    ],
-  },
-  {
-    id: "peer-h25-문맥교환",
-    period: "1교시",
-    question: "문맥교환",
-    exam: "정리 답안 (드라이브 2025년 하반기)",
-    topicTitles: ["문맥교환(Context Switching)"],
-    pages: [
-      { src: "/answers/h25-문맥교환-1.jpg", label: "1쪽" },
-      { src: "/answers/h25-문맥교환-2.jpg", label: "2쪽" },
-      { src: "/answers/h25-문맥교환-3.jpg", label: "3쪽" },
-    ],
-  },
-  {
-    id: "peer-h25-스레싱",
-    period: "1교시",
-    question: "스레싱",
-    exam: "정리 답안 (드라이브 2025년 하반기)",
-    topicTitles: ["스레싱(Thrashing)"],
-    pages: [
-      { src: "/answers/h25-스레싱-1.jpg", label: "1쪽" },
-      { src: "/answers/h25-스레싱-2.jpg", label: "2쪽" },
     ],
   },
 
@@ -4277,6 +4027,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       "공통감리 절차",
       "정보시스템 감리결과보고서 (구성, 보고사항)",
     ],
+    questionIds: ["k90-113"],
     pages: [
       { src: "/answers/sw25h-감리-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-감리-2.jpg", label: "2쪽" },
@@ -4297,6 +4048,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       "디자인 패턴 (Design Pattern)",
       "SW Architecture 평가",
     ],
+    questionIds: ["k86-307"],
     pages: [
       { src: "/answers/sw25h-sw-아키텍처2-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-sw-아키텍처2-2.jpg", label: "2쪽" },
@@ -4367,6 +4119,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     topicTitles: [
       "소프트웨어 리팩토링",
     ],
+    questionIds: ["k127-302"],
     score: 16,
     maxScore: 25,
     pages: [
@@ -4437,7 +4190,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     topicTitles: [
       "데브옵스 (DevOps)",
     ],
-    questionIds: ["k125-107", "k104-105"],
+    questionIds: ["k125-107", "k104-105", "k136-106"],
     score: 6.3,
     maxScore: 10,
     pages: [
@@ -4549,9 +4302,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "1",
     question: "데이터 패브릭, 메시 비교 / 메시 원칙·구성요소·구축안",
     exam: "2025년 하반기 정리",
-    topicTitles: [
-      "데이터 패브릭·데이터 메시",
-    ],
+    topicTitles: ["데이터 패브릭·데이터 메시", "DaaP(Data as a product)"],
     score: 15.3,
     maxScore: 25,
     pages: [
@@ -4608,6 +4359,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     topicTitles: [
       "데이터 표준화",
     ],
+    questionIds: ["k131-111"],
     pages: [
       { src: "/answers/db25h-데이터-표준화-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-데이터-표준화-2.jpg", label: "2쪽" },
@@ -4657,6 +4409,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       "CAP 이론과 BASE 이론",
       "PACELC",
     ],
+    questionIds: ["k126-107"],
     score: 6.5,
     maxScore: 10,
     pages: [
@@ -4726,6 +4479,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     topicTitles: [
       "데이터베이스 모델링",
     ],
+    questionIds: ["k107-112"],
     score: 6.6,
     maxScore: 10,
     pages: [
@@ -4809,6 +4563,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       "데이터베이스 모델링",
       "NoSQL 데이터모델링 패턴",
     ],
+    questionIds: ["k124-303"],
     pages: [
       { src: "/answers/db25h-rdbms-모델링-절차-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-rdbms-모델링-절차-2.jpg", label: "2쪽" },
@@ -5123,6 +4878,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     topicTitles: [
       "인공지능 경영시스템(ISO 42001:2023)",
     ],
+    questionIds: ["k138-103"],
     pages: [
       { src: "/answers/ai25h-iso-42001-2023-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-iso-42001-2023-2.jpg", label: "2쪽" },
@@ -5181,6 +4937,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     topicTitles: [
       "AI 신뢰성 인증",
     ],
+    questionIds: ["k133-108"],
     pages: [
       { src: "/answers/ai25h-인공지능-신뢰성-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-인공지능-신뢰성-2.jpg", label: "2쪽" },
@@ -5471,7 +5228,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "6",
     question: "Microservice Architecture",
     topicTitles: ["MSA (Micro Service Architecture)"],
-    questionIds: ["k117-106"],
+    questionIds: ["k117-106", "k127-401"],
     score: 6.5,
     maxScore: 10,
     pages: [
@@ -5483,15 +5240,26 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     id: "peer-msa-bluegreen-canary",
     period: "3교시",
     no: "4",
-    exam: "KPC 83회",
+    exam: "제83회 KPC 기술사 IMPACT 실전모의고사 (2018년 6월) · 첫 번째 답안",
     question:
       "최근 대규모의 소프트웨어 개발에 적용하기 위한 다양한 아키텍처가 사용되고 있다. 아래 항목에 대해 설명하시오.\n가. 마이크로 서비스 아키텍처(Micro Service Architecture)의 필요성과 개념\n나. 마이크로 서비스의 장단점\n다. 블루그린배포(Blue Green Deployment)와 카나리아 배포(Canary Deployment)",
     topicTitles: ["MSA (Micro Service Architecture)", "무중단 배포"],
     pages: [
-      { src: "/answers/msa-4-1.jpg", label: "1쪽" },
-      { src: "/answers/msa-4-2.jpg", label: "2쪽" },
-      { src: "/answers/msa-4-3.jpg", label: "3쪽" },
-      { src: "/answers/msa-4-4.jpg", label: "4쪽" },
+      { src: "/answers/msa-4-1.jpg", label: "1·2쪽" },
+      { src: "/answers/msa-4-2.jpg", label: "3·4쪽" },
+    ],
+  },
+  {
+    id: "peer-msa-bluegreen-canary-2",
+    period: "3교시",
+    no: "4",
+    exam: "제83회 KPC 기술사 IMPACT 실전모의고사 (2018년 6월) · 두 번째 답안",
+    question:
+      "최근 대규모의 소프트웨어 개발에 적용하기 위한 다양한 아키텍처가 사용되고 있다. 아래 항목에 대해 설명하시오.\n가. 마이크로 서비스 아키텍처(Micro Service Architecture)의 필요성과 개념\n나. 마이크로 서비스의 장단점\n다. 블루그린배포(Blue Green Deployment)와 카나리아 배포(Canary Deployment)",
+    topicTitles: ["MSA (Micro Service Architecture)", "무중단 배포"],
+    pages: [
+      { src: "/answers/msa-4-3.jpg", label: "1·2쪽" },
+      { src: "/answers/msa-4-4.jpg", label: "3·4쪽" },
     ],
   },
   {
@@ -5566,6 +5334,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       "① SW 아키텍처 개요 ② SW 아키텍처 스타일과 디자인패턴 차이 ③ 아키텍처 평가모델",
     exam: "ITPE 주간 실전모의고사",
     topicTitles: ["소프트웨어 아키텍처 스타일", "디자인 패턴 (Design Pattern)", "SW Architecture 평가"],
+    questionIds: ["k81-103"],
     score: 15.5,
     maxScore: 25,
     feedback: ["1쪽 아키텍처 개념의 'SW 설계 구조'에 동그라미, 옆에 '자질 설계'."],
@@ -5751,6 +5520,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "DevOps",
     exam: "정리 답안 (드라이브 02. SW공학)",
     topicTitles: ["데브옵스 (DevOps)"],
+    questionIds: ["k136-106", "k125-107"],
     pages: [
       { src: "/answers/sw-devops-1.jpg", label: "1쪽" },
       { src: "/answers/sw-devops-2.jpg", label: "2쪽" },
@@ -5762,7 +5532,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "1",
     question: "서킷 브레이커(Circuit Breaker) 패턴",
     exam: "정리 답안 (드라이브 02. SW공학) · 합숙 2020.4",
-    topicTitles: [],
+    topicTitles: ["MSA (Micro Service Architecture)"],
     pages: [
       { src: "/answers/sw-서킷-브레이커-패턴-1.jpg", label: "1쪽" },
       { src: "/answers/sw-서킷-브레이커-패턴-2.jpg", label: "2쪽" },
@@ -5774,7 +5544,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "2",
     question: "A-SPICE",
     exam: "정리 답안 (드라이브 02. SW공학)",
-    topicTitles: [],
+    topicTitles: ["CMMI 3.0"],
     pages: [
       { src: "/answers/sw-a-spice-1.jpg", label: "1쪽" },
       { src: "/answers/sw-a-spice-2.jpg", label: "2쪽" },
@@ -5877,6 +5647,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "① 모노리스, MSA 개념 비교 ② DevOps 장단점",
     exam: "정리 답안 (드라이브 02. SW공학)",
     topicTitles: ["MSA (Micro Service Architecture)", "데브옵스 (DevOps)"],
+    questionIds: ["k136-106"],
     pages: [
       { src: "/answers/sw-msa-모노리스-비교-devops-장단점-1.jpg", label: "1쪽" },
       { src: "/answers/sw-msa-모노리스-비교-devops-장단점-2.jpg", label: "2쪽" },
@@ -5953,7 +5724,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "14",
     question: "SDLC(Software Development Life Cycle)",
     exam: "정리 답안 (드라이브 02. SW공학) · 기필반",
-    topicTitles: [],
+    topicTitles: ["소프트웨어 개발 방법론"],
     pages: [
       { src: "/answers/sw-sdlc-1.jpg", label: "1쪽" },
       { src: "/answers/sw-sdlc-2.jpg", label: "2쪽" },
@@ -5977,7 +5748,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "11",
     question: "반복적 개발 모델",
     exam: "정리 답안 (드라이브 02. SW공학)",
-    topicTitles: [],
+    topicTitles: ["소프트웨어 개발 방법론"],
     pages: [
       { src: "/answers/sw-반복적-개발-모델-1.jpg", label: "1쪽" },
       { src: "/answers/sw-반복적-개발-모델-2.jpg", label: "2쪽" },
@@ -5989,7 +5760,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "1",
     question: "상주감리",
     exam: "정리 답안 (드라이브 02. SW공학) · KPC 2013.11",
-    topicTitles: [],
+    topicTitles: ["공통감리 절차"],
     pages: [
       { src: "/answers/sw-상주감리-1.jpg", label: "1쪽" },
       { src: "/answers/sw-상주감리-2.jpg", label: "2쪽" },
@@ -6024,7 +5795,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     period: "1교시",
     question: "MVC 패턴",
     exam: "정리 답안 (드라이브 02. SW공학) · 111회 관리 1교시 / 90회 컴시응 1교시",
-    topicTitles: [],
+    topicTitles: ["MVVM (Model, View, View Model)"],
     pages: [
       { src: "/answers/sw-mvc-패턴-1.jpg", label: "1쪽" },
       { src: "/answers/sw-mvc-패턴-2.jpg", label: "2쪽" },
@@ -6036,7 +5807,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "로우코드(Low Code)",
     exam: "정리 답안 (드라이브 02. SW공학) · 미기출",
     topicTitles: [],
-    questionIds: ["k123-106"],
+    questionIds: ["k123-106", "k138-302"],
     pages: [
       { src: "/answers/sw-로우코드-low-code-1.jpg", label: "1쪽" },
       { src: "/answers/sw-로우코드-low-code-2.jpg", label: "2쪽" },
@@ -6049,6 +5820,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "Information Hiding",
     exam: "정리 답안 (드라이브 02. SW공학)",
     topicTitles: ["소프트웨어 설계의 원리"],
+    questionIds: ["k134-105", "k131-112"],
     pages: [
       { src: "/answers/sw-정보은닉-1.jpg", label: "1쪽" },
       { src: "/answers/sw-정보은닉-2.jpg", label: "2쪽" },
@@ -6113,7 +5885,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "6G 이동통신 기술",
     exam: "정리 답안 (드라이브 04. 네트워크) · 122회 컴시응 3교시 기출",
     topicTitles: ["6G"],
-    questionIds: ["k130-107"],
+    questionIds: ["k130-107", "k135-204"],
     pages: [
       { src: "/answers/nw-6g-이동통신-기술-1.jpg", label: "1쪽" },
       { src: "/answers/nw-6g-이동통신-기술-2.jpg", label: "2쪽" },
@@ -6152,6 +5924,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "Sliding Window",
     exam: "정리 답안 (드라이브 04. 네트워크)",
     topicTitles: ["Sliding Window & 네이글(Nagle's) 알고리즘"],
+    questionIds: ["k137-305"],
     pages: [
       { src: "/answers/nw-sliding-window-1.jpg", label: "1쪽" },
       { src: "/answers/nw-sliding-window-2.jpg", label: "2쪽" },
@@ -6278,7 +6051,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "4",
     question: "5G(IMT-2020) 네트워크 핵심기술",
     exam: "정리 답안 (드라이브 04. 네트워크)",
-    topicTitles: [],
+    topicTitles: ["네트워크 슬라이싱"],
     pages: [
       { src: "/answers/nw-5g-imt-2020-네트워크-핵심기술-1.jpg", label: "1쪽" },
       { src: "/answers/nw-5g-imt-2020-네트워크-핵심기술-2.jpg", label: "2쪽" },
@@ -6513,7 +6286,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "8",
     question: "네트워크 변조",
     exam: "정리 답안 (드라이브 04. 네트워크)",
-    topicTitles: [],
+    topicTitles: ["QAM(Quadrature Amplitude Modulation)", "PCM(Pulse-Code Modulation)"],
     pages: [
       { src: "/answers/nw-변조방식-분류-1.jpg", label: "1쪽" },
       { src: "/answers/nw-변조방식-분류-2.jpg", label: "2쪽" },
@@ -6633,7 +6406,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "6",
     question: "① 디지털 트윈 정의, 출현배경 ② M&S 연관성 ③ 산업분야 적용 ④ 운영환경",
     exam: "정리 답안 (드라이브 03. 서비스) · 120회 컴시응 4교시 기출",
-    topicTitles: [],
+    topicTitles: ["디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안"],
     pages: [
       { src: "/answers/sv-디지털-트윈-정의-출현배경-m-s-연관성-산업분야-적용-운영환경-1.jpg", label: "1쪽" },
       { src: "/answers/sv-디지털-트윈-정의-출현배경-m-s-연관성-산업분야-적용-운영환경-2.jpg", label: "2쪽" },
@@ -6646,7 +6419,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "2",
     question: "API(Application Programming Interface)",
     exam: "정리 답안 (드라이브 03. 서비스) · 120회 1교시 2번 기출",
-    topicTitles: [],
+    topicTitles: ["API Gateway"],
     questionIds: ["k120-102"],
     pages: [
       { src: "/answers/sv-api-1.jpg", label: "1쪽" },
@@ -6672,8 +6445,8 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "2",
     question: "디지털 트윈(Digital Twin)",
     exam: "정리 답안 (드라이브 03. 서비스) · 114회 관리 1교시 / 111회 컴시응 1교시",
-    topicTitles: [],
-    questionIds: ["k114-109"],
+    topicTitles: ["디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안"],
+    questionIds: ["k114-109", "k118-104"],
     pages: [
       { src: "/answers/sv-디지털-트윈-1.jpg", label: "1쪽" },
       { src: "/answers/sv-디지털-트윈-2.jpg", label: "2쪽" },
@@ -6699,6 +6472,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "클라우드 전환 ① 전환시 선정기준, 고려사항 ② 평가항목 ③ 전환대상 분류 ④ 이행절차",
     exam: "정리 답안 (드라이브 03. 서비스) · 118회 정보관리 2교시 2 기출",
     topicTitles: [],
+    questionIds: ["k118-202"],
     pages: [
       { src: "/answers/sv-클라우드-전환-고려사항-평가항목-전환대상-분류-이행절차-1.jpg", label: "1쪽" },
       { src: "/answers/sv-클라우드-전환-고려사항-평가항목-전환대상-분류-이행절차-2.jpg", label: "2쪽" },
@@ -6852,7 +6626,8 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "1",
     question: "① 디지털 트윈 기술 정의 및 역할 ② 디지털 트윈의 구성도와 주요 구축기술 ③ 디지털 트윈 적용시 고려사항",
     exam: "정리 답안 (드라이브 03. 서비스)",
-    topicTitles: [],
+    topicTitles: ["디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안"],
+    questionIds: ["k119-301"],
     pages: [
       { src: "/answers/sv-디지털트윈-1.jpg", label: "1쪽" },
       { src: "/answers/sv-디지털트윈-2.jpg", label: "2쪽" },
@@ -6865,7 +6640,8 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "3",
     question: "ISO 26262",
     exam: "정리 답안 (드라이브 03. 서비스) · 116회·104회 컴시응 1교시 기출",
-    topicTitles: [],
+    topicTitles: ["차량 사이버 보안 국제 표준(ISO 21434)"],
+    questionIds: ["k105-204"],
     pages: [
       { src: "/answers/sv-iso26262-1.jpg", label: "1쪽" },
       { src: "/answers/sv-iso26262-2.jpg", label: "2쪽" },
@@ -6929,7 +6705,8 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "4",
     question: "블록체인 합의 알고리즘",
     exam: "정리 답안 (드라이브 03. 서비스) · 합숙 2018.8 D-4 1교시 3",
-    topicTitles: [],
+    topicTitles: ["블록체인 암호기술 가이드라인"],
+    questionIds: ["k122-202"],
     pages: [
       { src: "/answers/sv-블록체인-합의-알고리즘-1.jpg", label: "1쪽" },
       { src: "/answers/sv-블록체인-합의-알고리즘-2.jpg", label: "2쪽" },
@@ -6941,7 +6718,8 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "2",
     question: "블록체인 ① 합의 알고리즘 목적 ② 합의 알고리즘 원리",
     exam: "정리 답안 (드라이브 03. 서비스) · 122회 2교시 2 기출",
-    topicTitles: [],
+    topicTitles: ["블록체인 암호기술 가이드라인"],
+    questionIds: ["k122-202"],
     pages: [
       { src: "/answers/sv-블록체인-합의-알고리즘-3.jpg", label: "1쪽" },
       { src: "/answers/sv-블록체인-합의-알고리즘-4.jpg", label: "2쪽" },
@@ -6990,7 +6768,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "서버리스 컴퓨팅(Serverless Computing)",
     exam: "정리 답안 (드라이브 03. 서비스) · 121회 1교시 기출",
     topicTitles: [],
-    questionIds: ["k136-109"],
+    questionIds: ["k136-109", "k140-201"],
     pages: [
       { src: "/answers/sv-서버리스-컴퓨팅-1.jpg", label: "1쪽" },
       { src: "/answers/sv-서버리스-컴퓨팅-2.jpg", label: "2쪽" },
@@ -7002,6 +6780,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "Hypervisor와 Docker의 비교",
     exam: "정리 답안 (드라이브 03. 서비스) · NS 주간 이전",
     topicTitles: [],
+    questionIds: ["k122-108"],
     pages: [
       { src: "/answers/sv-하이퍼바이저-도커-비교-1.jpg", label: "1쪽" },
       { src: "/answers/sv-하이퍼바이저-도커-비교-2.jpg", label: "2쪽" },
@@ -7049,6 +6828,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "PaaS(Platform as a Service)",
     exam: "정리 답안 (드라이브 03. 서비스) · 102회 컴시응 1교시",
     topicTitles: [],
+    questionIds: ["k122-401"],
     pages: [
       { src: "/answers/sv-paas-1.jpg", label: "1쪽" },
       { src: "/answers/sv-paas-2.jpg", label: "2쪽" },
@@ -7060,7 +6840,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "쿠버네티스(Kubernetes)",
     exam: "정리 답안 (드라이브 03. 서비스) · 모의 KPC 2017.12",
     topicTitles: [],
-    questionIds: ["k133-112"],
+    questionIds: ["k133-112", "k137-403"],
     pages: [
       { src: "/answers/sv-쿠버네티스-1.jpg", label: "1쪽" },
       { src: "/answers/sv-쿠버네티스-2.jpg", label: "2쪽" },
@@ -7099,7 +6879,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "2",
     question: "머클트리(Merkle Tree)",
     exam: "정리 답안 (드라이브 03. 서비스) · 119회 관리 1교시 기출",
-    topicTitles: [],
+    topicTitles: ["블록체인 암호기술 가이드라인"],
     questionIds: ["k119-111"],
     pages: [
       { src: "/answers/sv-머클트리-1.jpg", label: "1쪽" },
@@ -7161,7 +6941,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "6",
     question: "IaC(Infrastructure as Code)",
     exam: "정리 답안 (드라이브 03. 서비스) · 합숙 2019.8 D-3 / 2019.4 D-5 (미기출)",
-    topicTitles: [],
+    topicTitles: ["데브옵스 (DevOps)"],
     questionIds: ["k129-110"],
     pages: [
       { src: "/answers/sv-iac-1.jpg", label: "1쪽" },
@@ -7322,7 +7102,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "1",
     question: "블록체인 플랫폼 구축 성능, 보안 측면 고려사항",
     exam: "정리 답안 (드라이브 03. 서비스) · 120회 정보관리 4교시",
-    topicTitles: [],
+    topicTitles: ["블록체인 암호기술 가이드라인"],
     questionIds: ["k120-406"],
     pages: [
       { src: "/answers/sv-블록체인-플랫폼-구축-성능-보안-측면-고려사항-1.jpg", label: "1쪽" },
@@ -7394,6 +7174,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "LiDAR(Light Detection and Ranging)",
     exam: "정리 답안 (드라이브 03. 서비스) · NS 주간 이전 (미기출)",
     topicTitles: [],
+    questionIds: ["k114-202"],
     pages: [
       { src: "/answers/sv-lidar-1.jpg", label: "1쪽" },
       { src: "/answers/sv-lidar-2.jpg", label: "2쪽" },
@@ -7418,6 +7199,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "OpenStack의 특징, 구성도, 서비스",
     exam: "정리 답안 (드라이브 03. 서비스) · 모의 KPC 2014.12 / 119회 컴시응 2교시",
     topicTitles: [],
+    questionIds: ["k107-102"],
     pages: [
       { src: "/answers/sv-오픈스택-1.jpg", label: "1쪽" },
       { src: "/answers/sv-오픈스택-2.jpg", label: "2쪽" },
@@ -7431,7 +7213,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "1",
     question: "스마트 계약",
     exam: "정리 답안 (드라이브 03. 서비스) · 모의 2018.5 관리 1교시",
-    topicTitles: [],
+    topicTitles: ["블록체인 암호기술 가이드라인"],
     pages: [
       { src: "/answers/sv-스마트-계약-1.jpg", label: "1쪽" },
       { src: "/answers/sv-스마트-계약-2.jpg", label: "2쪽" },
@@ -7443,7 +7225,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "3",
     question: "PaaS 기반의 소프트웨어 개발 방법론",
     exam: "정리 답안 (드라이브 03. 서비스) · 119회 정보관리 3교시 5 기출",
-    topicTitles: [],
+    topicTitles: ["소프트웨어 개발 방법론"],
     questionIds: ["k119-305"],
     pages: [
       { src: "/answers/sv-paas-기반의-소프트웨어-개발방법론-1.jpg", label: "1쪽" },
@@ -7458,7 +7240,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "CPS(Cyber Physical System)",
     exam: "정리 답안 (드라이브 03. 서비스) · NS6 주간고사 / 113회 관리 1교시 기출",
     topicTitles: [],
-    questionIds: ["k113-109"],
+    questionIds: ["k113-109", "k95-107"],
     pages: [
       { src: "/answers/sv-cps-1.jpg", label: "1쪽" },
       { src: "/answers/sv-cps-2.jpg", label: "2쪽" },
@@ -7471,6 +7253,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "De-Fi",
     exam: "정리 답안 (드라이브 03. 서비스) · KPC 모의고사 97회 11.14 1교시",
     topicTitles: [],
+    questionIds: ["k123-104"],
     pages: [
       { src: "/answers/sv-defi-1.jpg", label: "1쪽" },
       { src: "/answers/sv-defi-2.jpg", label: "2쪽" },
@@ -7516,7 +7299,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     period: "1교시",
     question: "구독 경제",
     exam: "정리 답안 (드라이브 01. IT경영) · 합숙 2020.1 Day-2",
-    topicTitles: [],
+    topicTitles: ["서비타이제이션(Servitization)"],
     pages: [
       { src: "/answers/mg-26-구독경제-1.jpg", label: "1쪽" },
       { src: "/answers/mg-26-구독경제-2.jpg", label: "2쪽" },
@@ -7567,7 +7350,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "11",
     question: "오피니언 마이닝",
     exam: "정리 답안 (드라이브 01. IT경영) · 122회 관리 1교시 기출",
-    topicTitles: [],
+    topicTitles: ["자연어처리(NLP, Natural Language Processing)"],
     questionIds: ["k122-111"],
     pages: [
       { src: "/answers/mg-14-오피니언-마이닝-1.jpg", label: "1쪽" },
@@ -7605,7 +7388,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     period: "1교시",
     question: "RTO와 RPO",
     exam: "정리 답안 (드라이브 01. IT경영) · KPC 모의 2017.6",
-    topicTitles: [],
+    topicTitles: ["BCP 지표 중 MBCO, MTPD, MAO"],
     pages: [
       { src: "/answers/mg-21-rto-rpo-1.jpg", label: "1쪽" },
       { src: "/answers/mg-21-rto-rpo-2.jpg", label: "2쪽" },
@@ -7618,6 +7401,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "① 기술 평가 정의, 평가요소 ② 사업 타당성 평가 비교 ③ 가치 평가 3가지 기법",
     exam: "정리 답안 (드라이브 01. IT경영) · 118회 관리 4교시 기출",
     topicTitles: ["기술 가치 평가"],
+    questionIds: ["k118-402"],
     pages: [
       { src: "/answers/mg-08-기술평가정의-평가요소-1.jpg", label: "1쪽" },
       { src: "/answers/mg-08-기술평가정의-평가요소-2.jpg", label: "2쪽" },
@@ -7644,7 +7428,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "7",
     question: "RTO(Recovery Time Objectives)",
     exam: "정리 답안 (드라이브 01. IT경영) · ITPE 1회",
-    topicTitles: [],
+    topicTitles: ["BCP 지표 중 MBCO, MTPD, MAO"],
     pages: [
       { src: "/answers/mg-23-rto-1.jpg", label: "1쪽" },
       { src: "/answers/mg-23-rto-2.jpg", label: "2쪽" },
@@ -7668,7 +7452,8 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "10",
     question: "Data Mining",
     exam: "정리 답안 (드라이브 01. IT경영) · KPC 모의 2013.10 컴시응 2교시",
-    topicTitles: [],
+    topicTitles: ["데이터 마이닝 방법론"],
+    questionIds: ["k99-108", "k98-112", "k96-403"],
     pages: [
       { src: "/answers/mg-13-데이터-마이닝-1.jpg", label: "1쪽" },
       { src: "/answers/mg-13-데이터-마이닝-2.jpg", label: "2쪽" },
@@ -7742,7 +7527,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "6",
     question: "① 데이터 마이닝 분석 방법 ② 추진 단계 ③ 데이터 분할, 성과분석",
     exam: "정리 답안 (드라이브 01. IT경영) · ITPE 3회 3교시",
-    topicTitles: [],
+    topicTitles: ["데이터 마이닝 방법론"],
     pages: [
       { src: "/answers/mg-12-데이터마이닝-분석방법-추진단계-데이터-분할-성과분석-1.jpg", label: "1쪽" },
       { src: "/answers/mg-12-데이터마이닝-분석방법-추진단계-데이터-분할-성과분석-2.jpg", label: "2쪽" },
@@ -7834,7 +7619,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "11",
     question: "MTTF, MTBF, MTTR",
     exam: "정리 답안 (드라이브 01. IT경영) · NS6-10 (미기출)",
-    topicTitles: [],
+    topicTitles: ["HA(High Availability)"],
     pages: [
       { src: "/answers/mg-22-mttf-mtbf-mttr-1.jpg", label: "1쪽" },
       { src: "/answers/mg-22-mttf-mtbf-mttr-2.jpg", label: "2쪽" },
@@ -7860,6 +7645,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "SEMMA 방법론, 이상치(Outlier), 결측치(Missing Value)",
     exam: "정리 답안 (드라이브 01. IT경영) · 합숙",
     topicTitles: ["이상치(Outlier)", "결측치(Missing Value)"],
+    questionIds: ["k102-107"],
     pages: [
       { src: "/answers/mg-16-semma-이상치-결측치-1.jpg", label: "1쪽" },
       { src: "/answers/mg-16-semma-이상치-결측치-2.jpg", label: "2쪽" },
@@ -7871,7 +7657,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "1",
     question: "고객여정지도(Customer Journey Map)",
     exam: "정리 답안 (드라이브 01. IT경영) · 합숙 2019.8 D-5",
-    topicTitles: [],
+    topicTitles: ["디자인 씽킹(Design Thinking)"],
     pages: [
       { src: "/answers/mg-24-고객여정지도-1.jpg", label: "1쪽" },
       { src: "/answers/mg-24-고객여정지도-2.jpg", label: "2쪽" },
@@ -7908,7 +7694,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "5",
     question: "SOW와 기술사양서 설명",
     exam: "정리 답안 (드라이브 01. IT경영) · 120회 컴시응 2교시 기출 / KPC 모의 2010.4",
-    topicTitles: [],
+    topicTitles: ["범위관리"],
     pages: [
       { src: "/answers/mg-03-sow-기술사양서-1.jpg", label: "1쪽" },
       { src: "/answers/mg-03-sow-기술사양서-2.jpg", label: "2쪽" },
@@ -7952,7 +7738,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     period: "1교시",
     question: "Softmax 함수",
     exam: "정리 답안 (드라이브 99. 126회 대비 필수 답안) · 노트 정리",
-    topicTitles: [],
+    topicTitles: ["활성화함수(Activation Function)"],
     pages: [
       { src: "/answers/ess-softmax함수-1.jpg", label: "1쪽" },
     ],
@@ -8002,7 +7788,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     period: "1교시",
     question: "메타학습",
     exam: "정리 답안 (드라이브 99. 126회 대비 필수 답안) · 노트 정리",
-    topicTitles: [],
+    topicTitles: ["전이학습(Transfer Learning)"],
     pages: [
       { src: "/answers/ess-메타학습-1.jpg", label: "1쪽" },
     ],
@@ -8012,7 +7798,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     period: "1교시",
     question: "LSTM(Long Short Term Memory)",
     exam: "정리 답안 (드라이브 99. 126회 대비 필수 답안) · 노트 정리",
-    topicTitles: [],
+    topicTitles: ["기울기 소실과 기울기 폭주"],
     pages: [
       { src: "/answers/ess-lstm-1.jpg", label: "1쪽" },
     ],
@@ -8033,7 +7819,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "1",
     question: "데이터 클렌징(Data Cleansing)",
     exam: "정리 답안 (드라이브 99. 126회 대비 필수 답안)",
-    topicTitles: [],
+    topicTitles: ["결측치(Missing Value)", "이상치(Outlier)"],
     pages: [
       { src: "/answers/ess-data-cleansing-1.jpg", label: "1쪽" },
       { src: "/answers/ess-data-cleansing-2.jpg", label: "2쪽" },
@@ -8077,6 +7863,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "연합학습(Federated Learning)",
     exam: "정리 답안 (드라이브 99. 126회 대비 필수 답안) · 노트 정리",
     topicTitles: ["연합학습(Federated Learning)"],
+    questionIds: ["k128-306"],
     pages: [
       { src: "/answers/ess-연합학습-1.jpg", label: "1쪽" },
       { src: "/answers/ess-연합학습-2.jpg", label: "2쪽" },
@@ -8101,7 +7888,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "3",
     question: "① 마이데이터 산업 설명 ② 금융분야 마이데이터 기술 가이드라인 설명",
     exam: "정리 답안 (드라이브 99. 126회 대비 필수 답안) · ITPE 2021.3 3교시 3번",
-    topicTitles: [],
+    topicTitles: ["데이터 상호 운용성 & 데이터 이동권"],
     pages: [
       { src: "/answers/ess-마이데이터-가이드라인-1.jpg", label: "1쪽" },
       { src: "/answers/ess-마이데이터-가이드라인-2.jpg", label: "2쪽" },
@@ -8128,7 +7915,8 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "1",
     question: "① CCTV 개인영상 정보 보호 방안",
     exam: "정리 답안 (드라이브 99. 126회 대비 필수 답안)",
-    topicTitles: [],
+    topicTitles: ["개인정보 보호기술"],
+    questionIds: ["k117-305"],
     pages: [
       { src: "/answers/ess-cctv보안-1.jpg", label: "1쪽" },
       { src: "/answers/ess-cctv보안-2.jpg", label: "2쪽" },
@@ -8141,7 +7929,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "11",
     question: "데이터 전송 요구권",
     exam: "정리 답안 (드라이브 99. 126회 대비 필수 답안) · ITPE 3회 1교시 11번",
-    topicTitles: [],
+    topicTitles: ["데이터 상호 운용성 & 데이터 이동권"],
     pages: [
       { src: "/answers/ess-데이터-전송요구권-1.jpg", label: "1쪽" },
       { src: "/answers/ess-데이터-전송요구권-2.jpg", label: "2쪽" },
@@ -8153,7 +7941,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "6",
     question: "블록체인 플랫폼 구축 성능, 보안 측면 고려사항",
     exam: "정리 답안 (드라이브 99. 126회 대비 필수 답안)",
-    topicTitles: [],
+    topicTitles: ["블록체인 암호기술 가이드라인"],
     questionIds: ["k120-406"],
     pages: [
       { src: "/answers/ess-블록체인-성능-보안측면-고려사항-1.jpg", label: "1쪽" },
@@ -8180,7 +7968,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "1",
     question: "① CBDC의 개념, 특징 ② 구현방식 ③ 중앙은행 책무에 미치는 영향",
     exam: "정리 답안 (드라이브 99. 126회 대비 필수 답안) · KPC 2021.3 2교시 1번",
-    topicTitles: [],
+    topicTitles: ["스테이블 코인(Stable coin)"],
     pages: [
       { src: "/answers/ess-cbdc-1.jpg", label: "1쪽" },
       { src: "/answers/ess-cbdc-2.jpg", label: "2쪽" },
@@ -8293,7 +8081,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "2",
     question: "① 경사하강법 개념 ② 오버슈팅 방지 방법 ③ 지역 최소점에 빠지지 않고 본래 최소점 도달 기법",
     exam: "정리 답안 (드라이브 08. 통계·AI › 모의고사) · NS8",
-    topicTitles: [],
+    topicTitles: ["머신러닝 옵티마이저(Optimizer)"],
     score: 16,
     maxScore: 25,
     pages: [
@@ -8309,6 +8097,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "① IT 투자관리 개념, 필요성 ② 추진단계별 활동 ③ IT 투자 평가 항목, 내용 ④ 기대효과",
     exam: "정리 답안 (드라이브 01. IT경영) · 122회 관리 3교시 기출",
     topicTitles: ["IT 투자성과 평가"],
+    questionIds: ["k122-305"],
     pages: [
       { src: "/answers/mg2-it-투자관리-전반-1.jpg", label: "1쪽" },
       { src: "/answers/mg2-it-투자관리-전반-2.jpg", label: "2쪽" },
@@ -8353,6 +8142,71 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     pages: [
       { src: "/answers/saga-3-2.jpg", label: "1쪽" },
       { src: "/answers/saga-3-3.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-ddd-1",
+    period: "1교시",
+    no: "7",
+    question: "DDD(Domain Driven Design)",
+    exam: "제95회 KPC 기술사 IMPACT 실전모의고사",
+    topicTitles: ["DDD (Domain Driven Design)"],
+    pages: [
+      { src: "/answers/ddd-1-1.jpg", label: "1쪽" },
+    ],
+  },
+  {
+    id: "peer-ddd-2",
+    period: "1교시",
+    no: "13",
+    question: "DDD 개념과 계층 구조",
+    exam: "ITPE 주간 실전모의고사",
+    topicTitles: ["DDD (Domain Driven Design)"],
+    score: 6.5,
+    maxScore: 10,
+    pages: [
+      { src: "/answers/ddd-2-1.jpg", label: "1쪽" },
+      { src: "/answers/ddd-2-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-sre-4a",
+    period: "1교시",
+    no: "5",
+    question: "SRE(Site Reliability Engineering)",
+    exam: "ITPE 모의고사",
+    topicTitles: ["SRE (Site Reliability Engineering)"],
+    score: 6.2,
+    maxScore: 10,
+    pages: [
+      { src: "/answers/sre-4-1.jpg", label: "1쪽" },
+      { src: "/answers/sre-4-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-nod-2",
+    period: "1교시",
+    no: "1",
+    question: "무중단 배포 기법 유형",
+    exam: "ITPE 모의고사",
+    topicTitles: ["무중단 배포"],
+    pages: [
+      { src: "/answers/nod-2-1.jpg", label: "1쪽" },
+      { src: "/answers/nod-2-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-nod-4",
+    period: "1교시",
+    no: "10",
+    question: "무중단 배포",
+    exam: "ITPE 모의고사",
+    topicTitles: ["무중단 배포"],
+    score: 6.3,
+    maxScore: 10,
+    pages: [
+      { src: "/answers/nod-4-1.jpg", label: "1쪽" },
+      { src: "/answers/nod-4-2.jpg", label: "2쪽" },
     ],
   },
 ];
