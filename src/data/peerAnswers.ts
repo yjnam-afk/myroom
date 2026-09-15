@@ -4900,10 +4900,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   // ── 2025년 하반기 소프트웨어공학 정리 답안 (드라이브 08. 답안정리) ──
   {
     id: "peer-sw25h-책임감리-운영감리",
-    period: "1교시",
-    question: "책임감리 운영감리",
+    period: "2교시",
+    no: "3",
+    question: "정보시스템 책임감리, 운영감리 고려사항",
     exam: "2025년 하반기 정리",
-    topicTitles: ["정보시스템 운영/유지보수 감리", "공통감리 절차"],
+    topicTitles: [
+      "정보시스템 운영/유지보수 감리",
+      "공통감리 절차",
+    ],
     pages: [
       { src: "/answers/sw25h-책임감리-운영감리-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-책임감리-운영감리-2.jpg", label: "2쪽" },
@@ -4912,10 +4916,17 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-sw25h-클래스-다이어그램",
-    period: "1교시",
-    question: "클래스 다이어그램",
+    period: "2교시",
+    no: "3",
+    question:
+      "클래스 다이어그램 작성\n가. 교사는 하나 이상의 과목 가능\n나. 각 과목은 수업시간, 교실이 할당",
     exam: "2025년 하반기 정리",
-    topicTitles: ["클래스 다이어그램 (Class Diagram)"],
+    topicTitles: [
+      "클래스 다이어그램 (Class Diagram)",
+      "UML (정적, 동적 다이어그램)",
+    ],
+    score: 16,
+    maxScore: 25,
     pages: [
       { src: "/answers/sw25h-클래스-다이어그램-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-클래스-다이어그램-2.jpg", label: "2쪽" },
@@ -4926,9 +4937,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-테스트-원리",
     period: "1교시",
-    question: "테스트 원리",
+    no: "3",
+    question: "테스트의 원리와 품질관리 Shift-Left",
     exam: "2025년 하반기 정리",
-    topicTitles: ["테스트 원리"],
+    topicTitles: [
+      "테스트 원리",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-테스트-원리-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-테스트-원리-2.jpg", label: "2쪽" },
@@ -4937,9 +4953,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-아키텍처-드라이브",
     period: "1교시",
-    question: "아키텍처 드라이브",
+    no: "2",
+    question: "소프트웨어 아키텍처 드라이버",
     exam: "2025년 하반기 정리",
-    topicTitles: ["소프트웨어 아키텍처 드라이버 (SW Architecture Driver)"],
+    topicTitles: [
+      "소프트웨어 아키텍처 드라이버 (SW Architecture Driver)",
+    ],
+    score: 5.7,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-아키텍처-드라이브-1.jpg", label: "1쪽" },
     ],
@@ -4947,9 +4968,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-요구사항-추적표",
     period: "1교시",
-    question: "요구사항 추적표",
+    no: "3",
+    question: "요구사항 추적표 설명",
     exam: "2025년 하반기 정리",
-    topicTitles: ["요구공학 (Requirements Engineering)"],
+    topicTitles: [
+      "요구공학 (Requirements Engineering)",
+    ],
+    score: 5.7,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-요구사항-추적표-1.jpg", label: "1쪽" },
     ],
@@ -4957,9 +4983,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-devsecops",
     period: "1교시",
-    question: "DevSecOps",
+    no: "1",
+    question: "CI/CD 파이프라인에서 DevSecOps 적용방안",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데브옵스 (DevOps)"],
+    topicTitles: [
+      "DevSecOps",
+      "데브옵스 (DevOps)",
+    ],
+    score: 5.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-devsecops-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-devsecops-2.jpg", label: "2쪽" },
@@ -4969,9 +5001,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-hw-규모-산정",
     period: "1교시",
-    question: "HW 규모 산정",
+    no: "7",
+    question: "하드웨어 규모산정 방법 3가지",
     exam: "2025년 하반기 정리",
-    topicTitles: ["SW 규모산정"],
+    topicTitles: [
+      "정보시스템 하드웨어 규모산정 지침",
+    ],
+    score: 6.5,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-hw-규모-산정-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-hw-규모-산정-2.jpg", label: "2쪽" },
@@ -4980,9 +5017,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-기술부채",
     period: "1교시",
-    question: "기술부채",
+    no: "2",
+    question: "소프트웨어 기술부채 유형, 관리방법",
     exam: "2025년 하반기 정리",
-    topicTitles: ["기술 부채(Technical Debt)"],
+    topicTitles: [
+      "기술 부채(Technical Debt)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-기술부채-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-기술부채-2.jpg", label: "2쪽" },
@@ -4990,10 +5032,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-sw25h-좋은-소프트웨어",
-    period: "1교시",
-    question: "좋은 소프트웨어",
+    period: "2교시",
+    no: "1",
+    question: "① 좋은 소프트웨어 조건 ② SW 설계 종류 ③ 원리",
     exam: "2025년 하반기 정리",
-    topicTitles: ["ISO/IEC 25010:2023", "소프트웨어 설계의 원리"],
+    topicTitles: [
+      "소프트웨어 설계의 원리",
+      "ISO/IEC 25010:2023",
+    ],
     pages: [
       { src: "/answers/sw25h-좋은-소프트웨어-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-좋은-소프트웨어-2.jpg", label: "2쪽" },
@@ -5004,9 +5050,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-객체지향-특징와-설계원리",
     period: "1교시",
-    question: "객체지향 특징와 설계원리",
+    no: "3",
+    question: "객체지향 프로그래밍 특징과 설계의 원리",
     exam: "2025년 하반기 정리",
-    topicTitles: ["객체지향 프로그래밍 특징", "객체지향 설계 원리"],
+    topicTitles: [
+      "객체지향 프로그래밍 특징",
+      "객체지향 설계 원리",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-객체지향-특징와-설계원리-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-객체지향-특징와-설계원리-2.jpg", label: "2쪽" },
@@ -5015,9 +5067,13 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-유틸리티-트리",
     period: "1교시",
+    no: "4",
     question: "유틸리티 트리",
     exam: "2025년 하반기 정리",
-    topicTitles: ["유틸리티 트리 (Utility Tree)"],
+    topicTitles: [
+      "유틸리티 트리 (Utility Tree)",
+      "소프트웨어 품질 속성 시나리오",
+    ],
     pages: [
       { src: "/answers/sw25h-유틸리티-트리-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-유틸리티-트리-2.jpg", label: "2쪽" },
@@ -5025,10 +5081,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-sw25h-감리",
-    period: "1교시",
-    question: "감리",
+    period: "2교시",
+    no: "3",
+    question: "① 정보시스템 감리 의무대상 ② 감리 프레임워크 ③ 감리 수행 절차 ④ 감리 산출물",
     exam: "2025년 하반기 정리",
-    topicTitles: ["공통감리 절차", "정보시스템 감리 의무 대상과 관점별 점검 기준"],
+    topicTitles: [
+      "정보시스템 감리 의무 대상과 관점별 점검 기준",
+      "공통감리 절차",
+      "정보시스템 감리결과보고서 (구성, 보고사항)",
+    ],
     pages: [
       { src: "/answers/sw25h-감리-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-감리-2.jpg", label: "2쪽" },
@@ -5038,10 +5099,16 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-sw25h-리팩토링-디자인패턴",
-    period: "1교시",
-    question: "리팩토링 디자인패턴",
+    period: "2교시",
+    no: "4",
+    question: "리팩토링, 디자인 패턴 정의 / 공통점, 차이점",
     exam: "2025년 하반기 정리",
-    topicTitles: ["소프트웨어 리팩토링", "디자인 패턴 (Design Pattern)"],
+    topicTitles: [
+      "소프트웨어 리팩토링",
+      "디자인 패턴 (Design Pattern)",
+    ],
+    score: 14.7,
+    maxScore: 25,
     pages: [
       { src: "/answers/sw25h-리팩토링-디자인패턴-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-리팩토링-디자인패턴-2.jpg", label: "2쪽" },
@@ -5051,10 +5118,17 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-sw25h-sw-아키텍처2",
-    period: "1교시",
-    question: "SW 아키텍처2",
+    period: "2교시",
+    no: "5",
+    question:
+      "① 소프트웨어 아키텍처의 개요 ② S/W 아키텍처 스타일과 디자인 패턴의 차이점 ③ S/W 아키텍처 평가 모델",
     exam: "2025년 하반기 정리",
-    topicTitles: ["SW Architecture 구축 절차"],
+    topicTitles: [
+      "SW Architecture 구축 절차",
+      "소프트웨어 아키텍처 스타일",
+      "디자인 패턴 (Design Pattern)",
+      "SW Architecture 평가",
+    ],
     pages: [
       { src: "/answers/sw25h-sw-아키텍처2-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-sw-아키텍처2-2.jpg", label: "2쪽" },
@@ -5063,10 +5137,18 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-sw25h-evm",
-    period: "1교시",
+    period: "2교시",
+    no: "6",
     question: "EVM",
     exam: "2025년 하반기 정리",
-    topicTitles: ["EVM(Earned Value Management, 획득 가치 관리)"],
+    topicTitles: [
+      "EVM(Earned Value Management, 획득 가치 관리)",
+    ],
+    score: 13.7,
+    maxScore: 25,
+    feedback: [
+      "결과 해석 맞으면 16점 가능",
+    ],
     pages: [
       { src: "/answers/sw25h-evm-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-evm-2.jpg", label: "2쪽" },
@@ -5076,9 +5158,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-soa-msa",
     period: "1교시",
-    question: "SOA MSA",
+    no: "3",
+    question: "SOA와 MSA",
     exam: "2025년 하반기 정리",
-    topicTitles: ["MSA (Micro Service Architecture)"],
+    topicTitles: [
+      "MSA (Micro Service Architecture)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-soa-msa-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-soa-msa-2.jpg", label: "2쪽" },
@@ -5088,9 +5175,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-cmmi-3-0",
     period: "1교시",
+    no: "1",
     question: "CMMI 3.0",
     exam: "2025년 하반기 정리",
-    topicTitles: ["CMMI 3.0"],
+    topicTitles: [
+      "CMMI 3.0",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-cmmi-3-0-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-cmmi-3-0-2.jpg", label: "2쪽" },
@@ -5099,9 +5191,16 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-fta-fmea-hazop",
     period: "1교시",
-    question: "FTA FMEA HAZOP",
+    no: "12",
+    question: "FTA, FMEA, HAZOP",
     exam: "2025년 하반기 정리",
-    topicTitles: ["FMEA (Failure Mode and Effects Analysis)", "HAZOP (Hazard and Operability Study)", "FTA (Fault Tree Analysis)"],
+    topicTitles: [
+      "FTA (Fault Tree Analysis)",
+      "FMEA (Failure Mode and Effects Analysis)",
+      "HAZOP (Hazard and Operability Study)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-fta-fmea-hazop-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-fta-fmea-hazop-2.jpg", label: "2쪽" },
@@ -5110,9 +5209,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-cmmi-3-0-2",
     period: "1교시",
-    question: "CMMI 3.0 - 2",
+    no: "1",
+    question: "CMMI V3.0",
     exam: "2025년 하반기 정리",
-    topicTitles: ["CMMI 3.0"],
+    topicTitles: [
+      "CMMI 3.0",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-cmmi-3-0-2-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-cmmi-3-0-2-2.jpg", label: "2쪽" },
@@ -5121,9 +5225,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-요구공학",
     period: "1교시",
-    question: "요구공학",
+    no: "2",
+    question: "요구공학 프로세스와 도출기법",
     exam: "2025년 하반기 정리",
-    topicTitles: ["요구공학 (Requirements Engineering)"],
+    topicTitles: [
+      "요구공학 (Requirements Engineering)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-요구공학-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-요구공학-2.jpg", label: "2쪽" },
@@ -5132,9 +5241,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-테스트-stub-driver-비교",
     period: "1교시",
-    question: "테스트 stub driver 비교",
+    no: "7",
+    question: "테스트 스텁, 테스트 드라이버 비교",
     exam: "2025년 하반기 정리",
-    topicTitles: ["테스트 원리"],
+    topicTitles: [
+      "테스트 원리",
+      "Test Process",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-테스트-stub-driver-비교-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-테스트-stub-driver-비교-2.jpg", label: "2쪽" },
@@ -5143,9 +5258,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-아키텍처-스타일과-디자인-패턴",
     period: "1교시",
-    question: "아키텍처 스타일과 디자인 패턴",
+    question: "SW 아키텍처 스타일과 디자인 패턴 비교",
     exam: "2025년 하반기 정리",
-    topicTitles: ["소프트웨어 아키텍처 스타일", "디자인 패턴 (Design Pattern)"],
+    topicTitles: [
+      "소프트웨어 아키텍처 스타일",
+      "디자인 패턴 (Design Pattern)",
+    ],
+    score: 5.8,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-아키텍처-스타일과-디자인-패턴-1.jpg", label: "1쪽" },
     ],
@@ -5175,10 +5295,17 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-sw25h-리팩토링",
-    period: "1교시",
-    question: "리팩토링",
+    period: "2교시",
+    no: "3",
+    question:
+      "① 리팩토링 정의·목적·순서·주요기법 ② 코드 스멜 정의·특징 ③ 코드 스멜 종류 3개 이상, 각 리팩토링 방법",
     exam: "2025년 하반기 정리",
-    topicTitles: ["소프트웨어 리팩토링"],
+    topicTitles: [
+      "소프트웨어 리팩토링",
+      "3R",
+    ],
+    score: 16,
+    maxScore: 25,
     pages: [
       { src: "/answers/sw25h-리팩토링-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-리팩토링-2.jpg", label: "2쪽" },
@@ -5189,9 +5316,18 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-sw-안전성-분석-기법",
     period: "1교시",
+    no: "5",
     question: "SW 안전성 분석 기법",
     exam: "2025년 하반기 정리",
-    topicTitles: ["소프트웨어 안전 확보를 위한 지침", "FTA (Fault Tree Analysis)", "FMEA (Failure Mode and Effects Analysis)"],
+    topicTitles: [
+      "소프트웨어 안전 확보를 위한 지침",
+      "FTA (Fault Tree Analysis)",
+      "FMEA (Failure Mode and Effects Analysis)",
+      "STPA (System-Theoretic Process Analysis)",
+    ],
+    feedback: [
+      "good",
+    ],
     pages: [
       { src: "/answers/sw25h-sw-안전성-분석-기법-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-sw-안전성-분석-기법-2.jpg", label: "2쪽" },
@@ -5201,9 +5337,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-탐색적-테스팅",
     period: "1교시",
+    no: "11",
     question: "탐색적 테스팅",
     exam: "2025년 하반기 정리",
-    topicTitles: ["탐색적 테스트"],
+    topicTitles: [
+      "탐색적 테스트",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-탐색적-테스팅-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-탐색적-테스팅-2.jpg", label: "2쪽" },
@@ -5213,9 +5354,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-요구사항-추적성",
     period: "1교시",
-    question: "요구사항 추적성",
+    no: "10",
+    question: "요구사항의 정방향 추적성과 역방향 추적성",
     exam: "2025년 하반기 정리",
-    topicTitles: ["요구공학 (Requirements Engineering)"],
+    topicTitles: [
+      "요구공학 (Requirements Engineering)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-요구사항-추적성-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-요구사항-추적성-2.jpg", label: "2쪽" },
@@ -5224,9 +5370,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-단계별-감리-비교",
     period: "1교시",
-    question: "단계별 감리 비교",
+    no: "2",
+    question: "2단계 감리, 3단계 감리 차이점",
     exam: "2025년 하반기 정리",
-    topicTitles: ["공통감리 절차"],
+    topicTitles: [
+      "공통감리 절차",
+      "정보시스템 감리 의무 대상과 관점별 점검 기준",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-단계별-감리-비교-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-단계별-감리-비교-2.jpg", label: "2쪽" },
@@ -5235,9 +5387,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-saga-패턴",
     period: "1교시",
+    no: "9",
     question: "SAGA 패턴",
     exam: "2025년 하반기 정리",
-    topicTitles: ["SAGA패턴"],
+    topicTitles: [
+      "SAGA패턴",
+      "MSA (Micro Service Architecture)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-saga-패턴-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-saga-패턴-2.jpg", label: "2쪽" },
@@ -5246,9 +5404,13 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-api-gateway",
     period: "1교시",
-    question: "API Gateway",
+    no: "5",
+    question: "MSA에서의 API Gateway",
     exam: "2025년 하반기 정리",
-    topicTitles: ["API Gateway"],
+    topicTitles: [
+      "API Gateway",
+      "MSA (Micro Service Architecture)",
+    ],
     pages: [
       { src: "/answers/sw25h-api-gateway-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-api-gateway-2.jpg", label: "2쪽" },
@@ -5257,9 +5419,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-devops",
     period: "1교시",
-    question: "DevOps",
+    no: "1",
+    question: "데브옵스(DevOps)",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데브옵스 (DevOps)"],
+    topicTitles: [
+      "데브옵스 (DevOps)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-devops-1.jpg", label: "1쪽" },
       { src: "/answers/sw25h-devops-2.jpg", label: "2쪽" },
@@ -5268,9 +5435,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-sw25h-개발비-산정-방법",
     period: "1교시",
-    question: "개발비 산정 방법",
+    question: "기능점수 방법, SW 개발비 산정 방법",
     exam: "2025년 하반기 정리",
-    topicTitles: ["SW 사업대가 ('25년 개정판)", "SW 규모산정"],
+    topicTitles: [
+      "Function Point",
+      "SW 규모산정",
+      "SW 사업대가 ('25년 개정판)",
+    ],
+    score: 5.7,
+    maxScore: 10,
     pages: [
       { src: "/answers/sw25h-개발비-산정-방법-1.jpg", label: "1쪽" },
     ],
@@ -5280,9 +5453,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-pm25h-wbs-3",
     period: "1교시",
-    question: "WBS 3",
+    no: "8",
+    question: "WBS 구성요소, 작성원칙",
     exam: "2025년 하반기 정리",
-    topicTitles: ["WBS (Work Breakdown Structure)"],
+    topicTitles: [
+      "WBS (Work Breakdown Structure)",
+    ],
+    score: 5.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/pm25h-wbs-3-1.jpg", label: "1쪽" },
       { src: "/answers/pm25h-wbs-3-2.jpg", label: "2쪽" },
@@ -5290,10 +5468,16 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-pm25h-범위관리-2",
-    period: "1교시",
-    question: "범위관리 2",
+    period: "2교시",
+    no: "1",
+    question: "① 공공프로젝트 문제점 ② 범위 관리 실패원인 ③ 범위관리 실패 개선방안",
     exam: "2025년 하반기 정리",
-    topicTitles: ["범위관리"],
+    topicTitles: [
+      "범위관리",
+      "Scope Creep vs Gold-Plating",
+    ],
+    score: 15.0,
+    maxScore: 25,
     pages: [
       { src: "/answers/pm25h-범위관리-2-1.jpg", label: "1쪽" },
       { src: "/answers/pm25h-범위관리-2-2.jpg", label: "2쪽" },
@@ -5302,10 +5486,16 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-pm25h-범위관리-3",
-    period: "1교시",
-    question: "범위관리 3",
+    period: "2교시",
+    no: "1",
+    question: "① 범위관리 실패 원인 ② 해결 방안",
     exam: "2025년 하반기 정리",
-    topicTitles: ["범위관리"],
+    topicTitles: [
+      "범위관리",
+      "Scope Creep vs Gold-Plating",
+    ],
+    score: 15.0,
+    maxScore: 25,
     pages: [
       { src: "/answers/pm25h-범위관리-3-1.jpg", label: "1쪽" },
       { src: "/answers/pm25h-범위관리-3-2.jpg", label: "2쪽" },
@@ -5314,10 +5504,16 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-pm25h-범위관리",
-    period: "1교시",
-    question: "범위관리",
+    period: "2교시",
+    no: "1",
+    question: "① 범위 관리 실패 원인 ② 해결하기 위한 방안",
     exam: "2025년 하반기 정리",
-    topicTitles: ["범위관리"],
+    topicTitles: [
+      "범위관리",
+      "Scope Creep vs Gold-Plating",
+    ],
+    score: 14.0,
+    maxScore: 25,
     pages: [
       { src: "/answers/pm25h-범위관리-1.jpg", label: "1쪽" },
       { src: "/answers/pm25h-범위관리-2.jpg", label: "2쪽" },
@@ -5327,9 +5523,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-pm25h-wbs-2",
     period: "1교시",
-    question: "WBS 2",
+    no: "5",
+    question: "WBS의 구성요소와 작성원칙",
     exam: "2025년 하반기 정리",
-    topicTitles: ["WBS (Work Breakdown Structure)"],
+    topicTitles: [
+      "WBS (Work Breakdown Structure)",
+    ],
+    score: 6.5,
+    maxScore: 10,
     pages: [
       { src: "/answers/pm25h-wbs-2-1.jpg", label: "1쪽" },
       { src: "/answers/pm25h-wbs-2-2.jpg", label: "2쪽" },
@@ -5338,9 +5539,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-pm25h-스크럼",
     period: "1교시",
-    question: "스크럼",
+    no: "7",
+    question: "스크럼 개발방법론의 팀 구성과 미팅 유형",
     exam: "2025년 하반기 정리",
-    topicTitles: ["스크럼 (SCRUM)"],
+    topicTitles: [
+      "스크럼 (SCRUM)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/pm25h-스크럼-1.jpg", label: "1쪽" },
       { src: "/answers/pm25h-스크럼-2.jpg", label: "2쪽" },
@@ -5349,9 +5555,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-pm25h-wbs",
     period: "1교시",
-    question: "WBS",
+    no: "6",
+    question: "WBS의 구성요소와 작성원칙",
     exam: "2025년 하반기 정리",
-    topicTitles: ["WBS (Work Breakdown Structure)"],
+    topicTitles: [
+      "WBS (Work Breakdown Structure)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/pm25h-wbs-1.jpg", label: "1쪽" },
       { src: "/answers/pm25h-wbs-2.jpg", label: "2쪽" },
@@ -5360,9 +5571,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-pm25h-품질-비용2",
     period: "1교시",
-    question: "품질 비용2",
+    no: "2",
+    question: "품질비용 4가지, 사례",
     exam: "2025년 하반기 정리",
-    topicTitles: ["SW 품질비용"],
+    topicTitles: [
+      "SW 품질비용",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/pm25h-품질-비용2-1.jpg", label: "1쪽" },
       { src: "/answers/pm25h-품질-비용2-2.jpg", label: "2쪽" },
@@ -5371,9 +5587,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-pm25h-품질-비용",
     period: "1교시",
-    question: "품질 비용",
+    no: "2",
+    question: "SW 개발 프로젝트 품질 비용",
     exam: "2025년 하반기 정리",
-    topicTitles: ["SW 품질비용"],
+    topicTitles: [
+      "SW 품질비용",
+    ],
+    score: 6.2,
+    maxScore: 10,
     pages: [
       { src: "/answers/pm25h-품질-비용-1.jpg", label: "1쪽" },
       { src: "/answers/pm25h-품질-비용-2.jpg", label: "2쪽" },
@@ -5382,9 +5603,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-pm25h-감리-pmo-비교",
     period: "1교시",
-    question: "감리 PMO 비교",
+    no: "4",
+    question: "정보시스템 감리와 PMO 비교",
     exam: "2025년 하반기 정리",
-    topicTitles: ["감리/PMO 비교표"],
+    topicTitles: [
+      "감리/PMO 비교표",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/pm25h-감리-pmo-비교-1.jpg", label: "1쪽" },
       { src: "/answers/pm25h-감리-pmo-비교-2.jpg", label: "2쪽" },
@@ -5394,10 +5620,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   // ── 2025년 하반기 데이터베이스 정리 답안 (드라이브 08. 답안정리) ──
   {
     id: "peer-db25h-합성-데이터-2",
-    period: "1교시",
-    question: "합성 데이터 2",
+    period: "2교시",
+    no: "6",
+    question: "합성 데이터",
     exam: "2025년 하반기 정리",
-    topicTitles: ["합성 데이터(Synthetic Data)"],
+    topicTitles: [
+      "합성 데이터(Synthetic Data)",
+    ],
+    score: 15.5,
+    maxScore: 25,
     pages: [
       { src: "/answers/db25h-합성-데이터-2-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-합성-데이터-2-2.jpg", label: "2쪽" },
@@ -5407,10 +5638,16 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-db25h-데이터패브릭-매시-2",
-    period: "1교시",
-    question: "데이터패브릭 매시 2",
+    period: "2교시",
+    no: "1",
+    question: "데이터 패브릭, 메시 비교 / 메시 원칙·구성요소·구축안",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터 거버넌스(Data Governance)"],
+    topicTitles: [
+      "데이터 거버넌스(Data Governance)",
+      "데이터 레이크하우스(Data Lakehouse)",
+    ],
+    score: 15.3,
+    maxScore: 25,
     pages: [
       { src: "/answers/db25h-데이터패브릭-매시-2-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-데이터패브릭-매시-2-2.jpg", label: "2쪽" },
@@ -5420,10 +5657,17 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-db25h-데이터패브릭-매시-3",
-    period: "1교시",
-    question: "데이터패브릭 매시 3",
+    period: "2교시",
+    no: "1",
+    question:
+      "① 데이터 패브릭, 데이터 메시 차이점 ② 데이터 메시 원칙 및 구성요소 ③ 데이터 메시 구축 방안",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터 거버넌스(Data Governance)"],
+    topicTitles: [
+      "데이터 거버넌스(Data Governance)",
+      "데이터 레이크하우스(Data Lakehouse)",
+    ],
+    score: 15,
+    maxScore: 25,
     pages: [
       { src: "/answers/db25h-데이터패브릭-매시-3-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-데이터패브릭-매시-3-2.jpg", label: "2쪽" },
@@ -5433,10 +5677,17 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-db25h-트랜잭션-회복기법",
-    period: "1교시",
-    question: "트랜잭션 회복기법",
+    period: "2교시",
+    no: "2",
+    question:
+      "① REDO와 UNDO를 이용한 방법 ② Checkpoint 방법 ③ 그림자 페이징 방법",
     exam: "2025년 하반기 정리",
-    topicTitles: ["DB 회복기법", "트랜잭션"],
+    topicTitles: [
+      "DB 회복기법",
+      "트랜잭션",
+    ],
+    score: 15.3,
+    maxScore: 25,
     pages: [
       { src: "/answers/db25h-트랜잭션-회복기법-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-트랜잭션-회복기법-2.jpg", label: "2쪽" },
@@ -5445,10 +5696,17 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-db25h-트랜잭션-2",
-    period: "1교시",
-    question: "트랜잭션 2",
+    period: "2교시",
+    no: "6",
+    question:
+      "① DB 트랜잭션 개념 및 특징 4가지 ② 트랜잭션 상태전이도 및 각각 상태 ③ 동시수행 방식 문제점, 해결 기법",
     exam: "2025년 하반기 정리",
-    topicTitles: ["트랜잭션"],
+    topicTitles: [
+      "트랜잭션",
+      "DB 동시성제어",
+    ],
+    score: 16.8,
+    maxScore: 25,
     pages: [
       { src: "/answers/db25h-트랜잭션-2-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-트랜잭션-2-2.jpg", label: "2쪽" },
@@ -5458,10 +5716,16 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-db25h-준비도-성숙도",
-    period: "1교시",
-    question: "준비도 성숙도",
+    period: "2교시",
+    no: "1",
+    question: "① 데이터 분석 준비도와 성숙도 ② 데이터 분석 거버넌스 수립방안",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터 분석 준비도와 데이터 분석 성숙도"],
+    topicTitles: [
+      "데이터 분석 준비도와 데이터 분석 성숙도",
+      "데이터 분석 거버넌스(Data Analytics Governance)",
+    ],
+    score: 15.0,
+    maxScore: 25,
     pages: [
       { src: "/answers/db25h-준비도-성숙도-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-준비도-성숙도-2.jpg", label: "2쪽" },
@@ -5472,9 +5736,13 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-데이터-표준화",
     period: "1교시",
+    no: "8",
     question: "데이터 표준화",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터 표준화"],
+    topicTitles: [
+      "데이터 표준화",
+      "공공기관 데이터베이스 표준화지침(2023년 4월 개정 고시)",
+    ],
     pages: [
       { src: "/answers/db25h-데이터-표준화-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-데이터-표준화-2.jpg", label: "2쪽" },
@@ -5483,9 +5751,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-정규화-역정규화",
     period: "1교시",
-    question: "정규화 역정규화",
+    no: "2",
+    question: "관계형 데이터베이스의 정규화와 역정규화",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터베이스 정규화(Normalization)", "데이터베이스 반정규화(De-Normalization)"],
+    topicTitles: [
+      "데이터베이스 정규화(Normalization)",
+      "데이터베이스 반정규화(De-Normalization)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-정규화-역정규화-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-정규화-역정규화-2.jpg", label: "2쪽" },
@@ -5494,9 +5768,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-샤딩",
     period: "1교시",
-    question: "샤딩",
+    no: "9",
+    question: "샤딩 개념 및 보호방안",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터베이스 샤딩(Sharding)"],
+    topicTitles: [
+      "데이터베이스 샤딩(Sharding)",
+    ],
+    score: 5.7,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-샤딩-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-샤딩-2.jpg", label: "2쪽" },
@@ -5505,9 +5784,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-연결함정",
     period: "1교시",
+    no: "1",
     question: "연결함정",
     exam: "2025년 하반기 정리",
-    topicTitles: ["연결함정(Connection Trap)"],
+    topicTitles: [
+      "연결함정(Connection Trap)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-연결함정-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-연결함정-2.jpg", label: "2쪽" },
@@ -5516,9 +5800,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-cap-pacelc-2",
     period: "1교시",
-    question: "CAP PACELC 2",
+    no: "1",
+    question: "CAP 이론 한계, PACELC 이론",
     exam: "2025년 하반기 정리",
-    topicTitles: ["CAP 이론과 BASE 이론", "PACELC"],
+    topicTitles: [
+      "CAP 이론과 BASE 이론",
+      "PACELC",
+    ],
+    score: 6.5,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-cap-pacelc-2-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-cap-pacelc-2-2.jpg", label: "2쪽" },
@@ -5527,19 +5817,32 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-cap-pacelc",
     period: "1교시",
-    question: "CAP PACELC",
+    no: "1",
+    question: "CAP 이론의 한계와 PACELC 이론",
     exam: "2025년 하반기 정리",
-    topicTitles: ["CAP 이론과 BASE 이론", "PACELC"],
+    topicTitles: [
+      "CAP 이론과 BASE 이론",
+      "PACELC",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-cap-pacelc-1.jpg", label: "1쪽" },
     ],
   },
   {
     id: "peer-db25h-데이터패브릭-매시",
-    period: "1교시",
-    question: "데이터패브릭 매시",
+    period: "2교시",
+    no: "1",
+    question:
+      "① 데이터 패브릭, 메시 차이점 ② 데이터 메시 원칙, 구성요소 ③ 데이터 메시 구축방안",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터 거버넌스(Data Governance)"],
+    topicTitles: [
+      "데이터 거버넌스(Data Governance)",
+      "데이터 레이크하우스(Data Lakehouse)",
+    ],
+    score: 15,
+    maxScore: 25,
     pages: [
       { src: "/answers/db25h-데이터패브릭-매시-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-데이터패브릭-매시-2.jpg", label: "2쪽" },
@@ -5550,10 +5853,17 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-db25h-빅데이터-노이즈",
-    period: "1교시",
-    question: "빅데이터 노이즈",
+    period: "2교시",
+    no: "4",
+    question: "① 빅데이터 노이즈 방지 요소 ② 빅데이터 노이즈 방지 해결 방안",
     exam: "2025년 하반기 정리",
-    topicTitles: ["이상치(Outlier)", "결측치(Missing Value)"],
+    topicTitles: [
+      "이상치(Outlier)",
+      "결측치(Missing Value)",
+      "데이터 프로파일링(Data Profiling)",
+    ],
+    score: 15,
+    maxScore: 25,
     pages: [
       { src: "/answers/db25h-빅데이터-노이즈-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-빅데이터-노이즈-2.jpg", label: "2쪽" },
@@ -5563,9 +5873,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-무결성",
     period: "1교시",
-    question: "무결성",
+    no: "10",
+    question: "DB 무결성 종류, 의미",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터베이스 무결성"],
+    topicTitles: [
+      "데이터베이스 무결성",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-무결성-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-무결성-2.jpg", label: "2쪽" },
@@ -5573,10 +5888,16 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-db25h-트랜잭션-동시성-제어기법",
-    period: "1교시",
-    question: "트랜잭션 동시성 제어기법",
+    period: "2교시",
+    no: "4",
+    question: "① 트랜잭션 ② 동시성 제어기법",
     exam: "2025년 하반기 정리",
-    topicTitles: ["DB 동시성제어", "트랜잭션"],
+    topicTitles: [
+      "트랜잭션",
+      "DB 동시성제어",
+    ],
+    score: 15,
+    maxScore: 25,
     pages: [
       { src: "/answers/db25h-트랜잭션-동시성-제어기법-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-트랜잭션-동시성-제어기법-2.jpg", label: "2쪽" },
@@ -5586,10 +5907,16 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-db25h-트랜잭션",
-    period: "1교시",
-    question: "트랜잭션",
+    period: "2교시",
+    no: "6",
+    question: "① 트랜잭션 개념, 특징 ② 트랜잭션 상태전이도",
     exam: "2025년 하반기 정리",
-    topicTitles: ["트랜잭션"],
+    topicTitles: [
+      "트랜잭션",
+      "DB 동시성제어",
+    ],
+    score: 15.5,
+    maxScore: 25,
     pages: [
       { src: "/answers/db25h-트랜잭션-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-트랜잭션-2.jpg", label: "2쪽" },
@@ -5599,10 +5926,16 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-db25h-데이터-가치-평가",
-    period: "1교시",
-    question: "데이터 가치 평가",
+    period: "2교시",
+    no: "4",
+    question:
+      "가. 데이터 가치평가 개념·절차 나. 가치평가 요인 다. 가치평가 방법론, 핵심 변수",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터 가치 평가"],
+    topicTitles: [
+      "데이터 가치 평가",
+    ],
+    score: 16.0,
+    maxScore: 25,
     pages: [
       { src: "/answers/db25h-데이터-가치-평가-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-데이터-가치-평가-2.jpg", label: "2쪽" },
@@ -5612,10 +5945,16 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-db25h-준비도-성숙도-2",
-    period: "1교시",
-    question: "준비도 성숙도 2",
+    period: "2교시",
+    no: "1",
+    question: "① 데이터 분석 준비도와 성숙도 ② 데이터 분석 거버넌스 수립 방안",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터 분석 준비도와 데이터 분석 성숙도"],
+    topicTitles: [
+      "데이터 분석 준비도와 데이터 분석 성숙도",
+      "데이터 분석 거버넌스(Data Analytics Governance)",
+    ],
+    score: 15.0,
+    maxScore: 25,
     pages: [
       { src: "/answers/db25h-준비도-성숙도-2-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-준비도-성숙도-2-2.jpg", label: "2쪽" },
@@ -5626,9 +5965,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-연결함정-2",
     period: "1교시",
-    question: "연결함정 2",
+    no: "1",
+    question: "연결함정",
     exam: "2025년 하반기 정리",
-    topicTitles: ["연결함정(Connection Trap)"],
+    topicTitles: [
+      "연결함정(Connection Trap)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-연결함정-2-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-연결함정-2-2.jpg", label: "2쪽" },
@@ -5637,9 +5981,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-데이터-모델링-2",
     period: "1교시",
-    question: "데이터 모델링 2",
+    no: "1",
+    question: "데이터 모델링의 기본원칙, 모델링 단계",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터베이스 모델링"],
+    topicTitles: [
+      "데이터베이스 모델링",
+    ],
+    score: 6.6,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-데이터-모델링-2-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-데이터-모델링-2-2.jpg", label: "2쪽" },
@@ -5648,9 +5997,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-합성-데이터",
     period: "1교시",
+    no: "3",
     question: "합성 데이터",
     exam: "2025년 하반기 정리",
-    topicTitles: ["합성 데이터(Synthetic Data)"],
+    topicTitles: [
+      "합성 데이터(Synthetic Data)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-합성-데이터-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-합성-데이터-2.jpg", label: "2쪽" },
@@ -5659,9 +6013,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-데이터-모델링-3",
     period: "1교시",
-    question: "데이터 모델링 3",
+    no: "1",
+    question: "데이터 모델링의 기본원칙과 모델링 단계",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터베이스 모델링"],
+    topicTitles: [
+      "데이터베이스 모델링",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-데이터-모델링-3-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-데이터-모델링-3-2.jpg", label: "2쪽" },
@@ -5670,9 +6029,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-암스트롱-공리",
     period: "1교시",
+    no: "6",
     question: "암스트롱 공리",
     exam: "2025년 하반기 정리",
-    topicTitles: ["암스트롱 공리(Armstrong's Axioms)"],
+    topicTitles: [
+      "암스트롱 공리(Armstrong's Axioms)",
+      "함수적 종속성(Functional Dependency)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-암스트롱-공리-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-암스트롱-공리-2.jpg", label: "2쪽" },
@@ -5681,9 +6046,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-이상치-결측치-3",
     period: "1교시",
-    question: "이상치 결측치 3",
+    no: "3",
+    question: "데이터 전처리 과정, 결측치와 이상치 처리",
     exam: "2025년 하반기 정리",
-    topicTitles: ["결측치(Missing Value)", "이상치(Outlier)"],
+    topicTitles: [
+      "결측치(Missing Value)",
+      "이상치(Outlier)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-이상치-결측치-3-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-이상치-결측치-3-2.jpg", label: "2쪽" },
@@ -5692,9 +6063,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-그래프db-벡터db",
     period: "1교시",
-    question: "그래프DB 벡터DB",
+    question: "그래프 DB, 벡터 DB",
     exam: "2025년 하반기 정리",
-    topicTitles: ["벡터 데이터베이스(Vector Database)", "NoSQL"],
+    topicTitles: [
+      "벡터 데이터베이스(Vector Database)",
+      "NoSQL",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-그래프db-벡터db-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-그래프db-벡터db-2.jpg", label: "2쪽" },
@@ -5703,9 +6079,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-ware-house-vs-lake-house",
     period: "1교시",
-    question: "Ware House vs Lake House",
+    no: "5",
+    question: "Data Warehouse와 Data LakeHouse 비교",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터 레이크하우스(Data Lakehouse)"],
+    topicTitles: [
+      "데이터 레이크하우스(Data Lakehouse)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-ware-house-vs-lake-house-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-ware-house-vs-lake-house-2.jpg", label: "2쪽" },
@@ -5713,10 +6094,16 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-db25h-데이터-품질-클렌징-프로파일링-2",
-    period: "1교시",
-    question: "데이터 품질 클렌징 프로파일링 2",
+    period: "2교시",
+    no: "5",
+    question: "① 데이터 품질 요소 ② 데이터 클렌징 ③ 데이터 프로파일링",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터 프로파일링(Data Profiling)", "데이터 품질인증 가이드라인 - DQ인증 (2025.02.26)"],
+    topicTitles: [
+      "데이터 프로파일링(Data Profiling)",
+      "데이터 품질인증 가이드라인 - DQ인증 (2025.02.26)",
+    ],
+    score: 15.5,
+    maxScore: 25,
     pages: [
       { src: "/answers/db25h-데이터-품질-클렌징-프로파일링-2-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-데이터-품질-클렌징-프로파일링-2-2.jpg", label: "2쪽" },
@@ -5726,10 +6113,16 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-db25h-데이터-품질-클렌징-프로파일링",
-    period: "1교시",
-    question: "데이터 품질 클렌징 프로파일링",
+    period: "2교시",
+    no: "6",
+    question: "가. 데이터 품질 요소 나. 데이터 클렌징 다. 데이터 프로파일링",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터 프로파일링(Data Profiling)", "데이터 품질인증 가이드라인 - DQ인증 (2025.02.26)"],
+    topicTitles: [
+      "데이터 프로파일링(Data Profiling)",
+      "데이터 품질인증 가이드라인 - DQ인증 (2025.02.26)",
+    ],
+    score: 14,
+    maxScore: 25,
     pages: [
       { src: "/answers/db25h-데이터-품질-클렌징-프로파일링-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-데이터-품질-클렌징-프로파일링-2.jpg", label: "2쪽" },
@@ -5739,10 +6132,16 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-db25h-트랜잭션-회복기법-2",
-    period: "1교시",
-    question: "트랜잭션 회복기법 2",
+    period: "2교시",
+    no: "2",
+    question: "DB 트랜잭션 회복기법 ① REDO, UNDO ② 체크포인트 ③ 그림자 페이징",
     exam: "2025년 하반기 정리",
-    topicTitles: ["DB 회복기법", "트랜잭션"],
+    topicTitles: [
+      "DB 회복기법",
+      "트랜잭션",
+    ],
+    score: 15.0,
+    maxScore: 25,
     pages: [
       { src: "/answers/db25h-트랜잭션-회복기법-2-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-트랜잭션-회복기법-2-2.jpg", label: "2쪽" },
@@ -5753,9 +6152,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-데이터-랭글러",
     period: "1교시",
-    question: "데이터 랭글러",
+    no: "6",
+    question: "데이터 랭글링",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터 프로파일링(Data Profiling)"],
+    topicTitles: [
+      "데이터 프로파일링(Data Profiling)",
+      "탐색적 데이터 분석과 확증적 데이터 분석",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-데이터-랭글러-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-데이터-랭글러-2.jpg", label: "2쪽" },
@@ -5764,9 +6169,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-모델링-절차",
     period: "1교시",
-    question: "모델링 절차",
+    no: "3",
+    question: "RDBMS의 4단계 모델링 절차와 NoSQL 조화",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터베이스 모델링"],
+    topicTitles: [
+      "데이터베이스 모델링",
+      "NoSQL 데이터모델링 패턴",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-모델링-절차-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-모델링-절차-2.jpg", label: "2쪽" },
@@ -5775,9 +6186,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-빅데이터-시각화",
     period: "1교시",
-    question: "빅데이터 시각화",
+    no: "2",
+    question: "빅데이터 시각화 인사이트 프로세스와 시각화 프로세스",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터 시각화"],
+    topicTitles: [
+      "데이터 시각화",
+    ],
+    score: 6.7,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-빅데이터-시각화-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-빅데이터-시각화-2.jpg", label: "2쪽" },
@@ -5786,9 +6202,13 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-rdbms-모델링-절차",
     period: "1교시",
-    question: "RDBMS 모델링 절차",
+    no: "12",
+    question: "RDBMS 4단계 모델링 절차, NoSQL 모델링 절차",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터베이스 모델링"],
+    topicTitles: [
+      "데이터베이스 모델링",
+      "NoSQL 데이터모델링 패턴",
+    ],
     pages: [
       { src: "/answers/db25h-rdbms-모델링-절차-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-rdbms-모델링-절차-2.jpg", label: "2쪽" },
@@ -5797,9 +6217,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-이상치-결측치",
     period: "1교시",
-    question: "이상치 결측치",
+    no: "3",
+    question: "결측치와 이상치 처리 방안",
     exam: "2025년 하반기 정리",
-    topicTitles: ["결측치(Missing Value)", "이상치(Outlier)"],
+    topicTitles: [
+      "결측치(Missing Value)",
+      "이상치(Outlier)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-이상치-결측치-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-이상치-결측치-2.jpg", label: "2쪽" },
@@ -5808,9 +6234,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-이상치-결측치-2",
     period: "1교시",
-    question: "이상치 결측치 2",
+    no: "3",
+    question: "데이터 전처리 과정 결측치와 이상치 처리방안",
     exam: "2025년 하반기 정리",
-    topicTitles: ["결측치(Missing Value)", "이상치(Outlier)"],
+    topicTitles: [
+      "결측치(Missing Value)",
+      "이상치(Outlier)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-이상치-결측치-2-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-이상치-결측치-2-2.jpg", label: "2쪽" },
@@ -5819,9 +6251,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-벡터-db",
     period: "1교시",
+    no: "1",
     question: "벡터 DB",
     exam: "2025년 하반기 정리",
-    topicTitles: ["벡터 데이터베이스(Vector Database)"],
+    topicTitles: [
+      "벡터 데이터베이스(Vector Database)",
+      "ANN(Approximate Nearest Neighbor) 알고리즘",
+    ],
+    score: 6.7,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-벡터-db-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-벡터-db-2.jpg", label: "2쪽" },
@@ -5830,9 +6268,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-데이터-모델링",
     period: "1교시",
-    question: "데이터 모델링",
+    no: "11",
+    question: "데이터베이스에서 데이터 모델링 기본원칙, 모델링 단계",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터베이스 모델링"],
+    topicTitles: [
+      "데이터베이스 모델링",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-데이터-모델링-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-데이터-모델링-2.jpg", label: "2쪽" },
@@ -5841,9 +6284,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-ware-house-vs-lake-house-2",
     period: "1교시",
-    question: "Ware House vs Lake House 2",
+    no: "5",
+    question: "Data Warehouse, Lakehouse 비교",
     exam: "2025년 하반기 정리",
-    topicTitles: ["데이터 레이크하우스(Data Lakehouse)"],
+    topicTitles: [
+      "데이터 레이크하우스(Data Lakehouse)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/db25h-ware-house-vs-lake-house-2-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-ware-house-vs-lake-house-2-2.jpg", label: "2쪽" },
@@ -5852,9 +6300,18 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-db25h-팬텀-충돌",
     period: "1교시",
-    question: "팬텀 충돌",
+    no: "1",
+    question: "팬텀 충돌 설명",
     exam: "2025년 하반기 정리",
-    topicTitles: ["Isolation Level(격리 레벨)", "DB 동시성제어"],
+    topicTitles: [
+      "Isolation Level(격리 레벨)",
+      "DB 동시성제어",
+    ],
+    score: 6.0,
+    maxScore: 10,
+    feedback: [
+      "good",
+    ],
     pages: [
       { src: "/answers/db25h-팬텀-충돌-1.jpg", label: "1쪽" },
       { src: "/answers/db25h-팬텀-충돌-2.jpg", label: "2쪽" },
@@ -5864,10 +6321,17 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   // ── 2025년 하반기 네트워크 정리 답안 (드라이브 08. 답안정리) ──
   {
     id: "peer-nw25h-cast-방식",
-    period: "1교시",
-    question: "CAST 방식",
+    period: "2교시",
+    no: "4",
+    question:
+      "① Unicast ② Broadcast ③ Multicast ④ Anycast ⑤ Incast",
     exam: "2025년 하반기 정리",
-    topicTitles: ["CSMA/CD", "CSMA/CA"],
+    topicTitles: [
+      "IPv6",
+      "OSI 7 Layer (ISO 7498)",
+    ],
+    score: 15,
+    maxScore: 25,
     pages: [
       { src: "/answers/nw25h-cast-방식-1.jpg", label: "1쪽" },
       { src: "/answers/nw25h-cast-방식-2.jpg", label: "2쪽" },
@@ -5878,9 +6342,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-nw25h-vpn",
     period: "1교시",
-    question: "VPN",
+    no: "4",
+    question: "VPN 구성 방식",
     exam: "2025년 하반기 정리",
-    topicTitles: ["VPN(Virtual Private Network)"],
+    topicTitles: [
+      "VPN(Virtual Private Network)",
+      "IPSec",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/nw25h-vpn-1.jpg", label: "1쪽" },
       { src: "/answers/nw25h-vpn-2.jpg", label: "2쪽" },
@@ -5889,9 +6359,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-nw25h-5g-ntn-4",
     period: "1교시",
-    question: "5G NTN 4",
+    no: "3",
+    question: "5G-NTN",
     exam: "2025년 하반기 정리",
-    topicTitles: ["비지상네트워크(NTN, Non-Terrestrial Networks)"],
+    topicTitles: [
+      "비지상네트워크(NTN, Non-Terrestrial Networks)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/nw25h-5g-ntn-4-1.jpg", label: "1쪽" },
       { src: "/answers/nw25h-5g-ntn-4-2.jpg", label: "2쪽" },
@@ -5900,9 +6375,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-nw25h-5g-ntn-5",
     period: "1교시",
-    question: "5G NTN 5",
+    no: "3",
+    question: "5G NTN",
     exam: "2025년 하반기 정리",
-    topicTitles: ["비지상네트워크(NTN, Non-Terrestrial Networks)"],
+    topicTitles: [
+      "비지상네트워크(NTN, Non-Terrestrial Networks)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/nw25h-5g-ntn-5-1.jpg", label: "1쪽" },
       { src: "/answers/nw25h-5g-ntn-5-2.jpg", label: "2쪽" },
@@ -5910,10 +6390,18 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-nw25h-osi-7-layer",
-    period: "1교시",
-    question: "OSI 7 Layer",
+    period: "2교시",
+    no: "4",
+    question: "① ISO 7498의 각 계층 설명 ② TCP/IP 프로토콜과 비교",
     exam: "2025년 하반기 정리",
-    topicTitles: ["OSI 7 Layer (ISO 7498)"],
+    topicTitles: [
+      "OSI 7 Layer (ISO 7498)",
+    ],
+    score: 15,
+    maxScore: 25,
+    feedback: [
+      "그림 크게 작성하세요",
+    ],
     pages: [
       { src: "/answers/nw25h-osi-7-layer-1.jpg", label: "1쪽" },
       { src: "/answers/nw25h-osi-7-layer-2.jpg", label: "2쪽" },
@@ -5924,9 +6412,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-nw25h-5g-ntn-3",
     period: "1교시",
-    question: "5G NTN 3",
+    no: "9",
+    question: "5G NTN",
     exam: "2025년 하반기 정리",
-    topicTitles: ["비지상네트워크(NTN, Non-Terrestrial Networks)"],
+    topicTitles: [
+      "비지상네트워크(NTN, Non-Terrestrial Networks)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/nw25h-5g-ntn-3-1.jpg", label: "1쪽" },
       { src: "/answers/nw25h-5g-ntn-3-2.jpg", label: "2쪽" },
@@ -5935,9 +6428,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-nw25h-5g-ntn-2",
     period: "1교시",
-    question: "5G NTN 2",
+    no: "9",
+    question: "5G NTN",
     exam: "2025년 하반기 정리",
-    topicTitles: ["비지상네트워크(NTN, Non-Terrestrial Networks)"],
+    topicTitles: [
+      "비지상네트워크(NTN, Non-Terrestrial Networks)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/nw25h-5g-ntn-2-1.jpg", label: "1쪽" },
       { src: "/answers/nw25h-5g-ntn-2-2.jpg", label: "2쪽" },
@@ -5946,9 +6444,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-nw25h-의도기반-네트워킹-2",
     period: "1교시",
-    question: "의도기반 네트워킹 2",
+    no: "1",
+    question: "의도 기반 네트워킹",
     exam: "2025년 하반기 정리",
-    topicTitles: ["인텐트 기반 네트워킹(Intent-Based Networking)"],
+    topicTitles: [
+      "인텐트 기반 네트워킹(Intent-Based Networking)",
+    ],
+    score: 6.7,
+    maxScore: 10,
     pages: [
       { src: "/answers/nw25h-의도기반-네트워킹-2-1.jpg", label: "1쪽" },
       { src: "/answers/nw25h-의도기반-네트워킹-2-2.jpg", label: "2쪽" },
@@ -5957,9 +6460,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-nw25h-의도기반-네트워킹-3",
     period: "1교시",
-    question: "의도기반 네트워킹 3",
+    no: "2",
+    question: "OSI 7 Layer의 서비스 프리미티브",
     exam: "2025년 하반기 정리",
-    topicTitles: ["인텐트 기반 네트워킹(Intent-Based Networking)"],
+    topicTitles: [
+      "서비스 프리미티브(Service Primitive)",
+      "OSI 7 Layer (ISO 7498)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/nw25h-의도기반-네트워킹-3-1.jpg", label: "1쪽" },
       { src: "/answers/nw25h-의도기반-네트워킹-3-2.jpg", label: "2쪽" },
@@ -5968,9 +6477,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-nw25h-queue-관리",
     period: "1교시",
-    question: "Queue 관리",
+    no: "4",
+    question: "QoS 기법 중 Queue 관리",
     exam: "2025년 하반기 정리",
-    topicTitles: ["QoS(Quality of Service)"],
+    topicTitles: [
+      "QoS(Quality of Service)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/nw25h-queue-관리-1.jpg", label: "1쪽" },
       { src: "/answers/nw25h-queue-관리-2.jpg", label: "2쪽" },
@@ -5979,9 +6493,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-nw25h-의도기반-네트워킹-1",
     period: "1교시",
-    question: "의도기반 네트워킹 1",
+    no: "1",
+    question: "의도 기반 네트워킹(Intent-Based Networking)",
     exam: "2025년 하반기 정리",
-    topicTitles: ["인텐트 기반 네트워킹(Intent-Based Networking)"],
+    topicTitles: [
+      "인텐트 기반 네트워킹(Intent-Based Networking)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/nw25h-의도기반-네트워킹-1-1.jpg", label: "1쪽" },
       { src: "/answers/nw25h-의도기반-네트워킹-1-2.jpg", label: "2쪽" },
@@ -5990,9 +6509,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-nw25h-tcp-혼잡제어",
     period: "1교시",
-    question: "TCP 혼잡제어",
+    no: "3",
+    question: "TCP 혼잡제어 알고리즘 유형",
     exam: "2025년 하반기 정리",
-    topicTitles: ["TCP 혼잡제어"],
+    topicTitles: [
+      "TCP 혼잡제어",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/nw25h-tcp-혼잡제어-1.jpg", label: "1쪽" },
       { src: "/answers/nw25h-tcp-혼잡제어-2.jpg", label: "2쪽" },
@@ -6001,9 +6525,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-nw25h-서비스-프리미티브-1",
     period: "1교시",
-    question: "서비스 프리미티브 1",
+    no: "2",
+    question: "OSI 7 Layer의 서비스 프리미티브",
     exam: "2025년 하반기 정리",
-    topicTitles: ["서비스 프리미티브(Service Primitive)"],
+    topicTitles: [
+      "서비스 프리미티브(Service Primitive)",
+      "OSI 7 Layer (ISO 7498)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/nw25h-서비스-프리미티브-1-1.jpg", label: "1쪽" },
       { src: "/answers/nw25h-서비스-프리미티브-1-2.jpg", label: "2쪽" },
@@ -6012,9 +6542,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-nw25h-서비스-프리미티브-2",
     period: "1교시",
-    question: "서비스 프리미티브 2",
+    no: "2",
+    question: "서비스 프리미티브",
     exam: "2025년 하반기 정리",
-    topicTitles: ["서비스 프리미티브(Service Primitive)"],
+    topicTitles: [
+      "서비스 프리미티브(Service Primitive)",
+      "OSI 7 Layer (ISO 7498)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/nw25h-서비스-프리미티브-2-1.jpg", label: "1쪽" },
       { src: "/answers/nw25h-서비스-프리미티브-2-2.jpg", label: "2쪽" },
@@ -6023,9 +6559,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-nw25h-5g-ntn",
     period: "1교시",
+    no: "9",
     question: "5G NTN",
     exam: "2025년 하반기 정리",
-    topicTitles: ["비지상네트워크(NTN, Non-Terrestrial Networks)"],
+    topicTitles: [
+      "비지상네트워크(NTN, Non-Terrestrial Networks)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/nw25h-5g-ntn-1.jpg", label: "1쪽" },
       { src: "/answers/nw25h-5g-ntn-2.jpg", label: "2쪽" },
@@ -6034,9 +6575,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-nw25h-http-3-0",
     period: "1교시",
+    no: "10",
     question: "HTTP 3.0",
     exam: "2025년 하반기 정리",
-    topicTitles: ["HTTP/3"],
+    topicTitles: [
+      "HTTP/3",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/nw25h-http-3-0-1.jpg", label: "1쪽" },
       { src: "/answers/nw25h-http-3-0-2.jpg", label: "2쪽" },
@@ -6045,9 +6591,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-nw25h-tcp-udp-비교",
     period: "1교시",
-    question: "TCP UDP 비교",
+    no: "8",
+    question: "TCP와 UDP 비교",
     exam: "2025년 하반기 정리",
-    topicTitles: ["TCP 와 UDP 비교"],
+    topicTitles: [
+      "TCP 와 UDP 비교",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/nw25h-tcp-udp-비교-1.jpg", label: "1쪽" },
       { src: "/answers/nw25h-tcp-udp-비교-2.jpg", label: "2쪽" },
@@ -6056,9 +6607,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-nw25h-nwdaf",
     period: "1교시",
+    no: "10",
     question: "NWDAF",
     exam: "2025년 하반기 정리",
-    topicTitles: ["NWDAF(Network Data Analytics Function)"],
+    topicTitles: [
+      "NWDAF(Network Data Analytics Function)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/nw25h-nwdaf-1.jpg", label: "1쪽" },
       { src: "/answers/nw25h-nwdaf-2.jpg", label: "2쪽" },
@@ -6069,9 +6625,12 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-선형회귀-로지스틱회귀",
     period: "1교시",
-    question: "선형회귀 로지스틱회귀",
+    no: "8",
+    question: "선형 회귀분석과 로지스틱 회귀분석 비교",
     exam: "2025년 하반기 정리",
-    topicTitles: ["회귀분석(Regression Analysis)"],
+    topicTitles: [
+      "회귀분석(Regression Analysis)",
+    ],
     pages: [
       { src: "/answers/ai25h-선형회귀-로지스틱회귀-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-선형회귀-로지스틱회귀-2.jpg", label: "2쪽" },
@@ -6079,10 +6638,19 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-ai25h-기술통계-추론통계",
-    period: "1교시",
-    question: "기술통계 추론통계",
+    period: "2교시",
+    no: "3",
+    question:
+      "가. 기술통계와 추론통계 차이점 나. 표본추출 방법 다. P-value와 1종/2종 오류",
     exam: "2025년 하반기 정리",
-    topicTitles: ["기술 통계(Descriptive statistics)", "추론 통계(Inferential Statistics)"],
+    topicTitles: [
+      "기술 통계(Descriptive statistics)",
+      "추론 통계(Inferential Statistics)",
+      "표본 추출(Sampling)",
+      "통계적 가설검정(Hypothesis Testing)",
+    ],
+    score: 15,
+    maxScore: 25,
     pages: [
       { src: "/answers/ai25h-기술통계-추론통계-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-기술통계-추론통계-2.jpg", label: "2쪽" },
@@ -6093,10 +6661,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-ai25h-회귀분석-2교시형",
-    period: "1교시",
-    question: "회귀분석_2교시형",
+    period: "2교시",
+    no: "1",
+    question: "① 회귀분석 개념 및 가정 ② 회귀분석 절차 ③ 회귀분석 유형과 특징",
     exam: "2025년 하반기 정리",
-    topicTitles: ["회귀분석(Regression Analysis)"],
+    topicTitles: [
+      "회귀분석(Regression Analysis)",
+    ],
+    score: 15.0,
+    maxScore: 25,
     pages: [
       { src: "/answers/ai25h-회귀분석-2교시형-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-회귀분석-2교시형-2.jpg", label: "2쪽" },
@@ -6107,9 +6680,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-stable-diffusion-2",
     period: "1교시",
-    question: "Stable Diffusion 2",
+    no: "4",
+    question: "Stable Diffusion",
     exam: "2025년 하반기 정리",
-    topicTitles: ["Diffusion 모델"],
+    topicTitles: [
+      "Diffusion 모델",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-stable-diffusion-2-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-stable-diffusion-2-2.jpg", label: "2쪽" },
@@ -6117,10 +6695,13 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-ai25h-ai-기본법-1교시형-1",
-    period: "1교시",
-    question: "AI 기본법_1교시형 1",
+    period: "2교시",
+    no: "6",
+    question: "① AI 기본법 주요 내용 ② AI 기본법 고려 사항",
     exam: "2025년 하반기 정리",
-    topicTitles: ["AI 기본법"],
+    topicTitles: [
+      "AI 기본법",
+    ],
     pages: [
       { src: "/answers/ai25h-ai-기본법-1교시형-1-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-ai-기본법-1교시형-1-2.jpg", label: "2쪽" },
@@ -6132,7 +6713,9 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     period: "1교시",
     question: "피지컬 AI",
     exam: "2025년 하반기 정리",
-    topicTitles: ["Physical AI"],
+    topicTitles: [
+      "Physical AI",
+    ],
     pages: [
       { src: "/answers/ai25h-피지컬-ai-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-피지컬-ai-2.jpg", label: "2쪽" },
@@ -6140,10 +6723,16 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-ai25h-ai-기본법-1교시형-3",
-    period: "1교시",
-    question: "AI 기본법_1교시형 3",
+    period: "2교시",
+    no: "6",
+    question:
+      "① AI 기본법 개요 ② AI 기본법 주요내용 ③ AI 기본법 고려사항 ④ AI 기본법 효과",
     exam: "2025년 하반기 정리",
-    topicTitles: ["AI 기본법"],
+    topicTitles: [
+      "AI 기본법",
+    ],
+    score: 15.5,
+    maxScore: 25,
     pages: [
       { src: "/answers/ai25h-ai-기본법-1교시형-3-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-ai-기본법-1교시형-3-2.jpg", label: "2쪽" },
@@ -6156,7 +6745,9 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     period: "1교시",
     question: "Stable Diffusion",
     exam: "2025년 하반기 정리",
-    topicTitles: ["Diffusion 모델"],
+    topicTitles: [
+      "Diffusion 모델",
+    ],
     pages: [
       { src: "/answers/ai25h-stable-diffusion-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-stable-diffusion-2.jpg", label: "2쪽" },
@@ -6165,9 +6756,11 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-iso-42001-2023",
     period: "1교시",
-    question: "ISO 42001_2023",
+    question: "ISO 42001:2023",
     exam: "2025년 하반기 정리",
-    topicTitles: ["인공지능 경영시스템(ISO 42001:2023)"],
+    topicTitles: [
+      "인공지능 경영시스템(ISO 42001:2023)",
+    ],
     pages: [
       { src: "/answers/ai25h-iso-42001-2023-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-iso-42001-2023-2.jpg", label: "2쪽" },
@@ -6178,7 +6771,10 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     period: "1교시",
     question: "LLMOps",
     exam: "2025년 하반기 정리",
-    topicTitles: ["LLMOps"],
+    topicTitles: [
+      "LLMOps",
+      "MLOps",
+    ],
     pages: [
       { src: "/answers/ai25h-llmops-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-llmops-2.jpg", label: "2쪽" },
@@ -6187,9 +6783,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-손실함수-활성화함수",
     period: "1교시",
-    question: "손실함수 활성화함수",
+    question: "손실함수, 활성화 함수",
     exam: "2025년 하반기 정리",
-    topicTitles: ["활성화함수(Activation Function)", "손실함수(Loss Function)"],
+    topicTitles: [
+      "손실함수(Loss Function)",
+      "활성화함수(Activation Function)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-손실함수-활성화함수-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-손실함수-활성화함수-2.jpg", label: "2쪽" },
@@ -6198,9 +6799,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-멀티모달-ai",
     period: "1교시",
+    no: "6",
     question: "멀티모달 AI",
     exam: "2025년 하반기 정리",
-    topicTitles: ["멀티모달(Multimodal) AI"],
+    topicTitles: [
+      "멀티모달(Multimodal) AI",
+    ],
+    score: 6.7,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-멀티모달-ai-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-멀티모달-ai-2.jpg", label: "2쪽" },
@@ -6208,10 +6814,17 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-ai25h-생성형-인공지능-저작권",
-    period: "1교시",
-    question: "생성형 인공지능 저작권",
+    period: "2교시",
+    no: "3",
+    question: "① 생성형 인공지능 저작권 이슈 ② 생성형 AI 저작권 문제 해결방안",
     exam: "2025년 하반기 정리",
-    topicTitles: ["인공지능 생성물 워터마크 적용 기술", "생성형 인공지능 서비스 이용자 보호 가이드라인"],
+    topicTitles: [
+      "인공지능 생성물 워터마크 적용 기술",
+      "생성형 인공지능 서비스 이용자 보호 가이드라인",
+      "AI 기본법",
+    ],
+    score: 15,
+    maxScore: 25,
     pages: [
       { src: "/answers/ai25h-생성형-인공지능-저작권-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-생성형-인공지능-저작권-2.jpg", label: "2쪽" },
@@ -6224,7 +6837,10 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     period: "1교시",
     question: "인공지능 신뢰성",
     exam: "2025년 하반기 정리",
-    topicTitles: ["AI 신뢰성 인증", "AI TRiSM(AI Trust, Risk and Security Management)"],
+    topicTitles: [
+      "AI 신뢰성 인증",
+      "AI TRiSM(AI Trust, Risk and Security Management)",
+    ],
     pages: [
       { src: "/answers/ai25h-인공지능-신뢰성-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-인공지능-신뢰성-2.jpg", label: "2쪽" },
@@ -6232,10 +6848,17 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-ai25h-knn-k-means",
-    period: "1교시",
-    question: "KNN K-Means",
+    period: "2교시",
+    no: "2",
+    question:
+      "① K-NN 개념, K의 의미 ② K-Means 개념 ③ K-NN, K-Means 성능평가 방법",
     exam: "2025년 하반기 정리",
-    topicTitles: ["K-NN(Nearest Neighbor) Classification", "K-평균 알고리즘"],
+    topicTitles: [
+      "K-NN(Nearest Neighbor) Classification",
+      "K-평균 알고리즘",
+    ],
+    score: 15,
+    maxScore: 25,
     pages: [
       { src: "/answers/ai25h-knn-k-means-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-knn-k-means-2.jpg", label: "2쪽" },
@@ -6244,10 +6867,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-ai25h-ai-기본법-2교시형-2",
-    period: "1교시",
-    question: "AI 기본법_2교시형 2",
+    period: "2교시",
+    no: "6",
+    question: "AI 기본법 주요내용, 고려 사항",
     exam: "2025년 하반기 정리",
-    topicTitles: ["AI 기본법"],
+    topicTitles: [
+      "AI 기본법",
+    ],
+    score: 15,
+    maxScore: 25,
     pages: [
       { src: "/answers/ai25h-ai-기본법-2교시형-2-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-ai-기본법-2교시형-2-2.jpg", label: "2쪽" },
@@ -6258,9 +6886,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-소버린-ai-2",
     period: "1교시",
-    question: "소버린 AI 2",
+    no: "4",
+    question: "소버린 AI",
     exam: "2025년 하반기 정리",
-    topicTitles: ["소버린 AI(Artificial Intelligence)"],
+    topicTitles: [
+      "소버린 AI(Artificial Intelligence)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-소버린-ai-2-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-소버린-ai-2-2.jpg", label: "2쪽" },
@@ -6269,9 +6902,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-개발비-산정-절차",
     period: "1교시",
-    question: "개발비 산정 절차",
+    no: "1",
+    question: "AI 도입 방식, SW 개발비 산정 절차",
     exam: "2025년 하반기 정리",
-    topicTitles: ["인공지능(AI) 도입 사업비 산정 절차"],
+    topicTitles: [
+      "인공지능(AI) 도입 사업비 산정 절차",
+    ],
+    score: 6.7,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-개발비-산정-절차-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-개발비-산정-절차-2.jpg", label: "2쪽" },
@@ -6280,9 +6918,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-바이브-코딩-1",
     period: "1교시",
-    question: "바이브 코딩 1",
+    no: "2",
+    question: "AI 바이브 코딩",
     exam: "2025년 하반기 정리",
-    topicTitles: ["바이브코딩(Vibe Coding)"],
+    topicTitles: [
+      "바이브코딩(Vibe Coding)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-바이브-코딩-1-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-바이브-코딩-1-2.jpg", label: "2쪽" },
@@ -6291,9 +6934,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-바이브-코딩-2",
     period: "1교시",
-    question: "바이브 코딩 2",
+    no: "2",
+    question: "AI 바이브 코딩",
     exam: "2025년 하반기 정리",
-    topicTitles: ["바이브코딩(Vibe Coding)"],
+    topicTitles: [
+      "바이브코딩(Vibe Coding)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-바이브-코딩-2-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-바이브-코딩-2-2.jpg", label: "2쪽" },
@@ -6301,10 +6949,16 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-ai25h-rag",
-    period: "1교시",
-    question: "RAG",
+    period: "2교시",
+    no: "5",
+    question: "① RAG의 개념·특징 ② RAG 작동 프로세스 ③ 파인튜닝과 비교",
     exam: "2025년 하반기 정리",
-    topicTitles: ["검색 증강 생성(RAG, Retrieval Augmented Generation)"],
+    topicTitles: [
+      "검색 증강 생성(RAG, Retrieval Augmented Generation)",
+      "파인 튜닝(Fine-tuning)",
+    ],
+    score: 15.3,
+    maxScore: 25,
     pages: [
       { src: "/answers/ai25h-rag-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-rag-2.jpg", label: "2쪽" },
@@ -6315,9 +6969,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-소버린-ai",
     period: "1교시",
+    no: "4",
     question: "소버린 AI",
     exam: "2025년 하반기 정리",
-    topicTitles: ["소버린 AI(Artificial Intelligence)"],
+    topicTitles: [
+      "소버린 AI(Artificial Intelligence)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-소버린-ai-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-소버린-ai-2.jpg", label: "2쪽" },
@@ -6325,10 +6984,16 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-ai25h-생성형-llm",
-    period: "1교시",
-    question: "생성형 LLM",
+    period: "2교시",
+    no: "6",
+    question: "① 생성형 AI 한계 ② LLM 도입 이슈 ③ LLM 도입 아키텍처",
     exam: "2025년 하반기 정리",
-    topicTitles: ["초거대 언어 모델(Large Language Model)"],
+    topicTitles: [
+      "초거대 언어 모델(Large Language Model)",
+      "할루시네이션(Hallucination)",
+    ],
+    score: 15,
+    maxScore: 25,
     pages: [
       { src: "/answers/ai25h-생성형-llm-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-생성형-llm-2.jpg", label: "2쪽" },
@@ -6338,9 +7003,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-llm-reasoning",
     period: "1교시",
+    no: "7",
     question: "LLM Reasoning",
     exam: "2025년 하반기 정리",
-    topicTitles: ["COT(Chain of Thought)", "테스트 타임 스케일링(Test-Time Scaling, TTS)"],
+    topicTitles: [
+      "COT(Chain of Thought)",
+      "테스트 타임 스케일링(Test-Time Scaling, TTS)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-llm-reasoning-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-llm-reasoning-2.jpg", label: "2쪽" },
@@ -6349,9 +7020,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-피지컬-ai-2",
     period: "1교시",
-    question: "피지컬 AI 2",
+    no: "4",
+    question: "피지컬 AI",
     exam: "2025년 하반기 정리",
-    topicTitles: ["Physical AI"],
+    topicTitles: [
+      "Physical AI",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-피지컬-ai-2-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-피지컬-ai-2-2.jpg", label: "2쪽" },
@@ -6360,9 +7036,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-개발비-산정-절차-2",
     period: "1교시",
-    question: "개발비 산정 절차 2",
+    no: "1",
+    question: "인공지능 도입 방식에 의한 SW 개발비 산정 절차",
     exam: "2025년 하반기 정리",
-    topicTitles: ["인공지능(AI) 도입 사업비 산정 절차"],
+    topicTitles: [
+      "인공지능(AI) 도입 사업비 산정 절차",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-개발비-산정-절차-2-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-개발비-산정-절차-2-2.jpg", label: "2쪽" },
@@ -6371,9 +7052,17 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-적응형-ai",
     period: "1교시",
+    no: "2",
     question: "적응형 AI",
     exam: "2025년 하반기 정리",
-    topicTitles: ["모델 드리프트(Model Drift) — 컨셉 드리프트 & 데이터 드리프트"],
+    topicTitles: [
+      "모델 드리프트(Model Drift) — 컨셉 드리프트 & 데이터 드리프트",
+    ],
+    score: 6.5,
+    maxScore: 10,
+    feedback: [
+      "good",
+    ],
     pages: [
       { src: "/answers/ai25h-적응형-ai-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-적응형-ai-2.jpg", label: "2쪽" },
@@ -6381,10 +7070,16 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-ai25h-rag-파인튜닝",
-    period: "1교시",
-    question: "RAG 파인튜닝",
+    period: "2교시",
+    no: "4",
+    question: "① RAG 개념·특징 ② RAG 작동 프로세스 ③ RAG, 파인튜닝 비교",
     exam: "2025년 하반기 정리",
-    topicTitles: ["검색 증강 생성(RAG, Retrieval Augmented Generation)", "파인 튜닝(Fine-tuning)"],
+    topicTitles: [
+      "검색 증강 생성(RAG, Retrieval Augmented Generation)",
+      "파인 튜닝(Fine-tuning)",
+    ],
+    score: 15.3,
+    maxScore: 25,
     pages: [
       { src: "/answers/ai25h-rag-파인튜닝-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-rag-파인튜닝-2.jpg", label: "2쪽" },
@@ -6394,10 +7089,17 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-ai25h-ml-성능평가",
-    period: "1교시",
-    question: "ML 성능평가",
+    period: "2교시",
+    no: "7",
+    question:
+      "① ML 성능 평가 방식 ② 생성형 AI 성능 평가 방식 ③ ML 성능 평가 방식, 생성형 AI 성능 평가 방식 비교",
     exam: "2025년 하반기 정리",
-    topicTitles: ["혼동행렬(Confusion Matrix)"],
+    topicTitles: [
+      "혼동행렬(Confusion Matrix)",
+      "MLPerf",
+    ],
+    score: 14.1,
+    maxScore: 25,
     pages: [
       { src: "/answers/ai25h-ml-성능평가-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-ml-성능평가-2.jpg", label: "2쪽" },
@@ -6406,10 +7108,16 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-ai25h-버티컬-ai",
-    period: "1교시",
-    question: "버티컬 AI",
+    period: "2교시",
+    no: "6",
+    question:
+      "① 버티컬 AI의 개념 ② 수평적 AI와 비교 ③ 버티컬 AI 기술 활성화를 위한 기술·관리·제도 방안",
     exam: "2025년 하반기 정리",
-    topicTitles: ["버티컬 AI(Vertical AI)"],
+    topicTitles: [
+      "버티컬 AI(Vertical AI)",
+    ],
+    score: 15,
+    maxScore: 25,
     pages: [
       { src: "/answers/ai25h-버티컬-ai-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-버티컬-ai-2.jpg", label: "2쪽" },
@@ -6419,9 +7127,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-멀티모달-llm",
     period: "1교시",
-    question: "멀티모달 LLM",
+    no: "5",
+    question: "Multimodal LLM",
     exam: "2025년 하반기 정리",
-    topicTitles: ["멀티모달(Multimodal) AI", "초거대 언어 모델(Large Language Model)"],
+    topicTitles: [
+      "멀티모달(Multimodal) AI",
+      "초거대 언어 모델(Large Language Model)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-멀티모달-llm-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-멀티모달-llm-2.jpg", label: "2쪽" },
@@ -6430,9 +7144,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-drop-out-3",
     period: "1교시",
-    question: "Drop Out 3",
+    no: "3",
+    question: "드랍아웃 동작 원리",
     exam: "2025년 하반기 정리",
-    topicTitles: ["Dropout"],
+    topicTitles: [
+      "Dropout",
+    ],
+    score: 6.5,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-drop-out-3-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-drop-out-3-2.jpg", label: "2쪽" },
@@ -6441,9 +7160,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-실루엣-계수-2",
     period: "1교시",
-    question: "실루엣 계수 2",
+    no: "1",
+    question: "실루엣 계수",
     exam: "2025년 하반기 정리",
-    topicTitles: ["K-평균 알고리즘", "밀도기반 클러스터링(DBSCAN)"],
+    topicTitles: [
+      "K-평균 알고리즘",
+      "밀도기반 클러스터링(DBSCAN)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-실루엣-계수-2-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-실루엣-계수-2-2.jpg", label: "2쪽" },
@@ -6452,9 +7177,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-ai-기본법-1교시형-2",
     period: "1교시",
-    question: "AI 기본법_1교시형 2",
+    no: "4",
+    question: "AI 기본법",
     exam: "2025년 하반기 정리",
-    topicTitles: ["AI 기본법"],
+    topicTitles: [
+      "AI 기본법",
+    ],
+    score: 7.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-ai-기본법-1교시형-2-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-ai-기본법-1교시형-2-2.jpg", label: "2쪽" },
@@ -6463,9 +7193,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-xai-2",
     period: "1교시",
-    question: "XAI 2",
+    no: "2",
+    question: "XAI",
     exam: "2025년 하반기 정리",
-    topicTitles: ["AI TRiSM(AI Trust, Risk and Security Management)"],
+    topicTitles: [
+      "AI TRiSM(AI Trust, Risk and Security Management)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-xai-2-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-xai-2-2.jpg", label: "2쪽" },
@@ -6474,9 +7209,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-전이학습-파인튜닝",
     period: "1교시",
-    question: "전이학습 파인튜닝",
+    no: "2",
+    question: "전이학습과 파인튜닝",
     exam: "2025년 하반기 정리",
-    topicTitles: ["전이학습(Transfer Learning)", "파인 튜닝(Fine-tuning)"],
+    topicTitles: [
+      "전이학습(Transfer Learning)",
+      "파인 튜닝(Fine-tuning)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-전이학습-파인튜닝-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-전이학습-파인튜닝-2.jpg", label: "2쪽" },
@@ -6485,9 +7226,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-drop-out-2",
     period: "1교시",
-    question: "Drop Out 2",
+    no: "3",
+    question: "드랍아웃 동작원리",
     exam: "2025년 하반기 정리",
-    topicTitles: ["Dropout"],
+    topicTitles: [
+      "Dropout",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-drop-out-2-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-drop-out-2-2.jpg", label: "2쪽" },
@@ -6496,9 +7242,13 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-ai-trism",
     period: "1교시",
-    question: "AI TRISM",
+    question: "AI TRiSM",
     exam: "2025년 하반기 정리",
-    topicTitles: ["AI TRiSM(AI Trust, Risk and Security Management)"],
+    topicTitles: [
+      "AI TRiSM(AI Trust, Risk and Security Management)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-ai-trism-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-ai-trism-2.jpg", label: "2쪽" },
@@ -6507,9 +7257,17 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-drop-out",
     period: "1교시",
-    question: "Drop Out",
+    no: "13",
+    question: "Drop Out 동작원리",
     exam: "2025년 하반기 정리",
-    topicTitles: ["Dropout"],
+    topicTitles: [
+      "Dropout",
+    ],
+    score: 6.0,
+    maxScore: 10,
+    feedback: [
+      "good",
+    ],
     pages: [
       { src: "/answers/ai25h-drop-out-1.jpg", label: "1쪽" },
     ],
@@ -6517,9 +7275,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-rag-rig",
     period: "1교시",
-    question: "RAG RIG",
+    no: "10",
+    question: "RAG와 RIG",
     exam: "2025년 하반기 정리",
-    topicTitles: ["검색 증강 생성(RAG, Retrieval Augmented Generation)", "검색 삽입 생성(RIG, Retrieval Interleaved Generation)"],
+    topicTitles: [
+      "검색 증강 생성(RAG, Retrieval Augmented Generation)",
+      "검색 삽입 생성(RIG, Retrieval Interleaved Generation)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-rag-rig-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-rag-rig-2.jpg", label: "2쪽" },
@@ -6529,19 +7293,30 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-ai-기본법-2교시형-1",
     period: "1교시",
-    question: "AI 기본법_2교시형_1",
+    no: "4",
+    question: "AI 기본법",
     exam: "2025년 하반기 정리",
-    topicTitles: ["AI 기본법"],
+    topicTitles: [
+      "AI 기본법",
+    ],
+    score: 6.7,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-ai-기본법-2교시형-1-1.jpg", label: "1쪽" },
     ],
   },
   {
     id: "peer-ai25h-ml-성능평가-2",
-    period: "1교시",
-    question: "ML 성능평가 2",
+    period: "2교시",
+    question:
+      "① ML 성능 평가 방식 ② 생성형 AI 성능평가 방식 ③ ML 성능평가 방식과 생성형 AI 성능평가 비교",
     exam: "2025년 하반기 정리",
-    topicTitles: ["혼동행렬(Confusion Matrix)"],
+    topicTitles: [
+      "혼동행렬(Confusion Matrix)",
+      "MLPerf",
+    ],
+    score: 14.7,
+    maxScore: 25,
     pages: [
       { src: "/answers/ai25h-ml-성능평가-2-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-ml-성능평가-2-2.jpg", label: "2쪽" },
@@ -6551,10 +7326,17 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   },
   {
     id: "peer-ai25h-ml-성능평가-3",
-    period: "1교시",
-    question: "ML 성능평가 3",
+    period: "2교시",
+    no: "2",
+    question:
+      "① ML 성능 평가 방식 ② 생성형 AI 성능 평가 방식 ③ ML, 생성형 AI 성능평가 방식 비교",
     exam: "2025년 하반기 정리",
-    topicTitles: ["혼동행렬(Confusion Matrix)"],
+    topicTitles: [
+      "혼동행렬(Confusion Matrix)",
+      "MLPerf",
+    ],
+    score: 15.3,
+    maxScore: 25,
     pages: [
       { src: "/answers/ai25h-ml-성능평가-3-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-ml-성능평가-3-2.jpg", label: "2쪽" },
@@ -6565,9 +7347,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-실루엣-계수-1",
     period: "1교시",
-    question: "실루엣 계수 1",
+    no: "1",
+    question: "실루엣 계수",
     exam: "2025년 하반기 정리",
-    topicTitles: ["K-평균 알고리즘", "밀도기반 클러스터링(DBSCAN)"],
+    topicTitles: [
+      "K-평균 알고리즘",
+      "밀도기반 클러스터링(DBSCAN)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-실루엣-계수-1-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-실루엣-계수-1-2.jpg", label: "2쪽" },
@@ -6576,9 +7364,15 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-전이학습-파인튜닝-2",
     period: "1교시",
-    question: "전이학습 파인튜닝 2",
+    no: "1",
+    question: "전이학습과 파인튜닝",
     exam: "2025년 하반기 정리",
-    topicTitles: ["전이학습(Transfer Learning)", "파인 튜닝(Fine-tuning)"],
+    topicTitles: [
+      "전이학습(Transfer Learning)",
+      "파인 튜닝(Fine-tuning)",
+    ],
+    score: 6.3,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-전이학습-파인튜닝-2-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-전이학습-파인튜닝-2-2.jpg", label: "2쪽" },
@@ -6587,9 +7381,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-bagging-boosting",
     period: "1교시",
-    question: "Bagging Boosting",
+    no: "9",
+    question: "앙상블 모형의 Bagging과 Boosting 알고리즘",
     exam: "2025년 하반기 정리",
-    topicTitles: ["앙상블 학습(Ensemble Learning)"],
+    topicTitles: [
+      "앙상블 학습(Ensemble Learning)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-bagging-boosting-1.jpg", label: "1쪽" },
     ],
@@ -6597,9 +7396,14 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-ai25h-xai",
     period: "1교시",
+    no: "2",
     question: "XAI",
     exam: "2025년 하반기 정리",
-    topicTitles: ["AI TRiSM(AI Trust, Risk and Security Management)"],
+    topicTitles: [
+      "AI TRiSM(AI Trust, Risk and Security Management)",
+    ],
+    score: 6.0,
+    maxScore: 10,
     pages: [
       { src: "/answers/ai25h-xai-1.jpg", label: "1쪽" },
       { src: "/answers/ai25h-xai-2.jpg", label: "2쪽" },
