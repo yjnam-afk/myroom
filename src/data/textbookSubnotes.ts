@@ -5802,15 +5802,32 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "비즈니스 연속성을 위해 서비스 중단 없이 운영에 코드를 배포하는 기술",
     lead: "연속성 보장의 코드 반영, 무중단 배포",
     features: ["서비스 연속성", "점진 전환", "롤백 용이"],
+    subDefs: [
+      {
+        name: "롤링 업데이트(Rolling Update)",
+        lead: "한 대씩 순차 교체",
+        def: "운영 중인 서버를 한 대씩 순차 교체해 중단 없이 새 버전을 배포하는 기법",
+      },
+      {
+        name: "블루그린 디플로이먼트(Blue/Green Deployment)",
+        lead: "신·구 환경의 일괄 전환",
+        def: "구 버전과 동일한 신 버전 환경을 만들어 트래픽을 한 번에 전환하는 기법",
+      },
+      {
+        name: "카나리 릴리즈(Canary Release)",
+        lead: "일부 노출의 위험 감지",
+        def: "일부 사용자에게 새 버전을 먼저 노출해 위험 확인 후 전체로 확대하는 기법",
+      },
+    ],
     keywords: ["Rolling Update", "Blue/Green Deployment", "Canary Release"],
     tables: [
       {
         caption: "무중단 배포 기법 비교",
-        headers: ["기법", "키워드", "설명"],
+        headers: ["기법", "방식", "특징"],
         rows: [
-          ["Rolling Update", "점진적 교체\n관리·롤백 용이", "1개씩 순차 변경\n용량 사전 고려"],
-          ["Blue/Green Deployment", "신·구 병행 운영\n트래픽 전환", "그린 배포 후 전환\n자원 두 배 소요"],
-          ["Canary Release", "일부 사용자\nA/B 테스트", "트래픽 제어 검증\n위험 조기 감지"],
+          ["Rolling Update", "한 대씩 순차 교체\n점진적 버전 전환", "관리·롤백 용이\n용량 사전 고려"],
+          ["Blue/Green Deployment", "신·구 병행 운영\n트래픽 일괄 전환", "전환 후 즉시 롤백\n자원 두 배 소요"],
+          ["Canary Release", "일부 사용자 노출\nA/B 테스트", "위험 조기 감지\n트래픽 제어 필요"],
         ],
       },
     ],
@@ -12492,22 +12509,22 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "사용성 평가 절차",
-        headers: ["절차", "키워드", "설명"],
+        headers: ["절차", "평가내용", "산출물"],
         rows: [
-          ["1. 계획 수립", "목적·대상 분석\n태스크 추출", "사용자 정의 포함\n평가 계획서 산출"],
-          ["2. 평가 설계", "테스트 디자인\n참가자·질문지", "질적·양적 정의\n평가 설계서 산출"],
-          ["3. 평가 실행", "스크립트·사전\n본 테스트 관찰", "연습 후 대본 수정\n질적 양적 원자료"],
-          ["4. 분석/보고", "질적·양적 분석\n결과 보고서", "결과 분석 수행\n사용성 고려사항"],
+          ["1. 계획 수립", "평가 목적 분석\n사용자 정의\n태스크 분석\n주요기능 추출", "사용성평가계획서"],
+          ["2. 평가 설계", "테스트 디자인\n질적·양적 정의\n참가자 선정\n질문지 작성", "사용성평가설계서"],
+          ["3. 평가 실행", "스크립트 작성\n사전 테스트\n본 테스트 진행\n관찰 사항 체크", "질적/양적RowData"],
+          ["4. 분석/보고", "질적·양적 분석\n보고서 작성", "사용성평가결과보고서"],
         ],
       },
       {
         caption: "사용성 테스트의 4가지 유형",
-        headers: ["유형", "키워드", "설명"],
+        headers: ["유형", "시기", "목적", "방법", "설명"],
         rows: [
-          ["탐색적 테스트", "초반 디자인 컨셉\n페이퍼 목업", "컨셉 유효성 검증\n기능 가치 확인"],
-          ["평가 테스트", "초·중반 효율성\n정량 자료·과업", "컨셉 효율성 평가\n직관적 UI 사용"],
-          ["검증 테스트", "후반 표준 부합\n속도·정확도", "사용성 보증 확인\n70% 표준 충족"],
-          ["비교 테스트", "전체 대안 평가\nI/F 스타일", "경쟁사 대비 비교\n타겟 선호도 파악"],
+          ["탐색적 테스트", "초반", "디자인 컨셉\n유효성 확인", "페이퍼 mock-up\n화면 디자인", "사용 중 상상\n기능 가치 제공"],
+          ["평가 테스트", "초/중반", "컨셉 효율성", "정량적 자료\n과업 수행", "UI를 직관적으로\n사용하는가"],
+          ["검증 테스트", "후반", "사용성 보증\n표준 부합 여부", "속도·정확도\n선호도·결함", "시간 안에 완료\n참여자 70% 충족"],
+          ["비교 테스트", "전체", "대안평가", "I/F 스타일\n요소의 평가", "경쟁사 대비 비교\n타겟 선호도"],
         ],
       },
       {
@@ -12750,10 +12767,10 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "최대 힙(Max-Heap)과 최소 힙(Min-Heap)",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "개념", "노드"],
         rows: [
-          ["최대 힙(Max-Heap)", "완전 이진 트리\n루트 최대 키", "자손보다 큰 값\n우선순위 큐 적합"],
-          ["최소 힙(Min-Heap)", "완전 이진 트리", "후손보다 작은 키"],
+          ["최대 힙(Max-Heap)", "완전 이진 트리\n루트가 최대 키\n우선순위 큐 적합", "자손보다 큰 값"],
+          ["최소 힙(Min-Heap)", "완전 이진 트리\n루트가 최소 키", "자손보다 작은 값"],
         ],
       },
       {
@@ -12867,11 +12884,11 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "시간 복잡도 사례",
-        headers: ["알고리즘", "키워드", "설명"],
+        headers: ["구분", "알고리즘 A", "알고리즘 B", "알고리즘 C"],
         rows: [
-          ["알고리즘 A", "sum=n*n\n전체 연산 2회", "대입 1·곱셈 1\nn 무관 연산 수"],
-          ["알고리즘 B", "단일 for 루프\n전체 연산 2n", "대입 n·덧셈 n\nn 비례 연산 수"],
-          ["알고리즘 C", "이중 for 루프\n전체 연산 2n²", "대입 n²·덧셈\nn² 비례 연산 수"],
+          ["코드", "sum=n*n;", "for(i=1;i<=n;i++)\nsum=sum+n;", "for(i=1;i<=n;i++)\nfor(j..)sum=sum+1;"],
+          ["연산", "대입 1, 곱셈 1", "대입 n, 덧셈 n", "대입 n², 덧셈 n²"],
+          ["전체연산수", "2", "2n", "2n²"],
         ],
       },
     ],
@@ -13035,11 +13052,11 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "예시 (7, 5, 3, 2)",
-        headers: ["회차", "키워드", "설명"],
+        headers: ["회차", "과정", "결과"],
         rows: [
-          ["1회", "인접 교환 3회\n7 뒤로 확정", "최댓값 7 맨 뒤\n5 3 2 [7]"],
-          ["2회", "인접 교환 2회\n5 뒤로 확정", "다음 큰 값 5 확정\n3 2 [5 7]"],
-          ["3회", "인접 교환 1회\n3 뒤로 확정", "앞 두 값 비교 교환\n[2 3 5 7]"],
+          ["1회", "7 5 3 2 → 5 7 3 2\n→ 5 3 7 2 → 5 3 2 7", "5 3 2 [7]"],
+          ["2회", "5 3 2 7 → 3 5 2 7\n→ 3 2 5 7", "3 2 [5 7]"],
+          ["3회", "3 2 5 7 → 2 3 5 7", "[2 3 5 7]"],
         ],
       },
     ],
@@ -13409,15 +13426,15 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "크루스칼 예시 (간선 가중치 오름차순)",
-        headers: ["간선", "키워드", "설명"],
+        headers: ["간선", "가중치", "선택 순서"],
         rows: [
-          ["BG", "간선 가중치 2", "① 사이클 없음"],
-          ["EG", "간선 가중치 3", "② 사이클 없음"],
-          ["CD", "간선 가중치 4", "③ 사이클 없음"],
-          ["AF", "간선 가중치 5", "④ 사이클 없음"],
-          ["FG", "간선 가중치 7", "⑤ 사이클 없음"],
-          ["DE", "간선 가중치 8", "⑥ 사이클 없음"],
-          ["AG / DG / BC / EF / CG / AB", "가중치 9~14", "사이클 형성 제외"],
+          ["BG", "2", "①"],
+          ["EG", "3", "②"],
+          ["CD", "4", "③"],
+          ["AF", "5", "④"],
+          ["FG", "7", "⑤"],
+          ["DE", "8", "⑥"],
+          ["AG / DG / BC / EF / CG / AB", "9 / 10 / 11 / 12 / 13 / 14", "사이클 시 제외"],
         ],
       },
     ],
@@ -13434,11 +13451,11 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "유형",
-        headers: ["순회", "키워드", "설명"],
+        headers: ["구분", "전위 순회(Pre-Order)", "중위 순회(In-Order)", "후위 순회(Post-Order)"],
         rows: [
-          ["전위 순회(Pre-Order)", "루트→좌→우\n전위 표기식", "방문 후 좌우 재귀\n수식 표기 대응"],
-          ["중위 순회(In-Order)", "좌→루트→우\n중위 표기식", "좌 재귀 후 방문\n수식 표기 대응"],
-          ["후위 순회(Post-Order)", "좌→우→루트\n후위 표기식", "좌우 재귀 후 방문\n수식 표기 대응"],
+          ["노드 방문 순서", "Root → Left\n→ Right", "Left → Root\n→ Right", "Left → Right\n→ Root"],
+          ["의사 코드", "Visit(node)\nPre(node.left)\nPre(node.right)", "In(node.left)\nVisit(node)\nIn(node.right)", "Post(node.left)\nPost(node.right)\nVisit(node)"],
+          ["수식 표기", "전위 표기", "중위 표기", "후위 표기"],
         ],
       },
     ],
@@ -13796,26 +13813,15 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "계층별 역할과 프로토콜 [아파서티내다]",
-        headers: ["계층", "키워드", "설명"],
+        headers: ["계층", "상세설명", "프로토콜"],
         rows: [
-          ["7계층 Application", "사용자 접근 제공\nHTTP FTP", "UI 메일 제공\n웹·파일 전송"],
-          ["7계층 Application", "SMTP NFS\nSNMP NTP", "메일·파일공유\n망관리 시각동기"],
-          ["7계층 Application", "Telnet\nRTSP", "원격 접속 제공\n스트리밍 제어"],
-          ["6계층 Presentation", "데이터 표현 변환\nJPEG XDR", "두 장치 일관 이해\n이미지 표현규약"],
-          ["6계층 Presentation", "MPEG SMB\nAFP", "동영상 압축\n파일 공유 규약"],
-          ["5계층 Session", "통신 세션 구성\nTLS SSH", "포트 연결 확인\n보안 세션 연결"],
-          ["5계층 Session", "RPC\nNetBIOS", "원격 호출 규약\n세션 이름 관리"],
-          ["4계층 Transport", "종단간 에러 관리\nTCP UDP", "재전송 신뢰 보장\n연결 비연결 전송"],
-          ["4계층 Transport", "RTP SCTP\nSPX", "실시간 다중 전송\n세그먼트 전송"],
-          ["3계층 Network", "목적지 패킷 전달\nIP ICMP", "다중 링크 경유\n주소 지정 통보"],
-          ["3계층 Network", "IGMP ARP\nRARP IPX", "그룹·주소 변환\n역변환 전달"],
-          ["3계층 Network", "X.25 BGP\nCLNP RIP", "패킷망 경로선택\n무연결 거리벡터"],
-          ["3계층 Network", "OSPF DDP", "링크상태 라우팅"],
-          ["2계층 Data Link", "오류 없는 프레임\nPPP HDLC", "장치 간 프레임\n점대점 링크"],
-          ["2계층 Data Link", "이더넷 ISDN\nFDDI 토큰링", "매체 접근 전송\n링형 망 전송"],
-          ["1계층 Physical", "비트 흐름 전송\nRS-232C", "물리 접속 제어\n직렬 전송 규격"],
-          ["1계층 Physical", "광 섬유\n동축케이블", "광 전송 매체\n구리 전송 매체"],
-          ["1계층 Physical", "ISDN DSL", "가입자 회선 전송"],
+          ["7계층 Application", "사용자 접근 제공\nUI·전자우편\nDB 관리 서비스", "HTTP, SMTP, SNMP\nFTP, Telnet, NFS\nRTSP, NTP"],
+          ["6계층 Presentation", "I/O 데이터를\n표현 형태로 변환\n두 장치 일관 이해", "JPEG, MPEG\nXDR, SMB\nAFP"],
+          ["5계층 Session", "통신세션 구성\n포트연결 확인\n상호작용 동기화", "TLS, SSH, RPC\nNetBIOS\nAppleTalk"],
+          ["4계층 Transport", "제어·에러 관리\n재전송 신뢰 보장", "TCP, UDP, RTP\nSCTP, SPX"],
+          ["3계층 Network", "다중 링크에서\n패킷 목적지 전달\n시작~최종까지\n전달되도록 관리", "IP, ICMP, IGMP\nX.25, CLNP, ARP\nRARP, BGP, OSPF\nRIP, IPX, DDP"],
+          ["2계층 Data Link", "오류 없이 프레임\n장치 간 전달\nMAC 주소 참조\n해당 포트 전송", "PPP, HDLC\nEthernet\nTokenRing\nISDN, FDDI"],
+          ["1계층 Physical", "물리 매체로\n비트 흐름 전송\n물리적 접속 제어", "RS-232C, 광 섬유\n동축케이블\nISDN, DSL"],
         ],
       },
       {
