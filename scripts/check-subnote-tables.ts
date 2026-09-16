@@ -3,7 +3,8 @@
  *   npx tsx scripts/check-subnote-tables.ts
  *
  * 규칙(CLAUDE.md "교재 자료를 옮길 때"):
- *  - 열 구성은 교재 표를 그대로 따른다(2~9열). 머리글도 교재 그대로.
+ *  - 열 구성은 교재 표를 그대로 따른다(1~9열). 머리글도 교재 그대로.
+ *    교재가 한 줄짜리 목록이면 1열 표로 둔다 — 없는 열을 지어내지 않는다.
  *    비교표라면 [구분 | A | B | C], 설명표라면 [구분 | 구성요소 | 설명] 식이다.
  *  - 모든 행은 헤더와 같은 수의 셀을 가진다.
  *  - 1열(구분)을 뺀 나머지 열은 1~4줄(\n).
@@ -30,7 +31,7 @@ for (const s of SUBNOTES) {
     tables++;
     const where = `${s.title}@${s.course} 표${ti + 1}`;
     const n = tb.headers.length;
-    if (n < 2 || n > 9) errs.push(`${where}: 헤더 ${n}개`);
+    if (n < 1 || n > 9) errs.push(`${where}: 헤더 ${n}개`);
     tb.rows.forEach((r, ri) => {
       rows++;
       if (r.length !== n) {
