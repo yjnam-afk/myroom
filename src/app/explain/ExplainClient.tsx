@@ -593,9 +593,9 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
                     <table className="w-full border-collapse text-xs">
                       <thead>
                         <tr>
-                          {tb.headers.map((h) => (
+                          {tb.headers.map((h, hi) => (
                             <th
-                              key={h}
+                              key={hi}
                               className="border border-slate-300 bg-slate-100 px-2 py-1.5 text-left font-bold text-slate-700"
                             >
                               {h}
