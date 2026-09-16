@@ -5389,7 +5389,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       {
         name: "Choreography Based SAGA",
         lead: "이벤트 전파의 자율 조율",
-        def: "로컬 트랜잭션 완료 후 이벤트를 발행해 다음 서비스를 실행하는 방식",
+        def: "로컬 트랜잭션 완료 후 이벤트를 발행해 다음 서비스를 실행하는 조율 방식",
       },
       {
         name: "Orchestration Based SAGA",
@@ -8040,6 +8040,33 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "LLM 한계 극복의 기술군, LLM 성능 향상 기술",
     features: ["추론 강화", "지식 보강", "효율화"],
+    subDefs: [
+      {
+        name: "추론 능력 강화(Reasoning Enhancement)",
+        lead: "논리적 사고 과정의 유도",
+        def: "모델이 논리적 사고 과정을 통해 정확하고 신뢰성 있는 응답을 만드는 기술",
+      },
+      {
+        name: "외부 지식 활용 및 정밀 검색(RAG)",
+        lead: "외부 지식의 문맥 보강",
+        def: "외부 데이터베이스를 참조해 최신 정보와 문맥을 보강해 응답하는 기술",
+      },
+      {
+        name: "모델 병합 및 결합(Merging & Integration)",
+        lead: "사전 훈련 모델의 결합",
+        def: "여러 사전 훈련된 모델을 결합해 성능을 높이거나 태스크에 맞추는 기술",
+      },
+      {
+        name: "효율성 및 비용 절감(Optimization & Efficiency)",
+        lead: "계산 비용의 절감",
+        def: "모델의 계산 비용을 줄이면서도 성능을 유지하거나 향상시키는 기술 전반",
+      },
+      {
+        name: "멀티모달 통합(Multimodal Integration)",
+        lead: "여러 모달의 동시 처리",
+        def: "텍스트뿐 아니라 이미지·음성·영상을 함께 처리하도록 확장하는 기술",
+      },
+    ],
     keywords: ["추론 능력 강화", "RAG", "모델 병합 및 결합", "효율성 및 비용 절감", "멀티모달 통합"],
     tables: [
       {
@@ -12402,6 +12429,43 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "운영 성과 측정과 정비, 정보시스템 운영 성과관리",
     features: ["정량 측정", "정비 연계", "법정 근거"],
+    subDefs: [
+      {
+        name: "업무성과 계획관리",
+        lead: "성과 지표의 목표 수립",
+        def: "운영 성과를 측정하도록 성과 지표를 설계하고 매년 목표를 수립하는 절차",
+      },
+      {
+        name: "통폐합 대상관리",
+        lead: "하위 등급의 통폐합 검토",
+        def: "3~4등급으로 분류된 정보시스템의 통폐합 가능성을 검토하는 절차",
+      },
+      {
+        name: "성과측정 대상관리",
+        lead: "측정 대상의 확인·제외",
+        def: "성과측정 대상을 확인하고 필요한 경우 성과측정 제외를 신청하는 절차",
+      },
+      {
+        name: "성과측정 및 평가",
+        lead: "비용·업무 성과의 측정",
+        def: "비용과 업무 측면의 성과를 측정해 그 결과와 증빙자료를 제출하는 절차",
+      },
+      {
+        name: "폐기 예외관리",
+        lead: "폐기 대상의 예외 신청",
+        def: "총점 40점 미만 폐기 대상 중 예외 사유에 해당하면 신청·관리하는 절차",
+      },
+      {
+        name: "정비계획 수립",
+        lead: "개선·폐기 대상의 계획",
+        def: "정비유형이 개선·폐기로 분류된 정보시스템의 정비계획을 세우는 절차",
+      },
+      {
+        name: "정비계획 이행관리",
+        lead: "정비방식·시점의 이행",
+        def: "수립한 정비계획의 정비방식과 시점에 따라 활동을 수행·관리하는 절차",
+      },
+    ],
     keywords: ["전자정부법 제23조", "운영의 적정성", "유지의 용이성", "비용의 효율성", "기능 활용도", "업무성과 달성도"],
     tables: [
       {
@@ -12687,6 +12751,23 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "포인터 연결의 동적 구조, 링크드 리스트",
     features: ["동적 크기", "삽입·삭제 용이", "순차 접근"],
+    subDefs: [
+      {
+        name: "Head",
+        lead: "리스트 참조의 시작점",
+        def: "외부에서 해당 리스트를 참조할 때 가장 처음 접근하는 시작점 노드 주소",
+      },
+      {
+        name: "Tail",
+        lead: "리스트 처리의 종료점",
+        def: "해당 리스트를 참조하거나 처리할 때 끝을 알리는 종료점 역할의 끝 노드",
+      },
+      {
+        name: "Node",
+        lead: "데이터와 포인터의 단위",
+        def: "실제 데이터와 다음 노드를 가리키는 포인터로 구성되는 자료 저장 단위",
+      },
+    ],
     keywords: ["노드 = 데이터 + 포인터", "Singly / Doubly / Single Circular / Double Circular Linked List"],
     tables: [
       {
@@ -12864,6 +12945,18 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "최대·최소의 빠른 접근, 힙(Heap)",
     features: ["완전 이진 트리", "부분 정렬", "우선순위 큐"],
+    subDefs: [
+      {
+        name: "최대 힙(Max-Heap)",
+        lead: "루트가 최대인 완전 이진 트리",
+        def: "완전 이진 트리에서 한 노드가 모든 자손 노드들보다 큰 키 값을 가지는 힙",
+      },
+      {
+        name: "최소 힙(Min-Heap)",
+        lead: "루트가 최소인 완전 이진 트리",
+        def: "완전 이진 트리에서 한 노드가 모든 후손 노드들보다 작은 키 값을 갖는 힙",
+      },
+    ],
     keywords: ["완전 이진 트리", "최대 힙(Max-Heap)", "최소 힙(Min-Heap)"],
     tables: [
       {
@@ -14586,6 +14679,23 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "무선 인프라의 공동 이용, RAN Sharing",
     features: ["설비 공유", "비용 절감", "방식 3종"],
+    subDefs: [
+      {
+        name: "MOCN(Multiple Operator Core Network)",
+        lead: "주파수까지 공유의 방식",
+        def: "주파수·기지국·컨트롤러는 공유하고 코어망은 별도로 구성하는 방식",
+      },
+      {
+        name: "MORAN(Multiple Operator Radio Access Network)",
+        lead: "주파수 구분의 공유 방식",
+        def: "기지국과 컨트롤러는 공유하되 주파수는 구분해서 사용하는 공유 방식",
+      },
+      {
+        name: "GWCN(GateWay Core Network)",
+        lead: "코어망 일부까지 공유",
+        def: "코어망의 MME와 S-GW까지 공유하고 P-GW만 따로 두는 방식",
+      },
+    ],
     keywords: ["MOCN", "MORAN", "GWCN"],
     tables: [
       {
@@ -16270,29 +16380,29 @@ export const SUBNOTES: TextbookSubnote[] = [
     features: ["투명성", "지역 자율성", "2PC"],
     subDefs: [
       {
-        name: "추론 능력 강화(Reasoning Enhancement)",
-        lead: "논리적 사고 과정의 유도",
-        def: "모델이 논리적 사고 과정을 통해 정확하고 신뢰성 있는 응답을 만드는 기술",
+        name: "위치 투명성",
+        lead: "물리적 위치의 은닉",
+        def: "접근할 데이터의 물리적 위치를 알아야 할 필요가 없는 분산 DB의 성질",
       },
       {
-        name: "외부 지식 활용 및 정밀 검색(RAG)",
-        lead: "외부 지식의 문맥 보강",
-        def: "외부 데이터베이스를 참조해 최신 정보와 문맥을 보강해 응답하는 기술",
+        name: "복제 투명성",
+        lead: "복제 여부의 은닉",
+        def: "데이터가 물리적으로 여러 곳에 복제되어 있는지를 알 필요가 없는 성질",
       },
       {
-        name: "모델 병합 및 결합(Merging & Integration)",
-        lead: "사전 훈련 모델의 결합",
-        def: "여러 사전 훈련된 모델을 결합해 성능을 높이거나 태스크에 맞추는 기술",
+        name: "병행 투명성",
+        lead: "동시 수행의 무결성",
+        def: "다중 사용자가 동시에 트랜잭션을 수행해도 결과 이상이 없는 분산 성질",
       },
       {
-        name: "효율성 및 비용 절감(Optimization & Efficiency)",
-        lead: "계산 비용의 절감",
-        def: "모델의 계산 비용을 줄이면서도 성능을 유지하거나 향상시키는 기술 전반",
+        name: "분할 투명성",
+        lead: "단편 분할의 은닉",
+        def: "하나의 논리적 릴레이션이 여러 단편으로 분할·저장됨을 모르는 성질",
       },
       {
-        name: "멀티모달 통합(Multimodal Integration)",
-        lead: "여러 모달의 동시 처리",
-        def: "텍스트뿐 아니라 이미지·음성·영상을 함께 처리하도록 확장하는 기술",
+        name: "장애 투명성",
+        lead: "지역 장애의 무결성 보존",
+        def: "분산된 각 지역의 시스템에 이상이 생기더라도 무결성을 보존하는 성질",
       },
     ],
     keywords: ["2PC", "투명성"],
@@ -16645,6 +16755,28 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "RDBMS 자료 검색·관리와 스키마 정의, 접근 제어를 위한 표준 언어",
     lead: "RDBMS 표준 질의 언어, SQL(Structured Query Language)",
     features: ["DDL·DML", "DCL·TCL", "비절차적 언어"],
+    subDefs: [
+      {
+        name: "DDL (Data Definition Language)",
+        lead: "스키마 객체의 구조 정의",
+        def: "스키마 객체를 생성·변경·제거해 데이터베이스 구조를 설정하는 언어",
+      },
+      {
+        name: "DML (Data Manipulation Language)",
+        lead: "저장 자료의 조작",
+        def: "데이터베이스에 저장된 자료들을 입력·수정·삭제·조회하는 언어",
+      },
+      {
+        name: "DCL (Data Control Language)",
+        lead: "사용자 권한의 제어",
+        def: "사용자에게 권한을 주거나 삭제하는 데이터 접근 제어용 SQL 명령어",
+      },
+      {
+        name: "TCL (Transaction Control Language)",
+        lead: "트랜잭션의 제어",
+        def: "트랜잭션을 제어하는 명령으로 DCL에서 COMMIT을 분리한 언어",
+      },
+    ],
     keywords: ["비절차적 언어", "DDL", "DML", "DCL", "TCL", "SQL-99"],
     tables: [
       {
@@ -18439,6 +18571,23 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "HW 용량·성능 산정 표준, 정보시스템 하드웨어 규모산정 지침",
     features: ["수식·참조·시뮬", "4단계 절차", "tpmC 지표"],
+    subDefs: [
+      {
+        name: "수식계산법",
+        lead: "요소 계산의 보정 적용",
+        def: "규모산정 요소를 토대로 용량 수치를 계산하고 보정치를 적용하는 방법",
+      },
+      {
+        name: "참조법",
+        lead: "유사 시스템의 비교",
+        def: "업무량에 따라 기본 데이터로 비슷한 규모와 비교하여 산정하는 산정법",
+      },
+      {
+        name: "시뮬레이션법",
+        lead: "작업부하의 모의 실행",
+        def: "대상 업무의 작업부하를 모델링하고 시뮬레이션해 규모를 산정하는 방법",
+      },
+    ],
     keywords: ["수식계산법", "참조법", "시뮬레이션법"],
     tables: [
       {
@@ -21209,24 +21358,19 @@ export const SUBNOTES: TextbookSubnote[] = [
     features: ["생체 고유성", "비대면 식별", "FAR·FRR 지표"],
     subDefs: [
       {
-        name: "DDL (Data Definition Language)",
-        lead: "스키마 객체의 구조 정의",
-        def: "스키마 객체를 생성·변경·제거해 데이터베이스 구조를 설정하는 언어",
+        name: "FRR(False Rejection Rate)",
+        lead: "정상 사용자의 오거부율",
+        def: "올바른 사용자를 잘못된 사용자로 오인식하여 거부하는 비율의 측정 지표",
       },
       {
-        name: "DML (Data Manipulation Language)",
-        lead: "저장 자료의 조작",
-        def: "데이터베이스에 저장된 자료들을 입력·수정·삭제·조회하는 언어",
+        name: "FAR(False Acceptance Rate)",
+        lead: "타인의 오인식 허용률",
+        def: "잘못된 사용자를 올바른 사용자로 인식하여 허용하는 비율의 측정 지표",
       },
       {
-        name: "DCL (Data Control Language)",
-        lead: "사용자 권한의 제어",
-        def: "사용자에게 권한을 주거나 삭제하는 데이터 접근 제어용 SQL 명령어",
-      },
-      {
-        name: "TCL (Transaction Control Language)",
-        lead: "트랜잭션의 제어",
-        def: "트랜잭션을 제어하는 명령으로 DCL에서 COMMIT을 분리한 언어",
+        name: "EER(Equal Error Rate)",
+        lead: "두 오류율의 교차점",
+        def: "FAR과 FRR이 같아지는 지점의 오류율로 값이 낮을수록 우수한 지표",
       },
     ],
     keywords: ["보편성", "유일성", "영구성", "획득성", "정확성", "접근성", "기만성", "[지열홍정 음걸행서]", "FRR", "FAR", "EER"],
