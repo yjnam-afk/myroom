@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { flushSync } from "react-dom";
 import type { PeerAnswer } from "@/data/peerAnswers";
 
 /**
@@ -16,6 +17,24 @@ import type { PeerAnswer } from "@/data/peerAnswers";
 export default function PeerAnswers({ items }: { items: PeerAnswer[] }) {
   const [open, setOpen] = useState<string | null>(null);
   const [zoom, setZoom] = useState<string | null>(null);
+  const rows = useRef(new Map<string, HTMLDivElement | null>());
+
+  /**
+   * 한 번에 하나만 펼치므로, 위쪽에 펼쳐져 있던 답안이 같이 접힌다. 접힌
+   * 만큼 문서가 짧아지는데 브라우저는 스크롤 위치를 그대로 두기 때문에
+   * 방금 누른 답안이 화면 위로 사라진다(스캔이 수천 px 라 화면 끝까지
+   * 밀린다). 누른 줄의 화면상 위치를 재어 두었다가 접힌 만큼 스크롤을
+   * 되돌려 제자리에 붙잡는다.
+   */
+  const toggle = (id: string) => {
+    const el = rows.current.get(id);
+    const before = el?.getBoundingClientRect().top;
+    flushSync(() => setOpen(open === id ? null : id));
+    if (el && before != null) {
+      const delta = el.getBoundingClientRect().top - before;
+      if (delta) window.scrollBy(0, delta);
+    }
+  };
 
   if (items.length === 0) return null;
 
@@ -35,10 +54,15 @@ export default function PeerAnswers({ items }: { items: PeerAnswer[] }) {
         {items.map((a) => {
           const isOpen = open === a.id;
           return (
-            <div key={a.id}>
+            <div
+              key={a.id}
+              ref={(el) => {
+                rows.current.set(a.id, el);
+              }}
+            >
               <button
                 type="button"
-                onClick={() => setOpen(isOpen ? null : a.id)}
+                onClick={() => toggle(a.id)}
                 className="flex w-full items-start gap-3 px-5 py-3.5 text-left transition hover:bg-slate-50"
               >
                 <span className="mt-0.5 text-slate-400">{isOpen ? "▾" : "▸"}</span>
