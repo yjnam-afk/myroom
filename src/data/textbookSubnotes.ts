@@ -8044,13 +8044,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "주요기법 [추R모효멀]",
-        headers: ["기술 그룹", "정의", "주요 기법"],
+        headers: ["기술 그룹", "주요 기법"],
         rows: [
-          ["추론 능력 강화(Reasoning Enhancement)", "논리적 사고 과정\n정확한 응답 생성\n신뢰성 향상", "Chain of Thought\nTree of Thought\nLeast-to-Most"],
-          ["외부 지식 활용 및 정밀 검색(Retrieval-Augmented Generation, RAG)", "외부 DB 참조로\n최신 정보 반영", "RAG\nKnowledge-Intensive NLP"],
-          ["모델 병합 및 결합(Merging & Integration)", "사전학습 결합\n태스크 맞춤 조정", "Model Merging\nDARE, Evolutionary"],
-          ["효율성 및 비용 절감(Optimization & Efficiency)", "계산 비용 절감\n성능 유지·향상", "MoE, Sparse Attention\nQuantization, LoRA"],
-          ["멀티모달 통합(Multimodal Integration)", "이미지·음성·영상\n함께 처리 확장", "CLIP, Flamingo\nBLIP-2"],
+          ["추론 능력 강화(Reasoning Enhancement)", "Chain of Thought\nTree of Thought\nLeast-to-Most"],
+          ["외부 지식 활용 및 정밀 검색(Retrieval-Augmented Generation, RAG)", "RAG\nKnowledge-Intensive NLP"],
+          ["모델 병합 및 결합(Merging & Integration)", "Model Merging\nDARE, Evolutionary"],
+          ["효율성 및 비용 절감(Optimization & Efficiency)", "MoE, Sparse Attention\nQuantization, LoRA"],
+          ["멀티모달 통합(Multimodal Integration)", "CLIP, Flamingo\nBLIP-2"],
         ],
       },
       {
@@ -12406,15 +12406,15 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "추진절차",
-        headers: ["추진절차", "절차 정의", "주요활동"],
+        headers: ["추진절차", "주요활동"],
         rows: [
-          ["업무성과 계획관리", "성과지표 설계\n매년 목표 수립", "연중 실적 관리\n지표별 목표 수립"],
-          ["통폐합 대상관리", "3~4등급 대상\n통폐합 가능성", "가능성 검토\n불가 시 심의"],
-          ["성과측정 대상관리", "측정 대상 확인\n제외 신청 가능", "오픈 후 1년 경과"],
-          ["성과측정 및 평가", "비용·업무 성과\n증빙자료 제출", "비용측면 측정\n업무측면 측정"],
-          ["폐기 예외관리", "총점 40점 미만\n예외 사유 신청", "폐기예외 검토\n위원회 심의"],
-          ["정비계획 수립", "개선·폐기 분류\n정비계획 수립", "폐기→통폐합→\n고도화→재개발"],
-          ["정비계획 이행관리", "정비방식·시점\n활동 수행 관리", "정비활동 수행\n변경 시 심의"],
+          ["업무성과 계획관리", "연중 실적 관리\n지표별 목표 수립"],
+          ["통폐합 대상관리", "가능성 검토\n불가 시 심의"],
+          ["성과측정 대상관리", "오픈 후 1년 경과"],
+          ["성과측정 및 평가", "비용측면 측정\n업무측면 측정"],
+          ["폐기 예외관리", "폐기예외 검토\n위원회 심의"],
+          ["정비계획 수립", "폐기→통폐합→\n고도화→재개발"],
+          ["정비계획 이행관리", "정비활동 수행\n변경 시 심의"],
         ],
       },
       {
@@ -14590,11 +14590,11 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "공유 방식 비교",
-        headers: ["방식", "개념", "장점", "단점"],
+        headers: ["방식", "장점", "단점"],
         rows: [
-          ["MOCN(Multiple Operator Core Network)", "주파수·기지국\n컨트롤러 공유\n코어망은 별도", "구현·비용 유리\n인터페이스 단순\n공유 비용 절감", "차별화 어려움\n공용 RAN 사용\n품질 차별 곤란"],
-          ["MORAN(Multiple Operator Radio Access Network)", "기지국·컨트롤러\n주파수는 구분\n코어망은 별도", "차별화 가능\n대역폭 조절\n품질 차별화", "구현·비용 불리\n복잡성 증가\n절감 효과 저하"],
-          ["GWCN(GateWay Core Network)", "주파수·기지국\nMME·S-GW 공유\nP-GW는 별도", "비용 유리\n공유 요소 증대\nMOCN 대비 감소", "구현 불리\n공유 요소 증대\n복잡성 증대"],
+          ["MOCN(Multiple Operator Core Network)", "구현·비용 유리\n인터페이스 단순\n공유 비용 절감", "차별화 어려움\n공용 RAN 사용\n품질 차별 곤란"],
+          ["MORAN(Multiple Operator Radio Access Network)", "차별화 가능\n대역폭 조절\n품질 차별화", "구현·비용 불리\n복잡성 증가\n절감 효과 저하"],
+          ["GWCN(GateWay Core Network)", "비용 유리\n공유 요소 증대\nMOCN 대비 감소", "구현 불리\n공유 요소 증대\n복잡성 증대"],
         ],
       },
     ],
@@ -16270,19 +16270,29 @@ export const SUBNOTES: TextbookSubnote[] = [
     features: ["투명성", "지역 자율성", "2PC"],
     subDefs: [
       {
-        name: "Head",
-        lead: "리스트 참조의 시작점",
-        def: "외부에서 해당 리스트를 참조할 때 가장 처음 접근하는 시작점 노드 주소",
+        name: "추론 능력 강화(Reasoning Enhancement)",
+        lead: "논리적 사고 과정의 유도",
+        def: "모델이 논리적 사고 과정을 통해 정확하고 신뢰성 있는 응답을 만드는 기술",
       },
       {
-        name: "Tail",
-        lead: "리스트 처리의 종료점",
-        def: "해당 리스트를 참조하거나 처리할 때 끝을 알리는 종료점 역할의 끝 노드",
+        name: "외부 지식 활용 및 정밀 검색(RAG)",
+        lead: "외부 지식의 문맥 보강",
+        def: "외부 데이터베이스를 참조해 최신 정보와 문맥을 보강해 응답하는 기술",
       },
       {
-        name: "Node",
-        lead: "데이터와 포인터의 단위",
-        def: "실제 데이터와 다음 노드를 가리키는 포인터로 구성되는 자료 저장 단위",
+        name: "모델 병합 및 결합(Merging & Integration)",
+        lead: "사전 훈련 모델의 결합",
+        def: "여러 사전 훈련된 모델을 결합해 성능을 높이거나 태스크에 맞추는 기술",
+      },
+      {
+        name: "효율성 및 비용 절감(Optimization & Efficiency)",
+        lead: "계산 비용의 절감",
+        def: "모델의 계산 비용을 줄이면서도 성능을 유지하거나 향상시키는 기술 전반",
+      },
+      {
+        name: "멀티모달 통합(Multimodal Integration)",
+        lead: "여러 모달의 동시 처리",
+        def: "텍스트뿐 아니라 이미지·음성·영상을 함께 처리하도록 확장하는 기술",
       },
     ],
     keywords: ["2PC", "투명성"],
@@ -16639,12 +16649,12 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "SQL 유형",
-        headers: ["유형", "개념", "구문"],
+        headers: ["유형", "구문"],
         rows: [
-          ["DDL (Data Definition Language)", "스키마 객체의\n생성·변경·제거\nDB 구조 설정", "CREATE, ALTER\nDROP, TRUNCATE\nRENAME"],
-          ["DML (Data Manipulation Language)", "저장 자료의\n입력·수정·삭제\n조회 언어", "INSERT, UPDATE\nDELETE\nSELECT"],
-          ["DCL (Data Control Language)", "사용자 권한을\n부여·삭제", "GRANT\nREVOKE"],
-          ["TCL (Transaction Control Language)", "트랜잭션 제어\nDCL에서 분리", "COMMIT, ROLLBACK\nSAVEPOINT"],
+          ["DDL (Data Definition Language)", "CREATE, ALTER\nDROP, TRUNCATE\nRENAME"],
+          ["DML (Data Manipulation Language)", "INSERT, UPDATE\nDELETE\nSELECT"],
+          ["DCL (Data Control Language)", "GRANT\nREVOKE"],
+          ["TCL (Transaction Control Language)", "COMMIT, ROLLBACK\nSAVEPOINT"],
         ],
       },
     ],
@@ -18456,11 +18466,11 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "규모산정 방법 [수참시]",
-        headers: ["방법", "개념", "개념도"],
+        headers: ["방법", "개념도"],
         rows: [
-          ["수식계산법", "요소 기반 계산\n보정치 적용", "사용자수×보정치\n= CPU 2 Core"],
-          ["참조법", "업무량 기준\n유사 규모 비교", "유사 시스템\n→ 참조 → B"],
-          ["시뮬레이션법", "작업부하 모델링\n시뮬레이션 산정", "기본 산정(보정)\n↺ 부하·성능"],
+          ["수식계산법", "사용자수×보정치\n= CPU 2 Core"],
+          ["참조법", "유사 시스템\n→ 참조 → B"],
+          ["시뮬레이션법", "기본 산정(보정)\n↺ 부하·성능"],
         ],
       },
       {
@@ -21197,6 +21207,28 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "통신 환경에서 원거리 사용자 신분을 바이오인식으로 식별하는 인증 기술",
     lead: "원거리 사용자 바이오 식별, 텔레바이오 인증",
     features: ["생체 고유성", "비대면 식별", "FAR·FRR 지표"],
+    subDefs: [
+      {
+        name: "DDL (Data Definition Language)",
+        lead: "스키마 객체의 구조 정의",
+        def: "스키마 객체를 생성·변경·제거해 데이터베이스 구조를 설정하는 언어",
+      },
+      {
+        name: "DML (Data Manipulation Language)",
+        lead: "저장 자료의 조작",
+        def: "데이터베이스에 저장된 자료들을 입력·수정·삭제·조회하는 언어",
+      },
+      {
+        name: "DCL (Data Control Language)",
+        lead: "사용자 권한의 제어",
+        def: "사용자에게 권한을 주거나 삭제하는 데이터 접근 제어용 SQL 명령어",
+      },
+      {
+        name: "TCL (Transaction Control Language)",
+        lead: "트랜잭션의 제어",
+        def: "트랜잭션을 제어하는 명령으로 DCL에서 COMMIT을 분리한 언어",
+      },
+    ],
     keywords: ["보편성", "유일성", "영구성", "획득성", "정확성", "접근성", "기만성", "[지열홍정 음걸행서]", "FRR", "FAR", "EER"],
     tables: [
       {
@@ -21215,11 +21247,11 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "생체 인증 측정 지표",
-        headers: ["구분", "개념", "수식"],
+        headers: ["구분", "수식"],
         rows: [
-          ["FRR(False Rejection Rate)", "정상 사용자를\n오인식해 거부", "잘못된 거부 수 /\n정상 시도 수"],
-          ["FAR(False Acceptance Rate)", "타인을 정상으로\n인식해 허용", "잘못된 인증 수 /\n인증 시도 수"],
-          ["EER(Equal Error Rate)", "FAR·FRR 일치\n낮을수록 우수", "FAR = FRR 지점"],
+          ["FRR(False Rejection Rate)", "잘못된 거부 수 /\n정상 시도 수"],
+          ["FAR(False Acceptance Rate)", "잘못된 인증 수 /\n인증 시도 수"],
+          ["EER(Equal Error Rate)", "FAR = FRR 지점"],
         ],
       },
     ],
