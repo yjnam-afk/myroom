@@ -4,7 +4,8 @@
  *
  * 규칙(CLAUDE.md "교재 자료를 옮길 때"):
  *  - 3열(구분 | 키워드 | 설명), 각 행 셀 3개
- *  - 2열·3열은 1~2줄(\n), 두 열의 줄 수가 같다
+ *  - 2열·3열은 1~4줄(\n), 두 열의 줄 수가 같다
+ *    (구분 하나에 항목이 여럿이면 같은 구분으로 행을 반복하지 말고 줄로 쌓는다)
  *  - 한 줄은 공백 제외 1~7자(목표 5~7)
  *  - 예외: 공백이 없어 접을 수 없는 한 낱말은 12자까지 둔다
  *    (Thrashing·IR(addr)·PCB·스케줄링 같은 교재 용어. 교재 용어를 줄이지
@@ -29,7 +30,7 @@ for (const s of SUBNOTES) {
       }
       const l2 = r[1].split("\n");
       const l3 = r[2].split("\n");
-      if (l2.length !== l3.length || l2.length < 1 || l2.length > 2)
+      if (l2.length !== l3.length || l2.length < 1 || l2.length > 4)
         errs.push(`${where} 행${ri + 1}: 2열 ${l2.length}줄 / 3열 ${l3.length}줄`);
       for (const [ci, lines] of [[2, l2], [3, l3]] as const)
         for (const ln of lines) {

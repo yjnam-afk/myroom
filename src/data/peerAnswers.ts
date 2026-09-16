@@ -9595,6 +9595,33 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/k22h-se-해킹-피싱-스피어-피싱-파밍-kpc-83-4-12.jpg", label: "12쪽" },
     ],
   },
+  {
+    id: "peer-dvo-1",
+    period: "2교시",
+    no: "9",
+    question: "① DevOps CALMS 설명\n② 자동화를 위한 주요 기술",
+    exam: "ITPE 모의고사",
+    topicTitles: ["데브옵스 (DevOps)"],
+    score: 15.5,
+    maxScore: 25,
+    pages: [
+      { src: "/answers/dvo-1-1.jpg", label: "1쪽" },
+      { src: "/answers/dvo-1-2.jpg", label: "2쪽" },
+      { src: "/answers/dvo-1-3.jpg", label: "3쪽" },
+    ],
+  },
+  {
+    id: "peer-dvo-2-a",
+    period: "3교시",
+    no: "3",
+    question: "데브옵스를 CALMS(Culture/Automation/Lean/Measure/Share) 관점에서 설명하고, 이 중에서 자동화를 위한 주요 기술들에 대해 설명하시오",
+    exam: "제82회 KPC 기술사 IMPACT 실전모의고사",
+    topicTitles: ["데브옵스 (DevOps)"],
+    pages: [
+      { src: "/answers/dvo-2-1.jpg", label: "1쪽" },
+      { src: "/answers/dvo-2-2.jpg", label: "2쪽" },
+    ],
+  },
 ];
 
 /** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */
