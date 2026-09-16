@@ -9622,6 +9622,34 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/dvo-2-2.jpg", label: "2쪽" },
     ],
   },
+  {
+    id: "peer-sre2-2-b",
+    period: "2교시",
+    no: "3",
+    question: "SRE의 정의 및 등장배경, 구성요소, 수행방안 및 주요 성공요소 설명",
+    exam: "NS반 모의고사 10기 9주차",
+    topicTitles: ["SRE (Site Reliability Engineering)"],
+    score: 15.2,
+    maxScore: 25,
+    pages: [
+      { src: "/answers/sre2-2-5.jpg", label: "5쪽" },
+      { src: "/answers/sre2-2-6.jpg", label: "6쪽" },
+      { src: "/answers/sre2-2-7.jpg", label: "7쪽" },
+      { src: "/answers/sre2-2-8.jpg", label: "8쪽" },
+    ],
+  },
+  {
+    id: "peer-sre2-3",
+    period: "1교시",
+    no: "7",
+    question: "SRE(Site Reliability Engineering)",
+    exam: "NS반 모의고사 11기 3주차",
+    topicTitles: ["SRE (Site Reliability Engineering)"],
+    pages: [
+      { src: "/answers/sre2-3-1.jpg", label: "1쪽" },
+      { src: "/answers/sre2-3-2.jpg", label: "2쪽" },
+    ],
+  },
 ];
 
 /** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */
