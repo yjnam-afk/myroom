@@ -11454,11 +11454,11 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "소프트웨어 프로세스 품질인증 등급",
-        headers: ["등급", "키워드", "설명"],
+        headers: ["등급", "설명", "심사 영역"],
         rows: [
-          ["1", "목표 충족 미흡\n역량 개선 필요", "품질 비용 납기\n심사 영역 없음"],
-          ["2", "개별 PJT 관리\n관리 개발 지원", "프로세스 통제\n3개 영역 심사"],
-          ["3", "조직 차원 정의\n5개 영역 심사", "일관 품질 개선\n관리·개선 추가"],
+          ["1", "품질·비용·납기\n안정 충족 못함\n역량 개선 필요", "없음"],
+          ["2", "개별 PJT 차원\n수립·통제\n성공적 수행", "프로젝트 관리\n개발, 지원"],
+          ["3", "조직 차원 정의\n문제 해결\n일관 품질 개선", "프로젝트 관리\n조직관리·개선\n개발, 지원"],
         ],
       },
     ],
@@ -11932,13 +11932,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "난독화 기술 분류 [구데집제예]",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "설명", "세부분류"],
         rows: [
-          ["구획 난독화(layout obfuscation)", "형식변화·주석\n식별자 손상", "세부 요소 제거\n복원 시 내용 훼손"],
-          ["데이터 난독화(data obfuscation)", "변수 분할·병합\n인코딩 변환", "데이터 변수 변환\n읽기 어렵게 처리"],
-          ["집합 난독화(aggregation obfuscation)", "자료순서 변환\n클래스 분할", "배열 변환 난독화\n한 클래스→둘"],
-          ["제어 난독화(Control obfuscation)", "제어 복잡화\n집합·순서 연산", "제어 흐름 복잡화\n문장 단위 조절"],
-          ["예방 난독화(Preventive obfuscation)", "표적형·내재형", "역난독화 봉쇄"],
+          ["구획 난독화(layout obfuscation)", "세부 요소 변화\n복원해도 훼손", "형식변화·주석제거\n식별자손상"],
+          ["데이터 난독화(data obfuscation)", "변수 분할·병합\n읽기 어렵게", "Storage, Aggregation\nOrdering, Encoding"],
+          ["집합 난독화(aggregation obfuscation)", "배열 변환\n클래스 분할", "자료순서변환\n클래스분할"],
+          ["제어 난독화(Control obfuscation)", "제어 복잡화\n문장 단위 조절", "Aggregation\nOrdering, Computation"],
+          ["예방 난독화(Preventive obfuscation)", "역난독화 방법\n봉쇄", "Targeted, Inherent"],
         ],
       },
       {
@@ -12866,15 +12866,15 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "유형",
-        headers: ["유형", "키워드", "설명"],
+        headers: ["유형", "설명", "사례"],
         rows: [
-          ["O(1)", "상수형\n해시 함수 사례", "입력 크기 무관\n바로 해 도출"],
-          ["O(log N)", "로그형\n이진탐색 사례", "입력 자료 분할\n하나만 처리"],
-          ["O(N)", "선형\n단순탐색 사례", "자료 차례로 처리\n하나씩 모두 검사"],
-          ["O(N log N)", "분할·합병형\n퀵 정렬 사례", "자료 분할 처리\n처리 후 합병"],
-          ["O(N²)", "제곱형\n버블 정렬 사례", "이중 루프 구조\n기본 연산 반복"],
-          ["O(N³)", "세제곱형\n최단 경로 사례", "삼중 루프 구조\n경로 탐색 처리"],
-          ["O(2ⁿ)", "지수형\n동적 계획법 사례", "가능한 해법 전수\n모두 검사 처리"],
+          ["O(1)", "상수형\n입력 크기 무관", "해시 함수"],
+          ["O(log N)", "로그형\n나눠 하나만 처리", "이진탐색"],
+          ["O(N)", "선형\n하나씩 모두 처리", "단순탐색"],
+          ["O(N log N)", "분할·합병형\n분할 후 합병", "퀵 정렬"],
+          ["O(N²)", "제곱형\n2중 loop", "버블 정렬"],
+          ["O(N³)", "세제곱형\n3중 loop", "최단 경로 탐색"],
+          ["O(2ⁿ)", "지수형\n모든 해법 검사", "동적 계획법"],
         ],
       },
       {
@@ -13742,20 +13742,12 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "표현 사례 — T.CONNECT.request(called address, calling address, …, user data)",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "설명", "예"],
         rows: [
-          ["① 서비스 제공 계층", "계층 식별 문자", "어느 계층 서비스"],
-          ["① 서비스 제공 계층", "L 링크 N 망", "링크·망 계층"],
-          ["① 서비스 제공 계층", "T 전송 S 세션", "전송·세션 계층"],
-          ["② 수행되는 동작 이름", "무슨 동작인지", "동작 이름 표기"],
-          ["② 수행되는 동작 이름", "CONNECT\nDATA 등", "연결 설정 동작\n데이터 전송 등"],
-          ["③ 프리미티브 방향", "요구 프리미티브", "Request"],
-          ["③ 프리미티브 방향", "지시 프리미티브", "상대 계층 통지"],
-          ["③ 프리미티브 방향", "응답 프리미티브", "수신측 회신"],
-          ["③ 프리미티브 방향", "확인 프리미티브", "요청 결과 확인"],
-          ["④ 파라미터", "함께 전달 값", "괄호 안 인자"],
-          ["④ 파라미터", "주소 파라미터\n사용자 데이터", "송수신 주소\n전달 데이터"],
-          ["④ 파라미터", "서비스 형태\n데이터 최대크기", "원하는 서비스\n최대 크기 지정"],
+          ["① 서비스 제공 계층", "어느 계층이\n제공하는 서비스", "L: Link\nN: Network\nT: Transport\nS: Session"],
+          ["② 수행되는 동작 이름", "무슨 동작인지", "CONNECT, DATA 등"],
+          ["③ 프리미티브 방향", "요청·지시·응답\n확인 중 어느 것", "Request, Indication\nResponse, Confirm"],
+          ["④ 파라미터", "함께 전달하는 값", "주소·사용자 값\n서비스 형태\n데이터 최대크기"],
         ],
       },
     ],
@@ -14177,11 +14169,11 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "CRC 처리 과정",
-        headers: ["단계", "키워드", "설명"],
+        headers: ["단계", "설명", "특징 및 관련요소"],
         rows: [
-          ["Encoding(CRC 계산)", "Divisor\n다항식 표현", "0 부가 나눗셈\n대수식 사용"],
-          ["Transmission(Data+CRC)", "코드워드 전송\n비신뢰 전송", "수신측에 전달\n손실·중복 가능"],
-          ["Decoding(에러체크)", "나머지 연산\n나머지 0 확인", "수신 워드 검사\n0 아니면 재전송"],
+          ["Encoding(CRC 계산)", "데이터+n비트를\n(n+1)비트로 나눔\n코드 워드 생성", "Divisor는\n대수다항식 표현\nx⁸+x²+x+1"],
+          ["Transmission(Data+CRC)", "코드 워드를\n수신측에 전송", "비신뢰 전송\n손실·중복 가능"],
+          ["Decoding(에러체크)", "Divisor로 나눔\n나머지 0 → 정상", "0 아니면 에러\n재전송 요청"],
         ],
       },
       {
@@ -14919,12 +14911,12 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "SDN 구성 요소",
-        headers: ["구성 요소", "키워드", "설명"],
+        headers: ["구성 요소", "설명", "비고"],
         rows: [
-          ["Application", "사용자 서비스", "상위 응용 지원"],
-          ["Interface", "오픈플로우", "제어 전달 연계"],
-          ["Control Plane", "중앙 집중 제어\nACL 라우팅", "제어 기능 통합\n인증 정책 수행"],
-          ["Data Plane", "단순 포워딩\n오픈플로우 확장", "스위칭만 수행\nL2 L3 스위치"],
+          ["Application", "상위에서 사용자\n서비스 지원", "SDN Application\nLogic"],
+          ["Interface", "Data·Control\nPlane 간 연계", "OpenFlow"],
+          ["Control Plane", "제어 기능의\n중앙집중화", "SDN Control Logic\nACL, Routing, 인증"],
+          ["Data Plane", "단순 패킷 포워딩\n스위칭만 구현", "Forward Engine"],
         ],
       },
       {
@@ -15522,11 +15514,11 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "데이터 독립성을 위한 스키마 요소",
-        headers: ["Schema", "키워드", "설명"],
+        headers: ["Schema", "설명", "뷰"],
         rows: [
-          ["외부(서브) 스키마", "응용·사용자\n각 사용자 뷰", "DB의 측면 표현\n관점별 뷰 구성"],
-          ["개념 스키마", "DB 논리적 구조\n통합 관점 뷰", "사용자 관점 통합\n사용자 공통체 뷰"],
-          ["내부 스키마", "저장장치 입장\n물리적 저장 뷰", "저장 방법 명세\n내부 스키마 구성"],
+          ["외부(서브) 스키마", "응용·사용자가\n보는 DB 측면", "각 사용자 뷰"],
+          ["개념 스키마", "DB의 논리적 구조\n조직 전체 기술", "사용자 공통체 뷰\n(통합 관점)"],
+          ["내부 스키마", "저장장치 입장의\n저장 방법 명세", "물리적 저장 뷰"],
         ],
       },
       {
@@ -15604,26 +15596,26 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "데이터 무결성 [개참속사키도]",
-        headers: ["구분", "키워드", "설명"],
+        headers: ["구분", "설명", "제약 조건"],
         rows: [
-          ["개체 무결성 (Entity Integrity)", "기본키 값 필수\n유일 최소 집합", "NOT NULL\nPK 제약조건"],
-          ["참조 무결성 (Referential Integrity)", "외래키→기본키\nFK 제약조건", "참조 값 또는 널\nFK로 관계 강제"],
-          ["속성 무결성 (Attribute Integrity)", "지정 데이터 형식\n자료형 제약", "형식 만족 값만\n문자·날짜·수"],
-          ["사용자 정의 무결성", "업무 규칙 준수\n트리거·체크", "모든 데이터 적용\n제약 구현 수단"],
-          ["키 무결성 (Key Integrity)", "동일 키값 불허\nPK+유니크", "튜플 중복 금지\n유일성 구현"],
-          ["도메인 무결성 (Domain Integrity)", "도메인 범위 내 값\nCHECK 제약", "정의된 범위 속함\n기본값 지정"],
+          ["개체 무결성 (Entity Integrity)", "기본키는 값 필수\n유일성 최소 집합", "Primary Key\nNot Null"],
+          ["참조 무결성 (Referential Integrity)", "외래키 값은 참조\n기본키 또는 NULL", "Foreign Key"],
+          ["속성 무결성 (Attribute Integrity)", "지정 데이터 형식\n만족하는 값만", "Character, Date\nVARCHAR2, NUMBER"],
+          ["사용자 정의 무결성", "Business Rule\n준수", "Trigger, Check\nUser Type, DEFAULT"],
+          ["키 무결성 (Key Integrity)", "동일 키값 튜플\n허용 불가", "Primary Key +\nUnique Index"],
+          ["도메인 무결성 (Domain Integrity)", "정의된 도메인\n범위에 속함", "CHECK, Default"],
         ],
       },
       {
         caption: "릴레이션 무결성 [상과집튜즉지]",
-        headers: ["유형", "키워드", "설명"],
+        headers: ["제약구분", "유형", "설명", "특징"],
         rows: [
-          ["[상태] 상태제약 (State)", "일관성 명세\n정적 제약", "일관 상태 조건\n특정 시점 만족"],
-          ["[상태] 과도제약 (Transition)", "상태 변환 규칙\n동적 제약", "변경 전·후 만족\n직전/후 비교"],
-          ["[범위] 집합제약 (Set)", "튜플 집합 전체", "CHECK 전체"],
-          ["[범위] 튜플제약 (Tuple)", "처리 중 튜플만", "CHECK 단일"],
-          ["[시점] 즉시제약 (Immediate)", "연산 즉시 적용", "AFTER 사용"],
-          ["[시점] 지연제약 (Deferred)", "트랜잭션 완료 후", "커밋 시 적용"],
+          ["상태", "상태제약 (State)", "일관성 상태 조건\n정적 제약", "특정시점에 만족"],
+          ["상태", "과도제약 (Transition)", "상태 변환 규칙\n동적 제약", "변환 전·후 비교"],
+          ["범위", "집합제약 (Set)", "튜플 집합 전체\n적용 규칙", "CHECK 절 전체"],
+          ["범위", "튜플제약 (Tuple)", "처리 중 튜플만\n적용 규칙", "CHECK 절 단일"],
+          ["시점", "즉시제약 (Immediate)", "연산 즉시 적용", "AFTER 사용"],
+          ["시점", "지연제약 (Deferred)", "트랜잭션 완료 후\n적용", "WHEN COMMIT"],
         ],
       },
     ],
@@ -15662,11 +15654,11 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "제약유형",
-        headers: ["제약유형", "키워드", "설명"],
+        headers: ["제약유형", "설명", "구현형태"],
         rows: [
-          ["본질적 제약", "구조적 특성 제약\nPK·유일키", "셀 단일값·주키\n1차 정규화 의미"],
-          ["내재적 제약", "스키마 지정 제약\n외래키·체크", "데이터 의미 표현\n영역·참조 제약"],
-          ["명시적 제약", "프로그램 명시", "수작업 생성 제약"],
+          ["본질적 제약", "모델의 구조적\n특성 제약\n각 셀 단일 값", "Primary Key\nUnique Key"],
+          ["내재적 제약", "스키마에 지정\n영역·참조 제약", "Foreign Key, Check\nDefault, Not null"],
+          ["명시적 제약", "PGM 명시 또는\n수작업 생성", "Programmatically"],
         ],
       },
     ],
@@ -16084,11 +16076,11 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "확인 단계 조건",
-        headers: ["조건", "키워드", "설명"],
+        headers: ["조건", "설명", "타임스탬프(Time-stamp)"],
         rows: [
-          ["조건1", "Ti 먼저 완료\nStart 시각", "Tk 시작 전 완성\n판독 시작 시간"],
-          ["조건2", "Tk 확인 전 종료\n쓰기∩읽기=∅", "판독 끝 확인 시작\n기록·판독 분리"],
-          ["조건3", "쓰기∩읽기=∅\n쓰기∩쓰기=∅", "판독과 겹침 없음\n기록 간 겹침 없음"],
+          ["조건1", "Finish(Ti) <\nStart(Tk)", "Start(Ti):\n판독단계 시작"],
+          ["조건2", "Start(Tk) <\nFinish(Ti) <\nValidation(Tk)\nW(Ti)∩R(Tk)=∅", "Validation(Ti):\n확인 시작 시간"],
+          ["조건3", "W(Ti)∩R(Tk)=∅\nW(Ti)∩W(Tk)=∅", "Finish(Ti):\n기록 완료 시간"],
         ],
       },
     ],
@@ -16257,11 +16249,11 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "기본적인 데이터모델링 패턴",
-        headers: ["패턴", "키워드", "설명"],
+        headers: ["패턴", "설명", "특징"],
         rows: [
-          ["Denormalization", "데이터 중복 저장\nJoin 제거", "역정규화와 유사\n한 번 I/O 조회"],
-          ["Aggregation", "1:n 최소화\n유연한 스키마", "행마다 컬럼 상이\n스키마리스"],
-          ["Application Side Join", "클라이언트 조인\n일부 서버측 조인", "앱 로직으로 처리\n서버 지원도 존재"],
+          ["Denormalization", "같은 데이터 중복\nJoin 없이 1회 I/O", "데이터 중복\n역정규화와 유사\n성능 향상"],
+          ["Aggregation", "1:n 관계 최소화\n행마다 컬럼 상이", "유연한 스키마\nSchema-less"],
+          ["Application Side Join", "Client 단에서\nJoin 로직 처리", "일부 Server side\nJoin 제공"],
         ],
       },
       {
@@ -16345,12 +16337,12 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "PACELC 이론에 따른 NoSQL 분류",
-        headers: ["분류", "키워드", "설명"],
+        headers: ["분류", "설명", "NoSQL"],
         rows: [
-          ["PC/EC", "A·L 희생\nHBase 등", "C 항상 우선\n강한 일관성 DB"],
-          ["PA/EL", "장애 A·정상 L\nDynamo 등", "가용 노드만 반영\n지연 우선 DB"],
-          ["PA/EC", "장애 A·정상 C\nMongoDB", "접근 가능분 반영\n복구 후 강한 C"],
-          ["PC/EL", "장애 C·정상 L\nPNUTS", "A 희생 C 유지\nC 희생 L 확보"],
+          ["PC/EC", "장애 시 C 위해\nA 희생\n정상 시 L 희생", "HBase, VoltDB\nMegastore"],
+          ["PA/EL", "장애 시 가능 노드\n복구 후 전체 반영\n정상 시 L 우선", "Cassandra\nDynamo"],
+          ["PA/EC", "장애 시 C 포기\n가능한 만큼 반영\n정상 시 강한 C", "MongoDB"],
+          ["PC/EL", "장애 시 A 희생\n정상 시 C 희생", "PNUTS"],
         ],
       },
     ],
@@ -16467,11 +16459,11 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "ANN 알고리즘 구성요소",
-        headers: ["요소", "키워드", "설명"],
+        headers: ["요소", "설명", "주요 알고리즘"],
         rows: [
-          ["공간 분할 기반", "k-d 트리 분할\nLSH 해싱", "관련 영역만 탐색\n고차원 성능 저하"],
-          ["그래프 기반", "HNSW 그래프\nNSG 탐색", "근접성 그래프\n고정확·긴 구축"],
-          ["압축 및 양자화 기반", "PQ 코드 변환\nIVF 인덱스", "저차원 압축 변환\n정보 손실 위험"],
+          ["공간 분할 기반", "벡터 공간을 분할\n관련 영역만 탐색\n고차원 성능 저하", "k-d 트리, Annoy\nLSH"],
+          ["그래프 기반", "노드·엣지 표현\n근접성 그래프\n구축 시간 김", "HNSW, NSG\n그래프 탐색"],
+          ["압축 및 양자화 기반", "저차원 압축\n이산 코드 변환\n정보 손실 위험", "PQ(Product Quant.)\nIVF(Inverted File)"],
         ],
       },
     ],
@@ -17099,12 +17091,12 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성요소",
-        headers: ["구성요소", "키워드", "설명"],
+        headers: ["구성요소", "설명", "역할"],
         rows: [
-          ["topic", "발행 메시지 분류\n구분용 이름", "메시지 카테고리\n양측 메시지 구분"],
-          ["producer", "메시지 생성 주체\n특정 토픽 대상", "생성 프로세스\n브로커에 전달"],
-          ["consumer", "메시지 사용 주체\n토픽 구독", "사용 프로세스\n브로커 경유 수신"],
-          ["broker", "메시지 관리 서버\n토픽별 분류", "클러스터 구성\n수신 메시지 정리"],
+          ["topic", "발행된 메시지의\n카테고리", "메시지 구분용\n이름"],
+          ["producer", "메시지 생성\n프로세스", "특정 Topic 생성\nBroker에 전달"],
+          ["consumer", "메시지 사용\n프로세스", "구독 Topic 메시지\n가져와 처리"],
+          ["broker", "메시지 관리\n클러스터 서버", "전달 메시지를\ntopic별 분류"],
         ],
       },
       {
@@ -17143,19 +17135,13 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
       {
         caption: "구축 단계별 데이터 품질관리 절차 [계발설개완]",
-        headers: ["단계", "키워드", "설명"],
+        headers: ["단계", "설명", "산출물"],
         rows: [
-          ["계획 단계", "ISP ISMP\n개선과제 정의", "정보시스템 정의\n품질 관련 과제"],
-          ["계획 단계", "구축 전략 수립\n사업계획서", "ISP 기반 전략\nRFP 산출물"],
-          ["발주 단계", "데이터 표준\n구조·값 연계", "표준 요구 도출\n개선과제 반영"],
-          ["발주 단계", "사업 과업 확정\n정보화 RFP", "일정·예산 고려\n기술 협상서"],
-          ["설계 단계(현황 분석)", "유지관리 용이\n유연한 시스템", "품질 유지 설계\n운영 단계 대비"],
-          ["설계 단계(현황 분석)", "사업 수행 계획서\n현황 분석서", "설계 산출물\n분석 결과 문서"],
-          ["설계 단계(현황 분석)", "데이터 표준\n데이터 모델", "표준 정의 산출\n개념·논리 모델"],
-          ["개발 단계(목표 시스템 정의)", "시스템 개발\n시나리오 테스트", "요구사항 구현\n오류 확인·수정"],
-          ["개발 단계(목표 시스템 정의)", "데이터 매핑서\n진단 규격서", "개발 산출물\n목표모델 정의서"],
-          ["완료 단계(이행 계획/수립)", "데이터 완결성\n데이터 관리체계", "이관 시 확보\n관리체계 점검"],
-          ["완료 단계(이행 계획/수립)", "데이터 이행\n이행 검증서", "최종 완료 단계\n이행계획서 산출"],
+          ["계획 단계", "정보시스템 정의\n품질 개선 과제", "구축 전략·계획\n사업계획서(RFP)"],
+          ["발주 단계", "표준·구조·값 등\n개선과제 요구화\n과업 확정", "정보화 사업 RFP\n기술 협상서"],
+          ["설계 단계(현황 분석)", "유지관리 용이\n유연 시스템 설계", "사업 수행 계획서\n데이터 표준\n데이터 모델\n현황 분석서"],
+          ["개발 단계(목표 시스템 정의)", "요구사항 개발\n시나리오 테스트\n오류 확인·수정", "데이터 매핑서\n진단 규격\n목표모델 정의서"],
+          ["완료 단계(이행 계획/수립)", "데이터 완결성\n관리체계 점검", "이행 및 검증서\n데이터 관리체계\n이행계획서"],
         ],
       },
     ],
