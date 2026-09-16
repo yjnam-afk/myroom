@@ -12134,6 +12134,51 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/cov-1-3.jpg", label: "3쪽" },
     ],
   },
+  {
+    id: "peer-i29-2",
+    period: "1교시",
+    no: "1",
+    question: "ISO 29119-11을 설명하시오.",
+    exam: "ITPE 모의고사",
+    topicTitles: ["ISO 29119-11"],
+    questionIds: ["ns14w02-101", "m00658"],
+    score: 6.3,
+    maxScore: 10,
+    pages: [
+      { src: "/answers/i29-2-1.jpg", label: "1쪽" },
+      { src: "/answers/i29-2-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-i29-3",
+    period: "1교시",
+    no: "6",
+    question: "ISO/IEC/IEEE 29119를 설명하시오.",
+    exam: "ITPE 모의고사",
+    topicTitles: ["ISO 29119"],
+    questionIds: ["f01291", "ns12w03-106", "ns15w05-108", "m03132"],
+    score: 6,
+    maxScore: 10,
+    pages: [
+      { src: "/answers/i29-3-1.jpg", label: "1쪽" },
+      { src: "/answers/i29-3-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-i29-4",
+    period: "1교시",
+    no: "8",
+    question: "ISO/IEC/IEEE 29119를 설명하시오.",
+    exam: "ITPE 모의고사",
+    topicTitles: ["ISO 29119"],
+    questionIds: ["f01471", "ns17w11-111", "m00832", "s41-21"],
+    score: 6.3,
+    maxScore: 10,
+    pages: [
+      { src: "/answers/i29-4-1.jpg", label: "1쪽" },
+      { src: "/answers/i29-4-2.jpg", label: "2쪽" },
+    ],
+  },
 ];
 
 /** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */
