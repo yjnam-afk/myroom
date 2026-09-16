@@ -14942,13 +14942,13 @@
     "label": "리팩토링 기법",
     "mnemonic": "",
     "keywords": [
-     "Move 이동",
+     "Move",
      "Extract",
-     "Push 이전",
+     "Push Down",
      "Pull Up",
      "Inline",
-     "Rename",
-     "공개 필드 존재"
+     "Rename Method",
+     "Encapsulate Field"
     ]
    }
   ],
