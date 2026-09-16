@@ -12179,6 +12179,49 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/i29-4-2.jpg", label: "2쪽" },
     ],
   },
+  {
+    id: "peer-rfc-1",
+    period: "1교시",
+    no: "9",
+    question: "소프트웨어 리팩토링의 주요 절차와 기법에 대하여 설명하시오.",
+    exam: "ITPE 모의고사",
+    topicTitles: ["소프트웨어 리팩토링"],
+    questionIds: ["m01836", "k127-302", "s41-37"],
+    score: 6,
+    maxScore: 10,
+    pages: [
+      { src: "/answers/rfc-1-1.jpg", label: "1쪽" },
+      { src: "/answers/rfc-1-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-rfc-2",
+    period: "1교시",
+    no: "9",
+    question: "SW 리팩토링의 주요 절차 및 기법에 대하여 설명하시오.",
+    exam: "ITPE 모의고사",
+    topicTitles: ["소프트웨어 리팩토링"],
+    questionIds: ["m01836", "m02030", "k129-206"],
+    pages: [
+      { src: "/answers/rfc-2-1.jpg", label: "1쪽" },
+      { src: "/answers/rfc-2-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-rfc-3",
+    period: "1교시",
+    no: "9",
+    question: "코드스멜(Code Smell)의 종류와 리팩토링 방법을 설명하시오.",
+    exam: "ITPE 모의고사",
+    topicTitles: ["소프트웨어 리팩토링"],
+    questionIds: ["yc1-277", "m03371", "yc2-181", "k127-302"],
+    score: 6,
+    maxScore: 10,
+    pages: [
+      { src: "/answers/rfc-3-1.jpg", label: "1쪽" },
+      { src: "/answers/rfc-3-2.jpg", label: "2쪽" },
+    ],
+  },
 ];
 
 /** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */
