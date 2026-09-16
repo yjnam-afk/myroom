@@ -12118,6 +12118,22 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/tst-6-9.jpg", label: "9쪽" },
     ],
   },
+  {
+    id: "peer-cov-1",
+    period: "3교시",
+    no: "2",
+    question: "시스템의 테스트 완전성을 확보하기 위한 소스코드 커버리지(Source Code Coverage)의 종류를 나열하고, 예를 들어 설명하시오.",
+    exam: "제92회 기술사 기출",
+    topicTitles: ["코드 커버리지(Code Coverage)"],
+    questionIds: ["k92-302", "k127-107", "yc1-222"],
+    score: 15,
+    maxScore: 25,
+    pages: [
+      { src: "/answers/cov-1-1.jpg", label: "1쪽" },
+      { src: "/answers/cov-1-2.jpg", label: "2쪽" },
+      { src: "/answers/cov-1-3.jpg", label: "3쪽" },
+    ],
+  },
 ];
 
 /** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */
