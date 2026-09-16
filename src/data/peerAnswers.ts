@@ -1346,7 +1346,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "1",
     question: "① 문맥 개념과 문맥 유형 및 내용\n② 문맥교환 개념과 발생 시점\n③ 문맥교환 메커니즘(Mechanism)\n④ 문맥교환 시 발생하는 문제점 및 해결 방안",
     exam: "NS반 모의고사",
-    topicTitles: ["문맥교환(Context Switching)", "프로세스 상태 전이도"],
+    topicTitles: ["문맥교환(Context Switching)"],
     score: 15.5,
     maxScore: 25,
     feedback: [
@@ -2872,7 +2872,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     period: "1교시",
     question: "Graph DB",
     exam: "정리 답안 (드라이브 06. DB)",
-    topicTitles: ["NoSQL", "벡터 데이터베이스(Vector Database)"],
+    topicTitles: ["NoSQL"],
     pages: [
       { src: "/answers/db-graph-db-1.jpg", label: "1쪽" },
       { src: "/answers/db-graph-db-2.jpg", label: "2쪽" },
@@ -5364,7 +5364,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "4",
     question: "① CI/CD 설명 ② 생산성 향상 방안",
     exam: "정리 답안 (드라이브 02. SW공학) · 합숙 2018.8",
-    topicTitles: ["데브옵스 (DevOps)"],
+    topicTitles: ["릴리즈 엔지니어링"],
     pages: [
       { src: "/answers/sw-ci-cd-설명-생산성-향상방안-1.jpg", label: "1쪽" },
       { src: "/answers/sw-ci-cd-설명-생산성-향상방안-2.jpg", label: "2쪽" },
@@ -6928,7 +6928,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     no: "6",
     question: "IaC(Infrastructure as Code)",
     exam: "정리 답안 (드라이브 03. 서비스) · 합숙 2019.8 D-3 / 2019.4 D-5 (미기출)",
-    topicTitles: ["데브옵스 (DevOps)"],
+    topicTitles: ["릴리즈 엔지니어링"],
     questionIds: ["k129-110"],
     pages: [
       { src: "/answers/sv-iac-1.jpg", label: "1쪽" },
