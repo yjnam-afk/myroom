@@ -75,6 +75,9 @@ function TopicNav({
     </nav>
   );
 }
+/** 가나다… 소항목 번호 — 정의가 여럿이면 기법 수만큼 붙는다(블랙박스 9개 등) */
+const HANGUL_NO = ["가", "나", "다", "라", "마", "바", "사", "아", "자", "차", "카", "타", "파", "하"];
+
 const COURSE_LABEL = DOMAIN_LABEL;
 
 const SRC_CHIP: Record<string, string> = {
@@ -488,14 +491,14 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
                         {p.lead ? (
                           <>
                             <p className="text-[13px] font-bold leading-relaxed text-slate-700">
-                              {["가", "나", "다", "라"][i]}. {p.lead}, {p.name}의 정의
+                              {HANGUL_NO[i] ?? "·"}. {p.lead}, {p.name}의 정의
                             </p>
                             <p className="pl-4 text-[13px] leading-relaxed text-slate-800">{p.def}</p>
                           </>
                         ) : (
                           <p className="text-[13px] leading-relaxed text-slate-800">
                             <span className="mr-1 font-bold text-slate-500">
-                              {["가", "나", "다", "라"][i]}. {p.name}:
+                              {HANGUL_NO[i] ?? "·"}. {p.name}:
                             </span>
                             {p.def}
                           </p>
@@ -528,7 +531,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
                     textbook.subDefs.map((p, i) => (
                       <div key={p.name} className="pt-1">
                         <p className="text-[13px] font-bold leading-relaxed text-slate-700">
-                          {["가", "나", "다", "라"][i]}. {p.lead ? `${p.lead}, ` : ""}
+                          {HANGUL_NO[i] ?? "·"}. {p.lead ? `${p.lead}, ` : ""}
                           {p.name}의 정의
                         </p>
                         <p className="pl-4 text-[13px] leading-relaxed text-slate-800">{p.def}</p>
