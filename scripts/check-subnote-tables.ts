@@ -12,8 +12,8 @@
  *  - 예외: 공백이 없어 접을 수 없는 한 낱말은 12칸까지 둔다
  *    (Thrashing·IR(addr)·PCB·스케줄링 같은 교재 용어. 교재 용어를 줄이지
  *     않기로 했으므로, 접을 데가 있으면 두 줄로 접고 없으면 그대로 둔다.)
- *  - 여러 줄인 열이 둘 이상이면 줄 수가 같아야 한다 — 화면이 ①②③ 으로
- *    짝을 지어 그리기 때문이다. 한 줄짜리 열은 행 전체에 걸리므로 상관없다.
+ *  - 항목↔설명처럼 짝을 이루는 열은 줄 수를 맞춘다(화면이 ①②③ 으로 짝지어
+ *    그린다). 한 열만 목록인 교재 표도 있으므로 어긋나면 경고만 낸다.
  */
 import { SUBNOTES } from "../src/data/textbookSubnotes";
 
@@ -22,6 +22,7 @@ const width = (s: string) =>
   [...s].reduce((w, c) => (/\s/.test(c) ? w : w + (c.charCodeAt(0) < 0x1100 ? 0.5 : 1)), 0);
 
 const errs: string[] = [];
+const warns: string[] = [];
 let tables = 0;
 let rows = 0;
 for (const s of SUBNOTES) {
@@ -38,8 +39,11 @@ for (const s of SUBNOTES) {
       }
       const cols = r.slice(1).map((c) => c.split("\n"));
       const multi = cols.map((c) => c.length).filter((l) => l > 1);
-      if (cols.some((c) => c.length > 4) || new Set(multi).size > 1)
-        errs.push(`${where} 행${ri + 1}: 줄 수 ${cols.map((c) => c.length).join("/")}`);
+      if (cols.some((c) => c.length > 4))
+        errs.push(`${where} 행${ri + 1}: 줄 ${cols.map((c) => c.length).join("/")}개`);
+      // 짝을 이루는 표(항목↔설명)는 줄 수가 같아야 ①②③ 이 짝으로 읽힌다.
+      // 한 열만 목록인 교재 표도 있으므로 오류가 아니라 경고로 센다.
+      else if (new Set(multi).size > 1) warns.push(`${where} 행${ri + 1}: 줄 수 ${cols.map((c) => c.length).join("/")}`);
       cols.forEach((lines, ci) => {
         for (const ln of lines) {
           const w = width(ln);
@@ -56,5 +60,6 @@ for (const s of SUBNOTES) {
   });
 }
 for (const e of errs) console.log(e);
+if (warns.length) console.log(`줄 수가 짝이 안 맞는 행 ${warns.length}개(경고)`);
 console.log(`표 ${tables}개 · 행 ${rows}개 검사, 오류 ${errs.length}건 ${errs.length ? "FAIL" : "PASS"}`);
 process.exit(errs.length ? 1 : 0);
