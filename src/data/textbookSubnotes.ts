@@ -5302,6 +5302,18 @@ export const SUBNOTES: TextbookSubnote[] = [
     lead:
       "분산 트랜잭션의 보상 처리, SAGA 패턴",
     features: ["최종 일관성", "보상 처리", "분산 원자성"],
+    subDefs: [
+      {
+        name: "Choreography Based SAGA",
+        lead: "이벤트 전파의 자율 조율",
+        def: "로컬 트랜잭션 완료 후 이벤트를 발행해 다음 서비스를 실행하는 방식",
+      },
+      {
+        name: "Orchestration Based SAGA",
+        lead: "중앙 매니저의 일괄 제어",
+        def: "중앙 SAGA 매니저가 각 서비스를 호출해 트랜잭션을 관리하는 방식",
+      },
+    ],
     keywords: ["트랜잭션처리", "Choreography 방식", "Orchestration 방식", "데이터 정합성 보장"],
     tables: [
       {

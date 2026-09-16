@@ -16822,7 +16822,7 @@
  "f01232": {
   "title": "SAGA패턴",
   "source": "교재 서브노트 — SAGA패턴",
-  "answer": "문) SAGA 패턴\n\n답)\n\n## 1. 분산 트랜잭션의 보상 처리, SAGA 패턴의 정의\n- 실패 시 완료된 서비스에 보상 이벤트를 보내 분산 원자성을 보장하는 패턴\n- 특징) 최종 일관성, 보상 처리, 분산 원자성\n\n## 2. SAGA패턴의 개념도 및 구성요소\n가. 개념도\n- Choreography는 APP끼리 event를 이어 보내 완료를 모으고, Orchestration은 중앙 인스턴스가 요청·완료를 1~4번 순서로 주고받는다\n\n나. Choreography 와 Orchestration 비교\n| 구분 | Choreography Based SAGA | Orchestration Based SAGA |\n|---|---|---|\n| 개념 | 로컬 트랜잭션 – 이벤트 전파 | Saga 매니저 – 일관성 보장 |\n| 트랜잭션 설명 | 이벤트 비동기 – 완료 후 다음 진행 | 중앙 요청·수신 – 트랜잭션 처리 |\n- Choreography는 조정자 없이 Kafka 같은 큐로 이벤트를 전파하고, Orchestration은 Manager가 모든 트랜잭션을 지시·수신해 일관성을 잡는다\n\n## 3. 플러스 알파 — 추가 어필\n- MSA 에서는 서비스마다 DB가 따로라 2PC 같은 분산 트랜잭션을 쓰기 어렵다. 그래서 실패 시 되돌리는 보상 트랜잭션으로 최종 일관성을 맞춘다.\n\n**(끝)**"
+  "answer": "문) SAGA 패턴\n\n답)\n\n## 1. 분산 트랜잭션의 보상 처리, SAGA 패턴의 정의\n- 실패 시 완료된 서비스에 보상 이벤트를 보내 분산 원자성을 보장하는 패턴\n- 특징) 최종 일관성, 보상 처리, 분산 원자성\n가. 이벤트 전파의 자율 조율, Choreography Based SAGA의 정의\n- 로컬 트랜잭션 완료 후 이벤트를 발행해 다음 서비스를 실행하는 방식\n나. 중앙 매니저의 일괄 제어, Orchestration Based SAGA의 정의\n- 중앙 SAGA 매니저가 각 서비스를 호출해 트랜잭션을 관리하는 방식\n\n## 2. SAGA패턴의 개념도 및 구성요소\n가. 개념도\n- Choreography는 APP끼리 event를 이어 보내 완료를 모으고, Orchestration은 중앙 인스턴스가 요청·완료를 1~4번 순서로 주고받는다\n\n나. Choreography 와 Orchestration 비교\n| 구분 | Choreography Based SAGA | Orchestration Based SAGA |\n|---|---|---|\n| 개념 | 로컬 트랜잭션 – 이벤트 전파 | Saga 매니저 – 일관성 보장 |\n| 트랜잭션 설명 | 이벤트 비동기 – 완료 후 다음 진행 | 중앙 요청·수신 – 트랜잭션 처리 |\n- Choreography는 조정자 없이 Kafka 같은 큐로 이벤트를 전파하고, Orchestration은 Manager가 모든 트랜잭션을 지시·수신해 일관성을 잡는다\n\n## 3. 플러스 알파 — 추가 어필\n- MSA 에서는 서비스마다 DB가 따로라 2PC 같은 분산 트랜잭션을 쓰기 어렵다. 그래서 실패 시 되돌리는 보상 트랜잭션으로 최종 일관성을 맞춘다.\n\n**(끝)**"
  },
  "f01233": {
   "title": "테스트 자동화",
@@ -24932,7 +24932,7 @@
  "ns10w03-302": {
   "title": "SAGA패턴",
   "source": "교재 서브노트 — SAGA패턴",
-  "answer": "문) SAGA 패턴\n\n답)\n\n## 1. 서론 — 분산 트랜잭션의 보상 처리, SAGA 패턴의 정의 (1교시 상속·확장)\n- 실패 시 완료된 서비스에 보상 이벤트를 보내 분산 원자성을 보장하는 패턴\n- 특징) 최종 일관성, 보상 처리, 분산 원자성\n\n## 2. 본론1 — SAGA패턴의 개념도·구성요소\n가. 개념도\n- Choreography는 APP끼리 event를 이어 보내 완료를 모으고, Orchestration은 중앙 인스턴스가 요청·완료를 1~4번 순서로 주고받는다\n\n나. Choreography 와 Orchestration 비교\n| 구분 | Choreography Based SAGA | Orchestration Based SAGA |\n|---|---|---|\n| 개념 | 로컬 트랜잭션 – 이벤트 전파 | Saga 매니저 – 일관성 보장 |\n| 트랜잭션 설명 | 이벤트 비동기 – 완료 후 다음 진행 | 중앙 요청·수신 – 트랜잭션 처리 |\n- Choreography는 조정자 없이 Kafka 같은 큐로 이벤트를 전파하고, Orchestration은 Manager가 모든 트랜잭션을 지시·수신해 일관성을 잡는다\n\n## 3. 결론 — 차별화(+α)\n- MSA 에서는 서비스마다 DB가 따로라 2PC 같은 분산 트랜잭션을 쓰기 어렵다. 그래서 실패 시 되돌리는 보상 트랜잭션으로 최종 일관성을 맞춘다.\n\n**(끝)**"
+  "answer": "문) SAGA 패턴\n\n답)\n\n## 1. 서론 — 분산 트랜잭션의 보상 처리, SAGA 패턴의 정의 (1교시 상속·확장)\n- 실패 시 완료된 서비스에 보상 이벤트를 보내 분산 원자성을 보장하는 패턴\n- 특징) 최종 일관성, 보상 처리, 분산 원자성\n가. 이벤트 전파의 자율 조율, Choreography Based SAGA의 정의\n- 로컬 트랜잭션 완료 후 이벤트를 발행해 다음 서비스를 실행하는 방식\n나. 중앙 매니저의 일괄 제어, Orchestration Based SAGA의 정의\n- 중앙 SAGA 매니저가 각 서비스를 호출해 트랜잭션을 관리하는 방식\n\n## 2. 본론1 — SAGA패턴의 개념도·구성요소\n가. 개념도\n- Choreography는 APP끼리 event를 이어 보내 완료를 모으고, Orchestration은 중앙 인스턴스가 요청·완료를 1~4번 순서로 주고받는다\n\n나. Choreography 와 Orchestration 비교\n| 구분 | Choreography Based SAGA | Orchestration Based SAGA |\n|---|---|---|\n| 개념 | 로컬 트랜잭션 – 이벤트 전파 | Saga 매니저 – 일관성 보장 |\n| 트랜잭션 설명 | 이벤트 비동기 – 완료 후 다음 진행 | 중앙 요청·수신 – 트랜잭션 처리 |\n- Choreography는 조정자 없이 Kafka 같은 큐로 이벤트를 전파하고, Orchestration은 Manager가 모든 트랜잭션을 지시·수신해 일관성을 잡는다\n\n## 3. 결론 — 차별화(+α)\n- MSA 에서는 서비스마다 DB가 따로라 2PC 같은 분산 트랜잭션을 쓰기 어렵다. 그래서 실패 시 되돌리는 보상 트랜잭션으로 최종 일관성을 맞춘다.\n\n**(끝)**"
  },
  "ns10w03-304": {
   "title": "MSA (Micro Service Architecture)",
@@ -26767,7 +26767,7 @@
  "ns11w12-111": {
   "title": "SAGA패턴",
   "source": "교재 서브노트 — SAGA패턴",
-  "answer": "문) SAGA 패턴\n\n답)\n\n## 1. 분산 트랜잭션의 보상 처리, SAGA 패턴의 정의\n- 실패 시 완료된 서비스에 보상 이벤트를 보내 분산 원자성을 보장하는 패턴\n- 특징) 최종 일관성, 보상 처리, 분산 원자성\n\n## 2. SAGA패턴의 개념도 및 구성요소\n가. 개념도\n- Choreography는 APP끼리 event를 이어 보내 완료를 모으고, Orchestration은 중앙 인스턴스가 요청·완료를 1~4번 순서로 주고받는다\n\n나. Choreography 와 Orchestration 비교\n| 구분 | Choreography Based SAGA | Orchestration Based SAGA |\n|---|---|---|\n| 개념 | 로컬 트랜잭션 – 이벤트 전파 | Saga 매니저 – 일관성 보장 |\n| 트랜잭션 설명 | 이벤트 비동기 – 완료 후 다음 진행 | 중앙 요청·수신 – 트랜잭션 처리 |\n- Choreography는 조정자 없이 Kafka 같은 큐로 이벤트를 전파하고, Orchestration은 Manager가 모든 트랜잭션을 지시·수신해 일관성을 잡는다\n\n## 3. 플러스 알파 — 추가 어필\n- MSA 에서는 서비스마다 DB가 따로라 2PC 같은 분산 트랜잭션을 쓰기 어렵다. 그래서 실패 시 되돌리는 보상 트랜잭션으로 최종 일관성을 맞춘다.\n\n**(끝)**"
+  "answer": "문) SAGA 패턴\n\n답)\n\n## 1. 분산 트랜잭션의 보상 처리, SAGA 패턴의 정의\n- 실패 시 완료된 서비스에 보상 이벤트를 보내 분산 원자성을 보장하는 패턴\n- 특징) 최종 일관성, 보상 처리, 분산 원자성\n가. 이벤트 전파의 자율 조율, Choreography Based SAGA의 정의\n- 로컬 트랜잭션 완료 후 이벤트를 발행해 다음 서비스를 실행하는 방식\n나. 중앙 매니저의 일괄 제어, Orchestration Based SAGA의 정의\n- 중앙 SAGA 매니저가 각 서비스를 호출해 트랜잭션을 관리하는 방식\n\n## 2. SAGA패턴의 개념도 및 구성요소\n가. 개념도\n- Choreography는 APP끼리 event를 이어 보내 완료를 모으고, Orchestration은 중앙 인스턴스가 요청·완료를 1~4번 순서로 주고받는다\n\n나. Choreography 와 Orchestration 비교\n| 구분 | Choreography Based SAGA | Orchestration Based SAGA |\n|---|---|---|\n| 개념 | 로컬 트랜잭션 – 이벤트 전파 | Saga 매니저 – 일관성 보장 |\n| 트랜잭션 설명 | 이벤트 비동기 – 완료 후 다음 진행 | 중앙 요청·수신 – 트랜잭션 처리 |\n- Choreography는 조정자 없이 Kafka 같은 큐로 이벤트를 전파하고, Orchestration은 Manager가 모든 트랜잭션을 지시·수신해 일관성을 잡는다\n\n## 3. 플러스 알파 — 추가 어필\n- MSA 에서는 서비스마다 DB가 따로라 2PC 같은 분산 트랜잭션을 쓰기 어렵다. 그래서 실패 시 되돌리는 보상 트랜잭션으로 최종 일관성을 맞춘다.\n\n**(끝)**"
  },
  "ns11w12-112": {
   "title": "개인정보보호 중심 설계(Privacy by Design)",
@@ -31832,7 +31832,7 @@
  "ns16w05-109": {
   "title": "SAGA패턴",
   "source": "교재 서브노트 — SAGA패턴",
-  "answer": "문) SAGA 패턴\n\n답)\n\n## 1. 분산 트랜잭션의 보상 처리, SAGA 패턴의 정의\n- 실패 시 완료된 서비스에 보상 이벤트를 보내 분산 원자성을 보장하는 패턴\n- 특징) 최종 일관성, 보상 처리, 분산 원자성\n\n## 2. SAGA패턴의 개념도 및 구성요소\n가. 개념도\n- Choreography는 APP끼리 event를 이어 보내 완료를 모으고, Orchestration은 중앙 인스턴스가 요청·완료를 1~4번 순서로 주고받는다\n\n나. Choreography 와 Orchestration 비교\n| 구분 | Choreography Based SAGA | Orchestration Based SAGA |\n|---|---|---|\n| 개념 | 로컬 트랜잭션 – 이벤트 전파 | Saga 매니저 – 일관성 보장 |\n| 트랜잭션 설명 | 이벤트 비동기 – 완료 후 다음 진행 | 중앙 요청·수신 – 트랜잭션 처리 |\n- Choreography는 조정자 없이 Kafka 같은 큐로 이벤트를 전파하고, Orchestration은 Manager가 모든 트랜잭션을 지시·수신해 일관성을 잡는다\n\n## 3. 플러스 알파 — 추가 어필\n- MSA 에서는 서비스마다 DB가 따로라 2PC 같은 분산 트랜잭션을 쓰기 어렵다. 그래서 실패 시 되돌리는 보상 트랜잭션으로 최종 일관성을 맞춘다.\n\n**(끝)**"
+  "answer": "문) SAGA 패턴\n\n답)\n\n## 1. 분산 트랜잭션의 보상 처리, SAGA 패턴의 정의\n- 실패 시 완료된 서비스에 보상 이벤트를 보내 분산 원자성을 보장하는 패턴\n- 특징) 최종 일관성, 보상 처리, 분산 원자성\n가. 이벤트 전파의 자율 조율, Choreography Based SAGA의 정의\n- 로컬 트랜잭션 완료 후 이벤트를 발행해 다음 서비스를 실행하는 방식\n나. 중앙 매니저의 일괄 제어, Orchestration Based SAGA의 정의\n- 중앙 SAGA 매니저가 각 서비스를 호출해 트랜잭션을 관리하는 방식\n\n## 2. SAGA패턴의 개념도 및 구성요소\n가. 개념도\n- Choreography는 APP끼리 event를 이어 보내 완료를 모으고, Orchestration은 중앙 인스턴스가 요청·완료를 1~4번 순서로 주고받는다\n\n나. Choreography 와 Orchestration 비교\n| 구분 | Choreography Based SAGA | Orchestration Based SAGA |\n|---|---|---|\n| 개념 | 로컬 트랜잭션 – 이벤트 전파 | Saga 매니저 – 일관성 보장 |\n| 트랜잭션 설명 | 이벤트 비동기 – 완료 후 다음 진행 | 중앙 요청·수신 – 트랜잭션 처리 |\n- Choreography는 조정자 없이 Kafka 같은 큐로 이벤트를 전파하고, Orchestration은 Manager가 모든 트랜잭션을 지시·수신해 일관성을 잡는다\n\n## 3. 플러스 알파 — 추가 어필\n- MSA 에서는 서비스마다 DB가 따로라 2PC 같은 분산 트랜잭션을 쓰기 어렵다. 그래서 실패 시 되돌리는 보상 트랜잭션으로 최종 일관성을 맞춘다.\n\n**(끝)**"
  },
  "ns16w05-110": {
   "title": "요구사항",
