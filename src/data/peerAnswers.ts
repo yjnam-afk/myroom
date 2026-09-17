@@ -12222,6 +12222,23 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/rfc-3-2.jpg", label: "2쪽" },
     ],
   },
+  {
+    id: "peer-ssd-1",
+    period: "2교시",
+    no: "6",
+    question: "NOR와 NAND 플래시 메모리를 비교하고, SSD의 구성요소와 핵심기술을 설명하시오.",
+    exam: "ITPE 모의고사",
+    topicTitles: ["기억장치 계층 구조 (Memory Hierarchy)"],
+    questionIds: ["f02179", "m01989", "m02142", "k93-404"],
+    score: 16.2,
+    maxScore: 25,
+    pages: [
+      { src: "/answers/ssd-1-1.jpg", label: "1쪽" },
+      { src: "/answers/ssd-1-2.jpg", label: "2쪽" },
+      { src: "/answers/ssd-1-3.jpg", label: "3쪽" },
+      { src: "/answers/ssd-1-4.jpg", label: "4쪽" },
+    ],
+  },
 ];
 
 /** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */
