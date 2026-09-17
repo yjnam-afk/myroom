@@ -12686,6 +12686,19 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/cmmi-5-4.jpg", label: "4쪽" },
     ],
   },
+  {
+    id: "peer-pmo-1",
+    period: "1교시",
+    no: "1",
+    question: "전자정부 사업관리 위탁(PMO)에 대하여 설명하시오.",
+    exam: "ITPE 모의고사",
+    topicTitles: ["감리/PMO 비교표"],
+    questionIds: ["k136-202", "k131-106", "k121-401", "k140-104"],
+    pages: [
+      { src: "/answers/pmo-1-1.jpg", label: "1쪽" },
+      { src: "/answers/pmo-1-2.jpg", label: "2쪽" },
+    ],
+  },
 ];
 
 /** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */
