@@ -12730,6 +12730,40 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/iso25-2-2.jpg", label: "2쪽" },
     ],
   },
+  {
+    id: "peer-r3-1",
+    period: "2교시",
+    no: "4",
+    question: "Reverse-Engineering, Re-Engineering, Re-Use(3R)에 대하여 설명하시오.",
+    exam: "ITPE 모의고사",
+    topicTitles: ["3R"],
+    questionIds: ["k133-111", "k119-402", "k138-205", "s42-09"],
+    score: 16,
+    maxScore: 25,
+    pages: [
+      { src: "/answers/r3-1-1.jpg", label: "1쪽" },
+      { src: "/answers/r3-1-2.jpg", label: "2쪽" },
+      { src: "/answers/r3-1-3.jpg", label: "3쪽" },
+      { src: "/answers/r3-1-4.jpg", label: "4쪽" },
+    ],
+  },
+  {
+    id: "peer-r3-2",
+    period: "2교시",
+    no: "4",
+    question: "Reverse-Engineering, Re-Engineering, Re-Use(3R)에 대하여 설명하시오.",
+    exam: "ITPE 모의고사",
+    topicTitles: ["3R"],
+    questionIds: ["k133-111", "k119-402", "k138-205", "s42-09"],
+    score: 15,
+    maxScore: 25,
+    pages: [
+      { src: "/answers/r3-2-1.jpg", label: "1쪽" },
+      { src: "/answers/r3-2-2.jpg", label: "2쪽" },
+      { src: "/answers/r3-2-3.jpg", label: "3쪽" },
+      { src: "/answers/r3-2-4.jpg", label: "4쪽" },
+    ],
+  },
 ];
 
 /** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */
