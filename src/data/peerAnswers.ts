@@ -12699,6 +12699,37 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/pmo-1-2.jpg", label: "2쪽" },
     ],
   },
+  {
+    id: "peer-iso25-1",
+    period: "1교시",
+    no: "6",
+    question: "ISO/IEC 25010을 설명하시오.",
+    exam: "ITPE 모의고사",
+    topicTitles: ["ISO/IEC 25010:2023"],
+    questionIds: ["m00384", "k140-105", "s41-26", "yc1-267"],
+    score: 6.5,
+    maxScore: 10,
+    pages: [
+      { src: "/answers/iso25-1-1.jpg", label: "1쪽" },
+      { src: "/answers/iso25-1-2.jpg", label: "2쪽" },
+      { src: "/answers/iso25-1-3.jpg", label: "3쪽" },
+    ],
+  },
+  {
+    id: "peer-iso25-2",
+    period: "1교시",
+    no: "8",
+    question: "ISO/IEC 25010을 설명하시오.",
+    exam: "ITPE 모의고사",
+    topicTitles: ["ISO/IEC 25010:2023"],
+    questionIds: ["m00384", "k140-105", "s41-26", "yc1-267"],
+    score: 6,
+    maxScore: 10,
+    pages: [
+      { src: "/answers/iso25-2-1.jpg", label: "1쪽" },
+      { src: "/answers/iso25-2-2.jpg", label: "2쪽" },
+    ],
+  },
 ];
 
 /** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */
