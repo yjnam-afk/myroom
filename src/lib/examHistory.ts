@@ -218,6 +218,40 @@ function hit(entry: { sq: string; tokens: Set<string> }, keys: Keys): boolean {
   return keys.any.some((k) => has(entry, k));
 }
 
+/**
+ * ★역방향★ — 지문 하나가 어느 토픽 제목에 걸리는지.
+ *
+ * examHistory 는 "토픽 제목 → 문항"이고 이건 그 반대다. 문제은행에서 문항에
+ * 붙일 답안지를 찾을 때 쓴다(답안지는 토픽 제목에 걸려 있다). 토픽 전체를
+ * 뒤집어 색인하면 12,000문항 × 580토픽이라 화면에서 돌리기엔 너무 무겁고,
+ * 화면에 보이는 문항만 580개 제목과 맞춰 보면 금방이다.
+ */
+const KEYS = new Map<string, Keys>();
+
+export function titlesMatching(text: string, titles: readonly string[]): string[] {
+  const t = (text || "").trim();
+  if (!t) return [];
+  const entry = {
+    sq: squeeze(t),
+    tokens: new Set(
+      t
+        .toLowerCase()
+        .split(/[^a-z0-9+#]+/)
+        .filter(Boolean),
+    ),
+  };
+  const out: string[] = [];
+  for (const title of titles) {
+    let k = KEYS.get(title);
+    if (!k) {
+      k = keysOf(title);
+      KEYS.set(title, k);
+    }
+    if ((k.all.length || k.any.length) && hit(entry, k)) out.push(title);
+  }
+  return out;
+}
+
 const cache = new Map<string, ExamAppearance[]>();
 
 /** 토픽 제목으로 NS 출제 이력을 찾는다. 최신 순. */

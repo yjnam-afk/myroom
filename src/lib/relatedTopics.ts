@@ -27,6 +27,9 @@ const STOP_EN = new Set([
   "architecture", "platform", "framework", "protocol", "application",
   "artificialintelligence", "informationtechnology", "informationsecurity",
   "businessprocess", "computer", "digital", "intelligence", "learning",
+  // 괄호 속 보조 키로 쓰면 아무 지문에나 걸린다 — "AI-DLC(AI-Driven Development
+  // Life Cycle)" 문항이 「Kanban (development)」 토픽으로 갔다.
+  "development", "deployment", "lifecycle",
 ]);
 
 const lower = (s: string) => s.toLowerCase();
@@ -43,6 +46,12 @@ const isLatin = (s: string) => /^[a-z0-9]+$/.test(s);
 const SYNONYM: Record<string, string[]> = {
   WFQ: ["웨이티드페어큐잉", "가중공정큐잉", "weightedfairqueuing"],
   "맨체스터 코딩": ["차등적맨체스터", "differentialmanchester"],
+  // 문항은 풀어 쓴 이름만 적는다("AI-DLC(AI-Driven Development Life Cycle)").
+  "AI-DLC(AI-Driven SDLC)": ["AI-Driven Development Life Cycle"],
+  // 교재에 CI/CD 서브노트가 따로 없다 — CI/CD 문항은 데브옵스에서 본다.
+  "데브옵스 (DevOps)": ["Continuous Integration", "CI/CD"],
+  // 제목이 "감리/PMO 비교표" 라 PMO 를 다룬 문항이 이 비교표로 오지 않았다.
+  "감리/PMO 비교표": ["PMO"],
 };
 
 const CANDS: Cand[] = (() => {

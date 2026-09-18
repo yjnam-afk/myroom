@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import StudyCard from "@/components/StudyCard";
 import PeerAnswers from "@/components/PeerAnswers";
-import { CellLines } from "@/components/TableCell";
+import { CellLines, rowPaired } from "@/components/TableCell";
 import TopicMapCard from "@/components/TopicMapCard";
 import { ExamHistoryCard } from "@/components/ExamHistoryCard";
 import Mermaid from "@/components/Mermaid";
@@ -612,15 +612,15 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
                             {r.map((c, ci) => (
                               <td
                                 key={ci}
-                                // 2·3열은 한 줄 5~7자, 두 줄이면 2열·3열이 같은 줄 수로 나란히 선다.
-                                // 두 줄이면 서로 다른 항목이므로 각 줄 앞에 '-' 를 붙여 구분한다.
+                                // 2열 이후는 한 줄 5~7칸. 여러 줄짜리 칸이 둘 이상이면
+                                // 서로 짝이므로 ①②③ 을 붙인다(TableCell).
                                 className={`border border-slate-300 px-2 py-1.5 align-top leading-relaxed ${
                                   ci === 0
                                     ? "whitespace-nowrap font-semibold text-slate-800"
                                     : "text-slate-700"
                                 }`}
                               >
-                                {ci === 0 ? c : <CellLines text={c} />}
+                                {ci === 0 ? c : <CellLines text={c} paired={rowPaired(r)} />}
                               </td>
                             ))}
                           </tr>

@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { flushSync } from "react-dom";
 import type { PeerAnswer } from "@/data/peerAnswers";
+import { periodGroup } from "@/lib/questionAnswers";
 
 /**
  * 남이 쓴 답안 — 손글씨 시험지 스캔과 강사 첨삭.
@@ -14,7 +15,12 @@ import type { PeerAnswer } from "@/data/peerAnswers";
  * 점수를 제목 줄에 크게 박는다. 이 자료의 가치는 답안 자체가 아니라
  * "이 정도 쓰면 25점 중 15점"이라는 눈금이다.
  */
-export default function PeerAnswers({ items }: { items: PeerAnswer[] }) {
+/**
+ * want = 이 답안을 보는 문항의 교시. 주면 같은 묶음(1교시 단답 / 2~4교시 논술)의
+ * 답안만 먼저 세우고, 다른 묶음은 줄을 긋고 뒤로 보낸다. 2교시 25점짜리를 푸는데
+ * 1교시 10점 답안이 맨 위에 서면 분량 눈금이 어긋나기 때문이다.
+ */
+export default function PeerAnswers({ items, want }: { items: PeerAnswer[]; want?: string }) {
   const [open, setOpen] = useState<string | null>(null);
   const [zoom, setZoom] = useState<string | null>(null);
   const rows = useRef(new Map<string, HTMLDivElement | null>());
@@ -38,11 +44,19 @@ export default function PeerAnswers({ items }: { items: PeerAnswer[] }) {
 
   if (items.length === 0) return null;
 
+  const wantGroup = want ? periodGroup(want) : null;
+  const fit = wantGroup ? items.filter((a) => periodGroup(a.period) === wantGroup).length : items.length;
+
   return (
     <section className="mb-6 overflow-hidden rounded-2xl border-2 border-slate-300 bg-white shadow-sm">
       <div className="bg-slate-100 px-5 py-3">
         <h3 className="text-sm font-bold text-slate-800">
           ✍️ 모범답안 {items.length}건 — 실제 시험지와 첨삭
+          {wantGroup && fit > 0 && fit < items.length && (
+            <span className="ml-1 font-medium text-slate-500">
+              (이 문제와 같은 {wantGroup} {fit}건)
+            </span>
+          )}
         </h3>
         <p className="mt-0.5 text-xs text-slate-500">
           <b>실제로 제출되어 점수를 받은</b> 답안지 스캔입니다. 배점 대비 점수와
@@ -51,8 +65,11 @@ export default function PeerAnswers({ items }: { items: PeerAnswer[] }) {
       </div>
 
       <div className="divide-y divide-slate-100">
-        {items.map((a) => {
+        {items.map((a, idx) => {
           const isOpen = open === a.id;
+          // 같은 묶음이 끝나는 자리에 줄을 긋는다 — 아래는 교시가 다른 답안이다.
+          const edge =
+            wantGroup != null && fit > 0 && idx === fit && items.length > fit;
           return (
             <div
               key={a.id}
@@ -60,6 +77,11 @@ export default function PeerAnswers({ items }: { items: PeerAnswer[] }) {
                 rows.current.set(a.id, el);
               }}
             >
+              {edge && (
+                <div className="bg-slate-50 px-5 py-1.5 text-[11px] font-semibold text-slate-400">
+                  ↓ 교시가 다른 답안 — 분량과 구성이 다르니 참고만
+                </div>
+              )}
               <button
                 type="button"
                 onClick={() => toggle(a.id)}

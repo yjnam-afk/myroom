@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { PageHeader } from "@/components/ui";
 import { buildSheet } from "@/lib/explainData";
-import { CellLines } from "@/components/TableCell";
+import { CellLines, rowPaired } from "@/components/TableCell";
 
 /**
  * 도메인별 토픽 정리표 — 손으로 쓰던 서브노트(엑셀식 정리)를 앱 한 페이지에 옮긴 것.
@@ -137,7 +137,7 @@ export default function SheetPage() {
                                               : "text-slate-600"
                                         }`}
                                       >
-                                        {ci === 0 ? c : <CellLines text={c} />}
+                                        {ci === 0 ? c : <CellLines text={c} paired={rowPaired(row)} />}
                                       </td>
                                     ))}
                                   </tr>
