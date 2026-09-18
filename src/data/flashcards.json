@@ -3758,13 +3758,9 @@
     "label": "구성요소",
     "mnemonic": "",
     "keywords": [
-     "작업 패키지(Work Package)",
-     "계획 패키지(Planning Package)",
-     "작업분류체계 사전(WBS Dictionary)",
-     "작업분류체계 사전(WBS Dictionary)",
-     "작업분류체계 코드(Code of Account)",
-     "통제 계정(Control Account)",
-     "RAM (Responsibilities Assignment Matrix)"
+     "작업분할",
+     "작업분류",
+     "작업통제"
     ]
    }
   ],

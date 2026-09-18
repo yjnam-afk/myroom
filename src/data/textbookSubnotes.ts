@@ -3372,15 +3372,11 @@ export const SUBNOTES: TextbookSubnote[] = [
     tables: [
       {
         caption: "구성요소",
-        headers: ["구성요소", "설명"],
+        headers: ["구분", "구성요소", "설명"],
         rows: [
-          ["작업 패키지(Work Package)", "측정·관리 단위\nWBS 최하위\n80시간 내외"],
-          ["계획 패키지(Planning Package)", "미착수·미관리\n계획 중 단위"],
-          ["작업분류체계 사전(WBS Dictionary)", "작업 내용·자원\n일정·원가\n산출물 정의\n세부 내용 기술"],
-          ["작업분류체계 사전(WBS Dictionary)", "작업 완료 기준\n인수 기준 관리"],
-          ["작업분류체계 코드(Code of Account)", "WBS 요소 식별\n고유 식별자\nWBS ID(1.x.x)"],
-          ["통제 계정(Control Account)", "작업패키지 묶음\n각 패키지는\n한 계정에 연결"],
-          ["RAM (Responsibilities Assignment Matrix)", "패키지별 담당자\n정의 및 관리\nR 검토·I 투입물\nP 참여자 기초"],
+          ["작업분할", "작업 패키지\n계획 패키지", "WBS 최하위 단위\n미착수 계획 단위"],
+          ["작업분류", "작업분류체계사전\n작업분류체계코드", "작업 세부 기술\n요소 고유 식별"],
+          ["작업통제", "통제 계정\nRAM", "패키지 묶음\n담당자 지정"],
         ],
       },
     ],
