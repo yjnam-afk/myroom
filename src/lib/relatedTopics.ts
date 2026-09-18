@@ -30,6 +30,16 @@ const STOP_EN = new Set([
   // 괄호 속 보조 키로 쓰면 아무 지문에나 걸린다 — "AI-DLC(AI-Driven Development
   // Life Cycle)" 문항이 「Kanban (development)」 토픽으로 갔다.
   "development", "deployment", "lifecycle",
+  // 흔한 영어 한 낱말 — 다른 이름 안에 그대로 들어 있어 엉뚱한 토픽을 끌어온다.
+  // FIDO(Fast IDentity Online) → 「엔티티(Entity)」, MVC → 「MVVM」(alias "view"),
+  // "키(Key of Relation)" → 「릴레이션 키」가 아무 key 문항에나 붙던 식이다.
+  "entity", "identity", "view", "key", "online", "unit", "level", "layer",
+  "object", "class", "message", "event", "state", "index", "table", "group",
+  "node", "link", "path", "cost", "size", "rate", "block", "flow", "task",
+  "type", "value", "point", "range", "scale", "stage", "phase", "report",
+  "record", "request", "response", "server", "client", "device", "session",
+  "channel", "signal", "source", "target", "search", "query", "monitoring",
+  "test", "testing", "function", "structure", "interface", "resource",
 ]);
 
 const lower = (s: string) => s.toLowerCase();
@@ -52,7 +62,22 @@ const SYNONYM: Record<string, string[]> = {
   "데브옵스 (DevOps)": ["Continuous Integration", "CI/CD"],
   // 제목이 "감리/PMO 비교표" 라 PMO 를 다룬 문항이 이 비교표로 오지 않았다.
   "감리/PMO 비교표": ["PMO"],
+  // 교재 제목은 "회전", 기출은 "순환"으로 적는다.
+  "McCabe 회전 복잡도": ["순환 복잡도", "Cyclomatic Complexity"],
 };
+
+/**
+ * 교재 제목의 약어 ↔ 풀어 쓴 말. 「분산 DB」 서브노트가 "분산 데이터베이스의
+ * 투명성" 기출을 못 찾던 식의 누락을 막는다. 양쪽 표기를 모두 열쇠로 만든다.
+ */
+const ABBR: [string, string][] = [
+  ["DB", "데이터베이스"],
+  ["SW", "소프트웨어"],
+  ["HW", "하드웨어"],
+  ["OS", "운영체제"],
+  ["NW", "네트워크"],
+  ["PJT", "프로젝트"],
+];
 
 const CANDS: Cand[] = (() => {
   const seen = new Set<string>();
@@ -66,6 +91,11 @@ const CANDS: Cand[] = (() => {
       list.push({ key, title, book, alias });
     };
     push(squeeze(bare), false);
+    for (const [abbr, full] of ABBR) {
+      const re = new RegExp("\\b" + abbr + "\\b", "i");
+      if (re.test(bare)) push(squeeze(bare.replace(re, full)), false);
+      if (bare.includes(full)) push(squeeze(bare.replace(full, abbr)), false);
+    }
     for (const syn of SYNONYM[title] || []) push(squeeze(syn), false);
     // 연도·판번호가 붙은 제목("ISO/IEC 25010:2023")은 연도를 뗀 형태로도 찾는다.
     const noYear = bare.replace(/[\s:]*(20\d{2}|19\d{2})(년|판)?$/, "").trim();

@@ -1,5 +1,6 @@
 import { SUBNOTES } from "@/data/textbookSubnotes";
 import { titlesMatching } from "@/lib/examHistory";
+import { relatedTopics } from "@/lib/relatedTopics";
 import { peerAnswersFor, peerAnswersForQuestion, type PeerAnswer } from "@/data/peerAnswers";
 
 /**
@@ -15,6 +16,7 @@ import { peerAnswersFor, peerAnswersForQuestion, type PeerAnswer } from "@/data/
  * "이 문항이 내 것"이라고 보는 문항이면 그 토픽의 답안지도 이 문항의 답안지다.
  */
 const TITLES: readonly string[] = SUBNOTES.map((s) => s.title);
+const BOOK = new Set(TITLES);
 
 const cache = new Map<string, string[]>();
 
@@ -22,7 +24,11 @@ const cache = new Map<string, string[]>();
 export function topicsForQuestion(text: string): string[] {
   const c = cache.get(text);
   if (c) return c;
+  // examHistory 매칭(제목 열쇠)이 1차다. 제목을 한 글자도 안 쓰는 문항
+  // ("은행가 알고리즘" → 「Banker's 알고리즘」, "회귀시험" → 「리그레이션 테스트」)은
+  // 관련 토픽 매칭(괄호 속 원어·동의어까지 본다)으로 한 번 더 건진다.
   const out = titlesMatching(text, TITLES);
+  for (const t of relatedTopics(text, 4)) if (BOOK.has(t) && !out.includes(t)) out.push(t);
   cache.set(text, out);
   return out;
 }
