@@ -196,6 +196,14 @@ function gapRe(part: string, key: string): void {
  */
 const EXTRA_ANY: Record<string, string[]> = {
   "객체지향 설계 원리": ["solid원칙", "solid원리"],
+  // 교재에 CI/CD 서브노트가 따로 없다 — CI/CD 문항은 데브옵스에서 본다.
+  "데브옵스 (DevOps)": ["continuousintegration"],
+  // 문항은 풀어 쓴 이름만 적는다("AI-DLC(AI-Driven Development Life Cycle)").
+  "AI-DLC(AI-Driven SDLC)": ["aidrivendevelopmentlifecycle"],
+  // 교재는 "테스트", 문항은 "테스팅".
+  "탐색적 테스트": ["탐색적테스팅", "exploratorytesting"],
+  // 제목이 "감리/PMO 비교표" 라 PMO 를 다룬 문항을 못 찾았다.
+  "감리/PMO 비교표": ["pmo"],
 };
 
 function has(entry: { sq: string; tokens: Set<string> }, key: string): boolean {

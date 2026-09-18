@@ -137111,5 +137111,346 @@
    "포트",
    "모니터"
   ]
+ },
+ {
+  "id": "ns19w03-101",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "03주차",
+  "cohort": "19기",
+  "date": "2026-09-20",
+  "text": "소프트웨어 무중단 배포 방식",
+  "keywords": [
+   "Rolling Update",
+   "Blue/Green Deployment",
+   "Canary Release",
+   "서비스 중단 없음",
+   "트래픽 전환"
+  ]
+ },
+ {
+  "id": "ns19w03-102",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "03주차",
+  "cohort": "19기",
+  "date": "2026-09-20",
+  "text": "소프트웨어 리팩토링(Refactoring)",
+  "keywords": [
+   "외부기능 변경없이 내부 구조 수정",
+   "코드 스멜",
+   "Move",
+   "Extract",
+   "Push Down",
+   "Pull Up"
+  ]
+ },
+ {
+  "id": "ns19w03-103",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "03주차",
+  "cohort": "19기",
+  "date": "2026-09-20",
+  "text": "SDD(Spec-Driven Development)",
+  "keywords": [
+   "Spec First",
+   "Single Source of Truth(SSoT)",
+   "실행 가능한 명세",
+   "Failing Test"
+  ]
+ },
+ {
+  "id": "ns19w03-104",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "03주차",
+  "cohort": "19기",
+  "date": "2026-09-20",
+  "text": "CI/CD(Continuous Integration/Continuous Delivery, Deployment)",
+  "keywords": [
+   "지속적 통합",
+   "지속적 전달",
+   "지속적 배포",
+   "빌드·테스트 자동화",
+   "파이프라인",
+   "DevOps"
+  ]
+ },
+ {
+  "id": "ns19w03-105",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "03주차",
+  "cohort": "19기",
+  "date": "2026-09-20",
+  "text": "CBAM(Cost Benefit Analysis Method)의 개념과 평가절차",
+  "keywords": [
+   "비용 효율",
+   "2단계 반복",
+   "효용-반응 곡선",
+   "불확실성 고려",
+   "ATAM 후속 평가"
+  ]
+ },
+ {
+  "id": "ns19w03-106",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "03주차",
+  "cohort": "19기",
+  "date": "2026-09-20",
+  "text": "AI-DLC(AI-Driven Development Life Cycle)",
+  "keywords": [
+   "AI-Centric",
+   "인텐트(Intent)",
+   "유닛(Unit)",
+   "볼트(Bolt)",
+   "대화 방향의 역전"
+  ]
+ },
+ {
+  "id": "ns19w03-107",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "03주차",
+  "cohort": "19기",
+  "date": "2026-09-20",
+  "text": "유즈케이스 다이어그램과 클래스 다이어그램",
+  "keywords": [
+   "액터",
+   "유즈케이스",
+   "포함·확장",
+   "Attribute",
+   "Operation",
+   "관계(연관·일반화·실체화)"
+  ]
+ },
+ {
+  "id": "ns19w03-108",
+  "period": "1교시",
+  "category": "프로젝트관리",
+  "kind": "NS모의",
+  "round": "03주차",
+  "cohort": "19기",
+  "date": "2026-09-20",
+  "text": "프로젝트 위험 관리의 정량적 위험 분석 기법",
+  "keywords": [
+   "데이터 수집",
+   "데이터 분석",
+   "몬테카를로 시뮬레이션",
+   "민감도 분석",
+   "EMV 분석",
+   "의사결정 나무"
+  ]
+ },
+ {
+  "id": "ns19w03-109",
+  "period": "1교시",
+  "category": "프로젝트관리",
+  "kind": "NS모의",
+  "round": "03주차",
+  "cohort": "19기",
+  "date": "2026-09-20",
+  "text": "프로젝트 갈등관리 유형",
+  "keywords": [
+   "강요",
+   "철회",
+   "상대 의견 수용",
+   "양쪽 의견 타협",
+   "문제 해결"
+  ]
+ },
+ {
+  "id": "ns19w03-110",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "03주차",
+  "cohort": "19기",
+  "date": "2026-09-20",
+  "text": "소프트웨어 개발 프로젝트에서 선도개발을 위한 개발방법론 테일러링(Tailoring)",
+  "keywords": [
+   "프로젝트 특징 정의",
+   "표준 프로세스 선정 및 검증",
+   "상위/하위 수준 커스터마이징",
+   "문서화",
+   "내부·외부 기준"
+  ]
+ },
+ {
+  "id": "ns19w03-111",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "03주차",
+  "cohort": "19기",
+  "date": "2026-09-20",
+  "text": "탐색적 테스팅(Exploratory Testing)",
+  "keywords": [
+   "Heuristic 기반",
+   "Time-boxing",
+   "테스트 세션",
+   "테스트 차터",
+   "테스트 노트",
+   "요약 보고"
+  ]
+ },
+ {
+  "id": "ns19w03-112",
+  "period": "1교시",
+  "category": "프로젝트관리",
+  "kind": "NS모의",
+  "round": "03주차",
+  "cohort": "19기",
+  "date": "2026-09-20",
+  "text": "소프트웨어 형상관리(Software Configuration Management)",
+  "keywords": [
+   "형상 식별",
+   "형상 통제",
+   "형상 감사",
+   "형상 기록",
+   "베이스라인"
+  ]
+ },
+ {
+  "id": "ns19w03-113",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "03주차",
+  "cohort": "19기",
+  "date": "2026-09-20",
+  "text": "유틸리티 트리(Utility Tree)",
+  "keywords": [
+   "유틸리티",
+   "품질속성",
+   "세분화된 품질 속성",
+   "시나리오",
+   "시나리오 우선순위",
+   "Bottom Up"
+  ]
+ },
+ {
+  "id": "ns19w03-201",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "03주차",
+  "cohort": "19기",
+  "date": "2026-09-20",
+  "text": "최근 소프트웨어 엔지니어링은 'AI 기반 개발(AI-Augmented Development)' 단계에서 '에이전틱 AI(Agentic AI)' 패러다임으로 진화하고 있습니다. 다음을 설명하시오.\n가. AI 기반 개발과 에이전틱 AI를 비교\n나. 에이전틱 AI 도입 시 예상되는 잠재적 위험 및 IT 거버넌스 측면의 대응 방안",
+  "keywords": [
+   "AI-Augmented Development",
+   "Agentic AI",
+   "자율·인식·추론·행동",
+   "Human-in-the-Loop",
+   "IT 거버넌스",
+   "책임성·설명가능성"
+  ]
+ },
+ {
+  "id": "ns19w03-202",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "03주차",
+  "cohort": "19기",
+  "date": "2026-09-20",
+  "text": "최근 모놀리식 아키텍처 시스템을 MSA(Micro Service Architecture)로 전환하고 있다. 다음에 대하여 설명하시오.\n가. 모놀리식 아키텍처와 MSA(Micro Service Architecture) 비교\n나. MSA(Micro Service Architecture)의 DDD(Domain Driven Design)\n다. MSA(Micro Service Architecture)의 문제점 및 개선방안",
+  "keywords": [
+   "모놀리식 아키텍처",
+   "API Gateway",
+   "DDD",
+   "바운디드 컨텍스트",
+   "Polyglot",
+   "분산 트랜잭션",
+   "Saga",
+   "서비스 디스커버리"
+  ]
+ },
+ {
+  "id": "ns19w03-203",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "03주차",
+  "cohort": "19기",
+  "date": "2026-09-20",
+  "text": "요구공학은 소프트웨어 개발 초기 단계에서 명확하고 완전한 요구사항을 도출, 분석, 문서화하고 관리하여 개발 오류와 비용 낭비를 줄이며 프로젝트의 성공을 보장하는 핵심 프로세스이다. 이에 대해 다음을 설명하시오.\n가. 요구공학의 정의와 목적\n나. 요구사항 개발 프로세스의 주요 단계\n다. 요구사항 수집 기법",
+  "keywords": [
+   "도출",
+   "분석",
+   "명세",
+   "확인",
+   "요구사항 관리",
+   "인터뷰",
+   "브레인스토밍",
+   "프로토타이핑"
+  ]
+ },
+ {
+  "id": "ns19w03-204",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "03주차",
+  "cohort": "19기",
+  "date": "2026-09-20",
+  "text": "개발 생명주기 전반에 AI Agent를 적용하는 Agentic Software Development 방식이 주목받고 있다. 이와 관련하여 다음을 설명하시오.\n가. Agentic Software Development의 개념 및 특징\n나. AI 기반 요구사항 분석, 코드 생성, 테스트 및 운영 자동화 구조\n다. Human-in-the-Loop 기반 AI 개발 거버넌스 및 품질관리 방안",
+  "keywords": [
+   "AI Agent",
+   "요구사항 분석 자동화",
+   "코드 생성",
+   "테스트 자동화",
+   "Human-in-the-Loop",
+   "AI 개발 거버넌스",
+   "품질관리"
+  ]
+ },
+ {
+  "id": "ns19w03-205",
+  "period": "2교시",
+  "category": "프로젝트관리",
+  "kind": "NS모의",
+  "round": "03주차",
+  "cohort": "19기",
+  "date": "2026-09-20",
+  "text": "정보시스템 구축사업의 성공적인 수행을 위해 정보시스템 감리와 PMO(전자정부사업관리위탁)를 활용하여 사업관리를 수행하고 있다. 이와 관련하여 다음을 설명하시오.\n가. 정보시스템 감리의 법적 근거\n나. PMO의 정의와 역할\n다. PMO 대상 사업의 범위\n라. PMO와 상주감리의 비교",
+  "keywords": [
+   "전자정부법",
+   "정보시스템 감리",
+   "PMO(전자정부사업관리위탁)",
+   "상주감리",
+   "사업관리 위탁",
+   "3자적 관점"
+  ]
+ },
+ {
+  "id": "ns19w03-206",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "03주차",
+  "cohort": "19기",
+  "date": "2026-09-20",
+  "text": "소프트웨어 테스트에 대하여 다음을 설명하시오.\n가. 소프트웨어 테스트 원리\n나. 블랙박스 테스트와 화이트박스 테스트\n다. 명세기반, 구조기반, 경험기반 테스트 기법",
+  "keywords": [
+   "살충제 패러독스",
+   "결함 집중",
+   "오류부재 궤변",
+   "블랙박스 테스트",
+   "화이트박스 테스트",
+   "명세기반",
+   "구조기반",
+   "경험기반"
+  ]
  }
 ]
