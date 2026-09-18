@@ -3758,16 +3758,14 @@
     "label": "구성요소",
     "mnemonic": "",
     "keywords": [
-     "WBS 최하위",
-     "계획 중 패키지",
-     "작업 내용 기술",
-     "일정 원가 정보",
-     "작업 완료 기준",
-     "고유 식별자",
-     "작업 패키지 묶음",
-     "패키지별 담당자",
-     "R 품질 검토자",
-     "P 참여 담당"
+     "작업 패키지(Work Package)",
+     "계획 패키지(Planning Package)",
+     "작업분류체계 사전(WBS Dictionary)",
+     "작업분류체계 사전(WBS Dictionary)",
+     "작업분류체계 코드(Code of Account)",
+     "통제 계정(Control Account)",
+     "RAM (Responsibilities Assignment Matrix)",
+     "RAM (Responsibilities Assignment Matrix)"
     ]
    }
   ],
