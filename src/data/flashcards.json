@@ -7131,22 +7131,21 @@
     ]
    },
    {
-    "label": "SDD 절차 (요명계구검)",
-    "mnemonic": "",
-    "keywords": [
-     "정의",
-     "실행",
-     "검증"
-    ]
-   },
-   {
     "label": "SDD 절차 (정설분구)",
     "mnemonic": "",
     "keywords": [
-     "정의(Specify)",
-     "설계(Plan)",
-     "분해(Break Down)",
-     "구현(Implement)"
+     "명세",
+     "구현"
+    ]
+   },
+   {
+    "label": "SDD·TDD·BDD 통합 개발 프로세스",
+    "mnemonic": "",
+    "keywords": [
+     "SDD 영역",
+     "BDD 영역",
+     "TDD 영역",
+     "검증·개선 영역"
     ]
    }
   ],
