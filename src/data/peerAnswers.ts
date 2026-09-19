@@ -13002,6 +13002,40 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/conf-pm-자원관리-동기부여이론-갈등해결기법-1-4.jpg", label: "4쪽" },
     ],
   },
+  {
+    id: "peer-cicd2-1",
+    period: "2교시",
+    no: "4",
+    question: "CI/CD에 대하여 다음을 설명하시오.\n가. CI/CD 개념과 장단점\n나. CI/CD 파이프라인 구성요소\n다. 보안 고려사항",
+    exam: "정리 답안 (드라이브 SW공학)",
+    topicTitles: ["데브옵스 (DevOps)"],
+    score: 15.4,
+    maxScore: 25,
+    pages: [
+      { src: "/answers/cicd2-1-1.jpg", label: "1쪽" },
+      { src: "/answers/cicd2-1-2.jpg", label: "2쪽" },
+      { src: "/answers/cicd2-1-3.jpg", label: "3쪽" },
+      { src: "/answers/cicd2-1-4.jpg", label: "4쪽" },
+      { src: "/answers/cicd2-1-5.jpg", label: "5쪽" },
+    ],
+  },
+  {
+    id: "peer-cicd2-2",
+    period: "1교시",
+    no: "11",
+    question: "DevOps에서 CI/CD의 중요성",
+    exam: "심화반 NS11 3주차",
+    topicTitles: ["데브옵스 (DevOps)"],
+    score: 6,
+    maxScore: 10,
+    pages: [
+      { src: "/answers/cicd2-2-1.jpg", label: "1쪽" },
+      { src: "/answers/cicd2-2-2.jpg", label: "2쪽" },
+      { src: "/answers/cicd2-2-3.jpg", label: "3쪽" },
+      { src: "/answers/cicd2-2-4.jpg", label: "4쪽" },
+      { src: "/answers/cicd2-2-5.jpg", label: "5쪽" },
+    ],
+  },
 ];
 
 /** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */
