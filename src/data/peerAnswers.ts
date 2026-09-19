@@ -13037,6 +13037,50 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/cicd2-2-5.jpg", label: "5쪽" },
     ],
   },
+  {
+    id: "peer-qra-2",
+    period: "2교시",
+    no: "1",
+    question: "위험분석 중 정량적 위험 분석\n가. ALE에 대한 설명\n나. 예시의 SLE, ARO, ALE와 투자 타당성 제시",
+    exam: "정리 답안 (PM)",
+    topicTitles: ["정량적 위험 분석", "위험분석 방법론 (ISO/IEC 1335-1, 위험분석 전략/평가)"],
+    score: 17.2,
+    maxScore: 25,
+    pages: [
+      { src: "/answers/qra-2-1.jpg", label: "1쪽" },
+      { src: "/answers/qra-2-2.jpg", label: "2쪽" },
+      { src: "/answers/qra-2-3.jpg", label: "3쪽" },
+    ],
+  },
+  {
+    id: "peer-qra-3",
+    period: "2교시",
+    question: "정량적 위험 분석 기법\n가. 의사결정 나무 분석\n나. 금전적 기대값 분석\n다. 몬테카를로 시뮬레이션",
+    exam: "ITPE TOP 정리 답안",
+    topicTitles: ["정량적 위험 분석", "프로젝트 위험관리"],
+    score: 15.5,
+    maxScore: 25,
+    pages: [
+      { src: "/answers/qra-3-1.jpg", label: "1쪽" },
+      { src: "/answers/qra-3-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-qra-4",
+    period: "2교시",
+    no: "3",
+    question: "정량적 위험 분석\n가. 의사결정 나무 분석\n나. 금전적 기대값 분석\n다. 몬테카를로 시뮬레이션\n라. 민감도 분석",
+    exam: "정리 답안 (PM)",
+    topicTitles: ["정량적 위험 분석", "프로젝트 위험관리"],
+    score: 15,
+    maxScore: 25,
+    pages: [
+      { src: "/answers/qra-4-1.jpg", label: "1쪽" },
+      { src: "/answers/qra-4-2.jpg", label: "2쪽" },
+      { src: "/answers/qra-4-3.jpg", label: "3쪽" },
+      { src: "/answers/qra-4-4.jpg", label: "4쪽" },
+    ],
+  },
 ];
 
 /** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */
