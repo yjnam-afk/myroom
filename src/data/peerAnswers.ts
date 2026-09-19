@@ -13022,10 +13022,11 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   {
     id: "peer-cicd2-2",
     period: "1교시",
-    no: "11",
-    question: "DevOps에서 CI/CD의 중요성",
-    exam: "심화반 NS11 3주차",
+    no: "10",
+    question: "DevOps 에서 CI(Continuous Integration)/CD(Continuous Delivery)의 중요성",
+    exam: "심화반 NS11 3주차 1교시",
     topicTitles: ["데브옵스 (DevOps)"],
+    questionIds: ["ns11w03-110"],
     score: 6,
     maxScore: 10,
     pages: [

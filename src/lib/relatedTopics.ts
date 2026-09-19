@@ -12,7 +12,7 @@ import topics from "@/data/topics.json";
  *  - 괄호 안 원어(Process 등)는 보조 키라 본제목 매칭보다 뒤로 밀고,
  *    흔한 일반 단어는 아예 제외한다.
  */
-type Cand = { key: string; title: string; book: boolean; alias: boolean };
+type Cand = { key: string; title: string; book: boolean; alias: boolean; sub?: boolean };
 
 /** 그 자체로는 토픽을 특정하지 못하는 흔한 말 */
 const STOP = new Set([
@@ -40,6 +40,16 @@ const STOP_EN = new Set([
   "record", "request", "response", "server", "client", "device", "session",
   "channel", "signal", "source", "target", "search", "query", "monitoring",
   "test", "testing", "function", "structure", "interface", "resource",
+]);
+
+/**
+ * 괄호 속 한글 별칭이 흔한 말이면 열쇠로 못 쓴다 — 「Pipeline(파이프라인)」의
+ * '파이프라인' 이 CI/CD 파이프라인 문항을 끌어와 CPU 파이프라인 답안이 붙었다.
+ */
+const STOP_KO_ALIAS = new Set([
+  "파이프라인", "컨테이너", "캐시", "프로세스", "스레드", "모듈", "패턴", "버퍼",
+  "아키텍처", "플랫폼", "프레임워크", "인터페이스", "알고리즘", "네트워크",
+  "데이터베이스", "클라우드", "가상화", "스케줄링", "커널", "클러스터", "스택",
 ]);
 
 const lower = (s: string) => s.toLowerCase();
@@ -84,11 +94,11 @@ const CANDS: Cand[] = (() => {
   const list: Cand[] = [];
   const add = (title: string, book: boolean) => {
     const bare = title.replace(/[(（][^)）]*[)）]/g, "").trim();
-    const push = (key: string, alias: boolean) => {
+    const push = (key: string, alias: boolean, sub = false) => {
       if (key.length < 3 || seen.has(key)) return;
-      if (STOP.has(bare) || (alias && STOP_EN.has(key))) return;
+      if (STOP.has(bare) || (alias && (STOP_EN.has(key) || STOP_KO_ALIAS.has(key)))) return;
       seen.add(key);
-      list.push({ key, title, book, alias });
+      list.push({ key, title, book, alias, sub });
     };
     push(squeeze(bare), false);
     for (const [abbr, full] of ABBR) {
@@ -96,7 +106,8 @@ const CANDS: Cand[] = (() => {
       if (re.test(bare)) push(squeeze(bare.replace(re, full)), false);
       if (bare.includes(full)) push(squeeze(bare.replace(full, abbr)), false);
     }
-    for (const syn of SYNONYM[title] || []) push(squeeze(syn), false);
+    // 손으로 등록한 동의어는 짧은 영문이라도 통째로 찾는다("CI/CD" → cicd).
+    for (const syn of SYNONYM[title] || []) push(squeeze(syn), false, true);
     // 연도·판번호가 붙은 제목("ISO/IEC 25010:2023")은 연도를 뗀 형태로도 찾는다.
     const noYear = bare.replace(/[\s:]*(20\d{2}|19\d{2})(년|판)?$/, "").trim();
     if (noYear && noYear !== bare) push(squeeze(noYear), false);
@@ -122,7 +133,7 @@ export function relatedTopics(text: string, limit = 3): string[] {
   for (const c of CANDS) {
     // 짧은 영문 약어는 낱말이 정확히 일치할 때만 — 부분 문자열 오탐 차단
     const ok =
-      isLatin(c.key) && c.key.length <= 5
+      isLatin(c.key) && c.key.length <= 5 && !c.sub
         ? tokens.has(c.key)
         : sq.includes(c.key) || sqBare.includes(c.key);
     if (!ok) continue;

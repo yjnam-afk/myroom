@@ -197,7 +197,7 @@ function gapRe(part: string, key: string): void {
 const EXTRA_ANY: Record<string, string[]> = {
   "객체지향 설계 원리": ["solid원칙", "solid원리"],
   // 교재에 CI/CD 서브노트가 따로 없다 — CI/CD 문항은 데브옵스에서 본다.
-  "데브옵스 (DevOps)": ["continuousintegration"],
+  "데브옵스 (DevOps)": ["continuousintegration", "cicd"],
   // 문항은 풀어 쓴 이름만 적는다("AI-DLC(AI-Driven Development Life Cycle)").
   "AI-DLC(AI-Driven SDLC)": ["aidrivendevelopmentlifecycle"],
   // 교재는 "테스트", 문항은 "테스팅".
@@ -206,8 +206,15 @@ const EXTRA_ANY: Record<string, string[]> = {
   "감리/PMO 비교표": ["pmo"],
 };
 
+/**
+ * 손으로 붙인 열쇠는 짧은 영문이라도 낱말 단위가 아니라 통째로 찾는다.
+ * "CI/CD" 는 낱말로 쪼개면 ci·cd 가 되어 "cicd" 열쇠가 영영 안 맞았다.
+ */
+const HAND = new Set(Object.values(EXTRA_ANY).flat());
+
 function has(entry: { sq: string; tokens: Set<string> }, key: string): boolean {
-  if (isLatin(key) && !/\s/.test(key) && key.length <= 6) return entry.tokens.has(key);
+  if (isLatin(key) && !/\s/.test(key) && key.length <= 6 && !HAND.has(key))
+    return entry.tokens.has(key);
   if (variants(key).some((k) => entry.sq.includes(k))) return true;
   const re = GAP.get(key);
   return re ? re.test(entry.sq) : false;
