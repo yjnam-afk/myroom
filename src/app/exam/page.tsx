@@ -426,7 +426,7 @@ export default function ExamPage() {
                     const peers = answersForQuestion(q.text, q.id, q.period);
                     return peers.length ? (
                       <div className="mt-3 pl-9">
-                        <PeerAnswers items={peers} want={q.period} />
+                        <PeerAnswers items={peers} want={q.period} collapsed />
                       </div>
                     ) : null;
                   })()}

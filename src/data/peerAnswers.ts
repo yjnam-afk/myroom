@@ -13081,6 +13081,20 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/qra-4-4.jpg", label: "4쪽" },
     ],
   },
+  {
+    id: "peer-msa2-2",
+    period: "1교시",
+    no: "2",
+    question: "모놀리식 아키텍처와 마이크로서비스 아키텍처 비교",
+    exam: "정리 답안 (SW공학)",
+    topicTitles: ["MSA (Micro Service Architecture)"],
+    score: 6,
+    maxScore: 10,
+    pages: [
+      { src: "/answers/msa2-2-1.jpg", label: "1쪽" },
+      { src: "/answers/msa2-2-2.jpg", label: "2쪽" },
+    ],
+  },
 ];
 
 /** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */

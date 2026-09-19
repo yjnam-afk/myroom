@@ -20,7 +20,16 @@ import { periodGroup } from "@/lib/questionAnswers";
  * 답안만 먼저 세우고, 다른 묶음은 줄을 긋고 뒤로 보낸다. 2교시 25점짜리를 푸는데
  * 1교시 10점 답안이 맨 위에 서면 분량 눈금이 어긋나기 때문이다.
  */
-export default function PeerAnswers({ items, want }: { items: PeerAnswer[]; want?: string }) {
+export default function PeerAnswers({
+  items,
+  want,
+  collapsed = false,
+}: {
+  items: PeerAnswer[];
+  want?: string;
+  /** 문제은행·기출처럼 문항이 죽 나열되는 화면에서는 통째로 접어 둔다 — 문제가 안 보인다. */
+  collapsed?: boolean;
+}) {
   const [open, setOpen] = useState<string | null>(null);
   const [zoom, setZoom] = useState<string | null>(null);
   const rows = useRef(new Map<string, HTMLDivElement | null>());
@@ -47,23 +56,19 @@ export default function PeerAnswers({ items, want }: { items: PeerAnswer[]; want
   const wantGroup = want ? periodGroup(want) : null;
   const fit = wantGroup ? items.filter((a) => periodGroup(a.period) === wantGroup).length : items.length;
 
-  return (
-    <section className="mb-6 overflow-hidden rounded-2xl border-2 border-slate-300 bg-white shadow-sm">
-      <div className="bg-slate-100 px-5 py-3">
-        <h3 className="text-sm font-bold text-slate-800">
-          ✍️ 모범답안 {items.length}건 — 실제 시험지와 첨삭
-          {wantGroup && fit > 0 && fit < items.length && (
-            <span className="ml-1 font-medium text-slate-500">
-              (이 문제와 같은 {wantGroup} {fit}건)
-            </span>
-          )}
-        </h3>
-        <p className="mt-0.5 text-xs text-slate-500">
-          <b>실제로 제출되어 점수를 받은</b> 답안지 스캔입니다. 배점 대비 점수와
-          빨간 첨삭이 채점 기준을 그대로 보여 줍니다.
-        </p>
-      </div>
+  const title = (
+    <>
+      ✍️ 모범답안 {items.length}건 — 실제 시험지와 첨삭
+      {wantGroup && fit > 0 && fit < items.length && (
+        <span className="ml-1 font-medium text-slate-500">
+          (이 문제와 같은 {wantGroup} {fit}건)
+        </span>
+      )}
+    </>
+  );
 
+  const body = (
+    <>
       <div className="divide-y divide-slate-100">
         {items.map((a, idx) => {
           const isOpen = open === a.id;
@@ -186,6 +191,29 @@ export default function PeerAnswers({ items, want }: { items: PeerAnswer[]; want
           </p>
         </div>
       )}
+    </>
+  );
+
+  if (collapsed)
+    return (
+      <details className="mb-3 overflow-hidden rounded-2xl border-2 border-slate-300 bg-white shadow-sm">
+        <summary className="cursor-pointer bg-slate-100 px-5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-200">
+          {title}
+        </summary>
+        {body}
+      </details>
+    );
+
+  return (
+    <section className="mb-6 overflow-hidden rounded-2xl border-2 border-slate-300 bg-white shadow-sm">
+      <div className="bg-slate-100 px-5 py-3">
+        <h3 className="text-sm font-bold text-slate-800">{title}</h3>
+        <p className="mt-0.5 text-xs text-slate-500">
+          <b>실제로 제출되어 점수를 받은</b> 답안지 스캔입니다. 배점 대비 점수와
+          빨간 첨삭이 채점 기준을 그대로 보여 줍니다.
+        </p>
+      </div>
+      {body}
     </section>
   );
 }

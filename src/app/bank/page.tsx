@@ -283,7 +283,7 @@ export default function BankPage() {
                       if (!found.length) return null;
                       return (
                         <div className="mt-2">
-                          <PeerAnswers items={found} want={q.period} />
+                          <PeerAnswers items={found} want={q.period} collapsed />
                         </div>
                       );
                     })()}
