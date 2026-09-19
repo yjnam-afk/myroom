@@ -7134,17 +7134,6 @@
     ]
    },
    {
-    "label": "SDD 세부 절차",
-    "mnemonic": "",
-    "keywords": [
-     "스펙 정의",
-     "계획 수립",
-     "가드레일 설정",
-     "AI 구현 생성",
-     "검증·피드백"
-    ]
-   },
-   {
     "label": "SDD·TDD·BDD 통합 개발 프로세스",
     "mnemonic": "",
     "keywords": [
