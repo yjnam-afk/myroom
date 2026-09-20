@@ -27,6 +27,8 @@ import {
   examHistory,
   pastExams,
   questionIdsForTitle,
+  summarize,
+  LATEST_PAST_ROUND,
   type ExamAppearance,
   type PastAppearance,
 } from "@/lib/examHistory";
@@ -233,7 +235,19 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
 
 // ── 검색·목록 인덱스 — 화면이 처음 열릴 때 한 번만 내려받는다 ──
 export type TopicOption = { id: string; title: string; category: string; importance: string };
-export type BrowseItem = { title: string; imp?: string; src?: string };
+export type BrowseItem = {
+  title: string;
+  imp?: string;
+  src?: string;
+  /** NS 주간 모의고사 출제 이력 — 통산·최근 1년·최근 날짜(학습계획 칩과 같은 눈금) */
+  ns?: number;
+  nsRecent?: number;
+  nsLast?: string;
+  /** 기술사 기출 이력 — 통산·최근 10회·최근 회차 */
+  past?: number;
+  pastRecent?: number;
+  pastLast?: number;
+};
 export type BrowseGroup = { key: string; label: string; badge: string; items: BrowseItem[] };
 /** 검색 한 줄 — 서브노트(답안 템플릿)와 예전 토픽 목록을 합친 통합 후보 */
 export type SearchEntry = {
@@ -273,7 +287,21 @@ function buildBrowseGroups(): BrowseGroup[] {
   for (const s of SUBNOTES) {
     if (!byCourse.has(s.course)) byCourse.set(s.course, []);
     const imp = (s.topicId && impById.get(s.topicId)) || impByBare.get(bareT(s.title)) || "상";
-    byCourse.get(s.course)!.push({ title: s.title, imp, src: "심화반" });
+    // 출제 이력은 여기서 세어 보낸다 — 클라이언트가 문제은행(questions.json)을 받지 않게.
+    const hist = examHistory(s.title);
+    const hs = summarize(hist);
+    const past = pastExams(s.title);
+    byCourse.get(s.course)!.push({
+      title: s.title,
+      imp,
+      src: "심화반",
+      ns: hs.count,
+      nsRecent: hs.recent,
+      nsLast: hs.latest,
+      past: past.length,
+      pastRecent: past.filter((p) => p.round >= LATEST_PAST_ROUND - 9).length,
+      pastLast: past[0]?.round,
+    });
     covered.add(bareT(s.title));
   }
   const groups: BrowseGroup[] = [];
@@ -284,13 +312,8 @@ function buildBrowseGroups(): BrowseGroup[] {
       key: `course:${c}`,
       label: DOMAIN_LABEL[c] || c,
       badge: "심화반",
-      items: list
-        .slice()
-        .sort(
-          (a, b) =>
-            (IMP_ORDER[a.imp || ""] ?? 9) - (IMP_ORDER[b.imp || ""] ?? 9) ||
-            a.title.localeCompare(b.title, "ko"),
-        ),
+      // 교재 순서 그대로 — 학습계획·정리표와 같은 줄 순서라야 번호로 찾아진다.
+      items: list.slice(),
     });
   }
   // 교재에 아직 없는 예전 토픽 — 카드 자료로 볼 수 있으므로 같이 노출한다.

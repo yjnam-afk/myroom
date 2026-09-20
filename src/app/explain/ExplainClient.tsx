@@ -13,7 +13,7 @@ import { PageHeader } from "@/components/ui";
 import TopicAutocomplete from "@/components/TopicAutocomplete";
 import { DOMAIN_LABEL } from "@/lib/domains";
 import { loadExplainIndex } from "@/lib/explainIndexClient";
-import type { BrowseGroup, ExplainIndex, ExplainNav, ExplainTopicData } from "@/lib/explainData";
+import type { BrowseGroup, BrowseItem, ExplainIndex, ExplainNav, ExplainTopicData } from "@/lib/explainData";
 
 /**
  * 토픽 설명 화면(클라이언트).
@@ -86,12 +86,108 @@ const SRC_CHIP: Record<string, string> = {
   기출: "bg-amber-100 text-amber-700",
 };
 
-const IMP_CHIP: Record<string, string> = {
-  상: "text-red-600",
-  중: "text-amber-600",
-  하: "text-slate-400",
-  출제예상: "text-brand-600",
+/** 학습계획 줄과 같은 중요도 배지 — 상★★★ 중★★ 하★ */
+const PRIORITY_STYLE: Record<string, { cls: string; star: string }> = {
+  상: { cls: "bg-red-100 text-red-700 ring-red-200", star: "★★★" },
+  중: { cls: "bg-blue-100 text-blue-700 ring-blue-200", star: "★★" },
+  하: { cls: "bg-slate-100 text-slate-600 ring-slate-200", star: "★" },
+  출제예상: { cls: "bg-brand-50 text-brand-700 ring-brand-200", star: "◎" },
 };
+function PriorityBadge({ p }: { p?: string }) {
+  const st = (p && PRIORITY_STYLE[p]) || PRIORITY_STYLE.하;
+  return (
+    <span
+      className={`inline-flex shrink-0 items-center gap-1 rounded px-1.5 py-0.5 text-[10px] font-bold ring-1 ${st.cls}`}
+      title={`중요도 ${p ?? "하"}`}
+    >
+      {p ?? "하"}
+      <span className="text-[8px] leading-none">{st.star}</span>
+    </span>
+  );
+}
+
+/**
+ * 출제 이력 칩 — 학습계획의 📕·🛡️ 칩과 같은 눈금이지만 정적이다.
+ * 이 화면은 문제은행을 받지 않으므로(번들 22 MB 사고) 개수·최근만 서버가 세어 보낸다.
+ * 자세한 문항 목록은 토픽을 열면 「출제 이력」 카드에 있다.
+ */
+function HistChips({ it }: { it: BrowseItem }) {
+  const tone = (must: boolean, recent: number) =>
+    must ? "bg-rose-100 text-rose-700" : recent > 0 ? "bg-amber-100 text-amber-700" : "bg-slate-100 text-slate-500";
+  const past = it.past ?? 0;
+  const pr = it.pastRecent ?? 0;
+  const ns = it.ns ?? 0;
+  const nr = it.nsRecent ?? 0;
+  return (
+    <>
+      {past > 0 && (
+        <span
+          className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold tabular-nums ${tone(pr >= 2 || past >= 3, pr)}`}
+          title={`기술사 기출 ${past}회 · 최근 ${it.pastLast}회`}
+        >
+          📕{past} · {it.pastLast}회
+        </span>
+      )}
+      {ns > 0 && (
+        <span
+          className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold tabular-nums ${tone(nr >= 2 || ns >= 4, nr)}`}
+          title={`NS 주간 모의고사 출제 ${ns}회 · 최근 ${it.nsLast}`}
+        >
+          🛡️{ns} · {it.nsLast ? `${it.nsLast.slice(2, 4)}.${it.nsLast.slice(5, 7)}` : ""}
+        </span>
+      )}
+    </>
+  );
+}
+
+/** 학습계획 줄 모양의 토픽 한 줄 — 번호·중요도·제목·📖·출제 이력. 누르면 그 토픽을 연다. */
+function TopicRow({
+  it,
+  no,
+  group,
+  onPick,
+}: {
+  it: BrowseItem;
+  no: number;
+  group?: string;
+  onPick: (t: string) => void;
+}) {
+  return (
+    <li>
+      <button
+        onClick={() => onPick(it.title)}
+        className="flex w-full items-center gap-2 px-4 py-2 text-left transition hover:bg-brand-50/60"
+      >
+        <span className="w-6 shrink-0 text-right text-[11px] font-bold tabular-nums text-slate-400">
+          {no}
+        </span>
+        <PriorityBadge p={it.imp} />
+        <span className="min-w-0 flex-1 truncate text-sm text-slate-800">
+          {it.title}
+          {group && <span className="ml-1.5 text-[10px] text-slate-400">{group}</span>}
+        </span>
+        {it.src === "심화반" ? (
+          <span
+            className="shrink-0 rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700"
+            title="교재 서브노트 원본 있음"
+          >
+            📖
+          </span>
+        ) : (
+          it.src && (
+            <span className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold ${SRC_CHIP[it.src] || ""}`}>
+              {it.src}
+            </span>
+          )
+        )}
+        <HistChips it={it} />
+        <span className="shrink-0 rounded-md border border-slate-200 bg-white px-2 py-1 text-[11px] font-medium text-slate-600">
+          💡
+        </span>
+      </button>
+    </li>
+  );
+}
 
 function TopicBrowser({
   allGroups,
@@ -144,31 +240,11 @@ function TopicBrowser({
         // 걸러보기 결과 — 도메인 구분 없이 한 판, 최대 높이 안에서 스크롤.
         <div className="max-h-72 overflow-y-auto p-4">
           {matched.length ? (
-            <div className="flex flex-wrap gap-1.5">
-              {matched.map((m) => (
-                <button
-                  key={m.group + m.title}
-                  onClick={() => pick(m.title)}
-                  className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 hover:border-brand-400 hover:bg-brand-50 hover:text-brand-700"
-                  title={m.group}
-                >
-                  {m.imp && (
-                    <span className={`mr-1 text-[10px] font-bold ${IMP_CHIP[m.imp] || "text-slate-400"}`}>
-                      {m.imp}
-                    </span>
-                  )}
-                  {m.title}
-                  {m.src && (
-                    <span className={`ml-1 rounded px-1 py-0.5 text-[9px] font-bold ${SRC_CHIP[m.src] || ""}`}>
-                      {m.src}
-                    </span>
-                  )}
-                  <span className="ml-1 text-[10px] text-slate-400">
-                    {m.group}
-                  </span>
-                </button>
+            <ol className="divide-y divide-slate-100">
+              {matched.map((m, i) => (
+                <TopicRow key={m.group + m.title} it={m} no={i + 1} group={m.group} onPick={pick} />
               ))}
-            </div>
+            </ol>
           ) : (
             <p className="py-2 text-center text-xs text-slate-400">
               “{filter}”와 맞는 토픽이 목록에 없어요.
@@ -218,28 +294,13 @@ function TopicBrowser({
 
           {selGroup && (
             <div className="border-t border-slate-100">
-              <div className="max-h-72 overflow-y-auto p-4">
-                <div className="flex flex-wrap gap-1.5">
-                  {selGroup.items.map((it) => (
-                    <button
-                      key={it.title}
-                      onClick={() => pick(it.title)}
-                      className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 hover:border-brand-400 hover:bg-brand-50 hover:text-brand-700"
-                    >
-                      {it.imp && (
-                        <span className={`mr-1 text-[10px] font-bold ${IMP_CHIP[it.imp] || "text-slate-400"}`}>
-                          {it.imp}
-                        </span>
-                      )}
-                      {it.title}
-                      {it.src && (
-                        <span className={`ml-1 rounded px-1 py-0.5 text-[9px] font-bold ${SRC_CHIP[it.src] || ""}`}>
-                          {it.src}
-                        </span>
-                      )}
-                    </button>
+              {/* 학습계획 줄과 같은 모양 — 교재 순서·번호·중요도·📖·📕 기출·🛡️ NS 이력 */}
+              <div className="max-h-[28rem] overflow-y-auto">
+                <ol className="divide-y divide-slate-100">
+                  {selGroup.items.map((it, i) => (
+                    <TopicRow key={it.title} it={it} no={i + 1} onPick={pick} />
                   ))}
-                </div>
+                </ol>
               </div>
             </div>
           )}
