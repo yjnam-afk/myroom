@@ -20,7 +20,7 @@ type Q = {
   text: string;
   source?: string;
   /** 구분 — 없으면 실제 기출. */
-  kind?: "기출" | "셀테" | "모의고사" | "NS모의" | "예상";
+  kind?: "기출" | "셀테" | "모의고사" | "NS모의";
   /** 회차/주차 라벨(명시적). 없으면 source 앞토큰. */
   round?: string;
   /** 기수(NS 주간 모의고사처럼 기수별로 문제가 갈리는 경우). */
@@ -33,12 +33,12 @@ type Q = {
   imageLabel?: string;
 };
 
-// source(회차) 또는 kind가 있는 문제(기출·셀테·모의고사·예상)를 모은다.
+// source(회차) 또는 kind가 있는 문제(기출·셀테·모의고사·NS모의)를 모은다.
 const EXAMS = (questions as Q[]).filter((q) => q.source || q.kind);
 // 검색은 라벨 없는 연습문제까지 포함해 questions.json 전체에서 한다.
 const ALL = questions as Q[];
 
-function kindOf(q: Q): "기출" | "셀테" | "모의고사" | "NS모의" | "예상" {
+function kindOf(q: Q): "기출" | "셀테" | "모의고사" | "NS모의" {
   return q.kind || "기출";
 }
 // "139회 1교시" → 회차 "139회". round가 있으면 그대로.
@@ -48,13 +48,12 @@ function roundOf(q: Q): string {
   return q.cohort ? `${q.cohort} ${r}` : r;
 }
 
-// 데이터에 실제 존재하는 구분만 탭으로. 기출 → 셀테 → 모의고사 → 예상 순.
+// 데이터에 실제 존재하는 구분만 탭으로. 기출 → 셀테 → 모의고사 → NS모의 순.
 const KIND_ORDER: Record<string, number> = {
   기출: 0,
   셀테: 1,
   모의고사: 2,
   NS모의: 3,
-  예상: 4,
 };
 const KINDS = Array.from(new Set(EXAMS.map(kindOf))).sort(
   (a, b) => (KIND_ORDER[a] ?? 9) - (KIND_ORDER[b] ?? 9),
@@ -63,7 +62,6 @@ const KIND_DESC: Record<string, string> = {
   기출: "실제 정보관리기술사 기출문제입니다. 문제를 골라 바로 답안 '소설'을 연습해 보세요.",
   셀테: "주차별 실전 셀프테스트(셀테)입니다. 시험처럼 골라 답안을 연습해 보세요.",
   모의고사: "실전 명품 모의고사입니다. 교시별로 실제 시험처럼 풀어 보세요.",
-  예상: "출제 흐름(AI·클라우드·보안·데이터)을 반영해 만든 예상문제입니다. 참고용으로 연습하세요.",
   NS모의: "ITPE NS·단합반 주간 실전모의고사(11기~19기, 2022~2026). 주차별 실제 출제 문항과 출제일·도메인입니다. 해설집 본문은 싣지 않습니다.",
 };
 
@@ -85,7 +83,6 @@ const KIND_LABEL: Record<string, string> = {
   셀테: "📝 셀테",
   모의고사: "🏆 모의고사",
   NS모의: "🛡️ NS 주간 모의고사",
-  예상: "🔮 예상",
 };
 
 // 구분의 가장 최신(숫자 큰) 회차/주차. 기본으로 이것만 렌더 → '전체'로 수백 문제를
@@ -201,7 +198,7 @@ export default function ExamPage() {
         />
         {nq && (
           <p className="mt-1.5 text-[11px] text-slate-400">
-            기출·셀테·모의고사·예상·연습 전체({ALL.length}문제)에서 검색 중 — 아래 구분·회차·교시
+            기출·셀테·모의고사·NS모의 전체({ALL.length}문제)에서 검색 중 — 아래 구분·회차·교시
             필터는 잠시 무시됩니다. 지우면 원래 목록으로 돌아가요.
           </p>
         )}

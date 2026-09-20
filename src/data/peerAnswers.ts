@@ -12125,7 +12125,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "시스템의 테스트 완전성을 확보하기 위한 소스코드 커버리지(Source Code Coverage)의 종류를 나열하고, 예를 들어 설명하시오.",
     exam: "제92회 기술사 기출",
     topicTitles: ["코드 커버리지(Code Coverage)"],
-    questionIds: ["k92-302", "k127-107", "yc1-222"],
+    questionIds: ["k92-302", "k127-107"],
     score: 15,
     maxScore: 25,
     pages: [
@@ -12214,7 +12214,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "코드스멜(Code Smell)의 종류와 리팩토링 방법을 설명하시오.",
     exam: "ITPE 모의고사",
     topicTitles: ["소프트웨어 리팩토링"],
-    questionIds: ["yc1-277", "m03371", "yc2-181", "k127-302"],
+    questionIds: ["m03371", "k127-302"],
     score: 6,
     maxScore: 10,
     pages: [
@@ -12437,7 +12437,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "형상관리의 개념과 형상관리 기준선(Baseline)에 대하여 설명하시오.",
     exam: "ITPE 모의고사",
     topicTitles: ["형상 관리"],
-    questionIds: ["k134-104", "s31-47", "yc1-293"],
+    questionIds: ["k134-104", "s31-47"],
     score: 6,
     maxScore: 10,
     pages: [
@@ -12452,7 +12452,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "프로젝트 형상 관리를 설명하시오.",
     exam: "ITPE 모의고사",
     topicTitles: ["형상 관리"],
-    questionIds: ["k125-113", "yc1-223"],
+    questionIds: ["k125-113"],
     score: 6.3,
     maxScore: 10,
     pages: [
@@ -12467,7 +12467,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "SW 형상관리의 개념도 및 구성요소를 설명하시오.",
     exam: "ITPE 모의고사",
     topicTitles: ["형상 관리"],
-    questionIds: ["k140-403", "yc1-223"],
+    questionIds: ["k140-403"],
     pages: [
       { src: "/answers/cfg2-2-1.jpg", label: "1쪽" },
       { src: "/answers/cfg2-2-2.jpg", label: "2쪽" },
@@ -12526,7 +12526,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "WBS(작업분류체계, Work Breakdown Structure)를 설명하시오.",
     exam: "ITPE 모의고사",
     topicTitles: ["WBS (Work Breakdown Structure)"],
-    questionIds: ["k129-302", "yc1-114", "k90-203"],
+    questionIds: ["k129-302", "k90-203"],
     score: 6,
     maxScore: 10,
     pages: [
@@ -12706,7 +12706,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "ISO/IEC 25010을 설명하시오.",
     exam: "ITPE 모의고사",
     topicTitles: ["ISO/IEC 25010:2023"],
-    questionIds: ["m00384", "k140-105", "s41-26", "yc1-267"],
+    questionIds: ["m00384", "k140-105", "s41-26"],
     score: 6.5,
     maxScore: 10,
     pages: [
@@ -12722,7 +12722,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
     question: "ISO/IEC 25010을 설명하시오.",
     exam: "ITPE 모의고사",
     topicTitles: ["ISO/IEC 25010:2023"],
-    questionIds: ["m00384", "k140-105", "s41-26", "yc1-267"],
+    questionIds: ["m00384", "k140-105", "s41-26"],
     score: 6,
     maxScore: 10,
     pages: [
