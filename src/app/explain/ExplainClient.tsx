@@ -342,7 +342,11 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
   const [topic, setTopic] = useState(cur);
   const [browseOpen, setBrowseOpen] = useState(!cur);
   const [idx, setIdx] = useState<ExplainIndex | null>(null);
-  const [recCat, setRecCat] = useState(data?.category ?? "");
+  // 토픽 선택 드롭다운의 묶음 키 — 교재(심화반) 과목이 먼저, 예전(기필반) 묶음은 뒤.
+  // 한때 topics.json 카테고리(기필반 목록)로 채워 심화반 교재 토픽이 안 나왔다.
+  const [recGroup, setRecGroup] = useState(
+    data?.textbook ? `course:${data.textbook.course}` : data?.category ? `cat:${data.category}` : "",
+  );
   const [pending, startTransition] = useTransition();
 
   const textbook = data?.textbook;
@@ -374,11 +378,14 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
   useEffect(() => {
     setTopic(cur);
     if (cur) setBrowseOpen(false);
-    if (data?.category) setRecCat(data.category);
-  }, [cur, data?.category]);
+    if (data?.textbook) setRecGroup(`course:${data.textbook.course}`);
+    else if (data?.category) setRecGroup(`cat:${data.category}`);
+  }, [cur, data?.textbook, data?.category]);
   useEffect(() => {
-    if (!recCat && idx?.cats.length) setRecCat(idx.cats[0]);
-  }, [idx, recCat]);
+    // 아무 토픽도 안 골랐으면 첫 과목(심화반 1주차 CA)부터. 없는 키면 첫 묶음으로.
+    if (idx?.browseGroups.length && !idx.browseGroups.some((g) => g.key === recGroup))
+      setRecGroup(idx.browseGroups[0].key);
+  }, [idx, recGroup]);
 
   /**
    * 토픽을 확정했을 때 — 주소(?topic=)를 바꾸면 서버가 그 토픽 자료를 다시 준다.
@@ -396,9 +403,8 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
       );
   };
 
-  const catTopics = (idx?.topicOptions ?? [])
-    .filter((t) => t.category === recCat)
-    .sort((a, b) => (IMP_ORDER[a.importance] ?? 9) - (IMP_ORDER[b.importance] ?? 9));
+  // 고른 묶음의 토픽 — 심화반 묶음은 학습계획 순서 그대로(목록·정리표와 같은 줄 순서).
+  const recItems = idx?.browseGroups.find((g) => g.key === recGroup)?.items ?? [];
 
   return (
     <div>
@@ -425,30 +431,33 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
         <div className="mt-3 flex flex-wrap items-center gap-2">
           <span className="text-xs text-slate-400">토픽 선택:</span>
           <select
-            value={recCat}
-            onChange={(e) => setRecCat(e.target.value)}
+            value={recGroup}
+            onChange={(e) => setRecGroup(e.target.value)}
             className="rounded border border-slate-200 bg-white px-2 py-1 text-xs text-slate-600"
           >
-            {(idx?.cats ?? (recCat ? [recCat] : [])).map((c) => (
-              <option key={c} value={c}>
-                {c}
+            {(idx?.browseGroups ?? []).map((g) => (
+              <option key={g.key} value={g.key}>
+                {g.badge === "심화반" ? `${g.label} (${g.items.length})` : `기필반 · ${g.label} (${g.items.length})`}
               </option>
             ))}
           </select>
           <select
-            key={recCat}
+            key={recGroup}
             defaultValue=""
             onChange={(e) => e.target.value && goTopic(e.target.value)}
             className="min-w-[12rem] rounded border border-slate-200 bg-white px-2 py-1 text-xs text-slate-600"
           >
             <option value="" disabled>
-              토픽 선택… ({catTopics.length}개)
+              토픽 선택… ({recItems.length}개)
             </option>
-            {catTopics.map((t) => (
-                <option key={t.id} value={t.title}>
-                  [{t.importance}] {t.title}
-                </option>
-              ))}
+            {recItems.map((it, i) => (
+              <option key={it.title} value={it.title}>
+                {i + 1}. [{it.imp ?? "-"}] {it.title}
+                {it.lv ? ` · ${it.lv}` : ""}
+                {it.past ? ` · 기출${it.past}` : ""}
+                {it.ns ? ` · NS${it.ns}` : ""}
+              </option>
+            ))}
           </select>
         </div>
 
