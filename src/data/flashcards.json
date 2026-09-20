@@ -1453,7 +1453,7 @@
   "source": "심화반",
   "definition": "CPU가 실행 중인 하나의 프로세스 상태를 저장하고, 다른 프로세스 상태를 복원하여 실행하는 과정",
   "defShort": "실행 중 프로세스 상태를 저장하고 다른 프로세스 상태를 복원하는 과정",
-  "memo": "Context Switch가 자주 발생하지 않도록 다중 프로그래밍 정도 낮춤",
+  "memo": "① Context Switch가 자주 발생하지 않도록 다중 프로그래밍 정도 낮춤",
   "sections": [
    {
     "label": "교재 키워드",
@@ -2106,7 +2106,7 @@
   "source": "심화반",
   "definition": "페이지 부재(page fault)가 발생하였을 경우, 가상기억장치의 필요한 페이지를 주기억장치의 어떤 페이지 프레임을 선택, 교체 해야하는가를 결정하는 기법",
   "defShort": "페이지 부재 시 주기억장치의 어느 페이지 프레임을 교체할지 정하는 기법",
-  "memo": "동일 그룹 내에서는 무작위 선택",
+  "memo": "① 동일 그룹 내에서는 무작위 선택",
   "sections": [
    {
     "label": "교재 키워드",
@@ -2450,9 +2450,9 @@
     "label": "교재 키워드",
     "mnemonic": "",
     "keywords": [
-     "장기(High Level/Job Scheduler)",
-     "중기(Middle-Level Scheduler)",
-     "단기(Low Level/CPU Scheduler)",
+     "①장기(High Level/Job Scheduler)",
+     "②중기(Middle-Level Scheduler)",
+     "③단기(Low Level/CPU Scheduler)",
      "최대 처리량",
      "최소 응답시간",
      "최소 반환 시간",
@@ -2501,9 +2501,9 @@
   ],
   "mnemonic": "",
   "keywords": [
-   "장기(High Level/Job Scheduler)",
-   "중기(Middle-Level Scheduler)",
-   "단기(Low Level/CPU Scheduler)",
+   "①장기(High Level/Job Scheduler)",
+   "②중기(Middle-Level Scheduler)",
+   "③단기(Low Level/CPU Scheduler)",
    "최대 처리량",
    "최소 응답시간",
    "최소 반환 시간",
@@ -2527,11 +2527,11 @@
     "label": "교재 키워드",
     "mnemonic": "",
     "keywords": [
-     "생성【Job】",
-     "준비【Job】",
-     "실행【Process, Dispatcher】",
-     "대기【Process】",
-     "종료【Job, Process】"
+     "①생성【Job】",
+     "②준비【Job】",
+     "③실행【Process, Dispatcher】",
+     "④대기【Process】",
+     "⑤종료【Job, Process】"
     ]
    },
    {
@@ -2588,11 +2588,11 @@
   ],
   "mnemonic": "",
   "keywords": [
-   "생성【Job】",
-   "준비【Job】",
-   "실행【Process, Dispatcher】",
-   "대기【Process】",
-   "종료【Job, Process】"
+   "①생성【Job】",
+   "②준비【Job】",
+   "③실행【Process, Dispatcher】",
+   "④대기【Process】",
+   "⑤종료【Job, Process】"
   ]
  },
  {
@@ -14778,7 +14778,7 @@
     "label": "교재 키워드",
     "mnemonic": "변복진조친성품피",
     "keywords": [
-     "계속 변경 ②복잡도 증가 ③프로그램 진화 ④조직적 안정화 ⑤친근성 유지 ⑥지속 성장 ⑦품질감소 ⑧피드백 시스템"
+     "①계속 변경 ②복잡도 증가 ③프로그램 진화 ④조직적 안정화 ⑤친근성 유지 ⑥지속 성장 ⑦품질감소 ⑧피드백 시스템"
     ]
    },
    {
@@ -14807,7 +14807,7 @@
   ],
   "mnemonic": "변복진조친성품피",
   "keywords": [
-   "계속 변경 ②복잡도 증가 ③프로그램 진화 ④조직적 안정화 ⑤친근성 유지 ⑥지속 성장 ⑦품질감소 ⑧피드백 시스템"
+   "①계속 변경 ②복잡도 증가 ③프로그램 진화 ④조직적 안정화 ⑤친근성 유지 ⑥지속 성장 ⑦품질감소 ⑧피드백 시스템"
   ]
  },
  {
