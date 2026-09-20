@@ -582,6 +582,26 @@ const TITLE_SLUG: Record<string, string> = {
   "통계적 가설검정 (Hypothesis Testing)": "st-hypothesis-test",
   "통계적 가설검정(Hypothesis Testing)": "st-hypothesis-test",
   "ANOVA(Analysis of variance)": "st-anova",
+  // ── 2026-09 추가한 인공지능 교재 토픽 ──
+  "VLA(Vision-Language-Action) 모델": "vla-model",
+  "월드 파운데이션 모델(World Foundation Model)": "world-foundation-model",
+  "XAI(eXplainable AI) 방법론": "xai-methods",
+  "AI RMF(AI Risk Management Framework)": "ai-rmf",
+  "하네스 엔지니어링": "harness-engineering",
+  "페이지드 어텐션(Paged Attention)": "paged-attention",
+  "VLM(Vision Language Model)": "vlm",
+  "ISO/IEC 23894": "iso-iec-23894",
+  "AI BOM(Artificial Intelligence Bill of Materials)": "ai-bom",
+  "오픈웨이트(Open-weight) 모델": "open-weight-model",
+  "공공 AX 전략": "public-ax-strategy",
+  "인공지능 투명성 확보 가이드라인": "ai-transparency-guideline",
+  "고영향 인공지능(AI) 판단 가이드라인": "high-impact-ai-guideline",
+  "인공지능 영향평가 가이드라인": "ai-impact-assessment-guideline",
+  "옴니모달(Omni-modal) AI": "omni-modal-ai",
+  "테스트 타임 컴퓨팅(Test-Time Compute)": "test-time-compute",
+  "멀티모달 데이터의 품질검증 방법": "multimodal-data-quality",
+  "AI 슈퍼컴퓨팅 플랫폼(Supercomputing Platform)": "ai-supercomputing-platform",
+  "AI 네이티브 개발 플랫폼(AI-Native Development Platform)": "ai-native-dev-platform",
 };
 
 export const EXTRAS: Record<string, SubnoteExtra> = {
@@ -11796,6 +11816,26 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
       ],
       exam: "거리 공식은 두 점의 떨어진 정도를 재며 직선의 유클리드(L2)·격자의 맨해튼(L1)·일반화한 민코프스키(Lp)·공분산 반영 마할라노비스 등이 있어 KNN·군집의 기반이 된다.",
     }, image: "/concept/book/distance-formula.png", easy:"두 데이터 간의 차이를 재는 자 — 거리가 가까울수록 유사한 데이터로 판별합니다. 유형 5가지: 유클리디안 거리(L2, 두 점 사이 직선 거리 √Σ(p−q)²), 맨하탄 거리(L1, 격자 도시처럼 수평·수직으로만 이동한 거리 Σ|a−b|), 체비쇼프 거리(좌표 차원 중 가장 긴 거리 하나만: max|x−y|), 마할라노비스 거리(상관관계와 분산까지 고려한 통계적 거리 — 평균에서 멀리 떨어질수록 이상치로 탐지), 민코프스키 거리(일반화 공식 — p=1이면 맨하탄, p=2면 유클리디안, p=∞면 체비쇼프). K-NN·K-평균 등 거리 기반 알고리즘의 공통 기초입니다." },
+  // ── 2026-09 추가한 인공지능 교재 토픽 — 교재 슬라이드 원본 ──
+  "vla-model": { image: "/concept/book/vla-model.png" },
+  "world-foundation-model": { image: "/concept/book/world-foundation-model.png" },
+  "xai-methods": { image: "/concept/book/xai-methods.png" },
+  "ai-rmf": { image: "/concept/book/ai-rmf.png" },
+  "harness-engineering": { image: "/concept/book/harness-engineering.png" },
+  "paged-attention": { image: "/concept/book/paged-attention.png" },
+  "vlm": { image: "/concept/book/vlm.png" },
+  "iso-iec-23894": { image: "/concept/book/iso-iec-23894.png" },
+  "ai-bom": { image: "/concept/book/ai-bom.png" },
+  "open-weight-model": { image: "/concept/book/open-weight-model.png" },
+  "public-ax-strategy": { image: "/concept/book/public-ax-strategy.png" },
+  "ai-transparency-guideline": { image: "/concept/book/ai-transparency-guideline.png" },
+  "high-impact-ai-guideline": { image: "/concept/book/high-impact-ai-guideline.png" },
+  "ai-impact-assessment-guideline": { image: "/concept/book/ai-impact-assessment-guideline.png" },
+  "omni-modal-ai": { image: "/concept/book/omni-modal-ai.png" },
+  "test-time-compute": { image: "/concept/book/test-time-compute.png" },
+  "multimodal-data-quality": { image: "/concept/book/multimodal-data-quality.png" },
+  "ai-supercomputing-platform": { image: "/concept/book/ai-supercomputing-platform.png" },
+  "ai-native-dev-platform": { image: "/concept/book/ai-native-dev-platform.png" },
 };
 
 const norm = (s: string) => s.trim().toLowerCase().replace(/[\s()·,\-_/]/g, "");
