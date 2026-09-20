@@ -29,7 +29,8 @@ const kindOf = (q: Q): "기출" | "셀테" | "모의고사" | "NS모의" =>
   q.kind || "기출";
 const roundOf = (q: Q) => q.round || (q.source || "").split(" ")[0] || "";
 
-const KINDS = ["기출", "모의고사", "NS모의", "셀테"] as const;
+// NS 주간 모의고사가 지금 치르는 시험이라 맨 앞.
+const KINDS = ["NS모의", "기출", "모의고사", "셀테"] as const;
 const KIND_BADGE: Record<string, string> = {
   기출: "bg-amber-100 text-amber-700",
   모의고사: "bg-rose-100 text-rose-700",

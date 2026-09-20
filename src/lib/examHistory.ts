@@ -32,18 +32,31 @@ const squeeze = (s: string) =>
 
 const isLatin = (s: string) => /^[a-z0-9 +&/.-]+$/i.test(s);
 
-const NS: { q: Q; sq: string; tokens: Set<string> }[] = (questions as Q[])
-  .filter((q) => q.kind === "NS모의" && q.date)
-  .map((q) => ({
-    q,
-    sq: squeeze(q.text),
+/**
+ * 문항 하나를 찾기 좋게 미리 눌러 둔 것.
+ *  sq  : 공백·기호를 뺀 본문
+ *  sqs : 괄호 속 병기까지 뺀 본문 — "범용 AI(General-Purpose AI) 위험관리 프레임워크" 는
+ *        괄호 안 영문이 낱말 사이에 끼어(16자) 열쇠 "범용…위험관리…프레임워크" 가 안 맞았다.
+ *  tokens : 영문 낱말 집합(짧은 약어는 낱말 단위로만 맞춘다)
+ */
+type Entry = { sq: string; sqs: string; tokens: Set<string> };
+
+function entryOf(text: string): Entry {
+  return {
+    sq: squeeze(text),
+    sqs: squeeze(text.replace(/[(（][^)）]*[)）]/g, " ")),
     tokens: new Set(
-      q.text
+      text
         .toLowerCase()
         .split(/[^a-z0-9+#]+/)
         .filter(Boolean),
     ),
-  }));
+  };
+}
+
+const NS: ({ q: Q } & Entry)[] = (questions as Q[])
+  .filter((q) => q.kind === "NS모의" && q.date)
+  .map((q) => ({ q, ...entryOf(q.text) }));
 
 /** 괄호 속 영문이 한 낱말일 때 너무 흔해서 열쇠로 못 쓰는 것들. */
 const GENERIC = new Set([
@@ -161,7 +174,14 @@ function variants(key: string): string[] {
   const out = [key];
   if (key.endsWith("원리")) out.push(key.slice(0, -2) + "원칙");
   else if (key.endsWith("원칙")) out.push(key.slice(0, -2) + "원리");
-  return out;
+  // 교재는 "인공지능", 문항은 "AI" — 범용 인공지능 위험관리 프레임워크가 136회 기출
+  // "범용 AI 위험관리 프레임워크" 를 못 찾았다.
+  for (const k of out.slice()) {
+    if (k.includes("인공지능")) out.push(k.replace(/인공지능/g, "ai"));
+    else if (k !== "ai" && /(^|[^a-z])ai(?![a-z])/.test(k))
+      out.push(k.replace(/(^|[^a-z])ai(?![a-z])/g, "$1인공지능"));
+  }
+  return Array.from(new Set(out));
 }
 
 /**
@@ -181,9 +201,8 @@ function gapRe(part: string, key: string): void {
     GAP.set(key, null);
     return;
   }
-  const pat = words.map((w, i) => {
-    if (i < words.length - 1) return esc(w);
-    // 끝 낱말은 표기 차이를 함께 본다(원리 ↔ 원칙).
+  const pat = words.map((w) => {
+    // 낱말마다 표기 차이를 함께 본다(원리 ↔ 원칙, 인공지능 ↔ AI).
     const vs = variants(w).map(esc);
     return vs.length > 1 ? `(?:${vs.join("|")})` : vs[0];
   });
@@ -212,15 +231,15 @@ const EXTRA_ANY: Record<string, string[]> = {
  */
 const HAND = new Set(Object.values(EXTRA_ANY).flat());
 
-function has(entry: { sq: string; tokens: Set<string> }, key: string): boolean {
+function has(entry: Entry, key: string): boolean {
   if (isLatin(key) && !/\s/.test(key) && key.length <= 6 && !HAND.has(key))
     return entry.tokens.has(key);
   if (variants(key).some((k) => entry.sq.includes(k))) return true;
   const re = GAP.get(key);
-  return re ? re.test(entry.sq) : false;
+  return re ? re.test(entry.sq) || re.test(entry.sqs) : false;
 }
 
-function hit(entry: { sq: string; tokens: Set<string> }, keys: Keys): boolean {
+function hit(entry: Entry, keys: Keys): boolean {
   if (keys.all.length && keys.all.every((k) => has(entry, k) && !trapped(entry, k))) return true;
   return keys.any.some((k) => has(entry, k));
 }
@@ -238,15 +257,7 @@ const KEYS = new Map<string, Keys>();
 export function titlesMatching(text: string, titles: readonly string[]): string[] {
   const t = (text || "").trim();
   if (!t) return [];
-  const entry = {
-    sq: squeeze(t),
-    tokens: new Set(
-      t
-        .toLowerCase()
-        .split(/[^a-z0-9+#]+/)
-        .filter(Boolean),
-    ),
-  };
+  const entry = entryOf(t);
   const out: string[] = [];
   for (const title of titles) {
     let k = KEYS.get(title);
@@ -293,20 +304,12 @@ export function examHistory(title: string): ExamAppearance[] {
 // ── 기술사 기출 — "몇 회 몇 교시 몇 번으로 나왔나" ────────────────────────────
 // 문제은행의 기출 문항은 id 가 k{회차}-{교시}{번호} 꼴이다(예: k140-106 = 140회 1교시 6번).
 
-const PAST: { q: Q; sq: string; tokens: Set<string>; round: number; no: number }[] = (
-  questions as Q[]
-)
+const PAST: ({ q: Q; round: number; no: number } & Entry)[] = (questions as Q[])
   .map((q) => ({ q, m: /^k(\d+)-(\d)(\d{2})$/.exec(q.id) }))
   .filter((x): x is { q: Q; m: RegExpExecArray } => !!x.m)
   .map(({ q, m }) => ({
     q,
-    sq: squeeze(q.text),
-    tokens: new Set(
-      q.text
-        .toLowerCase()
-        .split(/[^a-z0-9+#]+/)
-        .filter(Boolean),
-    ),
+    ...entryOf(q.text),
     round: Number(m[1]),
     no: Number(m[3]),
   }));
@@ -341,15 +344,9 @@ export function pastExams(title: string): PastAppearance[] {
 // examHistory·pastExams 는 NS 모의고사와 기술사 기출만 본다. 모범답안은 모의고사·
 // 파이널·예상·셀테 문항에도 달려 있어서, 그 둘만으로 세면 있는 답안을 없다고 센다.
 
-const ALL: { id: string; sq: string; tokens: Set<string> }[] = (questions as Q[]).map((q) => ({
+const ALL: ({ id: string } & Entry)[] = (questions as Q[]).map((q) => ({
   id: q.id,
-  sq: squeeze(q.text),
-  tokens: new Set(
-    q.text
-      .toLowerCase()
-      .split(/[^a-z0-9+#]+/)
-      .filter(Boolean),
-  ),
+  ...entryOf(q.text),
 }));
 
 const allCache = new Map<string, string[]>();

@@ -106,6 +106,31 @@ function PriorityBadge({ p }: { p?: string }) {
   );
 }
 
+/** 학습계획의 대비 강도 배지(암기·숙지·점검·참고) — plan 페이지와 같은 색. */
+const LEVEL_STYLE: Record<string, string> = {
+  암기: "border-rose-300 bg-rose-50 text-rose-700",
+  숙지: "border-amber-300 bg-amber-50 text-amber-700",
+  점검: "border-sky-300 bg-sky-50 text-sky-700",
+  참고: "border-slate-200 bg-slate-50 text-slate-400",
+};
+const LEVEL_HINT: Record<string, string> = {
+  암기: "통째로 외운다 — 정의·유형·조건까지 그대로",
+  숙지: "개념과 구조를 이해해 둔다 — 설명할 수 있으면 된다",
+  점검: "출제 공백이 길거나 기억이 흔들려 한 번 훑어야 한다",
+  참고: "당분간 출제 가능성이 낮다 — 시간 남을 때",
+};
+function LevelBadge({ level, note }: { level?: string; note?: string }) {
+  if (!level) return null;
+  return (
+    <span
+      className={`inline-flex shrink-0 items-center rounded border px-1.5 py-0.5 text-[10px] font-bold ${LEVEL_STYLE[level] || LEVEL_STYLE.참고}`}
+      title={note || LEVEL_HINT[level] || level}
+    >
+      {level}
+    </span>
+  );
+}
+
 /**
  * 출제 이력 칩 — 학습계획의 📕·🛡️ 칩과 같은 눈금이지만 정적이다.
  * 이 화면은 문제은행을 받지 않으므로(번들 22 MB 사고) 개수·최근만 서버가 세어 보낸다.
@@ -162,6 +187,7 @@ function TopicRow({
           {no}
         </span>
         <PriorityBadge p={it.imp} />
+        <LevelBadge level={it.lv} />
         <span className="min-w-0 flex-1 truncate text-sm text-slate-800">
           {it.title}
           {group && <span className="ml-1.5 text-[10px] text-slate-400">{group}</span>}
@@ -237,8 +263,8 @@ function TopicBrowser({
       </div>
 
       {q ? (
-        // 걸러보기 결과 — 도메인 구분 없이 한 판, 최대 높이 안에서 스크롤.
-        <div className="max-h-72 overflow-y-auto p-4">
+        // 걸러보기 결과 — 도메인 구분 없이 한 판. 카드 안 스크롤 없이 전부 펼친다.
+        <div className="p-4">
           {matched.length ? (
             <ol className="divide-y divide-slate-100">
               {matched.map((m, i) => (
@@ -294,14 +320,14 @@ function TopicBrowser({
 
           {selGroup && (
             <div className="border-t border-slate-100">
-              {/* 학습계획 줄과 같은 모양 — 교재 순서·번호·중요도·📖·📕 기출·🛡️ NS 이력 */}
-              <div className="max-h-[28rem] overflow-y-auto">
-                <ol className="divide-y divide-slate-100">
-                  {selGroup.items.map((it, i) => (
-                    <TopicRow key={it.title} it={it} no={i + 1} onPick={pick} />
-                  ))}
-                </ol>
-              </div>
+              {/* 학습계획 줄과 같은 모양 — 계획 순서·번호·중요도·📖·📕 기출·🛡️ NS 이력.
+                  카드 안에서 따로 스크롤하지 않는다 — 짧은 창에 목록이 갇혀 한 화면에
+                  대여섯 줄만 보였다. 페이지가 길어지는 쪽이 낫다. */}
+              <ol className="divide-y divide-slate-100">
+                {selGroup.items.map((it, i) => (
+                  <TopicRow key={it.title} it={it} no={i + 1} onPick={pick} />
+                ))}
+              </ol>
             </div>
           )}
         </>
@@ -440,20 +466,36 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
       </div>
 
       {/* 지금 보는 토픽 — 검색창 글씨만으로는 무슨 토픽인지 안 보여서 크게 박는다 */}
-      {cur && (
-        <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1">
-          <h2 className="text-2xl font-extrabold leading-tight text-slate-900 sm:text-3xl">
-            {cur}
-          </h2>
-          {textbook ? (
-            <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-bold text-emerald-700">
-              심화반 {COURSE_LABEL[textbook.course] || textbook.course}
-            </span>
-          ) : legacy ? (
-            <span className="rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-bold text-indigo-700">
-              {legacy.category}
-            </span>
-          ) : null}
+      {cur && data && (
+        <div className="mt-6">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <h2 className="text-2xl font-extrabold leading-tight text-slate-900 sm:text-3xl">
+              {cur}
+            </h2>
+            {textbook ? (
+              <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-bold text-emerald-700">
+                심화반 {COURSE_LABEL[textbook.course] || textbook.course}
+              </span>
+            ) : legacy ? (
+              <span className="rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-bold text-indigo-700">
+                {legacy.category}
+              </span>
+            ) : null}
+          </div>
+          {/* 학습계획 줄과 같은 표시 — 중요도(상·중·하)·대비 강도·📕 기출·🛡️ NS 모의고사.
+              목록에서는 보이던 것이 토픽을 열면 사라져, 이게 상인지 하인지 몇 회 기출인지
+              다시 목록으로 돌아가 확인해야 했다. */}
+          <div className="mt-2 flex flex-wrap items-center gap-1.5">
+            <PriorityBadge p={data.plan?.priority ?? idx?.browseGroups.flatMap((g) => g.items).find((it) => it.title === cur)?.imp} />
+            <LevelBadge level={data.plan?.level} note={data.plan?.note} />
+            <HistChips it={{ title: cur, ...data.stat }} />
+            {data.stat.past === 0 && data.stat.ns === 0 && (
+              <span className="text-[11px] text-slate-400">기출·NS 모의고사 출제 이력 없음</span>
+            )}
+            {data.plan?.note && (
+              <span className="basis-full text-[11px] text-slate-500">💬 {data.plan.note}</span>
+            )}
+          </div>
         </div>
       )}
 

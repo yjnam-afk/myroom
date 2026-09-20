@@ -48,12 +48,13 @@ function roundOf(q: Q): string {
   return q.cohort ? `${q.cohort} ${r}` : r;
 }
 
-// 데이터에 실제 존재하는 구분만 탭으로. 기출 → 셀테 → 모의고사 → NS모의 순.
+// 데이터에 실제 존재하는 구분만 탭으로. NS모의 → 기출 → 셀테 → 모의고사 순 —
+// 지금 매주 치르는 시험이 NS 주간 모의고사라 맨 앞에 두고 기본 탭으로 연다.
 const KIND_ORDER: Record<string, number> = {
-  기출: 0,
-  셀테: 1,
-  모의고사: 2,
-  NS모의: 3,
+  NS모의: 0,
+  기출: 1,
+  셀테: 2,
+  모의고사: 3,
 };
 const KINDS = Array.from(new Set(EXAMS.map(kindOf))).sort(
   (a, b) => (KIND_ORDER[a] ?? 9) - (KIND_ORDER[b] ?? 9),

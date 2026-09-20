@@ -23,17 +23,44 @@ export type PlanInfo = {
   weekTitle: string;
 };
 
-/** 괄호 병기·공백·기호를 털어낸 비교용 키. */
+/** 괄호 병기·공백·기호를 털어낸 비교용 키. 인공지능↔AI 표기 차이도 같은 키로. */
 function norm(s: string): string {
   return (s || "")
     .trim()
     .toLowerCase()
     .replace(/[(（][^)）]*[)）]/g, "")
-    .replace(/[\s()·,\-_/'’]/g, "");
+    .replace(/[\s()·,\-_/'’]/g, "")
+    .replace(/인공지능/g, "ai");
+}
+
+/**
+ * 제목 하나가 낼 수 있는 키 전부 — 본문 키에 더해 괄호 속 병기(RAG, Retrieval …)와
+ * 줄표(—) 뒤 부제도 키로 삼는다. 커리큘럼은 "RAG(Retrieval Augmented Generation)",
+ * 교재는 "검색 증강 생성(RAG, …)" 이라 본문 키만으로는 서로 못 찾았다.
+ * 짧은 영문 약어(3자 이하)는 키로 안 쓴다 — "AI" 하나로 엉뚱한 토픽에 붙는다.
+ */
+function keysOf(title: string): string[] {
+  const t = (title || "").trim();
+  const out = [norm(t)];
+  for (const seg of t.split(/\s+[—–]\s+/)) {
+    const k = norm(seg);
+    if (k.length >= 4) out.push(k);
+  }
+  for (const m of t.matchAll(/[(（]([^)）]+)[)）]/g)) {
+    for (const part of m[1].split(/[,，/]/)) {
+      const k = norm(part);
+      if (k.length >= 4) out.push(k);
+    }
+  }
+  return Array.from(new Set(out.filter(Boolean)));
 }
 
 const BY_TITLE = new Map<string, PlanInfo>();
 const BY_TOPIC_ID = new Map<string, PlanInfo>();
+/** 학습계획에 처음 나오는 차례 — 토픽 설명·정리표를 계획과 같은 줄 순서로 놓을 때 쓴다. */
+const ORDER_BY_TITLE = new Map<string, number>();
+const ORDER_BY_TOPIC_ID = new Map<string, number>();
+let seq = 0;
 
 for (const w of WEEKS) {
   for (const d of w.days) {
@@ -41,6 +68,12 @@ for (const w of WEEKS) {
     const topics =
       d.kind === "study" || d.kind === "review" ? d.topics ?? [] : [];
     for (const t of topics) {
+      const ok = norm(t.title);
+      if (!ORDER_BY_TITLE.has(ok)) {
+        const n = seq++;
+        for (const k of keysOf(t.title)) if (!ORDER_BY_TITLE.has(k)) ORDER_BY_TITLE.set(k, n);
+      }
+      if (t.topicId && !ORDER_BY_TOPIC_ID.has(t.topicId)) ORDER_BY_TOPIC_ID.set(t.topicId, ORDER_BY_TITLE.get(ok)!);
       const info: PlanInfo = {
         title: t.title,
         priority: t.priority,
@@ -56,6 +89,7 @@ for (const w of WEEKS) {
       // 적힌 쪽을 남긴다. 둘 다 있으면 이른 주차가 원본이다.
       if (!prev || (!prev.note && info.note) || (!prev.level && info.level)) {
         BY_TITLE.set(key, info);
+        for (const k of keysOf(t.title)) if (!BY_TITLE.has(k)) BY_TITLE.set(k, info);
         if (t.topicId) BY_TOPIC_ID.set(t.topicId, info);
       }
     }
@@ -69,7 +103,29 @@ export function planInfo(title?: string, topicId?: string): PlanInfo | null {
     if (byId) return byId;
   }
   if (!title) return null;
-  return BY_TITLE.get(norm(title)) ?? null;
+  for (const k of keysOf(title)) {
+    const v = BY_TITLE.get(k);
+    if (v) return v;
+  }
+  return null;
+}
+
+/**
+ * 학습계획에서의 차례(0부터). 계획에 없는 토픽은 null.
+ * 토픽 설명의 과목별 목록·이전/다음이 교재 배열 순서(SUBNOTES)를 따르는 바람에
+ * 인공지능 과목은 학습계획과 줄 순서가 어긋났다 — 계획 번호로 찾으면 다른 토픽이 나왔다.
+ */
+export function planOrder(title?: string, topicId?: string): number | null {
+  if (topicId) {
+    const byId = ORDER_BY_TOPIC_ID.get(topicId);
+    if (byId !== undefined) return byId;
+  }
+  if (!title) return null;
+  for (const k of keysOf(title)) {
+    const v = ORDER_BY_TITLE.get(k);
+    if (v !== undefined) return v;
+  }
+  return null;
 }
 
 /** 커리큘럼 우선순위만 필요할 때. */

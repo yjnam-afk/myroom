@@ -41,6 +41,7 @@ import flashcards from "@/data/flashcards.json";
 import answerExtras from "@/data/answerExtras.json";
 import { TOPIC_INTROS, type AnswerIntro } from "@/data/topicIntros";
 import { DOMAINS, DOMAIN_LABEL, domainOrder } from "@/lib/domains";
+import { planInfo, planOrder } from "@/lib/studyPlan";
 
 type TopicRow = { id: string; title: string; category: string; importance: string; source?: string };
 const TOPICS = topics as TopicRow[];
@@ -119,9 +120,68 @@ export type ExplainTopicData = {
   mapTables: MemoryTable[];
   /** 이 토픽으로 나온 문항 중 모범답안이 있는 것 — 토픽에서 바로 답안으로 간다 */
   answers: TopicAnswer[];
-  /** 같은 과목 안에서 앞뒤 토픽 — 교재 순서(SUBNOTES 배열 순서)대로 넘겨 본다 */
+  /** 같은 과목 안에서 앞뒤 토픽 — 학습계획 순서대로 넘겨 본다 */
   nav?: ExplainNav;
+  /** 학습계획(커리큘럼)에 적힌 중요도·대비 강도·메모 — 토픽 머리에 배지로 */
+  plan?: { priority: string; level?: string; note?: string };
+  /** 출제 이력 요약 — 토픽 머리의 📕·🛡️ 칩(학습계획 줄과 같은 눈금) */
+  stat: HistStat;
 };
+
+export type HistStat = {
+  ns: number;
+  nsRecent: number;
+  nsLast?: string;
+  past: number;
+  pastRecent: number;
+  pastLast?: number;
+};
+
+function histStat(title: string): HistStat {
+  const hs = summarize(examHistory(title));
+  const past = pastExams(title);
+  return {
+    ns: hs.count,
+    nsRecent: hs.recent,
+    nsLast: hs.latest,
+    past: past.length,
+    pastRecent: past.filter((p) => p.round >= LATEST_PAST_ROUND - 9).length,
+    pastLast: past[0]?.round,
+  };
+}
+
+/**
+ * 과목의 서브노트를 ★학습계획 순서★로 늘어놓는다.
+ * 교재 배열(SUBNOTES) 순서와 커리큘럼 순서가 다른 과목(인공지능)이 있어, 토픽 설명의
+ * 번호·이전/다음이 학습계획 줄과 어긋났다. 계획에 없는 토픽은 교재 순서대로 뒤에 붙인다.
+ */
+const COURSE_ORDER = new Map<string, TextbookSubnote[]>();
+function courseSubnotes(course: string): TextbookSubnote[] {
+  const c = COURSE_ORDER.get(course);
+  if (c) return c;
+  const list = SUBNOTES.map((s, i) => ({ s, i })).filter(({ s }) => s.course === course);
+  list.sort((a, b) => {
+    const oa = planOrder(a.s.title, a.s.topicId);
+    const ob = planOrder(b.s.title, b.s.topicId);
+    if (oa !== null && ob !== null) return oa - ob || a.i - b.i;
+    if (oa !== null) return -1;
+    if (ob !== null) return 1;
+    return a.i - b.i;
+  });
+  const out = list.map(({ s }) => s);
+  COURSE_ORDER.set(course, out);
+  return out;
+}
+
+/** 서브노트의 중요도 — 학습계획 → topics.json → '상' 순으로 찾는다(학습계획 줄과 같은 값). */
+function impOf(s: TextbookSubnote, impById: Map<string, string>, impByBare: Map<string, string>): string {
+  return (
+    planInfo(s.title, s.topicId)?.priority ||
+    (s.topicId && impById.get(s.topicId)) ||
+    impByBare.get(bareT(s.title)) ||
+    "상"
+  );
+}
 
 /** 토픽 화면에 거는 모범답안 한 줄. */
 export type TopicAnswer = {
@@ -144,10 +204,10 @@ export type ExplainNav = {
   next?: string;
 };
 
-/** 교재 토픽은 같은 과목의 서브노트 순서, 예전 토픽은 같은 카테고리의 topics.json 순서로 이웃을 찾는다. */
+/** 교재 토픽은 같은 과목의 학습계획 순서, 예전 토픽은 같은 카테고리의 topics.json 순서로 이웃을 찾는다. */
 function navFor(textbook: TextbookSubnote | undefined, t: TopicRow | undefined): ExplainNav | undefined {
   if (textbook) {
-    const list = SUBNOTES.filter((x) => x.course === textbook.course);
+    const list = courseSubnotes(textbook.course);
     const i = list.indexOf(textbook);
     if (i < 0) return undefined;
     return {
@@ -214,7 +274,10 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
     subnoteByAlias(t?.id, title);
   const legacy = !textbook ? legacyCardFor(title) : undefined;
   const intro = legacy ? TOPIC_INTROS[t?.id || ""] : undefined;
+  const pi = planInfo(title, textbook?.topicId || t?.id);
   return {
+    plan: pi ? { priority: pi.priority, level: pi.level, note: pi.note } : undefined,
+    stat: histStat(title),
     title,
     topicId: t?.id,
     category: t?.category,
@@ -238,6 +301,8 @@ export type TopicOption = { id: string; title: string; category: string; importa
 export type BrowseItem = {
   title: string;
   imp?: string;
+  /** 학습계획의 대비 강도(암기·숙지·점검·참고) — 있을 때만 */
+  lv?: string;
   src?: string;
   /** NS 주간 모의고사 출제 이력 — 통산·최근 1년·최근 날짜(학습계획 칩과 같은 눈금) */
   ns?: number;
@@ -282,40 +347,28 @@ function buildBrowseGroups(): BrowseGroup[] {
     const b = bareT(t.title);
     if (!impByBare.has(b)) impByBare.set(b, t.importance);
   }
-  const byCourse = new Map<string, BrowseItem[]>();
   const covered = new Set<string>();
-  for (const s of SUBNOTES) {
-    if (!byCourse.has(s.course)) byCourse.set(s.course, []);
-    const imp = (s.topicId && impById.get(s.topicId)) || impByBare.get(bareT(s.title)) || "상";
-    // 출제 이력은 여기서 세어 보낸다 — 클라이언트가 문제은행(questions.json)을 받지 않게.
-    const hist = examHistory(s.title);
-    const hs = summarize(hist);
-    const past = pastExams(s.title);
-    byCourse.get(s.course)!.push({
-      title: s.title,
-      imp,
-      src: "심화반",
-      ns: hs.count,
-      nsRecent: hs.recent,
-      nsLast: hs.latest,
-      past: past.length,
-      pastRecent: past.filter((p) => p.round >= LATEST_PAST_ROUND - 9).length,
-      pastLast: past[0]?.round,
-    });
-    covered.add(bareT(s.title));
-  }
   const groups: BrowseGroup[] = [];
   for (const c of DOMAINS.map((d) => d.code)) {
-    const list = byCourse.get(c);
-    if (!list?.length) continue;
-    groups.push({
-      key: `course:${c}`,
-      label: DOMAIN_LABEL[c] || c,
-      badge: "심화반",
-      // 교재 순서 그대로 — 학습계획·정리표와 같은 줄 순서라야 번호로 찾아진다.
-      items: list.slice(),
-    });
+    // 학습계획 순서 그대로 — 계획·정리표와 같은 줄 순서라야 번호로 찾아진다.
+    const list = courseSubnotes(c);
+    if (!list.length) continue;
+    const items: BrowseItem[] = [];
+    for (const s of list) {
+      // 출제 이력은 여기서 세어 보낸다 — 클라이언트가 문제은행(questions.json)을 받지 않게.
+      items.push({
+        title: s.title,
+        imp: impOf(s, impById, impByBare),
+        lv: planInfo(s.title, s.topicId)?.level,
+        src: "심화반",
+        ...histStat(s.title),
+      });
+      covered.add(bareT(s.title));
+    }
+    groups.push({ key: `course:${c}`, label: DOMAIN_LABEL[c] || c, badge: "심화반", items });
   }
+  // DOMAINS 에 없는 과목 코드가 교재에 있어도 빠뜨리지 않는다.
+  for (const s of SUBNOTES) covered.add(bareT(s.title));
   // 교재에 아직 없는 예전 토픽 — 카드 자료로 볼 수 있으므로 같이 노출한다.
   // 원래 붙어 있던 중요도(상·중·하·출제예상)를 유지하고 상부터 정렬한다.
   const byCat = new Map<string, BrowseItem[]>();
@@ -452,13 +505,15 @@ export function buildSheet(): SheetGroup[] {
     if (!impByBare.has(b)) impByBare.set(b, t.importance);
   }
   const byCourse = new Map<string, SheetRow[]>();
-  for (const s of SUBNOTES) {
+  // 학습계획 순서 — 정리표·토픽 설명·계획이 같은 줄 순서여야 번호로 찾기 쉽다.
+  const ordered = DOMAINS.flatMap((d) => courseSubnotes(d.code));
+  for (const s of ordered) {
     const hist = examHistory(s.title);
     const past = pastExams(s.title);
     const latest = hist.slice().sort((a, b) => (a.date < b.date ? 1 : -1))[0];
     const row: SheetRow = {
       title: s.title,
-      imp: (s.topicId && impById.get(s.topicId)) || impByBare.get(bareT(s.title)) || "상",
+      imp: impOf(s, impById, impByBare),
       lead: s.lead,
       def: s.defPair?.length ? undefined : s.defShort,
       pairs: [...(s.defPair || []), ...(s.subDefs || [])].map((p) => ({ name: p.name, def: p.def })),
@@ -477,7 +532,6 @@ export function buildSheet(): SheetGroup[] {
     if (!byCourse.has(s.course)) byCourse.set(s.course, []);
     byCourse.get(s.course)!.push(row);
   }
-  // 교재 순서(SUBNOTES 등장 순서) 그대로 — 정리표는 교재 목차와 같은 줄 순서여야 찾기 쉽다.
   return DOMAINS.filter((d) => byCourse.has(d.code)).map((d) => ({
     code: d.code,
     label: d.label,
