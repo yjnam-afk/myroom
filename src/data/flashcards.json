@@ -8422,6 +8422,7 @@
      "MSE",
      "RMSE",
      "MAE",
+     "R²",
      "BCE",
      "CCE",
      "SCCE"
@@ -8443,6 +8444,7 @@
      "Mean Squared Error(MSE)",
      "Root Mean Squared Error(RMSE)",
      "Mean Absolute Error(MAE)",
+     "R²(결정계수, R-squared)",
      "Binary Crossentropy(BCE)",
      "Categorical Crossentropy(CCE)",
      "Sparse Categorical Crossentropy(SCCE)"
@@ -8455,6 +8457,7 @@
    "MSE",
    "RMSE",
    "MAE",
+   "R²",
    "BCE",
    "CCE",
    "SCCE"

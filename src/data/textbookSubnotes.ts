@@ -6732,13 +6732,13 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "최적 가중치 탐색을 위해 실제 값과 예측 값의 오차를 수치화하는 평가 함수",
     lead: "예측 오차의 수치화 척도, 손실함수",
     features: ["오차 계량", "최적화 기준", "문제별 선택"],
-    keywords: ["오차 계산", "MSE", "RMSE", "MAE", "BCE", "CCE", "SCCE"],
+    keywords: ["오차 계산", "MSE", "RMSE", "MAE", "R²(결정계수)", "BCE", "CCE", "SCCE"],
     tables: [
       {
         caption: "유형",
         headers: ["구분", "유형", "활성화함수"],
         rows: [
-          ["회귀모델", "MSE, RMSE, MAE", ""],
+          ["회귀모델", "MSE, RMSE, MAE, R²", ""],
           ["이진분류모델", "BCE", "시그모이드"],
           ["다중분류모델", "CCE, SCCE", "소프트맥스"],
         ],
@@ -6750,13 +6750,15 @@ export const SUBNOTES: TextbookSubnote[] = [
           ["Mean Squared Error(MSE)", "연속값 회귀\n제곱 오차", "평균 차이 손실\n큰 오차 명확화"],
           ["Root Mean Squared Error(RMSE)", "MSE 제곱근", "값 왜곡 감소"],
           ["Mean Absolute Error(MAE)", "MSE 동일 회귀", "에러 절대값 평균"],
+          ["R²(결정계수, R-squared)", "회귀 설명력\n0~1 값", "1에 가까울수록\n설명력 높음"],
           ["Binary Crossentropy(BCE)", "이진 분류 0·1\n일치 시 0 수렴", "이진 분류기 훈련\n불일치 무한대"],
           ["Categorical Crossentropy(CCE)", "다중 클래스 확률\n원핫 인코딩", "소속 확률 예측\n이진형 라벨 제공"],
           ["Sparse Categorical Crossentropy(SCCE)", "CCE 동일 다중\n정수 라벨", "클래스 2개 이상\n원핫 불필요"],
         ],
       },
     ],
-    notes: ["개념도: 예측값 ↔ 실제값(레이블) 차이 → 손실함수 → 옵티마이저(역전파 과정)로 가중치 업데이트"],
+    notes: ["개념도: 예측값 ↔ 실제값(레이블) 차이 → 손실함수 → 옵티마이저(역전파 과정)로 가중치 업데이트",
+      "R² 는 손실함수가 아니라 회귀 모델의 설명력을 보는 평가지표다 — 0~1 사이로, 1에 가까울수록 예측이 실제를 잘 설명한다. 학습을 이끄는 값은 MSE·RMSE·MAE 다."],
   },
   {
     title: "머신러닝 옵티마이저(Optimizer)",
