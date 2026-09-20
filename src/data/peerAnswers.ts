@@ -32204,6 +32204,18 @@ export const PEER_ANSWERS: PeerAnswer[] = [
       { src: "/answers/s23i-회귀분석-선형회귀분석-로지스틱-회귀분석-모고15-1-6-2.jpg", label: "2쪽" },
     ],
   },
+  {
+    id: "peer-h23u-디지털신뢰-디지털신뢰",
+    period: "2교시",
+    question: "디지털신뢰",
+    exam: "정리 답안 (드라이브 05. 모범답안 › 2023하용 ITPE모의고사 › 6.보안)",
+    topicTitles: [],
+    pages: [
+      { src: "/answers/h23u-디지털신뢰-디지털신뢰-2.jpg", label: "2쪽" },
+      { src: "/answers/h23u-디지털신뢰-디지털신뢰-3.jpg", label: "3쪽" },
+      { src: "/answers/h23u-디지털신뢰-디지털신뢰-4.jpg", label: "4쪽" },
+    ],
+  },
 ];
 
 /** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */
