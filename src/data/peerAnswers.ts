@@ -46440,6 +46440,245 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
       { src: "/answers/img-협업-필터링-설명-collabotive-filtering-2.jpg", label: "2쪽" },
     ],
   },
+  {
+    id: "peer-ppt-모범답안-모멘텀-버블정렬",
+    period: "2교시",
+    question: "버블정렬",
+    exam: "실전심화반 모멘텀반 모범답안",
+    topicTitles: ["버블 정렬(Bubble Sort)"],
+    pages: [
+      { src: "/answers/ppt-모범답안-모멘텀-버블정렬-1.jpg", label: "1쪽" },
+      { src: "/answers/ppt-모범답안-모멘텀-버블정렬-2.jpg", label: "2쪽" },
+      { src: "/answers/ppt-모범답안-모멘텀-버블정렬-3.jpg", label: "3쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-모범답안-모멘텀-web-3-0",
+    period: "1교시",
+    question: "Web 3.0",
+    exam: "실전심화반 모멘텀반 모범답안",
+    topicTitles: [],
+    pages: [
+      { src: "/answers/ppt-모범답안-모멘텀-web-3-0-1.jpg", label: "1쪽" },
+      { src: "/answers/ppt-모범답안-모멘텀-web-3-0-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-모범답안-모멘텀-nosql",
+    period: "1교시",
+    question: "NoSQL",
+    exam: "실전심화반 모멘텀반 모범답안",
+    topicTitles: ["NoSQL"],
+    pages: [
+      { src: "/answers/ppt-모범답안-모멘텀-nosql-1.jpg", label: "1쪽" },
+      { src: "/answers/ppt-모범답안-모멘텀-nosql-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-모범답안-모멘텀-품질관리",
+    period: "1교시",
+    question: "품질관리",
+    exam: "실전심화반 모멘텀반 모범답안",
+    topicTitles: [],
+    pages: [
+      { src: "/answers/ppt-모범답안-모멘텀-품질관리-1.jpg", label: "1쪽" },
+      { src: "/answers/ppt-모범답안-모멘텀-품질관리-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-모범답안-모멘텀-scale-up-out",
+    period: "1교시",
+    question: "Scale Up / Scale Out",
+    exam: "실전심화반 모멘텀반 모범답안",
+    topicTitles: [],
+    pages: [
+      { src: "/answers/ppt-모범답안-모멘텀-scale-up-out-1.jpg", label: "1쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-모범답안-모멘텀-db무결성",
+    period: "1교시",
+    question: "DB 무결성",
+    exam: "실전심화반 모멘텀반 모범답안",
+    topicTitles: ["데이터베이스 무결성"],
+    pages: [
+      { src: "/answers/ppt-모범답안-모멘텀-db무결성-1.jpg", label: "1쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-모범답안-모멘텀-iso-29119",
+    period: "1교시",
+    question: "ISO 29119",
+    exam: "실전심화반 모멘텀반 모범답안",
+    topicTitles: ["ISO 29119"],
+    pages: [
+      { src: "/answers/ppt-모범답안-모멘텀-iso-29119-1.jpg", label: "1쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-모범답안-모멘텀-프롭테크",
+    period: "1교시",
+    question: "프롭테크",
+    exam: "실전심화반 모멘텀반 모범답안",
+    topicTitles: [],
+    pages: [
+      { src: "/answers/ppt-모범답안-모멘텀-프롭테크-1.jpg", label: "1쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-모범답안-모멘텀-bems",
+    period: "1교시",
+    question: "BEMS",
+    exam: "실전심화반 모멘텀반 모범답안",
+    topicTitles: [],
+    pages: [
+      { src: "/answers/ppt-모범답안-모멘텀-bems-1.jpg", label: "1쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-모범답안-모멘텀-3r",
+    period: "1교시",
+    question: "3R",
+    exam: "실전심화반 모멘텀반 모범답안",
+    topicTitles: ["3R"],
+    pages: [
+      { src: "/answers/ppt-모범답안-모멘텀-3r-1.jpg", label: "1쪽" },
+      { src: "/answers/ppt-모범답안-모멘텀-3r-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-모범답안-모멘텀-난독화",
+    period: "1교시",
+    question: "난독화",
+    exam: "실전심화반 모멘텀반 모범답안",
+    topicTitles: ["난독화"],
+    pages: [
+      { src: "/answers/ppt-모범답안-모멘텀-난독화-1.jpg", label: "1쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-모범답안-모멘텀-devsecops",
+    period: "1교시",
+    question: "DevSecOps",
+    exam: "실전심화반 모멘텀반 모범답안",
+    topicTitles: ["DevSecOps"],
+    pages: [
+      { src: "/answers/ppt-모범답안-모멘텀-devsecops-1.jpg", label: "1쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-모범답안-모멘텀-oas",
+    period: "1교시",
+    question: "OAS",
+    exam: "실전심화반 모멘텀반 모범답안",
+    topicTitles: [],
+    pages: [
+      { src: "/answers/ppt-모범답안-모멘텀-oas-1.jpg", label: "1쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-모범답안-모멘텀-개발방법론-특징",
+    period: "1교시",
+    question: "개발방법론 특징",
+    exam: "실전심화반 모멘텀반 모범답안",
+    topicTitles: ["소프트웨어 개발 방법론"],
+    pages: [
+      { src: "/answers/ppt-모범답안-모멘텀-개발방법론-특징-1.jpg", label: "1쪽" },
+      { src: "/answers/ppt-모범답안-모멘텀-개발방법론-특징-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-itpe-모법답안-메타반-랜덤포레스트",
+    period: "1교시",
+    question: "랜덤 포레스트",
+    exam: "실전심화반 메타반 모범답안",
+    topicTitles: [],
+    pages: [
+      { src: "/answers/ppt-itpe-모법답안-메타반-랜덤포레스트-1.jpg", label: "1쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-itpe-모법답안-메타반-데이터바우처지원사업",
+    period: "1교시",
+    question: "데이터 바우처 지원사업",
+    exam: "실전심화반 메타반 모범답안",
+    topicTitles: [],
+    pages: [
+      { src: "/answers/ppt-itpe-모법답안-메타반-데이터바우처지원사업-1.jpg", label: "1쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-itpe-모법답안-메타반-q러닝",
+    period: "1교시",
+    question: "Q러닝",
+    exam: "실전심화반 메타반 모범답안",
+    topicTitles: [],
+    pages: [
+      { src: "/answers/ppt-itpe-모법답안-메타반-q러닝-1.jpg", label: "1쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-itpe-모법답안-메타반-mvcc",
+    period: "1교시",
+    question: "MVCC",
+    exam: "실전심화반 메타반 모범답안",
+    topicTitles: ["MVCC(다중 버전 동시성 제어) 2가지 유형"],
+    pages: [
+      { src: "/answers/ppt-itpe-모법답안-메타반-mvcc-1.jpg", label: "1쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-itpe-모법답안-메타반-mdd",
+    period: "1교시",
+    question: "MDD",
+    exam: "실전심화반 메타반 모범답안",
+    topicTitles: [],
+    pages: [
+      { src: "/answers/ppt-itpe-모법답안-메타반-mdd-1.jpg", label: "1쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-itpe-모법답안-메타반-딥러닝",
+    period: "1교시",
+    question: "딥러닝",
+    exam: "실전심화반 메타반 모범답안",
+    topicTitles: [],
+    pages: [
+      { src: "/answers/ppt-itpe-모법답안-메타반-딥러닝-1.jpg", label: "1쪽" },
+      { src: "/answers/ppt-itpe-모법답안-메타반-딥러닝-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-itpe-모법답안-메타반-분산분석",
+    period: "1교시",
+    question: "분산분석",
+    exam: "실전심화반 메타반 모범답안",
+    topicTitles: ["ANOVA(Analysis of variance)"],
+    pages: [
+      { src: "/answers/ppt-itpe-모법답안-메타반-분산분석-1.jpg", label: "1쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-itpe-모법답안-메타반-배깅부스팅",
+    period: "1교시",
+    question: "배깅, 부스팅",
+    exam: "실전심화반 메타반 모범답안",
+    topicTitles: [],
+    pages: [
+      { src: "/answers/ppt-itpe-모법답안-메타반-배깅부스팅-1.jpg", label: "1쪽" },
+    ],
+  },
+  {
+    id: "peer-ppt-itpe-모법답안-메타반-drs",
+    period: "1교시",
+    question: "DRS",
+    exam: "실전심화반 메타반 모범답안",
+    topicTitles: ["DRS (Disaster Recovery System)"],
+    pages: [
+      { src: "/answers/ppt-itpe-모법답안-메타반-drs-1.jpg", label: "1쪽" },
+      { src: "/answers/ppt-itpe-모법답안-메타반-drs-2.jpg", label: "2쪽" },
+    ],
+  },
 ];
 
 export const PEER_ANSWERS: PeerAnswer[] = [...PEER_ANSWERS_1, ...PEER_ANSWERS_2, ...PEER_ANSWERS_3];

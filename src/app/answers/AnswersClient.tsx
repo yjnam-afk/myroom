@@ -4,8 +4,10 @@ import { useMemo, useState } from "react";
 import { PageHeader } from "@/components/ui";
 import PeerAnswers from "@/components/PeerAnswers";
 import type { AnswerRow } from "@/lib/answerIndex";
+import { DOMAINS } from "@/lib/domains";
 
 const PERIODS = ["전체", "1교시", "2교시", "3교시", "4교시"];
+const UNSORTED = "미분류";
 
 /**
  * 모범답안 모아 보기 — 실제로 제출해 점수를 받은 답안지 스캔.
@@ -17,14 +19,25 @@ const PERIODS = ["전체", "1교시", "2교시", "3교시", "4교시"];
 export default function AnswersClient({ rows }: { rows: AnswerRow[] }) {
   const [q, setQ] = useState("");
   const [period, setPeriod] = useState("전체");
+  // 주 필터는 과목(도메인)이다 — 교시로 걸러서는 "DB 답안만 보자"가 안 됐다.
+  const [domain, setDomain] = useState("전체");
+
+  // 과목 칩 — 커리큘럼 순서, 답안이 있는 과목만. 못 잡은 답안은 '미분류' 칩으로.
+  const domainChips = useMemo(() => {
+    const count = new Map<string, number>();
+    for (const r of rows) count.set(r.domain, (count.get(r.domain) ?? 0) + 1);
+    const ordered = [...DOMAINS.map((d) => d.label), UNSORTED].filter((d) => count.has(d));
+    return [{ label: "전체", n: rows.length }, ...ordered.map((d) => ({ label: d, n: count.get(d) ?? 0 }))];
+  }, [rows]);
 
   const hits = useMemo(() => {
     const words = q.trim().toLowerCase().split(/\s+/).filter(Boolean);
     return rows.filter((r) => {
+      if (domain !== "전체" && r.domain !== domain) return false;
       if (period !== "전체" && r.period !== period) return false;
       return words.every((w) => r.hay.includes(w));
     });
-  }, [rows, q, period]);
+  }, [rows, q, period, domain]);
 
   const pages = hits.reduce((n, r) => n + r.pages.length, 0);
 
@@ -69,18 +82,30 @@ export default function AnswersClient({ rows }: { rows: AnswerRow[] }) {
         />
         <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
           <div className="flex flex-wrap gap-1">
-            {PERIODS.map((p) => (
+            {domainChips.map((d) => (
               <button
-                key={p}
-                onClick={() => setPeriod(p)}
+                key={d.label}
+                onClick={() => setDomain(d.label)}
                 className={`rounded-full px-2.5 py-1 font-medium ${
-                  period === p ? "bg-brand-600 text-white" : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                  domain === d.label ? "bg-brand-600 text-white" : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                 }`}
               >
-                {p}
+                {d.label} <span className="opacity-70">{d.n}</span>
               </button>
             ))}
           </div>
+          <select
+            value={period}
+            onChange={(e) => setPeriod(e.target.value)}
+            className="rounded border border-slate-200 bg-white px-2 py-1 text-xs text-slate-600"
+            title="교시로도 좁힐 수 있습니다"
+          >
+            {PERIODS.map((p) => (
+              <option key={p} value={p}>
+                {p === "전체" ? "교시 전체" : p}
+              </option>
+            ))}
+          </select>
           <span className="text-slate-400">
             {hits.length}건 · {pages}장
           </span>
@@ -89,7 +114,7 @@ export default function AnswersClient({ rows }: { rows: AnswerRow[] }) {
 
       {hits.length === 0 ? (
         <p className="rounded-xl bg-slate-50 px-4 py-6 text-center text-sm text-slate-500">
-          찾는 답안지가 없어요. 검색어를 줄이거나 교시 필터를 푸세요.
+          찾는 답안지가 없어요. 검색어를 줄이거나 과목·교시 필터를 푸세요.
         </p>
       ) : (
         /* 토픽마다 큰 제목을 단다. 같은 토픽 답안이 여러 건이면 나란히 놓고
