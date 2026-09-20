@@ -8303,7 +8303,7 @@
  },
  {
   "id": "sn-150",
-  "title": "AEI(Artificial Emotional Intelligence)",
+  "title": "정서 인공지능(Affective AI)",
   "category": "인공지능",
   "importance": "중",
   "source": "심화반",
@@ -11100,7 +11100,7 @@
  },
  {
   "id": "sn-202",
-  "title": "ISO/IEC TS 42119-2",
+  "title": "ISO/IEC 42119-2",
   "category": "인공지능",
   "importance": "중",
   "source": "심화반",
@@ -104329,25 +104329,6 @@
    }
   ],
   "mnemonic": "위이주감",
-  "keywords": []
- },
- {
-  "id": "rq-5",
-  "title": "Affective AI",
-  "category": "인공지능",
-  "importance": "상",
-  "source": "요청",
-  "definition": "표정·음성·텍스트·생체신호로부터 인간의 감정 상태를 인식·해석하고 공감적 반응을 생성하는 감성 인공지능(Affective Computing) 기술",
-  "defShort": "표정과 음성, 생체신호에서 감정을 인식하고 공감 반응을 생성하는 인공지능 기술",
-  "memo": "",
-  "sections": [
-   {
-    "label": "두음",
-    "mnemonic": "수인해반",
-    "keywords": []
-   }
-  ],
-  "mnemonic": "수인해반",
   "keywords": []
  },
  {

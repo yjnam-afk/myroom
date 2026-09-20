@@ -6649,7 +6649,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     notes: ["출제 이력: 2025.10 ITPE 모의고사 3교시"],
   },
   {
-    title: "AEI(Artificial Emotional Intelligence)",
+    title: "정서 인공지능(Affective AI)",
     course: "AI",
     definition:
       "인공지능과 감성지능의 결합으로 AI가 스스로 감정을 가져 자신과 타인의 감정을 구별 및 새로운 사고와 행동을 결정하며 감정을 공유하는 인공지능 기술",
@@ -8617,7 +8617,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     notes: ["'생성형 인공지능 서비스 이용자 보호 가이드라인'과 동일 문서(발표일 표기판) — 상세 표는 해당 서브노트 참조", "출제 이력: 138회 정보관리 3교시, 2025.05 ITPE FR 1일차 2교시, 2025.04 KPC 모의고사 3교시"],
   },
   {
-    title: "ISO/IEC TS 42119-2",
+    title: "ISO/IEC 42119-2",
     course: "AI",
     definition:
       "ISO/IEC/IEEE 29119 소프트웨어 테스트 표준을 AI 시스템에 적용하는 개요 및 가이드라인을 제시하는 기술 명세서",
