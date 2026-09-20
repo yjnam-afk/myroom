@@ -311,6 +311,9 @@ const PAST: { q: Q; sq: string; tokens: Set<string>; round: number; no: number }
     no: Number(m[3]),
   }));
 
+/** 가장 최근 기출 회차 — "최근에 나왔나"를 이 회차 기준으로 센다. */
+export const LATEST_PAST_ROUND = PAST.reduce((m, e) => (e.round > m ? e.round : m), 0);
+
 const pastCache = new Map<string, PastAppearance[]>();
 
 /** 토픽 제목으로 기술사 기출 이력을 찾는다. 최신 회차 순. */

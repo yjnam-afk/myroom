@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
-import { ExamHistoryChip } from "@/components/ExamHistory";
+import { ExamHistoryChip, PastExamChip } from "@/components/ExamHistory";
 import { PageHeader } from "@/components/ui";
 import {
   WEEKS,
@@ -659,7 +659,8 @@ export default function PlanPage() {
                                 📖
                               </span>
                             )}
-                            {/* NS 주간 모의고사 출제 이력 — 몇 번, 언제. 자주·최근이면 붉게. */}
+                            {/* 출제 이력 — 🛡️ NS 주간 모의고사, 📕 기술사 기출. 자주·최근이면 붉게. */}
+                            <PastExamChip title={t.title} />
                             <ExamHistoryChip title={t.title} />
                             <Link
                               href={`/explain?topic=${encodeURIComponent(t.title)}`}

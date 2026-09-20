@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { isRecent, weekLabel, type ExamAppearance } from "@/lib/examHistoryUtil";
+import { isRecent, weekLabel, type ExamAppearance, type PastAppearance } from "@/lib/examHistoryUtil";
 
 /**
  * 출제 문항 목록.
@@ -54,3 +54,60 @@ export function AppearanceList({ items, full = false }: { items: ExamAppearance[
   );
 }
 
+
+/**
+ * 기술사 기출 문항 목록 — "몇 회 몇 교시 몇 번".
+ * NS 모의고사와 달리 날짜가 없고 회차가 곧 시점이라 회차를 앞세운다.
+ */
+export function PastList({
+  items,
+  latest,
+  full = false,
+}: {
+  items: PastAppearance[];
+  /** 가장 최근 회차 — 이 근처면 붉게 칠한다. */
+  latest: number;
+  full?: boolean;
+}) {
+  const [opened, setOpened] = useState<Set<string>>(new Set());
+  return (
+    <ul className="divide-y divide-slate-100">
+      {items.map((h) => {
+        const recent = latest > 0 && h.round >= latest - 9;
+        const open = full || opened.has(h.id);
+        return (
+          <li key={h.id} className={`px-3 py-2 ${full ? "px-5 py-3 text-[13px]" : "text-xs"}`}>
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span
+                className={`rounded px-1.5 py-0.5 font-bold ${
+                  recent ? "bg-rose-100 text-rose-700" : "bg-slate-100 text-slate-600"
+                }`}
+              >
+                {h.round}회
+              </span>
+              <span className="text-slate-500">{h.period}</span>
+              <span className="text-slate-400">· {h.no}번</span>
+            </div>
+            <p
+              onClick={() => {
+                if (full) return;
+                setOpened((prev) => {
+                  const n = new Set(prev);
+                  if (n.has(h.id)) n.delete(h.id);
+                  else n.add(h.id);
+                  return n;
+                });
+              }}
+              className={`mt-1 whitespace-pre-line break-words leading-relaxed text-slate-800 ${
+                open ? "" : "line-clamp-3 cursor-pointer"
+              }`}
+              title={open ? undefined : "누르면 전문이 보입니다"}
+            >
+              {h.text}
+            </p>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
