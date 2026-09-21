@@ -53043,7 +53043,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     no: "11",
     question: "MC/DC(Modified Condition/Decision Coverage)에 대하여 설명하시오",
     exam: "제82회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["코드 커버리지(Code Coverage)"],
+    topicTitles: ["MC/DC", "코드 커버리지(Code Coverage)"],
     pages: [
       { src: "/answers/up-mcdc-kpc82-1-1.jpg", label: "답안" },
     ],
@@ -53054,7 +53054,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     no: "11",
     question: "MC/DC(Modified Condition/Decision Coverage)에 대하여 설명하시오",
     exam: "제82회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["코드 커버리지(Code Coverage)"],
+    topicTitles: ["MC/DC", "코드 커버리지(Code Coverage)"],
     score: 6.5,
     maxScore: 10,
     pages: [
