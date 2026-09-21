@@ -53037,6 +53037,30 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
       { src: "/answers/kpc-68회-kpc기술사모의고사-컴시응-모범답안-4교시-9.jpg", label: "9쪽" },
     ],
   },
+  {
+    id: "peer-up-mcdc-kpc82-1-1",
+    period: "1교시",
+    no: "11",
+    question: "MC/DC(Modified Condition/Decision Coverage)에 대하여 설명하시오",
+    exam: "제82회 KPC 기술사 IMPACT 실전모의고사",
+    topicTitles: ["코드 커버리지(Code Coverage)"],
+    pages: [
+      { src: "/answers/up-mcdc-kpc82-1-1.jpg", label: "답안" },
+    ],
+  },
+  {
+    id: "peer-up-mcdc-kpc82-1-2",
+    period: "1교시",
+    no: "11",
+    question: "MC/DC(Modified Condition/Decision Coverage)에 대하여 설명하시오",
+    exam: "제82회 KPC 기술사 IMPACT 실전모의고사",
+    topicTitles: ["코드 커버리지(Code Coverage)"],
+    score: 6.5,
+    maxScore: 10,
+    pages: [
+      { src: "/answers/up-mcdc-kpc82-1-2.jpg", label: "답안" },
+    ],
+  },
 ];
 
 export const PEER_ANSWERS: PeerAnswer[] = [...PEER_ANSWERS_1, ...PEER_ANSWERS_2, ...PEER_ANSWERS_3];
