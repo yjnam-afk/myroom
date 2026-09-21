@@ -18,6 +18,7 @@ import {
 } from "@/data/curriculum";
 import type { StudyLevel } from "@/data/curriculum";
 import { subnoteByTopicId, subnoteByTitle } from "@/data/textbookSubnotes";
+import { recordPlanRounds } from "@/lib/planRounds";
 
 const DAY_NAMES = ["월", "화", "수", "목", "금", "토", "일"];
 
@@ -375,12 +376,15 @@ export default function PlanPage() {
     }, 60);
   }
 
+  /** 체크를 켜면 회독 1회로도 기록한다(메인 「오늘의 토픽」과 같은 규칙). */
   function toggle(weekStart: string, title: string, scope = "") {
     const k = doneKey(weekStart, title, scope);
     const next = new Set(done);
-    next.has(k) ? next.delete(k) : next.add(k);
+    const turningOn = !next.has(k);
+    turningOn ? next.add(k) : next.delete(k);
     setDone(next);
     saveDone(next);
+    if (turningOn) recordPlanRounds([{ key: k, title }]);
   }
 
   function toggleDay(
@@ -396,6 +400,14 @@ export default function PlanPage() {
     }
     setDone(next);
     saveDone(next);
+    if (!allDone)
+      recordPlanRounds(
+        topics.map((t) => ({
+          key: doneKey(weekStart, t.title, scope),
+          title: t.title,
+          topicId: t.topicId,
+        })),
+      );
   }
 
   // 전체 진행률 — 주차별로 따로 센다(선행 학습 + 심화반).

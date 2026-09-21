@@ -7,6 +7,7 @@ import { ReviewItem, loadReview, getItem, isDue } from "@/lib/storage";
 import { QuizStats, loadStats, loadNotes } from "@/lib/notes";
 import { loadSession } from "@/lib/auth";
 import { CoachPlan, buildPlan } from "@/lib/coach";
+import { recordPlanRounds, reviewTopicIdFor } from "@/lib/planRounds";
 import ShareButton from "@/components/ShareButton";
 import {
   Priority,
@@ -37,14 +38,6 @@ function PriorityBadge({ p }: { p: Priority }) {
     </span>
   );
 }
-
-const toneClass: Record<string, string> = {
-  rose: "border-slate-200 bg-slate-50 hover:border-slate-300",
-  amber: "border-amber-200 bg-amber-50 hover:border-amber-300",
-  violet: "border-slate-200 bg-slate-50 hover:border-slate-300",
-  emerald: "border-amber-200 bg-amber-50 hover:border-amber-300",
-  sky: "border-sky-200 bg-sky-50 hover:border-sky-300",
-};
 
 const menuGroups = [
   {
@@ -140,11 +133,21 @@ export default function Home() {
     setDone(loadDone());
   }, []);
 
-  function toggleDone(key: string) {
+  /**
+   * 오늘 토픽 완료 체크.
+   * 체크를 켜면 그 토픽을 ★회독 1회★로도 기록한다 — 계획대로 공부했는데 회독
+   * 관리가 비어 있던 문제를 여기서 잇는다. 체크를 풀어도 회독은 되돌리지 않는다.
+   */
+  function toggleDone(key: string, t?: { title: string; topicId?: string }) {
     const next = new Set(done);
-    next.has(key) ? next.delete(key) : next.add(key);
+    const turningOn = !next.has(key);
+    turningOn ? next.add(key) : next.delete(key);
     setDone(next);
     saveDone(next);
+    if (turningOn && t) {
+      recordPlanRounds([{ key, title: t.title, topicId: t.topicId }]);
+      setReview(loadReview());
+    }
   }
 
   useEffect(() => {
@@ -280,7 +283,7 @@ export default function Home() {
             <>
               <div className="mb-2 flex flex-wrap items-center justify-between gap-x-2 gap-y-0.5">
                 <span className="text-xs font-semibold text-slate-500">
-                  학습한 토픽을 체크하세요 ·{" "}
+                  체크하면 회독 1회로 쌓여요 ·{" "}
                   {today.day.topics.filter((t) => done.has(doneKey(today.week.start, t.title))).length}/
                   {today.day.topics.length} 완료
                 </span>
@@ -296,6 +299,9 @@ export default function Home() {
                   // 교재 원본 서브노트가 있으면 AI 없이 바로 볼 수 있다
                   const sub =
                     subnoteByTopicId(t.topicId) || subnoteByTitle(t.title);
+                  // 체크가 회독으로 쌓인 횟수 — 회독 관리와 같은 값이다.
+                  const rid = reviewTopicIdFor(t.title, t.topicId);
+                  const rounds = rid ? getItem(review, rid).rounds : 0;
                   return (
                     // 폰 화면: 제목 줄(체크·중요도·제목)과 버튼 줄을 나눠 제목이
                     // truncate 로 잘리지 않게 한다. sm 이상에서는 기존처럼 한 줄.
@@ -311,7 +317,9 @@ export default function Home() {
                         {i + 1}
                       </span>
                       <button
-                        onClick={() => toggleDone(doneKey(today.week.start, t.title))}
+                        onClick={() =>
+                          toggleDone(doneKey(today.week.start, t.title), t)
+                        }
                         aria-label="완료"
                         className={`grid h-7 w-7 shrink-0 place-items-center rounded-md border text-sm font-bold transition sm:h-6 sm:w-6 sm:text-xs ${
                           checked
@@ -337,6 +345,14 @@ export default function Home() {
                             title="교재 서브노트 원본이 있어요"
                           >
                             📖 교재
+                          </span>
+                        )}
+                        {rounds > 0 && (
+                          <span
+                            className="shrink-0 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-700"
+                            title="체크한 만큼 회독 관리에 쌓입니다"
+                          >
+                            🔁 {rounds}회독
                           </span>
                         )}
                         {/* 두음신공은 topicId 가 없어도 교재 서브노트만 있으면 열린다
@@ -388,70 +404,6 @@ export default function Home() {
               </p>
             </div>
           )}
-        </div>
-      )}
-
-      {plan && plan.tasks.length > 0 && (
-        <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div className="mb-3 flex items-center justify-between">
-            <h2 className="text-sm font-bold text-slate-800">
-              ✅ 오늘의 학습 순서
-            </h2>
-            <span className="text-xs text-slate-400">
-              코치가 급한 순으로 정렬했어요
-            </span>
-          </div>
-
-          {plan.goal.target > 0 && (
-            <div className="mb-4">
-              <div className="mb-1 flex justify-between text-xs">
-                <span className="font-medium text-slate-600">
-                  🎯 오늘의 목표 {plan.goal.done}/{plan.goal.target} 회독
-                </span>
-                <span className="text-slate-400">
-                  {Math.round((plan.goal.done / plan.goal.target) * 100)}%
-                </span>
-              </div>
-              <div className="h-2.5 w-full overflow-hidden rounded-full bg-slate-100">
-                <div
-                  className="h-full rounded-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all"
-                  style={{
-                    width: `${Math.min(100, Math.round((plan.goal.done / plan.goal.target) * 100))}%`,
-                  }}
-                />
-              </div>
-              {plan.goal.done >= plan.goal.target && (
-                <p className="mt-1 text-xs font-medium text-amber-600">
-                  🎉 오늘 목표 달성! 새 토픽으로 더 나아가도 좋아요.
-                </p>
-              )}
-            </div>
-          )}
-
-          <ol className="space-y-2">
-            {plan.tasks.map((t, i) => (
-              <li key={t.kind + i}>
-                <Link
-                  href={t.href}
-                  className={`flex items-center gap-3 rounded-xl border p-3 transition hover:shadow-sm ${toneClass[t.tone]}`}
-                >
-                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-white/70 text-xs font-bold text-slate-500">
-                    {i + 1}
-                  </span>
-                  <span className="text-lg">{t.emoji}</span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block text-sm font-semibold text-slate-800">
-                      {t.title}
-                    </span>
-                    <span className="block truncate text-xs text-slate-500">
-                      {t.detail}
-                    </span>
-                  </span>
-                  <span className="shrink-0 text-slate-400">→</span>
-                </Link>
-              </li>
-            ))}
-          </ol>
         </div>
       )}
 
