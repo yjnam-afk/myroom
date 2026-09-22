@@ -52002,26 +52002,6 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-kpc-80회-kpc기술사모의고사-컴시응-모범답안-4교시",
-    period: "4교시",
-    question: "제80회 KPC 모의고사 4교시 모범답안 (컴퓨터시스템응용)",
-    exam: "제80회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
-    pages: [
-      { src: "/answers/kpc-80회-kpc기술사모의고사-컴시응-모범답안-4교시-1.jpg", label: "1쪽" },
-    ],
-  },
-  {
-    id: "peer-kpc-80회-kpc기술사모의고사-정보관리-모범답안-4교시",
-    period: "4교시",
-    question: "제80회 KPC 모의고사 4교시 모범답안 (정보관리)",
-    exam: "제80회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
-    pages: [
-      { src: "/answers/kpc-80회-kpc기술사모의고사-정보관리-모범답안-4교시-1.jpg", label: "1쪽" },
-    ],
-  },
-  {
     id: "peer-kpc-80회-kpc기술사모의고사-컴시응-모범답안-3교시-4번",
     period: "3교시",
     no: "4",
@@ -52184,7 +52164,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
   {
     id: "peer-kpc-81회-kpc기술사모의고사-컴시응-모범답안-3교시",
     period: "3교시",
-    question: "제81회 KPC 모의고사 3교시 모범답안 (컴퓨터시스템응용)",
+    question: "제81회 KPC 기술사 IMPACT 실전모의고사 3교시 번",
     exam: "제81회 KPC 기술사 IMPACT 실전모의고사",
     topicTitles: [],
     pages: [
@@ -52194,7 +52174,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
   {
     id: "peer-kpc-81회-kpc기술사모의고사-정보관리-모범답안-2교시",
     period: "2교시",
-    question: "제81회 KPC 모의고사 2교시 모범답안 (정보관리)",
+    question: "제81회 KPC 기술사 IMPACT 실전모의고사 2교시 번",
     exam: "제81회 KPC 기술사 IMPACT 실전모의고사",
     topicTitles: [],
     pages: [
@@ -52253,7 +52233,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
   {
     id: "peer-kpc-82회-kpc기술사모의고사-정보관리-모범답안-3교시",
     period: "3교시",
-    question: "제82회 KPC 모의고사 3교시 모범답안 (정보관리)",
+    question: "제82회 KPC 기술사 IMPACT 실전모의고사 3교시 번",
     exam: "제82회 KPC 기술사 IMPACT 실전모의고사",
     topicTitles: [],
     pages: [
@@ -52326,7 +52306,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
   {
     id: "peer-kpc-82회-kpc기술사모의고사-컴시응-모범답안-2교시",
     period: "2교시",
-    question: "제82회 KPC 모의고사 2교시 모범답안 (컴퓨터시스템응용)",
+    question: "제82회 KPC 기술사 IMPACT 실전모의고사 2교시 번",
     exam: "제82회 KPC 기술사 IMPACT 실전모의고사",
     topicTitles: [],
     pages: [
@@ -53701,7 +53681,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
   {
     id: "peer-kpc-88회-kpc기술사모의고사-모범답안-2교시",
     period: "2교시",
-    question: "제88회 KPC 모의고사 2교시 모범답안",
+    question: "제88회 KPC 기술사 IMPACT 실전모의고사 2교시 번",
     exam: "제88회 KPC 기술사 IMPACT 실전모의고사",
     topicTitles: [],
     pages: [
@@ -53832,9 +53812,9 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
   {
     id: "peer-kpc-89회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-2교시",
     period: "2교시",
-    question: "제89회 KPC 모의고사 2교시 모범답안 (컴퓨터시스템응용)",
+    question: "가. SQL 처리 과정의 소프트 DHA 과 하드 Wh! (Hard Parsing), 나. CBO(Cost Based Optimizer) 기반 SQL 최적화 수행 과정",
     exam: "제89회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["머신러닝 옵티마이저(Optimizer)", "SQL(Structured Query Language)"],
     pages: [
       { src: "/answers/kpc-89회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-2교시-1.jpg", label: "1쪽" },
       { src: "/answers/kpc-89회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-2교시-2.jpg", label: "2쪽" },
@@ -54544,7 +54524,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
   {
     id: "peer-kpc-92회-kpc기술사모의고사-정보처리-모범답안-3교시",
     period: "3교시",
-    question: "제92회 KPC 모의고사 3교시 모범답안 (정보처리)",
+    question: "제92회 KPC 기술사 IMPACT 실전모의고사 3교시 번",
     exam: "제92회 KPC 기술사 IMPACT 실전모의고사",
     topicTitles: [],
     pages: [
@@ -55088,7 +55068,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
   {
     id: "peer-kpc-91회-kpc기술사모의고사-정보처리-모범답안-4교시",
     period: "4교시",
-    question: "제91회 KPC 모의고사 4교시 모범답안 (정보처리)",
+    question: "사,. 2020 OSIM OT 지닌 우신이직이시 2ㅇㅜ 니그 풀더운 SS SSO Aa. To ao SB OI",
     exam: "제91회 KPC 기술사 IMPACT 실전모의고사",
     topicTitles: [],
     pages: [
