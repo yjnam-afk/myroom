@@ -6358,16 +6358,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     keywords: ["미세조정(Fine Tuning)", "과업/도메인 전이", "Inductive/Transductive/Unsupervised"],
     tables: [
       {
-        caption: "구성요소 [업다프파]",
-        headers: ["구분", "구성요소", "설명"],
-        rows: [
-          ["태스크", "업스트림 태스크", "선행 학습 수행"],
-          ["태스크", "다운스트림", "모델 전이 후 학습"],
-          ["학습 과정", "프리트레인", "업스트림 학습"],
-          ["학습 과정", "파인튜닝 기법\n가중치 갱신", "다운스트림 학습\n미세 조정 수행"],
-        ],
-      },
-      {
         caption: "주요학습 기법 [파프도레]",
         headers: ["기법", ""],
         rows: [
@@ -6387,7 +6377,7 @@ export const SUBNOTES: TextbookSubnote[] = [
         ],
       },
     ],
-    notes: ["다운스트림 학습 방식: 파인튜닝(가중치 업데이트) 외에 인컨텍스트 러닝 — 제로샷(예시 0개)·원샷(1개)·퓨샷(몇 개), 가중치 업데이트 없음 — 이 있다(파인튜닝과 혼동 금지)", "개념도: Pretrained A의 하위 계층(Hidden layer 1~3)을 가중치 고정(Freeze)으로 재사용하고 상위 계층만 학습(Trainable)하여 B 모델 구성"],
+    notes: ["다운스트림 학습 방식: 파인튜닝(가중치 업데이트) 외에 인컨텍스트 러닝 — 제로샷(예시 0개)·원샷(1개)·퓨샷(몇 개), 가중치 업데이트 없음 — 이 있다(파인튜닝과 혼동 금지)", "개념도: Pretrained A의 Hidden layer 1~3을 B에 재사용하되 1~2는 가중치 고정(Freeze), 3~4는 학습(Trainable)하여 A와 비슷한 모델 B 구성", "교재 두음: [파프도레] [적태도 레귀변자]"],
   },
   {
     title: "자기지도학습(Self-supervised Learning)",

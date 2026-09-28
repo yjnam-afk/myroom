@@ -958,7 +958,6 @@
  "전이학습(Transfer Learning)": {
   "d": "Pretrained A의 Hidden layer 1~2를 Freeze로 재사용하고 B에서는 layer 3~4만 Trainable로 학습해 적은 데이터로 새 모델을 만든다",
   "t": [
-   "업스트림·다운스트림 태스크와 프리트레인·파인튜닝 과정 '업다프파'가 개념도의 A와 B에 대응한다",
    "Fine-tuned CNN·Pre-trained Model·Domain Adaptation·Layer Re-use '파프도레'가 어느 층을 얼마나 재사용하느냐의 기법이다",
    "적용 범위로는 과업·도메인 전이, 레이블 유무로는 귀납·변형·자율 '적태도 레귀변자'로 유형이 갈린다"
   ]
