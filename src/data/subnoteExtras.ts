@@ -224,6 +224,7 @@ const TITLE_SLUG: Record<string, string> = {
   "생성형 인공지능 서비스 이용자 보호 가이드라인": "genai-user-protection",
   "생성형 AI 서비스 이용자 보호 가이드라인(2025.02.28)": "genai-user-protection-2502",
   "ISO/IEC TS 42119-2": "iso-42119-2",
+  "ISO/IEC 42119-2": "iso-42119-2",
   "BrainBody LLM": "brainbody-llm",
   "혼동행렬(Confusion Matrix)": "confusion-matrix",
   "클래스 불균형(Class Imbalance)": "class-imbalance",
@@ -12245,21 +12246,33 @@ export function subnoteExtraFor(
   topicId?: string,
   title?: string,
 ): SubnoteExtra | undefined {
-  if (topicId && EXTRAS[topicId]) return EXTRAS[topicId];
-  // 교재 외 예전 토픽 — topicGuides 청크에서 조회
-  if (topicId && TOPIC_GUIDES[topicId]) {
-    return { guide: TOPIC_GUIDES[topicId] };
-  }
-  if (!title) return undefined;
+  // 예전 토픽(ai-50 GAN, se-69 MSA …)은 topicId 로 걸린 항목에 guide·easy 만 있고 교재
+  // 슬라이드는 제목 슬러그("gan") 쪽 항목에 있다. topicId 항목을 그대로 돌려주면 교재가
+  // 안 뜬다 — 246개 토픽이 그랬다. 그림(image·images)은 교재 쪽에서 채워 넣는다.
+  const own: SubnoteExtra | undefined =
+    (topicId && EXTRAS[topicId]) ||
+    (topicId && TOPIC_GUIDES[topicId] ? { guide: TOPIC_GUIDES[topicId] } : undefined) ||
+    undefined;
+  if (own?.image) return own;
+  const book = title ? bookExtraByTitle(title) : undefined;
+  if (!own) return book;
+  if (!book) return own;
+  return {
+    ...own,
+    image: own.image ?? book.image,
+    images: own.images ?? book.images,
+    imagesLabel: own.imagesLabel ?? book.imagesLabel,
+  };
+}
 
-  // ① 제목 슬러그 직접 조회(topicId 가 없는 교재 전용 토픽)
+/** 제목으로 교재 쪽 항목을 찾는다 — 슬러그 직접 조회, 안 되면 서브노트를 확정한 뒤 그 id/제목으로. */
+function bookExtraByTitle(title: string): SubnoteExtra | undefined {
   const direct = slugByTitle(title);
-  if (direct && EXTRAS[direct]) return EXTRAS[direct];
-
-  // ② 교재 서브노트를 제목으로 확정한 뒤 그 id/제목으로 조회
   const book = subnoteByTitle(title);
-  if (!book) return undefined;
-  if (book.topicId && EXTRAS[book.topicId]) return EXTRAS[book.topicId];
-  const slug = slugByTitle(book.title);
-  return slug ? EXTRAS[slug] : undefined;
+  const slug = book ? slugByTitle(book.title) : undefined;
+  // 슬라이드가 달린 항목을 먼저 — 서브노트의 topicId 항목은 guide 만 있는 예전 항목일 수 있다.
+  const cands = [direct, slug, book?.topicId]
+    .map((k) => (k ? EXTRAS[k] : undefined))
+    .filter((e): e is SubnoteExtra => !!e);
+  return cands.find((e) => e.image) ?? cands[0];
 }
