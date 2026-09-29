@@ -167,6 +167,10 @@ const TITLE_SLUG: Record<string, string> = {
   "Physical AI": "physical-ai",
   "온디바이스 AI": "on-device-ai",
   "AEI(Artificial Emotional Intelligence)": "aei",
+  "CXL(Compute Express Link) 3.0": "cxl-3",
+  "이벤트 스토밍(Event Storming)과 헥사고날(Hexagonal) 아키텍처": "event-storming-hexagonal",
+  "지능정보기술 감리 실무 가이드 - 클라우드 감리": "cloud-audit",
+  "지능정보기술 감리 실무 가이드 - 빅데이터 감리": "bigdata-audit",
   "정서 인공지능(Affective AI)": "aei",
   "활성화함수(Activation Function)": "activation-function",
   "손실함수(Loss Function)": "loss-function",
@@ -12221,6 +12225,15 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
     image: "/concept/book/ai-native-dev-platform.png",
   },
+  // 2026-09-29 나중에 받은 교재 슬라이드 4장 — 서브노트는 먼저 옮겼는데 그림 저장을 빠뜨렸던 것.
+  "cxl-3": { image: "/concept/book/cxl-3.png", images: ["/concept/diagram/cxl-3.webp"], imagesLabel: "개념도" },
+  "event-storming-hexagonal": {
+    image: "/concept/book/event-storming-hexagonal.png",
+    images: ["/concept/diagram/event-storming-hexagonal.webp", "/concept/diagram/event-storming-hexagonal-2.webp"],
+    imagesLabel: "절차도·아키텍처",
+  },
+  "cloud-audit": { image: "/concept/book/cloud-audit.png", images: ["/concept/diagram/cloud-audit.webp"], imagesLabel: "사업 유형" },
+  "bigdata-audit": { image: "/concept/book/bigdata-audit.png" },   // 표뿐이라 잘라낼 그림이 없다
 };
 
 const norm = (s: string) => s.trim().toLowerCase().replace(/[\s()·,\-_/]/g, "");
