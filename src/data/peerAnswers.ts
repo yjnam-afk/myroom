@@ -62379,6 +62379,52 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
       { src: "/answers/kpc-68회-kpc기술사모의고사-컴시응-모범답안-4교시-9.jpg", label: "2쪽" },
     ],
   },
+  // 2026-09-29 직접 올려 준 PDF — ITPE 답안지, 1교시 1번 「생성형 인공지능의 할루시네이션」.
+  {
+    id: "peer-up-hallucination-ai1",
+    period: "1교시",
+    no: "1",
+    question: "생성형 인공지능의 할루시네이션",
+    exam: "ITPE 모의고사 (AI)",
+    topicTitles: ["할루시네이션(Hallucination)"],
+    pages: [
+      { src: "/answers/up-hallucination-ai1-1.jpg", label: "1쪽" },
+      { src: "/answers/up-hallucination-ai1-2.jpg", label: "2쪽" },
+    ],
+  },
+  // 드라이브 「AI_[할루시네이션][2교시] 할루시네이션.pdf」 — 처음 훑을 때 안 들어간 폴더에 있었다.
+  {
+    id: "peer-up-hallucination-ai2",
+    period: "2교시",
+    question: "가. 생성형 인공지능 개념, 기술 요소 나. 할루시네이션 다. 해결 방안",
+    exam: "ITPE 모의고사 (AI)",
+    topicTitles: ["할루시네이션(Hallucination)", "생성형 AI"],
+    score: 15.3,
+    maxScore: 25,
+    pages: [
+      { src: "/answers/up-hallucination-ai2-1.jpg", label: "7쪽" },
+      { src: "/answers/up-hallucination-ai2-2.jpg", label: "8쪽" },
+      { src: "/answers/up-hallucination-ai2-3.jpg", label: "9쪽" },
+      { src: "/answers/up-hallucination-ai2-4.jpg", label: "10쪽" },
+    ],
+  },
+  // 드라이브 「AI_[생성형 할루시네이션] 생성형AI 할루시네이션-모고24_1_5.pdf」
+  {
+    id: "peer-up-hallucination-ai4",
+    period: "2교시",
+    no: "5",
+    question: "생성형 AI ① 생성형 인공지능 개념, 기술요소 ② 할루시네이션 ③ 할루시네이션 해결방안",
+    exam: "ITPE 모의고사 24-1",
+    topicTitles: ["할루시네이션(Hallucination)", "생성형 AI"],
+    score: 15.2,
+    maxScore: 25,
+    pages: [
+      { src: "/answers/up-hallucination-ai4-1.jpg", label: "4쪽" },
+      { src: "/answers/up-hallucination-ai4-2.jpg", label: "5쪽" },
+      { src: "/answers/up-hallucination-ai4-3.jpg", label: "6쪽" },
+      { src: "/answers/up-hallucination-ai4-4.jpg", label: "7쪽" },
+    ],
+  },
 ];
 
 export const PEER_ANSWERS: PeerAnswer[] = [
