@@ -10280,39 +10280,40 @@
     "label": "구성요소",
     "mnemonic": "태인커아제원퓨C",
     "keywords": [
-     "수행 상황 설명",
-     "입력 지시자",
-     "실제 질문 내용",
-     "결과 유형·형식",
-     "예제 없이 답변",
-     "예제 1개 제공",
-     "수개 예제 제공",
-     "답변 도달 과정",
-     "예시 없는 CoT",
-     "사고 경로 분기"
+     "Task Description",
+     "Input Indicator",
+     "Current Input",
+     "Output Indicator",
+     "Zero-Shot Prompting",
+     "One-Shot Prompting",
+     "Few-Shot Prompting",
+     "CoT(Chain-of-Thought)",
+     "CoT(Chain-of-Thought)",
+     "Zero-Shot CoT"
     ]
    },
    {
     "label": "고려사항",
     "mnemonic": "",
     "keywords": [
-     "가이드라인",
-     "고도화"
+     "대화 스타일 조정",
+     "구체적인 지시사항",
+     "마켓 플레이스 활용"
     ]
    }
   ],
   "mnemonic": "태인커아제원퓨C",
   "keywords": [
-   "수행 상황 설명",
-   "입력 지시자",
-   "실제 질문 내용",
-   "결과 유형·형식",
-   "예제 없이 답변",
-   "예제 1개 제공",
-   "수개 예제 제공",
-   "답변 도달 과정",
-   "예시 없는 CoT",
-   "사고 경로 분기"
+   "Task Description",
+   "Input Indicator",
+   "Current Input",
+   "Output Indicator",
+   "Zero-Shot Prompting",
+   "One-Shot Prompting",
+   "Few-Shot Prompting",
+   "CoT(Chain-of-Thought)",
+   "CoT(Chain-of-Thought)",
+   "Zero-Shot CoT"
   ]
  },
  {
