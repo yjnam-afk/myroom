@@ -167,6 +167,7 @@ const TITLE_SLUG: Record<string, string> = {
   "Physical AI": "physical-ai",
   "온디바이스 AI": "on-device-ai",
   "AEI(Artificial Emotional Intelligence)": "aei",
+  "정서 인공지능(Affective AI)": "aei",
   "활성화함수(Activation Function)": "activation-function",
   "손실함수(Loss Function)": "loss-function",
   "손실함수": "loss-function",
