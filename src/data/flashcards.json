@@ -134,11 +134,11 @@
     "label": "파이프라인 구성에 따른 유형",
     "mnemonic": "",
     "keywords": [
-     "단일 파이프라인",
-     "슈퍼 파이프라인",
-     "슈퍼 스칼라",
-     "슈퍼 파이프라인 이용한 슈퍼스칼라",
-     "VLIW (Very Long Instruction Word)"
+     "기본",
+     "시간적 병렬",
+     "공간적 병렬",
+     "복합",
+     "컴파일러 기반"
     ]
    }
   ],
@@ -174,9 +174,9 @@
     "label": "유형 (구데제)",
     "mnemonic": "",
     "keywords": [
-     "구조적 해저드",
-     "데이터 해저드",
-     "제어 해저드"
+     "자원 충돌",
+     "명령 종속",
+     "분기 예측"
     ]
    },
    {
@@ -267,9 +267,9 @@
     "mnemonic": "",
     "keywords": [
      "개요",
-     "동작절차 — 캐시 라인 선택",
-     "동작절차 — 태그 비교",
-     "동작절차 — 캐시 적중"
+     "캐시 라인 선택",
+     "태그 비교",
+     "캐시 적중"
     ]
    },
    {
@@ -277,8 +277,8 @@
     "mnemonic": "",
     "keywords": [
      "개요",
-     "동작절차 — 태그 비교",
-     "동작절차 — 캐시 적중"
+     "태그 비교",
+     "캐시 적중"
     ]
    },
    {
@@ -286,9 +286,9 @@
     "mnemonic": "",
     "keywords": [
      "개요",
-     "동작절차 — 세트 선택",
-     "동작절차 — 태그 비교",
-     "동작절차 — 캐시 적중"
+     "세트 선택",
+     "태그 비교",
+     "캐시 적중"
     ]
    }
   ],
@@ -413,10 +413,10 @@
     "label": "전송 방식에 의한 모드",
     "mnemonic": "",
     "keywords": [
-     "Burst Mode (Block Mode)",
-     "Cycle Stealing Mode (Word Mode)",
-     "Demand Transfer Mode",
-     "Interleaved DMA"
+     "연속 점유",
+     "교차 점유",
+     "요구 기반",
+     "유휴 활용"
     ]
    }
   ],
@@ -460,8 +460,8 @@
     "label": "메모리 단편화 유형",
     "mnemonic": "",
     "keywords": [
-     "내부 단편화",
-     "외부 단편화"
+     "고정 분할",
+     "가변 분할"
     ]
    },
    {
@@ -524,9 +524,9 @@
     "label": "특징",
     "mnemonic": "",
     "keywords": [
-     "PCIe 6.0 기반 도입",
-     "패브릭(Fabric) 구조 지원",
-     "메모리 풀링 및 공유"
+     "대역폭",
+     "확장성",
+     "메모리"
     ]
    },
    {
@@ -693,8 +693,8 @@
     "label": "캐시(Cache) Flush와 Clean",
     "mnemonic": "",
     "keywords": [
-     "Cache Flush",
-     "Cache Clean"
+     "무효화",
+     "반영"
     ]
    }
   ],
@@ -733,16 +733,16 @@
     "label": "SW 기법",
     "mnemonic": "",
     "keywords": [
-     "공유 캐시 사용",
-     "공유 변수 캐시 미사용"
+     "캐시 공유",
+     "캐시 배제"
     ]
    },
    {
     "label": "HW 기법",
     "mnemonic": "",
     "keywords": [
-     "디렉토리 프로토콜",
-     "스누피 프로토콜(Snoopy Protocol)"
+     "중앙 집중",
+     "분산 감시"
     ]
    },
    {
@@ -802,9 +802,9 @@
     "label": "메모리 인터리빙 유형",
     "mnemonic": "",
     "keywords": [
-     "상위 인터리빙",
-     "하위 인터리빙",
-     "혼합 인터리빙"
+     "순차 접근",
+     "병렬 접근",
+     "절충"
     ]
    },
    {
@@ -856,10 +856,10 @@
     "label": "MESI 상태",
     "mnemonic": "",
     "keywords": [
-     "수정(Modify)",
-     "배타(Exclusive)",
-     "공유(Shared)",
-     "무효(Invalid)"
+     "유효·단독",
+     "유효·단독",
+     "유효·공유",
+     "무효"
     ]
    }
   ],
@@ -945,12 +945,12 @@
     "label": "관점별 기법 — Hardware",
     "mnemonic": "",
     "keywords": [
-     "TMR (Triple Modular Redundancy)",
-     "Duplication with Comparison",
-     "Stand by Sparing",
-     "Watchdog Timer",
-     "RAID",
-     "Self-Purging Redundancy"
+     "다중화",
+     "다중화",
+     "대기 예비",
+     "감시",
+     "저장 장치",
+     "자가 정화"
     ]
    },
    {
@@ -1129,9 +1129,9 @@
     "label": "알고리즘",
     "mnemonic": "",
     "keywords": [
-     "Reed-Solomon Code",
-     "Tahoe-LAFS",
-     "Weaver Code"
+     "패리티 기반",
+     "분산 저장",
+     "XOR 기반"
     ]
    }
   ],
@@ -1172,29 +1172,29 @@
     "label": "핵심 기술 — 초고속 컴퓨팅 반도체",
     "mnemonic": "",
     "keywords": [
-     "뉴로모픽 고속 컴퓨팅",
-     "지능형메모리",
-     "빅데이터 고속처리",
-     "IoT 프로세서"
+     "연산",
+     "메모리",
+     "처리",
+     "IoT"
     ]
    },
    {
     "label": "핵심 기술 — 스마트 통신 반도체",
     "mnemonic": "",
     "keywords": [
-     "고속이동통신",
-     "광대역 네트워크",
-     "초저전력 커넥티비티"
+     "이동통신",
+     "광대역",
+     "저전력"
     ]
    },
    {
     "label": "핵심 기술 — 스마트 인지 제어 반도체",
     "mnemonic": "",
     "keywords": [
-     "얼굴인식",
-     "콘텐츠 및 광고추천",
-     "자동통역",
-     "음성비서"
+     "시각",
+     "추천",
+     "언어",
+     "음성"
     ]
    }
   ],
@@ -1238,10 +1238,10 @@
     "label": "구성요소",
     "mnemonic": "",
     "keywords": [
-     "행렬 곱셈 장치(MXU, Matrix Multiplier Unit)",
-     "벡터 장치(Vector Unit)",
-     "HBM(High Bandwidth Memory)",
-     "상호 연결(Inter-Chip Interconnect, ICI)"
+     "연산",
+     "연산",
+     "메모리",
+     "연결"
     ]
    },
    {
@@ -1560,9 +1560,9 @@
     "label": "문맥의 세 유형",
     "mnemonic": "",
     "keywords": [
-     "시스템 문맥",
-     "메모리 문맥",
-     "하드웨어 문맥"
+     "OS 관리",
+     "주소 공간",
+     "CPU 상태"
     ]
    },
    {
@@ -1824,12 +1824,12 @@
     "label": "시스템 콜의 유형",
     "mnemonic": "",
     "keywords": [
-     "프로세스 제어",
-     "파일 조작",
-     "장치 관리",
-     "정보 유지",
+     "실행",
+     "자원",
+     "자원",
+     "정보",
      "통신",
-     "보호"
+     "보안"
     ]
    },
    {
@@ -1922,8 +1922,8 @@
     "label": "할당(Allocation) 기법 — 프로그램에 메모리를 어떻게 공급할지 ",
     "mnemonic": "",
     "keywords": [
-     "단일 분할 할당",
-     "다중 분할 할당"
+     "연속 할당",
+     "분할 할당"
     ]
    },
    {
@@ -1940,8 +1940,8 @@
     "label": "호출(인출, Fetch) 기법 — 언제(When) 적재할지 결정",
     "mnemonic": "",
     "keywords": [
-     "Demand Fetch (요구)",
-     "Pre Fetch (예측)"
+     "사후",
+     "사전"
     ]
    },
    {
@@ -2069,20 +2069,20 @@
     "label": "직접 사상에 의한 페이징 기법(Direct Mapping) 동작 방식",
     "mnemonic": "",
     "keywords": [
-     "사상표 시작 주소",
-     "가상주소 v 참조",
-     "b+p 합산",
-     "프레임 p' 획득",
-     "p'+변위 d"
+     "사상표 시작 주소 레지스터 b 적재",
+     "가상주소 v 참조 페이지 p 변위 d",
+     "b+p 합산 사상표 위치 획득",
+     "프레임 p' 획득 실기억장치 위치",
+     "p'+변위 d 실주소 획득"
     ]
    },
    {
     "label": "연관(Associative) 사상에 의한 페이징 기법",
     "mnemonic": "",
     "keywords": [
-     "연관 기억장치",
-     "내용 주소화",
-     "순수 연관 사상"
+     "연관 기억장치 사상표 전체 저장",
+     "내용 주소화 메모리 전체 탐색",
+     "순수 연관 사상 페이지 주소 변환"
     ]
    }
   ],
@@ -2395,25 +2395,25 @@
     "label": "단편화 유형",
     "mnemonic": "",
     "keywords": [
-     "내부단편화",
-     "외부단편화"
+     "고정 분할",
+     "가변 분할"
     ]
    },
    {
     "label": "해결 방법",
     "mnemonic": "",
     "keywords": [
-     "통합(Coalescing)",
-     "집약(Compaction)"
+     "병합",
+     "재배치"
     ]
    },
    {
     "label": "커널 메모리 할당자 — 어느 단편화를 줄이는가",
     "mnemonic": "",
     "keywords": [
-     "버디(Buddy) 시스템",
-     "슬랩(Slab) 할당자",
-     "두 할당자의 관계"
+     "페이지 단위",
+     "객체 단위",
+     "관계"
     ]
    },
    {
@@ -2620,20 +2620,20 @@
     "label": "선점형 스케줄링(Preemptive Scheduling)",
     "mnemonic": "",
     "keywords": [
-     "RR(Round Robin)",
-     "SRT(Shortest Remaining Time)",
-     "MLQ(Multi Level Queue)",
-     "MLFQ(Multi Level Feedback Queue)"
+     "시간 할당",
+     "잔여 시간",
+     "다단계 큐",
+     "다단계 큐"
     ]
    },
    {
     "label": "비선점형 스케줄링(Non-preemptive Scheduling)",
     "mnemonic": "",
     "keywords": [
-     "Priority",
-     "FCFS(First Come First Served)",
-     "SJF (Shortest Job First)",
-     "HRN (Highest Response Ratio Next)"
+     "우선순위",
+     "도착 순",
+     "실행 시간",
+     "응답 비율"
     ]
    },
    {
@@ -2839,9 +2839,9 @@
     "label": "교착상태 발견 시 해결방안",
     "mnemonic": "",
     "keywords": [
-     "교착상태 진입 방지 프로토콜",
-     "교착상태 허용 후 복구",
-     "교착상태 미발생 가정"
+     "사전",
+     "사후",
+     "무시"
     ]
    }
   ],
@@ -2895,10 +2895,10 @@
     "label": "안정상태",
     "mnemonic": "",
     "keywords": [
-     "가용+선행 점유",
-     "즉시 사용 불가",
-     "Pj 종료 후 획득",
-     "Pi 종료 후"
+     "가용+선행 점유 만족 시 안정상태",
+     "즉시 사용 불가 선행 종료 대기",
+     "Pj 종료 후 획득 수행 후 자원 해제",
+     "Pi 종료 후 다음 순번 진행"
     ]
    }
   ],
@@ -3147,8 +3147,8 @@
     "label": "PCB와 TCB의 정의",
     "mnemonic": "",
     "keywords": [
-     "PCB (Process Control Block)",
-     "TCB (Thread Control Block)"
+     "프로세스",
+     "스레드"
     ]
    },
    {
@@ -3269,10 +3269,10 @@
     "label": "유닉스 파일의 종류",
     "mnemonic": "",
     "keywords": [
-     "루트 파일 시스템",
-     "일반 파일",
-     "디렉토리 파일",
-     "특수 파일"
+     "시스템",
+     "데이터",
+     "구조",
+     "장치"
     ]
    }
   ],
@@ -3332,19 +3332,19 @@
     "label": "새로운 파일에 i-node를 할당하는 과정",
     "mnemonic": "",
     "keywords": [
-     "자유 i-node 할당",
-     "자유 i-node 저장 (자유 i-node가 빈 경우)"
+     "일반",
+     "목록 소진"
     ]
    },
    {
     "label": "i-node를 반납하는 과정",
     "mnemonic": "",
     "keywords": [
-     "사용 가능 수",
-     "반납↔기억 비교",
-     "목록 공간 없음",
-     "499 반납 기억",
-     "소진 후 반납"
+     "사용 가능 수 아이노드 수 증가",
+     "반납↔기억 비교 번호 크기 비교",
+     "목록 공간 없음 기억 번호와 비교",
+     "499 반납 기억 535 목록 제거",
+     "소진 후 반납 목록 변화 없음"
     ]
    }
   ],
@@ -3390,19 +3390,19 @@
     "label": "공유 메모리 방식",
     "mnemonic": "",
     "keywords": [
-     "공유 메모리(Shared Memory)",
-     "메모리 맵(Map Memory, mmap)"
+     "메모리",
+     "파일"
     ]
    },
    {
     "label": "메시지 전달 방식",
     "mnemonic": "",
     "keywords": [
-     "파이프(Pipe)",
-     "네임드 파이프(Named Pipe, FIFO)",
-     "메시지 큐(Message Queue)",
-     "소켓(Socket)",
-     "시그널(Signal)"
+     "파이프",
+     "파이프",
+     "큐",
+     "네트워크",
+     "신호"
     ]
    },
    {
@@ -5187,12 +5187,12 @@
     "label": "개발 방법론 유형 상세 (구정객CAP)",
     "mnemonic": "",
     "keywords": [
-     "구조적 방법론",
-     "정보공학 방법론",
-     "객체지향 방법론",
-     "CBD 방법론",
-     "Agile 방법론",
-     "Product Line"
+     "절차 중심",
+     "데이터 중심",
+     "객체 중심",
+     "컴포넌트 중심",
+     "변화 중심",
+     "자산 중심"
     ]
    }
   ],
@@ -5237,18 +5237,18 @@
     "label": "AI-DLC 핵심",
     "mnemonic": "",
     "keywords": [
-     "계층적 업무 분해",
-     "정보의 보존",
-     "기존 결과물과의 공존"
+     "구조",
+     "맥락",
+     "호환"
     ]
    },
    {
     "label": "AI-DLC 단계별 세부 요소",
     "mnemonic": "",
     "keywords": [
-     "Intent(인텐트)",
-     "Unit(유닛)",
-     "Bolt(볼트)"
+     "목표",
+     "작업 단위",
+     "반복 단위"
     ]
    },
    {
@@ -5353,11 +5353,11 @@
     "label": "객체지향 특징 (캡추다정상)",
     "mnemonic": "",
     "keywords": [
-     "캡슐화",
-     "추상화",
-     "다형성",
-     "정보은닉",
-     "상속성"
+     "구조화",
+     "구조화",
+     "유연성",
+     "보호",
+     "재사용"
     ]
    }
   ],
@@ -5753,10 +5753,10 @@
     "label": "사용자 분석 기법",
     "mnemonic": "",
     "keywords": [
-     "페르소나",
+     "모형",
      "인지",
-     "역할",
-     "사회기술"
+     "행태",
+     "조직"
     ]
    }
   ],
@@ -5884,10 +5884,10 @@
     "label": "구성 요소 (4계층)",
     "mnemonic": "",
     "keywords": [
-     "Entity",
-     "Use Case",
-     "Interface Adapter",
-     "External Interface"
+     "내부",
+     "내부",
+     "경계",
+     "외부"
     ]
    }
   ],
@@ -5933,9 +5933,9 @@
     "label": "비기능 요구사항 영역",
     "mnemonic": "",
     "keywords": [
-     "기술적 제약",
-     "비즈니스 제약",
-     "품질 제약"
+     "구현",
+     "조직",
+     "요구"
     ]
    }
   ],
@@ -5974,8 +5974,8 @@
     "label": "구성 요소",
     "mnemonic": "",
     "keywords": [
-     "품질 속성",
-     "시나리오"
+     "속성",
+     "사례"
     ]
    },
    {
@@ -6166,9 +6166,9 @@
     "label": "특징",
     "mnemonic": "",
     "keywords": [
-     "2단계 반복",
-     "효용-반응 곡선",
-     "불확실성 고려"
+     "절차",
+     "표현",
+     "한계"
     ]
    },
    {
@@ -6675,8 +6675,8 @@
     "label": "설계 유형",
     "mnemonic": "",
     "keywords": [
-     "전략적 설계(Strategic Design)",
-     "전술적 설계(Tactical Design)"
+     "거시",
+     "미시"
     ]
    },
    {
@@ -6745,8 +6745,8 @@
     "label": "활용 사례",
     "mnemonic": "",
     "keywords": [
-     "시스템 확장성",
-     "병렬 처리"
+     "확장",
+     "병렬"
     ]
    }
   ],
@@ -6918,9 +6918,9 @@
     "label": "구성 요소",
     "mnemonic": "",
     "keywords": [
-     "Private 생성자",
-     "Static 인스턴스",
-     "Public 정적 메서드(getInstance)"
+     "생성 제한",
+     "인스턴스",
+     "접근점"
     ]
    },
    {
@@ -6966,11 +6966,11 @@
     "label": "구성 요소",
     "mnemonic": "",
     "keywords": [
-     "Logical View",
-     "Implementation View",
-     "Process View",
-     "Deployment View",
-     "Use Case View"
+     "설계",
+     "구현",
+     "실행",
+     "배치",
+     "통합"
     ]
    },
    {
@@ -7016,10 +7016,10 @@
     "label": "구성 요소",
     "mnemonic": "",
     "keywords": [
-     "Model",
-     "View",
-     "View Model",
-     "Data Binding"
+     "데이터",
+     "화면",
+     "중개",
+     "연결"
     ]
    },
    {
@@ -7306,10 +7306,10 @@
     "label": "주요 역할",
     "mnemonic": "",
     "keywords": [
-     "CI",
-     "배포 자동화",
-     "설정 관리",
-     "모니터링 및 분석"
+     "구축",
+     "실행",
+     "관리",
+     "개선"
     ]
    },
    {
@@ -7815,10 +7815,10 @@
     "label": "테스트 오라클의 유형 (참샘휴일)",
     "mnemonic": "",
     "keywords": [
-     "참 오라클(True Oracle)",
-     "샘플링 오라클(Sampling Oracle)",
-     "휴리스틱 오라클(Heuristic Oracle)",
-     "일관성 검사 오라클(Consistent Oracle)"
+     "완전",
+     "부분",
+     "부분",
+     "비교"
     ]
    },
    {
@@ -7963,8 +7963,8 @@
     "label": "학습방법 유형",
     "mnemonic": "프다",
     "keywords": [
-     "프리텍스트 태스크(pre-text task)",
-     "다운스트림 태스크(downstream task)"
+     "표현 학습",
+     "목표 작업"
     ]
    },
    {
@@ -7979,8 +7979,8 @@
   ],
   "mnemonic": "프다",
   "keywords": [
-   "프리텍스트 태스크(pre-text task)",
-   "다운스트림 태스크(downstream task)"
+   "표현 학습",
+   "목표 작업"
   ]
  },
  {
@@ -8017,8 +8017,8 @@
     "label": "알고리즘",
     "mnemonic": "",
     "keywords": [
-     "FedSGD(Federated Stochastic Gradient Des",
-     "FedAVG(Federated Averaging)"
+     "단일 갱신",
+     "다회 갱신"
     ]
    }
   ],
@@ -8176,9 +8176,9 @@
     "label": "특징",
     "mnemonic": "",
     "keywords": [
-     "대형언어모델 적용",
-     "물리세계인식",
-     "산업 현장 활용"
+     "모델",
+     "인식",
+     "활용"
     ]
    },
    {
@@ -8560,9 +8560,9 @@
     "label": "적용가능 분야",
     "mnemonic": "",
     "keywords": [
-     "AEI 자동차",
-     "로봇",
-     "헬스케어"
+     "이동",
+     "서비스",
+     "의료"
     ]
    }
   ],
@@ -8604,8 +8604,8 @@
     "label": "단극성 함수 (단시레)",
     "mnemonic": "",
     "keywords": [
-     "Sigmoid Function",
-     "ReLU"
+     "확률 출력",
+     "선형 정류"
     ]
    },
    {
@@ -9031,18 +9031,18 @@
     "label": "지식 증류 유형 (로피관)",
     "mnemonic": "",
     "keywords": [
-     "로짓 기반 증류(응답 기반)",
-     "피처 기반 증류",
-     "관계 기반 증류"
+     "출력",
+     "중간층",
+     "관계"
     ]
    },
    {
     "label": "지식 전달 방법 (오온자)",
     "mnemonic": "",
     "keywords": [
-     "오프라인 증류(Offline Distillation)",
-     "온라인 증류(Online Distillation)",
-     "자기 증류(Self-Distillation)"
+     "교사 고정",
+     "교사 갱신",
+     "교사 없음"
     ]
    }
   ],
@@ -9135,10 +9135,10 @@
     "label": "구성요소",
     "mnemonic": "",
     "keywords": [
-     "Support Vector",
-     "Margin",
-     "초평면(hyperplane)",
-     "커널기법(Kernel trick)"
+     "데이터",
+     "경계",
+     "경계",
+     "변환"
     ]
    }
   ],
@@ -9429,10 +9429,10 @@
     "label": "4대 기법",
     "mnemonic": "",
     "keywords": [
-     "보팅(Voting)",
-     "배깅(Bagging)",
-     "부스팅(Boosting)",
-     "스태킹(Stacking)"
+     "병렬 결합",
+     "병렬 결합",
+     "순차 결합",
+     "메타 결합"
     ]
    }
   ],
@@ -9729,21 +9729,21 @@
     "label": "생성방법",
     "mnemonic": "가신간디",
     "keywords": [
-     "생성자",
-     "판별자",
-     "학습 데이터",
-     "Loss Function"
+     "네트워크",
+     "네트워크",
+     "입력",
+     "목적함수"
     ]
    },
    {
     "label": "유형",
     "mnemonic": "",
     "keywords": [
-     "DCGAN",
-     "SRGAN",
-     "스택 GAN",
-     "3D-GAN",
-     "사이클 GAN"
+     "이미지 생성",
+     "이미지 변환",
+     "텍스트 조건",
+     "입체",
+     "스타일 변환"
     ]
    },
    {
@@ -9757,10 +9757,10 @@
   ],
   "mnemonic": "가신간디",
   "keywords": [
-   "생성자",
-   "판별자",
-   "학습 데이터",
-   "Loss Function"
+   "네트워크",
+   "네트워크",
+   "입력",
+   "목적함수"
   ]
  },
  {
@@ -9843,9 +9843,9 @@
     "label": "자연어 처리 모델 (LLM)",
     "mnemonic": "",
     "keywords": [
-     "GPT(Generative pre-trained Transformer)",
-     "BERT(Bidirectional Encoder Representatio",
-     "T5(Text-to-Text Transfer Transformer)"
+     "디코더",
+     "인코더",
+     "인코더-디코더"
     ]
    },
    {
@@ -10057,9 +10057,9 @@
     "label": "구성도",
     "mnemonic": "컴데모",
     "keywords": [
-     "컴퓨팅 파워",
-     "데이터",
-     "모델 알고리즘"
+     "인프라",
+     "학습 자원",
+     "알고리즘"
     ]
    },
    {
@@ -10085,9 +10085,9 @@
   ],
   "mnemonic": "컴데모",
   "keywords": [
-   "컴퓨팅 파워",
-   "데이터",
-   "모델 알고리즘"
+   "인프라",
+   "학습 자원",
+   "알고리즘"
   ]
  },
  {
@@ -10119,33 +10119,33 @@
     "label": "발생원인",
     "mnemonic": "불과적모맥제",
     "keywords": [
-     "편향, 불충분한 학습 데이터",
-     "과적합",
-     "적대적 공격",
-     "복잡한 모델 아키텍처",
-     "맥락이해 부족",
-     "제한된 도메인 지식"
+     "데이터",
+     "학습",
+     "외부",
+     "모델",
+     "모델",
+     "지식"
     ]
    },
    {
     "label": "해결방안",
     "mnemonic": "",
     "keywords": [
-     "고품질 학습 데이터 제공",
-     "자연어 처리기술 기반 문맥 개선",
-     "RLHF 통한 보상모델 개발",
-     "RAG(Retrieval-Augmented Generation)"
+     "데이터",
+     "모델",
+     "학습",
+     "외부 지식"
     ]
    }
   ],
   "mnemonic": "불과적모맥제",
   "keywords": [
-   "편향, 불충분한 학습 데이터",
-   "과적합",
-   "적대적 공격",
-   "복잡한 모델 아키텍처",
-   "맥락이해 부족",
-   "제한된 도메인 지식"
+   "데이터",
+   "학습",
+   "외부",
+   "모델",
+   "모델",
+   "지식"
   ]
  },
  {
@@ -10175,9 +10175,9 @@
     "label": "필요성",
     "mnemonic": "",
     "keywords": [
-     "지식단절",
-     "환각현상",
-     "범용성"
+     "시점 한계",
+     "정확성",
+     "전문성"
     ]
    },
    {
@@ -10404,16 +10404,16 @@
     "label": "파인튜닝 방법",
     "mnemonic": "",
     "keywords": [
-     "Full Fine-tuning",
-     "Repurposing"
+     "전체 갱신",
+     "부분 갱신"
     ]
    },
    {
     "label": "파인튜닝 유형",
     "mnemonic": "",
     "keywords": [
-     "지도 파인튜닝",
-     "비지도 파인튜닝"
+     "레이블 유",
+     "레이블 무"
     ]
    },
    {
@@ -10682,10 +10682,10 @@
     "label": "특징",
     "mnemonic": "",
     "keywords": [
-     "계층 구조",
-     "트랜스포머 단점 해결",
-     "제로샷 일반화",
-     "확장성"
+     "구조",
+     "성능",
+     "일반화",
+     "구조"
     ]
    },
    {
@@ -11195,10 +11195,10 @@
     "label": "모델 운영 및 평가 단계 구현 기술",
     "mnemonic": "",
     "keywords": [
-     "테스트",
-     "버전 관리",
-     "모니터링",
-     "최적화"
+     "검증",
+     "배포",
+     "운영",
+     "개선"
     ]
    }
   ],
@@ -11386,9 +11386,9 @@
     "label": "특징",
     "mnemonic": "창균전",
     "keywords": [
-     "창발성(emergence)",
-     "균일화(homogenization)",
-     "전이학습(Transfer Learning)"
+     "능력",
+     "활용",
+     "학습"
     ]
    },
    {
@@ -11410,9 +11410,9 @@
   ],
   "mnemonic": "창균전",
   "keywords": [
-   "창발성(emergence)",
-   "균일화(homogenization)",
-   "전이학습(Transfer Learning)"
+   "능력",
+   "활용",
+   "학습"
   ]
  },
  {
@@ -11856,17 +11856,17 @@
     "label": "유형",
     "mnemonic": "",
     "keywords": [
-     "직접(Direct) 인젝션",
-     "간접(Indirect) 인젝션"
+     "직접 입력",
+     "외부 소스"
     ]
    },
    {
     "label": "공격 대응방안",
     "mnemonic": "",
     "keywords": [
-     "입력 검증 및 필터링",
-     "권한 및 접근 제어",
-     "사용자 확인"
+     "입력",
+     "권한",
+     "운영"
     ]
    }
   ],
@@ -12181,10 +12181,10 @@
     "label": "블랙박스 테스팅",
     "mnemonic": "",
     "keywords": [
-     "조합 테스팅",
-     "백투백(Back-to-Back) 테스팅",
-     "A",
-     "변성 테스팅(Metamorphic Testing)"
+     "입력 조합",
+     "모델 비교",
+     "모델 비교",
+     "관계 기반"
     ]
    },
    {
@@ -12367,9 +12367,9 @@
     "label": "개념도 구성요소",
     "mnemonic": "호클서",
     "keywords": [
-     "MCP Host",
-     "MCP Client",
-     "MCP 서버"
+     "애플리케이션",
+     "연결",
+     "데이터"
     ]
    },
    {
@@ -14223,9 +14223,9 @@
     "label": "구성요소",
     "mnemonic": "",
     "keywords": [
-     "Brain LLM",
-     "Body LLM",
-     "Closed-Loop Feedback"
+     "계획",
+     "실행",
+     "보정"
     ]
    }
   ],
@@ -14524,30 +14524,30 @@
     "label": "확률 추출",
     "mnemonic": "단층계집",
     "keywords": [
-     "단순확률 추출(Simple Random Sampling)",
-     "층화확률 추출(Stratified Random Sampling)",
-     "계통 추출(Systematic Sampling)",
-     "집락(군집) 추출(Cluster Sampling)"
+     "개별 추출",
+     "층 분할",
+     "개별 추출",
+     "군집 분할"
     ]
    },
    {
     "label": "비확률 추출",
     "mnemonic": "눈편할유판",
     "keywords": [
-     "눈덩이 추출법(Snowball Sampling)",
-     "편의 표출(Convenience Sampling)",
-     "할당 추출(Quota Sampling)",
-     "유의추출법(포커스 그룹, Purposive Sampling",
-     "판단추출법(Judgement Sampling)"
+     "연쇄",
+     "편의",
+     "할당",
+     "판단",
+     "판단"
     ]
    }
   ],
   "mnemonic": "단층계집",
   "keywords": [
-   "단순확률 추출(Simple Random Sampling)",
-   "층화확률 추출(Stratified Random Sampling)",
-   "계통 추출(Systematic Sampling)",
-   "집락(군집) 추출(Cluster Sampling)"
+   "개별 추출",
+   "층 분할",
+   "개별 추출",
+   "군집 분할"
   ]
  },
  {
@@ -17073,9 +17073,9 @@
     "label": "SW사업 기획 단계 대가 산정 방법",
     "mnemonic": "",
     "keywords": [
-     "컨설팅 업무량",
-     "EA",
-     "직무별 투입공수"
+     "업무량 기준",
+     "업무량 기준",
+     "투입공수 기준"
     ]
    },
    {
@@ -17955,18 +17955,18 @@
     "label": "선형 자료구조 (1:1 대응 구조로 저장 — 구조가 간단, access ",
     "mnemonic": "",
     "keywords": [
-     "Array",
-     "Linked List",
-     "Stack (LIFO)",
-     "Queue (FIFO)"
+     "순차 저장",
+     "연결 저장",
+     "제한 접근",
+     "제한 접근"
     ]
    },
    {
     "label": "비선형 자료구조 (1:N 또는 M:N 구조로 관계 — 자료 간의 관계를 ",
     "mnemonic": "",
     "keywords": [
-     "Tree",
-     "Graph"
+     "계층",
+     "망"
     ]
    }
   ],
@@ -18118,10 +18118,10 @@
     "label": "유형",
     "mnemonic": "선순링덱",
     "keywords": [
-     "선형 큐",
-     "순환 큐(원형 큐)",
-     "LinkedList 큐",
-     "덱(Double-ended Queue)"
+     "배열 기반",
+     "배열 기반",
+     "연결 기반",
+     "양단 접근"
     ]
    }
   ],
@@ -18156,10 +18156,10 @@
     "label": "성질",
     "mnemonic": "",
     "keywords": [
-     "좌측 서브 트리",
-     "우측 서브 트리",
-     "중복 노드 없음",
-     "재귀적 성질"
+     "좌측 서브 트리 노드보다 작은 값",
+     "우측 서브 트리 노드보다 큰 값",
+     "중복 노드 없음 유일한 키 값",
+     "재귀적 성질 좌우도 이진 탐색"
     ]
    },
    {
@@ -18830,8 +18830,8 @@
     "label": "접근방법",
     "mnemonic": "",
     "keywords": [
-     "Top Down",
-     "Bottom Up"
+     "하향식",
+     "상향식"
     ]
    }
   ],
@@ -19271,12 +19271,12 @@
     "mnemonic": "",
     "keywords": [
      "개념",
-     "원천정보 형태 분류 — 영상 부호화",
-     "원천정보 형태 분류 — 오디오 부호화",
-     "코드 길이 고정 여부 — 고정 길이 부호화",
-     "코드 길이 고정 여부 — 가변 길이 부호화",
-     "데이터 손실 여부 — 무손실 압축 부호화",
-     "데이터 손실 여부 — 손실 압축 부호화"
+     "영상 부호화",
+     "오디오 부호화",
+     "고정 길이 부호화",
+     "가변 길이 부호화",
+     "무손실 압축 부호화",
+     "손실 압축 부호화"
     ]
    },
    {
@@ -19448,9 +19448,9 @@
     "label": "Persistent 방식 3종",
     "mnemonic": "",
     "keywords": [
-     "1-Persistent",
-     "Non-Persistent",
-     "P-Persistent"
+     "즉시 전송",
+     "지연 전송",
+     "확률 전송"
     ]
    }
   ],
@@ -19590,11 +19590,11 @@
     "label": "다중화 종류",
     "mnemonic": "",
     "keywords": [
-     "FDM(주파수)",
-     "TDM(시간)",
-     "CDM(코드)",
-     "WDM(파장)",
-     "SDM(공간)"
+     "주파수 축",
+     "시간 축",
+     "코드 축",
+     "파장 축",
+     "공간 축"
     ]
    },
    {
@@ -20011,18 +20011,18 @@
     "label": "유형",
     "mnemonic": "",
     "keywords": [
-     "듀얼 스택(Dual Stack, 라우팅 관점)",
-     "터널링(Tunneling, 네트워크)",
-     "주소 변환(Address Translation, G"
+     "병행",
+     "경유",
+     "변환"
     ]
    },
    {
     "label": "주소 변환 방식",
     "mnemonic": "",
     "keywords": [
-     "헤더변환(Header Conversion)방식",
-     "수송계층 릴레이(Transport Relay)방식",
-     "응용계층 게이트웨이(ALG: Application-Level Gatewa"
+     "네트워크 계층",
+     "전송 계층",
+     "응용 계층"
     ]
    }
   ],
@@ -20115,8 +20115,8 @@
      "동작방식 ②",
      "동작방식 ③",
      "동작방식 ④",
-     "프로토콜 — RIP",
-     "프로토콜 — IGRP"
+     "RIP",
+     "IGRP"
     ]
    },
    {
@@ -20129,8 +20129,8 @@
      "동작방식 ③",
      "동작방식 ④",
      "동작방식 ⑤",
-     "프로토콜 — OSPF",
-     "참고 — EIGRP"
+     "OSPF",
+     "EIGRP"
     ]
    }
   ],
@@ -20388,19 +20388,19 @@
     "label": "동작 원리 — MAC Address 요청 (Broadcast)",
     "mnemonic": "",
     "keywords": [
-     "D의 MAC 필요",
-     "ARP 요청",
-     "브로드캐스트"
+     "D의 MAC 필요 IP 인지 상태",
+     "ARP 요청 요청 패킷 생성",
+     "브로드캐스트 네트워크 전파"
     ]
    },
    {
     "label": "동작 원리 — MAC Address 회신 (Unicast)",
     "mnemonic": "",
     "keywords": [
-     "수신 IP 확인",
-     "ARP 응답",
-     "유니캐스트",
-     "캐시 테이블 수정"
+     "수신 IP 확인 자기 주소 판단",
+     "ARP 응답 응답 패킷 생성",
+     "유니캐스트 호스트 A 전달",
+     "캐시 테이블 수정 MAC 등록 통신"
     ]
    }
   ],
@@ -20720,10 +20720,10 @@
     "label": "구성 요소",
     "mnemonic": "",
     "keywords": [
-     "5G 주파수",
-     "UPF(User Plane Function)",
-     "MEC(Multi-access Edge Computing)",
-     "gNB"
+     "무선 자원",
+     "코어",
+     "엣지",
+     "접속"
     ]
    },
    {
@@ -20843,17 +20843,17 @@
     "label": "표준 기능 — 분석·학습",
     "mnemonic": "",
     "keywords": [
-     "AnLF(Analytics Logical Function)",
-     "MTLF(Model Training Logical Function)"
+     "추론",
+     "학습"
     ]
    },
    {
     "label": "표준 기능 — 데이터 관리",
     "mnemonic": "",
     "keywords": [
-     "DCCF(Data Collection Coordination and De",
-     "ADRF(Analytical Data Repository Function",
-     "MFAF(Messaging Framework Adaptor Functio"
+     "수집",
+     "저장",
+     "전달"
     ]
    }
   ],
@@ -20981,11 +20981,11 @@
     "label": "6G 이동통신 지원 기술",
     "mnemonic": "",
     "keywords": [
-     "테라 헤르츠 대역 지원 기술",
-     "통신-컴퓨팅 융합",
-     "네이티브 AI",
-     "주파수 공유",
-     "안테나 기술"
+     "주파수",
+     "컴퓨팅",
+     "지능",
+     "주파수",
+     "안테나"
     ]
    }
   ],
@@ -21024,10 +21024,10 @@
     "label": "디지털 트윈 네트워크 특징",
     "mnemonic": "",
     "keywords": [
-     "데이터",
-     "매핑(mapping)",
-     "모델",
-     "인터페이스"
+     "입력",
+     "연결",
+     "표현",
+     "연결"
     ]
    },
    {
@@ -21045,9 +21045,9 @@
     "label": "참조 아키텍처 구성요소 — 기능",
     "mnemonic": "",
     "keywords": [
-     "데이터",
-     "모델",
-     "인터페이스"
+     "입력",
+     "표현",
+     "연결"
     ]
    }
   ],
@@ -21782,9 +21782,9 @@
     "label": "무선 충전 기술 방식",
     "mnemonic": "",
     "keywords": [
-     "자기유도",
-     "자기공진(자기공명)",
-     "전자기파"
+     "근거리",
+     "중거리",
+     "원거리"
     ]
    },
    {
@@ -21807,9 +21807,9 @@
     "label": "기타 무선 충전 기술 방식",
     "mnemonic": "",
     "keywords": [
-     "RF",
-     "적외선",
-     "초음파"
+     "전파",
+     "빛",
+     "음파"
     ]
    }
   ],
@@ -22782,15 +22782,15 @@
     "label": "관계해석 유형",
     "mnemonic": "튜도",
     "keywords": [
-     "튜플 관계해석 (Tuple Relational Calculus)",
-     "도메인 관계해석 (Domain Relational Calculus)"
+     "행 단위",
+     "열 단위"
     ]
    }
   ],
   "mnemonic": "튜도",
   "keywords": [
-   "튜플 관계해석 (Tuple Relational Calculus)",
-   "도메인 관계해석 (Domain Relational Calculus)"
+   "행 단위",
+   "열 단위"
   ]
  },
  {
@@ -22870,29 +22870,29 @@
     "label": "동시성제어를 하지 않을 경우 문제점",
     "mnemonic": "갱현모연",
     "keywords": [
-     "갱신손실 (Lost Update)",
-     "현황파악오류 (Dirty Read)",
-     "모순성 (Inconsistency)",
-     "연쇄복귀 (Cascading Rollback)"
+     "갱신",
+     "판독",
+     "일관성",
+     "복구"
     ]
    },
    {
     "label": "동시성 제어기법 유형",
     "mnemonic": "2PL낙타다",
     "keywords": [
-     "2PL (Phase Locking)",
-     "낙관적검증 기법 (Validation)",
-     "Timestamp ordering",
-     "다중버전 동시성제어 (MVCC)"
+     "잠금 기반",
+     "검증 기반",
+     "시간 기반",
+     "버전 기반"
     ]
    }
   ],
   "mnemonic": "갱현모연",
   "keywords": [
-   "갱신손실 (Lost Update)",
-   "현황파악오류 (Dirty Read)",
-   "모순성 (Inconsistency)",
-   "연쇄복귀 (Cascading Rollback)"
+   "갱신",
+   "판독",
+   "일관성",
+   "복구"
   ]
  },
  {
@@ -23026,9 +23026,9 @@
     "label": "분산 DB 설계 전략",
     "mnemonic": "탑버하",
     "keywords": [
-     "Top Down",
-     "Bottom Up",
-     "Hybrid"
+     "하향식",
+     "상향식",
+     "혼합"
     ]
    },
    {
@@ -23055,9 +23055,9 @@
   ],
   "mnemonic": "탑버하",
   "keywords": [
-   "Top Down",
-   "Bottom Up",
-   "Hybrid"
+   "하향식",
+   "상향식",
+   "혼합"
   ]
  },
  {
@@ -23083,10 +23083,10 @@
     "label": "구성요소",
     "mnemonic": "",
     "keywords": [
-     "조정자 (Global Coordinator)",
-     "지역 노드 (Local Coordinator)",
-     "Commit Point Site",
-     "클라이언트(Client)"
+     "조정",
+     "참여",
+     "참여",
+     "요청"
     ]
    },
    {
@@ -23201,9 +23201,9 @@
     "label": "계층적인 데이터모델링 패턴",
     "mnemonic": "",
     "keywords": [
-     "Tree Aggregation",
-     "Adjacent Lists",
-     "Materialized Path"
+     "통째 저장",
+     "링크",
+     "경로"
     ]
    }
   ],
@@ -23474,10 +23474,10 @@
     "label": "알고리즘 절차",
     "mnemonic": "",
     "keywords": [
-     "임의 두 점 선택",
-     "부분공간 점 수",
-     "K개 초과 시",
-     "이진 트리 검색"
+     "임의 두 점 선택 벡터 공간 기준",
+     "부분공간 점 수 노드 값으로 사용",
+     "K개 초과 시 부분공간 점 검사",
+     "이진 트리 검색 현재 점 위치 확인"
     ]
    },
    {
@@ -23580,9 +23580,9 @@
     "label": "조인 메커니즘",
     "mnemonic": "",
     "keywords": [
-     "Nested Loop Join",
-     "Sort Merge Join",
-     "Hash Join"
+     "반복",
+     "정렬",
+     "해시"
     ]
    },
    {
@@ -23658,11 +23658,11 @@
     "label": "스캔방식",
     "mnemonic": "",
     "keywords": [
-     "Index Range Scan",
-     "Index Full Scan",
-     "Index Unique Scan",
-     "Index Skip Scan",
-     "Index Range Scan Descending"
+     "수직+수평",
+     "수평",
+     "수직",
+     "선두 생략",
+     "역방향"
     ]
    }
   ],
@@ -25539,10 +25539,10 @@
     "label": "DR센터 유형 — 운영형태별",
     "mnemonic": "상공외독",
     "keywords": [
-     "상호계약형",
-     "공동이용형",
-     "외부위탁형",
-     "독자구축형"
+     "협력",
+     "협력",
+     "위탁",
+     "자체"
     ]
    },
    {
@@ -25857,8 +25857,8 @@
     "label": "프레임워크 — 원인·대응체계·효과",
     "mnemonic": "",
     "keywords": [
-     "원인 — 외부 규제",
-     "원인 — 내부 통제",
+     "원인",
+     "원인",
      "대응체계",
      "효과"
     ]
@@ -25918,9 +25918,9 @@
     "keywords": [
      "개념",
      "절차",
-     "기법 — PEST 분석",
-     "기법 — 5 Force 모델 분석",
-     "기법 — 3C 분석"
+     "PEST 분석",
+     "5 Force 모델 분석",
+     "3C 분석"
     ]
    },
    {
@@ -26286,8 +26286,8 @@
     "label": "검토대상 사업",
     "mnemonic": "",
     "keywords": [
-     "ISP ISMP",
-     "ISP ISMP"
+     "ISP ISMP 수립예산 요구",
+     "ISP ISMP 계약기간 종료"
     ]
    },
    {
@@ -26520,14 +26520,14 @@
     "label": "캐즘(Chasm) 극복방안 — 선도계층 보급 이후 다수 대중 보급 이전 ",
     "mnemonic": "",
     "keywords": [
-     "목표 고객 세분화",
-     "명확한 가치제안",
-     "신뢰확보",
-     "제품완성도 향상",
-     "가격전략 조정",
-     "강력한 유통망 구축",
-     "고객 지원 및 서비스 강화",
-     "브랜드 인지도 확립"
+     "시장",
+     "제품",
+     "제품",
+     "제품",
+     "가격",
+     "채널",
+     "서비스",
+     "홍보"
     ]
    }
   ],
@@ -27723,13 +27723,13 @@
     "label": "BB84 프로토콜",
     "mnemonic": "",
     "keywords": [
-     "임의 비트 생성",
-     "편광 필터 선택",
-     "편광 신호 송신",
-     "수신 필터 선택",
-     "측정값 보관",
-     "필터 일치 검증",
-     "불일치 비트 제거"
+     "임의 비트 생성 송신 비트 준비",
+     "편광 필터 선택 비트 변환 준비",
+     "편광 신호 송신 양자 채널 전송",
+     "수신 필터 선택 밥의 임의 선택",
+     "측정값 보관 편광 값 측정",
+     "필터 일치 검증 공개 채널 확인",
+     "불일치 비트 제거 동일 필터만 보관"
     ]
    }
   ],
@@ -28445,10 +28445,10 @@
     "label": "DRDoS 대응 방안",
     "mnemonic": "",
     "keywords": [
-     "Victim서버의 IP·Port 필터링",
-     "반사서버의 무차별 이용방지",
-     "ISP의 필터링",
-     "공격 플랫폼 제한"
+     "피해자 측",
+     "반사서버 측",
+     "ISP 측",
+     "플랫폼 측"
     ]
    }
   ],
@@ -28558,10 +28558,10 @@
     "label": "루트킷의 유형",
     "mnemonic": "",
     "keywords": [
-     "실행 레벨",
-     "부팅 과정",
-     "하드웨어",
-     "가상화"
+     "SW 계층",
+     "SW 계층",
+     "HW 계층",
+     "가상 계층"
     ]
    }
   ],
@@ -28853,10 +28853,10 @@
     "label": "SW 난독화 주요 기술(모드)",
     "mnemonic": "",
     "keywords": [
-     "심볼 정보 제거",
-     "코드 암호화",
-     "제어 흐름 변환",
-     "자료 난독화"
+     "식별자",
+     "코드",
+     "제어",
+     "데이터"
     ]
    }
   ],
@@ -29459,19 +29459,19 @@
     "label": "VPN 기술 요소",
     "mnemonic": "",
     "keywords": [
-     "터널링",
-     "암호화",
-     "인증",
-     "접근 제어"
+     "경로",
+     "기밀성",
+     "무결성",
+     "통제"
     ]
    },
    {
     "label": "VPN 종류",
     "mnemonic": "",
     "keywords": [
-     "SSL VPN",
-     "IPSec VPN",
-     "MPLS VPN"
+     "응용 계층",
+     "네트워크 계층",
+     "전달망"
     ]
    },
    {
@@ -30302,10 +30302,10 @@
     "label": "패스키 구성요소",
     "mnemonic": "",
     "keywords": [
-     "Authenticator",
-     "Client Application",
-     "Relying Party",
-     "Metadata repository"
+     "인증 장치",
+     "클라이언트",
+     "서버",
+     "저장소"
     ]
    }
   ],
@@ -30489,9 +30489,9 @@
     "label": "위협 헌팅 기술적 요소",
     "mnemonic": "",
     "keywords": [
-     "EDR",
-     "SIEM",
-     "Cyber Kill Chain"
+     "엔드포인트",
+     "로그",
+     "공격 모델"
     ]
    }
   ],
@@ -30791,9 +30791,9 @@
     "label": "사이버 디셉션 구성 요소",
     "mnemonic": "",
     "keywords": [
-     "Decoy(미끼)",
-     "Trap(함정)",
-     "Deception System"
+     "유인",
+     "포획",
+     "운영"
     ]
    },
    {
@@ -31555,9 +31555,9 @@
     "label": "프라이버시 보호 모델",
     "mnemonic": "",
     "keywords": [
-     "K-익명성",
-     "L-다양성",
-     "T-근접성"
+     "식별 방어",
+     "속성 방어",
+     "분포 방어"
     ]
    }
   ],
