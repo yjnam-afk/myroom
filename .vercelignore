@@ -1,0 +1,5 @@
+# 답안 스캔 이미지(public/answers, 1만 5천 장)는 Vercel 배포에 싣지 않는다.
+# Vercel 은 배포 결과물 파일을 16,000개까지만 받는다 — 2026-09 에 드라이브 답안을 더 넣어
+# public 이 16,192개가 되자 배포가 통째로 실패했고, 그 뒤 커밋이 화면에 하나도 안 나왔다.
+# 이미지는 next.config.mjs 의 fallback rewrite 로 GitHub 원본(raw.githubusercontent.com)에서 받는다.
+public/answers

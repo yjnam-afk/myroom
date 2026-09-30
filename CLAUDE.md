@@ -22,6 +22,14 @@ npm run build   # prebuild(플래시카드·genAnswers) + next build + 타입검
 읽어 플래시카드와 genAnswers 를 다시 만들기 때문에 데이터가 깨지면 여기서
 멈춘다.
 
+**Vercel 은 배포 결과물 파일을 16,000개까지만 받는다.** 2026-09-29 에 드라이브 답안 스캔을
+더 넣어 `public/` 이 16,192개가 되자 배포가 조용히 실패했고, 그 뒤 올린 특징 재작성·표 검수가
+하루 넘게 화면에 안 나왔다(로컬 `npm run build` 는 통과하므로 여기서는 안 보인다). 그래서
+답안 스캔(`public/answers`)은 `.vercelignore` 로 배포에서 빼고, `next.config.mjs` 의 fallback
+rewrite 가 `/answers/…` 를 GitHub 원본(raw.githubusercontent.com, 공개 저장소)으로 넘긴다.
+이미지는 전처럼 `public/answers` 에 커밋하면 된다. `public/` 의 다른 폴더에 파일을 대량으로
+넣을 때는 `find public -type f | wc -l` 이 16,000 에 가깝지 않은지 본다.
+
 `src/data/peerAnswers.ts` 는 답안을 `PEER_ANSWERS_1` … `_5` 여러 배열로 나눠 둔다.
 한 배열 리터럴이 너무 커지면 타입검사가 "Expression produces a union type that is
 too complex to represent" 로 멈춘다(2026-09 에 `_4` 가 18,000줄을 넘자 났다).
