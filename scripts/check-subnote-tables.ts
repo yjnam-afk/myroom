@@ -47,9 +47,13 @@ for (const s of SUBNOTES) {
       // 한 열만 목록인 교재 표도 있으므로 오류가 아니라 경고로 센다.
       else if (new Set(multi).size > 1) warns.push(`${where} 행${ri + 1}: 줄 수 ${cols.map((c) => c.length).join("/")}`);
       // 「구분 | 항목 | 설명」 3열 표의 2열은 교재 1열(용어 이름 그대로)이라 1열처럼 너비를 재지 않는다.
-      const itemCol = n === 3 && tb.headers[0] === "구분" && tb.headers[2] === "설명" ? 0 : -1;
+      // tb.nameCol 로 적은 교재 이름 열도 재지 않는다(머리글을 교재대로 두면서 긴 이름을 넣으려고).
+      const nameCols = new Set<number>(
+        tb.nameCol === undefined ? [] : Array.isArray(tb.nameCol) ? tb.nameCol : [tb.nameCol],
+      );
+      if (n === 3 && tb.headers[0] === "구분" && tb.headers[2] === "설명") nameCols.add(1);
       cols.forEach((lines, ci) => {
-        if (ci === itemCol) return;
+        if (nameCols.has(ci + 1)) return;
         for (const ln of lines) {
           const w = width(ln);
           const body = ln.replace(/\s/g, "");
