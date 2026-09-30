@@ -302,7 +302,7 @@ for (let i = 0; i < SUBNOTES.length; i++) {
         keywords: kws.slice(0, 10),
       });
   }
-  // 특징 3개(features)는 답안 서론용으로 지어 넣은 것이라 암기 카드에 올리지 않는다.
+  // 특징 3개(features)는 답안 서론용 요약이라 암기 카드에는 올리지 않는다(카드는 교재 표 단위).
   if (!sections.length) continue;
   cards.push({
     id: `sn-${i}`,
