@@ -193,6 +193,10 @@ export type TopicAnswer = {
   title: string;
   /** 출처 표기 — 기출·NS모의·파이널 등 */
   kind: string;
+  /** 답안 본문(마크다운) — 토픽 화면에서 바로 펼쳐 본다 */
+  answer: string;
+  /** 답안 근거 표기 */
+  source: string;
 };
 
 export type ExplainNav = {
@@ -257,6 +261,8 @@ function topicAnswers(title: string): TopicAnswer[] {
       question: q.text,
       title: a.title,
       kind: q.kind || (id.startsWith("k") ? "기출" : ""),
+      answer: a.answer,
+      source: a.source,
     });
   }
   out.sort((x, y) => x.period.localeCompare(y.period) || x.title.localeCompare(y.title));
