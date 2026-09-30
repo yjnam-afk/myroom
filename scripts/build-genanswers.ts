@@ -13,7 +13,7 @@
  *    ⑥ 발전단계  — 절차·단계·과정형 지문. 흐름(→)을 서론에 제시
  *    ① 상속·확장 — 그 외 기본. 정의 2줄+특징으로 시작
  *    (②정의+도식, ④로드맵은 도식이 필요해 자동 생성에서 제외)
- *  - 표는 3단표(구분/키워드/설명) 지향, 표 안 줄 구분은 '–'
+ *  - 표는 교재 열 구성 그대로, 표 안 줄 구분은 '–'
  * 결과: { qid: { title, source, answer } } — 문제풀이 페이지에서 병합 표시.
  */
 import * as fs from "node:fs";
@@ -97,25 +97,11 @@ const dashJoin = (s: string) =>
     .join(" – ");
 
 /**
- * 3단표(구분 2 : 키워드 2 : 설명 6) 적용.
- * 2열(항목/설명) 표는 설명의 첫 조각을 키워드 열로 승격해 3열로 만든다.
- * 3열 이상 표는 교재 원문 그대로(셀 정리만).
+ * 표는 교재 열 구성 그대로 옮긴다(CLAUDE.md "교재 자료를 옮길 때").
+ * 예전엔 2열 표에 「키워드」 열을 끼워 3열로 만들었는데, 셀이 ' / ' 가 아니라 줄바꿈으로
+ * 나뉜 뒤로는 그 열이 거의 다 '–' 로 찼다 — 없는 열을 지어내지 않는다.
  */
-function to3Col(tb: any): { headers: string[]; rows: string[][] } {
-  if (tb.headers.length !== 2) return tb;
-  const headers = [tb.headers[0], "키워드", tb.headers[1]];
-  const rows = tb.rows.map((r: string[]) => {
-    const parts = String(r[1] || "").split(" / ");
-    if (parts.length > 1 && parts[0].length <= 45) {
-      return [r[0], parts[0], parts.slice(1).join(" / ")];
-    }
-    return [r[0], "–", r[1]];
-  });
-  return { headers, rows };
-}
-
-function mdTable(tbRaw: any): string {
-  const tb = to3Col(tbRaw);
+function mdTable(tb: any): string {
   const headers = tb.headers.map((h: string) => esc(cut(h, 40)));
   const lines = [
     `| ${headers.join(" | ")} |`,
@@ -127,7 +113,7 @@ function mdTable(tbRaw: any): string {
     );
   }
   if (tb.rows.length > 10)
-    lines.push(`| … 외 ${tb.rows.length - 10}행 |${tb.headers.map(() => " ").join("|")}|`);
+    lines.push(`| … 외 ${tb.rows.length - 10}행 |${tb.headers.slice(1).map(() => " ").join("|")}|`);
   return lines.join("\n");
 }
 
