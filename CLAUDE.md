@@ -22,6 +22,12 @@ npm run build   # prebuild(플래시카드·genAnswers) + next build + 타입검
 읽어 플래시카드와 genAnswers 를 다시 만들기 때문에 데이터가 깨지면 여기서
 멈춘다.
 
+`src/data/peerAnswers.ts` 는 답안을 `PEER_ANSWERS_1` … `_5` 여러 배열로 나눠 둔다.
+한 배열 리터럴이 너무 커지면 타입검사가 "Expression produces a union type that is
+too complex to represent" 로 멈춘다(2026-09 에 `_4` 가 18,000줄을 넘자 났다).
+그 오류가 나면 항목 경계(`  },` 다음 `  {`)에서 배열을 하나 더 쪼개고 맨 아래
+`PEER_ANSWERS` 에 펼쳐 넣는다.
+
 ## 답안 형식 검사
 
 ```bash
