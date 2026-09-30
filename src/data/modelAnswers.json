@@ -29872,5 +29872,41 @@
  "ns19w03-104": {
   "aliasOf": "f02758",
   "note": "03주차 출제 — 문구가 같은 문제라 f02758 답안 페이지를 공유한다."
+ },
+ "f00321": {
+  "period": "1교시",
+  "title": "LoRA",
+  "answer": "문) LoRA(Low-Rank Adaptation)에 대하여 설명하시오.\n\n답)\n\n## 1. 저랭크 행렬의 경량 튜닝, LoRA의 정의\n- 전체 모델 재훈련 없이 특정 용도에 맞게 대규모 머신 러닝 모델 조정 방법\n- 특징) 원본 가중치 고정, 저차원 행렬 삽입, 매개변수 일부 튜닝\n\n## 2. LoRA의 동작 원리 및 구성요소 (일도일표)\n가. 동작 원리\n- 동작 흐름: 입력 x → 사전학습 가중치 W(Freeze)와 LoRA A(d×r)·B(r×k) 경로로 병렬 입력 → 두 출력을 더해 h 산출 → A·B만 업데이트\n- 수식: h = W₀x + BAx (A = N(0, σ²), B = 0 으로 초기화 → 학습 시작 시 원본 모델과 동일)\n- 두음신공: **고·삽·합·갱** (가중치 고정, 행렬 삽입, 출력 합산, A·B 갱신)\n\n나. 구성요소\n| 구분 | 키워드 | 설명 |\n|---|---|---|\n| 사전학습 가중치 | Pretrained Weights W, Query·Key·Value·Output layer(d×k) | 학습 시 Freeze |\n| LoRA A Layer | 차원 d×r, A = N(0, σ²) | 정규분포 초기화 |\n| LoRA B Layer | 차원 r×k, B = 0 | 0으로 초기화 |\n| Rank r | 저차원 구조, r ≪ d(hidden size) | 학습량 결정 |\n| 결합 | Pretrain Model에 weight 더함 | A·B만 업데이트 |\n- 사전학습 가중치는 Weight update 안 되어 vram을 아끼고, A·B layer weight만 학습함\n\n## 3. Fully Fine-Tuning 대비 필요성 및 적용 효과\n| 비교 항목 | Fully Fine-Tuning | LoRA |\n|---|---|---|\n| 학습 대상 | LLM 전체 가중치(1.5~3B) | LoRA A·B layer weight |\n| GPU 메모리 | Forward·Backward·가중치·gradient 모두 저장, 가중치 수 × 2~3배 vram | 사전학습 가중치 Freeze로 vram save |\n| 적용 위치 | 전체 레이어 재학습 | Transformer 각 레이어에 훈련 가능 행렬 삽입 |\n- 교재 실험: Trainable Parameters 18M, W_q·W_v에 Rank 4 적용 시 WikiSQL 73.7·MultiNLI 91.3\n- LoRA는 PEFT의 대표 기법으로, 다운스트림 과정의 매개변수 수를 크게 줄여 미세 조정 효율을 높이는 기술이다.\n\n**(끝)**",
+  "source": "Claude(클로드) 작성 · ITPE FR_2025.08 Day-4 · ITPE 서브노트·해설 근거 · 답안작성방법론 적용"
+ },
+ "m00199": {
+  "period": "1교시",
+  "title": "PEFT와 LoRA 비교",
+  "answer": "문) PEFT(Parameter-Efficient Fine-Tuning)와 LoRA(Low-Rank Adaptation)를 비교하여 설명하시오.\n\n답)\n\n## 1. 일부만 학습하는 효율 튜닝, PEFT와 LoRA의 정의\n가. PEFT(Parameter-Efficient Fine-Tuning)\n- 사전학습 모델 파라미터 일부만 조정해 적은 자원으로 파인튜닝하는 방법\n- 특징) 일부만 파인튜닝, 모듈·저랭크 추가, 태스크별 선택 적용\n\n나. LoRA(Low-Rank Adaptation)\n- 전체 모델 재훈련 없이 특정 용도에 맞게 대규모 머신 러닝 모델 조정 방법\n- 특징) 원본 가중치 고정, 저차원 행렬 삽입, 매개변수 일부 튜닝\n\n## 2. PEFT와 LoRA 비교 (일도일표)\n| 비교 항목 | PEFT | LoRA |\n|---|---|---|\n| 범위 | 파인튜닝 기법 통칭 | PEFT 기법 중 하나 |\n| 적용 방식 | 일부 모듈 또는 파라미터만 학습, 나머지 고정 | 사전학습 가중치 Freeze, 저랭크 행렬 A·B만 학습 |\n| 구조 | Adapter(Bottleneck), Prefix Tuning(Softmax/게이팅), LoRA, Parallel Adapter, Scaled PA | LoRA A Layer(d×r)·LoRA B Layer(r×k) |\n| 파라미터 효율성 | 전체 파라미터 대비 수~몇 % 수준만 업데이트 | Rank r로 학습 파라미터 수 결정 |\n| 확장성 | 다양한 모델 및 태스크에 맞게 선택적 적용 | Transformer 각 레이어(Query·Value 등)에 삽입 |\n| 기술 목적 | 비용·자원·시간 최소화하며 커스터마이징 | 저차원 구조 유지로 미세 조정 효율화 |\n- LoRA는 PEFT 기법 중 「저랭크 행렬 추가」 방식으로, PEFT가 상위 개념이다.\n\n## 3. PEFT 기법 비교 및 선택 기준\n| 구분 | 키워드 | 설명 |\n|---|---|---|\n| Adapter | Bottleneck 구조 | 작은 신경망 삽입 |\n| Prefix Tuning | Softmax/게이팅 | 앞단 벡터 추가 |\n| LoRA | 저랭크 행렬 추가 | 가중치 대신 학습 |\n| Parallel Adapter | 병렬 어댑터 | ReLU 어댑터 병렬 |\n| Scaled PA | 스케일 조정 병렬 | Scaling 미세조정 |\n- 자원 제약·다중 태스크 환경은 PEFT 계열을, 그중 원본 구조를 유지하며 가중치를 더해 쓰려면 LoRA를 선택한다.\n\n**(끝)**",
+  "source": "Claude(클로드) 작성 · ITPE_2025.10 1교시 · ITPE 서브노트·해설 근거 · 답안작성방법론 적용"
+ },
+ "f00286": {
+  "period": "1교시",
+  "title": "컨텍스트 엔지니어링",
+  "answer": "문) 컨텍스트 엔지니어링(Context Engineering)에 대하여 설명하시오.\n\n답)\n\n## 1. LLM 문맥 설계의 최적화, 컨텍스트 엔지니어링의 정의\n- 사용자 의도와 목적에 따라 LLM 입력 문맥을 정형화·구성하는 기법\n- 특징) 문맥 정형화, 외부 지식 검색, 컨텍스트 압축\n\n## 2. 컨텍스트 엔지니어링의 구성요소 및 구현기술 (일도일표)\n가. 개념도\n- 동작 흐름: 프롬프트 + (메모리 시스템·RAG·도구 통합 추론) → 맥락 검색 및 생성·맥락 처리 → LLM 추론 → 출력 → 맥락 관리\n- 두음신공: **작·선·압·분** (핵심전략 — 컨텍스트 작성·선택·압축·분리)\n\n나. 구성요소 및 구현기술\n| 구분 | 키워드 | 설명 |\n|---|---|---|\n| 핵심 구성요소 | 맥락 검색 및 생성(Context Retrieval and Generation) | 최적 맥락 주입 |\n| 핵심 구성요소 | 맥락 처리(Context Processing) | 긴 텍스트 통합 이해 |\n| 핵심 구성요소 | 맥락 관리(Context Management) | 한정 윈도우 관리 |\n| 구현 기술 | 검색 증강 생성(RAG) | 사실성·확장성 강화 |\n| 구현 기술 | 메모리 시스템 | 맥락 유지 능력 향상 |\n| 구현 기술 | 도구 통합 추론 | API 호출 복합 추론 |\n| 구현 기술 | 다중 에이전트 시스템 | 협업·작업 분담 |\n- 계층적 메모리와 정보 압축으로 한정된 컨텍스트 윈도우 안에서 최대한의 정보를 관리한다.\n\n## 3. 핵심전략 및 프롬프트 엔지니어링과의 비교\n| 비교 항목 | 컨텍스트 엔지니어링 | 프롬프트 엔지니어링 |\n|---|---|---|\n| 핵심 대상 | 문맥 및 배경 정보(Context) | 입력 명령문(prompt) |\n| 목적 | 모델의 이해력과 일관성 향상 | 모델의 출력 품질 향상 |\n| 핵심전략·기법 | 컨텍스트 작성(Writing)·선택(Retrieval)·압축(Compression)·분리(Segmentation) | Zero/One/Few-Shot Prompting, CoT |\n- 에이전트가 여러 단계를 수행할수록 저장·선택·압축·분리로 문맥을 관리하는 역량이 성능을 좌우한다.\n\n**(끝)**",
+  "source": "Claude(클로드) 작성 · ITPE FR_2025.08 Day-2 · ITPE 서브노트·해설 근거 · 답안작성방법론 적용"
+ },
+ "ns18w04-101": {
+  "period": "1교시",
+  "title": "프롬프트 엔지니어링과 맥락 공학 비교",
+  "answer": "문) 프롬프트 엔지니어링(Prompt Engineering)과 맥락 공학(Context Engineering)을 비교하여 설명하시오.\n\n답)\n\n## 1. 명령문에서 문맥 설계로, 프롬프트 엔지니어링과 맥락 공학의 정의\n가. 프롬프트 엔지니어링(Prompt Engineering)\n- 높은 수준 결과물을 얻기 위해 적절한 프롬프트를 구성하는 엔지니어링 기법\n- 특징) 지시·입력·출력 구성, 예시 기반 유도, 단계적 추론 유도\n\n나. 맥락 공학(Context Engineering)\n- 사용자 의도와 목적에 따라 LLM 입력 문맥을 정형화·구성하는 기법\n- 특징) 문맥 정형화, 외부 지식 검색, 컨텍스트 압축\n\n## 2. 프롬프트 엔지니어링과 맥락 공학 비교 (일도일표)\n| 비교 항목 | 프롬프트 엔지니어링 | 맥락 공학 |\n|---|---|---|\n| 핵심 대상 | 입력 명령문(prompt) | 문맥 및 배경 정보(Context) |\n| 목적 | 모델의 출력 품질 향상 | 모델의 이해력과 일관성 향상 |\n| 구성요소 | Task Description·Input Indicator·Current Input·Output Indicator | 맥락 검색 및 생성·맥락 처리·맥락 관리 |\n| 주요 기법 | Zero/One/Few-Shot Prompting, CoT, ToT, Self Consistency | 컨텍스트 작성·선택·압축·분리 |\n| 구현 수단 | 마켓 플레이스·프레임워크 활용 | RAG, 메모리 시스템, 도구 통합 추론, 다중 에이전트 시스템 |\n| 고려사항 | 구체적인 지시사항, 예제 제공, 닫힌 지시문 | 한정된 컨텍스트 윈도우 내 최대 정보 관리 |\n- 프롬프트(명령문)는 맥락 공학이 모델에 넣는 문맥의 한 요소다.\n\n## 3. 적용 전략\n- 단일 질의·정형 출력은 프롬프트 구성(Task Description·Output Indicator)만으로 품질을 확보한다.\n- 다단계 과업·에이전트는 RAG·메모리·도구 결과를 선택·압축해 컨텍스트 윈도우에 넣는 맥락 공학이 필요하다.\n\n**(끝)**",
+  "source": "Claude(클로드) 작성 · NS 18기 04주차 1교시 · ITPE 서브노트·해설 근거 · 답안작성방법론 적용"
+ },
+ "ns17w05-107": {
+  "aliasOf": "f00321",
+  "note": "NS 17기 05주차 출제 — 같은 문제라 f00321 답안 페이지를 공유한다."
+ },
+ "ns18w04-107": {
+  "aliasOf": "f00321",
+  "note": "NS 18기 04주차 출제 — 같은 문제라 f00321 답안 페이지를 공유한다."
+ },
+ "f00260": {
+  "aliasOf": "f00286",
+  "note": "ITPE FR_2026.02 Day-5 출제(맥락 공학 = 컨텍스트 엔지니어링) — f00286 답안 페이지를 공유한다."
  }
 }
