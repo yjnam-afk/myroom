@@ -10347,13 +10347,13 @@
     "label": "구성요소 및 구현기술",
     "mnemonic": "",
     "keywords": [
-     "프롬프트 설계",
-     "긴 텍스트 처리",
-     "계층적 메모리",
-     "외부 DB 검색",
-     "지속 상호작용",
-     "외부 API 호출",
-     "에이전트 간 협업"
+     "맥락 검색 및 생성(Context Retrieval and Generat",
+     "맥락 처리(Context Processing)",
+     "맥락 관리(Context Management)",
+     "검색 증강 생성(RAG)",
+     "메모리 시스템",
+     "도구 통합 추론",
+     "다중 에이전트 시스템"
     ]
    },
    {
