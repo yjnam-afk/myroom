@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import StudyCard from "@/components/StudyCard";
 import PeerAnswers from "@/components/PeerAnswers";
-import TopicModelAnswers from "@/components/TopicModelAnswers";
 import { CellLines } from "@/components/TableCell";
 import TopicMapCard from "@/components/TopicMapCard";
 import { ExamHistoryCard } from "@/components/ExamHistoryCard";
@@ -1085,10 +1084,6 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
             빈도·최근성이 높으면 붉게 띄운다(꼭 볼 것). */}
         {/* 모범답안 — 실제로 제출해 점수를 받은 시험지 스캔. 이 토픽에서 제일
             먼저 볼 자료다(배점 대비 점수와 빨간 첨삭이 곧 채점 기준). */}
-        {/* 클로드 모범답안 — 이 토픽으로 나온 문제별로 미리 써 둔 답안. 스캔 답안이 없는
-            토픽은 여기만 보인다. */}
-        <TopicModelAnswers items={data?.answers ?? []} />
-
         <PeerAnswers items={data?.peers ?? []} />
 
         <ExamHistoryCard hist={data?.hist ?? []} past={data?.past ?? []} />
