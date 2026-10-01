@@ -68733,6 +68733,33 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
       { src: "/answers/kpcr-모범답안-1교시-13-iec-2-2.jpg", label: "2쪽" },
     ],
   },
+  {
+    id: "peer-itpe136-1-13",
+    period: "1교시",
+    no: "13",
+    question: "MCP(Model Context Protocol)",
+    exam: "제136회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 BP반 찬일 기술사)",
+    topicTitles: ["MCP(Model Context Protocol)"],
+    questionIds: ["k136-113"],
+    pages: [
+      { src: "/answers/itpe136-1-13-1.jpg", label: "1쪽 — 정의·중요성·개념도·구성요소" },
+      { src: "/answers/itpe136-1-13-2.jpg", label: "2쪽 — 구성요소 마무리·끝" },
+    ],
+  },
+  {
+    id: "peer-itpe137-2-03",
+    period: "2교시",
+    no: "3",
+    question: "MCP(Model Context Protocol)를 이용한 인공지능 서비스 구축 시 보안 취약점을 설명하고 대응방안을 제시하시오.",
+    exam: "제137회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
+    topicTitles: ["MCP 보안취약점 및 대응방안", "MCP(Model Context Protocol)"],
+    questionIds: ["k137-203"],
+    pages: [
+      { src: "/answers/itpe137-2-03-1.jpg", label: "1쪽" },
+      { src: "/answers/itpe137-2-03-2.jpg", label: "2쪽" },
+      { src: "/answers/itpe137-2-03-3.jpg", label: "3쪽" },
+    ],
+  },
 ];
 
 export const PEER_ANSWERS: PeerAnswer[] = [
