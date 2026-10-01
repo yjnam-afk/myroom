@@ -2,9 +2,6 @@ import "server-only";
 import { PEER_ANSWERS, type PeerAnswer } from "@/data/peerAnswers";
 import { SUBNOTES } from "@/data/textbookSubnotes";
 import { DOMAIN_LABEL } from "@/lib/domains";
-import modelData from "@/data/modelAnswers.json";
-import questions from "@/data/questions.json";
-import { topicsForQuestion } from "@/lib/questionAnswers";
 
 /** 서브노트 제목 → 과목 이름. 답안이 걸린 첫 토픽의 과목이 그 답안의 과목이다. */
 const COURSE_BY_TITLE = new Map(SUBNOTES.map((s) => [s.title, DOMAIN_LABEL[s.course] ?? s.course]));
@@ -63,55 +60,4 @@ export function answerRows(): AnswerRow[] {
       .toLowerCase(),
     domain: domainOf(a),
   })).sort((a, b) => a.period.localeCompare(b.period) || a.question.localeCompare(b.question, "ko"));
-}
-
-/**
- * 클로드 모범답안 목록 행 — 문제별로 미리 써 둔 답안(modelAnswers.json).
- *
- * 이 화면은 원래 시험지 스캔(PEER_ANSWERS)만 보여 줘서, 스캔이 없는 토픽(프롬프트
- * 인젝션·하네스 엔지니어링·LoRA …)은 여기서 찾아도 「모범답안 없음」이었다.
- * 본문은 4,700편에 770만 자라 목록에는 싣지 않고, 펼칠 때 /api/model-answer 로 받는다.
- * 같은 문제가 여러 번 출제돼 답안을 공유하는 별칭(aliasOf) 문항은 정본 한 줄로 친다.
- */
-export type ModelRow = {
-  id: string;
-  period: string;
-  title: string;
-  question: string;
-  /** 출처 회차만(「140회 1교시 기출」) — 전체 근거 표기는 펼칠 때 받는다 */
-  source: string;
-  /** 묶음 기준 — 문제가 걸리는 첫 교재 토픽, 없으면 답안 제목 */
-  topic: string;
-  domain: string;
-};
-
-type MA = { period: string; title: string; answer: string; source: string } | { aliasOf: string };
-
-export function modelRows(): ModelRow[] {
-  const qText = new Map((questions as { id: string; text: string }[]).map((q) => [q.id, q.text]));
-  const out: ModelRow[] = [];
-  for (const [id, e] of Object.entries(modelData as Record<string, MA>)) {
-    if ("aliasOf" in e) continue;
-    const question = (qText.get(id) ?? "").trim() || e.title;
-    const topics = topicsForQuestion(question);
-    let domain = UNSORTED_DOMAIN;
-    for (const t of topics) {
-      const d = COURSE_BY_TITLE.get(t);
-      if (d) { domain = d; break; }
-    }
-    if (domain === UNSORTED_DOMAIN) {
-      const hint = `${e.title} ${question}`;
-      for (const [re, d] of HINTS) if (re.test(hint)) { domain = d; break; }
-    }
-    out.push({
-      id,
-      period: e.period,
-      title: e.title,
-      question,
-      source: e.source.replace(/^Claude\(클로드\) 작성 · /, "").split(" · ")[0],
-      topic: topics[0] ?? e.title,
-      domain,
-    });
-  }
-  return out.sort((a, b) => a.period.localeCompare(b.period) || a.question.localeCompare(b.question, "ko"));
 }
