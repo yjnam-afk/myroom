@@ -68760,6 +68760,20 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
       { src: "/answers/itpe137-2-03-3.jpg", label: "3쪽" },
     ],
   },
+  {
+    id: "peer-itpe138-1-03",
+    period: "1교시",
+    no: "3",
+    question: "ISO/IEC 42001:2023(AI 관리시스템)을 설명하시오.",
+    exam: "제138회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
+    topicTitles: ["인공지능 경영시스템(ISO 42001:2023)"],
+    questionIds: ["k138-103"],
+    pages: [
+      { src: "/answers/itpe138-1-03-1.jpg", label: "1쪽" },
+      { src: "/answers/itpe138-1-03-2.jpg", label: "2쪽" },
+      { src: "/answers/itpe138-1-03-3.jpg", label: "3쪽" },
+    ],
+  },
 ];
 
 export const PEER_ANSWERS: PeerAnswer[] = [
