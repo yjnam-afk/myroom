@@ -1,3 +1,4 @@
+import { latinEdgeOk } from "@/lib/latinEdge";
 import { SUBNOTES } from "@/data/textbookSubnotes";
 import topics from "@/data/topics.json";
 
@@ -127,6 +128,10 @@ export function relatedTopics(text: string, limit = 3): string[] {
   // 처럼 괄호가 제목을 끊어 놓는 경우를 위해 따로 만든다.
   const sqBare = squeeze(text.replace(/[(（][^)）]*[)）]/g, " "));
   const tokens = tokensOf(text);
+  // 영문 낱말 경계 — "aiagent" 가 "AI(Agentic AI)" 에 맞지 않게(latinEdge.ts).
+  const low = text.toLowerCase();
+  const lowBare = text.replace(/[(（][^)）]*[)）]/g, " ").toLowerCase();
+  const edgeOk = (k: string) => latinEdgeOk(low, k) || latinEdgeOk(lowBare, k);
   if (!sq) return [];
   const hits: Cand[] = [];
   const used: string[] = [];
@@ -135,7 +140,7 @@ export function relatedTopics(text: string, limit = 3): string[] {
     const ok =
       isLatin(c.key) && c.key.length <= 5 && !c.sub
         ? tokens.has(c.key)
-        : sq.includes(c.key) || sqBare.includes(c.key);
+        : (sq.includes(c.key) || sqBare.includes(c.key)) && edgeOk(c.key);
     if (!ok) continue;
     if (used.some((u) => u.includes(c.key))) continue; // 더 긴 토픽에 포함되면 생략
     used.push(c.key);
@@ -160,6 +165,9 @@ export function relatedSubnote(text: string): string | undefined {
   const sq = squeeze(text);
   const sqBare = squeeze(text.replace(/[(（][^)）]*[)）]/g, " "));
   const tokens = tokensOf(text);
+  const low = text.toLowerCase();
+  const lowBare = text.replace(/[(（][^)）]*[)）]/g, " ").toLowerCase();
+  const edgeOk = (k: string) => latinEdgeOk(low, k) || latinEdgeOk(lowBare, k);
   if (!sq) return undefined;
   let best: Cand | undefined;
   for (const c of CANDS) {
@@ -167,7 +175,7 @@ export function relatedSubnote(text: string): string | undefined {
     const ok =
       isLatin(c.key) && c.key.length <= 5
         ? tokens.has(c.key)
-        : sq.includes(c.key) || sqBare.includes(c.key);
+        : (sq.includes(c.key) || sqBare.includes(c.key)) && edgeOk(c.key);
     if (!ok) continue;
     // 본제목 매칭을 우선하고, 같은 급이면 더 긴(구체적인) 제목을 고른다.
     if (

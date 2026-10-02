@@ -1,3 +1,4 @@
+import { latinEdgeOk } from "@/lib/latinEdge";
 import questions from "@/data/questions.json";
 
 /**
@@ -39,12 +40,14 @@ const isLatin = (s: string) => /^[a-z0-9 +&/.-]+$/i.test(s);
  *        괄호 안 영문이 낱말 사이에 끼어(16자) 열쇠 "범용…위험관리…프레임워크" 가 안 맞았다.
  *  tokens : 영문 낱말 집합(짧은 약어는 낱말 단위로만 맞춘다)
  */
-type Entry = { sq: string; sqs: string; tokens: Set<string> };
+type Entry = { sq: string; sqs: string; low: string; lows: string; tokens: Set<string> };
 
 function entryOf(text: string): Entry {
   return {
     sq: squeeze(text),
     sqs: squeeze(text.replace(/[(（][^)）]*[)）]/g, " ")),
+    low: text.toLowerCase(),
+    lows: text.replace(/[(（][^)）]*[)）]/g, " ").toLowerCase(),
     tokens: new Set(
       text
         .toLowerCase()
@@ -231,10 +234,13 @@ const EXTRA_ANY: Record<string, string[]> = {
  */
 const HAND = new Set(Object.values(EXTRA_ANY).flat());
 
+const edgeOk = (e: Entry, k: string) => latinEdgeOk(e.low, k) || latinEdgeOk(e.lows, k);
+
 function has(entry: Entry, key: string): boolean {
   if (isLatin(key) && !/\s/.test(key) && key.length <= 6 && !HAND.has(key))
     return entry.tokens.has(key);
-  if (variants(key).some((k) => entry.sq.includes(k))) return true;
+  // 영문 낱말 경계도 본다 — "aiagent" 가 "AI(Agentic" 에 맞지 않게(latinEdge.ts).
+  if (variants(key).some((k) => entry.sq.includes(k) && edgeOk(entry, k))) return true;
   const re = GAP.get(key);
   return re ? re.test(entry.sq) || re.test(entry.sqs) : false;
 }

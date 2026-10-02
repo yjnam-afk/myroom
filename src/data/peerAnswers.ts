@@ -13226,7 +13226,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     no: "1",
     question: "AI 기반 개발(AI-Augmented Development)과 에이전틱 AI(Agentic AI)\n가. AI 기반 개발과 에이전틱 AI 비교\n나. 에이전틱 AI 도입 시 예상되는 잠재적 위험 및 IT 거버넌스 측면의 대응 방안",
     exam: "심화반 NS 19기 03주차 2교시",
-    topicTitles: ["에이전틱 AI(Agentic AI)", "AI Agent"],
+    topicTitles: ["에이전틱 AI(Agentic AI)"],
     questionIds: ["ns19w03-201"],
     pages: [
       { src: "/answers/w03-2-1.jpg", label: "1쪽" },
@@ -20278,7 +20278,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "AI 에이전트",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2025상 › 04. 서비스)",
-    topicTitles: ["AI Agent", "에이전틱 AI(Agentic AI)"],
+    topicTitles: ["AI Agent"],
     pages: [
       { src: "/answers/s25e-ai-ai-에이전트-1.jpg", label: "1쪽" },
       { src: "/answers/s25e-ai-ai-에이전트-2.jpg", label: "2쪽" },
@@ -20847,7 +20847,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "AI 에이전트",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 12. AI)",
-    topicTitles: ["AI Agent", "에이전틱 AI(Agentic AI)"],
+    topicTitles: ["AI Agent"],
     pages: [
       { src: "/answers/a24a-agent-ai-에이전트-1.jpg", label: "1쪽" },
       { src: "/answers/a24a-agent-ai-에이전트-2.jpg", label: "2쪽" },
@@ -51183,7 +51183,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "5",
     question: "보안에서 OI Al Ot (Personal Security)2| 예방통제 중 하나로 개발/운영을분리하는 AS Hel (Separation of Duty)S 해오고 있다. 하지만 무중단 시스템에서",
     exam: "제68회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["페르소나 (Persona)"],
+    topicTitles: [],
     pages: [
       { src: "/answers/kpc-68회-kpc기술사모의고사-컴시응-모범답안-3교시-6.jpg", label: "1쪽" },
       { src: "/answers/kpc-68회-kpc기술사모의고사-컴시응-모범답안-3교시-7.jpg", label: "2쪽" },
@@ -52505,7 +52505,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "5",
     question: "핀테크 애플리케이션도 모바일 애플리케이션의 한 갈래이기 때문에 모바일 애플리케이션들이 가지고 있는 취약점을 그대로 따른다. OWASP 재단의 모바일 보안 프로젝트에서는 모바일 애플리케이션에서 빈번하게 나타나는 취약점 10 가지를 소개하고 있다. 핀테크 애플리케이션 관점에서 OWASP Mobile TOP 10 Risks 를 설명하고 해결방안을 설명하시오.",
     exam: "제71회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["감리/PMO 비교표"],
+    topicTitles: [],
     questionIds: ["m02007"],
     pages: [
       { src: "/answers/kpc-71회-kpc기술사모의고사-컴시응-모범답안-3교시-8.jpg", label: "1쪽" },
@@ -62165,7 +62165,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "4",
     question: "클라우드와 IoT 기술의 발전으로 인해 U-Health 에 대한 관심이 높아지고 있다. 아래의 질문에 대해 답하시오. 가. U-Health 의 개념과 PHR(Personal Health Record)과의 관계 나. U-Health 를 위한 상호작용 기술과 적용 사례",
     exam: "제60회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["페르소나 (Persona)"],
+    topicTitles: [],
     questionIds: ["m02344"],
     pages: [
       { src: "/answers/kpc-kpc-60회-정보관리-모의고사-모범답안-4교시-17.jpg", label: "1쪽" },
@@ -62782,7 +62782,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "5",
     question: "PIPL(Personal Information Protection Level)을 설명하시오.",
     exam: "제60회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["페르소나 (Persona)"],
+    topicTitles: [],
     questionIds: ["m02321"],
     pages: [
       { src: "/answers/kpc-kpc-60회-정보관리-모의고사-모범답안-1교시-10.jpg", label: "1쪽" },
