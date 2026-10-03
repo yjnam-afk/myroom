@@ -41,6 +41,8 @@ const STOP_EN = new Set([
   "record", "request", "response", "server", "client", "device", "session",
   "channel", "signal", "source", "target", "search", "query", "monitoring",
   "test", "testing", "function", "structure", "interface", "resource",
+  // 「리그레이션(회귀, Regression) 테스트」의 별칭 — 선형 회귀(Linear Regression) 문항을 끌어왔다.
+  "regression",
 ]);
 
 /**
@@ -75,6 +77,13 @@ const SYNONYM: Record<string, string[]> = {
   "감리/PMO 비교표": ["PMO"],
   // 교재 제목은 "회전", 기출은 "순환"으로 적는다.
   "McCabe 회전 복잡도": ["순환 복잡도", "Cyclomatic Complexity"],
+  // 별칭 "regression" 을 막았으니 테스트 쪽 표기를 따로 건다.
+  "리그레이션(회귀, Regression) 테스트": ["Regression Test", "회귀 테스트", "회귀 시험"],
+  // 문항은 "Self-Attention 메커니즘" 으로 적는다. 교재 밖 토픽 「Self-Attention메커니즘」이
+  // 더 긴 열쇠로 먼저 맞아 서브노트를 가리므로 같은 열쇠를 교재 쪽에 먼저 건다.
+  "어텐션 메커니즘(Attention Mechanism)": ["Self-Attention 메커니즘", "Self-Attention", "셀프 어텐션"],
+  // 문항은 제목 대신 "귀무가설·대립가설", "가설검증" 으로 적는다.
+  "통계적 가설검정(Hypothesis Testing)": ["귀무가설", "가설검증", "가설 검정"],
 };
 
 /**

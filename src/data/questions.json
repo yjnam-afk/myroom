@@ -132034,5 +132034,195 @@
    "구조기반",
    "경험기반"
   ]
+ },
+ {
+  "id": "ns19w04-101",
+  "period": "1교시",
+  "category": "인공지능",
+  "kind": "NS모의",
+  "round": "04주차",
+  "cohort": "19기",
+  "date": "2026-10-04",
+  "text": "머신 언러닝(Machine Unlearning)"
+ },
+ {
+  "id": "ns19w04-102",
+  "period": "1교시",
+  "category": "인공지능",
+  "kind": "NS모의",
+  "round": "04주차",
+  "cohort": "19기",
+  "date": "2026-10-04",
+  "text": "도메인 특화 언어 모델(Domain-Specific Language Model)의 개념과 필요성"
+ },
+ {
+  "id": "ns19w04-103",
+  "period": "1교시",
+  "category": "인공지능",
+  "kind": "NS모의",
+  "round": "04주차",
+  "cohort": "19기",
+  "date": "2026-10-04",
+  "text": "인공지능(AI)에서의 하네스 엔지니어링(Harness Engineering)"
+ },
+ {
+  "id": "ns19w04-104",
+  "period": "1교시",
+  "category": "확률·통계",
+  "kind": "NS모의",
+  "round": "04주차",
+  "cohort": "19기",
+  "date": "2026-10-04",
+  "text": "분산분석(ANOVA)의 기본 가정과 독립표본 t-test 와의 차이점"
+ },
+ {
+  "id": "ns19w04-105",
+  "period": "1교시",
+  "category": "인공지능",
+  "kind": "NS모의",
+  "round": "04주차",
+  "cohort": "19기",
+  "date": "2026-10-04",
+  "text": "인공지능 가드레일(AI guardrails)"
+ },
+ {
+  "id": "ns19w04-106",
+  "period": "1교시",
+  "category": "인공지능",
+  "kind": "NS모의",
+  "round": "04주차",
+  "cohort": "19기",
+  "date": "2026-10-04",
+  "text": "월드파운데이션모델(World Foundation Model)"
+ },
+ {
+  "id": "ns19w04-107",
+  "period": "1교시",
+  "category": "인공지능",
+  "kind": "NS모의",
+  "round": "04주차",
+  "cohort": "19기",
+  "date": "2026-10-04",
+  "text": "Self-Attention 메커니즘에 대하여 설명하시오."
+ },
+ {
+  "id": "ns19w04-108",
+  "period": "1교시",
+  "category": "확률·통계",
+  "kind": "NS모의",
+  "round": "04주차",
+  "cohort": "19기",
+  "date": "2026-10-04",
+  "text": "선형 회귀(Linear Regression) 분석의 4가지 가정"
+ },
+ {
+  "id": "ns19w04-109",
+  "period": "1교시",
+  "category": "인공지능",
+  "kind": "NS모의",
+  "round": "04주차",
+  "cohort": "19기",
+  "date": "2026-10-04",
+  "text": "VLM(Vision-Language Model)"
+ },
+ {
+  "id": "ns19w04-110",
+  "period": "1교시",
+  "category": "인공지능",
+  "kind": "NS모의",
+  "round": "04주차",
+  "cohort": "19기",
+  "date": "2026-10-04",
+  "text": "인공지능 모델의 성능평가 기법"
+ },
+ {
+  "id": "ns19w04-111",
+  "period": "1교시",
+  "category": "인공지능",
+  "kind": "NS모의",
+  "round": "04주차",
+  "cohort": "19기",
+  "date": "2026-10-04",
+  "text": "데이터 차원 축소(Data Dimensionality Reduction)"
+ },
+ {
+  "id": "ns19w04-112",
+  "period": "1교시",
+  "category": "인공지능",
+  "kind": "NS모의",
+  "round": "04주차",
+  "cohort": "19기",
+  "date": "2026-10-04",
+  "text": "Multimodal LLM(Large Language Model)"
+ },
+ {
+  "id": "ns19w04-113",
+  "period": "1교시",
+  "category": "인공지능",
+  "kind": "NS모의",
+  "round": "04주차",
+  "cohort": "19기",
+  "date": "2026-10-04",
+  "text": "로봇 파운데이션 모델(Robotic Foundation Model)의 핵심기술"
+ },
+ {
+  "id": "ns19w04-201",
+  "period": "2교시",
+  "category": "인공지능",
+  "kind": "NS모의",
+  "round": "04주차",
+  "cohort": "19기",
+  "date": "2026-10-04",
+  "text": "기업 환경에서 대형 언어 모델(LLM)의 환각(Hallucination) 현상을 최소화하고 특화된 도메인 지식을 활용하기 위해 검색 증강 생성(RAG, Retrieval-Augmented Generation) 시스템 도입이 가속화되고 있습니다. 최근에는 단순 문서 검색을 넘어 데이터 간의 복잡한 관계 추론을 지원하는 기술의 진화와 함께, 구축된 RAG 시스템의 품질을 정량적으로 측정하는 평가 체계의 중요성이 대두되고 있습니다. 다음을 설명하시오.\n가. Vector DB 기반 RAG 와 GraphRAG 를 비교\n나. RAG 평가 프레임워크(RAG Evaluation Framework)"
+ },
+ {
+  "id": "ns19w04-202",
+  "period": "2교시",
+  "category": "인공지능",
+  "kind": "NS모의",
+  "round": "04주차",
+  "cohort": "19기",
+  "date": "2026-10-04",
+  "text": "최근 Kimi k3, DeepSeek 등 거대 언어모델(LLM)의 발전과 함께, 막대한 학습·추론 비용 및 에너지 소모 문제를 극복하기 위해 '지식증류(Knowledge Distillation)'를 활용한 고효율 모델 구축이 핵심 과제로 대두되고 있습니다. 딥러닝 모델의 연산 효율 및 데이터 활용 최적화를 위한 다음의 기법들을 설명하시오.\n가. 지식증류(Knowledge Distillation)의 개념 및 지식 전이 메커니즘\n나. 네트워크 가지치기(Pruning)와 양자화(Quantization) 기법\n다. 전이학습(Transfer Learning)과 파라미터 효율적 미세조정(PEFT)"
+ },
+ {
+  "id": "ns19w04-203",
+  "period": "2교시",
+  "category": "인공지능",
+  "kind": "NS모의",
+  "round": "04주차",
+  "cohort": "19기",
+  "date": "2026-10-04",
+  "text": "피지컬 AI 와 AI 기술 동향에 대해 아래 내용을 설명하시오.\n가. 피지컬 AI 의 정의 및 계층적 아키텍처\n나. 피지컬 인텔리전스를 위한 파운데이션 및 VLA(Vision-Language- Action) 기술 모델\n다. 피지컬 AI 의 계층형 파이프라인"
+ },
+ {
+  "id": "ns19w04-204",
+  "period": "2교시",
+  "category": "확률·통계",
+  "kind": "NS모의",
+  "round": "04주차",
+  "cohort": "19기",
+  "date": "2026-10-04",
+  "text": "추천 시스템, 광고 최적화, 이상거래 탐지, 스마트팩토리 품질관리 영역 등 다양한 분야에서 통계적 검증 기반의 데이터 의사결정이 중요해지고 있다. 이와 관련하여 다음을 설명하시오.\n가. 귀무가설(H0)과 대립가설(H1)의 개념\n나. 제1 종, 제2 종 오류의 개념 및 유의수준(Significance Level), p-value\n다. A/B 테스트 절차"
+ },
+ {
+  "id": "ns19w04-205",
+  "period": "2교시",
+  "category": "확률·통계",
+  "kind": "NS모의",
+  "round": "04주차",
+  "cohort": "19기",
+  "date": "2026-10-04",
+  "text": "다중 선형 회귀분석 시 모델의 설명력 저하 방지를 위한 다음 내용을 설명하시오.\n가. 다중공선성 확인 및 해결방법\n나. 변수선택법"
+ },
+ {
+  "id": "ns19w04-206",
+  "period": "2교시",
+  "category": "인공지능",
+  "kind": "NS모의",
+  "round": "04주차",
+  "cohort": "19기",
+  "date": "2026-10-04",
+  "text": "최근 인공지능(AI)을 활용한 기업의 디지털 전환(AX, AI Transformation)이 다양한 산업 분야에서 빠르게 진행되고 있다. 이와 관련하여 다음을 설명하시오.\n가. 기업에서 AX 가 중요한 이유\n나. 기업에서 AX 를 성공적으로 추진하기 위한 전략적 추진 절차와 고려사항\n다. 기업이 AX 를 추진할 때 발생 가능한 장애 요인 3 가지 이상과 각 대응방안"
  }
 ]
