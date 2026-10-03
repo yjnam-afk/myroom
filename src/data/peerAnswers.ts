@@ -31886,6 +31886,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     question: "딥러닝 경량화 기술",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023상 주간모의고사 › 12.AI)",
     topicTitles: ["딥러닝"],
+    questionIds: ["ns19w04-202"],
     pages: [
       { src: "/answers/s23w-ai-딥러닝-경량화-기술-ns11-07-02-04-1.jpg", label: "1쪽" },
       { src: "/answers/s23w-ai-딥러닝-경량화-기술-ns11-07-02-04-2.jpg", label: "2쪽" },
@@ -44813,6 +44814,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     question: "딥러닝 모델 경량화 기술 개념·유형, 알고리즘 경량화·모델 구조 경량화",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 김병권PE)",
     topicTitles: ["지식 증류(Knowledge Distillation)"],
+    questionIds: ["ns19w04-202"],
     pages: [
       { src: "/answers/d4-모위고사-2교시-8.jpg", label: "8쪽" },
       { src: "/answers/d4-모위고사-2교시-9.jpg", label: "9쪽" },
@@ -65337,6 +65339,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     question: "인공지능 양자화",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024상 › ITPE모의고사 › 12. AI)",
     topicTitles: ["sLLM"],
+    questionIds: ["ns19w04-202"],
     pages: [
       { src: "/answers/s24a-인공지능-양자화-1.jpg", label: "1쪽" },
       { src: "/answers/s24a-인공지능-양자화-2.jpg", label: "2쪽" },
