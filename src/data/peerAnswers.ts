@@ -5006,7 +5006,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     no: "2",
     question: "적응형 AI",
     exam: "2025년 하반기 정리",
-    topicTitles: ["인공지능"],
+    topicTitles: ["인공지능", "VLM(Vision Language Model)"],
     score: 6.5,
     maxScore: 10,
     feedback: [
@@ -11423,7 +11423,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     score: 6.0,
     maxScore: 10,
     question: "객체지향 프로그래밍의 특징과 설계 원리",
-    topicTitles: ["객체지향 프로그래밍 특징", "객체지향 설계 원리"],
+    topicTitles: ["객체지향 프로그래밍 특징", "객체지향 설계 원리", "VLM(Vision Language Model)", "도메인 특화 언어 모델(Domain-Specific Language Model)"],
     pages: [
       { src: "/answers/oopchar-4-1.jpg", label: "1쪽" },
       { src: "/answers/oopchar-4-2.jpg", label: "2쪽" },
@@ -18392,7 +18392,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "Vertical Horizontal AI",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2025상 › 12. AI)",
-    topicTitles: ["버티컬 AI(Vertical AI)"],
+    topicTitles: ["버티컬 AI(Vertical AI)", "도메인 특화 언어 모델(Domain-Specific Language Model)"],
     pages: [
       { src: "/answers/s25a-모델-vertical-horizontal-ai-2번째-1.jpg", label: "1쪽" },
       { src: "/answers/s25a-모델-vertical-horizontal-ai-2번째-2.jpg", label: "2쪽" },
@@ -18466,7 +18466,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "LMM",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2025상 › 12. AI)",
-    topicTitles: ["멀티모달(Multimodal) AI"],
+    topicTitles: ["멀티모달(Multimodal) AI", "VLM(Vision Language Model)"],
     pages: [
       { src: "/answers/s25a-모델-lmm-1.jpg", label: "1쪽" },
       { src: "/answers/s25a-모델-lmm-2.jpg", label: "2쪽" },
@@ -18489,7 +18489,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "Vertical Horizontal AI",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2025상 › 12. AI)",
-    topicTitles: ["버티컬 AI(Vertical AI)"],
+    topicTitles: ["버티컬 AI(Vertical AI)", "도메인 특화 언어 모델(Domain-Specific Language Model)"],
     pages: [
       { src: "/answers/s25a-모델-vertical-horizontal-ai-1.jpg", label: "1쪽" },
       { src: "/answers/s25a-모델-vertical-horizontal-ai-2.jpg", label: "2쪽" },
@@ -18502,7 +18502,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "차원 축소",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2025상 › 12. AI)",
-    topicTitles: ["차원 축소(Dimensionality Reduction)"],
+    topicTitles: ["차원 축소(Dimensionality Reduction)", "SVD(Singular Value Decomposition)"],
     pages: [
       { src: "/answers/s25a-성능-차원-축소-1.jpg", label: "1쪽" },
       { src: "/answers/s25a-성능-차원-축소-2.jpg", label: "2쪽" },
@@ -20924,7 +20924,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "sLLM",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 12. AI)",
-    topicTitles: ["sLLM"],
+    topicTitles: ["sLLM", "도메인 특화 언어 모델(Domain-Specific Language Model)"],
     pages: [
       { src: "/answers/a24a-llm-sllm-2-1.jpg", label: "1쪽" },
       { src: "/answers/a24a-llm-sllm-2-2.jpg", label: "2쪽" },
@@ -20938,7 +20938,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "sLLM",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 12. AI)",
-    topicTitles: ["sLLM"],
+    topicTitles: ["sLLM", "도메인 특화 언어 모델(Domain-Specific Language Model)"],
     pages: [
       { src: "/answers/a24a-llm-sllm-3-1.jpg", label: "1쪽" },
       { src: "/answers/a24a-llm-sllm-3-2.jpg", label: "2쪽" },
@@ -20950,7 +20950,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "sLLM",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 12. AI)",
-    topicTitles: ["sLLM"],
+    topicTitles: ["sLLM", "도메인 특화 언어 모델(Domain-Specific Language Model)"],
     pages: [
       { src: "/answers/a24a-llm-sllm-1.jpg", label: "1쪽" },
       { src: "/answers/a24a-llm-sllm-2.jpg", label: "2쪽" },
@@ -21035,7 +21035,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "파운데이션 모델",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 12. AI)",
-    topicTitles: ["파운데이션 모델(Foundation Model)"],
+    topicTitles: ["파운데이션 모델(Foundation Model)", "월드 파운데이션 모델(World Foundation Model)"],
     pages: [
       { src: "/answers/a24a-모델-파운데이션-모델-1.jpg", label: "1쪽" },
       { src: "/answers/a24a-모델-파운데이션-모델-2.jpg", label: "2쪽" },
@@ -28967,7 +28967,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "파운데이션 모델",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023하 › ITPE모의고사 › 12.AI)",
-    topicTitles: ["파운데이션 모델(Foundation Model)"],
+    topicTitles: ["파운데이션 모델(Foundation Model)", "월드 파운데이션 모델(World Foundation Model)"],
     pages: [
       { src: "/answers/h23i-ai-모델-파운데이션-모델-1-1.jpg", label: "1쪽" },
       { src: "/answers/h23i-ai-모델-파운데이션-모델-1-2.jpg", label: "2쪽" },
@@ -28980,7 +28980,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "파운데이션 모델",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023하 › ITPE모의고사 › 12.AI)",
-    topicTitles: ["파운데이션 모델(Foundation Model)"],
+    topicTitles: ["파운데이션 모델(Foundation Model)", "월드 파운데이션 모델(World Foundation Model)"],
     pages: [
       { src: "/answers/h23i-ai-모델-파운데이션-모델-1-5.jpg", label: "5쪽" },
       { src: "/answers/h23i-ai-모델-파운데이션-모델-1-6.jpg", label: "6쪽" },
@@ -29069,7 +29069,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "파운데이션 모델",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023하 › ITPE모의고사 › 12.AI)",
-    topicTitles: ["파운데이션 모델(Foundation Model)"],
+    topicTitles: ["파운데이션 모델(Foundation Model)", "월드 파운데이션 모델(World Foundation Model)"],
     pages: [
       { src: "/answers/h23i-ai-모델-파운데이션-모델-2-1.jpg", label: "1쪽" },
     ],
@@ -35683,7 +35683,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "학습기법 PCA,LDA",
     exam: "심화반 NS10 12주차",
-    topicTitles: ["PCA(Principal Component Analysis)", "LDA(Linear Discriminant Analysis)"],
+    topicTitles: ["PCA(Principal Component Analysis)", "LDA(Linear Discriminant Analysis)", "차원 축소(Dimensionality Reduction)"],
     pages: [
       { src: "/answers/w22-ai-학습기법-pca-lda-ns10-12-1-1.jpg", label: "1쪽" },
       { src: "/answers/w22-ai-학습기법-pca-lda-ns10-12-1-2.jpg", label: "2쪽" },
@@ -41782,7 +41782,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "버티컬 AI",
     exam: "정리 답안 (드라이브 3.2 단합반 › 5. AI)",
-    topicTitles: ["버티컬 AI(Vertical AI)"],
+    topicTitles: ["버티컬 AI(Vertical AI)", "도메인 특화 언어 모델(Domain-Specific Language Model)"],
     pages: [
       { src: "/answers/dh-ai-버티컬-ai-1.jpg", label: "1쪽" },
       { src: "/answers/dh-ai-버티컬-ai-2.jpg", label: "2쪽" },
@@ -41848,7 +41848,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "버티컬 AI",
     exam: "정리 답안 (드라이브 3.2 단합반 › 5. AI)",
-    topicTitles: ["버티컬 AI(Vertical AI)"],
+    topicTitles: ["버티컬 AI(Vertical AI)", "도메인 특화 언어 모델(Domain-Specific Language Model)"],
     pages: [
       { src: "/answers/dh-버티컬-ai-1.jpg", label: "1쪽" },
       { src: "/answers/dh-버티컬-ai-2.jpg", label: "2쪽" },
@@ -41899,7 +41899,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "Multimodal LLM",
     exam: "정리 답안 (드라이브 3.2 단합반 › 5. AI)",
-    topicTitles: ["멀티모달(Multimodal) AI"],
+    topicTitles: ["멀티모달(Multimodal) AI", "VLM(Vision Language Model)"],
     pages: [
       { src: "/answers/dh-multimodal-llm-1.jpg", label: "1쪽" },
     ],
@@ -44129,7 +44129,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "PCA",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 모범답안)",
-    topicTitles: ["PCA(Principal Component Analysis)"],
+    topicTitles: ["PCA(Principal Component Analysis)", "차원 축소(Dimensionality Reduction)"],
     pages: [
       { src: "/answers/d4-셀테-pca-1.jpg", label: "1쪽" },
       { src: "/answers/d4-셀테-pca-2.jpg", label: "2쪽" },
@@ -47069,7 +47069,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "Multi-modal AI 유형·핵심 기술",
     exam: "실전심화반 TOP반 FR 2일차 모의고사",
-    topicTitles: ["멀티모달(Multimodal) AI"],
+    topicTitles: ["멀티모달(Multimodal) AI", "VLM(Vision Language Model)"],
     pages: [
       { src: "/answers/cls-top반-fr2일차-1교시-전대성pe-3.jpg", label: "3쪽" },
       { src: "/answers/cls-top반-fr2일차-1교시-전대성pe-4.jpg", label: "4쪽" },
@@ -47205,7 +47205,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "multi-modal AI",
     exam: "실전심화반 TOP반 FR 2일차 모의고사",
-    topicTitles: ["멀티모달(Multimodal) AI"],
+    topicTitles: ["멀티모달(Multimodal) AI", "VLM(Vision Language Model)"],
     pages: [
       { src: "/answers/cls-top반-fr2일차-1교시-오유리pe-1.jpg", label: "1쪽" },
       { src: "/answers/cls-top반-fr2일차-1교시-오유리pe-2.jpg", label: "2쪽" },
@@ -48149,7 +48149,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "멀티모달 AI",
     exam: "심화반 4주차 주간모의고사",
-    topicTitles: ["멀티모달(Multimodal) AI"],
+    topicTitles: ["멀티모달(Multimodal) AI", "VLM(Vision Language Model)"],
     pages: [
       { src: "/answers/cls-4주차-주간모의고사-1교시-ai-2.jpg", label: "2쪽" },
       { src: "/answers/cls-4주차-주간모의고사-1교시-ai-3.jpg", label: "3쪽" },
@@ -48894,7 +48894,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "PCA와 LDA",
     exam: "아지트 정리 답안 (드라이브 3.1/5.AI)",
-    topicTitles: ["PCA(Principal Component Analysis)"],
+    topicTitles: ["PCA(Principal Component Analysis)", "차원 축소(Dimensionality Reduction)"],
     pages: [
       { src: "/answers/img-pca와-lda-1.jpg", label: "1쪽" },
       { src: "/answers/img-pca와-lda-2.jpg", label: "2쪽" },
@@ -60438,7 +60438,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "5",
     question: "Multimodal LLM(Large Language Model)에 대하여 설명하시오.",
     exam: "제59회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["멀티모달(Multimodal) AI", "초거대 언어 모델(Large Language Model)", "대규모 언어 모델(LLM) 성능 향상 기술"],
+    topicTitles: ["멀티모달(Multimodal) AI", "초거대 언어 모델(Large Language Model)", "대규모 언어 모델(LLM) 성능 향상 기술", "VLM(Vision Language Model)"],
     questionIds: ["k135-102"],
     pages: [
       { src: "/answers/kpc-kpc-59회-시스템응용-모의고사-모범답안-3교시-15.jpg", label: "1쪽" },
@@ -65363,7 +65363,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "1교시",
     question: "SLLM",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024상 › ITPE모의고사 › 12. AI)",
-    topicTitles: ["sLLM"],
+    topicTitles: ["sLLM", "도메인 특화 언어 모델(Domain-Specific Language Model)"],
     pages: [
       { src: "/answers/s24a-sllm-1.jpg", label: "1쪽" },
       { src: "/answers/s24a-sllm-2.jpg", label: "2쪽" },
@@ -79730,7 +79730,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "5",
     question: "데이터 차원 축소(Data Dimensionality Reduction)",
     exam: "제131회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 이상헌 기술사)",
-    topicTitles: ["차원 축소(Dimensionality Reduction)"],
+    topicTitles: ["차원 축소(Dimensionality Reduction)", "SVD(Singular Value Decomposition)"],
     questionIds: ["k131-105"],
     pages: [
       { src: "/answers/itpe131-1-05-1.webp", label: "1쪽" },
@@ -80074,7 +80074,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "4",
     question: "인공지능 분야에서 파운데이션 모델의 개념, 특징, 기반기술 및 구현 시 법적·환경적·사회적 측면의 고려사항에 대하여 설명하시오.",
     exam: "제131회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 이제원 기술사)",
-    topicTitles: ["파운데이션 모델(Foundation Model)"],
+    topicTitles: ["파운데이션 모델(Foundation Model)", "월드 파운데이션 모델(World Foundation Model)"],
     questionIds: ["k131-404"],
     pages: [
       { src: "/answers/itpe131-4-04-1.webp", label: "1쪽" },
@@ -80951,7 +80951,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "6",
     question: "멀티모달 인공지능에 관한 다음 사항을 설명하시오. 가. 개념 나. 구성요소 다. 핵심기술",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정주행 조종흥 기술사)",
-    topicTitles: ["멀티모달(Multimodal) AI"],
+    topicTitles: ["멀티모달(Multimodal) AI", "VLM(Vision Language Model)"],
     pages: [
       { src: "/answers/itpe134cs-4-06-1.webp", label: "1쪽" },
       { src: "/answers/itpe134cs-4-06-2.webp", label: "2쪽" },
@@ -81821,7 +81821,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "2",
     question: "멀티모달(Multimodal) LLM",
     exam: "제135회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 정상 기술사)",
-    topicTitles: ["멀티모달(Multimodal) AI", "대규모 언어 모델(LLM) 성능 향상 기술"],
+    topicTitles: ["멀티모달(Multimodal) AI", "대규모 언어 모델(LLM) 성능 향상 기술", "VLM(Vision Language Model)"],
     questionIds: ["k135-102"],
     pages: [
       { src: "/answers/itpe135-1-02-1.webp", label: "1쪽" },
@@ -82733,7 +82733,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "9",
     question: "멀티모달 (Multimodal)의 기술요소",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 김민재 기술사)",
-    topicTitles: ["멀티모달(Multimodal) AI"],
+    topicTitles: ["멀티모달(Multimodal) AI", "VLM(Vision Language Model)"],
     pages: [
       { src: "/answers/itpe137cs-1-09-1.webp", label: "1쪽" },
       { src: "/answers/itpe137cs-1-09-2.webp", label: "2쪽" },
@@ -82831,7 +82831,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "4",
     question: "sLLM(Samll Large Language Model)에 대하여 다음사항을 설명하시오. 가. sLLM 모델의 개념 및 필요성 나. sLLM 모델 기술요소 및 활용분야 다. LLM과 sLLM 비교",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상 기술사)",
-    topicTitles: ["초거대 언어 모델(Large Language Model)"],
+    topicTitles: ["초거대 언어 모델(Large Language Model)", "도메인 특화 언어 모델(Domain-Specific Language Model)"],
     pages: [
       { src: "/answers/itpe137cs-2-04-1.webp", label: "1쪽" },
       { src: "/answers/itpe137cs-2-04-2.webp", label: "2쪽" },
@@ -84532,7 +84532,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "4",
     question: "최근 LLM(Large Language Model) 등 초거대 AI 서비스의 급격한 확산과 텍스트·이미지·음성·영상 등 멀티모달(Multimodal) 데이터 처리 수요의 증가에 따라, 대규모 AI 학습 및 추론을 지원하는 고성능 컴퓨팅 인프라의 중요성이 증대되고 있다. AI 슈퍼컴퓨팅 플랫폼(Supercomputing Platform)에 대하여 다음을 설명하시오. 가. AI 슈퍼컴퓨팅 플랫폼의 개념 및 등장 배경 나. AI 슈퍼컴퓨팅 플랫폼의 구성요소별 역할 다. 전통적 슈퍼컴퓨터, 클라우드 컴퓨팅, AI 슈퍼컴퓨팅 플랫폼과의 비교",
     exam: "제140회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정주행반 조종흥 기술사)",
-    topicTitles: ["멀티모달(Multimodal) AI", "초거대 언어 모델(Large Language Model)", "AI 슈퍼컴퓨팅 플랫폼(Supercomputing Platform)"],
+    topicTitles: ["멀티모달(Multimodal) AI", "초거대 언어 모델(Large Language Model)", "AI 슈퍼컴퓨팅 플랫폼(Supercomputing Platform)", "VLM(Vision Language Model)"],
     questionIds: ["k140-204"],
     pages: [
       { src: "/answers/itpe140-2-04-1.webp", label: "1쪽" },
