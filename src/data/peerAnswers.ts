@@ -18577,7 +18577,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "어텐션 알고리즘",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2025상 › 12. AI)",
-    topicTitles: ["어텐션 메커니즘(Attention Mechanism)"],
+    topicTitles: ["어텐션 메커니즘(Attention Mechanism)", "Self-Attention메커니즘"],
     pages: [
       { src: "/answers/s25a-알고리즘-어텐션-알고리즘-1.jpg", label: "1쪽" },
       { src: "/answers/s25a-알고리즘-어텐션-알고리즘-2.jpg", label: "2쪽" },
@@ -21363,7 +21363,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "1교시",
     question: "어텐션 매커니즘",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 12. AI)",
-    topicTitles: ["어텐션 메커니즘(Attention Mechanism)"],
+    topicTitles: ["어텐션 메커니즘(Attention Mechanism)", "Self-Attention메커니즘"],
     pages: [
       { src: "/answers/a24b-어텐션-어텐션-매커니즘-1.jpg", label: "1쪽" },
       { src: "/answers/a24b-어텐션-어텐션-매커니즘-2.jpg", label: "2쪽" },
@@ -47728,7 +47728,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "트랜스포머_Attention",
     exam: "정리 답안 (드라이브 05. 모범답안)",
-    topicTitles: ["트랜스포머(Transformer)"],
+    topicTitles: ["트랜스포머(Transformer)", "어텐션 메커니즘(Attention Mechanism)", "Self-Attention메커니즘"],
     pages: [
       { src: "/answers/cls-트랜스포머-attention-1.jpg", label: "1쪽" },
       { src: "/answers/cls-트랜스포머-attention-2.jpg", label: "2쪽" },
