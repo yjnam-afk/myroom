@@ -33952,7 +33952,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "3교시",
     question: "추정,가설검정",
     exam: "ITPE 모의고사 14회",
-    topicTitles: ["추론 통계(Inferential Statistics)"],
+    topicTitles: ["추정 이론(Estimation Theory)", "통계적 가설검정(Hypothesis Testing)", "추론 통계(Inferential Statistics)"],
     pages: [
       { src: "/answers/u22-st-가설검정-추정-가설검정-itpe-14-3-1.jpg", label: "1쪽" },
       { src: "/answers/u22-st-가설검정-추정-가설검정-itpe-14-3-2.jpg", label: "2쪽" },
@@ -33965,7 +33965,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "3교시",
     question: "추정,가설검정",
     exam: "ITPE 모의고사 14회",
-    topicTitles: ["추론 통계(Inferential Statistics)"],
+    topicTitles: ["추정 이론(Estimation Theory)", "통계적 가설검정(Hypothesis Testing)", "추론 통계(Inferential Statistics)"],
     pages: [
       { src: "/answers/u22-st-가설검정-추정-가설검정-itpe-14-3-5.jpg", label: "5쪽" },
       { src: "/answers/u22-st-가설검정-추정-가설검정-itpe-14-3-6.jpg", label: "6쪽" },
@@ -68772,6 +68772,32 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
       { src: "/answers/itpe138-1-03-1.jpg", label: "1쪽" },
       { src: "/answers/itpe138-1-03-2.jpg", label: "2쪽" },
       { src: "/answers/itpe138-1-03-3.jpg", label: "3쪽" },
+    ],
+  },
+  {
+    id: "peer-itpe135-1-08",
+    period: "1교시",
+    no: "8",
+    question: "불편추정량(Unbiased Estimator)에 대하여 설명하시오.",
+    exam: "제135회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
+    topicTitles: ["추정 이론(Estimation Theory)"],
+    questionIds: ["k135-108"],
+    pages: [
+      { src: "/answers/itpe135-1-08-1.jpg", label: "1쪽" },
+      { src: "/answers/itpe135-1-08-2.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-itpe127-1-03",
+    period: "1교시",
+    no: "3",
+    question: "추정통계의 표본과 불편 추정량에 대하여 설명하시오.",
+    exam: "제127회 정보관리기술사 기출풀이 해설집 (ITPE 기술사회, 해설 안응원 기술사)",
+    topicTitles: ["추정 이론(Estimation Theory)"],
+    questionIds: ["k127-103"],
+    pages: [
+      { src: "/answers/itpe127-1-03-1.jpg", label: "1쪽" },
+      { src: "/answers/itpe127-1-03-2.jpg", label: "2쪽" },
     ],
   },
 ];

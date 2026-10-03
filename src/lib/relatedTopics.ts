@@ -84,6 +84,8 @@ const SYNONYM: Record<string, string[]> = {
   "어텐션 메커니즘(Attention Mechanism)": ["Self-Attention 메커니즘", "Self-Attention", "셀프 어텐션"],
   // 문항은 제목 대신 "귀무가설·대립가설", "가설검증" 으로 적는다.
   "통계적 가설검정(Hypothesis Testing)": ["귀무가설", "가설검증", "가설 검정"],
+  // 기출은 "점추정과 구간추정", "불편추정량(Unbiased Estimator)" 으로 묻는다.
+  "추정 이론(Estimation Theory)": ["점추정", "구간추정", "불편추정량", "불편 추정량", "Unbiased Estimator", "점추정량"],
 };
 
 /**
