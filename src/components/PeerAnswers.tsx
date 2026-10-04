@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { flushSync } from "react-dom";
 import type { PeerAnswer } from "@/data/peerAnswers";
 import { periodGroup } from "@/lib/questionAnswers";
+import { isCommentary } from "@/lib/answerKind";
 
 /**
  * 남이 쓴 답안 — 손글씨 시험지 스캔과 강사 첨삭.
@@ -20,12 +21,29 @@ import { periodGroup } from "@/lib/questionAnswers";
  * 답안만 먼저 세우고, 다른 묶음은 줄을 긋고 뒤로 보낸다. 2교시 25점짜리를 푸는데
  * 1교시 10점 답안이 맨 위에 서면 분량 눈금이 어긋나기 때문이다.
  */
-export default function PeerAnswers({
+/**
+ * 손글씨 모범답안과 해설집을 다른 칸으로 나눠 그린다 — 한 칸에 섞여 있으면 지금 보는 게
+ * 실제 시험지인지 해설집인지 알 수 없었다(2026-10-04). 모범답안이 먼저다.
+ */
+export default function PeerAnswers(props: { items: PeerAnswer[]; want?: string; collapsed?: boolean }) {
+  const sheets = props.items.filter((a) => !isCommentary(a));
+  const notes = props.items.filter(isCommentary);
+  return (
+    <>
+      <AnswerList {...props} items={sheets} kind="sheet" />
+      <AnswerList {...props} items={notes} kind="note" />
+    </>
+  );
+}
+
+function AnswerList({
   items,
   want,
   collapsed = false,
+  kind,
 }: {
   items: PeerAnswer[];
+  kind: "sheet" | "note";
   want?: string;
   /** 문제은행·기출처럼 문항이 죽 나열되는 화면에서는 통째로 접어 둔다 — 문제가 안 보인다. */
   collapsed?: boolean;
@@ -53,12 +71,13 @@ export default function PeerAnswers({
 
   if (items.length === 0) return null;
 
+  const note = kind === "note";
   const wantGroup = want ? periodGroup(want) : null;
   const fit = wantGroup ? items.filter((a) => periodGroup(a.period) === wantGroup).length : items.length;
 
   const title = (
     <>
-      ✍️ 모범답안 {items.length}건 — 실제 시험지와 첨삭
+      {note ? `📘 해설집 ${items.length}건 — 학원·기술사회 해설(시험지 아님)` : `✍️ 모범답안 ${items.length}건 — 실제 시험지와 첨삭`}
       {wantGroup && fit > 0 && fit < items.length && (
         <span className="ml-1 font-medium text-slate-500">
           (이 문제와 같은 {wantGroup} {fit}건)
@@ -141,7 +160,7 @@ export default function PeerAnswers({
                   )}
 
                   <div className="mb-1.5 text-xs font-bold text-slate-500">
-                    📄 시험지 {a.pages.length}쪽 — 눌러서 크게 보기
+                    {note ? "📘 해설" : "📄 시험지"} {a.pages.length}쪽 — 눌러서 크게 보기
                   </div>
                   <div className="space-y-3">
                     {a.pages.map((p) => (
@@ -196,8 +215,8 @@ export default function PeerAnswers({
 
   if (collapsed)
     return (
-      <details className="mb-3 overflow-hidden rounded-2xl border-2 border-slate-300 bg-white shadow-sm">
-        <summary className="cursor-pointer bg-slate-100 px-5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-200">
+      <details className={`mb-3 overflow-hidden rounded-2xl border-2 bg-white shadow-sm ${note ? "border-sky-200" : "border-slate-300"}`}>
+        <summary className={`cursor-pointer px-5 py-2.5 text-sm font-bold ${note ? "bg-sky-50 text-sky-900 hover:bg-sky-100" : "bg-slate-100 text-slate-800 hover:bg-slate-200"}`}>
           {title}
         </summary>
         {body}
@@ -205,13 +224,20 @@ export default function PeerAnswers({
     );
 
   return (
-    <section className="mb-6 overflow-hidden rounded-2xl border-2 border-slate-300 bg-white shadow-sm">
-      <div className="bg-slate-100 px-5 py-3">
-        <h3 className="text-sm font-bold text-slate-800">{title}</h3>
-        <p className="mt-0.5 text-xs text-slate-500">
-          <b>실제로 제출되어 점수를 받은</b> 답안지 스캔입니다. 배점 대비 점수와
-          빨간 첨삭이 채점 기준을 그대로 보여 줍니다.
-        </p>
+    <section className={`mb-6 overflow-hidden rounded-2xl border-2 bg-white shadow-sm ${note ? "border-sky-200" : "border-slate-300"}`}>
+      <div className={`px-5 py-3 ${note ? "bg-sky-50" : "bg-slate-100"}`}>
+        <h3 className={`text-sm font-bold ${note ? "text-sky-900" : "text-slate-800"}`}>{title}</h3>
+        {note ? (
+          <p className="mt-0.5 text-xs text-slate-500">
+            ITPE 기출문제 해설집·주간 모의고사 해설집을 문항별로 자른 것입니다. <b>제출된 시험지가 아니라</b>{" "}
+            점수·첨삭이 없습니다 — 구성과 키워드를 참고하세요.
+          </p>
+        ) : (
+          <p className="mt-0.5 text-xs text-slate-500">
+            <b>실제로 제출되어 점수를 받은</b> 답안지 스캔입니다. 배점 대비 점수와
+            빨간 첨삭이 채점 기준을 그대로 보여 줍니다.
+          </p>
+        )}
       </div>
       {body}
     </section>

@@ -16,7 +16,11 @@ const UNSORTED = "미분류";
  * 없었다. 검색은 문제 문구·시험·토픽·첨삭을 모두 훑는다. 카드는 토픽 설명과
  * 같은 것(PeerAnswers)을 그대로 쓴다 — 두 화면이 다르게 보이면 안 된다.
  */
-export default function AnswersClient({ rows }: { rows: AnswerRow[] }) {
+export default function AnswersClient({ rows: all }: { rows: AnswerRow[] }) {
+  // 손글씨 모범답안과 해설집은 섞어 보이지 않는다 — 처음엔 모범답안만.
+  const [note, setNote] = useState(false);
+  const nNote = useMemo(() => all.filter((r) => r.note).length, [all]);
+  const rows = useMemo(() => all.filter((r) => r.note === note), [all, note]);
   const [q, setQ] = useState("");
   const [period, setPeriod] = useState("전체");
   // 주 필터는 과목(도메인)이다 — 교시로 걸러서는 "DB 답안만 보자"가 안 됐다.
@@ -64,8 +68,12 @@ export default function AnswersClient({ rows }: { rows: AnswerRow[] }) {
   return (
     <div>
       <PageHeader
-        title="✍️ 모범답안"
-        desc={`실제로 제출해 점수를 받은 답안지 ${rows.length}건 · 스캔 ${rows.reduce((n, r) => n + r.pages.length, 0)}장 — 배점 대비 점수와 빨간 첨삭이 곧 채점 기준입니다.`}
+        title={note ? "📘 해설집" : "✍️ 모범답안"}
+        desc={
+          note
+            ? `ITPE 기출문제 해설집·주간 모의고사 해설집 ${rows.length}건 · ${rows.reduce((n, r) => n + r.pages.length, 0)}쪽 — 제출된 시험지가 아니라 점수·첨삭이 없습니다.`
+            : `실제로 제출해 점수를 받은 답안지 ${rows.length}건 · 스캔 ${rows.reduce((n, r) => n + r.pages.length, 0)}장 — 배점 대비 점수와 빨간 첨삭이 곧 채점 기준입니다.`
+        }
         up={[
           { href: "/plan", label: "🗓️ 학습 계획" },
           { href: "/explain", label: "💡 토픽 설명" },
@@ -74,6 +82,25 @@ export default function AnswersClient({ rows }: { rows: AnswerRow[] }) {
       />
 
       <div className="sticky top-[84px] z-[5] -mx-4 mb-5 border-b border-slate-200 bg-white/95 px-4 py-3 backdrop-blur xl:top-[57px]">
+        <div className="mb-2 flex gap-1.5 text-sm">
+          {[
+            { v: false, label: `✍️ 모범답안 ${all.length - nNote}` },
+            { v: true, label: `📘 해설집 ${nNote}` },
+          ].map((t) => (
+            <button
+              key={String(t.v)}
+              onClick={() => {
+                setNote(t.v);
+                setDomain("전체");
+              }}
+              className={`rounded-lg px-3 py-1.5 font-bold ${
+                note === t.v ? (t.v ? "bg-sky-600 text-white" : "bg-slate-800 text-white") : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}

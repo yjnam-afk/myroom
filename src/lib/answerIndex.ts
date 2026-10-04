@@ -2,6 +2,7 @@ import "server-only";
 import { PEER_ANSWERS, type PeerAnswer } from "@/data/peerAnswers";
 import { SUBNOTES } from "@/data/textbookSubnotes";
 import { DOMAIN_LABEL } from "@/lib/domains";
+import { isCommentary } from "@/lib/answerKind";
 
 /** 서브노트 제목 → 과목 이름. 답안이 걸린 첫 토픽의 과목이 그 답안의 과목이다. */
 const COURSE_BY_TITLE = new Map(SUBNOTES.map((s) => [s.title, DOMAIN_LABEL[s.course] ?? s.course]));
@@ -50,6 +51,8 @@ export type AnswerRow = PeerAnswer & {
   hay: string;
   /** 과목 이름(컴퓨터구조·운영체제 …) — 목록 화면의 도메인 필터에 쓴다. 못 잡으면 '미분류'. */
   domain: string;
+  /** 해설집에서 잘라 넣은 답안인가(손글씨 모범답안이 아님) — 목록 화면에서 따로 본다. */
+  note: boolean;
 };
 
 export function answerRows(): AnswerRow[] {
@@ -59,5 +62,6 @@ export function answerRows(): AnswerRow[] {
       .join(" ")
       .toLowerCase(),
     domain: domainOf(a),
+    note: isCommentary(a),
   })).sort((a, b) => a.period.localeCompare(b.period) || a.question.localeCompare(b.question, "ko"));
 }
