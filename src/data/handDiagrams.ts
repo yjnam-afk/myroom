@@ -59,3 +59,50 @@ export const HAND_DIAGRAMS: Record<string, string[]> = {
 };
 
 export const handDiagramsFor = (title?: string): string[] => (title && HAND_DIAGRAMS[title]) || [];
+
+/**
+ * 손글씨 표 — 같은 노트에서 표(구성요소·유형·절차·비교) 구역을 잘라 온 것. 토픽 답안지 템플릿의
+ * 교재 표들 다음에 붙는다. 칸마다 그림이 든 표(SOLID·무중단 배포·블랙/화이트박스·활성화 함수·
+ * UML 관계·테일러링 흐름)는 이미 HAND_DIAGRAMS 에 들어가 있어 여기엔 다시 넣지 않았다.
+ */
+export const HAND_TABLES: Record<string, string[]> = {
+  "소프트웨어 개발 방법론": ["/concept/hand/sw-dev-method-t1.webp"],
+  "테일러링 (Tailoring)": ["/concept/hand/sw-tailoring-t1.webp", "/concept/hand/sw-tailoring-t2.webp"],
+  "요구공학 (Requirements Engineering)": ["/concept/hand/sw-req-eng-t1.webp"],
+  "MSA (Micro Service Architecture)": ["/concept/hand/sw-msa-t1.webp"],
+  "디자인 패턴 (Design Pattern)": ["/concept/hand/sw-design-pattern-t1.webp", "/concept/hand/sw-design-pattern-t2.webp"],
+  "DDD (Domain Driven Design)": ["/concept/hand/sw-ddd-t1.webp"],
+  "데브옵스 (DevOps)": ["/concept/hand/sw-devops-t1.webp"],
+  "SRE (Site Reliability Engineering)": ["/concept/hand/sw-sre-t1.webp", "/concept/hand/sw-sre-t2.webp"],
+  "성능 테스트": ["/concept/hand/sw-performance-t2.webp"],
+  "ISO 29119": ["/concept/hand/sw-29119-t1.webp"],
+  "소프트웨어 리팩토링": ["/concept/hand/sw-refactoring-t1.webp"],
+  "ISO/IEC 25010:2023": ["/concept/hand/sw-25010-t1.webp"],
+  "CMMI 3.0": ["/concept/hand/sw-cmmi-t1.webp"],
+  "요구사항 명세서 SRS": ["/concept/hand/sw-srs-t1.webp"],
+  "WBS (Work Breakdown Structure)": ["/concept/hand/sw-wbs-t1.webp"],
+  "형상 관리": ["/concept/hand/sw-config-t2.webp"],
+  "전이학습(Transfer Learning)": ["/concept/hand/ai-transfer-t1.webp", "/concept/hand/ai-transfer-t2.webp"],
+  "자기지도학습(Self-supervised Learning)": ["/concept/hand/ai-self-supervised-t1.webp"],
+  "머신 언러닝(Machine Unlearning)": ["/concept/hand/ai-unlearning-t1.webp"],
+  "버티컬 AI(Vertical AI)": ["/concept/hand/ai-vertical-t1.webp"],
+  "Physical AI": ["/concept/hand/ai-physical-t1.webp"],
+  "GAN(Generative Adversarial Network)": ["/concept/hand/ai-gan-t1.webp", "/concept/hand/ai-gan-t2.webp"],
+  "VAE(Variational Autoencoder)": ["/concept/hand/ai-vae-t1.webp"],
+  "어텐션 메커니즘(Attention Mechanism)": ["/concept/hand/ai-attention-t1.webp"],
+  "할루시네이션(Hallucination)": ["/concept/hand/ai-hallucination-t1.webp", "/concept/hand/ai-hallucination-t2.webp"],
+  "검색 증강 생성(RAG, Retrieval Augmented Generation)": ["/concept/hand/ai-rag-t1.webp", "/concept/hand/ai-rag-t2.webp"],
+  "프롬프트 엔지니어링(Prompt Engineering)": ["/concept/hand/ai-prompt-t1.webp", "/concept/hand/ai-prompt-t2.webp"],
+  "컨텍스트 엔지니어링(Context Engineering)": ["/concept/hand/ai-context-t1.webp", "/concept/hand/ai-context-t2.webp"],
+  "하네스 엔지니어링": ["/concept/hand/ai-harness-t1.webp"],
+  "파인 튜닝(Fine-tuning)": ["/concept/hand/ai-finetune-t1.webp"],
+  "프롬프트 인젝션(Prompt Injection)": ["/concept/hand/ai-prompt-injection-t1.webp"],
+  "딥페이크(Deepfake)": ["/concept/hand/ai-deepfake-t1.webp"],
+  "AI TRiSM(AI Trust, Risk and Security Management)": ["/concept/hand/ai-trism-t1.webp", "/concept/hand/ai-trism-t2.webp", "/concept/hand/ai-trism-t3.webp"],
+  "MCP(Model Context Protocol)": ["/concept/hand/ai-mcp-t1.webp"],
+  "바이브코딩(Vibe Coding)": ["/concept/hand/ai-vibe-t1.webp"],
+  "에이전틱 AI(Agentic AI)": ["/concept/hand/ai-agentic-t1.webp"],
+  "추론 통계(Inferential Statistics)": ["/concept/hand/ai-inferential-t1.webp"],
+};
+
+export const handTablesFor = (title?: string): string[] => (title && HAND_TABLES[title]) || [];

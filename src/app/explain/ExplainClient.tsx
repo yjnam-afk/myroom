@@ -356,6 +356,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
   const gloss = data?.gloss;
   const topicId = data?.topicId;
   const hand = data?.hand ?? [];
+  const handTables = data?.handTables ?? [];
 
   // 답안지 2번 항목의 그림 이름 — 그림이 흐름·단계를 보여 주면 "절차"처럼 바꿔 쓴다.
   const diagramLabel = extra?.imagesLabel || "개념도";
@@ -764,6 +765,22 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
                   )}
                 </div>
               ))}
+              {/* 손글씨 표 — 정리 노트에서 잘라 온 것. 교재 표를 시험지에 몇 칸으로 줄여 쓰는지 본다. */}
+              {handTables.length > 0 && (
+                <div className="mt-3 space-y-2 pl-8">
+                  <p className="text-[11px] font-semibold text-slate-500">✍️ 손글씨 정리 노트 — 표</p>
+                  {handTables.map((src) => (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      key={src}
+                      src={src}
+                      alt={`${cur} 손글씨 표`}
+                      loading="lazy"
+                      className="w-full max-w-xl rounded-lg border border-amber-200 bg-white"
+                    />
+                  ))}
+                </div>
+              )}
 
               {/* 3. 플러스 알파 — 비고·출제 이력·두음 등 추가 어필 거리 */}
               {textbook.notes?.length ? (
