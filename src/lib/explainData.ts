@@ -267,6 +267,19 @@ function topicAnswers(title: string): TopicAnswer[] {
   return out;
 }
 
+/**
+ * 이 화면에 걸 답안지 — 제목에 걸린 것 + 화면이 보여 주는 교재 서브노트에 걸린 것.
+ * 예전 토픽 이름(「ISO 42001」「요구사항명세서」「Self-Attention메커니즘」)으로 열면 교재 내용은
+ * 서브노트에서 가져오는데 답안지는 그 이름에 걸린 것만 찾아서, 서브노트에 붙인 답안지가
+ * 안 보였다(2026-10-04 — 122개 중 115개 토픽).
+ */
+function peersFor(title: string, subnote?: string): PeerAnswer[] {
+  const own = peerAnswersFor(title);
+  if (!subnote || subnote === title) return own;
+  const seen = new Set(own.map((a) => a.id));
+  return [...own, ...peerAnswersFor(subnote).filter((a) => !seen.has(a.id))];
+}
+
 export function explainTopicData(rawTitle: string): ExplainTopicData {
   const title = rawTitle.trim();
   const t = TOPICS.find((x) => x.title === title);
@@ -290,7 +303,7 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
     gloss: glossFor(textbook),
     legacy,
     intro,
-    peers: peerAnswersFor(title),
+    peers: peersFor(title, textbook?.title),
     hist: examHistory(title),
     past: pastExams(title),
     mock: mockExams(title),
