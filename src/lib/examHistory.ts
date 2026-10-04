@@ -1,4 +1,5 @@
 import { latinEdgeOk } from "@/lib/latinEdge";
+import { TOPIC_ALIASES } from "@/lib/topicAliases";
 import questions from "@/data/questions.json";
 
 /**
@@ -13,13 +14,14 @@ import questions from "@/data/questions.json";
  *  - 괄호 속 영문 이름(흔한 한 낱말 제외)이 들어 있으면 출제된 것으로 본다.
  * 짧은 영문 약어(6자 이하)는 낱말 단위로만 맞춘다 — "OS"가 "OSPF"에 걸리지 않게.
  */
-import type { ExamAppearance, PastAppearance } from "@/lib/examHistoryUtil";
-export type { ExamAppearance, PastAppearance } from "@/lib/examHistoryUtil";
+import type { ExamAppearance, PastAppearance, MockAppearance } from "@/lib/examHistoryUtil";
+export type { ExamAppearance, PastAppearance, MockAppearance } from "@/lib/examHistoryUtil";
 export { ym, weekLabel, isRecent, summarize } from "@/lib/examHistoryUtil";
 
 type Q = {
   id: string;
   kind?: string;
+  source?: string;
   cohort?: string;
   round?: string;
   date?: string;
@@ -149,6 +151,7 @@ function keysOf(title: string): Keys {
     }
   }
   for (const k of EXTRA_ANY[title.trim()] ?? []) any.push(k);
+  for (const k of ALIAS_ANY[title.trim()] ?? []) any.push(k);
   return { all: Array.from(new Set(all)), any: Array.from(new Set(any)) };
 }
 
@@ -160,6 +163,14 @@ function keysOf(title: string): Keys {
 const TRAP: Record<string, RegExp> = {
   암호화: /암호화폐|암호화페/,
   개인정보보호: /개인정보보호위원회|개인정보보호법|개인정보영향평가/,
+  // 「OWASP Top 10:2025」(웹)과 「OWASP Top 10 for LLM」은 다른 토픽이다.
+  // 범정부 DRM(Data Reference Model)은 디지털 저작권 관리가 아니다.
+  // 결함허용 양자컴퓨팅·교착상태 회복·조건부 확률분포는 각각 다른 토픽이다.
+  결함허용: /결함허용양자|양자오류[^.]{0,40}결함허용/,
+  회복기법: /(?:deadlock|교착상태)회복기법/,
+  확률분포: /조건부확률분포/,
+  drm: /범정부drm|drmdatareferencemodel/,
+  owasptop10: /owasptop10(?:for)?(?:llm|대형언어|대규모언어)/,
 };
 
 function trapped(entry: { sq: string }, key: string): boolean {
@@ -232,7 +243,12 @@ const EXTRA_ANY: Record<string, string[]> = {
  * 손으로 붙인 열쇠는 짧은 영문이라도 낱말 단위가 아니라 통째로 찾는다.
  * "CI/CD" 는 낱말로 쪼개면 ci·cd 가 되어 "cicd" 열쇠가 영영 안 맞았다.
  */
-const HAND = new Set(Object.values(EXTRA_ANY).flat());
+/** topicAliases.ts 의 다른 표기 — 사람이 읽는 표기로 적어 두고 여기서 눌러 쓴다. */
+const ALIAS_ANY: Record<string, string[]> = Object.fromEntries(
+  Object.entries(TOPIC_ALIASES).map(([t, ks]) => [t, ks.map(squeeze).filter((k) => k.length >= 2)]),
+);
+
+const HAND = new Set([...Object.values(EXTRA_ANY).flat(), ...Object.values(ALIAS_ANY).flat()]);
 
 const edgeOk = (e: Entry, k: string) => latinEdgeOk(e.low, k) || latinEdgeOk(e.lows, k);
 
@@ -240,14 +256,17 @@ function has(entry: Entry, key: string): boolean {
   if (isLatin(key) && !/\s/.test(key) && key.length <= 6 && !HAND.has(key))
     return entry.tokens.has(key);
   // 영문 낱말 경계도 본다 — "aiagent" 가 "AI(Agentic" 에 맞지 않게(latinEdge.ts).
-  if (variants(key).some((k) => entry.sq.includes(k) && edgeOk(entry, k))) return true;
+  // 괄호 병기를 걷어낸 본문(sqs)도 본다 — "프로세스(Process)와쓰레드" 는 sq 로는
+  // "프로세스와쓰레드" 가 아니다.
+  if (variants(key).some((k) => (entry.sq.includes(k) || entry.sqs.includes(k)) && edgeOk(entry, k)))
+    return true;
   const re = GAP.get(key);
   return re ? re.test(entry.sq) || re.test(entry.sqs) : false;
 }
 
 function hit(entry: Entry, keys: Keys): boolean {
   if (keys.all.length && keys.all.every((k) => has(entry, k) && !trapped(entry, k))) return true;
-  return keys.any.some((k) => has(entry, k));
+  return keys.any.some((k) => has(entry, k) && !trapped(entry, k));
 }
 
 /**
@@ -367,5 +386,33 @@ export function questionIdsForTitle(title: string): string[] {
   const out =
     keys.all.length || keys.any.length ? ALL.filter((e) => hit(e, keys)).map((e) => e.id) : [];
   allCache.set(t, out);
+  return out;
+}
+
+const Q_BY_ID = new Map((questions as Q[]).map((q) => [q.id, q]));
+const KIND_ORDER: Record<string, number> = { 모의고사: 0, 파이널: 1, 셀테: 2 };
+const mockCache = new Map<string, MockAppearance[]>();
+
+/**
+ * NS·기술사 기출 밖에서 나온 문항 — ITPE 모의고사·파이널·셀테.
+ * 토픽 화면 출제 카드가 NS·기출만 보여서, 모의고사·파이널에만 나온 토픽(AI 신기술이
+ * 대부분이다)은 "출제 이력 없음"으로 보였다(2026-10-04 검수: 서브노트 68개).
+ */
+export function mockExams(title: string): MockAppearance[] {
+  const t = (title || "").trim();
+  const c = mockCache.get(t);
+  if (c) return c;
+  const out: MockAppearance[] = [];
+  for (const id of questionIdsForTitle(t)) {
+    const q = Q_BY_ID.get(id);
+    if (!q || q.kind === "NS모의" || /^k\d/.test(id) || !(q.kind && q.kind in KIND_ORDER)) continue;
+    out.push({ id, kind: q.kind, source: q.source || q.round || "", text: q.text });
+  }
+  out.sort(
+    (a, b) =>
+      KIND_ORDER[a.kind] - KIND_ORDER[b.kind] ||
+      b.source.localeCompare(a.source, "ko", { numeric: true }),
+  );
+  mockCache.set(t, out);
   return out;
 }

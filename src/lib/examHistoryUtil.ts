@@ -20,6 +20,14 @@ export type PastAppearance = {
   text: string;
 };
 
+/** NS·기술사 기출 밖의 문제은행 출제 — ITPE 모의고사·파이널·셀테 등 */
+export type MockAppearance = {
+  id: string;
+  kind: string;    // "모의고사" | "파이널" | "셀테"
+  source: string;  // "ITPE_2026.07 1교시", "43회 모의 1교시"
+  text: string;
+};
+
 /** "2026-05-03" → "26.05" */
 export const ym = (d: string) => (d ? `${d.slice(2, 4)}.${d.slice(5, 7)}` : "");
 

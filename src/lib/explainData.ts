@@ -26,11 +26,13 @@ import { peerAnswersFor, type PeerAnswer } from "@/data/peerAnswers";
 import {
   examHistory,
   pastExams,
+  mockExams,
   questionIdsForTitle,
   summarize,
   LATEST_PAST_ROUND,
   type ExamAppearance,
   type PastAppearance,
+  type MockAppearance,
 } from "@/lib/examHistory";
 import { getModelAnswer } from "@/lib/modelAnswers";
 import allQuestions from "@/data/questions.json";
@@ -116,6 +118,8 @@ export type ExplainTopicData = {
   peers: PeerAnswer[];
   hist: ExamAppearance[];
   past: PastAppearance[];
+  /** NS·기출 밖 문제은행(ITPE 모의고사·파이널·셀테) 출제 */
+  mock: MockAppearance[];
   mapSets: MapLink[];
   mapTables: MemoryTable[];
   /** 이 토픽으로 나온 문항 중 모범답안이 있는 것 — 토픽에서 바로 답안으로 간다 */
@@ -289,6 +293,7 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
     peers: peerAnswersFor(title),
     hist: examHistory(title),
     past: pastExams(title),
+    mock: mockExams(title),
     mapSets: compareSetsFor(title),
     mapTables: memoryTablesFor(title),
     answers: topicAnswers(title),

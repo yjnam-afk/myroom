@@ -6,6 +6,7 @@ import {
   summarize,
   type ExamAppearance,
   type PastAppearance,
+  type MockAppearance,
 } from "@/lib/examHistoryUtil";
 import { AppearanceList } from "./ExamHistoryList";
 
@@ -35,6 +36,23 @@ function PastExamList({ items }: { items: PastAppearance[] }) {
   );
 }
 
+/** ITPE 모의고사·파이널·셀테 출제 — 출처(회차·교시)와 문제 문구. */
+function MockExamList({ items }: { items: MockAppearance[] }) {
+  return (
+    <ul className="divide-y divide-slate-100">
+      {items.map((m) => (
+        <li key={m.id} className="px-5 py-3 text-[13px]">
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className="rounded bg-amber-100 px-1.5 py-0.5 font-bold text-amber-800">{m.kind}</span>
+            <span className="text-slate-500">{m.source}</span>
+          </div>
+          <p className="mt-1 whitespace-pre-line break-words leading-relaxed text-slate-800">{m.text}</p>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 /**
  * 토픽 설명 화면의 카드. NS 이력도 기출도 없으면 아무것도 그리지 않는다.
  * 이력은 서버(explainData)에서 찾아 props 로 받는다 — 문제은행을 번들에 싣지 않기 위해.
@@ -42,13 +60,18 @@ function PastExamList({ items }: { items: PastAppearance[] }) {
 export function ExamHistoryCard({
   hist,
   past,
+  mock = [],
 }: {
   hist: ExamAppearance[];
   past: PastAppearance[];
+  /** NS·기출 밖 문제은행 출제. NS·기출이 있으면 접어 두고, 없으면 펼친다. */
+  mock?: MockAppearance[];
 }) {
   const [all, setAll] = useState(false);
   const [allPast, setAllPast] = useState(false);
-  if (hist.length === 0 && past.length === 0) return null;
+  const [allMock, setAllMock] = useState(false);
+  if (hist.length === 0 && past.length === 0 && mock.length === 0) return null;
+  const shownMock = allMock ? mock : mock.slice(0, hist.length || past.length ? 3 : 5);
   const s = summarize(hist);
   const shown = all ? hist : hist.slice(0, 5);
   const shownPast = allPast ? past : past.slice(0, 5);
@@ -111,6 +134,32 @@ export function ExamHistoryCard({
               </button>
             </div>
           )}
+        </>
+      )}
+
+      {/* ITPE 모의고사·파이널 — NS·기출에 없는 신기술 토픽은 여기에만 나온다 */}
+      {mock.length > 0 && (
+        <>
+          <div className={`px-5 py-3 ${hist.length + past.length > 0 ? "border-t border-slate-100" : ""} bg-amber-50/60`}>
+            <h3 className="text-sm font-bold text-slate-800">🗂️ ITPE 모의고사·파이널 출제 {mock.length}회</h3>
+            <p className="mt-0.5 text-xs text-slate-500">
+              {hist.length + past.length > 0
+                ? "NS·기출 밖에서 나온 문제입니다."
+                : "NS 주간 모의고사·기술사 기출에는 아직 안 나왔고, 학원 모의고사·파이널에 나온 문제입니다."}
+            </p>
+          </div>
+          <MockExamList items={shownMock} />
+          {mock.length > shownMock.length || allMock ? (
+            <div className="border-t border-slate-100 px-4 py-2 text-xs">
+              <button
+                type="button"
+                onClick={() => setAllMock((v) => !v)}
+                className="font-medium text-brand-700 hover:underline"
+              >
+                {allMock ? "접기" : `${mock.length - shownMock.length}건 더 보기`}
+              </button>
+            </div>
+          ) : null}
         </>
       )}
 

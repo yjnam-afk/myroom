@@ -1086,7 +1086,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
             먼저 볼 자료다(배점 대비 점수와 빨간 첨삭이 곧 채점 기준). */}
         <PeerAnswers items={data?.peers ?? []} />
 
-        <ExamHistoryCard hist={data?.hist ?? []} past={data?.past ?? []} />
+        <ExamHistoryCard hist={data?.hist ?? []} past={data?.past ?? []} mock={data?.mock ?? []} />
 
         <TopicMapCard title={cur} sets={data?.mapSets ?? []} tables={data?.mapTables ?? []} />
 
