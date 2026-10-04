@@ -355,6 +355,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
   const intro = data?.intro;
   const gloss = data?.gloss;
   const topicId = data?.topicId;
+  const hand = data?.hand ?? [];
 
   // 답안지 2번 항목의 그림 이름 — 그림이 흐름·단계를 보여 주면 "절차"처럼 바꿔 쓴다.
   const diagramLabel = extra?.imagesLabel || "개념도";
@@ -669,7 +670,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
                   2. {textbook.title.replace(/\s*\([^)]*\)/g, "")}의 {diagramLabel} 및
                   구성요소
                 </p>
-                {(extra?.image || extra?.images?.length) && (
+                {(extra?.image || extra?.images?.length || hand.length > 0) && (
                   <p className="mt-1 pl-4 text-[13px] leading-relaxed text-slate-600">
                     <span className="mr-1 font-bold text-slate-500">
                       가. {extra?.images?.length ? diagramLabel : "개념도"}
@@ -695,12 +696,28 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
                     ))}
                   </div>
                 )}
+                {/* 손글씨 개념도 — 정리 노트에서 잘라 온 것. 시험지에 이 정도로 줄여 그리면 된다. */}
+                {hand.length > 0 && (
+                  <div className="mt-2 space-y-2 pl-4">
+                    <p className="text-[11px] font-semibold text-slate-500">✍️ 손글씨 정리 노트</p>
+                    {hand.map((src) => (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        key={src}
+                        src={src}
+                        alt={`${cur} 손글씨 개념도`}
+                        loading="lazy"
+                        className="w-full max-w-xl rounded-lg border border-amber-200 bg-white"
+                      />
+                    ))}
+                  </div>
+                )}
               </div>
               {textbook.tables.map((tb, ti) => (
                 <div key={tb.caption} className="mt-3 pl-4">
                   <p className="text-[13px] font-bold leading-relaxed text-slate-700">
                     {["가", "나", "다", "라", "마", "바", "사"][
-                      ti + (extra?.image || extra?.images?.length ? 1 : 0)
+                      ti + (extra?.image || extra?.images?.length || hand.length > 0 ? 1 : 0)
                     ]}
                     . {tb.caption}
                   </p>

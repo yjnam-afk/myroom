@@ -21,6 +21,7 @@ import {
   type TextbookSubnote,
 } from "@/data/textbookSubnotes";
 import { subnoteExtraFor, type SubnoteExtra } from "@/data/subnoteExtras";
+import { handDiagramsFor } from "@/data/handDiagrams";
 import glossData from "@/data/gloss.json";
 import { peerAnswersFor, type PeerAnswer } from "@/data/peerAnswers";
 import {
@@ -118,6 +119,8 @@ export type ExplainTopicData = {
   peers: PeerAnswer[];
   hist: ExamAppearance[];
   past: PastAppearance[];
+  /** 손글씨 정리 노트에서 잘라 낸 개념도 */
+  hand: string[];
   /** NS·기출 밖 문제은행(ITPE 모의고사·파이널·셀테) 출제 */
   mock: MockAppearance[];
   mapSets: MapLink[];
@@ -304,6 +307,7 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
     legacy,
     intro,
     peers: peersFor(title, textbook?.title),
+    hand: handDiagramsFor(textbook?.title ?? title),
     hist: examHistory(title),
     past: pastExams(title),
     mock: mockExams(title),
