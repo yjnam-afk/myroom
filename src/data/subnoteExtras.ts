@@ -344,6 +344,8 @@ const TITLE_SLUG: Record<string, string> = {
   "비지상네트워크(NTN, Non-Terrestrial Networks)": "nw-ntn",
   "Wi-Fi 7(IEEE 802.11be)": "nw-wifi7",
   "Wi-Fi 8(IEEE 802.11bn)": "nw-wifi8",
+  "ISAC(Integrated Sensing and Communication)": "nw-isac",
+  "Hyper-AI 네트워크": "nw-hyper-ai",
   "Passive WiFi": "nw-passive-wifi",
   "SDN(Software Defined Network)": "nw-sdn",
   // ── 5주차 데이터베이스(DB) ──
@@ -10015,6 +10017,8 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
       ],
       exam: "Wi-Fi 7(802.11be)은 320MHz 채널·4096-QAM·다중 링크(MLO)로 최대 46Gbps급 속도와 저지연을 제공하는 무선랜 표준으로, XR·고화질 응용을 겨냥한다.",
     }, image: "/concept/book/nw-wifi7.png", easy: "Wi-Fi 6보다 3배 빠른 30Gbps급 무선랜 표준으로, 정식 명칭은 IEEE 802.11be, 별칭은 EHT(Extremely High Throughput)입니다. 속도가 3배가 된 이유를 세 갈래로 보면 됩니다: 대역폭이 160MHz → 320MHz로 2배, 안테나가 MU-MIMO 8×8 → 16×16으로 2배, 변조가 1024QAM → 4096QAM(12bit 반송파 변조)로 20% 향상. 여기에 6GHz 비면허 대역이 추가돼 쓸 수 있는 주파수가 넓어졌습니다(2.4/5/6GHz). 나머지 기술요소도 짝이 있습니다 — MAC 쪽은 AP 간 다중협력통신(AP끼리 데이터·제어 정보를 공유), 하이브리드 ARQ(추가 패리티로 재전송 효율 개선), In-Band Full-Duplex(송·수신 동시)이고, PHY 쪽은 혼합 빔포밍(320MHz 광대역을 협대역 여러 개로 나눠 프리코딩)입니다." },
+"nw-isac": { image: "/concept/book/nw-isac.png", images: ["/concept/diagram/nw-isac.webp"], imagesLabel: "동작 프레임워크" },
+"nw-hyper-ai": { image: "/concept/book/nw-hyper-ai.png" },
 "nw-wifi8": {
     guide: {
       hook: "속도보다 '신뢰성·초저지연(UHR)'에 초점을 맞춘 차세대 Wi-Fi 8(802.11bn)입니다.",

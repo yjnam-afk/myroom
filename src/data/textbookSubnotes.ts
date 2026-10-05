@@ -15620,6 +15620,44 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
+    topicId: "net-192",
+    title: "ISAC(Integrated Sensing and Communication)",
+    course: "NW",
+    definition:
+      "밀리미터파, 서브-테라헤르츠 대역의 넓은 대역폭을 활용하여, 단일 신호 및 하드웨어 인프라를 통해 초고속 **데이터 송수신과 주변 환경의 고정밀 감지(Sensing)를 동시에 수행**하는 6G 핵심 네트워크 프레임워크",
+    defShort: "데이터 송수신과 주변 환경 고정밀 감지를 동시에 수행하는 6G 프레임워크",
+    lead: "통신과 감지의 통합, ISAC",
+    features: ["통신·감지 동시", "단일 신호·HW 공유", "고정밀 환경 감지"],
+    keywords: ["밀리미터파", "서브-테라헤르츠 대역", "RIS", "Open FH", "초정밀 SLAM"],
+    notes: [
+      "동작 프레임워크: 응용 서비스 계층(초정밀 위치 서비스·지능형 산업 인프라·차세대 통신 경험) ⇅ Network Slice 할당, SLAM 정보 ⇅ 통합설계/지능화 계층(채널 모델링/신호처리·파형, 신호 재사용·AI/ML엔진) ⇅ Open FH(Front-Haul) ⇅ 인프라 및 자원계층(RIS·XL-MIMO, 빔포밍·Sub-6GHz, New Mid-band)",
+    ],
+    tables: [
+      {
+        caption: "기술 요소",
+        headers: ["계층", "핵심 기술", "설명"],
+        nameCol: 1,
+        rows: [
+          ["응용 서비스", "디지털트윈\nSDN, NFV", "실시간 위치·환경 데이터 기반\n디지털 트윈 구현\n산업별 맞춤형 가치 서비스 제공"],
+          ["통합설계/지능화", "NWDAF, MEC\nNetwork Slicing\nAI/ML, ZTNA, PQC", "AI·MEC 활용 센싱 데이터 분석\n통신·감지 간 자원 활용 최적화"],
+          ["인프라 및 자원", "O-RAN, SDR\nXL-MIMO, RIS\nNTN 비지상 네트워크", "6G 주파수·지능형 안테나 기술\n물리적 신호 전송 기반 구축\n고정밀 환경 감지 기반 구축"],
+        ],
+      },
+      {
+        caption: "ISAC 기술 구현 과제와 해결방안",
+        headers: ["항목", "기술 구현 과제", "해결 방안"],
+        // 해결 방안은 교재 문장 그대로 — 7칸으로 줄이면 「알고리즘 적용」「무선주파수 집적회로」가 잘린다.
+        nameCol: 2,
+        rows: [
+          ["신호처리", "복잡한 신호 처리\n간섭 제어", "통합 파형 설계\n신호 재구성 알고리즘 적용"],
+          ["하드웨어 설계", "통신·감지 통합\n단일 칩셋 설계", "무선주파수 집적회로로의\n단일 칩셋 설계"],
+          ["스펙트럼 규제", "기존 주파수할당\n규제 체계 재검토", "Network Slicing 기술로\n동적 자원 할당"],
+          ["보안 및 프라이버시", "사용자 위치\n민감 정보 보호", "물리계층 보안\nSLAM 정보 부분 추출 활용"],
+        ],
+      },
+    ],
+  },
+  {
     title: "디지털 트윈 네트워크(Digital Twin Network)",
     course: "NW",
     definition:
@@ -15661,6 +15699,48 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
     ],
     notes: ["참조 아키텍처: Network application(Network innovation·visualization·validation·management·optimization) ↕ Capability exposure/Intent input ↕ Network digital twin(Unified data repository + Unified data models(Basic/Functional model) + DT entity Mgmt) ↕ Data collection/Control ↕ Physical network"],
+  },
+  {
+    title: "Hyper-AI 네트워크",
+    course: "NW",
+    definition:
+      "AI, 에이전트, 피지컬 AI 시대의 대규모 데이터, 컴퓨팅을 초저지연, 초대역폭으로 연결하기 위해, **6G, AI기지국, 백본망, 해저케이블을 포함한 국가 네트워크를 전면 고도화하는 구축 전략**",
+    defShort: "6G·AI기지국·백본망·해저케이블 포함 국가 네트워크 전면 고도화 구축 전략",
+    lead: "초지능·초성능 네트워크, Hyper-AI 네트워크",
+    features: ["초저지연·초대역폭", "전면 고도화", "AI 산업 생태계 주도"],
+    keywords: ["6G", "AI네트워크 산업 1등 국가", "세계 최고 수준의 초지능, 초성능 네트워크 전면 구축"],
+    tables: [
+      {
+        caption: "하이퍼(Hyper) AI 네트워크 전략의 양대 목표",
+        headers: ["목표", "설명"],
+        rows: [
+          ["세계 최고 수준의 초지능, 초성능 네트워크 전면 구축", "6G·AI기지국·백본망 확충\n해저케이블 확충\n피지컬 AI 실시간 활용\n초저지연·초연결 국가 네트워크"],
+          ["6G, AI네트워크 산업 1등 국가", "선제적 R&D·대규모 실증\n수요 창출\n6G·AI네트워크 핵심 기술 주도\n산업 생태계·글로벌 시장 선도"],
+        ],
+      },
+      {
+        caption: "향후 추진과제",
+        headers: ["구분", "As-Is", "중간 목표", "최종 목표"],
+        rows: [
+          ["6G 표준", "5G 표준특허\n2위(26%)", "2028 6G 표준특허\n20% 선점", "2030 6G 표준특허 30% 선점\n점유율 1위 국가"],
+          ["글로벌 시장진출", "글로벌 RAN시장\n점유율 5%", "2028 글로벌 RAN시장\n점유율 10%", "2030 글로벌 RAN시장\n점유율 20%"],
+          ["기업 육성", "매출액 1,000억원\n기업 10개", "2028 매출액 3,000억\n기업 7개 육성", "2030 매출액 5,000억\n기업 5개 육성"],
+        ],
+      },
+      {
+        caption: "추진방향",
+        headers: ["목표", "추진방향", "설명"],
+        nameCol: 1,
+        rows: [
+          ["세계 최고 수준의 초지능, 초성능 네트워크 전면 구축", "이동통신 인프라 고도화", "'30년 6G 상용화 목표\n5G를 '26년 단독모드(SA)로 전환\n지능형 기지국(AI-RAN) 구축\n'30년 전국 거점 500개 이상"],
+          ["세계 최고 수준의 초지능, 초성능 네트워크 전면 구축", "유선(광)통신망 대용량, 지능화", "백본망 용량 4배 이상 확대\n운영 지능화·자동화\n광케이블 보급률 98%('30)"],
+          ["세계 최고 수준의 초지능, 초성능 네트워크 전면 구축", "국제망 경쟁력 강화", "해저케이블 용량 2배 이상 확대\n(110→220Tbps)\n저궤도 위성통신 핵심기술 확보\n지상·비지상 통합 국제망 구축"],
+          ["6G, AI네트워크 산업 1등 국가", "기술 개발", "'24~'28년 6G 핵심기술 R&D\n표준특허 점유율 30% 목표\n'26~'30년 AI네트워크 기술 개발\n'28~'32년 완전자율 지능형 기술"],
+          ["6G, AI네트워크 산업 1등 국가", "수요 창출", "5대 분야 선도 실증('26~'31)\n물리적·종합적 AI 서비스 확산\n산업 초기 수요 창출"],
+          ["6G, AI네트워크 산업 1등 국가", "제도 개선", "6G·AI-RAN R&D·투자 세제 혜택\n5G/6G 주파수 재할당·신규 공급\n6G 주파수 전략 수립('28)\n저전력·친환경 기지국 인증제"],
+        ],
+      },
+    ],
   },
   {
     title: "비지상네트워크(NTN, Non-Terrestrial Networks)",
