@@ -131340,6 +131340,116 @@
   ]
  },
  {
+  "id": "ns19w01-101",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "kind": "NS모의",
+  "round": "01주차",
+  "cohort": "19기",
+  "date": "2026-09-06",
+  "text": "다크 팩토리(Dark Factory)"
+ },
+ {
+  "id": "ns19w01-102",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "01주차",
+  "cohort": "19기",
+  "date": "2026-09-06",
+  "text": "ATAM(Architecture Trade-off Analysis Method)"
+ },
+ {
+  "id": "ns19w01-103",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "01주차",
+  "cohort": "19기",
+  "date": "2026-09-06",
+  "text": "PMC(Project Management Consultancy)와 PMO(Project Management Office) 비교"
+ },
+ {
+  "id": "ns19w01-104",
+  "period": "1교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "01주차",
+  "cohort": "19기",
+  "date": "2026-09-06",
+  "text": "디지털 포렌식(Digital Forensics)"
+ },
+ {
+  "id": "ns19w01-105",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "01주차",
+  "cohort": "19기",
+  "date": "2026-09-06",
+  "text": "CI/CD(Continuous Integration/Continuous Delivery, Deployment)"
+ },
+ {
+  "id": "ns19w01-106",
+  "period": "1교시",
+  "category": "네트워크",
+  "kind": "NS모의",
+  "round": "01주차",
+  "cohort": "19기",
+  "date": "2026-09-06",
+  "text": "5 세대 이동통신 네트워크 슬라이싱(5G Network Slicing)"
+ },
+ {
+  "id": "ns19w01-107",
+  "period": "1교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "01주차",
+  "cohort": "19기",
+  "date": "2026-09-06",
+  "text": "개인정보보호위원회 『가명정보 처리 가이드라인』 상의 가명정보 처리 단계"
+ },
+ {
+  "id": "ns19w01-201",
+  "period": "2교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "01주차",
+  "cohort": "19기",
+  "date": "2026-09-06",
+  "text": "국내 다양한 규제에 따른 정보보호 컴플라이언스에 대하여 다음을 설명하시오.\n가. 정보보호 컴플라이언스 개념\n나. 정보보호 컴플라이언스 필요성\n다. 정보보호 컴플라이언스 대응 방안"
+ },
+ {
+  "id": "ns19w01-202",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "kind": "NS모의",
+  "round": "01주차",
+  "cohort": "19기",
+  "date": "2026-09-06",
+  "text": "AI 모델 학습에 필요한 대규모 데이터 확보가 개인정보 보호 규제 및 데이터 부족으로 어려워짐 에 따라, 실데이터의 통계적 특성을 모사한 합성데이터(Synthetic Data)의 활용이 확대되고 있다. 다음을 설명하시오.\n가. 합성 데이터의 개념과 생성 기법\n나. 합성 데이터의 품질 평가 지표"
+ },
+ {
+  "id": "ns19w01-203",
+  "period": "2교시",
+  "category": "인공지능",
+  "kind": "NS모의",
+  "round": "01주차",
+  "cohort": "19기",
+  "date": "2026-09-06",
+  "text": "피지컬 AI(Physical AI)에 대한 다음 사항들을 설명하시오.\n가. 피지컬 AI 의 개념\n나. 피지컬 AI 와 전통적 산업용 로봇의 비교\n다. 피지컬 AI 와 소프트웨어 기반 AI 의 비교"
+ },
+ {
+  "id": "ns19w01-204",
+  "period": "2교시",
+  "category": "컴퓨터구조",
+  "kind": "NS모의",
+  "round": "01주차",
+  "cohort": "19기",
+  "date": "2026-09-06",
+  "text": "가용성(Availability) Five Nines(99.999%) 달성을 위한 이중화 아키텍처 구조와 위험요소, 성능 평가 방안을 설명하시오."
+ },
+ {
   "id": "ns19w02-101",
   "period": "1교시",
   "category": "컴퓨터구조",
