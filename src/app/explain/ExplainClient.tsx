@@ -1122,6 +1122,37 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
 
         <ExamHistoryCard hist={data?.hist ?? []} past={data?.past ?? []} mock={data?.mock ?? []} />
 
+        {/* 교재 밖 비교표 — 슬라이드에 없는 짝 비교. 교재 표와 섞이지 않게 따로 그린다. */}
+        {(data?.extraCompares ?? []).map((c) => (
+          <section key={c.title} className="mb-6 overflow-hidden rounded-2xl border-2 border-violet-200 bg-white shadow-sm">
+            <div className="flex items-center gap-2 bg-violet-50 px-5 py-3">
+              <h3 className="text-sm font-bold text-violet-900">📊 {c.title} 비교</h3>
+              <span className="rounded bg-violet-200 px-1.5 py-0.5 text-[10px] font-bold text-violet-800">교재 외</span>
+            </div>
+            <div className="overflow-x-auto px-5 py-3">
+              <table className="w-full border-collapse text-[13px]">
+                <thead>
+                  <tr>
+                    {c.headers.map((h) => (
+                      <th key={h} className="border border-slate-200 bg-slate-50 px-2 py-1.5 text-left font-semibold text-slate-700">{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {c.rows.map((r, i) => (
+                    <tr key={i}>
+                      {r.map((cell, j) => (
+                        <td key={j} className={`whitespace-pre border border-slate-200 px-2 py-1.5 align-top ${j === 0 ? "font-semibold text-slate-700" : "text-slate-800"}`}>{cell}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              {c.note && <p className="mt-2 text-xs text-slate-500">– {c.note}</p>}
+            </div>
+          </section>
+        ))}
+
         <TopicMapCard title={cur} sets={data?.mapSets ?? []} tables={data?.mapTables ?? []} />
 
         {data?.nav && <TopicNav nav={data.nav} onGo={goTopic} where="bottom" />}

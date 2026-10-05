@@ -22,6 +22,7 @@ import {
 } from "@/data/textbookSubnotes";
 import { subnoteExtraFor, type SubnoteExtra } from "@/data/subnoteExtras";
 import { handDiagramsFor, handTablesFor } from "@/data/handDiagrams";
+import { extraComparesFor, type ExtraCompare } from "@/data/extraCompares";
 import glossData from "@/data/gloss.json";
 import { peerAnswersFor, type PeerAnswer } from "@/data/peerAnswers";
 import {
@@ -127,6 +128,8 @@ export type ExplainTopicData = {
   mock: MockAppearance[];
   mapSets: MapLink[];
   mapTables: MemoryTable[];
+  /** 교재 밖 비교표(교재 외 표시) */
+  extraCompares: ExtraCompare[];
   /** 이 토픽으로 나온 문항 중 모범답안이 있는 것 — 토픽에서 바로 답안으로 간다 */
   answers: TopicAnswer[];
   /** 같은 과목 안에서 앞뒤 토픽 — 학습계획 순서대로 넘겨 본다 */
@@ -316,6 +319,7 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
     mock: mockExams(title),
     mapSets: compareSetsFor(title),
     mapTables: memoryTablesFor(title),
+    extraCompares: extraComparesFor(textbook?.title ?? title),
     answers: topicAnswers(title),
     nav: navFor(textbook, t),
   };
