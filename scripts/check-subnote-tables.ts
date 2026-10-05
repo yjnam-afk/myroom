@@ -18,6 +18,7 @@
  *    그린다). 한 열만 목록인 교재 표도 있으므로 어긋나면 경고만 낸다.
  */
 import { SUBNOTES } from "../src/data/textbookSubnotes";
+import { subnoteExtraFor } from "../src/data/subnoteExtras";
 
 /** 한글 1칸, 영문·숫자·기호 반 칸, 공백은 세지 않는다. */
 const width = (s: string) =>
@@ -72,5 +73,9 @@ for (const s of SUBNOTES) {
 }
 for (const e of errs) console.log(e);
 if (warns.length) console.log(`줄 수가 짝이 안 맞는 행 ${warns.length}개(경고)`);
+// 교재 슬라이드 원본이 안 붙은 서브노트 — 슬라이드와 대조한 적이 없다는 뜻이다(2026-10-05: CSMA/CA 가
+// 슬라이드 없이 지어 낸 정의·표로 남아 있었다). 슬라이드를 받아 붙이고 서브노트를 맞춘다.
+const noSlide = SUBNOTES.filter((s) => !subnoteExtraFor(s.topicId, s.title)?.image).map((s) => s.title);
+if (noSlide.length) console.log(`교재 슬라이드 없는 서브노트 ${noSlide.length}개(경고): ${noSlide.join(" / ")}`);
 console.log(`표 ${tables}개 · 행 ${rows}개 검사, 오류 ${errs.length}건 ${errs.length ? "FAIL" : "PASS"}`);
 process.exit(errs.length ? 1 : 0);

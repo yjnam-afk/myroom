@@ -19421,52 +19421,48 @@
   "category": "네트워크",
   "importance": "중",
   "source": "심화반",
-  "definition": "무선 LAN 환경에서 충돌 감지가 어려운 특성을 고려하여, 전송 전에 회선을 감시하고 충돌을 사전에 회피하는 매체 접근 제어 프로토콜",
-  "defShort": "무선 LAN에서 전송 전 회선 감시로 충돌 피하는 매체 접근 프로토콜",
-  "memo": "핵심 한 줄: 유선은 부딪히면 알아채고 다시 보내지만(CD), 무선은 부딪혔는지 알 수 없으니 아예 안 부딪히게 예약하고 확인받는다(CA)",
+  "definition": "**무선랜** 환경에서 회선 상태를 모니터링하여 **충돌을 미리 예측, 충돌 가능성을 최소화**하는 접속기법",
+  "defShort": "무선랜 회선 모니터링, 충돌 미리 예측·가능성 최소화 접속기법",
+  "memo": "동작 흐름도: 송신측 DIFS 후 RTS → 수신측 SIFS 후 CTS → 송신측 SIFS 후 Data → 수신측 SIFS 후 ACK, 다른 노드들은 NAV(RTS)·NAV(CTS) 동안 매체 접근 연기 후 DIFS·경쟁 윈도우",
   "sections": [
    {
     "label": "교재 키워드",
     "mnemonic": "",
     "keywords": [
-     "충돌 회피",
-     "IFS",
-     "RTS/CTS",
-     "NAV",
-     "Back-off",
-     "ACK"
-    ]
-   },
-   {
-    "label": "CSMA/CD와 CSMA/CA 비교",
-    "mnemonic": "",
-    "keywords": [
-     "적용 환경",
-     "핵심 개념",
-     "충돌 감지",
-     "주요 기법"
-    ]
-   },
-   {
-    "label": "주요 기술 요소",
-    "mnemonic": "",
-    "keywords": [
-     "IFS(Inter Frame Space)",
-     "Back-off",
+     "DIFS",
      "RTS",
-     "NAV(Network Allocation Vector)",
-     "ACK"
+     "SIFS",
+     "CTS",
+     "SIFS(NAV)"
+    ]
+   },
+   {
+    "label": "동작 절차",
+    "mnemonic": "",
+    "keywords": [
+     "채널 사용 여부 검사",
+     "IFS(Inter Frame Space) 주기 동안 대기",
+     "Back off time 동안 대기",
+     "프레임 전송",
+     "ACK 메시지 수신"
+    ]
+   },
+   {
+    "label": "IFS (Inter Frame Space)와 Contention wind",
+    "mnemonic": "",
+    "keywords": [
+     "IFS (Inter Frame Space)",
+     "경쟁 윈도우 (Contention Window)"
     ]
    }
   ],
   "mnemonic": "",
   "keywords": [
-   "충돌 회피",
-   "IFS",
-   "RTS/CTS",
-   "NAV",
-   "Back-off",
-   "ACK"
+   "DIFS",
+   "RTS",
+   "SIFS",
+   "CTS",
+   "SIFS(NAV)"
   ]
  },
  {

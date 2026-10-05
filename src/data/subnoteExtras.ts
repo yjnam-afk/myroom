@@ -10436,7 +10436,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "Wi-Fi 7(IEEE 802.11be)", how: "최신 Wi-Fi의 매체 접근 기반입니다." },
       ],
       exam: "CSMA/CA는 무선에서 충돌 감지가 불가능해 백오프·RTS/CTS로 충돌을 회피하고 ACK로 성공을 확인하는 Wi-Fi 접근 방식으로, 숨은 단말 문제에 대응한다.",
-    }, easy: "무선 LAN(Wi-Fi)의 매체 접근 방식입니다. 유선(CSMA/CD)은 부딪히면 알아채고 다시 보내지만, 무선은 자기 송신 신호가 너무 커서 충돌을 감지할 수 없습니다 — 그래서 아예 안 부딪히게 예방(Avoidance)합니다. 기법: IFS(채널이 비어도 곧바로 안 보내고 일정 시간 대기 — 우선순위 부여) → Back-off(추가로 임의 시간 대기해 동시 전송 확률↓) → RTS/CTS(송신 요청과 수신 준비 완료를 주고받아 채널 예약 — 서로 안 보이는 단말끼리 부딪히는 히든 노드 문제 해결) → NAV(그 대화를 엿들은 다른 단말은 그동안 자제) → ACK(충돌 감지가 불가하니 수신 확인으로 성공 여부 판단, 없으면 재전송). 한 줄: CD=부딪히면 감지, CA=예약하고 확인받기." },
+    }, image: "/concept/book/nw-csma-ca.png", images: ["/concept/diagram/nw-csma-ca.webp", "/concept/diagram/nw-csma-ca-ifs.webp"], imagesLabel: "동작 흐름도", easy: "무선 LAN(Wi-Fi)의 매체 접근 방식입니다. 유선(CSMA/CD)은 부딪히면 알아채고 다시 보내지만, 무선은 자기 송신 신호가 너무 커서 충돌을 감지할 수 없습니다 — 그래서 아예 안 부딪히게 예방(Avoidance)합니다. 기법: IFS(채널이 비어도 곧바로 안 보내고 일정 시간 대기 — 우선순위 부여) → Back-off(추가로 임의 시간 대기해 동시 전송 확률↓) → RTS/CTS(송신 요청과 수신 준비 완료를 주고받아 채널 예약 — 서로 안 보이는 단말끼리 부딪히는 히든 노드 문제 해결) → NAV(그 대화를 엿들은 다른 단말은 그동안 자제) → ACK(충돌 감지가 불가하니 수신 확인으로 성공 여부 판단, 없으면 재전송). 한 줄: CD=부딪히면 감지, CA=예약하고 확인받기." },
 "nw-multiplexing": {
     guide: {
       hook: "하나의 회선에 '여러 신호를 함께 실어' 자원을 나눠 쓰는 기술입니다.",
