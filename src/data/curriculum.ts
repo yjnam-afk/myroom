@@ -609,10 +609,11 @@ const NW_ALL: CurriculumTopic[] = [
 ];
 
 // 4주차도 과목 경계 유지 — 자료구조/알고리즘을 섞지 않는다.
+// 순서는 네트워크 → 자료구조 → 알고리즘(2026-10-05 사용자 요청).
 const WEEK4_DAYS: CurriculumDay[] = studyDays([
+  { name: "네트워크(NW)", topics: NW_ALL },
   { name: "자료구조(DS)", topics: DS_ALL },
   { name: "알고리즘(AL)", topics: AL_ALL },
-  { name: "네트워크(NW)", topics: NW_ALL },
 ]);
 
 
@@ -996,7 +997,7 @@ export const WEEKS: CurriculumWeek[] = [
   },
   {
     start: "2026-10-05",
-    title: "4주차 · 네트워크(NW) + 알고리즘(AL) + 자료구조(DS)",
+    title: "4주차 · 네트워크(NW) + 자료구조(DS) + 알고리즘(AL)",
     days: buildWeek("2026-10-05", [...WEEK4_DAYS]),
   },
   {
@@ -1055,8 +1056,8 @@ export const WEEKS: CurriculumWeek[] = [
   },
   {
     start: "2026-12-07",
-    title: "12주차 · 로드맵 네트워크(NW) + 알고리즘(AL) + 자료구조(DS)",
-    days: reviewWeek("2026-12-07", topicsOf(WEEK4_DAYS), "네트워크·알고리즘·자료구조"),
+    title: "12주차 · 로드맵 네트워크(NW) + 자료구조(DS) + 알고리즘(AL)",
+    days: reviewWeek("2026-12-07", topicsOf(WEEK4_DAYS), "네트워크·자료구조·알고리즘"),
   },
   {
     start: "2026-12-14",
