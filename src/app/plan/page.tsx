@@ -631,7 +631,9 @@ export default function PlanPage() {
                         return (
                           <li
                             key={t.title}
-                            className={`flex items-center gap-2 px-4 py-2 ${
+                            // 좁은 화면에서는 출제 칩(📕·🛡️)이 제목 자리를 다 먹어 제목이 「ㅂ」「[」 한 글자로
+                            // 잘렸다(2026-10-06). 줄을 넘겨 칩을 아래로 내리고 제목은 최소 폭을 지킨다.
+                            className={`flex flex-wrap items-center gap-x-2 gap-y-1 px-4 py-2 ${
                               checked ? "bg-amber-50/60" : ""
                             }`}
                           >
@@ -654,7 +656,7 @@ export default function PlanPage() {
                               <LevelBadge level={t.level} note={t.note} />
                             )}
                             <span
-                              className={`min-w-0 flex-1 truncate text-sm ${
+                              className={`min-w-[9rem] flex-1 text-sm sm:truncate ${
                                 checked
                                   ? "text-slate-400 line-through"
                                   : "text-slate-800"
