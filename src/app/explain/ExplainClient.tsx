@@ -649,6 +649,12 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
                           {p.name}의 정의
                         </p>
                         <p className="pl-4 text-[13px] leading-relaxed text-slate-800">{p.def}</p>
+                        {!!p.features?.length && (
+                          <p className="pl-4 text-[13px] leading-relaxed text-slate-700">
+                            <span className="mr-1 font-bold text-slate-500">특징)</span>
+                            {p.features.join(", ")}
+                          </p>
+                        )}
                       </div>
                     ))}
                 </div>
