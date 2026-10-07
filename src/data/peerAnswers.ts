@@ -6010,7 +6010,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     no: "3",
     question: "TCP의 ① 오류제어 ② 흐름제어 ③ 혼잡제어",
     exam: "정리 답안 (드라이브 04. 네트워크)",
-    topicTitles: ["TCP 혼잡제어"],
+    topicTitles: ["TCP 혼잡제어", "Sliding Window & 네이글(Nagle's) 알고리즘"],
     pages: [
       { src: "/answers/정리답안/04.네트워크/nw-오류-흐름-혼잡-제어-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/04.네트워크/nw-오류-흐름-혼잡-제어-2.jpg", label: "2쪽" },
@@ -46487,7 +46487,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "TCP흐름제어,혼잡제어,오류제어",
     exam: "정리 답안 (드라이브 05. 모범답안)",
-    topicTitles: ["TCP 혼잡제어"],
+    topicTitles: ["TCP 혼잡제어", "Sliding Window & 네이글(Nagle's) 알고리즘"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/cls-nw-tcp흐름제어-혼잡제어-오류제어-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/cls-nw-tcp흐름제어-혼잡제어-오류제어-2.jpg", label: "2쪽" },
@@ -51966,7 +51966,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "3",
     question: "710 프로토콜의 흐름제어와 혼잡제어 알고리즘에 대해 설명하시오",
     exam: "제70회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["Sliding Window & 네이글(Nagle's) 알고리즘"],
     pages: [
       { src: "/answers/KPC모의고사/70회/kpc-70회-kpc기술사모의고사-컴시응-모범답안-2교시-6.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/70회/kpc-70회-kpc기술사모의고사-컴시응-모범답안-2교시-7.jpg", label: "2쪽" },
@@ -60480,7 +60480,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "3",
     question: "신뢰성 있는 데이터 전송 프로토콜인 TCP(Transmission Control Protocol)에서 제공하는 흐름제어(Flow Control), 오류제어(Error Control), 혼잡제어(Congestion Control) 기능에 대하여 설명하시오.",
     exam: "제59회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["Sliding Window & 네이글(Nagle's) 알고리즘"],
     questionIds: ["m02375"],
     pages: [
       { src: "/answers/KPC모의고사/59회/kpc-kpc-59회-시스템응용-모의고사-모범답안-4교시-8.jpg", label: "1쪽" },
@@ -71842,7 +71842,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "1",
     question: "TCP(Transmission Control Protocol)의 신뢰성 있는 전송을 가능하게 하는 오류제어, 흐름제어, 혼잡제어에 대하여 설명하시오.",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["TCP", "오류제어", "혼잡 제어"],
+    topicTitles: ["TCP", "오류제어", "혼잡 제어", "Sliding Window & 네이글(Nagle's) 알고리즘"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-3-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-3-01-2.webp", label: "2쪽" },
@@ -77373,7 +77373,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "1",
     question: "계층구조의 통신 프로토콜 설계 시 고려해야 할 다음 각 요소에 대하여 설명하시오. 가. 오류 제어 나. 흐름 제어 다. 데이터 전달 방식",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["오류제어"],
+    topicTitles: ["오류제어", "Sliding Window & 네이글(Nagle's) 알고리즘"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-3-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-3-01-2.webp", label: "2쪽" },
@@ -87274,6 +87274,35 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
       { src: "/answers/NS19기/03주차/답안지/ns19w03s-2-03-2-2.webp", label: "2쪽" },
       { src: "/answers/NS19기/03주차/답안지/ns19w03s-2-03-2-3.webp", label: "3쪽" },
       { src: "/answers/NS19기/03주차/답안지/ns19w03s-2-03-2-4.webp", label: "4쪽" },
+    ],
+  },
+  {
+    id: "peer-flow-control-2-1",
+    period: "2교시",
+    question: "① 흐름제어 방식 개념 ② 흐름제어 기법 ③ Sliding Window와 Slow Start 비교",
+    exam: "정리 답안 (드라이브 NW › 흐름제어 2교시)",
+    topicTitles: ["Sliding Window & 네이글(Nagle's) 알고리즘", "TCP 혼잡제어"],
+    score: 15.0,
+    maxScore: 25,
+    pages: [
+      { src: "/answers/정리답안/흐름제어/flow-control-2-1-1.webp", label: "1쪽" },
+      { src: "/answers/정리답안/흐름제어/flow-control-2-1-2.webp", label: "2쪽" },
+      { src: "/answers/정리답안/흐름제어/flow-control-2-1-3.webp", label: "3쪽" },
+      { src: "/answers/정리답안/흐름제어/flow-control-2-1-4.webp", label: "4쪽" },
+    ],
+  },
+  {
+    id: "peer-flow-control-2-2",
+    period: "2교시",
+    question: "① 흐름제어 방식 개념 ② 흐름제어 기법 ③ Sliding Window와 Slow Start 비교",
+    exam: "정리 답안 (드라이브 NW › 흐름제어 2교시)",
+    topicTitles: ["Sliding Window & 네이글(Nagle's) 알고리즘", "TCP 혼잡제어"],
+    score: 15.3,
+    maxScore: 25,
+    pages: [
+      { src: "/answers/정리답안/흐름제어/flow-control-2-2-1.webp", label: "1쪽" },
+      { src: "/answers/정리답안/흐름제어/flow-control-2-2-2.webp", label: "2쪽" },
+      { src: "/answers/정리답안/흐름제어/flow-control-2-2-3.webp", label: "3쪽" },
     ],
   },
 ];
