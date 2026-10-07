@@ -77,5 +77,42 @@ if (warns.length) console.log(`줄 수가 짝이 안 맞는 행 ${warns.length}�
 // 슬라이드 없이 지어 낸 정의·표로 남아 있었다). 슬라이드를 받아 붙이고 서브노트를 맞춘다.
 const noSlide = SUBNOTES.filter((s) => !subnoteExtraFor(s.topicId, s.title)?.image).map((s) => s.title);
 if (noSlide.length) console.log(`교재 슬라이드 없는 서브노트 ${noSlide.length}개(경고): ${noSlide.join(" / ")}`);
+// 두 개념을 함께 묻는 토픽(「A / B」「A & B」「A와 B」「A, B」)은 답안 서론에서 개념마다 정의·특징을 따로 쓴다
+// (2026-10-07 — "각자 정의, 특징 … 예전에 부탁했는데"). defPair(대등한 두 개념) 나 subDefs(큰 개념 + 하위 개념)가
+// 없으면 오류로 센다. 제목에 「와」「,」가 있어도 한 개념인 토픽은 아래 ONE_CONCEPT 에 적는다.
+const ONE_CONCEPT = new Set([
+  "정보시스템 운영/유지보수 감리",
+  "HTTP/3",
+  "C-RAN(Centralized / Cloud RAN)",
+  "DHP(Direct Hashing & Pruning) 알고리즘",
+  "접근 제어/접근 통제(Access Control)",
+  "품질통제도구, QC 7",
+  // 슬라이드 정의가 「4가지 선언문과 12개 원칙」 한 문장뿐이라 나눌 정의가 없다
+  "Agile 선언문과 12개 원칙",
+  // 슬라이드에 정의는 해싱 하나뿐이고 충돌 해결방법은 표(방법·개념도)만 있다
+  "해싱과 충돌해결방법",
+  "PMBOK 8개 성과 영역 및 프로젝트 관리 12원칙(PMBOK 7판)",
+  "MCP 보안취약점 및 대응방안",
+  "공공부문 초거대AI 도입, 활용 가이드라인 2.0(2025.04)",
+  "정보시스템 감리 의무 대상과 관점별 점검 기준",
+  "TCP 연결의 설정 및 해제(Handshaking)",
+  "IPv4와 IPv6 터널링",
+  "ISP 및 ISMP 수립 공통가이드 9판(2025.05)",
+  "IT 투자성과 평가",
+  "정보보호 및 개인정보보호 관리체계 인증(ISMS-P)",
+  "자율주행 자동차 보안취약점 및 대응방안",
+  "스마트시티 보안취약점 및 대응방안",
+  "스마트팩토리 보안취약점 및 대응방안",
+  "클라우드 컴퓨팅 취약점, 대응기술",
+  "디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안",
+  "OWASP Agentic AI 위협 및 대응방안(Agentic AI Threats and Mitigations)",
+]);
+const noPair = SUBNOTES.filter((s) => {
+  if (s.defPair?.length || s.subDefs?.length || ONE_CONCEPT.has(s.title)) return false;
+  const t = s.title.replace(/\([^)]*\)/g, "");
+  return / \/ | & |&|와 |과 | 및 |, /.test(t);
+}).map((s) => s.title);
+for (const t of noPair) errs.push(`[개념별 정의 없음] ${t} — defPair/subDefs 로 개념마다 정의·특징을 쓰거나 ONE_CONCEPT 에 적는다`);
+for (const t of noPair) console.log(`[개념별 정의 없음] ${t}`);
 console.log(`표 ${tables}개 · 행 ${rows}개 검사, 오류 ${errs.length}건 ${errs.length ? "FAIL" : "PASS"}`);
 process.exit(errs.length ? 1 : 0);
