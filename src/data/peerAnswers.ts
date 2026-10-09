@@ -25519,9 +25519,9 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
   {
     id: "peer-w24a-nw-특화망-2교시-5g-특화망",
     period: "2교시",
-    question: "5G 특화망",
+    question: "5G 특화망 — ① 5G 이동통신과 5G 특화망(서비스 시장·NW 구축·통신망 이용 측면) ② 네트워크 슬라이싱 기술 ③ 5G 특화망 활용분야",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024상 › 주간모의고사 › 05. NW)",
-    topicTitles: ["5G 특화망"],
+    topicTitles: ["5G 특화망", "네트워크 슬라이싱"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024상/주간모의고사/05.NW/w24a-nw-특화망-2교시-5g-특화망-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024상/주간모의고사/05.NW/w24a-nw-특화망-2교시-5g-특화망-2.jpg", label: "2쪽" },
