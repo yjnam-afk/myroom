@@ -52658,7 +52658,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "5",
     question: "아래의 표에서 보여주는 것처럼 각각의 활동시간에 대한 정보를[단계별 활동시간] 수집하였다. 프로젝트의 일정 추정 도구인 PERT기법을 이용하여, 해당 프로젝트의 주 경로에 대해서 23 주 내에 프로젝트를 완료할 확률을 산출하시오. [표준 정규분포표를 사용하시오.]",
     exam: "제79회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["정규분포(Normal Distribution)"],
+    topicTitles: ["정규분포(Normal Distribution)", "3점 산정", "활동기간 산정기법"],
     questionIds: ["m01769"],
     pages: [
       { src: "/answers/KPC모의고사/79회/kpc-79회-kpc기술사모의고사-정보관리-모범답안-4교시-4.jpg", label: "1쪽" },
@@ -53275,7 +53275,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "7",
     question: "고정 디스크 스케쥴링에 대해서 설명하시오",
     exam: "제78회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["디스크 스케줄링(Disk Scheduling)"],
     questionIds: ["m01777"],
     pages: [
       { src: "/answers/KPC모의고사/78회/kpc-78회-kpc기술사모의고사-정보관리-모범답안-1교시-8.jpg", label: "1쪽" },
@@ -56076,9 +56076,9 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     id: "peer-kpc-86회-kpc기술사모의고사-정보관리-모범답안-1교시-6번",
     period: "1교시",
     no: "6",
-    question: "디 케줄링 기 SCAN, C-SCANS 설명하시 정보관리기술사",
+    question: "디스크스케줄링 기법인 SCAN, C-SCAN을 설명하시오",
     exam: "제86회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["디스크 스케줄링(Disk Scheduling)"],
     pages: [
       { src: "/answers/KPC모의고사/86회/kpc-86회-kpc기술사모의고사-정보관리-모범답안-1교시-5.jpg", label: "1쪽" },
     ],
@@ -61806,7 +61806,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "4",
     question: "디스크 스케쥴링 기법에 대해서 설명하고 주어진 디스크 대기 큐의 순서를 활용하여 SSTF, C-SCAN, LOOK 알고리즘의 디스크 헤드 움직임을 설명하시오. 디스크 대기 큐: (트랙번호) 160, 200, 90, 170, 20, 190, 120, 130 (총 256(0~255)개 실린더로 구성되어 있고 헤드위치는 트랙 100 에 있으며 트랙 0 번 방향으로 이동 중이다.)",
     exam: "제62회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["디스크 스케줄링(Disk Scheduling)"],
     questionIds: ["m02275"],
     pages: [
       { src: "/answers/KPC모의고사/62회/kpc-kpc-62회-시스템응용-모의고사-모범답안-2교시-10.jpg", label: "1쪽" },
