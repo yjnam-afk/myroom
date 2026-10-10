@@ -83,7 +83,7 @@ export function PastList({
                   recent ? "bg-rose-100 text-rose-700" : "bg-slate-100 text-slate-600"
                 }`}
               >
-                {h.round}회
+                {h.track ? `${h.track} ` : ""}{h.round}회
               </span>
               <span className="text-slate-500">{h.period}</span>
               <span className="text-slate-400">· {h.no}번</span>

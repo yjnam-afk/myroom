@@ -343,14 +343,16 @@ export function examHistory(title: string): ExamAppearance[] {
 // ── 기술사 기출 — "몇 회 몇 교시 몇 번으로 나왔나" ────────────────────────────
 // 문제은행의 기출 문항은 id 가 k{회차}-{교시}{번호} 꼴이다(예: k140-106 = 140회 1교시 6번).
 
-const PAST: ({ q: Q; round: number; no: number } & Entry)[] = (questions as Q[])
-  .map((q) => ({ q, m: /^k(\d+)-(\d)(\d{2})$/.exec(q.id) }))
+// 기술사 기출 — k{회}-{교시}{번호}: 정보관리, c{회}-{교시}{번호}: 컴퓨터시스템응용(2026-10-10 추가).
+const PAST: ({ q: Q; round: number; no: number; track?: string } & Entry)[] = (questions as Q[])
+  .map((q) => ({ q, m: /^([kc])(\d+)-(\d)(\d{2})$/.exec(q.id) }))
   .filter((x): x is { q: Q; m: RegExpExecArray } => !!x.m)
   .map(({ q, m }) => ({
     q,
     ...entryOf(q.text),
-    round: Number(m[1]),
-    no: Number(m[3]),
+    round: Number(m[2]),
+    no: Number(m[4]),
+    track: m[1] === "c" ? "컴시응" : undefined,
   }));
 
 /** 가장 최근 기출 회차 — "최근에 나왔나"를 이 회차 기준으로 센다. */
@@ -369,7 +371,7 @@ export function pastExams(title: string): PastAppearance[] {
   if (keys.all.length || keys.any.length) {
     for (const e of PAST) {
       if (hit(e, keys)) {
-        out.push({ id: e.q.id, round: e.round, period: e.q.period, no: e.no, text: e.q.text });
+        out.push({ id: e.q.id, round: e.round, period: e.q.period, no: e.no, text: e.q.text, track: e.track });
       }
     }
   }
@@ -419,7 +421,7 @@ export function mockExams(title: string): MockAppearance[] {
   const out: MockAppearance[] = [];
   for (const id of questionIdsForTitle(t)) {
     const q = Q_BY_ID.get(id);
-    if (!q || q.kind === "NS모의" || /^k\d/.test(id) || !(q.kind && q.kind in KIND_ORDER)) continue;
+    if (!q || q.kind === "NS모의" || /^[kc]\d/.test(id) || !(q.kind && q.kind in KIND_ORDER)) continue;
     out.push({ id, kind: q.kind, source: q.source || q.round || "", text: q.text });
   }
   out.sort(

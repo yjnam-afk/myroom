@@ -68799,6 +68799,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "알고리즘의 시간복잡도(Time Complexity) O(1), O(n), O(n2)에 대하여 설명하시오.",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["알고리즘 성능평가"],
+    questionIds: ["c116-101"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-01-2.webp", label: "2쪽" },
@@ -68811,6 +68812,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "PCB(Process Control Block)",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["PCB(Process Control Block)"],
+    questionIds: ["c116-102"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-02-2.webp", label: "2쪽" },
@@ -68823,6 +68825,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "플렌옵틱 영상처리(Plenoptic Image Processing)",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["영상 처리(Image processing)", "플렌옵틱 영상처리(Plenoptic Image Processing)"],
+    questionIds: ["c116-103"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-03-2.webp", label: "2쪽" },
@@ -68835,6 +68838,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "워터링 홀(Watering Hole) 공격",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["워터링 홀 공격 (Watering-Hole Attack)"],
+    questionIds: ["c116-104"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-04-2.webp", label: "2쪽" },
@@ -68847,6 +68851,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "ISO26262",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["ISO 26262"],
+    questionIds: ["c116-105"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-05-2.webp", label: "2쪽" },
@@ -68859,6 +68864,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "IDX(Intelligent Digital X-formation)",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["IDX"],
+    questionIds: ["c116-106"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-06-2.webp", label: "2쪽" },
@@ -68871,6 +68877,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "SAN(Storage Area Network)",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["Network(3)"],
+    questionIds: ["c116-107"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-07-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-07-2.webp", label: "2쪽" },
@@ -68883,6 +68890,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "SCTP(Stream Control Transmission Protocol)",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["SCTP(Stream Control Transmission Protocol)"],
+    questionIds: ["c116-108"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-08-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-08-2.webp", label: "2쪽" },
@@ -68895,6 +68903,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "제품 백로그(Product Backlog)",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["Product Backlog"],
+    questionIds: ["c116-109"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-09-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-09-2.webp", label: "2쪽" },
@@ -68907,6 +68916,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "DHCP(Dynamic Host Configuration Protocol) IP 주소 할당 과정",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["DHCP(Dynamic Host Configuration Protocol)"],
+    questionIds: ["c116-110"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-10-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-10-2.webp", label: "2쪽" },
@@ -68919,6 +68929,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "Process 의 5 가지 상태(State)에 대하여 설명하시오",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["State"],
+    questionIds: ["c116-111"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-11-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-11-2.webp", label: "2쪽" },
@@ -68931,6 +68942,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "분할 정복(Divide and Conquer), 탐욕법(Greedy), 동적계획법(Dynamic Programming)에 대하여 설명하시오",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["동적 계획법(Dynamic Programming)"],
+    questionIds: ["c116-112"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-12-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-12-2.webp", label: "2쪽" },
@@ -68943,6 +68955,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "중앙처리장치의 메이지 상태(Major State) 4 가지를 설명하시오",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["State", "CPU 처리과정"],
+    questionIds: ["c116-113"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-13-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-13-2.webp", label: "2쪽" },
@@ -68955,6 +68968,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "최근 금융, 교통, 의료 등 다양한 분야에 IoT 기술이 적용되고 있고, 빅데이터 스트림이 대규모로 발생하고 있다. 빅데이터 스트림을 정확하고 빠르게 분석/처리하기 위해서는 효율적인 샘플링과 필터링 기법이 필요하다. 가. 샘플링 기법 중 랜덤 샘플링에 대하여 설명하시오. 나. 필터링(학습기반, 비학습기반) 기법에 대하여 설명하시오..",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["빅데이터(3V / 6V)"],
+    questionIds: ["c116-201"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-2-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-2-01-2.webp", label: "2쪽" },
@@ -68970,6 +68984,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "OSI 7 계층 프로토콜에 대하여 각 계층별 기능 및 역할, 관련 국제표준, 관련 장비등을 중심으로 설명하시오.",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c116-202"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-2-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-2-02-2.webp", label: "2쪽" },
@@ -68985,6 +69000,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "위치정보를 무선통신에 활용 하는 방안에 대하여 설명 하시오.",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c116-203"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-2-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-2-03-2.webp", label: "2쪽" },
@@ -68999,6 +69015,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "ARP(Address Resolution Protocol)에 대하여 아래 사항들을 설명하시오. 가. ARP 와 RARP 나. IP 프로토콜을 사용하는 서버 또는 네트워크 장비에서 ARP 의 역할 다. ARP 와 관련된 아래의 보안 취약점 및 이들의 대응 방안 1). ARP Spoofing 2). ARP Redirect",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["ARP(Address Resolution Protocol)", "RARP(Reverse Address Resolution Protocol)", "스니핑(Sniffing) & 스푸핑(Spoofing)"],
+    questionIds: ["c116-204"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-2-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-2-04-2.webp", label: "2쪽" },
@@ -69015,6 +69032,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "데이터베이스 트랜잭션과 관련하여 아래 사항을 설명 하시오. 가. 데이터베이스 트랜잭션의 개념과 특징 4 가지 나. 트랜잭션 상태 전이도 및 각각의 상태 다. 트랜잭션들이 동시에 수행될 때 발생가능한 문제점들과 해결기법",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["트랜잭션"],
+    questionIds: ["c116-205"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-2-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-2-05-2.webp", label: "2쪽" },
@@ -69030,6 +69048,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "전자정부 성과관리 지침에 따른 정보시스템 운영 성과관리에 대하여 아래 사항을 설명하시오 . 가. 성과측정 지표 나. 성과측정 절차 다. 개선방안 마련 절차",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["정보시스템 운영 성과관리"],
+    questionIds: ["c116-206"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-2-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-2-06-2.webp", label: "2쪽" },
@@ -69046,6 +69065,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "L4 스위치에 대하여 아래 사항을 설명하시오. 가. L4 스위치 SLB(Server Load Balancer) 동작 방식 나. L4 스위치 서버 상태 감시 방식 다. L4 스위치 장애 사례와 대응방안",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c116-301"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-3-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-3-01-2.webp", label: "2쪽" },
@@ -69061,6 +69081,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "소켓(Socket) 시스템에 대하여 아래 사항을 설명하시오. 가. TCP 소켓 함수(Function) 나. UDP 소켓 함수(Function)",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["TCP", "UDP"],
+    questionIds: ["c116-302"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-3-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-3-02-2.webp", label: "2쪽" },
@@ -69075,6 +69096,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "기억장치 사상 입출력(Memory Mapped I/O) 방식과 고립형 입출력(Isolated I/O)방식에 대하여 각각 설명하고 상호 비교하시오.",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["MMIO(Memory Mapped IO)"],
+    questionIds: ["c116-303"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-3-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-3-03-2.webp", label: "2쪽" },
@@ -69090,6 +69112,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "4 차 산업혁명시대의 스마트 팩토리 요소기술에 대해 설명하시오.",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["스마트팩토리"],
+    questionIds: ["c116-304"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-3-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-3-04-2.webp", label: "2쪽" },
@@ -69104,6 +69127,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "개인정보 보호법 및 개인정보의 안전성 확보조치 기준과 관련하여 아래 사항을 설명하시오. 가. 개인정보 보호법 및 그 시행령에 명시된 개인정보 보호책임자가 수 행해야 할 업무 나. 개인정보의 안전성 확보조치 기준에 명시된 내부관리 계획의 수립 시행과 관련하여 기술적인 관점과 관리적인 관점에서 포함되어야 할 사 항",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["개인정보 보호기술"],
+    questionIds: ["c116-305"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-3-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-3-05-2.webp", label: "2쪽" },
@@ -69118,6 +69142,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "자율주행을 수행하기 위한 핵심기술에 대해 설명하시오",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["Smart Car(자율주행)"],
+    questionIds: ["c116-306"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-3-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-3-06-2.webp", label: "2쪽" },
@@ -69132,6 +69157,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "수십 명이 참여하는 대규모 IT 프로젝트에 애자일(Agile)을 적용하기 위해서는 효과적인 방안수립이 필요하다. 아래 사항에 대하여 설명하시오. 가. 대규모 IT 프로젝트에서 발생하는 주요 문제점 나. 대규모 IT 프로젝트의 애자일 적용 전략 다. 대규모 IT 프로젝트의 애자일 적용 절차(로드맵)",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c116-401"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-4-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-4-01-2.webp", label: "2쪽" },
@@ -69147,6 +69173,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "아래 그래프에서 최소신장트리(MST: Minimum Spanning Tree)를 구하는 과정을 2 개의 알고리즘을 이용하여 설명하시오. 가. 크루스컬(Kruskal) 알고리즘 나. 프림(Prim) 알고리즘",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["최소 신장 트리(MST, Minimum Spanning Tree)"],
+    questionIds: ["c116-402"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-4-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-4-02-2.webp", label: "2쪽" },
@@ -69162,6 +69189,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "IP 주소 부족문제를 해결하기 위한 IPv6 에 대하여 아래 사항들을 설명하시오. 가. IPv6 헤더 구조 나. 패킷 단편화(fragmentation)에 대해서 설명하고, IPv4와 IPv6에서의 처리 방식 다. 기존 IPv4 망에서 IPv6 망으로 전환하기 위한 방안",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["메모리 단편화(Fragmentation)", "단편화(Fragmentation)", "IPv6"],
+    questionIds: ["c116-403"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-4-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-4-03-2.webp", label: "2쪽" },
@@ -69177,6 +69205,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "국내 핀테크 서비스 동향에 대하여 설명하시오.",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["핀테크(FinTech)"],
+    questionIds: ["c116-404"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-4-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-4-04-2.webp", label: "2쪽" },
@@ -69191,6 +69220,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "Gigabit WLAN 기술에 대하여 설명하시오.",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c116-405"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-4-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-4-05-2.webp", label: "2쪽" },
@@ -69205,6 +69235,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "MPEG(Moving Picture Experts Group)의 동영상 압축기법에 대해서 공간적인 측면과 시간적인 측면으로 나누어 설명하시오.",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["MPEG", "동영상 압축 기술"],
+    questionIds: ["c116-406"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-4-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-4-06-2.webp", label: "2쪽" },
@@ -69664,6 +69695,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "규제 샌드박스(sandbox)",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["규제 샌드박스", "샌드박스 (Sandbox)"],
+    questionIds: ["c117-101"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-01-2.webp", label: "2쪽" },
@@ -69676,6 +69708,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "양자정보통신에서 양자(Quantum)의 특성",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c117-102"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-02-2.webp", label: "2쪽" },
@@ -69688,6 +69721,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "스마트 도시의 복원력(Resilience)",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c117-103"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-03-2.webp", label: "2쪽" },
@@ -69700,6 +69734,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "연동기획 (Rolling Wave Planning)",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c117-104"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-04-2.webp", label: "2쪽" },
@@ -69712,6 +69747,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "네트워크 전송계층(Transport Layer) 역할",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["Transport(4)"],
+    questionIds: ["c117-105"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-05-2.webp", label: "2쪽" },
@@ -69725,6 +69761,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "유니커널(Unikernel) 기반의 클라우드 운영체제",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["커널(Kernel)"],
+    questionIds: ["c117-106"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-06-2.webp", label: "2쪽" },
@@ -69738,6 +69775,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "Wi-SUN(Wireless Smart Utility Network) 프로토콜",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["Network(3)"],
+    questionIds: ["c117-107"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-07-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-07-2.webp", label: "2쪽" },
@@ -69751,6 +69789,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "ISO 14971",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["ISO 14971"],
+    questionIds: ["c117-108"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-08-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-08-2.webp", label: "2쪽" },
@@ -69763,6 +69802,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "요구명세(Software Requirement Specification)",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["요구공학 (Requirements Engineering)"],
+    questionIds: ["c117-109"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-09-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-09-2.webp", label: "2쪽" },
@@ -69776,6 +69816,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "RAID(Redundant Array of Inexpensive Disks) 구조",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["RAID (Redundant Array of Independent Disks)"],
+    questionIds: ["c117-110"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-10-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-10-2.webp", label: "2쪽" },
@@ -69789,6 +69830,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "썬더볼트(Thunderbolt) 인터페이스",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["썬더볼트(Thunderbolt)"],
+    questionIds: ["c117-111"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-11-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-11-2.webp", label: "2쪽" },
@@ -69801,6 +69843,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "IPSEC",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["IPSec"],
+    questionIds: ["c117-112"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-12-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-12-2.webp", label: "2쪽" },
@@ -69814,6 +69857,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "IPv6 에서 사용하는 애니캐스트 주소와 멀티캐스트 주소를 비교/차이점",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["IPv6"],
+    questionIds: ["c117-113"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-13-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-13-2.webp", label: "2쪽" },
@@ -69826,6 +69870,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "디자인패턴 중 팩토리 메소드 패턴(Factory Method Pattern)을 사용하는 이유를 설명하고, 아래의 클래스 다이어그램을 이용하여 팩토리 메소드 패턴이 적용된 자바코드(JAVA Code)를 생성하시오.",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["클래스 다이어그램 (Class Diagram)", "디자인 패턴 (Design Pattern)"],
+    questionIds: ["c117-201"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-2-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-2-01-2.webp", label: "2쪽" },
@@ -69839,6 +69884,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "CPU 의 동작을 감시하는 워치독 타이머(Watchdog Timer)에 대하여 기술하고, 하드웨어 구현방법을 설명하시오.",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["워치독 타이머(WDT, Watchdog timer)"],
+    questionIds: ["c117-202"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-2-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-2-02-2.webp", label: "2쪽" },
@@ -69852,6 +69898,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "AI(Artificial Intelligence) 기술 발전에 따른 금융생태계 변화를 설명하시오",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c117-203"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-2-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-2-03-2.webp", label: "2쪽" },
@@ -69865,6 +69912,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "4 차 산업혁명을 위한 신뢰성 있는 통신의 중요성에 대하여 ISO 19626 을 활용하여 설명하시오.",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["ISO 19626"],
+    questionIds: ["c117-204"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-2-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-2-04-2.webp", label: "2쪽" },
@@ -69879,6 +69927,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "Multiplexing 과 Multiple Access 의 차이점을 설명하시오.",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["다중화(Multiplexing)"],
+    questionIds: ["c117-205"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-2-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-2-05-2.webp", label: "2쪽" },
@@ -69892,6 +69941,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "메시지 인증 기법과 디지털 서명 기법에 대하여 설명하고, 공통점과 차이점에 대하여 서명하시오.",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["전자 서명(Digital Signature)/디지털 서명", "메시지 인증(Message Authentication)"],
+    questionIds: ["c117-206"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-2-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-2-06-2.webp", label: "2쪽" },
@@ -69906,6 +69956,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "조달청은 공공소프트웨어 사업 유형에 맞는 제안서 평가기준 마련을 위해 ‘조달청 협상에 의한 계약 제안서평가 세부기준’을 개정, 2019 년 2 월부터 시행하기로 하였다. 기존에 단일 기준으로 평가하였던 소프트웨어 사업을 유형에 맞게 다양화하여 평가하는 배경과 변경된 사업 유형의 주요 내용을 설명하고, 각 사업 유형별로 효율적인 제안서 작성 방안을 기술하시오.",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["조달청 협상에 의한 계약 제안서평가 세부기준"],
+    questionIds: ["c117-301"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-3-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-3-01-2.webp", label: "2쪽" },
@@ -69920,6 +69971,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "블록체인(Blockchain)의 개념을 분산원장기술(Distributed Ledger Technology)과 비교하여 설명하고 블록체인의 세부 기술요소와 국내외 서비스동향을 설명하시오. 그리고 이 분야에서 우리나라가 국제 기술 경쟁력을 확보할 수 있는 방안에 대하여 설명하시오.",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["블록체인", "블록체인기술"],
+    questionIds: ["c117-302"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-3-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-3-02-2.webp", label: "2쪽" },
@@ -69934,6 +69986,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "전자정부의 챗봇(ChatBot) 활용에 대하여 설명하시오.",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["챗봇(Chatbot)"],
+    questionIds: ["c117-303"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-3-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-3-03-2.webp", label: "2쪽" },
@@ -69948,6 +70001,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "방송통신설비의 기술기준에 대하여 설명하시오.",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c117-304"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-3-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-3-04-2.webp", label: "2쪽" },
@@ -69963,6 +70017,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "IP 터널링 기술에 대하여 설명하시오.",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["IP(인터넷 프로토콜)", "IP 터널링/터널링"],
+    questionIds: ["c117-305"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-3-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-3-05-2.webp", label: "2쪽" },
@@ -69977,6 +70032,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "SSL(Secure Socket Layer) 프로토콜에 대하여 설명하시오.",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["TLS/SSL(Secure Socket Layer)"],
+    questionIds: ["c117-306"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-3-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-3-06-2.webp", label: "2쪽" },
@@ -70857,6 +70913,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "SVM(Support Vector Machine)",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["서포트 벡터 머신 SVM(Support Vector Machine)"],
+    questionIds: ["c119-101"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-01-2.webp", label: "2쪽" },
@@ -70870,6 +70927,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "인공신경망의 오류 역전파(Backpropagation) 알고리즘",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["오류 역전파(Backpropagation)"],
+    questionIds: ["c119-102"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-02-2.webp", label: "2쪽" },
@@ -70882,6 +70940,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "오버라이딩(Overriding)으로 함수를 재정의하는 이유",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c119-103"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-03-2.webp", label: "2쪽" },
@@ -70894,6 +70953,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "HTTP 3.0",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["HTTP/3"],
+    questionIds: ["c119-104"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-04-2.webp", label: "2쪽" },
@@ -70906,6 +70966,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "Biba Integrity Model",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["접근제어 Model(Bell-Lapadula, Biba, Clark & Wilson , Access Matrix)"],
+    questionIds: ["c119-105"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-05-2.webp", label: "2쪽" },
@@ -70918,6 +70979,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "모니터(Monitor) 프로세스 동기화 기법",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["모니터/Monitor 동기화"],
+    questionIds: ["c119-106"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-06-2.webp", label: "2쪽" },
@@ -70930,6 +70992,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "Ad-hoc Network Routing Protocol",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)"],
+    questionIds: ["c119-107"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-07-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-07-2.webp", label: "2쪽" },
@@ -70942,6 +71005,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "OAuth2.0",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["OAuth(Open Authorize) 2.0"],
+    questionIds: ["c119-108"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-08-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-08-2.webp", label: "2쪽" },
@@ -70954,6 +71018,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "포그 컴퓨팅(Fog Computing)",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["포그 컴퓨팅"],
+    questionIds: ["c119-109"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-09-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-09-2.webp", label: "2쪽" },
@@ -70966,6 +71031,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "어플라이언스(Appliance) 서버",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["어플라이언스(Appliance) 서버"],
+    questionIds: ["c119-110"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-10-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-10-2.webp", label: "2쪽" },
@@ -70978,6 +71044,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "FeRAM/STT_MRAM/PRAM",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["PRAM", "FeRAM(강유전체 메모리) (Ferroelectric RAM)", "MRAM (Magnetoresistive RAM)"],
+    questionIds: ["c119-111"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-11-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-11-2.webp", label: "2쪽" },
@@ -70990,6 +71057,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "SCSI RDMA(Remote Direct Memory Access)",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["DMA(Direct Memory Access)"],
+    questionIds: ["c119-112"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-12-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-12-2.webp", label: "2쪽" },
@@ -71002,6 +71070,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "WAF(Web Application Firewall)",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["Application(7)", "Firewall(방화벽)"],
+    questionIds: ["c119-113"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-13-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-13-2.webp", label: "2쪽" },
@@ -71014,6 +71083,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "OpenStack 의 특징과 구성도 및 서비스에 대하여 설명하시오.",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c119-201"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-2-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-2-01-2.webp", label: "2쪽" },
@@ -71028,6 +71098,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "VPN(Virtual Private Network)을 구현 방식과 서비스 형태에 따라 비교하여 설명하고, SSL VPN 방식에 대하여 설명하시오.",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["VPN(Virtual Private Network)"],
+    questionIds: ["c119-202"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-2-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-2-02-2.webp", label: "2쪽" },
@@ -71042,6 +71113,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "4 차 산업혁명을 주도하고 있는 인공지능 머신러닝 기술은 실제로 적대 적 공격(Adversarial Attack)에 취약한 것으로 알려져 있다. 다음에 대하여 설명하시오. 1) 자율주행자동차에 대한 적대적 공격 2) 적대적 공격을 위한 적대적 샘플(Adversarial Sample) 제작기법 3) 적대적 공격에 대한 방어기법",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["Smart Car(자율주행)"],
+    questionIds: ["c119-203"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-2-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-2-03-2.webp", label: "2쪽" },
@@ -71056,6 +71128,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "DNS 를 은닉채널(Convert Channel)로 사용하는 이유를 설명하고, DNS Convert Channel 공격모델 및 방어 기법을 설명하시오.",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["DNS(Domain Name System)"],
+    questionIds: ["c119-204"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-2-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-2-04-2.webp", label: "2쪽" },
@@ -71069,6 +71142,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "ITA 기반으로 정보시스템 H/W 용량을 산정하고자 한다. 1) H/W 규모산정 방법에 대한 개념 및 장·단점 2) 규모산정 대상 3) CPU 및 스토리지의 성능 기준치",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["용량산정(개념, 절차, 산정기준)"],
+    questionIds: ["c119-205"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-2-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-2-05-2.webp", label: "2쪽" },
@@ -71083,6 +71157,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "클라우드 시스템 구축을 위한 핵심 기술인 가상화 관련 기술 중 가상머신과 컨테이너를 비교하여 설명하시오.",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["컨테이너(Container)"],
+    questionIds: ["c119-206"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-2-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-2-06-2.webp", label: "2쪽" },
@@ -71097,6 +71172,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "피보나치 수 Fn 은 다음과 같은 규칙으로 정의된다. F0 =0, F1 =1, …, Fn=𝐹𝐹𝑛𝑛−1+Fn−2. 피보나치 수를 재귀함수를 이용하여 의사코드(Pseudo Code) 또는 임의의 프로그래밍 언어로 구현하고, 재귀함수보다 효율적으로 동작시키기 위한 기법을 제시하시오.",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["피보나치 수"],
+    questionIds: ["c119-301"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-3-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-3-01-2.webp", label: "2쪽" },
@@ -71110,6 +71186,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "IPv6 의 ND(Neighbor Discovery)의 기능과 ND 와 관련된 ICMPv6 메시지에 대하여 설명하시오.",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["IPv6"],
+    questionIds: ["c119-302"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-3-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-3-02-2.webp", label: "2쪽" },
@@ -71123,6 +71200,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "국가기반시설을 원격에서 감시 및 제어하는 SCADA(Supervisory Control And Data Acquisition) 시스템의 내부구조를 설명하고, SCADA 공격용 프로그램인 Stuxnet 의 동작 과정 및 대응방안을 설명하시오.",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["SCADA"],
+    questionIds: ["c119-303"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-3-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-3-03-2.webp", label: "2쪽" },
@@ -71137,6 +71215,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "정보시스템감리 과업이행여부 점검 시 표본조사가 원칙이나 현실적으로는 발주기관에서 전수조사를 원칙으로 요구하는 사례가 많은 실정이다. 다음에 대하여 설명하시오. 1) 과업이행여부 전수점검에 대한 현실적 한계성과 감리에 미치는 문제점 2) 과업이행여부 전수점검에 대한 개선방안인 문서검토확인과 제3 자 검증 방법",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["정보시스템 감리", "정보시스템 감리 Framework"],
+    questionIds: ["c119-304"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-3-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-3-04-2.webp", label: "2쪽" },
@@ -71150,6 +71229,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "대용량의 데이터 처리가 산업전반에 걸쳐 상용화되고 있다. 대용량 데이터의 처리 및 검색 성능을 고려하여 데이터베이스를 파티션을 통해 분산 및 저장하는 것을 검토하고 있다. 다음에 대하여 설명하오 1) 파티셔닝을 추진하는 목적 2) 파티셔닝 종류 3) 분할 기준",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["데이터베이스 파티셔닝(Partitioning)"],
+    questionIds: ["c119-305"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-3-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-3-05-2.webp", label: "2쪽" },
@@ -71164,6 +71244,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "최근 차세대 시스템을 추진하는 금융기업에서는 개발자 확보 및 모델 중심의 개발을 목적으로 MDD(Model Driven Development) 도입을 적극 검토하고 있다. 다음에 대하여 설명하시오. 1) 개발방법론 특징 비교(구조적 방법론, 객체지향 방법론, CBD, MDD) 2) MDD 개념 및 특징 3) MDD 개발참여자의 역할 4) MDD 유용성과 제약사항",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["Kanban (development)", "MDD"],
+    questionIds: ["c119-306"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-3-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-3-06-2.webp", label: "2쪽" },
@@ -71604,6 +71685,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "프리크라임(Pre-Crime) 시스템",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c120-101"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-01-2.webp", label: "2쪽" },
@@ -71616,6 +71698,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "순환 신경망(Recurrent Neural Network : RNN)",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["Network(3)", "신경망(네트워크)", "RNN"],
+    questionIds: ["c120-102"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-02-2.webp", label: "2쪽" },
@@ -71628,6 +71711,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "국가재난안전통신망(PS-LTE)과 철도전용무선통신망(LTE-R), 초고속해상무선통신망(LTE-M)을 설명하시오.",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["국가재난안전통신망"],
+    questionIds: ["c120-103"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-03-2.webp", label: "2쪽" },
@@ -71640,6 +71724,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "ISO 20547",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c120-104"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-04-2.webp", label: "2쪽" },
@@ -71652,6 +71737,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "GPU(Graphics Processing Unit)",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["GPU(graphic processing unit)"],
+    questionIds: ["c120-105"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-05-2.webp", label: "2쪽" },
@@ -71664,6 +71750,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "네트워크 운영 체제(Network Operation System : NOS)",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["Network(3)", "네트워크 운영 체제(NOS)"],
+    questionIds: ["c120-106"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-06-2.webp", label: "2쪽" },
@@ -71676,6 +71763,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "원격 프로시저 호출(Remote Procedure Call : RPC)",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c120-107"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-07-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-07-2.webp", label: "2쪽" },
@@ -71688,6 +71776,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "대역확산(Spread Spectrum)",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["대역확산(Spread Spectrum)"],
+    questionIds: ["c120-108"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-08-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-08-2.webp", label: "2쪽" },
@@ -71700,6 +71789,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "레터럴 무브먼트(Lateral Movement)",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["레터럴 무브먼트(Lateral Movement)"],
+    questionIds: ["c120-109"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-09-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-09-2.webp", label: "2쪽" },
@@ -71712,6 +71802,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "CAM(Content-Addressable Memory)에 대하여 일반적인 메모리와 비교하여 설명하시오.(기본개념, 액세스 방법 및 활용분야)",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["CAM(Content-Addressable Memory)"],
+    questionIds: ["c120-110"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-10-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-10-2.webp", label: "2쪽" },
@@ -71724,6 +71815,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "마이크로서비스 아키텍처(Micro-service Architecture)",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["MSA (Micro Service Architecture)"],
+    questionIds: ["c120-111"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-11-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-11-2.webp", label: "2쪽" },
@@ -71736,6 +71828,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "세마포어(Semaphore)와 뮤텍스(Mutex)를 비교 설명하시오.",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["세마포어(Semaphore)"],
+    questionIds: ["c120-112"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-12-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-12-2.webp", label: "2쪽" },
@@ -71748,6 +71841,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "RTLS(Real-Time Location System)",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["RTLS"],
+    questionIds: ["c120-113"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-13-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-1-13-2.webp", label: "2쪽" },
@@ -71760,6 +71854,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "머신러닝 알고리즘 중 선형 회귀(Linear Regression)와 로지스틱 회귀 (Logistic Regression)에 대하여 설명하고 아래 표를 참고 하여 다음을 설명하시오. X Y 1 1 2 2 3 3 가. 가설과 비용함수를 설정하시오. 나. 가중치(Weight) 변화에 따른 비용 간 그래프를 도식화 하시오. 다. 가설과 비용함수를 통해 비용이 최소화 되는 가중치를 구하시오.",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["회귀분석(Regression Analysis)"],
+    questionIds: ["c120-201"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-2-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-2-01-2.webp", label: "2쪽" },
@@ -71774,6 +71869,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "최근 정부는 공공기관이 보유 및 관리하는 데이터의 제공 및 그 이용활성화에 관한 사항을 규정함으로써 국민의 공공데이터에 대한 이 용권을 보장하고 궁극적으로 국민경제 발전에 이바지하기 위해 공공데 이터제공 정책을 펼치고 있다. 이에 대하여 다음 사항을 설명하시오. 가. 공공데이터의 정의 및 포맷별 유형 나. 공공데이터 제공과 공개의 차이점 다. 공공데이터 제공 관리 단계별 기준 라. 공공데이터 품질 관리 단계별 기준 마. 공공데이터 제공시 고려사항",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["공공 데이터", "공공데이터"],
+    questionIds: ["c120-202"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-2-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-2-02-2.webp", label: "2쪽" },
@@ -71788,6 +71884,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "회사의 네트워크 시스템을 내부망과 외부망으로 분리하여 운영하고자 한다. 망분리 용역 발주 시 필요한 기술 사양서(Technical Specification)에 포함하여야 할 목차(Table of Contents)를 설명하시오.",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c120-203"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-2-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-2-03-2.webp", label: "2쪽" },
@@ -71803,6 +71900,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "SCADA(Supervisory Control and Data Architecture) 시스템의 구성요소, 감시(Monitoring)와 제어(Control)의 차이점을 설명하시오.",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["SCADA", "Data Architecture(DA)"],
+    questionIds: ["c120-204"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-2-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-2-04-2.webp", label: "2쪽" },
@@ -71817,6 +71915,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "인터럽트(Interrupt)에 대하여 다음사항을 설명하시오. 가. 인터럽트 발생 요인(하드웨어 및 소프트웨어) 나. 마스커블(Maskable) 인터럽트와 넌마스커블(Non-maskable) 인터럽트 다. 벡터(Vectored) 인터럽트의 동작원리 라. 우선순위(Priority)를 보장하는 다중(Multiple) 인터럽트가 발생한 경우 이를 처리하기 위한 ISR(Interrupt Service Routine)을 프로세서 및 소프트웨어에서 제공하여야 하는 기능요소들과 상호 연관시켜 설명하시오.",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["인터럽트(Interrupt)"],
+    questionIds: ["c120-205"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-2-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-2-05-2.webp", label: "2쪽" },
@@ -71830,6 +71929,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "디지털 트윈(Digital Twin)에 대하여 다음 사항들을 설명하시오. 가. 디지털 트윈의 정의와 출현 배경 나. 디지털 트윈과 M&S(modeling & Simulation)의 연관성 다. 디지털 트윈의 산업분야 적용 라. 디지털 트윈 운영 환경(소프트웨어 측면의 구성요소, 산업분야 운용을 위한 HW 및 시스템 SW 인프라)",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["디지털 트윈(Digital Twin)"],
+    questionIds: ["c120-206"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-2-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-2-06-2.webp", label: "2쪽" },
@@ -71844,6 +71944,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "TCP(Transmission Control Protocol)의 신뢰성 있는 전송을 가능하게 하는 오류제어, 흐름제어, 혼잡제어에 대하여 설명하시오.",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["TCP", "오류제어", "혼잡 제어", "Sliding Window & 네이글(Nagle's) 알고리즘"],
+    questionIds: ["c120-301"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-3-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-3-01-2.webp", label: "2쪽" },
@@ -71857,6 +71958,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "모바일 및 임베디드 시스템에 주로 이용되고 있는 ARM(Advanced RISC Machine) 프로세서에 대하여 다음 사항을 설명하시오. 가. ARM 프로세서의 특징 나. ARM 하드웨어 임베디드 시스템 아키텍처 다. ARM 소프트웨어 계층 구조",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["RISC"],
+    questionIds: ["c120-302"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-3-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-3-02-2.webp", label: "2쪽" },
@@ -71871,6 +71973,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "기능안전(Functional Safety) 분야에서 사용하는 정보통신망의 적합성을 평가하고자 한다. 이에 필요한 기술평가 항목들(Technical Evaluation Items)과 체크리스트를 작성하시오.",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c120-303"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-3-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-3-03-2.webp", label: "2쪽" },
@@ -71884,6 +71987,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "머신러닝(Machine Learning)의 학습 방법은 크게 3 가지[지도학습(Supervised Learning), 비지도학습(Unsupervised Learning), 강화학습(Reinforcement Learning)]로 분류한다. 인공지능 소프트웨어 개발 프로세스를 V 모델 기준으로 도식화하고 관련기술의 최신 동향 및 안전 취약성을 설명하시오.",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["머신러닝 학습방법"],
+    questionIds: ["c120-304"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-3-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-3-04-2.webp", label: "2쪽" },
@@ -71898,6 +72002,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "제4 차 산업혁명과 관련한 스마트팩토리에 대하여 다음 상황을 설명하시오. 가. 국내 스마트팩토리 확산을 위한 정책과 대응방안으로 국내 민관합동 스마트팩토리 추진단은 한국형 스마트팩토리를 IT 기술과 자동화 기술을 최대한 활용해 글로벌 경쟁력을 갖추는 것으로 정의하였다. 이러한 정의에 의한 국내 스마트팩토리의 수준을 고도화, 중간수준2, 중간수준1, 기초수준, ICT 미적용 등 5 단계에 대하여 설명하고, 각 수준별 공장자동화, 공장운영, 기업자원 관리, 제품개발, 공급사슬 관리에 대하여 설명하시오. 나. 스마트팩토리를 위한 요소기술은 반드시 적용해야 하는 새로운 개념의 기술이 언제든지 등장할 수 있어서 시대의 흐름에 따라 바뀔 수 있다. 현재시점에서 스마트팩토리를 구성하기 위하여 요구되는 요소기술을 나열하고 설명하시오.",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["스마트팩토리"],
+    questionIds: ["c120-305"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-3-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-3-05-2.webp", label: "2쪽" },
@@ -71912,6 +72017,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "마이크로컴퓨터에서 PWM(Pulse Width Modulation)을 발생시키고자 할 때, 다음과 같은 사항을 참조하여 설명하시오. 가. 마이크로컴퓨터에는 다음과 같은 종류의 레지스터를 포함하고 있다. 즉, 0 으로부터 count-up 을 반복하는 8 비트의 Read/Write 가능한 “카운터레지스터(Counter Register)”와 카운터레지스터 값과 비교하기 위한 값을 저장하는 8 비트의 “출력비교레지스터(Output Compare Register)”가 있고, 카운터 레지스터의 값이 출력비교레지스터에 저장된 값과 같을 때 비교출력신호의 상태를 변화시킨다. 마이크로컴퓨터의 CPU 클럭주파수 f=16MHz 로 하고, 이를 64 분주하여 카운터레지스터의 카운팅 기준시간으로 적용한다. 이러한 상황을 이용하여, 마이크로컴퓨터에서 PWM 을 발생시킬 수 있는 원리를 개념적으로 설명하시오. 나. “가”항의 원리를 이용하여, PWM 의 duty cycle 을 고속(90%), 중속(70%), 저속(50%) 등으로 조절하여 모터의 속도제어나 조명의 디밍(dimming)제어가 가능합을 계산을 통하여 설명하시오. (단, 문제에서 주어지지 않은 조건은 임의로 정의 가능)",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["변조(Modulation)"],
+    questionIds: ["c120-306"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-3-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-3-06-2.webp", label: "2쪽" },
@@ -71926,6 +72032,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "병렬처리를 위한 컴퓨터구조설계기법으로 분기예측 기술의 2 가지 방법인 분기방향예측과 분기목적지예측에 대해 설명하고 예측실행(Speculative Execution) 기술에 대하여 설명하시오.",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["컴퓨터 구조(폰노이만)", "병렬처리(Parallel Processing)", "병렬처리 개념"],
+    questionIds: ["c120-401"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-4-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-4-01-2.webp", label: "2쪽" },
@@ -71939,6 +72046,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "ISO7498 이 필요한 이유와 각 계층별 역할 및 기능, 취급하는 자료 형태와 관련 장비에 대하여 설명하시오.",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["OSI 7 Layer (ISO 7498)"],
+    questionIds: ["c120-402"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-4-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-4-02-2.webp", label: "2쪽" },
@@ -71952,6 +72060,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "회사 내 사이버보안 조직의 역할 및 책임사항을 평상시와 비상시로 구분하여 설명하시오.",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["사이버보안 조직"],
+    questionIds: ["c120-403"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-4-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-4-03-2.webp", label: "2쪽" },
@@ -71965,6 +72074,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "기능안전 분야(국방, 우주/항공, 철도, 선박, 자동차 및 의료 등)에서 능동안전(Active Safety) 개념을 적용하여 소형 디지털 제어기(Small Digital Controller)를 설계하고자 한다. 하드웨어와 소프트웨어 관점에서 안전설계 개념(Safety Design Concept)과 안전메카니즘(Safety Mechanism)을 설명하시오.",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["능동안전(Active Safety)"],
+    questionIds: ["c120-404"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-4-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-4-04-2.webp", label: "2쪽" },
@@ -71978,6 +72088,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "포그 컴퓨팅(Fog Computing)을 설명하고, 엣지 컴퓨팅(Edge Computing) 및 클라우드 컴퓨팅(Cloud Computing)과 비교하여 설명하시오.",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["클라우드 컴퓨팅", "포그 컴퓨팅"],
+    questionIds: ["c120-405"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-4-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-4-05-2.webp", label: "2쪽" },
@@ -71991,6 +72102,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "교환방식에 있어서 회선교환(Circuit Switching)방식과 패킷교환(Packet Switching) 방식에 대하여 설명하고, 음성데이터나 영상데이터와 같은 실시간 트래픽 서비스를 패킷교환방식의 네트워크에서 제공하고자할 때 발생할 수 있는 문제점 및 해결방안에 대하여 설명하시오.",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["패킷 교환 네트워크", "해결방안"],
+    questionIds: ["c120-406"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-4-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-4-06-2.webp", label: "2쪽" },
@@ -72884,6 +72996,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "전가산기(Full Adder)",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: ["전가산기(Full Adder)"],
+    questionIds: ["c122-101"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-01-2.webp", label: "2쪽" },
@@ -72896,6 +73009,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "RAID(Redundant Array of Inexpensive Disks)",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: ["RAID (Redundant Array of Independent Disks)"],
+    questionIds: ["c122-102"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-02-2.webp", label: "2쪽" },
@@ -72909,6 +73023,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "모바일 엣지 컴퓨팅(Mobile Edge Computing)",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: ["Mobile Edge Computing", "MEC/EC (모바일 엣지 컴퓨팅) 엣지 컴퓨팅 스케줄링"],
+    questionIds: ["c122-103"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-03-2.webp", label: "2쪽" },
@@ -72921,6 +73036,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "해밍거리(Hamming Distance)",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: ["해밍 거리(Hamming Distance)"],
+    questionIds: ["c122-104"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-04-1.webp", label: "1쪽" },
     ],
@@ -72932,6 +73048,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "IMDG(In-Memory Data Grid)",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: ["IMDG(In-Memory Data Grid)"],
+    questionIds: ["c122-105"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-05-2.webp", label: "2쪽" },
@@ -72945,6 +73062,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "Graph DB",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: [],
+    questionIds: ["c122-106"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-06-2.webp", label: "2쪽" },
@@ -72958,6 +73076,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "Scale-Up/Scale-Out",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: [],
+    questionIds: ["c122-107"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-07-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-07-2.webp", label: "2쪽" },
@@ -72970,6 +73089,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "GPU(Graphic Processing Unit)와 CPU(Central Processing Unit) 차이점",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: ["CPU", "GPU(graphic processing unit)"],
+    questionIds: ["c122-108"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-08-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-08-2.webp", label: "2쪽" },
@@ -72983,6 +73103,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "백트래킹(Backtracking), 분할정복, 탐욕법, 동적계획법의 개념 및 알고리즘 사례",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: ["동적 계획법(Dynamic Programming)"],
+    questionIds: ["c122-109"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-09-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-09-2.webp", label: "2쪽" },
@@ -72995,6 +73116,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "인공지능 데이터의 평가를 위한 고려사항",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: ["인공지능 데이터의 평가"],
+    questionIds: ["c122-110"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-10-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-10-2.webp", label: "2쪽" },
@@ -73007,6 +73129,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "제로 트러스트(Zero Trust) 보안모델",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: ["제로 트러스트(Zero Trust) 보안모델"],
+    questionIds: ["c122-111"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-11-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-11-2.webp", label: "2쪽" },
@@ -73019,6 +73142,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "생성적 적대 신경망(Generative Adversarial Networks : GAN)",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: ["GAN(Generative Adversarial Network)"],
+    questionIds: ["c122-112"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-12-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-12-2.webp", label: "2쪽" },
@@ -73031,6 +73155,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "기울기 소실 문제(Vanishing Gradient Problem)",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: ["기울기소실 문제", "인시던트(Incident) 관리와 문제(Problem) 관리"],
+    questionIds: ["c122-113"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-13-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-13-2.webp", label: "2쪽" },
@@ -73044,6 +73169,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "자율주행의 기술동향 및 핵심기술에 대하여 설명하시오t",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상헌 기술사)",
     topicTitles: ["Smart Car(자율주행)"],
+    questionIds: ["c122-201"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-2-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-2-01-2.webp", label: "2쪽" },
@@ -73057,6 +73183,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "OSI 7-Layer의 데이터링크 계층에서 제공하는 서비스에 대하여 설명하시오",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상헌 기술사)",
     topicTitles: ["OSI 7 Layer (ISO 7498)"],
+    questionIds: ["c122-202"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-2-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-2-02-2.webp", label: "2쪽" },
@@ -73073,6 +73200,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "데이터 웨어하우스(Data Warehouse)와 데이터 레이크(Data Lake)의 특징을 비교하고, 빅데이터의 요소기술과 기술영역별 표준화 대상항목을 설명하시오",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상헌 기술사)",
     topicTitles: ["빅데이터(3V / 6V)"],
+    questionIds: ["c122-203"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-2-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-2-03-2.webp", label: "2쪽" },
@@ -73087,6 +73215,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "최근 개정된 데이터 3법의 주요 개정내용과 개인정보/가명정보/익명정보의 활용 가능범위, 기대 효과, 후속 추진 현황을 설명하시오",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상헌 기술사)",
     topicTitles: ["데이터 3법"],
+    questionIds: ["c122-204"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-2-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-2-04-2.webp", label: "2쪽" },
@@ -73100,6 +73229,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "패션 의류용 이미지를 분류하는 다층 신경망을 만들려고 한다. 의류용 이미지는 바지, 치마, 티셔 츠 등 10가지 유형의 흑백이미지(32*32 pixels)로 구성되어 있고, 학습에 투입할 이미지 데이터는 검증 및 테스트용 데이터를 제외하고 총 48,000장이다. 입력층, 은닉층, 출력층의 완전연결(fully connected) 3계층으로 구성되어 있고 은닉층의 뉴런 개수는 100개일 때, 다음에 대하여 설명하시 오. 가. 신경망 구성도 나. 입력층의 입력개수, 츨력층의 뉴런 개수, 학습할 가중치와 절편의 총 개수 다. 원핫인코딩(One-Hot Encoding)과 소프트맥스(Softmax)함수",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상헌 기술사)",
     topicTitles: ["신경망(네트워크)"],
+    questionIds: ["c122-205"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-2-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-2-05-2.webp", label: "2쪽" },
@@ -73113,6 +73243,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "인공지능(AI) 윤리의 개념, 주요사례, 고려사항 및 추진방향을 설명하시오",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상헌 기술사)",
     topicTitles: ["AI 윤리"],
+    questionIds: ["c122-206"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-2-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-2-06-2.webp", label: "2쪽" },
@@ -73126,6 +73257,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "오픈소스 솔루션은 상용 소프트웨어처럼 사용료는 요구하지 않지만, 대신 반드시 준수해야 하는 의무조항이 있다. 가. 오픈소스 솔루션의 의무조항을 설명하시오. 나. 오픈소스 솔루션과 상용 소프트웨어의 특징을 비교하여 설명하시오.",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상헌 기술사)",
     topicTitles: ["오픈소스 소프트웨어"],
+    questionIds: ["c122-301"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-3-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-3-01-2.webp", label: "2쪽" },
@@ -73139,6 +73271,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "4차 산업혁명의 주요 기술로서 블록체인기술이 활용되고 있다. 가. 블록체인 기술의 장점, 시스템 구축에 필요한 핵심기술을 설명하시오. 나. 공개형과 허가형 블록체인을 비교하여 설명하시오.",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상헌 기술사)",
     topicTitles: ["블록체인", "블록체인기술"],
+    questionIds: ["c122-302"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-3-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-3-02-2.webp", label: "2쪽" },
@@ -73153,6 +73286,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "DNS(Domain Name Server)가 제공하는 서비스에 대하여 설명하시오.",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상헌 기술사)",
     topicTitles: ["DNS(Domain Name System)"],
+    questionIds: ["c122-303"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-3-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-3-03-2.webp", label: "2쪽" },
@@ -73166,6 +73300,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "6G 이동통신기술에 대하여 설명하시오.",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 안경환 기술사)",
     topicTitles: ["6G"],
+    questionIds: ["c122-304"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-3-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-3-04-2.webp", label: "2쪽" },
@@ -73180,6 +73315,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "머신러닝 모델은 학습과 함께 검증 및 평가 과정이 필요하다. 가. 교차검증(k-fold Cross Validation) 기법에 대하여 설명하시오. 나. 머신러닝 모델의 평가방법에 대하여 설명하시오.",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 안경환 기술사)",
     topicTitles: ["머신러닝 학습방법", "낙관적 검증(Validation) 기법"],
+    questionIds: ["c122-305"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-3-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-3-05-2.webp", label: "2쪽" },
@@ -73193,6 +73329,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "경사하강법(Gradient Descent)은 인공신경망 학습을 최적화하기 위한 기법이다. 가. 평균제곱오차 비용함수를 가중치에 대해 편미분한 후 학습률을 곱한 값을 기존 가중치에서 차감하여 가중치 갱신을 수행한다고 가정할 때, 가중치 최적해의 좌측 또는 우측 어디에서 시작하든 상관없이 최적해를 향해 진행하는 이유를 수식적으로 설명하시오. 나. 확률적경사하강법, 배치경사하강법, 미니배치경사하강법의 개념과 특징을 비교하여 설명하시오.",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 안경환 기술사)",
     topicTitles: ["경사하강법"],
+    questionIds: ["c122-306"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-3-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-3-06-2.webp", label: "2쪽" },
@@ -73206,6 +73343,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "종료단계 감리 시 감리원은 구현기능을 직접 테스트하여 과업이행여부를 판정하도록 정보시스템 감리 수행가이드에 안내되어 있다. 가. 감리원이 직접 테스트하는 것이 현실적으로 어려운 사례를 설명하시오. 나. 검토 및 확인, 제3자검증 점검방법을 통한 개선방안을 설명하시오.",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정주행 기술사)",
     topicTitles: ["정보시스템 감리", "정보시스템 감리수행 가이드 v2.1(한국정보화진흥원, 2013.12)", "정보시스템 감리 Framework"],
+    questionIds: ["c122-401"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-4-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-4-01-2.webp", label: "2쪽" },
@@ -73219,6 +73357,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "정렬 알고리즘은 컴퓨터 분야에서 가장 많이 연구된 분야 중 하나이다. 가. 선택정렬(Selection Sort)과 삽입정렬(Insertion Sort), 퀵정렬(Quick Sort)알고리즘을 설명하시오. 나. 다음 키 값을 갖는 파일을 퀵정렬(Quick Sort) 알고리즘을 사용하여 오름차순으로 정렬하려고 한다. 피벗이 50일 때 수행되는 분할과정을 단계적으로 설명하시오. (단, n=8 : 50, 80, 20, 90, 40, 10, 30, 60)",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정주행 기술사)",
     topicTitles: ["퀵 정렬(Quick Sort)", "삽입 정렬(Insertion Sort)"],
+    questionIds: ["c122-402"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-4-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-4-02-2.webp", label: "2쪽" },
@@ -73232,6 +73371,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "UDP(User Datagram Protocol)가 제공하는 서비스를 설명하시오.",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정주행 기술사)",
     topicTitles: ["UDP"],
+    questionIds: ["c122-403"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-4-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-4-03-2.webp", label: "2쪽" },
@@ -73245,6 +73385,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "정보보안의 주요한 세 가지 목적 및 각각의 목적을 위협할 수 있는 공격방법에 대하여 설명하시 오.",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정주행 기술사)",
     topicTitles: ["위협(Threat)"],
+    questionIds: ["c122-404"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-4-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-4-04-2.webp", label: "2쪽" },
@@ -73258,6 +73399,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "응용시스템 개발과정에서 적용할 테스트 기법을 결정하는데 고려해야 할 사항과 단위 테스트를 종료하는 기준을 설명하시오.",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 안경환 기술사)",
     topicTitles: [],
+    questionIds: ["c122-405"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-4-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-4-05-2.webp", label: "2쪽" },
@@ -73271,6 +73413,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "클라우드 컴퓨팅은 ICT를 실현하는 핵심 기술로 인식되고 있다. 가. 클라우드 컴퓨팅의 기반기술 개념 및 요소기술을 설명하시오. 나. 클라우드 컴퓨팅의 생태계를 설명하시오.",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 안경환 기술사)",
     topicTitles: ["클라우드 컴퓨팅"],
+    questionIds: ["c122-406"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-4-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-4-06-2.webp", label: "2쪽" },
@@ -73715,6 +73858,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "DDR SDRAM(Double Data Rate Synchronous Dynamic Random Access Memory)",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 백기현 기술사)",
     topicTitles: ["SDRAM (or SDR SDRAM)", "DDR SDRAM (Double data rate synchronous dynamic random access memory)"],
+    questionIds: ["c123-101"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-01-2.webp", label: "2쪽" },
@@ -73727,6 +73871,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "PCI Express(Peripheral Component Interconnect Express)",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 백기현 기술사)",
     topicTitles: ["PCI Express (Peripheral Component Interconnect Express)"],
+    questionIds: ["c123-102"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-02-2.webp", label: "2쪽" },
@@ -73739,6 +73884,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "동적 연결 라이브러리(Dynamic Linking Library)",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 백기현 기술사)",
     topicTitles: ["동적 연결 라이브러리(Dynamic Linking Library)"],
+    questionIds: ["c123-103"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-03-2.webp", label: "2쪽" },
@@ -73751,6 +73897,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "능동 학습(Active Learning)",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 백기현 기술사)",
     topicTitles: ["능동 학습(Active Learning)"],
+    questionIds: ["c123-104"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-04-2.webp", label: "2쪽" },
@@ -73763,6 +73910,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "매니코어 프로세서(many core CPU(Central Processing Unit))",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 백기현 기술사)",
     topicTitles: ["CPU"],
+    questionIds: ["c123-105"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-05-2.webp", label: "2쪽" },
@@ -73775,6 +73923,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "MQTT(Message Queuing Telemetry Transport)",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 백기현 기술사)",
     topicTitles: ["Transport(4)", "MQTT"],
+    questionIds: ["c123-106"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-06-2.webp", label: "2쪽" },
@@ -73787,6 +73936,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "Wi-Fi 6E",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 백기현 기술사)",
     topicTitles: ["Wi-Fi 6E"],
+    questionIds: ["c123-107"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-07-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-07-2.webp", label: "2쪽" },
@@ -73799,6 +73949,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "산업제어시스템(Industrial Control System)의 보안 구조를 ICT 시스템과 비교하여 설명하시오.",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 백기현 기술사)",
     topicTitles: [],
+    questionIds: ["c123-108"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-08-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-08-2.webp", label: "2쪽" },
@@ -73811,6 +73962,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "지식 증류(Knowledge Distillation)",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 백기현 기술사)",
     topicTitles: ["지식 증류(Knowledge Distillation)"],
+    questionIds: ["c123-109"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-09-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-09-2.webp", label: "2쪽" },
@@ -73823,6 +73975,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "ERP(Enterprise Resource Planning)의 POC(Proof of Concept)",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 백기현 기술사)",
     topicTitles: ["PoC"],
+    questionIds: ["c123-110"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-10-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-10-2.webp", label: "2쪽" },
@@ -73835,6 +73988,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "메모리 누수(Memory Leak)",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 백기현 기술사)",
     topicTitles: ["메모리 누수(Memory Leak)"],
+    questionIds: ["c123-111"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-11-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-11-2.webp", label: "2쪽" },
@@ -73847,6 +74001,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "사실상 표준(de facto standard)",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 백기현 기술사)",
     topicTitles: ["사실상 표준"],
+    questionIds: ["c123-112"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-12-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-12-2.webp", label: "2쪽" },
@@ -73859,6 +74014,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "IEC 61508 - 안전 무결성 수준(Safety Integrity Level)",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 백기현 기술사)",
     topicTitles: ["IEC 61508", "IEEE와 IEC"],
+    questionIds: ["c123-113"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-13-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-1-13-2.webp", label: "2쪽" },
@@ -73871,6 +74027,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "운영체제(operating system)에서 발생할 수 있는 클럭 인터럽트(clock interrupt), 입출력 인터럽트 (input/output interrupt), 페이지 부재(page fault)의 경우에 대하여 운영체제가 하는 역할을 설명 하시오.",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 권영란 기술사)",
     topicTitles: ["인터럽트(Interrupt)"],
+    questionIds: ["c123-201"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-2-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-2-01-2.webp", label: "2쪽" },
@@ -73885,6 +74042,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "SLC(Single Level Cell) NAND, MLC(Multi Level Cell) NAND 및 TLC(Triple Level Cell) NAND Flash 메 모리에 관하여 다음의 내용을 설명하시오. 가. 개념 나. 장단점 비교 다. 응용 분야",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 권영란 기술사)",
     topicTitles: ["Flash Memory(NOR, NAND)", "주기억장치(메모리)"],
+    questionIds: ["c123-202"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-2-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-2-02-2.webp", label: "2쪽" },
@@ -73899,6 +74057,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "5G 사이버물리시스템(Cyber-Physical Systems) 내의 통신설비, 클라우드 플랫폼 인프라 기반 스마 트시티 서비스 활성화 방안에 대해 4가지 모델을 고려하여 설명하시오. 가. OBM(Open-Business-Model) 나. BOM(Build-Operate-Manage) 다. BOT(Build-Operate-Transfer) 라. BOO(Build-Own-Operate)",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 권영란 기술사)",
     topicTitles: [],
+    questionIds: ["c123-203"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-2-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-2-03-2.webp", label: "2쪽" },
@@ -73912,6 +74071,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "차량 긴급구난체계(e-Call)를 단말, 관제센터 및 유관기관을 중심으로 설명하시오.",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 권영란 기술사)",
     topicTitles: [],
+    questionIds: ["c123-204"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-2-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-2-04-2.webp", label: "2쪽" },
@@ -73927,6 +74087,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "A라는 회사에서 응용 소프트웨어 패키지(application software package)를 개발하였다. 시장 (market) 출시 전에 SW시험·인증센터에 제3자 시험·인증을 의뢰하고자 한다. 신청부터 소프트웨어 품질인증서를 받기까지의 모든 절차를 설명하시오.",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 권영란 기술사)",
     topicTitles: ["인증서"],
+    questionIds: ["c123-205"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-2-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-2-05-2.webp", label: "2쪽" },
@@ -73941,6 +74102,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "A라는 회사에서 특허동향분석(patent map) 시스템을 구축하였다. 이를 평가하기 위한 기술평가표 (technical evaluation sheet)를 일반부분, 기술부분, 관리부분 및 지원 부분으로 구분하여 설명하시 오.",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 권영란 기술사)",
     topicTitles: [],
+    questionIds: ["c123-206"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-2-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-2-06-2.webp", label: "2쪽" },
@@ -73956,6 +74118,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "캐시 일관성(cache coherence)이 필요한 환경 및 이유를 설명하고, 캐쉬 일관성을 유지하기 위한 디렉토리 프로토콜(directory protocol)과 스누피 프로토콜(snoopy protocol)을 비교 설명하시오.",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 권영란 기술사)",
     topicTitles: ["캐시 일관성(Cache Coherence)"],
+    questionIds: ["c123-301"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-3-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-3-01-2.webp", label: "2쪽" },
@@ -73970,6 +74133,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "XP(eXtreme Programming)의 특징 및 실천 방법(practice)들을 설명하시오.",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 권영란 기술사)",
     topicTitles: ["XP (eXtreme Programming)"],
+    questionIds: ["c123-302"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-3-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-3-02-2.webp", label: "2쪽" },
@@ -73984,6 +74148,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "EoS(Ethernet over Synchronous digital hierarchy)와 이더넷 링 보호 절체를 비교하여 설명하시오.",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 권영란 기술사)",
     topicTitles: ["이더넷(Ethernet)", "EoS(Ethernet over Synchronous digital hierarchy)", "이더넷 링 보호 절체"],
+    questionIds: ["c123-303"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-3-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-3-03-2.webp", label: "2쪽" },
@@ -73998,6 +74163,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "초광대역 무선기술 (Ultra Wide Band)을 이용한 거리측정방법을 설명하시오.",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남훈 기술사)",
     topicTitles: [],
+    questionIds: ["c123-304"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-3-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-3-04-2.webp", label: "2쪽" },
@@ -74011,6 +74177,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "정보통신기술(ICT) 시스템 통합(system integration) 시 시험단계(test phase)에서 반드시 거쳐야 하 는 과정이 성능시험(performance test)이다. 성능시험 결과보고서에 포함하여야 할 주요목차와 내 용들을 설명하시오.",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남훈 기술사)",
     topicTitles: ["Test 결과보고서"],
+    questionIds: ["c123-305"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-3-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-3-05-2.webp", label: "2쪽" },
@@ -74024,6 +74191,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "국제표준은 미국을 중심으로 한 IEEE-Std. Framework와 유럽을 중심으로 한 IEC-Std. Framework 로 크게 구분할 수 있다. 이들의 주요 차이점과 특징을 간단히 비교하고 국내·외 정보통신기술 (ICT) 표준화 동향을 설명하시오.",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남훈 기술사)",
     topicTitles: ["IEEE와 IEC"],
+    questionIds: ["c123-306"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-3-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-3-06-2.webp", label: "2쪽" },
@@ -74038,6 +74206,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "DMA(Direct Memory Access)에 대하여 다음을 설명하시오. 가. DMA를 사용하는 이유 나. 입출력장치에서 주기억장치로 정보 전송시 DMA를 이용한 정보전송 다. Burst Mode, Cycle Stealing Mode, Demand Transfer Mode",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남훈 기술사)",
     topicTitles: ["DMA(Direct Memory Access)"],
+    questionIds: ["c123-401"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-4-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-4-01-2.webp", label: "2쪽" },
@@ -74051,6 +74220,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "버퍼 오버플로우(buffer overflow)를 이용한 사이버 공격을 설명하고, 이를 해결하기 위한 소프트 웨어 방안(실행 시간 방어, 컴파일 시간 방어)들을 설명하시오.",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남훈 기술사)",
     topicTitles: [],
+    questionIds: ["c123-402"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-4-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-4-02-2.webp", label: "2쪽" },
@@ -74064,6 +74234,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "물리적으로 안전한 가상현실 서비스를 위한 주변감지 및 경고시스템 표준 (TTAK.KO-10.1116, 2018)을 설명하시오.",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남훈 기술사)",
     topicTitles: ["가상현실(VR)"],
+    questionIds: ["c123-403"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-4-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-4-03-2.webp", label: "2쪽" },
@@ -74077,6 +74248,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "드론(Drone) 서비스 관련 보안 위협과 대응방안에 대하여 다음 각 사항을 반영하여 설명하시오. 가. 자산 별 보안위협 나. 4가지 이상의 위협 시나리오",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남훈 기술사)",
     topicTitles: ["위협(Threat)"],
+    questionIds: ["c123-404"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-4-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-4-04-2.webp", label: "2쪽" },
@@ -74091,6 +74263,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "최근 각 분야에서 개인정보유출이 잇따르면서 경제협력개발기구(OECD)의 ‘프라이버시 8원칙’이 새삼 주목받고 있다. 이 8원칙은 개인정보의 수집 및 관리에 대한 국제사회의 합의를 반영한 국 제기준으로 법적인 구속력은 없지만 일반 원칙으로 인정받고 있다. 경제협력개발기구(OECD) 프라 이버시(privacy) 8원칙을 설명하시오.",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남훈 기술사)",
     topicTitles: ["프라이버시 8원칙", "개인정보 프라이버시 8원칙"],
+    questionIds: ["c123-405"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-4-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-4-05-2.webp", label: "2쪽" },
@@ -74104,6 +74277,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "공공기관의 정보기술 투자성과에 대한 성과관리를 평가체계 관점에서 설명하시오.",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남훈 기술사)",
     topicTitles: [],
+    questionIds: ["c123-406"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-4-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-4-06-2.webp", label: "2쪽" },
@@ -75000,6 +75174,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "IEEE 802.11ax와 IEEE 802.11be 비교",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["Wi-Fi 7(IEEE 802.11be)"],
+    questionIds: ["c125-101"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-01-2.webp", label: "2쪽" },
@@ -75012,6 +75187,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "엣지 컴퓨팅(Edge Computing)",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c125-102"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-02-2.webp", label: "2쪽" },
@@ -75024,6 +75200,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "UNIX 시스템의 3가지 핵심 컴포넌트(Component)",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["컴포넌트"],
+    questionIds: ["c125-103"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-03-2.webp", label: "2쪽" },
@@ -75036,6 +75213,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "DRAM(Dynamic RAM)과 SRAM(Static RAM)",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 모멘텀 안응원 기술사)",
     topicTitles: ["동적 분석(Dynamic)", "RAM", "DRAM (Dynamic Random Access Memory)"],
+    questionIds: ["c125-104"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-04-2.webp", label: "2쪽" },
@@ -75048,6 +75226,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "Shellcode",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 모멘텀 안응원 기술사)",
     topicTitles: ["Shellcode"],
+    questionIds: ["c125-105"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-05-2.webp", label: "2쪽" },
@@ -75060,6 +75239,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "RAID 0+1과 RAID 1+0",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["RAID (Redundant Array of Independent Disks)"],
+    questionIds: ["c125-106"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-06-2.webp", label: "2쪽" },
@@ -75072,6 +75252,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "LiDAR(Light Detection and Ranging)와 RADAR(Radio Detection and Ranging)",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["RADAR", "라이다(LIDAR)"],
+    questionIds: ["c125-107"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-07-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-07-2.webp", label: "2쪽" },
@@ -75084,6 +75265,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "안티드론(Anti-Drone)",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["안티 드론(Anti-Drone)", "안티 드론(Anti-Drone) 프레임워크(정보통신단체표준, TTAK,KO-10.1460)"],
+    questionIds: ["c125-108"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-08-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-08-2.webp", label: "2쪽" },
@@ -75096,6 +75278,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "TCP wrapper",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["TCP", "TCP wrapper"],
+    questionIds: ["c125-109"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-09-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-09-2.webp", label: "2쪽" },
@@ -75108,6 +75291,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "블록체인 트릴레마(Trilemma)",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["블록체인", "블록체인 트릴레마", "블록체인기술"],
+    questionIds: ["c125-110"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-10-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-10-2.webp", label: "2쪽" },
@@ -75120,6 +75304,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "스마트 공장(Smart Factory)",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c125-111"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-11-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-11-2.webp", label: "2쪽" },
@@ -75133,6 +75318,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "ISO/IEC 25000",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["IEEE와 IEC"],
+    questionIds: ["c125-112"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-12-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-12-2.webp", label: "2쪽" },
@@ -75145,6 +75331,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "디바이스 DNA",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["디바이스(Device) DNA"],
+    questionIds: ["c125-113"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-13-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-1-13-2.webp", label: "2쪽" },
@@ -75157,6 +75344,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "내부망과 외부망을 분리하는 망분리시스템에 대하여 다음을 설명하시오. 가. 망분리 개념 및 망분리 원칙 나. 망분리 구축 유형의 특징 비교 다. 망분리 방식의 장단점",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c125-201"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-2-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-2-01-2.webp", label: "2쪽" },
@@ -75170,6 +75358,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "코드 전송 시 발생하는 오류를 검출(Detection)할 수 있을 뿐만 아니라 오류 코드의 정정 (Correction)이 가능한 해밍코드(Hamming Code)에 대하여 다음을 설명하시오. (단, Data는 4Bit로 가정하고 짝수 패리티를 사용한다.) 가. 해밍코드의 구성 나. 해밍코드의 정정과정 및 정정방법 다. 해밍코드의 활용 사례",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["해밍코드(Hamming code)"],
+    questionIds: ["c125-202"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-2-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-2-02-2.webp", label: "2쪽" },
@@ -75183,6 +75372,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "정보시스템 마스터 플랜(ISMP, Information System Master Plan) 방법론에 대하여 다음을 설명하시 오. 가. ISMP 정의 나. ISMP 수행 단계 다. ISP(Information Strategy Planning) 방법론과의 차이점",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["ISP (Information Strategy Planning)", "ISMP (Information System Master Plan)", "ISP 및 ISMP 수립 공통가이드 9판(2025.05)"],
+    questionIds: ["c125-203"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-2-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-2-03-2.webp", label: "2쪽" },
@@ -75197,6 +75387,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "사업유형이 정보시스템 개발인 경우 정보시스템 감리 점검 프레임워크 V3.0에 따라 다음 두 모델 에 대하여 감리시점과 감리영역을 설명하시오. 가. 구조적/정보공학적 개발 모델 나. 객체지향/컴포넌트 기반 개발 모델",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["정보시스템 감리", "정보시스템 감리 Framework"],
+    questionIds: ["c125-204"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-2-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-2-04-2.webp", label: "2쪽" },
@@ -75210,6 +75401,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "공공안전망에 구현된 RAN-Sharing 목적과 기술방식을 각각 설명하시오",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["RAN(Radio Access Network) Sharing"],
+    questionIds: ["c125-205"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-2-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-2-05-2.webp", label: "2쪽" },
@@ -75223,6 +75415,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "다음의 그림은 서비스 거부(DDoS, Distributed Denial of Service) 공격 사례이다. DDoS에 대하여 다음 내용을 설명하시오. 가. 위 사례의 공격기법 개념 나. 위 사례의 공격기법 다. 공격기법에 대한 보안 대책",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 이상헌 기술사)",
     topicTitles: ["DoS(Denial of Service)"],
+    questionIds: ["c125-206"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-2-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-2-06-2.webp", label: "2쪽" },
@@ -75236,6 +75429,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "전송계층(Transport Layer)에서 전송 데이터의 단위는 Segment이다. 전송계층 기능 중 흐름제어 (Flow Control)에 대하여 설명하시오. 가. 흐름제어 방식 개념 나. 흐름제어 방식의 개념도 다. Sliding Windows와 Slow Start 비교",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["Transport(4)", "Sliding Window & 네이글(Nagle's) 알고리즘"],
+    questionIds: ["c125-301"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-3-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-3-01-2.webp", label: "2쪽" },
@@ -75249,6 +75443,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "TCP 전송계층 프로토콜에 대하여 다음을 설명하시오. 가. TCP전송계층 개념 나. 3-way handshake와 4-way handshake 설명 다. TCP와 UDP비교",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["TCP 와 UDP 비교"],
+    questionIds: ["c125-302"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-3-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-3-02-2.webp", label: "2쪽" },
@@ -75262,6 +75457,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "CMMI 모델에 대하여 다음을 설명하시오. 가. 프로세스 영역 분류 나. 프로세스 성숙도 레벨",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["CMMI 3.0"],
+    questionIds: ["c125-303"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-3-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-3-03-2.webp", label: "2쪽" },
@@ -75275,6 +75471,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "디지털 트윈(Digital Twin) 시스템에 대하여 다음을 설명하시오. 가. 디지털 트윈의 개념 나. 디지털 트윈의 개념도 다. 디지털 트윈 모델링 5단계",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["디지털 트윈(Digital Twin)"],
+    questionIds: ["c125-304"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-3-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-3-04-2.webp", label: "2쪽" },
@@ -75289,6 +75486,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "클라우드 컴퓨팅 도입 후 클라우드에서 제공하는 다음 서비스에 대하여 설명하시오. 가. IaaS(Infrastructure as a service) 나. PaaS(Platform as a service) 다. SaaS(Software as a service)",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 이상헌 기술사)",
     topicTitles: ["SaaS(Software as a Service)"],
+    questionIds: ["c125-305"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-3-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-3-05-2.webp", label: "2쪽" },
@@ -75303,6 +75501,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "OTT(Over The Top) 서비스에 대하여 다음을 설명하시오. 가. 성장 배경 나. 주요 기술 다. 서비스 사업자 유형",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 이상헌 기술사)",
     topicTitles: ["OTT"],
+    questionIds: ["c125-306"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-3-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-3-06-2.webp", label: "2쪽" },
@@ -75316,6 +75515,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "통신 프로토콜 매체접근제어 방식인 CSMA/CD 개념과 동작원리를 설명하고 1-Persistent, P-Persistent, Non-Persistent 경합 프로토콜에 대하여 각각의 특징, 장점 및 단점을 설명하시오.",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["CSMA/CD"],
+    questionIds: ["c125-401"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-4-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-4-01-2.webp", label: "2쪽" },
@@ -75329,6 +75529,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "단말 간 직접통신(Device to Device Communication)의 운용 시나리오 3가지와 활용분야를 설명하시오.",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["D2D", "디바이스(Device) DNA"],
+    questionIds: ["c125-402"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-4-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-4-02-2.webp", label: "2쪽" },
@@ -75342,6 +75543,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "데이터링크 계층은 네트워크에서 오류제어를 담당한다. 다음을 설명하시오. 가. 오류제어방식의 개념과 종류 나. 전진오류수정(FEC)과 검출 후 재전송(ARQ) 방식 비교 다. ARQ 방식 3가지",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 메타반 채명희 기술사)",
     topicTitles: ["오류제어"],
+    questionIds: ["c125-403"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-4-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-4-03-2.webp", label: "2쪽" },
@@ -75355,6 +75557,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "４. 운영체제 다중 프로그래밍 환경에서 이중 모드(Dual mode) 구조에 대하여 다음을 설명하시 오. 가. 이중모드 개념 나. 이중모드의 구조 다. 이중모드의 종류",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 메타반 채명희 기술사)",
     topicTitles: ["이중 모드"],
+    questionIds: ["c125-404"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-4-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-4-04-2.webp", label: "2쪽" },
@@ -75368,6 +75571,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "무선충전기술 3가지 방식을 비교 설명하시오.",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 이상헌 기술사)",
     topicTitles: ["무선 충전 기술"],
+    questionIds: ["c125-405"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-4-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-4-05-2.webp", label: "2쪽" },
@@ -75381,6 +75585,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "IoT의 3대 핵심기술과 NB-IoT 3가지 동작 모드를 각각 설명하시오.",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 이상헌 기술사)",
     topicTitles: ["IoT"],
+    questionIds: ["c125-406"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-4-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-4-06-2.webp", label: "2쪽" },
@@ -75834,6 +76039,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "FANET (Flying Ad-hoc NETwork)",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남 훈 기술사)",
     topicTitles: ["Ad-hoc Network", "Network(3)"],
+    questionIds: ["c126-101"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-01-2.webp", label: "2쪽" },
@@ -75847,6 +76053,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "컴퓨팅 컨티뉴엄 (Computing Continuum)",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남 훈 기술사)",
     topicTitles: [],
+    questionIds: ["c126-102"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-02-2.webp", label: "2쪽" },
@@ -75861,6 +76068,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "샌드박스 (Sandbox)의 주요 구성요소 및 활용분야",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남 훈 기술사)",
     topicTitles: ["샌드박스 (Sandbox)"],
+    questionIds: ["c126-103"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-03-2.webp", label: "2쪽" },
@@ -75873,6 +76081,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "JTAG(Joint Test Action Group)의 제공기능",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: [],
+    questionIds: ["c126-104"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-04-2.webp", label: "2쪽" },
@@ -75885,6 +76094,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "\"정보시스템 하드웨어 규모산정 지침(TTAKKO-10.0292/R2)\"에 따른 하드웨어 규모산정 절차",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: ["정보시스템 하드웨어 규모산정 지침"],
+    questionIds: ["c126-105"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-05-2.webp", label: "2쪽" },
@@ -75897,6 +76107,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "ISMS-P(Personal Information & Information Security Management System, 정보보호 및 개인정보 보호 관리체계)",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: ["개인정보 보호기술"],
+    questionIds: ["c126-106"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-06-2.webp", label: "2쪽" },
@@ -75917,6 +76128,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "기능점수(Function Pint)의 간이법과 정통법",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: ["SW 규모산정"],
+    questionIds: ["c126-107"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-07-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-07-2.webp", label: "2쪽" },
@@ -75930,6 +76142,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "서버 클러스터링 구성에서 발생하는 Split Brain 현상",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: ["클러스터링"],
+    questionIds: ["c126-108"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-08-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-08-2.webp", label: "2쪽" },
@@ -75942,6 +76155,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "세마포어 (Semaphore)",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상용 기술사)",
     topicTitles: ["세마포어(Semaphore)"],
+    questionIds: ["c126-109"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-09-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-09-2.webp", label: "2쪽" },
@@ -75954,6 +76168,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "데이터 분석 시 결측값(Missing Value) 처리기법",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상용 기술사)",
     topicTitles: ["결측치(Missing Value)"],
+    questionIds: ["c126-110"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-10-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-10-2.webp", label: "2쪽" },
@@ -75966,6 +76181,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "양자키분배(Quantum Key Distribution) 기술",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상용 기술사)",
     topicTitles: ["분포(Distribution)"],
+    questionIds: ["c126-111"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-11-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-11-2.webp", label: "2쪽" },
@@ -75978,6 +76194,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "엣지컴퓨팅(Edge Computing)과 포그컴퓨팅(Fog Computing)의 비교",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상용 기술사)",
     topicTitles: ["포그 컴퓨팅"],
+    questionIds: ["c126-112"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-12-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-12-2.webp", label: "2쪽" },
@@ -75990,6 +76207,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "가상메모리(Vitual Memory) 관리기법 중 세그멘테이션(Segmentation) 기법",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상용 기술사)",
     topicTitles: ["가상메모리 관리기법"],
+    questionIds: ["c126-113"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-13-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-13-2.webp", label: "2쪽" },
@@ -76002,6 +76220,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "인공지능시스템에서 활용되는 CPU, GPU, FPGA, ASIC 을 설명하고, 처리능력과 전력소비측면에서 비교",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남 훈 기술사)",
     topicTitles: ["CPU", "GPU(graphic processing unit)", "현장  프로그래머블 게이트 어레이(FPGA)"],
+    questionIds: ["c126-201"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-2-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-2-01-2.webp", label: "2쪽" },
@@ -76015,6 +76234,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "최근 사회적으로 관심이 확대되고 있는 메타버스(Metaverse) 에 대하여 다음을 설명하시오. 가. 메타버스의 정의 나. 메타버스의 4가지 유형 다. 메타버스의 발전전망 및 문제점",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남 훈 기술사)",
     topicTitles: ["메타버스"],
+    questionIds: ["c126-202"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-2-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-2-02-2.webp", label: "2쪽" },
@@ -76028,6 +76248,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "지능형 CCTV나 비대면 서비스에서 얼굴 데이터 활용이 증가하고 있다. 이와 관련하여 다음을 설 명하시오. 가. 인공지능을 이용한 얼굴정보처리 기술의 개요 나. 인공지능을 이용한 얼굴검출 기술 유형 다. YOLO(You Only Look Once)",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: [],
+    questionIds: ["c126-203"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-2-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-2-03-2.webp", label: "2쪽" },
@@ -76042,6 +76263,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "스마트 팩토리(Smart Factory)의 보안위협과 보안 요구사항을 제시하고, 각 보안 요구사항별 보안 대책에 대하여 설명하시오.",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: ["요구사항", "Smart Factory/스마트 팩토리(공장)", "위협(Threat)"],
+    questionIds: ["c126-204"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-2-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-2-04-2.webp", label: "2쪽" },
@@ -76059,6 +76281,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "최근 메타버스 산업이 활성화되면서 NFT(Non Fungible Token)의 중요성이 대두되고 있다. NFT에 대하여 설명하시오",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상용 기술사)",
     topicTitles: ["NFT(Non Fungible Token);"],
+    questionIds: ["c126-205"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-2-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-2-05-2.webp", label: "2쪽" },
@@ -76072,6 +76295,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "5G 특화망은 개인을 위한 통신뿐만 아니라 산업환경 전체를 혁신하고 ICT서비스의 차원을 높일 수 있는 핵심적인 경제인프라이다. 이와 관련하여 다음을 설명하시오. 가. 5G 이동통신과 5G 특화망 각각에 대한 서비스 시장측면, 네트워크 구축측면, 통신망이용측면 에서의 특징 비교 나. 특화망의 코어망 적용 기술 중 네트워크 슬라이싱 기술 다. 5G특화망 활용분야",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상용 기술사)",
     topicTitles: ["5G 특화망", "네트워크 슬라이싱"],
+    questionIds: ["c126-206"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-2-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-2-06-2.webp", label: "2쪽" },
@@ -76085,6 +76309,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "행정안전부에서는 공공기관 등이 정보시스템 사업을 추진할떄 SW보안약점을제거하기위해 사용 하는 \"소프트웨어 개발 보안 가이드\" 개정(2021년 11월) 하였다. 이와 관련하여 다음을 설명하시 오. 가. 소프트웨어 개발 보안의 정의, 대상 범위 나. 소프트웨어 설계 단계 보안 기준 중 \" 보안기능 입력값 검증\"과 \"업로드, 다운로드 파일검증\" 의 개념 및 보안대책",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남 훈 기술사)",
     topicTitles: ["소프트웨어 개발 보안 가이드"],
+    questionIds: ["c126-301"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-3-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-3-01-2.webp", label: "2쪽" },
@@ -76102,6 +76327,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "최근 개인정보를 활용하는 서비스들이 증가하면서 개인정보에 대한 보호가 중요해지고 있다. 이 와 관련하여 ISO/IEC 29100 프라이버시 11원칙과 ISO/IEC 27701 개인정보 보호시스템에 대한 인 증 및 평가에 대하여 각각 설명하시오.",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남 훈 기술사)",
     topicTitles: ["개인정보 보호기술", "ISO 27701"],
+    questionIds: ["c126-302"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-3-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-3-02-2.webp", label: "2쪽" },
@@ -76117,6 +76343,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "드론과 사용자간의 무선통신을 위해 신호다중화 기술 중 FHSS(Frequency Hopping Spread Spectrum)와 DSSS(Direct Sequence Spread Spectrum) 통신방식을 활용하고 있다. 이와 관련하여 다음을 설명하시오. 가. 드론 무선통신을 위한 신호 다중화의 개요와 필요성 나. FHSS 다. DSSS",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: ["다중화(Multiplexing)"],
+    questionIds: ["c126-303"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-3-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-3-03-2.webp", label: "2쪽" },
@@ -76130,6 +76357,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "플래시 메모리(Flash Memory)에 대하여 다음을 설명하시오. 가. 플래시 메모리의 개요와 구조 나. 스케일다운 한계와 대응방법 다. 3D-Vertical Nand Flash Memory",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: ["Flash Memory(NOR, NAND)", "주기억장치(메모리)"],
+    questionIds: ["c126-304"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-3-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-3-04-2.webp", label: "2쪽" },
@@ -76143,6 +76371,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "마이데이터 서비스에 대하여 다음을 설명하시오. 가. 서비스 절차 나. 마이데이터 인증 방식 다. 보안 문제점 및 개선 방안",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상용 기술사)",
     topicTitles: ["마이데이터"],
+    questionIds: ["c126-305"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-3-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-3-05-2.webp", label: "2쪽" },
@@ -76158,6 +76387,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "휴대용 전자기기 및 전기 자동차 등의 확대로 인해 무선으로 전력을 전송하여 배터리를 충전하 는 무선충전기술이 주목 받고 있다. 이와 관련하여 다음을 설명하시오. 가. 무선충전기술의 개요 나. 무선충전기술 유형별 사용 주파수, 전송거리 및 효율, 인체유해성, 주요 사용분야 측면 비교 다. 무선충전기술 사용에서 발생 가능한 보안 문제점",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상용 기술사)",
     topicTitles: ["무선 충전 기술"],
+    questionIds: ["c126-306"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-3-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-3-06-2.webp", label: "2쪽" },
@@ -76172,6 +76402,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "이진트리를 순회하는 방식은 전위순회, 중위순회, 후위순회 등으로 나뉜다. 모든 순회방식은 루트 로 부터 순회를 시작하여 트리의 모든 노드들을 반드시 한 번씩 방문하여 순회를 종료한다. 이와 관련하여 다음을 설명하시오. 가. 전위순회 중위순회, 후위순회 방식 나. 아래 그림의 이진트리를 대상으로 전위순회, 중위순회, 후위순회를 수행할떄, 각각의 방문순서",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남 훈 기술사)",
     topicTitles: ["트리 순회(Tree Traversal)"],
+    questionIds: ["c126-401"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-4-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-4-01-2.webp", label: "2쪽" },
@@ -76185,6 +76416,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "최근 국가적으로 지능형 검침인프라(AMI : Advanced Metering Infrastructure)확산을 추진하고 있 다. 이와 관련하여 다음을 설명하시오. 가. AMI 구성요소 나. AMI 보안 취약요소 다. PKI기반의 스마트미터 기기 인증시스템",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남 훈 기술사)",
     topicTitles: ["AMI"],
+    questionIds: ["c126-402"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-4-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-4-02-2.webp", label: "2쪽" },
@@ -76199,6 +76431,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "귀하는 데이터센터의 운영관리자이다. 최근 다수 장비들의 전원을 공급하는 UPS(Uninterruptible Power Supply) 시스템에 장애 징후가 발생하여 긴급히 교체를 추진하고자 한다. 이러한 상황에서 데이터센터에서 제공하는 각종 서비스 중단과 영향을 최소화하면서 성공적인 UPS시스템 교체를 위한 방안을 제시하시오.",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: [],
+    questionIds: ["c126-403"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-4-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-4-03-2.webp", label: "2쪽" },
@@ -76212,6 +76445,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "소프트웨어진흥법에 따라 국가기관 등의 장은 상용소프트웨어를 직접 구매하는 경우, 품질성능 평가시험을 직접하거나 지정된 시험기관에 품질성능 평가시험을 대행하여 수행할 수 있다. 이와 관련하여 다음을 설명하시오. 가. 평가시험 적용대상 및 제외기준 나. 평가시험 절차 다. 평가시험 기대효과",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
     topicTitles: ["소프트웨어 진흥법", "상용소프트웨어 품질성능 평가 시험"],
+    questionIds: ["c126-404"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-4-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-4-04-2.webp", label: "2쪽" },
@@ -76228,6 +76462,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "ARM(Advanced RISC Machine) 프로세서의 동작모드 종류와 명령어 처리과정에 대하여 설명하시 오.",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상용 기술사)",
     topicTitles: ["RISC", "명령어"],
+    questionIds: ["c126-405"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-4-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-4-05-2.webp", label: "2쪽" },
@@ -76242,6 +76477,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "5G 특화망 구축에 있어 아래 네트워크 구축 기술방식에 대하여 설명하시오. 가. MPLS-TP 및 IP-MPLS 기술 개념 및 비교 나. MPLS-TP 기반 백홀망 구축 방안 다. IP-MPLS 기반 백홀망 구축 방안",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상용 기술사)",
     topicTitles: ["5G 특화망"],
+    questionIds: ["c126-406"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-4-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-4-06-2.webp", label: "2쪽" },
@@ -77133,6 +77369,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "DID(Digital Information Display)",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["DID(Decentralized Identity)"],
+    questionIds: ["c128-101"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-01-2.webp", label: "2쪽" },
@@ -77145,6 +77382,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "SOC(System On Chip) 구조",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 백기현 기술사)",
     topicTitles: ["SoC", "SoC(시스템온칩)"],
+    questionIds: ["c128-102"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-02-2.webp", label: "2쪽" },
@@ -77157,6 +77395,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "VM(Virtual Machine)과 Container",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["컨테이너(Container)"],
+    questionIds: ["c128-103"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-03-2.webp", label: "2쪽" },
@@ -77170,6 +77409,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "버스중재(Bus Arbitration)",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전 일 기술사)",
     topicTitles: [],
+    questionIds: ["c128-104"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-04-2.webp", label: "2쪽" },
@@ -77182,6 +77422,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "뉴로모픽(Neuromorphic) 반도체",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전 일 기술사)",
     topicTitles: [],
+    questionIds: ["c128-105"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-05-2.webp", label: "2쪽" },
@@ -77194,6 +77435,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "DRM(Digital Rights Management), DLP(Data Loss Prevention)의 비교",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["DRM(Digital Right Management)"],
+    questionIds: ["c128-106"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-06-2.webp", label: "2쪽" },
@@ -77206,6 +77448,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "CNN(Convolutional Neural Network) 계층(Layer)",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["Network(3)", "CNN"],
+    questionIds: ["c128-107"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-07-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-07-2.webp", label: "2쪽" },
@@ -77218,6 +77461,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "입출력장치 인터페이스의 개념과 필요성",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["인터페이스(클래스)", "인터페이스"],
+    questionIds: ["c128-108"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-08-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-08-2.webp", label: "2쪽" },
@@ -77231,6 +77475,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "시스템 위험분석(위험성평가)기법 중 ETA(Event Tree Analysis)",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["ETA (Event Tree Analysis)", "위험분석 방법론 (ISO/IEC 1335-1, 위험분석 전략/평가)"],
+    questionIds: ["c128-109"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-09-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-09-2.webp", label: "2쪽" },
@@ -77243,6 +77488,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "SW사업 영향평가",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["소프트웨어사업 영향평가"],
+    questionIds: ["c128-110"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-10-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-10-2.webp", label: "2쪽" },
@@ -77257,6 +77503,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "CAPTCHA(Completely Automated Public Turing test to tell Computers and Humans Apart)",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c128-111"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-11-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-11-2.webp", label: "2쪽" },
@@ -77269,6 +77516,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "디피-헬만 알고리즘(Diffie-Hellman Algorithm)",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["디피-헬만 알고리즘(Diffie-Hellman Algorithm)"],
+    questionIds: ["c128-112"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-12-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-12-2.webp", label: "2쪽" },
@@ -77281,6 +77529,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "데이터 독립성(Data Independency)",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["데이터 독립성", "ANSI/SPARC 모델(3-단계 데이터베이스 구조) / 데이터 독립성"],
+    questionIds: ["c128-113"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-13-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-1-13-2.webp", label: "2쪽" },
@@ -77293,6 +77542,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "네트워크에서 다음 각 주소의 개념과 구조를 설명하시오. 가. IP 주소 나. MAC(Media Access Control) 주소 다. Port 주소 라. 전자메일 주소",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["접근 제어/접근 통제(Access Control)"],
+    questionIds: ["c128-201"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-2-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-2-01-2.webp", label: "2쪽" },
@@ -77306,6 +77556,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "I/O(Input/Output) 전송방식의 필요성과 종류에 대하여 설명하시오.",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c128-202"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-2-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-2-02-2.webp", label: "2쪽" },
@@ -77320,6 +77571,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "UAM(Urban Air Mobility)에 대하여 다음을 설명하시오. 가. 개념 및 특성 나. eVTOL(electric Vertical Take-Off and Landing) 추진기술 다. K-UAM(Korea-UAM) 로드맵 라. UAM(Urban Air Mobility) 통신 네트워크 인프라 연계방안",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["UAM(Urban Air Mobility)"],
+    questionIds: ["c128-203"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-2-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-2-03-2.webp", label: "2쪽" },
@@ -77335,6 +77587,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "기업은 다양한 솔루션을 도입하여 보안관제시스템을 운영하고 있으며, 보다 효율적인 운영을 위 해 융합보안관제를 구축하고자 한다. 이와 관련하여 다음을 설명하시오. 가. 융합보안관제의 필요성 나. 구축 시 고려사항과 활용기술 다. 구축 시 시스템 구축요소",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c128-204"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-2-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-2-04-2.webp", label: "2쪽" },
@@ -77349,6 +77602,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "소프트웨어 안전 관리에 대하여 설명하시오. 가. 소프트웨어 안전의 정의 나. 안전, 보안, 품질의 비교 다. 소프트웨어 안전 진단 영역 3가지 라. 위험도(Risk)와 위험원(Hazard)와 관련된 GAMAB(Globalement Au Moins Aussi Bon)원칙과 ALARP(As Low As Reasonable Practicable)원칙",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c128-205"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-2-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-2-05-2.webp", label: "2쪽" },
@@ -77362,6 +77616,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "인공지능 학습에서 두 객체가 얼마나 유사한지를 나타내는 척도를 유사도(Similarity)라고 한다. 다 음을 설명하시오. 가. 자카드 유사도(Jaccard Similarity) 나. 코사인 유사도(Cosine Similarity) 다. 실루엣 계수(Silhouette Coefficient)",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["유사도(Similarity)"],
+    questionIds: ["c128-206"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-2-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-2-06-2.webp", label: "2쪽" },
@@ -77375,6 +77630,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "계층구조의 통신 프로토콜 설계 시 고려해야 할 다음 각 요소에 대하여 설명하시오. 가. 오류 제어 나. 흐름 제어 다. 데이터 전달 방식",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["오류제어", "Sliding Window & 네이글(Nagle's) 알고리즘"],
+    questionIds: ["c128-301"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-3-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-3-01-2.webp", label: "2쪽" },
@@ -77390,6 +77646,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "TCP(Transmission Control Protocol)에 대하여 다음을 설명하시오. 가. TCP 헤더(header) 나. TCP 헤더에 포함된 제어 플래그(Control Flag)의 종류",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["TCP"],
+    questionIds: ["c128-302"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-3-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-3-02-2.webp", label: "2쪽" },
@@ -77403,6 +77660,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "디지털 포렌식(forensic) 과정에서 실제로 증거를 수집하려면 네트워크, 시스템, 데이터베이스 및 응용 프로그램 등 다양한 분야에 관한 지식이 필요하다. 다음 각 분야에서 디지털 포렌식의 증거 를 수집하기 위한 방법을 설명하시오. 가. 네트워크 증거 수집 나. 시스템 증거 수집 다. 응용 프로그램 증거 수집",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["디지털 포렌식(Digital Forensic)"],
+    questionIds: ["c128-303"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-3-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-3-03-2.webp", label: "2쪽" },
@@ -77417,6 +77675,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "클라우드 서비스 제공자는 AIaaS(AI as a Service)를 통해 인공지능을 쉽게 이용할 수 있도록 다양 한 API(Application Program Interface)를 제공한다. 다음 항목을 설명하시오. 가. AIaaS 개념 및 특징 나. AIaaS 구조 다. 아마존 웹서비스(AWS)와 렉스(Lex)",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["AIaaS(AI as a Service)"],
+    questionIds: ["c128-304"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-3-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-3-04-2.webp", label: "2쪽" },
@@ -77431,6 +77690,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "KS X ISO/IEC/IEEE 29119을 활용하여 다음을 설명하시오. 가. 테스트 설계 및 구현 프로세스 나. 테스트 설계 기법 다. ISO/IEC 25010에서 정의한 테스트 품질 특성과 명세기반 테스트 설계 기법간의 매핑",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["ISO/IEC 25010:2023"],
+    questionIds: ["c128-305"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-3-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-3-05-2.webp", label: "2쪽" },
@@ -77447,6 +77707,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "관계 데이터 모델이 가지고 있는 개체 무결성(Entity Integrity)과 참조 무결성(Referential Integrity) 에 대하여 설명하시오.",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["엔티티(Entity)"],
+    questionIds: ["c128-306"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-3-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-3-06-2.webp", label: "2쪽" },
@@ -77460,6 +77721,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "머신러닝(Machine Learning)에서 교차검증(Cross Validation)에 대하여 설명하시오.",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["낙관적 검증(Validation) 기법"],
+    questionIds: ["c128-401"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-4-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-4-01-2.webp", label: "2쪽" },
@@ -77473,6 +77735,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "5G와 6G 이동통신에 대한 특징과 발전 동향에 대하여 설명하시오.",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["6G"],
+    questionIds: ["c128-402"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-4-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-4-02-2.webp", label: "2쪽" },
@@ -77488,6 +77751,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "엣지 컴퓨팅(Edge Computing)의 장단점과 적용사례 및 보안취약점에 대하여 설명하시오.",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["취약점(Vulnerability)"],
+    questionIds: ["c128-403"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-4-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-4-03-2.webp", label: "2쪽" },
@@ -77502,6 +77766,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "대용량 비휘발성 저장장치로 불리우는 SSD(Solid State Drive) 제어기의 플래시 변환 계층(Flash Translation Layer)에 대하여 설명하시오.",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["FTL"],
+    questionIds: ["c128-404"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-4-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-4-04-2.webp", label: "2쪽" },
@@ -77517,6 +77782,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "의료용 3D(Dimension) 모델링 소프트웨어 관련으로 다음을 설명하시오. 가. 3D 프린팅 개념 및 정의 나. 3D 프린팅 공정 분류 및 설명 다. 의료용 3D 모델링 소프트웨어 품질 평가 항목",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["DB 모델 측면(모델링)"],
+    questionIds: ["c128-405"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-4-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-4-05-2.webp", label: "2쪽" },
@@ -77531,6 +77797,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "클라우드 서비스의 품질 성능에 관한 기준 제정의 추진배경 및 평가 기준에 대하여 작성하고, 서 비스 회복시간의 정량적 측정을 위한 지표에 대하여 설명하시오.",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: [],
+    questionIds: ["c128-406"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-4-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-4-06-2.webp", label: "2쪽" },
@@ -77980,6 +78247,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "PIM(Processing in Memory)",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 소민호 기술사)",
     topicTitles: ["PIM(Processing in Memory)"],
+    questionIds: ["c129-101"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-01-2.webp", label: "2쪽" },
@@ -77993,6 +78261,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "CSAP(Cloud Security Assurance Program)",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 소민호 기술사)",
     topicTitles: ["CSAP(Cloud Security Assurance Program)"],
+    questionIds: ["c129-102"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-02-2.webp", label: "2쪽" },
@@ -78008,6 +78277,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "웹 애플리케이션 방화벽(WAF: Web Application Firewall)",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
     topicTitles: ["Application(7)", "Firewall(방화벽)"],
+    questionIds: ["c129-103"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-03-2.webp", label: "2쪽" },
@@ -78020,6 +78290,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "스마트양식장(Smart Fish Farm)",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
     topicTitles: [],
+    questionIds: ["c129-104"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-04-2.webp", label: "2쪽" },
@@ -78032,6 +78303,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "페어 프로그래밍(Pair Programming) 기법과 핑퐁 프로그래밍(Ping Pong Programming)기법에 대하 여 각각 설명하시오",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상 기술사)",
     topicTitles: ["Pair programming"],
+    questionIds: ["c129-105"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-05-2.webp", label: "2쪽" },
@@ -78044,6 +78316,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "3-상태 버퍼(Tri-State Buffer)",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상 기술사)",
     topicTitles: ["3상태 버퍼", "3-상태 버퍼(Tri-State Buffer)"],
+    questionIds: ["c129-106"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-06-2.webp", label: "2쪽" },
@@ -78056,6 +78329,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "소프트웨어 리팩토링(Refactoring)",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 서경석 기술사)",
     topicTitles: ["소프트웨어 리팩토링"],
+    questionIds: ["c129-107"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-07-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-07-2.webp", label: "2쪽" },
@@ -78069,6 +78343,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "전송 부호화 기법의 소스 코딩(Source Coding)과 채널 코딩(Channel Coding)을 비교하여 설명하시오.",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 서경석 기술사)",
     topicTitles: ["전송부호화(소스 코딩, 채널 코딩, 라인 코딩)"],
+    questionIds: ["c129-108"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-08-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-08-2.webp", label: "2쪽" },
@@ -78082,6 +78357,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "HBM(High Bandwidth Memory)",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상용 기술사)",
     topicTitles: ["HBM(High Bandwidth Memory)"],
+    questionIds: ["c129-109"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-09-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-09-2.webp", label: "2쪽" },
@@ -78094,6 +78370,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "자동차 통신 등에 활용하는 CAN(Controller Area Network)",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상용 기술사)",
     topicTitles: ["Network(3)"],
+    questionIds: ["c129-110"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-10-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-10-2.webp", label: "2쪽" },
@@ -78106,6 +78383,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "튜링 테스트 (Turing Test)",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 장건환 기술사)",
     topicTitles: ["튜링 테스트"],
+    questionIds: ["c129-111"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-11-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-11-2.webp", label: "2쪽" },
@@ -78118,6 +78396,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "Cache Memory의 쓰기 정책인 Write Through 방식과 Write Back 방식을 비교하여 설명하시오.",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 장건환 기술사)",
     topicTitles: ["캐시메모리의 쓰기정책(Write Policy)"],
+    questionIds: ["c129-112"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-12-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-12-2.webp", label: "2쪽" },
@@ -78130,6 +78409,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "상용 소프트웨어 직접구매 제도",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 장건환 기술사)",
     topicTitles: ["상용 소프트웨어 직접구매 제도"],
+    questionIds: ["c129-113"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-13-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-13-2.webp", label: "2쪽" },
@@ -78143,6 +78423,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "CXL(Computer Express Link)에 대하여 다음을 설명하시오. (1) CXL의 목적 (2) CXL의 3가지 프로토콜인 CXL.io, CXL.cache 및 CXL.memory (3) CXL의 디바이스 유형인 Type 1 디바이스, Type 2 디바이스 및 Type 3 디바이스",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 소원반 소민호 기술사)",
     topicTitles: ["CXL(Compute Express Link) 3.0"],
+    questionIds: ["c129-201"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-2-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-2-01-2.webp", label: "2쪽" },
@@ -78157,6 +78438,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "데이터센터와 관련하여 미국통신산업협회(Telecommunication Industry Association) TIA-942 가이 드라인에 대하여 다음을 설명하시오. (1) TIA-942 개요 (2) TIA-942 품질등급",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
     topicTitles: ["TIA-942"],
+    questionIds: ["c129-202"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-2-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-2-02-2.webp", label: "2쪽" },
@@ -78170,6 +78452,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "MIV(MPEG-Immersive Video)에 대하여 설명하시오",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상 기술사)",
     topicTitles: ["MPEG"],
+    questionIds: ["c129-203"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-2-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-2-03-2.webp", label: "2쪽" },
@@ -78183,6 +78466,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "리먼(Lehman)의 소프트웨어 진화 법칙에 대하여 설명하시오.",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 서경석 기술사)",
     topicTitles: ["Lehman의 Software 변화의 원리"],
+    questionIds: ["c129-204"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-2-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-2-04-2.webp", label: "2쪽" },
@@ -78196,6 +78480,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "\"정보시스템 하드웨어 규모산정지침(TTAK.KO-10.0292/R2)\"과 관련하여 다음을 설명하시오. (1) 규모산정 방법 (2) 규모산정 대상 (3) 규모산정 절차",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상용 기술사)",
     topicTitles: ["정보시스템 하드웨어 규모산정 지침"],
+    questionIds: ["c129-205"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-2-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-2-05-2.webp", label: "2쪽" },
@@ -78210,6 +78495,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "사용자 테스트와 관련하여 다음을 설명하시오. (1) 알파(Alpha) 테스트 (2) 베타 테스트 (Beta Test) (3) 인수 테스트 (Acceptance Test) (4) 인수 테스트 프로세스(Acceptance Test Process)",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 장건환 기술사)",
     topicTitles: ["Test Process"],
+    questionIds: ["c129-206"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-2-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-2-06-2.webp", label: "2쪽" },
@@ -78224,6 +78510,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "운영체제 프로세스 스케줄링 알고리즘과 관련하여 단일 큐 멀티프로세서 스케줄링(SQMS: Single Queue Multiprocessor Scheduling)과 멀티 큐 멀티프로세서 스케줄링(MQMS: Multi Queue Multiprocessor Scheduling)을 각각 설명하시오.",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 소원반 소민호 기술사)",
     topicTitles: ["Queue"],
+    questionIds: ["c129-301"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-3-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-3-01-2.webp", label: "2쪽" },
@@ -78238,6 +78525,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "네트워크 스위치(Network Switch)와 관련하여 다음을 설명하시오. (1) 스위치 개요 (2) OSI(Open System Interconnection) 참조모델의 레이어에 따른 스위치 유형 (3) L4 스위치와 L7 스위치 비교",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
     topicTitles: ["Network(3)"],
+    questionIds: ["c129-302"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-3-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-3-02-2.webp", label: "2쪽" },
@@ -78252,6 +78540,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "최근 의료기관을 대상으로 사이버 침해공격이 지능화 및 다양화되고 있다. 이에 대한 대안으로 병원정보시스템(HIS:Hospital Information System)에 특화된 정보공유센터(ISAC : Information Sharing Analysis Center)의 역할이 증가하고 있다. 이와 관련하여 다음을 설명하시오. (1) HIS의 개요 및 구성 (2) ISAC의 개요 및 역할 (3) 의료기관의 사이버침해공격 대응방안",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상 기술사)",
     topicTitles: [],
+    questionIds: ["c129-303"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-3-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-3-03-2.webp", label: "2쪽" },
@@ -78265,6 +78554,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "양자 컴퓨터(Quantum Computer)와 관련하여 다음을 설명하시오. (1) 양자비트(Qubit, 큐비트), 양자 우월성(Quantum Supermacy), 양자 결잃음(Quantum Decoherence) (2) 양자 컴퓨터 구현 방법",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 서경석 기술사)",
     topicTitles: ["큐비트(Qubit)"],
+    questionIds: ["c129-304"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-3-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-3-04-2.webp", label: "2쪽" },
@@ -78279,6 +78569,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "이더넷(Ethernet) 표준에 대하여 다음을 설명하시오. (1) 정의 및 특징 (2) IEEE 802.3 프레임(Frame) 구조 (3) 전송 프레임의 최소 크기가 64바이트인 이유",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상용 기술사)",
     topicTitles: ["이더넷(Ethernet)"],
+    questionIds: ["c129-305"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-3-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-3-05-2.webp", label: "2쪽" },
@@ -78292,6 +78583,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "DDR SDRAM(Double Date Rate Synchronous DRAM)의 갱신(Refresh)에 대하여 다음을 설명하시 오. (1) DRAM에서 갱신(Refresh)이 필요한 이유 (2) 자동 갱신(Auto Refresh) (3) 셀프 갱신(Self Refresh) (4) 저전력 자동 셀프 갱신(LPASR : Low Power Auto Self Refresh)",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 장건환 기술사)",
     topicTitles: ["SDRAM (or SDR SDRAM)"],
+    questionIds: ["c129-306"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-3-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-3-06-2.webp", label: "2쪽" },
@@ -78305,6 +78597,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "다음 표준 통신 프로토콜에 대하여 설명하시오. (1) TCP(Transmission Control Protocol) (2) UDP(User Datagram Protocol) (3) SCTP(Streaming Control Transmission Protocol) (4) TCP, UDP, SCTP 비교",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 소원반 소민호 기술사)",
     topicTitles: ["SCTP(Stream Control Transmission Protocol)"],
+    questionIds: ["c129-401"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-4-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-4-01-2.webp", label: "2쪽" },
@@ -78321,6 +78614,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "Ad-hoc 라우팅 프로토콜과 관련하여 다음을 설명하시오. (1) Ad-hoc 라우팅 프로토콜 개요 (2) Ad-hoc 라우팅 프로토콜 유형 (3) AODV(Ad-hoc On-Demand Vector)",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
     topicTitles: ["라우팅 프로토콜"],
+    questionIds: ["c129-402"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-4-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-4-02-2.webp", label: "2쪽" },
@@ -78335,6 +78629,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "디스크 이미징(Disk Imaging)과 관련하여 다음을 설명하시오. (1) 디스크 이미징 용도 (2) Disk to Disk와 Disk to File 방식을 각각 설명 (3) 디스크 이미징을 활용한 증거수집 방법",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상 기술사)",
     topicTitles: ["디스크 이미징(Disk Imaging)"],
+    questionIds: ["c129-403"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-4-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-4-03-2.webp", label: "2쪽" },
@@ -78348,6 +78643,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "인공지능 생태계에서 벤치마크 데이터셋의 개요와 주요 역할에 대하여 설명하시오.",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 서경석 기술사)",
     topicTitles: ["벤치마크 데이터셋"],
+    questionIds: ["c129-404"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-4-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-4-04-2.webp", label: "2쪽" },
@@ -78361,6 +78657,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "2022년 9월 2일 정부는 디지털플랫폼 정부 위원회를 설립하고 기존 정부의 파이프라인 비즈니스 형태를 디지털플랫폼 형태로 변화를 추진하고 있다. 디지털플랫폼 정부의 개요와 추진 방안에 대 하여 설명하시오.",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상용 기술사)",
     topicTitles: ["비즈니스 플랫폼"],
+    questionIds: ["c129-405"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-4-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-4-05-2.webp", label: "2쪽" },
@@ -78376,6 +78673,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "무선충전기술과 관련하여 다음을 설명하시오. (1) 무선충전기술 개요 (2) 무선충전기술 유형 (3) 무선충전기술의 표준화 동향",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 장건환 기술사)",
     topicTitles: ["무선 충전 기술"],
+    questionIds: ["c129-406"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-4-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-4-06-2.webp", label: "2쪽" },
@@ -79280,6 +79578,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "몬테카를로방법(Monte Carlo Method)",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반전일기술사)",
     topicTitles: ["몬테카를로 방법(Monte Carlo Method)"],
+    questionIds: ["c131-101"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-01-2.webp", label: "2쪽" },
@@ -79292,6 +79591,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "NaaS(Network as a Service)",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반전일기술사)",
     topicTitles: ["Network(3)", "NaaS(Network as a Service)"],
+    questionIds: ["c131-102"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-02-2.webp", label: "2쪽" },
@@ -79304,6 +79604,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "오토인코더(Autoencoder)",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반전일기술사)",
     topicTitles: ["오토인코더(Autoencoder)/VAE", "인코더 (Encoder)"],
+    questionIds: ["c131-103"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-03-2.webp", label: "2쪽" },
@@ -79316,6 +79617,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "전이학습(Transfer Learning)",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토이상헌기술사)",
     topicTitles: ["전이학습(Transfer Learning)"],
+    questionIds: ["c131-104"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-04-2.webp", label: "2쪽" },
@@ -79328,6 +79630,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "ATAM(Architecture Tradeoff Analysis method)과 CBAM(Cost Benefit Analysis Method)",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토이상헌기술사)",
     topicTitles: ["CBAM(Cost Benefit Analysis Method)", "SW Architecture 평가"],
+    questionIds: ["c131-105"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-05-2.webp", label: "2쪽" },
@@ -79340,6 +79643,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "PNM(Processing Near Memory)",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토이상헌기술사)",
     topicTitles: [],
+    questionIds: ["c131-106"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-06-2.webp", label: "2쪽" },
@@ -79352,6 +79656,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "NoSQL의CAP(Consistency, Availability, Partition Tolerance)",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 모멘텀안수현기술사)",
     topicTitles: ["NoSQL"],
+    questionIds: ["c131-107"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-07-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-07-2.webp", label: "2쪽" },
@@ -79364,6 +79669,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "RPA(Robotic Process Automation)",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 모멘텀안수현기술사)",
     topicTitles: ["RPA"],
+    questionIds: ["c131-108"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-08-1.webp", label: "1쪽" },
     ],
@@ -79375,6 +79681,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "알고리즘의시간복잡도(Time Complexity), 공간복잡도(Space Complexity)",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 모멘텀안수현기술사)",
     topicTitles: ["알고리즘 성능평가"],
+    questionIds: ["c131-109"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-09-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-09-2.webp", label: "2쪽" },
@@ -79387,6 +79694,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "지능정보화기본법",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정유나기술사)",
     topicTitles: ["지능정보화 기본법"],
+    questionIds: ["c131-110"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-10-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-10-2.webp", label: "2쪽" },
@@ -79399,6 +79707,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "xAPI(eXperience Application Interface)",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정유나기술사)",
     topicTitles: ["xAPI", "Application(7)"],
+    questionIds: ["c131-111"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-11-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-11-2.webp", label: "2쪽" },
@@ -79411,6 +79720,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "CBPR(Cross Border Privacy Rule)",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이제원기술사)",
     topicTitles: ["CBPR(Cross Border Privacy Rules)"],
+    questionIds: ["c131-112"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-12-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-12-2.webp", label: "2쪽" },
@@ -79423,6 +79733,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "CSRF(Cross Site Request Forgery)",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이제원기술사)",
     topicTitles: ["CSRF"],
+    questionIds: ["c131-113"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-13-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-13-2.webp", label: "2쪽" },
@@ -79435,6 +79746,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "마르코프특성(Markov Property)은미래상태의조건부확률분포가과거상태와는독립적으로현 재상태에의해서만결정된다는것을뜻한다. 이와관련하여다음을설명하시오. 가. 마르코프결정프로세스(Markov Decision Process)와전이확률(Transition Probability) 나. 상태가치함수(State Value Function)와액션가치함수(State-Action Value Function) 다. 벨만기대방정식(Bellman Expectation Equation)과벨만최적방정식(Bellman Optimality Equation)",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 전일기술사)",
     topicTitles: ["확률분포"],
+    questionIds: ["c131-201"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-2-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-2-01-2.webp", label: "2쪽" },
@@ -79448,6 +79760,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "프로세스스레싱(Thrashing)의정의, 발생원인과해결방법을설명하시오",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토이상헌기술사)",
     topicTitles: ["스레싱(Thrashing)"],
+    questionIds: ["c131-202"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-2-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-2-02-2.webp", label: "2쪽" },
@@ -79461,6 +79774,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "현행데이터베이스데이터량을기준으로TO-BE 데이터량을예측하고자한다. 이와관련하여다음 을설명하시오. 가. 데이터베이스용량산정방법별개념및장,단점 나. 데이터베이스용량산정기준",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 모멘텀안수현기술사)",
     topicTitles: ["데이터베이스의 개념", "용량산정(개념, 절차, 산정기준)"],
+    questionIds: ["c131-203"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-2-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-2-03-2.webp", label: "2쪽" },
@@ -79473,6 +79787,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "네트워크자원을보다효율적으로관리하고최적화하기위해, 네트워크인프라에머신러닝기법 을적용하고있다. 이와관련하여다음을설명하시오 가. 네트워크인프라에SDN(Software Defined Networking)을이용하여머신러닝기법을적용 하는이유 나. SDN에서강화학습적용방안",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이제원기술사)",
     topicTitles: ["SDN(Software Defined Network)"],
+    questionIds: ["c131-204"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-2-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-2-04-2.webp", label: "2쪽" },
@@ -79486,6 +79801,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "칩렛(Chiplet)에대하여다음을설명하시오. 가. 칩렛의개념 나. 칩렛구조의장점 다. 칩렛을이어붙이는방법",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정유나기술사)",
     topicTitles: ["칩렛(Chiplet)"],
+    questionIds: ["c131-205"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-2-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-2-05-2.webp", label: "2쪽" },
@@ -79498,6 +79814,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "클라우드서비스에대하여다음을설명하시오. 가. IT자원유형에따른분류 나. 서비스개방여부에따른분류 다. MSP(Managed Service Provider)의역할",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정유나기술사)",
     topicTitles: ["MSP"],
+    questionIds: ["c131-206"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-2-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-2-06-2.webp", label: "2쪽" },
@@ -79511,6 +79828,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "현재의딥러닝기술은사람의눈으로식별되지않을만큼작은노이즈를추가해서만든적대적예 제(Adversarial Example)를활용한공격에취약하다. 이와관련하여다음을설명하시오. 가. White-box 및Black-box 적대적공격에대한개념과장단점비교 나. 적대적훈련(Adversarial Training) 및Defense GAN(Generative Adversarial Networks) 방어기법",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 전일기술사)",
     topicTitles: ["GAN(Generative Adversarial Network)"],
+    questionIds: ["c131-301"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-3-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-3-01-2.webp", label: "2쪽" },
@@ -79524,6 +79842,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "개인정보 비식별 처리와 관련하여 다음을 설명하시오. 가. 개인정보 비식별 처리 유형 나. 비식별 개인정보의 위험 요인",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토이상헌기술사)",
     topicTitles: [],
+    questionIds: ["c131-302"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-3-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-3-02-2.webp", label: "2쪽" },
@@ -79538,6 +79857,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "디스크여러개를활용하여속도를높이고안정성을향상시키는기술인RAID(Redundant Array of Inexpensive Disk) 기술중RAID5와RAID6에대하여설명하고, 최소디스크수량및고장허용 측면에서비교하여설명하시오.",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 모멘텀안수현기술사)",
     topicTitles: ["RAID (Redundant Array of Independent Disks)"],
+    questionIds: ["c131-303"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-3-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-3-03-2.webp", label: "2쪽" },
@@ -79550,6 +79870,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "데이터베이스에사용되는트랜잭션의개념과이를정의하는4가지중요한속성을가리키는ACID 의각요소에대하여설명하시오.",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이제원기술사)",
     topicTitles: ["트랜잭션"],
+    questionIds: ["c131-304"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-3-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-3-04-2.webp", label: "2쪽" },
@@ -79563,6 +79884,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "공공기관정보화사업추진시국가정보원보안성검토절차를설명하시오.",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정유나기술사)",
     topicTitles: [],
+    questionIds: ["c131-305"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-3-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-3-05-2.webp", label: "2쪽" },
@@ -79575,6 +79897,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "데이터옵스(DataOps)의주요기술을설명하고, 데브옵스(DevOps)와의차이점을설명하시오",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토이상헌기술사)",
     topicTitles: ["데브옵스 (DevOps)"],
+    questionIds: ["c131-306"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-3-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-3-06-2.webp", label: "2쪽" },
@@ -79588,6 +79911,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "강화학습(Reinforcement Learning)은최적의행동정책을찾아가는기계학습방법이다. 이와관련 하여다음을설명하시오. 가. 가치기반강화학습, 정책기반강화학습, 엑터크리틱(Actor-Critic) 강화학습 나. 정책경사(Policy Gradient) 방식강화학습",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 전일기술사)",
     topicTitles: ["강화학습"],
+    questionIds: ["c131-401"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-4-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-4-01-2.webp", label: "2쪽" },
@@ -79601,6 +79925,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "추천시스템은사용자의과거행동데이터등을바탕으로사용자가좋아할만한정보나제품을제 시해주는시스템이다. 이와관련하여다음을설명하시오 가. 컨텐츠기반필터링(Content-based Filtering)과협업적필터링(Collaborative Filtering) 기법 나. 행렬분해(Matrix Factorization) 기반협업적필터링",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토이상헌기술사)",
     topicTitles: ["추천시스템"],
+    questionIds: ["c131-402"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-4-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-4-02-2.webp", label: "2쪽" },
@@ -79616,6 +79941,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "캐쉬메모리(Cache Memory)에대하여다음을설명하시오. 가. 캐쉬메모리의개념과구조 나. 지역성(Locality)의개념과유형 다. 캐쉬일관성(Coherence) 문제의원인과해결방법",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 모멘텀안수현기술사)",
     topicTitles: ["지역성(Locality)", "캐시 일관성(Cache Coherence)"],
+    questionIds: ["c131-403"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-4-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-4-03-2.webp", label: "2쪽" },
@@ -79629,6 +79955,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "스마트홈연결표준인매터(Matter)에대하여다음을설명하시오. 가. 매터의개념 나. 기존스마트홈표준의한계점과매터의장점 다. 매터Network Stack",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이제원기술사)",
     topicTitles: ["Stack"],
+    questionIds: ["c131-404"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-4-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-4-04-2.webp", label: "2쪽" },
@@ -79642,6 +79969,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "시스템성능테스트수행시성능지표관련하여다음물음에답하시오. 가. 응답시간(Response Time), 대기시간(Think Time), 동시사용자(Concurrent User), 활성사용자 (Active User), TPS(Transaction Per Second)를설명하시오. 나. 동시사용자(Concurrent User)가100명이고, 응답시간(Response Time)이5초이내이며, 대기 시간(Think Time)이15초인시스템의경우, TPS를구하시오.",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정유나기술사)",
     topicTitles: ["성능 테스트"],
+    questionIds: ["c131-405"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-4-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-4-05-2.webp", label: "2쪽" },
@@ -79654,6 +79982,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     question: "공공기관정보화사업추진시상용SW 직접구매제도와관련하여다음을설명하시오. 가. 상용SW 직접구매적용대상 나. 상용SW 직접구매예외기준 다. 상용SW 직접구매와일괄발주비교",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이제원기술사)",
     topicTitles: ["상용 소프트웨어 직접구매 제도"],
+    questionIds: ["c131-406"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-4-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-4-06-2.webp", label: "2쪽" },
@@ -80537,6 +80866,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "Wi-Fi 7",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
     topicTitles: ["Wi-Fi 7(IEEE 802.11be)"],
+    questionIds: ["c134-101"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-01-2.webp", label: "2쪽" },
@@ -80549,6 +80879,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "제로데이(Zero Day) 취약점",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
     topicTitles: ["취약점(Vulnerability)", "제로데이(Zero Day) 취약점"],
+    questionIds: ["c134-102"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-02-2.webp", label: "2쪽" },
@@ -80561,6 +80892,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "온디바이스 AI",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
     topicTitles: ["온디바이스 AI"],
+    questionIds: ["c134-103"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-03-2.webp", label: "2쪽" },
@@ -80574,6 +80906,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "촉각 인터넷(Tactile Internet)",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 멘토 백현 기술사)",
     topicTitles: [],
+    questionIds: ["c134-104"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-04-2.webp", label: "2쪽" },
@@ -80586,6 +80919,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "제로 트러스트(Zero Trust)",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 멘토 백현 기술사)",
     topicTitles: ["제로 트러스트(Zero Trust) 보안모델"],
+    questionIds: ["c134-105"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-05-2.webp", label: "2쪽" },
@@ -80599,6 +80933,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "동적 WEP 키(Dynamic WEP Key)",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 멘토 백현 기술사)",
     topicTitles: ["동적 분석(Dynamic)", "동적 WEP 키(Dynamic WEP Key)"],
+    questionIds: ["c134-106"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-06-2.webp", label: "2쪽" },
@@ -80611,6 +80946,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "SBOM(Software Bill of Materials)",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 정상 기술사)",
     topicTitles: ["SBOM"],
+    questionIds: ["c134-107"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-07-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-07-2.webp", label: "2쪽" },
@@ -80623,6 +80959,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "NPU(Neural Processing Unit)",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 정상 기술사)",
     topicTitles: ["NPU(Neural Processing Unit)"],
+    questionIds: ["c134-108"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-08-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-08-2.webp", label: "2쪽" },
@@ -80635,6 +80972,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "플랫폼 엔지니어링(Platform Engineering)",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 멘토 정상 기술사)",
     topicTitles: ["플랫폼 엔지니어링(Platform Engineering)"],
+    questionIds: ["c134-109"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-09-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-09-2.webp", label: "2쪽" },
@@ -80648,6 +80986,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "「행정기관 및 공공기관의 클라우드 컴퓨팅 서비스 이용 기준 및 안전성 확보 등에 관한 고시」의 서비스 운영 분야 안전성 검토 항목",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 BP반 김찬일 기술사)",
     topicTitles: ["클라우드 컴퓨팅"],
+    questionIds: ["c134-110"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-10-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-10-2.webp", label: "2쪽" },
@@ -80660,6 +80999,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "애자일(Agile) 소프트웨어 개발의 장점 및 단점",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 BP반 김찬일 기술사)",
     topicTitles: [],
+    questionIds: ["c134-111"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-11-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-11-2.webp", label: "2쪽" },
@@ -80672,6 +81012,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "전자정부 정보시스템 성과 측정지표",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정주행 조종흥 기술사)",
     topicTitles: [],
+    questionIds: ["c134-112"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-12-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-12-2.webp", label: "2쪽" },
@@ -80684,6 +81025,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "소프트웨어 품질성능 평가시험",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정주행 조종흥 기술사)",
     topicTitles: ["상용소프트웨어 품질성능 평가 시험"],
+    questionIds: ["c134-113"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-13-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-13-2.webp", label: "2쪽" },
@@ -80698,6 +81040,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "PoE(Power of Ethernet) 에 관하여 다음 사항을 설명하시오. 가. 개념 나. IEEE 표준 다. 국내 기술기준",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 전일 기술사)",
     topicTitles: ["이더넷(Ethernet)", "PoE"],
+    questionIds: ["c134-201"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-2-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-2-01-2.webp", label: "2쪽" },
@@ -80711,6 +81054,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "최근 초거대 인공지능(Al: Artificial Intelligence) 도입 및 활용에 필요한 사항을 담은 \"공공 부문 초거대 AI 도입·활용 가이드라인\"이 발표되었다. 다음 항목에 관하여 설명하시오. 가. 초거대 Al 개념 나. 초거대 AI 도입 원칙 다. 초거대 Al 도입 시 사전 고려사항",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 멘토 백현 기술사)",
     topicTitles: ["공공부문 초거대AI 도입, 활용 가이드라인 2.0(2025.04)"],
+    questionIds: ["c134-202"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-2-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-2-02-2.webp", label: "2쪽" },
@@ -80724,6 +81068,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "최근 정보보호 및 개인정보보호 관리체계 인증(ISMS-P)에 대한 간편인증이 발표 되었다. 다음에 대하여 설명하시오. 가. ISMS-P 간편인증 목적 나. ISMS-P 간편인증 대상 다. ISMS-P 간편인증 기준",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 정상 기술사)",
     topicTitles: ["SP 인증", "개인정보 보호기술", "정보보호 및 개인정보보호 관리체계 인증(ISMS-P)"],
+    questionIds: ["c134-203"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-2-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-2-03-2.webp", label: "2쪽" },
@@ -80751,6 +81096,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "스푸핑(Spoofing) 공격에 대하여 다음을 설명하시오. 가. 스푸핑 공격의 개념 나. ARP 스푸핑 공격 방법과 보안 대책 다. IP 스푸핑 공격 방법과 보안 대책 라. DNS 스푸핑 공격 방법과 보안 대책",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 BP반 김찬일 기술사)",
     topicTitles: ["DNS(Domain Name System)", "ARP(Address Resolution Protocol)", "스니핑(Sniffing) & 스푸핑(Spoofing)"],
+    questionIds: ["c134-204"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-2-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-2-04-2.webp", label: "2쪽" },
@@ -80765,6 +81111,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "교착 상태(Deadlock)에 대하여 다음을 설명하시오. 가. 교착 상태의 개념 나. 교착 상태의 필요조건 다. 교착 상태의 해결 방법",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정주행 조종흥 기술사)",
     topicTitles: ["교착상태(Deadlock)"],
+    questionIds: ["c134-205"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-2-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-2-05-2.webp", label: "2쪽" },
@@ -80778,6 +81125,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "OSI 7 계층(Layer)에 대하여 계층별 다음 사항을 설명하시오. 가. 기능 나. 프로토콜 종류 다. 데이터 종류 라. 주요 장비",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정주행 조종흥 기술사)",
     topicTitles: ["OSI 7 Layer (ISO 7498)"],
+    questionIds: ["c134-206"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-2-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-2-06-2.webp", label: "2쪽" },
@@ -80793,6 +81141,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "정보기술 아키텍처의 도입과 운영에 필요한 사항을 정하기 위한 \"정보기술 아키텍처 (EA: Enterprise Architecture) 도입•운영 지침\"과 관련하여 다음을 설명하시오. 가. 범정부 정보기술 아키텍처 메타모델 나. 범정부 정보기술 아키텍처 참조모형의 종류 다. 범정부 정보기술 아키텍처 성숙도 모델",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 전일 기술사)",
     topicTitles: [],
+    questionIds: ["c134-301"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-3-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-3-01-2.webp", label: "2쪽" },
@@ -80805,6 +81154,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "빅데이터 관련 정보화 사업에 대한 감리 수행 점검항목을 제시하는 \"지능정보기술 감리 실무 가 이드\"에 대해서 다음을 설명하시오. 가. 빅데이터 분석단계 점검항목 나. 클라우드 계획수립 점검항목",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 멘토 백현 기술사)",
     topicTitles: ["지능정보기술 감리 실무 가이드"],
+    questionIds: ["c134-302"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-3-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-3-02-2.webp", label: "2쪽" },
@@ -80819,6 +81169,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "디지털 계위(Digital Hierarchy)에 관한 다음 사항에 대하여 설명하시오. 가. PDH(Plesiochronous Digital Hierarchy) 나. SDH(Synchronous Digital Hierarchy) 다. SONET(Synchronous Optical NETwork)",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 멘토 백현 기술사)",
     topicTitles: ["디지털 계위(Digital Hierarchy)"],
+    questionIds: ["c134-303"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-3-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-3-03-2.webp", label: "2쪽" },
@@ -80833,6 +81184,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "데이터베이스 무결성 제약 조건에 대하여 다음을 설명하시오. 가. 데이터베이스 무결성 제약 조건의 개념 나. 데이터베이스 무결성 제약 조건의 종류 다. 데이터베이스 무결성 제약 조건 생성시 고려사항",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 정상 기술사)",
     topicTitles: ["데이터베이스 무결성"],
+    questionIds: ["c134-304"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-3-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-3-04-2.webp", label: "2쪽" },
@@ -80845,6 +81197,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "네트워크 프로토콜에 대하여 다음을 설명하시오. 가. 프로토콜의 개념 나. 프로토콜의 3 가지 요소 다. 프로토콜의 기능",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 BP반 김찬일 기술사)",
     topicTitles: ["네트워크 프로토콜"],
+    questionIds: ["c134-305"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-3-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-3-05-2.webp", label: "2쪽" },
@@ -80858,6 +81211,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "웹방화벽, 침입탐지시스템(IDS: Intrusion Detection System) 및 침입방지시스템 (IPS: Intrusion Prevention System)의 개념과 기능을 설명하시오.",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정주행 조종흥 기술사)",
     topicTitles: ["IPS (Indoor Positioning System)", "IDS", "IPS"],
+    questionIds: ["c134-306"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-3-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-3-06-2.webp", label: "2쪽" },
@@ -80872,6 +81226,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "소프트웨어 프로세스 품질인증 제도의 운영과 활성화를 위하여 \"소프트웨어 프로세스 (SP: Software Process) 품질인중 운영에 관한 지침\"을 시행하고 있다. 다음에 대해서 설명하시오. 가. 소프트웨어 프로세스 품질인증 기준 나. 소프트웨어 프로세스 인증등급 기준",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 전일 기술사)",
     topicTitles: ["SP (Software Process) 인증"],
+    questionIds: ["c134-401"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-4-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-4-01-2.webp", label: "2쪽" },
@@ -80886,6 +81241,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "자동차에 대한 기능안전 규격인 ISO 26262에 대하여 다음을 설명하시오. 가. ISO 26262 구성요소 나. 자동차 안전 무결성 수준(ASIL: Automotive Safety Integrity Level)",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 멘토 백현 기술사)",
     topicTitles: ["ISO 26262"],
+    questionIds: ["c134-402"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-4-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-4-02-2.webp", label: "2쪽" },
@@ -80900,6 +81256,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "병렬 컴퓨팅에 대하여 다음을 설명하시오. 가. 병렬 컴퓨팅의 개념 나. 병렬 프로세서의 분류",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 정상 기술사)",
     topicTitles: [],
+    questionIds: ["c134-403"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-4-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-4-03-2.webp", label: "2쪽" },
@@ -80913,6 +81270,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "개인정보보호 강화기술(PET: Privacy Enhanced Technology)에 대하여 다음을 설명하시오. 가. PET의 개념 나. PET의 주요 유형 다. PET의 적용 사례",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 BP반 김찬일 기술사)",
     topicTitles: ["개인정보 보호기술"],
+    questionIds: ["c134-404"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-4-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-4-04-2.webp", label: "2쪽" },
@@ -80927,6 +81285,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "HDLC(High-level Data Link Control) 프로토콜의 다음 사항에 대하여 설명하시오. 가. 기능 나. 프레임 구조 다. 동작모드",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 BP반 김찬일 기술사)",
     topicTitles: ["Data Link(2)", "HDLC"],
+    questionIds: ["c134-405"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-4-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-4-05-2.webp", label: "2쪽" },
@@ -80940,6 +81299,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "멀티모달 인공지능에 관한 다음 사항을 설명하시오. 가. 개념 나. 구성요소 다. 핵심기술",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정주행 조종흥 기술사)",
     topicTitles: ["멀티모달(Multimodal) AI", "VLM(Vision Language Model)"],
+    questionIds: ["c134-406"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-4-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-4-06-2.webp", label: "2쪽" },
@@ -81394,6 +81754,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "지식재산권의 종류",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 정상 기술사)",
     topicTitles: ["지식재산권"],
+    questionIds: ["c135-101"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-01-2.webp", label: "2쪽" },
@@ -81406,6 +81767,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "SOAP(Simple Object Access Protocol)와 REST(Representational State Transfer)를 비교",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 정상 기술사)",
     topicTitles: ["SOAP"],
+    questionIds: ["c135-102"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-02-2.webp", label: "2쪽" },
@@ -81418,6 +81780,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "MMU(memory Management Unit)에 대해 설명하시오.",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 정상 기술사)",
     topicTitles: ["MMU(Memory Management Unit)"],
+    questionIds: ["c135-103"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-03-2.webp", label: "2쪽" },
@@ -81430,6 +81793,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "몬테카를로 트리탐색(Monte Carlo Tree Search)",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 이상헌 기술사)",
     topicTitles: ["몬테카를로 트리 탐색(MCTS)", "몬테카를로 방법(Monte Carlo Method)"],
+    questionIds: ["c135-104"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-04-2.webp", label: "2쪽" },
@@ -81442,6 +81806,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "모놀리식 아키텍처(Monolithic Architecture)와 마이크로서비스 아키텍처(MicroServiceArchitecture) 를 비교 설명하시오.",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 이상헌 기술사)",
     topicTitles: ["MSA (Micro Service Architecture)"],
+    questionIds: ["c135-105"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-05-2.webp", label: "2쪽" },
@@ -81454,6 +81819,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "멀티클라우드(Multicloud)",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 이상헌 기술사)",
     topicTitles: ["멀티클라우드"],
+    questionIds: ["c135-106"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-06-2.webp", label: "2쪽" },
@@ -81467,6 +81833,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "채널용량(샤논 제3정리, Information Capacity Theorem)",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 BP반 김찬일 기술사)",
     topicTitles: [],
+    questionIds: ["c135-107"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-07-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-07-2.webp", label: "2쪽" },
@@ -81479,6 +81846,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "[정보시스템 하드웨어 규모산정 지침 (TTAKIKO-10.0292/R3) 에 따른 하드 웨어 규모산정 방법 3 가지",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 BP반 김찬일 기술사)",
     topicTitles: ["정보시스템 하드웨어 규모산정 지침"],
+    questionIds: ["c135-108"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-08-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-08-2.webp", label: "2쪽" },
@@ -81491,6 +81859,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "인공지능 성능 관련 차원의 저주 (Curse of Dimensionality)",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 BP반 김찬일 기술사)",
     topicTitles: [],
+    questionIds: ["c135-109"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-09-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-09-2.webp", label: "2쪽" },
@@ -81503,6 +81872,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "공공데이터 품질인증",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 TOP반 유술사PE)",
     topicTitles: ["공공 데이터", "공공데이터", "공공데이터 품질인증", "공공데이터 품질인증 매뉴얼(2025.07.)", "데이터 품질인증 가이드라인 - DQ인증 (2025.02.26)"],
+    questionIds: ["c135-110"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-10-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-10-2.webp", label: "2쪽" },
@@ -81516,6 +81886,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "운영제제(Operating System)에서 태스크 우선순위 상속(Priority Inheritance)",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 TOP반 유술사PE)",
     topicTitles: [],
+    questionIds: ["c135-111"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-11-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-11-2.webp", label: "2쪽" },
@@ -81529,6 +81900,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "RAG(Retrieval-Augmented Generation)",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 백현 기술사)",
     topicTitles: ["검색 증강 생성(RAG, Retrieval Augmented Generation)"],
+    questionIds: ["c135-112"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-12-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-12-2.webp", label: "2쪽" },
@@ -81541,6 +81913,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "European Telecommunications Standards Institute(ETSI)의 Zero-touch network and Service Management(ZSM)",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 백현 기술사)",
     topicTitles: ["Network(3)"],
+    questionIds: ["c135-113"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-13-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-13-2.webp", label: "2쪽" },
@@ -81553,6 +81926,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "「생성형 인공지능 학습을 위한 멀티모달 데이터의 품질검증 방법(정보통신단체표준, TTAK.KO- 10.1558)」 에 대하여 아래 사항을 설명하시오. 가. 생성형 인공지능 학습용 멀티모달 데이터 품질특성 나. 생성 데이터 유형별 유효성 검증 방법",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 정상 기술사)",
     topicTitles: ["멀티모달 데이터의 품질검증 방법", "데이터 유형"],
+    questionIds: ["c135-201"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-2-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-2-01-2.webp", label: "2쪽" },
@@ -81567,6 +81941,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "인구 구조적 변화와 환경문제 해결책으로 제시되는 지속 가능한 스마트시티(Smart City)를 설명하시오.",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 이상헌 기술사)",
     topicTitles: ["Smart City"],
+    questionIds: ["c135-202"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-2-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-2-02-2.webp", label: "2쪽" },
@@ -81581,6 +81956,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "정보시스템의 접근통제 정책에는 강제적 접근통제(MAC, Mandatory Access Control), 임의적 접근 통제(DAC, Discretionary Access Control), 역할 기반 접근통제 (RBAC, Role-Based Access Control), 속성 기반 접근통제(ABAC, Attribute-Based Access Control)가 있다. 아래 사항을 설명하시오. 가. 접근통제 개념 나. 접근통제 정책 비교 다. MAC + ABAC 융합 정책의 필요성 라. MAC + ABAC 융합 정책의 동적 보안 정책 운영 방안",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 BP반 김찬일 기술사)",
     topicTitles: ["접근 제어/접근 통제(Access Control)"],
+    questionIds: ["c135-203"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-2-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-2-03-2.webp", label: "2쪽" },
@@ -81594,6 +81970,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "캐쉬 메모리(Cache Memory)에 대하여 아래 사항을 설명하시오. 가. 캐쉬 메모리(Cache Memory) 교체 기법 나. Write Through와 Write Back 비교 다. 캐쉬 일관성 유지를 위한 MESI 프로토콜",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 TOP반 유술사PE)",
     topicTitles: ["MESI", "캐시메모리의 쓰기정책(Write Policy)"],
+    questionIds: ["c135-204"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-2-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-2-04-2.webp", label: "2쪽" },
@@ -81607,6 +81984,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "트래픽 폴리싱(Traffic Policing)과 트래픽 쉐이핑(Traffic Shaping)에 대하여 아래 사항을 설명하시 오. 가. 개념 나. 구성요소 다. 구현 알고리즘 라. 트래픽 폴리싱과 트래픽 쉐이핑 비교",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 백현 기술사)",
     topicTitles: ["Traffic Policing", "Traffic Shaping"],
+    questionIds: ["c135-205"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-2-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-2-05-2.webp", label: "2쪽" },
@@ -81621,6 +81999,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "데이터베이스 트랜잭션 회복(Recovery) 기법에 대하여 아래 사항을 설명하시오. 가. REDO와 UNDO를 이용한 방법 나. 체크포인트(Checkpoint)를 이용한 방법 다. 그림자 페이징(Shadow Paging)을 이용한 방법",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 멘토 백현 기술사)",
     topicTitles: ["트랜잭션", "DB 회복기법"],
+    questionIds: ["c135-206"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-2-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-2-06-2.webp", label: "2쪽" },
@@ -81635,6 +82014,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "데이터처리의 효율성과 속도를 높이기 위한 엣지 컴퓨팅(Edge Computing)에 대하여 아래 사항을 설명하시오. 가. 클라우드 환경에서의 엣지 컴퓨팅 나. 엣지 컴퓨팅을 활용한 자율 주행 차량 아키텍처 다. 해양 자율 이동체에서의 엣지 컴퓨팅",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 정상 기술사)",
     topicTitles: ["Smart Car(자율주행)"],
+    questionIds: ["c135-301"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-3-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-3-01-2.webp", label: "2쪽" },
@@ -81649,6 +82029,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "『안티드론 시스템 프레임워크(정보통신단체표준, TTAK,KO-10.1460)」에 대하여 아래 사항을 설명 하시오. 가. 안티드론 시스템 참조구조 나. 기술적 조치 참조구조",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 이상헌 기술사)",
     topicTitles: ["안티 드론(Anti-Drone)", "안티 드론(Anti-Drone) 프레임워크(정보통신단체표준, TTAK,KO-10.1460)"],
+    questionIds: ["c135-302"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-3-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-3-02-2.webp", label: "2쪽" },
@@ -81663,6 +82044,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "과학기술정보통신부는 2024년 12월 「철통 인증 지침(제로트러스트 가이드라인) 2.0」을 발표하였 다. 이와 관련하여 아래 사항을 설명하시오. 가. 제로트러스트(Zero Trust) 정의 및 핵심 원칙 나. 제로트러스트(Zero Trust) 보안 모델 구성요소 다. 제로트러스트(Zero Trust) 성숙도 수준 4단계 특징 비교 라. 제로트러스트(Zero Trust) 도입 절차",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 이상헌 기술사)",
     topicTitles: ["제로트러스트 가이드라인 2.0"],
+    questionIds: ["c135-303"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-3-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-3-03-2.webp", label: "2쪽" },
@@ -81678,6 +82060,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "운영체제의 스케줄링 알고리즘에 대하여 아래 사항을 설명하시오. 가. RM(Rate Monotonic) 스케줄링 나. MLQ(Multi-Level Queue) 스케줄링 다. SQMS(Single Queue Multiprocessor Scheduling) 라. MQMS(Multi Queue Multiprocessor Scheduling)",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 BP반 김찬일 기술사)",
     topicTitles: ["Queue"],
+    questionIds: ["c135-304"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-3-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-3-04-2.webp", label: "2쪽" },
@@ -81691,6 +82074,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "블록체인(Blockchain)의 네트워크 종류와 차이점에 대하여 설명하시오.",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 TOP반 유술사PE)",
     topicTitles: ["블록체인", "블록체인기술"],
+    questionIds: ["c135-305"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-3-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-3-05-2.webp", label: "2쪽" },
@@ -81704,6 +82088,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "연결 리스트(Linked List)에 대하여 아래 사항을 설명하시오. 가. 연결 리스트의 개념 및 적용 분야 나. 연결 리스트 구현 방법 다. 배열 리스트(Array List)와 연결 리스트(Linked List)의 비교",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 백현 기술사)",
     topicTitles: ["링크드 리스트(Linked List)"],
+    questionIds: ["c135-306"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-3-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-3-06-2.webp", label: "2쪽" },
@@ -81717,6 +82102,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "중앙은행 디지털 화폐(CBDC, Central Bank Digital Currency) 설계를 위한 고려사항에 대하여 설명 하시오.",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 정상 기술사)",
     topicTitles: ["CBDC"],
+    questionIds: ["c135-401"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-4-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-4-01-2.webp", label: "2쪽" },
@@ -81732,6 +82118,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "스마트시티 데이터 거버넌스(Smart City Data Governance)에 대하여 설명하시오.",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 이상헌 기술사)",
     topicTitles: ["데이터 거버넌스(Data Governance)"],
+    questionIds: ["c135-402"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-4-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-4-02-2.webp", label: "2쪽" },
@@ -81745,6 +82132,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "서버 이중화 구성 방안에 대하여 아래 사항을 설명하시오. 가. L4스위치 기반 이중화 방안 나. 소프트웨어 기반 이중화 방안 다. L4 스위치 기반 이중화 방안과 소프트웨어 기반 이중화 방안 비교",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 BP반 김찬일 기술사)",
     topicTitles: ["L4 스위치/이중화"],
+    questionIds: ["c135-403"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-4-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-4-03-2.webp", label: "2쪽" },
@@ -81758,6 +82146,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "소프트웨어 무중단 배포(Zero Downtime Deployment) 방식에 대하여 설명하시오.",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 TOP반 유술사PE)",
     topicTitles: ["무중단 배포"],
+    questionIds: ["c135-404"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-4-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-4-04-2.webp", label: "2쪽" },
@@ -81772,6 +82161,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "고장허용(Fault Tolerant) 시스템과 고가용성(High Availability) 시스템에 대하여 아래사항을 설명하시오. 가. 고장허용(Fault Tolerant)과 고가용성(High Availability) 시스템의 개념 나. 하드웨어, 소프트웨어, 데이터 측면에서 고장허용(Fault Tolerant) 기법 다. 고가용성(High Availability) 시스템의 구성 방법 라. 고장허용(Fault Tolerant) 시스템과 고가용성(High Availability) 시스템의 비교",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 TOP반 유술사PE)",
     topicTitles: ["HA(High Availability)", "결함허용 컴퓨터(FTS)"],
+    questionIds: ["c135-405"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-4-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-4-05-2.webp", label: "2쪽" },
@@ -81785,6 +82175,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "파이프라인 해저드(Pipeline Hazard)에 대하여 아래 사항을 설명하시오. 가. 유형별 발생 원인 나. 해결 방법",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 백현 기술사)",
     topicTitles: ["Pipeline(파이프라인)", "Pipeline Hazard"],
+    questionIds: ["c135-406"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-4-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-4-06-2.webp", label: "2쪽" },
@@ -82625,6 +83016,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "멀티미디어 스트리밍 프로토콜의 종류",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
     topicTitles: ["멀티미디어 스트리밍 프로토콜", "멀티미디어 DB"],
+    questionIds: ["c137-101"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-01-2.webp", label: "2쪽" },
@@ -82637,6 +83029,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "클라우드 AI와 온디바이스 AI의 개념 비교",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
     topicTitles: ["온디바이스 AI"],
+    questionIds: ["c137-102"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-02-2.webp", label: "2쪽" },
@@ -82649,6 +83042,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "지능형 엣지 컴퓨팅",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
     topicTitles: ["지능형 엣지 컴퓨팅"],
+    questionIds: ["c137-103"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-03-2.webp", label: "2쪽" },
@@ -82661,6 +83055,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "IEEE 표준과 IEC국제표준 비교",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상 기술사)",
     topicTitles: ["IEEE와 IEC"],
+    questionIds: ["c137-104"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-04-2.webp", label: "2쪽" },
@@ -82673,6 +83068,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "보안 운영체제(Secure OS)",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상 기술사)",
     topicTitles: ["OS(운영체제)", "Secure OS"],
+    questionIds: ["c137-105"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-05-2.webp", label: "2쪽" },
@@ -82685,6 +83081,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "SIL(Software-in-the-Loop)과 HIL(Hardware-in-the-Loop) 테스팅",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상 기술사)",
     topicTitles: ["SIL(Software-in-the-Loop) 테스팅", "HL(Hardware-in-the-Loop) 테스팅"],
+    questionIds: ["c137-106"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-06-2.webp", label: "2쪽" },
@@ -82697,6 +83094,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "HBM(High Bandwidth Memory)",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 김민재 기술사)",
     topicTitles: ["HBM(High Bandwidth Memory)"],
+    questionIds: ["c137-107"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-07-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-07-2.webp", label: "2쪽" },
@@ -82709,6 +83107,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "RAG (Retrieval Augmented Generation)와 Fine Tuning의 기본 개념과 대표 프레임워크",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 김민재 기술사)",
     topicTitles: ["파인 튜닝(Fine-tuning)", "검색 증강 생성(RAG, Retrieval Augmented Generation)"],
+    questionIds: ["c137-108"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-08-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-08-2.webp", label: "2쪽" },
@@ -82722,6 +83121,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "멀티모달 (Multimodal)의 기술요소",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 김민재 기술사)",
     topicTitles: ["멀티모달(Multimodal) AI", "VLM(Vision Language Model)"],
+    questionIds: ["c137-109"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-09-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-09-2.webp", label: "2쪽" },
@@ -82734,6 +83134,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "GPU(Graphics Processing Unit)의 역할, 구조, 주요장점 및 활용분야",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강북심화 이제이 기술사)",
     topicTitles: ["GPU(graphic processing unit)"],
+    questionIds: ["c137-110"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-10-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-10-2.webp", label: "2쪽" },
@@ -82746,6 +83147,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "인공지능 시스템의 취약점",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강북심화 이제이 기술사)",
     topicTitles: [],
+    questionIds: ["c137-111"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-11-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-11-2.webp", label: "2쪽" },
@@ -82758,6 +83160,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "클라우드 네이티브 보안",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강북심화 이제이 기술사)",
     topicTitles: ["클라우드 네이티브"],
+    questionIds: ["c137-112"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-12-1.webp", label: "1쪽" },
     ],
@@ -82769,6 +83172,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "RISC(Reduced Instruction Set Computer)-V",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강북심화 이제이 기술사)",
     topicTitles: ["RISC"],
+    questionIds: ["c137-113"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-13-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-13-2.webp", label: "2쪽" },
@@ -82781,6 +83185,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "공공 마이데이터 활용 방안에 대하여 설명하시오.",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강평야 전일 기술사)",
     topicTitles: ["공공 데이터", "공공데이터", "마이데이터"],
+    questionIds: ["c137-201"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-2-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-2-01-2.webp", label: "2쪽" },
@@ -82794,6 +83199,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "소프트웨어 프로세스(SP, Software Process) 품질인증 제도에 대하여 설명하시오. 가. 소프트웨어 프로세스 품질인증의 개념 나. 소프트웨어 프로세스 품질인증의 인증 기준 및 인증 등급",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강평야 전일 기술사)",
     topicTitles: ["SP (Software Process) 인증"],
+    questionIds: ["c137-202"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-2-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-2-02-2.webp", label: "2쪽" },
@@ -82807,6 +83213,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "운영체제의 기아현상(Starvation)에 대하여 다음사항을 설명하시오 가. 기아현상의 정의 및 발생조건 나. 기아현상의 해결방안 3가지 다. 교착상태와 기아현상 비교",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상 기술사)",
     topicTitles: ["기아(Starvation)", "교착상태(Deadlock)"],
+    questionIds: ["c137-203"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-2-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-2-03-2.webp", label: "2쪽" },
@@ -82820,6 +83227,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "sLLM(Samll Large Language Model)에 대하여 다음사항을 설명하시오. 가. sLLM 모델의 개념 및 필요성 나. sLLM 모델 기술요소 및 활용분야 다. LLM과 sLLM 비교",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상 기술사)",
     topicTitles: ["초거대 언어 모델(Large Language Model)", "도메인 특화 언어 모델(Domain-Specific Language Model)"],
+    questionIds: ["c137-204"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-2-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-2-04-2.webp", label: "2쪽" },
@@ -82833,6 +83241,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "소프트웨어 영향평가에 대하여 다음 사항을 설명하시오 1. 영향평가 대상 기관 2. 소프트웨어사업 영향평가 체계 3. 평가 항목",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 김민재 기술사)",
     topicTitles: ["소프트웨어사업 영향평가"],
+    questionIds: ["c137-205"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-2-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-2-05-2.webp", label: "2쪽" },
@@ -82848,6 +83257,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "I/O(Input/Output) 장치와 메모리 사이에서 데이터를 직접 주고받기 위해 사용하는 DMA(Direct Memory Access)에 대하여 다음 사항을 설명하시오. 가. Programmed I/O 방식과 DMA 방식 비교 나. Cycle Stealing Mode와 Transparent Mode 다. SG-DMA(Scatter-Gather DMA)와 RDMA(Remote DMA)",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강북심화 이제이 기술사)",
     topicTitles: ["DMA(Direct Memory Access)"],
+    questionIds: ["c137-206"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-2-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-2-06-2.webp", label: "2쪽" },
@@ -82862,6 +83272,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "클라우드 컴퓨팅 서비스 유형에 대하여 다음을 설명하시오. 가. IaaS(Infrastruct as a Service) 나. PaaS(Platform as a Service) 다. SaaS(Software as a Service) 라. FaaS(Function as a Service)",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
     topicTitles: ["클라우드 컴퓨팅"],
+    questionIds: ["c137-301"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-3-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-3-01-2.webp", label: "2쪽" },
@@ -82877,6 +83288,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "가상메모리 주소 변환을 위해 사용하는 MMU(Memory Management Unit)에 대하여 다음을 설명 하시오 가. MMU 구성요소 나. TLB(Translation Lookaside Buffer) 다. MMU와 IOMMU",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상 기술사)",
     topicTitles: ["MMU(Memory Management Unit)", "가상메모리 관리기법"],
+    questionIds: ["c137-302"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-3-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-3-02-2.webp", label: "2쪽" },
@@ -82892,6 +83304,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "제조현장에서 활용되고 있는 OPC UA (Open Platform Communications Unified Architecture)에 대 하여 다음을 설명하시고. 가. OPC UA 등장배경 나. OPC와 OPC UA 비교 다. OPC UA 활용분야",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 김민재 기술사)",
     topicTitles: [],
+    questionIds: ["c137-303"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-3-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-3-03-2.webp", label: "2쪽" },
@@ -82905,6 +83318,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "실시간 시스템에서 발생할 수 있는 우선순위 역전(Priority Inversion) 현상에 대하여 다음을 설명 하시오. 가. 우선순위 역전 현상의 개념 및 발생원인 나. 우선순위 상속 프로토콜 (PIP, Priority Inheritance Protocol)과 우선순위 상한 프로토콜(PCP, Priority Ceiling Protocol) 비교",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 김민재 기술사)",
     topicTitles: ["우선순위 역전(Priority Inversion) 현상"],
+    questionIds: ["c137-304"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-3-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-3-04-2.webp", label: "2쪽" },
@@ -82918,6 +83332,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "샌드박스와 화이트박스의 목적, 적용 방법 및 예시를 설명하시오.",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강북심화 이제이 기술사)",
     topicTitles: ["샌드박스 (Sandbox)"],
+    questionIds: ["c137-305"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-3-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-3-05-2.webp", label: "2쪽" },
@@ -82931,6 +83346,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "시스템 버스(System Bus)와 버스 중재(Bus Arbitration) 방식을 설명하시오.",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강북심화 이제이 기술사)",
     topicTitles: ["시스템 버스"],
+    questionIds: ["c137-306"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-3-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-3-06-2.webp", label: "2쪽" },
@@ -82943,6 +83359,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "영상압축기법에 대하여 다음을 설명하시오. 가. 무손실 압축기법의 특징과 종류 나. 손실 압축기법의 특징과 종류 다. 혼합 압축기법의 특징과 종류",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강북심화 이제이 기술사)",
     topicTitles: [],
+    questionIds: ["c137-401"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-4-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-4-01-2.webp", label: "2쪽" },
@@ -82956,6 +83373,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "AIaaS(AI as a Service)의 개념, 특징 및 도입 시 고려사항에 대하여 설명하시오.",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 정상 기술사)",
     topicTitles: ["AIaaS(AI as a Service)"],
+    questionIds: ["c137-402"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-4-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-4-02-2.webp", label: "2쪽" },
@@ -82970,6 +83388,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "양자 머신러닝(QML, Quntum Machine Learning)의 주요 기술 및 알고리즘을 설명하고, 기존 머신러닝과 비교하시오.",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상 기술사)",
     topicTitles: ["머신러닝(Machine Learning) 성능지표", "양자머신러닝(Quantum Machine Learning)"],
+    questionIds: ["c137-403"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-4-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-4-03-2.webp", label: "2쪽" },
@@ -82983,6 +83402,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "DNS (Domain Name System)에 대하여 다음 사항을 설명하시오. 가. DNS 개요 나. DNS 구성요소 다. DNS의 보안 취약점 및 대응 방안",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 김민재 기술사)",
     topicTitles: ["DNS(Domain Name System)"],
+    questionIds: ["c137-404"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-4-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-4-04-2.webp", label: "2쪽" },
@@ -82997,6 +83417,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "침입차단시스템(Firewall), 침입탐지시스템(IDS, Intrusion Detection System), 침입방지시스템 (IPS, Intrusion Prevention System) 및 가상사설망(VPN, Virtual Private Network)에 대하여 설명하시오.",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 김민재 기술사)",
     topicTitles: ["VPN(Virtual Private Network)"],
+    questionIds: ["c137-405"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-4-05-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-4-05-2.webp", label: "2쪽" },
@@ -83011,6 +83432,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     question: "디지털서비스 전문계약제도에 대하여 주요 특징, 디지털서비스 종류 및 기대효과를 설명하시오.",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강북심화 이제이 기술사)",
     topicTitles: [],
+    questionIds: ["c137-406"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-4-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-4-06-2.webp", label: "2쪽" },

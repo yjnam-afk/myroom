@@ -18,6 +18,8 @@ export type PastAppearance = {
   period: string;  // "1교시"
   no: number;      // 6
   text: string;
+  /** 종목 — 없으면 정보관리, "컴시응"이면 컴퓨터시스템응용 */
+  track?: string;
 };
 
 /** NS·기술사 기출 밖의 문제은행 출제 — ITPE 모의고사·파이널·셀테 등 */

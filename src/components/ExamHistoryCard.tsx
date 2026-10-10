@@ -21,7 +21,7 @@ function PastExamList({ items }: { items: PastAppearance[] }) {
         <li key={p.id} className="px-5 py-3 text-[13px]">
           <div className="flex flex-wrap items-center gap-1.5">
             <span className="rounded bg-indigo-100 px-1.5 py-0.5 font-bold text-indigo-700">
-              {p.round}회
+              {p.track ? `${p.track} ` : ""}{p.round}회
             </span>
             <span className="text-slate-500">
               {p.period} {p.no}번
