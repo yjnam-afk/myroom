@@ -6391,7 +6391,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     no: "6",
     question: "① 디지털 트윈 정의, 출현배경 ② M&S 연관성 ③ 산업분야 적용 ④ 운영환경",
     exam: "정리 답안 (드라이브 03. 서비스) · 120회 컴시응 4교시 기출",
-    topicTitles: ["디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안"],
+    topicTitles: ["디지털 트윈(Digital Twin)"],
     pages: [
       { src: "/answers/정리답안/분류없음/sv-디지털-트윈-정의-출현배경-m-s-연관성-산업분야-적용-운영환경-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/분류없음/sv-디지털-트윈-정의-출현배경-m-s-연관성-산업분야-적용-운영환경-2.jpg", label: "2쪽" },
@@ -6430,7 +6430,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     no: "2",
     question: "디지털 트윈(Digital Twin)",
     exam: "정리 답안 (드라이브 03. 서비스) · 114회 관리 1교시 / 111회 컴시응 1교시",
-    topicTitles: ["디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안"],
+    topicTitles: ["디지털 트윈(Digital Twin)"],
     questionIds: ["k114-109", "k118-104"],
     pages: [
       { src: "/answers/정리답안/분류없음/sv-디지털-트윈-1.jpg", label: "1쪽" },
@@ -6611,7 +6611,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     no: "1",
     question: "① 디지털 트윈 기술 정의 및 역할 ② 디지털 트윈의 구성도와 주요 구축기술 ③ 디지털 트윈 적용시 고려사항",
     exam: "정리 답안 (드라이브 03. 서비스)",
-    topicTitles: ["디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안"],
+    topicTitles: ["디지털 트윈(Digital Twin)"],
     questionIds: ["k119-301"],
     pages: [
       { src: "/answers/정리답안/03.서비스/sv-디지털트윈-1.jpg", label: "1쪽" },
@@ -44016,7 +44016,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "디지털 트윈(Digital Twin)",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 모범답안)",
-    topicTitles: ["디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안", "디지털 트윈(Digital Twin)"],
+    topicTitles: ["디지털 트윈(Digital Twin)"],
     pages: [
       { src: "/answers/정리답안/4.모범답안디지털자료/모범답안/d4-셀테-디지털-트윈-digital-twin-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/4.모범답안디지털자료/모범답안/d4-셀테-디지털-트윈-digital-twin-2.jpg", label: "2쪽" },
@@ -44848,7 +44848,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "Cache Coherence 개념, Write Through와 Write Back 비교, MESI 프로토콜",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 김병권PE)",
-    topicTitles: ["캐시(Cache) 메모리의 사상 방식(Mapping Scheme)", "캐시 일관성(Cache Coherence)", "MESI"],
+    topicTitles: ["캐시 일관성(Cache Coherence)", "MESI", "캐시메모리의 쓰기정책(Write Policy)"],
     pages: [
       { src: "/answers/정리답안/4.모범답안디지털자료/김병권PE/d4-16주차-주간고사-2교시-8.jpg", label: "8쪽" },
       { src: "/answers/정리답안/4.모범답안디지털자료/김병권PE/d4-16주차-주간고사-2교시-9.jpg", label: "9쪽" },
@@ -51353,7 +51353,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "1",
     question: "Cache Memory2| 설계목표와 cache 미스 원인에 대해 설명하시오",
     exam: "제69회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["캐시(Cache) 메모리의 사상 방식(Mapping Scheme)"],
+    topicTitles: [],
     pages: [
       { src: "/answers/KPC모의고사/69회/kpc-69회-kpc기술사모의고사-컴시응-모범답안-1교시-2.jpg", label: "1쪽" },
     ],
@@ -53488,7 +53488,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "3",
     question: "최근 알파고를 통해 인공 지능(Artificial Intelligence, AI) 기술이 부각되고 있고. 특히 기계 학습은 다양한 분야에서 종래에 이루어내지 못한 뛰어난 성과를 달성하고 있다. 5G를 포함한 통신 분야에서 기계학습이 어떻게 활용되는지 다음 질문에 대하여 설명하시오. 가. 5G 이동 통신 기술을 설명하시오. 나. 5G 이동 통신에 적용할 수 있는 기계 학습 알고리즘 종류를 설명하시오.",
     exam: "제77회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["소버린 AI(Artificial Intelligence)"],
+    topicTitles: [],
     questionIds: ["m01817"],
     pages: [
       { src: "/answers/KPC모의고사/77회/kpc-77회-kpc기술사모의고사-정보관리-모범답안-2교시-7.jpg", label: "1쪽" },
@@ -56326,7 +56326,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "12",
     question: "Cache Memory 의 설계목표와 Locality 에 대해 [시오 정보관리기술사",
     exam: "제87회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["캐시(Cache) 메모리의 사상 방식(Mapping Scheme)", "지역성(Locality)"],
+    topicTitles: ["지역성(Locality)"],
     pages: [
       { src: "/answers/KPC모의고사/87회/kpc-87회-kpc기술사모의고사-정보관리-모범답안-1교시-13.jpg", label: "1쪽" },
     ],
@@ -56373,7 +56373,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "4",
     question: "Cache MemoryOl 대하여 다음에 eS - 이사오 aes",
     exam: "제87회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["캐시(Cache) 메모리의 사상 방식(Mapping Scheme)"],
+    topicTitles: [],
     pages: [
       { src: "/answers/KPC모의고사/87회/kpc-87회-kpc기술사모의고사-정보관리-모범답안-3교시-8.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/87회/kpc-87회-kpc기술사모의고사-정보관리-모범답안-3교시-9.jpg", label: "2쪽" },
@@ -56756,7 +56756,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "4",
     question: "Cache Bus Snooping 에 대하여 설명하시오. 럼퓨터시스템웅웅기술사",
     exam: "제90회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["캐시(Cache) 메모리의 사상 방식(Mapping Scheme)"],
+    topicTitles: ["캐시 일관성(Cache Coherence)"],
     pages: [
       { src: "/answers/KPC모의고사/90회/kpc-90회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-1교시-5.jpg", label: "1쪽" },
     ],
@@ -58277,7 +58277,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "8",
     question: "DNS 캐시 포이즈닝(DNS Cache Poisoning)에 대해 설명하시오",
     exam: "제49회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["캐시(Cache) 메모리의 사상 방식(Mapping Scheme)", "DNS(Domain Name System)"],
+    topicTitles: ["DNS(Domain Name System)"],
     questionIds: ["f02770"],
     pages: [
       { src: "/answers/KPC모의고사/49회/kpc-kpc-49회-모의고사-모범답안-1교시-8.jpg", label: "1쪽" },
@@ -59675,7 +59675,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "2",
     question: "병렬 프로세서 0806 일관성 유지를 위한 StH! Ol Bus Snooping, MESI(Modified, Exclusive, Shared, Invalid) 와 Cache",
     exam: "제55회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["캐시(Cache) 메모리의 사상 방식(Mapping Scheme)", "MESI"],
+    topicTitles: ["MESI", "캐시 일관성(Cache Coherence)"],
     pages: [
       { src: "/answers/KPC모의고사/55회/kpc-kpc-55회-시스템응용-모의고사-모범답안-3교시-6.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/55회/kpc-kpc-55회-시스템응용-모의고사-모범답안-3교시-7.jpg", label: "2쪽" },
@@ -60653,7 +60653,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "5",
     question: "Cache 의 일관성(Coherency)을 유지하는 MESI 프로토콜에 대해서 설명하시오.",
     exam: "제59회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["캐시(Cache) 메모리의 사상 방식(Mapping Scheme)", "MESI"],
+    topicTitles: ["MESI", "캐시 일관성(Cache Coherence)"],
     questionIds: ["m02351"],
     pages: [
       { src: "/answers/KPC모의고사/59회/kpc-kpc-59회-정보관리-모의고사-모범답안-1교시-7.jpg", label: "1쪽" },
@@ -62641,7 +62641,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "10",
     question: "Cache CleanZ} Cache FlushS 비교 설명 하시오",
     exam: "제64회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["캐시(Cache) 메모리의 사상 방식(Mapping Scheme)", "캐시 플러시(Cache Flush)"],
+    topicTitles: ["캐시 플러시(Cache Flush)"],
     pages: [
       { src: "/answers/KPC모의고사/64회/kpc-kpc-64회-시스템응용-모의고사-모범답안-1교시-9.jpg", label: "1쪽" },
     ],
@@ -69851,7 +69851,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "3",
     question: "AI(Artificial Intelligence) 기술 발전에 따른 금융생태계 변화를 설명하시오",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["소버린 AI(Artificial Intelligence)"],
+    topicTitles: [],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-2-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-2-03-2.webp", label: "2쪽" },
@@ -70403,7 +70403,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "6",
     question: "머신러닝(Machine Learning)과 인공지능(Artificial Intelligence)에서 편향(biased)된 결과를 만들어 내는 이유를 3 가지만 설명하시오",
     exam: "제117회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["편향", "소버린 AI(Artificial Intelligence)"],
+    topicTitles: ["편향"],
     questionIds: ["k117-406"],
     pages: [
       { src: "/answers/기출해설집/정보관리/117회/itpe117-4-06-1.webp", label: "1쪽" },
@@ -70457,7 +70457,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "4",
     question: "가상공간(Cyber Space)의 특징과 디지털 트윈(Digital Twin)의 의미",
     exam: "제118회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안"],
+    topicTitles: ["디지털 트윈(Digital Twin)"],
     questionIds: ["k118-104"],
     pages: [
       { src: "/answers/기출해설집/정보관리/118회/itpe118-1-04-1.webp", label: "1쪽" },
@@ -71430,7 +71430,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "1",
     question: "4차 산업의 핵심기술로 부상하고 있는 Digital Twin 기술을 활용하여 스마트 시티를 구현하려고 한다. 다음에 대하여 설명하시오. 가. 디지털 트윈 기술의 정의 및 역할 나. 디지털 트윈의 구성도 및 구축기술 다. 디지털 트윈 적용시 고려사항",
     exam: "제119회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안"],
+    topicTitles: ["디지털 트윈(Digital Twin)"],
     questionIds: ["k119-301"],
     pages: [
       { src: "/answers/기출해설집/정보관리/119회/itpe119-3-01-1.webp", label: "1쪽" },
@@ -71829,7 +71829,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "6",
     question: "디지털 트윈(Digital Twin)에 대하여 다음 사항들을 설명하시오. 가. 디지털 트윈의 정의와 출현 배경 나. 디지털 트윈과 M&S(modeling & Simulation)의 연관성 다. 디지털 트윈의 산업분야 적용 라. 디지털 트윈 운영 환경(소프트웨어 측면의 구성요소, 산업분야 운용을 위한 HW 및 시스템 SW 인프라)",
     exam: "제120회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안"],
+    topicTitles: ["디지털 트윈(Digital Twin)"],
     pages: [
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-2-06-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/120회/itpe120cs-2-06-2.webp", label: "2쪽" },
@@ -73955,7 +73955,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "1",
     question: "캐시 일관성(cache coherence)이 필요한 환경 및 이유를 설명하고, 캐쉬 일관성을 유지하기 위한 디렉토리 프로토콜(directory protocol)과 스누피 프로토콜(snoopy protocol)을 비교 설명하시오.",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 권영란 기술사)",
-    topicTitles: ["캐시(Cache) 메모리의 사상 방식(Mapping Scheme)", "캐시 일관성(Cache Coherence)"],
+    topicTitles: ["캐시 일관성(Cache Coherence)"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-3-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-3-01-2.webp", label: "2쪽" },
@@ -75274,7 +75274,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "4",
     question: "디지털 트윈(Digital Twin) 시스템에 대하여 다음을 설명하시오. 가. 디지털 트윈의 개념 나. 디지털 트윈의 개념도 다. 디지털 트윈 모델링 5단계",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안"],
+    topicTitles: ["디지털 트윈(Digital Twin)"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-3-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-3-04-2.webp", label: "2쪽" },
@@ -76842,7 +76842,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "12",
     question: "디지털 트윈(Digital Twin)과 메타버스(Metaverse)",
     exam: "제127회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 서경석 기술사)",
-    topicTitles: ["디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안"],
+    topicTitles: ["디지털 트윈(Digital Twin)"],
     questionIds: ["k127-112"],
     pages: [
       { src: "/answers/기출해설집/정보관리/127회/itpe127-1-12-1.webp", label: "1쪽" },
@@ -76911,7 +76911,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "4",
     question: "온디바이스 AI(Artificial Intelligence)에 대한 아래의 사항을 설명하시오. 가. 온디바이스 AI의 개념 나. 온디바이스 AI의 하드웨어 및 소프트웨어 기술 다. 온디바이스 AI의 시사점",
     exam: "제127회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 이상헌 기술사)",
-    topicTitles: ["온디바이스 AI", "소버린 AI(Artificial Intelligence)"],
+    topicTitles: ["온디바이스 AI"],
     questionIds: ["k127-204"],
     pages: [
       { src: "/answers/기출해설집/정보관리/127회/itpe127-2-04-1.webp", label: "1쪽" },
@@ -77716,7 +77716,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "1",
     question: "인공지능(AI, Artificial Intelligence) 학습용 데이터 품질의 중요성이 대두됨에 따라, '인공지능 학습 용 데이터 품질관리 가이드라인 v2.0(한국지능정보사회진흥원)'이 발표되었다. 인공지능 학습용 데 이터 품질관리에 대한 아래 사항을 설명하시오. 가. 인공지능 학습용 데이터 품질관리 개념 및 필요성 나. 인공지능 학습용 데이터 품질관리 모델, 품질관리 단계별 수행방안 다. 인공지능 학습용 데이터 품질관리 지표",
     exam: "제128회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["소버린 AI(Artificial Intelligence)", "인공지능 학습용 데이터 품질관리 가이드라인 v3.1"],
+    topicTitles: ["인공지능 학습용 데이터 품질관리 가이드라인 v3.1"],
     questionIds: ["k128-201"],
     pages: [
       { src: "/answers/기출해설집/정보관리/128회/itpe128-2-01-1.webp", label: "1쪽" },
@@ -78117,7 +78117,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "12",
     question: "Cache Memory의 쓰기 정책인 Write Through 방식과 Write Back 방식을 비교하여 설명하시오.",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 장건환 기술사)",
-    topicTitles: ["캐시(Cache) 메모리의 사상 방식(Mapping Scheme)"],
+    topicTitles: ["캐시메모리의 쓰기정책(Write Policy)"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-12-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-12-2.webp", label: "2쪽" },
@@ -78142,7 +78142,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "1",
     question: "CXL(Computer Express Link)에 대하여 다음을 설명하시오. (1) CXL의 목적 (2) CXL의 3가지 프로토콜인 CXL.io, CXL.cache 및 CXL.memory (3) CXL의 디바이스 유형인 Type 1 디바이스, Type 2 디바이스 및 Type 3 디바이스",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 소원반 소민호 기술사)",
-    topicTitles: ["캐시(Cache) 메모리의 사상 방식(Mapping Scheme)"],
+    topicTitles: ["CXL(Compute Express Link) 3.0"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-2-01-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-2-01-2.webp", label: "2쪽" },
@@ -79615,7 +79615,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "3",
     question: "캐쉬메모리(Cache Memory)에대하여다음을설명하시오. 가. 캐쉬메모리의개념과구조 나. 지역성(Locality)의개념과유형 다. 캐쉬일관성(Coherence) 문제의원인과해결방법",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 모멘텀안수현기술사)",
-    topicTitles: ["캐시(Cache) 메모리의 사상 방식(Mapping Scheme)", "지역성(Locality)"],
+    topicTitles: ["지역성(Locality)", "캐시 일관성(Cache Coherence)"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-4-03-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-4-03-2.webp", label: "2쪽" },
@@ -80710,7 +80710,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "2",
     question: "최근 초거대 인공지능(Al: Artificial Intelligence) 도입 및 활용에 필요한 사항을 담은 \"공공 부문 초거대 AI 도입·활용 가이드라인\"이 발표되었다. 다음 항목에 관하여 설명하시오. 가. 초거대 Al 개념 나. 초거대 AI 도입 원칙 다. 초거대 Al 도입 시 사전 고려사항",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 멘토 백현 기술사)",
-    topicTitles: ["소버린 AI(Artificial Intelligence)", "공공부문 초거대AI 도입, 활용 가이드라인 2.0(2025.04)"],
+    topicTitles: ["공공부문 초거대AI 도입, 활용 가이드라인 2.0(2025.04)"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-2-02-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-2-02-2.webp", label: "2쪽" },
@@ -81593,7 +81593,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "4",
     question: "캐쉬 메모리(Cache Memory)에 대하여 아래 사항을 설명하시오. 가. 캐쉬 메모리(Cache Memory) 교체 기법 나. Write Through와 Write Back 비교 다. 캐쉬 일관성 유지를 위한 MESI 프로토콜",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 TOP반 유술사PE)",
-    topicTitles: ["캐시(Cache) 메모리의 사상 방식(Mapping Scheme)", "MESI"],
+    topicTitles: ["MESI", "캐시메모리의 쓰기정책(Write Policy)"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-2-04-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-2-04-2.webp", label: "2쪽" },
@@ -83195,7 +83195,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "1",
     question: "캐시 메모리(Cache Memory)에 대하여 설명하시오. 가. 캐시 쓰기 정책(Write Policy) 나. 캐시 일관성(Cache Coherence) 문제의 원인과 해결 방법",
     exam: "제137회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 전일 기술사)",
-    topicTitles: ["캐시(Cache) 메모리의 사상 방식(Mapping Scheme)", "캐시메모리의 쓰기정책(Write Policy)", "캐시 일관성(Cache Coherence)"],
+    topicTitles: ["캐시메모리의 쓰기정책(Write Policy)", "캐시 일관성(Cache Coherence)"],
     questionIds: ["k137-201"],
     pages: [
       { src: "/answers/기출해설집/정보관리/137회/itpe137-2-01-1.webp", label: "1쪽" },
@@ -84505,7 +84505,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "3",
     question: "인공지능(AI, Artificial Intelligence) 학습용 데이터 품질관리에 대하여 다음을 설명하시오. 가. 인공지능 학습용 데이터 특성 및 생애주기 나. 인공지능 학습용 데이터 품질관리 원칙 다. 인공지능 학습용 데이터 품질관리 범위 및 활동",
     exam: "제140회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 이상헌 기술사)",
-    topicTitles: ["소버린 AI(Artificial Intelligence)"],
+    topicTitles: [],
     questionIds: ["k140-203"],
     pages: [
       { src: "/answers/기출해설집/정보관리/140회/itpe140-2-03-1.webp", label: "1쪽" },
@@ -86328,7 +86328,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "4",
     question: "캐시 메모리(Cache Memory)에 대하여 다음에 답하시오. 가. 캐시 일관성(Cache Coherence)의 개념 나. Write through 와 Write Back 비교 설명 다. 캐시 일관성 유지를 위한 기법",
     exam: "NS 19기 02주차 주간 실전모의고사 해설집 (2026-09-13, ITPE, 해설 NS반 김민재 기술사)",
-    topicTitles: ["캐시(Cache) 메모리의 사상 방식(Mapping Scheme)", "캐시 일관성(Cache Coherence)"],
+    topicTitles: ["캐시 일관성(Cache Coherence)", "캐시메모리의 쓰기정책(Write Policy)"],
     questionIds: ["ns19w02-204"],
     pages: [
       { src: "/answers/NS19기/02주차/해설집/ns19w02-2-04-1.webp", label: "1쪽" },

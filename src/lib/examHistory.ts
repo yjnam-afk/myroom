@@ -98,6 +98,15 @@ function trimTail(p: string): string {
 
 type Keys = { all: string[]; any: string[] };
 
+/** 제목 괄호 속 영문 가운데 열쇠로 쓰지 않을 것(넓은 분야 이름) — keysOf 참고. */
+const DROP_ANY: Record<string, string[]> = {
+  "소버린 AI(Artificial Intelligence)": ["artificialintelligence"],
+  "RAN(Radio Access Network) Sharing": ["radioaccessnetwork"],
+  "디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안": ["digitaltwin"],
+  "캐시(Cache) 메모리의 사상 방식(Mapping Scheme)": ["cache"],
+  "문맥(Context)": ["context"],
+};
+
 /**
  * 제목에서 찾을 열쇠들.
  *  all: 한글 개념 이름들 — "프로세스와 스레드 비교" → [프로세스, 스레드], 전부 들어 있어야 한다.
@@ -150,6 +159,11 @@ function keysOf(title: string): Keys {
       any.push(k);
     }
   }
+  // 괄호 속 영문이 그 토픽만의 이름이 아니라 넓은 분야 이름인 경우 — 그 말만 든 문항을 다 끌어온다.
+  // 「소버린 AI(Artificial Intelligence)」는 XAI·AIoT·생성형 AI·AI-RAN 문항 39개를,
+  // 「RAN Sharing」은 O-RAN·AI-RAN 을, 「디지털 트윈 보안 취약점」은 디지털 트윈 문항 전부를 가져갔다.
+  const drop = DROP_ANY[title.trim()];
+  if (drop) for (let i = any.length - 1; i >= 0; i--) if (drop.includes(any[i])) any.splice(i, 1);
   for (const k of EXTRA_ANY[title.trim()] ?? []) any.push(k);
   for (const k of ALIAS_ANY[title.trim()] ?? []) any.push(k);
   return { all: Array.from(new Set(all)), any: Array.from(new Set(any)) };

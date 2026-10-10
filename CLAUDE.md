@@ -72,6 +72,9 @@ NS·기출 0건이 132개, 답안 0건이 81개였는데 대부분 이 표기 �
 「테스트 절차」「규모산정」은 비밀번호 해싱·VDI 도입 BMT·A/B 테스트 절차·하드웨어 규모산정까지
 끌어왔다. 넣은 뒤엔 걸린 문항을 눈으로 훑고, 딴 토픽이 섞이면 `TRAP`(같은 파일)으로 막는다
 (범정부 DRM(Data Reference Model), 결함허용 양자컴퓨팅, 교착상태 회복기법).
+제목 괄호 속 영문이 넓은 분야 이름이면(「소버린 AI(Artificial Intelligence)」「RAN(Radio Access Network) Sharing」)
+그 말만 든 문항을 다 끌어온다 — 소버린 AI 가 XAI·AIoT·생성형 AI 문항 39개를 이력·답안으로 삼고 있었다(2026-10-10).
+그런 영문 열쇠는 `examHistory.ts` 의 `DROP_ANY` 에 적어 뺀다.
 별칭을 더하면 답안지 `topicTitles` 도 다시 붙여야 토픽 화면에 뜬다(토픽 화면은 `topicTitles` 만 본다).
 
 **비교·묶음 문항 답안은 나오는 토픽 모두에 건다**(2026-10-05 — "CSMA/CD와 CSMA/CA 비교" 답안이 CSMA/CD 에만
