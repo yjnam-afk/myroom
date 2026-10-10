@@ -10964,6 +10964,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     topicTitles: [
       "IPv6",
     ],
+    questionIds: ["ns19w05-202", "f00142", "ns16w09-304", "ns12w07-109", "c117-113"],
     score: 15,
     maxScore: 25,
     pages: [
@@ -42856,6 +42857,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     question: "통신방식(UNICAST, BROADCAST, MULTICAST, INCAST)",
     exam: "정리 답안 (드라이브 3.2 단합반 › 8. 네트워크)",
     topicTitles: ["Multicast", "Broadcast"],
+    questionIds: ["ns19w05-202", "f00142", "ns16w09-304", "ns12w07-109", "c117-113"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/8.네트워크/dh-통신방식-unicast-broadcast-multicast-incast-2.jpg", label: "2쪽" },
       { src: "/answers/정리답안/3.2단합반/8.네트워크/dh-통신방식-unicast-broadcast-multicast-incast-3.jpg", label: "3쪽" },
@@ -56829,6 +56831,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     question: "IP에 대하여 다음 SLO] 설명하시오. 가. 106 헤더구조, 나. 106 통신방식인 Unicast, Multicast, Anycast, 다. IPv62",
     exam: "제90회 KPC 기술사 IMPACT 실전모의고사",
     topicTitles: [],
+    questionIds: ["ns19w05-202", "f00142", "ns16w09-304", "c117-113"],
     pages: [
       { src: "/answers/KPC모의고사/90회/kpc-90회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-2교시-4.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/90회/kpc-90회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-2교시-5.jpg", label: "2쪽" },
@@ -57073,7 +57076,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     question: "네트워크를 효율적으로 이용하기 위한 멀티캐스트의 개념과 멀티캐스트 라우팅 프로토콜 유형에 대해 설명하고, IGMP(Internet Group Management Protocol)의 동작 과정과 메시지 유형에 대하여 설명하시오",
     exam: "제93회 KPC 기술사 IMPACT 실전모의고사",
     topicTitles: [],
-    questionIds: ["m01330"],
+    questionIds: ["m01330", "ns12w07-109"],
     pages: [
       { src: "/answers/KPC모의고사/93회/kpc-93회-kpc기술사모의고사-정보처리-모범답안-2교시-2.jpg", label: "1쪽" },
     ],
@@ -64493,6 +64496,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     question: "멀티캐스트 라우팅 프로토콜의 유형과 IGMP (Internet Group Management Protocol) 2",
     exam: "제65회 KPC 기술사 IMPACT 실전모의고사",
     topicTitles: [],
+    questionIds: ["ns12w07-109", "m01330"],
     pages: [
       { src: "/answers/KPC모의고사/65회/kpc-kpc-65회-시스템응용-모의고사-모범답안-2교시-9.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/65회/kpc-kpc-65회-시스템응용-모의고사-모범답안-2교시-10.jpg", label: "2쪽" },
@@ -69968,7 +69972,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     question: "IPv6 에서 사용하는 애니캐스트 주소와 멀티캐스트 주소를 비교/차이점",
     exam: "제117회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
     topicTitles: ["IPv6"],
-    questionIds: ["c117-113"],
+    questionIds: ["c117-113", "ns19w05-202", "f00142", "ns16w09-304"],
     pages: [
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-13-1.webp", label: "1쪽" },
       { src: "/answers/기출해설집/컴시응/117회/itpe117cs-1-13-2.webp", label: "2쪽" },
