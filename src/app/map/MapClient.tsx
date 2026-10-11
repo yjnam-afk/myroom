@@ -16,6 +16,7 @@ import {
 import { DOMAIN_LABEL, domainLabel, sortDomains } from "@/lib/domains";
 import { COURSE_TOPICS } from "@/data/curriculum";
 import { TOPIC_CLUSTERS } from "@/data/topicClusters";
+import { courseEntries } from "@/lib/courseOrder";
 import type { TextbookSubnote } from "@/data/textbookSubnotes";
 import { planInfo, LEVEL_STYLE, LEVEL_HINT, levelOrder } from "@/lib/studyPlan";
 import SourceBadge from "@/components/SourceBadge";
@@ -101,47 +102,36 @@ type MapTopic = {
   sub?: TextbookSubnote;
   /** 지도 영역(TOPIC_CLUSTERS) */
   area: string;
+  /** 전체 지도의 잎(과목의 영역) — 누르면 그 과목 지도로 간다 */
+  go?: string;
+  /** 전체 지도 잎에 쓰는 이름·숫자·빈도 */
+  label?: string;
+  count?: number;
+  heatN?: number;
 };
 const TOPICS_BY_CAT: Record<string, MapTopic[]> = (() => {
+  // 과목 차례는 교재 CONTENTS 기준(lib/courseOrder) — CONTENTS 밖 서브노트는 원래 과목 맨 뒤
   const out: Record<string, MapTopic[]> = {};
-  const used = new Set<string>();
+  const sq = (x: string) => x.replace(/\s+/g, "").toLowerCase();
   for (const [code, label] of Object.entries(DOMAIN_LABEL)) {
-    const list: MapTopic[] = [];
     const clusters = TOPIC_CLUSTERS[code] ?? [];
     let ci = -1;
-    const sq = (x: string) => x.replace(/\s+/g, "").toLowerCase();
-    for (const t of COURSE_TOPICS[code] ?? []) {
-      while (ci + 1 < clusters.length && sq(t.title).startsWith(sq(clusters[ci + 1][1]))) ci++;
-      const area = clusters[Math.max(ci, 0)]?.[0] ?? label;
-      const sub = subnoteByTopicId(t.topicId) || subnoteByTitle(t.title);
-      // CONTENTS 가 같은 토픽을 두 번 적은 곳(인공지능 튜링 테스트 등)은 한 번만
-      if (sub && list.some((x) => x.sub === sub)) continue;
-      if (sub) used.add(sub.title);
-      list.push({
-        title: sub?.title ?? t.title,
-        priority: t.priority,
-        level: t.level,
-        note: t.note,
-        summary: sub?.defShort ?? "",
-        sub,
+    out[label] = courseEntries(code).map((e) => {
+      let area = label;
+      if (e.plan) {
+        while (ci + 1 < clusters.length && sq(e.plan.title).startsWith(sq(clusters[ci + 1][1]))) ci++;
+        area = clusters[Math.max(ci, 0)]?.[0] ?? label;
+      } else if (COURSE_TOPICS[code]) area = "다른 교재·CONTENTS 밖";
+      const p = e.plan ?? (e.sub ? planInfo(e.sub.title, e.sub.topicId) : null);
+      return {
+        title: e.title,
+        priority: p?.priority,
+        level: p?.level,
+        note: p?.note,
+        summary: e.sub?.defShort ?? "",
+        sub: e.sub,
         area,
-      });
-    }
-    out[label] = list;
-  }
-  // CONTENTS 에 없는 서브노트(다른 과목 교재에서 옮긴 것·디지털서비스)는 과목 맨 뒤
-  for (const sub of SUBNOTES) {
-    if (used.has(sub.title)) continue;
-    const label = DOMAIN_LABEL[sub.course] || sub.course;
-    const p = planInfo(sub.title, sub.topicId);
-    (out[label] ??= []).push({
-      title: sub.title,
-      priority: p?.priority,
-      level: p?.level,
-      note: p?.note,
-      summary: sub.defShort || "",
-      sub,
-      area: COURSE_TOPICS[sub.course] ? "다른 교재·CONTENTS 밖" : label,
+      };
     });
   }
   return out;
@@ -562,7 +552,7 @@ function MindMap({
           className="absolute flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-slate-900 px-5 py-3 text-center text-sm font-bold text-white shadow-lg"
           style={{ left: MM_CX, top: cy, minWidth: 140 }}
         >
-          {cat}
+          {cat === "전체" ? "정보관리기술사" : cat}
         </div>
 
         {/* 영역 마디 */}
@@ -581,8 +571,8 @@ function MindMap({
         {leaves.map((l) => {
           const t = l.t;
           const s = stats[t.title];
-          const n = mode === "heat" ? s?.past ?? 0 : hits(s);
-          const color = mode === "heat" ? heatCls(n) : PRI_CHIP[t.priority ?? "하"] ?? PRI_CHIP.하;
+          const n = t.go ? (mode === "heat" ? t.heatN ?? 0 : t.count ?? 0) : mode === "heat" ? s?.past ?? 0 : hits(s);
+          const color = mode === "heat" ? heatCls(t.go ? t.heatN ?? 0 : n) : PRI_CHIP[t.priority ?? "하"] ?? PRI_CHIP.하;
           const isSel = sel === t.title;
           const lit = isSel || linked.has(t.title) || isMatch(t);
           return (
@@ -591,13 +581,13 @@ function MindMap({
               onClick={() => onPick(t.title)}
               title={`${t.title}${t.summary ? `\n${t.summary}` : ""}`}
               className={`absolute max-w-[200px] -translate-y-1/2 truncate whitespace-nowrap rounded-full border px-2.5 py-[3px] text-[12px] leading-tight transition ${color} ${
-                t.sub ? "" : "border-dashed"
+                t.sub || t.go ? "" : "border-dashed"
               } ${t.priority === "상" ? "font-semibold" : ""} ${
                 isSel ? "ring-2 ring-brand-500 ring-offset-1" : linked.has(t.title) ? "ring-2 ring-indigo-300" : ""
               } ${dimOthers && !lit ? "opacity-25" : ""}`}
               style={l.side === 1 ? { left: l.x, top: l.y } : { right: MM_W - l.x, top: l.y }}
             >
-              {short(t.title)}
+              {t.label ?? short(t.title)}
               {n > 0 && <sup className="ml-0.5 text-[9px] opacity-70">{n}</sup>}
               {t.sub && !s?.ans && !s?.com && <span className="ml-0.5 text-[9px] opacity-60">○</span>}
             </button>
@@ -609,27 +599,63 @@ function MindMap({
 }
 
 function MapView({ query, stats }: { query: string; stats: Record<string, TopicStat> }) {
-  const cats = sortDomains(Object.keys(TOPICS_BY_CAT).filter((c) => TOPICS_BY_CAT[c].length > 0));
-  const [cat, setCat] = useState(cats[0]);
+  const doms = sortDomains(Object.keys(TOPICS_BY_CAT).filter((c) => TOPICS_BY_CAT[c].length > 0));
+  // 「전체」 — 가운데 정보관리기술사, 가지 = 과목, 잎 = 과목의 영역(누르면 그 과목 지도로)
+  const cats = ["전체", ...doms];
+  const [cat, setCat] = useState("전체");
   const [mode, setMode] = useState<"priority" | "heat">("priority");
   const [sel, setSel] = useState<string | null>(null);
   const [showTables, setShowTables] = useState(false);
 
-  const list = TOPICS_BY_CAT[cat] ?? [];
-  const areas: { name: string; items: MapTopic[] }[] = [];
-  for (const t of list) {
-    const last = areas[areas.length - 1];
-    if (last && last.name === t.area) last.items.push(t);
-    else areas.push({ name: t.area, items: [t] });
-  }
+  const overview = cat === "전체";
+  const list = overview ? doms.flatMap((c) => TOPICS_BY_CAT[c]) : TOPICS_BY_CAT[cat] ?? [];
+  const areasOf = (items: MapTopic[]) => {
+    const out: { name: string; items: MapTopic[] }[] = [];
+    for (const t of items) {
+      const last = out[out.length - 1];
+      if (last && last.name === t.area) last.items.push(t);
+      else out.push({ name: t.area, items: [t] });
+    }
+    return out;
+  };
+  const areas: { name: string; items: MapTopic[] }[] = overview
+    ? doms.map((c) => ({
+        name: c,
+        items: areasOf(TOPICS_BY_CAT[c]).map((a) => {
+          const top = a.items.filter((t) => t.priority === "상").length;
+          const past = a.items.reduce((n, t) => n + (stats[t.title]?.past ?? 0), 0);
+          return {
+            title: `${c}::${a.name}`,
+            label: a.name,
+            count: a.items.length,
+            // 영역 빈도 = 토픽당 평균 기출(올림) — 토픽 수가 많은 영역만 진해지지 않게
+            heatN: Math.ceil(past / a.items.length),
+            priority: top >= 3 ? "상" : top >= 1 ? "중" : "하",
+            summary: a.items.map((t) => short(t.title)).join(" · "),
+            area: c,
+            go: c,
+          } as MapTopic;
+        }),
+      }))
+    : areasOf(list);
   const selected = sel ? list.find((t) => t.title === sel) : undefined;
   const linked = new Set(selected ? linksOf(selected.title) : []);
   const match = (t: MapTopic) =>
     !!query && (t.title.toLowerCase().includes(query) || t.summary.toLowerCase().includes(query));
+  const pick = (title: string) => {
+    const leaf = areas.flatMap((a) => a.items).find((t) => t.title === title);
+    if (leaf?.go) {
+      setCat(leaf.go);
+      setSel(null);
+      return;
+    }
+    setSel(sel === title ? null : title);
+    setShowTables(false);
+  };
   // 검색어가 다른 과목에 걸리면 그 과목으로 건너갈 수 있게
   const elsewhere = query
     ? cats
-        .filter((c) => c !== cat)
+        .filter((c) => c !== cat && c !== "전체")
         .map((c) => ({ c, n: TOPICS_BY_CAT[c].filter(match).length }))
         .filter((x) => x.n > 0)
     : [];
@@ -660,7 +686,9 @@ function MapView({ query, stats }: { query: string; stats: Record<string, TopicS
               }`}
             >
               {c}{" "}
-              <span className={active ? "text-brand-100" : "text-slate-400"}>{TOPICS_BY_CAT[c].length}</span>
+              <span className={active ? "text-brand-100" : "text-slate-400"}>
+                {c === "전체" ? doms.reduce((n, d) => n + TOPICS_BY_CAT[d].length, 0) : TOPICS_BY_CAT[c].length}
+              </span>
             </button>
           );
         })}
@@ -687,7 +715,8 @@ function MapView({ query, stats }: { query: string; stats: Record<string, TopicS
       {/* 과목 한눈 요약 + 색 기준 */}
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5">
         <p className="text-xs text-slate-600">
-          <b className="text-slate-900">{cat}</b> · 영역 {areas.length} · 토픽 {list.length}
+          <b className="text-slate-900">{overview ? "전체 도메인" : cat}</b> ·{" "}
+          {overview ? `과목 ${areas.length} · 영역 ${areas.reduce((n, a) => n + a.items.length, 0)}` : `영역 ${areas.length}`} · 토픽 {list.length}
           <span className="mx-1.5 text-slate-300">|</span>
           <span className="text-rose-700">상 {pri.상}</span> · <span className="text-sky-700">중 {pri.중}</span> · 하 {pri.하}
           <span className="mx-1.5 text-slate-300">|</span>
@@ -727,7 +756,11 @@ function MapView({ query, stats }: { query: string; stats: Record<string, TopicS
           ))
         )}
         <span className="ml-1">
-          · 숫자 = {mode === "heat" ? "기술사 기출 횟수" : "출제 횟수(기출·NS·모의)"} · ○ = 모범답안·해설 없음 · 점선 = 교재 정리 전
+          {overview
+            ? `· 잎 = 과목의 영역(누르면 그 과목 지도) · 숫자 = ${mode === "heat" ? "토픽당 평균 기출" : "토픽 수"} · 색 = ${
+                mode === "heat" ? "평균 기출" : "상 토픽 3개 이상이면 상, 1개 이상이면 중"
+              }`
+            : `· 숫자 = ${mode === "heat" ? "기술사 기출 횟수" : "출제 횟수(기출·NS·모의)"} · ○ = 모범답안·해설 없음 · 점선 = 교재 정리 전`}
         </span>
       </div>
 
@@ -741,10 +774,7 @@ function MapView({ query, stats }: { query: string; stats: Record<string, TopicS
         linked={linked}
         dimOthers={!!selected || !!query}
         isMatch={match}
-        onPick={(title) => {
-          setSel(sel === title ? null : title);
-          setShowTables(false);
-        }}
+        onPick={pick}
       />
 
       {/* 고른 토픽 — 지도 아래 상세 */}

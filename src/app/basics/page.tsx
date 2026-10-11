@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { courseOf, courseSubnotesInOrder } from "@/lib/courseOrder";
 import Link from "next/link";
 import { PageHeader } from "@/components/ui";
 import { SUBNOTES } from "@/data/textbookSubnotes";
@@ -341,6 +342,8 @@ const COURSE_KEYS: readonly string[] = [
   ...DOMAINS.map((d) => d.code),
 ];
 
+const BOOK_ORDER = DOMAINS.flatMap((d) => courseSubnotesInOrder(d.code));
+
 export default function BasicsPage() {
   const [tab, setTab] = useState<"book" | "easy">("book");
   const [q, setQ] = useState("");
@@ -350,9 +353,10 @@ export default function BasicsPage() {
   // ① 교재 정의 — 서브노트 정의문 원문. 검색은 제목·정의·키워드 전부에 건다.
   const bookList = useMemo(() => {
     const needle = q.trim().toLowerCase();
-    return SUBNOTES.filter(
+    // 과목·차례는 교재 CONTENTS 기준(lib/courseOrder)
+    return BOOK_ORDER.filter(
       (s) =>
-        (course === "전체" || s.course === course) &&
+        (course === "전체" || courseOf(s) === course) &&
         (!needle ||
           s.title.toLowerCase().includes(needle) ||
           s.definition.toLowerCase().includes(needle) ||
@@ -454,12 +458,12 @@ export default function BasicsPage() {
           <div className="space-y-2.5">
             {bookList.map((s) => (
               <div
-                key={`${s.course}-${s.title}`}
+                key={`${courseOf(s)}-${s.title}`}
                 className="rounded-xl border border-slate-200 bg-white p-4"
               >
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="rounded bg-brand-50 px-1.5 py-0.5 text-[10px] font-bold text-brand-600 ring-1 ring-brand-200">
-                    {COURSE_LABEL[s.course]}
+                    {COURSE_LABEL[courseOf(s)]}
                   </span>
                   <b className="text-[15px] text-slate-900">{s.title}</b>
                   {/* 학습계획에 매긴 레벨 — 사전에서도 급한 용어가 눈에 띄게. */}

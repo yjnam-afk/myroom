@@ -47,7 +47,8 @@ import flashcards from "@/data/flashcards.json";
 import answerExtras from "@/data/answerExtras.json";
 import { TOPIC_INTROS, type AnswerIntro } from "@/data/topicIntros";
 import { DOMAINS, DOMAIN_LABEL, domainOrder } from "@/lib/domains";
-import { planInfo, planOrder } from "@/lib/studyPlan";
+import { planInfo } from "@/lib/studyPlan";
+import { courseOf, courseSubnotesInOrder } from "@/lib/courseOrder";
 
 type TopicRow = { id: string; title: string; category: string; importance: string; source?: string };
 const TOPICS = topics as TopicRow[];
@@ -192,22 +193,9 @@ function histStat(title: string): HistStat {
  * 교재 배열(SUBNOTES) 순서와 커리큘럼 순서가 다른 과목(인공지능)이 있어, 토픽 설명의
  * 번호·이전/다음이 학습계획 줄과 어긋났다. 계획에 없는 토픽은 교재 순서대로 뒤에 붙인다.
  */
-const COURSE_ORDER = new Map<string, TextbookSubnote[]>();
+// 과목 차례는 교재 CONTENTS 기준(lib/courseOrder) — 서브노트 course 가 아니라 CONTENTS 에 실린 과목으로 묶는다.
 function courseSubnotes(course: string): TextbookSubnote[] {
-  const c = COURSE_ORDER.get(course);
-  if (c) return c;
-  const list = SUBNOTES.map((s, i) => ({ s, i })).filter(({ s }) => s.course === course);
-  list.sort((a, b) => {
-    const oa = planOrder(a.s.title, a.s.topicId);
-    const ob = planOrder(b.s.title, b.s.topicId);
-    if (oa !== null && ob !== null) return oa - ob || a.i - b.i;
-    if (oa !== null) return -1;
-    if (ob !== null) return 1;
-    return a.i - b.i;
-  });
-  const out = list.map(({ s }) => s);
-  COURSE_ORDER.set(course, out);
-  return out;
+  return courseSubnotesInOrder(course);
 }
 
 /** 서브노트의 중요도 — 학습계획 → topics.json → '상' 순으로 찾는다(학습계획 줄과 같은 값). */
@@ -244,11 +232,11 @@ export type ExplainNav = {
 /** 교재 토픽은 같은 과목의 학습계획 순서, 예전 토픽은 같은 카테고리의 topics.json 순서로 이웃을 찾는다. */
 function navFor(textbook: TextbookSubnote | undefined, t: TopicRow | undefined): ExplainNav | undefined {
   if (textbook) {
-    const list = courseSubnotes(textbook.course);
+    const list = courseSubnotes(courseOf(textbook));
     const i = list.indexOf(textbook);
     if (i < 0) return undefined;
     return {
-      courseLabel: DOMAIN_LABEL[textbook.course] || textbook.course,
+      courseLabel: DOMAIN_LABEL[courseOf(textbook)] || courseOf(textbook),
       index: i + 1,
       total: list.length,
       prev: list[i - 1]?.title,
@@ -331,7 +319,8 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
     title,
     topicId: t?.id,
     category: t?.category,
-    textbook,
+    // 과목은 CONTENTS 기준으로 바꿔 넘긴다(정리표 링크·목록 묶음이 같은 과목을 가리키게)
+    textbook: textbook && { ...textbook, course: courseOf(textbook) as TextbookSubnote["course"] },
     extra,
     gloss: glossFor(textbook),
     legacy,
@@ -488,7 +477,7 @@ function buildSearchEntries(): SearchEntry[] {
     list.push({
       title: s.title,
       badge: "답안",
-      sub: DOMAIN_LABEL[s.course] || s.course,
+      sub: DOMAIN_LABEL[courseOf(s)] || courseOf(s),
       hay,
       t: byTitle.get(s.title),
       isSubnote: true,
@@ -591,8 +580,9 @@ export function buildSheet(): SheetGroup[] {
           ? `${Math.max(...past.map((p) => p.round))}회`
           : undefined,
     };
-    if (!byCourse.has(s.course)) byCourse.set(s.course, []);
-    byCourse.get(s.course)!.push(row);
+    const c = courseOf(s);
+    if (!byCourse.has(c)) byCourse.set(c, []);
+    byCourse.get(c)!.push(row);
   }
   return DOMAINS.filter((d) => byCourse.has(d.code)).map((d) => ({
     code: d.code,
