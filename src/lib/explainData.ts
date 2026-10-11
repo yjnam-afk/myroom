@@ -31,6 +31,7 @@ import {
   mockExams,
   questionIdsForTitle,
   summarize,
+  titlesMatching,
   LATEST_PAST_ROUND,
   type ExamAppearance,
   type PastAppearance,
@@ -79,6 +80,27 @@ export type LegacyCard = {
 
 const normT = (s: string) => s.trim().toLowerCase().replace(/[\s()·,\-_/]/g, "");
 const bareT = (s: string) => normT(s.replace(/[(（][^)）]*[)）]/g, ""));
+
+/**
+ * 예전(기필반) 토픽이 교재 서브노트와 같은 개념인가 — 표기가 달라 제목 비교로는 못 거른다
+ * (「요구사항명세서」↔「요구사항 명세서 SRS」, 「활동 기간 산정 기법들」↔「활동기간 산정기법」).
+ * 2026-10-11 — "기필 토픽 중에 중복이 많은데". 한쪽만 걸리면 넓은 말로 끌려온 것이라
+ * (「CI, CD」→ 데브옵스, 「Lean UX」→ 린 방법론) 양쪽에서 서로를 가리킬 때만 같다고 본다.
+ */
+const SUB_TITLES: readonly string[] = SUBNOTES.map((s) => s.title);
+const inTextbookCache = new Map<string, boolean>();
+// 양쪽 열쇠가 맞아도 다른 토픽 — 눈으로 훑어 걸러 낸 것(웹 OWASP ≠ LLM OWASP, HTTP/2 ≠ HTTP/3,
+// DB 옵티마이저 ≠ 머신러닝 옵티마이저).
+const NOT_SAME = new Set(["OWASP LLM Top 10 (2025)", "HTTP/2", "옵티마이저(Optimizer)"]);
+function inTextbook(title: string): boolean {
+  const c = inTextbookCache.get(title);
+  if (c !== undefined) return c;
+  const hit =
+    !NOT_SAME.has(title) &&
+    titlesMatching(title, SUB_TITLES).some((s) => titlesMatching(s, [title]).length > 0);
+  inTextbookCache.set(title, hit);
+  return hit;
+}
 const CARD_BY_NORM = new Map<string, LegacyCard>();
 const CARD_BY_BARE = new Map<string, LegacyCard>();
 for (const c of flashcards as LegacyCard[]) {
@@ -401,9 +423,15 @@ function buildBrowseGroups(): BrowseGroup[] {
   // 교재에 아직 없는 예전 토픽 — 카드 자료로 볼 수 있으므로 같이 노출한다.
   // 원래 붙어 있던 중요도(상·중·하·출제예상)를 유지하고 상부터 정렬한다.
   const byCat = new Map<string, BrowseItem[]>();
+  const seenLegacy = new Set<string>();
   for (const t of TOPICS) {
     // 교재에 같은 토픽이 있으면(제목 표기가 달라도) 예전 항목은 감춘다.
-    if (covered.has(bareT(t.title)) || subnoteByAlias(t.id, t.title)) continue;
+    if (covered.has(bareT(t.title)) || subnoteByAlias(t.id, t.title) || inTextbook(t.title)) continue;
+    // 원본 엑셀이 같은 토픽을 여러 과목·묶음에 실어 둔 것(핀테크: 경영전략·디지털서비스) — 한 번만.
+    // 괄호까지 비교하므로 PLM(제품수명주기)·PLM(Pre trained Language Model) 같은 동음이의어는 남는다.
+    const nt = normT(t.title);
+    if (seenLegacy.has(nt)) continue;
+    seenLegacy.add(nt);
     if (!byCat.has(t.category)) byCat.set(t.category, []);
     byCat.get(t.category)!.push({
       title: t.title,
