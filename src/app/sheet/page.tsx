@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { PageHeader } from "@/components/ui";
 import { buildSheet } from "@/lib/explainData";
-import { CellLines } from "@/components/TableCell";
+import AnswerTable from "@/components/AnswerTable";
 
 /**
  * 도메인별 토픽 정리표 — 손으로 쓰던 서브노트(엑셀식 정리)를 앱 한 페이지에 옮긴 것.
@@ -122,28 +122,10 @@ export default function SheetPage() {
                             <div className="font-bold text-slate-700">
                               {["가", "나", "다", "라", "마", "바", "사", "아"][ti] ?? "·"}. {tb.caption}
                             </div>
-                            <table className="mt-0.5 w-full border-collapse text-[11px]">
-                              <tbody>
-                                {tb.rows.map((row, ri) => (
-                                  <tr key={ri}>
-                                    {row.map((c, ci) => (
-                                      <td
-                                        key={ci}
-                                        className={`border border-slate-200 px-1.5 py-[3px] align-top ${
-                                          ci === 0
-                                            ? "w-[7.5rem] font-semibold text-slate-700"
-                                            : ci === 1
-                                              ? "w-[7rem] text-slate-700"
-                                              : "text-slate-600"
-                                        }`}
-                                      >
-                                        {ci === 0 ? c : <CellLines text={c} />}
-                                      </td>
-                                    ))}
-                                  </tr>
-                                ))}
-                              </tbody>
-                            </table>
+                            {/* 해설집 3단표처럼 — 머리글을 두고 같은 구분은 한 칸으로 합친다 */}
+                            <div className="mt-0.5">
+                              <AnswerTable headers={tb.headers} rows={tb.rows} dense />
+                            </div>
                           </div>
                         ))}
                         {r.notes.length > 0 && (
