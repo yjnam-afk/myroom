@@ -167,6 +167,9 @@ export function cellLimits(headers: string[]): (number | undefined)[] {
   // 2열 표는 마지막 열이 설명 자리라 3열 기준(5~6자)으로 잰다
   if (headers.length === 2) return [undefined, 6];
   if (headers.length !== 3) return [];
+  // 2열이 교재 이름 열(구성요소·기법·유형…)이면 이름이라 글자 수 예외(V32 2열 예외)
+  if (/^(항목|기술 ?요소|유형|방식|기법|핵심 ?기술|종류|구성 ?요소|분류|기반 기술|핵심 ?요소|주요 기술|핵심|핵심 기능)$/.test((headers[1] ?? "").trim()))
+    return [undefined, undefined, 6];
   const compare = !/^(설명|내용|비고)$/.test((headers[2] ?? "").trim()) && /항목|구분|비교/.test(headers[0] ?? "") && !/구성|기법|요소|기술|단계|동작|유형|종류/.test(headers[1] ?? "");
   return compare ? [undefined, 6, 6] : [undefined, 5, 6];
 }
