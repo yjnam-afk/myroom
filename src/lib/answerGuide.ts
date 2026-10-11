@@ -15,13 +15,19 @@
 /** 1교시 문제 유형(지침 2장) */
 export type Shape1 = "기본형" | "2항목형" | "비교형";
 
+export type ConcPattern = "hybrid" | "flow" | "radialIn" | "pairs" | "beforeAfter" | "radial" | "contain" | "link" | "branch";
+
 /** 결론 제목·패턴 13종(지침 5-1) */
 export type Conclusion = {
   no: number;
   title: string;
-  pattern: "hybrid" | "flow" | "radialIn" | "pairs" | "beforeAfter" | "radial" | "contain" | "link" | "branch";
-  /** 박스 4개 라벨 — fill=false 는 빈칸 안내(회색) */
-  boxes: { text: string; fill: boolean }[];
+  pattern: ConcPattern;
+  /** 박스 3~5개 라벨 — fill=false 는 빈칸 안내(회색), role 은 박스 아래 역할 키워드 */
+  boxes: { text: string; fill: boolean; role?: string }[];
+  /** flow 화살표 라벨(4~5자) */
+  arrows?: string[];
+  /** contain 패턴의 상위 체계 이름 */
+  group?: string;
   /** 강조 박스 번호 */
   hi: number;
   /** 결론 선택 줄의 [토픽 유형] */

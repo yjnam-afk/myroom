@@ -4,6 +4,9 @@ import { useState, type ReactNode } from "react";
 import AnswerPaper from "@/components/AnswerPaper";
 import AnswerTable from "@/components/AnswerTable";
 import ConclusionFigure from "@/components/ConclusionFigure";
+import ConclusionGraph from "@/components/ConclusionGraph";
+import ConclusionList from "@/components/ConclusionList";
+import { conclusionFor, type AnswerConclusion } from "@/data/answerConclusions";
 import type { TextbookSubnote, SubnoteTable } from "@/data/textbookSubnotes";
 import {
   cellLimits,
@@ -84,8 +87,48 @@ function GraphHole() {
   );
 }
 
-function Closing({ c, hint, title }: { c: Conclusion; hint?: string; title: string }) {
+/** 토픽별 결론 내용이 있으면 도형 박스·제목을 그것으로 바꾼다 */
+function concOf(cd: AnswerConclusion | undefined, base: Conclusion): Conclusion {
+  if (!cd) return base;
+  return {
+    ...base,
+    title: cd.concTitle,
+    kind: cd.kind,
+    ...(cd.form === "도형" && cd.boxes?.length
+      ? {
+          pattern: cd.pattern ?? base.pattern,
+          boxes: cd.boxes.map((b) => ({ text: b.label, fill: true, role: b.role })),
+          hi: cd.hi ?? 0,
+          arrows: cd.arrows,
+          group: cd.group,
+        }
+      : {}),
+  };
+}
+
+function Closing({ c, hint, title, data }: { c: Conclusion; hint?: string; title: string; data?: AnswerConclusion }) {
   const [form, setForm] = useState<ConclusionForm>(() => pickForm(c, title));
+  if (data) {
+    // 결론 도식 — 개념도의 축약판(V36): 도형·그래프·리스트 중 토픽에 맞게 고른 것
+    return (
+      <>
+        {data.form === "그래프" && data.graph ? (
+          <ConclusionGraph g={data.graph} />
+        ) : data.form === "리스트" && data.items?.length ? (
+          <ConclusionList items={data.items} />
+        ) : (
+          <ConclusionFigure c={c} />
+        )}
+        <p className="flex justify-between pl-1">
+          <span>
+            {data.gloss}
+            {data.gloss.length > 40 && <span className="ml-1 text-[10px] text-rose-500">({data.gloss.length}자 — 40자 넘음)</span>}
+          </span>
+          <b>끝</b>
+        </p>
+      </>
+    );
+  }
   return (
     <>
       {/* 결론 표현 — 도형·그래프·리스트 택1(V34). 표는 금지 */}
@@ -177,7 +220,8 @@ export default function AnswerTemplate({
     // 2단락 표 — 구조형(구성·동작·기법…) 먼저. 근거형은 개념도 없이 표만(지침 2장)
     const struct = ansTables.filter((t) => !isReasonTable(t.caption));
     const body = struct[0] ?? ansTables[0];
-    const c = pickConclusion({ title: textbook.title, bare, course, pairs: pairNames, bodyCaption: body?.caption });
+    const cd = conclusionFor(textbook.title);
+    const c = concOf(cd, pickConclusion({ title: textbook.title, bare, course, pairs: pairNames, bodyCaption: body?.caption }));
 
     return (
       <AnswerPaper target={[26, 26]}>
@@ -225,7 +269,7 @@ export default function AnswerTemplate({
               3. {bare}의 {c.title}
             </p>
             <div className="pl-4">
-              <Closing c={c} title={textbook.title} />
+              <Closing c={c} title={textbook.title} data={cd} />
             </div>
           </>
         )}
@@ -282,9 +326,13 @@ export default function AnswerTemplate({
                       <p className="flex justify-between pl-1">
                         <span>
                           {tb?.gloss ?? ""}
-                          <Hole>
-                            마지막 간글 = 결론 간글 — 한계 → 해법 → 효과, 차별화 요소 2개 이상({c.title} 관점), 40자 이내
-                          </Hole>
+                          {cd ? (
+                            <span className="block">{cd.gloss}</span>
+                          ) : (
+                            <Hole>
+                              마지막 간글 = 결론 간글 — 한계 → 해법 → 효과, 차별화 요소 2개 이상({c.title} 관점), 40자 이내
+                            </Hole>
+                          )}
                         </span>
                         <b>끝</b>
                       </p>
@@ -336,7 +384,7 @@ export default function AnswerTemplate({
               3. {pairNames.join("·") || bare} {c.title}
             </p>
             <div className="pl-4">
-              <Closing c={c} title={textbook.title} />
+              <Closing c={c} title={textbook.title} data={cd} />
             </div>
           </>
         )}
@@ -344,8 +392,16 @@ export default function AnswerTemplate({
         {verify}
         <p className="text-[11.5px] leading-6 text-slate-500">
           결론 선택: {shape === "2항목형" ? `2항목형 마지막 간글 (${c.kind} → ${c.title} 관점)` : `${c.kind} → ${c.title}`} / 차별화:{" "}
-          <Hole>최신 기술·표준 / 정량 수치 / 적용 사례 / 견해 중 2개</Hole>
+          {cd ? (
+            // 결론 선택 줄은 차별화 요소 이름만(「표준·사례」) — 자세한 내용은 마우스를 올려 본다
+            <span title={cd.diff.join("\n")}>{Array.from(new Set(cd.diff.map((d) => d.split(/[:：(—]/)[0].trim()))).join("·")}</span>
+          ) : (
+            <Hole>최신 기술·표준 / 정량 수치 / 적용 사례 / 견해 중 2개</Hole>
+          )}
         </p>
+        {cd && (
+          <p className="text-[11px] leading-6 text-slate-400">결론 근거: {cd.sources.join(" · ")}</p>
+        )}
       </AnswerPaper>
     );
   }
@@ -357,7 +413,8 @@ export default function AnswerTemplate({
   const closeNo = s2.no === 3 ? 11 : s2.no === 1 ? 13 : 12;
   const base = pickConclusion({ title: textbook.title, bare, course, pairs: pairNames, bodyCaption: body?.caption });
   // 2교시 결론은 고정 어휘 4종(2교시 13.2) — 발전 방향·활용 방안·융합 방안·도입 제언
-  const c2 = closeNo === base.no ? base : conclusionOf(closeNo, { bare, pairs: pairNames, kind: s2.name });
+  const cd2 = conclusionFor(textbook.title);
+  const c2 = concOf(cd2, closeNo === base.no ? base : conclusionOf(closeNo, { bare, pairs: pairNames, kind: s2.name }));
 
   return (
     <AnswerPaper target={[66, 77]} pageLines={22}>
@@ -466,7 +523,7 @@ export default function AnswerTemplate({
             ))}
           </div>
         )}
-        <Closing c={c2} title={textbook.title} />
+        <Closing c={c2} title={textbook.title} data={cd2} />
       </div>
       {verify}
       <p className="text-[11.5px] leading-6 text-slate-500">

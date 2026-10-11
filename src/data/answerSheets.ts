@@ -45,27 +45,27 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "소스코딩",
-            "오디오 부호화",
+            "파형 부호화",
             "오디오 PCM·DM"
           ],
           [
             "소스코딩",
-            "무손실 압축 부호화",
+            "무손실 압축",
             "원본 일치 복원"
           ],
           [
             "소스코딩",
-            "손실 압축 부호화",
+            "손실 압축",
             "복원 불일치"
           ],
           [
             "채널코딩",
-            "오류 검출·정정",
+            "오류제어",
             "잉여비트\n잡음 오류 복원"
           ],
           [
             "라인코딩",
-            "기저대역 신호",
+            "기저대역",
             "데이터→신호\n수신 동기 재생"
           ]
         ],
@@ -229,7 +229,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
         "rows": [
           [
             "송신 준비",
-            "송신 데이터 준비",
+            "데이터 준비",
             "디바이스 송신"
           ],
           [
@@ -296,7 +296,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "②IFS 주기 대기",
-            "SIFS, PIFS, DIFS"
+            "SIFS, PIFS\nDIFS"
           ],
           [
             "③Back off 대기",
@@ -402,8 +402,8 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "기술유형",
-            "FDM·TDM·CDM·WDM·SDM",
-            "FDMA·TDMA·CDMA·WDMA"
+            "FDM·TDM\nCDM·WDM·SDM",
+            "FDMA·TDMA\nCDMA·WDMA"
           ],
           [
             "전파방향",
@@ -460,15 +460,15 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
         "rows": [
           [
             "①서비스 제공 계층",
-            "L: Link, N: Network\nT: Transport, S: Session"
+            "L·N·T·S 계층"
           ],
           [
             "② 동작 이름",
-            "CONNECT, DATA 등"
+            "CONNECT, DATA"
           ],
           [
             "③프리미티브 방향",
-            "Request, Indication\nResponse, Confirmation"
+            "요청·지시\n응답·확인"
           ],
           [
             "④파라미터",
@@ -586,11 +586,11 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           [
             "Successful 0-RTT",
             "Complete CHLO",
-            "캐싱 자격증명\nEncrypted Request"
+            "캐싱 자격증명\nRequest 전송"
           ],
           [
             "Rejected 0-RTT",
-            "1-RTT Handshake 재수행",
+            "1-RTT 재수행",
             "오래된 캐싱"
           ]
         ],
@@ -645,7 +645,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           [
             "3-way handshake",
             "연결시도",
-            "Client ISN 지정\nSYN 전송"
+            "Client ISN\nSYN 전송"
           ],
           [
             "3-way handshake",
@@ -660,12 +660,12 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           [
             "4-way handshake",
             "종료 요청",
-            "Client → Server"
+            "Client FIN"
           ],
           [
             "4-way handshake",
             "서버 ACK",
-            "CLOSE_WAIT 상태"
+            "CLOSE_WAIT"
           ],
           [
             "4-way handshake",
@@ -704,7 +704,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "빠른 전송",
-            "Sequence Number 알림\nSlow Start 전송"
+            "Sequence Number\nSlow Start"
           ],
           [
             "빠른 회복",
@@ -728,7 +728,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "Tahoe 알고리즘",
-            "Congestion Avoidance",
+            "혼잡회피",
             "윈도우 선형적"
           ],
           [
@@ -739,11 +739,11 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           [
             "Reno 알고리즘",
             "Fast Recovery",
-            "Congestion Avoidance 수행"
+            "혼잡회피 수행"
           ],
           [
             "New Reno 알고리즘",
-            "Partial ACK 도입",
+            "Partial ACK",
             "RTO 대기 해결"
           ]
         ],
@@ -797,13 +797,13 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "흐름제어",
-            "슬라이딩 Window",
+            "슬라이딩\n윈도우",
             "흐름제어 없음"
           ],
           [
             "사용 프로토콜",
-            "HTTP, FTP, SMTP",
-            "DNS, SNMP, RIP"
+            "HTTP, FTP\nSMTP",
+            "DNS, SNMP\nRIP"
           ]
         ],
         "gloss": "TCP 연결지향 순서·흐름·혼잡제어, UDP 비연결 비신뢰 빠른 전송"
@@ -885,17 +885,17 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
         "rows": [
           [
             "네트워크 계층",
-            "헤더변환 방식",
+            "헤더변환",
             "양방향 변환"
           ],
           [
             "전송 계층",
-            "수송계층 릴레이 방식",
+            "Transport Relay",
             "양쪽 연결 중계"
           ],
           [
             "응용 계층",
-            "응용계층 게이트웨이 방식",
+            "ALG",
             "프락시 중계"
           ]
         ],
@@ -925,7 +925,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "3",
-            "TLD 서버 IP 제공"
+            "TLD IP 제공"
           ],
           [
             "4",
@@ -933,11 +933,11 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "5",
-            "test.com 정보 제공"
+            "test.com\nDNS 정보"
           ],
           [
             "6",
-            "ns.test.com 질의"
+            "ns.test.com\n질의"
           ],
           [
             "7",
@@ -1227,8 +1227,8 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
         "rows": [
           [
             "Encoding",
-            "Divisor 나눗셈\n코드 워드",
-            "Divisor 다항식\nCRC-8"
+            "이진 나눗셈\n코드 워드",
+            "Divisor\n대수다항식"
           ],
           [
             "Transmission",
@@ -1237,7 +1237,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "Decoding",
-            "Divisor 나눗셈\n0 → 정상",
+            "나머지 연산\n0 → 정상",
             "0 아니면 에러\n재전송 요청"
           ]
         ],
@@ -1360,11 +1360,11 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "요청 ②",
-            "요청 패킷 생성\n목적지 MAC FF:FF:FF:FF:FF:FF"
+            "요청 패킷 생성\nFF 주소 채움"
           ],
           [
             "요청 ③",
-            "Broadcast 전파"
+            "Broadcast\n네트워크 전파"
           ],
           [
             "회신 ①",
@@ -1376,7 +1376,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "회신 ③",
-            "호스트 A Unicast"
+            "Unicast\n호스트 A 전달"
           ],
           [
             "회신 ④",
@@ -1402,7 +1402,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
         "rows": [
           [
             "RARP Request",
-            "IP 미인지\nRequest Broadcast"
+            "IP 미인지\nBroadcast"
           ],
           [
             "RARP Request",
@@ -1414,7 +1414,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "RARP Response",
-            "첫 Response 수신\n나머지 무시"
+            "첫 응답 수신\n나머지 무시"
           ]
         ],
         "gloss": "Request는 Broadcast, Reply는 서버가 Unicast"
@@ -1469,22 +1469,22 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           [
             "①",
             "DISCOVER",
-            "Client Broadcast Discover 전송"
+            "Client\nBroadcast"
           ],
           [
             "②",
             "OFFER",
-            "Server Unicast Offer 전송\nIP·임대시간"
+            "Server Unicast\nIP·임대시간"
           ],
           [
             "③",
             "REQUEST",
-            "Client Broadcast Request 전송\n사용 승인 의사"
+            "Broadcast\n사용 승인 의사"
           ],
           [
             "④",
             "ACK",
-            "Server Unicast Ack 전송\n승인·할당 종료"
+            "Server Unicast\n승인·할당 종료"
           ]
         ],
         "gloss": "DISCOVER·OFFER·REQUEST·ACK 4단계 할당"
@@ -1500,17 +1500,17 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           [
             "갱신 ①",
             "REQUEST",
-            "Client Unicast 연장 의사 전달\n임대시간 50%"
+            "Unicast 연장\n임대시간 50%"
           ],
           [
             "갱신 ②",
             "ACK",
-            "Server Unicast Ack 전송\n연장 최종 승인"
+            "Server Unicast\n연장 최종 승인"
           ],
           [
             "해제 ①",
             "RELEASE",
-            "Client Unicast 종료 의사 전달\n응답 없이 해제"
+            "Unicast 종료\n응답 없이 해제"
           ]
         ],
         "gloss": "임대시간 50% 남은 시점 연장 REQUEST, RELEASE로 해제"
@@ -1540,15 +1540,15 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "4-way Handshake",
-            "세션 초기화\nINIT·INIT-ACK·ECO·ACK 교환"
+            "INIT·INIT-ACK\nECO·ACK 교환"
           ],
           [
             "SACK & HEARTBEAT",
-            "SACK 오류 제어\nHEARTBEAT 가용 IP 파악"
+            "오류 제어\n가용 IP 파악"
           ],
           [
             "3-way Handshake",
-            "3단계 종료\n'Half-open Closing' 해결"
+            "세션 종료\nHalf-open 해결"
           ]
         ],
         "gloss": "Multi Homing 세션 유지, SACK·HEARTBEAT 오류 제어"
@@ -1578,7 +1578,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           [
             "인터페이스 규격",
             "CPRI",
-            "REC·RE 송·수신\nUser Data·제어·동기"
+            "REC·RE 송·수신\nData·제어·동기"
           ],
           [
             "인터페이스 규격",
@@ -1613,7 +1613,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           [
             "O-CU",
             "RRC·SDAP·PDCP",
-            "중앙 집중 장치\nMidhaul 여러 O-DU 제어"
+            "중앙 집중 장치\n여러 O-DU 제어"
           ],
           [
             "O-DU",
@@ -1637,11 +1637,11 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
         "rows": [
           [
             "A1",
-            "RIC non-RT ↔ RIC near-RT"
+            "RIC non-RT ↔\nRIC near-RT"
           ],
           [
             "E2",
-            "RIC near-RT ↔ CU/DU"
+            "RIC near-RT ↔\nCU/DU"
           ],
           [
             "E1",
@@ -1759,7 +1759,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
         "rows": [
           [
             "SDN",
-            "Control·Data Plane 분리 SW 정의"
+            "Plane 분리\nSW 정의"
           ],
           [
             "NFV",
@@ -1771,7 +1771,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "Open RAN",
-            "CU/DU/RU 분리\n개방형 표준"
+            "CU·DU·RU 분리\n개방형 표준"
           ],
           [
             "RAN Sharing",
@@ -1800,7 +1800,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           [
             "SDN",
             "Control plane",
-            "Global View 망 제어\nOpenflow Flow Table 제어"
+            "전체 망 제어\nOpenflow 제어"
           ],
           [
             "SDN",
@@ -1842,7 +1842,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "스마트카\n스마트 팩토리",
-            "Mission critical"
+            "Mission\ncritical"
           ]
         ],
         "gloss": "하나의 물리 네트워크, 서비스 특화 전용 Slice 제공"
@@ -1861,27 +1861,27 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
         "rows": [
           [
             "AnLF",
-            "분석 논리 함수\n머신 러닝 기반 추론",
+            "분석 함수\nML 기반 추론",
             "분석 정보 도출\n분석 요청 응답"
           ],
           [
             "MTLF",
-            "모델 학습 논리 함수\n머신 러닝 학습",
+            "학습 함수\nML 학습",
             "새 ML 모델 제공\n모델 학습·배포"
           ],
           [
             "DCCF",
-            "데이터 요청 관리",
+            "요청 관리",
             "기존 결과 전송\nOAM/NF 전송"
           ],
           [
             "ADRF",
-            "분석 데이터 저장소",
+            "분석 저장소",
             "과거 데이터"
           ],
           [
             "MFAF",
-            "메시징 프레임워크 어댑터",
+            "메시징 기능",
             "AnLF 전달"
           ]
         ],
@@ -1906,12 +1906,12 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "기술요소",
-            "빅데이터 분석기술",
+            "빅데이터",
             "통계 정보 제공\n대용량 처리"
           ],
           [
             "기술요소",
-            "클라우드·엣지 컴퓨팅 기술",
+            "클라우드·엣지",
             "가변 자원 할당\n집중형·분산형"
           ],
           [
@@ -1921,7 +1921,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "관리요소",
-            "폐쇄형 반복 제어",
+            "Closed-loop",
             "수집 → AI 분석\n반복 자동 제어"
           ],
           [
@@ -2027,17 +2027,17 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
         "rows": [
           [
             "응용 서비스",
-            "디지털트윈\nSDN, NFV",
+            "디지털트윈\nSDN·NFV",
             "위치·환경 트윈\n맞춤형 서비스"
           ],
           [
             "통합설계/지능화",
-            "NWDAF, MEC, Network Slicing\nAI/ML, ZTNA, PQC",
+            "NWDAF·MEC\nAI/ML·ZTNA",
             "AI 센싱 분석\n자원 최적화"
           ],
           [
             "인프라 및 자원",
-            "O-RAN, SDR, XL-MIMO, RIS\nNTN 비지상 네트워크",
+            "XL-MIMO·RIS\nO-RAN·SDR·NTN",
             "지능형 안테나\n고정밀 감지"
           ]
         ],
@@ -2250,7 +2250,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "구성요소",
-            "Transparent 위성\nRegenerative 위성",
+            "Transparent\nRegenerative",
             "GEO·LEO 위성"
           ],
           [
@@ -2311,12 +2311,12 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
         "rows": [
           [
             "MAC",
-            "AP간 다중협력통신",
+            "AP 다중협력",
             "유연성 개선"
           ],
           [
             "MAC",
-            "채널당 최대 320MHz 대역폭",
+            "320MHz 대역폭",
             "스펙트럼 효율"
           ],
           [
@@ -2326,7 +2326,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "MAC",
-            "하이브리드 ARQ",
+            "HARQ",
             "패리티 재전송"
           ],
           [
@@ -2531,17 +2531,17 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           [
             "Application",
             "서비스 지원",
-            "SDN Application Logic"
+            "SDN Application"
           ],
           [
             "Interface",
-            "Data·Control Plane 간 연계",
+            "Plane 연계",
             "OpenFlow"
           ],
           [
             "Control Plane",
             "중앙집중화",
-            "SDN Control Logic\nACL, Routing, 인증"
+            "Control Logic\nACL·Routing"
           ],
           [
             "Data Plane",
@@ -2616,12 +2616,12 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           [
             "Radio",
             "Thread",
-            "Mesh 지원 SPOF 방지\n배터리 저전력"
+            "Mesh SPOF 방지\n배터리 저전력"
           ],
           [
             "Radio",
             "BLE",
-            "디바이스 provisioning 용도"
+            "provisioning"
           ]
         ],
         "gloss": "IPv6 기반 Wi-Fi·Thread 위 Matter 응용계층 통합 표준"
@@ -2654,7 +2654,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           [
             "Protocol",
             "Asynchronous",
-            "상태 변경 Update"
+            "상태 Update"
           ],
           [
             "Protocol",
@@ -2716,7 +2716,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "경로 제어",
-            "트래픽 스티어링",
+            "Traffic Steering",
             "앱별 경로 설정"
           ],
           [
@@ -2749,7 +2749,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
         "rows": [
           [
             "소자 기술",
-            "A/D, D/A 변환기",
+            "ADC/DAC",
             "고속 샘플링"
           ],
           [
@@ -2769,7 +2769,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "소자 기술",
-            "SDR 프로세서",
+            "프로세서",
             "SDR 전용 제작"
           ],
           [
@@ -2800,12 +2800,12 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
         "rows": [
           [
             "통신 기술",
-            "네트워크 기술",
-            "네트워크 간 Handover\n네트워크 탐지"
+            "네트워크",
+            "Handover\n네트워크 탐지"
           ],
           [
             "통신 기술",
-            "다운로드 기술",
+            "다운로드",
             "OTA 프로토콜"
           ],
           [
@@ -2940,17 +2940,17 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
         "rows": [
           [
             "비차별성 확립",
-            "트래픽 이용 차별",
+            "트래픽 차별",
             "차별 금지\n권리 보호"
           ],
           [
             "상호접속 허용",
-            "일방적 차단 금지",
-            "이용 보장\n차단 금지"
+            "차단 금지",
+            "이용 보장\n합법 콘텐츠"
           ],
           [
             "접근성 제공",
-            "자유로운 이용",
+            "자유 이용",
             "투명성 보장\n디바이스 접근"
           ]
         ],
@@ -2979,7 +2979,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           [
             "의도 번역",
             "Translation·Optimization",
-            "High-level Policy\n음성·텍스트"
+            "High-level\n음성·텍스트"
           ],
           [
             "의도 번역",
@@ -2989,7 +2989,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           [
             "의도 적용",
             "Activation·Configuration",
-            "Low-level Policy\n서비스 수행"
+            "Low-level\n서비스 수행"
           ],
           [
             "의도 적용",
@@ -3163,8 +3163,8 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "네이글 알고리즘",
-            "수신 Window Size만큼 전송",
-            "Window Size < MSS 시 바로 전송"
+            "Window Size",
+            "Size < MSS\n바로 전송"
           ],
           [
             "네이글 알고리즘",
@@ -3217,7 +3217,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           [
             "프로토콜 메시지",
             "Open",
-            "TCP 179번 연결\nBGP Neighbor 설정"
+            "TCP 179번 연결\nNeighbor 설정"
           ],
           [
             "프로토콜 메시지",
@@ -3232,7 +3232,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           [
             "프로토콜 메시지",
             "Keepalive",
-            "BGP Neighbor Health Check 메시지"
+            "Health Check"
           ]
         ],
         "gloss": "경로 속성으로 경로 선택, Open·Update 메시지로 정보 교환"
@@ -3390,8 +3390,8 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "구조",
-            "Array, Linked List\nStack, Queue",
-            "Tree, Graph"
+            "Array, List\nStack, Queue",
+            "Tree\nGraph"
           ]
         ],
         "gloss": "선형은 1:1 대응 구조, 비선형은 1:N 또는 M:N 구조로 관계"
@@ -3423,12 +3423,12 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "단방향",
-            "Singly Circular Linked List",
+            "Singly Circular List",
             "마지막 → 처음"
           ],
           [
             "양방향",
-            "Double Circular Linked List",
+            "Double Circular List",
             "처음 ↔ 마지막"
           ]
         ],
@@ -3485,7 +3485,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "POP",
-            "값 삭제\nUnderflow 발생"
+            "값 삭제\nUnderflow"
           ]
         ],
         "gloss": "리스트의 한쪽 끝 TOP에서 삽입, 삭제 이루어지는 LIFO 구조"
@@ -3579,7 +3579,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "연결 기반",
-            "LinkedList 큐",
+            "링크드리스트큐",
             "노드 연결 큐"
           ],
           [
@@ -3802,8 +3802,8 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "특징",
-            "균등 탐색 속도",
-            "O(logN) 일정"
+            "균등 탐색",
+            "O(logN)"
           ],
           [
             "특징",
@@ -3911,12 +3911,12 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
         "rows": [
           [
             "성능분석",
-            "알고리즘 복잡도 분석",
+            "복잡도 분석",
             "수행 시간 분석\n연산 횟수 비교"
           ],
           [
             "성능측정",
-            "수행시간 측정",
+            "시간 측정",
             "실제 수행시간\n구현물 필요"
           ],
           [
@@ -3994,12 +3994,12 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           [
             "O(N³)",
             "세제곱형\n3중 loop",
-            "Finding the Shortest Path"
+            "Shortest Path"
           ],
           [
             "O(2ⁿ)",
             "지수형\n모든 해법",
-            "Dynamic Programming"
+            "Dynamic\nProgramming"
           ]
         ],
         "gloss": "시간 복잡도 상한 점근 표기법 유형과 사례"
@@ -4036,7 +4036,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "5",
-            "Low·High 교차\nPivot·high 교환"
+            "Low·High 교차\n피봇·high 교환"
           ],
           [
             "6",
@@ -4070,7 +4070,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "시간복잡도",
-            "평균 O(n logn)\n최악 O(n²)"
+            "평균 n log n\n최악 O(n²)"
           ]
         ],
         "gloss": "분할과 정복에 기반한 비교 정렬, 재귀적 수행"
@@ -4301,7 +4301,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "자릿수 분석",
-            "자릿수 분석법",
+            "자릿수분석법",
             "자리별 분포\n고른 자릿수"
           ],
           [
@@ -4500,7 +4500,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
         "rows": [
           [
             "데이터",
-            "AAAAABABCCCDBBBCDA"
+            "AAAAABABC\nCCDBBBCDA"
           ],
           [
             "발생확률 계산",
@@ -4531,8 +4531,8 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
         "rows": [
           [
             "평문",
-            "AAAABBBBBCCCCCCCCDEEEE\n22byte",
-            "ABCDDDDDDDDEEEEEEEE\n19byte"
+            "AAAABBBBBCC\nCCCCCCDEEEE",
+            "ABCDDDDDDDD\nEEEEEEEE"
           ],
           [
             "압축",
@@ -4546,7 +4546,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "적용 방식",
-            "LENGTH, RUN 순서",
+            "LENGTH→RUN",
             "반복 자료 적용"
           ]
         ],
@@ -4857,7 +4857,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           [
             "③",
             "부분 해 확장",
-            "제약조건 여부\n확률 기반 Score"
+            "제약조건 여부\n확률 Score"
           ],
           [
             "④",
@@ -4889,11 +4889,11 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           ],
           [
             "3단계",
-            "am → cat 1.0 / dog 0.8\ndog → barked 0.9 / sleep 0.7"
+            "am → cat 1.0 / dog 0.8\ndog barked 0.9"
           ],
           [
             "최종",
-            "I am cat 1.0 선택\nthe dog barked 0.9 미선택"
+            "I am cat 1.0 선택\nbarked 미선택"
           ]
         ],
         "gloss": "Beam size = 2, 상위 2개 유지 자연어 처리 활용 사례"
