@@ -17,6 +17,7 @@ import { DOMAIN_LABEL, domainLabel, sortDomains } from "@/lib/domains";
 import { COURSE_TOPICS } from "@/data/curriculum";
 import { TOPIC_CLUSTERS } from "@/data/topicClusters";
 import { courseEntries } from "@/lib/courseOrder";
+import { childLinks, parentLink } from "@/data/topicParents";
 import type { TextbookSubnote } from "@/data/textbookSubnotes";
 import { planInfo, LEVEL_STYLE, LEVEL_HINT, levelOrder } from "@/lib/studyPlan";
 import SourceBadge from "@/components/SourceBadge";
@@ -404,7 +405,11 @@ const HEAT_STEPS: { min: number; cls: string; label: string }[] = [
 const hits = (s?: TopicStat) => (s ? s.past + s.ns + s.mock : 0);
 const heatCls = (n: number) => HEAT_STEPS.find((h) => n >= h.min)!.cls;
 /** 칩에 쓰는 짧은 이름 — 괄호 속 원어를 뗀다 */
-const short = (t: string) => t.replace(/\s*[(（][^)）]*[)）]/g, "").trim() || t;
+const short = (t: string) => {
+  const b = t.replace(/\s*[(（][^)）]*[)）]/g, "").trim();
+  // 괄호 밖이 「데이터」처럼 짧으면 괄호가 본뜻이다 — 「데이터(웨어하우스, 레이크, 패브릭, 메시)」
+  return b.length < 4 && /[(（][^)）]*,/.test(t) ? t : b || t;
+};
 
 
 // ── 지도: 접고 펴는 가지 구조도 ─────────────────────────────────────
@@ -415,6 +420,8 @@ const short = (t: string) => t.replace(/\s*[(（][^)）]*[)）]/g, "").trim() ||
 const BRANCH = ["#e11d48", "#2563eb", "#059669", "#d97706", "#7c3aed", "#0891b2", "#db2777", "#65a30d", "#ea580c", "#4f46e5", "#0d9488", "#b45309", "#9333ea", "#475569", "#be123c"];
 
 type Area = { name: string; items: MapTopic[] };
+/** 종속 관계 표시 — 하위 토픽 칩 앞에 붙는다 */
+const REL_MARK: Record<string, string> = { 종류: "⊂", "구성·기법": "◇", "문제·해결": "⚠", "확장·발전": "↗" };
 const areasOf = (items: MapTopic[]): Area[] => {
   const out: Area[] = [];
   for (const t of items) {
@@ -493,16 +500,24 @@ function MapView({ query, stats }: { query: string; stats: Record<string, TopicS
   const asked = list.filter((t) => (stats[t.title]?.past ?? 0) > 0).length;
   const st = selected ? stats[selected.title] : undefined;
   const matchCount = query ? list.filter(match).length : 0;
+  // 종속 관계 — 같은 지도에 상위 토픽이 있으면 하위 토픽은 상위 아래로 묶는다(영역이 달라도)
+  const inList = new Set(list.map((t) => t.title));
+  const upHere = (t: MapTopic) => {
+    const p = parentLink(t.title);
+    return p && p.parent !== t.title && inList.has(p.parent) ? p : undefined;
+  };
+  const kidsOf = (title: string) => list.filter((t) => upHere(t)?.parent === title);
 
   const Chip = ({ t }: { t: MapTopic }) => {
     const s = stats[t.title];
+    const up = upHere(t);
     const n = mode === "heat" ? s?.past ?? 0 : hits(s);
     const color = mode === "heat" ? heatCls(n) : PRI_CHIP[t.priority ?? "하"] ?? PRI_CHIP.하;
     const isSel = sel === t.title;
     return (
       <button
         onClick={() => pick(t)}
-        title={`${t.title}${t.summary ? `\n${t.summary}` : ""}`}
+        title={`${t.title}${up ? `\n${up.rel} ← ${short(up.parent)}: ${up.why}` : ""}${t.summary ? `\n${t.summary}` : ""}`}
         className={`rounded-full border px-2.5 py-1 text-left text-[12.5px] leading-tight transition hover:shadow ${color} ${
           t.sub ? "" : "border-dashed"
         } ${t.priority === "상" ? "font-semibold" : ""} ${
@@ -515,10 +530,28 @@ function MapView({ query, stats }: { query: string; stats: Record<string, TopicS
                 : ""
         }`}
       >
+        {up && <span className="mr-0.5 text-[10px] opacity-60">{REL_MARK[up.rel]}</span>}
         {short(t.title)}
         {n > 0 && <sup className="ml-0.5 text-[9px] opacity-70">{n}</sup>}
         {t.sub && !s?.ans && !s?.com && <span className="ml-0.5 text-[9px] opacity-60">○</span>}
       </button>
+    );
+  };
+
+  // 상위 토픽 + 그 아래 하위 토픽(오른쪽 세로줄 안) — 하위가 또 하위를 가질 수 있다(최대 4단)
+  const Family = ({ t, color, depth = 0 }: { t: MapTopic; color: string; depth?: number }) => {
+    const kids = depth < 4 ? kidsOf(t.title) : [];
+    if (!kids.length) return <Chip t={t} />;
+    // 하위 토픽은 상위 칩 아래 들여쓴 줄에 — 옆으로 붙이면 깊어질수록 칸이 좁아져 글자가 세로로 섰다
+    return (
+      <div className="w-full min-w-0">
+        <Chip t={t} />
+        <div className="ml-3 mt-1 flex min-w-0 flex-wrap gap-1.5 border-l-2 pb-0.5 pl-3" style={{ borderColor: color }}>
+          {kids.map((k) => (
+            <Family key={k.title} t={k} color={color} depth={depth + 1} />
+          ))}
+        </div>
+      </div>
     );
   };
 
@@ -549,9 +582,23 @@ function MapView({ query, stats }: { query: string; stats: Record<string, TopicS
               className="ml-4 flex min-w-0 flex-1 flex-wrap gap-1.5 rounded-xl border border-dashed px-2 py-1.5 sm:ml-0"
               style={{ borderColor: color }}
             >
-              {a.items.map((t) => (
-                <Chip key={t.title} t={t} />
-              ))}
+              {a.items.map((t) => {
+                const up = upHere(t);
+                if (!up) return <Family key={t.title} t={t} color={color} />;
+                // 상위가 같은 영역이면 그 아래에만 그린다. 다른 영역이면 여기엔 자리표만 남긴다
+                // (전부 옮겨 가 영역이 비어 보이던 것 — 회복·동시성 제어 → 트랜잭션 아래)
+                if (a.items.some((x) => x.title === up.parent)) return null;
+                return (
+                  <button
+                    key={t.title}
+                    onClick={() => pick(t)}
+                    title={`${up.rel} · ${up.why}`}
+                    className="rounded-full border border-dashed border-slate-300 px-2.5 py-1 text-[11.5px] leading-tight text-slate-500 hover:bg-slate-50"
+                  >
+                    {short(t.title)} <span className="text-slate-400">↑ {short(up.parent)} 아래</span>
+                  </button>
+                );
+              })}
             </div>
           </>
         )}
@@ -637,7 +684,7 @@ function MapView({ query, stats }: { query: string; stats: Record<string, TopicS
         <span className="ml-1">
           {overview
             ? `· 영역 칩 숫자 = 토픽 수 · 색 = ${mode === "heat" ? "토픽당 평균 기출" : "상 토픽 3개 이상 상 / 1개 이상 중"} · 영역을 누르면 그 과목 지도`
-            : `· 숫자 = ${mode === "heat" ? "기술사 기출 횟수" : "출제 횟수(기출·NS·모의)"} · ○ = 모범답안·해설 없음 · 점선 = 교재 정리 전`}
+            : `· 숫자 = ${mode === "heat" ? "기술사 기출 횟수" : "출제 횟수(기출·NS·모의)"} · ○ = 모범답안·해설 없음 · 점선 = 교재 정리 전 · 세로줄 안 = 하위 토픽(⊂ 종류 ◇ 구성·기법 ⚠ 문제·해결 ↗ 확장·발전)`}
         </span>
       </div>
 
@@ -766,6 +813,49 @@ function MapView({ query, stats }: { query: string; stats: Record<string, TopicS
                   토픽 설명 · 답안지 템플릿 →
                 </Link>
               )}
+              {(() => {
+                const up = parentLink(selected.title);
+                const downs = childLinks(selected.title);
+                if (!up && !downs.length) return null;
+                const jump = (title: string) => {
+                  const other = ALL_MAP_TOPICS.find((x) => x.t.title === title);
+                  if (other && !overview && other.cat !== cat) setCat(other.cat);
+                  setSel(title);
+                };
+                return (
+                  <div className="mt-3 space-y-1.5 text-[11px]">
+                    {up && (
+                      <p>
+                        <span className="font-semibold text-slate-500">⬆ 상위 토픽 </span>
+                        <button onClick={() => jump(up.parent)} className="rounded-full border border-slate-300 bg-slate-50 px-2 py-0.5 text-slate-700">
+                          {short(up.parent)}
+                        </button>{" "}
+                        <span className="text-slate-400">
+                          {REL_MARK[up.rel]} {up.rel} · {up.why}
+                        </span>
+                      </p>
+                    )}
+                    {downs.length > 0 && (
+                      <div>
+                        <span className="font-semibold text-slate-500">⬇ 하위 토픽</span>
+                        <div className="mt-1 flex flex-wrap gap-1">
+                          {downs.map((d) => (
+                            <button
+                              key={d.child}
+                              onClick={() => jump(d.child)}
+                              title={`${d.rel} · ${d.why}`}
+                              className="rounded-full border border-slate-300 bg-slate-50 px-2 py-0.5 text-slate-700"
+                            >
+                              <span className="mr-0.5 opacity-60">{REL_MARK[d.rel]}</span>
+                              {short(d.child)}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
               {linked.size > 0 && (
                 <div className="mt-3">
                   <p className="text-[11px] font-semibold text-slate-500">🔗 이어진 토픽 (표 안에 서로 나옴)</p>

@@ -112,7 +112,17 @@ const DROP_ANY: Record<string, string[]> = {
  *  all: 한글 개념 이름들 — "프로세스와 스레드 비교" → [프로세스, 스레드], 전부 들어 있어야 한다.
  *  any: 괄호 속 영문 이름 — 하나라도 들어 있으면 된다(한글 없이 영문만 쓴 문항용).
  */
+/**
+ * 제목 열쇠를 통째로 정하는 토픽 — 괄호가 종류 나열이라 괄호 밖이 넓은 말만 남는 경우.
+ * 「데이터(웨어하우스, 레이크, 패브릭, 메시)」는 열쇠가 「데이터」 하나가 되어 문항 1,391개를 끌어왔다(2026-10-11).
+ */
+const KEYS_FIXED: Record<string, Keys> = {
+  "데이터(웨어하우스, 레이크, 패브릭, 메시)": { all: [], any: ["데이터웨어하우스", "데이터레이크", "데이터패브릭", "데이터메시"] },
+};
+
 function keysOf(title: string): Keys {
+  const fixed = KEYS_FIXED[title.trim()];
+  if (fixed) return fixed;
   const all: string[] = [];
   const any: string[] = [];
   const bare = title.replace(/\s*[(（][^)）]*[)）]/g, " ").replace(/\s+/g, " ").trim();
