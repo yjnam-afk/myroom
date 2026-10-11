@@ -23405,6 +23405,7 @@
     "label": "교재 키워드",
     "mnemonic": "",
     "keywords": [
+     "차원의 저주 극복",
      "고차원 벡터 유사성 탐색",
      "k-d 트리",
      "LSH",
@@ -23416,27 +23417,39 @@
     ]
    },
    {
-    "label": "알고리즘 절차",
+    "label": "ANN(Approximate Nearest Neighbor) 특징",
     "mnemonic": "",
     "keywords": [
-     "Vector 공간 임의의 두 점 선택",
-     "Subspace 점 개수를 node로",
-     "점 K개 초과 Subspace는 ①·② 반복",
-     "현재 점 binary tree 검색 후"
+     "탐색 성능 저하",
+     "차원의 저주",
+     "실시간성 저하"
     ]
    },
    {
-    "label": "ANN 알고리즘 구성요소",
+    "label": "ANN(Approximate Nearest Neighbor) 동작 절차",
     "mnemonic": "",
     "keywords": [
-     "공간 분할 기반",
-     "그래프 기반",
-     "압축 및 양자화 기반"
+     "벡터DB, 인덱스 구축",
+     "쿼리 벡터 입력",
+     "근사 탐색",
+     "후보집합 구성",
+     "거리계산 및 정렬",
+     "K개 이웃 반환"
+    ]
+   },
+   {
+    "label": "ANN 검색을 위한 인덱싱 기법 유형",
+    "mnemonic": "",
+    "keywords": [
+     "공간 구조 기반 인덱싱 기법",
+     "압축",
+     "벡터 간 유사도 측정 기법"
     ]
    }
   ],
   "mnemonic": "",
   "keywords": [
+   "차원의 저주 극복",
    "고차원 벡터 유사성 탐색",
    "k-d 트리",
    "LSH",
@@ -23923,6 +23936,147 @@
  },
  {
   "id": "sn-433",
+  "title": "데이터 품질관리(ISO 8000)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "기업, 조직에서 생산되는 데이터 라이프 사이클 과정에서 관리되어야 하는 **마스터 데이터의 교환, 모니터링, 인력 관리, 품질 관리, 품질 측정 원칙** 대한 요구사항을 명세한 국제 표준",
+  "defShort": "마스터 데이터 교환·모니터링·인력·품질 관리·품질 측정 원칙 명세 국제 표준",
+  "memo": "기출: 131회 정보관리 4교시, 129회 정보관리 3교시, 123회 정보관리 3교시",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "마스터 데이터",
+     "데이터 거버넌스",
+     "품질 관리 프레임워크",
+     "ISO 8000-150"
+    ]
+   },
+   {
+    "label": "데이터 품질관리 활동 — 품질진단·품질개선",
+    "mnemonic": "",
+    "keywords": [
+     "품질진단(3단계)",
+     "품질개선(3단계)"
+    ]
+   },
+   {
+    "label": "품질관리 표준 ISO 8000",
+    "mnemonic": "",
+    "keywords": [
+     "ISO 8000-1",
+     "ISO 8000-2",
+     "ISO 8000-8",
+     "ISO 8000-51",
+     "ISO 8000-60",
+     "ISO 8000-61",
+     "ISO 8000-100",
+     "ISO 8000-150"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "마스터 데이터",
+   "데이터 거버넌스",
+   "품질 관리 프레임워크",
+   "ISO 8000-150"
+  ]
+ },
+ {
+  "id": "sn-434",
+  "title": "데이터 전처리",
+  "category": "데이터베이스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "정확하고 신뢰 할 수 있는 데이터 마이닝 결과를 추출하기 위하여 데이터의 **분석 및 처리에 적합한 형식으로 데이터를 조작**하는 과정",
+  "defShort": "마이닝 위해 분석 및 처리에 적합한 형식으로 데이터 조작하는 과정",
+  "memo": "전처리 절차도: 데이터 정제(결측 값, 이상 값 처리 / 데이터 신뢰도 확보) → 데이터 통합(ETL / 데이터/스키마) → 데이터 변환(마이닝 효율성 / 형식/속성 변환) → 데이터 정리(데이터 축소 / 동일한 결과), 반복",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "정제",
+     "통합",
+     "변환",
+     "정리"
+    ]
+   },
+   {
+    "label": "전처리 절차",
+    "mnemonic": "정통변정",
+    "keywords": [
+     "데이터 정제(Cleansing)",
+     "데이터 통합(Integration)",
+     "데이터 변환(Transformation)",
+     "데이터 정리(Reduction)"
+    ]
+   }
+  ],
+  "mnemonic": "정통변정",
+  "keywords": [
+   "데이터 정제(Cleansing)",
+   "데이터 통합(Integration)",
+   "데이터 변환(Transformation)",
+   "데이터 정리(Reduction)"
+  ]
+ },
+ {
+  "id": "sn-435",
+  "title": "데이터 클렌징(Cleansing)",
+  "category": "데이터베이스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "레코드 세트, 테이블 또는 데이터베이스에서 손상되거나 부정확한 레코드를 감지하고 전처리 과정을 통해 **이상치 제거 및 식별, 교체, 삭제, 수정하는 프로세스**",
+  "defShort": "부정확 레코드 감지해 이상치 제거·식별·교체·삭제·수정하는 프로세스",
+  "memo": "절차도: ① 데이터베이스 대상 정의 —RDBMS, NoSQL→ ② Dirty Data 원인 파악 —Missing data, Outlier→ ③ 데이터 품질 문제 우선순위 —Mission Critical, Normal→ ④ Bad Data 유입 차단 —New Rule→ ⑤ Bad Data 제거",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "데이터 변환",
+     "데이터 파싱",
+     "데이터 보강"
+    ]
+   },
+   {
+    "label": "데이터 클렌징 절차",
+    "mnemonic": "대원우유제",
+    "keywords": [
+     "데이터베이스 대상 정의",
+     "Dirty Data 원인 파악",
+     "데이터 품질 문제 우선순위",
+     "Bad Data의 데이터베이스 유입 차단",
+     "데이터베이스에서 Bad Data 제거"
+    ]
+   },
+   {
+    "label": "데이터 클렌징 기법",
+    "mnemonic": "변파보코형수",
+    "keywords": [
+     "데이터 변환 — 코드체계변환",
+     "데이터 변환 — 형식 재구성",
+     "데이터 변환 — 수학적 변환",
+     "데이터 파싱",
+     "데이터 보강"
+    ]
+   }
+  ],
+  "mnemonic": "대원우유제",
+  "keywords": [
+   "데이터베이스 대상 정의",
+   "Dirty Data 원인 파악",
+   "데이터 품질 문제 우선순위",
+   "Bad Data의 데이터베이스 유입 차단",
+   "데이터베이스에서 Bad Data 제거"
+  ]
+ },
+ {
+  "id": "sn-436",
   "title": "데이터 프로파일링(Data Profiling)",
   "category": "데이터베이스",
   "importance": "중",
@@ -23988,7 +24142,7 @@
   ]
  },
  {
-  "id": "sn-434",
+  "id": "sn-437",
   "title": "데이터 분석 거버넌스(Data Analytics Governance)",
   "category": "데이터베이스",
   "importance": "하",
@@ -24043,7 +24197,7 @@
   ]
  },
  {
-  "id": "sn-435",
+  "id": "sn-438",
   "title": "데이터 분석 준비도와 데이터 분석 성숙도",
   "category": "데이터베이스",
   "importance": "중",
@@ -24107,7 +24261,7 @@
   ]
  },
  {
-  "id": "sn-436",
+  "id": "sn-439",
   "title": "데이터 마이닝 방법론",
   "category": "데이터베이스",
   "importance": "중",
@@ -24165,7 +24319,7 @@
   ]
  },
  {
-  "id": "sn-437",
+  "id": "sn-440",
   "title": "탐색적 데이터 분석과 확증적 데이터 분석",
   "category": "데이터베이스",
   "importance": "하",
@@ -24202,7 +24356,116 @@
   ]
  },
  {
-  "id": "sn-438",
+  "id": "sn-441",
+  "title": "정형/비정형 데이터 마이닝",
+  "category": "데이터베이스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "[정형 마이닝] **표준화된 형식**으로 구조가 정의된 **데이터**에서 의미 있는 패턴 파악, 예측하여 **의사결정에 활용**하는 데이터 **분석 기법** / [비정형 마이닝] **비구조화된 데이터**에서 정련의 과정과 분류, 군집화 등의 기법을 통해 **유의미한 정보를 추출**하는 **분석 기법**",
+  "defShort": "표준화된 형식 데이터 패턴 예측해 의사결정에 활용하는 분석 기법",
+  "memo": "데이터 마이닝 절차도: 데이터 → 선택 → 목표데이터 → 전처리 → 전처리된 데이터 → 변환 → 변환된 데이터 → 데이터 마이닝 → 패턴 → 해석과 평가 → 지식",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "분류",
+     "군집",
+     "연관",
+     "텍스트",
+     "사회연결망",
+     "웹"
+    ]
+   },
+   {
+    "label": "정형 데이터 마이닝 기법",
+    "mnemonic": "",
+    "keywords": [
+     "분류(Classification)",
+     "군집(Clustering)",
+     "연관(Association)"
+    ]
+   },
+   {
+    "label": "비정형 데이터 마이닝 기법",
+    "mnemonic": "",
+    "keywords": [
+     "절차",
+     "기능",
+     "절차",
+     "분석 표현",
+     "절차",
+     "유형"
+    ]
+   },
+   {
+    "label": "데이터 마이닝과 머신 러닝 비교",
+    "mnemonic": "",
+    "keywords": [
+     "범위",
+     "목적",
+     "사람의 개입(학습능력)",
+     "데이터"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "분류",
+   "군집",
+   "연관",
+   "텍스트",
+   "사회연결망",
+   "웹"
+  ]
+ },
+ {
+  "id": "sn-442",
+  "title": "데이터 랭글링(Data Wrangling)",
+  "category": "데이터베이스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "복잡하고 정리되지 않은 **원시 데이터(raw data)를 분석에 적합한 형태로 변환**하고 정리하여 복잡하고 반복적인 절차를 단축하는 과정",
+  "defShort": "원시 데이터 분석에 적합한 형태로 변환·정리해 반복 절차 단축 과정",
+  "memo": "",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "데이터 발견",
+     "데이터 구조화",
+     "데이터 정제",
+     "데이터 강화",
+     "데이터 유효성 검사",
+     "데이터 출판"
+    ]
+   },
+   {
+    "label": "데이터 랭글링(Data Wrangling) 단계",
+    "mnemonic": "",
+    "keywords": [
+     "데이터 발견(discovering)",
+     "데이터 구조화(structuring)",
+     "데이터 정제(cleansing)",
+     "데이터 강화(enriching)",
+     "데이터 유효성 검사(validating)",
+     "데이터 출판(publishing)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "데이터 발견",
+   "데이터 구조화",
+   "데이터 정제",
+   "데이터 강화",
+   "데이터 유효성 검사",
+   "데이터 출판"
+  ]
+ },
+ {
+  "id": "sn-443",
   "title": "데이터 시각화",
   "category": "데이터베이스",
   "importance": "중",
@@ -24270,7 +24533,7 @@
   ]
  },
  {
-  "id": "sn-439",
+  "id": "sn-444",
   "title": "데이터 레이크하우스(Data Lakehouse)",
   "category": "데이터베이스",
   "importance": "중",
@@ -24324,7 +24587,7 @@
   ]
  },
  {
-  "id": "sn-440",
+  "id": "sn-445",
   "title": "아파치 카프카(Apache Kafka)",
   "category": "데이터베이스",
   "importance": "중",
@@ -24374,7 +24637,7 @@
   ]
  },
  {
-  "id": "sn-441",
+  "id": "sn-446",
   "title": "공공데이터 예방적 품질관리 진단 가이드",
   "category": "데이터베이스",
   "importance": "하",
@@ -24424,7 +24687,7 @@
   ]
  },
  {
-  "id": "sn-442",
+  "id": "sn-447",
   "title": "공공데이터 품질인증 매뉴얼(2025.07.)",
   "category": "데이터베이스",
   "importance": "중",
@@ -24475,7 +24738,7 @@
   ]
  },
  {
-  "id": "sn-443",
+  "id": "sn-448",
   "title": "공공기관 데이터베이스 표준화지침(2023년 4월 개정 고시)",
   "category": "데이터베이스",
   "importance": "하",
@@ -24544,7 +24807,7 @@
   ]
  },
  {
-  "id": "sn-444",
+  "id": "sn-449",
   "title": "데이터 품질인증 가이드라인 - DQ인증 (2025.02.26)",
   "category": "데이터베이스",
   "importance": "상",
@@ -24618,7 +24881,7 @@
   ]
  },
  {
-  "id": "sn-445",
+  "id": "sn-450",
   "title": "데이터 가치 평가",
   "category": "데이터베이스",
   "importance": "중",
@@ -24678,7 +24941,7 @@
   ]
  },
  {
-  "id": "sn-446",
+  "id": "sn-451",
   "title": "DaaP(Data as a product)",
   "category": "데이터베이스",
   "importance": "중",
@@ -24745,7 +25008,7 @@
   ]
  },
  {
-  "id": "sn-447",
+  "id": "sn-452",
   "title": "연관성 분석(association analysis) - 데이터마이닝",
   "category": "데이터베이스",
   "importance": "상",
@@ -24795,7 +25058,7 @@
   ]
  },
  {
-  "id": "sn-448",
+  "id": "sn-453",
   "title": "Apriori 알고리즘",
   "category": "데이터베이스",
   "importance": "하",
@@ -24834,7 +25097,7 @@
   ]
  },
  {
-  "id": "sn-449",
+  "id": "sn-454",
   "title": "DHP(Direct Hashing & Pruning) 알고리즘",
   "category": "데이터베이스",
   "importance": "하",
@@ -24871,7 +25134,7 @@
   ]
  },
  {
-  "id": "sn-450",
+  "id": "sn-455",
   "title": "FP(Frequent Pattern)-Growth 알고리즘",
   "category": "데이터베이스",
   "importance": "하",
@@ -24910,7 +25173,7 @@
   ]
  },
  {
-  "id": "sn-451",
+  "id": "sn-456",
   "title": "낙관적 검증(Validation) 기법",
   "category": "데이터베이스",
   "importance": "하",
@@ -24959,7 +25222,7 @@
   ]
  },
  {
-  "id": "sn-452",
+  "id": "sn-457",
   "title": "MVCC(다중 버전 동시성 제어) 2가지 유형",
   "category": "데이터베이스",
   "importance": "하",
@@ -25015,7 +25278,7 @@
   ]
  },
  {
-  "id": "sn-453",
+  "id": "sn-458",
   "title": "기술 부채(Technical Debt)",
   "category": "경영전략",
   "importance": "중",
@@ -25073,7 +25336,7 @@
   ]
  },
  {
-  "id": "sn-454",
+  "id": "sn-459",
   "title": "ITIL(IT Infrastructure Library) 4.0",
   "category": "경영전략",
   "importance": "상",
@@ -25134,7 +25397,7 @@
   ]
  },
  {
-  "id": "sn-455",
+  "id": "sn-460",
   "title": "ITSM(Information Technology Service Management)",
   "category": "경영전략",
   "importance": "중",
@@ -25211,7 +25474,7 @@
   ]
  },
  {
-  "id": "sn-456",
+  "id": "sn-461",
   "title": "서비스 수준 관리 (SLM, Service Level Management)",
   "category": "경영전략",
   "importance": "중",
@@ -25265,7 +25528,7 @@
   ]
  },
  {
-  "id": "sn-457",
+  "id": "sn-462",
   "title": "BCP (Business Continuity Planning)",
   "category": "경영전략",
   "importance": "중",
@@ -25320,7 +25583,7 @@
   ]
  },
  {
-  "id": "sn-458",
+  "id": "sn-463",
   "title": "BIA (Business Impact Analysis)",
   "category": "경영전략",
   "importance": "중",
@@ -25390,7 +25653,7 @@
   ]
  },
  {
-  "id": "sn-459",
+  "id": "sn-464",
   "title": "BCP 지표 중 MBCO, MTPD, MAO",
   "category": "경영전략",
   "importance": "하",
@@ -25453,7 +25716,7 @@
   ]
  },
  {
-  "id": "sn-460",
+  "id": "sn-465",
   "title": "DRS (Disaster Recovery System)",
   "category": "경영전략",
   "importance": "중",
@@ -25521,7 +25784,7 @@
   ]
  },
  {
-  "id": "sn-461",
+  "id": "sn-466",
   "title": "DRaaS(Disaster Recovery as a Service)",
   "category": "경영전략",
   "importance": "중",
@@ -25568,7 +25831,7 @@
   ]
  },
  {
-  "id": "sn-462",
+  "id": "sn-467",
   "title": "ISO 22301",
   "category": "경영전략",
   "importance": "중",
@@ -25624,7 +25887,7 @@
   ]
  },
  {
-  "id": "sn-463",
+  "id": "sn-468",
   "title": "디지털 안전 3법",
   "category": "경영전략",
   "importance": "하",
@@ -25666,7 +25929,79 @@
   ]
  },
  {
-  "id": "sn-464",
+  "id": "sn-469",
+  "title": "정보시스템 등급제",
+  "category": "경영전략",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "**국민 생활**에 미치는 **영향도**를 중심으로 국가 및 공공기관의 **정보시스템**을 **평가·분류**하는 **제도**",
+  "defShort": "국민 생활 영향도 중심으로 공공기관 정보시스템을 평가·분류하는 제도",
+  "memo": "",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "국민 생활",
+     "정보시스템 분류 체계",
+     "A1 ~ A4",
+     "등급 산정 기준",
+     "RTO"
+    ]
+   },
+   {
+    "label": "등급산정 기준",
+    "mnemonic": "",
+    "keywords": [
+     "국민 영향도",
+     "사용자 수",
+     "서비스 파급도",
+     "대체 가능성"
+    ]
+   },
+   {
+    "label": "정보시스템 등급 분류",
+    "mnemonic": "",
+    "keywords": [
+     "A1",
+     "A2",
+     "A3",
+     "A4"
+    ]
+   },
+   {
+    "label": "등급별 차등 관리",
+    "mnemonic": "",
+    "keywords": [
+     "A1",
+     "A2",
+     "A3",
+     "A4"
+    ]
+   },
+   {
+    "label": "등급 분류·관리 절차",
+    "mnemonic": "",
+    "keywords": [
+     "자체 평가",
+     "결과 제출",
+     "심의·확정",
+     "차등 적용",
+     "재평가"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "국민 생활",
+   "정보시스템 분류 체계",
+   "A1 ~ A4",
+   "등급 산정 기준",
+   "RTO"
+  ]
+ },
+ {
+  "id": "sn-470",
   "title": "IT 거버넌스(IT-Governance)",
   "category": "경영전략",
   "importance": "중",
@@ -25729,7 +26064,7 @@
   ]
  },
  {
-  "id": "sn-465",
+  "id": "sn-471",
   "title": "ISO 38500:2024",
   "category": "경영전략",
   "importance": "중",
@@ -25785,7 +26120,7 @@
   ]
  },
  {
-  "id": "sn-466",
+  "id": "sn-472",
   "title": "IT-Compliance",
   "category": "경영전략",
   "importance": "하",
@@ -25846,7 +26181,7 @@
   ]
  },
  {
-  "id": "sn-467",
+  "id": "sn-473",
   "title": "환경분석",
   "category": "경영전략",
   "importance": "상",
@@ -25898,7 +26233,7 @@
   ]
  },
  {
-  "id": "sn-468",
+  "id": "sn-474",
   "title": "가치사슬(Value Chain)",
   "category": "경영전략",
   "importance": "하",
@@ -25945,7 +26280,7 @@
   ]
  },
  {
-  "id": "sn-469",
+  "id": "sn-475",
   "title": "BCG Matrix",
   "category": "경영전략",
   "importance": "하",
@@ -25995,7 +26330,7 @@
   ]
  },
  {
-  "id": "sn-470",
+  "id": "sn-476",
   "title": "Ansoff Matrix",
   "category": "경영전략",
   "importance": "하",
@@ -26038,7 +26373,7 @@
   ]
  },
  {
-  "id": "sn-471",
+  "id": "sn-477",
   "title": "PDCA(Plan-Do-Check-Act, Deming Cycle)",
   "category": "경영전략",
   "importance": "하",
@@ -26077,7 +26412,7 @@
   ]
  },
  {
-  "id": "sn-472",
+  "id": "sn-478",
   "title": "MECE와 LISS",
   "category": "경영전략",
   "importance": "하",
@@ -26124,7 +26459,7 @@
   ]
  },
  {
-  "id": "sn-473",
+  "id": "sn-479",
   "title": "ISP 및 ISMP 수립 공통가이드 9판(2025.05)",
   "category": "경영전략",
   "importance": "상",
@@ -26190,7 +26525,7 @@
   ]
  },
  {
-  "id": "sn-474",
+  "id": "sn-480",
   "title": "ISP (Information Strategy Planning)",
   "category": "경영전략",
   "importance": "중",
@@ -26242,7 +26577,7 @@
   ]
  },
  {
-  "id": "sn-475",
+  "id": "sn-481",
   "title": "ISMP (Information System Master Plan)",
   "category": "경영전략",
   "importance": "중",
@@ -26305,7 +26640,7 @@
   ]
  },
  {
-  "id": "sn-476",
+  "id": "sn-482",
   "title": "정보시스템 하드웨어 규모산정 지침",
   "category": "경영전략",
   "importance": "상",
@@ -26369,7 +26704,7 @@
   ]
  },
  {
-  "id": "sn-477",
+  "id": "sn-483",
   "title": "TRL(Technology Readiness Level)",
   "category": "경영전략",
   "importance": "하",
@@ -26428,7 +26763,7 @@
   ]
  },
  {
-  "id": "sn-478",
+  "id": "sn-484",
   "title": "기술수용 주기(Technology Adoption Life Cycle)",
   "category": "경영전략",
   "importance": "하",
@@ -26485,7 +26820,7 @@
   ]
  },
  {
-  "id": "sn-479",
+  "id": "sn-485",
   "title": "IT 투자성과 평가",
   "category": "경영전략",
   "importance": "상",
@@ -26547,7 +26882,7 @@
   ]
  },
  {
-  "id": "sn-480",
+  "id": "sn-486",
   "title": "기술 가치 평가",
   "category": "경영전략",
   "importance": "중",
@@ -26605,7 +26940,81 @@
   ]
  },
  {
-  "id": "sn-481",
+  "id": "sn-487",
+  "title": "정보화 투자관리 가이드",
+  "category": "경영전략",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "중앙행정기관 및 공공기관에서 정보화사업 추진 시 **규모·유형별 정보화 사업 투자 및 관리**를 위한 **주요 절차와 준수사항, 비용산정 방법** 등을 제시한 가이드",
+  "defShort": "규모·유형별 정보화 사업 투자·관리 위한 절차·준수사항·비용산정 가이드",
+  "memo": "",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "대규모",
+     "중규모",
+     "소규모",
+     "50억",
+     "컨설팅업무량",
+     "투입공수"
+    ]
+   },
+   {
+    "label": "정보시스템 구축비 투자 방식 변화",
+    "mnemonic": "",
+    "keywords": [
+     "총사업비 500억원 이상 국가 재정 300억원 이상 예비타당성조사 대상",
+     "그 외 정보화 사업"
+    ]
+   },
+   {
+    "label": "준수사항",
+    "mnemonic": "",
+    "keywords": [
+     "디지털 서비스",
+     "AI",
+     "비용"
+    ]
+   },
+   {
+    "label": "등급 분류·관리 절차",
+    "mnemonic": "",
+    "keywords": [
+     "정의",
+     "법적 근거",
+     "주무부처",
+     "특징",
+     "산출물"
+    ]
+   },
+   {
+    "label": "ISP·ISMP 및 소규모 사업계획서 수립 제외(실익 낮을 때)",
+    "mnemonic": "",
+    "keywords": [
+     "단순시스템 도입",
+     "단순기능 개발",
+     "운영·유지",
+     "단순물품 구매",
+     "시설 구축",
+     "DB구축",
+     "민간투자형 SW 사업"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "대규모",
+   "중규모",
+   "소규모",
+   "50억",
+   "컨설팅업무량",
+   "투입공수"
+  ]
+ },
+ {
+  "id": "sn-488",
   "title": "지식재산권",
   "category": "경영전략",
   "importance": "하",
@@ -26656,7 +27065,7 @@
   ]
  },
  {
-  "id": "sn-482",
+  "id": "sn-489",
   "title": "OKR",
   "category": "경영전략",
   "importance": "하",
@@ -26721,7 +27130,7 @@
   ]
  },
  {
-  "id": "sn-483",
+  "id": "sn-490",
   "title": "BSC (Balanced Scorecard), IT-BSC (IT-Balanced Scorecard)",
   "category": "경영전략",
   "importance": "하",
@@ -26768,7 +27177,7 @@
   ]
  },
  {
-  "id": "sn-484",
+  "id": "sn-491",
   "title": "ESG 경영",
   "category": "경영전략",
   "importance": "하",
@@ -26829,7 +27238,7 @@
   ]
  },
  {
-  "id": "sn-485",
+  "id": "sn-492",
   "title": "디자인 씽킹(Design Thinking)",
   "category": "경영전략",
   "importance": "하",
@@ -26878,7 +27287,7 @@
   ]
  },
  {
-  "id": "sn-486",
+  "id": "sn-493",
   "title": "서비타이제이션(Servitization)",
   "category": "경영전략",
   "importance": "하",
@@ -26914,7 +27323,7 @@
   ]
  },
  {
-  "id": "sn-487",
+  "id": "sn-494",
   "title": "프로토콜 경제(Protocol Economy)",
   "category": "경영전략",
   "importance": "하",
@@ -26953,7 +27362,7 @@
   ]
  },
  {
-  "id": "sn-488",
+  "id": "sn-495",
   "title": "의도 경제(Intention Economy)",
   "category": "경영전략",
   "importance": "하",
@@ -27006,7 +27415,7 @@
   ]
  },
  {
-  "id": "sn-489",
+  "id": "sn-496",
   "title": "그로스 해킹(Growth hacking)",
   "category": "경영전략",
   "importance": "하",
@@ -27057,7 +27466,7 @@
   ]
  },
  {
-  "id": "sn-490",
+  "id": "sn-497",
   "title": "시빅 해킹(Civic Hacking)",
   "category": "경영전략",
   "importance": "하",
@@ -27110,7 +27519,7 @@
   ]
  },
  {
-  "id": "sn-491",
+  "id": "sn-498",
   "title": "리빙랩(Living Lab), S.O.S랩",
   "category": "경영전략",
   "importance": "하",
@@ -27173,7 +27582,7 @@
   ]
  },
  {
-  "id": "sn-492",
+  "id": "sn-499",
   "title": "암호화(Encryption)",
   "category": "보안",
   "importance": "중",
@@ -27234,7 +27643,7 @@
   ]
  },
  {
-  "id": "sn-493",
+  "id": "sn-500",
   "title": "Shannon의 암호 설계 원칙",
   "category": "보안",
   "importance": "중",
@@ -27290,7 +27699,7 @@
   ]
  },
  {
-  "id": "sn-494",
+  "id": "sn-501",
   "title": "해시 함수의 안전성",
   "category": "보안",
   "importance": "상",
@@ -27338,7 +27747,7 @@
   ]
  },
  {
-  "id": "sn-495",
+  "id": "sn-502",
   "title": "해시 솔트(Salt)와 키 스트레칭(Key Stretching)",
   "category": "보안",
   "importance": "상",
@@ -27403,7 +27812,7 @@
   ]
  },
  {
-  "id": "sn-496",
+  "id": "sn-503",
   "title": "디피-헬만 알고리즘(Diffie-Hellman Algorithm)",
   "category": "보안",
   "importance": "중",
@@ -27443,7 +27852,7 @@
   ]
  },
  {
-  "id": "sn-497",
+  "id": "sn-504",
   "title": "블록 암호화(Block Cipher)",
   "category": "보안",
   "importance": "중",
@@ -27499,7 +27908,7 @@
   ]
  },
  {
-  "id": "sn-498",
+  "id": "sn-505",
   "title": "암호학적 보안 강도(Security Strength)",
   "category": "보안",
   "importance": "하",
@@ -27569,7 +27978,7 @@
   ]
  },
  {
-  "id": "sn-499",
+  "id": "sn-506",
   "title": "동형 암호(Homomorphic Encryption)",
   "category": "보안",
   "importance": "하",
@@ -27623,7 +28032,7 @@
   ]
  },
  {
-  "id": "sn-500",
+  "id": "sn-507",
   "title": "암호 분석 공격(Cryptanalysis Attacks) 기법",
   "category": "보안",
   "importance": "중",
@@ -27672,7 +28081,7 @@
   ]
  },
  {
-  "id": "sn-501",
+  "id": "sn-508",
   "title": "양자 암호(Quantum Cryptography)",
   "category": "보안",
   "importance": "상",
@@ -27740,7 +28149,7 @@
   ]
  },
  {
-  "id": "sn-502",
+  "id": "sn-509",
   "title": "포스트 양자 암호(Post-Quantum Cryptography)",
   "category": "보안",
   "importance": "상",
@@ -27801,7 +28210,7 @@
   ]
  },
  {
-  "id": "sn-503",
+  "id": "sn-510",
   "title": "딥보이스(Deep Voice) 피싱",
   "category": "보안",
   "importance": "중",
@@ -27860,7 +28269,7 @@
   ]
  },
  {
-  "id": "sn-504",
+  "id": "sn-511",
   "title": "OWASP Top 10 for LLM Application 2025",
   "category": "보안",
   "importance": "중",
@@ -27924,7 +28333,7 @@
   ]
  },
  {
-  "id": "sn-505",
+  "id": "sn-512",
   "title": "사이버전(Cyber Warfare)",
   "category": "보안",
   "importance": "중",
@@ -27979,7 +28388,7 @@
   ]
  },
  {
-  "id": "sn-506",
+  "id": "sn-513",
   "title": "APT(Advanced Persistent Threat) 공격",
   "category": "보안",
   "importance": "하",
@@ -28032,7 +28441,7 @@
   ]
  },
  {
-  "id": "sn-507",
+  "id": "sn-514",
   "title": "스니핑(Sniffing) & 스푸핑(Spoofing)",
   "category": "보안",
   "importance": "하",
@@ -28090,7 +28499,7 @@
   ]
  },
  {
-  "id": "sn-508",
+  "id": "sn-515",
   "title": "BPF(Berkeley Packet Filter) Door",
   "category": "보안",
   "importance": "하",
@@ -28143,7 +28552,7 @@
   ]
  },
  {
-  "id": "sn-509",
+  "id": "sn-516",
   "title": "부채널 공격(Side Channel Attack)",
   "category": "보안",
   "importance": "하",
@@ -28194,7 +28603,7 @@
   ]
  },
  {
-  "id": "sn-510",
+  "id": "sn-517",
   "title": "드라이브 바이 다운로드(Drive By Download)",
   "category": "보안",
   "importance": "중",
@@ -28248,7 +28657,7 @@
   ]
  },
  {
-  "id": "sn-511",
+  "id": "sn-518",
   "title": "공급망 공격(Supply Chain Attack)",
   "category": "보안",
   "importance": "상",
@@ -28302,7 +28711,7 @@
   ]
  },
  {
-  "id": "sn-512",
+  "id": "sn-519",
   "title": "DoS(Denial of Service)",
   "category": "보안",
   "importance": "하",
@@ -28368,7 +28777,7 @@
   ]
  },
  {
-  "id": "sn-513",
+  "id": "sn-520",
   "title": "DRDoS(Distributed Reflection DoS)",
   "category": "보안",
   "importance": "하",
@@ -28442,7 +28851,7 @@
   ]
  },
  {
-  "id": "sn-514",
+  "id": "sn-521",
   "title": "RaaS(Ransomware as a Service)",
   "category": "보안",
   "importance": "하",
@@ -28488,7 +28897,7 @@
   ]
  },
  {
-  "id": "sn-515",
+  "id": "sn-522",
   "title": "루트킷(Rootkit)",
   "category": "보안",
   "importance": "중",
@@ -28547,7 +28956,7 @@
   ]
  },
  {
-  "id": "sn-516",
+  "id": "sn-523",
   "title": "OWASP Top 10:2021",
   "category": "보안",
   "importance": "하",
@@ -28604,7 +29013,7 @@
   ]
  },
  {
-  "id": "sn-517",
+  "id": "sn-524",
   "title": "OWASP Top 10:2025",
   "category": "보안",
   "importance": "하",
@@ -28661,7 +29070,7 @@
   ]
  },
  {
-  "id": "sn-518",
+  "id": "sn-525",
   "title": "시큐어 코딩(Secure Coding)",
   "category": "보안",
   "importance": "상",
@@ -28723,7 +29132,7 @@
   ]
  },
  {
-  "id": "sn-519",
+  "id": "sn-526",
   "title": "SSRF(Server-Side Request Forgery)",
   "category": "보안",
   "importance": "상",
@@ -28788,7 +29197,7 @@
   ]
  },
  {
-  "id": "sn-520",
+  "id": "sn-527",
   "title": "SW난독화",
   "category": "보안",
   "importance": "하",
@@ -28840,7 +29249,7 @@
   ]
  },
  {
-  "id": "sn-521",
+  "id": "sn-528",
   "title": "DevSecOps",
   "category": "보안",
   "importance": "상",
@@ -28895,7 +29304,7 @@
   ]
  },
  {
-  "id": "sn-522",
+  "id": "sn-529",
   "title": "개인정보보호 중심 설계(Privacy by Design)",
   "category": "보안",
   "importance": "상",
@@ -28961,7 +29370,7 @@
   ]
  },
  {
-  "id": "sn-523",
+  "id": "sn-530",
   "title": "PbD(Privacy by Design) 인증제도",
   "category": "보안",
   "importance": "중",
@@ -29014,7 +29423,7 @@
   ]
  },
  {
-  "id": "sn-524",
+  "id": "sn-531",
   "title": "가명처리(Pseudonymization) 기법",
   "category": "보안",
   "importance": "상",
@@ -29083,7 +29492,7 @@
   ]
  },
  {
-  "id": "sn-525",
+  "id": "sn-532",
   "title": "가명정보 처리 가이드라인",
   "category": "보안",
   "importance": "중",
@@ -29167,7 +29576,7 @@
   ]
  },
  {
-  "id": "sn-526",
+  "id": "sn-533",
   "title": "Secure Software Development Framework(SSDF)",
   "category": "보안",
   "importance": "중",
@@ -29206,7 +29615,7 @@
   ]
  },
  {
-  "id": "sn-527",
+  "id": "sn-534",
   "title": "DNS 싱크홀(Sinkhole)",
   "category": "보안",
   "importance": "하",
@@ -29245,7 +29654,7 @@
   ]
  },
  {
-  "id": "sn-528",
+  "id": "sn-535",
   "title": "DNSSEC(Domain Name System Security Extension)",
   "category": "보안",
   "importance": "중",
@@ -29297,7 +29706,7 @@
   ]
  },
  {
-  "id": "sn-529",
+  "id": "sn-536",
   "title": "IPSec",
   "category": "보안",
   "importance": "중",
@@ -29356,7 +29765,7 @@
   ]
  },
  {
-  "id": "sn-530",
+  "id": "sn-537",
   "title": "TLS/SSL(Secure Socket Layer)",
   "category": "보안",
   "importance": "상",
@@ -29406,7 +29815,7 @@
   ]
  },
  {
-  "id": "sn-531",
+  "id": "sn-538",
   "title": "VPN(Virtual Private Network)",
   "category": "보안",
   "importance": "중",
@@ -29472,7 +29881,7 @@
   ]
  },
  {
-  "id": "sn-532",
+  "id": "sn-539",
   "title": "CWPP(Cloud Workload Protection Platform) & CSPM(Cloud Security Posture Management)",
   "category": "보안",
   "importance": "중",
@@ -29521,7 +29930,7 @@
   ]
  },
  {
-  "id": "sn-533",
+  "id": "sn-540",
   "title": "SASE(Secure Access Service Edge)",
   "category": "보안",
   "importance": "중",
@@ -29561,7 +29970,7 @@
   ]
  },
  {
-  "id": "sn-534",
+  "id": "sn-541",
   "title": "SECaaS(Security as a Service)",
   "category": "보안",
   "importance": "중",
@@ -29608,7 +30017,7 @@
   ]
  },
  {
-  "id": "sn-535",
+  "id": "sn-542",
   "title": "이중 서명(Dual Signature)",
   "category": "보안",
   "importance": "상",
@@ -29669,7 +30078,7 @@
   ]
  },
  {
-  "id": "sn-536",
+  "id": "sn-543",
   "title": "다중 서명(Multi Signature)",
   "category": "보안",
   "importance": "상",
@@ -29735,7 +30144,7 @@
   ]
  },
  {
-  "id": "sn-537",
+  "id": "sn-544",
   "title": "간편인증 인터페이스 가이드라인",
   "category": "보안",
   "importance": "중",
@@ -29783,7 +30192,7 @@
   ]
  },
  {
-  "id": "sn-538",
+  "id": "sn-545",
   "title": "전자봉투(Digital Envelope)",
   "category": "보안",
   "importance": "상",
@@ -29841,7 +30250,7 @@
   ]
  },
  {
-  "id": "sn-539",
+  "id": "sn-546",
   "title": "DRM(Digital Right Management)",
   "category": "보안",
   "importance": "하",
@@ -29894,7 +30303,7 @@
   ]
  },
  {
-  "id": "sn-540",
+  "id": "sn-547",
   "title": "디지털 워터마킹(Digital Watermarking)",
   "category": "보안",
   "importance": "하",
@@ -29955,7 +30364,7 @@
   ]
  },
  {
-  "id": "sn-541",
+  "id": "sn-548",
   "title": "핑거프린팅(Fingerprinting)",
   "category": "보안",
   "importance": "하",
@@ -30007,7 +30416,7 @@
   ]
  },
  {
-  "id": "sn-542",
+  "id": "sn-549",
   "title": "생체 인증(텔레바이오 인증)",
   "category": "보안",
   "importance": "중",
@@ -30069,7 +30478,7 @@
   ]
  },
  {
-  "id": "sn-543",
+  "id": "sn-550",
   "title": "생체정보 보호 안내서(24.12)",
   "category": "보안",
   "importance": "중",
@@ -30150,7 +30559,7 @@
   ]
  },
  {
-  "id": "sn-544",
+  "id": "sn-551",
   "title": "OAuth(Open Authorize) 2.0",
   "category": "보안",
   "importance": "중",
@@ -30209,7 +30618,7 @@
   ]
  },
  {
-  "id": "sn-545",
+  "id": "sn-552",
   "title": "패스키(Passkey)",
   "category": "보안",
   "importance": "상",
@@ -30250,7 +30659,7 @@
   ]
  },
  {
-  "id": "sn-546",
+  "id": "sn-553",
   "title": "공격 표면 관리(Attack Surface Management)",
   "category": "보안",
   "importance": "상",
@@ -30299,7 +30708,7 @@
   ]
  },
  {
-  "id": "sn-547",
+  "id": "sn-554",
   "title": "차세대 SIEM(Security Information and Event Management)",
   "category": "보안",
   "importance": "중",
@@ -30355,7 +30764,7 @@
   ]
  },
  {
-  "id": "sn-548",
+  "id": "sn-555",
   "title": "위협 헌팅(Threat Hunting)",
   "category": "보안",
   "importance": "중",
@@ -30406,7 +30815,7 @@
   ]
  },
  {
-  "id": "sn-549",
+  "id": "sn-556",
   "title": "위협 모델링(Threat Modeling)",
   "category": "보안",
   "importance": "중",
@@ -30462,7 +30871,7 @@
   ]
  },
  {
-  "id": "sn-550",
+  "id": "sn-557",
   "title": "WAAP(Web Application and API Protection)",
   "category": "보안",
   "importance": "중",
@@ -30522,7 +30931,7 @@
   ]
  },
  {
-  "id": "sn-551",
+  "id": "sn-558",
   "title": "EDR(Endpoint Detection and Response)",
   "category": "보안",
   "importance": "중",
@@ -30563,7 +30972,7 @@
   ]
  },
  {
-  "id": "sn-552",
+  "id": "sn-559",
   "title": "XDR(eXtended Detection Response)",
   "category": "보안",
   "importance": "중",
@@ -30621,7 +31030,7 @@
   ]
  },
  {
-  "id": "sn-553",
+  "id": "sn-560",
   "title": "DMARC(Domain-based Message Authentication, Reporting and Conformance)",
   "category": "보안",
   "importance": "하",
@@ -30671,7 +31080,7 @@
   ]
  },
  {
-  "id": "sn-554",
+  "id": "sn-561",
   "title": "사이버 디셉션(Cyber Deception)",
   "category": "보안",
   "importance": "중",
@@ -30718,7 +31127,7 @@
   ]
  },
  {
-  "id": "sn-555",
+  "id": "sn-562",
   "title": "디지털 면역 시스템(DIS, Digital Immune System)",
   "category": "보안",
   "importance": "중",
@@ -30763,7 +31172,7 @@
   ]
  },
  {
-  "id": "sn-556",
+  "id": "sn-563",
   "title": "사이버 레질리언스(Cyber Resilience)",
   "category": "보안",
   "importance": "중",
@@ -30819,7 +31228,7 @@
   ]
  },
  {
-  "id": "sn-557",
+  "id": "sn-564",
   "title": "PEC(Privacy-Enhancing Computation)",
   "category": "보안",
   "importance": "상",
@@ -30869,7 +31278,7 @@
   ]
  },
  {
-  "id": "sn-558",
+  "id": "sn-565",
   "title": "영지식증명(Zero Knowledge Proof)",
   "category": "보안",
   "importance": "상",
@@ -30929,7 +31338,7 @@
   ]
  },
  {
-  "id": "sn-559",
+  "id": "sn-566",
   "title": "기밀컴퓨팅(Confidential Computing)",
   "category": "보안",
   "importance": "중",
@@ -30971,7 +31380,7 @@
   ]
  },
  {
-  "id": "sn-560",
+  "id": "sn-567",
   "title": "ISO 27017",
   "category": "보안",
   "importance": "하",
@@ -31018,7 +31427,7 @@
   ]
  },
  {
-  "id": "sn-561",
+  "id": "sn-568",
   "title": "개인정보 프라이버시 8원칙",
   "category": "보안",
   "importance": "상",
@@ -31085,7 +31494,7 @@
   ]
  },
  {
-  "id": "sn-562",
+  "id": "sn-569",
   "title": "개인정보 보호기술",
   "category": "보안",
   "importance": "상",
@@ -31142,7 +31551,7 @@
   ]
  },
  {
-  "id": "sn-563",
+  "id": "sn-570",
   "title": "위험분석 방법론 (ISO/IEC 1335-1, 위험분석 전략/평가)",
   "category": "보안",
   "importance": "중",
@@ -31193,7 +31602,7 @@
   ]
  },
  {
-  "id": "sn-564",
+  "id": "sn-571",
   "title": "IEC 62443",
   "category": "보안",
   "importance": "중",
@@ -31251,7 +31660,7 @@
   ]
  },
  {
-  "id": "sn-565",
+  "id": "sn-572",
   "title": "ISO 27018",
   "category": "보안",
   "importance": "하",
@@ -31318,7 +31727,7 @@
   ]
  },
  {
-  "id": "sn-566",
+  "id": "sn-573",
   "title": "차량 사이버 보안 국제 표준(ISO 21434)",
   "category": "보안",
   "importance": "상",
@@ -31387,7 +31796,7 @@
   ]
  },
  {
-  "id": "sn-567",
+  "id": "sn-574",
   "title": "ISO 27701",
   "category": "보안",
   "importance": "중",
@@ -31453,7 +31862,7 @@
   ]
  },
  {
-  "id": "sn-568",
+  "id": "sn-575",
   "title": "ISO/IEC 20889",
   "category": "보안",
   "importance": "중",
@@ -31515,7 +31924,7 @@
   ]
  },
  {
-  "id": "sn-569",
+  "id": "sn-576",
   "title": "전자증거개시제도(e-Discovery)",
   "category": "보안",
   "importance": "중",
@@ -31571,7 +31980,7 @@
   ]
  },
  {
-  "id": "sn-570",
+  "id": "sn-577",
   "title": "제로트러스트 가이드라인 2.0",
   "category": "보안",
   "importance": "상",
@@ -31644,7 +32053,7 @@
   ]
  },
  {
-  "id": "sn-571",
+  "id": "sn-578",
   "title": "SDP(Software Defined Perimeter)",
   "category": "보안",
   "importance": "상",
@@ -31720,7 +32129,7 @@
   ]
  },
  {
-  "id": "sn-572",
+  "id": "sn-579",
   "title": "접근 제어/접근 통제(Access Control)",
   "category": "보안",
   "importance": "중",
@@ -31814,7 +32223,7 @@
   ]
  },
  {
-  "id": "sn-573",
+  "id": "sn-580",
   "title": "접근 통제 모델",
   "category": "보안",
   "importance": "중",
@@ -31853,7 +32262,7 @@
   ]
  },
  {
-  "id": "sn-574",
+  "id": "sn-581",
   "title": "정보보호제품 평가·인증(CC 평가·인증) 제도",
   "category": "보안",
   "importance": "중",
@@ -31929,7 +32338,7 @@
   ]
  },
  {
-  "id": "sn-575",
+  "id": "sn-582",
   "title": "개인정보 영향평가(Privacy Impact Assessment)",
   "category": "보안",
   "importance": "중",
@@ -31982,7 +32391,7 @@
   ]
  },
  {
-  "id": "sn-576",
+  "id": "sn-583",
   "title": "정보보호 및 개인정보보호 관리체계 인증(ISMS-P)",
   "category": "보안",
   "importance": "상",
@@ -32027,7 +32436,7 @@
   ]
  },
  {
-  "id": "sn-577",
+  "id": "sn-584",
   "title": "정보보호 공시제도",
   "category": "보안",
   "importance": "상",
@@ -32090,7 +32499,7 @@
   ]
  },
  {
-  "id": "sn-578",
+  "id": "sn-585",
   "title": "사이버 보안 성숙도 모델 인증(CMMC, Cybersecurity Maturity Model Certification)",
   "category": "보안",
   "importance": "하",
@@ -32130,7 +32539,7 @@
   ]
  },
  {
-  "id": "sn-579",
+  "id": "sn-586",
   "title": "사이버 게놈(Cyber genome)",
   "category": "보안",
   "importance": "하",
@@ -32174,7 +32583,7 @@
   ]
  },
  {
-  "id": "sn-580",
+  "id": "sn-587",
   "title": "디지털 포렌식(Digital Forensic)",
   "category": "보안",
   "importance": "상",
@@ -32243,7 +32652,7 @@
   ]
  },
  {
-  "id": "sn-581",
+  "id": "sn-588",
   "title": "클라우드 포렌식(Cloud Forensic)",
   "category": "보안",
   "importance": "상",
@@ -32285,7 +32694,7 @@
   ]
  },
  {
-  "id": "sn-582",
+  "id": "sn-589",
   "title": "안티 포렌식(Anti-forensic)",
   "category": "보안",
   "importance": "상",
@@ -32348,7 +32757,7 @@
   ]
  },
  {
-  "id": "sn-583",
+  "id": "sn-590",
   "title": "블록체인 암호기술 가이드라인",
   "category": "보안",
   "importance": "중",
@@ -32412,7 +32821,7 @@
   ]
  },
  {
-  "id": "sn-584",
+  "id": "sn-591",
   "title": "자율주행 자동차 보안취약점 및 대응방안",
   "category": "보안",
   "importance": "상",
@@ -32505,7 +32914,7 @@
   ]
  },
  {
-  "id": "sn-585",
+  "id": "sn-592",
   "title": "스마트시티 보안취약점 및 대응방안",
   "category": "보안",
   "importance": "중",
@@ -32570,7 +32979,7 @@
   ]
  },
  {
-  "id": "sn-586",
+  "id": "sn-593",
   "title": "스마트팩토리 보안취약점 및 대응방안",
   "category": "보안",
   "importance": "상",
@@ -32647,7 +33056,7 @@
   ]
  },
  {
-  "id": "sn-587",
+  "id": "sn-594",
   "title": "클라우드 컴퓨팅 취약점, 대응기술",
   "category": "보안",
   "importance": "중",
@@ -32728,7 +33137,7 @@
   ]
  },
  {
-  "id": "sn-588",
+  "id": "sn-595",
   "title": "디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안",
   "category": "보안",
   "importance": "상",
@@ -32782,7 +33191,7 @@
   ]
  },
  {
-  "id": "sn-589",
+  "id": "sn-596",
   "title": "국가 망 보안체계(N2SF)",
   "category": "보안",
   "importance": "상",
@@ -32843,7 +33252,7 @@
   ]
  },
  {
-  "id": "sn-590",
+  "id": "sn-597",
   "title": "AI 프라이버시 리스크 관리",
   "category": "보안",
   "importance": "중",
@@ -32901,7 +33310,7 @@
   ]
  },
  {
-  "id": "sn-591",
+  "id": "sn-598",
   "title": "AI Agent 보안위협",
   "category": "보안",
   "importance": "중",
@@ -32966,7 +33375,7 @@
   ]
  },
  {
-  "id": "sn-592",
+  "id": "sn-599",
   "title": "OWASP Agentic AI 위협 및 대응방안(Agentic AI Threats and Mitigations)",
   "category": "보안",
   "importance": "중",
@@ -33054,7 +33463,7 @@
   ]
  },
  {
-  "id": "sn-593",
+  "id": "sn-600",
   "title": "도메인 특화 언어 모델(Domain-Specific Language Model)",
   "category": "디지털서비스",
   "importance": "중",
@@ -33098,7 +33507,7 @@
   ]
  },
  {
-  "id": "sn-594",
+  "id": "sn-601",
   "title": "데이터 상호 운용성 & 데이터 이동권",
   "category": "디지털서비스",
   "importance": "중",
@@ -33144,7 +33553,7 @@
   ]
  },
  {
-  "id": "sn-595",
+  "id": "sn-602",
   "title": "AP2(Agent Payment Protocol)",
   "category": "디지털서비스",
   "importance": "중",
@@ -33203,7 +33612,7 @@
   ]
  },
  {
-  "id": "sn-596",
+  "id": "sn-603",
   "title": "UCP(Universal Commerce Protocol)",
   "category": "디지털서비스",
   "importance": "중",
@@ -33252,7 +33661,7 @@
   ]
  },
  {
-  "id": "sn-597",
+  "id": "sn-604",
   "title": "ACP(Agentic Commerce Protocol)",
   "category": "디지털서비스",
   "importance": "중",
@@ -33285,7 +33694,7 @@
   ]
  },
  {
-  "id": "sn-598",
+  "id": "sn-605",
   "title": "스테이블 코인(Stable coin)",
   "category": "디지털서비스",
   "importance": "중",
@@ -33364,7 +33773,7 @@
   ]
  },
  {
-  "id": "sn-599",
+  "id": "sn-606",
   "title": "데이터 스페이스(Data Space)",
   "category": "디지털서비스",
   "importance": "중",
@@ -33429,7 +33838,7 @@
   ]
  },
  {
-  "id": "sn-600",
+  "id": "sn-607",
   "title": "AI OS(Artificial Intelligence Operating System)",
   "category": "디지털서비스",
   "importance": "중",
@@ -64474,39 +64883,6 @@
   ]
  },
  {
-  "id": "ds-442",
-  "title": "데이터 랭글링(Data Wrangling)",
-  "category": "디지털서비스",
-  "importance": "하",
-  "source": "기필반",
-  "definition": "정리되지 않은 원시 데이터를 분석에 적합한 형태로 발견·구조화·정제·강화하는 반복적 데이터 준비 과정.",
-  "defShort": "정리되지 않은 원시 데이터를 정제·구조화·검증해 분석에 맞는 형태로 바꾸는 과정",
-  "memo": "'발구정강검배' — 발로 구정물을 강에서 검사해 배포한다. 발견·구조화·정제·강화·검증·배포 6단계가 순서대로 나온다.",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "발구정강검배",
-    "keywords": [
-     "발견(Discovering)",
-     "구조화(Structuring)",
-     "정제(Cleansing)",
-     "강화(Enriching)",
-     "검증(Validating)",
-     "배포(Publishing)"
-    ]
-   }
-  ],
-  "mnemonic": "발구정강검배",
-  "keywords": [
-   "발견(Discovering)",
-   "구조화(Structuring)",
-   "정제(Cleansing)",
-   "강화(Enriching)",
-   "검증(Validating)",
-   "배포(Publishing)"
-  ]
- },
- {
   "id": "ds-443",
   "title": "디지털 권리장전",
   "category": "디지털서비스",
@@ -88574,62 +88950,6 @@
   ]
  },
  {
-  "id": "db-142",
-  "title": "데이터 전처리",
-  "category": "데이터베이스",
-  "importance": "중",
-  "source": "기필반",
-  "definition": "원시 데이터의 결측·이상·중복·형식 불일치를 제거하고 분석 목적에 맞는 형태로 가공하여 모델 성능과 신뢰도를 확보하는 데이터 분석 선행 처리 과정.",
-  "defShort": "원시 데이터를 정제·통합·축소·변환으로 가공해 모델 품질을 확보하는 선행 과정",
-  "memo": "정통축변 — '정통(正統) 축변'으로 읽는다. 정제·통합·축소·변환 순서.",
-  "sections": [
-   {
-    "label": "절차",
-    "mnemonic": "정통축변",
-    "keywords": [
-     "데이터 정제",
-     "데이터 통합",
-     "데이터 축소",
-     "데이터 변환"
-    ]
-   }
-  ],
-  "mnemonic": "정통축변",
-  "keywords": [
-   "데이터 정제",
-   "데이터 통합",
-   "데이터 축소",
-   "데이터 변환"
-  ]
- },
- {
-  "id": "db-143",
-  "title": "데이터 클렌징(Cleansing)",
-  "category": "데이터베이스",
-  "importance": "상",
-  "source": "기필반",
-  "definition": "레코드 세트·테이블·데이터베이스에서 손상되거나 부정확한 레코드를 감지·식별하고 교체·삭제·수정의 전처리를 통해 데이터 품질을 확보하는 프로세스",
-  "defShort": "부정확한 레코드를 감지해 교체·삭제·수정 전처리로 품질 확보하는 정제 프로세스",
-  "memo": "빨래 스토리: 얼룩 찾기(감지)→버릴지 기울지 판단(식별)→세탁·수선(정제). 결측은 채우고(Imputation) 이상치는 IQR 잣대로 골라낸다.",
-  "sections": [
-   {
-    "label": "주요 기법",
-    "mnemonic": "",
-    "keywords": [
-     "결측치/이상치 제거(Filtering)",
-     "결측치 변환(Avg·Median·Random)",
-     "이상치 탐지(1.5×IQR Box-plot)"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "결측치/이상치 제거(Filtering)",
-   "결측치 변환(Avg·Median·Random)",
-   "이상치 탐지(1.5×IQR Box-plot)"
-  ]
- },
- {
   "id": "db-147",
   "title": "클러스터링",
   "category": "데이터베이스",
@@ -89300,46 +89620,6 @@
    "Data 체계관리",
    "Process 관리",
    "EAI(연계)"
-  ]
- },
- {
-  "id": "db-172",
-  "title": "데이터 품질 관리",
-  "category": "데이터베이스",
-  "importance": "중",
-  "source": "기필반",
-  "definition": "데이터의 값·구조·관리 프로세스가 업무 목적에 부합하도록 품질 기준을 정의하고 진단·개선을 지속 수행하는 데이터 관리 활동.",
-  "defShort": "데이터 값·구조·프로세스 품질 기준을 정의하고 진단·개선을 지속하는 관리 활동",
-  "memo": "성숙수준은 도정통정최(도입·정형화·통합화·정량화·최적화). 품질기준 6개는 '정일유접적보'(정확·일관·유용·접근·적시·보안)로 함께 외운다.",
-  "sections": [
-   {
-    "label": "성숙수준",
-    "mnemonic": "도정통정최",
-    "keywords": [
-     "도입",
-     "정형화",
-     "통합화",
-     "정량화",
-     "최적화"
-    ]
-   },
-   {
-    "label": "품질요소",
-    "mnemonic": "",
-    "keywords": [
-     "데이터 값",
-     "데이터 구조",
-     "데이터 관리 프로세스"
-    ]
-   }
-  ],
-  "mnemonic": "도정통정최",
-  "keywords": [
-   "도입",
-   "정형화",
-   "통합화",
-   "정량화",
-   "최적화"
   ]
  },
  {

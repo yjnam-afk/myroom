@@ -5000,7 +5000,7 @@ export const LEVEL_MAPS: Record<string, LevelMap[]> = {
               "LSH",
             ],
             ["코사인 유사도", "유클리드 거리", "내적", "자카드 유사도"],
-            ["벡터 임베딩", "k-d 트리", "Annoy", "그래프 기반"],
+            ["벡터 임베딩", "k-d 트리", "차원의 저주", "Brute Force"],
           ],
         },
       ],
