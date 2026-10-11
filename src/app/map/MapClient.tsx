@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { Dispatch, SetStateAction } from "react";
+import type { Dispatch, ReactNode, SetStateAction } from "react";
 import Link from "next/link";
 import { PageHeader } from "@/components/ui";
 import topics from "@/data/topics.json";
@@ -314,11 +314,11 @@ export default function MapClient({ stats }: { stats: Record<string, TopicStat> 
     <div>
       <PageHeader
         title="🗺️ 토픽 지도"
-        desc="과목 하나를 영역별로 한 장에 펼칩니다 — 색은 중요도나 출제 빈도, 토픽을 누르면 이어진 토픽이 함께 켜집니다. 토픽 하나를 자세히 보려면 토픽 설명으로 갑니다."
+        desc="과목 → 영역 → 토픽 가지로 한눈에 봅니다. 가지는 눌러서 접고 펴고, 색은 중요도나 출제 빈도, 토픽을 누르면 옆 칸에 출제·답안 수와 이어진 토픽이 나옵니다."
       />
 
       {/* 뷰 전환 */}
-      <div className="mb-4 inline-flex rounded-xl border border-slate-200 bg-slate-50 p-1">
+      <div className="mb-4 flex max-w-full overflow-x-auto rounded-xl border border-slate-200 bg-slate-50 p-1 sm:inline-flex">
         {[
           { k: "map" as const, label: "🗺️ 지도" },
           { k: "compare" as const, label: "⚖️ 비교하며 외우기" },
@@ -328,7 +328,7 @@ export default function MapClient({ stats }: { stats: Record<string, TopicStat> 
           <button
             key={v.k}
             onClick={() => setView(v.k)}
-            className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition ${
+            className={`shrink-0 whitespace-nowrap rounded-lg px-3.5 py-1.5 text-xs font-semibold transition ${
               view === v.k
                 ? "bg-white text-brand-600 shadow-sm"
                 : "text-slate-500 hover:text-slate-700"
@@ -407,264 +407,157 @@ const heatCls = (n: number) => HEAT_STEPS.find((h) => n >= h.min)!.cls;
 const short = (t: string) => t.replace(/\s*[(（][^)）]*[)）]/g, "").trim() || t;
 
 
-// ── 마인드맵 배치 ─────────────────────────────────────────────
-// 2026-10-11 "토픽지도는 마인드맵 느낌으로 만들고 싶었던 건데" — 영역 카드 격자를 가운데 과목에서
-// 가지가 뻗는 마인드맵으로 바꿨다. 영역을 잎 수로 좌우 균형 맞춰 나누고, 영역 가지마다 색을 달리한다.
+// ── 지도: 접고 펴는 가지 구조도 ─────────────────────────────────────
+// 2026-10-11 "마인드맵으로 하니까 UX 별로다" — 가운데에서 좌우로 뻗는 SVG 마인드맵은 화면이 세로로
+// 길어지고(인공지능 119토픽) 잎 글자가 작아 읽기 어려웠고, 고른 토픽 상세가 지도를 가렸다.
+// 이제 왼쪽에서 오른쪽으로 뻗는 구조도(과목 → 영역 → 토픽 묶음)로 그리고 가지를 접고 편다.
+// 토픽은 영역 옆에 칩으로 모아 한 줄에 여럿 보이게 하고, 고른 토픽 상세는 오른쪽(모바일은 아래) 칸에 둔다.
 const BRANCH = ["#e11d48", "#2563eb", "#059669", "#d97706", "#7c3aed", "#0891b2", "#db2777", "#65a30d", "#ea580c", "#4f46e5", "#0d9488", "#b45309", "#9333ea", "#475569", "#be123c"];
-// 너비는 화면 칸에 맞춘다(좁으면 MM_MIN_W 로 두고 안에서 가로 스크롤). 잎은 양끝 LEAF_MAX 칸을 쓴다.
-const MM_MIN_W = 960;
-const LEAF_MAX = 200;
-const AREA_W = 150;
-const LEAF_H = 30;
-const GROUP_GAP = 18;
 
-function MindMap({
-  cat,
-  areas,
-  stats,
-  mode,
-  sel,
-  linked,
-  dimOthers,
-  isMatch,
-  onPick,
-}: {
-  cat: string;
-  areas: { name: string; items: MapTopic[] }[];
-  stats: Record<string, TopicStat>;
-  mode: "priority" | "heat";
-  sel: string | null;
-  linked: Set<string>;
-  dimOthers: boolean;
-  isMatch: (t: MapTopic) => boolean;
-  onPick: (title: string) => void;
-}) {
-  const box = useRef<HTMLDivElement>(null);
-  const [boxW, setBoxW] = useState(0);
-  useEffect(() => {
-    const el = box.current;
-    if (!el) return;
-    const ro = new ResizeObserver(() => setBoxW(el.clientWidth));
-    ro.observe(el);
-    setBoxW(el.clientWidth);
-    return () => ro.disconnect();
-  }, []);
-  const MM_W = Math.max(MM_MIN_W, boxW);
-  const MM_CX = MM_W / 2;
-  const LEAF_DX = MM_CX - LEAF_MAX - 8; // 가운데 → 잎 안쪽 끝
-  const AREA_DX = LEAF_DX - AREA_W / 2 - 45; // 가운데 → 영역 마디 중심
+type Area = { name: string; items: MapTopic[] };
+const areasOf = (items: MapTopic[]): Area[] => {
+  const out: Area[] = [];
+  for (const t of items) {
+    const last = out[out.length - 1];
+    if (last && last.name === t.area) last.items.push(t);
+    else out.push({ name: t.area, items: [t] });
+  }
+  return out;
+};
 
-  // 좌우 나누기 — 앞 영역부터 오른쪽에 채우다 잎 수가 절반을 넘으면 왼쪽으로(교재 순서: 오른쪽 위 → 아래, 왼쪽 위 → 아래)
-  const total = areas.reduce((n, a) => n + a.items.length, 0);
-  const right: number[] = [];
-  const left: number[] = [];
-  let acc = 0;
-  areas.forEach((a, i) => {
-    if (acc < total / 2 || right.length === 0) {
-      right.push(i);
-      acc += a.items.length;
-    } else left.push(i);
-  });
-  const sideH = (idx: number[]) =>
-    idx.reduce((h, i) => h + areas[i].items.length * LEAF_H, 0) + Math.max(0, idx.length - 1) * GROUP_GAP;
-  const H = Math.max(sideH(right), sideH(left), 200) + 40;
-
-  type Leaf = { t: MapTopic; x: number; y: number; side: 1 | -1; color: string };
-  type Node = { name: string; n: number; x: number; y: number; side: 1 | -1; color: string };
-  const leaves: Leaf[] = [];
-  const nodes: Node[] = [];
-  const place = (idx: number[], side: 1 | -1) => {
-    let y = (H - sideH(idx)) / 2;
-    for (const i of idx) {
-      const a = areas[i];
-      const color = BRANCH[i % BRANCH.length];
-      const y0 = y;
-      for (const t of a.items) {
-        leaves.push({ t, x: MM_CX + side * LEAF_DX, y: y + LEAF_H / 2, side, color });
-        y += LEAF_H;
-      }
-      nodes.push({ name: a.name, n: a.items.length, x: MM_CX + side * AREA_DX, y: (y0 + y) / 2, side, color });
-      y += GROUP_GAP;
-    }
-  };
-  place(right, 1);
-  place(left, -1);
-  const cy = H / 2;
-  const leafAt = new Map(leaves.map((l) => [l.t.title, l]));
-  const selLeaf = sel ? leafAt.get(sel) : undefined;
-
-  const curve = (x1: number, y1: number, x2: number, y2: number) => {
-    const mx = (x1 + x2) / 2;
-    return `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`;
-  };
-
+/** 가지 묶음 — 왼쪽 세로줄에서 자식마다 가로줄을 뻗는다 */
+function Twigs({ color, children }: { color: string; children: ReactNode[] }) {
+  // 검색으로 걸러진 가지(null)는 줄도 긋지 않는다
+  const kids = children.filter(Boolean);
+  const n = kids.length;
   return (
-    <div ref={box} className="overflow-x-auto rounded-2xl border border-slate-200 bg-white">
-      <div className="relative" style={{ width: MM_W, height: H }}>
-        <svg className="absolute inset-0" width={MM_W} height={H}>
-          {nodes.map((nd) => (
-            <path
-              key={`c-${nd.name}`}
-              d={curve(MM_CX + nd.side * 70, cy, nd.x - nd.side * (AREA_W / 2), nd.y)}
-              fill="none"
-              stroke={nd.color}
-              strokeWidth={3}
-              strokeOpacity={dimOthers ? 0.25 : 0.7}
+    <div className="flex min-w-0 flex-1 flex-col">
+      {kids.map((c, i) => (
+        <div key={i} className="relative min-w-0 py-1 pl-5">
+          <span className="absolute left-0 top-1/2 h-0.5 w-5" style={{ background: color }} />
+          {n > 1 && (
+            <span
+              className="absolute left-0 w-0.5"
+              style={{ background: color, top: i === 0 ? "50%" : 0, bottom: i === n - 1 ? "50%" : 0 }}
             />
-          ))}
-          {leaves.map((l) => {
-            const nd = nodes.find((n) => n.name === l.t.area && n.side === l.side)!;
-            const lit = sel === l.t.title || linked.has(l.t.title) || isMatch(l.t);
-            return (
-              <path
-                key={`l-${l.t.title}`}
-                d={curve(nd.x + l.side * (AREA_W / 2), nd.y, l.x, l.y)}
-                fill="none"
-                stroke={nd.color}
-                strokeWidth={1.5}
-                strokeOpacity={dimOthers && !lit ? 0.12 : 0.55}
-              />
-            );
-          })}
-          {/* 고른 토픽 ↔ 이어진 토픽 — 점선 */}
-          {selLeaf &&
-            Array.from(linked).map((t) => {
-              const o = leafAt.get(t);
-              if (!o) return null;
-              // 잎의 안쪽 끝(가지가 닿는 쪽)끼리, 가운데 쪽으로 휘게 잇는다
-              const x1 = selLeaf.x - selLeaf.side * 4;
-              const x2 = o.x - o.side * 4;
-              return (
-                <path
-                  key={`x-${t}`}
-                  d={`M${x1},${selLeaf.y} C${x1 - selLeaf.side * 90},${selLeaf.y} ${x2 - o.side * 90},${o.y} ${x2},${o.y}`}
-                  fill="none"
-                  stroke="#6366f1"
-                  strokeWidth={1.5}
-                  strokeDasharray="4 3"
-                />
-              );
-            })}
-        </svg>
-
-        {/* 가운데 — 과목 */}
-        <div
-          className="absolute flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-slate-900 px-5 py-3 text-center text-sm font-bold text-white shadow-lg"
-          style={{ left: MM_CX, top: cy, minWidth: 140 }}
-        >
-          {cat === "전체" ? "정보관리기술사" : cat}
+          )}
+          {c}
         </div>
-
-        {/* 영역 마디 */}
-        {nodes.map((nd) => (
-          <div
-            key={`n-${nd.name}`}
-            className="absolute -translate-x-1/2 -translate-y-1/2 truncate rounded-xl border-2 bg-white px-2.5 py-1 text-center text-[12px] font-bold shadow-sm"
-            style={{ left: nd.x, top: nd.y, width: AREA_W, borderColor: nd.color, color: nd.color, opacity: dimOthers ? 0.6 : 1 }}
-            title={`${nd.name} · ${nd.n}토픽`}
-          >
-            {nd.name} <span className="font-normal opacity-60">{nd.n}</span>
-          </div>
-        ))}
-
-        {/* 잎 — 토픽 */}
-        {leaves.map((l) => {
-          const t = l.t;
-          const s = stats[t.title];
-          const n = t.go ? (mode === "heat" ? t.heatN ?? 0 : t.count ?? 0) : mode === "heat" ? s?.past ?? 0 : hits(s);
-          const color = mode === "heat" ? heatCls(t.go ? t.heatN ?? 0 : n) : PRI_CHIP[t.priority ?? "하"] ?? PRI_CHIP.하;
-          const isSel = sel === t.title;
-          const lit = isSel || linked.has(t.title) || isMatch(t);
-          return (
-            <button
-              key={`t-${t.title}`}
-              onClick={() => onPick(t.title)}
-              title={`${t.title}${t.summary ? `\n${t.summary}` : ""}`}
-              className={`absolute max-w-[200px] -translate-y-1/2 truncate whitespace-nowrap rounded-full border px-2.5 py-[3px] text-[12px] leading-tight transition ${color} ${
-                t.sub || t.go ? "" : "border-dashed"
-              } ${t.priority === "상" ? "font-semibold" : ""} ${
-                isSel ? "ring-2 ring-brand-500 ring-offset-1" : linked.has(t.title) ? "ring-2 ring-indigo-300" : ""
-              } ${dimOthers && !lit ? "opacity-25" : ""}`}
-              style={l.side === 1 ? { left: l.x, top: l.y } : { right: MM_W - l.x, top: l.y }}
-            >
-              {t.label ?? short(t.title)}
-              {n > 0 && <sup className="ml-0.5 text-[9px] opacity-70">{n}</sup>}
-              {t.sub && !s?.ans && !s?.com && <span className="ml-0.5 text-[9px] opacity-60">○</span>}
-            </button>
-          );
-        })}
-      </div>
+      ))}
     </div>
   );
 }
 
 function MapView({ query, stats }: { query: string; stats: Record<string, TopicStat> }) {
   const doms = sortDomains(Object.keys(TOPICS_BY_CAT).filter((c) => TOPICS_BY_CAT[c].length > 0));
-  // 「전체」 — 가운데 정보관리기술사, 가지 = 과목, 잎 = 과목의 영역(누르면 그 과목 지도로)
   const cats = ["전체", ...doms];
   const [cat, setCat] = useState("전체");
   const [mode, setMode] = useState<"priority" | "heat">("priority");
   const [sel, setSel] = useState<string | null>(null);
   const [showTables, setShowTables] = useState(false);
+  // 펼친 가지 — 과목 지도는 영역을 다 편 채로, 전체 지도는 과목만 보이게 시작한다
+  const [open, setOpen] = useState<Set<string>>(new Set());
+  const [closed, setClosed] = useState<Set<string>>(new Set());
 
   const overview = cat === "전체";
   const list = overview ? doms.flatMap((c) => TOPICS_BY_CAT[c]) : TOPICS_BY_CAT[cat] ?? [];
-  const areasOf = (items: MapTopic[]) => {
-    const out: { name: string; items: MapTopic[] }[] = [];
-    for (const t of items) {
-      const last = out[out.length - 1];
-      if (last && last.name === t.area) last.items.push(t);
-      else out.push({ name: t.area, items: [t] });
-    }
-    return out;
-  };
-  const areas: { name: string; items: MapTopic[] }[] = overview
-    ? doms.map((c) => ({
-        name: c,
-        items: areasOf(TOPICS_BY_CAT[c]).map((a) => {
-          const top = a.items.filter((t) => t.priority === "상").length;
-          const past = a.items.reduce((n, t) => n + (stats[t.title]?.past ?? 0), 0);
-          return {
-            title: `${c}::${a.name}`,
-            label: a.name,
-            count: a.items.length,
-            // 영역 빈도 = 토픽당 평균 기출(올림) — 토픽 수가 많은 영역만 진해지지 않게
-            heatN: Math.ceil(past / a.items.length),
-            priority: top >= 3 ? "상" : top >= 1 ? "중" : "하",
-            summary: a.items.map((t) => short(t.title)).join(" · "),
-            area: c,
-            go: c,
-          } as MapTopic;
-        }),
-      }))
-    : areasOf(list);
-  const selected = sel ? list.find((t) => t.title === sel) : undefined;
+  const selected = sel ? ALL_MAP_TOPICS.find((x) => x.t.title === sel)?.t : undefined;
   const linked = new Set(selected ? linksOf(selected.title) : []);
   const match = (t: MapTopic) =>
     !!query && (t.title.toLowerCase().includes(query) || t.summary.toLowerCase().includes(query));
-  const pick = (title: string) => {
-    const leaf = areas.flatMap((a) => a.items).find((t) => t.title === title);
-    if (leaf?.go) {
-      setCat(leaf.go);
-      setSel(null);
-      return;
-    }
-    setSel(sel === title ? null : title);
+  // 전체 지도 — 과목 가지는 접힌 채 시작(누르면 영역), 영역은 누르면 토픽. 과목 지도 — 영역이 다 펴져 있다.
+  const isOpen = (key: string, byDefault: boolean) =>
+    (query && key.includes("::") ? true : false) || (byDefault ? !closed.has(key) : open.has(key));
+  const toggle = (key: string, byDefault: boolean) => {
+    const set = byDefault ? closed : open;
+    const next = new Set(set);
+    if (next.has(key)) next.delete(key);
+    else next.add(key);
+    (byDefault ? setClosed : setOpen)(next);
+  };
+  const go = (c: string) => {
+    setCat(c);
+    setSel(null);
+    setShowTables(false);
+    setOpen(new Set());
+    setClosed(new Set());
+  };
+  const pick = (t: MapTopic) => {
+    setSel(sel === t.title ? null : t.title);
     setShowTables(false);
   };
-  // 검색어가 다른 과목에 걸리면 그 과목으로 건너갈 수 있게
-  const elsewhere = query
-    ? cats
-        .filter((c) => c !== cat && c !== "전체")
-        .map((c) => ({ c, n: TOPICS_BY_CAT[c].filter(match).length }))
-        .filter((x) => x.n > 0)
-    : [];
 
   const pri = { 상: 0, 중: 0, 하: 0 } as Record<string, number>;
   for (const t of list) if (t.priority) pri[t.priority]++;
   const noAns = list.filter((t) => t.sub && !stats[t.title]?.ans && !stats[t.title]?.com).length;
   const asked = list.filter((t) => (stats[t.title]?.past ?? 0) > 0).length;
   const st = selected ? stats[selected.title] : undefined;
+  const matchCount = query ? list.filter(match).length : 0;
+
+  const Chip = ({ t }: { t: MapTopic }) => {
+    const s = stats[t.title];
+    const n = mode === "heat" ? s?.past ?? 0 : hits(s);
+    const color = mode === "heat" ? heatCls(n) : PRI_CHIP[t.priority ?? "하"] ?? PRI_CHIP.하;
+    const isSel = sel === t.title;
+    return (
+      <button
+        onClick={() => pick(t)}
+        title={`${t.title}${t.summary ? `\n${t.summary}` : ""}`}
+        className={`rounded-full border px-2.5 py-1 text-left text-[12.5px] leading-tight transition hover:shadow ${color} ${
+          t.sub ? "" : "border-dashed"
+        } ${t.priority === "상" ? "font-semibold" : ""} ${
+          isSel
+            ? "ring-2 ring-brand-600 ring-offset-1"
+            : linked.has(t.title)
+              ? "ring-2 ring-indigo-400"
+              : match(t)
+                ? "ring-2 ring-yellow-400"
+                : ""
+        }`}
+      >
+        {short(t.title)}
+        {n > 0 && <sup className="ml-0.5 text-[9px] opacity-70">{n}</sup>}
+        {t.sub && !s?.ans && !s?.com && <span className="ml-0.5 text-[9px] opacity-60">○</span>}
+      </button>
+    );
+  };
+
+  // 영역 가지 하나 — [영역] ── 토픽 칩 묶음
+  const AreaRow = ({ a, color, dom }: { a: Area; color: string; dom: string }) => {
+    const key = `${dom}::${a.name}`;
+    const o = isOpen(key, !overview);
+    const hit = query ? a.items.filter(match).length : 0;
+    if (query && !hit) return null;
+    const top = a.items.filter((t) => t.priority === "상").length;
+    return (
+      <div className="flex min-w-0 flex-col sm:flex-row sm:items-center">
+        <button
+          onClick={() => toggle(key, !overview)}
+          className="flex w-full shrink-0 items-center justify-between gap-1 rounded-lg border-2 bg-white px-2.5 py-1 text-left text-[12.5px] font-bold sm:w-44"
+          style={{ borderColor: color, color }}
+        >
+          <span className="truncate">{a.name}</span>
+          <span className="shrink-0 text-[10px] font-normal text-slate-400">
+            {a.items.length}
+            {top ? <span className="text-rose-500"> ·상{top}</span> : null} {o ? "▾" : "▸"}
+          </span>
+        </button>
+        {o && (
+          <>
+            <span className="ml-4 h-2 w-0.5 sm:ml-0 sm:h-0.5 sm:w-4" style={{ background: color }} />
+            <div
+              className="ml-4 flex min-w-0 flex-1 flex-wrap gap-1.5 rounded-xl border border-dashed px-2 py-1.5 sm:ml-0"
+              style={{ borderColor: color }}
+            >
+              {a.items.map((t) => (
+                <Chip key={t.title} t={t} />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    );
+  };
 
   return (
     <div>
@@ -674,11 +567,7 @@ function MapView({ query, stats }: { query: string; stats: Record<string, TopicS
           return (
             <button
               key={c}
-              onClick={() => {
-                setCat(c);
-                setSel(null);
-                setShowTables(false);
-              }}
+              onClick={() => go(c)}
               className={`rounded-full border px-3 py-1.5 text-xs font-medium transition ${
                 active
                   ? "border-brand-600 bg-brand-600 text-white"
@@ -694,49 +583,39 @@ function MapView({ query, stats }: { query: string; stats: Record<string, TopicS
         })}
       </div>
 
-      {elsewhere.length > 0 && (
-        <p className="mb-3 text-xs text-slate-500">
-          다른 과목에도 있어요:{" "}
-          {elsewhere.map((x) => (
-            <button
-              key={x.c}
-              onClick={() => {
-                setCat(x.c);
-                setSel(null);
-              }}
-              className="mr-1.5 rounded-full border border-brand-200 bg-brand-50 px-2 py-0.5 text-brand-700"
-            >
-              {x.c} {x.n}
-            </button>
-          ))}
-        </p>
-      )}
-
-      {/* 과목 한눈 요약 + 색 기준 */}
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5">
+      {/* 요약 + 색 기준 + 펼치기 */}
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5">
         <p className="text-xs text-slate-600">
-          <b className="text-slate-900">{overview ? "전체 도메인" : cat}</b> ·{" "}
-          {overview ? `과목 ${areas.length} · 영역 ${areas.reduce((n, a) => n + a.items.length, 0)}` : `영역 ${areas.length}`} · 토픽 {list.length}
+          <b className="text-slate-900">{overview ? "전체 도메인" : cat}</b> · 토픽 {list.length}
           <span className="mx-1.5 text-slate-300">|</span>
           <span className="text-rose-700">상 {pri.상}</span> · <span className="text-sky-700">중 {pri.중}</span> · 하 {pri.하}
           <span className="mx-1.5 text-slate-300">|</span>
           기술사 기출 토픽 {asked} · 답안 없는 토픽 {noAns}
+          {query && <b className="ml-1.5 text-amber-700">· 찾은 토픽 {matchCount}</b>}
         </p>
-        <div className="inline-flex rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-[11px]">
-          {[
-            { k: "priority" as const, label: "중요도" },
-            { k: "heat" as const, label: "출제 빈도" },
-          ].map((m) => (
+        <div className="flex items-center gap-1.5">
+          {!overview && (
             <button
-              key={m.k}
-              onClick={() => setMode(m.k)}
-              className={`rounded-md px-2.5 py-1 font-semibold ${
-                mode === m.k ? "bg-white text-brand-600 shadow-sm" : "text-slate-500"
-              }`}
+              onClick={() => setClosed(closed.size ? new Set() : new Set(areasOf(list).map((a) => `${cat}::${a.name}`)))}
+              className="rounded-md border border-slate-200 px-2 py-1 text-[11px] text-slate-500"
             >
-              {m.label}
+              {closed.size ? "모두 펼치기" : "모두 접기"}
             </button>
-          ))}
+          )}
+          <div className="inline-flex rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-[11px]">
+            {[
+              { k: "priority" as const, label: "중요도" },
+              { k: "heat" as const, label: "출제 빈도" },
+            ].map((m) => (
+              <button
+                key={m.k}
+                onClick={() => setMode(m.k)}
+                className={`rounded-md px-2.5 py-1 font-semibold ${mode === m.k ? "bg-white text-brand-600 shadow-sm" : "text-slate-500"}`}
+              >
+                {m.label}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -744,118 +623,194 @@ function MapView({ query, stats }: { query: string; stats: Record<string, TopicS
       <div className="mb-3 flex flex-wrap items-center gap-1.5 text-[11px] text-slate-500">
         {mode === "priority" ? (
           <>
-            <span className={`rounded border px-1.5 py-0.5 ${PRI_CHIP.상}`}>상 ★★★</span>
-            <span className={`rounded border px-1.5 py-0.5 ${PRI_CHIP.중}`}>중 ★★</span>
-            <span className={`rounded border px-1.5 py-0.5 ${PRI_CHIP.하}`}>하 ★</span>
+            <span className={`rounded-full border px-2 py-0.5 ${PRI_CHIP.상}`}>상 ★★★</span>
+            <span className={`rounded-full border px-2 py-0.5 ${PRI_CHIP.중}`}>중 ★★</span>
+            <span className={`rounded-full border px-2 py-0.5 ${PRI_CHIP.하}`}>하 ★</span>
           </>
         ) : (
           HEAT_STEPS.map((h) => (
-            <span key={h.label} className={`rounded border px-1.5 py-0.5 ${h.cls}`}>
+            <span key={h.label} className={`rounded-full border px-2 py-0.5 ${h.cls}`}>
               {h.label}
             </span>
           ))
         )}
         <span className="ml-1">
           {overview
-            ? `· 잎 = 과목의 영역(누르면 그 과목 지도) · 숫자 = ${mode === "heat" ? "토픽당 평균 기출" : "토픽 수"} · 색 = ${
-                mode === "heat" ? "평균 기출" : "상 토픽 3개 이상이면 상, 1개 이상이면 중"
-              }`
+            ? `· 영역 칩 숫자 = 토픽 수 · 색 = ${mode === "heat" ? "토픽당 평균 기출" : "상 토픽 3개 이상 상 / 1개 이상 중"} · 영역을 누르면 그 과목 지도`
             : `· 숫자 = ${mode === "heat" ? "기술사 기출 횟수" : "출제 횟수(기출·NS·모의)"} · ○ = 모범답안·해설 없음 · 점선 = 교재 정리 전`}
         </span>
       </div>
 
-      {/* 마인드맵 — 가운데 과목, 양옆으로 영역 가지, 끝에 토픽 잎 */}
-      <MindMap
-        cat={cat}
-        areas={areas}
-        stats={stats}
-        mode={mode}
-        sel={sel}
-        linked={linked}
-        dimOthers={!!selected || !!query}
-        isMatch={match}
-        onPick={pick}
-      />
-
-      {/* 고른 토픽 — 지도 아래 상세 */}
-      {selected && (
-        <div className="sticky bottom-3 mt-4 rounded-2xl border border-brand-200 bg-white p-4 shadow-lg">
-          <div className="flex flex-wrap items-start justify-between gap-2">
-            <div className="min-w-0">
-              <p className="text-[11px] text-slate-400">
-                {cat} › {selected.area}
-                {selected.priority && <> · 중요도 {selected.priority}</>}
-                {selected.level && <> · {selected.level}</>}
-              </p>
-              <h3 className="font-bold text-slate-900">{selected.title}</h3>
-              <p className="mt-0.5 text-xs text-slate-600">{selected.summary || "교재 정리 전 — CONTENTS 에만 있는 토픽"}</p>
+      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_300px]">
+        {/* 구조도 */}
+        <div className="min-w-0 rounded-2xl border border-slate-200 bg-white p-3 sm:p-4">
+          {overview ? (
+            <Twigs color="#0f172a">
+              {doms.map((c, di) => {
+                const color = BRANCH[di % BRANCH.length];
+                const areas = areasOf(TOPICS_BY_CAT[c]);
+                const hit = query ? TOPICS_BY_CAT[c].filter(match).length : 0;
+                if (query && !hit) return null;
+                const top = TOPICS_BY_CAT[c].filter((t) => t.priority === "상").length;
+                return (
+                  <div key={c} className="flex min-w-0 flex-col sm:flex-row sm:items-center">
+                    <button
+                      onClick={() => go(c)}
+                      title={`${c} 지도로`}
+                      className="flex w-full shrink-0 items-center justify-between gap-1 whitespace-nowrap rounded-xl px-3 py-2 text-left text-[13px] font-bold text-white shadow-sm sm:w-40"
+                      style={{ background: color }}
+                    >
+                      <span>{c}</span>
+                      <span className="text-[10px] font-normal opacity-90">
+                        {TOPICS_BY_CAT[c].length} · 상{top} ›
+                      </span>
+                    </button>
+                    <span className="ml-4 h-2 w-0.5 sm:ml-0 sm:h-0.5 sm:w-4" style={{ background: color }} />
+                    {/* 영역 묶음 — 누르면 그 과목 지도에서 그 영역만 펼친다 */}
+                    <div
+                      className="ml-4 flex min-w-0 flex-1 flex-wrap gap-1.5 rounded-xl border border-dashed px-2 py-1.5 sm:ml-0"
+                      style={{ borderColor: color }}
+                    >
+                      {areas.map((a) => {
+                        const n = query ? a.items.filter(match).length : a.items.length;
+                        if (query && !n) return null;
+                        const past = a.items.reduce((k, t) => k + (stats[t.title]?.past ?? 0), 0);
+                        const atop = a.items.filter((t) => t.priority === "상").length;
+                        const cls =
+                          mode === "heat"
+                            ? heatCls(Math.ceil(past / a.items.length))
+                            : PRI_CHIP[atop >= 3 ? "상" : atop >= 1 ? "중" : "하"];
+                        return (
+                          <button
+                            key={a.name}
+                            onClick={() => {
+                              go(c);
+                              // 그 영역만 펴 두고 나머지는 접는다
+                              setClosed(new Set(areas.filter((x) => x.name !== a.name).map((x) => `${c}::${x.name}`)));
+                            }}
+                            className={`rounded-full border px-2.5 py-1 text-[12px] leading-tight hover:shadow ${cls}`}
+                          >
+                            {a.name}
+                            <sup className="ml-0.5 text-[9px] opacity-70">{n}</sup>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </Twigs>
+          ) : (
+            <div className="flex min-w-0 flex-col sm:flex-row sm:items-center">
+              <div className="flex shrink-0 items-center justify-center whitespace-nowrap rounded-2xl bg-slate-900 px-4 py-2 text-sm font-bold text-white shadow sm:py-3">
+                {cat}
+              </div>
+              <span className="ml-4 h-2 w-0.5 bg-slate-900 sm:ml-0 sm:h-0.5 sm:w-4" />
+              <div className="ml-4 min-w-0 flex-1 sm:ml-0">
+                <Twigs color="#0f172a">
+                  {areasOf(list).map((a, i) => (
+                    <AreaRow key={a.name} a={a} color={BRANCH[i % BRANCH.length]} dom={cat} />
+                  ))}
+                </Twigs>
+              </div>
             </div>
-            <div className="flex shrink-0 gap-1.5">
+          )}
+          {query && matchCount === 0 && <p className="p-4 text-center text-sm text-slate-400">찾은 토픽이 없습니다.</p>}
+        </div>
+
+        {/* 고른 토픽 — 넓은 화면은 오른쪽에 붙어 있고, 좁은 화면은 아래에서 올라온다 */}
+        <aside
+          className={`${
+            selected ? "fixed inset-x-0 bottom-0 z-30 max-h-[60vh] overflow-y-auto rounded-t-2xl shadow-2xl" : "hidden"
+          } border border-slate-200 bg-white p-4 lg:sticky lg:top-20 lg:z-auto lg:block lg:max-h-[calc(100vh-6rem)] lg:self-start lg:overflow-y-auto lg:rounded-2xl lg:shadow-sm`}
+        >
+          {!selected ? (
+            <p className="text-xs leading-relaxed text-slate-400">
+              토픽을 누르면 여기에 정의·출제·답안 수와 이어진 토픽이 나옵니다. 영역 이름을 누르면 가지를 접고 폅니다.
+            </p>
+          ) : (
+            <>
+              <div className="flex items-start justify-between gap-2">
+                <p className="text-[11px] text-slate-400">
+                  {selected.area}
+                  {selected.priority && <> · 중요도 {selected.priority}</>}
+                  {selected.level && <> · {selected.level}</>}
+                </p>
+                <button onClick={() => setSel(null)} className="rounded-md border border-slate-200 px-1.5 text-xs text-slate-500">
+                  ✕
+                </button>
+              </div>
+              <h3 className="mt-0.5 font-bold text-slate-900">{selected.title}</h3>
+              <p className="mt-1 text-xs leading-relaxed text-slate-600">
+                {selected.summary || "교재 정리 전 — CONTENTS 에만 있는 토픽"}
+              </p>
+              <div className="mt-2 grid grid-cols-3 gap-1 text-center text-[11px]">
+                {[
+                  ["📜 기출", st?.past ?? 0],
+                  ["📕 NS", st?.ns ?? 0],
+                  ["🏁 모의", st?.mock ?? 0],
+                  ["✍️ 답안", st?.ans ?? 0],
+                  ["📘 해설", st?.com ?? 0],
+                ].map(([k, v]) => (
+                  <div key={k as string} className="rounded-lg bg-slate-50 px-1 py-1">
+                    <div className="text-slate-400">{k}</div>
+                    <div className="font-bold text-slate-800">{v}</div>
+                  </div>
+                ))}
+              </div>
               {selected.sub && (
                 <Link
                   href={`/explain?topic=${encodeURIComponent(selected.title)}`}
-                  className="rounded-lg bg-brand-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-brand-700"
+                  className="mt-3 block rounded-lg bg-brand-600 px-3 py-2 text-center text-xs font-semibold text-white hover:bg-brand-700"
                 >
-                  토픽 설명 →
+                  토픽 설명 · 답안지 템플릿 →
                 </Link>
               )}
-              <button
-                onClick={() => setSel(null)}
-                className="rounded-lg border border-slate-200 px-2 py-1.5 text-xs text-slate-500"
-              >
-                ✕
-              </button>
-            </div>
-          </div>
-          <p className="mt-2 text-xs text-slate-600">
-            📜 기술사 기출 {st?.past ?? 0} · 📕 NS {st?.ns ?? 0} · 🏁 모의·파이널 {st?.mock ?? 0} · ✍️ 모범답안 {st?.ans ?? 0} · 📘 해설집 {st?.com ?? 0}
-          </p>
-          {linked.size > 0 && (
-            <div className="mt-2 flex flex-wrap items-center gap-1.5">
-              <span className="text-[11px] font-semibold text-slate-500">🔗 이어진 토픽</span>
-              {Array.from(linked).map((l) => {
-                const here = list.some((t) => t.title === l);
-                return (
-                  <button
-                    key={l}
-                    onClick={() => {
-                      if (here) setSel(l);
-                      else {
-                        const other = ALL_MAP_TOPICS.find((x) => x.t.title === l);
-                        if (other) {
-                          setCat(other.cat);
-                          setSel(l);
-                        }
-                      }
-                    }}
-                    className="rounded-full border border-brand-200 bg-brand-50 px-2.5 py-0.5 text-[11px] text-brand-700"
-                  >
-                    {short(l)}
-                    {!here && <span className="ml-1 text-brand-400">↗</span>}
-                  </button>
-                );
-              })}
-            </div>
+              {linked.size > 0 && (
+                <div className="mt-3">
+                  <p className="text-[11px] font-semibold text-slate-500">🔗 이어진 토픽 (표 안에 서로 나옴)</p>
+                  <div className="mt-1 flex flex-wrap gap-1.5">
+                    {Array.from(linked).map((l) => {
+                      const other = ALL_MAP_TOPICS.find((x) => x.t.title === l);
+                      const here = overview || other?.cat === cat;
+                      return (
+                        <button
+                          key={l}
+                          onClick={() => {
+                            if (!here && other) setCat(other.cat);
+                            setSel(l);
+                          }}
+                          className="rounded-full border border-indigo-200 bg-indigo-50 px-2.5 py-0.5 text-[11px] text-indigo-700"
+                        >
+                          {short(l)}
+                          {!here && <span className="ml-1 text-indigo-400">↗ {other?.cat}</span>}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+              {selected.sub && (
+                <button
+                  onClick={() => setShowTables(!showTables)}
+                  className="mt-3 text-[11px] font-medium text-slate-500 underline underline-offset-2"
+                >
+                  {showTables ? "교재 표 접기" : "교재 표 펼치기"}
+                </button>
+              )}
+              {showTables && (
+                <div className="mt-2 space-y-3">
+                  {memoryTables
+                    .filter((m) => m.ref === selected.title)
+                    .map((m) => (
+                      <TableCard key={m.title} t={m} />
+                    ))}
+                </div>
+              )}
+            </>
           )}
-          {selected.sub && (
-            <button
-              onClick={() => setShowTables(!showTables)}
-              className="mt-2 text-[11px] font-medium text-slate-500 underline underline-offset-2"
-            >
-              {showTables ? "교재 표 접기" : "교재 표 펼치기"}
-            </button>
-          )}
-          {showTables && (
-            <div className="mt-2 max-h-[50vh] space-y-3 overflow-y-auto">
-              {memoryTables
-                .filter((m) => m.ref === selected.title)
-                .map((m) => (
-                  <TableCard key={m.title} t={m} />
-                ))}
-            </div>
-          )}
-        </div>
-      )}
+        </aside>
+      </div>
     </div>
   );
 }
