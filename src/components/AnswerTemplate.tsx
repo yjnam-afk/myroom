@@ -1,11 +1,22 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import AnswerPaper from "@/components/AnswerPaper";
 import AnswerTable from "@/components/AnswerTable";
 import ConclusionFigure from "@/components/ConclusionFigure";
 import type { TextbookSubnote, SubnoteTable } from "@/data/textbookSubnotes";
-import { conclusionOf, isReasonTable, pickConclusion, shape1, shape2, tableSubject, type Conclusion } from "@/lib/answerGuide";
+import {
+  cellLimits,
+  conclusionOf,
+  isReasonTable,
+  pickConclusion,
+  pickForm,
+  shape1,
+  shape2,
+  tableSubject,
+  type Conclusion,
+  type ConclusionForm,
+} from "@/lib/answerGuide";
 
 type Tb = SubnoteTable & { gloss?: string };
 const NO = ["가", "나", "다", "라", "마", "바"];
@@ -45,7 +56,7 @@ function Figure({ srcs, lines, alt }: { srcs: string[]; lines: number; alt: stri
 function TableBlock({ tb, hint }: { tb: Tb; hint?: string }) {
   return (
     <>
-      <AnswerTable headers={tb.headers} rows={tb.rows} />
+      <AnswerTable headers={tb.headers} rows={tb.rows} limits={cellLimits(tb.headers)} />
       <Gloss text={tb.gloss} hint={hint} />
     </>
   );
@@ -56,15 +67,61 @@ function Features({ f }: { f?: string[] }) {
   return <>{f.map((x, i) => `${i + 1}) ${x}`).join("  ")}</>;
 }
 
-function Closing({ c, hint }: { c: Conclusion; hint?: string }) {
+/** 그래프형 결론 자리 — 축 이름·주제 곡선(강조)·값 라벨은 직접 채운다(지침 V34: 수치는 출처 확인된 것만) */
+function GraphHole() {
+  return (
+    <svg viewBox="0 0 600 110" className="my-1 w-full max-w-[600px]" role="img" aria-label="결론 그래프 자리">
+      <line x1="60" y1="90" x2="560" y2="90" stroke="#111" strokeWidth="1.3" />
+      <line x1="60" y1="90" x2="60" y2="10" stroke="#111" strokeWidth="1.3" />
+      <text x="560" y="105" fontSize="10" textAnchor="end" fill="#94a3b8" fontStyle="italic">〈가로축 — 시간·세대·부하〉</text>
+      <text x="64" y="12" fontSize="10" fill="#94a3b8" fontStyle="italic">〈세로축 — 지연·처리량·규모〉</text>
+      <path d="M70,80 L170,62 L270,70 L370,55 L470,63 L550,50" fill="none" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="4 3" />
+      <path d="M70,82 C200,70 300,40 550,22" fill="none" stroke="#d97706" strokeWidth="2.5" />
+      <text x="470" y="62" fontSize="10" fill="#94a3b8" fontStyle="italic">〈기존〉</text>
+      <text x="470" y="26" fontSize="10" fill="#b45309" fontWeight="700">〈주제★〉</text>
+      <text x="300" y="44" fontSize="9.5" fill="#cbd5e1">값 라벨 2~3개</text>
+    </svg>
+  );
+}
+
+function Closing({ c, hint, title }: { c: Conclusion; hint?: string; title: string }) {
+  const [form, setForm] = useState<ConclusionForm>(() => pickForm(c, title));
   return (
     <>
-      <ConclusionFigure c={c} />
+      {/* 결론 표현 — 도형·그래프·리스트 택1(V34). 표는 금지 */}
+      <div className="flex flex-wrap items-center gap-1 text-[11px]">
+        <span className="text-slate-400">표현:</span>
+        {(["도형", "그래프", "리스트"] as const).map((f) => (
+          <button
+            key={f}
+            type="button"
+            onClick={() => setForm(f)}
+            className={`rounded-full px-2 py-0 leading-5 ${form === f ? "bg-slate-700 text-white" : "border border-slate-300 text-slate-500"}`}
+          >
+            {f}
+          </button>
+        ))}
+      </div>
+      {form === "도형" && <ConclusionFigure c={c} />}
+      {form === "그래프" && <GraphHole />}
+      {form === "리스트" && (
+        <div className="pl-1">
+          <p>
+            1) <Hole>키워드 4~5자</Hole>: <Hole>근거 6~10자 · 차별화 요소 1</Hole>{"  "}2) <Hole>키워드</Hole>:{" "}
+            <Hole>근거 · 차별화 요소 1</Hole>
+          </p>
+          <p>
+            3) <Hole>키워드</Hole>: <Hole>근거 · 차별화 요소 1 (2~3항목, 2줄)</Hole>
+          </p>
+        </div>
+      )}
       <p className="pl-1 text-[11.5px] leading-6">
-        <Hole>차별화 단락(V31) — 주제 외 박스 2개 이상은 2단락에 없는 최신 기술·표준·사례명, 2단락 내용 재진술 금지</Hole>
+        <Hole>
+          차별화 단락 — 차별화 요소(최신 기술·표준 / 정량 수치 / 적용 사례 / 견해) 2개 이상, 2단락 재진술·「고려사항」 금지
+        </Hole>
       </p>
       <p className="flex justify-between pl-1">
-        <Hole>{hint ?? "결론 간글 — 한계 → 해법 → 효과, 정량 수치·견해 1개 이상, 40자 이내, 박스 라벨 되풀이 금지"}</Hole>
+        <Hole>{hint ?? "결론 간글 — 한계 → 해법 → 효과 권장, 정량 수치·견해 1개 이상, 40자 이내"}</Hole>
         <b>끝</b>
       </p>
     </>
@@ -114,7 +171,7 @@ export default function AnswerTemplate({
     </p>
   );
 
-  /* ─────────────── 1교시 (V31, 26줄) ─────────────── */
+  /* ─────────────── 1교시 (V34, 26줄) ─────────────── */
   if (period === 1) {
     const shape = shape1(textbook.title, pairs.length);
     // 2단락 표 — 구조형(구성·동작·기법…) 먼저. 근거형은 개념도 없이 표만(지침 2장)
@@ -168,7 +225,7 @@ export default function AnswerTemplate({
               3. {bare}의 {c.title}
             </p>
             <div className="pl-4">
-              <Closing c={c} />
+              <Closing c={c} title={textbook.title} />
             </div>
           </>
         )}
@@ -214,7 +271,7 @@ export default function AnswerTemplate({
                       </>
                     )}
                     {tb ? (
-                      <AnswerTable headers={tb.headers} rows={tb.rows} />
+                      <AnswerTable headers={tb.headers} rows={tb.rows} limits={cellLimits(tb.headers)} />
                     ) : (
                       <p>
                         <Hole>3열 표 — 교재 표 헤더·분류·순서 그대로</Hole>
@@ -279,7 +336,7 @@ export default function AnswerTemplate({
               3. {pairNames.join("·") || bare} {c.title}
             </p>
             <div className="pl-4">
-              <Closing c={c} />
+              <Closing c={c} title={textbook.title} />
             </div>
           </>
         )}
@@ -409,7 +466,7 @@ export default function AnswerTemplate({
             ))}
           </div>
         )}
-        <Closing c={c2} />
+        <Closing c={c2} title={textbook.title} />
       </div>
       {verify}
       <p className="text-[11.5px] leading-6 text-slate-500">

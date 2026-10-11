@@ -1,12 +1,38 @@
+/**
+ * 표 칸 글자 수(1교시 지침 V32) — 공백·하이픈·가운뎃점 빼고, 영문 2자 = 한글 1자,
+ * 숫자·기호 묶음(CR≤0.1, 1~9, 24bit)은 1자.
+ */
+export function cellLen(s: string): number {
+  let t = s.replace(/[\s\-·]/g, "");
+  let n = 0;
+  // 숫자로 시작하는 숫자·기호·단위 묶음은 1자
+  t = t.replace(/[0-9][0-9.,~≤≥<>=%:/]*[A-Za-z]{0,4}/g, () => {
+    n += 1;
+    return "";
+  });
+  for (const ch of t) n += /[A-Za-z]/.test(ch) ? 0.5 : 1;
+  return Math.ceil(n);
+}
+
 /** 한 칸의 줄들 — 줄마다 「- 」. 「특징)」처럼 머리말이 있는 줄은 그대로 둔다. */
-function Dashed({ text }: { text: string }) {
+function Dashed({ text, max }: { text: string; max?: number }) {
   return (
     <>
-      {text.split("\n").map((ln, i) => (
-        <span key={i} className="block">
-          {ln && !/^(특징\)|[-–·•※])/.test(ln) ? `- ${ln}` : ln}
-        </span>
-      ))}
+      {text.split("\n").map((ln, i) => {
+        // 영문이 반 넘는 줄은 고유명(구성요소·프로토콜명)으로 보고 글자 수 예외(V32 2열 예외)
+        const latin = (ln.match(/[A-Za-z]/g) ?? []).length * 2 > ln.replace(/\s/g, "").length;
+        const n = max && ln && !latin ? cellLen(ln) : 0;
+        const over = !!max && n > max;
+        return (
+          <span
+            key={i}
+            className={`block ${over ? "underline decoration-rose-300 decoration-dotted underline-offset-4" : ""}`}
+            title={over ? `${n}자 — 이 열은 ${max}자까지(지침 V32)` : undefined}
+          >
+            {ln && !/^(특징\)|[-–·•※])/.test(ln) ? `- ${ln}` : ln}
+          </span>
+        );
+      })}
     </>
   );
 }
@@ -34,11 +60,14 @@ export default function AnswerTable({
   headers,
   rows,
   dense = false,
+  limits,
 }: {
   headers: string[];
   rows: string[][];
   /** 정리표처럼 좁은 칸에 넣을 때 */
   dense?: boolean;
+  /** 열별 글자 수 상한 — 넘는 줄에 점선 밑줄(답안지 템플릿의 V32 점검) */
+  limits?: (number | undefined)[];
 }) {
   // 1열 rowspan — 같은 값이 이어지면 첫 행에만 그리고 아래 행은 건너뛴다.
   const span: number[] = rows.map(() => 1);
@@ -77,7 +106,7 @@ export default function AnswerTable({
                     ci === 0 ? "text-center font-semibold text-slate-800" : "align-top text-slate-800"
                   } ${widthOf(r.length, ci)}`}
                 >
-                  {ci === 0 ? c : <Dashed text={c} />}
+                  {ci === 0 ? c : <Dashed text={c} max={limits?.[ci]} />}
                 </td>
               );
             })}

@@ -148,3 +148,25 @@ export function tableSubject(headers: string[], caption: string): string {
   const c = caption.split(" — ")[0].replace(/\s*\([^)]*\)/g, "").trim();
   return c || "구성요소";
 }
+
+/** 결론 표현 형태(1교시 지침 V34 5-00) — 도형·그래프·리스트 중 토픽에 맞는 것 */
+export type ConclusionForm = "도형" | "그래프" | "리스트";
+
+/**
+ * 기본 형태 고르기 — 성능·규모·추이를 수치로 견줄 토픽은 그래프, 전략·사례·제언처럼
+ * 서로 독립된 항목이면 리스트, 흐름·결합·포함·분기 관계면 도형.
+ */
+export function pickForm(c: Conclusion, title: string): ConclusionForm {
+  if (/혼잡제어|빅오|복잡도|성능|처리량|지연|Wi-?Fi|세대|HTTP\/3|5G|6G|분포|확률|시계열|회귀|정렬/i.test(title)) return "그래프";
+  if ([7, 10, 12].includes(c.no) || /전략|정책|가이드|지침|법|제도/.test(title)) return "리스트";
+  return "도형";
+}
+
+/** 표 열별 글자 수 상한(V32) — 3열 표: 2열 5자·3열 6자 / 비교표(항목|A|B): A·B 6자. 1열은 재지 않는다 */
+export function cellLimits(headers: string[]): (number | undefined)[] {
+  // 2열 표는 마지막 열이 설명 자리라 3열 기준(5~6자)으로 잰다
+  if (headers.length === 2) return [undefined, 6];
+  if (headers.length !== 3) return [];
+  const compare = !/^(설명|내용|비고)$/.test((headers[2] ?? "").trim()) && /항목|구분|비교/.test(headers[0] ?? "") && !/구성|기법|요소|기술|단계|동작|유형|종류/.test(headers[1] ?? "");
+  return compare ? [undefined, 6, 6] : [undefined, 5, 6];
+}
