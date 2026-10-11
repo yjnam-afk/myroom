@@ -43,6 +43,13 @@ const AXIS = new Set([
   "동작원리", "일관성", "정책", "환경", "알고리즘", "표기", "수식", "코드", "연산",
 ]);
 const axisWord = (h: string) => AXIS.has(h.replace(/\s*[(（].*$/, "").trim());
+/** 표 열 머리글로 흔한 일반어 — 이게 열 이름이면 그 열은 비교 대상(개념)이 아니다 */
+const GENERIC_HEAD =
+  /^(항목|내용|요소|구성 ?요소|기술 ?요소|핵심( 기술| 요소)?|세부 ?(기법|내용|항목)|대응 ?방안|방안|지표|프로세스|키워드|주요 ?(내용|항목|기능|기술)|활동|단계|비고|이름|명칭|구성 ?항목|설명|상세 ?설명)$/;
+const genericHead = (h: string) => {
+  const t = h.replace(/\s*[(（].*$/, "").trim();
+  return AXIS.has(t) || GENERIC_HEAD.test(t);
+};
 
 /** 절차·예시·계산 표 — 암기표로는 두되 비교 세트로는 안 만든다 */
 const PROC = /절차|과정|순서|단계|예시|사례|예제|동작|수행|흐름|메커니즘|산출|계산|풀이|시나리오|수식|추가 순서|삽입|삭제|탐색 매커니즘/;
@@ -60,7 +67,9 @@ const GENERIC_CAP = /^(유형|종류|특징|구성 ?요소|구성|기능|비교|
 /** 캡션이 "유형"처럼 어느 토픽에나 있는 말이면 토픽 이름을 앞에 붙인다 */
 function titleOf(topic: string, cap: string): string {
   if (!cap) return `${topic} 표`;
-  if (cap.length <= 4 || GENERIC_CAP.test(cap)) return `${topic} · ${cap}`;
+  // 「유형 (구데제)」「구성요소 [조프시데인]」처럼 두음만 붙은 일반 캡션도 토픽 이름을 붙인다
+  const core = cap.replace(/\s*[(（[].*$/, "").trim();
+  if (cap.length <= 4 || GENERIC_CAP.test(cap) || GENERIC_CAP.test(core)) return `${topic} · ${cap}`;
   return cap;
 }
 
@@ -100,13 +109,18 @@ for (const s of SUBNOTES) {
     stat.tables++;
 
     // ── 비교 세트 ──
-    const heads = rows.map((r) => stripNo(r[0] || ""));
+    // 열 머리글이 「유형」「설명」「구성요소」 같은 일반어면 비교표가 아니라 나열표다.
+    // [구분 | 유형 | 설명] 표를 비교표로 읽어 「유형 vs 설명」 카드 370개가 생겼었다(2026-10-11
+    // "유형, 설명… 왜 이런 게 있냐고"). 이런 표는 이름 열(구분 다음 열)을 항목으로 삼는다.
+    const genericCols = headers.slice(1).some(genericHead);
+    const nameCol = headers.length >= 3 && genericCols && /구분|분류|영역|관점|계층/.test(headers[0]) ? 1 : 0;
+    const heads = rows.map((r) => stripNo(r[nameCol] || ""));
     if (heads.every(isNumHead)) continue;
     const axisHits = heads.filter(axisWord).length;
     const firstIsAxis = /구분|비교|항목|기준|관점|특성|성질/.test(headers[0]);
 
     // ① 비교표 [구분|A|B(|C)] — 열 머리글이 항목, 행은 그 항목의 설명
-    if (headers.length >= 3 && headers.length <= 5 && (firstIsAxis || axisHits * 2 >= heads.length)) {
+    if (!genericCols && headers.length >= 3 && headers.length <= 5 && (firstIsAxis || axisHits * 2 >= heads.length)) {
       const items: Item[] = headers.slice(1).map((h, ci) => {
         const bits = rows
           .slice(0, 4)
@@ -127,12 +141,21 @@ for (const s of SUBNOTES) {
 
     // ② 나열표 — 종류를 나란히 외울 표만
     if (rows.length > 8) continue;
+    // 구분 열이 「개념 / 동작절차」처럼 절차를 품으면 나란히 외울 종류가 아니다(캐시 사상 방식)
+    if (nameCol === 1 && rows.some((r) => PROC.test(clean(r[0] || "")))) continue;
     if (axisHits * 2 >= heads.length) continue;
     if (PROC.test(cap) && !KINDS.test(cap)) continue;
-    if (!KINDS.test(cap) && !KINDS.test(headers[0])) continue;
-    const items: Item[] = rows
-      .map((r) => ({ name: stripNo(r[0] || ""), hint: cut(clean(r[1] || ""), 90) }))
-      .filter((it) => it.name && !isNumHead(it.name));
+    if (!KINDS.test(cap) && !KINDS.test(headers[nameCol])) continue;
+    // 같은 이름이 여러 행이면(1열 구분을 행마다 되풀이한 교재 표) 한 항목으로 합친다
+    const items: Item[] = [];
+    for (const r of rows) {
+      const name = stripNo(r[nameCol] || "");
+      if (!name || isNumHead(name) || axisWord(name)) continue;
+      const hint = clean(r[headers.length - 1] || r[nameCol + 1] || "");
+      const prev = items.find((it) => it.name === name);
+      if (prev) prev.hint = cut(`${prev.hint} · ${hint}`, 90);
+      else items.push({ name, hint: cut(hint, 90) });
+    }
     if (items.length < 2) continue;
     sets.push({ category, title, axis: cap || headers.join(" · "), items, source: "교재", ref: s.title });
     stat.sets++; stat.list++;
