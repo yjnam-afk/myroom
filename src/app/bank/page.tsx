@@ -17,7 +17,7 @@ type Q = {
   category: string;
   text: string;
   source?: string;
-  kind?: "기출" | "셀테" | "모의고사" | "NS모의";
+  kind?: "기출" | "셀테" | "모의고사" | "NS모의" | "파이널";
   round?: string;
   image?: string;
   imageLabel?: string;
@@ -25,17 +25,19 @@ type Q = {
 
 // 출처(회차/주차)가 있는 문제 = 기출·셀테·모의고사 전부.
 const POOL = (questions as Q[]).filter((q) => q.source || q.kind);
-const kindOf = (q: Q): "기출" | "셀테" | "모의고사" | "NS모의" =>
+const kindOf = (q: Q): "기출" | "셀테" | "모의고사" | "NS모의" | "파이널" =>
   q.kind || "기출";
 const roundOf = (q: Q) => q.round || (q.source || "").split(" ")[0] || "";
 
 // NS 주간 모의고사가 지금 치르는 시험이라 맨 앞.
-const KINDS = ["NS모의", "기출", "모의고사", "셀테"] as const;
+// 파이널(ITPE Final Round) 3,665문항이 빠져 있었다(2026-10-11 검수).
+const KINDS = ["NS모의", "기출", "모의고사", "파이널", "셀테"] as const;
 const KIND_BADGE: Record<string, string> = {
   기출: "bg-amber-100 text-amber-700",
   모의고사: "bg-rose-100 text-rose-700",
   NS모의: "bg-sky-100 text-sky-700",
   셀테: "bg-violet-100 text-violet-700",
+  파이널: "bg-emerald-100 text-emerald-700",
 };
 
 // 교시 모드: 1교시(용어형) / 2교시(서술형 — 2·3·4교시 포함).
@@ -99,7 +101,7 @@ export default function BankPage() {
     <div>
       <PageHeader
         title="🏦 문제은행"
-        desc="교시와 문항 수를 고르면 기출·모의고사·셀테에서 랜덤으로 뽑아 실전처럼 출제합니다."
+        desc="교시와 문항 수를 고르면 NS·기출·모의고사·파이널·셀테에서 랜덤으로 뽑아 실전처럼 출제합니다."
       />
 
       <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">

@@ -149,7 +149,7 @@ export default function AnswersClient({ rows: all }: { rows: AnswerRow[] }) {
         groups.map((g) => (
           <section key={g.topic} className="mb-8">
             <div className="mb-3 flex flex-wrap items-baseline gap-x-3 border-b-2 border-slate-800 pb-1.5">
-              <h2 className="text-2xl font-bold text-slate-900">{g.topic}</h2>
+              <h2 className="break-words text-2xl font-bold text-slate-900 [overflow-wrap:anywhere]">{g.topic}</h2>
               <span className="text-xs text-slate-500">
                 {g.items.length}건 · 스캔 {g.items.reduce((n, r) => n + r.pages.length, 0)}장
               </span>

@@ -417,12 +417,13 @@ export default function Home() {
             <h3 className="mb-2 text-sm font-semibold text-slate-600">
               {g.group}
             </h3>
-            <div className="grid gap-3 sm:grid-cols-2">
+            {/* grid-cols-1 = minmax(0,1fr) — 안 주면 긴 설명(truncate)이 칸을 밀어 폰에서 가로로 넘친다 */}
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {g.items.map((m) => (
                 <Link
                   key={m.href}
                   href={m.href}
-                  className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-brand-300 hover:shadow-md"
+                  className="group flex min-w-0 items-center gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-brand-300 hover:shadow-md"
                 >
                   <div
                     className={`grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-gradient-to-br ${m.color} text-xl`}

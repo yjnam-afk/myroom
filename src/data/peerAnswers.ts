@@ -13127,7 +13127,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-ns19w03-101",
+    id: "peer-ns19w03a-101",
     period: "1교시",
     no: "1",
     question: "소프트웨어 무중단 배포 방식",
@@ -13142,7 +13142,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-ns19w03-108",
+    id: "peer-ns19w03a-108",
     period: "1교시",
     no: "8",
     question: "프로젝트 위험 관리의 정량적 위험 분석 기법",
@@ -13157,7 +13157,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-ns19w03-110",
+    id: "peer-ns19w03a-110",
     period: "1교시",
     no: "10",
     question: "소프트웨어 개발 프로젝트에서 선도개발을 위한 개발방법론 테일러링(Tailoring)",
@@ -13204,7 +13204,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-ns19w03-113",
+    id: "peer-ns19w03a-113",
     period: "1교시",
     no: "13",
     question: "유틸리티 트리(Utility Tree)",
@@ -13217,7 +13217,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-ns19w03-201",
+    id: "peer-ns19w03a-201",
     period: "2교시",
     no: "1",
     question: "AI 기반 개발(AI-Augmented Development)과 에이전틱 AI(Agentic AI)\n가. AI 기반 개발과 에이전틱 AI 비교\n나. 에이전틱 AI 도입 시 예상되는 잠재적 위험 및 IT 거버넌스 측면의 대응 방안",
