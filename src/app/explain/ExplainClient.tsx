@@ -352,6 +352,8 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
   // 지금 보여 주는 토픽 — 서버가 고른 자료의 제목. 입력창(topic)과는 별개다.
   const cur = data?.title ?? "";
   const [topic, setTopic] = useState(cur);
+  // 답안지 템플릿 교시 — 1교시형(용어형 1.2~1.4쪽, 3단락) / 2교시형(서술형 3~3.5쪽, 4단락)
+  const [period, setPeriod] = useState<1 | 2>(1);
   const [browseOpen, setBrowseOpen] = useState(!cur);
   const [idx, setIdx] = useState<ExplainIndex | null>(null);
   // 토픽 선택 드롭다운의 묶음 키 — 교재(심화반) 과목이 먼저, 예전(기필반) 묶음은 뒤.
@@ -375,6 +377,9 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
     ? sheet.tables.map((t) => ({ ...t, nameCol: undefined }))
     : (textbook?.tables ?? []).map((t, i) => ({ ...t, gloss: gloss?.t?.[i] }));
   const ansDiagrams = extra?.images?.length ? extra.images : sheet?.diagram ?? [];
+  // 2교시형은 교재 표 전체를 본론1·2에 싣는다(서술형 3~3.5쪽)
+  const fullTables = (textbook?.tables ?? []).map((t, i) => ({ ...t, gloss: gloss?.t?.[i] }));
+  const bodyTables = period === 2 ? fullTables : ansTables;
 
   // 답안지 2번 항목의 그림 이름 — 그림이 흐름·단계를 보여 주면 "절차"처럼 바꿔 쓴다.
   const diagramLabel = extra?.imagesLabel || "개념도";
@@ -594,9 +599,24 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
               <h3 className="text-sm font-bold text-emerald-800">
                 📝 답안지 템플릿 — {textbook.title}
               </h3>
-              <span className="rounded bg-emerald-600 px-2 py-0.5 text-[10px] font-bold text-white">
-                심화반 {COURSE_LABEL[textbook.course] || textbook.course}
-              </span>
+              <div className="flex items-center gap-1.5">
+                {([1, 2] as const).map((p) => (
+                  <button
+                    key={p}
+                    type="button"
+                    onClick={() => setPeriod(p)}
+                    className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold ${
+                      period === p ? "bg-emerald-600 text-white" : "bg-white text-emerald-700 ring-1 ring-emerald-200"
+                    }`}
+                    title={p === 1 ? "용어형 · 1.2~1.4쪽 · I 정의 / II 일도일표 / III 비교·활용" : "서술형 · 3~3.5쪽 · I 서론 / II 본론1 / III 본론2 / IV 결론(+α)"}
+                  >
+                    {p}교시형
+                  </button>
+                ))}
+                <span className="rounded bg-emerald-600 px-2 py-0.5 text-[10px] font-bold text-white">
+                  심화반 {COURSE_LABEL[textbook.course] || textbook.course}
+                </span>
+              </div>
             </div>
 
             {/* 답안지 종이 — 해설집·손글씨 모범답안 형식(2026-10-11 — "진짜 답안지처럼").
@@ -644,7 +664,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
 
               {/* II. 개념도 및 첫 표 — 가. 개념도(그림 + 간글) / 나. 3단표(간글) */}
               <p className="mt-3 font-bold">
-                II. {bareTitle}의 {diagramLabel} 및 {secLabel(ansTables[0]?.caption, bareTitle)}
+                II. {bareTitle}의 {diagramLabel} 및 {secLabel(bodyTables[0]?.caption, bareTitle)}
               </p>
               <div className="pl-3">
                 <p className="font-bold">가. {bareTitle}의 {diagramLabel}</p>
@@ -672,7 +692,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
                 )}
                 {gloss?.d && <p>- {gloss.d}</p>}
 
-                {ansTables.slice(0, 1).map((tb) => (
+                {bodyTables.slice(0, 1).map((tb) => (
                   <div key={tb.caption} className="mt-2">
                     <p className="font-bold">나. {tb.caption}</p>
                     <AnswerTable headers={tb.headers} rows={tb.rows} />
@@ -682,19 +702,19 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
               </div>
 
               {/* III. 나머지 표 — 해설집은 셋째 단락에 비교·Hybrid·추가 기술을 둔다 */}
-              {ansTables.length > 1 && (
+              {bodyTables.length > 1 && (
                 <>
                   <p className="mt-3 font-bold">
                     III.{" "}
-                    {inTitle(ansTables[1].caption, bareTitle)
-                      ? ansTables[1].caption
-                      : `${bareTitle}의 ${capOf(ansTables[1].caption)}`}
-                    {ansTables.length > 2 ? " 등" : ""}
+                    {inTitle(bodyTables[1].caption, bareTitle)
+                      ? bodyTables[1].caption
+                      : `${bareTitle}의 ${capOf(bodyTables[1].caption)}`}
+                    {bodyTables.length > 2 ? " 등" : ""}
                   </p>
                   <div className="pl-3">
-                    {ansTables.slice(1).map((tb, k) => (
+                    {bodyTables.slice(1).map((tb, k) => (
                       <div key={tb.caption} className={k ? "mt-2" : ""}>
-                        {ansTables.length > 2 && (
+                        {bodyTables.length > 2 && (
                           <p className="font-bold">
                             {HANGUL_NO[k] ?? "·"}. {tb.caption}
                           </p>
@@ -703,6 +723,19 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
                         {tb.gloss && <p>- {tb.gloss}</p>}
                       </div>
                     ))}
+                  </div>
+                </>
+              )}
+
+              {/* IV. 결론 — 2교시형만. 교재 메모 + 차별화(+α) 자리 */}
+              {period === 2 && (
+                <>
+                  <p className="mt-3 font-bold">IV. {bareTitle}의 고려사항 및 결론</p>
+                  <div className="pl-3">
+                    {(textbook.notes ?? []).map((n, i) => (
+                      <p key={i}>- {n}</p>
+                    ))}
+                    <p className="text-slate-400">(최신 동향·실무 사례·타 토픽 응용으로 차별화 +α 2~3줄)</p>
                   </div>
                 </>
               )}
@@ -728,7 +761,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
             </AnswerPaper>
 
             {/* 답안용 표를 쓴 토픽 — 교재 표 전체는 접어 둔다(2교시 서술형·암기용) */}
-            {!!sheet?.tables?.length && textbook.tables.length > 0 && (
+            {period === 1 && !!sheet?.tables?.length && textbook.tables.length > 0 && (
               <details className="mx-5 mb-3 rounded-lg border border-slate-200 bg-white px-4 py-2.5">
                 <summary className="cursor-pointer text-xs font-bold text-slate-600">
                   📚 교재 표 전체 보기 ({textbook.tables.length}개) — 2~4교시 서술형·암기용
@@ -748,7 +781,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
             )}
 
             {/* 답안 밖 — 교재 메모. 시험지에 옮길 때 서론·결론에 한 줄 덧붙일 거리 */}
-            {textbook.notes?.length ? (
+            {period === 1 && textbook.notes?.length ? (
               <div className="mx-5 mb-3 rounded-lg bg-amber-50/70 px-4 py-2.5">
                 <p className="text-xs font-bold text-amber-800">✏️ 덧붙일 거리 (교재 메모)</p>
                 <ul className="mt-1 space-y-0.5">
