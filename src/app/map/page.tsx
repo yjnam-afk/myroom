@@ -4,6 +4,7 @@ import { COURSE_TOPICS } from "@/data/curriculum";
 import { examHistory, pastExams, mockExams } from "@/lib/examHistory";
 import { peerAnswersFor } from "@/data/peerAnswers";
 import { isCommentary } from "@/lib/answerKind";
+import { LEVEL_MAPS, chipKey, chipTopic } from "@/data/levelMaps";
 
 /**
  * 토픽 지도 — 서버 컴포넌트.
@@ -27,5 +28,17 @@ export default function MapPage() {
       com: commentary,
     };
   }
-  return <MapClient stats={stats} />;
+  // 레벨 맵 칩 출제 횟수 — 토픽에 걸린 칩은 그 토픽 숫자, 아니면 칩 글자로 문항을 찾는다
+  const chipHits: Record<string, number> = {};
+  for (const maps of Object.values(LEVEL_MAPS))
+    for (const m of maps)
+      for (const c of [...m.rows.flatMap((r) => r.cells.flat()), ...(m.all?.chips ?? [])]) {
+        const k = chipKey(c);
+        const t = chipTopic(c);
+        const key = `${k}|${t ?? ""}`;
+        if (key in chipHits) continue;
+        const s = t ? stats[t] : undefined;
+        chipHits[key] = s ? s.past + s.ns + s.mock : pastExams(k).length + examHistory(k).length + mockExams(k).length;
+      }
+  return <MapClient stats={stats} chipHits={chipHits} />;
 }

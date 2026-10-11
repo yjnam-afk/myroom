@@ -13,11 +13,13 @@ import {
   subnoteByAlias,
   subnoteByTopicId,
 } from "@/data/textbookSubnotes";
-import { DOMAIN_LABEL, domainLabel, sortDomains } from "@/lib/domains";
+import { DOMAIN_LABEL, DOMAINS, domainLabel, sortDomains } from "@/lib/domains";
 import { COURSE_TOPICS } from "@/data/curriculum";
 import { TOPIC_CLUSTERS } from "@/data/topicClusters";
 import { courseEntries } from "@/lib/courseOrder";
 import { childLinks, parentLink } from "@/data/topicParents";
+import { LEVEL_MAPS, chipKey, chipTopic } from "@/data/levelMaps";
+import LevelMatrix from "./LevelMatrix";
 import type { TextbookSubnote } from "@/data/textbookSubnotes";
 import { planInfo, LEVEL_STYLE, LEVEL_HINT, levelOrder } from "@/lib/studyPlan";
 import SourceBadge from "@/components/SourceBadge";
@@ -255,7 +257,7 @@ const hasAnyData = (name: string, parent?: string): boolean =>
 /** 토픽별 출제·답안 수 — 서버(page.tsx)가 센다 */
 export type TopicStat = { past: number; ns: number; mock: number; ans: number; com: number };
 
-export default function MapClient({ stats }: { stats: Record<string, TopicStat> }) {
+export default function MapClient({ stats, chipHits }: { stats: Record<string, TopicStat>; chipHits: Record<string, number> }) {
   const [view, setView] = useState<"map" | "compare" | "tables" | "groups">("map");
   const [cat, setCat] = useState(CATS[0]);
   const [legacy, setLegacy] = useState(false);
@@ -359,7 +361,7 @@ export default function MapClient({ stats }: { stats: Record<string, TopicStat> 
       </div>
 
       {view === "map" ? (
-        <MapView query={query} stats={stats} />
+        <MapView query={query} stats={stats} chipHits={chipHits} />
       ) : view === "compare" ? (
         <CompareView cmpResults={cmpResults} q={q} searching={searching} />
       ) : view === "tables" ? (
@@ -455,7 +457,15 @@ function Twigs({ color, children }: { color: string; children: ReactNode[] }) {
   );
 }
 
-function MapView({ query, stats }: { query: string; stats: Record<string, TopicStat> }) {
+function MapView({
+  query,
+  stats,
+  chipHits,
+}: {
+  query: string;
+  stats: Record<string, TopicStat>;
+  chipHits: Record<string, number>;
+}) {
   const doms = sortDomains(Object.keys(TOPICS_BY_CAT).filter((c) => TOPICS_BY_CAT[c].length > 0));
   const cats = ["전체", ...doms];
   const [cat, setCat] = useState("전체");
@@ -465,8 +475,13 @@ function MapView({ query, stats }: { query: string; stats: Record<string, TopicS
   // 펼친 가지 — 과목 지도는 영역을 다 편 채로, 전체 지도는 과목만 보이게 시작한다
   const [open, setOpen] = useState<Set<string>>(new Set());
   const [closed, setClosed] = useState<Set<string>>(new Set());
+  // 과목 지도 아래 단계 — 레벨 맵(행 × 관점 매트릭스) 몇 번째 장을 보는지. null = 토픽 가지
+  const [lv, setLv] = useState<number | null>(null);
 
   const overview = cat === "전체";
+  const code = DOMAINS.find((d) => d.label === cat)?.code ?? "";
+  const lmaps = LEVEL_MAPS[code] ?? [];
+  const lmap = lv != null ? lmaps[lv] : undefined;
   const list = overview ? doms.flatMap((c) => TOPICS_BY_CAT[c]) : TOPICS_BY_CAT[cat] ?? [];
   const selected = sel ? ALL_MAP_TOPICS.find((x) => x.t.title === sel)?.t : undefined;
   const linked = new Set(selected ? linksOf(selected.title) : []);
@@ -484,6 +499,7 @@ function MapView({ query, stats }: { query: string; stats: Record<string, TopicS
   };
   const go = (c: string) => {
     setCat(c);
+    setLv(null);
     setSel(null);
     setShowTables(false);
     setOpen(new Set());
@@ -688,10 +704,46 @@ function MapView({ query, stats }: { query: string; stats: Record<string, TopicS
         </span>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_300px]">
-        {/* 구조도 */}
-        <div className="min-w-0 rounded-2xl border border-slate-200 bg-white p-3 sm:p-4">
-          {overview ? (
+      {/* 과목 지도 → 레벨 맵(토픽 아래 키워드 단계) */}
+      {!overview && lmaps.length > 0 && (
+        <div className="mb-3 flex flex-wrap items-center gap-1.5">
+          <button
+            onClick={() => setLv(null)}
+            className={`rounded-lg border px-2.5 py-1 text-[12px] font-semibold ${lv == null ? "border-slate-900 bg-slate-900 text-white" : "border-slate-200 bg-white text-slate-600"}`}
+          >
+            🌳 토픽 가지
+          </button>
+          <span className="text-[11px] text-slate-400">🧩 레벨 맵</span>
+          {lmaps.map((m, i) => (
+            <button
+              key={m.no}
+              onClick={() => setLv(i)}
+              title={m.sub}
+              className={`rounded-lg border px-2.5 py-1 text-[12px] font-semibold ${lv === i ? "border-[#7a1f3d] bg-[#7a1f3d] text-white" : "border-slate-200 bg-white text-slate-700 hover:border-[#7a1f3d]"}`}
+            >
+              <span className="mr-1 opacity-60">{String(m.no).padStart(2, "0")}</span>
+              {m.title.replace(/\s*\(.*\)\s*$/, "")}
+            </button>
+          ))}
+        </div>
+      )}
+
+      <div className={`grid gap-4 ${lmap ? "" : "lg:grid-cols-[minmax(0,1fr)_300px]"}`}>
+        {/* 구조도 — 레벨 맵은 넓어서 한 칸을 다 쓰고, 토픽 정보는 아래에서 올라온다 */}
+        <div className={`min-w-0 rounded-2xl border border-slate-200 bg-white p-3 sm:p-4 ${lmap ? "!p-0 border-0 bg-transparent" : ""}`}>
+          {lmap ? (
+            <LevelMatrix
+              m={lmap}
+              course={cat}
+              total={lmaps.length}
+              hits={(c) => chipHits[`${chipKey(c)}|${chipTopic(c) ?? ""}`] ?? 0}
+              sel={sel}
+              onPick={(t) => {
+                setSel(sel === t ? null : t);
+                setShowTables(false);
+              }}
+            />
+          ) : overview ? (
             <Twigs color="#0f172a">
               {doms.map((c, di) => {
                 const color = BRANCH[di % BRANCH.length];
@@ -709,7 +761,12 @@ function MapView({ query, stats }: { query: string; stats: Record<string, TopicS
                     >
                       <span>{c}</span>
                       <span className="text-[10px] font-normal opacity-90">
-                        {TOPICS_BY_CAT[c].length} · 상{top} ›
+                        {TOPICS_BY_CAT[c].length} · 상{top}
+                        {(() => {
+                          const n = LEVEL_MAPS[DOMAINS.find((d) => d.label === c)?.code ?? ""]?.length;
+                          return n ? ` · 🧩${n}` : "";
+                        })()}{" "}
+                        ›
                       </span>
                     </button>
                     <span className="ml-4 h-2 w-0.5 sm:ml-0 sm:h-0.5 sm:w-4" style={{ background: color }} />
@@ -767,9 +824,13 @@ function MapView({ query, stats }: { query: string; stats: Record<string, TopicS
 
         {/* 고른 토픽 — 넓은 화면은 오른쪽에 붙어 있고, 좁은 화면은 아래에서 올라온다 */}
         <aside
-          className={`${
-            selected ? "fixed inset-x-0 bottom-0 z-30 max-h-[60vh] overflow-y-auto rounded-t-2xl shadow-2xl" : "hidden"
-          } border border-slate-200 bg-white p-4 lg:sticky lg:top-20 lg:z-auto lg:block lg:max-h-[calc(100vh-6rem)] lg:self-start lg:overflow-y-auto lg:rounded-2xl lg:shadow-sm`}
+          className={
+            lmap
+              ? `${selected ? "fixed bottom-0 right-0 z-30 max-h-[60vh] w-full overflow-y-auto rounded-t-2xl shadow-2xl sm:right-4 sm:w-[360px]" : "hidden"} border border-slate-200 bg-white p-4`
+              : `${
+                  selected ? "fixed inset-x-0 bottom-0 z-30 max-h-[60vh] overflow-y-auto rounded-t-2xl shadow-2xl" : "hidden"
+                } border border-slate-200 bg-white p-4 lg:sticky lg:top-20 lg:z-auto lg:block lg:max-h-[calc(100vh-6rem)] lg:self-start lg:overflow-y-auto lg:rounded-2xl lg:shadow-sm`
+          }
         >
           {!selected ? (
             <p className="text-xs leading-relaxed text-slate-400">
