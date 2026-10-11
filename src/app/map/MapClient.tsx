@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
 import Link from "next/link";
 import { PageHeader } from "@/components/ui";
@@ -416,6 +416,198 @@ const heatCls = (n: number) => HEAT_STEPS.find((h) => n >= h.min)!.cls;
 /** 칩에 쓰는 짧은 이름 — 괄호 속 원어를 뗀다 */
 const short = (t: string) => t.replace(/\s*[(（][^)）]*[)）]/g, "").trim() || t;
 
+
+// ── 마인드맵 배치 ─────────────────────────────────────────────
+// 2026-10-11 "토픽지도는 마인드맵 느낌으로 만들고 싶었던 건데" — 영역 카드 격자를 가운데 과목에서
+// 가지가 뻗는 마인드맵으로 바꿨다. 영역을 잎 수로 좌우 균형 맞춰 나누고, 영역 가지마다 색을 달리한다.
+const BRANCH = ["#e11d48", "#2563eb", "#059669", "#d97706", "#7c3aed", "#0891b2", "#db2777", "#65a30d", "#ea580c", "#4f46e5", "#0d9488", "#b45309", "#9333ea", "#475569", "#be123c"];
+// 너비는 화면 칸에 맞춘다(좁으면 MM_MIN_W 로 두고 안에서 가로 스크롤). 잎은 양끝 LEAF_MAX 칸을 쓴다.
+const MM_MIN_W = 960;
+const LEAF_MAX = 200;
+const AREA_W = 150;
+const LEAF_H = 30;
+const GROUP_GAP = 18;
+
+function MindMap({
+  cat,
+  areas,
+  stats,
+  mode,
+  sel,
+  linked,
+  dimOthers,
+  isMatch,
+  onPick,
+}: {
+  cat: string;
+  areas: { name: string; items: MapTopic[] }[];
+  stats: Record<string, TopicStat>;
+  mode: "priority" | "heat";
+  sel: string | null;
+  linked: Set<string>;
+  dimOthers: boolean;
+  isMatch: (t: MapTopic) => boolean;
+  onPick: (title: string) => void;
+}) {
+  const box = useRef<HTMLDivElement>(null);
+  const [boxW, setBoxW] = useState(0);
+  useEffect(() => {
+    const el = box.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => setBoxW(el.clientWidth));
+    ro.observe(el);
+    setBoxW(el.clientWidth);
+    return () => ro.disconnect();
+  }, []);
+  const MM_W = Math.max(MM_MIN_W, boxW);
+  const MM_CX = MM_W / 2;
+  const LEAF_DX = MM_CX - LEAF_MAX - 8; // 가운데 → 잎 안쪽 끝
+  const AREA_DX = LEAF_DX - AREA_W / 2 - 45; // 가운데 → 영역 마디 중심
+
+  // 좌우 나누기 — 앞 영역부터 오른쪽에 채우다 잎 수가 절반을 넘으면 왼쪽으로(교재 순서: 오른쪽 위 → 아래, 왼쪽 위 → 아래)
+  const total = areas.reduce((n, a) => n + a.items.length, 0);
+  const right: number[] = [];
+  const left: number[] = [];
+  let acc = 0;
+  areas.forEach((a, i) => {
+    if (acc < total / 2 || right.length === 0) {
+      right.push(i);
+      acc += a.items.length;
+    } else left.push(i);
+  });
+  const sideH = (idx: number[]) =>
+    idx.reduce((h, i) => h + areas[i].items.length * LEAF_H, 0) + Math.max(0, idx.length - 1) * GROUP_GAP;
+  const H = Math.max(sideH(right), sideH(left), 200) + 40;
+
+  type Leaf = { t: MapTopic; x: number; y: number; side: 1 | -1; color: string };
+  type Node = { name: string; n: number; x: number; y: number; side: 1 | -1; color: string };
+  const leaves: Leaf[] = [];
+  const nodes: Node[] = [];
+  const place = (idx: number[], side: 1 | -1) => {
+    let y = (H - sideH(idx)) / 2;
+    for (const i of idx) {
+      const a = areas[i];
+      const color = BRANCH[i % BRANCH.length];
+      const y0 = y;
+      for (const t of a.items) {
+        leaves.push({ t, x: MM_CX + side * LEAF_DX, y: y + LEAF_H / 2, side, color });
+        y += LEAF_H;
+      }
+      nodes.push({ name: a.name, n: a.items.length, x: MM_CX + side * AREA_DX, y: (y0 + y) / 2, side, color });
+      y += GROUP_GAP;
+    }
+  };
+  place(right, 1);
+  place(left, -1);
+  const cy = H / 2;
+  const leafAt = new Map(leaves.map((l) => [l.t.title, l]));
+  const selLeaf = sel ? leafAt.get(sel) : undefined;
+
+  const curve = (x1: number, y1: number, x2: number, y2: number) => {
+    const mx = (x1 + x2) / 2;
+    return `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`;
+  };
+
+  return (
+    <div ref={box} className="overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+      <div className="relative" style={{ width: MM_W, height: H }}>
+        <svg className="absolute inset-0" width={MM_W} height={H}>
+          {nodes.map((nd) => (
+            <path
+              key={`c-${nd.name}`}
+              d={curve(MM_CX + nd.side * 70, cy, nd.x - nd.side * (AREA_W / 2), nd.y)}
+              fill="none"
+              stroke={nd.color}
+              strokeWidth={3}
+              strokeOpacity={dimOthers ? 0.25 : 0.7}
+            />
+          ))}
+          {leaves.map((l) => {
+            const nd = nodes.find((n) => n.name === l.t.area && n.side === l.side)!;
+            const lit = sel === l.t.title || linked.has(l.t.title) || isMatch(l.t);
+            return (
+              <path
+                key={`l-${l.t.title}`}
+                d={curve(nd.x + l.side * (AREA_W / 2), nd.y, l.x, l.y)}
+                fill="none"
+                stroke={nd.color}
+                strokeWidth={1.5}
+                strokeOpacity={dimOthers && !lit ? 0.12 : 0.55}
+              />
+            );
+          })}
+          {/* 고른 토픽 ↔ 이어진 토픽 — 점선 */}
+          {selLeaf &&
+            Array.from(linked).map((t) => {
+              const o = leafAt.get(t);
+              if (!o) return null;
+              // 잎의 안쪽 끝(가지가 닿는 쪽)끼리, 가운데 쪽으로 휘게 잇는다
+              const x1 = selLeaf.x - selLeaf.side * 4;
+              const x2 = o.x - o.side * 4;
+              return (
+                <path
+                  key={`x-${t}`}
+                  d={`M${x1},${selLeaf.y} C${x1 - selLeaf.side * 90},${selLeaf.y} ${x2 - o.side * 90},${o.y} ${x2},${o.y}`}
+                  fill="none"
+                  stroke="#6366f1"
+                  strokeWidth={1.5}
+                  strokeDasharray="4 3"
+                />
+              );
+            })}
+        </svg>
+
+        {/* 가운데 — 과목 */}
+        <div
+          className="absolute flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-slate-900 px-5 py-3 text-center text-sm font-bold text-white shadow-lg"
+          style={{ left: MM_CX, top: cy, minWidth: 140 }}
+        >
+          {cat}
+        </div>
+
+        {/* 영역 마디 */}
+        {nodes.map((nd) => (
+          <div
+            key={`n-${nd.name}`}
+            className="absolute -translate-x-1/2 -translate-y-1/2 truncate rounded-xl border-2 bg-white px-2.5 py-1 text-center text-[12px] font-bold shadow-sm"
+            style={{ left: nd.x, top: nd.y, width: AREA_W, borderColor: nd.color, color: nd.color, opacity: dimOthers ? 0.6 : 1 }}
+            title={`${nd.name} · ${nd.n}토픽`}
+          >
+            {nd.name} <span className="font-normal opacity-60">{nd.n}</span>
+          </div>
+        ))}
+
+        {/* 잎 — 토픽 */}
+        {leaves.map((l) => {
+          const t = l.t;
+          const s = stats[t.title];
+          const n = mode === "heat" ? s?.past ?? 0 : hits(s);
+          const color = mode === "heat" ? heatCls(n) : PRI_CHIP[t.priority ?? "하"] ?? PRI_CHIP.하;
+          const isSel = sel === t.title;
+          const lit = isSel || linked.has(t.title) || isMatch(t);
+          return (
+            <button
+              key={`t-${t.title}`}
+              onClick={() => onPick(t.title)}
+              title={`${t.title}${t.summary ? `\n${t.summary}` : ""}`}
+              className={`absolute max-w-[200px] -translate-y-1/2 truncate whitespace-nowrap rounded-full border px-2.5 py-[3px] text-[12px] leading-tight transition ${color} ${
+                t.sub ? "" : "border-dashed"
+              } ${t.priority === "상" ? "font-semibold" : ""} ${
+                isSel ? "ring-2 ring-brand-500 ring-offset-1" : linked.has(t.title) ? "ring-2 ring-indigo-300" : ""
+              } ${dimOthers && !lit ? "opacity-25" : ""}`}
+              style={l.side === 1 ? { left: l.x, top: l.y } : { right: MM_W - l.x, top: l.y }}
+            >
+              {short(t.title)}
+              {n > 0 && <sup className="ml-0.5 text-[9px] opacity-70">{n}</sup>}
+              {t.sub && !s?.ans && !s?.com && <span className="ml-0.5 text-[9px] opacity-60">○</span>}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 function MapView({ query, stats }: { query: string; stats: Record<string, TopicStat> }) {
   const cats = sortDomains(Object.keys(TOPICS_BY_CAT).filter((c) => TOPICS_BY_CAT[c].length > 0));
   const [cat, setCat] = useState(cats[0]);
@@ -539,47 +731,21 @@ function MapView({ query, stats }: { query: string; stats: Record<string, TopicS
         </span>
       </div>
 
-      {/* 지도 — 영역 카드 */}
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {areas.map((a) => (
-          <section key={a.name} className="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm">
-            <h3 className="mb-2 flex items-center justify-between text-xs font-bold text-slate-700">
-              {a.name}
-              <span className="font-normal text-slate-400">{a.items.length}</span>
-            </h3>
-            <div className="flex flex-wrap gap-1.5">
-              {a.items.map((t) => {
-                const s = stats[t.title];
-                // 중요도 모드의 숫자는 전체 출제(기출·NS·모의), 빈도 모드는 기술사 기출만
-                const n = mode === "heat" ? s?.past ?? 0 : hits(s);
-                const color = mode === "heat" ? heatCls(n) : PRI_CHIP[t.priority ?? "하"] ?? PRI_CHIP.하;
-                const isSel = sel === t.title;
-                const lit = isSel || linked.has(t.title) || match(t);
-                const dim = (!!selected || !!query) && !lit;
-                return (
-                  <button
-                    key={t.title}
-                    onClick={() => {
-                      setSel(isSel ? null : t.title);
-                      setShowTables(false);
-                    }}
-                    title={`${t.title}${t.summary ? `\n${t.summary}` : ""}`}
-                    className={`rounded-lg border px-2 py-1 text-left text-[12px] leading-tight transition ${color} ${
-                      t.sub ? "" : "border-dashed"
-                    } ${t.priority === "상" ? "font-semibold" : ""} ${
-                      isSel ? "ring-2 ring-brand-500 ring-offset-1" : linked.has(t.title) ? "ring-2 ring-brand-300" : ""
-                    } ${dim ? "opacity-30" : ""}`}
-                  >
-                    {short(t.title)}
-                    {n > 0 && <sup className="ml-0.5 text-[9px] opacity-70">{n}</sup>}
-                    {t.sub && !s?.ans && !s?.com && <span className="ml-0.5 text-[9px] opacity-60">○</span>}
-                  </button>
-                );
-              })}
-            </div>
-          </section>
-        ))}
-      </div>
+      {/* 마인드맵 — 가운데 과목, 양옆으로 영역 가지, 끝에 토픽 잎 */}
+      <MindMap
+        cat={cat}
+        areas={areas}
+        stats={stats}
+        mode={mode}
+        sel={sel}
+        linked={linked}
+        dimOthers={!!selected || !!query}
+        isMatch={match}
+        onPick={(title) => {
+          setSel(sel === title ? null : title);
+          setShowTables(false);
+        }}
+      />
 
       {/* 고른 토픽 — 지도 아래 상세 */}
       {selected && (
