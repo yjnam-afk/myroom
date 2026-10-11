@@ -850,6 +850,25 @@ const WEEK6_DAYS: CurriculumDay[] = studyDays([
 ]);
 
 /**
+ * 과목 코드 → 교재 CONTENTS 순서 토픽. 토픽 지도가 과목별 토픽을 교재 목차 순서로 늘어놓는 데 쓴다.
+ * 디지털서비스(DX)는 아직 커리큘럼이 없어 서브노트 순서를 쓴다.
+ */
+export const COURSE_TOPICS: Record<string, CurriculumTopic[]> = {
+  CA: CA_ALL,
+  OS: OS_ALL,
+  SE: [...SE_1, ...SE_2, ...SE_3],
+  PM: [...PM_PLAN, ...PM_SCHEDULE, ...PM_TEAM, ...PM_AGILE],
+  AI: AI_ALL,
+  ST: ST_ALL,
+  NW: NW_ALL,
+  AL: AL_ALL,
+  DS: DS_ALL,
+  DB: DB_ALL,
+  MG: MG_ALL,
+  SC: SC_ALL,
+};
+
+/**
  * 강서님 회독법으로 한 주를 짠다 — 월 전체 정독, 화~금 진도 평독, 토 전체 정독.
  * 정독일에도 그 주 진도 토픽 전부를 달아 둔다. 범위가 안 보이면 무엇을 정독할지
  * 매번 다시 찾아야 한다.

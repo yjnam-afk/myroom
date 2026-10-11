@@ -24958,6 +24958,9 @@ function okLoose(needleTitle: string, haystackTitle: string): boolean {
     const okStart = atBoundary(i === 0 ? "" : h[i - 1], n[0]);
     const okEnd = atBoundary(h[i + n.length] || "", n[n.length - 1]);
     if (okStart && okEnd) return true;
+    // 앞에 한글이 붙어 한 낱말이 된 경우는 다른 토픽이다 — 「빅데이터 시각화」가
+    // 「데이터 시각화」를 물던 일(2026-10-11, DB CONTENTS 46쪽 ↔ 45쪽).
+    if (i > 0 && /[가-힣]/.test(h[i - 1]) && /[가-힣]/.test(n[0])) return false;
   }
   const bareNeedle = norm(needleTitle);
   // 경계에서 못 걸렸다면 띄어쓰기 변형 구제용 폴백인데, 괄호를 뗀 알맹이가

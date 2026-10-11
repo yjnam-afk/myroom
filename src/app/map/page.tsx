@@ -11,8 +11,11 @@ import {
   SUBNOTES,
   subnoteByTitle,
   subnoteByAlias,
+  subnoteByTopicId,
 } from "@/data/textbookSubnotes";
 import { DOMAIN_LABEL, domainLabel, sortDomains } from "@/lib/domains";
+import { COURSE_TOPICS } from "@/data/curriculum";
+import type { TextbookSubnote } from "@/data/textbookSubnotes";
 import { planInfo, LEVEL_STYLE, LEVEL_HINT, levelOrder } from "@/lib/studyPlan";
 import SourceBadge from "@/components/SourceBadge";
 import { matchSubnoteTitle, findSubnoteByContent } from "@/lib/matchSubnote";
@@ -74,14 +77,99 @@ const withPlan = (t: Topic): Topic => {
     levelNote: t.levelNote ?? p?.note,
   };
 };
-// 기본은 교재(심화반) 토픽만. 예전 토픽은 회독 진도가 걸려 있어 지우지 않고
-// "예전 토픽 포함" 토글 뒤에 둔다 — 교재와 표기가 달라 헷갈리게 했다.
-const BOOK_TOPICS: Topic[] = SUBNOTE_TOPICS.map(withPlan);
+// 예전(기필반) 토픽은 회독 진도가 걸려 있어 지우지 않고 「예전 토픽 묶음」 탭에 둔다 —
+// 교재와 표기가 달라 헷갈리게 했다. 교재 토픽은 토픽 탭(TOPICS_BY_CAT)이 교재 순서로 보여 준다.
+const LEGACY_TOPICS: Topic[] = LEGACY_KEPT.map(withPlan);
 const ALL: Topic[] = [...LEGACY_KEPT, ...SUBNOTE_TOPICS].map(withPlan);
 // 분류 칩 순서는 데이터 분포가 아니라 심화반 커리큘럼 진행 순서를 따른다.
 // 예전엔 topics.json 등장 순서라, topics.json 에 아예 없는 운영체제·컴퓨터구조·
 // 알고리즘·자료구조가 맨 뒤로 밀려 화면 밖으로 나갔다(1주차 과목인데도).
 const CATS = sortDomains(Array.from(new Set(ALL.map((t) => t.category))));
+
+// ── 토픽 탭 — 과목마다 교재 CONTENTS 순서 그대로 ─────────────────────
+// 2026-10-11 "토픽 지도가 왜 토픽 위주가 아니지?" — 지도가 비교 세트(서브노트 표를 자른 것)로
+// 열리고, 토픽은 맨 끝 탭에서 가나다순 한 묶음이었다. 이제 토픽이 첫 탭이고 교재 목차 순서로
+// 늘어놓으며, 토픽을 펼치면 그 토픽의 표와 이어진 토픽(표 안에 서로 나오는 것)이 보인다.
+type MapTopic = {
+  title: string;
+  priority?: string;
+  level?: string;
+  note?: string;
+  summary: string;
+  /** 교재 서브노트 — 없으면 CONTENTS 에만 있고 아직 정리 전 */
+  sub?: TextbookSubnote;
+};
+const CODE_OF_LABEL: Record<string, string> = Object.fromEntries(
+  Object.entries(DOMAIN_LABEL).map(([code, label]) => [label, code]),
+);
+const TOPICS_BY_CAT: Record<string, MapTopic[]> = (() => {
+  const out: Record<string, MapTopic[]> = {};
+  const used = new Set<string>();
+  for (const [code, label] of Object.entries(DOMAIN_LABEL)) {
+    const list: MapTopic[] = [];
+    for (const t of COURSE_TOPICS[code] ?? []) {
+      const sub = subnoteByTopicId(t.topicId) || subnoteByTitle(t.title);
+      // CONTENTS 가 같은 토픽을 두 번 적은 곳(인공지능 튜링 테스트 등)은 한 번만
+      if (sub && list.some((x) => x.sub === sub)) continue;
+      if (sub) used.add(sub.title);
+      list.push({
+        title: sub?.title ?? t.title,
+        priority: t.priority,
+        level: t.level,
+        note: t.note,
+        summary: sub?.defShort ?? "",
+        sub,
+      });
+    }
+    out[label] = list;
+  }
+  // CONTENTS 에 없는 서브노트(다른 과목 교재에서 옮긴 것·디지털서비스)는 과목 맨 뒤
+  for (const sub of SUBNOTES) {
+    if (used.has(sub.title)) continue;
+    const label = DOMAIN_LABEL[sub.course] || sub.course;
+    const p = planInfo(sub.title, sub.topicId);
+    (out[label] ??= []).push({
+      title: sub.title,
+      priority: p?.priority,
+      level: p?.level,
+      note: p?.note,
+      summary: sub.defShort || "",
+      sub,
+    });
+  }
+  return out;
+})();
+const ALL_MAP_TOPICS: { cat: string; t: MapTopic }[] = Object.entries(TOPICS_BY_CAT).flatMap(
+  ([cat, list]) => list.map((t) => ({ cat, t })),
+);
+
+const nk = (s: string) => s.trim().toLowerCase().replace(/[\s()·,\-_/]/g, "");
+/**
+ * 토픽끼리 잇는 선 — 표 안에 서로 나오는 토픽.
+ * ① 이 토픽의 표 항목이 다른 서브노트 제목이면(OSI 7 Layer 표의 「TCP」류) 아래로 잇고,
+ * ② 다른 토픽의 표 항목에 이 토픽이 나오면 위로 잇는다.
+ */
+function linksOf(title: string): string[] {
+  const bareK = (x: string) => nk(x.replace(/\s*[(（][^)）]*[)）]/g, ""));
+  const k = nk(title);
+  const kb = bareK(title);
+  const out: string[] = [];
+  const add = (x?: string) => {
+    if (x && nk(x) !== k && !out.includes(x)) out.push(x);
+  };
+  for (const set of compareSets) {
+    if (set.ref && nk(set.ref) === k) {
+      for (const it of set.items) {
+        const hit = subnoteByTitle(it.name);
+        if (hit && (nk(hit.title) === nk(it.name) || bareK(hit.title) === bareK(it.name))) add(hit.title);
+      }
+    } else if (set.items.some((it) => nk(it.name) === k || (kb.length >= 2 && bareK(it.name) === kb))) {
+      add(set.ref);
+    }
+  }
+  return out.slice(0, 8);
+}
+
 const IMP_ORDER: Record<string, number> = { 상: 0, 중: 1, 하: 2, 출제예상: 3 };
 
 const IMP_BADGE: Record<string, string> = {
@@ -167,10 +255,11 @@ const hasAnyData = (name: string, parent?: string): boolean =>
   );
 
 export default function MapPage() {
-  const [view, setView] = useState<"compare" | "tables" | "groups">("compare");
+  const [view, setView] = useState<"topics" | "compare" | "tables" | "groups">("topics");
   const [cat, setCat] = useState(CATS[0]);
   const [legacy, setLegacy] = useState(false);
-  const pool = legacy ? ALL : BOOK_TOPICS;
+  // 묶음 탭은 이제 예전(기필반) 토픽만 — 교재 토픽은 토픽 탭이 교재 순서로 보여 준다.
+  const pool = legacy ? ALL : LEGACY_TOPICS;
   const [q, setQ] = useState("");
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
 
@@ -225,15 +314,16 @@ export default function MapPage() {
     <div>
       <PageHeader
         title="🗺️ 토픽 지도"
-        desc="개념을 나란히 비교하거나(⚖️), 묶음을 한 장의 표로 통째 암기하거나(📋), 연관 토픽을 묶음으로 모아 봅니다(🗺️)."
+        desc="과목마다 교재 목차 순서로 토픽을 늘어놓고, 펼치면 그 토픽의 표와 이어진 토픽을 보여 줍니다. 비교(⚖️)·암기표(📋)는 표만 모아 본 것입니다."
       />
 
       {/* 뷰 전환 */}
       <div className="mb-4 inline-flex rounded-xl border border-slate-200 bg-slate-50 p-1">
         {[
+          { k: "topics" as const, label: "🗺️ 토픽" },
           { k: "compare" as const, label: "⚖️ 비교하며 외우기" },
           { k: "tables" as const, label: "📋 암기표" },
-          { k: "groups" as const, label: "🗺️ 주제 묶음" },
+          { k: "groups" as const, label: "🗂️ 예전 토픽 묶음" },
         ].map((v) => (
           <button
             key={v.k}
@@ -255,7 +345,9 @@ export default function MapPage() {
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder={
-            view === "compare"
+            view === "topics"
+              ? "토픽 검색… (예: TCP, 정규화, 해시)"
+              : view === "compare"
               ? "비교 세트 검색… (예: 정규화, 대칭키, OSI, 학습)"
               : view === "tables"
                 ? "암기표 검색… (예: 정렬, OSI, 정규형, RAID)"
@@ -265,7 +357,9 @@ export default function MapPage() {
         />
       </div>
 
-      {view === "compare" ? (
+      {view === "topics" ? (
+        <TopicsView q={q} query={query} searching={searching} />
+      ) : view === "compare" ? (
         <CompareView cmpResults={cmpResults} q={q} searching={searching} />
       ) : view === "tables" ? (
         <TablesView tblResults={tblResults} q={q} searching={searching} />
@@ -284,6 +378,158 @@ export default function MapPage() {
           setExpanded={setExpanded}
           toggle={toggle}
         />
+      )}
+    </div>
+  );
+}
+
+
+/* ─────────────── 토픽 뷰 ─────────────── */
+function TopicsView({ q, query, searching }: { q: string; query: string; searching: boolean }) {
+  const cats = sortDomains(Object.keys(TOPICS_BY_CAT).filter((c) => TOPICS_BY_CAT[c].length > 0));
+  const [cat, setCat] = useState(cats[0]);
+  const [open, setOpen] = useState<string | null>(null);
+  const shown: { cat: string; t: MapTopic }[] = searching
+    ? ALL_MAP_TOPICS.filter(
+        ({ t }) => t.title.toLowerCase().includes(query) || t.summary.toLowerCase().includes(query),
+      )
+    : (TOPICS_BY_CAT[cat] ?? []).map((t) => ({ cat, t }));
+  const inContents = (TOPICS_BY_CAT[cat] ?? []).filter((t) => t.priority).length;
+
+  return (
+    <div>
+      {!searching && (
+        <div className="mb-4 flex flex-wrap gap-2">
+          {cats.map((c) => {
+            const active = c === cat;
+            return (
+              <button
+                key={c}
+                onClick={() => {
+                  setCat(c);
+                  setOpen(null);
+                }}
+                className={`rounded-full border px-3 py-1.5 text-xs font-medium transition ${
+                  active
+                    ? "border-brand-600 bg-brand-600 text-white"
+                    : "border-slate-200 bg-white text-slate-600 hover:border-brand-300"
+                }`}
+              >
+                {c}{" "}
+                <span className={active ? "text-brand-100" : "text-slate-400"}>
+                  {TOPICS_BY_CAT[c].length}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      )}
+      <p className="mb-3 text-xs text-slate-400">
+        {searching
+          ? `"${q}" 검색 결과 · 토픽 ${shown.length}개`
+          : `${cat} · 교재 목차 ${inContents}토픽${
+              CODE_OF_LABEL[cat] && !COURSE_TOPICS[CODE_OF_LABEL[cat]] ? "(서브노트 순서)" : ""
+            } · 토픽을 누르면 표와 이어진 토픽이 펼쳐집니다`}
+      </p>
+
+      {shown.length === 0 ? (
+        <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center text-sm text-slate-400">
+          결과가 없습니다.
+        </div>
+      ) : (
+        <ol className="divide-y divide-slate-100 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          {shown.map(({ cat: c, t }, i) => {
+            const key = `${c}::${t.title}`;
+            const isOpen = open === key;
+            const tables = isOpen ? memoryTables.filter((m) => m.ref === t.title) : [];
+            const links = isOpen ? linksOf(t.title) : [];
+            return (
+              <li key={key}>
+                <div className="flex items-start gap-3 px-4 py-3">
+                  <span className="mt-0.5 w-6 shrink-0 text-right text-xs tabular-nums text-slate-400">
+                    {i + 1}
+                  </span>
+                  {t.priority ? (
+                    <span
+                      className={`mt-0.5 shrink-0 rounded border px-1.5 py-0.5 text-[11px] font-medium ${
+                        IMP_BADGE[t.priority] || IMP_BADGE["중"]
+                      }`}
+                    >
+                      {t.priority}
+                    </span>
+                  ) : (
+                    <span
+                      title="교재 CONTENTS 에 없는 토픽"
+                      className="mt-0.5 shrink-0 rounded border border-dashed border-slate-300 px-1.5 py-0.5 text-[11px] text-slate-400"
+                    >
+                      외
+                    </span>
+                  )}
+                  <button
+                    onClick={() => setOpen(isOpen ? null : key)}
+                    className="group min-w-0 flex-1 text-left"
+                  >
+                    <div className="font-medium text-slate-800 group-hover:text-brand-600">
+                      {t.title}
+                      {t.level && (
+                        <span
+                          title={LEVEL_HINT[t.level as keyof typeof LEVEL_HINT]}
+                          className={`ml-1.5 inline-block rounded border px-1.5 py-0.5 align-middle text-[11px] font-bold ${
+                            LEVEL_STYLE[t.level as keyof typeof LEVEL_STYLE] || ""
+                          }`}
+                        >
+                          {t.level}
+                        </span>
+                      )}
+                      {searching && (
+                        <span className="ml-1.5 rounded-full bg-slate-100 px-2 py-0.5 align-middle text-[10px] text-slate-500">
+                          {c}
+                        </span>
+                      )}
+                    </div>
+                    {t.summary ? (
+                      <div className="mt-0.5 text-xs text-slate-500">{t.summary}</div>
+                    ) : (
+                      <div className="mt-0.5 text-xs text-slate-400">교재 정리 전 — CONTENTS 에만 있는 토픽</div>
+                    )}
+                  </button>
+                  {t.sub && (
+                    <Link
+                      href={`/explain?topic=${encodeURIComponent(t.title)}`}
+                      className="shrink-0 rounded-md border border-slate-200 px-2 py-1 text-[11px] font-medium text-slate-500 transition hover:border-brand-300 hover:text-brand-600"
+                    >
+                      설명 →
+                    </Link>
+                  )}
+                </div>
+                {isOpen && (
+                  <div className="space-y-3 border-t border-slate-100 bg-slate-50/60 px-4 py-3">
+                    {links.length > 0 && (
+                      <div className="flex flex-wrap items-center gap-1.5">
+                        <span className="text-[11px] font-semibold text-slate-500">🔗 이어진 토픽</span>
+                        {links.map((l) => (
+                          <Link
+                            key={l}
+                            href={`/explain?topic=${encodeURIComponent(l)}`}
+                            className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-[11px] text-slate-600 transition hover:border-brand-300 hover:text-brand-600"
+                          >
+                            {l}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                    {tables.map((m) => (
+                      <TableCard key={m.title} t={m} />
+                    ))}
+                    {links.length === 0 && tables.length === 0 && (
+                      <p className="text-xs text-slate-400">이 토픽의 교재 표가 아직 없습니다.</p>
+                    )}
+                  </div>
+                )}
+              </li>
+            );
+          })}
+        </ol>
       )}
     </div>
   );
@@ -486,89 +732,7 @@ function TablesView({
       ) : (
         <div className="space-y-4">
           {shown.map((t) => (
-            <section
-              key={`${t.category}::${t.title}`}
-              className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
-            >
-              <div className="border-b border-slate-100 p-4">
-                <div className="flex items-center gap-2">
-                  <h3 className="text-sm font-bold text-slate-900">{t.title}</h3>
-                  {t.source === "교재" ? (
-                    <span
-                      title={t.ref ? `교재 서브노트 「${t.ref}」의 표` : "교재 표"}
-                      className="rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700"
-                    >
-                      교재
-                    </span>
-                  ) : (
-                    <span
-                      title="교재 이전에 만든 표 — 교재 표기와 다를 수 있다"
-                      className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-medium text-slate-400"
-                    >
-                      교재 외
-                    </span>
-                  )}
-                  <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] text-slate-500">
-                    {t.category}
-                  </span>
-                </div>
-                <p className="mt-1.5 text-xs leading-relaxed text-slate-500">
-                  {t.intro}
-                </p>
-              </div>
-
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse text-left text-xs">
-                  <thead>
-                    <tr className="bg-slate-50 text-slate-500">
-                      {t.columns.map((col, i) => (
-                        <th
-                          key={i}
-                          className="whitespace-nowrap border-b border-slate-200 px-3 py-2 font-semibold"
-                        >
-                          {col}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {t.rows.map((row, ri) => (
-                      <tr key={ri} className="even:bg-slate-50/40">
-                        {row.map((cell, ci) => (
-                          <td
-                            key={ci}
-                            className={`border-b border-slate-100 px-3 py-2 align-top ${
-                              ci === 0
-                                ? "whitespace-nowrap font-semibold text-slate-800"
-                                : "text-slate-600"
-                            }`}
-                          >
-                            {ci === 0 &&
-                            isLinkableName(cell) &&
-                            hasAnyData(cell, t.title) ? (
-                              <Link
-                                href={explainHref(cell, t.title)}
-                                className="text-slate-800 underline decoration-slate-300 underline-offset-2 transition hover:text-brand-600 hover:decoration-brand-400"
-                              >
-                                {cell}
-                              </Link>
-                            ) : (
-                              cell
-                            )}
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-
-              {t.examTip && (
-                <p className="border-t border-amber-100 bg-amber-50/50 px-4 py-2.5 text-xs leading-relaxed text-amber-800">
-                  ✍️ <b className="font-semibold">답안 활용</b> · {t.examTip}
-                </p>
-              )}
-            </section>
+            <TableCard key={`${t.category}::${t.title}`} t={t} />
           ))}
         </div>
       )}
@@ -576,7 +740,96 @@ function TablesView({
   );
 }
 
-/* ─────────────── 묶음 뷰 (기존) ─────────────── */
+
+/** 암기표 한 장 — 암기표 탭과 토픽 탭(펼친 토픽)이 같이 쓴다. */
+function TableCard({ t }: { t: (typeof memoryTables)[number] }) {
+  return (
+    <section
+      className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+    >
+      <div className="border-b border-slate-100 p-4">
+        <div className="flex items-center gap-2">
+          <h3 className="text-sm font-bold text-slate-900">{t.title}</h3>
+          {t.source === "교재" ? (
+            <span
+              title={t.ref ? `교재 서브노트 「${t.ref}」의 표` : "교재 표"}
+              className="rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700"
+            >
+              교재
+            </span>
+          ) : (
+            <span
+              title="교재 이전에 만든 표 — 교재 표기와 다를 수 있다"
+              className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-medium text-slate-400"
+            >
+              교재 외
+            </span>
+          )}
+          <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] text-slate-500">
+            {t.category}
+          </span>
+        </div>
+        <p className="mt-1.5 text-xs leading-relaxed text-slate-500">
+          {t.intro}
+        </p>
+      </div>
+
+      <div className="overflow-x-auto">
+        <table className="w-full border-collapse text-left text-xs">
+          <thead>
+            <tr className="bg-slate-50 text-slate-500">
+              {t.columns.map((col, i) => (
+                <th
+                  key={i}
+                  className="whitespace-nowrap border-b border-slate-200 px-3 py-2 font-semibold"
+                >
+                  {col}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {t.rows.map((row, ri) => (
+              <tr key={ri} className="even:bg-slate-50/40">
+                {row.map((cell, ci) => (
+                  <td
+                    key={ci}
+                    className={`border-b border-slate-100 px-3 py-2 align-top ${
+                      ci === 0
+                        ? "whitespace-nowrap font-semibold text-slate-800"
+                        : "text-slate-600"
+                    }`}
+                  >
+                    {ci === 0 &&
+                    isLinkableName(cell) &&
+                    hasAnyData(cell, t.title) ? (
+                      <Link
+                        href={explainHref(cell, t.title)}
+                        className="text-slate-800 underline decoration-slate-300 underline-offset-2 transition hover:text-brand-600 hover:decoration-brand-400"
+                      >
+                        {cell}
+                      </Link>
+                    ) : (
+                      cell
+                    )}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {t.examTip && (
+        <p className="border-t border-amber-100 bg-amber-50/50 px-4 py-2.5 text-xs leading-relaxed text-amber-800">
+          ✍️ <b className="font-semibold">답안 활용</b> · {t.examTip}
+        </p>
+      )}
+    </section>
+  );
+}
+
+/* ─────────────── 묶음 뷰 (예전 토픽) ─────────────── */
 function GroupsView({
   pool,
   legacy,
@@ -629,14 +882,14 @@ function GroupsView({
           {/* 기본은 교재 토픽만. 예전(기필반) 토픽은 회독 진도가 걸려 있어 토글 뒤에 둔다. */}
           <button
             onClick={() => setLegacy(!legacy)}
-            title="심화반 교재에 없는 예전(기필반) 토픽까지 보여줍니다"
+            title="예전(기필반) 토픽에 교재 서브노트까지 함께 묶어 봅니다"
             className={`ml-auto rounded-full border px-3 py-1.5 text-xs font-medium transition ${
               legacy
                 ? "border-slate-500 bg-slate-600 text-white"
                 : "border-dashed border-slate-300 bg-white text-slate-400 hover:border-slate-400"
             }`}
           >
-            {legacy ? "예전 토픽 포함 중" : "+ 예전 토픽 포함"}
+            {legacy ? "교재 토픽 포함 중" : "+ 교재 토픽도 포함"}
           </button>
         </div>
       )}
