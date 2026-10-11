@@ -48,10 +48,11 @@ export default function AnswerTable({
       span[i] = 0;
     }
   }
-  const pad = dense ? "px-1.5 py-[3px]" : "px-2 py-1.5";
+  // 답안지에서는 칸 한 줄 = 괘선 한 줄(28px = 27px 줄 + 1px 선) — 줄 수를 그대로 셀 수 있게
+  const pad = dense ? "px-1.5 py-[3px]" : "px-2 py-0 leading-[27px]";
   const line = dense ? "border-slate-300" : "border-slate-600";
   return (
-    <table className={`w-full border-collapse ${dense ? "text-[11px]" : "text-[12.5px]"} leading-relaxed`}>
+    <table className={`w-full border-collapse ${dense ? "text-[11px] leading-relaxed" : "text-[12.5px]"}`}>
       {headers.length > 0 && (
         <thead>
           <tr>

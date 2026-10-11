@@ -7,7 +7,7 @@ import StudyCard from "@/components/StudyCard";
 import PeerAnswers from "@/components/PeerAnswers";
 import { CellLines } from "@/components/TableCell";
 import AnswerTable from "@/components/AnswerTable";
-import AnswerPaper from "@/components/AnswerPaper";
+import AnswerTemplate from "@/components/AnswerTemplate";
 import TopicMapCard from "@/components/TopicMapCard";
 import { ExamHistoryCard } from "@/components/ExamHistoryCard";
 import Mermaid from "@/components/Mermaid";
@@ -78,16 +78,6 @@ function TopicNav({
   );
 }
 /** 가나다… 소항목 번호 — 정의가 여럿이면 기법 수만큼 붙는다(블랙박스 9개 등) */
-/** 표 캡션을 소제목에 넣을 때 — 괄호·「 — 부연」을 뗀다(「스레싱 예방 기법 — 운영체제…」→「스레싱 예방 기법」). */
-const capOf = (c: string) => c.split(" — ")[0].replace(/\s*\([^)]*\)/g, "").trim();
-/** 표 캡션이 토픽 이름의 일부(「FEC (전진 오류 정정)」 ⊂ 「FEC / BEC」)면 「토픽의 FEC」처럼 겹쳐 읽힌다. */
-const inTitle = (c: string, title: string) => {
-  const k = capOf(c).replace(/\s+/g, "");
-  return !!k && title.replace(/\s+/g, "").includes(k);
-};
-/** II 단락 제목 끝말 — 첫 표 캡션이 토픽 이름의 일부면 「구성요소」로 쓴다. */
-const secLabel = (c: string | undefined, title: string) =>
-  !c || inTitle(c, title) ? "구성요소" : capOf(c);
 const HANGUL_NO = ["가", "나", "다", "라", "마", "바", "사", "아", "자", "차", "카", "타", "파", "하"];
 
 const COURSE_LABEL = DOMAIN_LABEL;
@@ -379,7 +369,6 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
   const ansDiagrams = extra?.images?.length ? extra.images : sheet?.diagram ?? [];
   // 2교시형은 교재 표 전체를 본론1·2에 싣는다(서술형 3~3.5쪽)
   const fullTables = (textbook?.tables ?? []).map((t, i) => ({ ...t, gloss: gloss?.t?.[i] }));
-  const bodyTables = period === 2 ? fullTables : ansTables;
 
   // 답안지 2번 항목의 그림 이름 — 그림이 흐름·단계를 보여 주면 "절차"처럼 바꿔 쓴다.
   const diagramLabel = extra?.imagesLabel || "개념도";
@@ -608,7 +597,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
                     className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold ${
                       period === p ? "bg-emerald-600 text-white" : "bg-white text-emerald-700 ring-1 ring-emerald-200"
                     }`}
-                    title={p === 1 ? "용어형 · 1.2~1.4쪽 · I 정의 / II 일도일표 / III 비교·활용" : "서술형 · 3~3.5쪽 · I 서론 / II 본론1 / III 본론2 / IV 결론(+α)"}
+                    title={p === 1 ? "1교시 · 26줄 · 1. 정의 / 2. 개념도와 표 / 3. 결론 4박스" : "2교시 · 66~77줄 · Ⅰ 서론 / Ⅱ 본론1 / Ⅲ 본론2(승부처) / Ⅳ 결론"}
                   >
                     {p}교시형
                   </button>
@@ -619,152 +608,37 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
               </div>
             </div>
 
-            {/* 답안지 종이 — 해설집·손글씨 모범답안 형식(2026-10-11 — "진짜 답안지처럼").
-                I. 리드구절·정의(표) → II. 개념도 + 3단표(간글) → III. 나머지 표 → "끝".
-                줄 친 시험지에 번호 칸, 같은 구분은 한 칸으로 합친 3단표(AnswerTable). */}
-            <AnswerPaper>
-              <p className="font-bold">문) {textbook.title}에 대하여 설명하시오.</p>
-              <p className="font-bold">답)</p>
+            {/* 답안지 — 답안 작성 지침(1교시 V30 26줄 · 2교시 4단락 66~77줄)대로(2026-10-11) */}
+            <AnswerTemplate
+              period={period}
+              textbook={textbook}
+              course={textbook.course}
+              bare={bareTitle}
+              ansTables={ansTables}
+              fullTables={fullTables}
+              diagrams={ansDiagrams}
+              hand={hand}
+              diagramGloss={gloss?.d}
+              diagramLabel={diagramLabel}
+              hasSlide={!!extra?.image}
+            />
 
-              {/* I. 정의 — 해설집처럼 정의·특징을 표로(이름 | 정의) */}
-              <p className="mt-1 font-bold">
-                I. {textbook.lead ? `${textbook.lead}의 정의` : `${bareTitle}의 정의`}
-              </p>
-              <div className="pl-3">
-                <AnswerTable
-                  headers={[]}
-                  rows={
-                    textbook.defPair?.length
-                      ? textbook.defPair.map((p) => [
-                          p.name,
-                          [p.def, p.features?.length ? `특징) ${p.features.join(", ")}` : ""]
-                            .filter(Boolean)
-                            .join("\n"),
-                        ])
-                      : [
-                          ["정의", textbook.defShort || textbook.definition.replace(/\*\*/g, "")],
-                          ...(textbook.features?.length ? [["특징", textbook.features.join(", ")]] : []),
-                        ]
-                  }
-                />
-                {!!textbook.subDefs?.length && (
-                  <div className="mt-2">
-                    <AnswerTable
-                      headers={[]}
-                      rows={textbook.subDefs.map((p) => [
-                        p.name,
-                        [p.def, p.features?.length ? `특징) ${p.features.join(", ")}` : ""]
-                          .filter(Boolean)
-                          .join("\n"),
-                      ])}
-                    />
-                  </div>
-                )}
-              </div>
-
-              {/* II. 개념도 및 첫 표 — 가. 개념도(그림 + 간글) / 나. 3단표(간글) */}
-              <p className="mt-3 font-bold">
-                II. {bareTitle}의 {diagramLabel} 및 {secLabel(bodyTables[0]?.caption, bareTitle)}
-              </p>
-              <div className="pl-3">
-                <p className="font-bold">가. {bareTitle}의 {diagramLabel}</p>
-                {/* 개념도는 답안지 5~7줄(1교시) 크기 — 둘이면 나란히 */}
-                {ansDiagrams.length > 0 && (
-                  <div className="my-1 flex items-center justify-center gap-2">
-                    {ansDiagrams.map((src) => (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        key={src}
-                        src={src}
-                        alt={`${cur} ${diagramLabel}`}
-                        className={`${period === 2 ? "max-h-80" : "max-h-52"} min-w-0 max-w-full rounded border border-slate-500 bg-white object-contain`}
-                        style={{ flex: "0 1 auto", maxWidth: `${100 / ansDiagrams.length}%` }}
-                      />
-                    ))}
-                  </div>
-                )}
-                {hand.map((src) => (
+            {/* 손글씨 표 — 정리 노트에서 잘라 온 것. 교재 표를 시험지에 몇 칸으로 줄여 쓰는지 본다. */}
+            {handTables.length > 0 && (
+              <div className="mx-5 mb-3 space-y-2">
+                <p className="text-[11px] font-semibold text-slate-500">✍️ 손글씨 정리 노트 — 표</p>
+                {handTables.map((src) => (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     key={src}
                     src={src}
-                    alt={`${cur} 손글씨 개념도`}
+                    alt={`${cur} 손글씨 표`}
                     loading="lazy"
-                    className="my-1 w-full rounded border border-amber-300 bg-white"
+                    className="w-full rounded border border-amber-300 bg-white"
                   />
                 ))}
-                {ansDiagrams.length === 0 && hand.length === 0 && (
-                  <p className="text-slate-400">(위 교재 슬라이드의 그림을 5~7줄 크기로 옮겨 그린다)</p>
-                )}
-                {gloss?.d && <p>- {gloss.d}</p>}
-
-                {bodyTables.slice(0, 1).map((tb) => (
-                  <div key={tb.caption} className="mt-2">
-                    <p className="font-bold">나. {tb.caption}</p>
-                    <AnswerTable headers={tb.headers} rows={tb.rows} />
-                    {tb.gloss && <p>- {tb.gloss}</p>}
-                  </div>
-                ))}
               </div>
-
-              {/* III. 나머지 표 — 해설집은 셋째 단락에 비교·Hybrid·추가 기술을 둔다 */}
-              {bodyTables.length > 1 && (
-                <>
-                  <p className="mt-3 font-bold">
-                    III.{" "}
-                    {inTitle(bodyTables[1].caption, bareTitle)
-                      ? bodyTables[1].caption
-                      : `${bareTitle}의 ${capOf(bodyTables[1].caption)}`}
-                    {bodyTables.length > 2 ? " 등" : ""}
-                  </p>
-                  <div className="pl-3">
-                    {bodyTables.slice(1).map((tb, k) => (
-                      <div key={tb.caption} className={k ? "mt-2" : ""}>
-                        {bodyTables.length > 2 && (
-                          <p className="font-bold">
-                            {HANGUL_NO[k] ?? "·"}. {tb.caption}
-                          </p>
-                        )}
-                        <AnswerTable headers={tb.headers} rows={tb.rows} />
-                        {tb.gloss && <p>- {tb.gloss}</p>}
-                      </div>
-                    ))}
-                  </div>
-                </>
-              )}
-
-              {/* IV. 결론 — 2교시형만. 교재 메모 + 차별화(+α) 자리 */}
-              {period === 2 && (
-                <>
-                  <p className="mt-3 font-bold">IV. {bareTitle}의 고려사항 및 결론</p>
-                  <div className="pl-3">
-                    {(textbook.notes ?? []).map((n, i) => (
-                      <p key={i}>- {n}</p>
-                    ))}
-                    <p className="text-slate-400">(최신 동향·실무 사례·타 토픽 응용으로 차별화 +α 2~3줄)</p>
-                  </div>
-                </>
-              )}
-
-              {/* 손글씨 표 — 정리 노트에서 잘라 온 것. 교재 표를 시험지에 몇 칸으로 줄여 쓰는지 본다. */}
-              {handTables.length > 0 && (
-                <div className="mt-2 space-y-2 pl-3">
-                  <p className="text-[11px] font-semibold text-slate-500">✍️ 손글씨 정리 노트 — 표</p>
-                  {handTables.map((src) => (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      key={src}
-                      src={src}
-                      alt={`${cur} 손글씨 표`}
-                      loading="lazy"
-                      className="w-full rounded border border-amber-300 bg-white"
-                    />
-                  ))}
-                </div>
-              )}
-
-              <p className="mt-2 text-right font-bold">&ldquo;끝&rdquo;</p>
-            </AnswerPaper>
+            )}
 
             {/* 답안용 표를 쓴 토픽 — 교재 표 전체는 접어 둔다(2교시 서술형·암기용) */}
             {period === 1 && !!sheet?.tables?.length && textbook.tables.length > 0 && (
