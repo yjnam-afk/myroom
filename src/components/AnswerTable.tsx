@@ -1,12 +1,34 @@
-import { CellLines } from "@/components/TableCell";
+/** 한 칸의 줄들 — 줄마다 「- 」. 「특징)」처럼 머리말이 있는 줄은 그대로 둔다. */
+function Dashed({ text }: { text: string }) {
+  return (
+    <>
+      {text.split("\n").map((ln, i) => (
+        <span key={i} className="block">
+          {ln && !/^(특징\)|[-–·•※])/.test(ln) ? `- ${ln}` : ln}
+        </span>
+      ))}
+    </>
+  );
+}
+
+/** 칸 비율 — 3단표 2:2:6, 2단표 2:8, 그 밖은 1열만 좁게 */
+function widthOf(n: number, ci: number): string {
+  if (n === 3) return ["w-[20%]", "w-[20%]", "w-[60%]"][ci];
+  if (n === 2) return ci === 0 ? "w-[20%]" : "w-[80%]";
+  return ci === 0 ? "w-[16%]" : "";
+}
 
 /**
  * 답안지 3단표 — 해설집·손글씨 모범답안처럼 그린다(2026-10-11 — "진짜 답안지처럼").
  *
  * 교재 표는 1열(구분)이 행마다 되풀이된다(「재전송(Retransmission)」이 네 줄 연속). 실제 답안은
  * 같은 구분을 한 칸으로 합쳐(rowspan) 「구분 – 요소 – 설명」으로 읽히게 쓴다. 데이터는 교재 열
- * 구성을 그대로 두고, 그릴 때만 1열의 연속된 같은 값을 합친다. 줄 앞에 표시(①·-)는 붙이지
- * 않는다 — CLAUDE.md 「줄 앞에 표시를 붙이지 않는다」.
+ * 구성을 그대로 두고, 그릴 때만 1열의 연속된 같은 값을 합친다.
+ *
+ * 답안지 지침(prompts.ts 6-0-b, /answer 「일도일표」)대로 표는 점 대신 「–」로 줄을 가른다 —
+ * 2열부터 줄마다 「- 」를 붙인다(해설집 「- 해밍코드」「- 필요한 수 만큼…」). 데이터에는 표시를
+ * 넣지 않고(CLAUDE.md 「줄 앞에 표시를 붙이지 않는다」 — ①②로 짝을 매기다 뜻이 끊긴 일) 그릴 때만 붙인다.
+ * 칸 비율은 3단표 2:2:6, 2단표 2:8.
  */
 export default function AnswerTable({
   headers,
@@ -52,9 +74,9 @@ export default function AnswerTable({
                   rowSpan={ci === 0 && span[ri] > 1 ? span[ri] : undefined}
                   className={`border ${line} ${pad} align-middle ${
                     ci === 0 ? "text-center font-semibold text-slate-800" : "align-top text-slate-800"
-                  } ${ci === 0 && r.length > 2 ? "w-[22%]" : ""}`}
+                  } ${widthOf(r.length, ci)}`}
                 >
-                  {ci === 0 ? c : <CellLines text={c} />}
+                  {ci === 0 ? c : <Dashed text={c} />}
                 </td>
               );
             })}
