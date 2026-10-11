@@ -46,6 +46,14 @@ function keysOf(title: string): string[] {
     const k = norm(seg);
     if (k.length >= 4) out.push(k);
   }
+  // 「데이터 거버넌스, 데이터 품질」처럼 쉼표로 묶은 CONTENTS 제목 — 서브노트는 「데이터 거버넌스(Data Governance)」
+  for (const seg of t.replace(/[(（][^)）]*[)）]/g, "").split(/,\s+/)) {
+    const k = norm(seg);
+    if (k.length >= 4) out.push(k);
+  }
+  // 「A과 B」 ↔ 「A & B」 — 잇는 말만 다른 표기(데이터 상호운용성과 데이터 이동권)
+  const j = norm(t).replace(/(과|와|&|and)/g, "");
+  if (j.length >= 8) out.push(`~${j}`);
   for (const m of t.matchAll(/[(（]([^)）]+)[)）]/g)) {
     for (const part of m[1].split(/[,，/]/)) {
       const k = norm(part);

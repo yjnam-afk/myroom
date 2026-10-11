@@ -84,6 +84,11 @@ export type TextbookSubnote = {
   notes?: string[];
 };
 
+/**
+ * 배열 순서 = 과목마다 커리큘럼(교재 CONTENTS) 순서. 정리표·토픽 지도처럼 이 순서를 그대로 쓰는 화면이 있다.
+ * 2026-10-11 — 옛 교재 순서로 남아 네트워크·알고리즘이 CONTENTS 와 어긋나 보여 과목별로 다시 줄 세웠다.
+ * 새 서브노트는 커리큘럼 자리에 넣는다. CONTENTS 에 없는 것은 그 과목 맨 뒤.
+ */
 export const SUBNOTES: TextbookSubnote[] = [
   {
     topicId: "ca-17",
@@ -301,119 +306,176 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
-    topicId: "os-2",
-    title: "커널(Kernel)",
-    course: "OS",
+    topicId: "ca-77",
+    title: "캐시 일관성(Cache Coherence)",
+    course: "CA",
     definition:
-      "컴퓨터 하드웨어와 응용 프로그램과의 연계를 위하여 자원관리, 프로세스/네트워크 관리 및 추상화를 수행하는 운영체제의 핵심 프로그램",
-    defShort: "자원관리, 프로세스/네트워크 관리 및 추상화하는 OS 핵심 프로그램",
+      "공유 메모리 시스템에서 각 클라이언트(혹은 프로세서)가 가진 로컬 캐시 간의 일관성",
+    defShort: "공유 메모리 시스템에서 각 클라이언트가 가진 로컬 캐시 간의 일관성",
     lead:
-      "운영체제의 핵심 관리자, 커널",
-    features: ["HW 추상화", "특권 모드", "호출로 접근"],
+      "다중 캐시의 데이터 일치, 캐시 일관성",
+    features: ["쓰기 불일치", "상태로 판단", "HW·SW 해결"],
     keywords: [
-      "프로세스 관리 및 CPU Scheduling",
-      "메모리 관리",
-      "I/O Device 관리",
-      "IPC(Inter Process Communication)",
-      "네트워크",
-      "File System",
-      "운영모드/커널모드",
-      "모놀리틱 커널/마이크로 커널",
+      "SW 기법",
+      "HW 기법",
+      "공유 캐시 사용",
+      "공유변수 캐시 미사용",
+      "디렉토리(디풀리차)",
+      "스누피(버스갱무)",
     ],
     tables: [
       {
-        caption: "커널의 주요 역할",
-        headers: ["구분", "역할", "설명"],
+        caption: "SW 기법",
+        headers: ["구분", "기법", "설명"],
         rows: [
-          ["물리 자원", "하드웨어 제어", "인터럽트 처리 핸들러 동작\n특권 명령 물리 자원 제어"],
-          ["실행 자원", "프로세스 관리", "PCB·스케줄링 상태 전이 관리\n문맥교환 CPU 배분"],
-          ["실행 자원", "메모리 관리", "가상 메모리 페이징 주소 변환\n페이지 교체 단편화 관리"],
-          ["물리 자원", "입출력(I/O) 관리", "장치 드라이버 주변 장치 교환\nDMA·VFS 파일 접근 제공"],
-          ["접근 통로", "시스템 콜(System Call)", "모드 전환 Trap 전환\n커널 API HW 자원 보호"],
+          ["캐시 공유", "공유 캐시 사용", "모든 프로세서 하나의 공유 캐시\n항상 캐시 일관성 유지\n캐시 액세스 충돌 빈번 성능 저하"],
+          ["캐시 배제", "공유 변수 캐시 미사용", "공유 데이터 주기억 장치에만 기록\nLock 변수·프로세스 큐 캐시 불가\n임계 영역 보호 데이터 캐시 불가\n캐시 적중률·I/O 성능 저하"],
         ],
       },
       {
-        caption: "커널 구조의 유형 — 단일·계층·마이크로",
-        headers: ["구조 유형", "설명", "특징"],
+        caption: "HW 기법",
+        headers: ["구분", "기법", "설명"],
         rows: [
-          ["단일(Monolithic) 구조", "모든 관리 기능\n하나의 커널", "성능 좋음\n버그 가능성 높음"],
-          ["계층(Layered) 구조", "시스템 콜→관리\n→HW 제어 층", "층 나눠 구성\n상위가 하위 이용"],
-          ["마이크로(Micro) 구조", "IPC·스케줄러\n나머지는 서버", "커널 작음\n품질 관리 용이"],
+          ["중앙 집중", "디렉토리 프로토콜", "공유 상태 기록 디렉토리 이용\nFull Map: 모든 포인터 저장\nLimited: 기억장소 부담 감소\nChained: linked list 연결"],
+          ["분산 감시", "스누피 프로토콜(Snoopy Protocol)", "주소 버스 감시 메모리 접근 감지\n스누피 제어기: 감지 후 상태 조절\n쓰기 갱신: 갱신 정보 전송\n쓰기 무효: Invalid 브로드캐스팅"],
         ],
       },
       {
-        caption: "커널의 종류",
-        headers: ["종류", "설명", "적용 사례"],
+        caption: "프로토콜",
+        headers: ["구분", "기법", "설명"],
         rows: [
-          ["모놀리틱(Monolithic) 커널", "전 기능 직접 제어", "UNIX·Linux"],
-          ["마이크로(Micro) 커널", "기본 기능만 제공", "–"],
-          ["하이브리드(Hybrid) 커널", "모놀리틱+마이크로\n일부 성능 개선", "Windows\nmacOS"],
-          ["엑소(Exo) 커널", "약한 추상화 경량", "임베디드 OS"],
-          ["유니(Uni) 커널", "한 주소 공간 경량", "–"],
+          ["프로토콜", "MESI 프로토콜", "M(수정)·E(배타)\nS(2개 이상 공유)·I(타 캐시 수정)\n4가지 상태로 유효성 판단"],
+          ["프로토콜", "그 외 프로토콜", "MEI·MSI·MOESI·MESIF\nO(Owned): 변경 블록 타 곳 읽음\nF(Forwarding): 대표 할당"],
         ],
       },
       {
-        caption: "모놀리틱 커널과 마이크로 커널의 비교",
-        headers: ["구분", "모놀리딕 커널", "마이크로 커널"],
+        caption: "캐시 불일치 발생 원인",
+        headers: ["원인", "설명"],
         rows: [
-          ["정의", "관리자 모드 동작\n고수준 플랫폼", "사용자 영역 구현\n최소 기능 제공"],
-          ["구성", "VFS 드라이버\n메모리 관리 등", "IPC·스케줄\n메모리 관리만"],
-          ["안정성", "커널 역할 큼\n버그 가능성 높음", "커널 자체 작음\n품질 관리 용이"],
-          ["성능", "시스템 콜 호출\n오버헤드 발생", "서버 튜닝 용이\n최적화 여지 많음"],
-          ["활용", "복잡 앱 동적 수행\n범용 PC 활용", "임베디드 시스템\n네트워크 장비 등"],
-        ],
-      },
-      {
-        caption: "CPU의 2가지 실행 모드",
-        headers: ["모드", "설명"],
-        rows: [
-          ["운영 모드(user mode)", "사용자 앱 실행\n제한된 권한\n시스템 호출 사용"],
-          ["시스템 호출(system call)", "커널 기능 사용\n인터페이스 제공"],
-          ["커널 모드(kernel mode)", "운영체제 기능\n최고 권한 소유\nHW 직접 접근"],
+          ["멀티 프로세서 환경", "프로세서별 로컬\n캐시에 같은\n데이터가 복사됨"],
+          ["변경 가능한 데이터의 공유", "한 캐시의 쓰기가\n다른 캐시에\n반영되지 않음"],
+          ["입출력 동작(I/O Activity)", "I/O가 메모리를\n직접 바꿔 캐시와\n어긋남"],
         ],
       },
     ],
     notes: [
-      "교재 구조도: System Call Interface → 파일 시스템 관리 / I/O 관리(Device Drivers) / 메모리 관리 / 프로세스 관리 · 스케줄러 · IPC · 동기화 / Protection → Hardware Control(Interrupt Handler..) → Hardware",
-      "커널 보호: 사용자 모드와 Supervisor 모드를 분리하는 CPU Level Ring(Ring 0 커널 ~ Ring 3 사용자)으로 답안을 닫으면 좋다 — 15점 답안에서 Good",
-      "시스템 콜 상세(6유형 — 프로세스 제어·파일 조작·장치 관리·정보 유지·통신·보호, 유저↔커널 모드 전환 5단계, 두 모드 비교)는 '시스템 콜(System Call)' 토픽에 정리",
+      "쓰기 정책과의 연결: 변경된 캐시 값은 즉시 쓰기(Write through) 또는 지연 쓰기(Write back)로 메인 메모리에 반영되어 공유 — 두 방식 모두 불일치가 가능하므로 유지 기법이 필요 / Write through는 VI 프로토콜, Write back은 MSI·MESI·MOSI·MOESI (NS 19기 2주차 2교시 4번)",
     ],
   },
   {
-    topicId: "ca-25",
-    title: "DMA(Direct Memory Access)",
+    topicId: "ca-83",
+    title: "캐시 플러시(Cache Flush)",
     course: "CA",
     definition:
-      "CPU를 통하지 않고 주변장치(I/O 장치)와 주기억장치 사이의 데이터 전송을 담당하는 장치",
-    defShort: "CPU를 통하지 않고 주변장치와 주기억장치 간 데이터 전송 담당 장치",
-    lead: "CPU 개입 없는 전송, DMA",
-    features: ["CPU 비경유", "사이클 점유", "부하 경감"],
-    keywords: [
-      "단일버스분리식",
-      "단일버스통합형",
-      "입출력버스",
-      "Burst Mode",
-      "Cycle Stealing",
-      "Interleaved DMA",
-    ],
+      "캐시 메모리 전체 혹은 일부를 무효화(invalidate)하고 주 메모리에서 다시 읽어 들일 필요가 있을 경우 메모리에 데이터 저장 없이 캐시를 비우는 동작",
+    defShort: "캐시 전체 혹은 일부 무효화하고 데이터 저장 없이 캐시 비우는 동작",
+    lead:
+      "캐시 무효화와 재적재, 캐시 플러시",
+    features: ["캐시 무효화", "저장 없음", "더티 리셋"],
+    keywords: ["invalidate", "dirty bit", "valid bit", "cache flush", "cache clean"],
     tables: [
       {
-        caption: "연결 방식에 의한 모드",
-        headers: ["구분", "동작모드", "설명"],
+        caption: "캐시(Cache) 상태",
+        headers: ["상태", "설명"],
         rows: [
-          ["단일 버스", "단일버스 분리 방식", "버스 직접 연결 입출력 모듈 공유\n버스 2회 사용 성능 저하 발생"],
-          ["단일 버스", "단일버스 통합방식", "버스 1회 사용 버스 부담 감소\nDMA 하위 배치 입출력 모듈 종속"],
-          ["이중 버스", "입출력 버스 방식", "입출력버스 추가 두 버스 모두 사용"],
+          ["Valid Bit(유효 비트)", "Cache Line이 활성화 상태 /\nCache Block의 데이터가 유효"],
+          ["Dirty Bit(더티 비트)", "Data가\n변경되었는지\n파악"],
         ],
       },
       {
-        caption: "전송 방식에 의한 모드",
+        caption: "캐시(Cache) Flush와 Clean",
+        headers: ["구분", "동작", "설명"],
+        rows: [
+          ["무효화", "Cache Flush", "캐시 데이터 무효 알림\nDirty Bit 0으로 reset"],
+          ["반영", "Cache Clean", "캐시 데이터 메인 메모리 저장\nDirty Bit 1 메모리 반영 후 0 초기화"],
+        ],
+      },
+    ],
+  },
+  {
+    topicId: "ca-76",
+    title: "캐시메모리의 쓰기정책(Write Policy)",
+    course: "CA",
+    definition: "캐시(Cache)와 주기억장치에 기록하는 시점에 대한 정책",
+    defShort: "캐시와 주기억장치에 기록하는 시점에 대한 쓰기 정책",
+    lead: "주기억장치 기록 시점 선택, 캐시 쓰기정책",
+    features: ["시점 결정", "속도 상충", "일관성 연계"],
+    keywords: ["Write Through", "Write Back", "Cache Coherence"],
+    tables: [
+      {
+        caption: "Write Through vs Write Back",
+        headers: ["구분", "Write Through", "Write Back"],
+        rows: [
+          ["구성도", "동시 쓰기 방식\n캐시+주기억", "나중 쓰기 방식\n캐시만 기록"],
+          ["동작원리", "쓰기 시 동시 기록\n주기억 즉시 반영", "더티 비트 설정\n스왑아웃 시 복사"],
+          ["일관성", "일관성 항상 보장", "블록 교체 시 보장"],
+          ["장점", "단순한 구조\n낮은 복잡도", "쓰기 동작 최소화\n쓰기 시간 단축"],
+          ["단점", "버스 트래픽 증가\n쓰기 시간 증가", "일관성 유지 곤란\n더티 비트 확인"],
+        ],
+      },
+    ],
+  },
+  {
+    topicId: "ca-81",
+    title: "MESI",
+    course: "CA",
+    definition:
+      "캐시의 일관성을 유지하기 위해서 별도의 Flag를 할당한 후 Flag의 상태를 확인하여 데이터의 유효 여부를 판단할 수 있는 프로토콜",
+    defShort: "캐시 일관성 유지 위해 Flag 상태로 데이터 유효 여부 판단 프로토콜",
+    lead:
+      "캐시 일관성 유지 프로토콜, MESI",
+    features: ["일관성 유지", "Flag 기반", "쓰기 무효화"],
+    keywords: ["Cache Coherence", "Modify", "Exclusive", "Shared", "Invalid"],
+    tables: [
+      {
+        caption: "MESI 상태",
+        headers: ["구분", "세부 상태", "설명"],
+        rows: [
+          ["수정(Modify)", "데이터가 수정(변경)된 상태", "캐시 라인 수정됨(주기억과 다름)\n그 라인은 이 캐시에만 있음"],
+          ["배타(Exclusive)", "유일한 복사본, 주기억 장치와 동일", "주기억장치 내용과 동일\n다른 캐시에는 존재하지 않음"],
+          ["공유(Shared)", "두 개 이상 캐시에 데이터가 적재", "주기억장치 내용과 동일\n다른 캐시에도 있을 수 있음"],
+          ["무효(Invalid)", "다른 프로세스에 의해 수정된 데이터", "캐시 라인에 유효 데이터 없음"],
+        ],
+      },
+    ],
+    notes: [
+      "상태 전이(매커니즘): (1) Read miss (2) Write hit (3) Read miss (4) Cache miss (5) Invalidate signal (6) Write hit (7) Read miss (8) Write miss",
+      "검은 화살표 = 프로세스 동작에 의한 전이, 빨간 화살표 = 다른 캐시의 변화에 의한 전이",
+    ],
+  },
+  {
+    topicId: "ca-56",
+    title: "메모리 인터리빙(Interleaving)",
+    course: "CA",
+    definition:
+      "버스의 경합이나 기억장치의 충돌 회피를 위하여 기억장치를 여러 개의 독립적인 모듈들로 나누고 모듈들에서 동시에 엑세스 동작이 일어날 수 있도록 하는 기법",
+    defShort: "기억장치를 독립 모듈로 나눠 모듈에서 동시에 엑세스 동작하는 기법",
+    lead:
+      "기억장치 동시 접근 기법, 메모리 인터리빙",
+    features: ["모듈 분할", "동시 액세스", "경합 회피"],
+    keywords: [
+      "상위 인터리빙",
+      "하위 인터리빙",
+      "혼합 인터리빙",
+      "C-Access",
+      "S-Access",
+    ],
+    tables: [
+      {
+        caption: "메모리 인터리빙 유형",
         headers: ["구분", "유형", "설명"],
         rows: [
-          ["연속 점유", "Burst Mode (Block Mode)", "블록 단위 전송 워드 블록 연속\n버스 사이클 독점 종료 시까지 점유"],
-          ["교차 점유", "Cycle Stealing Mode (Word Mode)", "1 word 전송 사이클 훔침\nDMA 우선 제어 버스 경합 시 우선"],
-          ["요구 기반", "Demand Transfer Mode", "Burst 유사 블록 전송 방식\nDREQ 기반 비활성 시 중지"],
-          ["유휴 활용", "Interleaved DMA", "CPU 미사용 시 DMA 버스 사용"],
+          ["순차 접근", "상위 인터리빙", "순차 주소 지정 모듈별 연속 주소\n상위 비트 모듈 하위 비트 장소"],
+          ["병렬 접근", "하위 인터리빙", "모듈 단위 교차 주소 순환 배치\n하위 비트 모듈 상위 비트 장소"],
+          ["절충", "혼합 인터리빙", "상위 인터리빙 뱅크 그룹 선택\n하위 인터리빙 뱅크 내 모듈 간"],
+        ],
+      },
+      {
+        caption: "메모리 인터리빙 접근방식",
+        headers: ["구분", "설명"],
+        rows: [
+          ["C-ACCESS", "주소 순차 도착\n순차 Data Read·CPU 전송\n액세스 시간 T=Ta+(M*tb)\nTa 액세스·M 모듈 수·tb 버스 주기"],
+          ["S-ACCESS", "주소 모두 도착 시 동시 Data Read\n읽은 Data 순차 CPU 전송\n액세스 시간 T=Ta+(M*tb)\nTa 액세스·M 모듈 수·tb 버스 주기"],
         ],
       },
     ],
@@ -475,288 +537,42 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
-    topicId: "ca-214",
-    title: "CXL(Compute Express Link) 3.0",
+    topicId: "ca-25",
+    title: "DMA(Direct Memory Access)",
     course: "CA",
     definition:
-      "CPU와 메모리·가속기 간 저지연 데이터 통신과 캐시 일관성을 지원하며, CXL Switch/Fabric을 통해 메모리 공유·Pooling 및 확장을 제공하는 차세대 컴퓨팅 인터페이스",
-    defShort: "캐시 일관성 지원, Fabric 통해 메모리 공유·Pooling 확장 인터페이스",
-    lead: "메모리 벽을 넘는 연결, CXL 3.0",
-    features: ["PCIe 6 기반", "패브릭 구조", "풀링·공유"],
-    keywords: ["PCIe 6.0 기반", "Fabric 구조", "메모리 Pooling/Sharing"],
-    tables: [
-      {
-        caption: "특징",
-        headers: ["구분", "특징", "설명"],
-        rows: [
-          ["대역폭", "PCIe 6.0 기반 도입", "PCIe 6.0 대역폭 2배 향상\n64GT/s 256GB/s"],
-          ["확장성", "패브릭(Fabric) 구조 지원", "다단계 스위칭 랙 간 연결 지원\n4,096 노드 유연한 노드 확장"],
-          ["메모리", "메모리 풀링 및 공유", "CPU 미경유 중앙 처리 우회\n장치 직접 접근 데이터 병목 극복"],
-        ],
-      },
-      {
-        caption: "구성 요소",
-        headers: ["구분", "구성요소", "설명"],
-        rows: [
-          ["Host", "CPU / SoC", "루트 포트 연결"],
-          ["인터페이스", "CXL Link", "고속 데이터 전송"],
-        ],
-      },
-      {
-        caption: "프로토콜·Fabric·Device·메모리 관리",
-        headers: ["구분", "요소", "설명"],
-        rows: [
-          ["프로토콜", "CXL.io", "장치 검색·설정 및 I/O 통신 담당"],
-          ["프로토콜", "CXL.cache", "Host 메모리 접근 Cache Coherency"],
-          ["프로토콜", "CXL.mem", "Host가 Device 메모리 직접 접근"],
-          ["Fabric", "CXL Switch", "Host 하나에 여러 CXL Device 연결"],
-          ["Fabric", "Multi-Level Switching", "대규모 CXL Fabric 구성 지원"],
-          ["Device", "CXL Memory", "외부 메모리 연결 Host 용량 확장"],
-          ["Device", "Accelerator", "GPU·NPU CPU 간 일관성 데이터 공유"],
-          ["메모리 관리", "Memory Pooling", "다중 Host 메모리 공유 활용률 향상"],
-          ["메모리 관리", "Memory Sharing", "Host·Device 공유 복사·이동 감소"],
-        ],
-      },
-      {
-        caption: "서브 프로토콜 상세",
-        headers: ["서브 프로토콜", "주요 목적", "설명"],
-        rows: [
-          ["CXL.io", "PCIe 기능\n낮은 접근 지연", "탐색·DMA\n모든 유형 공통"],
-          ["CXL.cache", "비대칭형 일관성\nMESI 사용", "호스트가 책임\n스눕 트랜잭션"],
-          ["CXL.mem", "메모리 접근\n로컬처럼 사용", "주변장치 메모리\n64B 라인 단위"],
-        ],
-      },
-      {
-        caption: "CXL 장치 유형(Device Type)",
-        headers: ["장치 유형", "사용 프로토콜", "대표 사례"],
-        rows: [
-          ["Type 1", "CXL.io\nCXL.cache", "NIC\n무메모리 가속기"],
-          ["Type 2", "CXL.io+cache\nCXL.mem", "HBM GPU\nFPGA 보드"],
-          ["Type 3", "CXL.io\nCXL.mem", "DRAM 확장\n비휘발성 메모리"],
-        ],
-      },
-    ],
-    notes: [
-      "개념도: Accelerator(Accelerator Logic + Accelerator Memory) ↔ CXL.io(PCIe: 검색·설정·초기화·인터럽트·DMA·ATS·오류신호) / CXL.cache(Coherent requests) / CXL.mem(Memory Flows) ↔ Host Processor(Coherence·Cache Logic, PCIe Logic, IA Core, I/O Device) ↔ Host Memory",
-      "세 프로토콜의 방향: CXL.io는 장치 관리, CXL.cache는 Device→Host 메모리 접근, CXL.mem은 Host→Device 메모리 접근 — 누가 누구의 메모리를 보는지로 갈라 외운다",
-      "연결 구조: 캐시 일관성(Cache Coherence)·MESI와 한 줄 — 가속기가 Host 메모리를 캐시할 때 일관성을 어떻게 유지하는가가 CXL.cache의 일이다",
-      "한 줄로: PCIe 6.0 위에서 CPU·메모리·저장장치·가속기를 한 규격으로 잇는 통합 인터페이스 — 답안은 '메모리 벽을 넘는 연결'로 여는 것이 자연스럽다",
-      "물리 계층은 PCIe PHY에 CXL logical PHY를 더한 형태 — 그 위 MUX가 CXL.io 트랜잭션과 CXL.mem·CXL.cache 트랜잭션을 구분하고, MUX 위에 서브 프로토콜별 링크·트랜잭션 계층이 놓인다",
-    ],
-  },
-  {
-    topicId: "ca-47",
-    title: "I2C(Inter Integrated Circuit)와 SPI(Serial Peripheral Interface)",
-    course: "CA",
-    definition: "시리얼(Serial) 통신 방식",
-    defShort: "마이크로프로세서와 주변 기기 통신 위한 동기식 시리얼 통신 방식",
-    lead: "임베디드 직렬 통신 방식, I2C와 SPI",
-    features: ["동기식 직렬", "마스터 주도", "배선·속도"],
-    // 개념마다 정의·특징을 따로 쓴다(2026-10-07 — "각자 정의, 특징"). 비교표 「정의」 행 I2C·SPI 문장을 줄임(빨강 클럭·데이터·반 이중·동기식 시리얼 / 4개의 라인·전 이중 통신 모드·동기식 시리얼 유지). 특징은 통신방식·연결·속도·전력소모 행
-    defPair: [
-      {
-        name: "I2C",
-        lead: "저속 주변 기기 통신",
-        def: "클럭·데이터 두 라인으로 통신하는 반 이중 동기식 시리얼 인터페이스",
-        features: ["반 이중 통신", "공유 구조", "저속 통신"],
-      },
-      {
-        name: "SPI",
-        lead: "범용 고속 I/O 통신",
-        def: "4개의 라인으로 구성된 전 이중 통신 모드 동기식 시리얼 인터페이스",
-        features: ["전 이중 통신", "1:1 연결", "고속·저전력"],
-      },
-    ],
-    keywords: ["SCL", "SDA", "CS", "SCLK", "MOSI", "MISO", "100kbps", "70MHz"],
-    tables: [
-      {
-        caption: "I2C vs SPI",
-        headers: ["구분", "I2C", "SPI"],
-        rows: [
-          ["정의", "클럭·데이터 2선\n표준모드 100Kbps\n반이중 동기식", "범용 고속 I/O\n4개 라인\n전이중 동기식"],
-          ["동작 방식", "시작 신호 점유\nR/W 정보 전송", "CS 슬레이브 선택\nSCLK 통신 시작\nMOSI/MISO 전송"],
-          ["통신방식", "반 이중 통신", "전 이중 통신"],
-          ["구성", "클럭·데이터\nSCL·SDA", "CS·SCLK\nMISO 등 4선"],
-          ["연결", "공유 버스 구조", "1:1 연결 구조"],
-          ["속도", "표준모드 저속\n100kbps", "고속 통신\n70MHz"],
-          ["전력소모", "전력 소모 높음", "전력 소모 낮음"],
-        ],
-      },
-    ],
-  },
-  {
-    topicId: "ca-76",
-    title: "캐시메모리의 쓰기정책(Write Policy)",
-    course: "CA",
-    definition: "캐시(Cache)와 주기억장치에 기록하는 시점에 대한 정책",
-    defShort: "캐시와 주기억장치에 기록하는 시점에 대한 쓰기 정책",
-    lead: "주기억장치 기록 시점 선택, 캐시 쓰기정책",
-    features: ["시점 결정", "속도 상충", "일관성 연계"],
-    keywords: ["Write Through", "Write Back", "Cache Coherence"],
-    tables: [
-      {
-        caption: "Write Through vs Write Back",
-        headers: ["구분", "Write Through", "Write Back"],
-        rows: [
-          ["구성도", "동시 쓰기 방식\n캐시+주기억", "나중 쓰기 방식\n캐시만 기록"],
-          ["동작원리", "쓰기 시 동시 기록\n주기억 즉시 반영", "더티 비트 설정\n스왑아웃 시 복사"],
-          ["일관성", "일관성 항상 보장", "블록 교체 시 보장"],
-          ["장점", "단순한 구조\n낮은 복잡도", "쓰기 동작 최소화\n쓰기 시간 단축"],
-          ["단점", "버스 트래픽 증가\n쓰기 시간 증가", "일관성 유지 곤란\n더티 비트 확인"],
-        ],
-      },
-    ],
-  },
-  {
-    topicId: "ca-83",
-    title: "캐시 플러시(Cache Flush)",
-    course: "CA",
-    definition:
-      "캐시 메모리 전체 혹은 일부를 무효화(invalidate)하고 주 메모리에서 다시 읽어 들일 필요가 있을 경우 메모리에 데이터 저장 없이 캐시를 비우는 동작",
-    defShort: "캐시 전체 혹은 일부 무효화하고 데이터 저장 없이 캐시 비우는 동작",
-    lead:
-      "캐시 무효화와 재적재, 캐시 플러시",
-    features: ["캐시 무효화", "저장 없음", "더티 리셋"],
-    keywords: ["invalidate", "dirty bit", "valid bit", "cache flush", "cache clean"],
-    tables: [
-      {
-        caption: "캐시(Cache) 상태",
-        headers: ["상태", "설명"],
-        rows: [
-          ["Valid Bit(유효 비트)", "Cache Line이 활성화 상태 /\nCache Block의 데이터가 유효"],
-          ["Dirty Bit(더티 비트)", "Data가\n변경되었는지\n파악"],
-        ],
-      },
-      {
-        caption: "캐시(Cache) Flush와 Clean",
-        headers: ["구분", "동작", "설명"],
-        rows: [
-          ["무효화", "Cache Flush", "캐시 데이터 무효 알림\nDirty Bit 0으로 reset"],
-          ["반영", "Cache Clean", "캐시 데이터 메인 메모리 저장\nDirty Bit 1 메모리 반영 후 0 초기화"],
-        ],
-      },
-    ],
-  },
-  {
-    topicId: "ca-77",
-    title: "캐시 일관성(Cache Coherence)",
-    course: "CA",
-    definition:
-      "공유 메모리 시스템에서 각 클라이언트(혹은 프로세서)가 가진 로컬 캐시 간의 일관성",
-    defShort: "공유 메모리 시스템에서 각 클라이언트가 가진 로컬 캐시 간의 일관성",
-    lead:
-      "다중 캐시의 데이터 일치, 캐시 일관성",
-    features: ["쓰기 불일치", "상태로 판단", "HW·SW 해결"],
+      "CPU를 통하지 않고 주변장치(I/O 장치)와 주기억장치 사이의 데이터 전송을 담당하는 장치",
+    defShort: "CPU를 통하지 않고 주변장치와 주기억장치 간 데이터 전송 담당 장치",
+    lead: "CPU 개입 없는 전송, DMA",
+    features: ["CPU 비경유", "사이클 점유", "부하 경감"],
     keywords: [
-      "SW 기법",
-      "HW 기법",
-      "공유 캐시 사용",
-      "공유변수 캐시 미사용",
-      "디렉토리(디풀리차)",
-      "스누피(버스갱무)",
+      "단일버스분리식",
+      "단일버스통합형",
+      "입출력버스",
+      "Burst Mode",
+      "Cycle Stealing",
+      "Interleaved DMA",
     ],
     tables: [
       {
-        caption: "SW 기법",
-        headers: ["구분", "기법", "설명"],
+        caption: "연결 방식에 의한 모드",
+        headers: ["구분", "동작모드", "설명"],
         rows: [
-          ["캐시 공유", "공유 캐시 사용", "모든 프로세서 하나의 공유 캐시\n항상 캐시 일관성 유지\n캐시 액세스 충돌 빈번 성능 저하"],
-          ["캐시 배제", "공유 변수 캐시 미사용", "공유 데이터 주기억 장치에만 기록\nLock 변수·프로세스 큐 캐시 불가\n임계 영역 보호 데이터 캐시 불가\n캐시 적중률·I/O 성능 저하"],
+          ["단일 버스", "단일버스 분리 방식", "버스 직접 연결 입출력 모듈 공유\n버스 2회 사용 성능 저하 발생"],
+          ["단일 버스", "단일버스 통합방식", "버스 1회 사용 버스 부담 감소\nDMA 하위 배치 입출력 모듈 종속"],
+          ["이중 버스", "입출력 버스 방식", "입출력버스 추가 두 버스 모두 사용"],
         ],
       },
       {
-        caption: "HW 기법",
-        headers: ["구분", "기법", "설명"],
-        rows: [
-          ["중앙 집중", "디렉토리 프로토콜", "공유 상태 기록 디렉토리 이용\nFull Map: 모든 포인터 저장\nLimited: 기억장소 부담 감소\nChained: linked list 연결"],
-          ["분산 감시", "스누피 프로토콜(Snoopy Protocol)", "주소 버스 감시 메모리 접근 감지\n스누피 제어기: 감지 후 상태 조절\n쓰기 갱신: 갱신 정보 전송\n쓰기 무효: Invalid 브로드캐스팅"],
-        ],
-      },
-      {
-        caption: "프로토콜",
-        headers: ["구분", "기법", "설명"],
-        rows: [
-          ["프로토콜", "MESI 프로토콜", "M(수정)·E(배타)\nS(2개 이상 공유)·I(타 캐시 수정)\n4가지 상태로 유효성 판단"],
-          ["프로토콜", "그 외 프로토콜", "MEI·MSI·MOESI·MESIF\nO(Owned): 변경 블록 타 곳 읽음\nF(Forwarding): 대표 할당"],
-        ],
-      },
-      {
-        caption: "캐시 불일치 발생 원인",
-        headers: ["원인", "설명"],
-        rows: [
-          ["멀티 프로세서 환경", "프로세서별 로컬\n캐시에 같은\n데이터가 복사됨"],
-          ["변경 가능한 데이터의 공유", "한 캐시의 쓰기가\n다른 캐시에\n반영되지 않음"],
-          ["입출력 동작(I/O Activity)", "I/O가 메모리를\n직접 바꿔 캐시와\n어긋남"],
-        ],
-      },
-    ],
-    notes: [
-      "쓰기 정책과의 연결: 변경된 캐시 값은 즉시 쓰기(Write through) 또는 지연 쓰기(Write back)로 메인 메모리에 반영되어 공유 — 두 방식 모두 불일치가 가능하므로 유지 기법이 필요 / Write through는 VI 프로토콜, Write back은 MSI·MESI·MOSI·MOESI (NS 19기 2주차 2교시 4번)",
-    ],
-  },
-  {
-    topicId: "ca-56",
-    title: "메모리 인터리빙(Interleaving)",
-    course: "CA",
-    definition:
-      "버스의 경합이나 기억장치의 충돌 회피를 위하여 기억장치를 여러 개의 독립적인 모듈들로 나누고 모듈들에서 동시에 엑세스 동작이 일어날 수 있도록 하는 기법",
-    defShort: "기억장치를 독립 모듈로 나눠 모듈에서 동시에 엑세스 동작하는 기법",
-    lead:
-      "기억장치 동시 접근 기법, 메모리 인터리빙",
-    features: ["모듈 분할", "동시 액세스", "경합 회피"],
-    keywords: [
-      "상위 인터리빙",
-      "하위 인터리빙",
-      "혼합 인터리빙",
-      "C-Access",
-      "S-Access",
-    ],
-    tables: [
-      {
-        caption: "메모리 인터리빙 유형",
+        caption: "전송 방식에 의한 모드",
         headers: ["구분", "유형", "설명"],
         rows: [
-          ["순차 접근", "상위 인터리빙", "순차 주소 지정 모듈별 연속 주소\n상위 비트 모듈 하위 비트 장소"],
-          ["병렬 접근", "하위 인터리빙", "모듈 단위 교차 주소 순환 배치\n하위 비트 모듈 상위 비트 장소"],
-          ["절충", "혼합 인터리빙", "상위 인터리빙 뱅크 그룹 선택\n하위 인터리빙 뱅크 내 모듈 간"],
+          ["연속 점유", "Burst Mode (Block Mode)", "블록 단위 전송 워드 블록 연속\n버스 사이클 독점 종료 시까지 점유"],
+          ["교차 점유", "Cycle Stealing Mode (Word Mode)", "1 word 전송 사이클 훔침\nDMA 우선 제어 버스 경합 시 우선"],
+          ["요구 기반", "Demand Transfer Mode", "Burst 유사 블록 전송 방식\nDREQ 기반 비활성 시 중지"],
+          ["유휴 활용", "Interleaved DMA", "CPU 미사용 시 DMA 버스 사용"],
         ],
       },
-      {
-        caption: "메모리 인터리빙 접근방식",
-        headers: ["구분", "설명"],
-        rows: [
-          ["C-ACCESS", "주소 순차 도착\n순차 Data Read·CPU 전송\n액세스 시간 T=Ta+(M*tb)\nTa 액세스·M 모듈 수·tb 버스 주기"],
-          ["S-ACCESS", "주소 모두 도착 시 동시 Data Read\n읽은 Data 순차 CPU 전송\n액세스 시간 T=Ta+(M*tb)\nTa 액세스·M 모듈 수·tb 버스 주기"],
-        ],
-      },
-    ],
-  },
-  {
-    topicId: "ca-81",
-    title: "MESI",
-    course: "CA",
-    definition:
-      "캐시의 일관성을 유지하기 위해서 별도의 Flag를 할당한 후 Flag의 상태를 확인하여 데이터의 유효 여부를 판단할 수 있는 프로토콜",
-    defShort: "캐시 일관성 유지 위해 Flag 상태로 데이터 유효 여부 판단 프로토콜",
-    lead:
-      "캐시 일관성 유지 프로토콜, MESI",
-    features: ["일관성 유지", "Flag 기반", "쓰기 무효화"],
-    keywords: ["Cache Coherence", "Modify", "Exclusive", "Shared", "Invalid"],
-    tables: [
-      {
-        caption: "MESI 상태",
-        headers: ["구분", "세부 상태", "설명"],
-        rows: [
-          ["수정(Modify)", "데이터가 수정(변경)된 상태", "캐시 라인 수정됨(주기억과 다름)\n그 라인은 이 캐시에만 있음"],
-          ["배타(Exclusive)", "유일한 복사본, 주기억 장치와 동일", "주기억장치 내용과 동일\n다른 캐시에는 존재하지 않음"],
-          ["공유(Shared)", "두 개 이상 캐시에 데이터가 적재", "주기억장치 내용과 동일\n다른 캐시에도 있을 수 있음"],
-          ["무효(Invalid)", "다른 프로세스에 의해 수정된 데이터", "캐시 라인에 유효 데이터 없음"],
-        ],
-      },
-    ],
-    notes: [
-      "상태 전이(매커니즘): (1) Read miss (2) Write hit (3) Read miss (4) Cache miss (5) Invalidate signal (6) Write hit (7) Read miss (8) Write miss",
-      "검은 화살표 = 프로세스 동작에 의한 전이, 빨간 화살표 = 다른 캐시의 변화에 의한 전이",
     ],
   },
   {
@@ -918,85 +734,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
-    title: "이레이저 코딩(erasure coding)",
-    course: "CA",
-    definition:
-      "분할과 패리티를 이용하여 데이터를 인코딩하고, 데이터 손실 시 디코딩 과정을 거쳐 원본 데이터를 복구하는 기술",
-    defShort: "분할과 패리티로 데이터 인코딩하고 손실 시 디코딩해 원본 복구 기술",
-    lead:
-      "패리티 기반 데이터 복구, 이레이저 코딩",
-    features: ["패리티 복구", "손실 허용", "분산 저장"],
-    keywords: [
-      "Reed-Solomon Code",
-      "Tahoe-LAFS",
-      "Weaver Code",
-      "분할",
-      "인코딩",
-      "디코딩",
-      "이레이저 코드(n+k)",
-    ],
-    tables: [
-      {
-        caption: "동작 방식",
-        headers: ["동작", "절차", "설명"],
-        rows: [
-          ["분할", "데이터 분할", "동일 크기 n블록"],
-          ["저장(인코딩)", "이레이저 코드\n(n+k)", "Reed-Solomon Code\nTahoe-LAFS\nWeaver Code\n패리티 블록 함께 저장"],
-          ["복원(디코딩)", "패리티 복원", "오류 영역 복구"],
-        ],
-      },
-      {
-        caption: "알고리즘",
-        headers: ["구분", "알고리즘", "설명"],
-        rows: [
-          ["패리티 기반", "Reed-Solomon Code", "n+k 조각 패리티 조각 추가\nn개로 재구성 원본 복원 가능"],
-          ["분산 저장", "Tahoe-LAFS", "암호화 분산 저장 여러 서버 분산"],
-          ["XOR 기반", "Weaver Code", "XOR 기반 코드 고내결함성 확보\n동일 스트립 배치 균형·대칭 구조"],
-        ],
-      },
-    ],
-    notes: ["매커니즘: DATA → ① n등분(n개) → ② 인코딩(k개) → 총 n+k개 저장 → ③ 디코딩 → n개 복원"],
-  },
-  {
-    title: "지능형 반도체",
-    course: "CA",
-    definition:
-      "데이터를 저장하는 메모리 반도체와 연산 기능을 수행할 수 있는 시스템 반도체의 융합된 형태를 가지는 반도체",
-    defShort: "데이터 저장 메모리 반도체와 연산 시스템 반도체가 융합된 반도체",
-    lead: "메모리·시스템 반도체 융합, 지능형 반도체",
-    features: ["연산 융합", "병목 해소", "저전력화"],
-    keywords: [
-      "지능화",
-      "저전력화",
-      "안정화",
-      "스마트 인지·제어 반도체",
-      "스마트 통신 반도체",
-      "초고속 컴퓨팅 반도체",
-    ],
-    tables: [
-      {
-        caption: "핵심 기술",
-        headers: ["구분", "핵심 기술", "설명"],
-        rows: [
-          ["초고속 컴퓨팅 반도체", "뉴로모픽 고속 컴퓨팅", "자율학습·판단 신경망 칩 응용"],
-          ["초고속 컴퓨팅 반도체", "지능형메모리", "SSD·UFS 저장장치 메모리\n제어부 융합 독립 기능 담당"],
-          ["초고속 컴퓨팅 반도체", "빅데이터 고속처리", "실시간 대량 분석 고속 연산 처리\n병렬 처리 활용 멀티스레드 응용"],
-          ["초고속 컴퓨팅 반도체", "IoT 프로세서", "소형·저전력 IoT 기기용\n주변장치 IP 다양한 응용 지원"],
-          ["스마트 통신 반도체", "고속이동통신", "5G·6G 통신 AV 코덱 등 적용"],
-          ["스마트 통신 반도체", "광대역 네트워크", "광 기반 고속망 차량 선박 항공\n기저대역 모뎀 HW 설계 기술"],
-          ["스마트 통신 반도체", "초저전력 커넥티비티", "근접통신\n협업 미들웨어\n자율제어"],
-          ["스마트 인지 제어 반도체", "얼굴인식", "99.15% 사람 이상 인식률\n페이스북 적용 대표 사례"],
-          ["스마트 인지 제어 반도체", "콘텐츠 및 광고추천", "취향 분석 추천 넷플릭스 아마존"],
-          ["스마트 인지 제어 반도체", "자동통역", "자동통역 서비스 스카이프·MS"],
-          ["스마트 인지 제어 반도체", "음성비서", "개인형 음성비서 애플 시리 사례\n대화형 교육 IBM 왓슨"],
-        ],
-      },
-    ],
-    notes: [
-      "개념도: 기존 반도체(중앙처리장치 CPU ↔ 전송회로 BUS ↔ 저장장치 메모리, 병목현상) → 설계·소자·공정·장비·소재 기술 → 뉴로모픽 반도체(뉴런·시냅스·통신 계층, 연산·저장·통신 기능 융합으로 병목현상 없음)",
-    ],
-  },
-  {
     topicId: "ca-22",
     title: "TPU (Tensor Processing Unit)",
     course: "CA",
@@ -1087,412 +824,271 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
-    topicId: "os-45",
-    title: "경쟁조건(Race Condition) 해결 방안",
-    course: "OS",
+    topicId: "ca-214",
+    title: "CXL(Compute Express Link) 3.0",
+    course: "CA",
     definition:
-      "둘 이상의 프로세스가 동일한 공유 자원에 동시에 접근하면서 실행 순서에 따라 결과가 달라질 수 있는 상황",
-    defShort: "둘 이상 프로세스가 공유 자원 동시 접근 시 순서로 결과 달라지는 상황",
+      "CPU와 메모리·가속기 간 저지연 데이터 통신과 캐시 일관성을 지원하며, CXL Switch/Fabric을 통해 메모리 공유·Pooling 및 확장을 제공하는 차세대 컴퓨팅 인터페이스",
+    defShort: "캐시 일관성 지원, Fabric 통해 메모리 공유·Pooling 확장 인터페이스",
+    lead: "메모리 벽을 넘는 연결, CXL 3.0",
+    features: ["PCIe 6 기반", "패브릭 구조", "풀링·공유"],
+    keywords: ["PCIe 6.0 기반", "Fabric 구조", "메모리 Pooling/Sharing"],
+    tables: [
+      {
+        caption: "특징",
+        headers: ["구분", "특징", "설명"],
+        rows: [
+          ["대역폭", "PCIe 6.0 기반 도입", "PCIe 6.0 대역폭 2배 향상\n64GT/s 256GB/s"],
+          ["확장성", "패브릭(Fabric) 구조 지원", "다단계 스위칭 랙 간 연결 지원\n4,096 노드 유연한 노드 확장"],
+          ["메모리", "메모리 풀링 및 공유", "CPU 미경유 중앙 처리 우회\n장치 직접 접근 데이터 병목 극복"],
+        ],
+      },
+      {
+        caption: "구성 요소",
+        headers: ["구분", "구성요소", "설명"],
+        rows: [
+          ["Host", "CPU / SoC", "루트 포트 연결"],
+          ["인터페이스", "CXL Link", "고속 데이터 전송"],
+        ],
+      },
+      {
+        caption: "프로토콜·Fabric·Device·메모리 관리",
+        headers: ["구분", "요소", "설명"],
+        rows: [
+          ["프로토콜", "CXL.io", "장치 검색·설정 및 I/O 통신 담당"],
+          ["프로토콜", "CXL.cache", "Host 메모리 접근 Cache Coherency"],
+          ["프로토콜", "CXL.mem", "Host가 Device 메모리 직접 접근"],
+          ["Fabric", "CXL Switch", "Host 하나에 여러 CXL Device 연결"],
+          ["Fabric", "Multi-Level Switching", "대규모 CXL Fabric 구성 지원"],
+          ["Device", "CXL Memory", "외부 메모리 연결 Host 용량 확장"],
+          ["Device", "Accelerator", "GPU·NPU CPU 간 일관성 데이터 공유"],
+          ["메모리 관리", "Memory Pooling", "다중 Host 메모리 공유 활용률 향상"],
+          ["메모리 관리", "Memory Sharing", "Host·Device 공유 복사·이동 감소"],
+        ],
+      },
+      {
+        caption: "서브 프로토콜 상세",
+        headers: ["서브 프로토콜", "주요 목적", "설명"],
+        rows: [
+          ["CXL.io", "PCIe 기능\n낮은 접근 지연", "탐색·DMA\n모든 유형 공통"],
+          ["CXL.cache", "비대칭형 일관성\nMESI 사용", "호스트가 책임\n스눕 트랜잭션"],
+          ["CXL.mem", "메모리 접근\n로컬처럼 사용", "주변장치 메모리\n64B 라인 단위"],
+        ],
+      },
+      {
+        caption: "CXL 장치 유형(Device Type)",
+        headers: ["장치 유형", "사용 프로토콜", "대표 사례"],
+        rows: [
+          ["Type 1", "CXL.io\nCXL.cache", "NIC\n무메모리 가속기"],
+          ["Type 2", "CXL.io+cache\nCXL.mem", "HBM GPU\nFPGA 보드"],
+          ["Type 3", "CXL.io\nCXL.mem", "DRAM 확장\n비휘발성 메모리"],
+        ],
+      },
+    ],
+    notes: [
+      "개념도: Accelerator(Accelerator Logic + Accelerator Memory) ↔ CXL.io(PCIe: 검색·설정·초기화·인터럽트·DMA·ATS·오류신호) / CXL.cache(Coherent requests) / CXL.mem(Memory Flows) ↔ Host Processor(Coherence·Cache Logic, PCIe Logic, IA Core, I/O Device) ↔ Host Memory",
+      "세 프로토콜의 방향: CXL.io는 장치 관리, CXL.cache는 Device→Host 메모리 접근, CXL.mem은 Host→Device 메모리 접근 — 누가 누구의 메모리를 보는지로 갈라 외운다",
+      "연결 구조: 캐시 일관성(Cache Coherence)·MESI와 한 줄 — 가속기가 Host 메모리를 캐시할 때 일관성을 어떻게 유지하는가가 CXL.cache의 일이다",
+      "한 줄로: PCIe 6.0 위에서 CPU·메모리·저장장치·가속기를 한 규격으로 잇는 통합 인터페이스 — 답안은 '메모리 벽을 넘는 연결'로 여는 것이 자연스럽다",
+      "물리 계층은 PCIe PHY에 CXL logical PHY를 더한 형태 — 그 위 MUX가 CXL.io 트랜잭션과 CXL.mem·CXL.cache 트랜잭션을 구분하고, MUX 위에 서브 프로토콜별 링크·트랜잭션 계층이 놓인다",
+    ],
+  },
+  {
+    topicId: "ca-47",
+    title: "I2C(Inter Integrated Circuit)와 SPI(Serial Peripheral Interface)",
+    course: "CA",
+    definition: "시리얼(Serial) 통신 방식",
+    defShort: "마이크로프로세서와 주변 기기 통신 위한 동기식 시리얼 통신 방식",
+    lead: "임베디드 직렬 통신 방식, I2C와 SPI",
+    features: ["동기식 직렬", "마스터 주도", "배선·속도"],
+    // 개념마다 정의·특징을 따로 쓴다(2026-10-07 — "각자 정의, 특징"). 비교표 「정의」 행 I2C·SPI 문장을 줄임(빨강 클럭·데이터·반 이중·동기식 시리얼 / 4개의 라인·전 이중 통신 모드·동기식 시리얼 유지). 특징은 통신방식·연결·속도·전력소모 행
+    defPair: [
+      {
+        name: "I2C",
+        lead: "저속 주변 기기 통신",
+        def: "클럭·데이터 두 라인으로 통신하는 반 이중 동기식 시리얼 인터페이스",
+        features: ["반 이중 통신", "공유 구조", "저속 통신"],
+      },
+      {
+        name: "SPI",
+        lead: "범용 고속 I/O 통신",
+        def: "4개의 라인으로 구성된 전 이중 통신 모드 동기식 시리얼 인터페이스",
+        features: ["전 이중 통신", "1:1 연결", "고속·저전력"],
+      },
+    ],
+    keywords: ["SCL", "SDA", "CS", "SCLK", "MOSI", "MISO", "100kbps", "70MHz"],
+    tables: [
+      {
+        caption: "I2C vs SPI",
+        headers: ["구분", "I2C", "SPI"],
+        rows: [
+          ["정의", "클럭·데이터 2선\n표준모드 100Kbps\n반이중 동기식", "범용 고속 I/O\n4개 라인\n전이중 동기식"],
+          ["동작 방식", "시작 신호 점유\nR/W 정보 전송", "CS 슬레이브 선택\nSCLK 통신 시작\nMOSI/MISO 전송"],
+          ["통신방식", "반 이중 통신", "전 이중 통신"],
+          ["구성", "클럭·데이터\nSCL·SDA", "CS·SCLK\nMISO 등 4선"],
+          ["연결", "공유 버스 구조", "1:1 연결 구조"],
+          ["속도", "표준모드 저속\n100kbps", "고속 통신\n70MHz"],
+          ["전력소모", "전력 소모 높음", "전력 소모 낮음"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "이레이저 코딩(erasure coding)",
+    course: "CA",
+    definition:
+      "분할과 패리티를 이용하여 데이터를 인코딩하고, 데이터 손실 시 디코딩 과정을 거쳐 원본 데이터를 복구하는 기술",
+    defShort: "분할과 패리티로 데이터 인코딩하고 손실 시 디코딩해 원본 복구 기술",
     lead:
-      "공유 자원 동시 접근 문제, 경쟁조건 해결 방안",
-    features: ["예측 불가", "비균등", "분석 난해"],
+      "패리티 기반 데이터 복구, 이레이저 코딩",
+    features: ["패리티 복구", "손실 허용", "분산 저장"],
     keywords: [
-      "데커(Dekker)",
-      "피터슨(Peterson)",
-      "램포트(Lamport)",
-      "Test & Set",
-      "Compare & Swap",
-      "인터럽트 금지",
-      "Spin Lock",
-      "Mutex",
-      "세마포어",
-      "모니터",
-      "상호배제",
-      "진행",
-      "한계 대기",
+      "Reed-Solomon Code",
+      "Tahoe-LAFS",
+      "Weaver Code",
+      "분할",
+      "인코딩",
+      "디코딩",
+      "이레이저 코드(n+k)",
     ],
     tables: [
       {
-        caption: "경쟁조건 발생 원인",
-        headers: ["원인", "설명"],
+        caption: "동작 방식",
+        headers: ["동작", "절차", "설명"],
         rows: [
-          ["공유 자원(Shared Resource) 사용", "여러 프로세스가\n같은 변수·파일\n동시 접근"],
-          ["비동기적 실행(Asynchronous Execution)", "임의 순서 실행\n실행 시간 따라\n결과 달라짐"],
-          ["임계 영역(Critical Section) 미보호", "임계 영역 동기화\n처리가 부족함"],
+          ["분할", "데이터 분할", "동일 크기 n블록"],
+          ["저장(인코딩)", "이레이저 코드\n(n+k)", "Reed-Solomon Code\nTahoe-LAFS\nWeaver Code\n패리티 블록 함께 저장"],
+          ["복원(디코딩)", "패리티 복원", "오류 영역 복구"],
         ],
       },
       {
-        caption: "소프트웨어 방식 경쟁조건 해결 방안",
-        headers: ["기법", "설명"],
+        caption: "알고리즘",
+        headers: ["구분", "알고리즘", "설명"],
         rows: [
-          ["데커(Dekker) 알고리즘", "프로세스 2개\n상호 배제 최초\nflag·turn 변수\n진입 후 양보"],
-          ["피터슨(Peterson) 알고리즘", "flag·turn 변수\n상대에 먼저 양보\n이후 진입"],
-          ["램포트(Lamport) bakery 알고리즘", "분산 처리 환경\n번호표 부여\n낮은 번호 우선"],
+          ["패리티 기반", "Reed-Solomon Code", "n+k 조각 패리티 조각 추가\nn개로 재구성 원본 복원 가능"],
+          ["분산 저장", "Tahoe-LAFS", "암호화 분산 저장 여러 서버 분산"],
+          ["XOR 기반", "Weaver Code", "XOR 기반 코드 고내결함성 확보\n동일 스트립 배치 균형·대칭 구조"],
         ],
       },
+    ],
+    notes: ["매커니즘: DATA → ① n등분(n개) → ② 인코딩(k개) → 총 n+k개 저장 → ③ 디코딩 → n개 복원"],
+  },
+  {
+    title: "지능형 반도체",
+    course: "CA",
+    definition:
+      "데이터를 저장하는 메모리 반도체와 연산 기능을 수행할 수 있는 시스템 반도체의 융합된 형태를 가지는 반도체",
+    defShort: "데이터 저장 메모리 반도체와 연산 시스템 반도체가 융합된 반도체",
+    lead: "메모리·시스템 반도체 융합, 지능형 반도체",
+    features: ["연산 융합", "병목 해소", "저전력화"],
+    keywords: [
+      "지능화",
+      "저전력화",
+      "안정화",
+      "스마트 인지·제어 반도체",
+      "스마트 통신 반도체",
+      "초고속 컴퓨팅 반도체",
+    ],
+    tables: [
       {
-        caption: "하드웨어 방식 경쟁조건 해결 방안",
-        headers: ["기법", "설명"],
+        caption: "핵심 기술",
+        headers: ["구분", "핵심 기술", "설명"],
         rows: [
-          ["Test & Set", "원자적 연산으로\n값 테스트·설정\n읽기→셋→반환"],
-          ["Compare & Swap", "원자적으로 비교\n일치 시 새 값 변경"],
-          ["인터럽트 금지", "인터럽트 disable\n원자성 확보\n문맥교환 불가"],
-        ],
-      },
-      {
-        caption: "동기화 방식 경쟁조건 해결 방안",
-        headers: ["기법", "설명"],
-        rows: [
-          ["세마포어", "P·V 연산으로\n동기화 지원\nBinary·Count"],
-          ["모니터", "고수준 동기화\n언어 지원 필요"],
-          ["Spin Lock", "가능할 때까지\n루프 돌며 재시도"],
-          ["Mutex", "동기화 대상 하나\n상호 배제 보장"],
-        ],
-      },
-      {
-        caption: "임계영역 해결을 위한 세가지 요건",
-        headers: ["방법", "설명"],
-        rows: [
-          ["상호 배제", "수행 중 다른\n프로세스 진입 X"],
-          ["진행", "비어 있을 때\n진입 미루지 않음"],
-          ["한계 대기", "재진입에 제한\n기아 방지 조건"],
-        ],
-      },
-      {
-        caption: "경쟁조건의 특징",
-        headers: ["특징", "설명"],
-        rows: [
-          ["예측 불가", "프로세스 경쟁에\n의한 출력값 예측\n불가"],
-          ["비균등", "프로세스\n선점·자원 사용\n방식의 일관성\n부재"],
-          ["분석 난해", "버그 발생 시 원인\n파악 위한 분석\n과정 난해"],
+          ["초고속 컴퓨팅 반도체", "뉴로모픽 고속 컴퓨팅", "자율학습·판단 신경망 칩 응용"],
+          ["초고속 컴퓨팅 반도체", "지능형메모리", "SSD·UFS 저장장치 메모리\n제어부 융합 독립 기능 담당"],
+          ["초고속 컴퓨팅 반도체", "빅데이터 고속처리", "실시간 대량 분석 고속 연산 처리\n병렬 처리 활용 멀티스레드 응용"],
+          ["초고속 컴퓨팅 반도체", "IoT 프로세서", "소형·저전력 IoT 기기용\n주변장치 IP 다양한 응용 지원"],
+          ["스마트 통신 반도체", "고속이동통신", "5G·6G 통신 AV 코덱 등 적용"],
+          ["스마트 통신 반도체", "광대역 네트워크", "광 기반 고속망 차량 선박 항공\n기저대역 모뎀 HW 설계 기술"],
+          ["스마트 통신 반도체", "초저전력 커넥티비티", "근접통신\n협업 미들웨어\n자율제어"],
+          ["스마트 인지 제어 반도체", "얼굴인식", "99.15% 사람 이상 인식률\n페이스북 적용 대표 사례"],
+          ["스마트 인지 제어 반도체", "콘텐츠 및 광고추천", "취향 분석 추천 넷플릭스 아마존"],
+          ["스마트 인지 제어 반도체", "자동통역", "자동통역 서비스 스카이프·MS"],
+          ["스마트 인지 제어 반도체", "음성비서", "개인형 음성비서 애플 시리 사례\n대화형 교육 IBM 왓슨"],
         ],
       },
     ],
     notes: [
-      "임계영역(Critical Section): 병렬컴퓨팅에서 둘 이상의 프로세스가 동시에 접근해서는 안되는 공유 자원(자료 구조 또는 장치)을 접근하는 코드의 일부 영역",
-      "Acquire the Lock → Lock is locked / Release the Lock → Lock is unlocked",
-      "출제 변형: '운영체제 동기화 기법'으로 물어도 같은 토픽 — 서론만 바꿔 쓴다. 리드문: 경쟁조건 예방 위한 실행 순서 제어, 프로세스 동기화 기법 / 정의(34자): 공유 자원의 경쟁조건을 막기 위해 프로세스의 실행 순서를 제어하는 상호배제 기법 / 특징: 상호배제·진행 보장·한계 대기(임계영역 3요건)",
-      "개념도 사례(count 변수): 프로세스 A가 공유 자원의 count(100)를 읽고 계산 → B도 읽고 계산 → A가 101을 write → B가 기존 값을 overwrite해 A의 결과가 무시됨 — 접근·read·write 순서에 따라 값이 달라진다",
-      "인터럽트 금지는 단일 프로세서에서만 적용 가능하고 멀티 프로세서에서는 불가 / 제어 기법은 성능 저하를 부르므로 SW·HW 특성에 맞게 테스트 후 선택 (NS 19기 2주차 2교시 6번)",
+      "개념도: 기존 반도체(중앙처리장치 CPU ↔ 전송회로 BUS ↔ 저장장치 메모리, 병목현상) → 설계·소자·공정·장비·소재 기술 → 뉴로모픽 반도체(뉴런·시냅스·통신 계층, 연산·저장·통신 기능 융합으로 병목현상 없음)",
     ],
   },
   {
-    topicId: "os-37",
-    title: "기아(Starvation)",
+    topicId: "os-2",
+    title: "커널(Kernel)",
     course: "OS",
     definition:
-      "우선순위 기반 CPU 스케줄링 시 높은 우선순위 프로세스의 지속적 진입으로 인해, 낮은 우선순위 프로세스가 수행되지 못하고 무한대기 하는 현상",
-    defShort: "높은 우선순위 프로세스 지속 진입으로 낮은 우선순위 무한대기 현상",
-    lead: "저순위 프로세스 무한 대기, 기아(Starvation)",
-    features: ["무한 대기", "일부 한정", "Aging 해소"],
-    keywords: ["무한대기", "Aging기법 적용", "HRN 스케줄링", "MLFQ 스케줄링"],
-    tables: [
-      {
-        caption: "기아 현상 발생 원인",
-        headers: ["원인", "설명"],
-        rows: [
-          ["비선점", "할당된 CPU를\n강제로 못 빼앗는\n스케줄링 방식"],
-          ["우선순위", "우선순위 부여\n최고 순위에\nCPU 할당"],
-        ],
-      },
-      {
-        caption: "기아 현상 발생 사례와 해결 방안",
-        headers: ["구분", "설명"],
-        rows: [
-          ["문제 상황", "프로세스 1 순위\n가장 낮아 대기\n상위 요청 지속\n무한정 대기"],
-          ["해결 방안", "오래 기다린 순\n우선순위 상향\nAging 기법"],
-        ],
-      },
-      {
-        caption: "기아 현상 해결 위한 스케줄링 알고리즘",
-        headers: ["해결방안", "설명"],
-        rows: [
-          ["HRN 스케줄링", "대기시간을\n고려하여 Aging\n적용한 HRN\n스케줄링 사용"],
-          ["MLFQ 스케줄링", "프로세스간 균형\n할당을 고려해\n여러 개의 큐를\n두고 Round Robin 수행"],
-        ],
-      },
-      {
-        caption: "교착 상태와 기아 상태 비교",
-        headers: ["구분", "설명"],
-        rows: [
-          ["교착상태(Deadlock)", "다른 프로세스가\n야기한 Event를\n무한정 대기"],
-          ["기아상태(Starvation)", "교착 상태 부산물\n자원 무한 대기\n(무한 봉쇄)"],
-        ],
-      },
-      {
-        caption: "기아 현상 발생 조건 — 네 측면",
-        headers: ["구분", "발생 조건", "설명"],
-        rows: [
-          ["우선순위 측면", "우선순위 기반\n스케줄링", "고순위 지속 생성\n저순위 기회 없음"],
-          ["스케줄링 알고리즘 측면", "비선점형\n스케줄링", "FCFS 긴 작업\n짧은 것 대기"],
-          ["자원 할당 측면", "자원 할당의\n불공평성", "반복 사용 점유\n특정 자원 독점"],
-          ["자원 관리 측면", "부적절한\n자원 관리", "순위·정책 오류\n일부 지속 점유"],
-        ],
-      },
-      {
-        caption: "기아 방지 기법 — 우선순위·스케줄링·자원관리·가중치",
-        headers: ["구분", "방지 기법", "설명"],
-        rows: [
-          ["우선순위", "우선순위 승격\nAging 기법", "대기 시간 반영\n점진적 순위 상향"],
-          ["스케줄링", "타임 퀀텀 설정\n선점형 조정", "퀀텀 크기 조정\n공정 CPU 할당"],
-          ["스케줄링", "알고리즘 조합\n혼합 사용", "여러 기법 혼합\n장단점 상쇄"],
-          ["자원 관리", "자원 할당 그래프\n상태 관리", "그래프로 관리\n지속 점유 방지"],
-          ["자원 관리", "기한 기반 스케줄\n기한 기준", "프로세스별 기한\n기한 순 스케줄링"],
-          ["가중치", "지분 비례 CPU", "저순위 진전 확보"],
-        ],
-      },
-      {
-        caption: "교착상태와 기아현상의 상세 비교",
-        headers: ["구분", "교착상태", "기아현상"],
-        rows: [
-          ["원인", "Coffman\n4대 조건 만족", "선점·우선순위\nSJF 자원 독점"],
-          ["대상 범위", "둘 이상 프로세스\n집단 상호 의존", "일부 프로세스\n저우선순위"],
-          ["프로세스 상태", "대기·봉쇄 상태\n상태 변화 불가", "준비·대기 상태\n자원 할당만 거부"],
-          ["자원 상태", "나눠 쥔 채 고립", "계속 할당·해제"],
-          ["해결 메커니즘", "예방·회피\n탐지·복구", "에이징 공정큐잉\nHRRN 스케줄"],
-          ["대표 알고리즘", "은행원 알고리즘\nRAG 그래프", "HRRN\n순위 Aging"],
-        ],
-      },
-    ],
-    notes: [
-      "사례 개념도 — 문제 상황: Process1(실행시간 10, 우선순위 10), Process2(4, 7), Process3(5, 1), Process4(6, 5)",
-      "사례 개념도 — 해결 방안: Process1(대기시간 15, 우선순위 10→9), Process2(대기시간 11, 우선순위 7→6), Process3(대기시간 0, 우선순위 1), Process4(우선순위 5)",
-      "발생 환경 한 줄: 비선점·우선순위 스케줄링에서 기아가 생긴다 — 방지 기법은 우선순위·스케줄링·자원 관리·가중치 네 측면으로 나눠 쓴다",
-    ],
-  },
-  {
-    topicId: "os-47",
-    title: "문맥교환(Context Switching)",
-    course: "OS",
-    definition:
-      "CPU가 실행 중인 하나의 프로세스 상태를 저장하고, 다른 프로세스 상태를 복원하여 실행하는 과정",
-    defShort: "실행 중 프로세스 상태 저장 후 다른 프로세스 상태를 복원하는 과정",
+      "컴퓨터 하드웨어와 응용 프로그램과의 연계를 위하여 자원관리, 프로세스/네트워크 관리 및 추상화를 수행하는 운영체제의 핵심 프로그램",
+    defShort: "자원관리, 프로세스/네트워크 관리 및 추상화하는 OS 핵심 프로그램",
     lead:
-      "프로세스 전환의 상태 저장, 문맥교환",
-    features: ["전이 시 발생", "PCB 보존", "오버헤드"],
-    keywords: ["디스패치(dispatch)", "타임아웃", "I/O", "시스템콜", "인터럽트", "오버헤드", "save/reload PCB"],
-    tables: [
-      {
-        caption: "문맥교환 동작 메커니즘",
-        headers: ["메커니즘", "주체", "설명"],
-        rows: [
-          ["① 실행", "P1", "CPU 할당 실행"],
-          ["② Interrupt/System call", "운영체제", "P1 대기 전환"],
-          ["③ PCB1 저장", "운영체제", "P1 문맥 저장"],
-          ["④ PCB2 적재", "운영체제", "P2 CPU 할당"],
-          ["⑤ 실행", "P2", "P2 실행 상태"],
-          ["⑥ Interrupt/System call", "운영체제", "P2 대기 전환"],
-          ["⑦ PCB2 저장", "운영체제", "P2 상태 기록"],
-          ["⑧ PCB1 적재", "운영체제", "P1 복구 할당"],
-          ["⑨ 실행", "P1", "완료 시 재실행"],
-        ],
-      },
-      {
-        caption: "문맥교환 특징",
-        headers: ["특징", "설명"],
-        rows: [
-          ["발생 시점", "준비→실행\n실행→준비\n실행→대기 전환"],
-          ["오버헤드", "메모리 속도\n레지스터 수\n특수 명령어 유무\n시스템마다 상이"],
-        ],
-      },
-      {
-        caption: "문맥의 유형과 내용",
-        headers: ["문맥 유형", "문맥 내용", "설명"],
-        rows: [
-          ["시스템 문맥", "PCB 정보\nPID 식별자", "커널 자료구조\n프로세스 구분"],
-          ["시스템 문맥", "State 상태\n스케줄 정보", "실행 상태 표시\n우선순위 관리"],
-          ["시스템 문맥", "레지스터 계정", "자원 사용 정보"],
-          ["메모리 문맥", "Stack 영역\nHeap 영역", "지역 변수 저장\n동적 할당 영역"],
-          ["메모리 문맥", "Swap 공간\nData 영역", "가상 메모리\n전역 변수 저장"],
-          ["메모리 문맥", "Text 영역", "실행 코드 저장"],
-          ["하드웨어 문맥", "HW 레지스터\nPC 실행 위치", "연산 값 보관\n다음 명령 주소"],
-          ["하드웨어 문맥", "전이 시 기억", "재개 위치 보존"],
-        ],
-      },
-      {
-        caption: "문맥교환 오버헤드 발생 지점",
-        headers: ["단계", "실행 루틴", "오버헤드 발생 작업"],
-        rows: [
-          ["1", "현재 프로세스", "–"],
-          ["2", "인터럽트", "PCB 상태 저장"],
-          ["3", "프로세스\n스케줄러", "준비 큐에서\n다음 선택"],
-          ["4", "디스패치", "PCB에서 복구"],
-          ["5", "다음 프로세스", "–"],
-        ],
-      },
-      {
-        caption: "오버헤드 해결 방법",
-        headers: ["해결 방법", "설명"],
-        rows: [
-          ["문맥교환 발생 빈도 최소화", "다중 프로그래밍\n수준을 낮추거나\n스케줄러\n알고리즘 개선"],
-          ["쓰레드 사용", "경량 프로세스인\n쓰레드로\n전환되는 정보의\n양을 최소화"],
-        ],
-      },
-    ],
-    notes: [
-      "① Context Switch가 자주 발생하지 않도록 다중 프로그래밍 정도 낮춤",
-      "② 스택 중심의 시스템에서는 스택 포인터를 변경하여 프로세스간 문맥교환 수행",
-      "③ Light weight 프로세스인 스레드를 이용하여 Context switch 부하 최소화",
-      "동작 메커니즘 도식: process P0 ↔ operating system ↔ process P1 — save state into PCB0 → reload state from PCB1 → (P1 executing, P0 idle) → save state into PCB1 → reload state from PCB0",
-      "문맥(Context)이란 중단된 프로세스를 그대로 이어가도록 보존하는 실행 상태 정보 — 세 유형과 내용은 '문맥(Context)' 토픽에 따로 정리",
-      "잦은 문맥교환은 PCB 저장 등 I/O에 시스템 자원을 과다 소비 — 1차로 횟수를 줄이고, 경량 프로세스(쓰레드)로 상태 전환 정보를 일부 공유해 해결 (NS 19기 2주차 2교시 2번)",
-    ],
-  },
-  {
-    title: "문맥(Context)",
-    course: "OS",
-    // 교재에는 문맥교환 안에서만 다뤄진다. NS 19기 02주차 2교시 2번(가. 문맥의 개념과 유형)을 참고해 따로 세웠다.
-    definition:
-      "프로세스가 실행을 멈췄다가 같은 자리에서 다시 이어갈 수 있도록 레지스터·메모리·PCB에 담아 두는 실행 상태 정보",
-    defShort: "중단된 프로세스 다시 잇도록 PCB·레지스터에 보존한 실행 상태 정보",
-    lead: "프로세스 실행 상태 보존, 문맥(Context)",
-    features: ["지점 재개", "PCB 보존", "복원 부담"],
-    keywords: ["시스템 문맥", "메모리 문맥", "하드웨어 문맥", "PCB", "레지스터", "Program Counter"],
-    tables: [
-      {
-        caption: "문맥의 세 유형",
-        headers: ["구분", "유형", "설명"],
-        rows: [
-          ["OS 관리", "시스템 문맥", "PCB 커널 관리 정보\n프로세스별 관리 PID 상태 계정"],
-          ["주소 공간", "메모리 문맥", "주소 공간 코드·스택·힙\n스왑 영역 할당 메모리 포함"],
-          ["CPU 상태", "하드웨어 문맥", "CPU 레지스터 실행 상태 보관\n프로그램 카운터 실행 위치 기억"],
-        ],
-      },
-      {
-        caption: "문맥이 오가는 시점",
-        headers: ["시점", "동작", "설명"],
-        rows: [
-          ["인터럽트·시스템 콜", "실행 문맥 저장", "PCB 기록 보존"],
-          ["디스패치", "다음 문맥 복원", "PCB→CPU"],
-          ["잦은 상태 전이", "저장·복원 반복\n오버헤드 증가", "교환에 시간 소모\nCPU 시간 낭비"],
-        ],
-      },
-    ],
-    notes: [
-      "문맥교환은 이 세 문맥을 통째로 바꾸는 일 — 스레드처럼 메모리 문맥을 공유하면 바꿀 양이 줄어 전환이 가볍다",
-      "한 쌍으로 볼 것: '문맥교환(Context Switching)' 토픽 — 이 토픽은 무엇을 보존하는가, 그쪽은 어떻게 바꾸는가",
-      "출제 형태: 2교시에서 '문맥의 개념과 유형·내용'이 문맥교환 문제의 첫 소문항으로 나온다 (NS 19기 2주차)",
-    ],
-  },
-  {
-    topicId: "os-34",
-    title: "우선순위 역전(Priority Inversion) 현상",
-    course: "OS",
-    definition:
-      "동기화로 인해 우선순위가 높은 프로세스가 우선순위가 낮은 프로세스보다 실행이 지연되는 현상",
-    defShort: "우선순위 높은 프로세스 우선순위 낮은 프로세스보다 지연되는 현상",
-    lead: "높은 순위의 실행 지연, 우선순위 역전",
-    features: ["자원 점유", "응답 저해", "상속 해결"],
-    keywords: ["임계영역", "프로세스 선점", "자원", "우선순위 상속", "우선순위 올림"],
-    tables: [
-      {
-        caption: "우선순위 역전 현상 메커니즘",
-        headers: ["Process", "설명"],
-        rows: [
-          ["① 임계영역 진입", "Task 3이 자원 R 사용\n위해 임계 영역\n진입"],
-          ["② 프로세스 선점", "스케줄링에 의해\n우선 순위 높은\nTask 1은 Task 3 선점하여 진행"],
-          ["③ 임계영역 대기", "Task 1이 Task 3이 점유한 자원\nR 때문에 진행\n못하고 CPU\n제어권 반납"],
-          ["④ 우선순위 역전", "Task 3보다 높은 Task 2가\n선점되어 최고\n순위 Task 1이 뒤로\n밀림"],
-        ],
-      },
-      {
-        caption: "해결 방안",
-        headers: ["기법", "설명"],
-        rows: [
-          ["우선순위 상속", "낮은 Task 순위를\n대기 Task와 동일\n역전 현상 해결"],
-          ["재귀적 우선순위 상속", "재귀적 자료구조\n여러 역전 해결"],
-          ["우선순위 올림", "자원에 순위 부여\n진입 Task 순위를\n자원 순위로 올림"],
-        ],
-      },
-      {
-        caption: "우선순위 역전 발생 조건",
-        headers: ["발생 조건", "설명"],
-        rows: [
-          ["세마포어(Semaphore)", "임계영역(Critical\nSection)을 통해 특정 자원에\n대한 점유"],
-          ["선점 스케줄링", "우선순위 높은\nTask가 낮은 Task의 CPU\n점유를 선점"],
-        ],
-      },
-      {
-        caption: "해결 기법 비교 — 상속(BPI)·올림(PCE)·재귀 상속(RPI)",
-        headers: ["구분", "BPI", "PCE", "RPI"],
-        rows: [
-          ["기본 우선순위 역전", "해결 가능", "해결 가능", "해결 가능"],
-          ["자원 동시 소유", "해결 불가", "해결 가능", "해결 가능"],
-          ["재귀적 소유·요청", "해결 불가", "해결 불가", "해결 가능"],
-          ["시간 복잡도", "O(N)", "O(N*M)", "O(N+M)"],
-          ["공간 복잡도", "O(1)", "O(M)", "O(N+M)"],
-        ],
-      },
-    ],
-    notes: [
-      "우선순위 역전 현상 해결 위해 우선순위 상속과 우선순위 올림 존재",
-      "발생 조건 두 가지가 겹칠 때 — 낮은 Task가 자원을 점유한 상태에서 높은 Task가 그 자원을 요구하면 역전 발생 가능",
-      "8단계 흐름: ① Task3 세마포어 획득 → ② Task1 실행 → ③ Task1 자원 요청·대기 → ④ Task3 실행 → ⑤ Task2 실행(역전 구간, Task3는 세마포어 계속 소유) → ⑥ Task3 재실행 → ⑦ Task3 세마포어 반환 → ⑧ Task1 실행·획득",
-    ],
-  },
-  {
-    topicId: "os-32",
-    title: "세마포어(Semaphore)",
-    course: "OS",
-    definition:
-      "멀티프로세스 환경에서 상호 배제를 보장하고 동기화를 제어하기 위해 사용하는 동기화 기법",
-    defShort: "멀티프로세스 환경에서 상호 배제와 동기화 제어를 위한 동기화 기법",
-    lead: "공유 자원의 상호 배제, 세마포어",
-    features: ["상호배제", "원자적 실행", "정수값 제어"],
+      "운영체제의 핵심 관리자, 커널",
+    features: ["HW 추상화", "특권 모드", "호출로 접근"],
     keywords: [
-      "상호배제",
-      "동기화",
-      "자원 경쟁",
-      "다중프로세스",
-      "원자적 실행",
-      "공유자원",
-      "동기화 지원",
-      "이진 세마포어",
-      "계수형 세마포어",
+      "프로세스 관리 및 CPU Scheduling",
+      "메모리 관리",
+      "I/O Device 관리",
+      "IPC(Inter Process Communication)",
+      "네트워크",
+      "File System",
+      "운영모드/커널모드",
+      "모놀리틱 커널/마이크로 커널",
     ],
     tables: [
       {
-        caption: "세마포어(Semaphore) 연산의 종류",
-        headers: ["연산 종류", "연산", "설명"],
+        caption: "커널의 주요 역할",
+        headers: ["구분", "역할", "설명"],
         rows: [
-          ["초기화 연산", "Initialize", "S = 정수값(공유 자원 수)"],
-          ["P 연산", "Wait\n임계영역 진입", "S = S−1\nS<0 → 대기 큐로 이동\nS>0 → 계속 진행"],
-          ["V 연산", "Signal\n임계영역 탈출", "S = S+1"],
+          ["물리 자원", "하드웨어 제어", "인터럽트 처리 핸들러 동작\n특권 명령 물리 자원 제어"],
+          ["실행 자원", "프로세스 관리", "PCB·스케줄링 상태 전이 관리\n문맥교환 CPU 배분"],
+          ["실행 자원", "메모리 관리", "가상 메모리 페이징 주소 변환\n페이지 교체 단편화 관리"],
+          ["물리 자원", "입출력(I/O) 관리", "장치 드라이버 주변 장치 교환\nDMA·VFS 파일 접근 제공"],
+          ["접근 통로", "시스템 콜(System Call)", "모드 전환 Trap 전환\n커널 API HW 자원 보호"],
         ],
       },
       {
-        caption: "이진 세마포어(Binary Semaphore)",
-        headers: ["구분", "설명"],
+        caption: "커널 구조의 유형 — 단일·계층·마이크로",
+        headers: ["구조 유형", "설명", "특징"],
         rows: [
-          ["정의", "값이 0 또는 1\n단일 자원 배제"],
-          ["특징", "0 또는 1 정수값"],
-          ["P(s) 연산", "s가 1일 때 0으로\n다른 접근 차단"],
-          ["V(s) 연산", "s가 0일 때 1로\n다른 접근 허용"],
-          ["지원", "하나의 자원 공유\n동기화 지원"],
+          ["단일(Monolithic) 구조", "모든 관리 기능\n하나의 커널", "성능 좋음\n버그 가능성 높음"],
+          ["계층(Layered) 구조", "시스템 콜→관리\n→HW 제어 층", "층 나눠 구성\n상위가 하위 이용"],
+          ["마이크로(Micro) 구조", "IPC·스케줄러\n나머지는 서버", "커널 작음\n품질 관리 용이"],
         ],
       },
       {
-        caption: "계수형 세마포어(Counting Semaphore)",
-        headers: ["구분", "설명"],
+        caption: "커널의 종류",
+        headers: ["종류", "설명", "적용 사례"],
         rows: [
-          ["정의", "0 이상 정수값\n동일 자원 여러 개\n접근 제어"],
-          ["특징", "범위 제한 없는\n정수 값 세마포어"],
-          ["지원", "다수 공유 자원\n여러 프로세스\n배제·동기화"],
-          ["조건", "Task 수 n >\n공유 자원 수 m"],
+          ["모놀리틱(Monolithic) 커널", "전 기능 직접 제어", "UNIX·Linux"],
+          ["마이크로(Micro) 커널", "기본 기능만 제공", "–"],
+          ["하이브리드(Hybrid) 커널", "모놀리틱+마이크로\n일부 성능 개선", "Windows\nmacOS"],
+          ["엑소(Exo) 커널", "약한 추상화 경량", "임베디드 OS"],
+          ["유니(Uni) 커널", "한 주소 공간 경량", "–"],
         ],
       },
       {
-        caption: "세마포어와 모니터의 비교",
-        headers: ["구분", "세마포어", "모니터"],
+        caption: "모놀리틱 커널과 마이크로 커널의 비교",
+        headers: ["구분", "모놀리딕 커널", "마이크로 커널"],
         rows: [
-          ["주체", "OS·개발자", "프로그래밍 언어"],
-          ["상호작용", "이론적 기반 제공\n효과적 기법 제공", "타이밍 오류 해결\n개발 편의성 보완"],
-          ["특징", "S 타입별 구분\n이진·계수형", "한 시점 하나 수행\n계산 능력 동일"],
-          ["동기화 구현 사례", "P(S) 검사\n임계→V(S)", "모니터 지역변수\nentry 함수"],
-          ["언어사례", "P·V 연산 구현", "JAVA synchronized\n.Net Monitor"],
-          ["공통점", "동시성 조정 기능", "조정 기능 동일"],
+          ["정의", "관리자 모드 동작\n고수준 플랫폼", "사용자 영역 구현\n최소 기능 제공"],
+          ["구성", "VFS 드라이버\n메모리 관리 등", "IPC·스케줄\n메모리 관리만"],
+          ["안정성", "커널 역할 큼\n버그 가능성 높음", "커널 자체 작음\n품질 관리 용이"],
+          ["성능", "시스템 콜 호출\n오버헤드 발생", "서버 튜닝 용이\n최적화 여지 많음"],
+          ["활용", "복잡 앱 동적 수행\n범용 PC 활용", "임베디드 시스템\n네트워크 장비 등"],
         ],
       },
+      {
+        caption: "CPU의 2가지 실행 모드",
+        headers: ["모드", "설명"],
+        rows: [
+          ["운영 모드(user mode)", "사용자 앱 실행\n제한된 권한\n시스템 호출 사용"],
+          ["시스템 호출(system call)", "커널 기능 사용\n인터페이스 제공"],
+          ["커널 모드(kernel mode)", "운영체제 기능\n최고 권한 소유\nHW 직접 접근"],
+        ],
+      },
+    ],
+    notes: [
+      "교재 구조도: System Call Interface → 파일 시스템 관리 / I/O 관리(Device Drivers) / 메모리 관리 / 프로세스 관리 · 스케줄러 · IPC · 동기화 / Protection → Hardware Control(Interrupt Handler..) → Hardware",
+      "커널 보호: 사용자 모드와 Supervisor 모드를 분리하는 CPU Level Ring(Ring 0 커널 ~ Ring 3 사용자)으로 답안을 닫으면 좋다 — 15점 답안에서 Good",
+      "시스템 콜 상세(6유형 — 프로세스 제어·파일 조작·장치 관리·정보 유지·통신·보호, 유저↔커널 모드 전환 5단계, 두 모드 비교)는 '시스템 콜(System Call)' 토픽에 정리",
     ],
   },
   {
@@ -1534,57 +1130,6 @@ export const SUBNOTES: TextbookSubnote[] = [
       "구조도(동심원, 바깥→안): User Programs → Standard Libraries → Device Drivers → Kernel",
       "Most Privileged: Ring 0(kernel mode) / Least Privileged: Ring 3(user mode)",
       "Ring 3→0 왕복의 실제 단계(시스템 콜 호출 → int 0x80/syscall → 모드 비트 변경 → 커널 함수 실행 → 반환·복귀)와 커널 모드·유저 모드 7항목 비교는 '시스템 콜(System Call)' 토픽",
-    ],
-  },
-  {
-    title: "시스템 콜(System Call)",
-    course: "OS",
-    // 교재 서브노트에 없는 토픽. NS 19기 02주차 1교시 13번을 참고해 세웠다.
-    definition:
-      "응용 프로그램이 커널이 가진 기능을 쓰려고 운영체제에 요청하는 정해진 호출 인터페이스 — 호출 순간 사용자 모드에서 커널 모드로 바뀐다",
-    defShort: "응용 프로그램이 커널 기능을 쓰려 운영체제에 요청하는 인터페이스",
-    lead: "커널 기능의 요청 통로, 시스템 콜(System Call)",
-    features: ["모드 전환", "인터페이스", "HW 자원 보호"],
-    keywords: ["프로세스 제어", "파일 조작", "장치 관리", "정보 유지", "통신", "보호", "커널 모드·유저 모드"],
-    tables: [
-      {
-        caption: "시스템 콜의 동작 — 유저 모드에서 커널 모드로",
-        headers: ["단계", "설명"],
-        rows: [
-          ["① 호출", "라이브러리 응용 함수 호출\nsyscall 명령 실행"],
-          ["② 진입", "모드 비트 커널 모드 진입"],
-          ["③ 처리", "호출 번호 해당 함수 실행"],
-          ["④ 복사", "유저 공간 결과 데이터 복사"],
-          ["⑤ 복귀", "반환 값 유저 모드 복귀"],
-        ],
-      },
-      {
-        caption: "시스템 콜의 유형",
-        headers: ["구분", "유형", "설명"],
-        rows: [
-          ["실행", "프로세스 제어", "abort 중지 프로그램 종료\nexecute 실행 커널 위임"],
-          ["자원", "파일 조작", "create 파일 생성·삭제\nopen 열기 읽기·쓰기 수행"],
-          ["자원", "장치 관리", "request 장치 사용 요구\n속성 조회·설정 장치 속성 관리"],
-          ["정보", "정보 유지", "시간·날짜 시스템 정보 조회\n프로세스 속성 속성 정보 조회"],
-          ["통신", "통신", "메시지 송수신 전달\n공유 메모리 상태 정보 전달"],
-          ["보안", "보호", "set·get 권한 조회·설정\n자원 접근 접근 권한 관리"],
-        ],
-      },
-      {
-        caption: "커널 모드와 유저 모드",
-        headers: ["구분", "커널 모드", "유저 모드"],
-        rows: [
-          ["권한", "모든 명령어\n자원 접근", "자기 메모리만\nHW 접근 불가"],
-          ["실행 주체", "커널·드라이버\n시스템 콜 핸들러", "일반 앱 실행\n브라우저 편집기"],
-          ["오류 영향", "시스템 전체 장애\n커널 패닉 발생", "해당 프로세스만\n프로세스 종료"],
-          ["진입 계기", "인터럽트·예외\n시스템 콜 호출", "시스템 콜 종료\n문맥교환 발생"],
-          ["보호", "스스로 책임", "커널 보호 제약"],
-        ],
-      },
-    ],
-    notes: [
-      "짝지어 볼 것: 유저 모드=Ring 3, 커널 모드=Ring 0 — 'CPU Ring Level' 토픽 / 커널이 시스템 콜을 어떤 역할로 두는지는 '커널(Kernel)' 토픽의 주요 역할 표",
-      "출제 형태: '시스템 콜의 종류와 커널 모드/유저 모드 전환 과정' — 유형 6종 표와 동작 5단계 표를 나란히 쓰면 문제 요구 둘을 다 덮는다 (NS 18기·19기 2주차)",
     ],
   },
   {
@@ -2443,6 +1988,437 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
+    topicId: "os-47",
+    title: "문맥교환(Context Switching)",
+    course: "OS",
+    definition:
+      "CPU가 실행 중인 하나의 프로세스 상태를 저장하고, 다른 프로세스 상태를 복원하여 실행하는 과정",
+    defShort: "실행 중 프로세스 상태 저장 후 다른 프로세스 상태를 복원하는 과정",
+    lead:
+      "프로세스 전환의 상태 저장, 문맥교환",
+    features: ["전이 시 발생", "PCB 보존", "오버헤드"],
+    keywords: ["디스패치(dispatch)", "타임아웃", "I/O", "시스템콜", "인터럽트", "오버헤드", "save/reload PCB"],
+    tables: [
+      {
+        caption: "문맥교환 동작 메커니즘",
+        headers: ["메커니즘", "주체", "설명"],
+        rows: [
+          ["① 실행", "P1", "CPU 할당 실행"],
+          ["② Interrupt/System call", "운영체제", "P1 대기 전환"],
+          ["③ PCB1 저장", "운영체제", "P1 문맥 저장"],
+          ["④ PCB2 적재", "운영체제", "P2 CPU 할당"],
+          ["⑤ 실행", "P2", "P2 실행 상태"],
+          ["⑥ Interrupt/System call", "운영체제", "P2 대기 전환"],
+          ["⑦ PCB2 저장", "운영체제", "P2 상태 기록"],
+          ["⑧ PCB1 적재", "운영체제", "P1 복구 할당"],
+          ["⑨ 실행", "P1", "완료 시 재실행"],
+        ],
+      },
+      {
+        caption: "문맥교환 특징",
+        headers: ["특징", "설명"],
+        rows: [
+          ["발생 시점", "준비→실행\n실행→준비\n실행→대기 전환"],
+          ["오버헤드", "메모리 속도\n레지스터 수\n특수 명령어 유무\n시스템마다 상이"],
+        ],
+      },
+      {
+        caption: "문맥의 유형과 내용",
+        headers: ["문맥 유형", "문맥 내용", "설명"],
+        rows: [
+          ["시스템 문맥", "PCB 정보\nPID 식별자", "커널 자료구조\n프로세스 구분"],
+          ["시스템 문맥", "State 상태\n스케줄 정보", "실행 상태 표시\n우선순위 관리"],
+          ["시스템 문맥", "레지스터 계정", "자원 사용 정보"],
+          ["메모리 문맥", "Stack 영역\nHeap 영역", "지역 변수 저장\n동적 할당 영역"],
+          ["메모리 문맥", "Swap 공간\nData 영역", "가상 메모리\n전역 변수 저장"],
+          ["메모리 문맥", "Text 영역", "실행 코드 저장"],
+          ["하드웨어 문맥", "HW 레지스터\nPC 실행 위치", "연산 값 보관\n다음 명령 주소"],
+          ["하드웨어 문맥", "전이 시 기억", "재개 위치 보존"],
+        ],
+      },
+      {
+        caption: "문맥교환 오버헤드 발생 지점",
+        headers: ["단계", "실행 루틴", "오버헤드 발생 작업"],
+        rows: [
+          ["1", "현재 프로세스", "–"],
+          ["2", "인터럽트", "PCB 상태 저장"],
+          ["3", "프로세스\n스케줄러", "준비 큐에서\n다음 선택"],
+          ["4", "디스패치", "PCB에서 복구"],
+          ["5", "다음 프로세스", "–"],
+        ],
+      },
+      {
+        caption: "오버헤드 해결 방법",
+        headers: ["해결 방법", "설명"],
+        rows: [
+          ["문맥교환 발생 빈도 최소화", "다중 프로그래밍\n수준을 낮추거나\n스케줄러\n알고리즘 개선"],
+          ["쓰레드 사용", "경량 프로세스인\n쓰레드로\n전환되는 정보의\n양을 최소화"],
+        ],
+      },
+    ],
+    notes: [
+      "① Context Switch가 자주 발생하지 않도록 다중 프로그래밍 정도 낮춤",
+      "② 스택 중심의 시스템에서는 스택 포인터를 변경하여 프로세스간 문맥교환 수행",
+      "③ Light weight 프로세스인 스레드를 이용하여 Context switch 부하 최소화",
+      "동작 메커니즘 도식: process P0 ↔ operating system ↔ process P1 — save state into PCB0 → reload state from PCB1 → (P1 executing, P0 idle) → save state into PCB1 → reload state from PCB0",
+      "문맥(Context)이란 중단된 프로세스를 그대로 이어가도록 보존하는 실행 상태 정보 — 세 유형과 내용은 '문맥(Context)' 토픽에 따로 정리",
+      "잦은 문맥교환은 PCB 저장 등 I/O에 시스템 자원을 과다 소비 — 1차로 횟수를 줄이고, 경량 프로세스(쓰레드)로 상태 전환 정보를 일부 공유해 해결 (NS 19기 2주차 2교시 2번)",
+    ],
+  },
+  {
+    topicId: "os-37",
+    title: "기아(Starvation)",
+    course: "OS",
+    definition:
+      "우선순위 기반 CPU 스케줄링 시 높은 우선순위 프로세스의 지속적 진입으로 인해, 낮은 우선순위 프로세스가 수행되지 못하고 무한대기 하는 현상",
+    defShort: "높은 우선순위 프로세스 지속 진입으로 낮은 우선순위 무한대기 현상",
+    lead: "저순위 프로세스 무한 대기, 기아(Starvation)",
+    features: ["무한 대기", "일부 한정", "Aging 해소"],
+    keywords: ["무한대기", "Aging기법 적용", "HRN 스케줄링", "MLFQ 스케줄링"],
+    tables: [
+      {
+        caption: "기아 현상 발생 원인",
+        headers: ["원인", "설명"],
+        rows: [
+          ["비선점", "할당된 CPU를\n강제로 못 빼앗는\n스케줄링 방식"],
+          ["우선순위", "우선순위 부여\n최고 순위에\nCPU 할당"],
+        ],
+      },
+      {
+        caption: "기아 현상 발생 사례와 해결 방안",
+        headers: ["구분", "설명"],
+        rows: [
+          ["문제 상황", "프로세스 1 순위\n가장 낮아 대기\n상위 요청 지속\n무한정 대기"],
+          ["해결 방안", "오래 기다린 순\n우선순위 상향\nAging 기법"],
+        ],
+      },
+      {
+        caption: "기아 현상 해결 위한 스케줄링 알고리즘",
+        headers: ["해결방안", "설명"],
+        rows: [
+          ["HRN 스케줄링", "대기시간을\n고려하여 Aging\n적용한 HRN\n스케줄링 사용"],
+          ["MLFQ 스케줄링", "프로세스간 균형\n할당을 고려해\n여러 개의 큐를\n두고 Round Robin 수행"],
+        ],
+      },
+      {
+        caption: "교착 상태와 기아 상태 비교",
+        headers: ["구분", "설명"],
+        rows: [
+          ["교착상태(Deadlock)", "다른 프로세스가\n야기한 Event를\n무한정 대기"],
+          ["기아상태(Starvation)", "교착 상태 부산물\n자원 무한 대기\n(무한 봉쇄)"],
+        ],
+      },
+      {
+        caption: "기아 현상 발생 조건 — 네 측면",
+        headers: ["구분", "발생 조건", "설명"],
+        rows: [
+          ["우선순위 측면", "우선순위 기반\n스케줄링", "고순위 지속 생성\n저순위 기회 없음"],
+          ["스케줄링 알고리즘 측면", "비선점형\n스케줄링", "FCFS 긴 작업\n짧은 것 대기"],
+          ["자원 할당 측면", "자원 할당의\n불공평성", "반복 사용 점유\n특정 자원 독점"],
+          ["자원 관리 측면", "부적절한\n자원 관리", "순위·정책 오류\n일부 지속 점유"],
+        ],
+      },
+      {
+        caption: "기아 방지 기법 — 우선순위·스케줄링·자원관리·가중치",
+        headers: ["구분", "방지 기법", "설명"],
+        rows: [
+          ["우선순위", "우선순위 승격\nAging 기법", "대기 시간 반영\n점진적 순위 상향"],
+          ["스케줄링", "타임 퀀텀 설정\n선점형 조정", "퀀텀 크기 조정\n공정 CPU 할당"],
+          ["스케줄링", "알고리즘 조합\n혼합 사용", "여러 기법 혼합\n장단점 상쇄"],
+          ["자원 관리", "자원 할당 그래프\n상태 관리", "그래프로 관리\n지속 점유 방지"],
+          ["자원 관리", "기한 기반 스케줄\n기한 기준", "프로세스별 기한\n기한 순 스케줄링"],
+          ["가중치", "지분 비례 CPU", "저순위 진전 확보"],
+        ],
+      },
+      {
+        caption: "교착상태와 기아현상의 상세 비교",
+        headers: ["구분", "교착상태", "기아현상"],
+        rows: [
+          ["원인", "Coffman\n4대 조건 만족", "선점·우선순위\nSJF 자원 독점"],
+          ["대상 범위", "둘 이상 프로세스\n집단 상호 의존", "일부 프로세스\n저우선순위"],
+          ["프로세스 상태", "대기·봉쇄 상태\n상태 변화 불가", "준비·대기 상태\n자원 할당만 거부"],
+          ["자원 상태", "나눠 쥔 채 고립", "계속 할당·해제"],
+          ["해결 메커니즘", "예방·회피\n탐지·복구", "에이징 공정큐잉\nHRRN 스케줄"],
+          ["대표 알고리즘", "은행원 알고리즘\nRAG 그래프", "HRRN\n순위 Aging"],
+        ],
+      },
+    ],
+    notes: [
+      "사례 개념도 — 문제 상황: Process1(실행시간 10, 우선순위 10), Process2(4, 7), Process3(5, 1), Process4(6, 5)",
+      "사례 개념도 — 해결 방안: Process1(대기시간 15, 우선순위 10→9), Process2(대기시간 11, 우선순위 7→6), Process3(대기시간 0, 우선순위 1), Process4(우선순위 5)",
+      "발생 환경 한 줄: 비선점·우선순위 스케줄링에서 기아가 생긴다 — 방지 기법은 우선순위·스케줄링·자원 관리·가중치 네 측면으로 나눠 쓴다",
+    ],
+  },
+  {
+    topicId: "os-45",
+    title: "경쟁조건(Race Condition) 해결 방안",
+    course: "OS",
+    definition:
+      "둘 이상의 프로세스가 동일한 공유 자원에 동시에 접근하면서 실행 순서에 따라 결과가 달라질 수 있는 상황",
+    defShort: "둘 이상 프로세스가 공유 자원 동시 접근 시 순서로 결과 달라지는 상황",
+    lead:
+      "공유 자원 동시 접근 문제, 경쟁조건 해결 방안",
+    features: ["예측 불가", "비균등", "분석 난해"],
+    keywords: [
+      "데커(Dekker)",
+      "피터슨(Peterson)",
+      "램포트(Lamport)",
+      "Test & Set",
+      "Compare & Swap",
+      "인터럽트 금지",
+      "Spin Lock",
+      "Mutex",
+      "세마포어",
+      "모니터",
+      "상호배제",
+      "진행",
+      "한계 대기",
+    ],
+    tables: [
+      {
+        caption: "경쟁조건 발생 원인",
+        headers: ["원인", "설명"],
+        rows: [
+          ["공유 자원(Shared Resource) 사용", "여러 프로세스가\n같은 변수·파일\n동시 접근"],
+          ["비동기적 실행(Asynchronous Execution)", "임의 순서 실행\n실행 시간 따라\n결과 달라짐"],
+          ["임계 영역(Critical Section) 미보호", "임계 영역 동기화\n처리가 부족함"],
+        ],
+      },
+      {
+        caption: "소프트웨어 방식 경쟁조건 해결 방안",
+        headers: ["기법", "설명"],
+        rows: [
+          ["데커(Dekker) 알고리즘", "프로세스 2개\n상호 배제 최초\nflag·turn 변수\n진입 후 양보"],
+          ["피터슨(Peterson) 알고리즘", "flag·turn 변수\n상대에 먼저 양보\n이후 진입"],
+          ["램포트(Lamport) bakery 알고리즘", "분산 처리 환경\n번호표 부여\n낮은 번호 우선"],
+        ],
+      },
+      {
+        caption: "하드웨어 방식 경쟁조건 해결 방안",
+        headers: ["기법", "설명"],
+        rows: [
+          ["Test & Set", "원자적 연산으로\n값 테스트·설정\n읽기→셋→반환"],
+          ["Compare & Swap", "원자적으로 비교\n일치 시 새 값 변경"],
+          ["인터럽트 금지", "인터럽트 disable\n원자성 확보\n문맥교환 불가"],
+        ],
+      },
+      {
+        caption: "동기화 방식 경쟁조건 해결 방안",
+        headers: ["기법", "설명"],
+        rows: [
+          ["세마포어", "P·V 연산으로\n동기화 지원\nBinary·Count"],
+          ["모니터", "고수준 동기화\n언어 지원 필요"],
+          ["Spin Lock", "가능할 때까지\n루프 돌며 재시도"],
+          ["Mutex", "동기화 대상 하나\n상호 배제 보장"],
+        ],
+      },
+      {
+        caption: "임계영역 해결을 위한 세가지 요건",
+        headers: ["방법", "설명"],
+        rows: [
+          ["상호 배제", "수행 중 다른\n프로세스 진입 X"],
+          ["진행", "비어 있을 때\n진입 미루지 않음"],
+          ["한계 대기", "재진입에 제한\n기아 방지 조건"],
+        ],
+      },
+      {
+        caption: "경쟁조건의 특징",
+        headers: ["특징", "설명"],
+        rows: [
+          ["예측 불가", "프로세스 경쟁에\n의한 출력값 예측\n불가"],
+          ["비균등", "프로세스\n선점·자원 사용\n방식의 일관성\n부재"],
+          ["분석 난해", "버그 발생 시 원인\n파악 위한 분석\n과정 난해"],
+        ],
+      },
+    ],
+    notes: [
+      "임계영역(Critical Section): 병렬컴퓨팅에서 둘 이상의 프로세스가 동시에 접근해서는 안되는 공유 자원(자료 구조 또는 장치)을 접근하는 코드의 일부 영역",
+      "Acquire the Lock → Lock is locked / Release the Lock → Lock is unlocked",
+      "출제 변형: '운영체제 동기화 기법'으로 물어도 같은 토픽 — 서론만 바꿔 쓴다. 리드문: 경쟁조건 예방 위한 실행 순서 제어, 프로세스 동기화 기법 / 정의(34자): 공유 자원의 경쟁조건을 막기 위해 프로세스의 실행 순서를 제어하는 상호배제 기법 / 특징: 상호배제·진행 보장·한계 대기(임계영역 3요건)",
+      "개념도 사례(count 변수): 프로세스 A가 공유 자원의 count(100)를 읽고 계산 → B도 읽고 계산 → A가 101을 write → B가 기존 값을 overwrite해 A의 결과가 무시됨 — 접근·read·write 순서에 따라 값이 달라진다",
+      "인터럽트 금지는 단일 프로세서에서만 적용 가능하고 멀티 프로세서에서는 불가 / 제어 기법은 성능 저하를 부르므로 SW·HW 특성에 맞게 테스트 후 선택 (NS 19기 2주차 2교시 6번)",
+    ],
+  },
+  {
+    topicId: "os-32",
+    title: "세마포어(Semaphore)",
+    course: "OS",
+    definition:
+      "멀티프로세스 환경에서 상호 배제를 보장하고 동기화를 제어하기 위해 사용하는 동기화 기법",
+    defShort: "멀티프로세스 환경에서 상호 배제와 동기화 제어를 위한 동기화 기법",
+    lead: "공유 자원의 상호 배제, 세마포어",
+    features: ["상호배제", "원자적 실행", "정수값 제어"],
+    keywords: [
+      "상호배제",
+      "동기화",
+      "자원 경쟁",
+      "다중프로세스",
+      "원자적 실행",
+      "공유자원",
+      "동기화 지원",
+      "이진 세마포어",
+      "계수형 세마포어",
+    ],
+    tables: [
+      {
+        caption: "세마포어(Semaphore) 연산의 종류",
+        headers: ["연산 종류", "연산", "설명"],
+        rows: [
+          ["초기화 연산", "Initialize", "S = 정수값(공유 자원 수)"],
+          ["P 연산", "Wait\n임계영역 진입", "S = S−1\nS<0 → 대기 큐로 이동\nS>0 → 계속 진행"],
+          ["V 연산", "Signal\n임계영역 탈출", "S = S+1"],
+        ],
+      },
+      {
+        caption: "이진 세마포어(Binary Semaphore)",
+        headers: ["구분", "설명"],
+        rows: [
+          ["정의", "값이 0 또는 1\n단일 자원 배제"],
+          ["특징", "0 또는 1 정수값"],
+          ["P(s) 연산", "s가 1일 때 0으로\n다른 접근 차단"],
+          ["V(s) 연산", "s가 0일 때 1로\n다른 접근 허용"],
+          ["지원", "하나의 자원 공유\n동기화 지원"],
+        ],
+      },
+      {
+        caption: "계수형 세마포어(Counting Semaphore)",
+        headers: ["구분", "설명"],
+        rows: [
+          ["정의", "0 이상 정수값\n동일 자원 여러 개\n접근 제어"],
+          ["특징", "범위 제한 없는\n정수 값 세마포어"],
+          ["지원", "다수 공유 자원\n여러 프로세스\n배제·동기화"],
+          ["조건", "Task 수 n >\n공유 자원 수 m"],
+        ],
+      },
+      {
+        caption: "세마포어와 모니터의 비교",
+        headers: ["구분", "세마포어", "모니터"],
+        rows: [
+          ["주체", "OS·개발자", "프로그래밍 언어"],
+          ["상호작용", "이론적 기반 제공\n효과적 기법 제공", "타이밍 오류 해결\n개발 편의성 보완"],
+          ["특징", "S 타입별 구분\n이진·계수형", "한 시점 하나 수행\n계산 능력 동일"],
+          ["동기화 구현 사례", "P(S) 검사\n임계→V(S)", "모니터 지역변수\nentry 함수"],
+          ["언어사례", "P·V 연산 구현", "JAVA synchronized\n.Net Monitor"],
+          ["공통점", "동시성 조정 기능", "조정 기능 동일"],
+        ],
+      },
+    ],
+  },
+  {
+    topicId: "os-34",
+    title: "우선순위 역전(Priority Inversion) 현상",
+    course: "OS",
+    definition:
+      "동기화로 인해 우선순위가 높은 프로세스가 우선순위가 낮은 프로세스보다 실행이 지연되는 현상",
+    defShort: "우선순위 높은 프로세스 우선순위 낮은 프로세스보다 지연되는 현상",
+    lead: "높은 순위의 실행 지연, 우선순위 역전",
+    features: ["자원 점유", "응답 저해", "상속 해결"],
+    keywords: ["임계영역", "프로세스 선점", "자원", "우선순위 상속", "우선순위 올림"],
+    tables: [
+      {
+        caption: "우선순위 역전 현상 메커니즘",
+        headers: ["Process", "설명"],
+        rows: [
+          ["① 임계영역 진입", "Task 3이 자원 R 사용\n위해 임계 영역\n진입"],
+          ["② 프로세스 선점", "스케줄링에 의해\n우선 순위 높은\nTask 1은 Task 3 선점하여 진행"],
+          ["③ 임계영역 대기", "Task 1이 Task 3이 점유한 자원\nR 때문에 진행\n못하고 CPU\n제어권 반납"],
+          ["④ 우선순위 역전", "Task 3보다 높은 Task 2가\n선점되어 최고\n순위 Task 1이 뒤로\n밀림"],
+        ],
+      },
+      {
+        caption: "해결 방안",
+        headers: ["기법", "설명"],
+        rows: [
+          ["우선순위 상속", "낮은 Task 순위를\n대기 Task와 동일\n역전 현상 해결"],
+          ["재귀적 우선순위 상속", "재귀적 자료구조\n여러 역전 해결"],
+          ["우선순위 올림", "자원에 순위 부여\n진입 Task 순위를\n자원 순위로 올림"],
+        ],
+      },
+      {
+        caption: "우선순위 역전 발생 조건",
+        headers: ["발생 조건", "설명"],
+        rows: [
+          ["세마포어(Semaphore)", "임계영역(Critical\nSection)을 통해 특정 자원에\n대한 점유"],
+          ["선점 스케줄링", "우선순위 높은\nTask가 낮은 Task의 CPU\n점유를 선점"],
+        ],
+      },
+      {
+        caption: "해결 기법 비교 — 상속(BPI)·올림(PCE)·재귀 상속(RPI)",
+        headers: ["구분", "BPI", "PCE", "RPI"],
+        rows: [
+          ["기본 우선순위 역전", "해결 가능", "해결 가능", "해결 가능"],
+          ["자원 동시 소유", "해결 불가", "해결 가능", "해결 가능"],
+          ["재귀적 소유·요청", "해결 불가", "해결 불가", "해결 가능"],
+          ["시간 복잡도", "O(N)", "O(N*M)", "O(N+M)"],
+          ["공간 복잡도", "O(1)", "O(M)", "O(N+M)"],
+        ],
+      },
+    ],
+    notes: [
+      "우선순위 역전 현상 해결 위해 우선순위 상속과 우선순위 올림 존재",
+      "발생 조건 두 가지가 겹칠 때 — 낮은 Task가 자원을 점유한 상태에서 높은 Task가 그 자원을 요구하면 역전 발생 가능",
+      "8단계 흐름: ① Task3 세마포어 획득 → ② Task1 실행 → ③ Task1 자원 요청·대기 → ④ Task3 실행 → ⑤ Task2 실행(역전 구간, Task3는 세마포어 계속 소유) → ⑥ Task3 재실행 → ⑦ Task3 세마포어 반환 → ⑧ Task1 실행·획득",
+    ],
+  },
+  {
+    topicId: "os-59",
+    title: "프로세스간 통신(IPC)",
+    course: "OS",
+    definition:
+      "운영체제(OS)에서 실행 중인 프로세스들 간 상호 데이터를 교환할 수 있도록 하는 메커니즘",
+    defShort: "OS에서 실행 중인 프로세스 간 상호 데이터 교환하게 하는 메커니즘",
+    lead:
+      "프로세스 간 데이터 교환, IPC",
+    features: ["공간 간 연결", "로컬·원격", "속도·안전"],
+    keywords: [
+      "공유 메모리 방식",
+      "공유 메모리(Shared Memory)",
+      "메모리 맵(mmap)",
+      "메시지 전달 방식",
+      "파이프(Pipe)",
+      "네임드 파이프(Named Pipe, FIFO)",
+      "메시지 큐(Message Queue)",
+      "소켓(Socket)",
+      "시그널(Signal)",
+    ],
+    tables: [
+      {
+        caption: "공유 메모리 방식",
+        headers: ["구분", "방식", "설명"],
+        rows: [
+          ["메모리", "공유 메모리(Shared Memory)", "특정 메모리 영역 공유 데이터 교환\n빠르지만 동기화 문제 해결 필요"],
+          ["파일", "메모리 맵(Map Memory, mmap)", "파일을 메모리처럼 맵핑 공유\n파일 기반 지속성 존재"],
+        ],
+      },
+      {
+        caption: "메시지 전달 방식",
+        headers: ["구분", "방식", "설명"],
+        rows: [
+          ["파이프", "파이프(Pipe)", "프로세스 출력→입력 전달\n단방향 통신 기법(부모-자식)"],
+          ["파이프", "네임드 파이프(Named Pipe, FIFO)", "파일 시스템에 이름 있는 파이프\n단방향, 양방향 가능"],
+          ["큐", "메시지 큐(Message Queue)", "운영체제 큐로 메시지 비동기 전달"],
+          ["네트워크", "소켓(Socket)", "네트워크 기반 통신 방식\n같은 시스템/다른 시스템 통신"],
+          ["신호", "시그널(Signal)", "이벤트 발생 알리는 비동기 신호\n종료·인터럽트 용도(SIGKILL)"],
+        ],
+      },
+      {
+        caption: "공유 메모리와 메시지 전달 방식의 비교",
+        headers: ["구분", "공유 메모리 방식", "메시지 전달 방식"],
+        rows: [
+          ["개념", "공통 메모리 영역\n이용 데이터 전달", "커널 통한\n메시지 전달"],
+          ["대표 기법", "공유 메모리\nmmap", "파이프\n메시지 큐\n소켓·시그널"],
+          ["속도", "커널 배제\n빠른 속도", "커널 거침\n다소 늦음"],
+          ["충돌", "발생 가능\n별도 동기화 필요", "발생 없음"],
+          ["크기", "많은 양 전달\n커널은 구축시만", "적은 양 메시지\n매번 커널 관여"],
+        ],
+      },
+    ],
+    notes: [
+      "IPC 분류 두음: 공유 메모리 방식(공·맵) / 메시지 전달 방식(파·네·메·소·시)",
+      "속도가 필요하면 공유 메모리 + 동기화, 안전·원격이 필요하면 메시지 전달(소켓)",
+    ],
+  },
+  {
     topicId: "os-36",
     title: "교착상태(Deadlock)",
     course: "OS",
@@ -2598,47 +2574,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
-    topicId: "os-38",
-    title: "Wait-Die와 Wound-Wait",
-    course: "OS",
-    definition:
-      "[Wait-Die] 자원 요청 프로세스와 보유 프로세스의 타임 스템프를 비교하여 대기하거나 롤백하는 비선점 기반 DeadLock 회피 기법 / [Wound-Wait] 자원 요청 프로세스와 보유 프로세스의 타임 스템프를 비교하여 대기하거나 강제 종료하는 선점 기반 DeadLock 회피 기법",
-    defShort: "타임스템프 비교로 대기·롤백하는 비선점 기반 DeadLock 회피 기법",
-    lead:
-      "타임스탬프 기반 교착 회피, Wait-Die와 Wound-Wait",
-    features: ["시간 비교", "선점 대비", "젊은 쪽 희생"],
-    // 개념마다 정의·특징을 따로 쓴다(2026-10-07 — "각자 정의, 특징"). 왼쪽 「Wait-Die 정의」「Wound-Wait 정의」 문장에서 '자원 요청 프로세스와 보유 프로세스의'를 덜어 냄. 특징은 비교표 동작 방식·동작 방식 설명(여러 번 롤백 발생 가능)
-    defPair: [
-      {
-        name: "Wait-Die",
-        lead: "늙은 프로세스 대기, 비선점",
-        def: "타임스템프 비교해 대기·롤백하는 비선점 기반 DeadLock 회피 기법",
-        features: ["늙은 쪽 대기", "젊은 쪽 롤백", "롤백 반복"],
-      },
-      {
-        name: "Wound-Wait",
-        lead: "늙은 프로세스가 자원 선점",
-        def: "타임스템프 비교해 대기·강제 종료하는 선점 기반 DeadLock 회피 기법",
-        features: ["늙은 쪽 선점", "젊은 쪽 대기", "강제 종료"],
-      },
-    ],
-    keywords: ["타임스템프", "Old", "Young", "롤백", "강제종료", "선점", "비선점"],
-    tables: [
-      {
-        caption: "Wait-Die와 Wound-Wait의 비교",
-        headers: ["기법", "동작 방식", "요청이 오래된 프로세스", "요청이 젊은 프로세스"],
-        rows: [
-          ["Wait-Die", "늙은 것은 대기\n젊은 것은 종료", "Wait\n(기다림 허용)", "Die\n(롤백)"],
-          ["Wound-Wait", "젊은 것을 종료\n자원을 선점", "Wound\n(강제 종료)", "Wait\n(기다림 허용)"],
-        ],
-      },
-    ],
-    notes: [
-      "Wait-Die 동작: 낮은 Timestamp(Old Tr) T1 → T2(자원 점유) ← T3(높은 Timestamp, Young TR) — T1은 Wait, T3는 Die / Young(젊은) 트랜잭션(프로세스)는 롤백을 수행하고, 여러 번 발생 가능",
-      "Wound-Wait 동작: T1은 Wound(강제 종료 수행), T3는 Wait / Old(늙은) 트랜잭션(프로세스)는 Young(젊은) 트랜잭션(프로세스)를 강제로 죽이고(Wound) 자원을 획득",
-    ],
-  },
-  {
     topicId: "os-63",
     title: "인터럽트(Interrupt)",
     course: "OS",
@@ -2723,69 +2658,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
-    topicId: "os-53",
-    title: "프로세스(Process)와 스레드(Thread) 비교",
-    course: "OS",
-    definition:
-      "[프로세스] 운영체제에서 프로세서(CPU)에 의해 실행되는 프로그램 단위 / [스레드] 하나의 프로세스 내에서 제어 흐름으로 프로세스의 실행 부분을 담당하는 일관된 실행의 기본 단위의 경량 프로세스",
-    defShort: "CPU 실행 프로그램 단위 프로세스와 프로세스 내 실행 기본 단위 스레드",
-    defPair: [
-      {
-        name: "프로세스(Process)",
-        lead: "자원 할당의 기본 단위",
-        def: "운영체제에서 CPU에 의해 실행되는 프로그램 단위, 자원 할당 단위",
-        features: ["할당 단위", "독립적 실행", "전환 느림"],
-      },
-      {
-        name: "스레드(Thread)",
-        lead: "실행 흐름의 경량 단위",
-        def: "하나 프로세스 내 실행 부분을 담당하는 실행 기본 단위 경량 프로세스",
-        features: ["CPU 단위", "영역 공유", "전환 빠름"],
-      },
-    ],
-    lead:
-      "실행 단위의 두 층위, 프로세스와 스레드",
-    features: ["독립·공유", "전환 속도 차", "보호·공유"],
-    keywords: ["자원 할당 기본 단위", "프로세스 내 여러 Thread"],
-    tables: [
-      {
-        caption: "프로세스와 스레드 비교",
-        headers: ["구분", "프로세스", "스레드"],
-        rows: [
-          ["개념", "자원 할당 단위", "CPU 이용 단위"],
-          ["구성 요소", "Code 영역\nData 영역", "Code 공유\nData 공유"],
-          ["구성 요소", "Heap 영역\nStack 보유", "Heap 공유\nStack 별도"],
-          ["구성 요소", "각 메모리 차지", "영역 대부분 공유"],
-          ["역할", "강력한 보호 요구\n독립적 실행", "보호 요구 낮음\n메모리 공유"],
-          ["Context Switching", "PCB 전환 느림", "전환 속도 빠름"],
-          ["상호 통신", "시스템 콜 사용\n전체 블로킹", "라이브러리 콜\n요청 스레드만"],
-          ["다중 처리", "여러 프로그램", "단일 앱 내 작업"],
-          ["장점", "문맥 전환 발생\n높은 시스템 부하", "경량화 문맥 전환\n낮은 부하 유지"],
-          ["장점", "순차 실행 수행\n실행 순서 예측", "자원 효율성 확보\n응답성 경제성"],
-          ["단점", "성능 부하 발생\n전환 비용 증가", "비순차적 실행\n순서 예측 곤란"],
-        ],
-      },
-      {
-        caption: "PCB와 TCB의 비교",
-        headers: ["구분", "PCB", "TCB"],
-        rows: [
-          ["개념", "프로세스 관리\n데이터 블록", "스레드 상태 유지\n데이터 구조"],
-          ["역할", "프로세스 정보\n전 스레드 공유", "스레드 정보 저장\n스레드 내 사용"],
-          ["주요 구성 요소", "Owner 소유\nPID 식별자", "스택 포인터\nPC 카운터"],
-          ["주요 구성 요소", "Heap 포인터\n우선순위 정보", "State 상태\n레지스터 값"],
-          ["주요 구성 요소", "활성 스레드", "실행 문맥 정보"],
-          ["상호 연계 정보", "하나 이상 TCB", "PCB 링크 정보"],
-          ["Context 관점", "실행 환경 정보", "실행 관련 정보"],
-          ["관리 데이터 양", "관리 데이터 많음\n약 106개 필드", "포인터로 최소\n24개 필드"],
-          ["관리 데이터 양", "TCB 공유 포함", "PCB 연결 관리"],
-        ],
-      },
-    ],
-    notes: [
-      "개념도: 프로세스는 코드·데이터·힙·스택을 각각 독립적으로 소유 / 스레드는 코드·데이터·힙을 공유하고 스택만 별도 소유",
-    ],
-  },
-  {
     topicId: "os-48",
     title: "PCB(Process Control Block)",
     course: "OS",
@@ -2847,6 +2719,69 @@ export const SUBNOTES: TextbookSubnote[] = [
       "PCB 구조: Pointer | Process state / Process ID(Unique ID) / Program counter(Next program that run) / Registers / Memory Limits / Accounting(Log INFO about process) / List of open file",
       "PCB와 TCB의 연계: 스레드는 프로세스에 종속된 실행 단위이며 PCB는 하나 이상의 TCB를 포함 — 프로세스가 종료되면 포함된 스레드도 함께 종료",
       "PCB는 프로세스 자원 관리를 위한 제어 블록이고, 실제 CPU 스케줄링은 TCB 단위로 수행되어 Context Switch 비용을 최소화 (NS 19기 2주차 1교시 3번 '스케줄링에 활용되는 방식')",
+    ],
+  },
+  {
+    topicId: "os-53",
+    title: "프로세스(Process)와 스레드(Thread) 비교",
+    course: "OS",
+    definition:
+      "[프로세스] 운영체제에서 프로세서(CPU)에 의해 실행되는 프로그램 단위 / [스레드] 하나의 프로세스 내에서 제어 흐름으로 프로세스의 실행 부분을 담당하는 일관된 실행의 기본 단위의 경량 프로세스",
+    defShort: "CPU 실행 프로그램 단위 프로세스와 프로세스 내 실행 기본 단위 스레드",
+    defPair: [
+      {
+        name: "프로세스(Process)",
+        lead: "자원 할당의 기본 단위",
+        def: "운영체제에서 CPU에 의해 실행되는 프로그램 단위, 자원 할당 단위",
+        features: ["할당 단위", "독립적 실행", "전환 느림"],
+      },
+      {
+        name: "스레드(Thread)",
+        lead: "실행 흐름의 경량 단위",
+        def: "하나 프로세스 내 실행 부분을 담당하는 실행 기본 단위 경량 프로세스",
+        features: ["CPU 단위", "영역 공유", "전환 빠름"],
+      },
+    ],
+    lead:
+      "실행 단위의 두 층위, 프로세스와 스레드",
+    features: ["독립·공유", "전환 속도 차", "보호·공유"],
+    keywords: ["자원 할당 기본 단위", "프로세스 내 여러 Thread"],
+    tables: [
+      {
+        caption: "프로세스와 스레드 비교",
+        headers: ["구분", "프로세스", "스레드"],
+        rows: [
+          ["개념", "자원 할당 단위", "CPU 이용 단위"],
+          ["구성 요소", "Code 영역\nData 영역", "Code 공유\nData 공유"],
+          ["구성 요소", "Heap 영역\nStack 보유", "Heap 공유\nStack 별도"],
+          ["구성 요소", "각 메모리 차지", "영역 대부분 공유"],
+          ["역할", "강력한 보호 요구\n독립적 실행", "보호 요구 낮음\n메모리 공유"],
+          ["Context Switching", "PCB 전환 느림", "전환 속도 빠름"],
+          ["상호 통신", "시스템 콜 사용\n전체 블로킹", "라이브러리 콜\n요청 스레드만"],
+          ["다중 처리", "여러 프로그램", "단일 앱 내 작업"],
+          ["장점", "문맥 전환 발생\n높은 시스템 부하", "경량화 문맥 전환\n낮은 부하 유지"],
+          ["장점", "순차 실행 수행\n실행 순서 예측", "자원 효율성 확보\n응답성 경제성"],
+          ["단점", "성능 부하 발생\n전환 비용 증가", "비순차적 실행\n순서 예측 곤란"],
+        ],
+      },
+      {
+        caption: "PCB와 TCB의 비교",
+        headers: ["구분", "PCB", "TCB"],
+        rows: [
+          ["개념", "프로세스 관리\n데이터 블록", "스레드 상태 유지\n데이터 구조"],
+          ["역할", "프로세스 정보\n전 스레드 공유", "스레드 정보 저장\n스레드 내 사용"],
+          ["주요 구성 요소", "Owner 소유\nPID 식별자", "스택 포인터\nPC 카운터"],
+          ["주요 구성 요소", "Heap 포인터\n우선순위 정보", "State 상태\n레지스터 값"],
+          ["주요 구성 요소", "활성 스레드", "실행 문맥 정보"],
+          ["상호 연계 정보", "하나 이상 TCB", "PCB 링크 정보"],
+          ["Context 관점", "실행 환경 정보", "실행 관련 정보"],
+          ["관리 데이터 양", "관리 데이터 많음\n약 106개 필드", "포인터로 최소\n24개 필드"],
+          ["관리 데이터 양", "TCB 공유 포함", "PCB 연결 관리"],
+        ],
+      },
+    ],
+    notes: [
+      "개념도: 프로세스는 코드·데이터·힙·스택을 각각 독립적으로 소유 / 스레드는 코드·데이터·힙을 공유하고 스택만 별도 소유",
     ],
   },
   {
@@ -2915,6 +2850,98 @@ export const SUBNOTES: TextbookSubnote[] = [
       "Thread는 병렬 처리, 응답성 향상, 자원 효율적 사용을 위해 사용",
       "동일 메모리 공간과 자원을 사용하지만, 자신의 실행 흐름과 레지스터(Registers), 스택(Stack)을 소유",
       "단일 쓰레드: code·data·files 공유, Registers/Stack 1개 / 멀티 쓰레드: code·data·files 공유, Registers/Stack을 쓰레드마다 별도 소유",
+    ],
+  },
+  {
+    topicId: "os-24",
+    title: "디스크 스케줄링(Disk Scheduling)",
+    course: "OS",
+    definition:
+      "디스크 상의 여러 곳에 저장되어 있는 데이터를 엑세스 하기 위해 디스크 헤드가 움직이는 최적의 경로를 결정하는 기법",
+    defShort: "데이터 엑세스 위해 디스크 헤드가 움직일 최적 경로를 결정하는 기법",
+    lead:
+      "헤드 이동의 최적화, 디스크 스케줄링",
+    features: ["이동 최적화", "탐색 단축", "효율·공정"],
+    subDefs: [
+      {
+        name: "FCFS(First Come First Serve)",
+        lead: "도착 순서의 헤드 처리",
+        def: "요청이 들어온 순서대로 디스크 헤드 이동해 처리하는 스케줄링 기법",
+        features: ["구현 단순", "공정성 보장", "이동 비효율"],
+      },
+      {
+        name: "SSTF(Shortest Seek Time First)",
+        lead: "최근접 트랙의 우선 처리",
+        def: "현재 헤드에서 가장 가까운 트랙 요청을 먼저 처리하는 스케줄링 기법",
+        features: ["최근접 우선", "효율적", "먼 요청 기아"],
+      },
+      {
+        name: "SCAN(엘리베이터 알고리즘)",
+        lead: "한 방향 이동의 요청 처리",
+        def: "헤드가 끝까지 이동하며 경로상 요청 처리 후 방향 전환 스케줄링 기법",
+        features: ["끝까지 이동", "방향 전환", "불필요 이동"],
+      },
+      {
+        name: "N-Step SCAN",
+        lead: "그룹 단위의 SCAN 처리",
+        def: "디스크 요청을 일정 크기 그룹으로 나눠 그룹별로 SCAN 수행하는 기법",
+        features: ["N개씩 배치", "그룹별 SCAN", "일부 지연"],
+      },
+      {
+        name: "C-SCAN(Circular SCAN)",
+        lead: "원형 확장의 단방향 이동",
+        def: "한쪽 방향으로 이동하고 끝에 도달하면 처음으로 돌아오는 원형 방식",
+        features: ["한쪽 방향", "처리 균일", "이동 낭비"],
+      },
+      {
+        name: "LOOK",
+        lead: "요청 범위까지의 이동",
+        def: "요청이 있는 마지막 위치까지 이동 후 방향 전환하는 SCAN 개선 기법",
+        features: ["요청 범위만", "이동 감소", "기아 가능"],
+      },
+      {
+        name: "C-LOOK",
+        lead: "단방향 이동의 처음 점프",
+        def: "한쪽 방향으로만 이동하다 요청 끝나면 처음 요청으로 점프하는 기법",
+        features: ["한쪽 방향", "이동 효율적", "먼 점프 지연"],
+      },
+      {
+        name: "SLTF(Shortest Latency Time First)",
+        lead: "회전 지연의 최소화",
+        def: "같은 트랙에서 가장 빨리 도달 가능 섹터 선택해 회전 지연 최소화 기법",
+        features: ["같은 트랙", "최단 도달", "빠른 응답"],
+      },
+    ],
+    keywords: [
+      "FCFS",
+      "SSTF",
+      "SCAN",
+      "N-Step SCAN",
+      "C-SCAN",
+      "LOOK",
+      "C-LOOK",
+      "SLTF",
+    ],
+    tables: [
+      {
+        caption: "디스크 스케줄링(Disk Scheduling) 기법의 유형",
+        headers: ["기법", "정의", "동작 방식", "장점", "단점"],
+        rows: [
+          ["FCFS(First Come First Serve)", "요청 순서 처리", "요청 순서대로", "구현 단순\n공정성 보장", "평균 응답시간↑\n헤드 이동 비효율"],
+          ["SSTF(Shortest Seek Time First)", "최근접 트랙 우선", "최근접 요청 선택", "평균 탐색시간↓\n효율적", "먼 요청 기아(Starvation)"],
+          ["SCAN(엘리베이터 알고리즘)", "한 방향 이동 처리", "끝까지 이동\n방향 전환", "응답시간 균형\nFCFS보다 효율", "양 끝까지 이동\n불필요 이동"],
+          ["N-Step SCAN", "SCAN의 변형\nN개 그룹 처리", "N개씩 묶어 배치\n그룹별 SCAN\n신규 요청 나중", "응답시간 예측", "일부 요청 지연"],
+          ["C-SCAN(Circular SCAN)", "SCAN 원형 확장", "한쪽 방향 이동\n끝 도달 시 처음", "요청 처리 균일\n응답시간 예측", "복귀 중 요청 무시\n이동 낭비"],
+          ["LOOK", "SCAN 개선\n요청 범위만 이동", "마지막 요청까지\n이동 후 전환", "불필요 이동 감소", "SCAN보다 효율\n여전히 기아 가능"],
+          ["C-LOOK", "C-SCAN 개선\n요청 범위만 이동", "한쪽 방향 이동\n처음 요청 점프", "응답시간 균일\n이동 효율적", "먼 점프 시 지연"],
+          ["SLTF(Shortest Latency Time First)", "회전 지연 최소화", "최단 도달 섹터", "회전 대기↓\n빠른 응답", "여러 트랙 제한"],
+        ],
+      },
+    ],
+    notes: [
+      "LOOK 알고리즘 동작 메커니즘(에센바흐기법): 현 헤드 위치 0에서 방향으로 이동 중 — SCAN 스케줄링과의 총 헤드 이동 차: 28, 헤드 총 이동거리 208",
+      "C-LOOK 알고리즘 동작 메커니즘: 현 헤드 위치 50, 헤드는 항상 왼쪽에서 오른쪽으로 이동 — 더 이상 오른쪽 요청이 없을 때 반대편 맨 끝(가장 작은 요청)으로 점프, 헤드 총 이동거리 413",
+      "두음: FCFS·SSTF·SCAN·N-Step SCAN·C-SCAN·LOOK·C-LOOK·SLTF (FSSNC LCS)",
     ],
   },
   {
@@ -3020,153 +3047,131 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
-    topicId: "os-59",
-    title: "프로세스간 통신(IPC)",
+    topicId: "os-38",
+    title: "Wait-Die와 Wound-Wait",
     course: "OS",
     definition:
-      "운영체제(OS)에서 실행 중인 프로세스들 간 상호 데이터를 교환할 수 있도록 하는 메커니즘",
-    defShort: "OS에서 실행 중인 프로세스 간 상호 데이터 교환하게 하는 메커니즘",
+      "[Wait-Die] 자원 요청 프로세스와 보유 프로세스의 타임 스템프를 비교하여 대기하거나 롤백하는 비선점 기반 DeadLock 회피 기법 / [Wound-Wait] 자원 요청 프로세스와 보유 프로세스의 타임 스템프를 비교하여 대기하거나 강제 종료하는 선점 기반 DeadLock 회피 기법",
+    defShort: "타임스템프 비교로 대기·롤백하는 비선점 기반 DeadLock 회피 기법",
     lead:
-      "프로세스 간 데이터 교환, IPC",
-    features: ["공간 간 연결", "로컬·원격", "속도·안전"],
-    keywords: [
-      "공유 메모리 방식",
-      "공유 메모리(Shared Memory)",
-      "메모리 맵(mmap)",
-      "메시지 전달 방식",
-      "파이프(Pipe)",
-      "네임드 파이프(Named Pipe, FIFO)",
-      "메시지 큐(Message Queue)",
-      "소켓(Socket)",
-      "시그널(Signal)",
+      "타임스탬프 기반 교착 회피, Wait-Die와 Wound-Wait",
+    features: ["시간 비교", "선점 대비", "젊은 쪽 희생"],
+    // 개념마다 정의·특징을 따로 쓴다(2026-10-07 — "각자 정의, 특징"). 왼쪽 「Wait-Die 정의」「Wound-Wait 정의」 문장에서 '자원 요청 프로세스와 보유 프로세스의'를 덜어 냄. 특징은 비교표 동작 방식·동작 방식 설명(여러 번 롤백 발생 가능)
+    defPair: [
+      {
+        name: "Wait-Die",
+        lead: "늙은 프로세스 대기, 비선점",
+        def: "타임스템프 비교해 대기·롤백하는 비선점 기반 DeadLock 회피 기법",
+        features: ["늙은 쪽 대기", "젊은 쪽 롤백", "롤백 반복"],
+      },
+      {
+        name: "Wound-Wait",
+        lead: "늙은 프로세스가 자원 선점",
+        def: "타임스템프 비교해 대기·강제 종료하는 선점 기반 DeadLock 회피 기법",
+        features: ["늙은 쪽 선점", "젊은 쪽 대기", "강제 종료"],
+      },
     ],
+    keywords: ["타임스템프", "Old", "Young", "롤백", "강제종료", "선점", "비선점"],
     tables: [
       {
-        caption: "공유 메모리 방식",
-        headers: ["구분", "방식", "설명"],
+        caption: "Wait-Die와 Wound-Wait의 비교",
+        headers: ["기법", "동작 방식", "요청이 오래된 프로세스", "요청이 젊은 프로세스"],
         rows: [
-          ["메모리", "공유 메모리(Shared Memory)", "특정 메모리 영역 공유 데이터 교환\n빠르지만 동기화 문제 해결 필요"],
-          ["파일", "메모리 맵(Map Memory, mmap)", "파일을 메모리처럼 맵핑 공유\n파일 기반 지속성 존재"],
-        ],
-      },
-      {
-        caption: "메시지 전달 방식",
-        headers: ["구분", "방식", "설명"],
-        rows: [
-          ["파이프", "파이프(Pipe)", "프로세스 출력→입력 전달\n단방향 통신 기법(부모-자식)"],
-          ["파이프", "네임드 파이프(Named Pipe, FIFO)", "파일 시스템에 이름 있는 파이프\n단방향, 양방향 가능"],
-          ["큐", "메시지 큐(Message Queue)", "운영체제 큐로 메시지 비동기 전달"],
-          ["네트워크", "소켓(Socket)", "네트워크 기반 통신 방식\n같은 시스템/다른 시스템 통신"],
-          ["신호", "시그널(Signal)", "이벤트 발생 알리는 비동기 신호\n종료·인터럽트 용도(SIGKILL)"],
-        ],
-      },
-      {
-        caption: "공유 메모리와 메시지 전달 방식의 비교",
-        headers: ["구분", "공유 메모리 방식", "메시지 전달 방식"],
-        rows: [
-          ["개념", "공통 메모리 영역\n이용 데이터 전달", "커널 통한\n메시지 전달"],
-          ["대표 기법", "공유 메모리\nmmap", "파이프\n메시지 큐\n소켓·시그널"],
-          ["속도", "커널 배제\n빠른 속도", "커널 거침\n다소 늦음"],
-          ["충돌", "발생 가능\n별도 동기화 필요", "발생 없음"],
-          ["크기", "많은 양 전달\n커널은 구축시만", "적은 양 메시지\n매번 커널 관여"],
+          ["Wait-Die", "늙은 것은 대기\n젊은 것은 종료", "Wait\n(기다림 허용)", "Die\n(롤백)"],
+          ["Wound-Wait", "젊은 것을 종료\n자원을 선점", "Wound\n(강제 종료)", "Wait\n(기다림 허용)"],
         ],
       },
     ],
     notes: [
-      "IPC 분류 두음: 공유 메모리 방식(공·맵) / 메시지 전달 방식(파·네·메·소·시)",
-      "속도가 필요하면 공유 메모리 + 동기화, 안전·원격이 필요하면 메시지 전달(소켓)",
+      "Wait-Die 동작: 낮은 Timestamp(Old Tr) T1 → T2(자원 점유) ← T3(높은 Timestamp, Young TR) — T1은 Wait, T3는 Die / Young(젊은) 트랜잭션(프로세스)는 롤백을 수행하고, 여러 번 발생 가능",
+      "Wound-Wait 동작: T1은 Wound(강제 종료 수행), T3는 Wait / Old(늙은) 트랜잭션(프로세스)는 Young(젊은) 트랜잭션(프로세스)를 강제로 죽이고(Wound) 자원을 획득",
     ],
   },
   {
-    topicId: "os-24",
-    title: "디스크 스케줄링(Disk Scheduling)",
+    title: "문맥(Context)",
     course: "OS",
+    // 교재에는 문맥교환 안에서만 다뤄진다. NS 19기 02주차 2교시 2번(가. 문맥의 개념과 유형)을 참고해 따로 세웠다.
     definition:
-      "디스크 상의 여러 곳에 저장되어 있는 데이터를 엑세스 하기 위해 디스크 헤드가 움직이는 최적의 경로를 결정하는 기법",
-    defShort: "데이터 엑세스 위해 디스크 헤드가 움직일 최적 경로를 결정하는 기법",
-    lead:
-      "헤드 이동의 최적화, 디스크 스케줄링",
-    features: ["이동 최적화", "탐색 단축", "효율·공정"],
-    subDefs: [
-      {
-        name: "FCFS(First Come First Serve)",
-        lead: "도착 순서의 헤드 처리",
-        def: "요청이 들어온 순서대로 디스크 헤드 이동해 처리하는 스케줄링 기법",
-        features: ["구현 단순", "공정성 보장", "이동 비효율"],
-      },
-      {
-        name: "SSTF(Shortest Seek Time First)",
-        lead: "최근접 트랙의 우선 처리",
-        def: "현재 헤드에서 가장 가까운 트랙 요청을 먼저 처리하는 스케줄링 기법",
-        features: ["최근접 우선", "효율적", "먼 요청 기아"],
-      },
-      {
-        name: "SCAN(엘리베이터 알고리즘)",
-        lead: "한 방향 이동의 요청 처리",
-        def: "헤드가 끝까지 이동하며 경로상 요청 처리 후 방향 전환 스케줄링 기법",
-        features: ["끝까지 이동", "방향 전환", "불필요 이동"],
-      },
-      {
-        name: "N-Step SCAN",
-        lead: "그룹 단위의 SCAN 처리",
-        def: "디스크 요청을 일정 크기 그룹으로 나눠 그룹별로 SCAN 수행하는 기법",
-        features: ["N개씩 배치", "그룹별 SCAN", "일부 지연"],
-      },
-      {
-        name: "C-SCAN(Circular SCAN)",
-        lead: "원형 확장의 단방향 이동",
-        def: "한쪽 방향으로 이동하고 끝에 도달하면 처음으로 돌아오는 원형 방식",
-        features: ["한쪽 방향", "처리 균일", "이동 낭비"],
-      },
-      {
-        name: "LOOK",
-        lead: "요청 범위까지의 이동",
-        def: "요청이 있는 마지막 위치까지 이동 후 방향 전환하는 SCAN 개선 기법",
-        features: ["요청 범위만", "이동 감소", "기아 가능"],
-      },
-      {
-        name: "C-LOOK",
-        lead: "단방향 이동의 처음 점프",
-        def: "한쪽 방향으로만 이동하다 요청 끝나면 처음 요청으로 점프하는 기법",
-        features: ["한쪽 방향", "이동 효율적", "먼 점프 지연"],
-      },
-      {
-        name: "SLTF(Shortest Latency Time First)",
-        lead: "회전 지연의 최소화",
-        def: "같은 트랙에서 가장 빨리 도달 가능 섹터 선택해 회전 지연 최소화 기법",
-        features: ["같은 트랙", "최단 도달", "빠른 응답"],
-      },
-    ],
-    keywords: [
-      "FCFS",
-      "SSTF",
-      "SCAN",
-      "N-Step SCAN",
-      "C-SCAN",
-      "LOOK",
-      "C-LOOK",
-      "SLTF",
-    ],
+      "프로세스가 실행을 멈췄다가 같은 자리에서 다시 이어갈 수 있도록 레지스터·메모리·PCB에 담아 두는 실행 상태 정보",
+    defShort: "중단된 프로세스 다시 잇도록 PCB·레지스터에 보존한 실행 상태 정보",
+    lead: "프로세스 실행 상태 보존, 문맥(Context)",
+    features: ["지점 재개", "PCB 보존", "복원 부담"],
+    keywords: ["시스템 문맥", "메모리 문맥", "하드웨어 문맥", "PCB", "레지스터", "Program Counter"],
     tables: [
       {
-        caption: "디스크 스케줄링(Disk Scheduling) 기법의 유형",
-        headers: ["기법", "정의", "동작 방식", "장점", "단점"],
+        caption: "문맥의 세 유형",
+        headers: ["구분", "유형", "설명"],
         rows: [
-          ["FCFS(First Come First Serve)", "요청 순서 처리", "요청 순서대로", "구현 단순\n공정성 보장", "평균 응답시간↑\n헤드 이동 비효율"],
-          ["SSTF(Shortest Seek Time First)", "최근접 트랙 우선", "최근접 요청 선택", "평균 탐색시간↓\n효율적", "먼 요청 기아(Starvation)"],
-          ["SCAN(엘리베이터 알고리즘)", "한 방향 이동 처리", "끝까지 이동\n방향 전환", "응답시간 균형\nFCFS보다 효율", "양 끝까지 이동\n불필요 이동"],
-          ["N-Step SCAN", "SCAN의 변형\nN개 그룹 처리", "N개씩 묶어 배치\n그룹별 SCAN\n신규 요청 나중", "응답시간 예측", "일부 요청 지연"],
-          ["C-SCAN(Circular SCAN)", "SCAN 원형 확장", "한쪽 방향 이동\n끝 도달 시 처음", "요청 처리 균일\n응답시간 예측", "복귀 중 요청 무시\n이동 낭비"],
-          ["LOOK", "SCAN 개선\n요청 범위만 이동", "마지막 요청까지\n이동 후 전환", "불필요 이동 감소", "SCAN보다 효율\n여전히 기아 가능"],
-          ["C-LOOK", "C-SCAN 개선\n요청 범위만 이동", "한쪽 방향 이동\n처음 요청 점프", "응답시간 균일\n이동 효율적", "먼 점프 시 지연"],
-          ["SLTF(Shortest Latency Time First)", "회전 지연 최소화", "최단 도달 섹터", "회전 대기↓\n빠른 응답", "여러 트랙 제한"],
+          ["OS 관리", "시스템 문맥", "PCB 커널 관리 정보\n프로세스별 관리 PID 상태 계정"],
+          ["주소 공간", "메모리 문맥", "주소 공간 코드·스택·힙\n스왑 영역 할당 메모리 포함"],
+          ["CPU 상태", "하드웨어 문맥", "CPU 레지스터 실행 상태 보관\n프로그램 카운터 실행 위치 기억"],
+        ],
+      },
+      {
+        caption: "문맥이 오가는 시점",
+        headers: ["시점", "동작", "설명"],
+        rows: [
+          ["인터럽트·시스템 콜", "실행 문맥 저장", "PCB 기록 보존"],
+          ["디스패치", "다음 문맥 복원", "PCB→CPU"],
+          ["잦은 상태 전이", "저장·복원 반복\n오버헤드 증가", "교환에 시간 소모\nCPU 시간 낭비"],
         ],
       },
     ],
     notes: [
-      "LOOK 알고리즘 동작 메커니즘(에센바흐기법): 현 헤드 위치 0에서 방향으로 이동 중 — SCAN 스케줄링과의 총 헤드 이동 차: 28, 헤드 총 이동거리 208",
-      "C-LOOK 알고리즘 동작 메커니즘: 현 헤드 위치 50, 헤드는 항상 왼쪽에서 오른쪽으로 이동 — 더 이상 오른쪽 요청이 없을 때 반대편 맨 끝(가장 작은 요청)으로 점프, 헤드 총 이동거리 413",
-      "두음: FCFS·SSTF·SCAN·N-Step SCAN·C-SCAN·LOOK·C-LOOK·SLTF (FSSNC LCS)",
+      "문맥교환은 이 세 문맥을 통째로 바꾸는 일 — 스레드처럼 메모리 문맥을 공유하면 바꿀 양이 줄어 전환이 가볍다",
+      "한 쌍으로 볼 것: '문맥교환(Context Switching)' 토픽 — 이 토픽은 무엇을 보존하는가, 그쪽은 어떻게 바꾸는가",
+      "출제 형태: 2교시에서 '문맥의 개념과 유형·내용'이 문맥교환 문제의 첫 소문항으로 나온다 (NS 19기 2주차)",
+    ],
+  },
+  {
+    title: "시스템 콜(System Call)",
+    course: "OS",
+    // 교재 서브노트에 없는 토픽. NS 19기 02주차 1교시 13번을 참고해 세웠다.
+    definition:
+      "응용 프로그램이 커널이 가진 기능을 쓰려고 운영체제에 요청하는 정해진 호출 인터페이스 — 호출 순간 사용자 모드에서 커널 모드로 바뀐다",
+    defShort: "응용 프로그램이 커널 기능을 쓰려 운영체제에 요청하는 인터페이스",
+    lead: "커널 기능의 요청 통로, 시스템 콜(System Call)",
+    features: ["모드 전환", "인터페이스", "HW 자원 보호"],
+    keywords: ["프로세스 제어", "파일 조작", "장치 관리", "정보 유지", "통신", "보호", "커널 모드·유저 모드"],
+    tables: [
+      {
+        caption: "시스템 콜의 동작 — 유저 모드에서 커널 모드로",
+        headers: ["단계", "설명"],
+        rows: [
+          ["① 호출", "라이브러리 응용 함수 호출\nsyscall 명령 실행"],
+          ["② 진입", "모드 비트 커널 모드 진입"],
+          ["③ 처리", "호출 번호 해당 함수 실행"],
+          ["④ 복사", "유저 공간 결과 데이터 복사"],
+          ["⑤ 복귀", "반환 값 유저 모드 복귀"],
+        ],
+      },
+      {
+        caption: "시스템 콜의 유형",
+        headers: ["구분", "유형", "설명"],
+        rows: [
+          ["실행", "프로세스 제어", "abort 중지 프로그램 종료\nexecute 실행 커널 위임"],
+          ["자원", "파일 조작", "create 파일 생성·삭제\nopen 열기 읽기·쓰기 수행"],
+          ["자원", "장치 관리", "request 장치 사용 요구\n속성 조회·설정 장치 속성 관리"],
+          ["정보", "정보 유지", "시간·날짜 시스템 정보 조회\n프로세스 속성 속성 정보 조회"],
+          ["통신", "통신", "메시지 송수신 전달\n공유 메모리 상태 정보 전달"],
+          ["보안", "보호", "set·get 권한 조회·설정\n자원 접근 접근 권한 관리"],
+        ],
+      },
+      {
+        caption: "커널 모드와 유저 모드",
+        headers: ["구분", "커널 모드", "유저 모드"],
+        rows: [
+          ["권한", "모든 명령어\n자원 접근", "자기 메모리만\nHW 접근 불가"],
+          ["실행 주체", "커널·드라이버\n시스템 콜 핸들러", "일반 앱 실행\n브라우저 편집기"],
+          ["오류 영향", "시스템 전체 장애\n커널 패닉 발생", "해당 프로세스만\n프로세스 종료"],
+          ["진입 계기", "인터럽트·예외\n시스템 콜 호출", "시스템 콜 종료\n문맥교환 발생"],
+          ["보호", "스스로 책임", "커널 보호 제약"],
+        ],
+      },
+    ],
+    notes: [
+      "짝지어 볼 것: 유저 모드=Ring 3, 커널 모드=Ring 0 — 'CPU Ring Level' 토픽 / 커널이 시스템 콜을 어떤 역할로 두는지는 '커널(Kernel)' 토픽의 주요 역할 표",
+      "출제 형태: '시스템 콜의 종류와 커널 모드/유저 모드 전환 과정' — 유형 6종 표와 동작 5단계 표를 나란히 쓰면 문제 요구 둘을 다 덮는다 (NS 18기·19기 2주차)",
     ],
   },
   // ── 프로젝트 관리(PM) — 심화반 2주차 ─────────────────────────────
@@ -5089,6 +5094,76 @@ export const SUBNOTES: TextbookSubnote[] = [
     notes: ["효용 반응값 곡선 기호 — QA: 품질 속성, W: Worst 최악, C: Current 현재, E: Expected 기대, D: Desired 기대, B: Best 최선"],
   },
   {
+    title: "MVVM (Model, View, View Model)",
+    course: "SE",
+    definition:
+      "모델, 뷰, 뷰 모델로 기능을 분리하고, data binding을 통하여 뷰와 뷰 모델 간의 통신을 자동화하는 아키텍처 패턴",
+    defShort: "모델·뷰·뷰 모델 분리, data binding으로 뷰·뷰 모델 통신 자동화 패턴",
+    lead:
+      "데이터 바인딩 기반 분리, MVVM",
+    features: ["기능 분리", "통신 자동화", "View 독립성"],
+    keywords: ["Model", "View", "View Model", "Data Binding"],
+    tables: [
+      {
+        caption: "구성 요소",
+        headers: ["구분", "구성 요소", "설명"],
+        rows: [
+          ["데이터", "Model", "어플리케이션 사용 데이터\n그 데이터를 처리"],
+          ["화면", "View", "사용자에게 보여지는 UI"],
+          ["중개", "View Model", "View 나타내기 위한 Model\nView 나타내기 위한 데이터 처리"],
+          ["연결", "Data Binding", "화면 객체·데이터 동기화 기법\nView·View Model 연결 매개체\n서로 존재 몰라도 인터랙션 도움"],
+        ],
+      },
+      {
+        caption: "패턴의 동작",
+        headers: ["순번", "동작", "설명"],
+        rows: [
+          ["1", "요청 처리", "사용자 Action은 View 통해 진입"],
+          ["2", "요청 처리", "Command 패턴으로 Action 전달"],
+          ["3", "데이터 처리", "View Model이 Model에 데이터 요청"],
+          ["4", "데이터 처리", "Model이 요청 받은 데이터 응답"],
+          ["5", "데이터 처리", "View Model이 데이터 가공·저장"],
+          ["6", "화면 처리", "Data Binding으로 화면 표현"],
+        ],
+      },
+    ],
+    notes: ["View : View Model = n : 1 관계. Data Binding 덕분에 View와 ViewModel이 서로를 직접 몰라도 된다(독립)"],
+  },
+  {
+    title: "UML의 4+1 View Model",
+    course: "SE",
+    definition:
+      "소프트웨어 시스템의 아키텍처를 사용자, 개발자, 관리자 등 다양한 이해관계자의 관점에서 효과적으로 설계하고 문서화하기 위한 프레임워크",
+    defShort: "아키텍처를 이해관계자 관점에서 설계하고 문서화하는 프레임워크",
+    lead:
+      "이해관계자 관점별 문서화, UML의 4+1 View Model",
+    features: ["다중 관점", "뷰 통합", "복잡성 관리"],
+    keywords: ["Logical View", "Implementation View", "Process View", "Deployment View", "Use Case View"],
+    tables: [
+      {
+        caption: "구성 요소",
+        headers: ["구분", "관점", "설명"],
+        rows: [
+          ["Logical View", "Designers\nAnalysts", "Class Diagram 구조·행동 명세화"],
+          ["Implementation View", "Programmers\n(개발자 관점)", "UML 모델요소 물리적 SW 모듈 표현"],
+          ["Process View", "System Integrators\n(시스템 통합관점)", "Thread·Process 동작 중점 표현"],
+          ["Deployment View", "System Engineers\n(시스템 엔지니어)", "모델요소 배치 하드웨어 표현"],
+          ["Use Case View", "End Users\n(최종 사용자)", "요구 분석 시스템 기능 명세화\n전체 View 아우르는 통합 관점"],
+        ],
+      },
+      {
+        caption: "유사 아키텍처 뷰와 비교",
+        headers: ["구분", "4+1 View", "Siemens Four Views"],
+        rows: [
+          ["목적", "이해관계자 관점\n복잡성 관리", "분석 요인 파악\n설계 전략 도출"],
+          ["핵심", "4가지 주요 관점\n1개 시나리오", "4개 상호 보완 뷰\n아키텍처 분리"],
+          ["관점", "논리·프로세스\n개발·물리 뷰\n+1 유즈케이스 뷰", "개념·코드 뷰\n모듈·실행 뷰"],
+        ],
+      },
+    ],
+    notes: ["가운데 Use Case View 를 중심으로 Logical(설계자)·Implementation(개발자)·Process(통합자)·Deployment(엔지니어) 네 뷰가 둘러싼다"],
+  },
+  {
     title: "UML (정적, 동적 다이어그램)",
     course: "SE",
     definition:
@@ -5356,6 +5431,76 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
+    title: "디자인 패턴 (Design Pattern)",
+    course: "SE",
+    definition:
+      "소프트웨어 개발의 여러 가지 문제 해결 설계 사례를 분류하고, 각 문제 유형별로 가장 적합한 설계를 일반화한 패턴",
+    defShort: "문제 해결 설계 사례를 분류해 문제 유형별 적합한 설계 일반화한 패턴",
+    lead: "반복 설계 문제 정형 해법, 디자인 패턴",
+    features: ["설계 일반화", "의사소통", "범위별 분류"],
+    keywords: ["개발 중 문제 해결 사례 모음", "생성 패턴", "구조 패턴", "행위 패턴"],
+    tables: [
+      {
+        caption: "디자인 패턴 형식",
+        headers: ["구분", "설명", "요소"],
+        rows: [
+          ["패턴이름(Pattern name)", "설계 의도 표현\n개발자 의사소통", "이름과 분류\n별칭"],
+          ["문제(Problem)", "적용 시점 판단\n해결 문제·배경", "의도/목적\n적용 대상"],
+          ["해법(Solution)", "구성요소·역할\n요소 간 관계", "구조·구성요소\n협력·샘플코드"],
+          ["결과(Consequence)", "적용 결과\n장단점 서술", "효과·주의사항\n사례·관련 패턴"],
+        ],
+      },
+      {
+        caption: "디자인 패턴 분류 [생구행]",
+        headers: ["구분", "생성패턴(Creational)", "구조패턴(Structural)", "행위패턴(Behavioral)"],
+        rows: [
+          ["의미", "객체 생성 방식\n구조화·캡슐화", "객체 조직화 방식\n라이브러리 통합", "객체 행위 조직화\n클래스 연동 유형"],
+          ["클래스 범위", "Factory Method", "Adapter(Class)", "Interpreter\nTemplate Method"],
+          ["객체 범위", "Abstract Factory\nBuilder, Prototype\nSingleton\nFactory Method", "Adapter(Object)\nBridge, Composite\nDecorator, Facade\nFlyweight, Proxy", "Chain of Responsibility\nCommand, Mediator, Memento\nIterator, State, Strategy\nObserver, Visitor"],
+          ["암기법", "아 베 프로 시 파", "A B C D 파 플 로", "CCMMISSOTIV"],
+        ],
+      },
+    ],
+    notes: [
+      "교재 두음: [생구행] / 생성 '아베프로시파' / 구조 'ABCD파플로' / 행위 'CCMMISSOTIV'",
+      "클래스 범위 패턴은 셋뿐: 생성 Factory Method / 구조 Adapter(Class) / 행위 Interpreter·Template Method — 나머지는 전부 객체 범위",
+      "생성 5: Abstract Factory·Builder·Prototype·Singleton·Factory Method / 구조 7: Adapter·Bridge·Composite·Decorator·Facade·Flyweight·Proxy / 행위 11: Chain of Responsibility·Command·Mediator·Memento·Iterator·State·Strategy·Observer·Visitor·Interpreter·Template Method",
+    ],
+  },
+  {
+    title: "싱글턴 패턴 (Singleton pattern)",
+    course: "SE",
+    definition:
+      "클래스의 인스턴스가 오직 하나만 생성되도록 보장하고, 해당 인스턴스에 접근할 수 있는 전역적인 접근 지점을 제공하는 생성 패턴",
+    defShort: "인스턴스 하나만 생성 보장, 전역적인 접근 지점 제공하는 생성 패턴",
+    lead:
+      "유일 인스턴스의 보장, 싱글턴 패턴",
+    features: ["1개 보장", "전역 접근", "생성 차단"],
+    keywords: ["Private 생성자", "Static 인스턴스", "Public 정적 메서드"],
+    tables: [
+      {
+        caption: "구성 요소",
+        headers: ["구분", "구성 요소", "설명"],
+        rows: [
+          ["생성 제한", "Private 생성자", "private 직접 생성 방지\n생성자 제한 외부 접근 차단"],
+          ["인스턴스", "Static 인스턴스", "static 클래스 내 선언\n유일 인스턴스 단일 객체 보관"],
+          ["접근점", "Public 정적 메서드(getInstance)", "정적 메서드 외부 접근 제공\n공개 접근점 유일 객체 반환"],
+        ],
+      },
+      {
+        caption: "구현 방식",
+        headers: ["항목", "설명"],
+        rows: [
+          ["Lazy Initialization", "최초 호출 시 객체\n생성. 지연\n초기화"],
+          ["Eager Initialization", "클래스 로딩 시\n객체 즉시 생성.\n빠름"],
+          ["Double-Checked Locking", "멀티스레드\n안전성 및 성능\n개선"],
+          ["Enum Singleton", "Java에서 가장\n안전한 싱글턴\n구현 방법 (Serialization,\nReflection 우회 방지 가능)"],
+        ],
+      },
+    ],
+    notes: ["코드 3요소: private static instance / private constructor / public static synchronized getInstance()"],
+  },
+  {
     title: "SAGA패턴",
     course: "SE",
     definition:
@@ -5531,146 +5676,6 @@ export const SUBNOTES: TextbookSubnote[] = [
       "이벤트 스토밍은 Event 와 Brain Storming 의 합성어다.",
       "포스트잇 색이 곧 항목 구분이다 — 오렌지(도메인 이벤트)·파랑(커맨드)·진한 핑크(외부시스템)·작은 노랑(액터)·큰 노랑(에그리게이트)·연한 핑크(정책)·보라(핫스팟).",
     ],
-  },
-  {
-    title: "디자인 패턴 (Design Pattern)",
-    course: "SE",
-    definition:
-      "소프트웨어 개발의 여러 가지 문제 해결 설계 사례를 분류하고, 각 문제 유형별로 가장 적합한 설계를 일반화한 패턴",
-    defShort: "문제 해결 설계 사례를 분류해 문제 유형별 적합한 설계 일반화한 패턴",
-    lead: "반복 설계 문제 정형 해법, 디자인 패턴",
-    features: ["설계 일반화", "의사소통", "범위별 분류"],
-    keywords: ["개발 중 문제 해결 사례 모음", "생성 패턴", "구조 패턴", "행위 패턴"],
-    tables: [
-      {
-        caption: "디자인 패턴 형식",
-        headers: ["구분", "설명", "요소"],
-        rows: [
-          ["패턴이름(Pattern name)", "설계 의도 표현\n개발자 의사소통", "이름과 분류\n별칭"],
-          ["문제(Problem)", "적용 시점 판단\n해결 문제·배경", "의도/목적\n적용 대상"],
-          ["해법(Solution)", "구성요소·역할\n요소 간 관계", "구조·구성요소\n협력·샘플코드"],
-          ["결과(Consequence)", "적용 결과\n장단점 서술", "효과·주의사항\n사례·관련 패턴"],
-        ],
-      },
-      {
-        caption: "디자인 패턴 분류 [생구행]",
-        headers: ["구분", "생성패턴(Creational)", "구조패턴(Structural)", "행위패턴(Behavioral)"],
-        rows: [
-          ["의미", "객체 생성 방식\n구조화·캡슐화", "객체 조직화 방식\n라이브러리 통합", "객체 행위 조직화\n클래스 연동 유형"],
-          ["클래스 범위", "Factory Method", "Adapter(Class)", "Interpreter\nTemplate Method"],
-          ["객체 범위", "Abstract Factory\nBuilder, Prototype\nSingleton\nFactory Method", "Adapter(Object)\nBridge, Composite\nDecorator, Facade\nFlyweight, Proxy", "Chain of Responsibility\nCommand, Mediator, Memento\nIterator, State, Strategy\nObserver, Visitor"],
-          ["암기법", "아 베 프로 시 파", "A B C D 파 플 로", "CCMMISSOTIV"],
-        ],
-      },
-    ],
-    notes: [
-      "교재 두음: [생구행] / 생성 '아베프로시파' / 구조 'ABCD파플로' / 행위 'CCMMISSOTIV'",
-      "클래스 범위 패턴은 셋뿐: 생성 Factory Method / 구조 Adapter(Class) / 행위 Interpreter·Template Method — 나머지는 전부 객체 범위",
-      "생성 5: Abstract Factory·Builder·Prototype·Singleton·Factory Method / 구조 7: Adapter·Bridge·Composite·Decorator·Facade·Flyweight·Proxy / 행위 11: Chain of Responsibility·Command·Mediator·Memento·Iterator·State·Strategy·Observer·Visitor·Interpreter·Template Method",
-    ],
-  },
-  {
-    title: "싱글턴 패턴 (Singleton pattern)",
-    course: "SE",
-    definition:
-      "클래스의 인스턴스가 오직 하나만 생성되도록 보장하고, 해당 인스턴스에 접근할 수 있는 전역적인 접근 지점을 제공하는 생성 패턴",
-    defShort: "인스턴스 하나만 생성 보장, 전역적인 접근 지점 제공하는 생성 패턴",
-    lead:
-      "유일 인스턴스의 보장, 싱글턴 패턴",
-    features: ["1개 보장", "전역 접근", "생성 차단"],
-    keywords: ["Private 생성자", "Static 인스턴스", "Public 정적 메서드"],
-    tables: [
-      {
-        caption: "구성 요소",
-        headers: ["구분", "구성 요소", "설명"],
-        rows: [
-          ["생성 제한", "Private 생성자", "private 직접 생성 방지\n생성자 제한 외부 접근 차단"],
-          ["인스턴스", "Static 인스턴스", "static 클래스 내 선언\n유일 인스턴스 단일 객체 보관"],
-          ["접근점", "Public 정적 메서드(getInstance)", "정적 메서드 외부 접근 제공\n공개 접근점 유일 객체 반환"],
-        ],
-      },
-      {
-        caption: "구현 방식",
-        headers: ["항목", "설명"],
-        rows: [
-          ["Lazy Initialization", "최초 호출 시 객체\n생성. 지연\n초기화"],
-          ["Eager Initialization", "클래스 로딩 시\n객체 즉시 생성.\n빠름"],
-          ["Double-Checked Locking", "멀티스레드\n안전성 및 성능\n개선"],
-          ["Enum Singleton", "Java에서 가장\n안전한 싱글턴\n구현 방법 (Serialization,\nReflection 우회 방지 가능)"],
-        ],
-      },
-    ],
-    notes: ["코드 3요소: private static instance / private constructor / public static synchronized getInstance()"],
-  },
-  {
-    title: "UML의 4+1 View Model",
-    course: "SE",
-    definition:
-      "소프트웨어 시스템의 아키텍처를 사용자, 개발자, 관리자 등 다양한 이해관계자의 관점에서 효과적으로 설계하고 문서화하기 위한 프레임워크",
-    defShort: "아키텍처를 이해관계자 관점에서 설계하고 문서화하는 프레임워크",
-    lead:
-      "이해관계자 관점별 문서화, UML의 4+1 View Model",
-    features: ["다중 관점", "뷰 통합", "복잡성 관리"],
-    keywords: ["Logical View", "Implementation View", "Process View", "Deployment View", "Use Case View"],
-    tables: [
-      {
-        caption: "구성 요소",
-        headers: ["구분", "관점", "설명"],
-        rows: [
-          ["Logical View", "Designers\nAnalysts", "Class Diagram 구조·행동 명세화"],
-          ["Implementation View", "Programmers\n(개발자 관점)", "UML 모델요소 물리적 SW 모듈 표현"],
-          ["Process View", "System Integrators\n(시스템 통합관점)", "Thread·Process 동작 중점 표현"],
-          ["Deployment View", "System Engineers\n(시스템 엔지니어)", "모델요소 배치 하드웨어 표현"],
-          ["Use Case View", "End Users\n(최종 사용자)", "요구 분석 시스템 기능 명세화\n전체 View 아우르는 통합 관점"],
-        ],
-      },
-      {
-        caption: "유사 아키텍처 뷰와 비교",
-        headers: ["구분", "4+1 View", "Siemens Four Views"],
-        rows: [
-          ["목적", "이해관계자 관점\n복잡성 관리", "분석 요인 파악\n설계 전략 도출"],
-          ["핵심", "4가지 주요 관점\n1개 시나리오", "4개 상호 보완 뷰\n아키텍처 분리"],
-          ["관점", "논리·프로세스\n개발·물리 뷰\n+1 유즈케이스 뷰", "개념·코드 뷰\n모듈·실행 뷰"],
-        ],
-      },
-    ],
-    notes: ["가운데 Use Case View 를 중심으로 Logical(설계자)·Implementation(개발자)·Process(통합자)·Deployment(엔지니어) 네 뷰가 둘러싼다"],
-  },
-  {
-    title: "MVVM (Model, View, View Model)",
-    course: "SE",
-    definition:
-      "모델, 뷰, 뷰 모델로 기능을 분리하고, data binding을 통하여 뷰와 뷰 모델 간의 통신을 자동화하는 아키텍처 패턴",
-    defShort: "모델·뷰·뷰 모델 분리, data binding으로 뷰·뷰 모델 통신 자동화 패턴",
-    lead:
-      "데이터 바인딩 기반 분리, MVVM",
-    features: ["기능 분리", "통신 자동화", "View 독립성"],
-    keywords: ["Model", "View", "View Model", "Data Binding"],
-    tables: [
-      {
-        caption: "구성 요소",
-        headers: ["구분", "구성 요소", "설명"],
-        rows: [
-          ["데이터", "Model", "어플리케이션 사용 데이터\n그 데이터를 처리"],
-          ["화면", "View", "사용자에게 보여지는 UI"],
-          ["중개", "View Model", "View 나타내기 위한 Model\nView 나타내기 위한 데이터 처리"],
-          ["연결", "Data Binding", "화면 객체·데이터 동기화 기법\nView·View Model 연결 매개체\n서로 존재 몰라도 인터랙션 도움"],
-        ],
-      },
-      {
-        caption: "패턴의 동작",
-        headers: ["순번", "동작", "설명"],
-        rows: [
-          ["1", "요청 처리", "사용자 Action은 View 통해 진입"],
-          ["2", "요청 처리", "Command 패턴으로 Action 전달"],
-          ["3", "데이터 처리", "View Model이 Model에 데이터 요청"],
-          ["4", "데이터 처리", "Model이 요청 받은 데이터 응답"],
-          ["5", "데이터 처리", "View Model이 데이터 가공·저장"],
-          ["6", "화면 처리", "Data Binding으로 화면 표현"],
-        ],
-      },
-    ],
-    notes: ["View : View Model = n : 1 관계. Data Binding 덕분에 View와 ViewModel이 서로를 직접 몰라도 된다(독립)"],
   },
   {
     topicId: "se-135",
@@ -6234,6 +6239,53 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
+    topicId: "se-163",
+    title: "테스트 오라클",
+    course: "SE",
+    definition:
+      "수행된 테스트 결과가 기대했던 결과인지를 판단하거나 분석하는 메커니즘",
+    defShort: "테스트 결과가 기대했던 결과인지 판단하거나 분석하는 메커니즘",
+    lead:
+      "결과 판정의 채점 기준, 테스트 오라클",
+    features: ["결과 판정", "범위 차등", "구현 곤란"],
+    keywords: ["[참샘휴일] 참 오라클", "샘플링 오라클", "휴리스틱 오라클", "일관성 검사"],
+    tables: [
+      {
+        caption: "테스트 오라클의 유형 (참샘휴일)",
+        headers: ["구분", "유형", "설명"],
+        rows: [
+          ["완전", "참 오라클(True Oracle)", "모든 입력 검증 전 입력 결과 생성\n오류 미누락 발생 오류 검출"],
+          ["부분", "샘플링 오라클(Sampling Oracle)", "특정 몇몇 입력 값만 결과 제공\n특정 값 한정 정확 참값 제공"],
+          ["부분", "휴리스틱 오라클(Heuristic Oracle)", "샘플링 단점 개선 일부 값 정확 제공\n나머지 휴리스틱(추정) 처리"],
+          ["비교", "일관성 검사 오라클(Consistent Oracle)", "이전·현재 비교 결과 동일성 검증\n회귀 테스트 수정 전후 확인"],
+        ],
+      },
+      {
+        caption: "AI시스템이 테스트 오라클 불가능 이유",
+        headers: ["이유", "설명"],
+        rows: [
+          ["시스템 명세", "불완전·비공식 저품질 명세"],
+          ["테스트 입력 데이터", "다양한 출처 비구조화 데이터\n개인정보보호규정 지킨 데이터"],
+          ["자가학습 시스템", "학습 후 성공 테스트 실행 안 됨"],
+          ["확률적, 비결정적", "매번 동일한 결과 얻지 못함"],
+          ["복잡성", "심층신경망 연결·매개변수 복잡"],
+        ],
+      },
+      {
+        caption: "AI시스템의 블랙박스 테스트 기법",
+        headers: ["기법"],
+        rows: [
+          ["조합테스트(Combination testing)"],
+          ["백투백 테스트(Back-to-back testing)"],
+          ["A/B testing"],
+          ["변성 테스트(Metamorphic testing)"],
+          ["탐색적 테스트(Exploratory testing)"],
+        ],
+      },
+    ],
+    notes: ["교재 두음: [참샘휴일]"],
+  },
+  {
     title: "경험 기반 테스트",
     course: "SE",
     definition:
@@ -6303,51 +6355,1865 @@ export const SUBNOTES: TextbookSubnote[] = [
     notes: ["사업적 리스크 중심 시 N자형: STA→STTA→ITA→FTA / 기술적 리스크 중심 시 S자형: STA→ITA→STTA→FTA"],
   },
   {
-    topicId: "se-163",
-    title: "테스트 오라클",
+    title: "뮤테이션 테스트 (Mutation Test)",
     course: "SE",
     definition:
-      "수행된 테스트 결과가 기대했던 결과인지를 판단하거나 분석하는 메커니즘",
-    defShort: "테스트 결과가 기대했던 결과인지 판단하거나 분석하는 메커니즘",
+      "소스 코드 구문을 일정한 규칙으로 변형 후, 원본 프로그램으로 테스트할 때와 동일한 입력 값으로 서로 다른 결과를 출력시키는 테스트케이스를 선정하여 수행하는 결함 기반 테스트",
+    defShort: "코드 구문 변형 후 다른 결과 출력 테스트케이스 선정 결함 기반 테스트",
     lead:
-      "결과 판정의 채점 기준, 테스트 오라클",
-    features: ["결과 판정", "범위 차등", "구현 곤란"],
-    keywords: ["[참샘휴일] 참 오라클", "샘플링 오라클", "휴리스틱 오라클", "일관성 검사"],
+      "테스트의 결함 검출력 검증, 뮤테이션 테스트",
+    features: ["결함 주입", "TC 품질 평가", "높은 비용"],
+    keywords: ["정상 코드", "돌연변이 코드(뮤턴트)", "테스트 케이스 검증", "의도적 소스 변경", "뮤턴트 연산자", "뮤턴트 스코어"],
     tables: [
       {
-        caption: "테스트 오라클의 유형 (참샘휴일)",
-        headers: ["구분", "유형", "설명"],
+        caption: "Test Case 추출 방법",
+        headers: ["결과", "설명"],
         rows: [
-          ["완전", "참 오라클(True Oracle)", "모든 입력 검증 전 입력 결과 생성\n오류 미누락 발생 오류 검출"],
-          ["부분", "샘플링 오라클(Sampling Oracle)", "특정 몇몇 입력 값만 결과 제공\n특정 값 한정 정확 참값 제공"],
-          ["부분", "휴리스틱 오라클(Heuristic Oracle)", "샘플링 단점 개선 일부 값 정확 제공\n나머지 휴리스틱(추정) 처리"],
-          ["비교", "일관성 검사 오라클(Consistent Oracle)", "이전·현재 비교 결과 동일성 검증\n회귀 테스트 수정 전후 확인"],
+          ["R1 = R2", "뮤테이션 식별 불가\n결함 발견 불가\nTest case 제외"],
+          ["R1 ≠ R2", "뮤테이션 식별 가능\n결함 발견 가능\nTest case set 포함"],
         ],
       },
       {
-        caption: "AI시스템이 테스트 오라클 불가능 이유",
-        headers: ["이유", "설명"],
+        caption: "Mutation 연산자의 종류",
+        headers: ["연산자", "연산자 사례", "설명"],
         rows: [
-          ["시스템 명세", "불완전·비공식 저품질 명세"],
-          ["테스트 입력 데이터", "다양한 출처 비구조화 데이터\n개인정보보호규정 지킨 데이터"],
-          ["자가학습 시스템", "학습 후 성공 테스트 실행 안 됨"],
-          ["확률적, 비결정적", "매번 동일한 결과 얻지 못함"],
-          ["복잡성", "심층신경망 연결·매개변수 복잡"],
-        ],
-      },
-      {
-        caption: "AI시스템의 블랙박스 테스트 기법",
-        headers: ["기법"],
-        rows: [
-          ["조합테스트(Combination testing)"],
-          ["백투백 테스트(Back-to-back testing)"],
-          ["A/B testing"],
-          ["변성 테스트(Metamorphic testing)"],
-          ["탐색적 테스트(Exploratory testing)"],
+          ["대치", "상수 대치\n변수 대치\n상수↔변수 대치", "변수·상수·배열 등 다른 값 대치"],
+          ["변형(치환)", "입출력 값 변경\n서비스 순서 변경", "입력·출력 순서 변경\n속성 등의 변경"],
+          ["삭제", "Cast 연산자 삭제\nOverload 함수 삭제", "함수·변수·연산자·반환문 삭제"],
         ],
       },
     ],
-    notes: ["교재 두음: [참샘휴일]"],
+    notes: ["개념도: 동일 값 입력 → 정상 코드(R1)와 돌연변이 코드(R2) 실행 → 결과 비교", "뮤테이션 점수 계산법(Mutant Score): MS(P,T) = 죽은 뮤턴트 수 / (전체 뮤턴트 수 − 동등한 뮤턴트 수)"],
+  },
+  {
+    title: "성능 테스트",
+    course: "SE",
+    definition:
+      "개발된 시스템이 주어진 환경에서 요구사항의 목표치 달성 여부를 확인하는 테스트",
+    defShort: "시스템이 주어진 환경에서 요구사항 목표치 달성 여부 확인 테스트",
+    lead:
+      "목표 성능 달성의 확인, 성능 테스트",
+    features: ["목표치 확인", "정량 지표", "부하 재현"],
+    keywords: ["요구사항 목표치 달성 여부 확인", "TPS", "응답시간", "부하/스파이크 테스트"],
+    tables: [
+      {
+        caption: "프로세스",
+        headers: ["단계", "구간"],
+        rows: [
+          ["요구사항 정의 → 성능테스트 계획", "성능테스트 계획"],
+          ["성능테스트 설계 → 성능테스트 구현", "성능테스트\n설계/구현"],
+          ["성능테스트 수행 → 성능테스트 종료", "성능테스트\n수행/종료"],
+        ],
+      },
+      {
+        caption: "성능 지표",
+        headers: ["성능지표", "설명", "측정단위", "목표"],
+        rows: [
+          ["응답시간(Response Time)", "요청~응답까지\n걸린 시간", "초", "낮춤"],
+          ["시간당 처리량(Throughput)", "단위시간 당\n성공 요청건수", "TPS, OPS", "높임"],
+          ["자원사용량(Utilization)", "용량 중 실제\n사용 비율", "%", "낮춤"],
+          ["효율성(Efficiency)", "처리량 ÷\n자원사용량", "%, tpmc", "높임"],
+          ["반환시간(Turnaround Time)", "도착~완료 후\n반환까지 시간", "초", "낮춤"],
+          ["가용도(Availability)", "사용 가능 확률\nMTBF, MTTR", "%", "높임"],
+          ["신뢰도(Reliability)", "장애 미발생 확률", "%", "높임"],
+        ],
+      },
+      {
+        caption: "성능 테스트 유형",
+        headers: ["구분", "유형", "설명"],
+        rows: [
+          ["테스트 방법 측면", "Load Test", "부하 인가 최대 TPS·응답시간 산출"],
+          ["테스트 방법 측면", "Stress Test", "정상 초과 부하 최대 수용범위 측정"],
+          ["테스트 방법 측면", "Spike Test", "특정시점 대량 트랜잭션 동시 발생"],
+          ["테스트 방법 측면", "Endurance Test", "장시간 부하로 내구성 테스트"],
+          ["테스트 방법 측면", "Breakpoint Test", "점진적 부하 증가, 장애발생 지점"],
+          ["테스트 방법 측면", "Loop back Test", "특정위치 Loop back code 삽입\n병목지점 도출"],
+          ["테스트 방법 측면", "Availability Test", "이중구성 장애 유도\n서비스전환 동작 여부"],
+          ["테스트 목적 측면", "단위 성능 테스트", "대상 시스템 업무 단위 각각 수행"],
+          ["테스트 목적 측면", "복합 성능 테스트", "시스템 사용 상황 재현 테스트"],
+          ["테스트 목적 측면", "임계 성능 테스트", "시스템 최대 발휘 가능 성능 테스트"],
+          ["테스트 목적 측면", "확장성테스트", "증설한 시스템 성능 비율 측정"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "퍼징 테스트 (Fuzzing Test)",
+    course: "SE",
+    definition:
+      "제품에 랜덤 데이터를 입력하여 발생되는 예외, 오류 등을 분석, 보안 취약점을 찾아내는 테스팅 기법",
+    defShort: "랜덤 데이터 입력, 예외·오류 분석, 보안 취약점 찾아내는 테스팅 기법",
+    lead: "비정상 입력의 취약점 탐지, 퍼징 테스트",
+    features: ["무작위 입력", "예외 관찰", "취약점 탐지"],
+    keywords: ["Valid Case Fuzzing", "Invalid Case Skip Fuzzing", "Invalid Case Fail Fuzzing", "보안취약점", "블랙박스", "화이트박스"],
+    tables: [
+      {
+        caption: "절차",
+        headers: ["절차", "설명"],
+        rows: [
+          ["1) 테스트 대상 분석", "분석 대상 시스템 식별·특징 분석\nApplication·Framework\n네트워크 프로토콜·source code\n역공학"],
+          ["2) 입력 값 선정", "오류 유발 입력값 선정\n미디어·다큐먼트 파일, 프로토콜\n비정상 입력값"],
+          ["3) 테스트 케이스 생성", "입력값 테스트 케이스 생성\n제너레이션, 뮤테이션\nTool: FuzzBox, Seed gathering"],
+          ["4) 테스트 실행", "테스트 케이스 입력 프로그램 실행\nCommand line 인터페이스"],
+          ["5) 시스템 동작 모니터링", "문제 발생 시 로그 수집\nSystem log, kernel log\nCrash call stack"],
+          ["6) 문제 분류 및 해결", "문제 발생 항목 점검\n원인 분석 및 코드 수정\nNull pointer dereferencing\ndivide by 0, buffer overflow"],
+        ],
+      },
+      {
+        caption: "유형",
+        headers: ["구분", "종류", "설명"],
+        rows: [
+          ["데이터 생성", "Dumb Fuzzing", "변경(Mutate) 기반 테스트 데이터"],
+          ["데이터 생성", "Smart Fuzzing", "Input 모델 기반 새 유형 데이터"],
+          ["데이터 생성", "Evolutionary", "응답 결과 따라 새 데이터 생성"],
+          ["데이터 투입", "Valid Case Fuzzing", "유효 명세 생성 데이터 통해\n정상동작 여부 확인"],
+          ["데이터 투입", "Invalid Case Skip Fuzzing", "비정상 입력 처리 못하는 경우\n해당 TC 미수행 skip 여부 확인"],
+          ["데이터 투입", "Invalid Case Fail Fuzzing", "비정상 데이터 투입 후 Fail 유도\n이후 정상데이터 정상 응답 체크\n미응답 시 Valid Data로 생존 체크"],
+          ["변조 대상", "Mutation based Fuzzing", "비정상 변조데이터 대량 투입\n휴리스틱 Fuzz 테스팅"],
+          ["변조 대상", "Generation based Fuzzing", "구조변형 기반 Fuzz 테스팅"],
+          ["테스팅 기법", "블랙박스 퍼징", "내부 미분석 무작위 입력값 테스트"],
+          ["테스팅 기법", "화이트박스 퍼징", "소스 코드 기반 분석 후 입력값 산출"],
+          ["테스팅 기법", "그레이박스 퍼징", "내부구조 일부 정보로 입력값 생성\n블랙박스 테스트 수행"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "리그레이션(회귀, Regression) 테스트",
+    course: "SE",
+    definition:
+      "프로그램에 수정, 확장후 변경 부분 뿐만 아닌 기존 기능도 같이 테스트하여 오류사항 검출하는 테스트 기법",
+    defShort: "수정·확장 후 기존 기능도 테스트해 오류사항 검출하는 테스트 기법",
+    lead:
+      "변경에 따른 부작용 검출, 회귀 테스트",
+    features: ["기능 재검증", "영향 검출", "TC 재사용"],
+    keywords: ["프로그램 수정/확장", "변경 외 기존 기능 테스트", "종류(Reset All, Selective, Priority)", "Ripple Effect", "Side Effect"],
+    tables: [
+      {
+        caption: "회귀 테스트의 종류",
+        headers: ["종류", "수행방법", "분야"],
+        rows: [
+          ["Reset All 기법", "축적 TC 전부 사용", "금융·대고객 등\n고위험 업무"],
+          ["Selective 기법", "영향 범위 결정 후\n변경 대상 테스트", "일반 기업 시스템"],
+          ["Priority 기법", "핵심 기능 위주\n우선순위 테스트", "저위험도 시스템"],
+        ],
+      },
+      {
+        caption: "회귀 테스트 검출 오류 종류",
+        headers: ["검출 오류", "설명"],
+        rows: [
+          ["Ripple Effect(파급효과)", "변경 내용 연관 부분에 영향 전파"],
+          ["Side Effect(부작용)", "수정은 의도대로 이루어짐\n미고려 부분 의도치 않은 결과 발생"],
+        ],
+      },
+    ],
+    notes: ["구조도: SW 변경 요청 → 개발/테스트(결함조치) → 변경 모듈이 영향 모듈로 파급(Ripple-Effect·Side-Effect) → 변경 영향 범위 확인 → 기존 테스트 케이스로 기존 기능의 영향 여부 확인(회귀 테스트)", "목적: 기존 버그가 SW 변경에 의한 재발 가능성 방지 / 기존 버그 수정에 의한 추가 버그 가능성 방지 / 결함 조치 확인 및 일부 모듈 변경에 따른 전체 정합성 재확인"],
+  },
+  {
+    title: "튜링 테스트",
+    course: "SE",
+    definition:
+      "인간과 구별할 수 없을 정도의 지적행동을 표시할 수 있는 기계의 능력을 확인하는 imitation game 테스트",
+    defShort: "인간과 구별할 수 없는 기계 지적행동 능력 확인 imitation game 테스트",
+    lead:
+      "기계 지능의 판별 실험, 튜링 테스트",
+    features: ["문자 대화", "행동 판정", "구별 불가"],
+    keywords: ["기계의 사고 능력 판별"],
+    tables: [
+      {
+        caption: "절차도 및 세부 절차",
+        headers: ["단계", "세부 절차", "설명"],
+        rows: [
+          ["1", "테스트 환경 구축", "2개 방에 인공지능·피실험자\n격리 공간에 제3 심사위원 위치"],
+          ["2", "테스트 수행", "피실험자 B·인공지능 A 문자 답변\n서로에 대한 정보 없음\n약 5분 소요"],
+          ["3", "테스트 평가", "심사위원 A·B 대화 청취\n구분 불가 시 인공지능 생각 가능"],
+        ],
+      },
+      {
+        caption: "활용 사례",
+        headers: ["구분", "활용 사례", "설명"],
+        rows: [
+          ["이미지 인식분야", "CAPTCHA", "사람 여부 구별"],
+          ["이미지 인식분야", "구텐베르크\n프로젝트", "문학작품 전자화\n캡차 형식 인식"],
+          ["의료 분야", "엘리자(Eliza)", "심리 상담 활용"],
+          ["의료 분야", "패리(Parry)", "정신분열증 모사"],
+        ],
+      },
+    ],
+    notes: ["절차도: ① 컴퓨터 화면을 통해 문자로 대화 → ② A, B 모두 사람이라고 주장 → ③ 어느 쪽이 사람인지 구분 시도"],
+  },
+  {
+    title: "Keyword Driven Testing",
+    course: "SE",
+    definition:
+      "테스트 대상 어플리케이션과 관련된 키워드 테스트 케이스를 포함하여 해석기, 시퀀서 이용한 ISO/IEC/IEEE 29119 Part 5에 명시된 소프트웨어 국제 표준 테스트 기법",
+    defShort: "키워드 테스트 케이스 포함, 해석기·시퀀서 이용 표준 테스트 기법",
+    lead: "키워드 조립 테스트 자동화, Keyword Driven Testing",
+    features: ["키워드 TC", "키워드 계층", "ISO 29119-5"],
+    keywords: ["편집기", "해석기", "데이터 시퀀서", "툴 브릿지", "실행 엔진", "테스트 대상", "테스트 라이브러리 저장소", "테스트 데이터 저장소"],
+    tables: [
+      {
+        caption: "프레임워크 구성요소",
+        headers: ["구분", "구성요소", "설명"],
+        rows: [
+          ["저장소", "테스트 라이브러리 저장소", "하나 이상 프로젝트 키워드 저장"],
+          ["저장소", "테스트 데이터 저장소", "키워드 TC·TC 사용 테스트 데이터\nTC 실행 코드용 스크립트 저장"],
+          ["작성", "편집기", "라이브러리 이용 키워드 TC 작성"],
+          ["실행", "해석기와 데이터 시퀀서", "복합 키워드 하위 레벨로 변환"],
+          ["실행", "툴 브릿지", "키워드 테스트 환경 동작 지원"],
+          ["실행", "실행엔진", "키워드 연관 기능 수행 TC 실행"],
+          ["대상", "SUT", "System Under Test\n테스트 대상 소프트웨어"],
+        ],
+      },
+      {
+        caption: "Keyword Driven Testing 절차",
+        headers: ["절차", "수행내용"],
+        rows: [
+          ["키워드 정의", "요구사항 기반 계층 결정\n계층 범위 기반 키워드 식별"],
+          ["키워드 테스트 케이스 작성", "사용자·라이브러리 키워드\n변수·테스트 데이터 이용 작성"],
+          ["키워드 테스트 케이스 실행", "자동화 수행 툴로 TC 실행"],
+          ["키워드 리팩토링", "키워드 TC 유지 보수"],
+        ],
+      },
+    ],
+    notes: ["프레임워크 흐름: 편집기(상위 레벨 키워드) → 해석기·데이터 시퀀서 → 툴 브리지(하위 레벨 키워드) → 실행 엔진 → 테스트 대상(SUT) — 키워드는 테스트 라이브러리 저장소·테스트 데이터 저장소와 연동"],
+  },
+  {
+    title: "카오스 테스트 (Chaos Test)",
+    course: "SE",
+    definition:
+      "시스템의 신뢰성을 확인하기 위해 실 서비스에 인위적 혼돈(Chaos)를 주입(Failure Injection)하여, 출시 전 테스트에서 드러나지 않은 아키텍처상의 문제를 테스트하는 방법",
+    defShort: "인위적 혼돈 주입해 출시 전 드러나지 않은 아키텍처 문제 테스트 방법",
+    lead:
+      "실 서비스 혼돈 주입 시험, 카오스 테스트",
+    features: ["장애 주입", "가설 검증", "최소 범위"],
+    keywords: ["[정가실결문]", "카오스 엔지니어링 팀", "정상 상태", "가설수립", "실험 디자인", "결과확인", "문제점 수정"],
+    tables: [
+      {
+        caption: "상세 절차 [정가실결문]",
+        headers: ["절차", "설명", "사례"],
+        rows: [
+          ["1) 정상 상태", "측정 가능 값으로\n정상 동작 측정", "CPU load, NW I/O\nMemory 사용률"],
+          ["2) 가설 수립", "정상 유지 가설\n시나리오 작성", "DB 다운\n접속 초과\nDDoS 공격"],
+          ["3) 실험 디자인", "가설·범위 설정\n지표 선정·알림", "작업 범위 최소\n롤백 계획\n폭발 최소화"],
+          ["4) 결과확인", "정상 지표와 비교\n가설 검증", "감지 시간·전파\n알림·복구 시간"],
+          ["5) 문제점 수정", "문제점 수정\n지속적 개선", "45분 접속 지연\nSLA 미충족"],
+        ],
+      },
+      {
+        caption: "효율적 카오스 테스트 수행 방안",
+        headers: ["구분", "내용"],
+        rows: [
+          ["Team 구축", "Chaos Engineering Team"],
+          ["도구 활용", "Chaos Monkey·Kube Monkey\nGameDay·Failure Injection\nChAP·Gremlin"],
+          ["Layer별 테스트", "개발팀\n애플리케이션\n스위칭\n인프라"],
+        ],
+      },
+    ],
+    notes: ["절차도: 정상 상태(정상 지표 측정) → 가설 수립(시나리오 설계) → 실험 디자인(테스트 계획) → 결과 확인(실행 및 가설 검증) → 문제점 수정(수정 및 개선) — Chaos Engineering Team이 테스트 도구 및 자동화로 뒷받침"],
+  },
+  {
+    title: "Back to Back 테스트",
+    course: "SE",
+    definition:
+      "두 개의 혹은 그 이상의 테스트 시스템에 대하여, 동일한 입력 값을 주고 실행하여, 결과값을 비교한 후, 불일치할 경우 그 불일치를 비교하는 테스트 기법",
+    defShort: "둘 이상 테스트 시스템에 동일 입력 값 주고 결과값 불일치 비교 기법",
+    lead:
+      "동일 입력의 결과 비교, Back to Back 테스트",
+    features: ["동일 입력", "결과 비교", "오라클 불요"],
+    keywords: ["Testcase작성/테스트 수행/결과값 비교/원인 분석", "자동차", "항공기 분야 사용"],
+    tables: [
+      {
+        caption: "상세 절차",
+        headers: ["상세 절차", "설명"],
+        rows: [
+          ["① Test Case 작성", "수행될 Test Case를 작성"],
+          ["② 테스트 수행", "테스트 시스템에 병렬 테스트 수행"],
+          ["③ 결과값 비교", "각 테스트 시스템 출력 결과값 비교"],
+          ["④ 원인 분석", "결과 값 불일치 시 원인 분석"],
+        ],
+      },
+      {
+        caption: "자동차 분야의 모델 — 코드간 back-to-back test 수행",
+        headers: ["절차", "설명"],
+        rows: [
+          ["모델 분석", "시뮬링크 모델 적정 크기로 분할\n서브모델 세분화 입출력 값 분석"],
+          ["테스트 케이스 작성", "제어 흐름 고려 모델별 TC 작성"],
+          ["모델 테스트 케이스 수행", "모델 수행 출력 출력 데이터 도출\n커버리지 목표 미달 시 TC 보완"],
+          ["소스코드 테스트 케이스 수행", "수행 환경 설정 코드 실행 환경\n출력·커버리지 결과 데이터 측정"],
+          ["결과 비교 및 리포트", "모델·코드 출력 TC별 일치 판단"],
+        ],
+      },
+    ],
+    notes: ["절차도: Test Case → Program Version 1·2·n 병렬 실행 → Test Result Comparison → Test Result Analysis"],
+  },
+  {
+    title: "Test Process",
+    course: "SE",
+    definition:
+      "테스트 계획부터 오류 추적·수정까지 테스트 활동을 단계화한 5단계 프로세스 (IEEE 829)",
+    defShort: "테스트 계획부터 오류 추적·수정까지 단계화 5단계 표준 프로세스",
+    lead:
+      "테스트 활동의 단계화, Test Process",
+    features: ["IEEE 829", "문서 중심", "오류 환류"],
+    keywords: ["[계케실결오]", "IEEE 829"],
+    tables: [
+      {
+        caption: "5단계 프로세스 [계케실결오]",
+        headers: ["절차", "세부 단계", "설명", "산출물"],
+        rows: [
+          ["테스트 계획", "요구사항 수립\n계획 작성\n계획 검토", "목표·범위 선정\n전략·일정·보고\n계획 정제·확정", "테스트요구사항정의서\n테스트 계획서"],
+          ["테스트 케이스 설계", "설계기법 정의\n케이스 도출\n원시 데이터 수집", "기법 정의\n기법으로 도출\n수행 데이터 작성", "기법 명세서\n설계 명세서\n원시 데이터"],
+          ["테스트 실행 및 측정", "환경 구축\n케이스 실행", "환경·자원 설정\n결과 측정", "테스트 측정 결과"],
+          ["결과 분석 및 보고", "측정결과 분석\n결과 보고", "측정치 분석\n보고서 작성", "결과 분석서\nSW 상태 보고서\n결과 보고서"],
+          ["오류 추적 및 수정", "원인 분석\n수정 계획\n오류 수정\n수정 후 검토", "오류 지점 분석\n우선순위 결정\n디버깅 도구 사용\n정합성 검증", "오류 보고서\n수정 계획서\n수정결과 보고서\n수정 대상물"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "ISO 29119",
+    course: "SE",
+    definition:
+      "SW개발 생명주기 전 과정에 걸쳐 있는 테스팅 프로세스와 관련 산출물에 대한 국제 표준",
+    defShort: "SW 개발 생명주기 전 과정 테스팅 프로세스와 관련 산출물 국제 표준",
+    lead: "테스팅 프로세스 국제 표준, ISO 29119",
+    features: ["전 생명주기", "산출물 표준", "표준 통합"],
+    keywords: ["[개프도테키]", "개념", "프로세스", "문서화", "테스트 기법", "키워드 기반 테스팅"],
+    tables: [
+      {
+        caption: "프레임워크 구성요소 [개프도테키]",
+        headers: ["구분", "설명", "주요 항목"],
+        rows: [
+          ["Part 1. 개념과 정의(Concepts and Definitions)", "전체 가이드 제공\n용어·개념 정의", "테스팅 개념\n조직·PJT 관점\n위험 기반 테스팅\n결함관리"],
+          ["Part 2. 테스트 프로세스(Test Process)", "테스트 프로세스\n3수준 계층 모델", "다계층 모델\n조직 테스트\n테스트 관리\n동적 테스트"],
+          ["Part 3. 테스트 문서화(Test Documentation)", "문서 견본·예시\n산출 문서 작성", "조직 테스트 문서\n테스트 관리 문서\n동적 테스트 문서"],
+          ["Part 4. 테스트 설계 기법(Test Techniques)", "테스팅 기법 제공\n설계·구현 활용", "명세 기반 기법\n구조 기반 기법\n경험 기반 기법\n커버리지 측정"],
+          ["Part 5. 키워드 주도 테스팅(Keyword-Driven Testing)", "키워드 주도 소개\n접근 방법 제공", "활용 방법\n프레임워크\n이점·요구사항\n기본 키워드"],
+        ],
+      },
+    ],
+    notes: ["프레임워크 연계: Part 1(Concepts & Vocabulary — BS 7925-1) ↔ Part 2(Processes — ISO/IEC 33063 Process Assessment) ↔ Part 3(Documentation — IEEE 829) ↔ Part 4(Testing Techniques — BS 7925-2) ↔ Part 5(Keyword-Driven Testing), Reviews(ISO/IEC 20246·IEEE 1028)"],
+  },
+  {
+    title: "ISO 29119-11",
+    course: "SE",
+    definition:
+      "AI 기반 시스템을 도입하고 테스트하는 방법에 대한 지침을 제공하기 위한 ISO/IEC 기술보고서",
+    defShort: "AI 기반 시스템 도입·테스트 방법에 대한 지침 제공 ISO 기술보고서",
+    lead:
+      "AI 시스템 테스트 지침, ISO 29119-11",
+    features: ["AI 특화", "기술보고서", "고유 특성"],
+    keywords: ["AI 기반 시스템", "1~10 파트"],
+    tables: [
+      {
+        caption: "구성 요소",
+        headers: ["구성", "설명"],
+        rows: [
+          ["1. Scope", "ISO/IEC TR 29119-11의 범위"],
+          ["2. Normative references", "규범적 참조"],
+          ["3. Terms, definitions and abbreviated terms", "본 문서 목적 위한 용어와 정의"],
+          ["4. Introduction to AI and Testing", "AI 소개\nAI 시스템 맥락에서 테스트 설명"],
+          ["5. AI System characteristics", "AI 기반 시스템 특성 소개\nISO/IEC 25010 품질 특성 부분 적용\nAI 기반 시스템만의 특성 존재"],
+          ["6. Introduction to the testing of AI-based systems", "기존 SW가 AI 구성요소 둘러쌈\nAI 부품도 일반 SW와 동일 결함 가능\nAI 기반 시스템 테스트 방법 소개"],
+          ["7. Testing and QA of ML systems", "ML 관련 품질 보증 및 시험 기회 설명"],
+          ["8. Black-box testing of AI-based systems", "AI 기반 시스템 블랙박스 테스트"],
+          ["9. White-box testing of neural networks", "신경망 화이트 테스트 방법 설명"],
+          ["10. Test environments for AI-based systems", "일반 테스트 환경과 공통점 많음\nML 격리 시험 시 개발 프레임워크 내"],
+        ],
+      },
+      {
+        caption: "ISO 29119-11의 블랙박스 테스트기법",
+        headers: ["기법"],
+        rows: [
+          ["조합테스트(Combination testing)"],
+          ["백투백 테스트 (Back-to-back testing)"],
+          ["A/B testing"],
+          ["변성 테스트 (Metamorphic testing)"],
+          ["탐색적 테스트 (Exploratory testing)"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "Test Exit Criteria",
+    course: "SE",
+    definition:
+      "추정 결함밀도, 커버리지 달성률, 일정 및 비용 등 정량화 지표 활용, 하나의 테스트 레벨 또는 특정 목적의 테스팅에 대한 종료 시점 결정 위한 테스트 완료 조건",
+    defShort: "테스트 레벨 또는 특정 목적 테스팅 종료 결정 위한 테스트 완료 조건",
+    lead:
+      "테스트 종료 시점의 기준, Test Exit Criteria",
+    features: ["정량 지표", "레벨별 종료", "결함 해소"],
+    keywords: ["완전성", "목적", "기준", "커버리지", "리스크", "스케쥴"],
+    tables: [
+      {
+        caption: "기본 원칙",
+        headers: ["구분", "대상", "기본 원칙"],
+        rows: [
+          ["구현", "어플리케이션기능", "요구 서비스의\n정상 동작 여부"],
+          ["구현", "어플리케이션산출물", "문서 작성 및\n최신화 유지"],
+          ["단계", "Bugs의 100% 해결", "우선순위 높은\nBugs 100% 해결"],
+          ["단계", "Test Entry Criteria", "빌드·재테스트\n완료 시점"],
+        ],
+      },
+      {
+        caption: "완료 조건 [완목기커리스]",
+        headers: ["완료조건", "설명", "사례"],
+        rows: [
+          ["테스트 완전성", "모든 TC 수행\n심각 결함 없음", "TC 650개 완료\nCritical 미존재"],
+          ["테스트 목적", "초기 품질 목표\n달성", "현업 만족도\n90% 이상"],
+          ["테스트 기준", "레벨·완료 조건\n기준 도달", "TC 90% 이상\n만족 시"],
+          ["테스트 커버리지", "요구사항 모두\n충족 판단", "5가지 요구기능\n구현"],
+          ["테스트 리스크", "관련 Risk 제거\n완료", "결함 조치 속도\n미진함 해결"],
+          ["테스트 스케쥴", "예정 일정 종료", "테스트 종료일\n경과"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "Lehman의 Software 변화의 원리",
+    course: "SE",
+    definition:
+      "소프트웨어의 지속적 진화에 대해 3가지 Type으로 분류하고 그 진화에 대해 설명한 8가지 원리 (Software 변화의 법칙)",
+    defShort: "SW의 지속적 진화 3가지 Type으로 분류하고 진화를 설명한 8가지 원리",
+    lead:
+      "소프트웨어 진화의 법칙, Lehman의 변화의 원리",
+    features: ["계속적 변경", "복잡도 증가", "품질 감소"],
+    keywords: ["[변복진조친성품피]", "①계속 변경 ②복잡도 증가 ③프로그램 진화 ④조직적 안정화 ⑤친근성 유지 ⑥지속 성장 ⑦품질감소 ⑧피드백 시스템"],
+    tables: [
+      {
+        caption: "Lehman의 System Type",
+        headers: ["System Type", "특징", "설명"],
+        rows: [
+          ["S-Type (Static Type System)", "고정된 사양\n비진화", "고정된 공식적 사양으로 정의"],
+          ["P-Type (Practical Type System)", "고정된 사양\n사양 반복적 개선", "요구 사항 정확하게 정의\n형태·수용성 환경에 의존적"],
+          ["E-Type (Embedded Type)", "변화되는 사양\nLehman의 원리 대상", "현실 세계 문제 해결 System\nSpecification 고정 불가 Type"],
+        ],
+      },
+      {
+        caption: "Lehman의 Software 변화의 원리 [계복진조 친지감피]",
+        headers: ["원리", "촉발 요인", "주요 내용"],
+        rows: [
+          ["계속적 변경(Continuing Change)", "사용 현실 반영\n품질 저하", "요구사항 변경\n유용성 저하"],
+          ["복잡도 증가(Increasing Complexity)", "제1 법칙의\n유용성 유지", "구조 복잡도 증가\n변경 반복 요인"],
+          ["프로그램 진화(Program Evolution)", "4, 5 법칙의\n일반화", "고유 크기 유지\n에러 수 일정"],
+          ["조직적 안정화(Organizational Stability)", "자원 투입\n효과의 상한선", "생산성 일정\n추가 투입 무의미"],
+          ["친근성 유지(Conservation of Familiarity)", "사용성 유지", "버전 변화 일정"],
+          ["지속적 성장(Continuing Growth)", "사용자 만족도", "기능 지속 추가"],
+          ["품질 감소(Declining Quality)", "운영 환경의 변화", "운영환경 미대응\n품질 저하"],
+          ["피드백 시스템(Feedback System)", "System의\n환경 반영", "피드백 체계 구성\n큰 폭 제품개선"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "3R",
+    course: "SE",
+    definition:
+      "소프트웨어 생산성을 극대화하기위해 레포지토리를 기반으로 역공학, 재공학, 재사용 기법을 사용하는 공학적 접근법",
+    defShort: "레포지토리 기반 역공학·재공학·재사용으로 생산성 극대화 접근법",
+    lead: "역공학·재공학·재사용 접근, 3R",
+    features: ["레포지토리", "자산 활용", "역공학 선행"],
+    subDefs: [
+      {
+        name: "역공학(Reverse Engineering)",
+        lead: "물리 정보의 논리 정보화",
+        def: "물리적 수준 소프트웨어 정보를 논리적 정보로 추출하는 절차 및 행위",
+        features: ["물리→논리", "Code 추출", "설계 복구"],
+      },
+      {
+        name: "재공학(Re-Engineering)",
+        lead: "기존 시스템의 재설계·교체",
+        def: "구현된 시스템을 검토·수정해 재설계·교체를 진행하는 절차 및 행위",
+        features: ["역공학 선행", "재구조화", "재설계·교체"],
+      },
+      {
+        name: "재사용(Re-Use)",
+        lead: "기존 결과물의 신규 적용",
+        def: "개발이 완료된 결과물을 신규 개발 SW에 적용하는 일련의 행위·절차",
+        features: ["결과물 적용", "패턴·CBD", "생산성"],
+      },
+    ],
+    keywords: ["레포지토리", "역공학", "재공학", "재사용"],
+    tables: [
+      {
+        caption: "역공학(Reverse Engineering)",
+        headers: ["구분", "설명"],
+        rows: [
+          ["정의", "물리적 SW 정보를 논리적으로 추출"],
+          ["절차", "Code 추출\nCode 분석·수정\n문서화"],
+          ["유형", "논리 역공학\n자료 역공학\n재문서화\n설계 복구"],
+        ],
+      },
+      {
+        caption: "재공학(Re-Engineering)",
+        headers: ["구분", "설명"],
+        rows: [
+          ["정의", "시스템 검토·수정, 재설계·교체"],
+          ["절차", "Reverse Engineering\n재구조화\n구현"],
+          ["유형", "CASE Tools\n재구조화\n재모듈화\n의미론 정보 추출"],
+        ],
+      },
+      {
+        caption: "재사용(Re-Use)",
+        headers: ["구분", "설명"],
+        rows: [
+          ["정의", "완료 결과물 신규 Software 적용"],
+          ["필요 속성", "신뢰성·확장성\n생산성·사용성\n유지보수성\n적응성"],
+          ["절차", "Forward Engineering\nRe-Use"],
+          ["기법", "Library\nDesign Pattern\nCBD"],
+        ],
+      },
+    ],
+    notes: ["개념도: Legacy System 분석 → (Binary만 존재) Reverse Engineering으로 Code 추출 / (Code 존재) Clean Code / (설계 문서 미 존재) 설계 명세서 복원 → Repository에 Code·UML Diagram 등 저장 → Re-Engineering·Re-Use로 개선 System"],
+  },
+  {
+    title: "소프트웨어 리팩토링",
+    course: "SE",
+    definition:
+      "소프트웨어 모듈의 외부적 기능은 수정하지 않고 내부적인 구조, 관계 등을 단순화하여 소프트웨어의 유지보수성을 향상시키는 기법",
+    defShort: "외부 기능 수정 않고 내부 구조·관계 단순화해 유지보수성 향상 기법",
+    lead:
+      "기능 불변의 구조 개선, 소프트웨어 리팩토링",
+    features: ["기능 불변", "코드 스멜", "작은 수정"],
+    keywords: ["외부기능 변경없이 내부 구조 수정", "코드 스멜", "Move", "Extract", "Push Down", "Full Up"],
+    tables: [
+      {
+        caption: "리팩토링 대상 [중긴큰긴산]",
+        headers: ["대상", "설명"],
+        rows: [
+          ["중복된 코드", "한 곳 이상에서\n중복된 코드가\n존재"],
+          ["긴 메소드", "메소드 처리\n방법이 의미적\n간격이 큰 구조"],
+          ["큰 클래스", "한 클래스에 너무\n많은 속성과\n메소드가 존재"],
+          ["긴 파라미터 리스트", "이해하기 어렵고\n일관성이 없어\n사용하기 어려운\n파라미터 구조"],
+          ["산탄총 수술", "특정 클래스를\n수정 시 관련된\n모든 클래스에서\n변경이 발생"],
+        ],
+      },
+      {
+        caption: "리팩토링 기법",
+        headers: ["측면", "기법", "설명"],
+        rows: [
+          ["결합도 측면", "Move", "다른 클래스에서\n많이 쓰면 이동\nMove Method\nMove Attribute"],
+          ["결합도 측면", "Extract", "작은 단위로 분리\nExtract Class\nExtract Method\nExtract Interface"],
+          ["응집도 측면", "Push Down", "서브만 쓰는\n메소드·속성\nPush Down Method\nPush Down Attribute"],
+          ["응집도 측면", "Pull Up", "동일 사용 요소\n메소드·필드를\n상위로 이전\nPull up Method·Field"],
+          ["응집도 측면", "Inline", "불필요 객체 삭제\n사용처에 통합\nInline Class·Method"],
+          ["단순화", "Rename Method", "Method Name을\n목적에 맞게 변경"],
+          ["은닉", "Encapsulate Field", "Public 필드를\nPrivate으로 만들고\n접근자를 제공"],
+        ],
+      },
+    ],
+    notes: ["절차도: 동작하는 프로그램 → 리팩토링 수행여부 판단(Bad Smell) → 개선 대상 코드 영역 → 테스트 Set 작성 → 코드 수정(구조 개선) → 테스트 통과? → 리팩토링 목적 달성까지 (작은 수정/테스트) 반복 → 개선 완료된 코드 영역 → 새로운 기능 추가"],
+  },
+  {
+    title: "유지보수",
+    course: "SE",
+    definition:
+      "소프트웨어의 생명주기 최종 단계인 폐기전 단계로 오류를 수정하고 사용자의 요구사항을 정정하며 기능과 수행력을 증진시키기 위한 활동",
+    defShort: "오류를 수정하고 요구사항 정정하며 기능과 수행력 증진하는 활동",
+    lead:
+      "인도 후 오류 수정과 개선, 유지보수",
+    features: ["최종 단계", "승인 기반", "예방 포함"],
+    keywords: ["계예응지", "데프문시", "수완예적"],
+    tables: [
+      {
+        caption: "상세 절차",
+        headers: ["절차", "설명", "담당자"],
+        rows: [
+          ["1", "변경요청서 작성", "사용자"],
+          ["2", "변경요청서 검토\n우선순위 결정", "분석가"],
+          ["3", "유지보수 승인\n실행 승인", "유지보수\n관리 위원회"],
+          ["4", "유지보수 수행\n변경보고서 작성\n산출물 변경", "유지보수 담당"],
+        ],
+      },
+      {
+        caption: "유지보수 유형 [계예응지 / 데프문시 / 수완예적]",
+        headers: ["분류기준", "종류", "설명"],
+        rows: [
+          ["시점에 의한 유지보수", "계획 유지보수", "주기적 수행"],
+          ["시점에 의한 유지보수", "예방 유지보수", "사전 예방 차원"],
+          ["시점에 의한 유지보수", "응급 유지보수", "긴급 후 승인"],
+          ["시점에 의한 유지보수", "지연 유지보수", "변경분 추후 지원"],
+          ["대상에 의한 유지보수", "데이터 유지보수", "변환 필요 시 처리"],
+          ["대상에 의한 유지보수", "프로그램 유지", "변경·오류 처리"],
+          ["대상에 의한 유지보수", "문서 유지보수", "표준 변경 대응"],
+          ["대상에 의한 유지보수", "시스템 유지보수", "변경·장애 처리"],
+          ["원인에 의한 유지보수", "수정적 유지보수", "오류·결함 수정"],
+          ["원인에 의한 유지보수", "완전적 유지보수", "기능 개선 수행"],
+          ["원인에 의한 유지보수", "예방적 유지보수", "정기적 수행"],
+          ["원인에 의한 유지보수", "적응적 유지보수", "변화·갱신 적용"],
+        ],
+      },
+    ],
+    notes: ["절차도: 사용자(요청 단계) → 요청서 → 분석가(분석 단계) → 승인요청 → 유지보수 관리 위원회(승인 단계) → 지시 → 유지보수자(실행 단계) → 유지보수 결과 보고"],
+  },
+  {
+    title: "ISO/IEC/IEEE 14764",
+    course: "SE",
+    definition:
+      "ISO/IEC 12207 유지보수 프로세스를 6단계로 상세화한 S/W 유지보수의 표준프로세스",
+    defShort: "ISO/IEC 12207 유지보수 프로세스를 6단계로 상세화한 표준 프로세스",
+    lead:
+      "유지보수 프로세스의 표준, ISO/IEC/IEEE 14764",
+    features: ["12207 상세", "수정 요청", "순향적 대응"],
+    keywords: ["수정/적응/완벽/예방 유지보수", "기법(SW 이해, 재공학, 역공학, 재구조화)", "유지보수 프로세스 단계"],
+    tables: [
+      {
+        caption: "유지보수 프로세스",
+        headers: ["프로세스", "설명"],
+        rows: [
+          ["공정구현", "계획·절차 개발 활동·업무 정의\n형상관리 수행 문서화 프로세스"],
+          ["문제 및 수정분석", "유형·범위 분석 교정 개선 예방\n중요성 판단 성능·안전 영향"],
+          ["수정 구현", "수정 부분 결정 필요 범위 분석\n개발 프로세스 설계 구현 시험"],
+          ["유지보수 검토/승인", "무결성 검토 권한 조직 검토\n수정 완료 승인 만족 여부 확인"],
+          ["이전", "전환 계획 수립 계획 개발 실행\n통보·병행 운영 구 환경 데이터"],
+          ["SW 폐기", "SW 제품 폐기 소유자 요구 반영"],
+        ],
+      },
+      {
+        caption: "변경유형에 따른 S/W 유지보수 분류",
+        headers: ["구분", "분류", "설명"],
+        rows: [
+          ["반응적(Reactive)", "수정\n적응", "납품 후 발견 문제 시정 반응적 수정\n변화된 환경에서 SW 제품 계속 사용"],
+          ["순향적(Proactive)", "완벽\n예방", "납품 후 SW 성능이나 유지보수 개선\n잠재장애를 미리 검출하고 시정"],
+        ],
+      },
+      {
+        caption: "S/W 유지보수 기법",
+        headers: ["기법", "설명", "비고"],
+        rows: [
+          ["프로그램 이해", "코드분석 툴로\n소스 이해성 향상", "Code-Browser\n산출물 철저"],
+          ["재공학", "자동화 도구로\n평가·수정 수행", "리팩토링\nData Reengineering"],
+          ["역공학", "코드로 설계 분석\n명세서 작성", "소스코드 분석기\n모듈 추출기\n문서화 도구"],
+          ["재구조화", "훼손된 구조 복원\n유지보수비 절감", "클래스 변형\n설계 변형"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "오픈소스 SW 보안위협",
+    course: "SE",
+    definition:
+      "오픈소스: 소프트웨어의 핵심 구성요소인 소스 코드가 공개되어 정해진 사용권 범위 안에서 사용자가 자유롭게 사용하거나 변경 및 공유(배포)할 수 있는 공개형 소스코드",
+    defShort: "사용권 범위에서 자유롭게 사용·변경·공유 가능한 공개 소스코드",
+    lead:
+      "공개 코드 사용의 위험, 오픈소스 SW 보안위협",
+    features: ["코드 노출", "파악 부재", "패치 의존"],
+    keywords: ["자유로운 배포", "소스 코드 공개", "Zero day Attack", "Log4j", "거버넌스"],
+    tables: [
+      {
+        caption: "관리적 측면의 보안 위협과 관리방안",
+        headers: ["구분", "보안 위협", "설명"],
+        rows: [
+          ["사용", "오픈소스 SW 사용 현황 부재", "자유로운 배포, 배포처 파악 불가\n기업내 사용 현황 관리 부실"],
+          ["사용", "오픈소스 커뮤니티 소스코드 맹목적 사용", "Github 등 커뮤니티 맹목적 신뢰\n타이포스쿼팅 보안 위협"],
+          ["프로세스", "오픈소스 SW 취약점 점검 프로세스 부재", "직접 개발 SW 대비 점검 수준 저하\n패키지 형태 사용, 점검 예외 빈번"],
+          ["프로세스", "오픈소스 SW 취약점 패치 검토 및 조치 지연", "Side-Effect 검토 등 조치 지연\n조치주체 부재·모호성, 대응 부재"],
+        ],
+      },
+      {
+        caption: "기술적 측면의 보안 위협과 관리방안",
+        headers: ["구분", "보안 위협", "설명"],
+        rows: [
+          ["공격", "공개 SW로 Zero Day 공격 가능성 증가", "소스 공개로 Zero Day 공격 가능\n해커 커뮤니티 통한 공격 코드 확산"],
+          ["공격", "오픈소스 SW 내 악성코드 삽입 배포", "원격 제어(RCE) 악성코드 배포\n크립토재킹 코드로 가상화폐 채굴"],
+          ["조치", "오픈소스 SW 취약점 자체 조치 불가", "배포사 취약점 패치 의존\nWork Around(임시 조치) 대응"],
+          ["조치", "오픈소스 SW 보안 취약점 패치의 호환성 문제", "패치 시 호환성 문제로 조치 불가\n호환성 해결까지 조치 지연"],
+        ],
+      },
+      {
+        caption: "보안 관리 방안",
+        headers: ["구분", "보안 관리 방안", "설명"],
+        rows: [
+          ["사용", "오픈소스 SW 사용 현황 파악 Tool 도입", "오픈소스 SW 전용 Scan Tool 활용"],
+          ["사용", "오픈소스 커뮤니티 소스코드 Hash값 확인", "공신력 있는 제작자 배포 소스 사용\nHash값으로 악성코드 탐지 확인"],
+          ["프로세스", "오픈소스 SW 보안 점검 프로세스 수립", "보안 점검 가이드 전사 배포\n긴급 패치 프로세스 간소화"],
+          ["프로세스", "오픈소스 SW 보안 관리 전문가 점검 도입", "전문 업체 통한 유지보수·점검"],
+          ["개발", "오픈소스 SW 적용 전 Sandbox 테스트 적용", "Sandbox로 악성코드 동작 확인\nHash값보다 직관적 악성코드 탐지"],
+          ["개발", "오픈소스 SW 시큐어코딩 적용", "2차적 저작물 수정 시 시큐어 코딩"],
+          ["장비", "오픈소스 SW 보안 업데이트 자동화 도입", "SW별 업데이트 방법 확인·자동화\nScript·Crontab·RPA 활용"],
+          ["장비", "지능형 IPS, FW 도입", "CWE·CVE 시그니처 기반 탐지·차단\n알려진 취약점 포함 소스코드 차단"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "오픈소스 거버넌스",
+    course: "SE",
+    definition:
+      "OSS를 안전하게 사용·적용 및 배포하기 위해 필요한 사항을 다양한 관점에서 활용할 수 있도록 소프트웨어 라이프 사이클 단계별로 제시한 절차 및 체계",
+    defShort: "OSS를 안전하게 사용·적용·배포 위해 단계별로 제시한 절차·체계",
+    lead: "OSS 생명주기 통제 체계, 오픈소스 거버넌스",
+    features: ["생애주기별", "안전 활용", "상시 관리"],
+    keywords: ["거버넌스", "프레임워크", "정책수립", "획득", "적용", "운영 및 유지", "관리 및 개선"],
+    tables: [
+      {
+        caption: "프레임워크 [정획적운관]",
+        headers: ["FW", "활동요소", "설명"],
+        rows: [
+          ["정책수립", "컨설팅", "적용 전략 자문"],
+          ["정책수립", "정책수립", "규정·지침 수립"],
+          ["정책수립", "조직구성", "인력 역할 구성"],
+          ["획득", "요구분석", "고객 요구 분석"],
+          ["획득", "조사", "적합 후보 탐색"],
+          ["획득", "분석", "속성 구분 정리"],
+          ["획득", "평가", "가중치 부여 채점"],
+          ["적용", "계약", "책임·의무 조건"],
+          ["적용", "설계", "기능 사양 구성"],
+          ["적용", "개발", "변경 및 결합"],
+          ["적용", "패키징", "단일 프로그램화"],
+          ["적용", "시험", "품질 성능 확인"],
+          ["적용", "배포", "매체·웹·장비"],
+          ["운영 및 유지", "설치", "운영 장비 탑재"],
+          ["운영 및 유지", "운영", "지속 실행 가동"],
+          ["운영 및 유지", "유지보수", "최상 상태 유지"],
+          ["운영 및 유지", "기술지원", "문제 해결 지원"],
+          ["운영 및 유지", "커뮤니티", "소스코드 기여"],
+          ["관리 및 개선", "컴플라이언스", "라이선스 준수"],
+          ["관리 및 개선", "교육", "지식 전달 강화"],
+          ["관리 및 개선", "모니터링", "적용 후 피드백"],
+        ],
+      },
+    ],
+    notes: ["프레임워크 흐름: 정책수립 → 획득 → 적용 → 운영 및 유지, 그 위에 관리 및 개선(컴플라이언스·교육·모니터링)이 상시 순환"],
+  },
+  {
+    title: "CMMI 3.0",
+    course: "SE",
+    definition:
+      "조직의 프로세스 개선을 통한 소프트웨어 개발 과정에서의 비용, 품질, 일정 등 모든 것을 충족시키며 특정 성숙도 레벨로 진입하기 위해 수행해야 할 활동들을 제시한 모델",
+    defShort: "프로세스 개선으로 특정 성숙도 레벨 진입하기 위한 활동 제시한 모델",
+    lead:
+      "조직 프로세스 성숙도 모델, CMMI 3.0",
+    features: ["단계적 성숙", "도메인 확장", "성과 중심"],
+    keywords: ["Category", "Capability", "Practices"],
+    tables: [
+      {
+        caption: "구성 요소",
+        headers: ["구성 요소", "세부 항목", "설명"],
+        nameCol: 1,
+        rows: [
+          ["Category Area", "Doing, Managing\nEnabling, Improving", "성과 개선 관행 정의 관련 영역 그룹"],
+          ["Capability Area", "Category 하위 Practices 그룹 영역(12개)", "의도·가치 달성 유사성 묶음\n관련 Practice Area들의 묶음\nCapability Area 단위 개선 활동"],
+          ["Practices", "공통 Practices 영역(17개)", "목적·가치 달성 주요 활동 집합"],
+          ["Practices", "도메인별 특정 Practices 영역(14개)", "도메인 목적 달성 주요 활동 집합"],
+          ["Domain", "Development(DEV), Services(SVC)\nSuppliers(SPM), Security(SEC)\nSafety(SAF), People(PPL)\nData, Virtual(VRT)", "개선하고자 하는 특정 영역\n도메인별 Practices 영역 포함\n기존에서 총 8개로 확장"],
+        ],
+      },
+      {
+        caption: "성숙도 레벨",
+        headers: ["레벨", "명칭"],
+        rows: [
+          ["1", "Initial (초기)"],
+          ["2", "Managed (관리)"],
+          ["3", "Defined (정의)"],
+          ["4", "Quantitively Managed\n(정량적 관리)"],
+          ["5", "Optimizing (최적화)"],
+        ],
+      },
+    ],
+    notes: ["구조도: Model → Category → Capability Area → Practices Group(Level 1~n) → Practices(1.1~n.x) → Informative Material(Context Specific)"],
+  },
+  {
+    title: "GS 인증",
+    course: "SE",
+    definition:
+      "국산 SW 제품의 품질 향상을 통한 국내 SW 산업 활성화 정책으로 SW 시험 인증 센터가 국제표준을 기반으로 개발한 한국형 SW 품질 인증제도",
+    defShort: "국산 SW 제품의 품질 향상 위해 국제표준 기반 한국형 SW 품질 인증제도",
+    lead: "국산 SW 품질 국가 시험, GS 인증",
+    features: ["국산 SW 대상", "국제표준", "한국형 인증"],
+    keywords: ["기능성", "신뢰성", "사용성", "성능효율성", "유지보수성", "이식성", "보안성", "호환성", "일반적 요구사항", "SW산업진흥법"],
+    tables: [
+      {
+        caption: "GS 인증 SW 품질 평가 모델 [23측정 51요구 41평가]",
+        headers: ["표준", "설명"],
+        rows: [
+          ["ISO/IEC 25023", "SW 제품 품질 측정 국제표준"],
+          ["ISO/IEC 25051", "SW 품질 요구사항·시험 국제표준"],
+          ["ISO/IEC 25041", "SW 제품 품질 평가 국제표준"],
+        ],
+      },
+      {
+        caption: "품질 특성(평가 항목)",
+        headers: ["주특성", "부특성"],
+        rows: [
+          ["기능적합성", "기능완전성\n기능정확성\n기능적절성"],
+          ["성능효율성", "시간반응성\n자원효율성\n용량성"],
+          ["호환성", "공존성\n상호운용성"],
+          ["사용성", "적절인지성, 학습성\n운영성, 사용자오류방지성\n사용자인터페이스심미성\n접근성"],
+          ["신뢰성", "성숙성\n가용성\n결함허용성\n복구성"],
+          ["보안성", "기밀성, 무결성\n부인방지성\n책임성\n인증성"],
+          ["유지보수성", "분석성\n변경성\n시험성"],
+          ["이식성", "적응성\n설치성\n대체성"],
+          ["일반적 요구사항", "제품설명서 요구사항\n사용자취급설명서 요구사항\n품질특성별 정보제공"],
+        ],
+      },
+      {
+        caption: "GS시험·인증의 절차",
+        headers: ["절차"],
+        rows: [
+          ["신청 및 접수 → 상담 → 계약 → 품질 시험 및 평가 → 인증 심의 → 적합/부적합"],
+        ],
+      },
+    ],
+    notes: ["시험 대상: 소프트웨어 전 분야 — 디지털 콘텐츠, 운영체제, 임베디드, 패키지, 웹관리 도구, 모바일, 컴포넌트, 게임, GIS, 보안용 SW 등"],
+  },
+  {
+    title: "SP 인증",
+    course: "SE",
+    definition:
+      "소프트웨어 기업 및 개발 조직의 프로세스 품질 역량을 심사하여 등급을 부여하는 제도",
+    defShort: "SW 기업·개발 조직의 프로세스 품질 역량을 심사해 등급 부여하는 제도",
+    lead: "조직 프로세스 역량의 심사, SP 인증",
+    features: ["품질 심사", "등급제 인증", "SW진흥법"],
+    keywords: ["프로세스", "품질", "소프트웨어 진흥법"],
+    tables: [
+      {
+        caption: "소프트웨어 프로세스 품질인증 기준",
+        headers: ["영역", "평가 항목", "설명"],
+        rows: [
+          ["프로젝트 관리", "프로젝트 계획", "목표 일정 자원"],
+          ["프로젝트 관리", "프로젝트 통제", "진행 모니터링"],
+          ["프로젝트 관리", "협력업체 관리", "의사소통 조율"],
+          ["개발 영역", "고객 요구사항\n관리", "수집·분석 체계\n요구사항 관리"],
+          ["개발 영역", "분석, 설계\n구현", "요구 기반\n시스템 구현"],
+          ["개발 영역", "테스트", "기능 성능 검증"],
+          ["지원 영역", "품질보증", "프로세스 보증"],
+          ["지원 영역", "형상관리", "변경·버전 관리"],
+          ["지원 영역", "측정 및 분석", "정량적 측정"],
+          ["조직관리 영역", "조직 프로세스\n관리", "프로세스 정의\n운영·관리 체계"],
+          ["조직관리 영역", "구성원 교육", "역량 강화 교육"],
+          ["프로세스 개선영역", "조직성과 관리", "성과 관리·평가"],
+          ["프로세스 개선영역", "문제 해결", "원인 분석 실행"],
+          ["프로세스 개선영역", "프로세스\n개선관리", "지속적 개선\n최적화 수행"],
+        ],
+      },
+      {
+        caption: "소프트웨어 프로세스 품질인증 등급",
+        headers: ["등급", "설명", "심사 영역"],
+        rows: [
+          ["1", "품질·비용·납기\n안정 충족 못함\n역량 개선 필요", "없음"],
+          ["2", "개별 PJT 차원\n수립·통제\n성공적 수행", "프로젝트 관리\n개발, 지원"],
+          ["3", "조직 차원 정의\n문제 해결\n일관 품질 개선", "프로세스 관리\n조직관리\n프로젝트 관리\n개발, 지원"],
+        ],
+      },
+    ],
+    notes: ["법적 근거: 소프트웨어 진흥법 제21조, 같은 법 시행령 제18조부터 제22조 및 같은 법 시행규칙 제8조부터 제11조", "체계: 정책기관(과학기술정보통신부 — 제도 정책 수립, 기준/지침 고시) → 인증기관(NIPA — 인증심사, 인증서 발급, 심사원 관리, 심의회 운영, 사후관리) ← 인증신청인"],
+  },
+  {
+    title: "ISO/IEC 25010:2023",
+    course: "SE",
+    definition:
+      "소프트웨어 품질의 특성을 정의하고, 품질 평가의 Metrics를 정의한 국제표준",
+    defShort: "SW 품질의 특성을 정의하고, 품질 평가의 Metrics를 정의한 국제표준",
+    lead: "SW 품질 특성 국제 표준, ISO/IEC 25010",
+    features: ["모델 분리", "안전성 신설", "사용성 개편"],
+    keywords: ["기능적합성", "신뢰성", "상호작용 능력", "성능 효율성", "유지 보수성", "유연성", "보안성", "호환성", "안전성"],
+    tables: [
+      {
+        caption: "ISO/IEC 25010:2023의 품질 특성",
+        headers: ["주 특성", "부 특성"],
+        rows: [
+          ["기능 적합성", "기능완전성\n기능정확성\n기능적절성"],
+          ["신뢰성", "성숙성, 가용성\n결함허용성, 복구성"],
+          ["상호작용 능력", "적절 인지성, 학습성, 운용성\n사용자 오류 방지성\n사용자 참여도, 포괄성\n사용자 지원, 자기 설명성"],
+          ["성능 효율성", "시간 반응성, 자원 효율성, 용량성"],
+          ["유지 보수성", "모듈성, 재사용성, 분석성\n수정가능성, 시험가능성"],
+          ["유연성", "적응성, 확장성, 설치성, 대체성"],
+          ["보안성", "기밀성, 무결성, 부인방지\n책임성, 인증성, 내성(저항성)"],
+          ["호환성", "공존성, 상호운용성"],
+          ["안전성", "운영 제약, 위험 식별, 실패 안전\n위험 경고, 안전한 통합"],
+        ],
+      },
+      {
+        caption: "주요 개정 사항",
+        headers: ["구분", "설명"],
+        rows: [
+          ["품질 모델 분리", "제품 품질모델 25010 정의\n사용 품질모델 25019 정의"],
+          ["품질 모델 대상 변경", "ICT 제품 포함 대상 범위 확대\n제품 품질모델 모델 명칭 변경"],
+          ["주특성 추가", "안전성 신설 주특성 신규 추가\n운영제약·경고 부특성 구성 요소"],
+          ["주특성 변경", "상호작용 능력 사용성 명칭 변경\n유연성 이식성 명칭 변경"],
+          ["부특성 변경", "접근성 분할 기존 부특성 분리\n포함성·지원성 포용·지원 분리"],
+          ["부특성 추가", "보안성 저항성 공격 저항 추가\n유연성 확장성 규모 확장 추가"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "상용소프트웨어 품질성능 평가 시험",
+    course: "SE",
+    definition:
+      "동종의 경쟁 제품간 기능 및 성능 비교 평가를 통해 사용자의 요구사항을 만족하고 품질 및 성능이 우수한 제품을 가려내는 시험",
+    defShort: "기능 및 성능 비교 평가로 사용자 요구사항 만족 제품 가려내는 시험",
+    lead: "동종 경쟁 제품 BMT, 상용SW 품질성능 평가 시험",
+    features: ["상대 비교", "법정 의무", "조달 반영"],
+    keywords: ["BMT", "소프트웨어 진흥법 제55조", "직접구매"],
+    tables: [
+      {
+        caption: "평가대상",
+        headers: ["구분", "요건", "설명"],
+        rows: [
+          ["평가대상", "직접구매 1억↑\n34종 품목", "경쟁입찰 대상\n별표3 해당 SW"],
+          ["평가대상", "지침 제8조 3항\n2억원 이상", "계약 관리감독\n별표3 SW 한정"],
+          ["평가대상", "쇼핑몰 등록 SW\nGS CC 인증", "5천 미만 포함\n인증 획득 제품"],
+          ["평가대상", "NET NEP\n총액 5천 초과", "신제품 신기술\n합산 금액 기준"],
+          ["평가대상", "대상 외 제품\n국가기관 판단", "필요시 시험 수행\n기관 자율 결정"],
+          ["제외대상", "비용 대비 효과\n기관장 인정", "시험비 과다 증설\n시험기관과 협의"],
+          ["제외대상", "동일 SW 제품\n종전 시험 결과", "기존 실시 이력\n활용 우선 검토"],
+          ["제외대상", "정보보호제품\n성능평가 획득", "산업법 제17조\n시험 결과 대체"],
+        ],
+      },
+      {
+        caption: "절차",
+        headers: ["절차", "설명"],
+        rows: [
+          ["1. 평가시험 대상 검토", "직접구매 대상 검토 요청\n검토 결과 송부(조달청)\n평가시험 의무화 대상 검토\n평가시험 미실시"],
+          ["2. 사전 협의", "사전협의 요청-평가시험 제외\n제외 사유 검토(시험기관)\n사전협의 요청-평가시험 실시\n사전협의 요청-종전 결과 활용"],
+          ["3. 평가시험 설계", "요구사항 및 운영 시스템 분석\n평가항목 개발·배점 수립\n평가시험 환경 구성\n실시 계획 수립·환경 구축"],
+          ["4. 조달 발주", "제안요청서 평가항목·배점 반영\n사전규격 공개(조달청)\n평가시험 설명회 개최\n입찰공고 게재(조달청)"],
+          ["5. 평가시험 의뢰", "참여 의향서 제출(SW공급자)\n평가시험 실시 의뢰(의뢰공문)\n의뢰 접수 및 실시 준비\n평가시험 대상 제품 제출"],
+          ["6. 평가시험 실시", "평가시험 실시\n결과서 작성 및 검토\n결과서 교부(국가기관등)\n평가시험 실시 정보 공개"],
+          ["7. 평가시험 결과 반영", "결과서 접수 및 점수 환산\n점수 통보(국가기관등→조달청)\n기술성평가 반영\n우선협상대상자 선정"],
+        ],
+      },
+    ],
+    notes: ["법적 근거: 소프트웨어 진흥법 제55조, 소프트웨어 품질성능 평가시험 운영에 관한 지침(제7조)"],
+  },
+  {
+    title: "McCabe 회전 복잡도",
+    course: "SE",
+    definition:
+      "제어 흐름 그래프를 통해 회전(사이크로매틱)수를 구하여 SW 복잡도를 계산하는 방법",
+    defShort: "제어 흐름 그래프 사이클로매틱 회전수로 SW 복잡도 계산하는 방법",
+    lead: "제어 흐름 그래프의 회전수, McCabe 회전 복잡도",
+    features: ["경로 정량화", "테스트 기준", "규모 미반영"],
+    keywords: ["복잡도 = (edge − node + 2) = (폐구간 + 1) = (의사결정 수 + 조건 수 + 1)"],
+    tables: [
+      {
+        caption: "복잡도 계산 공식",
+        headers: ["공식", "설명"],
+        rows: [
+          ["복잡도 = e − n + 2", "e: 간선의 수, n: node의 수"],
+          ["복잡도 = 폐구간 + 1", "폐쇄영역(enclosed areas) + 1"],
+          ["복잡도 = 의사결정 수 + 조건 수 + 1", "의사결정 수(각각이 하나)\nif-then-else, do while, case\n조건 수: and, or, not 등"],
+        ],
+      },
+      {
+        caption: "복잡도 분석",
+        headers: ["복잡도", "분석 내용"],
+        rows: [
+          ["5 이하", "간단한 프로그램"],
+          ["5~10", "구조적이며 안정된 프로그램"],
+          ["20 이상", "문제 자체가 매우 복잡\n구조가 필요 이상으로 복잡"],
+        ],
+      },
+    ],
+    notes: ["예시: V(G) = 3-3+2 = 2, V(G) = 9-8+2 = 3, V(G) = 20-13+2 = 9", "예제 코드: While + if + case 0 + case 1 = 4+1 = 5 (switch·default는 카운팅 X) / 오른쪽의 폐쇄구간 + 1 = 4+1 = 5"],
+  },
+  {
+    title: "FTA (Fault Tree Analysis)",
+    course: "SE",
+    definition:
+      "위험의 원인을 트리 다이어그램을 통해서 찾아 나가는 연역적이고 정성/정량적으로 분석하는 기법",
+    defShort: "위험 원인 트리 다이어그램으로 찾는 연역적, 정성/정량 분석 기법",
+    lead:
+      "원인 추적의 연역적 분석, FTA",
+    features: ["하향 분석", "논리 게이트", "정성·정량"],
+    keywords: ["Top-down", "연역적 기법", "트리 다이어그램"],
+    tables: [
+      {
+        caption: "프로세스",
+        headers: ["단계", "프로세스", "설명"],
+        rows: [
+          ["Step 1", "Top 이벤트 설정", "위험도 고려, 해석할 Top 이벤트"],
+          ["Step 2", "특성 파악", "시스템 공정·작업 파악\n위험 관련 상세 조사"],
+          ["Step 3", "FT 작성", "Fault Tree 다이어그램 작성"],
+          ["Step 4", "FT구조분석(정성적)", "Top이벤트 영향 기본 사상 파악"],
+          ["Step 5", "FT 정량화", "고장율·에러 정리, 발생확률 조사"],
+          ["Step 6", "해석 결과의 평가", "위험 수준 파악 및 대책 수립"],
+        ],
+      },
+      {
+        caption: "표기법",
+        headers: ["FTA 기호", "구분", "설명"],
+        rows: [
+          ["사상 기호", "사상(Event)", "개개의 사상, Event\n고장, 불량, 원치 않는 이벤트"],
+          ["사상 기호", "기본사상(Basic Event)", "최하위 사상, 더 이상 전개 불가"],
+          ["사상 기호", "전입(In)", "동일 FT 내 타 부분에서 전입"],
+          ["사상 기호", "전출(Out)", "동일 FT 내 타 부분으로 전출"],
+          ["사상 기호", "부전개 사상", "논리 게이트 적용 제약/조건"],
+          ["게이트 기호", "AND 게이트", "A, B 동시 발생 시 상위사상 발생"],
+          ["게이트 기호", "OR 게이트", "A, B 중 하나만 발생해도 상위사상"],
+          ["게이트 기호", "Priority AND 게이트", "A가 B보다 먼저 발생 시 상위사상"],
+          ["게이트 기호", "Exclusive OR 게이트", "A, B 중 하나만 발생해야 상위사상"],
+        ],
+      },
+    ],
+    notes: ["개념도: TOP 사건 설정 → 정상사상과 1차 원인과의 관계를 논리 게이트(Gate)로 연결 → 정상사상에 대한 1차 원인을 분석 → 더 이상 분할할 수 없는 기본사상(Basic Event)까지 반복 분석"],
+  },
+  {
+    title: "FMEA (Failure Mode and Effects Analysis)",
+    course: "SE",
+    definition:
+      "시스템의 고장 요인을 도출하고 영향도에 따른 우선순위 등급을 결정하여 등급에 맞는 사전 대응방법 수행하는 귀납적 분석기법",
+    defShort: "고장 요인 도출, 영향도에 따른 우선순위 등급 결정 귀납적 분석기법",
+    lead:
+      "영향도 기반 귀납적 분석, FMEA",
+    features: ["Bottom-up", "RPN 평가", "사전 대응"],
+    keywords: ["Bottom-up", "RPN = 심각도 x 발생도 x 검출도"],
+    tables: [
+      {
+        caption: "고장영향 평가 방법 — RPN 3축",
+        headers: ["항목", "설명"],
+        rows: [
+          ["심각도", "S 척도 1~10 10일수록 심각\n설계적 문제 영향 심각 정도"],
+          ["발생도", "O 척도 1~10 10일수록 빈발\n공정기술 문제 발생 빈도 수준"],
+          ["검출도", "D 척도 1~10 높을수록 미검출\n관리력 문제 검출 가능성 수준"],
+        ],
+      },
+      {
+        caption: "FMEA 유형",
+        headers: ["구분/유형", "설계 FMEA", "공정 FMEA", "시스템 FMEA"],
+        rows: [
+          ["대상", "제품(시스템)", "공정(작업)", "설비(생산라인)"],
+          ["목적", "설계·제품 결함\n분석·대책", "제조·공정 결함\n분석·대책", "설비 설계·기능\n결함 분석 대책"],
+          ["시기", "구상~최종설계", "공정설계~생산", "설비설계~생산"],
+          ["대상 요소", "제품 구성요소", "공정·작업·재료", "설비 구성요소"],
+        ],
+      },
+      {
+        caption: "FTA, FMEA, HAZOP 비교",
+        headers: ["항목", "FTA", "FMEA", "HAZOP"],
+        rows: [
+          ["목적", "원인 분석", "영향 분석", "위험 식별"],
+          ["분석 특징", "정성/정량적", "정성적", "정성적"],
+          ["분석 기법", "연역적\nTop-down", "귀납적\nBottom-up", "귀납적\nBottom-up"],
+          ["적용 시점", "설계 단계", "요구분석·검증", "상세 설계\n설계 완료"],
+        ],
+      },
+    ],
+    notes: ["평가 방법: 심각도(X좌표 — 중요도)·발생도(Y좌표)·검출도(Z좌표)의 3차원에서 값이 클수록 높은 위험"],
+  },
+  {
+    title: "HAZOP (Hazard and Operability Study)",
+    course: "SE",
+    definition:
+      "대상에 관련된 전문가들이 모여 공정변수와 가이드워드의 조합을 통해 이탈의 원인 및 영향을 분석하는 안전성 분석 기법",
+    defShort: "전문가 공정변수·가이드워드 조합으로 이탈 원인 및 영향 분석 기법",
+    lead:
+      "설계 의도 이탈의 식별, HAZOP",
+    features: ["가이드워드", "전문가 경험", "이탈 분석"],
+    keywords: ["경험기반", "이탈 = 공정변수 * 가이드워드", "공정(특정변수, 일반변수)", "가이드워드(7가지) : 없음/증가/감소/반대/부가/부분/기타"],
+    tables: [
+      {
+        caption: "수행 절차",
+        headers: ["절차", "설명"],
+        rows: [
+          ["목적, 범위 설정", "분석 목적,\n검토범위 설정"],
+          ["분석 팀 구성", "관련 전문가 팀\n구성(리더,\n팀원)"],
+          ["예비 조사", "자료 수집, 분석\n절차 수립"],
+          ["토론 및 검토", "Study Node, 공정변수,\n가이드워드 조합\n브레인스토밍"],
+          ["분석 결과 기록", "이탈 원인, 결과\n개선 권고사항\n기록"],
+        ],
+      },
+      {
+        caption: "평가 방식",
+        headers: ["구분", "설명"],
+        rows: [
+          ["평가 방식", "이탈 = 공정변수 ×\n가이드워드"],
+          ["이탈", "설계\n의도(정상운전조건)에서\n벗어난 상태"],
+          ["공정변수 — 특정변수", "가이드워드와\n조합되어 이탈\n발생하는 변수"],
+          ["공정변수 — 일반변수", "단독으로 이탈\n발생하는 변수"],
+          ["가이드워드 — 없음(NO OR NOT)", "설계의도에\n완전히 반하여\n변수의 양이 없는\n상태"],
+          ["가이드워드 — 증가", "변수가 양적으로\n증가되는 상태"],
+          ["가이드워드 — 감소", "변수가 양적으로\n감소되는 상태"],
+          ["가이드워드 — 반대", "설계 의도와\n정반대로\n나타나는 상태"],
+          ["가이드워드 — 부가", "설계의도 외에\n다른 변수가\n부가되는 상태\n(오염)"],
+          ["가이드워드 — 부분", "설계의도대로\n완전히\n이루어지지 않는\n상태"],
+          ["가이드워드 — 기타", "설계의도대로\n설치되지 않거나\n운전 유지되지\n않는 상태"],
+        ],
+      },
+    ],
+    notes: ["적용 시기: 요구사항 분석단계에서 HAZOP을 통해 안전성 관련 중요인자 및 안전성 요구사항 도출 → 설계단계에서 FTA를 통해 안전성을 강화 → FMEA의 분석결과를 테스트 단계의 안전성 분석에 활용"],
+  },
+  {
+    title: "ETA (Event Tree Analysis)",
+    course: "SE",
+    definition:
+      "초기 이벤트를 비롯한 모든 이벤트들의 발생 가능성을 확률로 계산하여 최종 시나리오의 발생 확률을 도출하는 정량적 위험 분석기법",
+    defShort: "이벤트 발생 가능성 확률 계산해 최종 시나리오 발생 확률 도출 기법",
+    lead:
+      "시나리오 확률의 정량 분석, ETA",
+    features: ["상향식 분석", "성공/실패", "확률 산출"],
+    keywords: ["[범위초 트결경]", "이벤트 기반", "Event Tree", "Tree 분석"],
+    tables: [
+      {
+        caption: "분석 절차 [범위초 트결경]",
+        headers: ["절차", "설명"],
+        rows: [
+          ["1) 분석 대상 및 범위 정의", "명세서·설계서 대상·범위 정의"],
+          ["2) 시스템 위험 또는 사고 정의", "위험·사고 정의 시스템 수준 정의"],
+          ["3) 초기 이벤트 정의", "초기 이벤트 정의 트리 시작점 배치"],
+          ["4) Event Tree 전개", "중간 이벤트 도출 초기→최종 결과\n성공/실패 분기 트리 전개 완성"],
+          ["5) 결과 리스크 파악", "발생 가능성 계산 시나리오별 평가"],
+          ["6) 위험 경감 대책 수립", "안전조치 도출 예방·개선 계획"],
+        ],
+      },
+      {
+        caption: "위험관계 분석 기법 관계",
+        headers: ["기법", "추론 방향", "설명"],
+        rows: [
+          ["FMEA", "귀납적 추론", "원인→가능 영향"],
+          ["FTA", "연역적 추론", "영향→가능 원인"],
+          ["HAZOP·STPA", "탐색적 추론", "사건↔원인 영향"],
+        ],
+      },
+    ],
+    notes: ["개념도: 초기 이벤트 → 중간 이벤트 1·2·3의 성공/실패 분기 → 결과 1~5 (사고 시나리오)", "ETA는 원인(초기 이벤트)이 어떻게 파급·전이되어 결과(최종 사고 또는 시스템 위험)를 유발하는지 분석하는 방법이기 때문에 보편적으로 상향식 기법으로 분류되지만 최종 사고 또는 시스템 위험을 먼저 정의하기 때문에 하향식 기법으로 분류되기도 함", "ETA 기법을 이용하면 초기이벤트가 어떤 경로에 의해 사고로 이어질 수 있는지 그 사고에 발생 경위를 파악하기 용이"],
+  },
+  {
+    title: "STPA (System-Theoretic Process Analysis)",
+    course: "SE",
+    definition:
+      "STAMP를 기반으로 하는 위험분석 기법으로, 시스템의 각 요소간의 상호작용이 시스템의 안전성에 위협가능한지 분석하는 기법",
+    defShort: "시스템 요소간 상호작용이 시스템 안전성에 위협가능한지 분석 기법",
+    lead: "상호작용 기반 안전 분석, STPA",
+    features: ["STAMP 기반", "상호작용", "제어 관점"],
+    keywords: ["STAMP", "요소간 상호작용", "사고 및 위험정의", "Control Structure 도식화", "Unsafe Control Action 도출", "원인 시나리오 도출"],
+    tables: [
+      {
+        caption: "위험 분석 절차 (4단계)",
+        headers: ["위험분석 절차", "설명"],
+        rows: [
+          ["1단계: 사고 및 위험 정의", "사고·시스템 수준 위험 정의\n시스템 수준 안전 제약사항 도출\n사고 도출→위험 정의→제약 변환"],
+          ["2단계: Control Structure 도식화", "제어 관계 개체(컴포넌트) 식별\n제어명령·피드백·프로세스 모델"],
+          ["3단계: Unsafe Control Actions 도출", "위험 유발 UCA 4가지 유형 도출\nCA 부재·부적절한 CA 제공\nCA 제공 시간·순서·지속시간\nUCA: 위험 유발 불안전 CA 형태"],
+          ["4단계: 원인 시나리오(Causal Scenario) 도출", "UCA 발생 원인 도출\nController의 UCA 제공 원인\nCA 부적절 수행·미수행 원인\n원인 토대로 시나리오 작성"],
+        ],
+      },
+      {
+        caption: "UCA 4가지 유형",
+        headers: ["유형"],
+        rows: [
+          ["① CA is not provided (Control Action의 부재)"],
+          ["② UCA is provided (부적절한 Control Action 제공)"],
+          ["③ CA is too early, too late, out of sequence (제공 시간·순서 문제)"],
+          ["④ CA is stopped too soon, applied too long (지속시간 문제)"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "SW 규모산정",
+    course: "SE",
+    definition:
+      "소프트웨어 규모파악(양적 크기, 질적 수준)통한 소요 공수와 투입 자원 및 소요기간 파악하여 실행 가능한 계획 수립하기 위한 비용 산정하는 과정",
+    defShort: "공수·자원·기간 파악해 실행 가능한 계획 수립 위한 비용 산정 과정",
+    lead:
+      "공수와 기간 산정의 기초, SW 규모산정",
+    features: ["양적·질적", "계획 근거", "수치화 산정"],
+    keywords: ["하향식 산정", "상향식 산정", "수학적 산정"],
+    tables: [
+      {
+        caption: "규모 산정 방법",
+        headers: ["산정방법", "기법", "내용"],
+        rows: [
+          ["하향식(Top Down)", "전문가 감정\n델파이 방식", "경험적 단언\n개발자 합의"],
+          ["상향식(Bottom Up)", "LOC 기법\nMan/Month", "업무분류구조\n요소별 독립 산정"],
+          ["수학적", "기능점수(FP)\nCOCOMO", "비용산정 자동화\n수치화로 산정"],
+        ],
+      },
+      {
+        caption: "규모 산정 시 고려사항",
+        headers: ["구분", "항목", "내용"],
+        rows: [
+          ["프로젝트 요소", "문제의 복잡도", "난이도·유형·언어"],
+          ["프로젝트 요소", "시스템 크기", "트랜잭션·연계"],
+          ["프로젝트 요소", "시스템 신뢰도", "정확·견고·완전·일관"],
+          ["자원 요소", "인적 자원", "관리자·개발자·지원체계"],
+          ["자원 요소", "하드웨어 자원", "개발·운영 장비"],
+          ["자원 요소", "소프트웨어 자원", "개발지원 도구\n테스트 툴"],
+          ["생산성 요소", "개발자 능력", "경험·전문지식"],
+          ["생산성 요소", "고객 능력", "업무 요건 지식"],
+          ["생산성 요소", "개발 방법론", "최신기법·관리"],
+        ],
+      },
+      {
+        caption: "규모산정 방법 비교",
+        headers: ["비교", "하향식(Top Down)", "상향식(Bottom UP)"],
+        rows: [
+          ["특징", "전체 시스템 차원\n유사 과거 비용", "모듈별 우선 산정\n합산 전체비용"],
+          ["장점", "간편·신뢰감", "객관성 부여"],
+          ["단점", "비과학적 낙관적", "세부 난이도 배제"],
+          ["산정방식", "그룹 산정\n전문가 감정", "LOC 기능점수\nCOCOMO"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "Function Point",
+    course: "SE",
+    definition:
+      "정보처리 규모와 기능의 복잡도 요인에 의거한 SW 규모 산정 방식",
+    defShort: "정보처리 규모와 기능 복잡도 요인에 의거해 SW 규모 산정하는 방식",
+    lead:
+      "기능 단위의 규모 측정, Function Point",
+    features: ["사용자 관점", "언어 독립", "ISO 표준"],
+    keywords: ["트랜잭션 유형(EI, EO, EQ)", "데이터 기능 유형(ILF, EIF)", "ISO 14143-1"],
+    tables: [
+      {
+        caption: "산정 절차 — FP 결과값 = 미조정 기능점수 × 조정 인자 계산",
+        headers: ["절차"],
+        rows: [
+          ["1. 측정 유형 결정 → 2. 측정 범위와 어플리케이션 경계 식별 → 3. 데이터 기능 측정 · 4. 트랜잭션 기능 측정 → 5. 미조정 기능점수 결정 → 6. 조정인자 결정 → 7. 조정 기능점수 결정"],
+        ],
+      },
+      {
+        caption: "상세 내역",
+        headers: ["구분", "항목", "설명"],
+        rows: [
+          ["측정 유형 결정", "개발 프로젝트", "SI 프로젝트 종료 후 인도되는 SW"],
+          ["측정 유형 결정", "개선 프로젝트", "SW 추가·수정·삭제 부분 비용 산정"],
+          ["측정 유형 결정", "어플리케이션", "사용 중인 SW 현장 기능 측정\n설치된 기능 점수 측정"],
+          ["측정범위와 어플리케이션 경계 식별", "범위결정", "개별 변경할 SW 전체 범위 결정"],
+          ["측정범위와 어플리케이션 경계 식별", "경계식별", "각 어플리케이션의 경계 분류"],
+          ["데이터 기능 유형 식별", "내부 논리 파일(ILF)", "논리적으로 연관된 데이터 그룹\n경계 내 유지 Data·제어정보\n예: 내부 DB"],
+          ["데이터 기능 유형 식별", "외부 연계 파일(EIF)", "측정 어플리케이션 외부에서 참조\n경계 밖 유지 Data·제어정보\n예: 외부 DB"],
+          ["트랜잭션 기능 유형 식별", "외부입력(EI)", "경계 안 데이터·제어정보 처리"],
+          ["트랜잭션 기능 유형 식별", "외부출력(EO)", "경계 밖으로 조회\n파생 데이터 생성 처리 로직 포함\n계산 처리된 후 외부로 나감"],
+          ["트랜잭션 기능 유형 식별", "외부조회(EQ)", "파생 데이터 생성 처리 로직 미포함\n계산 처리 없이 단순 데이터 출력"],
+        ],
+      },
+      {
+        caption: "조정인자 14개 (난이도에 따라 0~5점의 가중치 부여)",
+        headers: ["조정인자"],
+        rows: [
+          ["1. 데이터 통신(Data Communications)"],
+          ["2. 분산 데이터 처리(Distributed Data Processing)"],
+          ["3. 성능(Performance)"],
+          ["4. 사용환경(Heavily Used Configuration)"],
+          ["5. 처리율(Transaction Rate)"],
+          ["6. 온라인 데이터 입력(Online Data Entry)"],
+          ["7. 최종사용자 편리성(End-Used Efficiency)"],
+          ["8. 온라인 갱신(Online Update)"],
+          ["9. 처리복잡성(Complex Processing)"],
+          ["10. 재사용성(Reusability)"],
+          ["11. 설치용이성(Installation Ease)"],
+          ["12. 운영용이성(Operational Ease)"],
+          ["13. 복수 사이트(Multiple Sites)"],
+          ["14. 변경 용이성(Facilitate Change)"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "SW 사업대가 ('25년 개정판)",
+    course: "SE",
+    definition:
+      "S/W 대가산정 가이드는 예산수립, 사업 발주, 계약 시 적정대가를 산정하기 위한 기준을 제공 (1FP = 605,784원)",
+    defShort: "예산수립·사업 발주·계약 시 적정대가 산정 기준 대가산정 가이드",
+    lead:
+      "적정 대가 산정의 기준, SW 사업대가",
+    features: ["적정대가", "기능점수", "단계별 적용"],
+    keywords: ["구현단계(사기전후직소)", "기획단계", "ISP/BPR", "EA/ITA", "ISMP"],
+    tables: [
+      {
+        caption: "SW사업 기획 단계 대가 산정 방법",
+        headers: ["구분", "산정 방법", "설명"],
+        rows: [
+          ["ISP/ISP/BPR", "컨설팅 업무량 방식", "업무량 = 업무 가중치×난이도\n대가 = 업무량×단가+직접경비"],
+          ["EA/ITA", "컨설팅 업무량 방식", "업무량 = EA/ITA 가중치×난이도\n대가 = 공수×업무량+직접경비"],
+          ["ISP, ISP/BPR, EA/ITA, ISMP, 정보보안 컨설팅", "투입 공수 방식", "직접 인건비 = 투입 공수×평균임금\n제경비 = 직접 인건비의 144~154%\n기술료 = 인건비+제경비의 20~40%\n대가 = 세 항목 합+직접경비"],
+        ],
+      },
+      {
+        caption: "기능점수 방식에 의한 소프트웨어 개발비 대가산정 절차 [사기전후직소]",
+        headers: ["절차", "산출물", "주요내용"],
+        rows: [
+          ["사전준비", "기능 요구사항\n규모산정 방법", "개발 업무 정의\n정통법·간이법"],
+          ["개발대상 SW 기능점수 산정", "SW 기능점수", "기능 식별\n복잡도 고려 산정"],
+          ["보정 전 개발원가 산정", "보정 전 개발원가", "기능점수×기능점수당단가"],
+          ["보정 후 개발원가 산정", "보정 후 개발원가", "규모·연계복잡성\n성능·호환성·보안\n원가×보정계수"],
+          ["직접경비 및 이윤 산정", "직접경비, 이윤", "관련 직접경비\n이윤 25% 이내"],
+          ["소프트웨어 개발비 산정", "소프트웨어개발비", "개발원가+직접경비+이윤"],
+        ],
+      },
+    ],
+    notes: ["단계 구성: 기획 단계(정보전략계획 ISP, 정보전략계획 및 업무재설계 ISP/BPR, 전사적아키텍처 EA/ITA, 정보시스템 마스터플랜 ISMP, 정보보안컨설팅) → 구현 단계(소프트웨어 개발) → 운영 단계(소프트웨어 유지관리, 소프트웨어 운영, 소프트웨어 재개발)"],
+  },
+  {
+    title: "난독화",
+    course: "SE",
+    definition:
+      "프로그램 코드의 일부 또는 전체를 변경하는 방법 중 하나로, 코드의 가독성을 낮춰 역공학에 대한 대비책을 제공하는 방법",
+    defShort: "코드 일부나 전체 변경해 코드 가독성을 낮춰 역공학 대비책 제공 방법",
+    lead:
+      "역공학 대비의 코드 변환, 난독화",
+    features: ["가독성 저하", "역공학 대비", "성능 영향"],
+    keywords: ["[구데집제예]", "구획 난독화", "데이터 난독화", "집합 난독화", "제어 난독화", "예방 난독화"],
+    tables: [
+      {
+        caption: "난독화 기술 분류 [구데집제예]",
+        headers: ["구분", "설명", "세부분류"],
+        rows: [
+          ["구획 난독화(layout obfuscation)", "세부 요소 변화\n복원해도 훼손", "형식변화·주석제거\n식별자손상"],
+          ["데이터 난독화(data obfuscation)", "변수 분할·병합\n읽기 어렵게", "Storage, Aggregation\nOrdering, Encoding"],
+          ["집합 난독화(aggregation obfuscation)", "배열 변환\n클래스 분할", "자료순서변환\n클래스분할"],
+          ["제어 난독화(Control obfuscation)", "제어 복잡화\n문장 단위 조절", "Aggregation\nOrdering, Computation"],
+          ["예방 난독화(Preventive obfuscation)", "역난독화 방법\n봉쇄", "Targeted, Inherent"],
+        ],
+      },
+      {
+        caption: "난독화 기술 비교",
+        headers: ["구분", "Layout", "Data", "Control", "Preventive"],
+        rows: [
+          ["특징", "세부 요소 변화\n복원 시 훼손", "처리 변수 변환\n읽기 어렵게", "문장 단위 조절\n불명확성 증대", "역난독화 대응\n구체화 시 사용"],
+          ["장점", "성능저하 없음", "자료의 보호", "로직의 보호", "역공학 방해"],
+          ["단점", "로직 보호 불가", "성능의 저하", "성능의 저하", "성능의 저하"],
+          ["예시", "GetPayroll()\n→ a()", "t=\"Net\";\n→ t[1]='N';", "for(i=0;i<100;i++)\n→ for(i=100;i>0;i--)", "breakpoint 탐지\nCRC·디버거 검출"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "정보시스템 운영/유지보수 감리",
+    course: "SE",
+    definition:
+      "구축 완료 후 인도된 정보시스템에 대한 변경, 개선, 모니터링 등 정보시스템의 안정적인 운영과 성능을 지속적으로 보장하고, 필요에 따라 효율적으로 개선하는 과정을 점검",
+    defShort: "인도된 정보시스템 안정적인 운영과 성능 지속적으로 보장 과정 점검",
+    lead:
+      "운영 단계의 품질 점검, 운영/유지보수 감리",
+    features: ["인도 후 점검", "대상별 구분", "운영 안정성"],
+    keywords: ["개발 소프트웨어", "상용 소프트웨어", "인프라", "배포관리", "장애관리", "보안", "성능", "패치", "백업"],
+    tables: [
+      {
+        caption: "운영 감리의 감리대상별 점검 분야",
+        headers: ["감리대상", "점검분야"],
+        rows: [
+          ["개발 소프트웨어(DS)", "릴리즈 및 배포관리\n테스트 지원\n장애관리"],
+          ["인프라(IF)", "신규·변경 서비스 기획, 구현 지원\n서비스 수준관리\n서비스 보고\n서비스 연속성 및 가용성 관리"],
+          ["인프라(IF)", "용량관리\n정보보안관리\n비즈니스 관계 관리\n공급자 관리"],
+          ["인프라(IF)", "인시던트 및 서비스 요청 관리\n문제 관리\n구성관리"],
+          ["인프라(IF)", "변경 및 릴리즈 관리\n운영상태관리"],
+        ],
+      },
+      {
+        caption: "유지보수 감리의 감리대상별 점검 분야",
+        headers: ["감리대상", "점검분야"],
+        rows: [
+          ["개발 소프트웨어(DS)", "응용서비스 모니터링\n응용서비스장애처리\n사용자지원\n성능관리"],
+          ["개발 소프트웨어(DS)", "정기/비정기점검\n시스템 테스트 지원\n장애관리\n유지보수 계획"],
+          ["개발 소프트웨어(DS)", "유지보수 표준 및 절차\n요구사항관리\n유지보수 이행(CSR 처리)"],
+          ["개발 소프트웨어(DS)", "구성관리\n릴리즈 및 배포관리(이관)"],
+          ["상용 소프트웨어(CS)", "유지보수 계획\n유지보수 표준 및 절차\n업그레이드 및 패치\n이전 및 재설치"],
+          ["상용 소프트웨어(CS)", "일상지원\n긴급/장애처리\n예방점검\n운영자 교육"],
+          ["상용 소프트웨어(CS)", "사용자 교육\n보안 정책 및 계획 수립\n보안점검 및 예방 활동\n보안 조치 및 기술지원"],
+          ["인프라(IF)", "OS 업그레이드 및 패치\nHW 업그레이드\n예방 점검(일상·정기·비정기)\n긴급/장애처리"],
+          ["인프라(IF)", "통합자원할당 및 회수\n운영자교육\n기술이전\n부품지원"],
+          ["인프라(IF)", "운영상태관리\n이전 및 재설치"],
+        ],
+      },
+    ],
+    notes: ["개념도: 정보시스템 구축단계(단계별 감리 — 계획에 맞게 설계·개발·테스트가 제대로 이루어지고 있는지 점검, 요구사항 충족여부·일정 및 범위관리·품질관리 등) ↔ 운영 및 유지보수 단계(운영 및 유지보수 감리 — 시스템이 안정적이고 효율적으로 운영 및 개선 되는지 점검, 운영 안정성·성능 유지·보안·백업 및 복구 등)"],
+  },
+  {
+    title: "지능정보기술 감리 실무 가이드 - 클라우드 감리",
+    course: "SE",
+    definition:
+      "**클라우드 기반 정보화 사업에 대한 감리 수행 시 필요한 개념과 취약점, 클라우드 정보화 사업유형에 따른 감리 점검항목을 제시**하기 위한 실무 지침",
+    defShort: "클라우드 감리 개념·취약점·사업유형별 점검항목 제시 실무 지침",
+    lead: "클라우드 사업 감리 점검 기준, 클라우드 감리",
+    features: ["클라우드형", "유형별 차등", "취약점 중심"],
+    keywords: ["클라우드 계획수립", "클라우드 서비스 활용사업", "클라우드 전환사업"],
+    tables: [
+      {
+        caption: "클라우드 특성으로 인한 취약점",
+        headers: ["취약점"],
+        rows: [
+          ["1) 클라우스 서비스 모델 유형"],
+          ["2) 기존 IT 운영 관리체계 수준"],
+          ["3) 현행 업무 위험 수용 수준"],
+          ["4) 클라우드 적재 데이터의 통합적 가치"],
+          ["5) 클라우드 적재 데이터의 내부보안등급"],
+          ["6) 클라우드 공유 데이터의 준거성 의무"],
+          ["7) 클라우드 서비스 제공자 위험"],
+        ],
+      },
+      {
+        caption: "점검단계",
+        headers: ["점검 단계", "하위영역"],
+        rows: [
+          ["클라우드 계획수립", "현황 분석 및 전략 수립\n개선 모델 및 실행 계획 수립"],
+          ["클라우드 서비스 활용사업", "클라우드 서비스\n클라우드 서비스 요건정의\n클라우드 서비스 전환\n클라우드 서비스 운영"],
+          ["클라우드 전환사업", "클라우드 전환 계획수립 및 준비\n클라우드 전환\n서비스 안정화"],
+        ],
+      },
+    ],
+    notes: [
+      "사업 유형은 세 축으로 나눈다 — 클라우드 모델(G-Cloud·자체 클라우드·민간 클라우드), 개발 단계(기획·구축·운영/전환), 클라우드 유형(IaaS·PaaS·SaaS).",
+    ],
+  },
+  {
+    title: "지능정보기술 감리 실무 가이드 - 빅데이터 감리",
+    course: "SE",
+    definition:
+      "**빅데이터를 구축 및 분석하는 정보화 사업 감리 수행 시 필요한 사업 단계별 감리 점검항목을 제시**하기 위한 실무 지침",
+    defShort: "빅데이터 구축·분석 정보화 사업 단계별 감리 점검항목 제시한 지침",
+    lead: "빅데이터 사업 단계별 감리 기준, 빅데이터 감리",
+    features: ["빅데이터형", "단계별 점검", "생애주기"],
+    keywords: ["분석 단계", "설계 단계", "구현(구축) 단계", "운영 단계"],
+    tables: [
+      {
+        caption: "점검 단계별 영역과 핵심",
+        headers: ["점검 단계", "영역", "핵심"],
+        rows: [
+          ["분석단계", "응용시스템\n데이터", "요구사항 도출\n데이터 확보 검토\n운영 환경 이해"],
+          ["설계단계", "응용시스템\n데이터\n시스템", "수집·정제·저장\n분석모델·시각화\n데이터 표준화\n시스템구성·보안"],
+          ["구현(구축)단계", "응용시스템", "생애주기 관리\n수집·변환 작동\n시각화·로그검증"],
+          ["운영단계", "관리체계", "거버넌스 확인"],
+        ],
+      },
+      {
+        caption: "단계별 하위영역 점검항목",
+        headers: ["구분", "영역", "설명"],
+        rows: [
+          ["분석단계", "응용시스템", "서비스 요구사항 정의 여부"],
+          ["분석단계", "데이터", "데이터 셋 수집 가능성·사용성\n데이터 셋 활용 서비스 확보 여부"],
+          ["설계단계", "응용시스템", "수집·정제 체계 적정 설계 여부\n저장 체계 적정 설계 여부\n데이터 분석모델 설계\n데이터 시각화 설계"],
+          ["설계단계", "데이터", "데이터 표준화 및 융합"],
+          ["설계단계", "시스템", "시스템간 연계 설계"],
+          ["구현(구축)단계", "응용시스템", "데이터 분석 및 운영"],
+          ["운영단계", "관리체계", "운영관리"],
+        ],
+      },
+    ],
+    notes: [
+      "단계별 핵심은 분석(서비스·기능 요구사항 도출, 데이터 확보 및 타당성 검토, 운영 환경 이해), 설계(수집·정제 및 저장 체계 설계, 분석모델 및 시각화 설계, 데이터 표준화, 시스템 구성 및 보안), 구현(데이터 생애주기 관리, 수집 및 변환 작동 여부, 시각화 및 로그 시스템 검증), 운영(거버넌스 체계 확인)이다.",
+    ],
+  },
+  {
+    title: "정보시스템 감리 의무 대상과 관점별 점검 기준",
+    course: "SE",
+    definition:
+      "정보시스템 효율성 향상과 안전성 확보 위해 제3자적 관점에서 구축 사항을 종합적으로 점검, 개선하는 활동",
+    defShort: "효율성·안전성 위한 제3자적 관점에서 구축 사항 종합 점검·개선 활동",
+    lead:
+      "제3자 관점의 점검 활동, 정보시스템 감리",
+    features: ["제3자 관점", "법정 의무", "종합적 점검"],
+    keywords: ["3자적 관점", "대국민 서비스", "공동 행정 서비스", "5억 이상", "기관장의 필요성 인정", "절차", "산출물", "성과"],
+    tables: [
+      {
+        caption: "의무 대상",
+        headers: ["영역", "구분", "의무대상"],
+        rows: [
+          ["정보화 사업", "정보시스템 특성", "대국민 행정민원\n여러 기관 공동"],
+          ["정보화 사업", "사업비 규모", "5억 원 이상"],
+          ["정보화 사업", "기관장 판단", "감리 필요 인정"],
+          ["행정/공공 기관", "행정기관", "중앙행정기관\n소속기관 지자체"],
+          ["행정/공공 기관", "공공기관", "공운법 4조 기관\n지방공사·공단\n특수법인·학교\n대통령령 기관"],
+        ],
+      },
+      {
+        caption: "정보시스템 관점별 점검 기준 [성산절]",
+        headers: ["감리 관점", "점검 기준"],
+        rows: [
+          ["성과", "실현성, 충족성"],
+          ["산출물", "기능성, 무결성,\n편의성, 안전성,\n보안성, 효율성,\n준거성"],
+          ["절차", "절차 적정성,\n준수성"],
+        ],
+      },
+      {
+        caption: "정보시스템 3단계 감리 수행 절차",
+        headers: ["구분", "요구정의단계", "설계단계", "종료단계"],
+        rows: [
+          ["수행 절차", "A00 예비조사", "B00 현장감리", "C00 조치확인"],
+          ["산출물", "001.감리계획서", "002.감리수행결과보고서", "003.시정조치확인보고서"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "공통감리 절차",
+    course: "SE",
+    definition:
+      "정보시스템 개발사업, EA, ISP수립, DB구축 등 모든 유형의 정보화 사업에 공통적으로 적용되는 감리절차",
+    defShort: "EA·ISP 등 모든 유형의 정보화 사업에 공통으로 적용되는 감리절차",
+    lead: "전 정보화 사업 공통 적용, 공통감리 절차",
+    features: ["유형 무관", "현장감리", "사후 확인"],
+    keywords: ["[예현조]", "예비조사", "현장감리", "조치 확인", "준실감", "감착감보종보", "준시작보"],
+    tables: [
+      {
+        caption: "절차 [예현조]",
+        headers: ["절차", "세부절차", "산출물"],
+        rows: [
+          ["A00. 예비조사", "예비조사 준비\n예비조사 실시\n감리계획서 작성", "감리계획서"],
+          ["B00. 현장감리", "감리시작\n착수회의\n감리수행", "감리수행결과보고서"],
+          ["B00. 현장감리", "보고서(안) 검토\n종료회의\n보고서 확정 통보", "감리수행결과보고서"],
+          ["C00. 조치 확인", "확인 준비\n시정조치 확인\n보고서 작성\n확인보고서 확정", "시정조치확인보고서"],
+        ],
+      },
+      {
+        caption: "감리법인·발주기관·피감리인 흐름",
+        headers: ["순서", "활동", "산출물"],
+        rows: [
+          ["1", "감리계약 체결\n점검항목 협의", "감리 기본점검표"],
+          ["2", "감리계획서 제출\n발주기관 접수", "감리계획서"],
+          ["3~5", "착수회의\n현장감리 시행\n종료회의", ""],
+          ["6", "감리보고서 통보\n발주기관 검토", "감리보고서"],
+          ["7~9", "조치계획 수립\n접수 및 검토\n감리결과 반영", ""],
+          ["10~12", "조치내역 확인\n감리법인 확인\n확인보고서 제출", "조치내역확인보고서"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "정보시스템 감리결과보고서 (구성, 보고사항)",
+    course: "SE",
+    definition:
+      "독립된 감리법인이 제3자적 관점에서 수행한 현장감리 내용에 대해 결과를 정리하고 제출하는 최종결과보고서",
+    defShort: "제3자적 관점 현장감리 결과를 정리하고 제출하는 최종결과보고서",
+    lead:
+      "감리 수행의 최종 산출물, 감리결과보고서",
+    features: ["제3자 관점", "권고 유형화", "시점 명시"],
+    keywords: ["1)종합의견 2)감리영역별 점검결과 3)별첨", "감리계획서", "필수", "협의", "권고", "장기", "단기"],
+    tables: [
+      {
+        caption: "구성",
+        headers: ["구분", "구성요소", "설명"],
+        rows: [
+          ["1. 종합의견", "1.전제조건", "보고서 작성 시점 전제조건 정의"],
+          ["1. 종합의견", "2.총평", "점검대상 사업 감리의견 총괄정리"],
+          ["1. 종합의견", "3.감리영역별 상세점검결과 요약", "개선권고사항·유형·중요도\n발주기관 협조필요여부 표시"],
+          ["2. 감리영역별 점검결과", "1.감리영역 1", "가.점검항목별 점검결과\n나.상세점검결과\n사업관리·품질보증활동 영역"],
+          ["2. 감리영역별 점검결과", "2.감리영역 2", "가.점검항목별 점검결과\n나.상세점검결과\n응용시스템 영역 점검결과"],
+          ["2. 감리영역별 점검결과", "3.감리영역 3", "가.점검항목별 점검결과\n나.상세점검결과\nDB·시스템아키텍처·보안 영역"],
+          ["3. 별첨", "감리계획서", "감리수행 전 제출 감리계획서 첨부"],
+        ],
+      },
+      {
+        caption: "개선권고 유형·시점",
+        headers: ["구분", "유형"],
+        rows: [
+          ["개선권고 유형", "필수, 협의, 권고"],
+          ["개선시점", "장기, 단기"],
+          ["기타 표기", "중요도\n발주기관 협조필요"],
+        ],
+      },
+      {
+        caption: "감리결과보고서 제출프로세스",
+        headers: ["순서", "활동"],
+        rows: [
+          ["1", "감리결과보고서(안) 설명"],
+          ["2", "이견접수 및 보고서 통보일 제시"],
+          ["3", "이견사항 처리결과 공유"],
+          ["4", "보고서 확정 및 통보"],
+        ],
+      },
+    ],
+    notes: ["각 감리영역별 점검결과는 개선권고유형과 개선시점, 발주기관 협조필요여부가 작성되어 제출됨"],
+  },
+  {
+    title: "정보시스템 운영 성과관리",
+    course: "SE",
+    definition:
+      "정보시스템 운영 성과 측정 및 평가 결과에 따라 정비 대상을 결정하여 업무 및 비용 측면의 성과를 높이기 위한 각종 활동",
+    defShort: "정보시스템 운영 성과 평가로 업무 및 비용 측면의 성과를 높이는 활동",
+    lead:
+      "운영 성과 측정과 정비, 정보시스템 운영 성과관리",
+    features: ["정량 측정", "정비 연계", "법정 의무"],
+    subDefs: [
+      {
+        name: "업무성과 계획관리",
+        lead: "성과 지표의 목표 수립",
+        def: "운영 성과 측정하도록 성과 지표 설계하고 매년 목표를 수립하는 절차",
+      },
+      {
+        name: "통폐합 대상관리",
+        lead: "하위 등급의 통폐합 검토",
+        def: "3~4등급으로 분류된 정보시스템의 통폐합 가능성을 검토하는 절차",
+      },
+      {
+        name: "성과측정 대상관리",
+        lead: "측정 대상의 확인·제외",
+        def: "성과측정 대상 확인하고 필요한 경우 성과측정 제외를 신청하는 절차",
+      },
+      {
+        name: "성과측정 및 평가",
+        lead: "비용·업무 성과의 측정",
+        def: "비용과 업무 측면의 성과를 측정해 결과와 증빙자료를 제출하는 절차",
+      },
+      {
+        name: "폐기 예외관리",
+        lead: "폐기 대상의 예외 신청",
+        def: "총점 40점 미만 정보시스템의 폐기 예외 사유 해당 시 신청·심의 절차",
+      },
+      {
+        name: "정비계획 수립",
+        lead: "개선·폐기 대상의 계획",
+        def: "정비유형이 개선·폐기로 분류된 정보시스템 정비계획 세우는 절차",
+      },
+      {
+        name: "정비계획 이행관리",
+        lead: "정비방식·시점의 이행",
+        def: "수립한 정비계획 정비방식과 시점에 따라 활동 수행·관리하는 절차",
+      },
+    ],
+    keywords: ["전자정부법 제23조", "운영의 적정성", "유지의 용이성", "비용의 효율성", "기능 활용도", "업무성과 달성도"],
+    tables: [
+      {
+        caption: "추진절차",
+        headers: ["추진절차", "절차 정의", "주요활동"],
+        rows: [
+          ["업무성과 계획관리", "성과지표 설계\n지표별 목표 수립", "연중 실적 관리\n지표별 목표 수립"],
+          ["통폐합 대상관리", "3~4등급 대상\n통폐합 추진 검토", "가능성 검토\n불가 시 심의"],
+          ["성과측정 대상관리", "측정 대상 확인\n측정 제외 신청", "오픈 후 1년 경과"],
+          ["성과측정 및 평가", "성과 측정\n결과·증빙 제출", "비용측면 측정\n업무측면 측정"],
+          ["폐기 예외관리", "40점 미만 대상\n폐기 예외 신청", "폐기예외 검토\n위원회 심의"],
+          ["정비계획 수립", "정비유형 분류\n정비계획 수립", "폐기→통폐합→\n고도화→재개발"],
+          ["정비계획 이행관리", "정비활동 수행\n결과 관리", "정비활동 수행\n변경 시 심의"],
+        ],
+      },
+      {
+        caption: "성과측정 지표",
+        headers: ["구분", "지표", "설명", "측정 산식"],
+        rows: [
+          ["비용지표", "운영의 적정성", "개발비·유지보수비\n비율 점검", "누적 유지보수비\n/ 누적 개발비"],
+          ["비용지표", "유지의 용이성", "운영유지비 증감\n수준 점검", "전년대비\n유지비 증감률"],
+          ["비용지표", "비용의 효율성", "활용 규모 대비\n비용 효율 평가", "활용규모당\n유지비 증감률"],
+          ["업무지표", "기능 활용도", "구현 기능의\n실제 활용 수준", "기능별 사용량\n증감률 평균"],
+          ["업무지표", "업무성과 달성도\n(공통·고유지표)", "목표 대비 달성", "업무성과 실적치\n/ 목표치 × 100%"],
+        ],
+      },
+      {
+        caption: "정비 방식",
+        headers: ["정비 방식", "설명"],
+        rows: [
+          ["폐기", "현재 서비스 더 이상 제공 않고 종료"],
+          ["통폐합", "타 시스템 통합, 현행 시스템 폐기"],
+          ["기능고도화", "타 기능·서비스 통합, 규모 확장\n기능개선·유지보수 범위 내 정비"],
+          ["전면재개발", "현행 기능·서비스 새롭게 구축\n현행 시스템 폐기"],
+        ],
+      },
+    ],
+    notes: ["추진근거: 전자정부법 제23조(전자정부 서비스의 효율적 관리), 전자정부법 시행령 제19조, 전자정부 성과관리 지침 제23조~제30조. 대상 기관: 중앙행정기관, 지방자치단체"],
+  },
+  {
+    title: "소프트웨어 안전 확보를 위한 지침",
+    course: "SE",
+    definition:
+      "SW 안전 책임자 및 안전관리 대상 소프트웨어 개발, 운영단계로 수행해야 할 관리기준을 담고 있는 지침",
+    defShort: "안전관리 대상 SW 개발·운영단계로 수행해야 할 관리기준을 담은 지침",
+    lead:
+      "SW 오작동 피해 방지, 소프트웨어 안전 확보 지침",
+    features: ["진흥법 근거", "단계별 기준", "위험원 분석"],
+    keywords: ["SW진흥법 제30조 제2항", "총괄 담당자 지정", "관리 대상 소프트웨어 지정", "개발단계에서의 안전확보", "운영단계에서의 안전확보"],
+    tables: [
+      {
+        caption: "주요 용어",
+        headers: ["용어", "정의"],
+        rows: [
+          ["위험원", "SW 내 원인 위험 유발 요인\n생명·신체 피해 시스템 손실 초래"],
+          ["장애", "오류·고장 상태 SW 사용 곤란"],
+          ["소프트웨어 안전", "외부 침입 없는 사이버 공격 배제\n내부 오작동 피해 대비 상태"],
+        ],
+      },
+      {
+        caption: "지침 조항 내용",
+        headers: ["장", "조"],
+        rows: [
+          ["제1장 총칙", "제1조 목적\n제2조 정의\n제3조 적용 범위"],
+          ["제1장 총칙", "제4조 업무 및 담당자\n(총괄 담당자 지정)\n제5조 안전관리 대상 SW지정"],
+          ["제2장 SW개발단계 안전확보", "제6조 안전 요구사항의 정의\n제7조 SW 위험원 분석\n제8조 SW 설계 및 구현\n제9조 SW 검증"],
+          ["제3장 SW운영단계 안전확보", "제10조 SW 운영관리 계획\n제11조 운영 위험 분석\n제12조 SW 안전점검\n제13조 SW 변경관리"],
+          ["제3장 SW운영단계 안전확보", "제14조 장애관리"],
+          ["제4장 그 외 SW 안전확보 사항", "제15조 정보공유\n제16조 기반확보\n제17조 기타사항\n제18조 재검토 기한"],
+        ],
+      },
+    ],
+    notes: ["제정 배경: SW진흥법 전부 개정 시행('20.12.17)(소프트웨어안전 확보) → 고시제정 법적근거: 제30조 제2항", "주요 내용: 소프트웨어안전 책임자 · 안전관리 대상 소프트웨어 지정 · 소프트웨어 개발·운영단계별로 수행해야할 관리기준"],
+  },
+  {
+    title: "공공기관 정보화사업 예비타당성",
+    course: "SE",
+    definition:
+      "국가재정법 제38조 및 같은 법 시행령 제13조의 규정에 따라 대규모 신규 사업에 대한 예산 편성 및 기금 운용계획을 수립하기 위하여 기획재정부장관 주관으로 실시하는 사전적인 타당성 검증·평가 제도",
+    defShort: "대규모 신규 사업 예산 편성을 위한 사전적인 타당성 검증·평가 제도",
+    lead:
+      "대규모 사업의 사전 검증, 정보화사업 예비타당성",
+    features: ["사전 검증", "대규모 신규", "낭비 최소화"],
+    keywords: ["국가재정법", "사업비 500억 & 국가재정지원규모 300억 신규 사업"],
+    tables: [
+      {
+        caption: "예비타당성 조사 제도 필요성",
+        headers: ["구분", "필요성", "설명"],
+        rows: [
+          ["경제적 측면", "예산낭비 최소화", "비경제 사업 배제"],
+          ["기술적 측면", "사업 리스크 완화", "증액·변경 방지"],
+          ["기술적 측면", "사업 취소 방지", "중도 취소 예방"],
+          ["정책적 측면", "사업 우선순위", "후보사업군 비교"],
+        ],
+      },
+      {
+        caption: "예비타당성 조사 제도 기준 [사5지 3신]",
+        headers: ["기준", "설명"],
+        rows: [
+          ["사업비 규모", "총사업비 500억원 이상\n국가 재정지원 규모 300억원 이상\n신규사업(사5지3신)"],
+          ["정보화 사업 대상", "국가정보화 기본법 제15조 1항\n효율성 향상·국민 편익 증진\n행정·보건·사회복지·교육·문화\n환경·과학기술·재난안전 등"],
+          ["신규사업", "타당성조사비 등 국고 미지원 사업"],
+          ["대상사업 요건", "국가직접시행사업\n국가대행사업\n지방자치단체보조사업\n민간투자사업 등 재정지원 포함"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "소프트웨어사업 영향평가",
+    course: "SE",
+    definition:
+      "국가기관 등에서 소프트웨어사업의 예산편성, 발주, 소프트웨어 배포 및 서비스 제공을 추진하는 경우 민간 소프트웨어 시장 침해 등 소프트웨어 산업 생태계에 미치는 영향을 검토하여 사전 조정하는 제도",
+    defShort: "민간 SW 시장 침해 등 SW 산업 생태계 영향을 검토해 사전 조정하는 제도",
+    lead: "민간 시장 침해 사전 조정, 소프트웨어사업 영향평가",
+    features: ["침해 검토", "사전 조정", "재평가 요청"],
+    keywords: ["소프트웨어 진흥법 43조", "민간 시장 위축 방지", "대상사업 명확화", "SW사업자에게 재평가 요청권 부여"],
+    tables: [
+      {
+        caption: "개념도(절차)",
+        headers: ["구분", "단계", "설명"],
+        rows: [
+          ["1", "소프트웨어사업 기본정보 작성", ""],
+          ["2", "운영계획 검토", "사업구분 ①~⑦ 판정\n⑦ 그 외 SW 사업 → 3단계"],
+          ["3", "민간 소프트웨어 시장 침해 가능성 검토", "민간 동일·유사 SW 유무\n있음 → 4단계, 없음 → 5단계"],
+          ["4", "사업의 필요성 및 공공성 검토", ""],
+          ["5", "종합의견 작성", ""],
+        ],
+      },
+      {
+        caption: "법적 근거·대상·제외",
+        headers: ["구분", "내용"],
+        rows: [
+          ["법적 근거", "진흥법 제43조(영향평가)\n시행령 35조 실시, 36조 제외\n시행령 37조 재평가 제외사유\n지침 제5조 평가, 제6조 제외대상"],
+          ["대상 기관", "국가기관, 지방자치단체\n투자·출연 법인·단체(대통령령)\n시행령 제21조 해당 모든 기관"],
+          ["대상 사업", "진흥법 제43조\n기관장 발주 기획·구축·유지관리"],
+          ["제외 사업(시행령 제36조)", "상용SW 구매·설치 및 유지·관리\n국가안보·치안·외교 민간부적합\n민간투자형 SW사업\n그밖에 과기정통부 장관 고시 사업"],
+          ["제외 사업(지침 제6조)", "단일기관 내부사용 목적 SW사업\n데이터베이스 구축 사업\n변경 없는 단순 유지관리·운영"],
+        ],
+      },
+    ],
+    notes: ["공공 소프트웨어 사업 발주기관이 사업 수행 이후 낸 영향평가 결과를 과기정통부 장관이 검토하고 개선 조치를 요청할 권한마련 (2023.03 개정)"],
+  },
+  {
+    title: "상용 소프트웨어 직접구매 제도",
+    course: "SE",
+    definition:
+      "발주기관이 공공 정보화사업 추진 시 HW, SW, 시스템통합 구축 사업에서 상용SW만을 별도로 발주, 평가, 선정 계약하는 방식으로 상용SW를 직접 구매하는 제도",
+    defShort: "상용SW만을 별도로 발주, 평가, 선정 계약하여 직접 구매하는 제도",
+    lead:
+      "상용SW의 분리 발주, 직접구매 제도",
+    features: ["별도 발주", "규모 기준", "진흥법 54조"],
+    keywords: ["별도 발주", "3억", "5천만원", "소프트웨어 진흥법 제54조"],
+    tables: [
+      {
+        caption: "상용 SW 직접 구매 대상 및 제외 기준",
+        headers: ["구분", "설명"],
+        rows: [
+          ["상용SW 직접구매 대상", "총 사업규모 3억원 이상(VAT 포함)\n종합쇼핑몰 등록 SW(가격 무관)"],
+          ["상용SW 직접구매 대상", "5천만원 이상 또는 다량구매 초과\n인증 획득: GS, 행정업무용, CC\nNEP, NET, 국가정보원 검증/지정"],
+          ["제외기준 사업", "진흥법 제40조 민간투자형 SW 사업"],
+          ["제외기준 SW", "시스템 통합 불가능\n비용 상승 초래\n사업기간 지연\n비효율적"],
+        ],
+      },
+      {
+        caption: "법적 근거",
+        headers: ["근거법령", "조항", "설명"],
+        rows: [
+          ["소프트웨어 진흥법", "제54조 구매", "상용SW 구매"],
+          ["소프트웨어사업 계약 및 관리감독에 관한 지침", "제7조 대상", "직접구매 대상"],
+          ["소프트웨어사업 계약 및 관리감독에 관한 지침", "제8조 제외", "직접구매 제외"],
+        ],
+      },
+    ],
+    notes: ["개념도: 발주기관 — 상용SW구매사업 제안요청서 → SW별도 개발평가/개발계약(SW1·2·3 공급자) + 조달청 종합쇼핑몰 구매·계약 + 일괄평가/일괄계약(SI 사업자 — 분석설계·응용SW개발·NW 설치·HW·NW 납품)"],
+  },
+  {
+    title: "SBOM",
+    course: "SE",
+    definition:
+      "소프트웨어 컴포넌트 및 구성 요소를 식별할 수 있는 메타데이터와 저작권 및 라이선스 등으로 소프트웨어 콘텐츠에 대한 정보를 포함하는 공식 SW 자재 명세서",
+    defShort: "메타데이터와 저작권·라이선스 등 정보를 포함한 공식 SW 자재 명세서",
+    lead:
+      "SW 공급망의 구성 명세, SBOM",
+    features: ["자재 명세서", "요소 식별", "표준 포맷"],
+    keywords: ["Author Name", "Timestamp", "Version String", "SPDX", "CycloneDX", "SWID"],
+    tables: [
+      {
+        caption: "기술 요소",
+        headers: ["구분", "핵심 기술", "설명"],
+        rows: [
+          ["Baseline Attributes", "Author Name", "SW 작성자 정보"],
+          ["Baseline Attributes", "Timestamp", "SBOM 마지막 업데이트 날짜·시간\n(ISO 8601)"],
+          ["Baseline Attributes", "Supplier Name", "SW 공급업체 이름 또는 기타 식별자"],
+          ["Baseline Attributes", "Component Name", "SW 구성요소 이름 또는 식별자"],
+          ["Baseline Attributes", "Version String", "SW Version 정보\n(Semantic Versioning)"],
+          ["Baseline Attributes", "Component Hash", "컴포넌트 해시 값 통한 무결성 증빙"],
+          ["Baseline Attributes", "Unique Identifier", "고유 Namespace 및 식별자 생성"],
+          ["Baseline Attributes", "Relationship", "구성 요소 간 종속성·연관 관계"],
+          ["Formats", "SPDX", "Software Package Data Exchange\n리눅스 재단 라이선스 교환 표준"],
+          ["Formats", "CycloneDX", "OWASP 재단 공급망 구성요소 보안\n경량 SBOM 표준"],
+          ["Formats", "SWID", "Software Identification\nSW 정보 Tag 생성\n오픈소스 SW 인벤토리 지원"],
+        ],
+      },
+    ],
+    notes: ["개념도 예: Acme Application V1.1 ← Bingo Buffer V2.2 · Bob Browser V2.1 ← Carol Compression V3.1 (Included in 관계) — Component Name·Supplier·Version·Author·Hash·UID·Relationship(Primary/Included in)을 표로 관리"],
+  },
+  {
+    title: "사용성 평가",
+    course: "SE",
+    definition:
+      "사용자가 실제 제품을 사용하는 것을 관찰하고 분석하여 제품의 효율성, 학습 용이성, 문제점 및 개선 요구사항을 발견하는 공학적인 테스트",
+    defShort: "사용 관찰로 효율성·학습 용이성·문제점 및 요구사항 발견 테스트",
+    lead:
+      "실사용 관찰 기반 검증, 사용성 평가",
+    features: ["관찰 기반", "질적·양적", "시기별 적용"],
+    keywords: ["UX리서치 방법론", "SUS설문", "편의성", "정확성", "만족도", "유연성", "탐구형테스트", "평가형 테스트"],
+    tables: [
+      {
+        caption: "사용성 평가 절차",
+        headers: ["절차", "평가내용", "산출물"],
+        rows: [
+          ["1. 계획 수립", "평가 목적 분석\n사용자 정의\n태스크 분석\n주요기능 추출", "사용성평가계획서"],
+          ["2. 평가 설계", "테스트 디자인\n질적·양적 정의\n참가자 선정\n질문지 작성", "사용성평가설계서"],
+          ["3. 평가 실행", "스크립트 작성\n사전 테스트\n본 테스트 진행\n관찰 사항 체크", "질적/양적RowData"],
+          ["4. 분석/보고", "질적·양적 분석\n보고서 작성", "사용성평가결과보고서"],
+        ],
+      },
+      {
+        caption: "사용성 테스트의 4가지 유형",
+        headers: ["유형", "시기", "목적", "방법", "설명"],
+        rows: [
+          ["탐색적 테스트", "초반", "디자인 컨셉\n유효성 확인", "페이퍼 mock-up\n화면 디자인", "사용 중 상상\n기능 가치 제공"],
+          ["평가 테스트", "초/중반", "컨셉 효율성", "정량적 자료\n과업 수행", "UI를 직관적으로\n사용하는가"],
+          ["검증 테스트", "후반", "사용성 보증\n표준 부합 여부", "속도·정확도\n선호도·결함", "시간 안에 완료\n참여자 70% 충족"],
+          ["비교 테스트", "전체", "대안평가", "I/F 스타일\n요소의 평가", "경쟁사 대비 비교\n타겟 선호도"],
+        ],
+      },
+      {
+        caption: "사용성 평가 항목 및 측정 지표",
+        headers: ["평가항목", "측정지표", "설명"],
+        rows: [
+          ["작업시간", "완료·로딩 시간", "목표 완료 시간"],
+          ["작업시간", "이벤트 도달 시간", "특정 모드 체류"],
+          ["작업시간", "기능 입력 시간", "입력 소요 시간"],
+          ["사용패턴", "사용빈도\n정보접근성", "기능 사용 횟수"],
+          ["사용패턴", "최선 해결책 편차", "최적·실제 비율"],
+          ["정확성", "오류율\n공간 정확도", "완료까지 에러 양"],
+          ["정확성", "정보의 정확성", "정확 정보 비율"],
+          ["완성도", "성공/실패 비율", "목표 성공 백분율"],
+          ["학습 용이성", "행동 유도성", "즉시 사용법 인지"],
+          ["학습 용이성", "기억 용이성", "기능 습득 정도"],
+          ["일관성", "시각적·기능적", "간섭 없는 습득"],
+          ["일관성", "가독성·친숙성", "인식 요소 제공"],
+        ],
+      },
+    ],
   },
   // ── 인공지능(AI) — 심화반 3주차 ──────────────────────────────────
   {
@@ -10950,6 +12816,59 @@ export const SUBNOTES: TextbookSubnote[] = [
     notes: ["개념도: \"Eat chips on the sofa\" → Brain-LLM(Real World Knowledge) → High-level Plan(주방으로 걷기~칩 먹기) → Body-LLM → Low-level Plan(<char0>[walk]<kitchen>…) → Simulator/Controller → Feedback & Error Messages → Brain-LLM(반복)", "TPU 데이터 처리 흐름 예: WASH THE PLATE — Initial Plan 오류 → STATE FEEDBACK → Updated Plan(With Feedback) → SUCCESS"],
   },
   {
+    title: "ISO/IEC 25059:2023(AI 품질모델)",
+    course: "AI",
+    definition:
+      "소프트웨어 제품 품질 표준을 기반으로 AI 시스템 고유 속성인 비결정성, 데이터 의존성 등이 반영된 AI 시스템 전용 품질모델 확장 표준",
+    defShort: "비결정성·데이터 의존성이 반영된 AI 시스템 전용 품질모델 확장 표준",
+    lead: "AI 시스템 품질모델 확장, ISO/IEC 25059:2023",
+    features: ["25010 확장", "비결정성", "AI 특화 속성"],
+    keywords: ["기능 적합성", "신뢰성", "사용성", "성능 효율성", "유지보수성", "이식성", "호환성", "보안성", "견고성", "설명가능성", "강건성"],
+    tables: [
+      {
+        caption: "AI 품질모델 8대 특성과 하위 속성 (개념도) — 두음: 기신사효유이호보",
+        headers: ["특성", "하위 속성"],
+        rows: [
+          ["기능 적합성", "기능 완전성, 기능 정확성*\n기능 적절성, 기능 적응성*"],
+          ["성능 효율성", "시간 반응성, 자원 활용성\n용량성"],
+          ["호환성", "공존성, 상호운용성"],
+          ["사용성", "적절성 인식성, 학습 용이성\n운영 용이성, 사용자 오류 방지성\n사용자 인터페이스 미학성\n접근성, 사용자 제어성*, 투명성*"],
+          ["신뢰성", "성숙성, 가용성, 결함 허용성\n회복성, 강건성*"],
+          ["보안성", "기밀성, 무결성, 부인 방지성\n책임성, 인증성, 개입 가능성*"],
+          ["유지보수성", "모듈성, 재사용성, 분석성\n수정성, 테스트 용이성"],
+          ["이식성", "설치성, 대체성, 적응성"],
+        ],
+      },
+      {
+        caption: "표준 구성 (모델·항목별 평가 내용)",
+        headers: ["모델", "항목", "설명"],
+        rows: [
+          ["기능 적합성", "기능 정확성", "정확 수행 평가"],
+          ["기능 적합성", "기능 적응성", "다양 상황 적응"],
+          ["신뢰성", "강건성", "다양 조건 안정성"],
+          ["신뢰성", "회복성", "오류 후 정상 복구"],
+          ["사용성", "사용자 제어성", "동작 제어 정도"],
+          ["사용성", "투명성", "작동 원리 이해"],
+          ["성능 효율성", "자원 활용성", "자원 효율 평가"],
+          ["성능 효율성", "용량성", "작업·데이터량"],
+          ["유지보수성", "재사용성", "타 시스템 재사용"],
+          ["유지보수성", "모듈성", "독립 모듈 구성"],
+          ["이식성", "대체성", "구성요소 교체"],
+          ["이식성", "적응성", "타 환경 적응"],
+          ["호환성", "공존성", "타 시스템 공존"],
+          ["호환성", "상호운용성", "타 시스템 연동"],
+          ["보안성", "개입 가능성", "사용자 개입 조치"],
+          ["보안성", "책임성", "행동 추적·책임"],
+        ],
+      },
+    ],
+    notes: [
+      "* 표시 속성은 AI 시스템의 고유 특성(비결정성·데이터 의존성)을 반영해 새로 추가·확장된 항목이다.",
+      "SQuaRE(ISO/IEC 25010) 제품 품질모델을 AI로 확장한 표준 — 25010과 묶어 '무엇이 늘었나'로 출제된다.",
+      "AI 관련 표준 계보: 22989(용어·개념) · 23053(ML 프레임워크) · 23894(위험관리) · 42001(AI 경영시스템) · 25059(품질모델).",
+    ],
+  },
+  {
     title: "확률분포",
     course: "ST",
     definition: "확률변수가 특정한 값을 가질 확률을 나타내는 분포",
@@ -11756,1867 +13675,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
-    title: "뮤테이션 테스트 (Mutation Test)",
-    course: "SE",
-    definition:
-      "소스 코드 구문을 일정한 규칙으로 변형 후, 원본 프로그램으로 테스트할 때와 동일한 입력 값으로 서로 다른 결과를 출력시키는 테스트케이스를 선정하여 수행하는 결함 기반 테스트",
-    defShort: "코드 구문 변형 후 다른 결과 출력 테스트케이스 선정 결함 기반 테스트",
-    lead:
-      "테스트의 결함 검출력 검증, 뮤테이션 테스트",
-    features: ["결함 주입", "TC 품질 평가", "높은 비용"],
-    keywords: ["정상 코드", "돌연변이 코드(뮤턴트)", "테스트 케이스 검증", "의도적 소스 변경", "뮤턴트 연산자", "뮤턴트 스코어"],
-    tables: [
-      {
-        caption: "Test Case 추출 방법",
-        headers: ["결과", "설명"],
-        rows: [
-          ["R1 = R2", "뮤테이션 식별 불가\n결함 발견 불가\nTest case 제외"],
-          ["R1 ≠ R2", "뮤테이션 식별 가능\n결함 발견 가능\nTest case set 포함"],
-        ],
-      },
-      {
-        caption: "Mutation 연산자의 종류",
-        headers: ["연산자", "연산자 사례", "설명"],
-        rows: [
-          ["대치", "상수 대치\n변수 대치\n상수↔변수 대치", "변수·상수·배열 등 다른 값 대치"],
-          ["변형(치환)", "입출력 값 변경\n서비스 순서 변경", "입력·출력 순서 변경\n속성 등의 변경"],
-          ["삭제", "Cast 연산자 삭제\nOverload 함수 삭제", "함수·변수·연산자·반환문 삭제"],
-        ],
-      },
-    ],
-    notes: ["개념도: 동일 값 입력 → 정상 코드(R1)와 돌연변이 코드(R2) 실행 → 결과 비교", "뮤테이션 점수 계산법(Mutant Score): MS(P,T) = 죽은 뮤턴트 수 / (전체 뮤턴트 수 − 동등한 뮤턴트 수)"],
-  },
-  {
-    title: "성능 테스트",
-    course: "SE",
-    definition:
-      "개발된 시스템이 주어진 환경에서 요구사항의 목표치 달성 여부를 확인하는 테스트",
-    defShort: "시스템이 주어진 환경에서 요구사항 목표치 달성 여부 확인 테스트",
-    lead:
-      "목표 성능 달성의 확인, 성능 테스트",
-    features: ["목표치 확인", "정량 지표", "부하 재현"],
-    keywords: ["요구사항 목표치 달성 여부 확인", "TPS", "응답시간", "부하/스파이크 테스트"],
-    tables: [
-      {
-        caption: "프로세스",
-        headers: ["단계", "구간"],
-        rows: [
-          ["요구사항 정의 → 성능테스트 계획", "성능테스트 계획"],
-          ["성능테스트 설계 → 성능테스트 구현", "성능테스트\n설계/구현"],
-          ["성능테스트 수행 → 성능테스트 종료", "성능테스트\n수행/종료"],
-        ],
-      },
-      {
-        caption: "성능 지표",
-        headers: ["성능지표", "설명", "측정단위", "목표"],
-        rows: [
-          ["응답시간(Response Time)", "요청~응답까지\n걸린 시간", "초", "낮춤"],
-          ["시간당 처리량(Throughput)", "단위시간 당\n성공 요청건수", "TPS, OPS", "높임"],
-          ["자원사용량(Utilization)", "용량 중 실제\n사용 비율", "%", "낮춤"],
-          ["효율성(Efficiency)", "처리량 ÷\n자원사용량", "%, tpmc", "높임"],
-          ["반환시간(Turnaround Time)", "도착~완료 후\n반환까지 시간", "초", "낮춤"],
-          ["가용도(Availability)", "사용 가능 확률\nMTBF, MTTR", "%", "높임"],
-          ["신뢰도(Reliability)", "장애 미발생 확률", "%", "높임"],
-        ],
-      },
-      {
-        caption: "성능 테스트 유형",
-        headers: ["구분", "유형", "설명"],
-        rows: [
-          ["테스트 방법 측면", "Load Test", "부하 인가 최대 TPS·응답시간 산출"],
-          ["테스트 방법 측면", "Stress Test", "정상 초과 부하 최대 수용범위 측정"],
-          ["테스트 방법 측면", "Spike Test", "특정시점 대량 트랜잭션 동시 발생"],
-          ["테스트 방법 측면", "Endurance Test", "장시간 부하로 내구성 테스트"],
-          ["테스트 방법 측면", "Breakpoint Test", "점진적 부하 증가, 장애발생 지점"],
-          ["테스트 방법 측면", "Loop back Test", "특정위치 Loop back code 삽입\n병목지점 도출"],
-          ["테스트 방법 측면", "Availability Test", "이중구성 장애 유도\n서비스전환 동작 여부"],
-          ["테스트 목적 측면", "단위 성능 테스트", "대상 시스템 업무 단위 각각 수행"],
-          ["테스트 목적 측면", "복합 성능 테스트", "시스템 사용 상황 재현 테스트"],
-          ["테스트 목적 측면", "임계 성능 테스트", "시스템 최대 발휘 가능 성능 테스트"],
-          ["테스트 목적 측면", "확장성테스트", "증설한 시스템 성능 비율 측정"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "퍼징 테스트 (Fuzzing Test)",
-    course: "SE",
-    definition:
-      "제품에 랜덤 데이터를 입력하여 발생되는 예외, 오류 등을 분석, 보안 취약점을 찾아내는 테스팅 기법",
-    defShort: "랜덤 데이터 입력, 예외·오류 분석, 보안 취약점 찾아내는 테스팅 기법",
-    lead: "비정상 입력의 취약점 탐지, 퍼징 테스트",
-    features: ["무작위 입력", "예외 관찰", "취약점 탐지"],
-    keywords: ["Valid Case Fuzzing", "Invalid Case Skip Fuzzing", "Invalid Case Fail Fuzzing", "보안취약점", "블랙박스", "화이트박스"],
-    tables: [
-      {
-        caption: "절차",
-        headers: ["절차", "설명"],
-        rows: [
-          ["1) 테스트 대상 분석", "분석 대상 시스템 식별·특징 분석\nApplication·Framework\n네트워크 프로토콜·source code\n역공학"],
-          ["2) 입력 값 선정", "오류 유발 입력값 선정\n미디어·다큐먼트 파일, 프로토콜\n비정상 입력값"],
-          ["3) 테스트 케이스 생성", "입력값 테스트 케이스 생성\n제너레이션, 뮤테이션\nTool: FuzzBox, Seed gathering"],
-          ["4) 테스트 실행", "테스트 케이스 입력 프로그램 실행\nCommand line 인터페이스"],
-          ["5) 시스템 동작 모니터링", "문제 발생 시 로그 수집\nSystem log, kernel log\nCrash call stack"],
-          ["6) 문제 분류 및 해결", "문제 발생 항목 점검\n원인 분석 및 코드 수정\nNull pointer dereferencing\ndivide by 0, buffer overflow"],
-        ],
-      },
-      {
-        caption: "유형",
-        headers: ["구분", "종류", "설명"],
-        rows: [
-          ["데이터 생성", "Dumb Fuzzing", "변경(Mutate) 기반 테스트 데이터"],
-          ["데이터 생성", "Smart Fuzzing", "Input 모델 기반 새 유형 데이터"],
-          ["데이터 생성", "Evolutionary", "응답 결과 따라 새 데이터 생성"],
-          ["데이터 투입", "Valid Case Fuzzing", "유효 명세 생성 데이터 통해\n정상동작 여부 확인"],
-          ["데이터 투입", "Invalid Case Skip Fuzzing", "비정상 입력 처리 못하는 경우\n해당 TC 미수행 skip 여부 확인"],
-          ["데이터 투입", "Invalid Case Fail Fuzzing", "비정상 데이터 투입 후 Fail 유도\n이후 정상데이터 정상 응답 체크\n미응답 시 Valid Data로 생존 체크"],
-          ["변조 대상", "Mutation based Fuzzing", "비정상 변조데이터 대량 투입\n휴리스틱 Fuzz 테스팅"],
-          ["변조 대상", "Generation based Fuzzing", "구조변형 기반 Fuzz 테스팅"],
-          ["테스팅 기법", "블랙박스 퍼징", "내부 미분석 무작위 입력값 테스트"],
-          ["테스팅 기법", "화이트박스 퍼징", "소스 코드 기반 분석 후 입력값 산출"],
-          ["테스팅 기법", "그레이박스 퍼징", "내부구조 일부 정보로 입력값 생성\n블랙박스 테스트 수행"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "리그레이션(회귀, Regression) 테스트",
-    course: "SE",
-    definition:
-      "프로그램에 수정, 확장후 변경 부분 뿐만 아닌 기존 기능도 같이 테스트하여 오류사항 검출하는 테스트 기법",
-    defShort: "수정·확장 후 기존 기능도 테스트해 오류사항 검출하는 테스트 기법",
-    lead:
-      "변경에 따른 부작용 검출, 회귀 테스트",
-    features: ["기능 재검증", "영향 검출", "TC 재사용"],
-    keywords: ["프로그램 수정/확장", "변경 외 기존 기능 테스트", "종류(Reset All, Selective, Priority)", "Ripple Effect", "Side Effect"],
-    tables: [
-      {
-        caption: "회귀 테스트의 종류",
-        headers: ["종류", "수행방법", "분야"],
-        rows: [
-          ["Reset All 기법", "축적 TC 전부 사용", "금융·대고객 등\n고위험 업무"],
-          ["Selective 기법", "영향 범위 결정 후\n변경 대상 테스트", "일반 기업 시스템"],
-          ["Priority 기법", "핵심 기능 위주\n우선순위 테스트", "저위험도 시스템"],
-        ],
-      },
-      {
-        caption: "회귀 테스트 검출 오류 종류",
-        headers: ["검출 오류", "설명"],
-        rows: [
-          ["Ripple Effect(파급효과)", "변경 내용 연관 부분에 영향 전파"],
-          ["Side Effect(부작용)", "수정은 의도대로 이루어짐\n미고려 부분 의도치 않은 결과 발생"],
-        ],
-      },
-    ],
-    notes: ["구조도: SW 변경 요청 → 개발/테스트(결함조치) → 변경 모듈이 영향 모듈로 파급(Ripple-Effect·Side-Effect) → 변경 영향 범위 확인 → 기존 테스트 케이스로 기존 기능의 영향 여부 확인(회귀 테스트)", "목적: 기존 버그가 SW 변경에 의한 재발 가능성 방지 / 기존 버그 수정에 의한 추가 버그 가능성 방지 / 결함 조치 확인 및 일부 모듈 변경에 따른 전체 정합성 재확인"],
-  },
-  {
-    title: "튜링 테스트",
-    course: "SE",
-    definition:
-      "인간과 구별할 수 없을 정도의 지적행동을 표시할 수 있는 기계의 능력을 확인하는 imitation game 테스트",
-    defShort: "인간과 구별할 수 없는 기계 지적행동 능력 확인 imitation game 테스트",
-    lead:
-      "기계 지능의 판별 실험, 튜링 테스트",
-    features: ["문자 대화", "행동 판정", "구별 불가"],
-    keywords: ["기계의 사고 능력 판별"],
-    tables: [
-      {
-        caption: "절차도 및 세부 절차",
-        headers: ["단계", "세부 절차", "설명"],
-        rows: [
-          ["1", "테스트 환경 구축", "2개 방에 인공지능·피실험자\n격리 공간에 제3 심사위원 위치"],
-          ["2", "테스트 수행", "피실험자 B·인공지능 A 문자 답변\n서로에 대한 정보 없음\n약 5분 소요"],
-          ["3", "테스트 평가", "심사위원 A·B 대화 청취\n구분 불가 시 인공지능 생각 가능"],
-        ],
-      },
-      {
-        caption: "활용 사례",
-        headers: ["구분", "활용 사례", "설명"],
-        rows: [
-          ["이미지 인식분야", "CAPTCHA", "사람 여부 구별"],
-          ["이미지 인식분야", "구텐베르크\n프로젝트", "문학작품 전자화\n캡차 형식 인식"],
-          ["의료 분야", "엘리자(Eliza)", "심리 상담 활용"],
-          ["의료 분야", "패리(Parry)", "정신분열증 모사"],
-        ],
-      },
-    ],
-    notes: ["절차도: ① 컴퓨터 화면을 통해 문자로 대화 → ② A, B 모두 사람이라고 주장 → ③ 어느 쪽이 사람인지 구분 시도"],
-  },
-  {
-    title: "Keyword Driven Testing",
-    course: "SE",
-    definition:
-      "테스트 대상 어플리케이션과 관련된 키워드 테스트 케이스를 포함하여 해석기, 시퀀서 이용한 ISO/IEC/IEEE 29119 Part 5에 명시된 소프트웨어 국제 표준 테스트 기법",
-    defShort: "키워드 테스트 케이스 포함, 해석기·시퀀서 이용 표준 테스트 기법",
-    lead: "키워드 조립 테스트 자동화, Keyword Driven Testing",
-    features: ["키워드 TC", "키워드 계층", "ISO 29119-5"],
-    keywords: ["편집기", "해석기", "데이터 시퀀서", "툴 브릿지", "실행 엔진", "테스트 대상", "테스트 라이브러리 저장소", "테스트 데이터 저장소"],
-    tables: [
-      {
-        caption: "프레임워크 구성요소",
-        headers: ["구분", "구성요소", "설명"],
-        rows: [
-          ["저장소", "테스트 라이브러리 저장소", "하나 이상 프로젝트 키워드 저장"],
-          ["저장소", "테스트 데이터 저장소", "키워드 TC·TC 사용 테스트 데이터\nTC 실행 코드용 스크립트 저장"],
-          ["작성", "편집기", "라이브러리 이용 키워드 TC 작성"],
-          ["실행", "해석기와 데이터 시퀀서", "복합 키워드 하위 레벨로 변환"],
-          ["실행", "툴 브릿지", "키워드 테스트 환경 동작 지원"],
-          ["실행", "실행엔진", "키워드 연관 기능 수행 TC 실행"],
-          ["대상", "SUT", "System Under Test\n테스트 대상 소프트웨어"],
-        ],
-      },
-      {
-        caption: "Keyword Driven Testing 절차",
-        headers: ["절차", "수행내용"],
-        rows: [
-          ["키워드 정의", "요구사항 기반 계층 결정\n계층 범위 기반 키워드 식별"],
-          ["키워드 테스트 케이스 작성", "사용자·라이브러리 키워드\n변수·테스트 데이터 이용 작성"],
-          ["키워드 테스트 케이스 실행", "자동화 수행 툴로 TC 실행"],
-          ["키워드 리팩토링", "키워드 TC 유지 보수"],
-        ],
-      },
-    ],
-    notes: ["프레임워크 흐름: 편집기(상위 레벨 키워드) → 해석기·데이터 시퀀서 → 툴 브리지(하위 레벨 키워드) → 실행 엔진 → 테스트 대상(SUT) — 키워드는 테스트 라이브러리 저장소·테스트 데이터 저장소와 연동"],
-  },
-  {
-    title: "카오스 테스트 (Chaos Test)",
-    course: "SE",
-    definition:
-      "시스템의 신뢰성을 확인하기 위해 실 서비스에 인위적 혼돈(Chaos)를 주입(Failure Injection)하여, 출시 전 테스트에서 드러나지 않은 아키텍처상의 문제를 테스트하는 방법",
-    defShort: "인위적 혼돈 주입해 출시 전 드러나지 않은 아키텍처 문제 테스트 방법",
-    lead:
-      "실 서비스 혼돈 주입 시험, 카오스 테스트",
-    features: ["장애 주입", "가설 검증", "최소 범위"],
-    keywords: ["[정가실결문]", "카오스 엔지니어링 팀", "정상 상태", "가설수립", "실험 디자인", "결과확인", "문제점 수정"],
-    tables: [
-      {
-        caption: "상세 절차 [정가실결문]",
-        headers: ["절차", "설명", "사례"],
-        rows: [
-          ["1) 정상 상태", "측정 가능 값으로\n정상 동작 측정", "CPU load, NW I/O\nMemory 사용률"],
-          ["2) 가설 수립", "정상 유지 가설\n시나리오 작성", "DB 다운\n접속 초과\nDDoS 공격"],
-          ["3) 실험 디자인", "가설·범위 설정\n지표 선정·알림", "작업 범위 최소\n롤백 계획\n폭발 최소화"],
-          ["4) 결과확인", "정상 지표와 비교\n가설 검증", "감지 시간·전파\n알림·복구 시간"],
-          ["5) 문제점 수정", "문제점 수정\n지속적 개선", "45분 접속 지연\nSLA 미충족"],
-        ],
-      },
-      {
-        caption: "효율적 카오스 테스트 수행 방안",
-        headers: ["구분", "내용"],
-        rows: [
-          ["Team 구축", "Chaos Engineering Team"],
-          ["도구 활용", "Chaos Monkey·Kube Monkey\nGameDay·Failure Injection\nChAP·Gremlin"],
-          ["Layer별 테스트", "개발팀\n애플리케이션\n스위칭\n인프라"],
-        ],
-      },
-    ],
-    notes: ["절차도: 정상 상태(정상 지표 측정) → 가설 수립(시나리오 설계) → 실험 디자인(테스트 계획) → 결과 확인(실행 및 가설 검증) → 문제점 수정(수정 및 개선) — Chaos Engineering Team이 테스트 도구 및 자동화로 뒷받침"],
-  },
-  {
-    title: "Back to Back 테스트",
-    course: "SE",
-    definition:
-      "두 개의 혹은 그 이상의 테스트 시스템에 대하여, 동일한 입력 값을 주고 실행하여, 결과값을 비교한 후, 불일치할 경우 그 불일치를 비교하는 테스트 기법",
-    defShort: "둘 이상 테스트 시스템에 동일 입력 값 주고 결과값 불일치 비교 기법",
-    lead:
-      "동일 입력의 결과 비교, Back to Back 테스트",
-    features: ["동일 입력", "결과 비교", "오라클 불요"],
-    keywords: ["Testcase작성/테스트 수행/결과값 비교/원인 분석", "자동차", "항공기 분야 사용"],
-    tables: [
-      {
-        caption: "상세 절차",
-        headers: ["상세 절차", "설명"],
-        rows: [
-          ["① Test Case 작성", "수행될 Test Case를 작성"],
-          ["② 테스트 수행", "테스트 시스템에 병렬 테스트 수행"],
-          ["③ 결과값 비교", "각 테스트 시스템 출력 결과값 비교"],
-          ["④ 원인 분석", "결과 값 불일치 시 원인 분석"],
-        ],
-      },
-      {
-        caption: "자동차 분야의 모델 — 코드간 back-to-back test 수행",
-        headers: ["절차", "설명"],
-        rows: [
-          ["모델 분석", "시뮬링크 모델 적정 크기로 분할\n서브모델 세분화 입출력 값 분석"],
-          ["테스트 케이스 작성", "제어 흐름 고려 모델별 TC 작성"],
-          ["모델 테스트 케이스 수행", "모델 수행 출력 출력 데이터 도출\n커버리지 목표 미달 시 TC 보완"],
-          ["소스코드 테스트 케이스 수행", "수행 환경 설정 코드 실행 환경\n출력·커버리지 결과 데이터 측정"],
-          ["결과 비교 및 리포트", "모델·코드 출력 TC별 일치 판단"],
-        ],
-      },
-    ],
-    notes: ["절차도: Test Case → Program Version 1·2·n 병렬 실행 → Test Result Comparison → Test Result Analysis"],
-  },
-  {
-    title: "Test Process",
-    course: "SE",
-    definition:
-      "테스트 계획부터 오류 추적·수정까지 테스트 활동을 단계화한 5단계 프로세스 (IEEE 829)",
-    defShort: "테스트 계획부터 오류 추적·수정까지 단계화 5단계 표준 프로세스",
-    lead:
-      "테스트 활동의 단계화, Test Process",
-    features: ["IEEE 829", "문서 중심", "오류 환류"],
-    keywords: ["[계케실결오]", "IEEE 829"],
-    tables: [
-      {
-        caption: "5단계 프로세스 [계케실결오]",
-        headers: ["절차", "세부 단계", "설명", "산출물"],
-        rows: [
-          ["테스트 계획", "요구사항 수립\n계획 작성\n계획 검토", "목표·범위 선정\n전략·일정·보고\n계획 정제·확정", "테스트요구사항정의서\n테스트 계획서"],
-          ["테스트 케이스 설계", "설계기법 정의\n케이스 도출\n원시 데이터 수집", "기법 정의\n기법으로 도출\n수행 데이터 작성", "기법 명세서\n설계 명세서\n원시 데이터"],
-          ["테스트 실행 및 측정", "환경 구축\n케이스 실행", "환경·자원 설정\n결과 측정", "테스트 측정 결과"],
-          ["결과 분석 및 보고", "측정결과 분석\n결과 보고", "측정치 분석\n보고서 작성", "결과 분석서\nSW 상태 보고서\n결과 보고서"],
-          ["오류 추적 및 수정", "원인 분석\n수정 계획\n오류 수정\n수정 후 검토", "오류 지점 분석\n우선순위 결정\n디버깅 도구 사용\n정합성 검증", "오류 보고서\n수정 계획서\n수정결과 보고서\n수정 대상물"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "ISO 29119",
-    course: "SE",
-    definition:
-      "SW개발 생명주기 전 과정에 걸쳐 있는 테스팅 프로세스와 관련 산출물에 대한 국제 표준",
-    defShort: "SW 개발 생명주기 전 과정 테스팅 프로세스와 관련 산출물 국제 표준",
-    lead: "테스팅 프로세스 국제 표준, ISO 29119",
-    features: ["전 생명주기", "산출물 표준", "표준 통합"],
-    keywords: ["[개프도테키]", "개념", "프로세스", "문서화", "테스트 기법", "키워드 기반 테스팅"],
-    tables: [
-      {
-        caption: "프레임워크 구성요소 [개프도테키]",
-        headers: ["구분", "설명", "주요 항목"],
-        rows: [
-          ["Part 1. 개념과 정의(Concepts and Definitions)", "전체 가이드 제공\n용어·개념 정의", "테스팅 개념\n조직·PJT 관점\n위험 기반 테스팅\n결함관리"],
-          ["Part 2. 테스트 프로세스(Test Process)", "테스트 프로세스\n3수준 계층 모델", "다계층 모델\n조직 테스트\n테스트 관리\n동적 테스트"],
-          ["Part 3. 테스트 문서화(Test Documentation)", "문서 견본·예시\n산출 문서 작성", "조직 테스트 문서\n테스트 관리 문서\n동적 테스트 문서"],
-          ["Part 4. 테스트 설계 기법(Test Techniques)", "테스팅 기법 제공\n설계·구현 활용", "명세 기반 기법\n구조 기반 기법\n경험 기반 기법\n커버리지 측정"],
-          ["Part 5. 키워드 주도 테스팅(Keyword-Driven Testing)", "키워드 주도 소개\n접근 방법 제공", "활용 방법\n프레임워크\n이점·요구사항\n기본 키워드"],
-        ],
-      },
-    ],
-    notes: ["프레임워크 연계: Part 1(Concepts & Vocabulary — BS 7925-1) ↔ Part 2(Processes — ISO/IEC 33063 Process Assessment) ↔ Part 3(Documentation — IEEE 829) ↔ Part 4(Testing Techniques — BS 7925-2) ↔ Part 5(Keyword-Driven Testing), Reviews(ISO/IEC 20246·IEEE 1028)"],
-  },
-  {
-    title: "ISO 29119-11",
-    course: "SE",
-    definition:
-      "AI 기반 시스템을 도입하고 테스트하는 방법에 대한 지침을 제공하기 위한 ISO/IEC 기술보고서",
-    defShort: "AI 기반 시스템 도입·테스트 방법에 대한 지침 제공 ISO 기술보고서",
-    lead:
-      "AI 시스템 테스트 지침, ISO 29119-11",
-    features: ["AI 특화", "기술보고서", "고유 특성"],
-    keywords: ["AI 기반 시스템", "1~10 파트"],
-    tables: [
-      {
-        caption: "구성 요소",
-        headers: ["구성", "설명"],
-        rows: [
-          ["1. Scope", "ISO/IEC TR 29119-11의 범위"],
-          ["2. Normative references", "규범적 참조"],
-          ["3. Terms, definitions and abbreviated terms", "본 문서 목적 위한 용어와 정의"],
-          ["4. Introduction to AI and Testing", "AI 소개\nAI 시스템 맥락에서 테스트 설명"],
-          ["5. AI System characteristics", "AI 기반 시스템 특성 소개\nISO/IEC 25010 품질 특성 부분 적용\nAI 기반 시스템만의 특성 존재"],
-          ["6. Introduction to the testing of AI-based systems", "기존 SW가 AI 구성요소 둘러쌈\nAI 부품도 일반 SW와 동일 결함 가능\nAI 기반 시스템 테스트 방법 소개"],
-          ["7. Testing and QA of ML systems", "ML 관련 품질 보증 및 시험 기회 설명"],
-          ["8. Black-box testing of AI-based systems", "AI 기반 시스템 블랙박스 테스트"],
-          ["9. White-box testing of neural networks", "신경망 화이트 테스트 방법 설명"],
-          ["10. Test environments for AI-based systems", "일반 테스트 환경과 공통점 많음\nML 격리 시험 시 개발 프레임워크 내"],
-        ],
-      },
-      {
-        caption: "ISO 29119-11의 블랙박스 테스트기법",
-        headers: ["기법"],
-        rows: [
-          ["조합테스트(Combination testing)"],
-          ["백투백 테스트 (Back-to-back testing)"],
-          ["A/B testing"],
-          ["변성 테스트 (Metamorphic testing)"],
-          ["탐색적 테스트 (Exploratory testing)"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "Test Exit Criteria",
-    course: "SE",
-    definition:
-      "추정 결함밀도, 커버리지 달성률, 일정 및 비용 등 정량화 지표 활용, 하나의 테스트 레벨 또는 특정 목적의 테스팅에 대한 종료 시점 결정 위한 테스트 완료 조건",
-    defShort: "테스트 레벨 또는 특정 목적 테스팅 종료 결정 위한 테스트 완료 조건",
-    lead:
-      "테스트 종료 시점의 기준, Test Exit Criteria",
-    features: ["정량 지표", "레벨별 종료", "결함 해소"],
-    keywords: ["완전성", "목적", "기준", "커버리지", "리스크", "스케쥴"],
-    tables: [
-      {
-        caption: "기본 원칙",
-        headers: ["구분", "대상", "기본 원칙"],
-        rows: [
-          ["구현", "어플리케이션기능", "요구 서비스의\n정상 동작 여부"],
-          ["구현", "어플리케이션산출물", "문서 작성 및\n최신화 유지"],
-          ["단계", "Bugs의 100% 해결", "우선순위 높은\nBugs 100% 해결"],
-          ["단계", "Test Entry Criteria", "빌드·재테스트\n완료 시점"],
-        ],
-      },
-      {
-        caption: "완료 조건 [완목기커리스]",
-        headers: ["완료조건", "설명", "사례"],
-        rows: [
-          ["테스트 완전성", "모든 TC 수행\n심각 결함 없음", "TC 650개 완료\nCritical 미존재"],
-          ["테스트 목적", "초기 품질 목표\n달성", "현업 만족도\n90% 이상"],
-          ["테스트 기준", "레벨·완료 조건\n기준 도달", "TC 90% 이상\n만족 시"],
-          ["테스트 커버리지", "요구사항 모두\n충족 판단", "5가지 요구기능\n구현"],
-          ["테스트 리스크", "관련 Risk 제거\n완료", "결함 조치 속도\n미진함 해결"],
-          ["테스트 스케쥴", "예정 일정 종료", "테스트 종료일\n경과"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "Lehman의 Software 변화의 원리",
-    course: "SE",
-    definition:
-      "소프트웨어의 지속적 진화에 대해 3가지 Type으로 분류하고 그 진화에 대해 설명한 8가지 원리 (Software 변화의 법칙)",
-    defShort: "SW의 지속적 진화 3가지 Type으로 분류하고 진화를 설명한 8가지 원리",
-    lead:
-      "소프트웨어 진화의 법칙, Lehman의 변화의 원리",
-    features: ["계속적 변경", "복잡도 증가", "품질 감소"],
-    keywords: ["[변복진조친성품피]", "①계속 변경 ②복잡도 증가 ③프로그램 진화 ④조직적 안정화 ⑤친근성 유지 ⑥지속 성장 ⑦품질감소 ⑧피드백 시스템"],
-    tables: [
-      {
-        caption: "Lehman의 System Type",
-        headers: ["System Type", "특징", "설명"],
-        rows: [
-          ["S-Type (Static Type System)", "고정된 사양\n비진화", "고정된 공식적 사양으로 정의"],
-          ["P-Type (Practical Type System)", "고정된 사양\n사양 반복적 개선", "요구 사항 정확하게 정의\n형태·수용성 환경에 의존적"],
-          ["E-Type (Embedded Type)", "변화되는 사양\nLehman의 원리 대상", "현실 세계 문제 해결 System\nSpecification 고정 불가 Type"],
-        ],
-      },
-      {
-        caption: "Lehman의 Software 변화의 원리 [계복진조 친지감피]",
-        headers: ["원리", "촉발 요인", "주요 내용"],
-        rows: [
-          ["계속적 변경(Continuing Change)", "사용 현실 반영\n품질 저하", "요구사항 변경\n유용성 저하"],
-          ["복잡도 증가(Increasing Complexity)", "제1 법칙의\n유용성 유지", "구조 복잡도 증가\n변경 반복 요인"],
-          ["프로그램 진화(Program Evolution)", "4, 5 법칙의\n일반화", "고유 크기 유지\n에러 수 일정"],
-          ["조직적 안정화(Organizational Stability)", "자원 투입\n효과의 상한선", "생산성 일정\n추가 투입 무의미"],
-          ["친근성 유지(Conservation of Familiarity)", "사용성 유지", "버전 변화 일정"],
-          ["지속적 성장(Continuing Growth)", "사용자 만족도", "기능 지속 추가"],
-          ["품질 감소(Declining Quality)", "운영 환경의 변화", "운영환경 미대응\n품질 저하"],
-          ["피드백 시스템(Feedback System)", "System의\n환경 반영", "피드백 체계 구성\n큰 폭 제품개선"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "3R",
-    course: "SE",
-    definition:
-      "소프트웨어 생산성을 극대화하기위해 레포지토리를 기반으로 역공학, 재공학, 재사용 기법을 사용하는 공학적 접근법",
-    defShort: "레포지토리 기반 역공학·재공학·재사용으로 생산성 극대화 접근법",
-    lead: "역공학·재공학·재사용 접근, 3R",
-    features: ["레포지토리", "자산 활용", "역공학 선행"],
-    subDefs: [
-      {
-        name: "역공학(Reverse Engineering)",
-        lead: "물리 정보의 논리 정보화",
-        def: "물리적 수준 소프트웨어 정보를 논리적 정보로 추출하는 절차 및 행위",
-        features: ["물리→논리", "Code 추출", "설계 복구"],
-      },
-      {
-        name: "재공학(Re-Engineering)",
-        lead: "기존 시스템의 재설계·교체",
-        def: "구현된 시스템을 검토·수정해 재설계·교체를 진행하는 절차 및 행위",
-        features: ["역공학 선행", "재구조화", "재설계·교체"],
-      },
-      {
-        name: "재사용(Re-Use)",
-        lead: "기존 결과물의 신규 적용",
-        def: "개발이 완료된 결과물을 신규 개발 SW에 적용하는 일련의 행위·절차",
-        features: ["결과물 적용", "패턴·CBD", "생산성"],
-      },
-    ],
-    keywords: ["레포지토리", "역공학", "재공학", "재사용"],
-    tables: [
-      {
-        caption: "역공학(Reverse Engineering)",
-        headers: ["구분", "설명"],
-        rows: [
-          ["정의", "물리적 SW 정보를 논리적으로 추출"],
-          ["절차", "Code 추출\nCode 분석·수정\n문서화"],
-          ["유형", "논리 역공학\n자료 역공학\n재문서화\n설계 복구"],
-        ],
-      },
-      {
-        caption: "재공학(Re-Engineering)",
-        headers: ["구분", "설명"],
-        rows: [
-          ["정의", "시스템 검토·수정, 재설계·교체"],
-          ["절차", "Reverse Engineering\n재구조화\n구현"],
-          ["유형", "CASE Tools\n재구조화\n재모듈화\n의미론 정보 추출"],
-        ],
-      },
-      {
-        caption: "재사용(Re-Use)",
-        headers: ["구분", "설명"],
-        rows: [
-          ["정의", "완료 결과물 신규 Software 적용"],
-          ["필요 속성", "신뢰성·확장성\n생산성·사용성\n유지보수성\n적응성"],
-          ["절차", "Forward Engineering\nRe-Use"],
-          ["기법", "Library\nDesign Pattern\nCBD"],
-        ],
-      },
-    ],
-    notes: ["개념도: Legacy System 분석 → (Binary만 존재) Reverse Engineering으로 Code 추출 / (Code 존재) Clean Code / (설계 문서 미 존재) 설계 명세서 복원 → Repository에 Code·UML Diagram 등 저장 → Re-Engineering·Re-Use로 개선 System"],
-  },
-  {
-    title: "소프트웨어 리팩토링",
-    course: "SE",
-    definition:
-      "소프트웨어 모듈의 외부적 기능은 수정하지 않고 내부적인 구조, 관계 등을 단순화하여 소프트웨어의 유지보수성을 향상시키는 기법",
-    defShort: "외부 기능 수정 않고 내부 구조·관계 단순화해 유지보수성 향상 기법",
-    lead:
-      "기능 불변의 구조 개선, 소프트웨어 리팩토링",
-    features: ["기능 불변", "코드 스멜", "작은 수정"],
-    keywords: ["외부기능 변경없이 내부 구조 수정", "코드 스멜", "Move", "Extract", "Push Down", "Full Up"],
-    tables: [
-      {
-        caption: "리팩토링 대상 [중긴큰긴산]",
-        headers: ["대상", "설명"],
-        rows: [
-          ["중복된 코드", "한 곳 이상에서\n중복된 코드가\n존재"],
-          ["긴 메소드", "메소드 처리\n방법이 의미적\n간격이 큰 구조"],
-          ["큰 클래스", "한 클래스에 너무\n많은 속성과\n메소드가 존재"],
-          ["긴 파라미터 리스트", "이해하기 어렵고\n일관성이 없어\n사용하기 어려운\n파라미터 구조"],
-          ["산탄총 수술", "특정 클래스를\n수정 시 관련된\n모든 클래스에서\n변경이 발생"],
-        ],
-      },
-      {
-        caption: "리팩토링 기법",
-        headers: ["측면", "기법", "설명"],
-        rows: [
-          ["결합도 측면", "Move", "다른 클래스에서\n많이 쓰면 이동\nMove Method\nMove Attribute"],
-          ["결합도 측면", "Extract", "작은 단위로 분리\nExtract Class\nExtract Method\nExtract Interface"],
-          ["응집도 측면", "Push Down", "서브만 쓰는\n메소드·속성\nPush Down Method\nPush Down Attribute"],
-          ["응집도 측면", "Pull Up", "동일 사용 요소\n메소드·필드를\n상위로 이전\nPull up Method·Field"],
-          ["응집도 측면", "Inline", "불필요 객체 삭제\n사용처에 통합\nInline Class·Method"],
-          ["단순화", "Rename Method", "Method Name을\n목적에 맞게 변경"],
-          ["은닉", "Encapsulate Field", "Public 필드를\nPrivate으로 만들고\n접근자를 제공"],
-        ],
-      },
-    ],
-    notes: ["절차도: 동작하는 프로그램 → 리팩토링 수행여부 판단(Bad Smell) → 개선 대상 코드 영역 → 테스트 Set 작성 → 코드 수정(구조 개선) → 테스트 통과? → 리팩토링 목적 달성까지 (작은 수정/테스트) 반복 → 개선 완료된 코드 영역 → 새로운 기능 추가"],
-  },
-  {
-    title: "유지보수",
-    course: "SE",
-    definition:
-      "소프트웨어의 생명주기 최종 단계인 폐기전 단계로 오류를 수정하고 사용자의 요구사항을 정정하며 기능과 수행력을 증진시키기 위한 활동",
-    defShort: "오류를 수정하고 요구사항 정정하며 기능과 수행력 증진하는 활동",
-    lead:
-      "인도 후 오류 수정과 개선, 유지보수",
-    features: ["최종 단계", "승인 기반", "예방 포함"],
-    keywords: ["계예응지", "데프문시", "수완예적"],
-    tables: [
-      {
-        caption: "상세 절차",
-        headers: ["절차", "설명", "담당자"],
-        rows: [
-          ["1", "변경요청서 작성", "사용자"],
-          ["2", "변경요청서 검토\n우선순위 결정", "분석가"],
-          ["3", "유지보수 승인\n실행 승인", "유지보수\n관리 위원회"],
-          ["4", "유지보수 수행\n변경보고서 작성\n산출물 변경", "유지보수 담당"],
-        ],
-      },
-      {
-        caption: "유지보수 유형 [계예응지 / 데프문시 / 수완예적]",
-        headers: ["분류기준", "종류", "설명"],
-        rows: [
-          ["시점에 의한 유지보수", "계획 유지보수", "주기적 수행"],
-          ["시점에 의한 유지보수", "예방 유지보수", "사전 예방 차원"],
-          ["시점에 의한 유지보수", "응급 유지보수", "긴급 후 승인"],
-          ["시점에 의한 유지보수", "지연 유지보수", "변경분 추후 지원"],
-          ["대상에 의한 유지보수", "데이터 유지보수", "변환 필요 시 처리"],
-          ["대상에 의한 유지보수", "프로그램 유지", "변경·오류 처리"],
-          ["대상에 의한 유지보수", "문서 유지보수", "표준 변경 대응"],
-          ["대상에 의한 유지보수", "시스템 유지보수", "변경·장애 처리"],
-          ["원인에 의한 유지보수", "수정적 유지보수", "오류·결함 수정"],
-          ["원인에 의한 유지보수", "완전적 유지보수", "기능 개선 수행"],
-          ["원인에 의한 유지보수", "예방적 유지보수", "정기적 수행"],
-          ["원인에 의한 유지보수", "적응적 유지보수", "변화·갱신 적용"],
-        ],
-      },
-    ],
-    notes: ["절차도: 사용자(요청 단계) → 요청서 → 분석가(분석 단계) → 승인요청 → 유지보수 관리 위원회(승인 단계) → 지시 → 유지보수자(실행 단계) → 유지보수 결과 보고"],
-  },
-  {
-    title: "ISO/IEC/IEEE 14764",
-    course: "SE",
-    definition:
-      "ISO/IEC 12207 유지보수 프로세스를 6단계로 상세화한 S/W 유지보수의 표준프로세스",
-    defShort: "ISO/IEC 12207 유지보수 프로세스를 6단계로 상세화한 표준 프로세스",
-    lead:
-      "유지보수 프로세스의 표준, ISO/IEC/IEEE 14764",
-    features: ["12207 상세", "수정 요청", "순향적 대응"],
-    keywords: ["수정/적응/완벽/예방 유지보수", "기법(SW 이해, 재공학, 역공학, 재구조화)", "유지보수 프로세스 단계"],
-    tables: [
-      {
-        caption: "유지보수 프로세스",
-        headers: ["프로세스", "설명"],
-        rows: [
-          ["공정구현", "계획·절차 개발 활동·업무 정의\n형상관리 수행 문서화 프로세스"],
-          ["문제 및 수정분석", "유형·범위 분석 교정 개선 예방\n중요성 판단 성능·안전 영향"],
-          ["수정 구현", "수정 부분 결정 필요 범위 분석\n개발 프로세스 설계 구현 시험"],
-          ["유지보수 검토/승인", "무결성 검토 권한 조직 검토\n수정 완료 승인 만족 여부 확인"],
-          ["이전", "전환 계획 수립 계획 개발 실행\n통보·병행 운영 구 환경 데이터"],
-          ["SW 폐기", "SW 제품 폐기 소유자 요구 반영"],
-        ],
-      },
-      {
-        caption: "변경유형에 따른 S/W 유지보수 분류",
-        headers: ["구분", "분류", "설명"],
-        rows: [
-          ["반응적(Reactive)", "수정\n적응", "납품 후 발견 문제 시정 반응적 수정\n변화된 환경에서 SW 제품 계속 사용"],
-          ["순향적(Proactive)", "완벽\n예방", "납품 후 SW 성능이나 유지보수 개선\n잠재장애를 미리 검출하고 시정"],
-        ],
-      },
-      {
-        caption: "S/W 유지보수 기법",
-        headers: ["기법", "설명", "비고"],
-        rows: [
-          ["프로그램 이해", "코드분석 툴로\n소스 이해성 향상", "Code-Browser\n산출물 철저"],
-          ["재공학", "자동화 도구로\n평가·수정 수행", "리팩토링\nData Reengineering"],
-          ["역공학", "코드로 설계 분석\n명세서 작성", "소스코드 분석기\n모듈 추출기\n문서화 도구"],
-          ["재구조화", "훼손된 구조 복원\n유지보수비 절감", "클래스 변형\n설계 변형"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "오픈소스 SW 보안위협",
-    course: "SE",
-    definition:
-      "오픈소스: 소프트웨어의 핵심 구성요소인 소스 코드가 공개되어 정해진 사용권 범위 안에서 사용자가 자유롭게 사용하거나 변경 및 공유(배포)할 수 있는 공개형 소스코드",
-    defShort: "사용권 범위에서 자유롭게 사용·변경·공유 가능한 공개 소스코드",
-    lead:
-      "공개 코드 사용의 위험, 오픈소스 SW 보안위협",
-    features: ["코드 노출", "파악 부재", "패치 의존"],
-    keywords: ["자유로운 배포", "소스 코드 공개", "Zero day Attack", "Log4j", "거버넌스"],
-    tables: [
-      {
-        caption: "관리적 측면의 보안 위협과 관리방안",
-        headers: ["구분", "보안 위협", "설명"],
-        rows: [
-          ["사용", "오픈소스 SW 사용 현황 부재", "자유로운 배포, 배포처 파악 불가\n기업내 사용 현황 관리 부실"],
-          ["사용", "오픈소스 커뮤니티 소스코드 맹목적 사용", "Github 등 커뮤니티 맹목적 신뢰\n타이포스쿼팅 보안 위협"],
-          ["프로세스", "오픈소스 SW 취약점 점검 프로세스 부재", "직접 개발 SW 대비 점검 수준 저하\n패키지 형태 사용, 점검 예외 빈번"],
-          ["프로세스", "오픈소스 SW 취약점 패치 검토 및 조치 지연", "Side-Effect 검토 등 조치 지연\n조치주체 부재·모호성, 대응 부재"],
-        ],
-      },
-      {
-        caption: "기술적 측면의 보안 위협과 관리방안",
-        headers: ["구분", "보안 위협", "설명"],
-        rows: [
-          ["공격", "공개 SW로 Zero Day 공격 가능성 증가", "소스 공개로 Zero Day 공격 가능\n해커 커뮤니티 통한 공격 코드 확산"],
-          ["공격", "오픈소스 SW 내 악성코드 삽입 배포", "원격 제어(RCE) 악성코드 배포\n크립토재킹 코드로 가상화폐 채굴"],
-          ["조치", "오픈소스 SW 취약점 자체 조치 불가", "배포사 취약점 패치 의존\nWork Around(임시 조치) 대응"],
-          ["조치", "오픈소스 SW 보안 취약점 패치의 호환성 문제", "패치 시 호환성 문제로 조치 불가\n호환성 해결까지 조치 지연"],
-        ],
-      },
-      {
-        caption: "보안 관리 방안",
-        headers: ["구분", "보안 관리 방안", "설명"],
-        rows: [
-          ["사용", "오픈소스 SW 사용 현황 파악 Tool 도입", "오픈소스 SW 전용 Scan Tool 활용"],
-          ["사용", "오픈소스 커뮤니티 소스코드 Hash값 확인", "공신력 있는 제작자 배포 소스 사용\nHash값으로 악성코드 탐지 확인"],
-          ["프로세스", "오픈소스 SW 보안 점검 프로세스 수립", "보안 점검 가이드 전사 배포\n긴급 패치 프로세스 간소화"],
-          ["프로세스", "오픈소스 SW 보안 관리 전문가 점검 도입", "전문 업체 통한 유지보수·점검"],
-          ["개발", "오픈소스 SW 적용 전 Sandbox 테스트 적용", "Sandbox로 악성코드 동작 확인\nHash값보다 직관적 악성코드 탐지"],
-          ["개발", "오픈소스 SW 시큐어코딩 적용", "2차적 저작물 수정 시 시큐어 코딩"],
-          ["장비", "오픈소스 SW 보안 업데이트 자동화 도입", "SW별 업데이트 방법 확인·자동화\nScript·Crontab·RPA 활용"],
-          ["장비", "지능형 IPS, FW 도입", "CWE·CVE 시그니처 기반 탐지·차단\n알려진 취약점 포함 소스코드 차단"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "오픈소스 거버넌스",
-    course: "SE",
-    definition:
-      "OSS를 안전하게 사용·적용 및 배포하기 위해 필요한 사항을 다양한 관점에서 활용할 수 있도록 소프트웨어 라이프 사이클 단계별로 제시한 절차 및 체계",
-    defShort: "OSS를 안전하게 사용·적용·배포 위해 단계별로 제시한 절차·체계",
-    lead: "OSS 생명주기 통제 체계, 오픈소스 거버넌스",
-    features: ["생애주기별", "안전 활용", "상시 관리"],
-    keywords: ["거버넌스", "프레임워크", "정책수립", "획득", "적용", "운영 및 유지", "관리 및 개선"],
-    tables: [
-      {
-        caption: "프레임워크 [정획적운관]",
-        headers: ["FW", "활동요소", "설명"],
-        rows: [
-          ["정책수립", "컨설팅", "적용 전략 자문"],
-          ["정책수립", "정책수립", "규정·지침 수립"],
-          ["정책수립", "조직구성", "인력 역할 구성"],
-          ["획득", "요구분석", "고객 요구 분석"],
-          ["획득", "조사", "적합 후보 탐색"],
-          ["획득", "분석", "속성 구분 정리"],
-          ["획득", "평가", "가중치 부여 채점"],
-          ["적용", "계약", "책임·의무 조건"],
-          ["적용", "설계", "기능 사양 구성"],
-          ["적용", "개발", "변경 및 결합"],
-          ["적용", "패키징", "단일 프로그램화"],
-          ["적용", "시험", "품질 성능 확인"],
-          ["적용", "배포", "매체·웹·장비"],
-          ["운영 및 유지", "설치", "운영 장비 탑재"],
-          ["운영 및 유지", "운영", "지속 실행 가동"],
-          ["운영 및 유지", "유지보수", "최상 상태 유지"],
-          ["운영 및 유지", "기술지원", "문제 해결 지원"],
-          ["운영 및 유지", "커뮤니티", "소스코드 기여"],
-          ["관리 및 개선", "컴플라이언스", "라이선스 준수"],
-          ["관리 및 개선", "교육", "지식 전달 강화"],
-          ["관리 및 개선", "모니터링", "적용 후 피드백"],
-        ],
-      },
-    ],
-    notes: ["프레임워크 흐름: 정책수립 → 획득 → 적용 → 운영 및 유지, 그 위에 관리 및 개선(컴플라이언스·교육·모니터링)이 상시 순환"],
-  },
-  {
-    title: "CMMI 3.0",
-    course: "SE",
-    definition:
-      "조직의 프로세스 개선을 통한 소프트웨어 개발 과정에서의 비용, 품질, 일정 등 모든 것을 충족시키며 특정 성숙도 레벨로 진입하기 위해 수행해야 할 활동들을 제시한 모델",
-    defShort: "프로세스 개선으로 특정 성숙도 레벨 진입하기 위한 활동 제시한 모델",
-    lead:
-      "조직 프로세스 성숙도 모델, CMMI 3.0",
-    features: ["단계적 성숙", "도메인 확장", "성과 중심"],
-    keywords: ["Category", "Capability", "Practices"],
-    tables: [
-      {
-        caption: "구성 요소",
-        headers: ["구성 요소", "세부 항목", "설명"],
-        nameCol: 1,
-        rows: [
-          ["Category Area", "Doing, Managing\nEnabling, Improving", "성과 개선 관행 정의 관련 영역 그룹"],
-          ["Capability Area", "Category 하위 Practices 그룹 영역(12개)", "의도·가치 달성 유사성 묶음\n관련 Practice Area들의 묶음\nCapability Area 단위 개선 활동"],
-          ["Practices", "공통 Practices 영역(17개)", "목적·가치 달성 주요 활동 집합"],
-          ["Practices", "도메인별 특정 Practices 영역(14개)", "도메인 목적 달성 주요 활동 집합"],
-          ["Domain", "Development(DEV), Services(SVC)\nSuppliers(SPM), Security(SEC)\nSafety(SAF), People(PPL)\nData, Virtual(VRT)", "개선하고자 하는 특정 영역\n도메인별 Practices 영역 포함\n기존에서 총 8개로 확장"],
-        ],
-      },
-      {
-        caption: "성숙도 레벨",
-        headers: ["레벨", "명칭"],
-        rows: [
-          ["1", "Initial (초기)"],
-          ["2", "Managed (관리)"],
-          ["3", "Defined (정의)"],
-          ["4", "Quantitively Managed\n(정량적 관리)"],
-          ["5", "Optimizing (최적화)"],
-        ],
-      },
-    ],
-    notes: ["구조도: Model → Category → Capability Area → Practices Group(Level 1~n) → Practices(1.1~n.x) → Informative Material(Context Specific)"],
-  },
-  {
-    title: "GS 인증",
-    course: "SE",
-    definition:
-      "국산 SW 제품의 품질 향상을 통한 국내 SW 산업 활성화 정책으로 SW 시험 인증 센터가 국제표준을 기반으로 개발한 한국형 SW 품질 인증제도",
-    defShort: "국산 SW 제품의 품질 향상 위해 국제표준 기반 한국형 SW 품질 인증제도",
-    lead: "국산 SW 품질 국가 시험, GS 인증",
-    features: ["국산 SW 대상", "국제표준", "한국형 인증"],
-    keywords: ["기능성", "신뢰성", "사용성", "성능효율성", "유지보수성", "이식성", "보안성", "호환성", "일반적 요구사항", "SW산업진흥법"],
-    tables: [
-      {
-        caption: "GS 인증 SW 품질 평가 모델 [23측정 51요구 41평가]",
-        headers: ["표준", "설명"],
-        rows: [
-          ["ISO/IEC 25023", "SW 제품 품질 측정 국제표준"],
-          ["ISO/IEC 25051", "SW 품질 요구사항·시험 국제표준"],
-          ["ISO/IEC 25041", "SW 제품 품질 평가 국제표준"],
-        ],
-      },
-      {
-        caption: "품질 특성(평가 항목)",
-        headers: ["주특성", "부특성"],
-        rows: [
-          ["기능적합성", "기능완전성\n기능정확성\n기능적절성"],
-          ["성능효율성", "시간반응성\n자원효율성\n용량성"],
-          ["호환성", "공존성\n상호운용성"],
-          ["사용성", "적절인지성, 학습성\n운영성, 사용자오류방지성\n사용자인터페이스심미성\n접근성"],
-          ["신뢰성", "성숙성\n가용성\n결함허용성\n복구성"],
-          ["보안성", "기밀성, 무결성\n부인방지성\n책임성\n인증성"],
-          ["유지보수성", "분석성\n변경성\n시험성"],
-          ["이식성", "적응성\n설치성\n대체성"],
-          ["일반적 요구사항", "제품설명서 요구사항\n사용자취급설명서 요구사항\n품질특성별 정보제공"],
-        ],
-      },
-      {
-        caption: "GS시험·인증의 절차",
-        headers: ["절차"],
-        rows: [
-          ["신청 및 접수 → 상담 → 계약 → 품질 시험 및 평가 → 인증 심의 → 적합/부적합"],
-        ],
-      },
-    ],
-    notes: ["시험 대상: 소프트웨어 전 분야 — 디지털 콘텐츠, 운영체제, 임베디드, 패키지, 웹관리 도구, 모바일, 컴포넌트, 게임, GIS, 보안용 SW 등"],
-  },
-  {
-    title: "SP 인증",
-    course: "SE",
-    definition:
-      "소프트웨어 기업 및 개발 조직의 프로세스 품질 역량을 심사하여 등급을 부여하는 제도",
-    defShort: "SW 기업·개발 조직의 프로세스 품질 역량을 심사해 등급 부여하는 제도",
-    lead: "조직 프로세스 역량의 심사, SP 인증",
-    features: ["품질 심사", "등급제 인증", "SW진흥법"],
-    keywords: ["프로세스", "품질", "소프트웨어 진흥법"],
-    tables: [
-      {
-        caption: "소프트웨어 프로세스 품질인증 기준",
-        headers: ["영역", "평가 항목", "설명"],
-        rows: [
-          ["프로젝트 관리", "프로젝트 계획", "목표 일정 자원"],
-          ["프로젝트 관리", "프로젝트 통제", "진행 모니터링"],
-          ["프로젝트 관리", "협력업체 관리", "의사소통 조율"],
-          ["개발 영역", "고객 요구사항\n관리", "수집·분석 체계\n요구사항 관리"],
-          ["개발 영역", "분석, 설계\n구현", "요구 기반\n시스템 구현"],
-          ["개발 영역", "테스트", "기능 성능 검증"],
-          ["지원 영역", "품질보증", "프로세스 보증"],
-          ["지원 영역", "형상관리", "변경·버전 관리"],
-          ["지원 영역", "측정 및 분석", "정량적 측정"],
-          ["조직관리 영역", "조직 프로세스\n관리", "프로세스 정의\n운영·관리 체계"],
-          ["조직관리 영역", "구성원 교육", "역량 강화 교육"],
-          ["프로세스 개선영역", "조직성과 관리", "성과 관리·평가"],
-          ["프로세스 개선영역", "문제 해결", "원인 분석 실행"],
-          ["프로세스 개선영역", "프로세스\n개선관리", "지속적 개선\n최적화 수행"],
-        ],
-      },
-      {
-        caption: "소프트웨어 프로세스 품질인증 등급",
-        headers: ["등급", "설명", "심사 영역"],
-        rows: [
-          ["1", "품질·비용·납기\n안정 충족 못함\n역량 개선 필요", "없음"],
-          ["2", "개별 PJT 차원\n수립·통제\n성공적 수행", "프로젝트 관리\n개발, 지원"],
-          ["3", "조직 차원 정의\n문제 해결\n일관 품질 개선", "프로세스 관리\n조직관리\n프로젝트 관리\n개발, 지원"],
-        ],
-      },
-    ],
-    notes: ["법적 근거: 소프트웨어 진흥법 제21조, 같은 법 시행령 제18조부터 제22조 및 같은 법 시행규칙 제8조부터 제11조", "체계: 정책기관(과학기술정보통신부 — 제도 정책 수립, 기준/지침 고시) → 인증기관(NIPA — 인증심사, 인증서 발급, 심사원 관리, 심의회 운영, 사후관리) ← 인증신청인"],
-  },
-  {
-    title: "ISO/IEC 25010:2023",
-    course: "SE",
-    definition:
-      "소프트웨어 품질의 특성을 정의하고, 품질 평가의 Metrics를 정의한 국제표준",
-    defShort: "SW 품질의 특성을 정의하고, 품질 평가의 Metrics를 정의한 국제표준",
-    lead: "SW 품질 특성 국제 표준, ISO/IEC 25010",
-    features: ["모델 분리", "안전성 신설", "사용성 개편"],
-    keywords: ["기능적합성", "신뢰성", "상호작용 능력", "성능 효율성", "유지 보수성", "유연성", "보안성", "호환성", "안전성"],
-    tables: [
-      {
-        caption: "ISO/IEC 25010:2023의 품질 특성",
-        headers: ["주 특성", "부 특성"],
-        rows: [
-          ["기능 적합성", "기능완전성\n기능정확성\n기능적절성"],
-          ["신뢰성", "성숙성, 가용성\n결함허용성, 복구성"],
-          ["상호작용 능력", "적절 인지성, 학습성, 운용성\n사용자 오류 방지성\n사용자 참여도, 포괄성\n사용자 지원, 자기 설명성"],
-          ["성능 효율성", "시간 반응성, 자원 효율성, 용량성"],
-          ["유지 보수성", "모듈성, 재사용성, 분석성\n수정가능성, 시험가능성"],
-          ["유연성", "적응성, 확장성, 설치성, 대체성"],
-          ["보안성", "기밀성, 무결성, 부인방지\n책임성, 인증성, 내성(저항성)"],
-          ["호환성", "공존성, 상호운용성"],
-          ["안전성", "운영 제약, 위험 식별, 실패 안전\n위험 경고, 안전한 통합"],
-        ],
-      },
-      {
-        caption: "주요 개정 사항",
-        headers: ["구분", "설명"],
-        rows: [
-          ["품질 모델 분리", "제품 품질모델 25010 정의\n사용 품질모델 25019 정의"],
-          ["품질 모델 대상 변경", "ICT 제품 포함 대상 범위 확대\n제품 품질모델 모델 명칭 변경"],
-          ["주특성 추가", "안전성 신설 주특성 신규 추가\n운영제약·경고 부특성 구성 요소"],
-          ["주특성 변경", "상호작용 능력 사용성 명칭 변경\n유연성 이식성 명칭 변경"],
-          ["부특성 변경", "접근성 분할 기존 부특성 분리\n포함성·지원성 포용·지원 분리"],
-          ["부특성 추가", "보안성 저항성 공격 저항 추가\n유연성 확장성 규모 확장 추가"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "상용소프트웨어 품질성능 평가 시험",
-    course: "SE",
-    definition:
-      "동종의 경쟁 제품간 기능 및 성능 비교 평가를 통해 사용자의 요구사항을 만족하고 품질 및 성능이 우수한 제품을 가려내는 시험",
-    defShort: "기능 및 성능 비교 평가로 사용자 요구사항 만족 제품 가려내는 시험",
-    lead: "동종 경쟁 제품 BMT, 상용SW 품질성능 평가 시험",
-    features: ["상대 비교", "법정 의무", "조달 반영"],
-    keywords: ["BMT", "소프트웨어 진흥법 제55조", "직접구매"],
-    tables: [
-      {
-        caption: "평가대상",
-        headers: ["구분", "요건", "설명"],
-        rows: [
-          ["평가대상", "직접구매 1억↑\n34종 품목", "경쟁입찰 대상\n별표3 해당 SW"],
-          ["평가대상", "지침 제8조 3항\n2억원 이상", "계약 관리감독\n별표3 SW 한정"],
-          ["평가대상", "쇼핑몰 등록 SW\nGS CC 인증", "5천 미만 포함\n인증 획득 제품"],
-          ["평가대상", "NET NEP\n총액 5천 초과", "신제품 신기술\n합산 금액 기준"],
-          ["평가대상", "대상 외 제품\n국가기관 판단", "필요시 시험 수행\n기관 자율 결정"],
-          ["제외대상", "비용 대비 효과\n기관장 인정", "시험비 과다 증설\n시험기관과 협의"],
-          ["제외대상", "동일 SW 제품\n종전 시험 결과", "기존 실시 이력\n활용 우선 검토"],
-          ["제외대상", "정보보호제품\n성능평가 획득", "산업법 제17조\n시험 결과 대체"],
-        ],
-      },
-      {
-        caption: "절차",
-        headers: ["절차", "설명"],
-        rows: [
-          ["1. 평가시험 대상 검토", "직접구매 대상 검토 요청\n검토 결과 송부(조달청)\n평가시험 의무화 대상 검토\n평가시험 미실시"],
-          ["2. 사전 협의", "사전협의 요청-평가시험 제외\n제외 사유 검토(시험기관)\n사전협의 요청-평가시험 실시\n사전협의 요청-종전 결과 활용"],
-          ["3. 평가시험 설계", "요구사항 및 운영 시스템 분석\n평가항목 개발·배점 수립\n평가시험 환경 구성\n실시 계획 수립·환경 구축"],
-          ["4. 조달 발주", "제안요청서 평가항목·배점 반영\n사전규격 공개(조달청)\n평가시험 설명회 개최\n입찰공고 게재(조달청)"],
-          ["5. 평가시험 의뢰", "참여 의향서 제출(SW공급자)\n평가시험 실시 의뢰(의뢰공문)\n의뢰 접수 및 실시 준비\n평가시험 대상 제품 제출"],
-          ["6. 평가시험 실시", "평가시험 실시\n결과서 작성 및 검토\n결과서 교부(국가기관등)\n평가시험 실시 정보 공개"],
-          ["7. 평가시험 결과 반영", "결과서 접수 및 점수 환산\n점수 통보(국가기관등→조달청)\n기술성평가 반영\n우선협상대상자 선정"],
-        ],
-      },
-    ],
-    notes: ["법적 근거: 소프트웨어 진흥법 제55조, 소프트웨어 품질성능 평가시험 운영에 관한 지침(제7조)"],
-  },
-  {
-    title: "McCabe 회전 복잡도",
-    course: "SE",
-    definition:
-      "제어 흐름 그래프를 통해 회전(사이크로매틱)수를 구하여 SW 복잡도를 계산하는 방법",
-    defShort: "제어 흐름 그래프 사이클로매틱 회전수로 SW 복잡도 계산하는 방법",
-    lead: "제어 흐름 그래프의 회전수, McCabe 회전 복잡도",
-    features: ["경로 정량화", "테스트 기준", "규모 미반영"],
-    keywords: ["복잡도 = (edge − node + 2) = (폐구간 + 1) = (의사결정 수 + 조건 수 + 1)"],
-    tables: [
-      {
-        caption: "복잡도 계산 공식",
-        headers: ["공식", "설명"],
-        rows: [
-          ["복잡도 = e − n + 2", "e: 간선의 수, n: node의 수"],
-          ["복잡도 = 폐구간 + 1", "폐쇄영역(enclosed areas) + 1"],
-          ["복잡도 = 의사결정 수 + 조건 수 + 1", "의사결정 수(각각이 하나)\nif-then-else, do while, case\n조건 수: and, or, not 등"],
-        ],
-      },
-      {
-        caption: "복잡도 분석",
-        headers: ["복잡도", "분석 내용"],
-        rows: [
-          ["5 이하", "간단한 프로그램"],
-          ["5~10", "구조적이며 안정된 프로그램"],
-          ["20 이상", "문제 자체가 매우 복잡\n구조가 필요 이상으로 복잡"],
-        ],
-      },
-    ],
-    notes: ["예시: V(G) = 3-3+2 = 2, V(G) = 9-8+2 = 3, V(G) = 20-13+2 = 9", "예제 코드: While + if + case 0 + case 1 = 4+1 = 5 (switch·default는 카운팅 X) / 오른쪽의 폐쇄구간 + 1 = 4+1 = 5"],
-  },
-  {
-    title: "FTA (Fault Tree Analysis)",
-    course: "SE",
-    definition:
-      "위험의 원인을 트리 다이어그램을 통해서 찾아 나가는 연역적이고 정성/정량적으로 분석하는 기법",
-    defShort: "위험 원인 트리 다이어그램으로 찾는 연역적, 정성/정량 분석 기법",
-    lead:
-      "원인 추적의 연역적 분석, FTA",
-    features: ["하향 분석", "논리 게이트", "정성·정량"],
-    keywords: ["Top-down", "연역적 기법", "트리 다이어그램"],
-    tables: [
-      {
-        caption: "프로세스",
-        headers: ["단계", "프로세스", "설명"],
-        rows: [
-          ["Step 1", "Top 이벤트 설정", "위험도 고려, 해석할 Top 이벤트"],
-          ["Step 2", "특성 파악", "시스템 공정·작업 파악\n위험 관련 상세 조사"],
-          ["Step 3", "FT 작성", "Fault Tree 다이어그램 작성"],
-          ["Step 4", "FT구조분석(정성적)", "Top이벤트 영향 기본 사상 파악"],
-          ["Step 5", "FT 정량화", "고장율·에러 정리, 발생확률 조사"],
-          ["Step 6", "해석 결과의 평가", "위험 수준 파악 및 대책 수립"],
-        ],
-      },
-      {
-        caption: "표기법",
-        headers: ["FTA 기호", "구분", "설명"],
-        rows: [
-          ["사상 기호", "사상(Event)", "개개의 사상, Event\n고장, 불량, 원치 않는 이벤트"],
-          ["사상 기호", "기본사상(Basic Event)", "최하위 사상, 더 이상 전개 불가"],
-          ["사상 기호", "전입(In)", "동일 FT 내 타 부분에서 전입"],
-          ["사상 기호", "전출(Out)", "동일 FT 내 타 부분으로 전출"],
-          ["사상 기호", "부전개 사상", "논리 게이트 적용 제약/조건"],
-          ["게이트 기호", "AND 게이트", "A, B 동시 발생 시 상위사상 발생"],
-          ["게이트 기호", "OR 게이트", "A, B 중 하나만 발생해도 상위사상"],
-          ["게이트 기호", "Priority AND 게이트", "A가 B보다 먼저 발생 시 상위사상"],
-          ["게이트 기호", "Exclusive OR 게이트", "A, B 중 하나만 발생해야 상위사상"],
-        ],
-      },
-    ],
-    notes: ["개념도: TOP 사건 설정 → 정상사상과 1차 원인과의 관계를 논리 게이트(Gate)로 연결 → 정상사상에 대한 1차 원인을 분석 → 더 이상 분할할 수 없는 기본사상(Basic Event)까지 반복 분석"],
-  },
-  {
-    title: "FMEA (Failure Mode and Effects Analysis)",
-    course: "SE",
-    definition:
-      "시스템의 고장 요인을 도출하고 영향도에 따른 우선순위 등급을 결정하여 등급에 맞는 사전 대응방법 수행하는 귀납적 분석기법",
-    defShort: "고장 요인 도출, 영향도에 따른 우선순위 등급 결정 귀납적 분석기법",
-    lead:
-      "영향도 기반 귀납적 분석, FMEA",
-    features: ["Bottom-up", "RPN 평가", "사전 대응"],
-    keywords: ["Bottom-up", "RPN = 심각도 x 발생도 x 검출도"],
-    tables: [
-      {
-        caption: "고장영향 평가 방법 — RPN 3축",
-        headers: ["항목", "설명"],
-        rows: [
-          ["심각도", "S 척도 1~10 10일수록 심각\n설계적 문제 영향 심각 정도"],
-          ["발생도", "O 척도 1~10 10일수록 빈발\n공정기술 문제 발생 빈도 수준"],
-          ["검출도", "D 척도 1~10 높을수록 미검출\n관리력 문제 검출 가능성 수준"],
-        ],
-      },
-      {
-        caption: "FMEA 유형",
-        headers: ["구분/유형", "설계 FMEA", "공정 FMEA", "시스템 FMEA"],
-        rows: [
-          ["대상", "제품(시스템)", "공정(작업)", "설비(생산라인)"],
-          ["목적", "설계·제품 결함\n분석·대책", "제조·공정 결함\n분석·대책", "설비 설계·기능\n결함 분석 대책"],
-          ["시기", "구상~최종설계", "공정설계~생산", "설비설계~생산"],
-          ["대상 요소", "제품 구성요소", "공정·작업·재료", "설비 구성요소"],
-        ],
-      },
-      {
-        caption: "FTA, FMEA, HAZOP 비교",
-        headers: ["항목", "FTA", "FMEA", "HAZOP"],
-        rows: [
-          ["목적", "원인 분석", "영향 분석", "위험 식별"],
-          ["분석 특징", "정성/정량적", "정성적", "정성적"],
-          ["분석 기법", "연역적\nTop-down", "귀납적\nBottom-up", "귀납적\nBottom-up"],
-          ["적용 시점", "설계 단계", "요구분석·검증", "상세 설계\n설계 완료"],
-        ],
-      },
-    ],
-    notes: ["평가 방법: 심각도(X좌표 — 중요도)·발생도(Y좌표)·검출도(Z좌표)의 3차원에서 값이 클수록 높은 위험"],
-  },
-  {
-    title: "HAZOP (Hazard and Operability Study)",
-    course: "SE",
-    definition:
-      "대상에 관련된 전문가들이 모여 공정변수와 가이드워드의 조합을 통해 이탈의 원인 및 영향을 분석하는 안전성 분석 기법",
-    defShort: "전문가 공정변수·가이드워드 조합으로 이탈 원인 및 영향 분석 기법",
-    lead:
-      "설계 의도 이탈의 식별, HAZOP",
-    features: ["가이드워드", "전문가 경험", "이탈 분석"],
-    keywords: ["경험기반", "이탈 = 공정변수 * 가이드워드", "공정(특정변수, 일반변수)", "가이드워드(7가지) : 없음/증가/감소/반대/부가/부분/기타"],
-    tables: [
-      {
-        caption: "수행 절차",
-        headers: ["절차", "설명"],
-        rows: [
-          ["목적, 범위 설정", "분석 목적,\n검토범위 설정"],
-          ["분석 팀 구성", "관련 전문가 팀\n구성(리더,\n팀원)"],
-          ["예비 조사", "자료 수집, 분석\n절차 수립"],
-          ["토론 및 검토", "Study Node, 공정변수,\n가이드워드 조합\n브레인스토밍"],
-          ["분석 결과 기록", "이탈 원인, 결과\n개선 권고사항\n기록"],
-        ],
-      },
-      {
-        caption: "평가 방식",
-        headers: ["구분", "설명"],
-        rows: [
-          ["평가 방식", "이탈 = 공정변수 ×\n가이드워드"],
-          ["이탈", "설계\n의도(정상운전조건)에서\n벗어난 상태"],
-          ["공정변수 — 특정변수", "가이드워드와\n조합되어 이탈\n발생하는 변수"],
-          ["공정변수 — 일반변수", "단독으로 이탈\n발생하는 변수"],
-          ["가이드워드 — 없음(NO OR NOT)", "설계의도에\n완전히 반하여\n변수의 양이 없는\n상태"],
-          ["가이드워드 — 증가", "변수가 양적으로\n증가되는 상태"],
-          ["가이드워드 — 감소", "변수가 양적으로\n감소되는 상태"],
-          ["가이드워드 — 반대", "설계 의도와\n정반대로\n나타나는 상태"],
-          ["가이드워드 — 부가", "설계의도 외에\n다른 변수가\n부가되는 상태\n(오염)"],
-          ["가이드워드 — 부분", "설계의도대로\n완전히\n이루어지지 않는\n상태"],
-          ["가이드워드 — 기타", "설계의도대로\n설치되지 않거나\n운전 유지되지\n않는 상태"],
-        ],
-      },
-    ],
-    notes: ["적용 시기: 요구사항 분석단계에서 HAZOP을 통해 안전성 관련 중요인자 및 안전성 요구사항 도출 → 설계단계에서 FTA를 통해 안전성을 강화 → FMEA의 분석결과를 테스트 단계의 안전성 분석에 활용"],
-  },
-  {
-    title: "ETA (Event Tree Analysis)",
-    course: "SE",
-    definition:
-      "초기 이벤트를 비롯한 모든 이벤트들의 발생 가능성을 확률로 계산하여 최종 시나리오의 발생 확률을 도출하는 정량적 위험 분석기법",
-    defShort: "이벤트 발생 가능성 확률 계산해 최종 시나리오 발생 확률 도출 기법",
-    lead:
-      "시나리오 확률의 정량 분석, ETA",
-    features: ["상향식 분석", "성공/실패", "확률 산출"],
-    keywords: ["[범위초 트결경]", "이벤트 기반", "Event Tree", "Tree 분석"],
-    tables: [
-      {
-        caption: "분석 절차 [범위초 트결경]",
-        headers: ["절차", "설명"],
-        rows: [
-          ["1) 분석 대상 및 범위 정의", "명세서·설계서 대상·범위 정의"],
-          ["2) 시스템 위험 또는 사고 정의", "위험·사고 정의 시스템 수준 정의"],
-          ["3) 초기 이벤트 정의", "초기 이벤트 정의 트리 시작점 배치"],
-          ["4) Event Tree 전개", "중간 이벤트 도출 초기→최종 결과\n성공/실패 분기 트리 전개 완성"],
-          ["5) 결과 리스크 파악", "발생 가능성 계산 시나리오별 평가"],
-          ["6) 위험 경감 대책 수립", "안전조치 도출 예방·개선 계획"],
-        ],
-      },
-      {
-        caption: "위험관계 분석 기법 관계",
-        headers: ["기법", "추론 방향", "설명"],
-        rows: [
-          ["FMEA", "귀납적 추론", "원인→가능 영향"],
-          ["FTA", "연역적 추론", "영향→가능 원인"],
-          ["HAZOP·STPA", "탐색적 추론", "사건↔원인 영향"],
-        ],
-      },
-    ],
-    notes: ["개념도: 초기 이벤트 → 중간 이벤트 1·2·3의 성공/실패 분기 → 결과 1~5 (사고 시나리오)", "ETA는 원인(초기 이벤트)이 어떻게 파급·전이되어 결과(최종 사고 또는 시스템 위험)를 유발하는지 분석하는 방법이기 때문에 보편적으로 상향식 기법으로 분류되지만 최종 사고 또는 시스템 위험을 먼저 정의하기 때문에 하향식 기법으로 분류되기도 함", "ETA 기법을 이용하면 초기이벤트가 어떤 경로에 의해 사고로 이어질 수 있는지 그 사고에 발생 경위를 파악하기 용이"],
-  },
-  {
-    title: "STPA (System-Theoretic Process Analysis)",
-    course: "SE",
-    definition:
-      "STAMP를 기반으로 하는 위험분석 기법으로, 시스템의 각 요소간의 상호작용이 시스템의 안전성에 위협가능한지 분석하는 기법",
-    defShort: "시스템 요소간 상호작용이 시스템 안전성에 위협가능한지 분석 기법",
-    lead: "상호작용 기반 안전 분석, STPA",
-    features: ["STAMP 기반", "상호작용", "제어 관점"],
-    keywords: ["STAMP", "요소간 상호작용", "사고 및 위험정의", "Control Structure 도식화", "Unsafe Control Action 도출", "원인 시나리오 도출"],
-    tables: [
-      {
-        caption: "위험 분석 절차 (4단계)",
-        headers: ["위험분석 절차", "설명"],
-        rows: [
-          ["1단계: 사고 및 위험 정의", "사고·시스템 수준 위험 정의\n시스템 수준 안전 제약사항 도출\n사고 도출→위험 정의→제약 변환"],
-          ["2단계: Control Structure 도식화", "제어 관계 개체(컴포넌트) 식별\n제어명령·피드백·프로세스 모델"],
-          ["3단계: Unsafe Control Actions 도출", "위험 유발 UCA 4가지 유형 도출\nCA 부재·부적절한 CA 제공\nCA 제공 시간·순서·지속시간\nUCA: 위험 유발 불안전 CA 형태"],
-          ["4단계: 원인 시나리오(Causal Scenario) 도출", "UCA 발생 원인 도출\nController의 UCA 제공 원인\nCA 부적절 수행·미수행 원인\n원인 토대로 시나리오 작성"],
-        ],
-      },
-      {
-        caption: "UCA 4가지 유형",
-        headers: ["유형"],
-        rows: [
-          ["① CA is not provided (Control Action의 부재)"],
-          ["② UCA is provided (부적절한 Control Action 제공)"],
-          ["③ CA is too early, too late, out of sequence (제공 시간·순서 문제)"],
-          ["④ CA is stopped too soon, applied too long (지속시간 문제)"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "SW 규모산정",
-    course: "SE",
-    definition:
-      "소프트웨어 규모파악(양적 크기, 질적 수준)통한 소요 공수와 투입 자원 및 소요기간 파악하여 실행 가능한 계획 수립하기 위한 비용 산정하는 과정",
-    defShort: "공수·자원·기간 파악해 실행 가능한 계획 수립 위한 비용 산정 과정",
-    lead:
-      "공수와 기간 산정의 기초, SW 규모산정",
-    features: ["양적·질적", "계획 근거", "수치화 산정"],
-    keywords: ["하향식 산정", "상향식 산정", "수학적 산정"],
-    tables: [
-      {
-        caption: "규모 산정 방법",
-        headers: ["산정방법", "기법", "내용"],
-        rows: [
-          ["하향식(Top Down)", "전문가 감정\n델파이 방식", "경험적 단언\n개발자 합의"],
-          ["상향식(Bottom Up)", "LOC 기법\nMan/Month", "업무분류구조\n요소별 독립 산정"],
-          ["수학적", "기능점수(FP)\nCOCOMO", "비용산정 자동화\n수치화로 산정"],
-        ],
-      },
-      {
-        caption: "규모 산정 시 고려사항",
-        headers: ["구분", "항목", "내용"],
-        rows: [
-          ["프로젝트 요소", "문제의 복잡도", "난이도·유형·언어"],
-          ["프로젝트 요소", "시스템 크기", "트랜잭션·연계"],
-          ["프로젝트 요소", "시스템 신뢰도", "정확·견고·완전·일관"],
-          ["자원 요소", "인적 자원", "관리자·개발자·지원체계"],
-          ["자원 요소", "하드웨어 자원", "개발·운영 장비"],
-          ["자원 요소", "소프트웨어 자원", "개발지원 도구\n테스트 툴"],
-          ["생산성 요소", "개발자 능력", "경험·전문지식"],
-          ["생산성 요소", "고객 능력", "업무 요건 지식"],
-          ["생산성 요소", "개발 방법론", "최신기법·관리"],
-        ],
-      },
-      {
-        caption: "규모산정 방법 비교",
-        headers: ["비교", "하향식(Top Down)", "상향식(Bottom UP)"],
-        rows: [
-          ["특징", "전체 시스템 차원\n유사 과거 비용", "모듈별 우선 산정\n합산 전체비용"],
-          ["장점", "간편·신뢰감", "객관성 부여"],
-          ["단점", "비과학적 낙관적", "세부 난이도 배제"],
-          ["산정방식", "그룹 산정\n전문가 감정", "LOC 기능점수\nCOCOMO"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "Function Point",
-    course: "SE",
-    definition:
-      "정보처리 규모와 기능의 복잡도 요인에 의거한 SW 규모 산정 방식",
-    defShort: "정보처리 규모와 기능 복잡도 요인에 의거해 SW 규모 산정하는 방식",
-    lead:
-      "기능 단위의 규모 측정, Function Point",
-    features: ["사용자 관점", "언어 독립", "ISO 표준"],
-    keywords: ["트랜잭션 유형(EI, EO, EQ)", "데이터 기능 유형(ILF, EIF)", "ISO 14143-1"],
-    tables: [
-      {
-        caption: "산정 절차 — FP 결과값 = 미조정 기능점수 × 조정 인자 계산",
-        headers: ["절차"],
-        rows: [
-          ["1. 측정 유형 결정 → 2. 측정 범위와 어플리케이션 경계 식별 → 3. 데이터 기능 측정 · 4. 트랜잭션 기능 측정 → 5. 미조정 기능점수 결정 → 6. 조정인자 결정 → 7. 조정 기능점수 결정"],
-        ],
-      },
-      {
-        caption: "상세 내역",
-        headers: ["구분", "항목", "설명"],
-        rows: [
-          ["측정 유형 결정", "개발 프로젝트", "SI 프로젝트 종료 후 인도되는 SW"],
-          ["측정 유형 결정", "개선 프로젝트", "SW 추가·수정·삭제 부분 비용 산정"],
-          ["측정 유형 결정", "어플리케이션", "사용 중인 SW 현장 기능 측정\n설치된 기능 점수 측정"],
-          ["측정범위와 어플리케이션 경계 식별", "범위결정", "개별 변경할 SW 전체 범위 결정"],
-          ["측정범위와 어플리케이션 경계 식별", "경계식별", "각 어플리케이션의 경계 분류"],
-          ["데이터 기능 유형 식별", "내부 논리 파일(ILF)", "논리적으로 연관된 데이터 그룹\n경계 내 유지 Data·제어정보\n예: 내부 DB"],
-          ["데이터 기능 유형 식별", "외부 연계 파일(EIF)", "측정 어플리케이션 외부에서 참조\n경계 밖 유지 Data·제어정보\n예: 외부 DB"],
-          ["트랜잭션 기능 유형 식별", "외부입력(EI)", "경계 안 데이터·제어정보 처리"],
-          ["트랜잭션 기능 유형 식별", "외부출력(EO)", "경계 밖으로 조회\n파생 데이터 생성 처리 로직 포함\n계산 처리된 후 외부로 나감"],
-          ["트랜잭션 기능 유형 식별", "외부조회(EQ)", "파생 데이터 생성 처리 로직 미포함\n계산 처리 없이 단순 데이터 출력"],
-        ],
-      },
-      {
-        caption: "조정인자 14개 (난이도에 따라 0~5점의 가중치 부여)",
-        headers: ["조정인자"],
-        rows: [
-          ["1. 데이터 통신(Data Communications)"],
-          ["2. 분산 데이터 처리(Distributed Data Processing)"],
-          ["3. 성능(Performance)"],
-          ["4. 사용환경(Heavily Used Configuration)"],
-          ["5. 처리율(Transaction Rate)"],
-          ["6. 온라인 데이터 입력(Online Data Entry)"],
-          ["7. 최종사용자 편리성(End-Used Efficiency)"],
-          ["8. 온라인 갱신(Online Update)"],
-          ["9. 처리복잡성(Complex Processing)"],
-          ["10. 재사용성(Reusability)"],
-          ["11. 설치용이성(Installation Ease)"],
-          ["12. 운영용이성(Operational Ease)"],
-          ["13. 복수 사이트(Multiple Sites)"],
-          ["14. 변경 용이성(Facilitate Change)"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "SW 사업대가 ('25년 개정판)",
-    course: "SE",
-    definition:
-      "S/W 대가산정 가이드는 예산수립, 사업 발주, 계약 시 적정대가를 산정하기 위한 기준을 제공 (1FP = 605,784원)",
-    defShort: "예산수립·사업 발주·계약 시 적정대가 산정 기준 대가산정 가이드",
-    lead:
-      "적정 대가 산정의 기준, SW 사업대가",
-    features: ["적정대가", "기능점수", "단계별 적용"],
-    keywords: ["구현단계(사기전후직소)", "기획단계", "ISP/BPR", "EA/ITA", "ISMP"],
-    tables: [
-      {
-        caption: "SW사업 기획 단계 대가 산정 방법",
-        headers: ["구분", "산정 방법", "설명"],
-        rows: [
-          ["ISP/ISP/BPR", "컨설팅 업무량 방식", "업무량 = 업무 가중치×난이도\n대가 = 업무량×단가+직접경비"],
-          ["EA/ITA", "컨설팅 업무량 방식", "업무량 = EA/ITA 가중치×난이도\n대가 = 공수×업무량+직접경비"],
-          ["ISP, ISP/BPR, EA/ITA, ISMP, 정보보안 컨설팅", "투입 공수 방식", "직접 인건비 = 투입 공수×평균임금\n제경비 = 직접 인건비의 144~154%\n기술료 = 인건비+제경비의 20~40%\n대가 = 세 항목 합+직접경비"],
-        ],
-      },
-      {
-        caption: "기능점수 방식에 의한 소프트웨어 개발비 대가산정 절차 [사기전후직소]",
-        headers: ["절차", "산출물", "주요내용"],
-        rows: [
-          ["사전준비", "기능 요구사항\n규모산정 방법", "개발 업무 정의\n정통법·간이법"],
-          ["개발대상 SW 기능점수 산정", "SW 기능점수", "기능 식별\n복잡도 고려 산정"],
-          ["보정 전 개발원가 산정", "보정 전 개발원가", "기능점수×기능점수당단가"],
-          ["보정 후 개발원가 산정", "보정 후 개발원가", "규모·연계복잡성\n성능·호환성·보안\n원가×보정계수"],
-          ["직접경비 및 이윤 산정", "직접경비, 이윤", "관련 직접경비\n이윤 25% 이내"],
-          ["소프트웨어 개발비 산정", "소프트웨어개발비", "개발원가+직접경비+이윤"],
-        ],
-      },
-    ],
-    notes: ["단계 구성: 기획 단계(정보전략계획 ISP, 정보전략계획 및 업무재설계 ISP/BPR, 전사적아키텍처 EA/ITA, 정보시스템 마스터플랜 ISMP, 정보보안컨설팅) → 구현 단계(소프트웨어 개발) → 운영 단계(소프트웨어 유지관리, 소프트웨어 운영, 소프트웨어 재개발)"],
-  },
-  {
-    title: "난독화",
-    course: "SE",
-    definition:
-      "프로그램 코드의 일부 또는 전체를 변경하는 방법 중 하나로, 코드의 가독성을 낮춰 역공학에 대한 대비책을 제공하는 방법",
-    defShort: "코드 일부나 전체 변경해 코드 가독성을 낮춰 역공학 대비책 제공 방법",
-    lead:
-      "역공학 대비의 코드 변환, 난독화",
-    features: ["가독성 저하", "역공학 대비", "성능 영향"],
-    keywords: ["[구데집제예]", "구획 난독화", "데이터 난독화", "집합 난독화", "제어 난독화", "예방 난독화"],
-    tables: [
-      {
-        caption: "난독화 기술 분류 [구데집제예]",
-        headers: ["구분", "설명", "세부분류"],
-        rows: [
-          ["구획 난독화(layout obfuscation)", "세부 요소 변화\n복원해도 훼손", "형식변화·주석제거\n식별자손상"],
-          ["데이터 난독화(data obfuscation)", "변수 분할·병합\n읽기 어렵게", "Storage, Aggregation\nOrdering, Encoding"],
-          ["집합 난독화(aggregation obfuscation)", "배열 변환\n클래스 분할", "자료순서변환\n클래스분할"],
-          ["제어 난독화(Control obfuscation)", "제어 복잡화\n문장 단위 조절", "Aggregation\nOrdering, Computation"],
-          ["예방 난독화(Preventive obfuscation)", "역난독화 방법\n봉쇄", "Targeted, Inherent"],
-        ],
-      },
-      {
-        caption: "난독화 기술 비교",
-        headers: ["구분", "Layout", "Data", "Control", "Preventive"],
-        rows: [
-          ["특징", "세부 요소 변화\n복원 시 훼손", "처리 변수 변환\n읽기 어렵게", "문장 단위 조절\n불명확성 증대", "역난독화 대응\n구체화 시 사용"],
-          ["장점", "성능저하 없음", "자료의 보호", "로직의 보호", "역공학 방해"],
-          ["단점", "로직 보호 불가", "성능의 저하", "성능의 저하", "성능의 저하"],
-          ["예시", "GetPayroll()\n→ a()", "t=\"Net\";\n→ t[1]='N';", "for(i=0;i<100;i++)\n→ for(i=100;i>0;i--)", "breakpoint 탐지\nCRC·디버거 검출"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "SBOM",
-    course: "SE",
-    definition:
-      "소프트웨어 컴포넌트 및 구성 요소를 식별할 수 있는 메타데이터와 저작권 및 라이선스 등으로 소프트웨어 콘텐츠에 대한 정보를 포함하는 공식 SW 자재 명세서",
-    defShort: "메타데이터와 저작권·라이선스 등 정보를 포함한 공식 SW 자재 명세서",
-    lead:
-      "SW 공급망의 구성 명세, SBOM",
-    features: ["자재 명세서", "요소 식별", "표준 포맷"],
-    keywords: ["Author Name", "Timestamp", "Version String", "SPDX", "CycloneDX", "SWID"],
-    tables: [
-      {
-        caption: "기술 요소",
-        headers: ["구분", "핵심 기술", "설명"],
-        rows: [
-          ["Baseline Attributes", "Author Name", "SW 작성자 정보"],
-          ["Baseline Attributes", "Timestamp", "SBOM 마지막 업데이트 날짜·시간\n(ISO 8601)"],
-          ["Baseline Attributes", "Supplier Name", "SW 공급업체 이름 또는 기타 식별자"],
-          ["Baseline Attributes", "Component Name", "SW 구성요소 이름 또는 식별자"],
-          ["Baseline Attributes", "Version String", "SW Version 정보\n(Semantic Versioning)"],
-          ["Baseline Attributes", "Component Hash", "컴포넌트 해시 값 통한 무결성 증빙"],
-          ["Baseline Attributes", "Unique Identifier", "고유 Namespace 및 식별자 생성"],
-          ["Baseline Attributes", "Relationship", "구성 요소 간 종속성·연관 관계"],
-          ["Formats", "SPDX", "Software Package Data Exchange\n리눅스 재단 라이선스 교환 표준"],
-          ["Formats", "CycloneDX", "OWASP 재단 공급망 구성요소 보안\n경량 SBOM 표준"],
-          ["Formats", "SWID", "Software Identification\nSW 정보 Tag 생성\n오픈소스 SW 인벤토리 지원"],
-        ],
-      },
-    ],
-    notes: ["개념도 예: Acme Application V1.1 ← Bingo Buffer V2.2 · Bob Browser V2.1 ← Carol Compression V3.1 (Included in 관계) — Component Name·Supplier·Version·Author·Hash·UID·Relationship(Primary/Included in)을 표로 관리"],
-  },
-  {
-    title: "정보시스템 운영/유지보수 감리",
-    course: "SE",
-    definition:
-      "구축 완료 후 인도된 정보시스템에 대한 변경, 개선, 모니터링 등 정보시스템의 안정적인 운영과 성능을 지속적으로 보장하고, 필요에 따라 효율적으로 개선하는 과정을 점검",
-    defShort: "인도된 정보시스템 안정적인 운영과 성능 지속적으로 보장 과정 점검",
-    lead:
-      "운영 단계의 품질 점검, 운영/유지보수 감리",
-    features: ["인도 후 점검", "대상별 구분", "운영 안정성"],
-    keywords: ["개발 소프트웨어", "상용 소프트웨어", "인프라", "배포관리", "장애관리", "보안", "성능", "패치", "백업"],
-    tables: [
-      {
-        caption: "운영 감리의 감리대상별 점검 분야",
-        headers: ["감리대상", "점검분야"],
-        rows: [
-          ["개발 소프트웨어(DS)", "릴리즈 및 배포관리\n테스트 지원\n장애관리"],
-          ["인프라(IF)", "신규·변경 서비스 기획, 구현 지원\n서비스 수준관리\n서비스 보고\n서비스 연속성 및 가용성 관리"],
-          ["인프라(IF)", "용량관리\n정보보안관리\n비즈니스 관계 관리\n공급자 관리"],
-          ["인프라(IF)", "인시던트 및 서비스 요청 관리\n문제 관리\n구성관리"],
-          ["인프라(IF)", "변경 및 릴리즈 관리\n운영상태관리"],
-        ],
-      },
-      {
-        caption: "유지보수 감리의 감리대상별 점검 분야",
-        headers: ["감리대상", "점검분야"],
-        rows: [
-          ["개발 소프트웨어(DS)", "응용서비스 모니터링\n응용서비스장애처리\n사용자지원\n성능관리"],
-          ["개발 소프트웨어(DS)", "정기/비정기점검\n시스템 테스트 지원\n장애관리\n유지보수 계획"],
-          ["개발 소프트웨어(DS)", "유지보수 표준 및 절차\n요구사항관리\n유지보수 이행(CSR 처리)"],
-          ["개발 소프트웨어(DS)", "구성관리\n릴리즈 및 배포관리(이관)"],
-          ["상용 소프트웨어(CS)", "유지보수 계획\n유지보수 표준 및 절차\n업그레이드 및 패치\n이전 및 재설치"],
-          ["상용 소프트웨어(CS)", "일상지원\n긴급/장애처리\n예방점검\n운영자 교육"],
-          ["상용 소프트웨어(CS)", "사용자 교육\n보안 정책 및 계획 수립\n보안점검 및 예방 활동\n보안 조치 및 기술지원"],
-          ["인프라(IF)", "OS 업그레이드 및 패치\nHW 업그레이드\n예방 점검(일상·정기·비정기)\n긴급/장애처리"],
-          ["인프라(IF)", "통합자원할당 및 회수\n운영자교육\n기술이전\n부품지원"],
-          ["인프라(IF)", "운영상태관리\n이전 및 재설치"],
-        ],
-      },
-    ],
-    notes: ["개념도: 정보시스템 구축단계(단계별 감리 — 계획에 맞게 설계·개발·테스트가 제대로 이루어지고 있는지 점검, 요구사항 충족여부·일정 및 범위관리·품질관리 등) ↔ 운영 및 유지보수 단계(운영 및 유지보수 감리 — 시스템이 안정적이고 효율적으로 운영 및 개선 되는지 점검, 운영 안정성·성능 유지·보안·백업 및 복구 등)"],
-  },
-  {
-    title: "지능정보기술 감리 실무 가이드 - 클라우드 감리",
-    course: "SE",
-    definition:
-      "**클라우드 기반 정보화 사업에 대한 감리 수행 시 필요한 개념과 취약점, 클라우드 정보화 사업유형에 따른 감리 점검항목을 제시**하기 위한 실무 지침",
-    defShort: "클라우드 감리 개념·취약점·사업유형별 점검항목 제시 실무 지침",
-    lead: "클라우드 사업 감리 점검 기준, 클라우드 감리",
-    features: ["클라우드형", "유형별 차등", "취약점 중심"],
-    keywords: ["클라우드 계획수립", "클라우드 서비스 활용사업", "클라우드 전환사업"],
-    tables: [
-      {
-        caption: "클라우드 특성으로 인한 취약점",
-        headers: ["취약점"],
-        rows: [
-          ["1) 클라우스 서비스 모델 유형"],
-          ["2) 기존 IT 운영 관리체계 수준"],
-          ["3) 현행 업무 위험 수용 수준"],
-          ["4) 클라우드 적재 데이터의 통합적 가치"],
-          ["5) 클라우드 적재 데이터의 내부보안등급"],
-          ["6) 클라우드 공유 데이터의 준거성 의무"],
-          ["7) 클라우드 서비스 제공자 위험"],
-        ],
-      },
-      {
-        caption: "점검단계",
-        headers: ["점검 단계", "하위영역"],
-        rows: [
-          ["클라우드 계획수립", "현황 분석 및 전략 수립\n개선 모델 및 실행 계획 수립"],
-          ["클라우드 서비스 활용사업", "클라우드 서비스\n클라우드 서비스 요건정의\n클라우드 서비스 전환\n클라우드 서비스 운영"],
-          ["클라우드 전환사업", "클라우드 전환 계획수립 및 준비\n클라우드 전환\n서비스 안정화"],
-        ],
-      },
-    ],
-    notes: [
-      "사업 유형은 세 축으로 나눈다 — 클라우드 모델(G-Cloud·자체 클라우드·민간 클라우드), 개발 단계(기획·구축·운영/전환), 클라우드 유형(IaaS·PaaS·SaaS).",
-    ],
-  },
-  {
-    title: "지능정보기술 감리 실무 가이드 - 빅데이터 감리",
-    course: "SE",
-    definition:
-      "**빅데이터를 구축 및 분석하는 정보화 사업 감리 수행 시 필요한 사업 단계별 감리 점검항목을 제시**하기 위한 실무 지침",
-    defShort: "빅데이터 구축·분석 정보화 사업 단계별 감리 점검항목 제시한 지침",
-    lead: "빅데이터 사업 단계별 감리 기준, 빅데이터 감리",
-    features: ["빅데이터형", "단계별 점검", "생애주기"],
-    keywords: ["분석 단계", "설계 단계", "구현(구축) 단계", "운영 단계"],
-    tables: [
-      {
-        caption: "점검 단계별 영역과 핵심",
-        headers: ["점검 단계", "영역", "핵심"],
-        rows: [
-          ["분석단계", "응용시스템\n데이터", "요구사항 도출\n데이터 확보 검토\n운영 환경 이해"],
-          ["설계단계", "응용시스템\n데이터\n시스템", "수집·정제·저장\n분석모델·시각화\n데이터 표준화\n시스템구성·보안"],
-          ["구현(구축)단계", "응용시스템", "생애주기 관리\n수집·변환 작동\n시각화·로그검증"],
-          ["운영단계", "관리체계", "거버넌스 확인"],
-        ],
-      },
-      {
-        caption: "단계별 하위영역 점검항목",
-        headers: ["구분", "영역", "설명"],
-        rows: [
-          ["분석단계", "응용시스템", "서비스 요구사항 정의 여부"],
-          ["분석단계", "데이터", "데이터 셋 수집 가능성·사용성\n데이터 셋 활용 서비스 확보 여부"],
-          ["설계단계", "응용시스템", "수집·정제 체계 적정 설계 여부\n저장 체계 적정 설계 여부\n데이터 분석모델 설계\n데이터 시각화 설계"],
-          ["설계단계", "데이터", "데이터 표준화 및 융합"],
-          ["설계단계", "시스템", "시스템간 연계 설계"],
-          ["구현(구축)단계", "응용시스템", "데이터 분석 및 운영"],
-          ["운영단계", "관리체계", "운영관리"],
-        ],
-      },
-    ],
-    notes: [
-      "단계별 핵심은 분석(서비스·기능 요구사항 도출, 데이터 확보 및 타당성 검토, 운영 환경 이해), 설계(수집·정제 및 저장 체계 설계, 분석모델 및 시각화 설계, 데이터 표준화, 시스템 구성 및 보안), 구현(데이터 생애주기 관리, 수집 및 변환 작동 여부, 시각화 및 로그 시스템 검증), 운영(거버넌스 체계 확인)이다.",
-    ],
-  },
-  {
-    title: "정보시스템 감리 의무 대상과 관점별 점검 기준",
-    course: "SE",
-    definition:
-      "정보시스템 효율성 향상과 안전성 확보 위해 제3자적 관점에서 구축 사항을 종합적으로 점검, 개선하는 활동",
-    defShort: "효율성·안전성 위한 제3자적 관점에서 구축 사항 종합 점검·개선 활동",
-    lead:
-      "제3자 관점의 점검 활동, 정보시스템 감리",
-    features: ["제3자 관점", "법정 의무", "종합적 점검"],
-    keywords: ["3자적 관점", "대국민 서비스", "공동 행정 서비스", "5억 이상", "기관장의 필요성 인정", "절차", "산출물", "성과"],
-    tables: [
-      {
-        caption: "의무 대상",
-        headers: ["영역", "구분", "의무대상"],
-        rows: [
-          ["정보화 사업", "정보시스템 특성", "대국민 행정민원\n여러 기관 공동"],
-          ["정보화 사업", "사업비 규모", "5억 원 이상"],
-          ["정보화 사업", "기관장 판단", "감리 필요 인정"],
-          ["행정/공공 기관", "행정기관", "중앙행정기관\n소속기관 지자체"],
-          ["행정/공공 기관", "공공기관", "공운법 4조 기관\n지방공사·공단\n특수법인·학교\n대통령령 기관"],
-        ],
-      },
-      {
-        caption: "정보시스템 관점별 점검 기준 [성산절]",
-        headers: ["감리 관점", "점검 기준"],
-        rows: [
-          ["성과", "실현성, 충족성"],
-          ["산출물", "기능성, 무결성,\n편의성, 안전성,\n보안성, 효율성,\n준거성"],
-          ["절차", "절차 적정성,\n준수성"],
-        ],
-      },
-      {
-        caption: "정보시스템 3단계 감리 수행 절차",
-        headers: ["구분", "요구정의단계", "설계단계", "종료단계"],
-        rows: [
-          ["수행 절차", "A00 예비조사", "B00 현장감리", "C00 조치확인"],
-          ["산출물", "001.감리계획서", "002.감리수행결과보고서", "003.시정조치확인보고서"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "공통감리 절차",
-    course: "SE",
-    definition:
-      "정보시스템 개발사업, EA, ISP수립, DB구축 등 모든 유형의 정보화 사업에 공통적으로 적용되는 감리절차",
-    defShort: "EA·ISP 등 모든 유형의 정보화 사업에 공통으로 적용되는 감리절차",
-    lead: "전 정보화 사업 공통 적용, 공통감리 절차",
-    features: ["유형 무관", "현장감리", "사후 확인"],
-    keywords: ["[예현조]", "예비조사", "현장감리", "조치 확인", "준실감", "감착감보종보", "준시작보"],
-    tables: [
-      {
-        caption: "절차 [예현조]",
-        headers: ["절차", "세부절차", "산출물"],
-        rows: [
-          ["A00. 예비조사", "예비조사 준비\n예비조사 실시\n감리계획서 작성", "감리계획서"],
-          ["B00. 현장감리", "감리시작\n착수회의\n감리수행", "감리수행결과보고서"],
-          ["B00. 현장감리", "보고서(안) 검토\n종료회의\n보고서 확정 통보", "감리수행결과보고서"],
-          ["C00. 조치 확인", "확인 준비\n시정조치 확인\n보고서 작성\n확인보고서 확정", "시정조치확인보고서"],
-        ],
-      },
-      {
-        caption: "감리법인·발주기관·피감리인 흐름",
-        headers: ["순서", "활동", "산출물"],
-        rows: [
-          ["1", "감리계약 체결\n점검항목 협의", "감리 기본점검표"],
-          ["2", "감리계획서 제출\n발주기관 접수", "감리계획서"],
-          ["3~5", "착수회의\n현장감리 시행\n종료회의", ""],
-          ["6", "감리보고서 통보\n발주기관 검토", "감리보고서"],
-          ["7~9", "조치계획 수립\n접수 및 검토\n감리결과 반영", ""],
-          ["10~12", "조치내역 확인\n감리법인 확인\n확인보고서 제출", "조치내역확인보고서"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "정보시스템 감리결과보고서 (구성, 보고사항)",
-    course: "SE",
-    definition:
-      "독립된 감리법인이 제3자적 관점에서 수행한 현장감리 내용에 대해 결과를 정리하고 제출하는 최종결과보고서",
-    defShort: "제3자적 관점 현장감리 결과를 정리하고 제출하는 최종결과보고서",
-    lead:
-      "감리 수행의 최종 산출물, 감리결과보고서",
-    features: ["제3자 관점", "권고 유형화", "시점 명시"],
-    keywords: ["1)종합의견 2)감리영역별 점검결과 3)별첨", "감리계획서", "필수", "협의", "권고", "장기", "단기"],
-    tables: [
-      {
-        caption: "구성",
-        headers: ["구분", "구성요소", "설명"],
-        rows: [
-          ["1. 종합의견", "1.전제조건", "보고서 작성 시점 전제조건 정의"],
-          ["1. 종합의견", "2.총평", "점검대상 사업 감리의견 총괄정리"],
-          ["1. 종합의견", "3.감리영역별 상세점검결과 요약", "개선권고사항·유형·중요도\n발주기관 협조필요여부 표시"],
-          ["2. 감리영역별 점검결과", "1.감리영역 1", "가.점검항목별 점검결과\n나.상세점검결과\n사업관리·품질보증활동 영역"],
-          ["2. 감리영역별 점검결과", "2.감리영역 2", "가.점검항목별 점검결과\n나.상세점검결과\n응용시스템 영역 점검결과"],
-          ["2. 감리영역별 점검결과", "3.감리영역 3", "가.점검항목별 점검결과\n나.상세점검결과\nDB·시스템아키텍처·보안 영역"],
-          ["3. 별첨", "감리계획서", "감리수행 전 제출 감리계획서 첨부"],
-        ],
-      },
-      {
-        caption: "개선권고 유형·시점",
-        headers: ["구분", "유형"],
-        rows: [
-          ["개선권고 유형", "필수, 협의, 권고"],
-          ["개선시점", "장기, 단기"],
-          ["기타 표기", "중요도\n발주기관 협조필요"],
-        ],
-      },
-      {
-        caption: "감리결과보고서 제출프로세스",
-        headers: ["순서", "활동"],
-        rows: [
-          ["1", "감리결과보고서(안) 설명"],
-          ["2", "이견접수 및 보고서 통보일 제시"],
-          ["3", "이견사항 처리결과 공유"],
-          ["4", "보고서 확정 및 통보"],
-        ],
-      },
-    ],
-    notes: ["각 감리영역별 점검결과는 개선권고유형과 개선시점, 발주기관 협조필요여부가 작성되어 제출됨"],
-  },
-  {
-    title: "정보시스템 운영 성과관리",
-    course: "SE",
-    definition:
-      "정보시스템 운영 성과 측정 및 평가 결과에 따라 정비 대상을 결정하여 업무 및 비용 측면의 성과를 높이기 위한 각종 활동",
-    defShort: "정보시스템 운영 성과 평가로 업무 및 비용 측면의 성과를 높이는 활동",
-    lead:
-      "운영 성과 측정과 정비, 정보시스템 운영 성과관리",
-    features: ["정량 측정", "정비 연계", "법정 의무"],
-    subDefs: [
-      {
-        name: "업무성과 계획관리",
-        lead: "성과 지표의 목표 수립",
-        def: "운영 성과 측정하도록 성과 지표 설계하고 매년 목표를 수립하는 절차",
-      },
-      {
-        name: "통폐합 대상관리",
-        lead: "하위 등급의 통폐합 검토",
-        def: "3~4등급으로 분류된 정보시스템의 통폐합 가능성을 검토하는 절차",
-      },
-      {
-        name: "성과측정 대상관리",
-        lead: "측정 대상의 확인·제외",
-        def: "성과측정 대상 확인하고 필요한 경우 성과측정 제외를 신청하는 절차",
-      },
-      {
-        name: "성과측정 및 평가",
-        lead: "비용·업무 성과의 측정",
-        def: "비용과 업무 측면의 성과를 측정해 결과와 증빙자료를 제출하는 절차",
-      },
-      {
-        name: "폐기 예외관리",
-        lead: "폐기 대상의 예외 신청",
-        def: "총점 40점 미만 정보시스템의 폐기 예외 사유 해당 시 신청·심의 절차",
-      },
-      {
-        name: "정비계획 수립",
-        lead: "개선·폐기 대상의 계획",
-        def: "정비유형이 개선·폐기로 분류된 정보시스템 정비계획 세우는 절차",
-      },
-      {
-        name: "정비계획 이행관리",
-        lead: "정비방식·시점의 이행",
-        def: "수립한 정비계획 정비방식과 시점에 따라 활동 수행·관리하는 절차",
-      },
-    ],
-    keywords: ["전자정부법 제23조", "운영의 적정성", "유지의 용이성", "비용의 효율성", "기능 활용도", "업무성과 달성도"],
-    tables: [
-      {
-        caption: "추진절차",
-        headers: ["추진절차", "절차 정의", "주요활동"],
-        rows: [
-          ["업무성과 계획관리", "성과지표 설계\n지표별 목표 수립", "연중 실적 관리\n지표별 목표 수립"],
-          ["통폐합 대상관리", "3~4등급 대상\n통폐합 추진 검토", "가능성 검토\n불가 시 심의"],
-          ["성과측정 대상관리", "측정 대상 확인\n측정 제외 신청", "오픈 후 1년 경과"],
-          ["성과측정 및 평가", "성과 측정\n결과·증빙 제출", "비용측면 측정\n업무측면 측정"],
-          ["폐기 예외관리", "40점 미만 대상\n폐기 예외 신청", "폐기예외 검토\n위원회 심의"],
-          ["정비계획 수립", "정비유형 분류\n정비계획 수립", "폐기→통폐합→\n고도화→재개발"],
-          ["정비계획 이행관리", "정비활동 수행\n결과 관리", "정비활동 수행\n변경 시 심의"],
-        ],
-      },
-      {
-        caption: "성과측정 지표",
-        headers: ["구분", "지표", "설명", "측정 산식"],
-        rows: [
-          ["비용지표", "운영의 적정성", "개발비·유지보수비\n비율 점검", "누적 유지보수비\n/ 누적 개발비"],
-          ["비용지표", "유지의 용이성", "운영유지비 증감\n수준 점검", "전년대비\n유지비 증감률"],
-          ["비용지표", "비용의 효율성", "활용 규모 대비\n비용 효율 평가", "활용규모당\n유지비 증감률"],
-          ["업무지표", "기능 활용도", "구현 기능의\n실제 활용 수준", "기능별 사용량\n증감률 평균"],
-          ["업무지표", "업무성과 달성도\n(공통·고유지표)", "목표 대비 달성", "업무성과 실적치\n/ 목표치 × 100%"],
-        ],
-      },
-      {
-        caption: "정비 방식",
-        headers: ["정비 방식", "설명"],
-        rows: [
-          ["폐기", "현재 서비스 더 이상 제공 않고 종료"],
-          ["통폐합", "타 시스템 통합, 현행 시스템 폐기"],
-          ["기능고도화", "타 기능·서비스 통합, 규모 확장\n기능개선·유지보수 범위 내 정비"],
-          ["전면재개발", "현행 기능·서비스 새롭게 구축\n현행 시스템 폐기"],
-        ],
-      },
-    ],
-    notes: ["추진근거: 전자정부법 제23조(전자정부 서비스의 효율적 관리), 전자정부법 시행령 제19조, 전자정부 성과관리 지침 제23조~제30조. 대상 기관: 중앙행정기관, 지방자치단체"],
-  },
-  {
-    title: "소프트웨어 안전 확보를 위한 지침",
-    course: "SE",
-    definition:
-      "SW 안전 책임자 및 안전관리 대상 소프트웨어 개발, 운영단계로 수행해야 할 관리기준을 담고 있는 지침",
-    defShort: "안전관리 대상 SW 개발·운영단계로 수행해야 할 관리기준을 담은 지침",
-    lead:
-      "SW 오작동 피해 방지, 소프트웨어 안전 확보 지침",
-    features: ["진흥법 근거", "단계별 기준", "위험원 분석"],
-    keywords: ["SW진흥법 제30조 제2항", "총괄 담당자 지정", "관리 대상 소프트웨어 지정", "개발단계에서의 안전확보", "운영단계에서의 안전확보"],
-    tables: [
-      {
-        caption: "주요 용어",
-        headers: ["용어", "정의"],
-        rows: [
-          ["위험원", "SW 내 원인 위험 유발 요인\n생명·신체 피해 시스템 손실 초래"],
-          ["장애", "오류·고장 상태 SW 사용 곤란"],
-          ["소프트웨어 안전", "외부 침입 없는 사이버 공격 배제\n내부 오작동 피해 대비 상태"],
-        ],
-      },
-      {
-        caption: "지침 조항 내용",
-        headers: ["장", "조"],
-        rows: [
-          ["제1장 총칙", "제1조 목적\n제2조 정의\n제3조 적용 범위"],
-          ["제1장 총칙", "제4조 업무 및 담당자\n(총괄 담당자 지정)\n제5조 안전관리 대상 SW지정"],
-          ["제2장 SW개발단계 안전확보", "제6조 안전 요구사항의 정의\n제7조 SW 위험원 분석\n제8조 SW 설계 및 구현\n제9조 SW 검증"],
-          ["제3장 SW운영단계 안전확보", "제10조 SW 운영관리 계획\n제11조 운영 위험 분석\n제12조 SW 안전점검\n제13조 SW 변경관리"],
-          ["제3장 SW운영단계 안전확보", "제14조 장애관리"],
-          ["제4장 그 외 SW 안전확보 사항", "제15조 정보공유\n제16조 기반확보\n제17조 기타사항\n제18조 재검토 기한"],
-        ],
-      },
-    ],
-    notes: ["제정 배경: SW진흥법 전부 개정 시행('20.12.17)(소프트웨어안전 확보) → 고시제정 법적근거: 제30조 제2항", "주요 내용: 소프트웨어안전 책임자 · 안전관리 대상 소프트웨어 지정 · 소프트웨어 개발·운영단계별로 수행해야할 관리기준"],
-  },
-  {
-    title: "공공기관 정보화사업 예비타당성",
-    course: "SE",
-    definition:
-      "국가재정법 제38조 및 같은 법 시행령 제13조의 규정에 따라 대규모 신규 사업에 대한 예산 편성 및 기금 운용계획을 수립하기 위하여 기획재정부장관 주관으로 실시하는 사전적인 타당성 검증·평가 제도",
-    defShort: "대규모 신규 사업 예산 편성을 위한 사전적인 타당성 검증·평가 제도",
-    lead:
-      "대규모 사업의 사전 검증, 정보화사업 예비타당성",
-    features: ["사전 검증", "대규모 신규", "낭비 최소화"],
-    keywords: ["국가재정법", "사업비 500억 & 국가재정지원규모 300억 신규 사업"],
-    tables: [
-      {
-        caption: "예비타당성 조사 제도 필요성",
-        headers: ["구분", "필요성", "설명"],
-        rows: [
-          ["경제적 측면", "예산낭비 최소화", "비경제 사업 배제"],
-          ["기술적 측면", "사업 리스크 완화", "증액·변경 방지"],
-          ["기술적 측면", "사업 취소 방지", "중도 취소 예방"],
-          ["정책적 측면", "사업 우선순위", "후보사업군 비교"],
-        ],
-      },
-      {
-        caption: "예비타당성 조사 제도 기준 [사5지 3신]",
-        headers: ["기준", "설명"],
-        rows: [
-          ["사업비 규모", "총사업비 500억원 이상\n국가 재정지원 규모 300억원 이상\n신규사업(사5지3신)"],
-          ["정보화 사업 대상", "국가정보화 기본법 제15조 1항\n효율성 향상·국민 편익 증진\n행정·보건·사회복지·교육·문화\n환경·과학기술·재난안전 등"],
-          ["신규사업", "타당성조사비 등 국고 미지원 사업"],
-          ["대상사업 요건", "국가직접시행사업\n국가대행사업\n지방자치단체보조사업\n민간투자사업 등 재정지원 포함"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "소프트웨어사업 영향평가",
-    course: "SE",
-    definition:
-      "국가기관 등에서 소프트웨어사업의 예산편성, 발주, 소프트웨어 배포 및 서비스 제공을 추진하는 경우 민간 소프트웨어 시장 침해 등 소프트웨어 산업 생태계에 미치는 영향을 검토하여 사전 조정하는 제도",
-    defShort: "민간 SW 시장 침해 등 SW 산업 생태계 영향을 검토해 사전 조정하는 제도",
-    lead: "민간 시장 침해 사전 조정, 소프트웨어사업 영향평가",
-    features: ["침해 검토", "사전 조정", "재평가 요청"],
-    keywords: ["소프트웨어 진흥법 43조", "민간 시장 위축 방지", "대상사업 명확화", "SW사업자에게 재평가 요청권 부여"],
-    tables: [
-      {
-        caption: "개념도(절차)",
-        headers: ["구분", "단계", "설명"],
-        rows: [
-          ["1", "소프트웨어사업 기본정보 작성", ""],
-          ["2", "운영계획 검토", "사업구분 ①~⑦ 판정\n⑦ 그 외 SW 사업 → 3단계"],
-          ["3", "민간 소프트웨어 시장 침해 가능성 검토", "민간 동일·유사 SW 유무\n있음 → 4단계, 없음 → 5단계"],
-          ["4", "사업의 필요성 및 공공성 검토", ""],
-          ["5", "종합의견 작성", ""],
-        ],
-      },
-      {
-        caption: "법적 근거·대상·제외",
-        headers: ["구분", "내용"],
-        rows: [
-          ["법적 근거", "진흥법 제43조(영향평가)\n시행령 35조 실시, 36조 제외\n시행령 37조 재평가 제외사유\n지침 제5조 평가, 제6조 제외대상"],
-          ["대상 기관", "국가기관, 지방자치단체\n투자·출연 법인·단체(대통령령)\n시행령 제21조 해당 모든 기관"],
-          ["대상 사업", "진흥법 제43조\n기관장 발주 기획·구축·유지관리"],
-          ["제외 사업(시행령 제36조)", "상용SW 구매·설치 및 유지·관리\n국가안보·치안·외교 민간부적합\n민간투자형 SW사업\n그밖에 과기정통부 장관 고시 사업"],
-          ["제외 사업(지침 제6조)", "단일기관 내부사용 목적 SW사업\n데이터베이스 구축 사업\n변경 없는 단순 유지관리·운영"],
-        ],
-      },
-    ],
-    notes: ["공공 소프트웨어 사업 발주기관이 사업 수행 이후 낸 영향평가 결과를 과기정통부 장관이 검토하고 개선 조치를 요청할 권한마련 (2023.03 개정)"],
-  },
-  {
-    title: "상용 소프트웨어 직접구매 제도",
-    course: "SE",
-    definition:
-      "발주기관이 공공 정보화사업 추진 시 HW, SW, 시스템통합 구축 사업에서 상용SW만을 별도로 발주, 평가, 선정 계약하는 방식으로 상용SW를 직접 구매하는 제도",
-    defShort: "상용SW만을 별도로 발주, 평가, 선정 계약하여 직접 구매하는 제도",
-    lead:
-      "상용SW의 분리 발주, 직접구매 제도",
-    features: ["별도 발주", "규모 기준", "진흥법 54조"],
-    keywords: ["별도 발주", "3억", "5천만원", "소프트웨어 진흥법 제54조"],
-    tables: [
-      {
-        caption: "상용 SW 직접 구매 대상 및 제외 기준",
-        headers: ["구분", "설명"],
-        rows: [
-          ["상용SW 직접구매 대상", "총 사업규모 3억원 이상(VAT 포함)\n종합쇼핑몰 등록 SW(가격 무관)"],
-          ["상용SW 직접구매 대상", "5천만원 이상 또는 다량구매 초과\n인증 획득: GS, 행정업무용, CC\nNEP, NET, 국가정보원 검증/지정"],
-          ["제외기준 사업", "진흥법 제40조 민간투자형 SW 사업"],
-          ["제외기준 SW", "시스템 통합 불가능\n비용 상승 초래\n사업기간 지연\n비효율적"],
-        ],
-      },
-      {
-        caption: "법적 근거",
-        headers: ["근거법령", "조항", "설명"],
-        rows: [
-          ["소프트웨어 진흥법", "제54조 구매", "상용SW 구매"],
-          ["소프트웨어사업 계약 및 관리감독에 관한 지침", "제7조 대상", "직접구매 대상"],
-          ["소프트웨어사업 계약 및 관리감독에 관한 지침", "제8조 제외", "직접구매 제외"],
-        ],
-      },
-    ],
-    notes: ["개념도: 발주기관 — 상용SW구매사업 제안요청서 → SW별도 개발평가/개발계약(SW1·2·3 공급자) + 조달청 종합쇼핑몰 구매·계약 + 일괄평가/일괄계약(SI 사업자 — 분석설계·응용SW개발·NW 설치·HW·NW 납품)"],
-  },
-  {
-    title: "사용성 평가",
-    course: "SE",
-    definition:
-      "사용자가 실제 제품을 사용하는 것을 관찰하고 분석하여 제품의 효율성, 학습 용이성, 문제점 및 개선 요구사항을 발견하는 공학적인 테스트",
-    defShort: "사용 관찰로 효율성·학습 용이성·문제점 및 요구사항 발견 테스트",
-    lead:
-      "실사용 관찰 기반 검증, 사용성 평가",
-    features: ["관찰 기반", "질적·양적", "시기별 적용"],
-    keywords: ["UX리서치 방법론", "SUS설문", "편의성", "정확성", "만족도", "유연성", "탐구형테스트", "평가형 테스트"],
-    tables: [
-      {
-        caption: "사용성 평가 절차",
-        headers: ["절차", "평가내용", "산출물"],
-        rows: [
-          ["1. 계획 수립", "평가 목적 분석\n사용자 정의\n태스크 분석\n주요기능 추출", "사용성평가계획서"],
-          ["2. 평가 설계", "테스트 디자인\n질적·양적 정의\n참가자 선정\n질문지 작성", "사용성평가설계서"],
-          ["3. 평가 실행", "스크립트 작성\n사전 테스트\n본 테스트 진행\n관찰 사항 체크", "질적/양적RowData"],
-          ["4. 분석/보고", "질적·양적 분석\n보고서 작성", "사용성평가결과보고서"],
-        ],
-      },
-      {
-        caption: "사용성 테스트의 4가지 유형",
-        headers: ["유형", "시기", "목적", "방법", "설명"],
-        rows: [
-          ["탐색적 테스트", "초반", "디자인 컨셉\n유효성 확인", "페이퍼 mock-up\n화면 디자인", "사용 중 상상\n기능 가치 제공"],
-          ["평가 테스트", "초/중반", "컨셉 효율성", "정량적 자료\n과업 수행", "UI를 직관적으로\n사용하는가"],
-          ["검증 테스트", "후반", "사용성 보증\n표준 부합 여부", "속도·정확도\n선호도·결함", "시간 안에 완료\n참여자 70% 충족"],
-          ["비교 테스트", "전체", "대안평가", "I/F 스타일\n요소의 평가", "경쟁사 대비 비교\n타겟 선호도"],
-        ],
-      },
-      {
-        caption: "사용성 평가 항목 및 측정 지표",
-        headers: ["평가항목", "측정지표", "설명"],
-        rows: [
-          ["작업시간", "완료·로딩 시간", "목표 완료 시간"],
-          ["작업시간", "이벤트 도달 시간", "특정 모드 체류"],
-          ["작업시간", "기능 입력 시간", "입력 소요 시간"],
-          ["사용패턴", "사용빈도\n정보접근성", "기능 사용 횟수"],
-          ["사용패턴", "최선 해결책 편차", "최적·실제 비율"],
-          ["정확성", "오류율\n공간 정확도", "완료까지 에러 양"],
-          ["정확성", "정보의 정확성", "정확 정보 비율"],
-          ["완성도", "성공/실패 비율", "목표 성공 백분율"],
-          ["학습 용이성", "행동 유도성", "즉시 사용법 인지"],
-          ["학습 용이성", "기억 용이성", "기능 습득 정도"],
-          ["일관성", "시각적·기능적", "간섭 없는 습득"],
-          ["일관성", "가독성·친숙성", "인식 요소 제공"],
-        ],
-      },
-    ],
-  },
-  {
     title: "선형 자료구조와 비선형 자료구조",
     course: "DS",
     definition: "데이터 사이의 대응 구조에 따라 선형, 비선형 자료구조로 분류",
@@ -14347,6 +14405,47 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
+    title: "빔 탐색(Beam Search)",
+    course: "AL",
+    definition:
+      "여러 경우 중 하나를 결정하지 않고 Beam Size(K개)만큼 가장 가능도가 높은 후보군으로 선택하여 Greedy 알고리즘의 최적해 미보장 단점을 보완한 최적해 알고리즘",
+    defShort: "가능도 높은 K개 후보군 선택, 최적해 미보장 보완 최적해 알고리즘",
+    lead: "가능도 상위 K개 유지, 빔 탐색",
+    features: ["K개 후보", "Greedy 보완", "정확도 상충"],
+    keywords: ["최적해 미보장 단점 보완", "최적해", "Beam size"],
+    tables: [
+      {
+        caption: "알고리즘 수행절차",
+        headers: ["No", "수행 절차", "수행 항목"],
+        rows: [
+          ["①", "문제 정의", "조건·제약 확인"],
+          ["②", "최초 K개 해 선택", "Beam Size K개\n확률 기반 최초 해\n만족 K개 확인"],
+          ["③", "부분 해 확장", "제약조건 여부\n확률 기반 Score"],
+          ["④", "K개 해 선택", "최고 확률 K개 해\n나머지 후보 삭제\n③·④ 반복"],
+          ["⑤", "최종 해 선택", "확률 점수 최고"],
+        ],
+      },
+      {
+        caption: "자연어 처리의 Beam Search 활용 사례 (Beam size = 2)",
+        headers: ["단계", "설명"],
+        rows: [
+          ["1단계", "<S>에서 I(0.4), the(0.3) 유지"],
+          ["2단계", "I → am(0.8) / do(0.5)\nthe → cat(0.4) / dog(0.6)\n상위 2개 유지"],
+          ["3단계", "am → cat(1.0) / dog(0.8)\ndog → barked(0.9) / sleep(0.7)"],
+          ["최종", "\"I am cat\"(1.0) 선택\n\"the dog barked\"(0.9) 미선택"],
+        ],
+      },
+      {
+        caption: "활용 사례",
+        headers: ["구분", "설명"],
+        rows: [
+          ["자연어 처리", "단일 예측 보완 확률 K개 선택\nSeq2Seq 디코딩 최적화"],
+        ],
+      },
+    ],
+    notes: ["개념도: <START>에서 A(0.5)·C(0.4) 선택 → A는 AB(0.2)·AE(0.25)로, C는 후보 탈락(X) → AB→ABC(0.16), AE→AED(0.2) → Candidate Sequences: A,C → AB,AE → ABC,AED", "Beam size가 1이면 그리디 알고리즘과 같고, 무한대면 완전 탐색(BFS)과 같다 — K가 클수록 정확하지만 계산량 증가"],
+  },
+  {
     title: "허프만(Huffman) 코딩",
     course: "AL",
     definition:
@@ -14634,225 +14733,39 @@ export const SUBNOTES: TextbookSubnote[] = [
     notes: ["전송 부호화 개념도 — 송신: 아날로그신호 → A/D변환 → 소스코딩 → 채널코딩 → 라인코딩(기저대역) 또는 변조(대역통과) → 전송 / 수신: 복조 → 채널디코딩 → 소스디코딩 → D/A변환 → 아날로그신호"],
   },
   {
-    title: "PCM(Pulse-Code Modulation)",
+    title: "OSI 7 Layer (ISO 7498)",
     course: "NW",
-    definition:
-      "아날로그 신호를 표본화 정리로 정해지는 표본화 주파수로 표본화하고, 각 표본(샘플)의 값을 양자화 한 후, 2진 부호화 하는 디지털 변조방식",
-    defShort: "아날로그 신호 표본화, 양자화 후 2진 부호화하는 디지털 변조방식",
+    definition: "국제표준기구(ISO)에서 표준화된 네트워크 구조를 제시한 기본 모델",
+    defShort: "국제표준기구에서 표준화된 네트워크 구조를 제시한 기본 모델",
     lead:
-      "표본화·양자화·부호화, PCM",
-    features: ["디지털 변조", "표본화 정리", "2진 부호"],
-    keywords: ["표본화(Sampling)", "양자화(Quantization)", "부호화(Encoding)", "디지털화", "아날로그신호를 디지털신호로 변환(A/D변환)", "나이퀴스트"],
+      "네트워크 구조의 참조 모델, OSI 7 Layer",
+    features: ["계층 독립", "참조 모델", "캡슐화 전달"],
+    keywords: ["[아파서티내다]", "Application", "Presentation", "Session", "Transport", "Network", "Data Link", "Physical"],
     tables: [
       {
-        caption: "동작 원리 — 송신",
-        headers: ["동작", "설명"],
+        caption: "계층별 역할과 프로토콜 [아파서티내다]",
+        headers: ["계층", "상세설명", "프로토콜"],
         rows: [
-          ["표본화(Sampling)", "표본간격 PAM 펄스열 추출\n나이퀴스트 이론 fs≥2fm"],
-          ["양자화(Quantization)", "PAM 디지털화 진폭 이산값 변환\n레벨 2^n 표본당 비트 n"],
-          ["부호화(Encoding)", "펄스 진폭 크기 2진수 코드 표시"],
+          ["7계층 Application", "사용자 접근 제공\nUI·전자우편\nDB 관리 서비스", "HTTP, SMTP, SNMP\nFTP, Telnet, NFS\nRTSP, NTP"],
+          ["6계층 Presentation", "I/O 데이터를\n표현 형태로 변환\n두 장치 일관 이해", "JPEG, MPEG\nXDR, SMB\nAFP"],
+          ["5계층 Session", "통신세션 구성\n포트연결 확인\n상호작용 동기화", "TLS, SSH, RPC\nNetBIOS\nAppleTalk"],
+          ["4계층 Transport", "제어·에러 관리\n재전송 신뢰 보장", "TCP, UDP, RTP\nSCTP, SPX"],
+          ["3계층 Network", "다중 링크에서\n패킷 목적지 전달\n시작~최종까지\n전달되도록 관리", "IP, ICMP, IGMP\nX.25, CLNP, ARP\nRARP, BGP, OSPF\nRIP, IPX, DDP"],
+          ["2계층 Data Link", "오류 없이 프레임\n장치 간 전달\nMAC 주소 참조\n해당 포트 전송", "PPP, HDLC\nEthernet\nTokenRing\nISDN, FDDI"],
+          ["1계층 Physical", "물리 매체로\n비트 흐름 전송\n물리적 접속 제어", "RS-232C, 광 섬유\n동축케이블\nISDN, DSL"],
         ],
       },
       {
-        caption: "동작 원리 — 수신",
-        headers: ["동작", "설명"],
-        rows: [
-          ["재생", "수신된 디지털\n신호를 재생하는\n단계"],
-          ["복호화(Decoding)", "수신된 디지털\n신호(PCM)을 PAM신호로\n되돌리는 단계"],
-          ["재구성(Filtering)", "PAM 신호를\n원래의 아날로그\n신호로 복원하는\n단계"],
-        ],
-      },
-      {
-        caption: "나이퀴스트 샘플링 정리",
+        caption: "계층별 데이터 단위와 장비",
         headers: ["구분", "설명"],
         rows: [
-          ["개념", "fs≥2fm 원신호 복원 가능\n최고주파수 2배 샘플링 조건"],
-          ["샘플링 사례", "나이퀴스트 기준 적절한 샘플링\n언더샘플링 앨리어싱 발생"],
+          ["데이터 단위(PDU)", "Network 패킷 단위\nL4 L2 L1 세그먼트~비트"],
+          ["중계 장비", "라우터·브리지 3·2계층 장비\n리피터 1계층 장비"],
+          ["캡슐화/역캡슐화", "송신 헤더 부착 하향 캡슐화\n수신 헤더 제거 상향 역캡슐화"],
         ],
       },
     ],
-    notes: ["동작 구조도: 아날로그신호 → [송신기] 표본화 → 양자화 → 부호화 → 전송로 → [수신기] 재생 → 복호화 → 재구성 → 아날로그신호. 중간의 디지털신호가 PCM신호"],
-  },
-  {
-    title: "QAM(Quadrature Amplitude Modulation)",
-    course: "NW",
-    definition:
-      "정보 신호에 따라 반송파의 진폭과 위상을 동시에 변화시켜, PSK의 변조 원리에 진폭 변조까지 포함하는 변조 방식",
-    defShort: "정보 신호에 따라 반송파 진폭과 위상을 동시에 변화시키는 변조 방식",
-    lead:
-      "진폭·위상 동시 변조, QAM",
-    features: ["진폭·위상", "다중 비트", "계층적 변조"],
-    keywords: ["디지털 변조 방식", "진폭 변조", "위상 변조"],
-    tables: [
-      {
-        caption: "16QAM 성상도(Constellation Diagram)",
-        headers: ["구분", "설명"],
-        rows: [
-          ["X 축", "동위상 반송파 I 축 성분 표시"],
-          ["Y 축", "구상 반송파 Q 축 성분 표시"],
-          ["심볼 코딩", "심볼당 n bit n비트 코딩\n1심볼 4비트 16QAM 경우"],
-          ["심볼 표현", "심볼 0000 기준 심볼 표현\n위상 φ 진폭 a 위상 진폭 지정"],
-          ["심볼 표현", "0011 심볼 동일 위상 심볼\n0001 심볼 진폭 차이 구분"],
-          ["심볼 표현", "0000 심볼 다른 위상 배치\n1000 심볼 같은 진폭 유지"],
-          ["16 QAM", "진폭 3가지 진폭 변조 활용\n위상 12가지 위상 변조 활용"],
-        ],
-      },
-      {
-        caption: "QAM 활용 계층적 변조 방식 예 (64QAM)",
-        headers: ["구분", "설명"],
-        rows: [
-          ["비트 할당", "심볼당 6비트 64QAM 할당\n상위 2비트 QPSK 이용"],
-          ["신호 상태 좋음", "전체 QAM 좌표 6비트 모두 추출"],
-          ["신호 상태 나쁨", "QPSK 부분만 상위 2비트 추출"],
-          ["우선순위", "높은 우선순위 상위 2비트 코딩\n낮은 우선순위 하위 4비트 코딩"],
-          ["적용", "DVB-T 표준 디지털 TV 적용"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "CSMA/CD",
-    course: "NW",
-    definition:
-      "각각의 호스트가 링크를 사용하기 전에 링크의 사용 상태를 감지하여 전송 충돌을 최소화하기 위한 프로토콜",
-    defShort: "링크 사용 전 링크 사용 상태 감지해 전송 충돌을 최소화하는 프로토콜",
-    lead:
-      "충돌 감지의 매체 접근, CSMA/CD",
-    features: ["전송 전 감지", "충돌 재전송", "유선 LAN"],
-    keywords: ["1-Persistent", "Non-Persistent", "P-Persistent", "충돌", "Back-off"],
-    tables: [
-      {
-        caption: "동작원리",
-        headers: ["구분", "항목", "설명"],
-        rows: [
-          ["송신 준비", "송신 데이터 준비", "디바이스 송신 위해 데이터 준비"],
-          ["채널 감시", "채널 Free", "데이터 송신 후 채널 감시\n미충돌 시 프레임 전송 완료"],
-          ["채널 감시", "충돌 발생", "Jamming Signal 전송\nBack-off 방식 대기·재전송 시도"],
-          ["채널 감시", "채널 Busy", "데이터 송신 위해 채널 재탐색 수행"],
-        ],
-      },
-      {
-        caption: "Persistent 방식 3종",
-        headers: ["구분", "방식", "설명"],
-        rows: [
-          ["즉시 전송", "1-Persistent", "회선 휴지 감지 시 즉시 프레임 전송\nidle 때마다 1의 확률로 전송"],
-          ["지연 전송", "Non-Persistent", "전송 프레임 있는 지국 회선 감지\n채널 사용 중 감지 시 임의 시간 지연"],
-          ["확률 전송", "P-Persistent", "두 방식 장단점 상호 보완\n확률값(p)로 전송여부 결정"],
-        ],
-      },
-    ],
-    notes: ["동작 흐름도: 송신준비 → 채널 감시 → (채널 Free) 데이터 송신 및 채널 감시 → 충돌 없이 종료 / (충돌 발생) Jam 신호 전송 → Back-off 방식에 따라 대기 → 새로운 시도 / (채널 Busy) 채널 감시로 복귀", "유선 LAN(이더넷)에서 사용 — 무선은 충돌 감지가 어려워 CSMA/CA를 사용"],
-  },
-  {
-    title: "빔 탐색(Beam Search)",
-    course: "AL",
-    definition:
-      "여러 경우 중 하나를 결정하지 않고 Beam Size(K개)만큼 가장 가능도가 높은 후보군으로 선택하여 Greedy 알고리즘의 최적해 미보장 단점을 보완한 최적해 알고리즘",
-    defShort: "가능도 높은 K개 후보군 선택, 최적해 미보장 보완 최적해 알고리즘",
-    lead: "가능도 상위 K개 유지, 빔 탐색",
-    features: ["K개 후보", "Greedy 보완", "정확도 상충"],
-    keywords: ["최적해 미보장 단점 보완", "최적해", "Beam size"],
-    tables: [
-      {
-        caption: "알고리즘 수행절차",
-        headers: ["No", "수행 절차", "수행 항목"],
-        rows: [
-          ["①", "문제 정의", "조건·제약 확인"],
-          ["②", "최초 K개 해 선택", "Beam Size K개\n확률 기반 최초 해\n만족 K개 확인"],
-          ["③", "부분 해 확장", "제약조건 여부\n확률 기반 Score"],
-          ["④", "K개 해 선택", "최고 확률 K개 해\n나머지 후보 삭제\n③·④ 반복"],
-          ["⑤", "최종 해 선택", "확률 점수 최고"],
-        ],
-      },
-      {
-        caption: "자연어 처리의 Beam Search 활용 사례 (Beam size = 2)",
-        headers: ["단계", "설명"],
-        rows: [
-          ["1단계", "<S>에서 I(0.4), the(0.3) 유지"],
-          ["2단계", "I → am(0.8) / do(0.5)\nthe → cat(0.4) / dog(0.6)\n상위 2개 유지"],
-          ["3단계", "am → cat(1.0) / dog(0.8)\ndog → barked(0.9) / sleep(0.7)"],
-          ["최종", "\"I am cat\"(1.0) 선택\n\"the dog barked\"(0.9) 미선택"],
-        ],
-      },
-      {
-        caption: "활용 사례",
-        headers: ["구분", "설명"],
-        rows: [
-          ["자연어 처리", "단일 예측 보완 확률 K개 선택\nSeq2Seq 디코딩 최적화"],
-        ],
-      },
-    ],
-    notes: ["개념도: <START>에서 A(0.5)·C(0.4) 선택 → A는 AB(0.2)·AE(0.25)로, C는 후보 탈락(X) → AB→ABC(0.16), AE→AED(0.2) → Candidate Sequences: A,C → AB,AE → ABC,AED", "Beam size가 1이면 그리디 알고리즘과 같고, 무한대면 완전 탐색(BFS)과 같다 — K가 클수록 정확하지만 계산량 증가"],
-  },
-  {
-    title: "CSMA/CA",
-    course: "NW",
-    definition:
-      "**무선랜** 환경에서 회선 상태를 모니터링하여 **충돌을 미리 예측, 충돌 가능성을 최소화**하는 접속기법",
-    defShort: "무선랜 회선 모니터링해 충돌 미리 예측, 충돌 가능성 최소화 접속기법",
-    lead: "충돌 회피의 무선 접속, CSMA/CA",
-    features: ["충돌 예측", "채널 예약", "ACK 확인"],
-    keywords: ["DIFS", "RTS", "SIFS", "CTS", "SIFS(NAV)"],
-    tables: [
-      {
-        caption: "동작 절차",
-        headers: ["동작 절차", "설명"],
-        nameCol: 1,
-        rows: [
-          ["①채널 사용 여부 검사", "RTS 프레임 보내고 CTS 응답받기\nCTS 응답이 없으면 반복"],
-          ["②IFS(Inter Frame Space) 주기 동안 대기", "SIFS(Short IFS), PIFS(PCF IFS)\nDIFS(DCF IFS)"],
-          ["③Back off time 동안 대기", ""],
-          ["④프레임 전송", ""],
-          ["⑤ACK 메시지 수신", "ACK 메시지 수신해 프레임의\n정상 전달 여부 확인"],
-        ],
-      },
-      {
-        caption: "IFS (Inter Frame Space)와 Contention window",
-        headers: ["항목", "설명"],
-        nameCol: 1,
-        rows: [
-          ["IFS (Inter Frame Space)", "휴지 채널 발견 시 즉시 전송 않음\nIFS라는 일정 시간을 기다림\n멀리 지국 신호 앞부분 도달 여유\nIFS 후 휴지여도 경쟁 구간 대기"],
-          ["경쟁 윈도우 (Contention Window)", "시간 슬롯으로 나뉜 일정 시간\n임의의 수 선택해 기다리는 휴지 시간\n휴지 채널 못 찾으면 슬롯 두 배 증가\n타이머만 멈춰 오래 기다린 지국 우선"],
-        ],
-      },
-    ],
-    notes: ["동작 흐름도: 송신측 DIFS 후 RTS → 수신측 SIFS 후 CTS → 송신측 SIFS 후 Data → 수신측 SIFS 후 ACK, 다른 노드들은 NAV(RTS)·NAV(CTS) 동안 매체 접근 연기 후 DIFS·경쟁 윈도우", "IFS 그림: busy medium 연속적 감시 → 미사용 확인 → IFS → 경쟁 윈도우(슬롯 시간) → 프레임 송출. 선택된 백오프 시간 후 매체 미사용이면 송출, 사용 중이면 다시 백오프 시간 선택"],
-  },
-  {
-    title: "다중화(Multiplexing)",
-    course: "NW",
-    definition:
-      "여러 신호를 동시에 송수신할 수 있도록, 하나의 전송로를 분할시켜, 다수의 채널로 분할하여 전송하는 기술",
-    defShort: "하나의 전송로 다수의 채널로 분할해 여러 신호 동시에 전송하는 기술",
-    lead:
-      "하나의 전송로, 여러 채널, 다중화",
-    features: ["전송로 분할", "동시 전송", "단일 송신"],
-    keywords: ["FDM", "TDM", "SDM", "CDM", "WDM"],
-    tables: [
-      {
-        caption: "다중화 종류",
-        headers: ["구분", "종류", "설명"],
-        rows: [
-          ["주파수 축", "FDM(주파수)", "주파수 분할 대역폭 분할 사용"],
-          ["시간 축", "TDM(시간)", "타임슬롯 분할 회선 시간 분할"],
-          ["코드 축", "CDM(코드)", "상호 직교 코드 확산 대역 전송"],
-          ["파장 축", "WDM(파장)", "파장별 광신호 광섬유 한 가닥\n저손실 대역 손실 적은 주파수"],
-          ["공간 축", "SDM(공간)", "다수 물리 채널 하나의 논리 채널"],
-        ],
-      },
-      {
-        caption: "다중화 vs 다원접속",
-        headers: ["구분", "다중화(Multiplexing)", "다원접속(Multiple Access)"],
-        rows: [
-          ["목적", "전송매체 효율\n통신비용 절감", "자원 공동 이용\n사용자 구분"],
-          ["송신측", "송신 지점 한 곳\n동일 지점 송출", "송신 지점 여러 곳\n독립 터미널 송출"],
-          ["다중화", "단일 송신국 발신", "여러 단말기 발신"],
-          ["기술유형", "FDM·TDM\nCDM·WDM·SDM", "FDMA·TDMA\nCDMA·WDMA"],
-          ["전파방향", "하향 링크 방향", "상향 링크 방향"],
-        ],
-      },
-    ],
-    notes: ["개념도: 데이터1·2·3을 각각 타임슬롯으로 분할(시분할액세스 TDMA) → 기지국에서 다중화하여 하나의 캐리어로 송신(시분할다중 TDM) → 수신 측은 자기에게 전송된 프레임을 수신"],
+    notes: ["OSI 7 Layer는 각 계층마다 특정한 서비스를 제공하고, 이를 위한 각각 프로토콜이 존재함"],
   },
   {
     title: "서비스 프리미티브(Service Primitive)",
@@ -14887,41 +14800,6 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
     ],
     notes: ["동작 흐름: 송신측 상위계층 1.Request(하향) → 수신측 하위계층 2.Indication(상향) → 수신측 3.Response(하향) → 송신측 4.Confirm(상향)", "표현 예 해석: Transport 계층(T)에서 접속(CONNECT)을 요구(Request)하면서, 착·발신 주소를 알려주며 사용자 데이터를 송부"],
-  },
-  {
-    title: "OSI 7 Layer (ISO 7498)",
-    course: "NW",
-    definition: "국제표준기구(ISO)에서 표준화된 네트워크 구조를 제시한 기본 모델",
-    defShort: "국제표준기구에서 표준화된 네트워크 구조를 제시한 기본 모델",
-    lead:
-      "네트워크 구조의 참조 모델, OSI 7 Layer",
-    features: ["계층 독립", "참조 모델", "캡슐화 전달"],
-    keywords: ["[아파서티내다]", "Application", "Presentation", "Session", "Transport", "Network", "Data Link", "Physical"],
-    tables: [
-      {
-        caption: "계층별 역할과 프로토콜 [아파서티내다]",
-        headers: ["계층", "상세설명", "프로토콜"],
-        rows: [
-          ["7계층 Application", "사용자 접근 제공\nUI·전자우편\nDB 관리 서비스", "HTTP, SMTP, SNMP\nFTP, Telnet, NFS\nRTSP, NTP"],
-          ["6계층 Presentation", "I/O 데이터를\n표현 형태로 변환\n두 장치 일관 이해", "JPEG, MPEG\nXDR, SMB\nAFP"],
-          ["5계층 Session", "통신세션 구성\n포트연결 확인\n상호작용 동기화", "TLS, SSH, RPC\nNetBIOS\nAppleTalk"],
-          ["4계층 Transport", "제어·에러 관리\n재전송 신뢰 보장", "TCP, UDP, RTP\nSCTP, SPX"],
-          ["3계층 Network", "다중 링크에서\n패킷 목적지 전달\n시작~최종까지\n전달되도록 관리", "IP, ICMP, IGMP\nX.25, CLNP, ARP\nRARP, BGP, OSPF\nRIP, IPX, DDP"],
-          ["2계층 Data Link", "오류 없이 프레임\n장치 간 전달\nMAC 주소 참조\n해당 포트 전송", "PPP, HDLC\nEthernet\nTokenRing\nISDN, FDDI"],
-          ["1계층 Physical", "물리 매체로\n비트 흐름 전송\n물리적 접속 제어", "RS-232C, 광 섬유\n동축케이블\nISDN, DSL"],
-        ],
-      },
-      {
-        caption: "계층별 데이터 단위와 장비",
-        headers: ["구분", "설명"],
-        rows: [
-          ["데이터 단위(PDU)", "Network 패킷 단위\nL4 L2 L1 세그먼트~비트"],
-          ["중계 장비", "라우터·브리지 3·2계층 장비\n리피터 1계층 장비"],
-          ["캡슐화/역캡슐화", "송신 헤더 부착 하향 캡슐화\n수신 헤더 제거 상향 역캡슐화"],
-        ],
-      },
-    ],
-    notes: ["OSI 7 Layer는 각 계층마다 특정한 서비스를 제공하고, 이를 위한 각각 프로토콜이 존재함"],
   },
   {
     title: "HTTP/3",
@@ -15124,6 +15002,165 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
+    title: "Sliding Window & 네이글(Nagle's) 알고리즘",
+    course: "NW",
+    definition:
+      "윈도우 크기를 활용한 흐름제어 기법과 Ack 수신에 따라 패킷 수를 조절하여 네트워크 부하를 감소시키는 알고리즘",
+    defShort: "윈도우 크기 흐름제어와 Ack 수신에 따라 패킷 수를 조절하는 알고리즘",
+    lead:
+      "흐름 제어와 부하 감소, Sliding Window와 네이글",
+    features: ["연속 전송", "패킷 축적", "부하 감소"],
+    // 두 개념을 묻는 토픽이라 답안 서론에서 각각 정의한다(2026-10-07 — "각각 정리").
+    // 교재 슬라이드의 「Sliding Window 개요」「네이글 알고리즘」 정의 칸에서 옮겼다.
+    defPair: [
+      {
+        name: "Sliding Window",
+        lead: "흐름의 동적 조절",
+        def: "수신 측 윈도우 크기만큼 ACK 없이 전송해 흐름 동적 조절하는 알고리즘",
+        features: ["연속 전송", "동적 조절", "윈도우 이동"],
+      },
+      {
+        name: "네이글(Nagle's) 알고리즘",
+        lead: "작은 패킷의 묶음 전송",
+        def: "매우 작은 패킷 모아 전송해 패킷 수 줄여 네트워크 부하 감소하는 기법",
+        features: ["패킷 축적", "패킷 수 감소", "부하 감소"],
+      },
+    ],
+    keywords: ["윈도우 열림, 닫힘, 축소 동작", "수신 Window Size만큼 전송", "송신 데이터 종료 시 즉시 전송", "데이터 축적 후 전송"],
+    tables: [
+      {
+        caption: "Sliding Window 개요",
+        headers: ["구분", "설명"],
+        rows: [
+          ["정의", "수신 측 설정 윈도우 크기만큼\nACK 없이 전송, 흐름 동적 조절"],
+          ["개념도", "Window num = Min(cwnd, rwnd)\n왼쪽 경계 닫힘, 오른쪽 경계 열림"],
+        ],
+      },
+      {
+        caption: "Sliding Window 동작 매커니즘",
+        headers: ["동작 방식", "설명"],
+        rows: [
+          ["Window 열림", "수신측 ACK 도착\n오른쪽 경계가 오른쪽으로 이동\n데이터 전송량 증가"],
+          ["Window 닫힘", "데이터 전송 후 ACK 수신\n왼쪽 경계가 오른쪽으로 이동\n전송의 정상 완료"],
+          ["Window 축소", "적합성 문제 또는 윈도우 크기 변경\n오른쪽 경계가 왼쪽으로 이동"],
+        ],
+      },
+      {
+        caption: "네이글 알고리즘",
+        headers: ["알고리즘", "설명"],
+        rows: [
+          ["정의", "작은 패킷 여러 개 모아서 전송\n네트워크 패킷 수 줄여 부하 감소"],
+          ["개념도", "Nagle 적용 ACK 대기 전송\n미적용 연달아 전송"],
+        ],
+      },
+      {
+        caption: "네이글 알고리즘 동작 매커니즘",
+        headers: ["동작 방식", "설명"],
+        rows: [
+          ["수신 Window Size만큼 전송", "수신 가능 Window Size < MSS 시\nWindow Size만큼 바로 전송"],
+          ["송신 데이터 종료 시 즉시 전송", "패킷 없으면 현재 buffer data 전송"],
+          ["데이터 축적 후 전송", "Ack 올 때까지 buffer에 축적\nack 수신 시 buffer data 송신"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "SCTP(Stream Control Transmission Protocol)",
+    course: "NW",
+    definition:
+      "UDP의 메시지 지향 특성(Message Oriented)과 TCP의 연결 지향(Connection Oriented) 신뢰성을 조합한 전송 계층 프로토콜",
+    defShort: "UDP의 메시지 지향과 TCP의 연결 지향 신뢰성 조합 전송 계층 프로토콜",
+    lead:
+      "TCP와 UDP의 절충, SCTP",
+    features: ["메시지 지향", "멀티호밍", "HOL 완화"],
+    keywords: ["Multi-homing", "Multi-streaming", "4 way handshaking", "SACK & Heartbeat", "3 way handshaking"],
+    tables: [
+      {
+        caption: "기술 요소",
+        headers: ["기술요소", "설명"],
+        rows: [
+          ["Multi Homing", "여러 IP 주소 동시 사용\n장애 시 대체 경로로 세션 유지"],
+          ["Multi Streaming", "하나의 세션, 다양한 응용데이터"],
+          ["4-way Handshake(초기화)", "세션 초기화 4단계절차 구성\nSCTP-A: INIT 전송 초기화\nSCTP-Z: IP 주소 포함 INIT-ACK\nECO, ACK 교환, 초기화 마무리"],
+          ["SACK & HEARTBEAT(전송)", "SACK(Selective ACK) 오류 제어\nHEARTBEAT 메시지로 가용 IP 파악"],
+          ["3-way Handshake(세션종료)", "3단계 구성\n'Half-open Closing' 해결"],
+        ],
+      },
+      {
+        caption: "계층 구조",
+        headers: ["계층", "설명"],
+        rows: [
+          ["SCTP User Application", "응용 프로그램"],
+          ["API's", "응용과 SCTP 사이 인터페이스"],
+          ["SCTP Transport Service", "SCTP 전송 서비스\n다중 IP 주소 사용"],
+          ["IP Network Service", "IP 네트워크 서비스\nSCTP Node A↔B Network Transport"],
+        ],
+      },
+    ],
+    notes: ["TCP와의 차이: TCP는 3-way 수립·4-way 종료인데 SCTP는 반대로 4-way 수립(COOKIE로 SYN 플러딩 방어)·3-way 종료(Half-close 미허용)", "활용: 통신망 시그널링(SIGTRAN), WebRTC 데이터 채널"],
+  },
+  {
+    title: "IPv6",
+    course: "NW",
+    definition:
+      "IPv4가 가지고 있는 주소 고갈, 보안성, 이동성 지원 등의 문제점을 해결하기 위해 개발된 128bit의 차세대 주소체계",
+    defShort: "IPv4의 주소 고갈, 보안성 문제를 해결한 128bit의 차세대 주소체계",
+    lead:
+      "128비트의 차세대 주소, IPv6",
+    features: ["128bit 주소", "고정 헤더", "확장 헤더"],
+    keywords: ["128비트", "주소고갈", "보안성", "이동성", "16진수 8자리"],
+    tables: [
+      {
+        caption: "구성도 [버터플파네호]",
+        headers: ["구분", "설명"],
+        rows: [
+          ["전체 구조", "기본헤더 40B 고정 길이 헤더\n확장헤더+상위 최대 2^16B"],
+          ["기본헤더 필드 배치(비트 0~31)", "1·2행 제어 버전·길이·홉\n3·4행 주소 송·수신지 주소"],
+        ],
+      },
+      {
+        caption: "헤더 상세 설명 — 기본 헤더",
+        headers: ["필드", "크기", "설명"],
+        rows: [
+          ["버전 Version", "4bit", "IP 버전 표시"],
+          ["트래픽 클래스 Traffic Class", "8bit", "우선순위 요청"],
+          ["플로우 레이블 Flow Label", "20bit", "QoS 구분 표시"],
+          ["페이로드 길이 Payload Length", "16bit", "데이터 길이 표시"],
+          ["다음 헤더 Next header", "8bit", "다음 헤더 유형"],
+          ["홉 제한 Hop Limit", "8bit", "포워딩 제한 표시"],
+          ["송신지 주소 Source Address", "128bit", "송신지 주소 표시"],
+          ["수신지 주소 Destination Address", "128bit", "수신지 주소 표시"],
+        ],
+      },
+      {
+        caption: "헤더 상세 설명 — 확장 헤더 / 데이터",
+        headers: ["구분", "설명"],
+        rows: [
+          ["확장 헤더", "추가 전송 기능 기본 헤더 뒤 선택"],
+          ["데이터", "상위 프로토콜 TCP 세그먼트"],
+        ],
+      },
+      {
+        caption: "표기법",
+        headers: ["기법", "설명"],
+        rows: [
+          ["기본 원칙", "8개 필드 16진수 4자리\n콜론(:) 구분 필드 사이 구분"],
+          ["혼합 표기법", "앞 96bit 콜론 16진 표기\n뒤 32bit 10진수 표기법"],
+        ],
+      },
+      {
+        caption: "표기법 예시",
+        headers: ["구분", "1", "2", "3", "4", "5", "6", "7", "8"],
+        rows: [
+          ["일반16진수 표기법", "805B", "2D9D", "DC28", "0000", "0000", "FC57", "D4C8", "1FFF"],
+          ["0 억제 표기법", "805B", "2D9D", "DC28", "0", "0", "FC57", "D4C8", "1FFF"],
+          ["0 압축 표기법", "805B", "2D9D", "DC28", "::", "", "FC57", "D4C8", "1FFF"],
+          ["혼합 표기법", "805B", "2D9D", "DC28", "::", "", "FC57", "212.200.31.255", ""],
+        ],
+      },
+    ],
+  },
+  {
     title: "IPv4와 IPv6 터널링",
     course: "NW",
     definition:
@@ -15154,6 +15191,45 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
     ],
     notes: ["터널링 개념도: Node A(IPv6/IPv4) → IPv4 Infrastructure 구간에 IPv6 Over IPv4 Tunnel 생성 → IPv4/IPv6 Router → IPv4 or IPv6 Infrastructure → Node B(IPv6)"],
+  },
+  {
+    title: "DHCP(Dynamic Host Configuration Protocol)",
+    course: "NW",
+    definition:
+      "호스트에 IP 주소 할당을 위해 DHCP Discover, Offer, Request, Ack의 4단계 할당 과정 이용하는 동적 호스트 IP 자동 할당 프로토콜",
+    defShort: "IP 주소 할당에 4단계 과정 이용하는 동적 호스트 IP 자동 할당 프로토콜",
+    lead:
+      "IP 자동 할당의 절차, DHCP",
+    features: ["IP 자동 할당", "임대 갱신", "방송 탐색"],
+    keywords: ["DISCOVER", "OFFER", "REQUEST", "ACK", "DHCP Starvation"],
+    tables: [
+      {
+        caption: "DHCP IP 할당 과정 (UDP 68 → UDP 67)",
+        headers: ["단계", "할당 과정", "설명"],
+        rows: [
+          ["①", "DISCOVER", "Client Broadcast Discover 전송"],
+          ["②", "OFFER", "Server가 Unicast로 Offer 전송\n제안 IP주소, 임대시간, DNS 정보"],
+          ["③", "REQUEST", "Client가 Broadcast Request 전송\n제안 IP 주소 사용 승인 의사 전달"],
+          ["④", "ACK", "Server가 Unicast로 Ack 전송\n제안 IP 사용 최종 승인 및 할당 종료"],
+        ],
+      },
+      {
+        caption: "IP 갱신 과정",
+        headers: ["단계", "갱신 과정", "설명"],
+        rows: [
+          ["①", "REQUEST", "Client Unicast로 연장 의사 전달\n임대시간 50% 남은 시점 전달"],
+          ["②", "ACK", "Server가 Unicast로 Ack 전송\nIP 사용 연장 최종 승인 및 할당 종료"],
+        ],
+      },
+      {
+        caption: "IP 해제 과정",
+        headers: ["단계", "해제 과정", "설명"],
+        rows: [
+          ["①", "RELEASE", "Client Unicast로 종료 의사 전달\nServer 응답 없이 IP 할당 해제 종료"],
+        ],
+      },
+    ],
+    notes: ["포트: 클라이언트 UDP 68, 서버 UDP 67", "DHCP Starvation: 공격자가 위조 MAC으로 대량의 DHCP 요청을 보내 IP 풀을 고갈시키는 공격"],
   },
   {
     title: "DNS(Domain Name System)",
@@ -15247,6 +15323,175 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
     ],
     notes: ["한 줄 비교: 거리벡터는 '이웃이 알려준 거리'만 믿고 홉 수로 판단(벨만-포드, RIP·IGRP), 링크상태는 '전체 지도'를 만들어 최소 비용 경로를 직접 계산(다익스트라, OSPF·IS-IS). EIGRP는 둘의 특성을 섞은 고급 거리벡터(하이브리드)로 분류"],
+  },
+  {
+    title: "BGP(Border Gateway Protocol)",
+    course: "NW",
+    definition:
+      "AS(Autonomous System) 번호가 서로 다른 네트워크 간에 라우팅 정보를 주고 받기 위해 Open, Update 패킷 이용, 라우팅 우선순위는 Weight, Local Preference 매트릭으로 이용하는 Exterior Gateway 라우팅 프로토콜",
+    defShort: "AS 번호가 서로 다른 네트워크 간 Exterior Gateway 라우팅 프로토콜",
+    lead:
+      "AS 간 경로 교환의 규약, BGP",
+    features: ["AS 간 라우팅", "Path Vector", "정책 라우팅"],
+    keywords: ["iBGP", "eBGP", "Path Vector", "AS", "Local Preference", "MED"],
+    tables: [
+      {
+        caption: "구성도 (RFC 1771, 4271)",
+        headers: ["구분", "구성", "설명"],
+        rows: [
+          ["내부 iBGP", "동일 AS 내부\niBGP 구현", "같은 번호 사용\n내부망 연결"],
+          ["내부 iBGP", "AS 200 내부\nALU-D~F", "동일 AS 그룹\n내부 라우터"],
+          ["내부 iBGP", "AS 100 내부\nALU-A~C", "같은 AS 100\n내부 라우터군"],
+          ["외부 eBGP", "다른 AS 간\neBGP 구현", "AS 번호 상이\n외부망 연결"],
+          ["외부 eBGP", "200↔100", "타 AS 간 연동"],
+        ],
+      },
+      {
+        caption: "기술 요소",
+        headers: ["구분", "기술 요소", "설명"],
+        rows: [
+          ["경로 속성", "Next-Hop", "BGP 정보 전송 라우터의 IP 주소\n목적지까지 필수 경유 라우터 주소"],
+          ["경로 속성", "Local Preference", "외부로 나가는 경로 우선 순위 값\n기본값 100"],
+          ["경로 속성", "AS-Path", "목적지 AS 도착 시 경유 AS 번호\n개수 작을수록 짧은 경로로 선택"],
+          ["경로 속성", "MED", "Multi-Exit-Discriminator\n인입 경로 다중일 경우 우선 순위 값"],
+          ["프로토콜 메시지", "Open", "TCP 179번 포트 회선 연결 시도\n라우터간 BGP Neighbor 설정"],
+          ["프로토콜 메시지", "Update", "BGP 정보 교환·갱신, 비정기 사용\n도달 가능성 정보 전송"],
+          ["프로토콜 메시지", "Notification", "문제 발생·이웃관계 단절 알림"],
+          ["프로토콜 메시지", "Keepalive", "BGP Neighbor Health Check 메시지"],
+          ["프로토콜 메시지", "Route-Refresh", "BGP Neighbor 라우터 정보 재확인"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "ARP(Address Resolution Protocol)",
+    course: "NW",
+    definition:
+      "LAN 환경에서 논리 주소인 IP주소를 물리 주소인 MAC주소로 변환해 주는 네트워크 계층의 프로토콜",
+    defShort: "논리 주소인 IP주소를 물리 주소인 MAC주소로 변환해 주는 프로토콜",
+    lead: "IP 주소의 MAC 변환, ARP",
+    features: ["IP→MAC", "방송 요청", "개별 응답"],
+    keywords: ["IP를 MAC으로 변환"],
+    tables: [
+      {
+        caption: "동작 원리 — MAC Address 요청 (Broadcast)",
+        headers: ["순서", "설명"],
+        rows: [
+          ["①", "D의 MAC 필요 IP 인지 상태"],
+          ["②", "ARP 요청 요청 패킷 생성\n목적지 FF FF 주소 채움"],
+          ["③", "브로드캐스트 네트워크 전파"],
+        ],
+      },
+      {
+        caption: "동작 원리 — MAC Address 회신 (Unicast)",
+        headers: ["순서", "설명"],
+        rows: [
+          ["①", "수신 IP 확인 자기 주소 판단"],
+          ["②", "ARP 응답 응답 패킷 생성\n주소 교환 출발·목적 반전"],
+          ["③", "유니캐스트 호스트 A 전달"],
+          ["④", "캐시 테이블 수정 MAC 등록 통신"],
+        ],
+      },
+    ],
+    notes: ["요청은 모두에게(Broadcast, FF:FF:FF:FF:FF:FF), 응답은 요청자에게만(Unicast) — 이 비대칭이 시험 포인트", "반대 방향(MAC → IP)은 RARP"],
+  },
+  {
+    title: "RARP(Reverse Address Resolution Protocol)",
+    course: "NW",
+    definition:
+      "IP호스트가 자신의 물리 네트워크 주소(MAC)는 알지만 IP주소를 모르는 경우, 서버로부터 IP주소를 요청하기 위해 사용하는 프로토콜",
+    defShort: "MAC은 알지만 IP주소를 모르는 호스트가 IP주소를 요청하는 프로토콜",
+    lead: "MAC로 IP 주소 획득, RARP",
+    features: ["MAC→IP", "서버 의존", "DHCP로 대체"],
+    keywords: ["MAC을 IP로 변환"],
+    tables: [
+      {
+        caption: "동작 원리",
+        headers: ["구분", "설명"],
+        rows: [
+          ["RARP Request", "RARP 주소 몰라 Request Broadcast\n모든 컴퓨터 수신, 서버만 응답\nRARP Request is broadcast"],
+          ["RARP Response", "서버 2대 이상이면 모두 응답\n첫 Response만 수신, 나머지 무시\nRARP Reply is unicast"],
+        ],
+      },
+      {
+        caption: "ARP와 RARP 비교",
+        headers: ["구분", "ARP", "RARP"],
+        rows: [
+          ["변환 방향", "IP → MAC", "MAC → IP"],
+          ["상황", "상대 IP 인지\nMAC 미인지", "자신 MAC 인지\nIP 미인지"],
+          ["요청", "브로드캐스트", "브로드캐스트"],
+          ["응답", "유니캐스트\n해당 호스트", "유니캐스트\nRARP 서버"],
+        ],
+      },
+    ],
+    notes: ["예: \"My physical address is A4:6E:A5:57:82:36. I am looking for my IP address.\" → \"Your IP address is 141.14.56.21\"", "오늘날은 대부분 DHCP로 대체되었다"],
+  },
+  {
+    title: "CSMA/CD",
+    course: "NW",
+    definition:
+      "각각의 호스트가 링크를 사용하기 전에 링크의 사용 상태를 감지하여 전송 충돌을 최소화하기 위한 프로토콜",
+    defShort: "링크 사용 전 링크 사용 상태 감지해 전송 충돌을 최소화하는 프로토콜",
+    lead:
+      "충돌 감지의 매체 접근, CSMA/CD",
+    features: ["전송 전 감지", "충돌 재전송", "유선 LAN"],
+    keywords: ["1-Persistent", "Non-Persistent", "P-Persistent", "충돌", "Back-off"],
+    tables: [
+      {
+        caption: "동작원리",
+        headers: ["구분", "항목", "설명"],
+        rows: [
+          ["송신 준비", "송신 데이터 준비", "디바이스 송신 위해 데이터 준비"],
+          ["채널 감시", "채널 Free", "데이터 송신 후 채널 감시\n미충돌 시 프레임 전송 완료"],
+          ["채널 감시", "충돌 발생", "Jamming Signal 전송\nBack-off 방식 대기·재전송 시도"],
+          ["채널 감시", "채널 Busy", "데이터 송신 위해 채널 재탐색 수행"],
+        ],
+      },
+      {
+        caption: "Persistent 방식 3종",
+        headers: ["구분", "방식", "설명"],
+        rows: [
+          ["즉시 전송", "1-Persistent", "회선 휴지 감지 시 즉시 프레임 전송\nidle 때마다 1의 확률로 전송"],
+          ["지연 전송", "Non-Persistent", "전송 프레임 있는 지국 회선 감지\n채널 사용 중 감지 시 임의 시간 지연"],
+          ["확률 전송", "P-Persistent", "두 방식 장단점 상호 보완\n확률값(p)로 전송여부 결정"],
+        ],
+      },
+    ],
+    notes: ["동작 흐름도: 송신준비 → 채널 감시 → (채널 Free) 데이터 송신 및 채널 감시 → 충돌 없이 종료 / (충돌 발생) Jam 신호 전송 → Back-off 방식에 따라 대기 → 새로운 시도 / (채널 Busy) 채널 감시로 복귀", "유선 LAN(이더넷)에서 사용 — 무선은 충돌 감지가 어려워 CSMA/CA를 사용"],
+  },
+  {
+    title: "CSMA/CA",
+    course: "NW",
+    definition:
+      "**무선랜** 환경에서 회선 상태를 모니터링하여 **충돌을 미리 예측, 충돌 가능성을 최소화**하는 접속기법",
+    defShort: "무선랜 회선 모니터링해 충돌 미리 예측, 충돌 가능성 최소화 접속기법",
+    lead: "충돌 회피의 무선 접속, CSMA/CA",
+    features: ["충돌 예측", "채널 예약", "ACK 확인"],
+    keywords: ["DIFS", "RTS", "SIFS", "CTS", "SIFS(NAV)"],
+    tables: [
+      {
+        caption: "동작 절차",
+        headers: ["동작 절차", "설명"],
+        nameCol: 1,
+        rows: [
+          ["①채널 사용 여부 검사", "RTS 프레임 보내고 CTS 응답받기\nCTS 응답이 없으면 반복"],
+          ["②IFS(Inter Frame Space) 주기 동안 대기", "SIFS(Short IFS), PIFS(PCF IFS)\nDIFS(DCF IFS)"],
+          ["③Back off time 동안 대기", ""],
+          ["④프레임 전송", ""],
+          ["⑤ACK 메시지 수신", "ACK 메시지 수신해 프레임의\n정상 전달 여부 확인"],
+        ],
+      },
+      {
+        caption: "IFS (Inter Frame Space)와 Contention window",
+        headers: ["항목", "설명"],
+        nameCol: 1,
+        rows: [
+          ["IFS (Inter Frame Space)", "휴지 채널 발견 시 즉시 전송 않음\nIFS라는 일정 시간을 기다림\n멀리 지국 신호 앞부분 도달 여유\nIFS 후 휴지여도 경쟁 구간 대기"],
+          ["경쟁 윈도우 (Contention Window)", "시간 슬롯으로 나뉜 일정 시간\n임의의 수 선택해 기다리는 휴지 시간\n휴지 채널 못 찾으면 슬롯 두 배 증가\n타이머만 멈춰 오래 기다린 지국 우선"],
+        ],
+      },
+    ],
+    notes: ["동작 흐름도: 송신측 DIFS 후 RTS → 수신측 SIFS 후 CTS → 송신측 SIFS 후 Data → 수신측 SIFS 후 ACK, 다른 노드들은 NAV(RTS)·NAV(CTS) 동안 매체 접근 연기 후 DIFS·경쟁 윈도우", "IFS 그림: busy medium 연속적 감시 → 미사용 확인 → IFS → 경쟁 윈도우(슬롯 시간) → 프레임 송출. 선택된 백오프 시간 후 매체 미사용이면 송출, 사용 중이면 다시 백오프 시간 선택"],
   },
   {
     title: "FEC(Forward Error Correction) / BEC(Backward Error Correction)",
@@ -15369,184 +15614,40 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
-    title: "QoS(Quality of Service)",
+    title: "다중화(Multiplexing)",
     course: "NW",
     definition:
-      "한정된 네트워크 망의 대역폭을 효율적으로 사용하게 하고, 네트워크 트래픽을 정책 별로 제어하여 인터넷 종단 간 서비스 품질을 향상 시키는 기술",
-    defShort: "트래픽 정책별로 제어해 인터넷 종단 간 서비스 품질 향상시키는 기술",
+      "여러 신호를 동시에 송수신할 수 있도록, 하나의 전송로를 분할시켜, 다수의 채널로 분할하여 전송하는 기술",
+    defShort: "하나의 전송로 다수의 채널로 분할해 여러 신호 동시에 전송하는 기술",
     lead:
-      "종단 간 품질 보장, QoS",
-    features: ["정책별 제어", "종단 간 보장", "등급별 차등"],
-    keywords: ["대역폭", "지연", "지터", "패킷손실", "자원예약", "RSVP", "우선순위", "DSCP"],
+      "하나의 전송로, 여러 채널, 다중화",
+    features: ["전송로 분할", "동시 전송", "단일 송신"],
+    keywords: ["FDM", "TDM", "SDM", "CDM", "WDM"],
     tables: [
       {
-        caption: "주요 지표 [대지터패]",
-        headers: ["주요 지표", "설명"],
+        caption: "다중화 종류",
+        headers: ["구분", "종류", "설명"],
         rows: [
-          ["대역폭", "처리 가능한 최대 데이터 처리 능력"],
-          ["지연", "주파수에 따라 겪는 시간 지연"],
-          ["지터", "펄스 파형 시간축 상 흐트러짐"],
-          ["패킷 손실", "패킷 왕복 중 발생하는 데이터 유실"],
+          ["주파수 축", "FDM(주파수)", "주파수 분할 대역폭 분할 사용"],
+          ["시간 축", "TDM(시간)", "타임슬롯 분할 회선 시간 분할"],
+          ["코드 축", "CDM(코드)", "상호 직교 코드 확산 대역 전송"],
+          ["파장 축", "WDM(파장)", "파장별 광신호 광섬유 한 가닥\n저손실 대역 손실 적은 주파수"],
+          ["공간 축", "SDM(공간)", "다수 물리 채널 하나의 논리 채널"],
         ],
       },
       {
-        caption: "관리 기술",
-        headers: ["구분", "기술 요소", "상세 설명"],
+        caption: "다중화 vs 다원접속",
+        headers: ["구분", "다중화(Multiplexing)", "다원접속(Multiple Access)"],
         rows: [
-          ["데이터 Path 매커니즘", "분류기·표시기\n미터·폐기처리기\n쉐이퍼", "개별 패킷 처리\n라우터가 수행\n다양 서비스 제공"],
-          ["트래픽 쉐이핑(Shaping)", "Leaky Bucket\nToken Bucket", "버킷 속도 평준화\n토큰 유무로 제어"],
-          ["혼잡제어", "RED\nWRED", "혼잡 전 랜덤 폐기\n가중치 RED 적용"],
-          ["수락제어", "전송 정책", "전송 대상 결정"],
-          ["큐잉(Queuing)", "FIFO Queuing\nPriority Queuing\nWFQ", "단일 큐 저장\n클래스별 FIFO\n가중 RR 방식"],
-        ],
-      },
-      {
-        caption: "보장 기술",
-        headers: ["구분", "설명"],
-        rows: [
-          ["IntServ", "RSVP로 요구 자원 사전 예약\n유입 트래픽 수락제어로 QoS 제공"],
-          ["DiffServ", "DS 필드에 DSCP 마킹\n클래스별 PHB 우선순위 기반 QoS"],
+          ["목적", "전송매체 효율\n통신비용 절감", "자원 공동 이용\n사용자 구분"],
+          ["송신측", "송신 지점 한 곳\n동일 지점 송출", "송신 지점 여러 곳\n독립 터미널 송출"],
+          ["다중화", "단일 송신국 발신", "여러 단말기 발신"],
+          ["기술유형", "FDM·TDM\nCDM·WDM·SDM", "FDMA·TDMA\nCDMA·WDMA"],
+          ["전파방향", "하향 링크 방향", "상향 링크 방향"],
         ],
       },
     ],
-    notes: ["IntServ는 흐름별로 자원을 미리 예약(세밀하지만 확장성 낮음), DiffServ는 패킷에 등급 표시만 하고 홉마다 그 등급대로 처리(확장성 높음) — 실무는 DiffServ 중심"],
-  },
-  {
-    title: "ARP(Address Resolution Protocol)",
-    course: "NW",
-    definition:
-      "LAN 환경에서 논리 주소인 IP주소를 물리 주소인 MAC주소로 변환해 주는 네트워크 계층의 프로토콜",
-    defShort: "논리 주소인 IP주소를 물리 주소인 MAC주소로 변환해 주는 프로토콜",
-    lead: "IP 주소의 MAC 변환, ARP",
-    features: ["IP→MAC", "방송 요청", "개별 응답"],
-    keywords: ["IP를 MAC으로 변환"],
-    tables: [
-      {
-        caption: "동작 원리 — MAC Address 요청 (Broadcast)",
-        headers: ["순서", "설명"],
-        rows: [
-          ["①", "D의 MAC 필요 IP 인지 상태"],
-          ["②", "ARP 요청 요청 패킷 생성\n목적지 FF FF 주소 채움"],
-          ["③", "브로드캐스트 네트워크 전파"],
-        ],
-      },
-      {
-        caption: "동작 원리 — MAC Address 회신 (Unicast)",
-        headers: ["순서", "설명"],
-        rows: [
-          ["①", "수신 IP 확인 자기 주소 판단"],
-          ["②", "ARP 응답 응답 패킷 생성\n주소 교환 출발·목적 반전"],
-          ["③", "유니캐스트 호스트 A 전달"],
-          ["④", "캐시 테이블 수정 MAC 등록 통신"],
-        ],
-      },
-    ],
-    notes: ["요청은 모두에게(Broadcast, FF:FF:FF:FF:FF:FF), 응답은 요청자에게만(Unicast) — 이 비대칭이 시험 포인트", "반대 방향(MAC → IP)은 RARP"],
-  },
-  {
-    title: "RARP(Reverse Address Resolution Protocol)",
-    course: "NW",
-    definition:
-      "IP호스트가 자신의 물리 네트워크 주소(MAC)는 알지만 IP주소를 모르는 경우, 서버로부터 IP주소를 요청하기 위해 사용하는 프로토콜",
-    defShort: "MAC은 알지만 IP주소를 모르는 호스트가 IP주소를 요청하는 프로토콜",
-    lead: "MAC로 IP 주소 획득, RARP",
-    features: ["MAC→IP", "서버 의존", "DHCP로 대체"],
-    keywords: ["MAC을 IP로 변환"],
-    tables: [
-      {
-        caption: "동작 원리",
-        headers: ["구분", "설명"],
-        rows: [
-          ["RARP Request", "RARP 주소 몰라 Request Broadcast\n모든 컴퓨터 수신, 서버만 응답\nRARP Request is broadcast"],
-          ["RARP Response", "서버 2대 이상이면 모두 응답\n첫 Response만 수신, 나머지 무시\nRARP Reply is unicast"],
-        ],
-      },
-      {
-        caption: "ARP와 RARP 비교",
-        headers: ["구분", "ARP", "RARP"],
-        rows: [
-          ["변환 방향", "IP → MAC", "MAC → IP"],
-          ["상황", "상대 IP 인지\nMAC 미인지", "자신 MAC 인지\nIP 미인지"],
-          ["요청", "브로드캐스트", "브로드캐스트"],
-          ["응답", "유니캐스트\n해당 호스트", "유니캐스트\nRARP 서버"],
-        ],
-      },
-    ],
-    notes: ["예: \"My physical address is A4:6E:A5:57:82:36. I am looking for my IP address.\" → \"Your IP address is 141.14.56.21\"", "오늘날은 대부분 DHCP로 대체되었다"],
-  },
-  {
-    title: "DHCP(Dynamic Host Configuration Protocol)",
-    course: "NW",
-    definition:
-      "호스트에 IP 주소 할당을 위해 DHCP Discover, Offer, Request, Ack의 4단계 할당 과정 이용하는 동적 호스트 IP 자동 할당 프로토콜",
-    defShort: "IP 주소 할당에 4단계 과정 이용하는 동적 호스트 IP 자동 할당 프로토콜",
-    lead:
-      "IP 자동 할당의 절차, DHCP",
-    features: ["IP 자동 할당", "임대 갱신", "방송 탐색"],
-    keywords: ["DISCOVER", "OFFER", "REQUEST", "ACK", "DHCP Starvation"],
-    tables: [
-      {
-        caption: "DHCP IP 할당 과정 (UDP 68 → UDP 67)",
-        headers: ["단계", "할당 과정", "설명"],
-        rows: [
-          ["①", "DISCOVER", "Client Broadcast Discover 전송"],
-          ["②", "OFFER", "Server가 Unicast로 Offer 전송\n제안 IP주소, 임대시간, DNS 정보"],
-          ["③", "REQUEST", "Client가 Broadcast Request 전송\n제안 IP 주소 사용 승인 의사 전달"],
-          ["④", "ACK", "Server가 Unicast로 Ack 전송\n제안 IP 사용 최종 승인 및 할당 종료"],
-        ],
-      },
-      {
-        caption: "IP 갱신 과정",
-        headers: ["단계", "갱신 과정", "설명"],
-        rows: [
-          ["①", "REQUEST", "Client Unicast로 연장 의사 전달\n임대시간 50% 남은 시점 전달"],
-          ["②", "ACK", "Server가 Unicast로 Ack 전송\nIP 사용 연장 최종 승인 및 할당 종료"],
-        ],
-      },
-      {
-        caption: "IP 해제 과정",
-        headers: ["단계", "해제 과정", "설명"],
-        rows: [
-          ["①", "RELEASE", "Client Unicast로 종료 의사 전달\nServer 응답 없이 IP 할당 해제 종료"],
-        ],
-      },
-    ],
-    notes: ["포트: 클라이언트 UDP 68, 서버 UDP 67", "DHCP Starvation: 공격자가 위조 MAC으로 대량의 DHCP 요청을 보내 IP 풀을 고갈시키는 공격"],
-  },
-  {
-    title: "SCTP(Stream Control Transmission Protocol)",
-    course: "NW",
-    definition:
-      "UDP의 메시지 지향 특성(Message Oriented)과 TCP의 연결 지향(Connection Oriented) 신뢰성을 조합한 전송 계층 프로토콜",
-    defShort: "UDP의 메시지 지향과 TCP의 연결 지향 신뢰성 조합 전송 계층 프로토콜",
-    lead:
-      "TCP와 UDP의 절충, SCTP",
-    features: ["메시지 지향", "멀티호밍", "HOL 완화"],
-    keywords: ["Multi-homing", "Multi-streaming", "4 way handshaking", "SACK & Heartbeat", "3 way handshaking"],
-    tables: [
-      {
-        caption: "기술 요소",
-        headers: ["기술요소", "설명"],
-        rows: [
-          ["Multi Homing", "여러 IP 주소 동시 사용\n장애 시 대체 경로로 세션 유지"],
-          ["Multi Streaming", "하나의 세션, 다양한 응용데이터"],
-          ["4-way Handshake(초기화)", "세션 초기화 4단계절차 구성\nSCTP-A: INIT 전송 초기화\nSCTP-Z: IP 주소 포함 INIT-ACK\nECO, ACK 교환, 초기화 마무리"],
-          ["SACK & HEARTBEAT(전송)", "SACK(Selective ACK) 오류 제어\nHEARTBEAT 메시지로 가용 IP 파악"],
-          ["3-way Handshake(세션종료)", "3단계 구성\n'Half-open Closing' 해결"],
-        ],
-      },
-      {
-        caption: "계층 구조",
-        headers: ["계층", "설명"],
-        rows: [
-          ["SCTP User Application", "응용 프로그램"],
-          ["API's", "응용과 SCTP 사이 인터페이스"],
-          ["SCTP Transport Service", "SCTP 전송 서비스\n다중 IP 주소 사용"],
-          ["IP Network Service", "IP 네트워크 서비스\nSCTP Node A↔B Network Transport"],
-        ],
-      },
-    ],
-    notes: ["TCP와의 차이: TCP는 3-way 수립·4-way 종료인데 SCTP는 반대로 4-way 수립(COOKIE로 SYN 플러딩 방어)·3-way 종료(Half-close 미허용)", "활용: 통신망 시그널링(SIGTRAN), WebRTC 데이터 채널"],
+    notes: ["개념도: 데이터1·2·3을 각각 타임슬롯으로 분할(시분할액세스 TDMA) → 기지국에서 다중화하여 하나의 캐리어로 송신(시분할다중 TDM) → 수신 측은 자기에게 전송된 프레임을 수신"],
   },
   {
     title: "C-RAN(Centralized / Cloud RAN)",
@@ -15652,46 +15753,47 @@ export const SUBNOTES: TextbookSubnote[] = [
     notes: ["공유 범위 순서: MORAN(주파수 분리) < MOCN(주파수까지 공유) < GWCN(코어망 MME·S-GW까지 공유) — 공유를 많이 할수록 비용은 줄지만 차별화는 어렵고 구현은 복잡해진다"],
   },
   {
-    title: "5G 특화망",
+    title: "QoS(Quality of Service)",
     course: "NW",
     definition:
-      "기존 이동통신 상용망이 아닌 전용 주파수를 통해 특정공간(건물, 시설, 장소 등)에서 수요기업이 도입하는 최첨단 서비스 구현할 수 있는 맞춤형 네트워크",
-    defShort: "전용 주파수 통해 특정공간에서 수요기업 도입하는 맞춤형 네트워크",
-    lead: "전용 주파수 특정공간 구축, 5G 특화망",
-    features: ["전용 주파수", "공간 한정", "기업 맞춤형"],
-    keywords: ["전용 주파수", "4.7GHz", "28GHz", "자가구축", "On-Premise형", "5G Core CP 공유형", "5G Core 전체 공유형", "MEC", "SDN", "NFV", "Open RAN"],
+      "한정된 네트워크 망의 대역폭을 효율적으로 사용하게 하고, 네트워크 트래픽을 정책 별로 제어하여 인터넷 종단 간 서비스 품질을 향상 시키는 기술",
+    defShort: "트래픽 정책별로 제어해 인터넷 종단 간 서비스 품질 향상시키는 기술",
+    lead:
+      "종단 간 품질 보장, QoS",
+    features: ["정책별 제어", "종단 간 보장", "등급별 차등"],
+    keywords: ["대역폭", "지연", "지터", "패킷손실", "자원예약", "RSVP", "우선순위", "DSCP"],
     tables: [
       {
-        caption: "구성 요소",
-        headers: ["구분", "구성 요소", "설명"],
+        caption: "주요 지표 [대지터패]",
+        headers: ["주요 지표", "설명"],
         rows: [
-          ["무선 자원", "5G 주파수", "5G 주파수 or 독자 주파수\n4.7GHz, 28GHz"],
-          ["코어", "UPF(User Plane Function)", "패킷 라우팅 및 포워딩\n패킷 검사, QoS 처리\n외부 PDU 세션 등 담당\nDN(Data Networks) 상호 연결"],
-          ["엣지", "MEC(Multi-access Edge Computing)", "코어·인터넷망 미사용\n사용자 인접 MEC 서버 처리\n저지연 요구사항 만족\n코어·인터넷망 혼잡 완화"],
-          ["접속", "gNB", "5G 무선 네트워크 기지국"],
+          ["대역폭", "처리 가능한 최대 데이터 처리 능력"],
+          ["지연", "주파수에 따라 겪는 시간 지연"],
+          ["지터", "펄스 파형 시간축 상 흐트러짐"],
+          ["패킷 손실", "패킷 왕복 중 발생하는 데이터 유실"],
         ],
       },
       {
-        caption: "기술 요소",
-        headers: ["기술", "설명"],
+        caption: "관리 기술",
+        headers: ["구분", "기술 요소", "상세 설명"],
         rows: [
-          ["SDN", "Control plane과 Data Plane\n분리 기반 SW 정의\n네트워크"],
-          ["NFV", "네트워크 장비의\n네트워크 기능\n가상화"],
-          ["Network Slicing", "SDN, NFV 기반 물리적\n네트워크의\n용도별 논리적\n네트워크 분리"],
-          ["Open RAN", "CU/DU/RU 분리, 개방형 표준\n무선 기술"],
-          ["RAN Sharing", "사설망과 공중망\n간 gNB 공유 기법"],
+          ["데이터 Path 매커니즘", "분류기·표시기\n미터·폐기처리기\n쉐이퍼", "개별 패킷 처리\n라우터가 수행\n다양 서비스 제공"],
+          ["트래픽 쉐이핑(Shaping)", "Leaky Bucket\nToken Bucket", "버킷 속도 평준화\n토큰 유무로 제어"],
+          ["혼잡제어", "RED\nWRED", "혼잡 전 랜덤 폐기\n가중치 RED 적용"],
+          ["수락제어", "전송 정책", "전송 대상 결정"],
+          ["큐잉(Queuing)", "FIFO Queuing\nPriority Queuing\nWFQ", "단일 큐 저장\n클래스별 FIFO\n가중 RR 방식"],
         ],
       },
       {
-        caption: "5G 특화망 유형",
-        headers: ["구분", "유형"],
+        caption: "보장 기술",
+        headers: ["구분", "설명"],
         rows: [
-          ["자가구축", "On-Premise 형"],
-          ["이음 5G 사업자", "On-Premise 형\n5G Core CP 공유형\n5G Core 전체 공유형"],
+          ["IntServ", "RSVP로 요구 자원 사전 예약\n유입 트래픽 수락제어로 QoS 제공"],
+          ["DiffServ", "DS 필드에 DSCP 마킹\n클래스별 PHB 우선순위 기반 QoS"],
         ],
       },
     ],
-    notes: ["구성도: 단말 ↔ 액세스 망 ↔ 코어 망, 전체를 OSS(운영지원시스템)가 관리", "국내에서는 '이음 5G'라는 이름으로 4.7GHz·28GHz 대역을 기업에 할당"],
+    notes: ["IntServ는 흐름별로 자원을 미리 예약(세밀하지만 확장성 낮음), DiffServ는 패킷에 등급 표시만 하고 홉마다 그 등급대로 처리(확장성 높음) — 실무는 DiffServ 중심"],
   },
   {
     title: "네트워크 슬라이싱",
@@ -15735,6 +15837,241 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
     ],
     notes: ["SDN 구조: Application Plane → Control Plane →(Openflow)→ Data Plane (S/W 영역과 H/W 영역 분리)", "NFV 구조: VNF들이 NFVI(가상화 인프라) 위에서 동작하고 NFV MANO가 관리"],
+  },
+  {
+    title: "SDN(Software Defined Network)",
+    course: "NW",
+    definition:
+      "네트워크 제어기능(Control Plane)과 데이터 전송기능(Data Plane)을 분리하고 개방형 프로토콜을 이용하여 SW기반의 다양한 네트워크 구성 및 제어를 수행하는 네트워크 기술",
+    defShort: "개방형 프로토콜로 SW기반 다양한 네트워크 구성 및 제어하는 기술",
+    lead:
+      "제어와 전송의 분리, SDN",
+    features: ["제어부 분리", "중앙집중화", "개방형"],
+    keywords: ["Control Plane", "Data Plane", "OSS", "BSS", "오픈API플랫폼"],
+    tables: [
+      {
+        caption: "개념도 — 기존 장비 vs SDN 장비",
+        headers: ["구분", "설명"],
+        rows: [
+          ["기존 네트워크 장비", "SW HW 통합 스위치 내 공존\n라우팅 QoS 포워딩 내장"],
+          ["SDN 네트워크 장비", "제어 전달 분리 컨트롤러 분리\nAPI 연결 스위치 포워딩"],
+          ["전체 구조", "제어 데이터면 계층 분리 구조\nOpen API 개방형 연결"],
+        ],
+      },
+      {
+        caption: "SDN 구성 요소",
+        headers: ["구성 요소", "설명", "비고"],
+        rows: [
+          ["Application", "상위에서 사용자\n서비스 지원", "SDN Application\nLogic"],
+          ["Interface", "Data·Control\nPlane 간 연계", "OpenFlow"],
+          ["Control Plane", "제어 기능의\n중앙집중화", "SDN Control Logic\nACL, Routing, 인증"],
+          ["Data Plane", "단순 패킷 포워딩\n스위칭만 구현", "Forward Engine"],
+        ],
+      },
+      {
+        caption: "SDN 구성도(3계층)",
+        headers: ["계층", "설명"],
+        rows: [
+          ["APPLICATION LAYER", "비즈니스 응용 API 연계"],
+          ["CONTROL LAYER", "SDN 제어 SW 중앙 제어 담당\n네트워크 서비스 오픈플로우 연결"],
+          ["INFRASTRUCTURE LAYER", "네트워크 장비 패킷 전달 수행"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "오픈플로우(OpenFlow)",
+    course: "NW",
+    definition:
+      "네트워크 장비의 패킷 포워딩 기능과 컨트롤러 기능을 표준 인터페이스로 분리하여 네트워크 개방성을 제공하는 기술로서 SDN(Software Defined Network) 컨트롤러와 네트워크 장치 간의 인터페이스 규격",
+    defShort: "개방성 제공하는 SDN 컨트롤러와 네트워크 장치 간의 인터페이스 규격",
+    lead:
+      "SDN의 표준 인터페이스, 오픈플로우",
+    features: ["제어 분리", "개방형 표준", "플로우 제어"],
+    keywords: ["OpenFlow Controller", "Switch", "Flow Table", "Group Table", "OpenFlow Channel", "Pipelining"],
+    tables: [
+      {
+        caption: "구성 요소 — Controller",
+        headers: ["구성요소", "설명"],
+        rows: [
+          ["OpenFlow Controller", "Switch 프로토콜 연동\n제어 소프트웨어 다수 논리 제어"],
+        ],
+      },
+      {
+        caption: "구성 요소 — Protocol",
+        headers: ["구성요소", "설명"],
+        rows: [
+          ["OpenFlow Protocol", "Switch·Controller 통신 규약\nController-to-Switch: 제어\nAsynchronous: 상태 변경 Update\nSymmetric: 요청 없이 전송"],
+        ],
+      },
+      {
+        caption: "구성 요소 — Switch",
+        headers: ["구성요소", "설명"],
+        rows: [
+          ["OpenFlow Channel", "Switch 컨트롤러 연결\n관리용 접점 제어 통로 제공"],
+          ["Flow Table", "다수 Flow entry, 파이프라인 처리\nmatch fields(패킷 일치)\ncounters(통계)\ninstructions(실행 내용)"],
+          ["Group Table", "그룹 엔트리 타입 통계 구성\n액션 버킷 구성 실행 집합 정의"],
+        ],
+      },
+    ],
+    notes: ["구성도: Controller들 ⇄ OpenFlow Protocol ⇄ OpenFlow Switch. Switch 내부는 Control Channel(OpenFlow Channel들)과 Datapath(Group Table, Meter Table), 그리고 Port ─ Flow Table → Flow Table → … → Flow Table ─ Port 로 이어지는 Pipeline 구조"],
+  },
+  {
+    title: "SD-WAN(Software Defined-Wide Area Network)",
+    course: "NW",
+    definition:
+      "데이터센터·기업·대학 등의 LAN에서 Data Plane과 Control Plane을 분리하는 SDN을 통신망 사업자와 서비스 제공자 등의 WAN(Wide Area Network)으로 확장 적용한 네트워크 기술",
+    defShort: "SDN을 통신망 사업자와 서비스 제공자 등 WAN으로 확장 적용한 기술",
+    lead:
+      "SDN의 WAN 확장, SD-WAN",
+    features: ["WAN 확장", "중앙 배포", "동적 경로"],
+    keywords: ["SD-WAN Controller", "SD-WAN Edge", "VPN"],
+    tables: [
+      {
+        caption: "기술 요소 — 장비 측면",
+        headers: ["구분", "기술요소", "설명"],
+        rows: [
+          ["장비 측면", "SD-WAN Controller", "액세스 노드 네트워크·정책 설정\n네트워크 토폴로지 관리\nQoS·액세스 정책 설정·배포\n사용량·성능 보고"],
+          ["장비 측면", "SD-WAN CPE(SD-WAN Edge)", "CPE 장비·범용 서버 VNF로 구현\n오버레이 망 라우팅·터널링 엔진"],
+          ["장비 측면", "SD-WAN CPE(SD-WAN Edge)", "방화벽·보안·암호화\nWAN 최적화: 캐싱·압축\n에러 정정·로드밸런싱"],
+        ],
+      },
+      {
+        caption: "기술 요소 — 트래픽(Traffic) Control",
+        headers: ["구분", "기술요소", "설명"],
+        rows: [
+          ["경로 제어", "Dynamic Path Switching", "동적 경로 전환 저하 경로 회피"],
+          ["경로 제어", "Packet Duplication", "패킷 중복 전송 유실 대비 확보"],
+          ["회선 결합", "Link Aggregation", "다중 회선 결합 대역폭 확장"],
+          ["망 분리", "Network Segmentation", "VLAN 분리 논리적 망 분리"],
+          ["경로 제어", "트래픽 스티어링(Traffic Steering)", "트래픽 식별 앱별 경로 설정"],
+        ],
+      },
+    ],
+    notes: ["구성도: Control Plane에 SD-WAN Controller(모니터링 및 관제, 정책설정 및 라우팅) — Data Plane에서 Site A의 SD-WAN CPE ↔ MPLS망/Internet망 두 경로(Overlay Tunnel) ↔ Site B의 SD-WAN CPE"],
+  },
+  {
+    title: "CDN(Contents Delivery Network)",
+    course: "NW",
+    definition:
+      "콘텐츠를 중간경로를 최소화, 효율적으로 전달하기 위해 ISP의 여러 노드(웹 캐시)를 가진 네트워크에 데이터를 복제 저장하여 제공하는 시스템",
+    defShort: "콘텐츠를 효율적 전달 위해 데이터를 복제 저장하여 제공하는 시스템",
+    lead:
+      "가까운 곳에서 콘텐츠를, CDN",
+    features: ["노드 복제", "경로 최소화", "인접 라우팅"],
+    keywords: ["Caching", "Global Server Load Balancing", "Load Balancing", "Streaming", "배포", "동기화", "Request Routing"],
+    tables: [
+      {
+        caption: "동작 절차",
+        headers: ["순서", "설명"],
+        rows: [
+          ["①", "End-User가 CP 웹 서버에 접속"],
+          ["②", "Embedded URL 포함 HTML문서 전달"],
+          ["③", "CDN서버 주소로 오브젝트 요청"],
+          ["④", "CDN서버에 복제된 오브젝트 전달"],
+        ],
+      },
+      {
+        caption: "구성 요소",
+        headers: ["구성", "설명"],
+        rows: [
+          ["CDN SP", "CDN Service Provider\nCDN 사업 총괄 수행 사업자"],
+          ["CP", "Contents Provider\n콘텐츠 제공 사업자"],
+          ["ISP", "Internet Service Provider\nCDN 서비스 대상 사용자 보유 업체"],
+          ["User", "서비스 사용자"],
+          ["POP", "points of presence\n모든 CDN 제공자 PoP 통해 서비스"],
+          ["IX", "Internet eXchange\n인터넷회선연동\nISP간 연동 제공 접속포인트"],
+        ],
+      },
+      {
+        caption: "기술 요소",
+        headers: ["기술요소", "설명"],
+        rows: [
+          ["Cashing 기술", "자주 찾는 페이지 복사·저장\n사용자 요청 시 저장 정보 전송"],
+          ["Global Server Load Balancing", "최상 서비스 캐시 서버 선정·연결"],
+          ["Load Balancing 기술", "서버별 트래픽 분산 성능 향상\n고장난 서버 제외 후 나머지로 할당"],
+          ["Streaming기술", "멀티미디어 다운 없이 즉시 재생"],
+          ["콘텐츠 배포", "지역별 분산 CDN서버\n동일 콘텐츠 정확히 배포"],
+          ["동기화 기술", "콘텐츠 변경 즉시 분산 서버 반영\n동일 콘텐츠 동시 전송\n파일 유실·오류 방지\nSW 업데이트에 유용"],
+          ["Grid Delivery", "일정 트래픽까지 서버 활용\n이상은 P2P 기술 활용\n이용자 컴퓨터를 작은 서버로\n다운로드하며 다른 이용자에 전송"],
+          ["Request Routing", "Cache서버 부하 고려\n가장 인접한 Cache Server 선택"],
+        ],
+      },
+    ],
+    notes: ["개념도: 사용자 ─ POP 서버(Cache) ─ IX ─ ISP ─ CP. 구간 명칭은 사용자쪽부터 Last-mile / Middle-mile / First-mile"],
+  },
+  {
+    title: "5G 특화망",
+    course: "NW",
+    definition:
+      "기존 이동통신 상용망이 아닌 전용 주파수를 통해 특정공간(건물, 시설, 장소 등)에서 수요기업이 도입하는 최첨단 서비스 구현할 수 있는 맞춤형 네트워크",
+    defShort: "전용 주파수 통해 특정공간에서 수요기업 도입하는 맞춤형 네트워크",
+    lead: "전용 주파수 특정공간 구축, 5G 특화망",
+    features: ["전용 주파수", "공간 한정", "기업 맞춤형"],
+    keywords: ["전용 주파수", "4.7GHz", "28GHz", "자가구축", "On-Premise형", "5G Core CP 공유형", "5G Core 전체 공유형", "MEC", "SDN", "NFV", "Open RAN"],
+    tables: [
+      {
+        caption: "구성 요소",
+        headers: ["구분", "구성 요소", "설명"],
+        rows: [
+          ["무선 자원", "5G 주파수", "5G 주파수 or 독자 주파수\n4.7GHz, 28GHz"],
+          ["코어", "UPF(User Plane Function)", "패킷 라우팅 및 포워딩\n패킷 검사, QoS 처리\n외부 PDU 세션 등 담당\nDN(Data Networks) 상호 연결"],
+          ["엣지", "MEC(Multi-access Edge Computing)", "코어·인터넷망 미사용\n사용자 인접 MEC 서버 처리\n저지연 요구사항 만족\n코어·인터넷망 혼잡 완화"],
+          ["접속", "gNB", "5G 무선 네트워크 기지국"],
+        ],
+      },
+      {
+        caption: "기술 요소",
+        headers: ["기술", "설명"],
+        rows: [
+          ["SDN", "Control plane과 Data Plane\n분리 기반 SW 정의\n네트워크"],
+          ["NFV", "네트워크 장비의\n네트워크 기능\n가상화"],
+          ["Network Slicing", "SDN, NFV 기반 물리적\n네트워크의\n용도별 논리적\n네트워크 분리"],
+          ["Open RAN", "CU/DU/RU 분리, 개방형 표준\n무선 기술"],
+          ["RAN Sharing", "사설망과 공중망\n간 gNB 공유 기법"],
+        ],
+      },
+      {
+        caption: "5G 특화망 유형",
+        headers: ["구분", "유형"],
+        rows: [
+          ["자가구축", "On-Premise 형"],
+          ["이음 5G 사업자", "On-Premise 형\n5G Core CP 공유형\n5G Core 전체 공유형"],
+        ],
+      },
+    ],
+    notes: ["구성도: 단말 ↔ 액세스 망 ↔ 코어 망, 전체를 OSS(운영지원시스템)가 관리", "국내에서는 '이음 5G'라는 이름으로 4.7GHz·28GHz 대역을 기업에 할당"],
+  },
+  {
+    title: "비지상네트워크(NTN, Non-Terrestrial Networks)",
+    course: "NW",
+    definition:
+      "지상 네트워크가 도달하기 어려운 지역(해상, 산간, 오지 등)이나 광범위한 서비스 제공이 필요한 지역(항공, 재난 지역 등)에 5G 서비스를 제공하기 위해 위성, 고고도 플랫폼(HAPS), 드론 등 비지상 네트워크를 이용하는 기술",
+    defShort: "위성, 고고도 플랫폼, 드론 등 비지상 네트워크로 5G 서비스 제공 기술",
+    lead:
+      "지상 밖의 5G 확장, 비지상네트워크(NTN)",
+    features: ["비지상 기반", "음영 보완", "3GPP 5G 연동"],
+    keywords: ["5G", "3GPP", "GEO", "LEO", "서비스 링크", "피더 링크", "위성간 링크", "Transparent", "Regenerative"],
+    tables: [
+      {
+        caption: "구성요소 및 기술요소",
+        headers: ["구분", "내역", "설명"],
+        rows: [
+          ["구성요소", "사용자 단말 (UE)", "5G 스마트폰·태블릿·IoT 기기"],
+          ["구성요소", "피더 링크(Feeder Link)", "위성과 게이트웨이 사이 링크\n3GPP/비3GPP 라디오 인터페이스"],
+          ["구성요소", "서비스 링크(Service Link)", "단말과 위성 사이 링크\n3GPP 정의 NR 기반"],
+          ["구성요소", "위성 간 링크", "위성 간 링크"],
+          ["구성요소", "Transparent 위성 / Regenerative 위성", "정지궤도·저궤도 등 위성 활용\n넓은 지역 서비스 제공"],
+          ["구성요소", "고고도 플랫폼(HAPS)", "성층권 비행선·드론\n특정 지역 집중 서비스"],
+          ["구성요소", "드론(UAV)", "저고도 운용, 한시적 서비스\n이동 중 통신 지원"],
+          ["기술요소", "전송 기술", "위성·HAPS·드론과 지상 간 통신\n빔포밍, MIMO"],
+          ["기술요소", "네트워크 제어", "NTN 네트워크 관리 및 자원 할당"],
+          ["기술요소", "보안", "NTN 통신 보안 기술(인증, 암호화)"],
+          ["기술요소", "위치 추적", "위성·HAPS·드론 위치 파악·추적"],
+        ],
+      },
+    ],
+    notes: ["아키텍처: GEO/MEO/LEO 궤도 위성 + ISL(위성간 링크), HAPS·UAV, Feeder link·Service link·Air-to-ground, NTN backhaul·IoT-NTN·VSAT가 Remote/Rural/Urban area의 지상 네트워크 구성요소와 연동"],
   },
   {
     title: "NWDAF(Network Data Analytics Function)",
@@ -15803,6 +16140,44 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
     ],
     notes: ["개념도: Open AI/ML Services/Engine(Network Big data Analytics, AI/ML #1~#N) ↔ Prediction Self-decision → Closed-Loop Control & Management ⇄ Virtualized resources(VNF, Network slice instance) → Physical resources(Computing/Network Infrastructure), 우측에 MANO/OSS/BSS/NMS 오케스트레이션"],
+  },
+  {
+    title: "인텐트 기반 네트워킹(Intent-Based Networking)",
+    course: "NW",
+    definition:
+      "네트워크 관리자의 의도(Intent)를 인공지능 기술로 파악하여 인터넷을 구성하는 유선망과 무선망 설정을 자동으로 수행하는 네트워크 기술",
+    defShort: "의도를 인공지능 기술로 파악, 유선망과 무선망 설정 자동 수행 기술",
+    lead:
+      "의도만 말하면 되는 망, 인텐트 기반 네트워킹",
+    features: ["의도 파악", "자동 설정", "폐쇄 루프"],
+    keywords: ["의도(intent)", "인공지능", "자율 네트워크", "변환과 검증", "자동 수행", "상황 인식", "동적인 최적화"],
+    tables: [
+      {
+        caption: "IBN을 위한 요건",
+        headers: ["요건", "설명"],
+        rows: [
+          ["변환과 검증", "의도→정책 인텐트 정책화\n실행 검증 실제 수행 확인"],
+          ["자동 수행", "개입 최소화 자동 작업 수행"],
+          ["상황 인식", "모니터링 네트워크 감시\n데이터 수집 특정 상태 유지"],
+          ["동적인 최적화", "유지 방법 판단 의도대로 유지\n조정·자동 실행 조정 작업 자동화"],
+        ],
+      },
+      {
+        caption: "기술 요소",
+        headers: ["구분", "기술 요소", "설명"],
+        rows: [
+          ["의도 명령(Intent command)", "NMS, User", "네트워크 관리 시스템(NMS)\n네트워크 관리자(Admin, Client)\n서비스 목적 위한 선언적 명령"],
+          ["의도 번역(Intent translation)", "Translation\nOptimization", "High-level Policy\n음성, 텍스트 형태 의도 번역"],
+          ["의도 번역(Intent translation)", "LLM", "거대 언어 모델\n컴퓨터 스크립트 형태 자동 번역"],
+          ["의도 적용(Intent deployment)", "Activation\nConfiguration", "Low-level Policy\n인프라 요청 네트워크 서비스 수행"],
+          ["의도 적용(Intent deployment)", "Virtual Machine\nContainer", "가상화 시스템 활성화\n변경 의도 적용 준비 및 수행"],
+          ["의도 모니터링(Intent monitoring)", "Monitoring\nAssurance", "네트워크 모니터링 데이터 수집\n데이터 분석 및 정합성 검증"],
+          ["의도 검정 및 재설정(Intent validation & reconfiguration)", "Validation", "서비스 의도대로 동작 여부 검정"],
+          ["의도 검정 및 재설정(Intent validation & reconfiguration)", "feedback", "정책 보완 및 새로운 정책 생성"],
+        ],
+      },
+    ],
+    notes: ["매커니즘(Closed-Loop Intent Control): User/NMS가 Intent 입력 → Translation/Optimization(High-level Policy) → Activation/Configuration(Low-level Policy) → Infrastructure → Monitoring Data → Monitoring/Assurance → Feedback → 다시 Translation/Optimization 으로 순환"],
   },
   {
     title: "6G",
@@ -15977,37 +16352,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
-    title: "비지상네트워크(NTN, Non-Terrestrial Networks)",
-    course: "NW",
-    definition:
-      "지상 네트워크가 도달하기 어려운 지역(해상, 산간, 오지 등)이나 광범위한 서비스 제공이 필요한 지역(항공, 재난 지역 등)에 5G 서비스를 제공하기 위해 위성, 고고도 플랫폼(HAPS), 드론 등 비지상 네트워크를 이용하는 기술",
-    defShort: "위성, 고고도 플랫폼, 드론 등 비지상 네트워크로 5G 서비스 제공 기술",
-    lead:
-      "지상 밖의 5G 확장, 비지상네트워크(NTN)",
-    features: ["비지상 기반", "음영 보완", "3GPP 5G 연동"],
-    keywords: ["5G", "3GPP", "GEO", "LEO", "서비스 링크", "피더 링크", "위성간 링크", "Transparent", "Regenerative"],
-    tables: [
-      {
-        caption: "구성요소 및 기술요소",
-        headers: ["구분", "내역", "설명"],
-        rows: [
-          ["구성요소", "사용자 단말 (UE)", "5G 스마트폰·태블릿·IoT 기기"],
-          ["구성요소", "피더 링크(Feeder Link)", "위성과 게이트웨이 사이 링크\n3GPP/비3GPP 라디오 인터페이스"],
-          ["구성요소", "서비스 링크(Service Link)", "단말과 위성 사이 링크\n3GPP 정의 NR 기반"],
-          ["구성요소", "위성 간 링크", "위성 간 링크"],
-          ["구성요소", "Transparent 위성 / Regenerative 위성", "정지궤도·저궤도 등 위성 활용\n넓은 지역 서비스 제공"],
-          ["구성요소", "고고도 플랫폼(HAPS)", "성층권 비행선·드론\n특정 지역 집중 서비스"],
-          ["구성요소", "드론(UAV)", "저고도 운용, 한시적 서비스\n이동 중 통신 지원"],
-          ["기술요소", "전송 기술", "위성·HAPS·드론과 지상 간 통신\n빔포밍, MIMO"],
-          ["기술요소", "네트워크 제어", "NTN 네트워크 관리 및 자원 할당"],
-          ["기술요소", "보안", "NTN 통신 보안 기술(인증, 암호화)"],
-          ["기술요소", "위치 추적", "위성·HAPS·드론 위치 파악·추적"],
-        ],
-      },
-    ],
-    notes: ["아키텍처: GEO/MEO/LEO 궤도 위성 + ISL(위성간 링크), HAPS·UAV, Feeder link·Service link·Air-to-ground, NTN backhaul·IoT-NTN·VSAT가 Remote/Rural/Urban area의 지상 네트워크 구성요소와 연동"],
-  },
-  {
     title: "Wi-Fi 7(IEEE 802.11be)",
     course: "NW",
     definition:
@@ -16107,86 +16451,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
-    title: "Passive WiFi",
-    course: "NW",
-    definition:
-      "전력을 많이 소비하는 RF수신 장치를 별도 분리하고 후방산란 방식으로 데이터를 전달하는 기술",
-    defShort: "RF수신 장치를 별도 분리, 후방산란 방식으로 데이터를 전달하는 기술",
-    lead:
-      "후방산란의 초저전력 통신, Passive WiFi",
-    features: ["수신부 분리", "후방산란", "초저전력"],
-    keywords: ["사물인터넷", "후방산란(backscatter)", "디지털 장비", "아날로그 RF"],
-    tables: [
-      {
-        caption: "구성도",
-        headers: ["구분", "설명"],
-        rows: [
-          ["기존 와이파이", "아날로그 디지털 한 곳에 집적\n일체형 기기 RF 전력 소모"],
-          ["패시브 와이파이", "아날로그 분리 전원부 별도 구성\n초저전력 통신 소모 전력 최소"],
-        ],
-      },
-      {
-        caption: "구성요소 — 송신(Plugged-In Device)",
-        headers: ["주요 기술", "설명"],
-        rows: [
-          ["RF(Radio Frequency) Transfer", "RF 입출력 안테나 신호 처리\n업다운 변환 RF IF 모듈"],
-          ["RF Calibration", "특성 차이 보상 안테나 소자 보정\n진폭 위상 보정 채널 간 차이 조정"],
-          ["MAC", "사용자 DB 유지 주소 채널 설정"],
-        ],
-      },
-      {
-        caption: "구성요소 — 수신",
-        headers: ["구성요소", "주요 기술", "상세 내용"],
-        rows: [
-          ["Passive Device", "후방산란\n(Back scattering)", "방사 신호 반사\n초저전력 통신"],
-          ["Wifi Receiver", "-", "스마트 기기로\n와이파이 수신"],
-        ],
-      },
-    ],
-    notes: ["후방산란: 전파 방향과 반대 방향인 입사단으로 되돌아오는 현상"],
-  },
-  {
-    title: "SDN(Software Defined Network)",
-    course: "NW",
-    definition:
-      "네트워크 제어기능(Control Plane)과 데이터 전송기능(Data Plane)을 분리하고 개방형 프로토콜을 이용하여 SW기반의 다양한 네트워크 구성 및 제어를 수행하는 네트워크 기술",
-    defShort: "개방형 프로토콜로 SW기반 다양한 네트워크 구성 및 제어하는 기술",
-    lead:
-      "제어와 전송의 분리, SDN",
-    features: ["제어부 분리", "중앙집중화", "개방형"],
-    keywords: ["Control Plane", "Data Plane", "OSS", "BSS", "오픈API플랫폼"],
-    tables: [
-      {
-        caption: "개념도 — 기존 장비 vs SDN 장비",
-        headers: ["구분", "설명"],
-        rows: [
-          ["기존 네트워크 장비", "SW HW 통합 스위치 내 공존\n라우팅 QoS 포워딩 내장"],
-          ["SDN 네트워크 장비", "제어 전달 분리 컨트롤러 분리\nAPI 연결 스위치 포워딩"],
-          ["전체 구조", "제어 데이터면 계층 분리 구조\nOpen API 개방형 연결"],
-        ],
-      },
-      {
-        caption: "SDN 구성 요소",
-        headers: ["구성 요소", "설명", "비고"],
-        rows: [
-          ["Application", "상위에서 사용자\n서비스 지원", "SDN Application\nLogic"],
-          ["Interface", "Data·Control\nPlane 간 연계", "OpenFlow"],
-          ["Control Plane", "제어 기능의\n중앙집중화", "SDN Control Logic\nACL, Routing, 인증"],
-          ["Data Plane", "단순 패킷 포워딩\n스위칭만 구현", "Forward Engine"],
-        ],
-      },
-      {
-        caption: "SDN 구성도(3계층)",
-        headers: ["계층", "설명"],
-        rows: [
-          ["APPLICATION LAYER", "비즈니스 응용 API 연계"],
-          ["CONTROL LAYER", "SDN 제어 SW 중앙 제어 담당\n네트워크 서비스 오픈플로우 연결"],
-          ["INFRASTRUCTURE LAYER", "네트워크 장비 패킷 전달 수행"],
-        ],
-      },
-    ],
-  },
-  {
     title: "IoT Matter",
     course: "NW",
     definition:
@@ -16225,75 +16489,202 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
-    title: "오픈플로우(OpenFlow)",
+    title: "망 중립성(Network Neutrality)",
     course: "NW",
     definition:
-      "네트워크 장비의 패킷 포워딩 기능과 컨트롤러 기능을 표준 인터페이스로 분리하여 네트워크 개방성을 제공하는 기술로서 SDN(Software Defined Network) 컨트롤러와 네트워크 장치 간의 인터페이스 규격",
-    defShort: "개방성 제공하는 SDN 컨트롤러와 네트워크 장치 간의 인터페이스 규격",
+      "인터넷 접속서비스 제공사업자(ISP)가 네트워크를 통해 전송되는 트래픽의 내용, 유형, 단말기기 등에 관계없이 차별·차단하지 않고 동등하게 처리해야 한다는 원칙",
+    defShort: "ISP가 트래픽을 내용에 관계없이 차별·차단 않고 동등 처리하는 원칙",
     lead:
-      "SDN의 표준 인터페이스, 오픈플로우",
-    features: ["제어 분리", "개방형 표준", "플로우 제어"],
-    keywords: ["OpenFlow Controller", "Switch", "Flow Table", "Group Table", "OpenFlow Channel", "Pipelining"],
+      "트래픽 동등 처리의 원칙, 망 중립성",
+    features: ["차단금지", "차별금지", "관리 투명성"],
+    keywords: ["투명성", "차단금지", "불합리한 차별금지", "합리적인 트래픽 관리"],
     tables: [
       {
-        caption: "구성 요소 — Controller",
-        headers: ["구성요소", "설명"],
+        caption: "3대 원칙",
+        headers: ["원칙", "핵심", "분류", "설명"],
         rows: [
-          ["OpenFlow Controller", "Switch 프로토콜 연동\n제어 소프트웨어 다수 논리 제어"],
+          ["비차별성 확립", "트래픽 이용 차별", "트래픽 차별 금지\n이용자 권리 보호\n단대단 선택권", "등급 차등화 금지\n연결·장치 자유\n접근 방식 선택"],
+          ["상호접속 허용", "일방적 차단 금지", "서비스 이용 보장\n컨텐츠 차단 금지\n합법 트래픽 관리", "합리적 가격 정책\n합법 콘텐츠 보장\nQoS 품질 유지"],
+          ["접근성 제공", "자유로운 이용", "정책 투명성 보장\n디바이스 접근", "목적·범위 공개\n연결권 보장"],
         ],
       },
       {
-        caption: "구성 요소 — Protocol",
-        headers: ["구성요소", "설명"],
+        caption: "기본 원칙 [망 중립성 가이드라인('21.1.11)]",
+        headers: ["기본 원칙", "설명"],
         rows: [
-          ["OpenFlow Protocol", "Switch·Controller 통신 규약\nController-to-Switch: 제어\nAsynchronous: 상태 변경 Update\nSymmetric: 요청 없이 전송"],
-        ],
-      },
-      {
-        caption: "구성 요소 — Switch",
-        headers: ["구성요소", "설명"],
-        rows: [
-          ["OpenFlow Channel", "Switch 컨트롤러 연결\n관리용 접점 제어 통로 제공"],
-          ["Flow Table", "다수 Flow entry, 파이프라인 처리\nmatch fields(패킷 일치)\ncounters(통계)\ninstructions(실행 내용)"],
-          ["Group Table", "그룹 엔트리 타입 통계 구성\n액션 버킷 구성 실행 집합 정의"],
+          ["인터넷 트래픽 관리의 투명성 (제4조)", "트래픽 관리 방침 공개\n관리 조치 사실·영향 이용자 고지\n관리정보 투명 공개·이용자 보호"],
+          ["차단금지 (제5조)", "합법 콘텐츠 통신사 차단 금지"],
+          ["불합리한 차별 금지 (제6조)", "유형·제공주체 불합리 차별 금지"],
+          ["합리적인 트래픽 관리 (제7조)", "보안 혼잡 법령 예외 트래픽 관리\n기본원칙·기준 관리 유형 구체화"],
         ],
       },
     ],
-    notes: ["구성도: Controller들 ⇄ OpenFlow Protocol ⇄ OpenFlow Switch. Switch 내부는 Control Channel(OpenFlow Channel들)과 Datapath(Group Table, Meter Table), 그리고 Port ─ Flow Table → Flow Table → … → Flow Table ─ Port 로 이어지는 Pipeline 구조"],
   },
   {
-    title: "SD-WAN(Software Defined-Wide Area Network)",
+    title: "무선 충전 기술",
     course: "NW",
     definition:
-      "데이터센터·기업·대학 등의 LAN에서 Data Plane과 Control Plane을 분리하는 SDN을 통신망 사업자와 서비스 제공자 등의 WAN(Wide Area Network)으로 확장 적용한 네트워크 기술",
-    defShort: "SDN을 통신망 사업자와 서비스 제공자 등 WAN으로 확장 적용한 기술",
+      "전력선을 사용하지 않고 무선으로 전기 에너지를 자기장 혹은 전자기파 형태로 변형하여 전송하여 디바이스의 2차전지(배터리)를 충전하는 기술",
+    defShort: "무선으로 에너지를 자기장·전자기파 형태로 변형해 충전하는 기술",
     lead:
-      "SDN의 WAN 확장, SD-WAN",
-    features: ["WAN 확장", "중앙 배포", "동적 경로"],
-    keywords: ["SD-WAN Controller", "SD-WAN Edge", "VPN"],
+      "선 없는 전력 전송, 무선 충전 기술",
+    features: ["전력선 불요", "전자기 전송", "거리 반비례"],
+    keywords: ["자기유도", "자기공명", "전자기파"],
     tables: [
       {
-        caption: "기술 요소 — 장비 측면",
-        headers: ["구분", "기술요소", "설명"],
+        caption: "무선 충전 기술 방식",
+        headers: ["구분", "방식", "설명"],
         rows: [
-          ["장비 측면", "SD-WAN Controller", "액세스 노드 네트워크·정책 설정\n네트워크 토폴로지 관리\nQoS·액세스 정책 설정·배포\n사용량·성능 보고"],
-          ["장비 측면", "SD-WAN CPE(SD-WAN Edge)", "CPE 장비·범용 서버 VNF로 구현\n오버레이 망 라우팅·터널링 엔진"],
-          ["장비 측면", "SD-WAN CPE(SD-WAN Edge)", "방화벽·보안·암호화\nWAN 최적화: 캐싱·압축\n에러 정정·로드밸런싱"],
+          ["근거리", "자기유도", "송신코일 자기장 수신코일 통과\n유도전류 충전 전기차·모바일"],
+          ["중거리", "자기공진(자기공명)", "동일 공진주파수 코일 간 공진 발생\n에너지 결합 가전·노트북"],
+          ["원거리", "전자기파", "마이크로파 변환 전력 직접 전송\n안테나 방사 위성·우주 발전"],
         ],
       },
       {
-        caption: "기술 요소 — 트래픽(Traffic) Control",
-        headers: ["구분", "기술요소", "설명"],
+        caption: "무선 충전 기술 방식 비교",
+        headers: ["구분", "자기유도방식", "자기공명방식", "전자기파 방식"],
         rows: [
-          ["경로 제어", "Dynamic Path Switching", "동적 경로 전환 저하 경로 회피"],
-          ["경로 제어", "Packet Duplication", "패킷 중복 전송 유실 대비 확보"],
-          ["회선 결합", "Link Aggregation", "다중 회선 결합 대역폭 확장"],
-          ["망 분리", "Network Segmentation", "VLAN 분리 논리적 망 분리"],
-          ["경로 제어", "트래픽 스티어링(Traffic Steering)", "트래픽 식별 앱별 경로 설정"],
+          ["주파수", "125Khz\n13.56Mhz", "수십Khz ~ 수Mhz", "2.45GHz\n5.8Ghz"],
+          ["전송거리", "근접형(수Cm)", "중거리(수m)", "장거리(수Km)"],
+          ["효율", "75% 이상", "40~60%", "5% 이내"],
+          ["인체유해성", "무해", "무해", "유해"],
+          ["주요사용분야", "교통카드\n모바일", "가전기기", "우주비행체\n위성"],
+          ["전송전력", "1W ~ 100kW", "1W ~ 수kW", "고출력"],
+          ["기술성숙도", "성숙", "확산중", "기초연구"],
+          ["소형화", "가능", "진행 중", "불가능"],
+          ["모듈단가", "저가", "-", "고가"],
+          ["표준화", "WPC 표준 제정", "A4WP", "ITU-R SG1"],
+          ["장점", "고효율", "이동성", "고출력"],
+          ["문제점", "단거리\n금속 영향", "효율관리\n전파 규약", "저효율"],
+          ["고려사항", "금속 주변\n와류 현상", "인체무해성\n검증 단계", "인체 유해"],
+        ],
+      },
+      {
+        caption: "기타 무선 충전 기술 방식",
+        headers: ["구분", "방식", "설명"],
+        rows: [
+          ["전파", "RF", "비콘 위치 인지 지향 집중 충전"],
+          ["빛", "적외선", "적외선 빔 인체 무해 방식"],
+          ["음파", "초음파", "초음파 변환 전송 에너지·데이터\n수신측 복호화 전기·인체 무해"],
         ],
       },
     ],
-    notes: ["구성도: Control Plane에 SD-WAN Controller(모니터링 및 관제, 정책설정 및 라우팅) — Data Plane에서 Site A의 SD-WAN CPE ↔ MPLS망/Internet망 두 경로(Overlay Tunnel) ↔ Site B의 SD-WAN CPE"],
+  },
+  {
+    title: "PCM(Pulse-Code Modulation)",
+    course: "NW",
+    definition:
+      "아날로그 신호를 표본화 정리로 정해지는 표본화 주파수로 표본화하고, 각 표본(샘플)의 값을 양자화 한 후, 2진 부호화 하는 디지털 변조방식",
+    defShort: "아날로그 신호 표본화, 양자화 후 2진 부호화하는 디지털 변조방식",
+    lead:
+      "표본화·양자화·부호화, PCM",
+    features: ["디지털 변조", "표본화 정리", "2진 부호"],
+    keywords: ["표본화(Sampling)", "양자화(Quantization)", "부호화(Encoding)", "디지털화", "아날로그신호를 디지털신호로 변환(A/D변환)", "나이퀴스트"],
+    tables: [
+      {
+        caption: "동작 원리 — 송신",
+        headers: ["동작", "설명"],
+        rows: [
+          ["표본화(Sampling)", "표본간격 PAM 펄스열 추출\n나이퀴스트 이론 fs≥2fm"],
+          ["양자화(Quantization)", "PAM 디지털화 진폭 이산값 변환\n레벨 2^n 표본당 비트 n"],
+          ["부호화(Encoding)", "펄스 진폭 크기 2진수 코드 표시"],
+        ],
+      },
+      {
+        caption: "동작 원리 — 수신",
+        headers: ["동작", "설명"],
+        rows: [
+          ["재생", "수신된 디지털\n신호를 재생하는\n단계"],
+          ["복호화(Decoding)", "수신된 디지털\n신호(PCM)을 PAM신호로\n되돌리는 단계"],
+          ["재구성(Filtering)", "PAM 신호를\n원래의 아날로그\n신호로 복원하는\n단계"],
+        ],
+      },
+      {
+        caption: "나이퀴스트 샘플링 정리",
+        headers: ["구분", "설명"],
+        rows: [
+          ["개념", "fs≥2fm 원신호 복원 가능\n최고주파수 2배 샘플링 조건"],
+          ["샘플링 사례", "나이퀴스트 기준 적절한 샘플링\n언더샘플링 앨리어싱 발생"],
+        ],
+      },
+    ],
+    notes: ["동작 구조도: 아날로그신호 → [송신기] 표본화 → 양자화 → 부호화 → 전송로 → [수신기] 재생 → 복호화 → 재구성 → 아날로그신호. 중간의 디지털신호가 PCM신호"],
+  },
+  {
+    title: "QAM(Quadrature Amplitude Modulation)",
+    course: "NW",
+    definition:
+      "정보 신호에 따라 반송파의 진폭과 위상을 동시에 변화시켜, PSK의 변조 원리에 진폭 변조까지 포함하는 변조 방식",
+    defShort: "정보 신호에 따라 반송파 진폭과 위상을 동시에 변화시키는 변조 방식",
+    lead:
+      "진폭·위상 동시 변조, QAM",
+    features: ["진폭·위상", "다중 비트", "계층적 변조"],
+    keywords: ["디지털 변조 방식", "진폭 변조", "위상 변조"],
+    tables: [
+      {
+        caption: "16QAM 성상도(Constellation Diagram)",
+        headers: ["구분", "설명"],
+        rows: [
+          ["X 축", "동위상 반송파 I 축 성분 표시"],
+          ["Y 축", "구상 반송파 Q 축 성분 표시"],
+          ["심볼 코딩", "심볼당 n bit n비트 코딩\n1심볼 4비트 16QAM 경우"],
+          ["심볼 표현", "심볼 0000 기준 심볼 표현\n위상 φ 진폭 a 위상 진폭 지정"],
+          ["심볼 표현", "0011 심볼 동일 위상 심볼\n0001 심볼 진폭 차이 구분"],
+          ["심볼 표현", "0000 심볼 다른 위상 배치\n1000 심볼 같은 진폭 유지"],
+          ["16 QAM", "진폭 3가지 진폭 변조 활용\n위상 12가지 위상 변조 활용"],
+        ],
+      },
+      {
+        caption: "QAM 활용 계층적 변조 방식 예 (64QAM)",
+        headers: ["구분", "설명"],
+        rows: [
+          ["비트 할당", "심볼당 6비트 64QAM 할당\n상위 2비트 QPSK 이용"],
+          ["신호 상태 좋음", "전체 QAM 좌표 6비트 모두 추출"],
+          ["신호 상태 나쁨", "QPSK 부분만 상위 2비트 추출"],
+          ["우선순위", "높은 우선순위 상위 2비트 코딩\n낮은 우선순위 하위 4비트 코딩"],
+          ["적용", "DVB-T 표준 디지털 TV 적용"],
+        ],
+      },
+    ],
+  },
+  {
+    title: "Passive WiFi",
+    course: "NW",
+    definition:
+      "전력을 많이 소비하는 RF수신 장치를 별도 분리하고 후방산란 방식으로 데이터를 전달하는 기술",
+    defShort: "RF수신 장치를 별도 분리, 후방산란 방식으로 데이터를 전달하는 기술",
+    lead:
+      "후방산란의 초저전력 통신, Passive WiFi",
+    features: ["수신부 분리", "후방산란", "초저전력"],
+    keywords: ["사물인터넷", "후방산란(backscatter)", "디지털 장비", "아날로그 RF"],
+    tables: [
+      {
+        caption: "구성도",
+        headers: ["구분", "설명"],
+        rows: [
+          ["기존 와이파이", "아날로그 디지털 한 곳에 집적\n일체형 기기 RF 전력 소모"],
+          ["패시브 와이파이", "아날로그 분리 전원부 별도 구성\n초저전력 통신 소모 전력 최소"],
+        ],
+      },
+      {
+        caption: "구성요소 — 송신(Plugged-In Device)",
+        headers: ["주요 기술", "설명"],
+        rows: [
+          ["RF(Radio Frequency) Transfer", "RF 입출력 안테나 신호 처리\n업다운 변환 RF IF 모듈"],
+          ["RF Calibration", "특성 차이 보상 안테나 소자 보정\n진폭 위상 보정 채널 간 차이 조정"],
+          ["MAC", "사용자 DB 유지 주소 채널 설정"],
+        ],
+      },
+      {
+        caption: "구성요소 — 수신",
+        headers: ["구성요소", "주요 기술", "상세 내용"],
+        rows: [
+          ["Passive Device", "후방산란\n(Back scattering)", "방사 신호 반사\n초저전력 통신"],
+          ["Wifi Receiver", "-", "스마트 기기로\n와이파이 수신"],
+        ],
+      },
+    ],
+    notes: ["후방산란: 전파 방향과 반대 방향인 입사단으로 되돌아오는 현상"],
   },
   {
     title: "SDR(Software Defined Radio)",
@@ -16352,339 +16743,6 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
     ],
     notes: ["개념도: 기존 단말기는 [RF, IF 부시스템] → 반송 캐리어 → 기저대역부(BBA(ADC/DAC) → MSM → CODEC) 로 하드웨어가 단계별로 나뉨. SDR 단말기는 [RF, IF 부시스템(광대역처리)] → 광대역 반송 캐리어 → ADC → SDR(소프트웨어 블록) → ADC 로 기저대역부 전체를 SDR 하나가 대체"],
-  },
-  {
-    title: "CDN(Contents Delivery Network)",
-    course: "NW",
-    definition:
-      "콘텐츠를 중간경로를 최소화, 효율적으로 전달하기 위해 ISP의 여러 노드(웹 캐시)를 가진 네트워크에 데이터를 복제 저장하여 제공하는 시스템",
-    defShort: "콘텐츠를 효율적 전달 위해 데이터를 복제 저장하여 제공하는 시스템",
-    lead:
-      "가까운 곳에서 콘텐츠를, CDN",
-    features: ["노드 복제", "경로 최소화", "인접 라우팅"],
-    keywords: ["Caching", "Global Server Load Balancing", "Load Balancing", "Streaming", "배포", "동기화", "Request Routing"],
-    tables: [
-      {
-        caption: "동작 절차",
-        headers: ["순서", "설명"],
-        rows: [
-          ["①", "End-User가 CP 웹 서버에 접속"],
-          ["②", "Embedded URL 포함 HTML문서 전달"],
-          ["③", "CDN서버 주소로 오브젝트 요청"],
-          ["④", "CDN서버에 복제된 오브젝트 전달"],
-        ],
-      },
-      {
-        caption: "구성 요소",
-        headers: ["구성", "설명"],
-        rows: [
-          ["CDN SP", "CDN Service Provider\nCDN 사업 총괄 수행 사업자"],
-          ["CP", "Contents Provider\n콘텐츠 제공 사업자"],
-          ["ISP", "Internet Service Provider\nCDN 서비스 대상 사용자 보유 업체"],
-          ["User", "서비스 사용자"],
-          ["POP", "points of presence\n모든 CDN 제공자 PoP 통해 서비스"],
-          ["IX", "Internet eXchange\n인터넷회선연동\nISP간 연동 제공 접속포인트"],
-        ],
-      },
-      {
-        caption: "기술 요소",
-        headers: ["기술요소", "설명"],
-        rows: [
-          ["Cashing 기술", "자주 찾는 페이지 복사·저장\n사용자 요청 시 저장 정보 전송"],
-          ["Global Server Load Balancing", "최상 서비스 캐시 서버 선정·연결"],
-          ["Load Balancing 기술", "서버별 트래픽 분산 성능 향상\n고장난 서버 제외 후 나머지로 할당"],
-          ["Streaming기술", "멀티미디어 다운 없이 즉시 재생"],
-          ["콘텐츠 배포", "지역별 분산 CDN서버\n동일 콘텐츠 정확히 배포"],
-          ["동기화 기술", "콘텐츠 변경 즉시 분산 서버 반영\n동일 콘텐츠 동시 전송\n파일 유실·오류 방지\nSW 업데이트에 유용"],
-          ["Grid Delivery", "일정 트래픽까지 서버 활용\n이상은 P2P 기술 활용\n이용자 컴퓨터를 작은 서버로\n다운로드하며 다른 이용자에 전송"],
-          ["Request Routing", "Cache서버 부하 고려\n가장 인접한 Cache Server 선택"],
-        ],
-      },
-    ],
-    notes: ["개념도: 사용자 ─ POP 서버(Cache) ─ IX ─ ISP ─ CP. 구간 명칭은 사용자쪽부터 Last-mile / Middle-mile / First-mile"],
-  },
-  {
-    title: "망 중립성(Network Neutrality)",
-    course: "NW",
-    definition:
-      "인터넷 접속서비스 제공사업자(ISP)가 네트워크를 통해 전송되는 트래픽의 내용, 유형, 단말기기 등에 관계없이 차별·차단하지 않고 동등하게 처리해야 한다는 원칙",
-    defShort: "ISP가 트래픽을 내용에 관계없이 차별·차단 않고 동등 처리하는 원칙",
-    lead:
-      "트래픽 동등 처리의 원칙, 망 중립성",
-    features: ["차단금지", "차별금지", "관리 투명성"],
-    keywords: ["투명성", "차단금지", "불합리한 차별금지", "합리적인 트래픽 관리"],
-    tables: [
-      {
-        caption: "3대 원칙",
-        headers: ["원칙", "핵심", "분류", "설명"],
-        rows: [
-          ["비차별성 확립", "트래픽 이용 차별", "트래픽 차별 금지\n이용자 권리 보호\n단대단 선택권", "등급 차등화 금지\n연결·장치 자유\n접근 방식 선택"],
-          ["상호접속 허용", "일방적 차단 금지", "서비스 이용 보장\n컨텐츠 차단 금지\n합법 트래픽 관리", "합리적 가격 정책\n합법 콘텐츠 보장\nQoS 품질 유지"],
-          ["접근성 제공", "자유로운 이용", "정책 투명성 보장\n디바이스 접근", "목적·범위 공개\n연결권 보장"],
-        ],
-      },
-      {
-        caption: "기본 원칙 [망 중립성 가이드라인('21.1.11)]",
-        headers: ["기본 원칙", "설명"],
-        rows: [
-          ["인터넷 트래픽 관리의 투명성 (제4조)", "트래픽 관리 방침 공개\n관리 조치 사실·영향 이용자 고지\n관리정보 투명 공개·이용자 보호"],
-          ["차단금지 (제5조)", "합법 콘텐츠 통신사 차단 금지"],
-          ["불합리한 차별 금지 (제6조)", "유형·제공주체 불합리 차별 금지"],
-          ["합리적인 트래픽 관리 (제7조)", "보안 혼잡 법령 예외 트래픽 관리\n기본원칙·기준 관리 유형 구체화"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "인텐트 기반 네트워킹(Intent-Based Networking)",
-    course: "NW",
-    definition:
-      "네트워크 관리자의 의도(Intent)를 인공지능 기술로 파악하여 인터넷을 구성하는 유선망과 무선망 설정을 자동으로 수행하는 네트워크 기술",
-    defShort: "의도를 인공지능 기술로 파악, 유선망과 무선망 설정 자동 수행 기술",
-    lead:
-      "의도만 말하면 되는 망, 인텐트 기반 네트워킹",
-    features: ["의도 파악", "자동 설정", "폐쇄 루프"],
-    keywords: ["의도(intent)", "인공지능", "자율 네트워크", "변환과 검증", "자동 수행", "상황 인식", "동적인 최적화"],
-    tables: [
-      {
-        caption: "IBN을 위한 요건",
-        headers: ["요건", "설명"],
-        rows: [
-          ["변환과 검증", "의도→정책 인텐트 정책화\n실행 검증 실제 수행 확인"],
-          ["자동 수행", "개입 최소화 자동 작업 수행"],
-          ["상황 인식", "모니터링 네트워크 감시\n데이터 수집 특정 상태 유지"],
-          ["동적인 최적화", "유지 방법 판단 의도대로 유지\n조정·자동 실행 조정 작업 자동화"],
-        ],
-      },
-      {
-        caption: "기술 요소",
-        headers: ["구분", "기술 요소", "설명"],
-        rows: [
-          ["의도 명령(Intent command)", "NMS, User", "네트워크 관리 시스템(NMS)\n네트워크 관리자(Admin, Client)\n서비스 목적 위한 선언적 명령"],
-          ["의도 번역(Intent translation)", "Translation\nOptimization", "High-level Policy\n음성, 텍스트 형태 의도 번역"],
-          ["의도 번역(Intent translation)", "LLM", "거대 언어 모델\n컴퓨터 스크립트 형태 자동 번역"],
-          ["의도 적용(Intent deployment)", "Activation\nConfiguration", "Low-level Policy\n인프라 요청 네트워크 서비스 수행"],
-          ["의도 적용(Intent deployment)", "Virtual Machine\nContainer", "가상화 시스템 활성화\n변경 의도 적용 준비 및 수행"],
-          ["의도 모니터링(Intent monitoring)", "Monitoring\nAssurance", "네트워크 모니터링 데이터 수집\n데이터 분석 및 정합성 검증"],
-          ["의도 검정 및 재설정(Intent validation & reconfiguration)", "Validation", "서비스 의도대로 동작 여부 검정"],
-          ["의도 검정 및 재설정(Intent validation & reconfiguration)", "feedback", "정책 보완 및 새로운 정책 생성"],
-        ],
-      },
-    ],
-    notes: ["매커니즘(Closed-Loop Intent Control): User/NMS가 Intent 입력 → Translation/Optimization(High-level Policy) → Activation/Configuration(Low-level Policy) → Infrastructure → Monitoring Data → Monitoring/Assurance → Feedback → 다시 Translation/Optimization 으로 순환"],
-  },
-  {
-    title: "무선 충전 기술",
-    course: "NW",
-    definition:
-      "전력선을 사용하지 않고 무선으로 전기 에너지를 자기장 혹은 전자기파 형태로 변형하여 전송하여 디바이스의 2차전지(배터리)를 충전하는 기술",
-    defShort: "무선으로 에너지를 자기장·전자기파 형태로 변형해 충전하는 기술",
-    lead:
-      "선 없는 전력 전송, 무선 충전 기술",
-    features: ["전력선 불요", "전자기 전송", "거리 반비례"],
-    keywords: ["자기유도", "자기공명", "전자기파"],
-    tables: [
-      {
-        caption: "무선 충전 기술 방식",
-        headers: ["구분", "방식", "설명"],
-        rows: [
-          ["근거리", "자기유도", "송신코일 자기장 수신코일 통과\n유도전류 충전 전기차·모바일"],
-          ["중거리", "자기공진(자기공명)", "동일 공진주파수 코일 간 공진 발생\n에너지 결합 가전·노트북"],
-          ["원거리", "전자기파", "마이크로파 변환 전력 직접 전송\n안테나 방사 위성·우주 발전"],
-        ],
-      },
-      {
-        caption: "무선 충전 기술 방식 비교",
-        headers: ["구분", "자기유도방식", "자기공명방식", "전자기파 방식"],
-        rows: [
-          ["주파수", "125Khz\n13.56Mhz", "수십Khz ~ 수Mhz", "2.45GHz\n5.8Ghz"],
-          ["전송거리", "근접형(수Cm)", "중거리(수m)", "장거리(수Km)"],
-          ["효율", "75% 이상", "40~60%", "5% 이내"],
-          ["인체유해성", "무해", "무해", "유해"],
-          ["주요사용분야", "교통카드\n모바일", "가전기기", "우주비행체\n위성"],
-          ["전송전력", "1W ~ 100kW", "1W ~ 수kW", "고출력"],
-          ["기술성숙도", "성숙", "확산중", "기초연구"],
-          ["소형화", "가능", "진행 중", "불가능"],
-          ["모듈단가", "저가", "-", "고가"],
-          ["표준화", "WPC 표준 제정", "A4WP", "ITU-R SG1"],
-          ["장점", "고효율", "이동성", "고출력"],
-          ["문제점", "단거리\n금속 영향", "효율관리\n전파 규약", "저효율"],
-          ["고려사항", "금속 주변\n와류 현상", "인체무해성\n검증 단계", "인체 유해"],
-        ],
-      },
-      {
-        caption: "기타 무선 충전 기술 방식",
-        headers: ["구분", "방식", "설명"],
-        rows: [
-          ["전파", "RF", "비콘 위치 인지 지향 집중 충전"],
-          ["빛", "적외선", "적외선 빔 인체 무해 방식"],
-          ["음파", "초음파", "초음파 변환 전송 에너지·데이터\n수신측 복호화 전기·인체 무해"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "Sliding Window & 네이글(Nagle's) 알고리즘",
-    course: "NW",
-    definition:
-      "윈도우 크기를 활용한 흐름제어 기법과 Ack 수신에 따라 패킷 수를 조절하여 네트워크 부하를 감소시키는 알고리즘",
-    defShort: "윈도우 크기 흐름제어와 Ack 수신에 따라 패킷 수를 조절하는 알고리즘",
-    lead:
-      "흐름 제어와 부하 감소, Sliding Window와 네이글",
-    features: ["연속 전송", "패킷 축적", "부하 감소"],
-    // 두 개념을 묻는 토픽이라 답안 서론에서 각각 정의한다(2026-10-07 — "각각 정리").
-    // 교재 슬라이드의 「Sliding Window 개요」「네이글 알고리즘」 정의 칸에서 옮겼다.
-    defPair: [
-      {
-        name: "Sliding Window",
-        lead: "흐름의 동적 조절",
-        def: "수신 측 윈도우 크기만큼 ACK 없이 전송해 흐름 동적 조절하는 알고리즘",
-        features: ["연속 전송", "동적 조절", "윈도우 이동"],
-      },
-      {
-        name: "네이글(Nagle's) 알고리즘",
-        lead: "작은 패킷의 묶음 전송",
-        def: "매우 작은 패킷 모아 전송해 패킷 수 줄여 네트워크 부하 감소하는 기법",
-        features: ["패킷 축적", "패킷 수 감소", "부하 감소"],
-      },
-    ],
-    keywords: ["윈도우 열림, 닫힘, 축소 동작", "수신 Window Size만큼 전송", "송신 데이터 종료 시 즉시 전송", "데이터 축적 후 전송"],
-    tables: [
-      {
-        caption: "Sliding Window 개요",
-        headers: ["구분", "설명"],
-        rows: [
-          ["정의", "수신 측 설정 윈도우 크기만큼\nACK 없이 전송, 흐름 동적 조절"],
-          ["개념도", "Window num = Min(cwnd, rwnd)\n왼쪽 경계 닫힘, 오른쪽 경계 열림"],
-        ],
-      },
-      {
-        caption: "Sliding Window 동작 매커니즘",
-        headers: ["동작 방식", "설명"],
-        rows: [
-          ["Window 열림", "수신측 ACK 도착\n오른쪽 경계가 오른쪽으로 이동\n데이터 전송량 증가"],
-          ["Window 닫힘", "데이터 전송 후 ACK 수신\n왼쪽 경계가 오른쪽으로 이동\n전송의 정상 완료"],
-          ["Window 축소", "적합성 문제 또는 윈도우 크기 변경\n오른쪽 경계가 왼쪽으로 이동"],
-        ],
-      },
-      {
-        caption: "네이글 알고리즘",
-        headers: ["알고리즘", "설명"],
-        rows: [
-          ["정의", "작은 패킷 여러 개 모아서 전송\n네트워크 패킷 수 줄여 부하 감소"],
-          ["개념도", "Nagle 적용 ACK 대기 전송\n미적용 연달아 전송"],
-        ],
-      },
-      {
-        caption: "네이글 알고리즘 동작 매커니즘",
-        headers: ["동작 방식", "설명"],
-        rows: [
-          ["수신 Window Size만큼 전송", "수신 가능 Window Size < MSS 시\nWindow Size만큼 바로 전송"],
-          ["송신 데이터 종료 시 즉시 전송", "패킷 없으면 현재 buffer data 전송"],
-          ["데이터 축적 후 전송", "Ack 올 때까지 buffer에 축적\nack 수신 시 buffer data 송신"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "BGP(Border Gateway Protocol)",
-    course: "NW",
-    definition:
-      "AS(Autonomous System) 번호가 서로 다른 네트워크 간에 라우팅 정보를 주고 받기 위해 Open, Update 패킷 이용, 라우팅 우선순위는 Weight, Local Preference 매트릭으로 이용하는 Exterior Gateway 라우팅 프로토콜",
-    defShort: "AS 번호가 서로 다른 네트워크 간 Exterior Gateway 라우팅 프로토콜",
-    lead:
-      "AS 간 경로 교환의 규약, BGP",
-    features: ["AS 간 라우팅", "Path Vector", "정책 라우팅"],
-    keywords: ["iBGP", "eBGP", "Path Vector", "AS", "Local Preference", "MED"],
-    tables: [
-      {
-        caption: "구성도 (RFC 1771, 4271)",
-        headers: ["구분", "구성", "설명"],
-        rows: [
-          ["내부 iBGP", "동일 AS 내부\niBGP 구현", "같은 번호 사용\n내부망 연결"],
-          ["내부 iBGP", "AS 200 내부\nALU-D~F", "동일 AS 그룹\n내부 라우터"],
-          ["내부 iBGP", "AS 100 내부\nALU-A~C", "같은 AS 100\n내부 라우터군"],
-          ["외부 eBGP", "다른 AS 간\neBGP 구현", "AS 번호 상이\n외부망 연결"],
-          ["외부 eBGP", "200↔100", "타 AS 간 연동"],
-        ],
-      },
-      {
-        caption: "기술 요소",
-        headers: ["구분", "기술 요소", "설명"],
-        rows: [
-          ["경로 속성", "Next-Hop", "BGP 정보 전송 라우터의 IP 주소\n목적지까지 필수 경유 라우터 주소"],
-          ["경로 속성", "Local Preference", "외부로 나가는 경로 우선 순위 값\n기본값 100"],
-          ["경로 속성", "AS-Path", "목적지 AS 도착 시 경유 AS 번호\n개수 작을수록 짧은 경로로 선택"],
-          ["경로 속성", "MED", "Multi-Exit-Discriminator\n인입 경로 다중일 경우 우선 순위 값"],
-          ["프로토콜 메시지", "Open", "TCP 179번 포트 회선 연결 시도\n라우터간 BGP Neighbor 설정"],
-          ["프로토콜 메시지", "Update", "BGP 정보 교환·갱신, 비정기 사용\n도달 가능성 정보 전송"],
-          ["프로토콜 메시지", "Notification", "문제 발생·이웃관계 단절 알림"],
-          ["프로토콜 메시지", "Keepalive", "BGP Neighbor Health Check 메시지"],
-          ["프로토콜 메시지", "Route-Refresh", "BGP Neighbor 라우터 정보 재확인"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "IPv6",
-    course: "NW",
-    definition:
-      "IPv4가 가지고 있는 주소 고갈, 보안성, 이동성 지원 등의 문제점을 해결하기 위해 개발된 128bit의 차세대 주소체계",
-    defShort: "IPv4의 주소 고갈, 보안성 문제를 해결한 128bit의 차세대 주소체계",
-    lead:
-      "128비트의 차세대 주소, IPv6",
-    features: ["128bit 주소", "고정 헤더", "확장 헤더"],
-    keywords: ["128비트", "주소고갈", "보안성", "이동성", "16진수 8자리"],
-    tables: [
-      {
-        caption: "구성도 [버터플파네호]",
-        headers: ["구분", "설명"],
-        rows: [
-          ["전체 구조", "기본헤더 40B 고정 길이 헤더\n확장헤더+상위 최대 2^16B"],
-          ["기본헤더 필드 배치(비트 0~31)", "1·2행 제어 버전·길이·홉\n3·4행 주소 송·수신지 주소"],
-        ],
-      },
-      {
-        caption: "헤더 상세 설명 — 기본 헤더",
-        headers: ["필드", "크기", "설명"],
-        rows: [
-          ["버전 Version", "4bit", "IP 버전 표시"],
-          ["트래픽 클래스 Traffic Class", "8bit", "우선순위 요청"],
-          ["플로우 레이블 Flow Label", "20bit", "QoS 구분 표시"],
-          ["페이로드 길이 Payload Length", "16bit", "데이터 길이 표시"],
-          ["다음 헤더 Next header", "8bit", "다음 헤더 유형"],
-          ["홉 제한 Hop Limit", "8bit", "포워딩 제한 표시"],
-          ["송신지 주소 Source Address", "128bit", "송신지 주소 표시"],
-          ["수신지 주소 Destination Address", "128bit", "수신지 주소 표시"],
-        ],
-      },
-      {
-        caption: "헤더 상세 설명 — 확장 헤더 / 데이터",
-        headers: ["구분", "설명"],
-        rows: [
-          ["확장 헤더", "추가 전송 기능 기본 헤더 뒤 선택"],
-          ["데이터", "상위 프로토콜 TCP 세그먼트"],
-        ],
-      },
-      {
-        caption: "표기법",
-        headers: ["기법", "설명"],
-        rows: [
-          ["기본 원칙", "8개 필드 16진수 4자리\n콜론(:) 구분 필드 사이 구분"],
-          ["혼합 표기법", "앞 96bit 콜론 16진 표기\n뒤 32bit 10진수 표기법"],
-        ],
-      },
-      {
-        caption: "표기법 예시",
-        headers: ["구분", "1", "2", "3", "4", "5", "6", "7", "8"],
-        rows: [
-          ["일반16진수 표기법", "805B", "2D9D", "DC28", "0000", "0000", "FC57", "D4C8", "1FFF"],
-          ["0 억제 표기법", "805B", "2D9D", "DC28", "0", "0", "FC57", "D4C8", "1FFF"],
-          ["0 압축 표기법", "805B", "2D9D", "DC28", "::", "", "FC57", "D4C8", "1FFF"],
-          ["혼합 표기법", "805B", "2D9D", "DC28", "::", "", "FC57", "212.200.31.255", ""],
-        ],
-      },
-    ],
   },
   {
     title: "트랜잭션",
@@ -17323,70 +17381,6 @@ export const SUBNOTES: TextbookSubnote[] = [
           ["검증 기반", "낙관적검증 기법 (Validation)", "종료 시 일괄 검증 수행 중 제어 없음\nR·V·E 단계 검증 후 DB 반영"],
           ["시간 기반", "Timestamp ordering", "시간대별 직렬화 충돌 연산 순서화\nDB 부여 식별자 타임스탬프 비교"],
           ["버전 기반", "다중버전 동시성제어 (MVCC)", "다중 버전 비교 접근 시 시각 비교\n직렬 가능 버전 선택 버전 접근"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "낙관적 검증(Validation) 기법",
-    course: "DB",
-    definition:
-      "트랜잭션을 실행하는 동안 모든 갱신은 지역 사본에만 반영되고 트랜잭션 종료 시 확인 단계를 통해 직렬 가능성에 위반되지 않으면 실행하고 위반되면 복귀하는 기법",
-    defShort: "트랜잭션 종료 시 확인 단계 통해 직렬 가능성 위반되면 복귀하는 기법",
-    lead: "종료 시 일괄 검증 제어, 낙관적 검증(Validation) 기법",
-    features: ["사본 갱신", "종료 시 검증", "직렬성 보장"],
-    keywords: ["판독", "기록", "확인", "직렬 가능성", "유효성 검사"],
-    tables: [
-      {
-        caption: "처리단계 [판확기]",
-        headers: ["단계", "설명"],
-        rows: [
-          ["판독 단계 (Read Phase : R)", "사본만 갱신 실제 DB 미수행\n버퍼(메모리) 판독 연산 수행"],
-          ["확인 단계 (Validation Phase : V)", "직렬 가능성 검증 위반 여부 확인\n반영 전 확인 실행 결과 검증"],
-          ["기록 단계 (Write Phase : W)", "통과 시 DB 반영 디스크에 기록\n실패 시 복귀 실행 결과 취소"],
-        ],
-      },
-      {
-        caption: "확인 단계 조건",
-        headers: ["조건", "설명", "타임스탬프(Time-stamp)"],
-        rows: [
-          ["조건1", "Finish(Ti) <\nStart(Tk)", "Start(Ti):\n판독단계 시작"],
-          ["조건2", "Start(Tk) <\nFinish(Ti) <\nValidation(Tk)\nW(Ti)∩R(Tk)=∅", "Validation(Ti):\n확인 시작 시간"],
-          ["조건3", "W(Ti)∩R(Tk)=∅\nW(Ti)∩W(Tk)=∅", "Finish(Ti):\n기록 완료 시간"],
-        ],
-      },
-    ],
-  },
-  {
-    title: "MVCC(다중 버전 동시성 제어) 2가지 유형",
-    course: "DB",
-    definition:
-      "Lock 을 사용하지 않고 데이터 읽기의 일관성을 보장해주는 방법",
-    defShort: "Lock을 사용하지 않고 다중 버전으로 읽기 일관성 보장하는 방법",
-    lead:
-      "Lock 없는 읽기 일관성, MVCC(다중 버전 동시성 제어)",
-    features: ["Lock 없음", "읽기 일관성", "버전 보관"],
-    keywords: ["직렬 가능성이 보장", "SCN(System Change Number)", "CR Copy", "Undo", "MGA", "Rollback Segment"],
-    tables: [
-      {
-        caption: "MGA(Multi Generation Architecture) — PostgreSQL 방식",
-        headers: ["구분", "설명"],
-        rows: [
-          ["방식", "레코드 갱신 처리 다세대 구조 방식"],
-          ["1", "기존 데이터 유지 새 데이터 추가"],
-          ["2", "기존 데이터 표시 삭제 없이 표시만"],
-          ["3", "VACUUM 주기적 정리 작업"],
-          ["4", "물리적 위치 변경 갱신 데이터 이동"],
-          ["5", "인덱스 수정 발생 매 갱신 시 필수"],
-        ],
-      },
-      {
-        caption: "Rollback Segment — Oracle 방식",
-        headers: ["방식", "설명"],
-        rows: [
-          ["방식", "기존 블록 변경 새 데이터로 갱신\n이전 데이터 보관 롤백 세그먼트"],
-          ["동작", "조회 시점 SCN 변경 블록 식별\nCR 블록 생성 읽기 일관성 유지"],
-          ["MGA와 차이점", "물리 위치 불변 갱신 시 위치 유지"],
         ],
       },
     ],
@@ -18693,6 +18687,52 @@ export const SUBNOTES: TextbookSubnote[] = [
     notes: ["법적 근거: 데이터 산업진흥 및 이용촉진에 관한 기본법(데이터 기본법) 14조, 동법 시행령 14조~16조, 동법 시행규칙 2, 3조", "금액 및 등급 산출의 핵심변수 [경할기]: 데이터 경제적 수명, 할인율, 데이터 기여도"],
   },
   {
+    title: "DaaP(Data as a product)",
+    course: "DB",
+    definition:
+      "데이터를 단순한 저장 자산이 아닌, 최종 사용자 중심의 독립적인 제품으로 관리하는 데이터 거버넌스 및 아키텍처 패러다임",
+    defShort: "데이터를 독립적 제품으로 관리하는 거버넌스 및 아키텍처 패러다임",
+    lead:
+      "데이터를 제품처럼 관리, DaaP(Data as a product)",
+    features: ["도메인 공유", "상호 운용성", "재사용성"],
+    keywords: ["데이터 메시", "데이터 패브릭", "데이터 리니지", "데이터 카탈로그", "API 기반", "ETL", "클라우드 네이티브"],
+    tables: [
+      {
+        caption: "구성요소",
+        headers: ["구분", "구성요소"],
+        rows: [
+          ["조직 관점", "Data Product Owner\n데이터 거버넌스 체계\n도메인 기반 운영 구조"],
+          ["사용자 관점", "Data Consumer\n데이터 카탈로그 및 검색 기능\n사용자 피드백 및 만족도 관리"],
+          ["기술/운영 관점", "자동화된 데이터 파이프라인\nAPI 기반 데이터 서비스\n모니터링 및 로깅 시스템"],
+          ["품질/보안 관점", "데이터 품질 관리 체계\n메타데이터 및 data Lineage\n보안 및 접근 제어 정책"],
+        ],
+      },
+      {
+        caption: "특징",
+        headers: ["특징", "설명"],
+        rows: [
+          ["분석을 위한 깔끔한 고품질 데이터 세트", "신뢰성·신뢰도 데이터 제품 보장"],
+          ["메타데이터와 의미 체계", "컨텍스트 제공 발견·이해 지원"],
+          ["데이터 세트 간의 상호 운용성", "세트 간 협업 비편향 인사이트"],
+          ["도메인 간 공유 가능성", "도메인·앱 공유 간편 공유 제공"],
+          ["접근성", "소비자 접근 손쉬운 인사이트"],
+          ["재사용성", "모듈식 요소 타 제품 구축 활용"],
+        ],
+      },
+      {
+        caption: "핵심원칙",
+        headers: ["원칙", "설명"],
+        rows: [
+          ["도메인 소유권(Domain Ownership)", "도메인 팀 관리 데이터 직접 관리\n데이터 메시 원칙 분산 소유 원칙"],
+          ["데이터 제품", "사용자 가진 제품 데이터셋 탈피"],
+          ["표준화 & 상호운용성", "공통 규칙 보유 도메인 간 호환"],
+          ["관측 가능성", "변동 모니터링 품질 지연 스키마"],
+        ],
+      },
+    ],
+    notes: ["기출: 2025.11 ITPE 모의고사 3교시", "개념도(계층): Consumer Layer(데이터소비자: BI, AI모델, 앱, API 사용자 등) ↔ Data Product Layer(데이터제품: 데이터셋+메타데이터+품질지표, API 제공, SLA보장, Owner 지정) ↔ Data Platform Layer(데이터플랫폼&거버넌스: 표준화된 저장소, 거버넌스, CI/CD, 메타데이터관리, 접근제어, 모니터) ↔ Source Layer(원천 데이터: 트랜잭션DB, Log, IoT센서 등)"],
+  },
+  {
     title: "연관성 분석(association analysis) - 데이터마이닝",
     course: "DB",
     definition:
@@ -18805,50 +18845,68 @@ export const SUBNOTES: TextbookSubnote[] = [
     notes: ["기출: 2025.04 ITPE 모의고사 3교시", "Apriori 알고리즘과 DHP 알고리즘 모두 후보 항목 집합을 여러 번 생성하는 과정이 존재하지만 FP-Growth 알고리즘은 후보 항목 집합 생성 과정을 제거"],
   },
   {
-    title: "DaaP(Data as a product)",
+    title: "낙관적 검증(Validation) 기법",
     course: "DB",
     definition:
-      "데이터를 단순한 저장 자산이 아닌, 최종 사용자 중심의 독립적인 제품으로 관리하는 데이터 거버넌스 및 아키텍처 패러다임",
-    defShort: "데이터를 독립적 제품으로 관리하는 거버넌스 및 아키텍처 패러다임",
-    lead:
-      "데이터를 제품처럼 관리, DaaP(Data as a product)",
-    features: ["도메인 공유", "상호 운용성", "재사용성"],
-    keywords: ["데이터 메시", "데이터 패브릭", "데이터 리니지", "데이터 카탈로그", "API 기반", "ETL", "클라우드 네이티브"],
+      "트랜잭션을 실행하는 동안 모든 갱신은 지역 사본에만 반영되고 트랜잭션 종료 시 확인 단계를 통해 직렬 가능성에 위반되지 않으면 실행하고 위반되면 복귀하는 기법",
+    defShort: "트랜잭션 종료 시 확인 단계 통해 직렬 가능성 위반되면 복귀하는 기법",
+    lead: "종료 시 일괄 검증 제어, 낙관적 검증(Validation) 기법",
+    features: ["사본 갱신", "종료 시 검증", "직렬성 보장"],
+    keywords: ["판독", "기록", "확인", "직렬 가능성", "유효성 검사"],
     tables: [
       {
-        caption: "구성요소",
-        headers: ["구분", "구성요소"],
+        caption: "처리단계 [판확기]",
+        headers: ["단계", "설명"],
         rows: [
-          ["조직 관점", "Data Product Owner\n데이터 거버넌스 체계\n도메인 기반 운영 구조"],
-          ["사용자 관점", "Data Consumer\n데이터 카탈로그 및 검색 기능\n사용자 피드백 및 만족도 관리"],
-          ["기술/운영 관점", "자동화된 데이터 파이프라인\nAPI 기반 데이터 서비스\n모니터링 및 로깅 시스템"],
-          ["품질/보안 관점", "데이터 품질 관리 체계\n메타데이터 및 data Lineage\n보안 및 접근 제어 정책"],
+          ["판독 단계 (Read Phase : R)", "사본만 갱신 실제 DB 미수행\n버퍼(메모리) 판독 연산 수행"],
+          ["확인 단계 (Validation Phase : V)", "직렬 가능성 검증 위반 여부 확인\n반영 전 확인 실행 결과 검증"],
+          ["기록 단계 (Write Phase : W)", "통과 시 DB 반영 디스크에 기록\n실패 시 복귀 실행 결과 취소"],
         ],
       },
       {
-        caption: "특징",
-        headers: ["특징", "설명"],
+        caption: "확인 단계 조건",
+        headers: ["조건", "설명", "타임스탬프(Time-stamp)"],
         rows: [
-          ["분석을 위한 깔끔한 고품질 데이터 세트", "신뢰성·신뢰도 데이터 제품 보장"],
-          ["메타데이터와 의미 체계", "컨텍스트 제공 발견·이해 지원"],
-          ["데이터 세트 간의 상호 운용성", "세트 간 협업 비편향 인사이트"],
-          ["도메인 간 공유 가능성", "도메인·앱 공유 간편 공유 제공"],
-          ["접근성", "소비자 접근 손쉬운 인사이트"],
-          ["재사용성", "모듈식 요소 타 제품 구축 활용"],
-        ],
-      },
-      {
-        caption: "핵심원칙",
-        headers: ["원칙", "설명"],
-        rows: [
-          ["도메인 소유권(Domain Ownership)", "도메인 팀 관리 데이터 직접 관리\n데이터 메시 원칙 분산 소유 원칙"],
-          ["데이터 제품", "사용자 가진 제품 데이터셋 탈피"],
-          ["표준화 & 상호운용성", "공통 규칙 보유 도메인 간 호환"],
-          ["관측 가능성", "변동 모니터링 품질 지연 스키마"],
+          ["조건1", "Finish(Ti) <\nStart(Tk)", "Start(Ti):\n판독단계 시작"],
+          ["조건2", "Start(Tk) <\nFinish(Ti) <\nValidation(Tk)\nW(Ti)∩R(Tk)=∅", "Validation(Ti):\n확인 시작 시간"],
+          ["조건3", "W(Ti)∩R(Tk)=∅\nW(Ti)∩W(Tk)=∅", "Finish(Ti):\n기록 완료 시간"],
         ],
       },
     ],
-    notes: ["기출: 2025.11 ITPE 모의고사 3교시", "개념도(계층): Consumer Layer(데이터소비자: BI, AI모델, 앱, API 사용자 등) ↔ Data Product Layer(데이터제품: 데이터셋+메타데이터+품질지표, API 제공, SLA보장, Owner 지정) ↔ Data Platform Layer(데이터플랫폼&거버넌스: 표준화된 저장소, 거버넌스, CI/CD, 메타데이터관리, 접근제어, 모니터) ↔ Source Layer(원천 데이터: 트랜잭션DB, Log, IoT센서 등)"],
+  },
+  {
+    title: "MVCC(다중 버전 동시성 제어) 2가지 유형",
+    course: "DB",
+    definition:
+      "Lock 을 사용하지 않고 데이터 읽기의 일관성을 보장해주는 방법",
+    defShort: "Lock을 사용하지 않고 다중 버전으로 읽기 일관성 보장하는 방법",
+    lead:
+      "Lock 없는 읽기 일관성, MVCC(다중 버전 동시성 제어)",
+    features: ["Lock 없음", "읽기 일관성", "버전 보관"],
+    keywords: ["직렬 가능성이 보장", "SCN(System Change Number)", "CR Copy", "Undo", "MGA", "Rollback Segment"],
+    tables: [
+      {
+        caption: "MGA(Multi Generation Architecture) — PostgreSQL 방식",
+        headers: ["구분", "설명"],
+        rows: [
+          ["방식", "레코드 갱신 처리 다세대 구조 방식"],
+          ["1", "기존 데이터 유지 새 데이터 추가"],
+          ["2", "기존 데이터 표시 삭제 없이 표시만"],
+          ["3", "VACUUM 주기적 정리 작업"],
+          ["4", "물리적 위치 변경 갱신 데이터 이동"],
+          ["5", "인덱스 수정 발생 매 갱신 시 필수"],
+        ],
+      },
+      {
+        caption: "Rollback Segment — Oracle 방식",
+        headers: ["방식", "설명"],
+        rows: [
+          ["방식", "기존 블록 변경 새 데이터로 갱신\n이전 데이터 보관 롤백 세그먼트"],
+          ["동작", "조회 시점 SCN 변경 블록 식별\nCR 블록 생성 읽기 일관성 유지"],
+          ["MGA와 차이점", "물리 위치 불변 갱신 시 위치 유지"],
+        ],
+      },
+    ],
   },
   {
     title: "기술 부채(Technical Debt)",
@@ -18893,68 +18951,6 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
     ],
     notes: ["기술 부채 영역 사분면(구현된 소프트웨어 내에서): Visible·Positive=Feature, Invisible·Positive=Architecture, Visible·Negative=Bug, Invisible·Negative=Technical Debt"],
-  },
-  {
-    title: "리빙랩(Living Lab), S.O.S랩",
-    course: "MG",
-    definition:
-      "리빙랩: 공공, 기업, 시민 등 다양한 사회 주체가 혁신 주체로 참여하여 문제를 해결하는 사용자 주도형 연구소 / S.O.S랩(Solution in Our Society Lab): 지역사회 문제해결을 위해 사회 구성원들이 모여 소프트웨어로 해결방법을 마련하는 사회문제 연구소",
-    defShort: "사회 주체가 참여해 문제 해결 리빙랩, SW로 해결방법 마련 S.O.S랩",
-    lead:
-      "사용자 주도 혁신 연구소, 리빙랩과 S.O.S랩",
-    features: ["사용자 주도", "공동창조", "사중나선"],
-    // 개념마다 정의·특징을 따로 쓴다(2026-10-07 — "각자 정의, 특징"). 슬라이드 왼쪽 「■ 리빙랩」「■ S.O.S랩」 정의(빨강 전부 유지, 「사용자 주도형」은 lead 로). 특징은 리빙랩과 S.O.S랩 비교표(목적·방향·구조·특징)와 프로세스 그림(co-creation, 공감)
-    defPair: [
-      {
-        name: "리빙랩",
-        lead: "사용자 주도형 연구소",
-        def: "다양한 사회 주체가 혁신 주체로 참여하여 문제를 해결하는 연구소",
-        features: ["Bottom-up", "공동 창조", "사중나선"],
-      },
-      {
-        name: "S.O.S랩",
-        lead: "소프트웨어 사회문제 연구소",
-        def: "지역사회 문제해결 위해 소프트웨어로 해결방법을 마련하는 연구소",
-        features: ["지역 내재화", "상용 플랫폼", "공감 기반"],
-      },
-    ],
-    keywords: ["리빙랩: 기획, 탐색, 실험, 평가", "SOS랩: 조직화, 개념화, 구체화, 실체화, 공유화, 사업화"],
-    tables: [
-      {
-        caption: "리빙랩 프로세스 [기탐실평공]",
-        headers: ["프로세스", "설명"],
-        rows: [
-          ["운영 기획(planning)", "문제 구체화\n비즈니스 모델 탐색\n사용자 그룹 선정, 참여\n운영 환경 형성"],
-          ["대안 탐색(exploration)", "아이디어 발굴\n개념화\n사용자 행태 분석 및 개념 설계"],
-          ["대안 실험(experimentation)", "프로토타입 개발 및 구현\n프로토타입 테스트\n프로토타입 피드백"],
-          ["대안 평가(evaluation)", "제품·서비스 개발\n제품·서비스 실증, 확산\n제품 피드백"],
-          ["공통", "피드백 및 개선\n공동 창조(co-creation)"],
-        ],
-      },
-      {
-        caption: "S.O.S랩 프로세스 [조개구실공사] — Problem에서 Value로, 바탕은 공감",
-        headers: ["단계", "활동"],
-        rows: [
-          ["조직화", "혁신조직\n자원확보\n가치와 목표"],
-          ["개념화", "문제발굴\n공감\n문제정의"],
-          ["구체화", "아이디에이션\n프로토타입"],
-          ["실체화", "공동창조\n컨셉 디자인"],
-          ["공유화", "실증 및 확산\n데이터 관리"],
-          ["사업화", "비즈니스 모델\n자원 프로그램"],
-        ],
-      },
-      {
-        caption: "리빙랩과 S.O.S랩 비교",
-        headers: ["구분", "리빙랩", "SOS랩"],
-        rows: [
-          ["목적", "시민 참여\n사회문제 해결\n기술 서비스화", "혁신역량 내재화\nSW혁신 생태계\n상용 플랫폼"],
-          ["방향", "Bottom-up\n순환적 나선 모델", "Top-down & Bottom-up 병행\nUp & Down Stream"],
-          ["구조", "최종 사용자 추가\n사중나선 구조", "순환적 나선모델\n사중나선 구조"],
-          ["특징", "공공·기업·시민\n다양한 주체 참여", "전주기 SW 지원\n상시·상용 운용\n플랫폼"],
-        ],
-      },
-    ],
-    notes: ["리빙랩(구조 설계 및 구성, 방법론 및 기술) → SOS랩(6단계 프로세스): FormIT 방법론 원칙, KHIRA LL프로젝트 — 리빙랩 구축 점증 과정과 개념"],
   },
   {
     title: "ITIL(IT Infrastructure Library) 4.0",
@@ -19277,6 +19273,38 @@ export const SUBNOTES: TextbookSubnote[] = [
     notes: ["복구절차 [분재시운]: ① 업무영향분석 → ② 재해복구 전략 수립 → ③ 시스템구축 및 복구계획수립 → ④ 운영 및 모의훈련", "개념도: 메인센터(HW/SW, 스토리지, 네트워크, 기업정보) —DWDM 데이터 복제→ DR센터(동일 구성). 주업체·제휴업체는 전용선으로 양 센터 연결"],
   },
   {
+    title: "DRaaS(Disaster Recovery as a Service)",
+    course: "MG",
+    definition:
+      "클라우드 서비스를 이용하여 데이터, 어플리케이션 등을 백업한 후 재해와 정전, 사이버공격, 기타 비즈니스 장애가 발생하는 경우 데이터 복제, 호스팅, 복구 등을 제공하는 서비스",
+    defShort: "클라우드 백업 후 장애 시 데이터 복제·호스팅·복구 등 제공 서비스",
+    lead:
+      "클라우드 재해복구 서비스, DRaaS",
+    features: ["클라우드 DR", "짧은 RPO", "OPEX 구조"],
+    keywords: ["재해복구", "Failover", "Failback", "Replication", "DRaaS 모델(관리형, 지원형, DIY형)"],
+    tables: [
+      {
+        caption: "모델 [관지D]",
+        headers: ["모델", "동작방식", "설명"],
+        rows: [
+          ["관리형 DRaaS", "전체 아웃소싱\n업체 전담 운영", "재해복구 위탁\nSLA 보장 제공"],
+          ["지원형 DRaaS", "기업 주도 통제\n업체 부분 지원", "통합 테스팅 수행\n필요 시 개입"],
+          ["DIY형 DRaaS", "자체 전 과정\n직접 전환 관리", "기업 책임 수행\n클라우드 복제"],
+        ],
+      },
+      {
+        caption: "도입 효과",
+        headers: ["지표", "비교"],
+        rows: [
+          ["COST", "HA(CAPEX) 대비\nDRaaS(OPEX)로 절감"],
+          ["RTO", "Tape VTL 12시간 → DRaaS\n15분으로 경감"],
+          ["RPO", "Tape VTL 대비 1분단위\n1,000개로 증대"],
+        ],
+      },
+    ],
+    notes: ["개념도: ① 고객사에서 1차 보호(CDP 서버) → ② Cloud DR Center로 Replication → ③ Cloud DR Center에서 2차 보호(클라우드 CDP 서버) → ④ Cloud DR Center 이용한 긴급 복구(재해복구용 가상 서버타운)", "DRaaS는 짧은 RPO를 제공하도록 설계(재해가 발생해도 데이터가 이전 상태로 최대한 근접하게 복구 될 수 있게 함). 일반적인 중지 시간 없는 온프레미스 백업과 달리 클라우드 기반 DRaaS의 RPO는 일반적으로 몇시간 정도"],
+  },
+  {
     title: "ISO 22301",
     course: "MG",
     definition:
@@ -19311,38 +19339,6 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
     ],
     notes: ["구성도: 이해관계자·비즈니스 연속성 요구사항 → BCMS의 지속적 개선(Plan→Do→Check→Act 순환) → 이해관계자·관리된 비즈니스 연속성"],
-  },
-  {
-    title: "DRaaS(Disaster Recovery as a Service)",
-    course: "MG",
-    definition:
-      "클라우드 서비스를 이용하여 데이터, 어플리케이션 등을 백업한 후 재해와 정전, 사이버공격, 기타 비즈니스 장애가 발생하는 경우 데이터 복제, 호스팅, 복구 등을 제공하는 서비스",
-    defShort: "클라우드 백업 후 장애 시 데이터 복제·호스팅·복구 등 제공 서비스",
-    lead:
-      "클라우드 재해복구 서비스, DRaaS",
-    features: ["클라우드 DR", "짧은 RPO", "OPEX 구조"],
-    keywords: ["재해복구", "Failover", "Failback", "Replication", "DRaaS 모델(관리형, 지원형, DIY형)"],
-    tables: [
-      {
-        caption: "모델 [관지D]",
-        headers: ["모델", "동작방식", "설명"],
-        rows: [
-          ["관리형 DRaaS", "전체 아웃소싱\n업체 전담 운영", "재해복구 위탁\nSLA 보장 제공"],
-          ["지원형 DRaaS", "기업 주도 통제\n업체 부분 지원", "통합 테스팅 수행\n필요 시 개입"],
-          ["DIY형 DRaaS", "자체 전 과정\n직접 전환 관리", "기업 책임 수행\n클라우드 복제"],
-        ],
-      },
-      {
-        caption: "도입 효과",
-        headers: ["지표", "비교"],
-        rows: [
-          ["COST", "HA(CAPEX) 대비\nDRaaS(OPEX)로 절감"],
-          ["RTO", "Tape VTL 12시간 → DRaaS\n15분으로 경감"],
-          ["RPO", "Tape VTL 대비 1분단위\n1,000개로 증대"],
-        ],
-      },
-    ],
-    notes: ["개념도: ① 고객사에서 1차 보호(CDP 서버) → ② Cloud DR Center로 Replication → ③ Cloud DR Center에서 2차 보호(클라우드 CDP 서버) → ④ Cloud DR Center 이용한 긴급 복구(재해복구용 가상 서버타운)", "DRaaS는 짧은 RPO를 제공하도록 설계(재해가 발생해도 데이터가 이전 상태로 최대한 근접하게 복구 될 수 있게 함). 일반적인 중지 시간 없는 온프레미스 백업과 달리 클라우드 기반 DRaaS의 RPO는 일반적으로 몇시간 정도"],
   },
   {
     title: "디지털 안전 3법",
@@ -19527,30 +19523,33 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
-    title: "Ansoff Matrix",
+    title: "가치사슬(Value Chain)",
     course: "MG",
     definition:
-      "기업의 성장을 위해 제품과 시장 영역에서 진행해야 할 방향을 결정하기 위한 평가하는 의사결정 전략 기법",
-    defShort: "성장을 위해 제품·시장 영역 진행 방향을 정하는 의사결정 전략 기법",
+      "기업이 제품이나 서비스를 생산하여 부가가치 창출에 직·간접적으로 관련된 일련의 활동·기능·프로세스의 연계",
+    defShort: "기업 제품 부가가치 창출에 직·간접 관련된 활동·기능·프로세스 연계",
     lead:
-      "제품×시장 성장 전략, Ansoff Matrix",
-    features: ["시장·제품", "성장 방향", "위험 증가"],
-    keywords: ["의사결정", "제품", "시장", "성장 전략 설정"],
+      "부가가치 창출 활동의 연계, 가치사슬(Value Chain)",
+    features: ["활동 연계", "이원적 구조", "이윤 창출"],
+    keywords: ["주활동(매입 물류, 생산, 매출 물류, 마케팅 & 영업, 서비스)", "지원활동(기업구조, 인사관리, 기술개발, 자원조달)"],
     tables: [
       {
-        caption: "개념도 [시제 침개개다]",
-        headers: ["구분", "항목", "설명"],
+        caption: "구성요소 [내생외마서 기인기조]",
+        headers: ["구성", "세부구성", "핵심"],
         rows: [
-          ["평가 기준", "시장 (Market)", "진출하려는 산업의 시장 방향 기준"],
-          ["평가 기준", "제품 (Product)", "보유·개발할 제품의 방향 기준"],
-          ["선택 전략", "시장 침투(Market Penetration)", "기존 시장에 기존 제품 추가 판매"],
-          ["선택 전략", "시장 개발(Net Market)", "기존 제품으로 새로운 시장 진출"],
-          ["선택 전략", "제품 개발(Product Development)", "기존 시장에 새로운 제품 활동"],
-          ["선택 전략", "다각화(Diversification)", "새 제품으로 새로운 시장 진입"],
+          ["주 활동(Primary Activities)", "내부 로지스틱스", "원재료 부품 품질\n구매 물류활동"],
+          ["주 활동(Primary Activities)", "생산활동", "무결점 제품\n품질·원가·납기\n다양성"],
+          ["주 활동(Primary Activities)", "외부 로지스틱스", "신속한 배송\n효율적 주문처리\n출하 물류활동"],
+          ["주 활동(Primary Activities)", "마케팅 및 판매", "매출 확대\n시장점유율 확대\n브랜드 인지도\n부대비용 절감"],
+          ["주 활동(Primary Activities)", "서비스", "고객 기술지원\n고객 신뢰도 향상"],
+          ["지원 활동(Supportive Activities)", "기업 하부구조", "경영정보시스템(MIS)"],
+          ["지원 활동(Supportive Activities)", "인적자원 관리", "인력 수급관리\n서비스 교육훈련"],
+          ["지원 활동(Supportive Activities)", "기술개발", "차별화된 제품\n신속한 신제품\n신기술 신규원료"],
+          ["지원 활동(Supportive Activities)", "조달", "가치사슬 투입물\n구매 기능 관련"],
         ],
       },
     ],
-    notes: ["기출: 2025.10 ITPE 모의고사 2교시", "4분면 배치: 기존 제품×기존 시장=시장 침투, 기존 제품×신시장=시장 개발, 신제품×기존 시장=제품 개발, 신제품×신시장=다각화. 축을 따라 멀어질수록 위험도 증가"],
+    notes: ["구성도: Support Activities(Firm Infrastructure·기업 하부구조, Human Resource Management·인적 자원 관리, Technology Development·기술 개발, Procurement·조달 활동) + Primary Activities(Inbound Logistics·내부 물류, Operations·제조/생산, Outbound Logistics·외부 물류, Marketing&Sales·마케팅/영업, Services·서비스) → Margin(이윤)", "기업의 각 부문의 활동은 모두 일련의 가치(Value) 창조를 위한 연쇄(Chain) 활동이며 그 궁극적인 목적을 이윤 창출(Margin)로 파악"],
   },
   {
     title: "BCG Matrix",
@@ -19586,103 +19585,30 @@ export const SUBNOTES: TextbookSubnote[] = [
     notes: ["시장점유율과 성장률만으로 사업성을 판단하기에는 한계 — 산업 매력도 × 시장 경쟁력의 GE 매트릭스(투자성장/선별적 투자/수확 철수)가 이를 보완"],
   },
   {
-    title: "정보시스템 하드웨어 규모산정 지침",
+    title: "Ansoff Matrix",
     course: "MG",
     definition:
-      "정보시스템 도입 시 기본적인 용량과 성능 요구사항이 제시되었을 때 그것을 시스템 도입을 위한 요구사항으로 변환하기 위한 산정하는 방법 (TTAK.KO-10.0292/R3, 2023.12.06. 개정)",
-    defShort: "용량·성능 요구사항을 시스템 도입 요구사항으로 변환 산정하는 방법",
+      "기업의 성장을 위해 제품과 시장 영역에서 진행해야 할 방향을 결정하기 위한 평가하는 의사결정 전략 기법",
+    defShort: "성장을 위해 제품·시장 영역 진행 방향을 정하는 의사결정 전략 기법",
     lead:
-      "HW 용량·성능 산정 표준, 정보시스템 하드웨어 규모산정 지침",
-    features: ["요건 변환", "참조 성능치", "가중치 보정"],
-    subDefs: [
-      {
-        name: "수식계산법",
-        lead: "요소 계산의 보정 적용",
-        def: "규모산정 요소를 토대로 용량 수치 계산하고 보정치를 적용하는 방법",
-        features: ["요소 토대", "용량 계산", "보정치 적용"],
-      },
-      {
-        name: "참조법",
-        lead: "유사 시스템의 비교",
-        def: "업무량에 따라 기본 데이터로 비슷한 규모와 비교 산정하는 산정법",
-        features: ["업무량 기준", "규모 비교", "대략적 산정"],
-      },
-      {
-        name: "시뮬레이션법",
-        lead: "작업부하의 모의 실행",
-        def: "업무의 작업부하를 모델링하고 시뮬레이션해 규모를 산정하는 방법",
-        features: ["작업부하", "모델링", "시뮬레이션"],
-      },
-    ],
-    keywords: ["수식계산법", "참조법", "시뮬레이션법"],
+      "제품×시장 성장 전략, Ansoff Matrix",
+    features: ["시장·제품", "성장 방향", "위험 증가"],
+    keywords: ["의사결정", "제품", "시장", "성장 전략 설정"],
     tables: [
       {
-        caption: "규모산정 대상",
-        headers: ["대상", "설명"],
+        caption: "개념도 [시제 침개개다]",
+        headers: ["구분", "항목", "설명"],
         rows: [
-          ["CPU", "업무 처리 CPU 전체규모 계산\n적정 성능 서버 기종 선정"],
-          ["메모리", "서버 구성방안 의거 사용량 산정\n시스템 S/W\n응용프로그램"],
-          ["디스크", "서버 구성방안 의거 사용량 산정\n서버별 OS, 시스템 S/W\nDB 데이터·아카이브(Archive)\n백업영역"],
-          ["스토리지", "서버 규모 따라 스토리지 규모 산정"],
-        ],
-      },
-      {
-        caption: "규모산정 절차",
-        headers: ["절차", "활동"],
-        rows: [
-          ["[1단계] 구축방향 및 기초자료 조사", "구축 방향 파악\n기초자료 조사"],
-          ["[2단계] 기초자료 및 업무분석", "기준 부하 산정\n업무 내용 검증"],
-          ["[3단계] 참조모델 결정 및 서버 규모산정", "참조 모델 선택\n요소별 규모산정"],
-          ["[4단계] 참조모델 별 가중치 적용", "참조모델1 가중치 적용 방식\n참조모델2 가중치 적용 방식\n참조모델3 가중치 적용 방식"],
-        ],
-      },
-      {
-        caption: "규모산정 방법 [수참시]",
-        headers: ["방법", "개념"],
-        rows: [
-          ["수식계산법", "사용자 수 등 요소 토대로 용량 계산\n보정치 적용"],
-          ["참조법", "업무량(사용자 수, DB 크기) 기준\n대략적 시스템 규모 비교 산정"],
-          ["시뮬레이션법", "대상 업무 작업부하 모델링\n시뮬레이션하여 규모 산정"],
-        ],
-      },
-      {
-        caption: "규모산정 지표",
-        headers: ["구분", "OLTP 또는 OLTP&배치 애플리케이션 서버", "WEB 서버·WAS 서버", "스토리지"],
-        rows: [
-          ["성능 측정치", "tpmC", "max-jOPS", "IOPS"],
-          ["참조 성능 기준", "TPC-C", "SPECjbb2015", "SPC-1"],
+          ["평가 기준", "시장 (Market)", "진출하려는 산업의 시장 방향 기준"],
+          ["평가 기준", "제품 (Product)", "보유·개발할 제품의 방향 기준"],
+          ["선택 전략", "시장 침투(Market Penetration)", "기존 시장에 기존 제품 추가 판매"],
+          ["선택 전략", "시장 개발(Net Market)", "기존 제품으로 새로운 시장 진출"],
+          ["선택 전략", "제품 개발(Product Development)", "기존 시장에 새로운 제품 활동"],
+          ["선택 전략", "다각화(Diversification)", "새 제품으로 새로운 시장 진입"],
         ],
       },
     ],
-  },
-  {
-    title: "가치사슬(Value Chain)",
-    course: "MG",
-    definition:
-      "기업이 제품이나 서비스를 생산하여 부가가치 창출에 직·간접적으로 관련된 일련의 활동·기능·프로세스의 연계",
-    defShort: "기업 제품 부가가치 창출에 직·간접 관련된 활동·기능·프로세스 연계",
-    lead:
-      "부가가치 창출 활동의 연계, 가치사슬(Value Chain)",
-    features: ["활동 연계", "이원적 구조", "이윤 창출"],
-    keywords: ["주활동(매입 물류, 생산, 매출 물류, 마케팅 & 영업, 서비스)", "지원활동(기업구조, 인사관리, 기술개발, 자원조달)"],
-    tables: [
-      {
-        caption: "구성요소 [내생외마서 기인기조]",
-        headers: ["구성", "세부구성", "핵심"],
-        rows: [
-          ["주 활동(Primary Activities)", "내부 로지스틱스", "원재료 부품 품질\n구매 물류활동"],
-          ["주 활동(Primary Activities)", "생산활동", "무결점 제품\n품질·원가·납기\n다양성"],
-          ["주 활동(Primary Activities)", "외부 로지스틱스", "신속한 배송\n효율적 주문처리\n출하 물류활동"],
-          ["주 활동(Primary Activities)", "마케팅 및 판매", "매출 확대\n시장점유율 확대\n브랜드 인지도\n부대비용 절감"],
-          ["주 활동(Primary Activities)", "서비스", "고객 기술지원\n고객 신뢰도 향상"],
-          ["지원 활동(Supportive Activities)", "기업 하부구조", "경영정보시스템(MIS)"],
-          ["지원 활동(Supportive Activities)", "인적자원 관리", "인력 수급관리\n서비스 교육훈련"],
-          ["지원 활동(Supportive Activities)", "기술개발", "차별화된 제품\n신속한 신제품\n신기술 신규원료"],
-          ["지원 활동(Supportive Activities)", "조달", "가치사슬 투입물\n구매 기능 관련"],
-        ],
-      },
-    ],
-    notes: ["구성도: Support Activities(Firm Infrastructure·기업 하부구조, Human Resource Management·인적 자원 관리, Technology Development·기술 개발, Procurement·조달 활동) + Primary Activities(Inbound Logistics·내부 물류, Operations·제조/생산, Outbound Logistics·외부 물류, Marketing&Sales·마케팅/영업, Services·서비스) → Margin(이윤)", "기업의 각 부문의 활동은 모두 일련의 가치(Value) 창조를 위한 연쇄(Chain) 활동이며 그 궁극적인 목적을 이윤 창출(Margin)로 파악"],
+    notes: ["기출: 2025.10 ITPE 모의고사 2교시", "4분면 배치: 기존 제품×기존 시장=시장 침투, 기존 제품×신시장=시장 개발, 신제품×기존 시장=제품 개발, 신제품×신시장=다각화. 축을 따라 멀어질수록 위험도 증가"],
   },
   {
     title: "PDCA(Plan-Do-Check-Act, Deming Cycle)",
@@ -19884,6 +19810,76 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
     ],
     notes: ["비교 개념도: EA ⊃ ISP(전략 방향 설정 → 현황분석(AS-IS) → TO-BE모델 → 이행계획수립) → 과제 도출 → 과제별 ISMP(사업방향 → AS-IS → TO-BE → 이행계획) → 구축 사업"],
+  },
+  {
+    title: "정보시스템 하드웨어 규모산정 지침",
+    course: "MG",
+    definition:
+      "정보시스템 도입 시 기본적인 용량과 성능 요구사항이 제시되었을 때 그것을 시스템 도입을 위한 요구사항으로 변환하기 위한 산정하는 방법 (TTAK.KO-10.0292/R3, 2023.12.06. 개정)",
+    defShort: "용량·성능 요구사항을 시스템 도입 요구사항으로 변환 산정하는 방법",
+    lead:
+      "HW 용량·성능 산정 표준, 정보시스템 하드웨어 규모산정 지침",
+    features: ["요건 변환", "참조 성능치", "가중치 보정"],
+    subDefs: [
+      {
+        name: "수식계산법",
+        lead: "요소 계산의 보정 적용",
+        def: "규모산정 요소를 토대로 용량 수치 계산하고 보정치를 적용하는 방법",
+        features: ["요소 토대", "용량 계산", "보정치 적용"],
+      },
+      {
+        name: "참조법",
+        lead: "유사 시스템의 비교",
+        def: "업무량에 따라 기본 데이터로 비슷한 규모와 비교 산정하는 산정법",
+        features: ["업무량 기준", "규모 비교", "대략적 산정"],
+      },
+      {
+        name: "시뮬레이션법",
+        lead: "작업부하의 모의 실행",
+        def: "업무의 작업부하를 모델링하고 시뮬레이션해 규모를 산정하는 방법",
+        features: ["작업부하", "모델링", "시뮬레이션"],
+      },
+    ],
+    keywords: ["수식계산법", "참조법", "시뮬레이션법"],
+    tables: [
+      {
+        caption: "규모산정 대상",
+        headers: ["대상", "설명"],
+        rows: [
+          ["CPU", "업무 처리 CPU 전체규모 계산\n적정 성능 서버 기종 선정"],
+          ["메모리", "서버 구성방안 의거 사용량 산정\n시스템 S/W\n응용프로그램"],
+          ["디스크", "서버 구성방안 의거 사용량 산정\n서버별 OS, 시스템 S/W\nDB 데이터·아카이브(Archive)\n백업영역"],
+          ["스토리지", "서버 규모 따라 스토리지 규모 산정"],
+        ],
+      },
+      {
+        caption: "규모산정 절차",
+        headers: ["절차", "활동"],
+        rows: [
+          ["[1단계] 구축방향 및 기초자료 조사", "구축 방향 파악\n기초자료 조사"],
+          ["[2단계] 기초자료 및 업무분석", "기준 부하 산정\n업무 내용 검증"],
+          ["[3단계] 참조모델 결정 및 서버 규모산정", "참조 모델 선택\n요소별 규모산정"],
+          ["[4단계] 참조모델 별 가중치 적용", "참조모델1 가중치 적용 방식\n참조모델2 가중치 적용 방식\n참조모델3 가중치 적용 방식"],
+        ],
+      },
+      {
+        caption: "규모산정 방법 [수참시]",
+        headers: ["방법", "개념"],
+        rows: [
+          ["수식계산법", "사용자 수 등 요소 토대로 용량 계산\n보정치 적용"],
+          ["참조법", "업무량(사용자 수, DB 크기) 기준\n대략적 시스템 규모 비교 산정"],
+          ["시뮬레이션법", "대상 업무 작업부하 모델링\n시뮬레이션하여 규모 산정"],
+        ],
+      },
+      {
+        caption: "규모산정 지표",
+        headers: ["구분", "OLTP 또는 OLTP&배치 애플리케이션 서버", "WEB 서버·WAS 서버", "스토리지"],
+        rows: [
+          ["성능 측정치", "tpmC", "max-jOPS", "IOPS"],
+          ["참조 성능 기준", "TPC-C", "SPECjbb2015", "SPC-1"],
+        ],
+      },
+    ],
   },
   {
     title: "TRL(Technology Readiness Level)",
@@ -20405,6 +20401,68 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
     ],
     notes: ["개념도: 사회적 이슈/문제(원인/동기) + 시민의 자발적 참여 → 시빅 해킹(Civic Hacking) → 삶의 질 향상(기대효과). 요소기술: 공공데이터, OpenAPI, 오픈소스"],
+  },
+  {
+    title: "리빙랩(Living Lab), S.O.S랩",
+    course: "MG",
+    definition:
+      "리빙랩: 공공, 기업, 시민 등 다양한 사회 주체가 혁신 주체로 참여하여 문제를 해결하는 사용자 주도형 연구소 / S.O.S랩(Solution in Our Society Lab): 지역사회 문제해결을 위해 사회 구성원들이 모여 소프트웨어로 해결방법을 마련하는 사회문제 연구소",
+    defShort: "사회 주체가 참여해 문제 해결 리빙랩, SW로 해결방법 마련 S.O.S랩",
+    lead:
+      "사용자 주도 혁신 연구소, 리빙랩과 S.O.S랩",
+    features: ["사용자 주도", "공동창조", "사중나선"],
+    // 개념마다 정의·특징을 따로 쓴다(2026-10-07 — "각자 정의, 특징"). 슬라이드 왼쪽 「■ 리빙랩」「■ S.O.S랩」 정의(빨강 전부 유지, 「사용자 주도형」은 lead 로). 특징은 리빙랩과 S.O.S랩 비교표(목적·방향·구조·특징)와 프로세스 그림(co-creation, 공감)
+    defPair: [
+      {
+        name: "리빙랩",
+        lead: "사용자 주도형 연구소",
+        def: "다양한 사회 주체가 혁신 주체로 참여하여 문제를 해결하는 연구소",
+        features: ["Bottom-up", "공동 창조", "사중나선"],
+      },
+      {
+        name: "S.O.S랩",
+        lead: "소프트웨어 사회문제 연구소",
+        def: "지역사회 문제해결 위해 소프트웨어로 해결방법을 마련하는 연구소",
+        features: ["지역 내재화", "상용 플랫폼", "공감 기반"],
+      },
+    ],
+    keywords: ["리빙랩: 기획, 탐색, 실험, 평가", "SOS랩: 조직화, 개념화, 구체화, 실체화, 공유화, 사업화"],
+    tables: [
+      {
+        caption: "리빙랩 프로세스 [기탐실평공]",
+        headers: ["프로세스", "설명"],
+        rows: [
+          ["운영 기획(planning)", "문제 구체화\n비즈니스 모델 탐색\n사용자 그룹 선정, 참여\n운영 환경 형성"],
+          ["대안 탐색(exploration)", "아이디어 발굴\n개념화\n사용자 행태 분석 및 개념 설계"],
+          ["대안 실험(experimentation)", "프로토타입 개발 및 구현\n프로토타입 테스트\n프로토타입 피드백"],
+          ["대안 평가(evaluation)", "제품·서비스 개발\n제품·서비스 실증, 확산\n제품 피드백"],
+          ["공통", "피드백 및 개선\n공동 창조(co-creation)"],
+        ],
+      },
+      {
+        caption: "S.O.S랩 프로세스 [조개구실공사] — Problem에서 Value로, 바탕은 공감",
+        headers: ["단계", "활동"],
+        rows: [
+          ["조직화", "혁신조직\n자원확보\n가치와 목표"],
+          ["개념화", "문제발굴\n공감\n문제정의"],
+          ["구체화", "아이디에이션\n프로토타입"],
+          ["실체화", "공동창조\n컨셉 디자인"],
+          ["공유화", "실증 및 확산\n데이터 관리"],
+          ["사업화", "비즈니스 모델\n자원 프로그램"],
+        ],
+      },
+      {
+        caption: "리빙랩과 S.O.S랩 비교",
+        headers: ["구분", "리빙랩", "SOS랩"],
+        rows: [
+          ["목적", "시민 참여\n사회문제 해결\n기술 서비스화", "혁신역량 내재화\nSW혁신 생태계\n상용 플랫폼"],
+          ["방향", "Bottom-up\n순환적 나선 모델", "Top-down & Bottom-up 병행\nUp & Down Stream"],
+          ["구조", "최종 사용자 추가\n사중나선 구조", "순환적 나선모델\n사중나선 구조"],
+          ["특징", "공공·기업·시민\n다양한 주체 참여", "전주기 SW 지원\n상시·상용 운용\n플랫폼"],
+        ],
+      },
+    ],
+    notes: ["리빙랩(구조 설계 및 구성, 방법론 및 기술) → SOS랩(6단계 프로세스): FormIT 방법론 원칙, KHIRA LL프로젝트 — 리빙랩 구축 점증 과정과 개념"],
   },
   // ── 6주차 보안(SC) ──
   {
@@ -23792,6 +23850,132 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
+    title: "사이버 보안 성숙도 모델 인증(CMMC, Cybersecurity Maturity Model Certification)",
+    course: "SC",
+    definition:
+      "국방 계약자가 민감한 국방 정보를 보호하기 위한 현재 보안 요구사항을 준수하는지 확인하기 위해 고안된 평가 표준으로, 미국 국방 계약자를 위한 사이버보안 프레임워크",
+    defShort: "국방 정보 보호 위한 보안 요구사항 준수 평가 사이버보안 프레임워크",
+    lead: "국방 공급망 보안 인증, CMMC",
+    features: ["국방 계약자", "NIST 기반", "등급별 평가"],
+    keywords: ["FOUNDATIONAL", "ADVANCED", "EXPERT", "NIST SP 800-171", "NIST SP 800-172"],
+    tables: [
+      {
+        caption: "CMMC 2.0 단계",
+        headers: ["수준", "평가기준", "평가주체"],
+        rows: [
+          ["Level 1 (Foundational)", "FCI 보호 중점\nFAR 52.204\nNIST 800-171", "자체평가"],
+          ["Level 2 (Advanced)", "CUI 협력 회사\nNIST 800-171", "자체 및\n제3자 평가"],
+          ["Level 3 (Expert)", "APT 위협 감소\n800-171·800-172", "제3자 평가\n(정부 주도)"],
+        ],
+      },
+    ],
+    notes: [
+      "CMMC 1.0(5등급)→2.0(3등급) 간소화(2021년 11월) — Level 1(자체)·2(제3자)·3(정부 주도) 평가 주체 상이",
+      "핵심: 미국 국방 공급망(방산업체)이 FCI·CUI를 다룰 자격을 NIST SP 800-171/172 기준으로 인증받는 제도",
+    ],
+  },
+  {
+    title: "사이버 게놈(Cyber genome)",
+    course: "SC",
+    definition:
+      "악성코드 샘플로부터 유사점 파악, 변하지 않는 고유 특성 추출, DB화하여 해커 과거 행동 분석, 향후 공격 추론을 통해 사전 차단하는 기법",
+    defShort: "악성코드 고유 특성을 DB화해 향후 공격을 추론, 사전 차단하는 기법",
+    lead: "악성코드 유전자 분석, 사이버 게놈",
+    features: ["불변 특성", "변종 차단", "다관점 분석"],
+    keywords: ["아티팩트-센트릭 분석", "케이스-센트릭 분석", "휴먼-센트릭 분석", "API Sequence 추출", "API 기반 악성 코드 특성 인자 추출", "서열 정렬", "유사도 분석"],
+    tables: [
+      {
+        caption: "사이버 게놈 프로젝트의 분석 기법",
+        headers: ["분석 기법", "분석 대상", "주요 기술", "설명"],
+        rows: [
+          ["아티팩트 센트릭", "악성코드 샘플\nIP·URL·도메인\n컴파일러 정보", "정적·동적 분석\n샌드박스 분석\n시그니처·IoC", "디지털 증거의\n특성과 연관성\n분석"],
+          ["케이스 센트릭", "공격 이벤트\n공격자 TTPs\n동기 및 목적", "5W1H 분석\n범죄 프로파일링\nATT&CK 매핑", "개별 사건 재구성\n캠페인 전체\n프로파일링"],
+          ["휴먼 센트릭", "해커 신상 정보\n온라인 활동\n언어·성향", "OSINT 수집\n온톨로지 분석\nSNA·NLP", "배후 사람의 특성\n상호 연관 관계\n추적·분석"],
+        ],
+      },
+    ],
+    notes: [
+      "3대 센트릭: 아티팩트(증거 자체)·케이스(공격 사건)·휴먼(해커 사람) 관점 분석",
+      "핵심: 생물의 게놈처럼 악성코드의 '변하지 않는 고유 특성(유전자)'을 추출·DB화해 변종·재사용 공격을 사전 차단",
+    ],
+  },
+  {
+    title: "디지털 포렌식(Digital Forensic)",
+    course: "SC",
+    definition:
+      "컴퓨터를 이용하거나 활용해 이뤄지는 범죄 행위에 대한 법적 증거 자료 확보를 위해 컴퓨터 시스템, 네트워크 등 디지털 자료가 법적 증거물로 법원에 제출될 수 있도록 확보하는 일련의 절차와 방법",
+    defShort: "범죄 디지털 자료가 법적 증거물로 법원에 제출되게 하는 절차와 방법",
+    lead: "디지털 증거의 법적 확보, 디지털 포렌식",
+    features: ["증거 확보", "연계 보관성", "무결성 유지"],
+    keywords: ["정당성의 원칙", "재현의 원칙", "신속성의 원칙", "연계보관의 원칙", "무결성의 원칙", "수사준비", "증거물 획득", "보관 및 이송", "분석 및 조사", "보고서 작성"],
+    tables: [
+      {
+        caption: "포렌식의 5대 원칙 [정재신연무]",
+        headers: ["원칙", "설명"],
+        rows: [
+          ["정당성의 원칙", "모든 증거 적법한 절차로 획득\n위법 절차 증거는 증거 능력 상실"],
+          ["재현의 원칙", "동일 조건·환경 항상 동일 결과"],
+          ["신속성의 원칙", "휘발성 데이터 훼손 전 신속 진행"],
+          ["연계 보관성의 원칙", "일련 과정 명확·추적 가능"],
+          ["무결성의 원칙", "수집 증거 위조·변조 금지"],
+        ],
+      },
+      {
+        caption: "포렌식 절차 [수증보분보]",
+        headers: ["구분", "절차"],
+        rows: [
+          ["수사준비", "사전조사·권한획득\n도구테스트\n장비확보\n협조체계확립"],
+          ["증거물 획득", "현장분석\n휘발데이터확보\nSnap Shot·Disk imaging\n증거물인증"],
+          ["보관 및 이송", "Image 복사\n증거물 포장 및 운반"],
+          ["분석 및 조사", "자료복구/검색\nTimeLine분석·Signature분석\n은닉자료검색\nHASH/log분석"],
+          ["보고서 작성", "증거분석결과\n증거 담당자 목록\n전문가 소견"],
+        ],
+      },
+      {
+        caption: "포렌식 주요 기술",
+        headers: ["구분", "증거 복구", "수집 및 보관", "증거 분석"],
+        rows: [
+          ["저장 매체", "하드디스크 복구\n메모리 복구", "하드디스크 복제\n메모리 기반 복제\n저장매체복제장비", "사용 흔적 분석\n메모리 정보 분석"],
+          ["시스템", "삭제 파일 복구\n파일시스템 복구\n로그온 우회 기법", "휘발성데이터수집\n시스템 초기 대응\n포렌식 라이브 CD/USB", "레지스트리 분석\n시스템 로그 분석\n프리 패치 분석"],
+          ["데이터 처리", "언어통계기반복구\n암호해독/DB구축\n스테가노그래피\n파일 조각 분석", "저장 데이터 추출\n디지털 증거 보존\n증거 공증/인증", "포맷별 분석\n영상 정보 분석\nDB 정보 분석\n데이터 마이닝"],
+          ["응용/네트워크", "파일 포맷 복구\n암호통신 해독", "N/W 정보 수집\n네트워크 역추적", "N/W 로그 분석\n해시 DB"],
+          ["기타 기술", "개인정보보호기술\n범죄유형프로파일링연구\n통합타임라인분석", "", ""],
+        ],
+      },
+    ],
+    notes: [
+      "5대 원칙 두음 [정재신연무]: 정당성·재현·신속성·연계보관성·무결성 / 절차 [수증보분보]: 수사준비·증거획득·보관이송·분석조사·보고서",
+      "안티 포렌식(증거 훼손)의 반대 — e-Discovery(민사·사전)와 달리 형사·사후 수사, 연계보관성(CoC)이 핵심 원칙",
+    ],
+  },
+  {
+    title: "클라우드 포렌식(Cloud Forensic)",
+    course: "SC",
+    definition:
+      "클라우드에 존재하는 전자적 증거물 등을 사법기관에 제출하기 위해 클라우드 시그니처(Signature) 데이터 수집, 분석 및 보고서를 작성하는 과학 수사 기법",
+    defShort: "클라우드 전자적 증거물을 사법기관에 제출하기 위한 과학 수사 기법",
+    lead: "클라우드 증거 수사, 클라우드 포렌식",
+    features: ["관할권 이슈", "국제 공조", "시그니처"],
+    keywords: ["가상화", "정보 제공 의무", "클라우드 시그니처(Signature)", "사법관할권", "국제 공조"],
+    tables: [
+      {
+        caption: "클라우드 포렌식 조사 활동",
+        headers: ["구분", "조사 활동", "상세 내용"],
+        rows: [
+          ["대상 확인", "대상 클라우드\n서비스 확인", "SaaS: 드라이브\nPaaS: Heroku\nIaaS: AWS·Azure\nGCP·NCP"],
+          ["증거 확보", "로그인 정보 확인", "브라우저 포렌식\n레지스트리 분석\n서비스 로그 분석"],
+          ["협조 요구", "사법관할권 확인\n국제 공조 요청\n임의 제출 요청", "CSP 물리 위치\n공조법 압수수색\nID·PW(동의 필요)"],
+          ["증거 수집", "압수권한 획득\n계정 접근 차단\n데이터 수집", "관련 법규 준수\n로그인 Lock·IP\n카빙·스테가노"],
+          ["증거 분석", "시그니처 분석", "Client의 클라우드\n사용 기록"],
+        ],
+      },
+    ],
+    notes: [
+      "디지털 포렌식과 차이: 클라우드는 데이터가 여러 국가 서버에 분산·가상화되어 '사법관할권'과 '국제 공조'가 핵심 이슈",
+      "국제 공조 거절 시 클라우드 상세분석 불가 — Client 단말의 클라우드 시그니처 분석으로 사용 기록 확보",
+    ],
+  },
+  {
     title: "안티 포렌식(Anti-forensic)",
     course: "SC",
     definition:
@@ -23931,132 +24115,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     notes: [
       "ISO 21434(차량 사이버보안 표준)와 연계 — 차량·통신·백엔드 3구간별로 위협과 대응 기술이 다름",
       "차량 구간 핵심 대응: Secure Boot·HSM(펌웨어 무결성), IDS·SecOC(CAN 위변조), Secure Diagnosis(원격 해킹)",
-    ],
-  },
-  {
-    title: "사이버 보안 성숙도 모델 인증(CMMC, Cybersecurity Maturity Model Certification)",
-    course: "SC",
-    definition:
-      "국방 계약자가 민감한 국방 정보를 보호하기 위한 현재 보안 요구사항을 준수하는지 확인하기 위해 고안된 평가 표준으로, 미국 국방 계약자를 위한 사이버보안 프레임워크",
-    defShort: "국방 정보 보호 위한 보안 요구사항 준수 평가 사이버보안 프레임워크",
-    lead: "국방 공급망 보안 인증, CMMC",
-    features: ["국방 계약자", "NIST 기반", "등급별 평가"],
-    keywords: ["FOUNDATIONAL", "ADVANCED", "EXPERT", "NIST SP 800-171", "NIST SP 800-172"],
-    tables: [
-      {
-        caption: "CMMC 2.0 단계",
-        headers: ["수준", "평가기준", "평가주체"],
-        rows: [
-          ["Level 1 (Foundational)", "FCI 보호 중점\nFAR 52.204\nNIST 800-171", "자체평가"],
-          ["Level 2 (Advanced)", "CUI 협력 회사\nNIST 800-171", "자체 및\n제3자 평가"],
-          ["Level 3 (Expert)", "APT 위협 감소\n800-171·800-172", "제3자 평가\n(정부 주도)"],
-        ],
-      },
-    ],
-    notes: [
-      "CMMC 1.0(5등급)→2.0(3등급) 간소화(2021년 11월) — Level 1(자체)·2(제3자)·3(정부 주도) 평가 주체 상이",
-      "핵심: 미국 국방 공급망(방산업체)이 FCI·CUI를 다룰 자격을 NIST SP 800-171/172 기준으로 인증받는 제도",
-    ],
-  },
-  {
-    title: "사이버 게놈(Cyber genome)",
-    course: "SC",
-    definition:
-      "악성코드 샘플로부터 유사점 파악, 변하지 않는 고유 특성 추출, DB화하여 해커 과거 행동 분석, 향후 공격 추론을 통해 사전 차단하는 기법",
-    defShort: "악성코드 고유 특성을 DB화해 향후 공격을 추론, 사전 차단하는 기법",
-    lead: "악성코드 유전자 분석, 사이버 게놈",
-    features: ["불변 특성", "변종 차단", "다관점 분석"],
-    keywords: ["아티팩트-센트릭 분석", "케이스-센트릭 분석", "휴먼-센트릭 분석", "API Sequence 추출", "API 기반 악성 코드 특성 인자 추출", "서열 정렬", "유사도 분석"],
-    tables: [
-      {
-        caption: "사이버 게놈 프로젝트의 분석 기법",
-        headers: ["분석 기법", "분석 대상", "주요 기술", "설명"],
-        rows: [
-          ["아티팩트 센트릭", "악성코드 샘플\nIP·URL·도메인\n컴파일러 정보", "정적·동적 분석\n샌드박스 분석\n시그니처·IoC", "디지털 증거의\n특성과 연관성\n분석"],
-          ["케이스 센트릭", "공격 이벤트\n공격자 TTPs\n동기 및 목적", "5W1H 분석\n범죄 프로파일링\nATT&CK 매핑", "개별 사건 재구성\n캠페인 전체\n프로파일링"],
-          ["휴먼 센트릭", "해커 신상 정보\n온라인 활동\n언어·성향", "OSINT 수집\n온톨로지 분석\nSNA·NLP", "배후 사람의 특성\n상호 연관 관계\n추적·분석"],
-        ],
-      },
-    ],
-    notes: [
-      "3대 센트릭: 아티팩트(증거 자체)·케이스(공격 사건)·휴먼(해커 사람) 관점 분석",
-      "핵심: 생물의 게놈처럼 악성코드의 '변하지 않는 고유 특성(유전자)'을 추출·DB화해 변종·재사용 공격을 사전 차단",
-    ],
-  },
-  {
-    title: "디지털 포렌식(Digital Forensic)",
-    course: "SC",
-    definition:
-      "컴퓨터를 이용하거나 활용해 이뤄지는 범죄 행위에 대한 법적 증거 자료 확보를 위해 컴퓨터 시스템, 네트워크 등 디지털 자료가 법적 증거물로 법원에 제출될 수 있도록 확보하는 일련의 절차와 방법",
-    defShort: "범죄 디지털 자료가 법적 증거물로 법원에 제출되게 하는 절차와 방법",
-    lead: "디지털 증거의 법적 확보, 디지털 포렌식",
-    features: ["증거 확보", "연계 보관성", "무결성 유지"],
-    keywords: ["정당성의 원칙", "재현의 원칙", "신속성의 원칙", "연계보관의 원칙", "무결성의 원칙", "수사준비", "증거물 획득", "보관 및 이송", "분석 및 조사", "보고서 작성"],
-    tables: [
-      {
-        caption: "포렌식의 5대 원칙 [정재신연무]",
-        headers: ["원칙", "설명"],
-        rows: [
-          ["정당성의 원칙", "모든 증거 적법한 절차로 획득\n위법 절차 증거는 증거 능력 상실"],
-          ["재현의 원칙", "동일 조건·환경 항상 동일 결과"],
-          ["신속성의 원칙", "휘발성 데이터 훼손 전 신속 진행"],
-          ["연계 보관성의 원칙", "일련 과정 명확·추적 가능"],
-          ["무결성의 원칙", "수집 증거 위조·변조 금지"],
-        ],
-      },
-      {
-        caption: "포렌식 절차 [수증보분보]",
-        headers: ["구분", "절차"],
-        rows: [
-          ["수사준비", "사전조사·권한획득\n도구테스트\n장비확보\n협조체계확립"],
-          ["증거물 획득", "현장분석\n휘발데이터확보\nSnap Shot·Disk imaging\n증거물인증"],
-          ["보관 및 이송", "Image 복사\n증거물 포장 및 운반"],
-          ["분석 및 조사", "자료복구/검색\nTimeLine분석·Signature분석\n은닉자료검색\nHASH/log분석"],
-          ["보고서 작성", "증거분석결과\n증거 담당자 목록\n전문가 소견"],
-        ],
-      },
-      {
-        caption: "포렌식 주요 기술",
-        headers: ["구분", "증거 복구", "수집 및 보관", "증거 분석"],
-        rows: [
-          ["저장 매체", "하드디스크 복구\n메모리 복구", "하드디스크 복제\n메모리 기반 복제\n저장매체복제장비", "사용 흔적 분석\n메모리 정보 분석"],
-          ["시스템", "삭제 파일 복구\n파일시스템 복구\n로그온 우회 기법", "휘발성데이터수집\n시스템 초기 대응\n포렌식 라이브 CD/USB", "레지스트리 분석\n시스템 로그 분석\n프리 패치 분석"],
-          ["데이터 처리", "언어통계기반복구\n암호해독/DB구축\n스테가노그래피\n파일 조각 분석", "저장 데이터 추출\n디지털 증거 보존\n증거 공증/인증", "포맷별 분석\n영상 정보 분석\nDB 정보 분석\n데이터 마이닝"],
-          ["응용/네트워크", "파일 포맷 복구\n암호통신 해독", "N/W 정보 수집\n네트워크 역추적", "N/W 로그 분석\n해시 DB"],
-          ["기타 기술", "개인정보보호기술\n범죄유형프로파일링연구\n통합타임라인분석", "", ""],
-        ],
-      },
-    ],
-    notes: [
-      "5대 원칙 두음 [정재신연무]: 정당성·재현·신속성·연계보관성·무결성 / 절차 [수증보분보]: 수사준비·증거획득·보관이송·분석조사·보고서",
-      "안티 포렌식(증거 훼손)의 반대 — e-Discovery(민사·사전)와 달리 형사·사후 수사, 연계보관성(CoC)이 핵심 원칙",
-    ],
-  },
-  {
-    title: "클라우드 포렌식(Cloud Forensic)",
-    course: "SC",
-    definition:
-      "클라우드에 존재하는 전자적 증거물 등을 사법기관에 제출하기 위해 클라우드 시그니처(Signature) 데이터 수집, 분석 및 보고서를 작성하는 과학 수사 기법",
-    defShort: "클라우드 전자적 증거물을 사법기관에 제출하기 위한 과학 수사 기법",
-    lead: "클라우드 증거 수사, 클라우드 포렌식",
-    features: ["관할권 이슈", "국제 공조", "시그니처"],
-    keywords: ["가상화", "정보 제공 의무", "클라우드 시그니처(Signature)", "사법관할권", "국제 공조"],
-    tables: [
-      {
-        caption: "클라우드 포렌식 조사 활동",
-        headers: ["구분", "조사 활동", "상세 내용"],
-        rows: [
-          ["대상 확인", "대상 클라우드\n서비스 확인", "SaaS: 드라이브\nPaaS: Heroku\nIaaS: AWS·Azure\nGCP·NCP"],
-          ["증거 확보", "로그인 정보 확인", "브라우저 포렌식\n레지스트리 분석\n서비스 로그 분석"],
-          ["협조 요구", "사법관할권 확인\n국제 공조 요청\n임의 제출 요청", "CSP 물리 위치\n공조법 압수수색\nID·PW(동의 필요)"],
-          ["증거 수집", "압수권한 획득\n계정 접근 차단\n데이터 수집", "관련 법규 준수\n로그인 Lock·IP\n카빙·스테가노"],
-          ["증거 분석", "시그니처 분석", "Client의 클라우드\n사용 기록"],
-        ],
-      },
-    ],
-    notes: [
-      "디지털 포렌식과 차이: 클라우드는 데이터가 여러 국가 서버에 분산·가상화되어 '사법관할권'과 '국제 공조'가 핵심 이슈",
-      "국제 공조 거절 시 클라우드 상세분석 불가 — Client 단말의 클라우드 시그니처 분석으로 사용 기록 확보",
     ],
   },
   {
@@ -24320,56 +24378,266 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
-    title: "ISO/IEC 25059:2023(AI 품질모델)",
-    course: "AI",
+    title: "AI 프라이버시 리스크 관리",
+    course: "SC",
     definition:
-      "소프트웨어 제품 품질 표준을 기반으로 AI 시스템 고유 속성인 비결정성, 데이터 의존성 등이 반영된 AI 시스템 전용 품질모델 확장 표준",
-    defShort: "비결정성·데이터 의존성이 반영된 AI 시스템 전용 품질모델 확장 표준",
-    lead: "AI 시스템 품질모델 확장, ISO/IEC 25059:2023",
-    features: ["25010 확장", "비결정성", "AI 특화 속성"],
-    keywords: ["기능 적합성", "신뢰성", "사용성", "성능 효율성", "유지보수성", "이식성", "호환성", "보안성", "견고성", "설명가능성", "강건성"],
+      "AI가 프라이버시 친화적으로 활용될 수 있도록 AI 프라이버시 리스크 요인을 체계화하고, 리스크 관리의 방향과 원칙을 제시하기 위해 체계",
+    defShort: "AI 프라이버시 리스크 요인 체계화하고 관리 방향과 원칙 제시 체계",
+    lead: "AI 프라이버시 침해 대응, AI 프라이버시 리스크 관리",
+    features: ["유형·용례", "생애주기별", "정량·정성"],
+    keywords: ["AI의 유형 및 용례 파악", "리스크의 식별", "리스크의 측정", "리스크의 경감"],
     tables: [
       {
-        caption: "AI 품질모델 8대 특성과 하위 속성 (개념도) — 두음: 기신사효유이호보",
-        headers: ["특성", "하위 속성"],
+        caption: "리스크 관리 절차",
+        headers: ["절차", "핵심 활동", "설명"],
+        nameCol: 1,
         rows: [
-          ["기능 적합성", "기능 완전성, 기능 정확성*\n기능 적절성, 기능 적응성*"],
-          ["성능 효율성", "시간 반응성, 자원 활용성\n용량성"],
-          ["호환성", "공존성, 상호운용성"],
-          ["사용성", "적절성 인식성, 학습 용이성\n운영 용이성, 사용자 오류 방지성\n사용자 인터페이스 미학성\n접근성, 사용자 제어성*, 투명성*"],
-          ["신뢰성", "성숙성, 가용성, 결함 허용성\n회복성, 강건성*"],
-          ["보안성", "기밀성, 무결성, 부인 방지성\n책임성, 인증성, 개입 가능성*"],
-          ["유지보수성", "모듈성, 재사용성, 분석성\n수정성, 테스트 용이성"],
-          ["이식성", "설치성, 대체성, 적응성"],
+          ["① AI의 유형·용례 파악", "AI의 목적, 범위 및 처리되는 데이터파악", "처리 목적·범위 리스크 식별 위해\n개발·제공 AI 유형·용례 파악 선행"],
+          ["② 리스크 식별", "리스크 식별", "유형·용례 대응 리스크 식별\nAI 생애주기별 리스크 식별"],
+          ["③ 리스크 측정", "리스크 정량적·정성적 평가", "적절한 지표·측정 도구 활용\n발생확률·결과 정량·정성 평가\n수용가능여부·우선순위 판단"],
+          ["④ 리스크 경감", "기술적 방안 검토", "위험 주기적 측정·모니터링\n결과의 문서화\n담당 조직 구성·운영\n조직 내·외부 피드백 수렴·반영"],
+          ["④ 리스크 경감", "관리적 방안 검토", "프라이버시 향상 기술(PET) 도입"],
         ],
       },
       {
-        caption: "표준 구성 (모델·항목별 평가 내용)",
-        headers: ["모델", "항목", "설명"],
+        caption: "리스크 식별 — 단계별 리스크",
+        headers: ["단계", "리스크"],
         rows: [
-          ["기능 적합성", "기능 정확성", "정확 수행 평가"],
-          ["기능 적합성", "기능 적응성", "다양 상황 적응"],
-          ["신뢰성", "강건성", "다양 조건 안정성"],
-          ["신뢰성", "회복성", "오류 후 정상 복구"],
-          ["사용성", "사용자 제어성", "동작 제어 정도"],
-          ["사용성", "투명성", "작동 원리 이해"],
-          ["성능 효율성", "자원 활용성", "자원 효율 평가"],
-          ["성능 효율성", "용량성", "작업·데이터량"],
-          ["유지보수성", "재사용성", "타 시스템 재사용"],
-          ["유지보수성", "모듈성", "독립 모듈 구성"],
-          ["이식성", "대체성", "구성요소 교체"],
-          ["이식성", "적응성", "타 환경 적응"],
-          ["호환성", "공존성", "타 시스템 공존"],
-          ["호환성", "상호운용성", "타 시스템 연동"],
-          ["보안성", "개입 가능성", "사용자 개입 조치"],
-          ["보안성", "책임성", "행동 추적·책임"],
+          ["기획·개발 단계", "적법하지 않은 데이터 수집·이용\n학습데이터 부적절한 보관·관리\n가치망 다양화로 흐름·책임 복잡"],
+          ["서비스 제공 단계", "학습데이터 암기·개인정보 노출\n악의적 AI 합성콘텐츠로 권리침해\n자동화된 결정으로 권리 약화\n대중 감시 및 민감정보 추론 위험"],
+        ],
+      },
+      {
+        caption: "리스크 경감 — 조치 유형별 방안",
+        headers: ["구분", "경감방안"],
+        rows: [
+          ["관리적 조치", "학습데이터 출처·이력 관리\n안전한 보관·파기 방안 마련·실행\nAI 가치망 참여자간 역할 명확화\n허용되는 이용 방침 작성, 공개"],
+          ["관리적 조치", "AI 프라이버시 레드팀 구성·운영\n정보주체 신고·조치 방안 마련\n자동화된 결정 조치 기준 준수\n개인정보 영향평가 수행 고려"],
+          ["기술적 조치", "학습데이터 전처리\n합성데이터 사용 고려\n모델 미세조정 통한 안전장치\n입력 및 출력 필터링 적용"],
+          ["기술적 조치", "차분 프라이버시 기법 적용\n출처데이터 추적\n합성콘텐츠 탐지방안 마련\n생체정보 활용 시 가명·익명처리"],
         ],
       },
     ],
     notes: [
-      "* 표시 속성은 AI 시스템의 고유 특성(비결정성·데이터 의존성)을 반영해 새로 추가·확장된 항목이다.",
-      "SQuaRE(ISO/IEC 25010) 제품 품질모델을 AI로 확장한 표준 — 25010과 묶어 '무엇이 늘었나'로 출제된다.",
-      "AI 관련 표준 계보: 22989(용어·개념) · 23053(ML 프레임워크) · 23894(위험관리) · 42001(AI 경영시스템) · 25059(품질모델).",
+      "개념도(4단계): AI의 유형·용례 파악 → 리스크 식별 → 리스크 측정 → 리스크 경감방안의 검토와 도입(관리적 방안 검토 / 기술적 방안 검토).",
+      "개인정보보호위원회 'AI 프라이버시 리스크 관리 모델' — PIA(영향평가)·ISMS-P와 묶어 'AI 시대의 개인정보 보호 체계'로 출제된다.",
+    ],
+  },
+  {
+    title: "AI Agent 보안위협",
+    course: "SC",
+    definition:
+      "AI 에이전트가 자율적 의사결정, 메모리 활용, 외부 도구 및 시스템 호출, 인증 및 권한 관리, 인간 개입, 다중 에이전트의 6단계에서 발생하는 보안 위협과 그에 대응하는 방안(금융보안원)",
+    defShort: "AI 에이전트 의사결정·메모리·도구 호출 6단계 보안 위협과 대응 방안",
+    lead: "6단계 자율 에이전트 위험, AI Agent 보안위협",
+    features: ["권한 확대", "단계별 위협", "메모리 오염"],
+    keywords: ["자율적 의사결정", "메모리 활용", "외부 도구 및 시스템 호출", "인증 및 권한 관리", "인간 개입", "다중 에이전트"],
+    tables: [
+      {
+        caption: "보안위협 — 위협 식별 6단계",
+        headers: ["위협 식별 단계", "보안 위협", "설명"],
+        rows: [
+          ["1단계(자율적 의사결정)", "목표 조작 및\n의도 변경", "비인가 목표 설정\n목표 설정 조작"],
+          ["1단계(자율적 의사결정)", "오작동 및\n기만적행동", "허위 응답 생성\n비허용 방식"],
+          ["1단계(자율적 의사결정)", "부인 및\n추적 불가", "작업 기록 누락\n책임 추적 불가"],
+          ["2단계(메모리 활용)", "메모리 오염", "허위 정보 삽입"],
+          ["2단계(메모리 활용)", "연쇄 환각 공격", "잘못된 의사결정"],
+          ["3단계(외부 도구 및 시스템 호출)", "도구오용", "도구에 악성코드"],
+          ["3단계(외부 도구 및 시스템 호출)", "권한탈취", "비인가 작업 수행"],
+          ["3단계(외부 도구 및 시스템 호출)", "자원 과부하", "시스템 자원 고갈"],
+          ["3단계(외부 도구 및 시스템 호출)", "원격코드 실행", "악성 명령 유도"],
+          ["4단계(인증 및 권한 관리)", "신원 사칭/위장", "인증 체계 우회"],
+          ["5단계(인간 개입)", "인간 개입 무력화", "과다 작업 처리"],
+          ["5단계(인간 개입)", "사용자 기만", "보안 정책 무력화"],
+          ["6단계(다중 에이전트)", "통신 오염", "잘못된 정보 확산"],
+          ["6단계(다중 에이전트)", "사용자 기만", "신뢰 체계 악용"],
+          ["6단계(다중 에이전트)", "악성 에이전트", "보안 체계 무력화"],
+        ],
+      },
+      {
+        caption: "대응방안 — 단계별 통제",
+        headers: ["위협 식별 단계", "대응방안", "설명"],
+        nameCol: 1,
+        rows: [
+          ["자율적 의사결정", "목표 일관성 검증", "사용자 의도와 AI 실행 계획 비교"],
+          ["자율적 의사결정", "출력 검증 시스템 적용", "목표·출력 유사도 비교, 조작 검증"],
+          ["자율적 의사결정", "암호화된 로깅 및 이상 행위 탐지", "결정 과정 기록\n목표 변경·조작 시도 실시간 탐지"],
+          ["메모리 활용", "신뢰할 수 있는 데이터 저장", "신뢰 출처 데이터만 학습\n불필요 정보 저장 차단"],
+          ["메모리 활용", "세션 기반 메모리 격리", "이전 세션 학습 데이터 반입 제한"],
+          ["메모리 활용", "확률적 사실 검증", "기존 정보 대조로 허위 학습 방지\n참조 데이터 신뢰성 검토"],
+          ["외부 도구 및 시스템 호출", "사전 승인된 도구 목록 사용", "실행 가능 도구 사전 승인 제한"],
+          ["외부 도구 및 시스템 호출", "역할 기반 도구 사용 제한", "역할별 필요 도구만 실행\n도구 사용 최소 권한 적용"],
+          ["인증 및 권한 관리", "다중 인증 및 최소 권한 부여", "에이전트·사용자 인증 강화\n목표 수행 필요 최소 권한만 부여"],
+          ["인간 개입", "자동 승인 제한", "중요 작업은 인간 검토 적용"],
+          ["인간 개입", "과도한 승인 제한", "과다 승인 요청 시 무력화 시도 차단"],
+          ["다중 에이전트", "신뢰할 수 있는 네트워크 제공", "암호화·서명 검증 신뢰 환경 수행"],
+          ["다중 에이전트", "비정상적 접근 탐지", "접근 로그 분석, 비인가 시도 탐지"],
+        ],
+      },
+    ],
+    notes: [
+      "금융보안원 자료 — 교재에 별도 정의문 없이 위협·대응 표로만 제시된다. 답안 서론은 위협 배경(자율 에이전트의 권한 확대)에서 출발하는 편이 자연스럽다.",
+      "6단계는 에이전트의 '실행 파이프라인' 순서다: 결정(1) → 기억(2) → 도구 호출(3) → 인증·권한(4) → 인간 개입(5) → 에이전트 간 협업(6).",
+      "OWASP LLM Top 10 · 프롬프트 인젝션 · MCP 보안과 묶어 'AI 에이전트 시대의 신종 위협'으로 출제된다.",
+    ],
+  },
+  {
+    title: "OWASP Agentic AI 위협 및 대응방안(Agentic AI Threats and Mitigations)",
+    course: "SC",
+    definition:
+      "OWASP GenAI Security Project가 자율적으로 계획을 세우고 도구를 호출하며 다른 에이전트와 협업하는 AI 에이전트에서 새로 발생하는 보안 위협 15가지(T1~T15)와 위협별 완화 방안을 정리한 위협 참조 모델",
+    defShort: "자율 AI 에이전트에서 생기는 위협과 완화 방안을 정리한 참조 모델",
+    lead: "자율 에이전트 위협 체계화, OWASP Agentic AI",
+    features: ["자율AI 특화", "완화 매핑", "단계별 위협"],
+    keywords: ["OWASP Top 10 for Agentic AI", "Agentic Security Initiative", "Memory Poisoning", "Tool Misuse", "Privilege Compromise", "Cascading Hallucination", "Intent Breaking", "Rogue Agents", "Human-in-the-Loop", "Agent Communication Poisoning"],
+    tables: [
+      {
+        caption: "Agentic AI 위협 15종(T1~T15)",
+        headers: ["코드", "위협", "설명"],
+        rows: [
+          ["T1", "메모리 오염\n허위 정보 주입", "단기·장기 기억\n의사결정 왜곡"],
+          ["T2", "승인 도구 오용\n기만적 프롬프트", "악의적 작업 수행\n도구 유도 조작"],
+          ["T3", "권한 설정 침해\n동적 역할 위임", "허점 악용 공격\n비인가 작업 수행"],
+          ["T4", "자원 과부하\nAPI 자원 고갈", "가용성 침해\n성능 저하 유발"],
+          ["T5", "연쇄 환각 공격\n허위 정보 전파", "그럴듯한 허위\n후속 판단 연쇄"],
+          ["T6", "의도 훼손·조작\n목표 설정 조작", "계획 수립 조작\n사용자 의도 이탈"],
+          ["T7", "오정렬·기만\n허위 응답 생성", "비허용 방식 사용\n목표 달성 기만"],
+          ["T8", "부인·추적 불가\n로그 부재·조작", "책임 추적 불가\n사후 분석 불가"],
+          ["T9", "신원 사칭·위장\n인증 체계 우회", "사용자 사칭\n위장 작업 수행"],
+          ["T10", "인간 개입 무력화\n승인 요청 폭주", "검토 불가 유도\n감독 형해화"],
+          ["T11", "원격코드 실행\n코드 생성 악용", "RCE 코드 공격\n악성 코드 실행"],
+          ["T12", "통신 채널 오염\n에이전트 간 조작", "허위 정보 확산\n메시지 위조"],
+          ["T13", "악성 에이전트\n감시 범위 밖 동작", "변조 에이전트\n다중 시스템 침해"],
+          ["T14", "다중 에이전트\n신뢰·위임 악용", "인간의 공격 대상\n권한 횡적 확대"],
+          ["T15", "인간 조종 공격\n신뢰 에이전트", "사용자 유도\n잘못된 행동 유발"],
+        ],
+      },
+      {
+        caption: "위협 범주별 완화 방안",
+        headers: ["범주", "해당 위협", "완화 방안"],
+        rows: [
+          ["메모리·지식", "T1·T5\n세션 메모리 격리", "메모리 오염 위협\n세션 단위 분리"],
+          ["메모리·지식", "쓰기 검증·추적\n스냅샷·롤백", "출처 무결성 확인\n이전 상태 복원"],
+          ["메모리·지식", "외부 지식 대조", "사실관계 검증"],
+          ["도구·실행", "T2·4·11\n도구 허용목록", "도구 오용 위협\n사전 승인 실행"],
+          ["도구·실행", "파라미터 검증\n샌드박스 격리", "호출 인자 확인\n실행 환경 분리"],
+          ["도구·실행", "호출 빈도 상한\n자원 사용량 상한", "과다 호출 차단\n자원 고갈 방지"],
+          ["권한·신원", "T3·T9\nAgent ID", "권한 침해 위협\n고유 신원 발급"],
+          ["권한·신원", "최소 권한 원칙\n역할 기반 접근", "권한 범위 축소\n직무별 통제"],
+          ["권한·신원", "다중 인증 적용\n위임 토큰 제한", "신원 이중 확인\n범위·수명 제한"],
+          ["추론·목표", "T6·T7\n의도 일관성 검증", "의도 훼손 위협\n계획 정합 확인"],
+          ["추론·목표", "목표·출력 검사\n자기 검증 단계", "정합성 검증\n출력 재검토"],
+          ["감사·추적", "T8\n변조 불가 로그", "부인·추적 위협\n감사 기록 보존"],
+          ["감사·추적", "암호화 서명\n이상 행위 탐지", "결정 과정 기록\n실시간 감시"],
+          ["인간 감독", "T10·T15\n중요 작업 승인", "감독 무력화 위협\n필수 승인 절차"],
+          ["인간 감독", "승인 요청 상한\n이상 패턴 탐지", "과다 승인 방지\n승인 조종 탐지"],
+          ["인간 감독", "사용자 고지", "출력 사실 안내"],
+          ["다중 에이전트", "T12~14\n통신 암호화", "통신 오염 위협\n전송 구간 보호"],
+          ["다중 에이전트", "통신 서명 검증\n신뢰 레지스트리", "발신 주체 확인\n에이전트 등록"],
+          ["다중 에이전트", "행위 이상 탐지\n격리·차단", "악성 행위 식별\n악성 노드 차단"],
+        ],
+      },
+      {
+        caption: "OWASP LLM Top 10(2025)과 Agentic AI 위협 비교",
+        headers: ["구분", "OWASP Top 10 for LLM Applications", "OWASP Agentic AI Threats"],
+        rows: [
+          ["보호 대상", "LLM 응용\n모델·프롬프트", "자율 에이전트\n계획·도구 협업"],
+          ["항목 수", "10개 항목", "15개 항목"],
+          ["대표 위협", "프롬프트 인젝션", "메모리 오염"],
+          ["대표 위협", "민감정보 공개", "도구 오용 위협"],
+          ["대표 위협", "공급망 위협", "목표 조작 위협"],
+          ["대표 위협", "학습데이터 중독\n모델 중독 위협", "인간 개입 무력화\n악성 에이전트"],
+          ["대표 위협", "과도한 대행", "에이전트 자율성"],
+          ["위협 원천", "입출력 경계\n외부 입력 조작", "자율성·권한\n에이전트 신뢰"],
+          ["대응 축", "입출력 검증\n데이터 거버넌스", "권한 최소화\n감사·인간 감독"],
+        ],
+      },
+    ],
+    notes: [
+      "★출처 주의★ OWASP GenAI Security Project의 공식 문서명은 'Agentic AI — Threats and Mitigations'이며 위협은 10개가 아니라 15개(T1~T15)다. 현장에서 'OWASP Top 10 for Agentic AI'라고 부르는 경우가 많지만, 답안에는 'OWASP Agentic AI 위협(15종)'으로 쓰는 것이 안전하다. 별도의 'OWASP Top 10'은 LLM 애플리케이션용(LLM01~LLM10)이다.",
+      "15개 위협은 에이전트 실행 파이프라인 순서로 묶으면 외워진다 — 기억(T1·T5) → 목표·추론(T6·T7) → 도구·실행(T2·T4·T11) → 권한·신원(T3·T9) → 감사(T8) → 인간 감독(T10·T15) → 다중 에이전트(T12·T13·T14).",
+      "금융보안원 'AI Agent 보안위협' 6단계(자율적 의사결정·메모리 활용·외부 도구 호출·인증 및 권한 관리·인간 개입·다중 에이전트)가 이 15종을 국내 금융권 관점으로 재분류한 것이다. 두 자료를 한 답안에서 교차 인용하면 차별화된다.",
+      "MCP·A2A 같은 에이전트 연동 프로토콜, AP2·ACP 같은 에이전트 결제 프로토콜이 확산되면서 T12(통신 오염)·T13(악성 에이전트)의 실효 위험이 커지고 있다.",
+      "이 서브노트는 교재 슬라이드가 없어 OWASP 원문을 근거로 정리한 항목이다.",
+    ],
+  },
+  {
+    title: "도메인 특화 언어 모델(Domain-Specific Language Model)",
+    course: "DX",
+    definition:
+      "금융, 의료, 법률 등 특정 산업군이나 비즈니스 기능에 최적화된 데이터셋으로 학습 또는 미세 조정하여 높은 정확도 및 실용성을 제공하는 AI 모델",
+    defShort: "특정 산업군이나 비즈니스 기능 최적화된 데이터로 학습한 AI 모델",
+    lead: "산업 도메인 특화 모델, DSLM",
+    features: ["도메인 학습", "고정확도", "RAG 연동"],
+    keywords: ["Vertical AI", "도메인 지식", "sLLM", "RAG", "프롬프트 엔지니어링"],
+    tables: [
+      {
+        caption: "핵심 기술",
+        headers: ["구분", "핵심 기술", "설명"],
+        rows: [
+          ["데이터", "데이터 큐레이션(Data Curation)", "고품질 말뭉치(Corpus) 수집 정제"],
+          ["데이터", "Vector Database", "텍스트 벡터 변환·저장\n유사도 기반 검색 DB"],
+          ["학습", "도메인 특화 사전학습(DAPT, Domain-Adaptive Pre-training)", "언어모델 도메인 특화 학습\n성능 개선 기법"],
+          ["학습", "RLHF", "인간 피드백 통한 AI 학습"],
+          ["성능", "검색 증강 생성(Retrieval-Augmented Generation)", "도메인 지식 베이스 연동\n도메인 최적화 답변 생성"],
+          ["성능", "Prompt Chain", "프롬프트 다단계 연결\n논리적 사고로 성능 향상"],
+          ["성능", "PEFT (Parameter-Efficient Fine-Tuning)", "LoRA, QLoRA 등 LLM 튜닝"],
+        ],
+      },
+    ],
+    notes: [
+      "개념도: Fundation Model + 범용 데이터 →파인튜닝→ 도메인특화 사전학습(DAPT) ←말뭉치 수집— 도메인 데이터 → 도메인 특화 언어 모델(+ RAG / RLHF).",
+      "Vertical AI(수직 AI)와 같은 계보 — 범용 LLM을 도메인 데이터로 좁혀 정확도를 올리는 전략이다.",
+    ],
+  },
+  {
+    title: "데이터 상호 운용성 & 데이터 이동권",
+    course: "DX",
+    definition:
+      "데이터 상호 운용성은 시스템 간 제약 없는 데이터 호환을 위해 데이터 교환 능력과 데이터 의미 일관성 등을 보장하는 능력이며, 데이터 이동권은 개인이 자신의 데이터(의료, 금융, 행정, 여행, 에너지, 통신)를 자신이 지정한 위치로 이동시킬 수 있는 권리",
+    defShort: "제약 없는 데이터 호환 위한 데이터 교환 능력과 자신 데이터 이동 권리",
+    lead: "호환 보장과 데이터 통제권, 데이터 상호 운용성과 데이터 이동권",
+    features: ["파편화 해소", "주체 통제", "표준 연계"],
+    defPair: [
+      {
+        name: "데이터 상호 운용성",
+        lead: "시스템 간 호환 보장 능력",
+        def: "제약 없는 데이터 호환 위해 교환 능력과 의미 일관성 보장하는 능력",
+        features: ["구문 표준화", "의미 일관성", "기술 안정성"],
+      },
+      {
+        name: "데이터 이동권",
+        lead: "개인 데이터 통제의 권리",
+        def: "개인이 의료·금융 등 자신의 데이터를 지정 위치로 이동시키는 권리",
+        features: ["주체 권리", "구조화 전송", "제3자 전송"],
+      },
+    ],
+    keywords: ["상호운용성", "데이터 이동권", "데이터 파편화"],
+    tables: [
+      {
+        caption: "데이터 상호 운용성 — 핵심요소",
+        headers: ["핵심요소", "요소"],
+        rows: [
+          ["기술적 안정성", "MCP, API AI Agent"],
+          ["구문적 표준화", "XML, JSON"],
+          ["의미적 일관성", "표준용어, 온톨로지"],
+          ["표준", "ISO/IEC 11179(메타데이터)\n19941(클라우드 상호운용성)\n23053(AI 시스템 프레임워크)"],
+        ],
+      },
+      {
+        caption: "데이터 이동권의 3가지 핵심요소",
+        headers: ["구분", "핵심 요소", "설명"],
+        rows: [
+          ["데이터 유형(Type of Data)", "무엇을 전송할 것인가", "자발적(Volunteered) 데이터\n관찰(Observed) 데이터\n파생(Derived) 데이터\n획득된(Acquired) 데이터"],
+          ["수혜자(Beneficiaries)", "누구의 데이터를 옮길 것인가", "개인(자연인): 정보주체 이동권\n기업(법인): 기업 간 이동권"],
+          ["운영 방식(Operational Modality)", "어떻게 데이터를 전송할 것인가", "일시적 전송: 1회 요청 다운로드\n상호운용성 기반 실시간 전송"],
+        ],
+      },
+    ],
+    notes: [
+      "상호운용성 개념도: 데이터 이용자(데이터 수요자·AI 모델·데이터 중계자) ↔ 데이터 상호운용성(안전한 연결·의미 일관성·구문 표준화 / MCP·XML·JSON·온톨로지) ↔ 데이터 공급자(공공 데이터 플랫폼·민간 데이터 플랫폼·Physical AI).",
+      "이동권 개념도: 데이터 보관 기업 →구조화된 데이터→ 데이터 주체, 그리고 사업자(3rd 파티)를 거친 구조화된 데이터 이동(데이터 Query / 데이터분석 App).",
+      "상호운용성은 '기술이 되게 하는 것', 이동권은 '개인이 요구할 수 있는 것' — 수단과 권리의 관계로 정리하면 논지가 선다.",
     ],
   },
   {
@@ -24601,189 +24869,6 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
-    title: "도메인 특화 언어 모델(Domain-Specific Language Model)",
-    course: "DX",
-    definition:
-      "금융, 의료, 법률 등 특정 산업군이나 비즈니스 기능에 최적화된 데이터셋으로 학습 또는 미세 조정하여 높은 정확도 및 실용성을 제공하는 AI 모델",
-    defShort: "특정 산업군이나 비즈니스 기능 최적화된 데이터로 학습한 AI 모델",
-    lead: "산업 도메인 특화 모델, DSLM",
-    features: ["도메인 학습", "고정확도", "RAG 연동"],
-    keywords: ["Vertical AI", "도메인 지식", "sLLM", "RAG", "프롬프트 엔지니어링"],
-    tables: [
-      {
-        caption: "핵심 기술",
-        headers: ["구분", "핵심 기술", "설명"],
-        rows: [
-          ["데이터", "데이터 큐레이션(Data Curation)", "고품질 말뭉치(Corpus) 수집 정제"],
-          ["데이터", "Vector Database", "텍스트 벡터 변환·저장\n유사도 기반 검색 DB"],
-          ["학습", "도메인 특화 사전학습(DAPT, Domain-Adaptive Pre-training)", "언어모델 도메인 특화 학습\n성능 개선 기법"],
-          ["학습", "RLHF", "인간 피드백 통한 AI 학습"],
-          ["성능", "검색 증강 생성(Retrieval-Augmented Generation)", "도메인 지식 베이스 연동\n도메인 최적화 답변 생성"],
-          ["성능", "Prompt Chain", "프롬프트 다단계 연결\n논리적 사고로 성능 향상"],
-          ["성능", "PEFT (Parameter-Efficient Fine-Tuning)", "LoRA, QLoRA 등 LLM 튜닝"],
-        ],
-      },
-    ],
-    notes: [
-      "개념도: Fundation Model + 범용 데이터 →파인튜닝→ 도메인특화 사전학습(DAPT) ←말뭉치 수집— 도메인 데이터 → 도메인 특화 언어 모델(+ RAG / RLHF).",
-      "Vertical AI(수직 AI)와 같은 계보 — 범용 LLM을 도메인 데이터로 좁혀 정확도를 올리는 전략이다.",
-    ],
-  },
-  {
-    title: "AI 프라이버시 리스크 관리",
-    course: "SC",
-    definition:
-      "AI가 프라이버시 친화적으로 활용될 수 있도록 AI 프라이버시 리스크 요인을 체계화하고, 리스크 관리의 방향과 원칙을 제시하기 위해 체계",
-    defShort: "AI 프라이버시 리스크 요인 체계화하고 관리 방향과 원칙 제시 체계",
-    lead: "AI 프라이버시 침해 대응, AI 프라이버시 리스크 관리",
-    features: ["유형·용례", "생애주기별", "정량·정성"],
-    keywords: ["AI의 유형 및 용례 파악", "리스크의 식별", "리스크의 측정", "리스크의 경감"],
-    tables: [
-      {
-        caption: "리스크 관리 절차",
-        headers: ["절차", "핵심 활동", "설명"],
-        nameCol: 1,
-        rows: [
-          ["① AI의 유형·용례 파악", "AI의 목적, 범위 및 처리되는 데이터파악", "처리 목적·범위 리스크 식별 위해\n개발·제공 AI 유형·용례 파악 선행"],
-          ["② 리스크 식별", "리스크 식별", "유형·용례 대응 리스크 식별\nAI 생애주기별 리스크 식별"],
-          ["③ 리스크 측정", "리스크 정량적·정성적 평가", "적절한 지표·측정 도구 활용\n발생확률·결과 정량·정성 평가\n수용가능여부·우선순위 판단"],
-          ["④ 리스크 경감", "기술적 방안 검토", "위험 주기적 측정·모니터링\n결과의 문서화\n담당 조직 구성·운영\n조직 내·외부 피드백 수렴·반영"],
-          ["④ 리스크 경감", "관리적 방안 검토", "프라이버시 향상 기술(PET) 도입"],
-        ],
-      },
-      {
-        caption: "리스크 식별 — 단계별 리스크",
-        headers: ["단계", "리스크"],
-        rows: [
-          ["기획·개발 단계", "적법하지 않은 데이터 수집·이용\n학습데이터 부적절한 보관·관리\n가치망 다양화로 흐름·책임 복잡"],
-          ["서비스 제공 단계", "학습데이터 암기·개인정보 노출\n악의적 AI 합성콘텐츠로 권리침해\n자동화된 결정으로 권리 약화\n대중 감시 및 민감정보 추론 위험"],
-        ],
-      },
-      {
-        caption: "리스크 경감 — 조치 유형별 방안",
-        headers: ["구분", "경감방안"],
-        rows: [
-          ["관리적 조치", "학습데이터 출처·이력 관리\n안전한 보관·파기 방안 마련·실행\nAI 가치망 참여자간 역할 명확화\n허용되는 이용 방침 작성, 공개"],
-          ["관리적 조치", "AI 프라이버시 레드팀 구성·운영\n정보주체 신고·조치 방안 마련\n자동화된 결정 조치 기준 준수\n개인정보 영향평가 수행 고려"],
-          ["기술적 조치", "학습데이터 전처리\n합성데이터 사용 고려\n모델 미세조정 통한 안전장치\n입력 및 출력 필터링 적용"],
-          ["기술적 조치", "차분 프라이버시 기법 적용\n출처데이터 추적\n합성콘텐츠 탐지방안 마련\n생체정보 활용 시 가명·익명처리"],
-        ],
-      },
-    ],
-    notes: [
-      "개념도(4단계): AI의 유형·용례 파악 → 리스크 식별 → 리스크 측정 → 리스크 경감방안의 검토와 도입(관리적 방안 검토 / 기술적 방안 검토).",
-      "개인정보보호위원회 'AI 프라이버시 리스크 관리 모델' — PIA(영향평가)·ISMS-P와 묶어 'AI 시대의 개인정보 보호 체계'로 출제된다.",
-    ],
-  },
-  {
-    title: "데이터 상호 운용성 & 데이터 이동권",
-    course: "DX",
-    definition:
-      "데이터 상호 운용성은 시스템 간 제약 없는 데이터 호환을 위해 데이터 교환 능력과 데이터 의미 일관성 등을 보장하는 능력이며, 데이터 이동권은 개인이 자신의 데이터(의료, 금융, 행정, 여행, 에너지, 통신)를 자신이 지정한 위치로 이동시킬 수 있는 권리",
-    defShort: "제약 없는 데이터 호환 위한 데이터 교환 능력과 자신 데이터 이동 권리",
-    lead: "호환 보장과 데이터 통제권, 데이터 상호 운용성과 데이터 이동권",
-    features: ["파편화 해소", "주체 통제", "표준 연계"],
-    defPair: [
-      {
-        name: "데이터 상호 운용성",
-        lead: "시스템 간 호환 보장 능력",
-        def: "제약 없는 데이터 호환 위해 교환 능력과 의미 일관성 보장하는 능력",
-        features: ["구문 표준화", "의미 일관성", "기술 안정성"],
-      },
-      {
-        name: "데이터 이동권",
-        lead: "개인 데이터 통제의 권리",
-        def: "개인이 의료·금융 등 자신의 데이터를 지정 위치로 이동시키는 권리",
-        features: ["주체 권리", "구조화 전송", "제3자 전송"],
-      },
-    ],
-    keywords: ["상호운용성", "데이터 이동권", "데이터 파편화"],
-    tables: [
-      {
-        caption: "데이터 상호 운용성 — 핵심요소",
-        headers: ["핵심요소", "요소"],
-        rows: [
-          ["기술적 안정성", "MCP, API AI Agent"],
-          ["구문적 표준화", "XML, JSON"],
-          ["의미적 일관성", "표준용어, 온톨로지"],
-          ["표준", "ISO/IEC 11179(메타데이터)\n19941(클라우드 상호운용성)\n23053(AI 시스템 프레임워크)"],
-        ],
-      },
-      {
-        caption: "데이터 이동권의 3가지 핵심요소",
-        headers: ["구분", "핵심 요소", "설명"],
-        rows: [
-          ["데이터 유형(Type of Data)", "무엇을 전송할 것인가", "자발적(Volunteered) 데이터\n관찰(Observed) 데이터\n파생(Derived) 데이터\n획득된(Acquired) 데이터"],
-          ["수혜자(Beneficiaries)", "누구의 데이터를 옮길 것인가", "개인(자연인): 정보주체 이동권\n기업(법인): 기업 간 이동권"],
-          ["운영 방식(Operational Modality)", "어떻게 데이터를 전송할 것인가", "일시적 전송: 1회 요청 다운로드\n상호운용성 기반 실시간 전송"],
-        ],
-      },
-    ],
-    notes: [
-      "상호운용성 개념도: 데이터 이용자(데이터 수요자·AI 모델·데이터 중계자) ↔ 데이터 상호운용성(안전한 연결·의미 일관성·구문 표준화 / MCP·XML·JSON·온톨로지) ↔ 데이터 공급자(공공 데이터 플랫폼·민간 데이터 플랫폼·Physical AI).",
-      "이동권 개념도: 데이터 보관 기업 →구조화된 데이터→ 데이터 주체, 그리고 사업자(3rd 파티)를 거친 구조화된 데이터 이동(데이터 Query / 데이터분석 App).",
-      "상호운용성은 '기술이 되게 하는 것', 이동권은 '개인이 요구할 수 있는 것' — 수단과 권리의 관계로 정리하면 논지가 선다.",
-    ],
-  },
-  {
-    title: "AI Agent 보안위협",
-    course: "SC",
-    definition:
-      "AI 에이전트가 자율적 의사결정, 메모리 활용, 외부 도구 및 시스템 호출, 인증 및 권한 관리, 인간 개입, 다중 에이전트의 6단계에서 발생하는 보안 위협과 그에 대응하는 방안(금융보안원)",
-    defShort: "AI 에이전트 의사결정·메모리·도구 호출 6단계 보안 위협과 대응 방안",
-    lead: "6단계 자율 에이전트 위험, AI Agent 보안위협",
-    features: ["권한 확대", "단계별 위협", "메모리 오염"],
-    keywords: ["자율적 의사결정", "메모리 활용", "외부 도구 및 시스템 호출", "인증 및 권한 관리", "인간 개입", "다중 에이전트"],
-    tables: [
-      {
-        caption: "보안위협 — 위협 식별 6단계",
-        headers: ["위협 식별 단계", "보안 위협", "설명"],
-        rows: [
-          ["1단계(자율적 의사결정)", "목표 조작 및\n의도 변경", "비인가 목표 설정\n목표 설정 조작"],
-          ["1단계(자율적 의사결정)", "오작동 및\n기만적행동", "허위 응답 생성\n비허용 방식"],
-          ["1단계(자율적 의사결정)", "부인 및\n추적 불가", "작업 기록 누락\n책임 추적 불가"],
-          ["2단계(메모리 활용)", "메모리 오염", "허위 정보 삽입"],
-          ["2단계(메모리 활용)", "연쇄 환각 공격", "잘못된 의사결정"],
-          ["3단계(외부 도구 및 시스템 호출)", "도구오용", "도구에 악성코드"],
-          ["3단계(외부 도구 및 시스템 호출)", "권한탈취", "비인가 작업 수행"],
-          ["3단계(외부 도구 및 시스템 호출)", "자원 과부하", "시스템 자원 고갈"],
-          ["3단계(외부 도구 및 시스템 호출)", "원격코드 실행", "악성 명령 유도"],
-          ["4단계(인증 및 권한 관리)", "신원 사칭/위장", "인증 체계 우회"],
-          ["5단계(인간 개입)", "인간 개입 무력화", "과다 작업 처리"],
-          ["5단계(인간 개입)", "사용자 기만", "보안 정책 무력화"],
-          ["6단계(다중 에이전트)", "통신 오염", "잘못된 정보 확산"],
-          ["6단계(다중 에이전트)", "사용자 기만", "신뢰 체계 악용"],
-          ["6단계(다중 에이전트)", "악성 에이전트", "보안 체계 무력화"],
-        ],
-      },
-      {
-        caption: "대응방안 — 단계별 통제",
-        headers: ["위협 식별 단계", "대응방안", "설명"],
-        nameCol: 1,
-        rows: [
-          ["자율적 의사결정", "목표 일관성 검증", "사용자 의도와 AI 실행 계획 비교"],
-          ["자율적 의사결정", "출력 검증 시스템 적용", "목표·출력 유사도 비교, 조작 검증"],
-          ["자율적 의사결정", "암호화된 로깅 및 이상 행위 탐지", "결정 과정 기록\n목표 변경·조작 시도 실시간 탐지"],
-          ["메모리 활용", "신뢰할 수 있는 데이터 저장", "신뢰 출처 데이터만 학습\n불필요 정보 저장 차단"],
-          ["메모리 활용", "세션 기반 메모리 격리", "이전 세션 학습 데이터 반입 제한"],
-          ["메모리 활용", "확률적 사실 검증", "기존 정보 대조로 허위 학습 방지\n참조 데이터 신뢰성 검토"],
-          ["외부 도구 및 시스템 호출", "사전 승인된 도구 목록 사용", "실행 가능 도구 사전 승인 제한"],
-          ["외부 도구 및 시스템 호출", "역할 기반 도구 사용 제한", "역할별 필요 도구만 실행\n도구 사용 최소 권한 적용"],
-          ["인증 및 권한 관리", "다중 인증 및 최소 권한 부여", "에이전트·사용자 인증 강화\n목표 수행 필요 최소 권한만 부여"],
-          ["인간 개입", "자동 승인 제한", "중요 작업은 인간 검토 적용"],
-          ["인간 개입", "과도한 승인 제한", "과다 승인 요청 시 무력화 시도 차단"],
-          ["다중 에이전트", "신뢰할 수 있는 네트워크 제공", "암호화·서명 검증 신뢰 환경 수행"],
-          ["다중 에이전트", "비정상적 접근 탐지", "접근 로그 분석, 비인가 시도 탐지"],
-        ],
-      },
-    ],
-    notes: [
-      "금융보안원 자료 — 교재에 별도 정의문 없이 위협·대응 표로만 제시된다. 답안 서론은 위협 배경(자율 에이전트의 권한 확대)에서 출발하는 편이 자연스럽다.",
-      "6단계는 에이전트의 '실행 파이프라인' 순서다: 결정(1) → 기억(2) → 도구 호출(3) → 인증·권한(4) → 인간 개입(5) → 에이전트 간 협업(6).",
-      "OWASP LLM Top 10 · 프롬프트 인젝션 · MCP 보안과 묶어 'AI 에이전트 시대의 신종 위협'으로 출제된다.",
-    ],
-  },
-  {
     title: "AI OS(Artificial Intelligence Operating System)",
     course: "DX",
     definition:
@@ -24827,86 +24912,6 @@ export const SUBNOTES: TextbookSubnote[] = [
       "운영체제 과목의 프로세스 관리·컨텍스트 스위칭·가상메모리와 대비시키면 2교시 도입부가 자연스럽게 잡힌다.",
     ],
   },
-  {
-    title: "OWASP Agentic AI 위협 및 대응방안(Agentic AI Threats and Mitigations)",
-    course: "SC",
-    definition:
-      "OWASP GenAI Security Project가 자율적으로 계획을 세우고 도구를 호출하며 다른 에이전트와 협업하는 AI 에이전트에서 새로 발생하는 보안 위협 15가지(T1~T15)와 위협별 완화 방안을 정리한 위협 참조 모델",
-    defShort: "자율 AI 에이전트에서 생기는 위협과 완화 방안을 정리한 참조 모델",
-    lead: "자율 에이전트 위협 체계화, OWASP Agentic AI",
-    features: ["자율AI 특화", "완화 매핑", "단계별 위협"],
-    keywords: ["OWASP Top 10 for Agentic AI", "Agentic Security Initiative", "Memory Poisoning", "Tool Misuse", "Privilege Compromise", "Cascading Hallucination", "Intent Breaking", "Rogue Agents", "Human-in-the-Loop", "Agent Communication Poisoning"],
-    tables: [
-      {
-        caption: "Agentic AI 위협 15종(T1~T15)",
-        headers: ["코드", "위협", "설명"],
-        rows: [
-          ["T1", "메모리 오염\n허위 정보 주입", "단기·장기 기억\n의사결정 왜곡"],
-          ["T2", "승인 도구 오용\n기만적 프롬프트", "악의적 작업 수행\n도구 유도 조작"],
-          ["T3", "권한 설정 침해\n동적 역할 위임", "허점 악용 공격\n비인가 작업 수행"],
-          ["T4", "자원 과부하\nAPI 자원 고갈", "가용성 침해\n성능 저하 유발"],
-          ["T5", "연쇄 환각 공격\n허위 정보 전파", "그럴듯한 허위\n후속 판단 연쇄"],
-          ["T6", "의도 훼손·조작\n목표 설정 조작", "계획 수립 조작\n사용자 의도 이탈"],
-          ["T7", "오정렬·기만\n허위 응답 생성", "비허용 방식 사용\n목표 달성 기만"],
-          ["T8", "부인·추적 불가\n로그 부재·조작", "책임 추적 불가\n사후 분석 불가"],
-          ["T9", "신원 사칭·위장\n인증 체계 우회", "사용자 사칭\n위장 작업 수행"],
-          ["T10", "인간 개입 무력화\n승인 요청 폭주", "검토 불가 유도\n감독 형해화"],
-          ["T11", "원격코드 실행\n코드 생성 악용", "RCE 코드 공격\n악성 코드 실행"],
-          ["T12", "통신 채널 오염\n에이전트 간 조작", "허위 정보 확산\n메시지 위조"],
-          ["T13", "악성 에이전트\n감시 범위 밖 동작", "변조 에이전트\n다중 시스템 침해"],
-          ["T14", "다중 에이전트\n신뢰·위임 악용", "인간의 공격 대상\n권한 횡적 확대"],
-          ["T15", "인간 조종 공격\n신뢰 에이전트", "사용자 유도\n잘못된 행동 유발"],
-        ],
-      },
-      {
-        caption: "위협 범주별 완화 방안",
-        headers: ["범주", "해당 위협", "완화 방안"],
-        rows: [
-          ["메모리·지식", "T1·T5\n세션 메모리 격리", "메모리 오염 위협\n세션 단위 분리"],
-          ["메모리·지식", "쓰기 검증·추적\n스냅샷·롤백", "출처 무결성 확인\n이전 상태 복원"],
-          ["메모리·지식", "외부 지식 대조", "사실관계 검증"],
-          ["도구·실행", "T2·4·11\n도구 허용목록", "도구 오용 위협\n사전 승인 실행"],
-          ["도구·실행", "파라미터 검증\n샌드박스 격리", "호출 인자 확인\n실행 환경 분리"],
-          ["도구·실행", "호출 빈도 상한\n자원 사용량 상한", "과다 호출 차단\n자원 고갈 방지"],
-          ["권한·신원", "T3·T9\nAgent ID", "권한 침해 위협\n고유 신원 발급"],
-          ["권한·신원", "최소 권한 원칙\n역할 기반 접근", "권한 범위 축소\n직무별 통제"],
-          ["권한·신원", "다중 인증 적용\n위임 토큰 제한", "신원 이중 확인\n범위·수명 제한"],
-          ["추론·목표", "T6·T7\n의도 일관성 검증", "의도 훼손 위협\n계획 정합 확인"],
-          ["추론·목표", "목표·출력 검사\n자기 검증 단계", "정합성 검증\n출력 재검토"],
-          ["감사·추적", "T8\n변조 불가 로그", "부인·추적 위협\n감사 기록 보존"],
-          ["감사·추적", "암호화 서명\n이상 행위 탐지", "결정 과정 기록\n실시간 감시"],
-          ["인간 감독", "T10·T15\n중요 작업 승인", "감독 무력화 위협\n필수 승인 절차"],
-          ["인간 감독", "승인 요청 상한\n이상 패턴 탐지", "과다 승인 방지\n승인 조종 탐지"],
-          ["인간 감독", "사용자 고지", "출력 사실 안내"],
-          ["다중 에이전트", "T12~14\n통신 암호화", "통신 오염 위협\n전송 구간 보호"],
-          ["다중 에이전트", "통신 서명 검증\n신뢰 레지스트리", "발신 주체 확인\n에이전트 등록"],
-          ["다중 에이전트", "행위 이상 탐지\n격리·차단", "악성 행위 식별\n악성 노드 차단"],
-        ],
-      },
-      {
-        caption: "OWASP LLM Top 10(2025)과 Agentic AI 위협 비교",
-        headers: ["구분", "OWASP Top 10 for LLM Applications", "OWASP Agentic AI Threats"],
-        rows: [
-          ["보호 대상", "LLM 응용\n모델·프롬프트", "자율 에이전트\n계획·도구 협업"],
-          ["항목 수", "10개 항목", "15개 항목"],
-          ["대표 위협", "프롬프트 인젝션", "메모리 오염"],
-          ["대표 위협", "민감정보 공개", "도구 오용 위협"],
-          ["대표 위협", "공급망 위협", "목표 조작 위협"],
-          ["대표 위협", "학습데이터 중독\n모델 중독 위협", "인간 개입 무력화\n악성 에이전트"],
-          ["대표 위협", "과도한 대행", "에이전트 자율성"],
-          ["위협 원천", "입출력 경계\n외부 입력 조작", "자율성·권한\n에이전트 신뢰"],
-          ["대응 축", "입출력 검증\n데이터 거버넌스", "권한 최소화\n감사·인간 감독"],
-        ],
-      },
-    ],
-    notes: [
-      "★출처 주의★ OWASP GenAI Security Project의 공식 문서명은 'Agentic AI — Threats and Mitigations'이며 위협은 10개가 아니라 15개(T1~T15)다. 현장에서 'OWASP Top 10 for Agentic AI'라고 부르는 경우가 많지만, 답안에는 'OWASP Agentic AI 위협(15종)'으로 쓰는 것이 안전하다. 별도의 'OWASP Top 10'은 LLM 애플리케이션용(LLM01~LLM10)이다.",
-      "15개 위협은 에이전트 실행 파이프라인 순서로 묶으면 외워진다 — 기억(T1·T5) → 목표·추론(T6·T7) → 도구·실행(T2·T4·T11) → 권한·신원(T3·T9) → 감사(T8) → 인간 감독(T10·T15) → 다중 에이전트(T12·T13·T14).",
-      "금융보안원 'AI Agent 보안위협' 6단계(자율적 의사결정·메모리 활용·외부 도구 호출·인증 및 권한 관리·인간 개입·다중 에이전트)가 이 15종을 국내 금융권 관점으로 재분류한 것이다. 두 자료를 한 답안에서 교차 인용하면 차별화된다.",
-      "MCP·A2A 같은 에이전트 연동 프로토콜, AP2·ACP 같은 에이전트 결제 프로토콜이 확산되면서 T12(통신 오염)·T13(악성 에이전트)의 실효 위험이 커지고 있다.",
-      "이 서브노트는 교재 슬라이드가 없어 OWASP 원문을 근거로 정리한 항목이다.",
-    ],
-  },
 ];
 
 /** topicId 로 교재 서브노트를 찾는다. */
@@ -24919,6 +24924,9 @@ const norm = (s: string) =>
   s.trim().toLowerCase().replace(/[\s()·,\-_/]/g, "");
 /** 괄호 안 영문 풀네임까지 지운 형태 — "I2C와 SPI" ↔ "I2C(Inter…)와 SPI(Serial…)" 매칭용 */
 const bare = (s: string) => norm(s.replace(/[(（][^)）]*[)）]/g, ""));
+
+/** 「A와 B」「A과 B」「A & B」를 같게 본다 */
+const joinless = (s: string) => s.replace(/(과|와|&|and)/g, "");
 
 /** 공백은 남기고 구분기호만 지운 형태 — 낱말 경계를 봐야 하는 검사용 */
 const spaced = (s: string) =>
@@ -25039,6 +25047,9 @@ export function subnoteByTitle(title?: string): TextbookSubnote | undefined {
   return (
     SUBNOTES.find((s) => norm(s.title) === t) ||
     (tb ? SUBNOTES.find((s) => bare(s.title) === tb) : undefined) ||
+    // 두 개념을 잇는 말만 다른 표기 — 교재 CONTENTS 「데이터 상호운용성과 데이터 이동권」(DB) ↔
+    // 서브노트 「데이터 상호 운용성 & 데이터 이동권」(DX).
+    (tb.length >= 6 ? SUBNOTES.find((s) => joinless(bare(s.title)) === joinless(tb)) : undefined) ||
     // 느슨한 포함 매칭은 짧은 문자열에서 오탐이 크다("x" 가 "context"에 걸리는 식).
     // 4글자 이상 + 아래 okLoose() 관문을 통과할 때만 허용한다.
     (t.length >= 4

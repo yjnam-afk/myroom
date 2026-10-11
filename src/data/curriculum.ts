@@ -617,7 +617,7 @@ const WEEK4_DAYS: CurriculumDay[] = studyDays([
 ]);
 
 
-// ── 5주차: 데이터베이스(DB) 56토픽 ────────────────────────────────────
+// ── 5주차: 데이터베이스(DB) 68토픽 — 2026 하반기 교재 CONTENTS 순서·Priority 그대로 ────────────────────────────────────
 const DB_ALL: CurriculumTopic[] = [
   { title: "트랜잭션", priority: "상" },
   { title: "Isolation Level(격리 레벨)", priority: "중" },
@@ -635,8 +635,7 @@ const DB_ALL: CurriculumTopic[] = [
   { title: "관계해석(Relational Calculus)", priority: "하" },
   { title: "DB 회복기법", priority: "상" },
   { title: "DB 동시성제어", priority: "상" },
-  { title: "낙관적 검증(Validation) 기법", priority: "하" },
-  { title: "MVCC(다중 버전 동시성 제어) 2가지 유형", priority: "하" },
+  { title: "Wait-Die와 Wound-Wait", priority: "하" },
   { title: "분산 DB", priority: "중" },
   { title: "2PC", priority: "하" },
   { title: "NoSQL", priority: "중" },
@@ -662,7 +661,14 @@ const DB_ALL: CurriculumTopic[] = [
   { title: "데이터 분석 준비도와 데이터 분석 성숙도", priority: "중" },
   { title: "데이터 마이닝 방법론", priority: "중" },
   { title: "탐색적 데이터 분석과 확증적 데이터 분석", priority: "하" },
+  { title: "정형/비정형 데이터 마이닝", priority: "상" },
+  { title: "데이터 랭글링(Data Wrangling)", priority: "하" },
   { title: "데이터 시각화", priority: "중" },
+  { title: "빅데이터 시각화(Visualization)", priority: "상" },
+  { title: "데이터(웨어하우스, 레이크, 패브릭, 메시)", priority: "중" },
+  { title: "데이터패브릭(Data Fabric)", priority: "중" },
+  { title: "데이터 메시(Data Mesh)", priority: "중" },
+  { title: "데이터 가상화(Data Virtualization)", priority: "상" },
   { title: "데이터 레이크하우스(Data Lakehouse)", priority: "중" },
   { title: "아파치 카프카", priority: "하" },
   { title: "공공데이터 예방적 품질관리 진단 가이드", priority: "하" },
@@ -670,17 +676,24 @@ const DB_ALL: CurriculumTopic[] = [
   { title: "공공기관 데이터베이스 표준화지침(2023년 4월 개정 고시)", priority: "하" },
   { title: "데이터 품질인증 가이드라인 - DQ인증 (2025.02.26)", priority: "상" },
   { title: "데이터 가치 평가", priority: "중" },
+  { title: "메타 데이터와 데이터 카탈로그", priority: "중" },
+  { title: "ISO/IEC 11179", priority: "하" },
+  { title: "데이터 리니지", priority: "중" },
+  { title: "DaaP(Data as a product)", priority: "중" },
+  { title: "한국형 데이터 스페이스(K-Data Space)", priority: "중" },
+  { title: "데이터 파운드리(Data Foundry)", priority: "중" },
+  { title: "데이터 상호운용성과 데이터 이동권", priority: "중" },
   { title: "연관성 분석(association analysis) - 데이터마이닝", priority: "상" },
   { title: "Apriori 알고리즘", priority: "하" },
   { title: "DHP(Direct Hashing & Pruning) 알고리즘", priority: "하" },
   { title: "FP(Frequent Pattern)-Growth 알고리즘", priority: "하" },
-  { title: "DaaP(Data as a product)", priority: "중" },
+  { title: "낙관적 검증(Validation) 기법", priority: "하", level: "참고", note: "2026 하반기 교재 CONTENTS 에서 빠짐" },
+  { title: "MVCC(다중 버전 동시성 제어) 2가지 유형", priority: "하", level: "참고", note: "2026 하반기 교재 CONTENTS 에서 빠짐" },
 ];
 
-// 5주차 경영전략(MG) — 교재 CONTENTS 39토픽. ★★★=상, ★★=중, ★=하.
+// 5주차 경영전략(MG) — 2026 하반기 교재 CONTENTS 40토픽. 순서·Priority 그대로. ★★★=상, ★★=중, ★=하.
 const MG_ALL: CurriculumTopic[] = [
   { title: "기술 부채", priority: "하" },
-  { title: "리빙랩(Living Lab), S.O.S랩", priority: "하" },
   { title: "ITIL(IT Infrastructure Library) 4.0", priority: "상" },
   { title: "ITSM(Information Technology Service Management)", priority: "중" },
   { title: "서비스 수준 관리 (SLM, Service Level Management)", priority: "중" },
@@ -691,6 +704,7 @@ const MG_ALL: CurriculumTopic[] = [
   { title: "DRaaS", priority: "하" },
   { title: "ISO 22301", priority: "중" },
   { title: "디지털 안전 3법", priority: "하" },
+  { title: "정보시스템 등급제", priority: "중" },
   { title: "IT 거버넌스", priority: "상" },
   { title: "ISO 38500:2024", priority: "중" },
   { title: "IT-Compliance", priority: "하" },
@@ -708,6 +722,7 @@ const MG_ALL: CurriculumTopic[] = [
   { title: "기술수용 주기(Technology Adoption Life Cycle)", priority: "하" },
   { title: "IT 투자성과 평가", priority: "상" },
   { title: "기술 가치 평가", priority: "중" },
+  { title: "정보화 투자관리 가이드", priority: "상" },
   { title: "지식재산권", priority: "하" },
   { title: "OKR", priority: "하" },
   { title: "BSC (Balanced Scorecard), IT-BSC (IT-Balanced Scorecard)", priority: "하" },
@@ -718,6 +733,7 @@ const MG_ALL: CurriculumTopic[] = [
   { title: "의도 경제(Intention Economy)", priority: "하" },
   { title: "그로스 해킹(Growth hacking)", priority: "하" },
   { title: "시빅 해킹(Civic Hacking)", priority: "하" },
+  { title: "리빙랩(Living Lab), S.O.S랩", priority: "하", level: "참고", note: "2026 하반기 교재 CONTENTS 에서 빠짐" },
 ];
 
 // 5주차 — 데이터베이스 + 경영전략.
