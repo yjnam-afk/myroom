@@ -16,11 +16,16 @@ const INK = "#111";
 const SUB = "#334155";
 const HI = "#fde68a";
 
-/** 박스 폭에 라벨이 들어가는 글자 크기 — 한글 1, 영문·숫자·기호 0.6 */
-function fontFor(label: string, w: number, max = 11) {
+/** 라벨 너비(글자 단위) — 한글 1, 영문 대문자 0.72, 그 밖의 영문·숫자·기호 0.6, 공백 0.35 */
+function units(label: string) {
   let u = 0;
-  for (const ch of label) u += /[가-힣ㄱ-ㅎ]/.test(ch) ? 1 : ch === " " ? 0.35 : 0.6;
-  return Math.max(7.5, Math.min(max, (w - 8) / Math.max(u, 1)));
+  for (const ch of label) u += /[가-힣ㄱ-ㅎ]/.test(ch) ? 1 : ch === " " ? 0.35 : /[A-Z]/.test(ch) ? 0.72 : 0.6;
+  return u;
+}
+
+/** 박스 폭에 라벨이 들어가는 글자 크기 */
+function fontFor(label: string, w: number, max = 11) {
+  return Math.max(7.5, Math.min(max, (w - 8) / Math.max(units(label), 1)));
 }
 
 /** 화살표 라벨이 들어갈 간격 — 글자 수만큼 벌린다 */
@@ -28,11 +33,19 @@ const gapFor = (labels: (string | undefined)[], min: number) =>
   Math.max(min, ...labels.map((l) => (l ? [...l].reduce((a, ch) => a + (/[가-힣]/.test(ch) ? 10 : 6), 0) + 14 : 0)));
 
 function Box({ x, y, w, h = BH, label, hi }: { x: number; y: number; w: number; h?: number; label: string; hi?: boolean }) {
+  // 표 칸처럼 줄바꿈(\n)이 든 라벨은 두 줄로
+  const lines = label.split("\n");
+  const fs = Math.min(lines.length > 1 ? 9 : 11, ...lines.map((l) => fontFor(l, w)));
+  const top = y + h / 2 - ((lines.length - 1) * fs * 1.05) / 2 + fs * 0.36;
   return (
     <g>
       <rect x={x} y={y} width={w} height={h} rx={4} fill={hi ? HI : "#fff"} stroke={INK} strokeWidth={hi ? 2 : 1.2} />
-      <text x={x + w / 2} y={y + h / 2 + 4} fontSize={fontFor(label, w)} textAnchor="middle" fill={INK} fontWeight={hi ? 700 : 400}>
-        {label}
+      <text x={x + w / 2} y={top} fontSize={fs} textAnchor="middle" fill={INK} fontWeight={hi ? 700 : 400}>
+        {lines.map((l, i) => (
+          <tspan key={i} x={x + w / 2} dy={i ? fs * 1.05 : 0}>
+            {l}
+          </tspan>
+        ))}
       </text>
     </g>
   );
@@ -72,6 +85,7 @@ function Group({ x, y, w, h, name, hi }: { x: number; y: number; w: number; h: n
   return (
     <g>
       <rect x={x} y={y} width={w} height={h} rx={6} fill="none" stroke={INK} strokeDasharray="4 3" />
+      {name && hi && <rect x={x + w / 2 - (units(name) * 10.5) / 2 - 6} y={y + 2} width={units(name) * 10.5 + 12} height={13} rx={3} fill={HI} />}
       {name && (
         <text x={x + w / 2} y={y + 12} fontSize={fontFor(name, w, 10.5)} textAnchor="middle" fill={hi ? INK : SUB} fontWeight={700}>
           {name}
@@ -93,8 +107,9 @@ export default function ConceptDiagram({ spec }: { spec: ConceptSpec }) {
     case "group": {
       // 그룹(점선)을 옆으로, 그룹 안 요소는 3행까지 쌓고 넘치면 옆 칸으로 — 그룹 이름 = 표 1열, 요소 = 표 2열
       const G = spec.groups;
-      const gap = spec.arrows?.length ? gapFor(spec.arrows.map((a) => a[2]), 30) : 12;
-      const maxRows = spec.rows ?? 3;
+      const near = (spec.arrows ?? []).filter(([a, b]) => Math.abs(a - b) === 1);
+      const gap = near.length ? gapFor(near.map((a) => a[2]), 30) : 12;
+      const maxRows = Math.min(spec.rows ?? 3, 3); // 답안지 3~4줄 — 3행 넘게 쌓지 않는다
       const cols = G.map((g) => Math.max(1, Math.ceil(g.items.length / maxRows)));
       const rows = Math.max(1, ...G.map((g, i) => Math.ceil(g.items.length / cols[i])));
       const unit = (W - 4 - gap * (G.length - 1)) / cols.reduce((a, b) => a + b, 0);
@@ -114,13 +129,30 @@ export default function ConceptDiagram({ spec }: { spec: ConceptSpec }) {
         });
         x += gw + gap;
       });
+      const far = (spec.arrows ?? []).some(([a, b]) => Math.abs(a - b) > 1);
       for (const [a, b, label] of spec.arrows ?? []) {
         const wa = unit * cols[a];
+        const wb = unit * cols[b];
+        if (Math.abs(a - b) > 1) {
+          // 이웃하지 않은 그룹 — 가운데 그룹을 가로지르지 않게 아래로 돌아간다
+          const x1 = gx[a] + wa / 2;
+          const x2 = gx[b] + wb / 2;
+          const yb = H + 8;
+          els.push(<path key={k()} d={`M${x1},${H - 1} L${x1},${yb} L${x2},${yb} L${x2},${H + 1}`} fill="none" stroke={INK} strokeWidth={1.2} markerEnd="url(#cd-arrow)" />);
+          if (label)
+            els.push(
+              <text key={k()} x={(x1 + x2) / 2} y={yb + 11} fontSize={9.5} textAnchor="middle" fill={SUB}>
+                {label}
+              </text>,
+            );
+          continue;
+        }
         const fwd = a < b;
         const x1 = fwd ? gx[a] + wa : gx[a];
-        const x2 = fwd ? gx[b] : gx[b] + unit * cols[b];
+        const x2 = fwd ? gx[b] : gx[b] + wb;
         els.push(<Arrow key={k()} x1={x1} y1={H / 2 + 6} x2={x2} y2={H / 2 + 6} label={label} both={spec.both} />);
       }
+      if (far) H += (spec.arrows ?? []).some(([a, b, l]) => l && Math.abs(a - b) > 1) ? 24 : 12;
       break;
     }
     case "flow": {
@@ -128,19 +160,24 @@ export default function ConceptDiagram({ spec }: { spec: ConceptSpec }) {
       const S = spec.steps;
       const m = S.length;
       const gap = gapFor(spec.labels ?? [], 24);
-      const bw = Math.min(118, (W - 4 - gap * (m - 1)) / m);
-      const total = m * bw + (m - 1) * gap;
+      // 박스 폭은 라벨 길이에 맞춰 나눈다(긴 라벨만 글자가 작아지지 않게)
+      const want = S.map((s) => Math.max(64, units(s) * 11 + 14));
+      const room = W - 4 - gap * (m - 1);
+      const sum = want.reduce((a, b) => a + b, 0);
+      const ws = want.map((w) => Math.min(150, sum > room ? (w * room) / sum : w));
+      const total = ws.reduce((a, b) => a + b, 0) + (m - 1) * gap;
       const x0 = (W - total) / 2;
+      const xs = ws.map((_, i) => x0 + ws.slice(0, i).reduce((a, b) => a + b, 0) + i * gap);
       const y = 4;
       H = 30;
       S.forEach((s, i) => {
-        const x = x0 + i * (bw + gap);
-        els.push(<Box key={k()} x={x} y={y} w={bw} label={s} hi={isHi(s)} />);
-        if (i < m - 1) els.push(<Arrow key={k()} x1={x + bw} y1={y + BH / 2} x2={x + bw + gap} y2={y + BH / 2} label={spec.labels?.[i]} />);
+        const x = xs[i];
+        els.push(<Box key={k()} x={x} y={y} w={ws[i]} label={s} hi={isHi(s)} />);
+        if (i < m - 1) els.push(<Arrow key={k()} x1={x + ws[i]} y1={y + BH / 2} x2={x + ws[i] + gap} y2={y + BH / 2} label={spec.labels?.[i]} />);
       });
       if (spec.branch) {
         const b = spec.branch;
-        const bx = x0 + b.from * (bw + gap) + bw / 2;
+        const bx = xs[b.from] + ws[b.from] / 2;
         const bm = b.steps.length;
         const bw2 = Math.min(118, (W - 4 - gap * (bm - 1)) / bm);
         const t2 = bm * bw2 + (bm - 1) * gap;
@@ -154,24 +191,36 @@ export default function ConceptDiagram({ spec }: { spec: ConceptSpec }) {
           );
         b.steps.forEach((s, i) => {
           const x = bx0 + i * (bw2 + gap);
-          if (b.parallel || i === 0) els.push(<Arrow key={k()} x1={bx} y1={y + BH} x2={x + bw2 / 2} y2={y2} dashed={b.dashed} />);
+          if (b.parallel || i === 0)
+            // 꺾은 연결선 — 아래 줄 박스 위로 내려 꽂는다(대각선이 박스를 가로지르지 않게)
+            els.push(
+              <path
+                key={k()}
+                d={`M${bx},${y + BH} L${bx},${y2 - 9} L${x + bw2 / 2},${y2 - 9} L${x + bw2 / 2},${y2}`}
+                fill="none"
+                stroke={INK}
+                strokeWidth={1.2}
+                markerEnd="url(#cd-arrow)"
+                strokeDasharray={b.dashed ? "4 3" : undefined}
+              />,
+            );
           else els.push(<Arrow key={k()} x1={x - gap} y1={y2 + BH / 2} x2={x} y2={y2 + BH / 2} />);
           els.push(<Box key={k()} x={x} y={y2} w={bw2} label={s} hi={isHi(s)} />);
         });
         H = y2 + BH + 4;
       }
       if (spec.loop) {
-        const xe = x0 + total - bw / 2;
-        const xs = x0 + bw / 2;
+        const xe = xs[m - 1] + ws[m - 1] / 2;
+        const xb = xs[0] + ws[0] / 2;
         const yb = H + 10;
-        els.push(<path key={k()} d={`M${xe},${y + BH} L${xe},${yb} L${xs},${yb} L${xs},${y + BH + 2}`} fill="none" stroke={INK} strokeWidth={1.2} markerEnd="url(#cd-arrow)" strokeDasharray="4 3" />);
+        els.push(<path key={k()} d={`M${xe},${y + BH} L${xe},${yb} L${xb},${yb} L${xb},${y + BH + 2}`} fill="none" stroke={INK} strokeWidth={1.2} markerEnd="url(#cd-arrow)" strokeDasharray="4 3" />);
         if (spec.loopLabel)
           els.push(
-            <text key={k()} x={(xs + xe) / 2} y={yb - 3} fontSize={9.5} textAnchor="middle" fill={SUB}>
+            <text key={k()} x={(xb + xe) / 2} y={yb + 11} fontSize={9.5} textAnchor="middle" fill={SUB}>
               {spec.loopLabel}
             </text>,
           );
-        H = yb + 4;
+        H = yb + (spec.loopLabel ? 15 : 4);
       }
       break;
     }
@@ -224,22 +273,44 @@ export default function ConceptDiagram({ spec }: { spec: ConceptSpec }) {
       break;
     }
     case "sequence": {
-      // 시퀀스 — 위쪽 행위자 + 생명선, 메시지는 위에서 아래로(프로토콜·송수신)
+      // 시퀀스 — 위쪽 행위자 + 생명선, 메시지는 위에서 아래로(프로토콜·송수신).
+      // panels 가 있으면 점선 칸을 옆으로 늘어놓고 칸마다 같은 행위자로 따로 그린다(3-way / 4-way, FEC / BEC …).
+      // from === to 는 자기 처리(오류 검출·자체 정정) — 생명선 옆에 고리 화살표 + 라벨.
       const A = spec.actors;
-      const colW = (W - 20) / A.length;
+      const panels = spec.panels ?? [{ name: "", msgs: spec.msgs }];
+      const pw = (W - 4 - 10 * (panels.length - 1)) / panels.length;
+      const top = spec.panels ? 16 : 1;
       const mh = 17;
-      H = BH + 14 + spec.msgs.length * mh;
-      const cxOf = (i: number) => 10 + colW * i + colW / 2;
-      A.forEach((a, i) => {
-        const cx = cxOf(i);
-        els.push(<Box key={k()} x={cx - 60} y={1} w={120} label={a} hi={isHi(a)} />);
-        els.push(<line key={k()} x1={cx} y1={1 + BH} x2={cx} y2={H - 1} stroke={INK} strokeWidth={1} strokeDasharray="3 3" />);
-      });
-      spec.msgs.forEach((m, i) => {
-        const y = BH + 16 + i * mh;
-        const x1 = cxOf(m.from);
-        const x2 = cxOf(m.to);
-        els.push(<Arrow key={k()} x1={x1} y1={y} x2={x2 + (x2 > x1 ? -1 : 1)} y2={y} label={m.label} dashed={m.dashed} />);
+      const most = Math.max(...panels.map((p) => p.msgs.length));
+      H = top + BH + 14 + most * mh;
+      const aw = Math.min(120, (pw - 16) / A.length - 8);
+      panels.forEach((pn, pi) => {
+        const px = 2 + pi * (pw + 10);
+        if (spec.panels) els.push(<Group key={k()} x={px} y={1} w={pw} h={H - 2} name={pn.name} hi={isHi(pn.name)} />);
+        const colW = (pw - 16) / A.length;
+        const cxOf = (i: number) => px + 8 + colW * i + colW / 2;
+        A.forEach((a, i) => {
+          const cx = cxOf(i);
+          els.push(<Box key={k()} x={cx - aw / 2} y={top} w={aw} label={a} hi={!spec.panels && isHi(a)} />);
+          els.push(<line key={k()} x1={cx} y1={top + BH} x2={cx} y2={H - 4} stroke={INK} strokeWidth={1} strokeDasharray="3 3" />);
+        });
+        pn.msgs.forEach((m, i) => {
+          const y = top + BH + 14 + i * mh;
+          const x1 = cxOf(m.from);
+          if (m.from === m.to) {
+            const right = m.from < A.length - 1 || A.length === 1 ? 1 : -1;
+            const xe = x1 + right * 14;
+            els.push(<path key={k()} d={`M${x1},${y - 6} L${xe},${y - 6} L${xe},${y + 4} L${x1 + right * 2},${y + 4}`} fill="none" stroke={INK} strokeWidth={1.2} markerEnd="url(#cd-arrow)" />);
+            els.push(
+              <text key={k()} x={xe + right * 4} y={y + 2} fontSize={9.5} textAnchor={right > 0 ? "start" : "end"} fill={isHi(m.label) ? INK : SUB} fontWeight={isHi(m.label) ? 700 : 400}>
+                {m.label}
+              </text>,
+            );
+            return;
+          }
+          const x2 = cxOf(m.to);
+          els.push(<Arrow key={k()} x1={x1} y1={y} x2={x2 + (x2 > x1 ? -1 : 1)} y2={y} label={m.label} dashed={m.dashed} />);
+        });
       });
       break;
     }
