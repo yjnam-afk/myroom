@@ -668,15 +668,21 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
               </p>
               <div className="pl-3">
                 <p className="font-bold">가. {bareTitle}의 {diagramLabel}</p>
-                {ansDiagrams.map((src) => (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    key={src}
-                    src={src}
-                    alt={`${cur} ${diagramLabel}`}
-                    className="my-1 w-full rounded border border-slate-500 bg-white"
-                  />
-                ))}
+                {/* 개념도는 답안지 5~7줄(1교시) 크기 — 둘이면 나란히 */}
+                {ansDiagrams.length > 0 && (
+                  <div className="my-1 flex items-center justify-center gap-2">
+                    {ansDiagrams.map((src) => (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        key={src}
+                        src={src}
+                        alt={`${cur} ${diagramLabel}`}
+                        className={`${period === 2 ? "max-h-80" : "max-h-52"} min-w-0 max-w-full rounded border border-slate-500 bg-white object-contain`}
+                        style={{ flex: "0 1 auto", maxWidth: `${100 / ansDiagrams.length}%` }}
+                      />
+                    ))}
+                  </div>
+                )}
                 {hand.map((src) => (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
