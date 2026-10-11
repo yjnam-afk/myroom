@@ -22,6 +22,7 @@ import {
 } from "@/data/textbookSubnotes";
 import { subnoteExtraFor, type SubnoteExtra } from "@/data/subnoteExtras";
 import { handDiagramsFor, handTablesFor } from "@/data/handDiagrams";
+import { answerSheetFor, type AnswerSheet } from "@/data/answerSheets";
 import { extraComparesFor, type ExtraCompare } from "@/data/extraCompares";
 import glossData from "@/data/gloss.json";
 import { peerAnswersFor, type PeerAnswer } from "@/data/peerAnswers";
@@ -146,6 +147,8 @@ export type ExplainTopicData = {
   hand: string[];
   /** 손글씨 정리 노트에서 잘라 낸 표 */
   handTables: string[];
+  /** 답안용 표·개념도(1교시 분량) — 없으면 교재 표 전체로 그린다 */
+  sheet?: AnswerSheet;
   /** NS·기출 밖 문제은행(ITPE 모의고사·파이널·셀테) 출제 */
   mock: MockAppearance[];
   mapSets: MapLink[];
@@ -336,6 +339,7 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
     peers: peersFor(title, textbook?.title),
     hand: handDiagramsFor(textbook?.title ?? title),
     handTables: handTablesFor(textbook?.title ?? title),
+    sheet: answerSheetFor(textbook?.title),
     hist: examHistory(title),
     past: pastExams(title),
     mock: mockExams(title),
@@ -576,7 +580,8 @@ export function buildSheet(): SheetGroup[] {
       pairs: [...(s.defPair || []), ...(s.subDefs || [])].map((p) => ({ name: p.name, def: p.def })),
       features: s.features || [],
       keywords: s.keywords,
-      tables: s.tables.map((t) => ({ caption: t.caption, headers: t.headers, rows: t.rows })),
+      // 답안용 표가 있으면 그것(1교시 분량 3단표), 없으면 교재 표 전체 — 2026-10-11 "정리 3단표는 저게 아닌데"
+      tables: (answerSheetFor(s.title)?.tables ?? s.tables).map((t) => ({ caption: t.caption, headers: t.headers, rows: t.rows })),
       notes: s.notes || [],
       ns: hist.length,
       past: past.length,

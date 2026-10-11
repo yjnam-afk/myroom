@@ -369,6 +369,12 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
   const topicId = data?.topicId;
   const hand = data?.hand ?? [];
   const handTables = data?.handTables ?? [];
+  // 답안용 표·개념도(1교시 분량). 있으면 답안지는 이것으로, 교재 표 전체는 아래 접은 칸으로.
+  const sheet = data?.sheet;
+  const ansTables = sheet?.tables?.length
+    ? sheet.tables.map((t) => ({ ...t, nameCol: undefined }))
+    : (textbook?.tables ?? []).map((t, i) => ({ ...t, gloss: gloss?.t?.[i] }));
+  const ansDiagrams = extra?.images?.length ? extra.images : sheet?.diagram ?? [];
 
   // 답안지 2번 항목의 그림 이름 — 그림이 흐름·단계를 보여 주면 "절차"처럼 바꿔 쓴다.
   const diagramLabel = extra?.imagesLabel || "개념도";
@@ -638,20 +644,19 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
 
               {/* II. 개념도 및 첫 표 — 가. 개념도(그림 + 간글) / 나. 3단표(간글) */}
               <p className="mt-3 font-bold">
-                II. {bareTitle}의 {diagramLabel} 및 {secLabel(textbook.tables[0]?.caption, bareTitle)}
+                II. {bareTitle}의 {diagramLabel} 및 {secLabel(ansTables[0]?.caption, bareTitle)}
               </p>
               <div className="pl-3">
                 <p className="font-bold">가. {bareTitle}의 {diagramLabel}</p>
-                {!!extra?.images?.length &&
-                  extra.images.map((src) => (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      key={src}
-                      src={src}
-                      alt={`${cur} ${diagramLabel}`}
-                      className="my-1 w-full rounded border border-slate-500 bg-white"
-                    />
-                  ))}
+                {ansDiagrams.map((src) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    key={src}
+                    src={src}
+                    alt={`${cur} ${diagramLabel}`}
+                    className="my-1 w-full rounded border border-slate-500 bg-white"
+                  />
+                ))}
                 {hand.map((src) => (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
@@ -662,40 +667,40 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
                     className="my-1 w-full rounded border border-amber-300 bg-white"
                   />
                 ))}
-                {!extra?.images?.length && hand.length === 0 && (
+                {ansDiagrams.length === 0 && hand.length === 0 && (
                   <p className="text-slate-400">(위 교재 슬라이드의 그림을 5~7줄 크기로 옮겨 그린다)</p>
                 )}
                 {gloss?.d && <p>- {gloss.d}</p>}
 
-                {textbook.tables.slice(0, 1).map((tb) => (
+                {ansTables.slice(0, 1).map((tb) => (
                   <div key={tb.caption} className="mt-2">
                     <p className="font-bold">나. {tb.caption}</p>
                     <AnswerTable headers={tb.headers} rows={tb.rows} />
-                    {gloss?.t?.[0] && <p>- {gloss.t[0]}</p>}
+                    {tb.gloss && <p>- {tb.gloss}</p>}
                   </div>
                 ))}
               </div>
 
               {/* III. 나머지 표 — 해설집은 셋째 단락에 비교·Hybrid·추가 기술을 둔다 */}
-              {textbook.tables.length > 1 && (
+              {ansTables.length > 1 && (
                 <>
                   <p className="mt-3 font-bold">
                     III.{" "}
-                    {inTitle(textbook.tables[1].caption, bareTitle)
-                      ? textbook.tables[1].caption
-                      : `${bareTitle}의 ${capOf(textbook.tables[1].caption)}`}
-                    {textbook.tables.length > 2 ? " 등" : ""}
+                    {inTitle(ansTables[1].caption, bareTitle)
+                      ? ansTables[1].caption
+                      : `${bareTitle}의 ${capOf(ansTables[1].caption)}`}
+                    {ansTables.length > 2 ? " 등" : ""}
                   </p>
                   <div className="pl-3">
-                    {textbook.tables.slice(1).map((tb, k) => (
+                    {ansTables.slice(1).map((tb, k) => (
                       <div key={tb.caption} className={k ? "mt-2" : ""}>
-                        {textbook.tables.length > 2 && (
+                        {ansTables.length > 2 && (
                           <p className="font-bold">
                             {HANGUL_NO[k] ?? "·"}. {tb.caption}
                           </p>
                         )}
                         <AnswerTable headers={tb.headers} rows={tb.rows} />
-                        {gloss?.t?.[k + 1] && <p>- {gloss.t[k + 1]}</p>}
+                        {tb.gloss && <p>- {tb.gloss}</p>}
                       </div>
                     ))}
                   </div>
@@ -721,6 +726,26 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
 
               <p className="mt-2 text-right font-bold">&ldquo;끝&rdquo;</p>
             </AnswerPaper>
+
+            {/* 답안용 표를 쓴 토픽 — 교재 표 전체는 접어 둔다(2교시 서술형·암기용) */}
+            {!!sheet?.tables?.length && textbook.tables.length > 0 && (
+              <details className="mx-5 mb-3 rounded-lg border border-slate-200 bg-white px-4 py-2.5">
+                <summary className="cursor-pointer text-xs font-bold text-slate-600">
+                  📚 교재 표 전체 보기 ({textbook.tables.length}개) — 2~4교시 서술형·암기용
+                </summary>
+                <div className="mt-2 space-y-3">
+                  {textbook.tables.map((tb, i) => (
+                    <div key={tb.caption}>
+                      <p className="text-[12.5px] font-bold text-slate-700">
+                        {HANGUL_NO[i] ?? "·"}. {tb.caption}
+                      </p>
+                      <AnswerTable headers={tb.headers} rows={tb.rows} dense />
+                      {gloss?.t?.[i] && <p className="text-[12px] text-slate-500">- {gloss.t[i]}</p>}
+                    </div>
+                  ))}
+                </div>
+              </details>
+            )}
 
             {/* 답안 밖 — 교재 메모. 시험지에 옮길 때 서론·결론에 한 줄 덧붙일 거리 */}
             {textbook.notes?.length ? (
