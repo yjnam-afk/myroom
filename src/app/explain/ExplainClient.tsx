@@ -134,7 +134,7 @@ function LevelBadge({ level, note }: { level?: string; note?: string }) {
 }
 
 /**
- * 출제 이력 칩 — 학습계획의 📕·🛡️ 칩과 같은 눈금이지만 정적이다.
+ * 출제 이력 칩 — 학습계획의 📜기출·🛡️NS 칩과 같은 눈금이지만 정적이다.
  * 이 화면은 문제은행을 받지 않으므로(번들 22 MB 사고) 개수·최근만 서버가 세어 보낸다.
  * 자세한 문항 목록은 토픽을 열면 「출제 이력」 카드에 있다.
  */
@@ -152,7 +152,7 @@ function HistChips({ it }: { it: BrowseItem }) {
           className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold tabular-nums ${tone(pr >= 2 || past >= 3, pr)}`}
           title={`기술사 기출 ${past}회 · 최근 ${it.pastLast}회`}
         >
-          📕{past} · {it.pastLast}회
+          📜기출 {past} · {it.pastLast}회
         </span>
       )}
       {ns > 0 && (
@@ -160,7 +160,7 @@ function HistChips({ it }: { it: BrowseItem }) {
           className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold tabular-nums ${tone(nr >= 2 || ns >= 4, nr)}`}
           title={`NS 주간 모의고사 출제 ${ns}회 · 최근 ${it.nsLast}`}
         >
-          🛡️{ns} · {it.nsLast ? `${it.nsLast.slice(2, 4)}.${it.nsLast.slice(5, 7)}` : ""}
+          🛡️NS {ns} · {it.nsLast ? `${it.nsLast.slice(2, 4)}.${it.nsLast.slice(5, 7)}` : ""}
         </span>
       )}
     </>
@@ -322,7 +322,7 @@ function TopicBrowser({
 
           {selGroup && (
             <div className="border-t border-slate-100">
-              {/* 학습계획 줄과 같은 모양 — 계획 순서·번호·중요도·📖·📕 기출·🛡️ NS 이력.
+              {/* 학습계획 줄과 같은 모양 — 계획 순서·번호·중요도·📖·📜 기출·🛡️ NS 이력.
                   카드 안에서 따로 스크롤하지 않는다 — 짧은 창에 목록이 갇혀 한 화면에
                   대여섯 줄만 보였다. 페이지가 길어지는 쪽이 낫다. */}
               <ol className="divide-y divide-slate-100">
@@ -507,7 +507,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
               </span>
             ) : null}
           </div>
-          {/* 학습계획 줄과 같은 표시 — 중요도(상·중·하)·대비 강도·📕 기출·🛡️ NS 모의고사.
+          {/* 학습계획 줄과 같은 표시 — 중요도(상·중·하)·대비 강도·📜 기출·🛡️ NS 모의고사.
               목록에서는 보이던 것이 토픽을 열면 사라져, 이게 상인지 하인지 몇 회 기출인지
               다시 목록으로 돌아가 확인해야 했다. */}
           <div className="mt-2 flex flex-wrap items-center gap-1.5">

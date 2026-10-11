@@ -3,10 +3,12 @@
 import { useState, type ReactNode } from "react";
 import AnswerPaper from "@/components/AnswerPaper";
 import AnswerTable from "@/components/AnswerTable";
+import ConceptDiagram from "@/components/ConceptDiagram";
 import ConclusionFigure from "@/components/ConclusionFigure";
 import ConclusionGraph from "@/components/ConclusionGraph";
 import ConclusionList from "@/components/ConclusionList";
 import { conclusionFor, type AnswerConclusion } from "@/data/answerConclusions";
+import { conceptFor, type ConceptSpec } from "@/data/conceptDiagrams";
 import type { TextbookSubnote, SubnoteTable } from "@/data/textbookSubnotes";
 import {
   cellLimits,
@@ -41,19 +43,42 @@ function Gloss({ text, hint = "간글 1줄 · 공백 포함 40자 이내" }: { t
   );
 }
 
-/** 개념도 — 1교시 3줄·2교시 5~6줄 크기(지침 2장·2교시 4-2). 누르면 원본 크기 */
-function Figure({ srcs, lines, alt }: { srcs: string[]; lines: number; alt: string }) {
-  if (!srcs.length) return <p className="pl-1"><Hole>교재 개념도를 {lines}줄 크기로 — 흑백 선·박스, 주제 박스만 강조, 그룹화 필수</Hole></p>;
-  return (
-    <div className="flex items-center justify-center gap-2" style={{ minHeight: lines * 28 }}>
+/**
+ * 개념도 — 1교시 3줄·2교시 5~6줄 크기(지침 2장·2교시 4-2).
+ * 사양(conceptDiagrams)이 있으면 교재 그림을 보고 다시 그린 흑백 도식(ConceptDiagram)을 싣고,
+ * 교재에서 잘라 낸 그림은 「교재 그림」 단추로 참고만 한다. 사양이 없으면 잘라 낸 그림(누르면 원본 크기).
+ */
+function Figure({ srcs, lines, alt, spec }: { srcs: string[]; lines: number; alt: string; spec?: ConceptSpec }) {
+  const [book, setBook] = useState(false);
+  const imgs = (h: number) => (
+    <div className="flex items-center justify-center gap-2" style={{ minHeight: h }}>
       {srcs.map((src) => (
         <a key={src} href={src} target="_blank" rel="noreferrer" title="원본 크기로 보기" className="min-w-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={src} alt={alt} className="max-w-full rounded border border-slate-500 bg-white object-contain" style={{ maxHeight: lines * 28 }} />
+          <img src={src} alt={alt} className="max-w-full rounded border border-slate-500 bg-white object-contain" style={{ maxHeight: h }} />
         </a>
       ))}
     </div>
   );
+  if (spec)
+    return (
+      <div className="relative">
+        <ConceptDiagram spec={spec} />
+        {srcs.length > 0 && (
+          <button
+            type="button"
+            onClick={() => setBook((v) => !v)}
+            className="absolute -top-6 right-0 rounded border border-slate-300 bg-white px-1.5 text-[10.5px] leading-5 text-slate-500 hover:bg-slate-50"
+            title="이 그림을 그릴 때 참고한 교재 그림"
+          >
+            {book ? "교재 그림 닫기" : "📖 교재 그림"}
+          </button>
+        )}
+        {book && <div className="rounded border border-dashed border-slate-300 bg-slate-50 p-1">{imgs(lines * 56)}</div>}
+      </div>
+    );
+  if (!srcs.length) return <p className="pl-1"><Hole>교재 개념도를 {lines}줄 크기로 — 흑백 선·박스, 주제 박스만 강조, 그룹화 필수</Hole></p>;
+  return imgs(lines * 28);
 }
 
 function TableBlock({ tb, hint }: { tb: Tb; hint?: string }) {
@@ -62,6 +87,25 @@ function TableBlock({ tb, hint }: { tb: Tb; hint?: string }) {
       <AnswerTable headers={tb.headers} rows={tb.rows} limits={cellLimits(tb.headers)} />
       <Gloss text={tb.gloss} hint={hint} />
     </>
+  );
+}
+
+/**
+ * 1단락 정의·특징 2열 표(지침 V37) — 헤더 없이 왼쪽 「정의」「특징」(두 개념이면 개념 이름), 오른쪽 내용.
+ * 3열 표·글자 수 규칙의 예외라 「- 」도 붙이지 않는다.
+ */
+function DefTable({ rows }: { rows: [string, ReactNode][] }) {
+  return (
+    <table className="my-0.5 w-full border-collapse text-[12.5px]">
+      <tbody>
+        {rows.map(([k, v], i) => (
+          <tr key={i}>
+            <td className="w-[16%] border border-slate-600 px-2 py-0 text-center align-middle font-semibold leading-[27px]">{k}</td>
+            <td className="border border-slate-600 px-2 py-0 leading-[27px]">{v}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }
 
@@ -208,13 +252,16 @@ export default function AnswerTemplate({
   const pairNames = pairs.length ? pairs.map((p) => p.name.replace(/\s*\([^)]*\)/g, "").trim()) : pairFromTitle(textbook.title);
   const lead = textbook.lead || bare;
   const figs = [...diagrams, ...hand];
+  // 다시 그린 개념도 — 두 개념 토픽은 [A, B]
+  const specs = conceptFor(textbook.title);
+  const gl = (i = 0) => specs[i]?.gloss ?? diagramGloss;
   const verify = (
     <p className="mt-1 text-[11.5px] leading-6 text-slate-500">
       검증 출처: {hasSlide ? "교재 슬라이드 + 서브노트" : "서브노트"} / 검증 강도: {hasSlide ? "강" : "중"}
     </p>
   );
 
-  /* ─────────────── 1교시 (V34, 26줄) ─────────────── */
+  /* ─────────────── 1교시 (V37, 26~28줄) ─────────────── */
   if (period === 1) {
     const shape = shape1(textbook.title, pairs.length);
     // 2단락 표 — 구조형(구성·동작·기법…) 먼저. 근거형은 개념도 없이 표만(지침 2장)
@@ -231,15 +278,13 @@ export default function AnswerTemplate({
           <>
             <p className="font-bold">1. {lead} 정의</p>
             <div className="pl-4">
-              <p>가. 정의: {textbook.defShort || textbook.definition.replace(/\*\*/g, "")}</p>
-              <p>
-                나. 특징: <Features f={textbook.features} />
-              </p>
-              {textbook.subDefs?.map((s, i) => (
-                <p key={s.name}>
-                  {NO[i + 2]}. {s.name}: {s.def}
-                </p>
-              ))}
+              <DefTable
+                rows={[
+                  ["정의", textbook.defShort || textbook.definition.replace(/\*\*/g, "")],
+                  ["특징", <Features key="f" f={textbook.features} />],
+                  ...(textbook.subDefs ?? []).map((sd): [string, ReactNode] => [sd.name.replace(/\s*\([^)]*\)/g, ""), sd.def]),
+                ]}
+              />
             </div>
             {body && !isReasonTable(body.caption) ? (
               <>
@@ -248,8 +293,8 @@ export default function AnswerTemplate({
                 </p>
                 <div className="pl-4">
                   <p>가. {bare} {diagramLabel}</p>
-                  <Figure srcs={figs} lines={3} alt={`${bare} ${diagramLabel}`} />
-                  <Gloss text={diagramGloss} hint="그림 간글 — 핵심 차이·동작 한 줄, 40자 이내" />
+                  <Figure srcs={figs} lines={3} alt={`${bare} ${diagramLabel}`} spec={specs[0]} />
+                  <Gloss text={gl()} hint="그림 간글 — 핵심 차이·동작 한 줄, 40자 이내" />
                   <p>
                     나. {bare} {tableSubject(body.headers, body.caption)}
                   </p>
@@ -278,16 +323,8 @@ export default function AnswerTemplate({
           <>
             <p className="font-bold">1. {lead} 정의</p>
             <div className="pl-4">
-              {pairs.map((p, i) => (
-                <div key={p.name}>
-                  <p>
-                    {NO[i]}. {p.name} 정의: {p.def}
-                  </p>
-                  <p className="pl-4">
-                    특징: <Features f={p.features} />
-                  </p>
-                </div>
-              ))}
+              {/* 두 개념 — 왼쪽에 개념 이름, 오른쪽에 정의 1줄(V37: 특징 행 생략) */}
+              <DefTable rows={pairs.map((p, i): [string, ReactNode] => [pairNames[i] ?? p.name, p.def])} />
             </div>
             {pairs.slice(0, 2).map((p, i) => {
               const tb = ansTables.length >= 2 ? ansTables[i] : i === 0 ? ansTables[0] : undefined;
@@ -309,8 +346,9 @@ export default function AnswerTemplate({
                           srcs={figs.length >= 2 ? [figs[Math.min(i, figs.length - 1)]] : i === 0 ? figs : []}
                           lines={3}
                           alt={`${name} ${diagramLabel}`}
+                          spec={specs.length >= 2 ? specs[i] : i === 0 ? specs[0] : undefined}
                         />
-                        <Gloss text={i === 0 ? diagramGloss : undefined} hint="그림 간글 — 40자 이내" />
+                        <Gloss text={specs.length >= 2 ? specs[i]?.gloss : i === 0 ? gl() : undefined} hint="그림 간글 — 40자 이내" />
                         <p>나. {ansTables.length >= 2 ? name : bare} {tb ? tableSubject(tb.headers, tb.caption) : "구성요소"}</p>
                       </>
                     )}
@@ -351,18 +389,16 @@ export default function AnswerTemplate({
             <p className="font-bold">1. {lead}, 개념 비교</p>
             <div className="pl-4">
               <p>가. {pairNames.join("·") || bare} 정의</p>
-              {pairs.length ? (
-                pairs.map((p) => (
-                  <p key={p.name} className="pl-4">
-                    - {p.name}: {p.def}
-                  </p>
-                ))
-              ) : (
-                <p className="pl-4">{textbook.defShort}</p>
-              )}
+              <DefTable
+                rows={
+                  pairs.length
+                    ? pairs.map((p, i): [string, ReactNode] => [pairNames[i] ?? p.name, p.def])
+                    : [["정의", textbook.defShort]]
+                }
+              />
               <p>나. {pairNames.join("·") || bare} 개념도</p>
-              <Figure srcs={figs} lines={2} alt={`${bare} 개념도`} />
-              <Gloss text={diagramGloss} />
+              <Figure srcs={figs} lines={2} alt={`${bare} 개념도`} spec={specs[0]} />
+              <Gloss text={gl()} />
             </div>
             <p className="font-bold">2. {pairNames.join("와 ") || bare} 상세 비교</p>
             <div className="pl-4">
@@ -476,8 +512,8 @@ export default function AnswerTemplate({
           </p>
           <div className="pl-4">
             <p>가. {bare} {diagramLabel}</p>
-            <Figure srcs={figs} lines={6} alt={`${bare} ${diagramLabel}`} />
-            <Gloss text={diagramGloss} />
+            <Figure srcs={figs} lines={6} alt={`${bare} ${diagramLabel}`} spec={specs[0]} />
+            <Gloss text={gl()} />
             <p>
               나. {bare} {tableSubject(body.headers, body.caption)}
             </p>

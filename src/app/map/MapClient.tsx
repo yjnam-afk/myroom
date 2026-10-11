@@ -794,7 +794,7 @@ function MapView({ query, stats }: { query: string; stats: Record<string, TopicS
               <div className="mt-2 grid grid-cols-3 gap-1 text-center text-[11px]">
                 {[
                   ["📜 기출", st?.past ?? 0],
-                  ["📕 NS", st?.ns ?? 0],
+                  ["🛡️ NS", st?.ns ?? 0],
                   ["🏁 모의", st?.mock ?? 0],
                   ["✍️ 답안", st?.ans ?? 0],
                   ["📘 해설", st?.com ?? 0],

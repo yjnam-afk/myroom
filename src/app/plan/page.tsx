@@ -673,7 +673,7 @@ export default function PlanPage() {
                                 📖
                               </span>
                             )}
-                            {/* 출제 이력 — 🛡️ NS 주간 모의고사, 📕 기술사 기출. 자주·최근이면 붉게. */}
+                            {/* 출제 이력 — 🛡️NS 주간 모의고사, 📜기출 기술사 기출. 자주·최근이면 붉게. */}
                             <PastExamChip title={t.title} />
                             <ExamHistoryChip title={t.title} />
                             <Link
