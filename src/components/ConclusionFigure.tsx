@@ -6,7 +6,7 @@ const BH = 28;
 type Pos = { x: number; y: number };
 
 /**
- * 결론 4박스 그림(1교시 지침 V30 5-1) — 흑백 선 + 박스, 강조 박스 1개만 색.
+ * 결론 4박스 그림(1교시 지침 V31 5-1) — 흑백 선 + 박스, 강조 박스 1개만 색.
  * 박스 아래에는 역할 키워드 자리(4~5자)를 비워 둔다. 빈칸 라벨은 회색 〈 〉로 그린다.
  */
 export default function ConclusionFigure({ c }: { c: Conclusion }) {

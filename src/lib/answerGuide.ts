@@ -1,5 +1,8 @@
 /**
- * 답안 작성 지침(1교시 V30 · 2교시 4단락)을 토픽 답안지 템플릿에 옮긴 규칙.
+ * 답안 작성 지침(1교시 V31 · 2교시 4단락)을 토픽 답안지 템플릿에 옮긴 규칙.
+ *
+ * V31(2026-10-11): 3단락 = 차별화 단락 — 교재·2단락에 없는 차별화 요소(최신 기술·표준 / 정량 수치 /
+ * 실제 적용 사례 / 수험자 견해) 2개 이상. 결론 제목 「고려사항」 금지 → 패턴 7은 「적용 사례」.
  *
  * 2026-10-11 "답안지 탬플릿은 전혀… 지침 고려 안 했네" — 템플릿이 I/II/III 로마 숫자, 정의를 표로,
  * 결론 없이 「끝」이었다. 지침은 1교시 26줄 「답. → 1. 정의(가. 정의 2줄/나. 특징 1줄) →
@@ -58,17 +61,18 @@ export function pickConclusion(opts: {
   const body = opts.bodyCaption ?? "";
   // [토픽 유형, 1순위, 2순위]
   let row: [string, number, number];
-  if (isCompare(t)) row = ["비교형", 11, 7];
+  if (isCompare(t)) row = ["비교형", 11, 9];
   else if (pairs.length >= 2) row = ["「A와 B」 두 기법", 1, 8];
   else if (/ISO|IEC|IEEE|RFC|3GPP|802\.|Wi-?Fi|표준|Release/i.test(t)) row = ["표준·규격 기술", 2, 9];
   else if (/LLM|VLM|GPT|트랜스포머|Transformer|GAN|VAE|Diffusion|파운데이션|언어 ?모델|멀티모달|옴니모달/i.test(t))
     row = ["AI 모델·서비스 계보", 13, 10];
   else if (/가이드|지침|법|제도|정책|전략|인증|매뉴얼|고시/.test(t)) row = ["정책·전략", 12, 5];
   else if (course === "MG" || course === "PM") row = ["경영·관리 기법", 12, 10];
-  else if (/HTTP\/3|AI-RAN|O-RAN|IPv6|NewSQL|Wi-Fi|차세대|Hyper|Matter|TPU|CXL/i.test(t)) row = ["기존 기술의 개선판", 6, 9];
+  else if (/AI-RAN|NTN|비지상|O-RAN|특화망|위성|C-RAN|RAN Sharing/i.test(t)) row = ["국내외 상용화가 진행 중인 기술", 7, 2];
+  else if (/HTTP\/3|IPv6|NewSQL|Wi-Fi|차세대|Hyper|Matter|TPU|CXL/i.test(t)) row = ["기존 기술의 개선판", 6, 9];
   else if (/6G|ISAC|NTN|양자|에이전|Agent|Physical AI|AX|소버린|디지털 트윈|메타버스|블록체인/i.test(t))
     row = ["6G·AI 등 신기술", 5, 6];
-  else if (/QoS|보안|암호|인증|접근 ?통제|서명|DRM|워터마킹/.test(t) || course === "SC") row = ["QoS·보안 등 세부 기법", 8, 7];
+  else if (/QoS|보안|암호|인증|접근 ?통제|서명|DRM|워터마킹/.test(t) || course === "SC") row = ["QoS·보안 등 세부 기법", 8, 4];
   else if (/알고리즘|정렬|라우팅|해싱|탐색|순회|스케줄링|교체|트리|Tree|Sort|검증/i.test(t) || course === "AL" || course === "DS")
     row = ["알고리즘·라우팅", 4, 6];
   else if (/프로토콜|Protocol|TCP|UDP|IP|DNS|ARP|DHCP|SCTP|BGP|주소|CSMA|Handshak/i.test(t)) row = ["프로토콜 동작·주소 체계", 3, 4];
@@ -104,7 +108,8 @@ export function conclusionOf(no: number, o: { bare: string; pairs: string[]; kin
     case 6:
       return { no, kind, title: "기존 기술 대비 차별점", pattern: "beforeAfter", boxes: [P("기존 기술"), T, P("개선 효과 A"), P("개선 효과 B")], hi: 1 };
     case 7:
-      return { no, kind, title: "고려사항", pattern: "radial", boxes: [T, P("기술 측면"), P("관리 측면"), P("보안 측면")], hi: 0 };
+      // V31 — 「고려사항」 금지, 패턴 7은 적용 사례(사례 분기)
+      return { no, kind, title: "적용 사례", pattern: "branch", boxes: [T, P("기업 사례 A"), P("기관 사례 B"), P("국가 전략 C")], hi: 0 };
     case 8:
       return { no, kind, title: "상위 체계 내 위치", pattern: "contain", boxes: [T, P("형제 기술"), P("형제 기술"), P("형제 기술")], hi: 0 };
     case 9:

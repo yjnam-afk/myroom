@@ -60,8 +60,11 @@ function Closing({ c, hint }: { c: Conclusion; hint?: string }) {
   return (
     <>
       <ConclusionFigure c={c} />
+      <p className="pl-1 text-[11.5px] leading-6">
+        <Hole>차별화 단락(V31) — 주제 외 박스 2개 이상은 2단락에 없는 최신 기술·표준·사례명, 2단락 내용 재진술 금지</Hole>
+      </p>
       <p className="flex justify-between pl-1">
-        <Hole>{hint ?? "결론 간글 — 한계 → 해법 → 효과, 40자 이내, 박스 라벨 되풀이 금지"}</Hole>
+        <Hole>{hint ?? "결론 간글 — 한계 → 해법 → 효과, 정량 수치·견해 1개 이상, 40자 이내, 박스 라벨 되풀이 금지"}</Hole>
         <b>끝</b>
       </p>
     </>
@@ -111,7 +114,7 @@ export default function AnswerTemplate({
     </p>
   );
 
-  /* ─────────────── 1교시 (V30, 26줄) ─────────────── */
+  /* ─────────────── 1교시 (V31, 26줄) ─────────────── */
   if (period === 1) {
     const shape = shape1(textbook.title, pairs.length);
     // 2단락 표 — 구조형(구성·동작·기법…) 먼저. 근거형은 개념도 없이 표만(지침 2장)
@@ -223,7 +226,7 @@ export default function AnswerTemplate({
                         <span>
                           {tb?.gloss ?? ""}
                           <Hole>
-                            마지막 간글 = 결론 간글 — 한계 → 해법 → 효과, 새 정보 1개({c.title} 관점), 40자 이내
+                            마지막 간글 = 결론 간글 — 한계 → 해법 → 효과, 차별화 요소 2개 이상({c.title} 관점), 40자 이내
                           </Hole>
                         </span>
                         <b>끝</b>
@@ -283,7 +286,8 @@ export default function AnswerTemplate({
 
         {verify}
         <p className="text-[11.5px] leading-6 text-slate-500">
-          결론 선택: {shape === "2항목형" ? `2항목형 마지막 간글 (${c.kind} → ${c.title} 관점)` : `${c.kind} → ${c.title}`}
+          결론 선택: {shape === "2항목형" ? `2항목형 마지막 간글 (${c.kind} → ${c.title} 관점)` : `${c.kind} → ${c.title}`} / 차별화:{" "}
+          <Hole>최신 기술·표준 / 정량 수치 / 적용 사례 / 견해 중 2개</Hole>
         </p>
       </AnswerPaper>
     );
