@@ -62,6 +62,11 @@ export type SubnoteExtra = {
 
 /** topicId 가 없는 교재 전용 토픽의 제목 → 슬러그 (조회 시 정규화해서 비교) */
 const TITLE_SLUG: Record<string, string> = {
+  "데이터 가상화(Data Virtualization)": "db-data-virtualization",
+  "데이터패브릭(Data Fabric)": "db-data-fabric",
+  "데이터 메시(Data Mesh)": "db-data-mesh",
+  "데이터(웨어하우스, 레이크, 패브릭, 메시)": "db-warehouse-lake-fabric-mesh",
+  "빅데이터 시각화(Visualization)": "db-bigdata-visualization",
   "데이터 파운드리(Data Foundry)": "db-data-foundry",
   "데이터 리니지": "db-lineage",
   "ISO/IEC 11179": "db-iso11179",
@@ -624,6 +629,11 @@ const TITLE_SLUG: Record<string, string> = {
 };
 
 export const EXTRAS: Record<string, SubnoteExtra> = {
+"db-data-virtualization": { image: "/concept/book/db-data-virtualization.png" },
+"db-data-fabric": { image: "/concept/book/db-data-fabric.png" },
+"db-data-mesh": { image: "/concept/book/db-data-mesh.png" },
+"db-warehouse-lake-fabric-mesh": { image: "/concept/book/db-warehouse-lake-fabric-mesh.png" },
+"db-bigdata-visualization": { image: "/concept/book/db-bigdata-visualization.png" },
 "db-data-foundry": { image: "/concept/book/db-data-foundry.png" },
 "db-lineage": { image: "/concept/book/db-lineage.png" },
 "db-iso11179": { image: "/concept/book/db-iso11179.png" },
