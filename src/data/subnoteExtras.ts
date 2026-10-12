@@ -62,6 +62,10 @@ export type SubnoteExtra = {
 
 /** topicId 가 없는 교재 전용 토픽의 제목 → 슬러그 (조회 시 정규화해서 비교) */
 const TITLE_SLUG: Record<string, string> = {
+  "데이터 파운드리(Data Foundry)": "db-data-foundry",
+  "데이터 리니지": "db-lineage",
+  "ISO/IEC 11179": "db-iso11179",
+  "메타 데이터와 데이터 카탈로그": "db-metadata-catalog",
   "정보화 투자관리 가이드": "mg-it-investment-guide",
   "정보시스템 등급제": "mg-system-grade",
   "데이터 랭글링(Data Wrangling)": "db-wrangling",
@@ -620,6 +624,10 @@ const TITLE_SLUG: Record<string, string> = {
 };
 
 export const EXTRAS: Record<string, SubnoteExtra> = {
+"db-data-foundry": { image: "/concept/book/db-data-foundry.png" },
+"db-lineage": { image: "/concept/book/db-lineage.png" },
+"db-iso11179": { image: "/concept/book/db-iso11179.png" },
+"db-metadata-catalog": { image: "/concept/book/db-metadata-catalog.png" },
 "mg-it-investment-guide": { image: "/concept/book/mg-it-investment-guide.png" },
 "mg-system-grade": { image: "/concept/book/mg-system-grade.png" },
 "db-wrangling": { image: "/concept/book/db-wrangling.png" },
