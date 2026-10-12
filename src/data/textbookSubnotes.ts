@@ -18603,6 +18603,174 @@ export const SUBNOTES: TextbookSubnote[] = [
     ],
   },
   {
+    title: "빅데이터 시각화(Visualization)",
+    course: "DB",
+    // 2026-10-12 사용자가 붙여 준 NS 교재 46쪽
+    definition: "**빅데이터 분석 결과**를 쉽게 이해할 수 있도록 **시각적**으로 **표현**하여 전달하는 과정",
+    defShort: "빅데이터 분석 결과를 쉽게 이해하도록 시각적으로 표현해 전달하는 과정",
+    lead: "분석 결과의 직관적 전달, 빅데이터 시각화",
+    features: ["시각적 표현", "정보형·설득형", "유형별 기법"],
+    keywords: ["정보 구조화", "정보 시각화 특성 정의", "정보 시각화 표현", "시간 시각화", "분포 시각화", "관계 시각화", "비교 시각화", "공간 시각화"],
+    tables: [
+      {
+        caption: "빅데이터 시각화 절차",
+        headers: ["프로세스", "설명", "특징"],
+        nameCol: 0,
+        rows: [
+          ["정보 구조화", "수집·정제\n대상 발견/설정\n정보 구조화", "수집 및 탐색\n분류·배열·재배열"],
+          ["정보 시각화 특성 정의", "분석도구 특성\n기본 틀 설정", "시간·분포\n관계·비교\n공간 시각화"],
+          ["정보 시각화 표현", "시각 표현 극대화\n그래픽 요소 추가", "그래픽 7요소\n디자인 기본 원리\n디자인 7원칙"],
+        ],
+      },
+      {
+        caption: "빅데이터 시각화 기법",
+        headers: ["유형", "시각화 방법", "설명"],
+        rows: [
+          ["시간 시각화", "막대 그래프\n누적 막대 그래프\n점 그래프", "시간별 변화·트렌드 분석\n데이터 누적 변화 표현\n시간·값을 점으로 표현"],
+          ["분포 시각화", "파이 차트\n도넛 차트\n트리맵\n누적 연속 그래프", "원형으로 항목 크기 비교\n파이 차트 변형\n계층 사각형 크기 비교\n누적 값을 축 기준 표현"],
+          ["관계 시각화", "스캐터플롯\n버블 차트\n히스토그램", "변수 간 상관관계 분석\n점 크기·색상 활용\n구간별 빈도로 분포 분석"],
+          ["비교 시각화", "히트맵\n스타 차트\n평행 좌표계\n다차원 척도법", "색상으로 비교·패턴 파악\n중심축 기준 표현·비교\n선 연결로 변수 관계\n저차원 공간에서 비교"],
+          ["공간 시각화", "지도 맵핑", "지역별 특성·현황 표현"],
+        ],
+      },
+    ],
+    notes: ["개념도: 정보디자인(정보형 메시지 ↔ 설득형 메시지) — 데이터 시각화 · 정보 시각화 · 인포그래픽이 겹치는 영역이 빅데이터 시각화"],
+  },
+  {
+    title: "데이터(웨어하우스, 레이크, 패브릭, 메시)",
+    course: "DB",
+    // 2026-10-12 NS 교재 47쪽 — 정의 칸은 비어 있고 표에 네 정의가 있다
+    definition:
+      "[데이터 웨어하우스] 사용자의 의사 결정 위하여, **기간시스템**의 데이터베이스에 **축적된 데이터**를 **공통의 형식**으로 **변환**해서 관리하는 일관된 **중앙 집중식 단일 데이터 저장소** / [데이터 레이크] 대규모의 다양한 **원시 데이터** 세트를 기본 형식으로 **저장**하는 **데이터 저장소** / [데이터패브릭] 데이터 사일로 해결, 분산된 다양한 **데이터** 소스를 **통합**하고, 일관된 데이터 **관리**와 **실시간 분석**을 가능하게 하는 **아키텍처** 또는 **접근 방식** / [데이터 메시] 데이터를 중앙 집중적으로 관리하는 기존 방식에서 벗어나, 개별 도메인(team)이 **자체**적으로 **데이터**를 **소유**하고 **운영**하도록 설계된 **분산형 데이터 관리 아키텍처**",
+    defShort: "축적 데이터를 공통 형식으로 변환해 관리하는 중앙 집중식 단일 저장소",
+    lead: "데이터 저장·관리 아키텍처의 진화",
+    features: ["중앙→분산", "형식→원시", "통합 접근"],
+    defPair: [
+      { name: "데이터 웨어하우스", lead: "공통 형식의 중앙 저장소", def: "기간시스템 축적 데이터 공통 형식 변환한 중앙 집중식 단일 저장소", features: ["공통 형식", "중앙 집중", "정형 데이터"] },
+      { name: "데이터 레이크", lead: "원시 데이터의 저장소", def: "대규모의 다양한 원시 데이터 세트를 기본 형식으로 저장하는 저장소", features: ["원시 데이터", "기본 형식", "높은 민첩성"] },
+      { name: "데이터패브릭", lead: "분산 소스의 통합", def: "분산된 데이터 소스 통합해 관리·실시간 분석 가능케 하는 아키텍처", features: ["소스 통합", "실시간 분석", "중앙 집중식"] },
+      { name: "데이터 메시", lead: "도메인의 자체 소유", def: "개별 도메인이 데이터를 자체 소유·운영하는 분산형 데이터 관리 구조", features: ["탈중앙화", "조직 중심", "제품형 데이터"] },
+    ],
+    keywords: ["데이터 웨어하우스-공통의 형식", "데이터 레이크-원시데이터", "데이터 패브릭-소스통합", "데이터메시-분산형 데이터 관리"],
+    tables: [
+      {
+        caption: "데이터 레이크와 데이터 웨어하우스의 비교",
+        headers: ["구분", "데이터 레이크", "데이터 웨어하우스"],
+        nameCol: [1, 2],
+        rows: [
+          ["데이터 종류", "정형/반정형/비정형 데이터", "정형 데이터"],
+          ["저장", "데이터 형식 관계없이 Raw Data로 저장", "사전에 정의된 데이터 형식으로 저장"],
+          ["사용자", "Data Scientist / Data Analyst", "Business 전문가"],
+          ["활용방안", "머신러닝, 빅데이터 분석 등", "정기 리포트, Business Intelligence, 시각화 등"],
+          ["저장비용", "저비용", "대용량의 경우 고비용"],
+          ["민첩성", "자유로운 변경 가능, 민첩성 높음", "고정된 형태로 민첩성 낮음"],
+        ],
+      },
+      {
+        caption: "데이터 웨어하우스, 레이크, 패브릭의 진화 과정",
+        headers: ["구분", "데이터 웨어하우스(1995~)", "데이터 레이크(2011~)", "빅데이터 패브릭(2018~)"],
+        nameCol: [1, 2, 3],
+        rows: [
+          ["주요", "고가의 Unix 서버 + RDBMS\n내부 정형 데이터 중심\nSchema on Write\n테라바이트 규모", "저가의 Linux 서버 + Hadoop/NoSQL\n내외부 정형/비정형 데이터\nSchema on Read\n페타바이트 규모 이상, 머신러닝·딥러닝·시각화", "데이터웨어하우스와 데이터레이크 포괄\n데이터 거버넌스, 데이터 가상화\n실시간, 인메모리, IOT\n인공지능 분석(AI)"],
+        ],
+      },
+    ],
+    notes: ["데이터패브릭: 중앙집중식, 기술중심, 분산되지 않는 소유권, 부산물로서의 데이터 / 데이터 메시: 탈중앙화, 조직중심, 분산된 소유권, 제품형데이터"],
+  },
+  {
+    title: "데이터패브릭(Data Fabric)",
+    course: "DB",
+    definition: "데이터 **저장 위치에 관계없이 적시**에 올바른 **데이터에 액세스**할 수 있도록 지원하는 프레임워크",
+    defShort: "데이터 저장 위치 관계없이 적시에 올바른 데이터 액세스 지원 프레임워크",
+    lead: "격리된 데이터의 연결, 데이터패브릭(Data Fabric)",
+    features: ["위치 무관", "적시 액세스", "사일로 해소"],
+    keywords: ["격리된 데이터", "위치에 관계 없는 데이터 액세스", "데이터 카탈로그", "메타데이터", "추천 엔진", "DataOps"],
+    tables: [
+      {
+        caption: "데이터패브릭(Data Fabric)의 구성 요소",
+        headers: ["Layer", "구성 요소", "역할"],
+        nameCol: 1,
+        rows: [
+          ["Data Consumer", "⑥ 오케스트레이션 및 DataOps", "Pipeline 생성\n액세스 지원"],
+          ["Data Consumer", "⑤ 데이터 준비 및 전달", "분산 소스\n자동화 수집 전송"],
+          ["Data Consumer", "④ 추천 엔진", "데이터 세트 결정\n워크로드 분배"],
+          ["Data Source", "③ 메타데이터 활성화", "거버넌스 적용\n메타데이터 관리"],
+          ["Data Source", "② 시맨틱(semantic) 지식 그래프", "엔티티 관계\n그래프 표현"],
+          ["Data Source", "① 증강 데이터 카탈로그", "쿼리 가능한\n액세스 경로 설정"],
+        ],
+      },
+    ],
+    notes: [
+      "개념도: 서로 격리된 데이터(Cloud Service Provider·Hybrid Cloud Service Provider·Private Cloud 가 연결되지 않고 단절된 형태) → 데이터 패브릭(Data Fabric)으로 연결",
+      "아키텍처(Data Sources → Data Consumers): ① Augmented Data Catalog(데이터 카탈로그) → ② Semantics Knowledge Graph(데이터 검색) → ③ Metadata Activation(메타데이터) → ④ Recommendation Engine(추천엔진) → ⑤ Data Preparation and Data Integration(자동 수집) → ⑥ Data Ops(Data Pipeline)",
+    ],
+  },
+  {
+    title: "데이터 메시(Data Mesh)",
+    course: "DB",
+    definition:
+      "빅데이터 분석 시스템의 아키텍처 스타일로, 마이크로 서비스 아키텍처 컨셉과 유사하게 데이터 분석 시스템을 각각의 **분산된 서비스 형태로 개발 관리**하는 아키텍처 모델",
+    defShort: "MSA처럼 데이터 분석 시스템을 분산된 서비스 형태로 개발 관리하는 모델",
+    lead: "도메인 중심 분산 분석, 데이터 메시(Data Mesh)",
+    features: ["도메인 소유", "제품형 데이터", "연합 거버넌스"],
+    keywords: ["Self-Serve Data Platform", "Federated Governance", "Data Product", "Analytical Data", "Domain Ownership", "Data As A Product", "Federated Computational Governance"],
+    tables: [
+      {
+        caption: "Data Mesh Architecture의 네 가지 원칙",
+        headers: ["원칙", "설명"],
+        rows: [
+          ["Domain Ownership", "도메인 기준 소유권 나눔\n운영 API·분석 데이터 제공"],
+          ["Data As A Product", "분석데이터를 Product로 취급\n도메인에서 제공"],
+          ["Self-Serve Data Platform", "Data Product 개발·운영\n수명주기 프로비저닝 및 관리"],
+          ["Federated Computational Governance", "플랫폼 의사 결정 자동화\n거버넌스 모델"],
+        ],
+      },
+      {
+        caption: "데이터 메시(Data Mesh)의 구성 요소",
+        headers: ["구분", "구성요소", "설명"],
+        rows: [
+          ["Architecture", "Domain", "도메인 팀이 데이터 오너십\nData Product 생성 및 공유"],
+          ["Architecture", "Self-Serve Data Platform", "셀프 서비스 분석 기능\nData Product 생성 기능 플랫폼"],
+          ["Architecture", "Federated Governance", "상호운용성·문서표준화·보안\n프라이버시·컴플라이언스 정책"],
+          ["Domain", "Operational Data", "비즈니스 도메인 운영 데이터"],
+          ["Domain", "Analytical Data", "ingest·cleaning 후 분석"],
+          ["Domain", "Data Product", "API 등으로 접근 가능한 데이터 셋"],
+        ],
+      },
+    ],
+    notes: ["아키텍처: Domain 들이 서로 연결(Self-Serve Data Platform · Federated Governance 기반) / 도메인 구성: Operational Data —ingest→ Analytical Data(Analytics execute) —publish→ Data Product"],
+  },
+  {
+    title: "데이터 가상화(Data Virtualization)",
+    course: "DB",
+    definition:
+      "애플리케이션이 데이터 접근 시 데이터 형식, 저장 위치 등 세부적 기술 요구 없이 데이터를 검색 및 수정할 수 있고, **전체 데이터에 대한 통일된 뷰** 등을 제공하는 **단일 데이터 액세스** 계층",
+    defShort: "형식·위치 몰라도 검색·수정, 통일된 뷰 제공하는 단일 데이터 액세스 계층",
+    lead: "이동 없는 통합 접근, 데이터 가상화(Data Virtualization)",
+    features: ["이동 불필요", "가상 View", "단일 액세스"],
+    keywords: ["단일 데이터 엑세스(Layer)", "가상 View", "데이터 이동(복제) 없이"],
+    tables: [
+      {
+        caption: "데이터 가상화 아키텍처",
+        headers: ["계층", "구성"],
+        rows: [
+          ["Data Sources", "SQL and NoSQL Databases\nIoT Devices\nSocial media and Websites\nFlat Files and Spreadsheets"],
+          ["Abstraction Layer", "Virtual View\nData CatLog, Caching, Meta Data"],
+          ["Data Consumers", "BI Tools, Direct Users\nApplications, Meta Data"],
+        ],
+      },
+      {
+        caption: "물리적 데이터 레이크와 데이터 가상화 비교",
+        headers: ["구분", "내용"],
+        rows: [
+          ["물리적 데이터 레이크 이슈", "1. 데이터 이동 비용\n2. 데이터 동기화 비용\n3. OLD/유사 데이터 공간 낭비 비용\n4. 민감정보 복호화 이슈"],
+          ["Logical Data Lake(데이터 가상화)", "On-Demand 실시간 데이터 수집\n통제된 민감정보 복호화 환경\n불필요한 데이터 저장 공간 제거\nJDBC I/F ANSI-SQL·RESTAPI 지원"],
+        ],
+      },
+    ],
+    notes: ["데이터 이동 없이 가상 Table & 가상 View를 필요한 상황에 맞게 제공"],
+  },
+  {
     title: "데이터 레이크하우스(Data Lakehouse)",
     course: "DB",
     definition:
@@ -18889,6 +19057,146 @@ export const SUBNOTES: TextbookSubnote[] = [
     notes: ["법적 근거: 데이터 산업진흥 및 이용촉진에 관한 기본법(데이터 기본법) 14조, 동법 시행령 14조~16조, 동법 시행규칙 2, 3조", "금액 및 등급 산출의 핵심변수 [경할기]: 데이터 경제적 수명, 할인율, 데이터 기여도"],
   },
   {
+    title: "메타 데이터와 데이터 카탈로그",
+    course: "DB",
+    // 2026-10-12 NS 교재 58쪽 「메타데이터(Metadata)와 데이터 카탈로그(Data Catalog)」
+    definition:
+      "[메타데이터] **데이터를 설명하는 데이터** / [데이터 카탈로그] 데이터 자산의 인벤토리를 구축하고, 다양한 **메타데이터를 연결해 검색·이해·협업을 지원**하는 실행 플랫폼",
+    defShort: "데이터를 설명하는 데이터",
+    lead: "데이터 자산의 설명과 검색",
+    features: ["설명 데이터", "자산 인벤토리", "검색 통합"],
+    defPair: [
+      { name: "메타데이터", lead: "데이터의 설명", def: "데이터를 설명하는 데이터", features: ["기술 메타", "구조 메타", "관리 메타"] },
+      { name: "데이터 카탈로그", lead: "데이터 자산의 검색", def: "데이터 자산 인벤토리 구축, 메타데이터 연결해 검색·이해·협업 지원 플랫폼", features: ["자산 인벤토리", "검색 통합", "협업 지원"] },
+    ],
+    keywords: ["기술 메타데이터", "구조 메타데이터", "관리 메타데이터", "메타데이터 연결 및 검색 통합"],
+    tables: [
+      {
+        caption: "메타데이터 요소",
+        headers: ["구분", "항목", "설명"],
+        rows: [
+          ["유형", "기술 메타데이터", "정보자원 검색 목적\n기술 대상 기록 검색"],
+          ["유형", "구조 메타데이터", "복합 디지털 객체 묶어\n관계를 보여줌"],
+          ["유형", "관리 메타데이터", "접근 권한·버전·사용 기록\n배포 이력 등 관리"],
+          ["종류", "Marc", "도서 레코드 위한 기계 가독형 목록"],
+          ["종류", "Dublin Core", "ISO 15836 표준 요소 집합"],
+          ["종류", "RDF", "기계가 이해할 수 있는 메타데이터"],
+          ["종류", "Ontology", "용어 사이의 관계를 정의한 사전"],
+          ["종류", "URN", "정보자원의 고유한 이름"],
+          ["종류", "XMI", "MOF에서 XML로 매핑 위한 표준"],
+        ],
+      },
+      {
+        caption: "데이터 카탈로그 유형 및 기능",
+        headers: ["구분", "항목", "설명"],
+        rows: [
+          ["유형", "운영 카탈로그", "인프라 기술적 측면·액세스 관리"],
+          ["유형", "비즈니스 카탈로그", "사용자 대면 경험\n비즈니스 컨텍스트"],
+          ["핵심 기능", "메타데이터 관리", "메타 데이터 구성 및 유지"],
+          ["핵심 기능", "검색 및 탐색", "데이터 자산 검색, 플랫폼 별 탐색"],
+          ["핵심 기능", "데이터 리니지", "데이터 추적 기능"],
+          ["핵심 기능", "데이터 거버넌스 통합", "조직 정책 및 절차와 연결"],
+          ["핵심 기능", "데이터 분류 및 태그 지정", "분류·레이블 지정\n검색 및 보안 제어 유리"],
+          ["핵심 기능", "협업 및 비즈니스 도구", "표준화된 정의 및 도구 제공"],
+        ],
+      },
+      {
+        caption: "데이터 카탈로그 기술",
+        headers: ["구분", "핵심 기술"],
+        rows: [
+          ["메타데이터 자동 수집", "스크래핑(scraping) 도구의 활용\n데이터 인터페이스 연동\n변경 사항 감지 기능"],
+          ["데이터 계보 확인", "데이터 흐름 시각화\nSchema 변경 이력 저장\n데이터소스 간 연결"],
+          ["통합 검색", "다중 소스 검색 엔진\n자연어 처리 기능\n검색 결과 필터링"],
+          ["데이터 분류", "자동 태깅 메커니즘\n사용자 정의 분류 기준 설정\n계층적 분류 체계 구축"],
+        ],
+      },
+    ],
+    notes: ["메타데이터와 데이터 카탈로그 관계: Data Dicionary(Metadata — Name, Data Ownership, Definition, Certified, Access, Last Modified) Vs Data Catalog(Manage Library of Data Assets) — 데이터 카탈로그는 메타데이터(데이터사전)와 다르게 정보 검색 및 검색 기능, 메타데이터 등 메타데이터를 구성요소로 가짐"],
+  },
+  {
+    title: "ISO/IEC 11179",
+    course: "DB",
+    definition:
+      "**메타데이터 레지스트리(Metadata Registry; MDR)**라는 메타데이터 관리시스템을 활용하여 **메타데이터**를 **명명·식별·관리**하는 **방법**에 대한 권고안(국제 표준)",
+    defShort: "MDR 활용해 메타데이터를 명명·식별·관리하는 방법에 대한 국제 표준",
+    lead: "메타데이터 레지스트리 표준, ISO/IEC 11179",
+    features: ["MDR 기반", "명명·식별", "6개 Part"],
+    keywords: ["메타데이터 레지스트리(MDR)", "Framework", "Classification", "Registry Meta model and Basic Attribute", "Formulation of Data Definition", "Naming and Identification", "Registration", "Metamodel for data set registration"],
+    tables: [
+      {
+        caption: "ISO/IEC 11179 표준의 구조",
+        headers: ["주요 내용", "설명"],
+        rows: [
+          ["Framework (PART 1)", "6개 표준들의 유기적 관계"],
+          ["Classification (PART 2)", "MDR 관리항목 분류\n객체 클래스·속성·표현·값 영역"],
+          ["Registry Meta model and Basic Attribute (PART 3)", "MDR의 메타모형과 기본속성"],
+          ["Formulation of Data Definition (PART 4)", "데이터요소의 정형화 규칙과 지침\n정의 필수요건 및 권고요건"],
+          ["Naming and Identification (PART 5)", "관리항목에 이름·식별자 부여"],
+          ["Registration (PART 6)", "MDR 등록대상 정보 종류\n등록의 조건과 절차"],
+          ["Metamodel for data set registration (PART 7)", "데이터 및 정보의 적절한 사용\n작업의 중복 방지"],
+        ],
+      },
+      {
+        caption: "ISO/IEC 11179 PART 3 확장",
+        headers: ["Part", "내용"],
+        nameCol: 1,
+        rows: [
+          ["Part 30", "Basic attributes of metadata"],
+          ["Part 31", "Metamodel for data specification registration"],
+          ["Part 32", "Metamodel for concept system registration"],
+          ["Part 33", "Metamodel for data set registration"],
+          ["Part 34", "Metamodel for computable data registration"],
+          ["Part 35", "Metamodel for model registration"],
+        ],
+      },
+    ],
+    notes: ["메타데이터 등록 사례: 연구보고서_언어_코드(report_language_code) — 항목 식별자 RDDE001100(Part 5 명명과 식별), 정의(Part 4), 분류체계명(Part 2), 값영역 ISO 639-2·값 최대길이 3·등록 상태 RECORDED·제출 기관명(Part 3 기본 속성·메타모델)"],
+  },
+  {
+    title: "데이터 리니지",
+    course: "DB",
+    definition: "데이터를 처음 생성하거나 **수집한 시점부터 최종적으로 활용되는 지점까지의 흐름과 변환 과정을 추적**하는 작업",
+    defShort: "데이터 수집 시점부터 최종 활용 지점까지 흐름과 변환 과정 추적 작업",
+    lead: "데이터 흐름의 계보 추적, 데이터 리니지",
+    features: ["흐름 추적", "계보 생성", "규제 대응"],
+    keywords: ["계보", "ETL/ELT 프로세스 추적", "메타데이터 관리", "데이터 카탈로그", "자동화 도구", "시각화 도구"],
+    tables: [
+      {
+        caption: "기본 구성",
+        headers: ["구성 요소", "설명"],
+        rows: [
+          ["데이터 출처(Source)", "데이터가 생성된 위치나 시스템"],
+          ["데이터변환(Transformation)", "처리 방식 및 변환 규칙"],
+          ["데이터 경로(Path)", "이동하는 시스템 간 연결 관계"],
+          ["데이터 종착지(Destination)", "최종 저장되거나 분석되는 위치"],
+          ["메타데이터(Metadata)", "흐름 관련 속성 및 시간 정보"],
+        ],
+      },
+      {
+        caption: "기술 요소",
+        headers: ["핵심 기술", "설명"],
+        rows: [
+          ["ETL/ELT 프로세스 추적", "추출·변환·로드 과정 흐름 기록"],
+          ["메타데이터 관리", "속성·위치·변경 내역 저장·활용"],
+          ["데이터 카탈로그", "출처·사용 현황 구조화 제공"],
+          ["자동화 도구", "Apache Atlas, Collibra, Talend\n리니지 추적 솔루션 활용"],
+          ["시각화 도구", "다이어그램·그래프 형태 표현"],
+        ],
+      },
+      {
+        caption: "기대 효과",
+        headers: ["구분", "효과", "설명"],
+        nameCol: 1,
+        rows: [
+          ["투명성", "시각적 추적으로 이해도 향상", "흐름 시각적 추적\n명확한 이해 가능"],
+          ["신뢰성", "인공지능 모델 신뢰성 향상", "분석·AI/ML 모델\n결과 신뢰도 확보"],
+          ["규제", "표준 및 규제 준수", "GDPR, CCPA 등\n보호 규제 요구 충족"],
+        ],
+      },
+    ],
+    notes: ["개념도: Source → (변환규칙) DB A → ETL → DB B → ETL → DB C(Target), Source → DB D — Data 흐름/리니지/계보", "데이터가 어떻게, 어디서, 어떤 방식으로 이동하고 가공되었는지를 시각적으로 이해하고 관리할 수 있도록 계보를 생성하기 위한 활동"],
+  },
+  {
     title: "DaaP(Data as a product)",
     course: "DB",
     definition:
@@ -18933,6 +19241,46 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
     ],
     notes: ["기출: 2025.11 ITPE 모의고사 3교시", "개념도(계층): Consumer Layer(데이터소비자: BI, AI모델, 앱, API 사용자 등) ↔ Data Product Layer(데이터제품: 데이터셋+메타데이터+품질지표, API 제공, SLA보장, Owner 지정) ↔ Data Platform Layer(데이터플랫폼&거버넌스: 표준화된 저장소, 거버넌스, CI/CD, 메타데이터관리, 접근제어, 모니터) ↔ Source Layer(원천 데이터: 트랜잭션DB, Log, IoT센서 등)"],
+  },
+  {
+    title: "데이터 파운드리(Data Foundry)",
+    course: "DB",
+    definition:
+      "**다양한 원천 수집 및 정제 라벨링을 검증**하여 인공지능 학습과 산업 활용이 가능한 **고품질 데이터**로서 국가 산업 차원의 데이터 제조 근간이 되는 체계",
+    defShort: "원천 수집·정제 라벨링 검증해 AI 학습 가능한 고품질 데이터 제조 체계",
+    lead: "AI 학습 데이터 제조, 데이터 파운드리(Data Foundry)",
+    features: ["데이터 제조", "라벨링 검증", "국가 산업"],
+    keywords: ["수집", "표준화", "메타데이터", "라벨링", "멀티모달", "데이터 증강", "접근 제어", "소버린 클라우드", "개인정보 가명 익명화"],
+    tables: [
+      {
+        caption: "구성 요건",
+        headers: ["구성 요건", "주요 기능", "핵심 내용"],
+        nameCol: [1, 2],
+        rows: [
+          ["① 데이터 수집/통합", "다양한 로우 데이터 확보", "분산 데이터를 한 곳에 모아\n통일된 형식으로 변환\n대규모 데이터 풀 구축"],
+          ["② 데이터 전처리/정제", "노이즈 제거 및 품질 향상", "중복 제거·오류 수정·형식 통일\n일관성 있는 학습용 데이터 가공"],
+          ["③ 데이터 라벨링/주석", "전문가/크라우드 라벨 부착", "물체 표시·의미 태깅\n지도학습용 데이터 생성"],
+          ["④ 데이터 저장/관리", "체계적 보관 및 버전 관리", "대용량 데이터 안전 저장\n수정 이력 관리로 재현 가능"],
+          ["⑤ 데이터 품질/거버넌스", "지속적 품질 검증 및 보안", "정확성·신뢰성 지속 점검\n개인정보 보호·접근 권한 관리"],
+        ],
+      },
+      {
+        caption: "기술 요소",
+        headers: ["구분", "기술요소", "설명"],
+        rows: [
+          ["데이터 처리·품질", "데이터 수집·ETL", "출처 데이터 추출·변환·적재\n통합 ETL 파이프라인 기술"],
+          ["데이터 처리·품질", "표준화·메타데이터", "불필요 데이터 제거\n품질 저하 요인 최소화"],
+          ["데이터 처리·품질", "메타데이터·표준 스키마", "데이터 카탈로그화\n상호운용성 확보"],
+          ["데이터 처리·품질", "품질 관리 엔진(QA)", "이상치 탐지·결측치 보정\n데이터 품질 등급 부여"],
+          ["AI 학습 데이터셋 구축", "라벨링 자동화", "크라우드소싱·AI 보조 라벨링\n휴먼 검증 혼합 방식"],
+          ["AI 학습 데이터셋 구축", "멀티모달", "이미지·텍스트·음성 다양화"],
+          ["AI 학습 데이터셋 구축", "데이터 증강", "이미지·텍스트·음성 생성"],
+          ["거버넌스", "사용 추적·접근 제어", "불균형 데이터셋 보완\n편향 제거로 사용성 증대"],
+          ["거버넌스", "Sovereign Cloud", "국가 데이터 주권 보장\nDaaS 제공"],
+          ["거버넌스", "개인정보 가명·익명화", "클라우드-온프레미스 혼합\n글로벌 데이터센터 연동"],
+        ],
+      },
+    ],
   },
   {
     title: "연관성 분석(association analysis) - 데이터마이닝",
