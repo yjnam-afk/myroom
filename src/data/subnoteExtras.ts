@@ -62,6 +62,11 @@ export type SubnoteExtra = {
 
 /** topicId 가 없는 교재 전용 토픽의 제목 → 슬러그 (조회 시 정규화해서 비교) */
 const TITLE_SLUG: Record<string, string> = {
+  "데이터 랭글링(Data Wrangling)": "db-wrangling",
+  "정형/비정형 데이터 마이닝": "db-structured-mining",
+  "데이터 클렌징(Cleansing)": "db-cleansing",
+  "데이터 전처리": "db-preprocessing",
+  "데이터 품질관리(ISO 8000)": "db-quality-iso8000",
   "이레이저 코딩(erasure coding)": "erasure-coding",
   "지능형 반도체": "intelligent-semiconductor",
   "메모리 단편화(Fragmentation)": "memory-fragmentation",
@@ -613,6 +618,11 @@ const TITLE_SLUG: Record<string, string> = {
 };
 
 export const EXTRAS: Record<string, SubnoteExtra> = {
+"db-wrangling": { image: "/concept/book/db-wrangling.png" },
+"db-structured-mining": { image: "/concept/book/db-structured-mining.png" },
+"db-cleansing": { image: "/concept/book/db-cleansing.png" },
+"db-preprocessing": { image: "/concept/book/db-preprocessing.png" },
+"db-quality-iso8000": { image: "/concept/book/db-quality-iso8000.png" },
   "chaos-test": {
     guide: {
       hook: "멀쩡한 건물에 일부러 불난 상황을 만들어 보는 소방 훈련 같은 테스트입니다.",
