@@ -62,6 +62,8 @@ export type SubnoteExtra = {
 
 /** topicId 가 없는 교재 전용 토픽의 제목 → 슬러그 (조회 시 정규화해서 비교) */
 const TITLE_SLUG: Record<string, string> = {
+  "정보화 투자관리 가이드": "mg-it-investment-guide",
+  "정보시스템 등급제": "mg-system-grade",
   "데이터 랭글링(Data Wrangling)": "db-wrangling",
   "정형/비정형 데이터 마이닝": "db-structured-mining",
   "데이터 클렌징(Cleansing)": "db-cleansing",
@@ -618,6 +620,8 @@ const TITLE_SLUG: Record<string, string> = {
 };
 
 export const EXTRAS: Record<string, SubnoteExtra> = {
+"mg-it-investment-guide": { image: "/concept/book/mg-it-investment-guide.png" },
+"mg-system-grade": { image: "/concept/book/mg-system-grade.png" },
 "db-wrangling": { image: "/concept/book/db-wrangling.png" },
 "db-structured-mining": { image: "/concept/book/db-structured-mining.png" },
 "db-cleansing": { image: "/concept/book/db-cleansing.png" },
