@@ -62,6 +62,7 @@ export type SubnoteExtra = {
 
 /** topicId 가 없는 교재 전용 토픽의 제목 → 슬러그 (조회 시 정규화해서 비교) */
 const TITLE_SLUG: Record<string, string> = {
+  "한국형 데이터 스페이스(K-Data Space)": "db-k-data-space",
   "데이터 가상화(Data Virtualization)": "db-data-virtualization",
   "데이터패브릭(Data Fabric)": "db-data-fabric",
   "데이터 메시(Data Mesh)": "db-data-mesh",
@@ -629,6 +630,7 @@ const TITLE_SLUG: Record<string, string> = {
 };
 
 export const EXTRAS: Record<string, SubnoteExtra> = {
+"db-k-data-space": { image: "/concept/book/db-k-data-space.png" },
 "db-data-virtualization": { image: "/concept/book/db-data-virtualization.png" },
 "db-data-fabric": { image: "/concept/book/db-data-fabric.png" },
 "db-data-mesh": { image: "/concept/book/db-data-mesh.png" },

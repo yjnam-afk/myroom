@@ -25447,6 +25447,75 @@
  },
  {
   "id": "sn-460",
+  "title": "한국형 데이터 스페이스(K-Data Space)",
+  "category": "데이터베이스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "**데이터 주권, 상호운용성, 신뢰 기반 데이터 교환**을 보장하는 연합형·분산형 데이터 공유 체계",
+  "defShort": "데이터 주권·상호운용성·신뢰 기반 데이터 교환 보장 연합형·분산형 공유 체계",
+  "memo": "구성도: 데이터 제공자(공공기관/기업/개인) → 데이터 제공 → K-Data Space(데이터 주권·상호운용성·신뢰 기반 데이터 교환) — 1. 거버넌스 계층(데이터 주권 보장, 합의 기반 거버넌스, 연합형·분산형 구조, 규칙·정책·표준 관리) / 2. 비즈니스 계층(활용 사례(Use Case), 접근권한 및 정책 관리, 데이터 제품·서비스 제공, 가치 창출 및 인센티브, 계약·정산 및 거래 관리) / 3. 기술 계층(데이터 등록·탐색·전송, 연계(Connector) 및 API, 메타데이터(DCAT) 관리, 신원·신뢰(DID/VC) 관리, 정책(ODRL) 자동 집행, 이력·정산(Clearing House), 전자결제·NFT 기반 거래) / 공통 인프라 및 보안(분산 인프라·보안·암호화·접근통제·로그 관리) → 정책·신뢰 기반 데이터 교환 → 데이터 활용자(기업/연구기관/서비스 제공자) → AI·데이터 분석/서비스 개발 → AI·디지털 서비스 창출",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "데이터 주권",
+     "상호운용성",
+     "연합형 구조",
+     "신뢰 기반 교환",
+     "거버넌스 계층",
+     "비즈니스 계층",
+     "기술 계층"
+    ]
+   },
+   {
+    "label": "등장배경",
+    "mnemonic": "",
+    "keywords": [
+     "AX 확산",
+     "데이터 사일로",
+     "데이터 주권",
+     "글로벌 대응"
+    ]
+   },
+   {
+    "label": "한국형 데이터 스페이스 구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "연합형 및 분산형 구조",
+     "신뢰성, 보안 및 투명성",
+     "거버넌스 유연성 및 자율성",
+     "도메인별 Use Case 개발",
+     "참여자 등록 및 계약 관리",
+     "접근 권한 및 정책 설정",
+     "데이터 제품·서비스 제공",
+     "표준 API, 데이터 커넥터",
+     "ID 및 신뢰 관리",
+     "정책·계약 관리 모듈"
+    ]
+   },
+   {
+    "label": "해외 운영모델 비교",
+    "mnemonic": "",
+    "keywords": [
+     "중점",
+     "특징"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "데이터 주권",
+   "상호운용성",
+   "연합형 구조",
+   "신뢰 기반 교환",
+   "거버넌스 계층",
+   "비즈니스 계층",
+   "기술 계층"
+  ]
+ },
+ {
+  "id": "sn-461",
   "title": "데이터 파운드리(Data Foundry)",
   "category": "데이터베이스",
   "importance": "중",
@@ -25512,7 +25581,77 @@
   ]
  },
  {
-  "id": "sn-461",
+  "id": "sn-462",
+  "title": "데이터 상호운용성과 데이터 이동권",
+  "category": "데이터베이스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "[데이터 상호운용성(Data Interoperability)] 서로 다른 시스템 간 **데이터의 교환·공유·활용**을 위해 의미와 구조를 동일하게 해석할 수 있는 능력 / [데이터 이동권(Right to Data Portability)] **정보주체**가 자신의 데이터를 다른 사업자에게 **직접 전송하거나 이전을 요구**할 수 있는 권리",
+  "defShort": "시스템 간 데이터 교환·공유·활용 위해 의미·구조 동일 해석하는 능력",
+  "memo": "개념도: 1. 데이터 소스(내부·외부·공공 데이터, IoT/로그) —수집·연계(연결, ETL, 데이터 수집)→ 2. 데이터 표준화(XML/JSON/API — 데이터 모델링, 표준 포맷 변환, 메타데이터 관리, API 표준화) —표준 적용→ 3. 데이터 상호운용성(기술·구문·의미·조직) —상호운용 확보→ 4. 데이터 이동권(MyData/API — 본인 인증, 전송 요청, 데이터 추출, 표준 전송(API), 검증 및 완료) —안전한 이전→ 5. AI 서비스(AI 학습 데이터, 분석·예측, 개인화 서비스, 혁신 서비스), 피드백·모니터링·지속적 개선",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "MDR",
+     "Metadata",
+     "API",
+     "JSON",
+     "XML",
+     "MyData"
+    ]
+   },
+   {
+    "label": "등장배경",
+    "mnemonic": "",
+    "keywords": [
+     "AI 활용 확대",
+     "데이터 주권 강화",
+     "개방형 데이터 생태계"
+    ]
+   },
+   {
+    "label": "특징",
+    "mnemonic": "",
+    "keywords": [
+     "목적",
+     "대상",
+     "중심"
+    ]
+   },
+   {
+    "label": "데이터 상호운용성 구성 기술",
+    "mnemonic": "",
+    "keywords": [
+     "기술적 상호운용성",
+     "구문적 상호운용성",
+     "의미적 상호운용성",
+     "조직적 상호운용성"
+    ]
+   },
+   {
+    "label": "데이터 이동권 절차 및 산출물",
+    "mnemonic": "",
+    "keywords": [
+     "이동 요청",
+     "데이터 전송",
+     "검증 및 완료"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "MDR",
+   "Metadata",
+   "API",
+   "JSON",
+   "XML",
+   "MyData"
+  ]
+ },
+ {
+  "id": "sn-463",
   "title": "연관성 분석(association analysis) - 데이터마이닝",
   "category": "데이터베이스",
   "importance": "상",
@@ -25562,7 +25701,7 @@
   ]
  },
  {
-  "id": "sn-462",
+  "id": "sn-464",
   "title": "Apriori 알고리즘",
   "category": "데이터베이스",
   "importance": "하",
@@ -25601,7 +25740,7 @@
   ]
  },
  {
-  "id": "sn-463",
+  "id": "sn-465",
   "title": "DHP(Direct Hashing & Pruning) 알고리즘",
   "category": "데이터베이스",
   "importance": "하",
@@ -25638,7 +25777,7 @@
   ]
  },
  {
-  "id": "sn-464",
+  "id": "sn-466",
   "title": "FP(Frequent Pattern)-Growth 알고리즘",
   "category": "데이터베이스",
   "importance": "하",
@@ -25677,7 +25816,7 @@
   ]
  },
  {
-  "id": "sn-465",
+  "id": "sn-467",
   "title": "낙관적 검증(Validation) 기법",
   "category": "데이터베이스",
   "importance": "하",
@@ -25726,7 +25865,7 @@
   ]
  },
  {
-  "id": "sn-466",
+  "id": "sn-468",
   "title": "MVCC(다중 버전 동시성 제어) 2가지 유형",
   "category": "데이터베이스",
   "importance": "하",
@@ -25782,7 +25921,7 @@
   ]
  },
  {
-  "id": "sn-467",
+  "id": "sn-469",
   "title": "기술 부채(Technical Debt)",
   "category": "경영전략",
   "importance": "중",
@@ -25840,7 +25979,7 @@
   ]
  },
  {
-  "id": "sn-468",
+  "id": "sn-470",
   "title": "ITIL(IT Infrastructure Library) 4.0",
   "category": "경영전략",
   "importance": "상",
@@ -25901,7 +26040,7 @@
   ]
  },
  {
-  "id": "sn-469",
+  "id": "sn-471",
   "title": "ITSM(Information Technology Service Management)",
   "category": "경영전략",
   "importance": "중",
@@ -25978,7 +26117,7 @@
   ]
  },
  {
-  "id": "sn-470",
+  "id": "sn-472",
   "title": "서비스 수준 관리 (SLM, Service Level Management)",
   "category": "경영전략",
   "importance": "중",
@@ -26032,7 +26171,7 @@
   ]
  },
  {
-  "id": "sn-471",
+  "id": "sn-473",
   "title": "BCP (Business Continuity Planning)",
   "category": "경영전략",
   "importance": "중",
@@ -26087,7 +26226,7 @@
   ]
  },
  {
-  "id": "sn-472",
+  "id": "sn-474",
   "title": "BIA (Business Impact Analysis)",
   "category": "경영전략",
   "importance": "중",
@@ -26157,7 +26296,7 @@
   ]
  },
  {
-  "id": "sn-473",
+  "id": "sn-475",
   "title": "BCP 지표 중 MBCO, MTPD, MAO",
   "category": "경영전략",
   "importance": "하",
@@ -26220,7 +26359,7 @@
   ]
  },
  {
-  "id": "sn-474",
+  "id": "sn-476",
   "title": "DRS (Disaster Recovery System)",
   "category": "경영전략",
   "importance": "중",
@@ -26288,7 +26427,7 @@
   ]
  },
  {
-  "id": "sn-475",
+  "id": "sn-477",
   "title": "DRaaS(Disaster Recovery as a Service)",
   "category": "경영전략",
   "importance": "중",
@@ -26335,7 +26474,7 @@
   ]
  },
  {
-  "id": "sn-476",
+  "id": "sn-478",
   "title": "ISO 22301",
   "category": "경영전략",
   "importance": "중",
@@ -26391,7 +26530,7 @@
   ]
  },
  {
-  "id": "sn-477",
+  "id": "sn-479",
   "title": "디지털 안전 3법",
   "category": "경영전략",
   "importance": "하",
@@ -26433,7 +26572,7 @@
   ]
  },
  {
-  "id": "sn-478",
+  "id": "sn-480",
   "title": "정보시스템 등급제",
   "category": "경영전략",
   "importance": "중",
@@ -26505,7 +26644,7 @@
   ]
  },
  {
-  "id": "sn-479",
+  "id": "sn-481",
   "title": "IT 거버넌스(IT-Governance)",
   "category": "경영전략",
   "importance": "중",
@@ -26568,7 +26707,7 @@
   ]
  },
  {
-  "id": "sn-480",
+  "id": "sn-482",
   "title": "ISO 38500:2024",
   "category": "경영전략",
   "importance": "중",
@@ -26624,7 +26763,7 @@
   ]
  },
  {
-  "id": "sn-481",
+  "id": "sn-483",
   "title": "IT-Compliance",
   "category": "경영전략",
   "importance": "하",
@@ -26685,7 +26824,7 @@
   ]
  },
  {
-  "id": "sn-482",
+  "id": "sn-484",
   "title": "환경분석",
   "category": "경영전략",
   "importance": "상",
@@ -26737,7 +26876,7 @@
   ]
  },
  {
-  "id": "sn-483",
+  "id": "sn-485",
   "title": "가치사슬(Value Chain)",
   "category": "경영전략",
   "importance": "하",
@@ -26784,7 +26923,7 @@
   ]
  },
  {
-  "id": "sn-484",
+  "id": "sn-486",
   "title": "BCG Matrix",
   "category": "경영전략",
   "importance": "하",
@@ -26834,7 +26973,7 @@
   ]
  },
  {
-  "id": "sn-485",
+  "id": "sn-487",
   "title": "Ansoff Matrix",
   "category": "경영전략",
   "importance": "하",
@@ -26877,7 +27016,7 @@
   ]
  },
  {
-  "id": "sn-486",
+  "id": "sn-488",
   "title": "PDCA(Plan-Do-Check-Act, Deming Cycle)",
   "category": "경영전략",
   "importance": "하",
@@ -26916,7 +27055,7 @@
   ]
  },
  {
-  "id": "sn-487",
+  "id": "sn-489",
   "title": "MECE와 LISS",
   "category": "경영전략",
   "importance": "하",
@@ -26963,7 +27102,7 @@
   ]
  },
  {
-  "id": "sn-488",
+  "id": "sn-490",
   "title": "ISP 및 ISMP 수립 공통가이드 9판(2025.05)",
   "category": "경영전략",
   "importance": "상",
@@ -27029,7 +27168,7 @@
   ]
  },
  {
-  "id": "sn-489",
+  "id": "sn-491",
   "title": "ISP (Information Strategy Planning)",
   "category": "경영전략",
   "importance": "중",
@@ -27081,7 +27220,7 @@
   ]
  },
  {
-  "id": "sn-490",
+  "id": "sn-492",
   "title": "ISMP (Information System Master Plan)",
   "category": "경영전략",
   "importance": "중",
@@ -27144,7 +27283,7 @@
   ]
  },
  {
-  "id": "sn-491",
+  "id": "sn-493",
   "title": "정보시스템 하드웨어 규모산정 지침",
   "category": "경영전략",
   "importance": "상",
@@ -27208,7 +27347,7 @@
   ]
  },
  {
-  "id": "sn-492",
+  "id": "sn-494",
   "title": "TRL(Technology Readiness Level)",
   "category": "경영전략",
   "importance": "하",
@@ -27267,7 +27406,7 @@
   ]
  },
  {
-  "id": "sn-493",
+  "id": "sn-495",
   "title": "기술수용 주기(Technology Adoption Life Cycle)",
   "category": "경영전략",
   "importance": "하",
@@ -27324,7 +27463,7 @@
   ]
  },
  {
-  "id": "sn-494",
+  "id": "sn-496",
   "title": "IT 투자성과 평가",
   "category": "경영전략",
   "importance": "상",
@@ -27386,7 +27525,7 @@
   ]
  },
  {
-  "id": "sn-495",
+  "id": "sn-497",
   "title": "기술 가치 평가",
   "category": "경영전략",
   "importance": "중",
@@ -27444,7 +27583,7 @@
   ]
  },
  {
-  "id": "sn-496",
+  "id": "sn-498",
   "title": "정보화 투자관리 가이드",
   "category": "경영전략",
   "importance": "상",
@@ -27518,7 +27657,7 @@
   ]
  },
  {
-  "id": "sn-497",
+  "id": "sn-499",
   "title": "지식재산권",
   "category": "경영전략",
   "importance": "하",
@@ -27569,7 +27708,7 @@
   ]
  },
  {
-  "id": "sn-498",
+  "id": "sn-500",
   "title": "OKR",
   "category": "경영전략",
   "importance": "하",
@@ -27634,7 +27773,7 @@
   ]
  },
  {
-  "id": "sn-499",
+  "id": "sn-501",
   "title": "BSC (Balanced Scorecard), IT-BSC (IT-Balanced Scorecard)",
   "category": "경영전략",
   "importance": "하",
@@ -27681,7 +27820,7 @@
   ]
  },
  {
-  "id": "sn-500",
+  "id": "sn-502",
   "title": "ESG 경영",
   "category": "경영전략",
   "importance": "하",
@@ -27742,7 +27881,7 @@
   ]
  },
  {
-  "id": "sn-501",
+  "id": "sn-503",
   "title": "디자인 씽킹(Design Thinking)",
   "category": "경영전략",
   "importance": "하",
@@ -27791,7 +27930,7 @@
   ]
  },
  {
-  "id": "sn-502",
+  "id": "sn-504",
   "title": "서비타이제이션(Servitization)",
   "category": "경영전략",
   "importance": "하",
@@ -27827,7 +27966,7 @@
   ]
  },
  {
-  "id": "sn-503",
+  "id": "sn-505",
   "title": "프로토콜 경제(Protocol Economy)",
   "category": "경영전략",
   "importance": "하",
@@ -27866,7 +28005,7 @@
   ]
  },
  {
-  "id": "sn-504",
+  "id": "sn-506",
   "title": "의도 경제(Intention Economy)",
   "category": "경영전략",
   "importance": "하",
@@ -27919,7 +28058,7 @@
   ]
  },
  {
-  "id": "sn-505",
+  "id": "sn-507",
   "title": "그로스 해킹(Growth hacking)",
   "category": "경영전략",
   "importance": "하",
@@ -27970,7 +28109,7 @@
   ]
  },
  {
-  "id": "sn-506",
+  "id": "sn-508",
   "title": "시빅 해킹(Civic Hacking)",
   "category": "경영전략",
   "importance": "하",
@@ -28023,7 +28162,7 @@
   ]
  },
  {
-  "id": "sn-507",
+  "id": "sn-509",
   "title": "리빙랩(Living Lab), S.O.S랩",
   "category": "경영전략",
   "importance": "하",
@@ -28086,7 +28225,7 @@
   ]
  },
  {
-  "id": "sn-508",
+  "id": "sn-510",
   "title": "암호화(Encryption)",
   "category": "보안",
   "importance": "중",
@@ -28147,7 +28286,7 @@
   ]
  },
  {
-  "id": "sn-509",
+  "id": "sn-511",
   "title": "Shannon의 암호 설계 원칙",
   "category": "보안",
   "importance": "중",
@@ -28203,7 +28342,7 @@
   ]
  },
  {
-  "id": "sn-510",
+  "id": "sn-512",
   "title": "해시 함수의 안전성",
   "category": "보안",
   "importance": "상",
@@ -28251,7 +28390,7 @@
   ]
  },
  {
-  "id": "sn-511",
+  "id": "sn-513",
   "title": "해시 솔트(Salt)와 키 스트레칭(Key Stretching)",
   "category": "보안",
   "importance": "상",
@@ -28316,7 +28455,7 @@
   ]
  },
  {
-  "id": "sn-512",
+  "id": "sn-514",
   "title": "디피-헬만 알고리즘(Diffie-Hellman Algorithm)",
   "category": "보안",
   "importance": "중",
@@ -28356,7 +28495,7 @@
   ]
  },
  {
-  "id": "sn-513",
+  "id": "sn-515",
   "title": "블록 암호화(Block Cipher)",
   "category": "보안",
   "importance": "중",
@@ -28412,7 +28551,7 @@
   ]
  },
  {
-  "id": "sn-514",
+  "id": "sn-516",
   "title": "암호학적 보안 강도(Security Strength)",
   "category": "보안",
   "importance": "하",
@@ -28482,7 +28621,7 @@
   ]
  },
  {
-  "id": "sn-515",
+  "id": "sn-517",
   "title": "동형 암호(Homomorphic Encryption)",
   "category": "보안",
   "importance": "하",
@@ -28536,7 +28675,7 @@
   ]
  },
  {
-  "id": "sn-516",
+  "id": "sn-518",
   "title": "암호 분석 공격(Cryptanalysis Attacks) 기법",
   "category": "보안",
   "importance": "중",
@@ -28585,7 +28724,7 @@
   ]
  },
  {
-  "id": "sn-517",
+  "id": "sn-519",
   "title": "양자 암호(Quantum Cryptography)",
   "category": "보안",
   "importance": "상",
@@ -28653,7 +28792,7 @@
   ]
  },
  {
-  "id": "sn-518",
+  "id": "sn-520",
   "title": "포스트 양자 암호(Post-Quantum Cryptography)",
   "category": "보안",
   "importance": "상",
@@ -28714,7 +28853,7 @@
   ]
  },
  {
-  "id": "sn-519",
+  "id": "sn-521",
   "title": "딥보이스(Deep Voice) 피싱",
   "category": "보안",
   "importance": "중",
@@ -28773,7 +28912,7 @@
   ]
  },
  {
-  "id": "sn-520",
+  "id": "sn-522",
   "title": "OWASP Top 10 for LLM Application 2025",
   "category": "보안",
   "importance": "중",
@@ -28837,7 +28976,7 @@
   ]
  },
  {
-  "id": "sn-521",
+  "id": "sn-523",
   "title": "사이버전(Cyber Warfare)",
   "category": "보안",
   "importance": "중",
@@ -28892,7 +29031,7 @@
   ]
  },
  {
-  "id": "sn-522",
+  "id": "sn-524",
   "title": "APT(Advanced Persistent Threat) 공격",
   "category": "보안",
   "importance": "하",
@@ -28945,7 +29084,7 @@
   ]
  },
  {
-  "id": "sn-523",
+  "id": "sn-525",
   "title": "스니핑(Sniffing) & 스푸핑(Spoofing)",
   "category": "보안",
   "importance": "하",
@@ -29003,7 +29142,7 @@
   ]
  },
  {
-  "id": "sn-524",
+  "id": "sn-526",
   "title": "BPF(Berkeley Packet Filter) Door",
   "category": "보안",
   "importance": "하",
@@ -29056,7 +29195,7 @@
   ]
  },
  {
-  "id": "sn-525",
+  "id": "sn-527",
   "title": "부채널 공격(Side Channel Attack)",
   "category": "보안",
   "importance": "하",
@@ -29107,7 +29246,7 @@
   ]
  },
  {
-  "id": "sn-526",
+  "id": "sn-528",
   "title": "드라이브 바이 다운로드(Drive By Download)",
   "category": "보안",
   "importance": "중",
@@ -29161,7 +29300,7 @@
   ]
  },
  {
-  "id": "sn-527",
+  "id": "sn-529",
   "title": "공급망 공격(Supply Chain Attack)",
   "category": "보안",
   "importance": "상",
@@ -29215,7 +29354,7 @@
   ]
  },
  {
-  "id": "sn-528",
+  "id": "sn-530",
   "title": "DoS(Denial of Service)",
   "category": "보안",
   "importance": "하",
@@ -29281,7 +29420,7 @@
   ]
  },
  {
-  "id": "sn-529",
+  "id": "sn-531",
   "title": "DRDoS(Distributed Reflection DoS)",
   "category": "보안",
   "importance": "하",
@@ -29355,7 +29494,7 @@
   ]
  },
  {
-  "id": "sn-530",
+  "id": "sn-532",
   "title": "RaaS(Ransomware as a Service)",
   "category": "보안",
   "importance": "하",
@@ -29401,7 +29540,7 @@
   ]
  },
  {
-  "id": "sn-531",
+  "id": "sn-533",
   "title": "루트킷(Rootkit)",
   "category": "보안",
   "importance": "중",
@@ -29460,7 +29599,7 @@
   ]
  },
  {
-  "id": "sn-532",
+  "id": "sn-534",
   "title": "OWASP Top 10:2021",
   "category": "보안",
   "importance": "하",
@@ -29517,7 +29656,7 @@
   ]
  },
  {
-  "id": "sn-533",
+  "id": "sn-535",
   "title": "OWASP Top 10:2025",
   "category": "보안",
   "importance": "하",
@@ -29574,7 +29713,7 @@
   ]
  },
  {
-  "id": "sn-534",
+  "id": "sn-536",
   "title": "시큐어 코딩(Secure Coding)",
   "category": "보안",
   "importance": "상",
@@ -29636,7 +29775,7 @@
   ]
  },
  {
-  "id": "sn-535",
+  "id": "sn-537",
   "title": "SSRF(Server-Side Request Forgery)",
   "category": "보안",
   "importance": "상",
@@ -29701,7 +29840,7 @@
   ]
  },
  {
-  "id": "sn-536",
+  "id": "sn-538",
   "title": "SW난독화",
   "category": "보안",
   "importance": "하",
@@ -29753,7 +29892,7 @@
   ]
  },
  {
-  "id": "sn-537",
+  "id": "sn-539",
   "title": "DevSecOps",
   "category": "보안",
   "importance": "상",
@@ -29808,7 +29947,7 @@
   ]
  },
  {
-  "id": "sn-538",
+  "id": "sn-540",
   "title": "개인정보보호 중심 설계(Privacy by Design)",
   "category": "보안",
   "importance": "상",
@@ -29874,7 +30013,7 @@
   ]
  },
  {
-  "id": "sn-539",
+  "id": "sn-541",
   "title": "PbD(Privacy by Design) 인증제도",
   "category": "보안",
   "importance": "중",
@@ -29927,7 +30066,7 @@
   ]
  },
  {
-  "id": "sn-540",
+  "id": "sn-542",
   "title": "가명처리(Pseudonymization) 기법",
   "category": "보안",
   "importance": "상",
@@ -29996,7 +30135,7 @@
   ]
  },
  {
-  "id": "sn-541",
+  "id": "sn-543",
   "title": "가명정보 처리 가이드라인",
   "category": "보안",
   "importance": "중",
@@ -30080,7 +30219,7 @@
   ]
  },
  {
-  "id": "sn-542",
+  "id": "sn-544",
   "title": "Secure Software Development Framework(SSDF)",
   "category": "보안",
   "importance": "중",
@@ -30119,7 +30258,7 @@
   ]
  },
  {
-  "id": "sn-543",
+  "id": "sn-545",
   "title": "DNS 싱크홀(Sinkhole)",
   "category": "보안",
   "importance": "하",
@@ -30158,7 +30297,7 @@
   ]
  },
  {
-  "id": "sn-544",
+  "id": "sn-546",
   "title": "DNSSEC(Domain Name System Security Extension)",
   "category": "보안",
   "importance": "중",
@@ -30210,7 +30349,7 @@
   ]
  },
  {
-  "id": "sn-545",
+  "id": "sn-547",
   "title": "IPSec",
   "category": "보안",
   "importance": "중",
@@ -30269,7 +30408,7 @@
   ]
  },
  {
-  "id": "sn-546",
+  "id": "sn-548",
   "title": "TLS/SSL(Secure Socket Layer)",
   "category": "보안",
   "importance": "상",
@@ -30319,7 +30458,7 @@
   ]
  },
  {
-  "id": "sn-547",
+  "id": "sn-549",
   "title": "VPN(Virtual Private Network)",
   "category": "보안",
   "importance": "중",
@@ -30385,7 +30524,7 @@
   ]
  },
  {
-  "id": "sn-548",
+  "id": "sn-550",
   "title": "CWPP(Cloud Workload Protection Platform) & CSPM(Cloud Security Posture Management)",
   "category": "보안",
   "importance": "중",
@@ -30434,7 +30573,7 @@
   ]
  },
  {
-  "id": "sn-549",
+  "id": "sn-551",
   "title": "SASE(Secure Access Service Edge)",
   "category": "보안",
   "importance": "중",
@@ -30474,7 +30613,7 @@
   ]
  },
  {
-  "id": "sn-550",
+  "id": "sn-552",
   "title": "SECaaS(Security as a Service)",
   "category": "보안",
   "importance": "중",
@@ -30521,7 +30660,7 @@
   ]
  },
  {
-  "id": "sn-551",
+  "id": "sn-553",
   "title": "이중 서명(Dual Signature)",
   "category": "보안",
   "importance": "상",
@@ -30582,7 +30721,7 @@
   ]
  },
  {
-  "id": "sn-552",
+  "id": "sn-554",
   "title": "다중 서명(Multi Signature)",
   "category": "보안",
   "importance": "상",
@@ -30648,7 +30787,7 @@
   ]
  },
  {
-  "id": "sn-553",
+  "id": "sn-555",
   "title": "간편인증 인터페이스 가이드라인",
   "category": "보안",
   "importance": "중",
@@ -30696,7 +30835,7 @@
   ]
  },
  {
-  "id": "sn-554",
+  "id": "sn-556",
   "title": "전자봉투(Digital Envelope)",
   "category": "보안",
   "importance": "상",
@@ -30754,7 +30893,7 @@
   ]
  },
  {
-  "id": "sn-555",
+  "id": "sn-557",
   "title": "DRM(Digital Right Management)",
   "category": "보안",
   "importance": "하",
@@ -30807,7 +30946,7 @@
   ]
  },
  {
-  "id": "sn-556",
+  "id": "sn-558",
   "title": "디지털 워터마킹(Digital Watermarking)",
   "category": "보안",
   "importance": "하",
@@ -30868,7 +31007,7 @@
   ]
  },
  {
-  "id": "sn-557",
+  "id": "sn-559",
   "title": "핑거프린팅(Fingerprinting)",
   "category": "보안",
   "importance": "하",
@@ -30920,7 +31059,7 @@
   ]
  },
  {
-  "id": "sn-558",
+  "id": "sn-560",
   "title": "생체 인증(텔레바이오 인증)",
   "category": "보안",
   "importance": "중",
@@ -30982,7 +31121,7 @@
   ]
  },
  {
-  "id": "sn-559",
+  "id": "sn-561",
   "title": "생체정보 보호 안내서(24.12)",
   "category": "보안",
   "importance": "중",
@@ -31063,7 +31202,7 @@
   ]
  },
  {
-  "id": "sn-560",
+  "id": "sn-562",
   "title": "OAuth(Open Authorize) 2.0",
   "category": "보안",
   "importance": "중",
@@ -31122,7 +31261,7 @@
   ]
  },
  {
-  "id": "sn-561",
+  "id": "sn-563",
   "title": "패스키(Passkey)",
   "category": "보안",
   "importance": "상",
@@ -31163,7 +31302,7 @@
   ]
  },
  {
-  "id": "sn-562",
+  "id": "sn-564",
   "title": "공격 표면 관리(Attack Surface Management)",
   "category": "보안",
   "importance": "상",
@@ -31212,7 +31351,7 @@
   ]
  },
  {
-  "id": "sn-563",
+  "id": "sn-565",
   "title": "차세대 SIEM(Security Information and Event Management)",
   "category": "보안",
   "importance": "중",
@@ -31268,7 +31407,7 @@
   ]
  },
  {
-  "id": "sn-564",
+  "id": "sn-566",
   "title": "위협 헌팅(Threat Hunting)",
   "category": "보안",
   "importance": "중",
@@ -31319,7 +31458,7 @@
   ]
  },
  {
-  "id": "sn-565",
+  "id": "sn-567",
   "title": "위협 모델링(Threat Modeling)",
   "category": "보안",
   "importance": "중",
@@ -31375,7 +31514,7 @@
   ]
  },
  {
-  "id": "sn-566",
+  "id": "sn-568",
   "title": "WAAP(Web Application and API Protection)",
   "category": "보안",
   "importance": "중",
@@ -31435,7 +31574,7 @@
   ]
  },
  {
-  "id": "sn-567",
+  "id": "sn-569",
   "title": "EDR(Endpoint Detection and Response)",
   "category": "보안",
   "importance": "중",
@@ -31476,7 +31615,7 @@
   ]
  },
  {
-  "id": "sn-568",
+  "id": "sn-570",
   "title": "XDR(eXtended Detection Response)",
   "category": "보안",
   "importance": "중",
@@ -31534,7 +31673,7 @@
   ]
  },
  {
-  "id": "sn-569",
+  "id": "sn-571",
   "title": "DMARC(Domain-based Message Authentication, Reporting and Conformance)",
   "category": "보안",
   "importance": "하",
@@ -31584,7 +31723,7 @@
   ]
  },
  {
-  "id": "sn-570",
+  "id": "sn-572",
   "title": "사이버 디셉션(Cyber Deception)",
   "category": "보안",
   "importance": "중",
@@ -31631,7 +31770,7 @@
   ]
  },
  {
-  "id": "sn-571",
+  "id": "sn-573",
   "title": "디지털 면역 시스템(DIS, Digital Immune System)",
   "category": "보안",
   "importance": "중",
@@ -31676,7 +31815,7 @@
   ]
  },
  {
-  "id": "sn-572",
+  "id": "sn-574",
   "title": "사이버 레질리언스(Cyber Resilience)",
   "category": "보안",
   "importance": "중",
@@ -31732,7 +31871,7 @@
   ]
  },
  {
-  "id": "sn-573",
+  "id": "sn-575",
   "title": "PEC(Privacy-Enhancing Computation)",
   "category": "보안",
   "importance": "상",
@@ -31782,7 +31921,7 @@
   ]
  },
  {
-  "id": "sn-574",
+  "id": "sn-576",
   "title": "영지식증명(Zero Knowledge Proof)",
   "category": "보안",
   "importance": "상",
@@ -31842,7 +31981,7 @@
   ]
  },
  {
-  "id": "sn-575",
+  "id": "sn-577",
   "title": "기밀컴퓨팅(Confidential Computing)",
   "category": "보안",
   "importance": "중",
@@ -31884,7 +32023,7 @@
   ]
  },
  {
-  "id": "sn-576",
+  "id": "sn-578",
   "title": "ISO 27017",
   "category": "보안",
   "importance": "하",
@@ -31931,7 +32070,7 @@
   ]
  },
  {
-  "id": "sn-577",
+  "id": "sn-579",
   "title": "개인정보 프라이버시 8원칙",
   "category": "보안",
   "importance": "상",
@@ -31998,7 +32137,7 @@
   ]
  },
  {
-  "id": "sn-578",
+  "id": "sn-580",
   "title": "개인정보 보호기술",
   "category": "보안",
   "importance": "상",
@@ -32055,7 +32194,7 @@
   ]
  },
  {
-  "id": "sn-579",
+  "id": "sn-581",
   "title": "위험분석 방법론 (ISO/IEC 1335-1, 위험분석 전략/평가)",
   "category": "보안",
   "importance": "중",
@@ -32106,7 +32245,7 @@
   ]
  },
  {
-  "id": "sn-580",
+  "id": "sn-582",
   "title": "IEC 62443",
   "category": "보안",
   "importance": "중",
@@ -32164,7 +32303,7 @@
   ]
  },
  {
-  "id": "sn-581",
+  "id": "sn-583",
   "title": "ISO 27018",
   "category": "보안",
   "importance": "하",
@@ -32231,7 +32370,7 @@
   ]
  },
  {
-  "id": "sn-582",
+  "id": "sn-584",
   "title": "차량 사이버 보안 국제 표준(ISO 21434)",
   "category": "보안",
   "importance": "상",
@@ -32300,7 +32439,7 @@
   ]
  },
  {
-  "id": "sn-583",
+  "id": "sn-585",
   "title": "ISO 27701",
   "category": "보안",
   "importance": "중",
@@ -32366,7 +32505,7 @@
   ]
  },
  {
-  "id": "sn-584",
+  "id": "sn-586",
   "title": "ISO/IEC 20889",
   "category": "보안",
   "importance": "중",
@@ -32428,7 +32567,7 @@
   ]
  },
  {
-  "id": "sn-585",
+  "id": "sn-587",
   "title": "전자증거개시제도(e-Discovery)",
   "category": "보안",
   "importance": "중",
@@ -32484,7 +32623,7 @@
   ]
  },
  {
-  "id": "sn-586",
+  "id": "sn-588",
   "title": "제로트러스트 가이드라인 2.0",
   "category": "보안",
   "importance": "상",
@@ -32557,7 +32696,7 @@
   ]
  },
  {
-  "id": "sn-587",
+  "id": "sn-589",
   "title": "SDP(Software Defined Perimeter)",
   "category": "보안",
   "importance": "상",
@@ -32633,7 +32772,7 @@
   ]
  },
  {
-  "id": "sn-588",
+  "id": "sn-590",
   "title": "접근 제어/접근 통제(Access Control)",
   "category": "보안",
   "importance": "중",
@@ -32727,7 +32866,7 @@
   ]
  },
  {
-  "id": "sn-589",
+  "id": "sn-591",
   "title": "접근 통제 모델",
   "category": "보안",
   "importance": "중",
@@ -32766,7 +32905,7 @@
   ]
  },
  {
-  "id": "sn-590",
+  "id": "sn-592",
   "title": "정보보호제품 평가·인증(CC 평가·인증) 제도",
   "category": "보안",
   "importance": "중",
@@ -32842,7 +32981,7 @@
   ]
  },
  {
-  "id": "sn-591",
+  "id": "sn-593",
   "title": "개인정보 영향평가(Privacy Impact Assessment)",
   "category": "보안",
   "importance": "중",
@@ -32895,7 +33034,7 @@
   ]
  },
  {
-  "id": "sn-592",
+  "id": "sn-594",
   "title": "정보보호 및 개인정보보호 관리체계 인증(ISMS-P)",
   "category": "보안",
   "importance": "상",
@@ -32940,7 +33079,7 @@
   ]
  },
  {
-  "id": "sn-593",
+  "id": "sn-595",
   "title": "정보보호 공시제도",
   "category": "보안",
   "importance": "상",
@@ -33003,7 +33142,7 @@
   ]
  },
  {
-  "id": "sn-594",
+  "id": "sn-596",
   "title": "사이버 보안 성숙도 모델 인증(CMMC, Cybersecurity Maturity Model Certification)",
   "category": "보안",
   "importance": "하",
@@ -33043,7 +33182,7 @@
   ]
  },
  {
-  "id": "sn-595",
+  "id": "sn-597",
   "title": "사이버 게놈(Cyber genome)",
   "category": "보안",
   "importance": "하",
@@ -33087,7 +33226,7 @@
   ]
  },
  {
-  "id": "sn-596",
+  "id": "sn-598",
   "title": "디지털 포렌식(Digital Forensic)",
   "category": "보안",
   "importance": "상",
@@ -33156,7 +33295,7 @@
   ]
  },
  {
-  "id": "sn-597",
+  "id": "sn-599",
   "title": "클라우드 포렌식(Cloud Forensic)",
   "category": "보안",
   "importance": "상",
@@ -33198,7 +33337,7 @@
   ]
  },
  {
-  "id": "sn-598",
+  "id": "sn-600",
   "title": "안티 포렌식(Anti-forensic)",
   "category": "보안",
   "importance": "상",
@@ -33261,7 +33400,7 @@
   ]
  },
  {
-  "id": "sn-599",
+  "id": "sn-601",
   "title": "블록체인 암호기술 가이드라인",
   "category": "보안",
   "importance": "중",
@@ -33325,7 +33464,7 @@
   ]
  },
  {
-  "id": "sn-600",
+  "id": "sn-602",
   "title": "자율주행 자동차 보안취약점 및 대응방안",
   "category": "보안",
   "importance": "상",
@@ -33418,7 +33557,7 @@
   ]
  },
  {
-  "id": "sn-601",
+  "id": "sn-603",
   "title": "스마트시티 보안취약점 및 대응방안",
   "category": "보안",
   "importance": "중",
@@ -33483,7 +33622,7 @@
   ]
  },
  {
-  "id": "sn-602",
+  "id": "sn-604",
   "title": "스마트팩토리 보안취약점 및 대응방안",
   "category": "보안",
   "importance": "상",
@@ -33560,7 +33699,7 @@
   ]
  },
  {
-  "id": "sn-603",
+  "id": "sn-605",
   "title": "클라우드 컴퓨팅 취약점, 대응기술",
   "category": "보안",
   "importance": "중",
@@ -33641,7 +33780,7 @@
   ]
  },
  {
-  "id": "sn-604",
+  "id": "sn-606",
   "title": "디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안",
   "category": "보안",
   "importance": "상",
@@ -33695,7 +33834,7 @@
   ]
  },
  {
-  "id": "sn-605",
+  "id": "sn-607",
   "title": "국가 망 보안체계(N2SF)",
   "category": "보안",
   "importance": "상",
@@ -33756,7 +33895,7 @@
   ]
  },
  {
-  "id": "sn-606",
+  "id": "sn-608",
   "title": "AI 프라이버시 리스크 관리",
   "category": "보안",
   "importance": "중",
@@ -33814,7 +33953,7 @@
   ]
  },
  {
-  "id": "sn-607",
+  "id": "sn-609",
   "title": "AI Agent 보안위협",
   "category": "보안",
   "importance": "중",
@@ -33879,7 +34018,7 @@
   ]
  },
  {
-  "id": "sn-608",
+  "id": "sn-610",
   "title": "OWASP Agentic AI 위협 및 대응방안(Agentic AI Threats and Mitigations)",
   "category": "보안",
   "importance": "중",
@@ -33967,7 +34106,7 @@
   ]
  },
  {
-  "id": "sn-609",
+  "id": "sn-611",
   "title": "도메인 특화 언어 모델(Domain-Specific Language Model)",
   "category": "디지털서비스",
   "importance": "중",
@@ -34011,7 +34150,7 @@
   ]
  },
  {
-  "id": "sn-610",
+  "id": "sn-612",
   "title": "데이터 상호 운용성 & 데이터 이동권",
   "category": "디지털서비스",
   "importance": "중",
@@ -34057,7 +34196,7 @@
   ]
  },
  {
-  "id": "sn-611",
+  "id": "sn-613",
   "title": "AP2(Agent Payment Protocol)",
   "category": "디지털서비스",
   "importance": "중",
@@ -34116,7 +34255,7 @@
   ]
  },
  {
-  "id": "sn-612",
+  "id": "sn-614",
   "title": "UCP(Universal Commerce Protocol)",
   "category": "디지털서비스",
   "importance": "중",
@@ -34165,7 +34304,7 @@
   ]
  },
  {
-  "id": "sn-613",
+  "id": "sn-615",
   "title": "ACP(Agentic Commerce Protocol)",
   "category": "디지털서비스",
   "importance": "중",
@@ -34198,7 +34337,7 @@
   ]
  },
  {
-  "id": "sn-614",
+  "id": "sn-616",
   "title": "스테이블 코인(Stable coin)",
   "category": "디지털서비스",
   "importance": "중",
@@ -34277,7 +34416,7 @@
   ]
  },
  {
-  "id": "sn-615",
+  "id": "sn-617",
   "title": "데이터 스페이스(Data Space)",
   "category": "디지털서비스",
   "importance": "중",
@@ -34342,7 +34481,7 @@
   ]
  },
  {
-  "id": "sn-616",
+  "id": "sn-618",
   "title": "AI OS(Artificial Intelligence Operating System)",
   "category": "디지털서비스",
   "importance": "중",
