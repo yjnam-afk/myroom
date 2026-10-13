@@ -17256,7 +17256,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "관계형 데이터베이스에서 원하는 정보를 검색하기 위해 어떻게 유도하는가(how)를 기술하는 절차적인 언어",
     defShort: "DB에서 정보 검색하기 위해 어떻게 유도하는지 기술한 절차적 언어",
-    lead: "How 기술의 절차적 언어, 관계대수(Relational Algebra)",
+    lead: "관계형 DB 정보 검색의 연산 언어, 관계대수(Relational Algebra)",
     features: ["절차적 언어", "how 기술", "관계 연산"],
     keywords: ["절차적 언어", "일반집합 연산자", "순수관계 연산자"],
     tables: [
@@ -17288,7 +17288,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     definition:
       "관계형 데이터베이스에서 수학적 논리를 사용하여 데이터를 질의하는 선언적(비절차적) 언어",
     defShort: "관계형 DB에서 수학적 논리로 데이터 질의하는 선언적 비절차 언어",
-    lead: "What 기술 선언적 언어, 관계해석(Relational Calculus)",
+    lead: "관계형 DB 데이터 질의의 논리 언어, 관계해석(Relational Calculus)",
     features: ["비절차적", "프레디킷", "결과만 명시"],
     keywords: ["비절차적 언어", "수학적 논리", "원하는 데이터만 명시", "프레디킷 해석(Predicate Calculus)"],
     tables: [
