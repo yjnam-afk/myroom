@@ -37,7 +37,7 @@ export default function PeerAnswers(props: { items: PeerAnswer[]; want?: string;
 }
 
 function AnswerList({
-  items,
+  items: raw,
   want,
   collapsed = false,
   kind,
@@ -69,10 +69,22 @@ function AnswerList({
     }
   };
 
-  if (items.length === 0) return null;
+  if (raw.length === 0) return null;
 
   const note = kind === "note";
   const wantGroup = want ? periodGroup(want) : null;
+  // 1교시 → 2교시 → 3교시 → 4교시 순(2026-10-13 "1교시, 2교시 순서대로"). 같은 교시 안에서는 받은 순서 그대로.
+  // 문항을 보는 화면(want)이면 그 문항과 같은 묶음(단답/논술)을 먼저 세우고 그 안에서 교시 순.
+  const pn = (a: PeerAnswer) => parseInt(a.period, 10) || 9;
+  const items = raw
+    .map((a, i) => ({ a, i }))
+    .sort(
+      (x, y) =>
+        (wantGroup ? Number(periodGroup(x.a.period) !== wantGroup) - Number(periodGroup(y.a.period) !== wantGroup) : 0) ||
+        pn(x.a) - pn(y.a) ||
+        x.i - y.i,
+    )
+    .map((x) => x.a);
   const fit = wantGroup ? items.filter((a) => periodGroup(a.period) === wantGroup).length : items.length;
 
   const title = (

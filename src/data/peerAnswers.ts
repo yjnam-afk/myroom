@@ -4801,7 +4801,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-ai25h-ai-기본법-1교시형-1",
-    period: "2교시",
+    period: "1교시",
     no: "6",
     question: "① AI 기본법 주요 내용 ② AI 기본법 고려 사항",
     exam: "2025년 하반기 정리",
@@ -4829,7 +4829,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-ai25h-ai-기본법-1교시형-3",
-    period: "2교시",
+    period: "1교시",
     no: "6",
     question:
       "① AI 기본법 개요 ② AI 기본법 주요내용 ③ AI 기본법 고려사항 ④ AI 기본법 효과",
@@ -5101,7 +5101,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-ai25h-ai-기본법-2교시형-1",
-    period: "1교시",
+    period: "2교시",
     no: "4",
     question: "AI 기본법",
     exam: "2025년 하반기 정리",
@@ -44621,7 +44621,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
   },
   {
     id: "peer-d4-모의고사-3교시",
-    period: "2교시",
+    period: "3교시",
     question: "거시적 환경 분석(PEST), 미시적 환경 분석(3C), SWOT 분석 개념·분석 예시",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 김병권PE)",
     topicTitles: ["환경분석"],
@@ -44633,7 +44633,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
   },
   {
     id: "peer-d4-모의고사-3교시-2",
-    period: "2교시",
+    period: "3교시",
     question: "지능형 원격검침 인프라(AMI) 개념·핵심 기술·보급 제언",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 김병권PE)",
     topicTitles: [],
@@ -44646,7 +44646,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
   },
   {
     id: "peer-d4-모의고사-3교시-3",
-    period: "2교시",
+    period: "3교시",
     question: "자연어 처리(NLP) 개념, 한국어 처리 이슈·전망",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 김병권PE)",
     topicTitles: ["자연어처리(NLP, Natural Language Processing)"],
@@ -44658,7 +44658,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
   },
   {
     id: "peer-d4-모의고사-3교시-4",
-    period: "2교시",
+    period: "3교시",
     question: "RASP 보안 개념·동작 방식·주요 기술, WAF 비교",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 김병권PE)",
     topicTitles: [],
@@ -44670,7 +44670,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
   },
   {
     id: "peer-d4-모의고사-4교시",
-    period: "2교시",
+    period: "4교시",
     question: "상호배제 개념·구현 기법, 교착상태 발생 조건·해결방안",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 김병권PE)",
     topicTitles: ["교착상태(Deadlock)"],
@@ -44682,7 +44682,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
   },
   {
     id: "peer-d4-모의고사-4교시-2",
-    period: "2교시",
+    period: "4교시",
     question: "NAT 정의·주요 기능 3가지, NAT와 PAT의 관계",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 김병권PE)",
     topicTitles: [],
@@ -44694,7 +44694,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
   },
   {
     id: "peer-d4-모의고사-4교시-3",
-    period: "2교시",
+    period: "4교시",
     question: "C-ITS 개요·구성요소(ITS Station)·주요 서비스",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 김병권PE)",
     topicTitles: [],
@@ -44707,7 +44707,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
   },
   {
     id: "peer-d4-모의고사-4교시-4",
-    period: "2교시",
+    period: "4교시",
     question: "CRISP-DM, SEMMA, 데이터 마이닝 방법 적용 CSF",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 김병권PE)",
     topicTitles: ["데이터 마이닝 방법론"],
@@ -44899,7 +44899,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
   },
   {
     id: "peer-d4-16주차-주간고사-2교시",
-    period: "1교시",
+    period: "2교시",
     question: "파이프라인 개념·유형, 파이프라인 해저드 유형·해결방안",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 김병권PE)",
     topicTitles: ["Pipeline(파이프라인)"],
@@ -44912,7 +44912,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
   },
   {
     id: "peer-d4-16주차-주간고사-2교시-2",
-    period: "1교시",
+    period: "2교시",
     question: "문맥교환 개념·절차, 프로세스 상태 전이",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 김병권PE)",
     topicTitles: ["문맥교환(Context Switching)", "문맥(Context)"],
@@ -44925,7 +44925,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
   },
   {
     id: "peer-d4-16주차-주간고사-2교시-3",
-    period: "1교시",
+    period: "2교시",
     question: "Cache Coherence 개념, Write Through와 Write Back 비교, MESI 프로토콜",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 김병권PE)",
     topicTitles: ["캐시 일관성(Cache Coherence)", "MESI", "캐시메모리의 쓰기정책(Write Policy)"],
@@ -44938,7 +44938,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
   },
   {
     id: "peer-d4-16주차-주간고사-2교시-4",
-    period: "1교시",
+    period: "2교시",
     question: "가상 메모리 개념·관리 기법, 페이징·세그먼트 기법, 지역성",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 김병권PE)",
     topicTitles: ["가상메모리 관리기법", "지역성(Locality)"],
@@ -44951,7 +44951,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
   },
   {
     id: "peer-d4-16주차-주간고사-2교시-5",
-    period: "1교시",
+    period: "2교시",
     question: "CPU 스케줄링 알고리즘 분류, SJF와 HRN, MLQ와 MLFQ",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 김병권PE)",
     topicTitles: ["CPU 스케줄링(CPU Scheduling)"],
