@@ -855,7 +855,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-os-deadlock-1",
-    period: "1교시",
+    period: "2교시",
     no: "4",
     question: "① 교착상태 ② Wait-Die, Wound-Wait",
     exam: "ITPE 모의고사",
@@ -1860,7 +1860,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-se-solid-a",
-    period: "1교시",
+    period: "2교시",
     no: "1",
     question: "객체지향 설계원리 SOLID",
     exam: "ITPE 주간 실전모의고사",
@@ -2064,7 +2064,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-caos-스레드-멀티스레드-개념-프로세스와-비교",
-    period: "1교시",
+    period: "2교시",
     question: "스레드, 멀티스레드 개념, 프로세스와 비교",
     exam: "정리 답안 (드라이브 07. CAOS)",
     topicTitles: ["프로세스(Process)와 스레드(Thread) 비교"],
@@ -2098,7 +2098,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-caos-메모리관리기법-지역성-개념-지역성-유형-활용사례",
-    period: "1교시",
+    period: "2교시",
     question: "메모리관리기법 지역성 개념, 지역성 유형, 활용사례",
     exam: "정리 답안 (드라이브 07. CAOS)",
     topicTitles: ["지역성(Locality)"],
@@ -2121,7 +2121,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-caos-파이프라인-개념-유형-해저드-3가지-유형",
-    period: "1교시",
+    period: "2교시",
     question: "파이프라인 개념, 유형, 해저드 3가지 유형",
     exam: "정리 답안 (드라이브 07. CAOS)",
     topicTitles: ["Pipeline(파이프라인)", "Pipeline Hazard"],
@@ -2144,7 +2144,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-caos-캐시-일관성-문제-해결방안",
-    period: "1교시",
+    period: "2교시",
     question: "캐시 일관성 문제, 해결방안",
     exam: "정리 답안 (드라이브 07. CAOS)",
     topicTitles: ["캐시 일관성(Cache Coherence)"],
@@ -2271,7 +2271,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-pm-01-프로세스-통합관리-프로세스-의미-인도물생성-처리-프로세스-처리과정",
-    period: "1교시",
+    period: "2교시",
     question: "프로세스 통합관리 프로세스, 의미, 인도물생성, 처리 프로세스, 처리과정",
     exam: "정리 답안 (드라이브 00. PM)",
     topicTitles: ["PMBOK 8개 성과 영역 및 프로젝트 관리 12원칙(PMBOK 7판)", "프로젝트 관리 계획서"],
@@ -2293,7 +2293,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-pm-eva-계산",
-    period: "1교시",
+    period: "2교시",
     question: "EVA 계산",
     exam: "정리 답안 (드라이브 00. PM)",
     topicTitles: ["EVM(Earned Value Management, 획득 가치 관리)"],
@@ -2338,7 +2338,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-pm-22-공공-pmo-도입근거-agile-msa",
-    period: "1교시",
+    period: "2교시",
     question: "공공 PMO 도입근거, agile, msa",
     exam: "정리 답안 (드라이브 00. PM)",
     topicTitles: ["감리/PMO 비교표", "MSA (Micro Service Architecture)"],
@@ -2350,7 +2350,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-pm-23-외부-pmo-도입근거-agile-msa-cpm-일정산정-수행기법",
-    period: "1교시",
+    period: "2교시",
     question: "외부 PMO 도입근거, agile, MSA, CPM, 일정산정, 수행기법",
     exam: "정리 답안 (드라이브 00. PM)",
     topicTitles: ["감리/PMO 비교표", "CPM (Critical Path Management)", "MSA (Micro Service Architecture)"],
@@ -2362,7 +2362,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-pm-17-애자일선언-원칙-구축사례-역할-retrospective-활동",
-    period: "1교시",
+    period: "2교시",
     question: "애자일선언, 원칙, 구축사례, 역할, Retrospective 활동",
     exam: "정리 답안 (드라이브 00. PM)",
     topicTitles: ["Agile 선언문과 12개 원칙"],
@@ -2374,7 +2374,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-pm-11-evm",
-    period: "1교시",
+    period: "2교시",
     question: "EVM",
     exam: "정리 답안 (드라이브 00. PM)",
     topicTitles: ["EVM(Earned Value Management, 획득 가치 관리)"],
@@ -2386,7 +2386,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-pm-18-agile-scrum-프로세스",
-    period: "1교시",
+    period: "2교시",
     question: "Agile_SCRUM_프로세스",
     exam: "정리 답안 (드라이브 00. PM)",
     topicTitles: ["스크럼 (SCRUM)", "Agile 선언문과 12개 원칙"],
@@ -2454,7 +2454,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-pm-15-위험의-분류-pi-분석기법-정량-위험대응전략",
-    period: "1교시",
+    period: "2교시",
     question: "위험의 분류, PI, 분석기법(정량), 위험대응전략",
     exam: "정리 답안 (드라이브 00. PM)",
     topicTitles: ["프로젝트 위험관리", "정량적 위험 분석"],
@@ -2499,7 +2499,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-pm-13-리스크-이슈비교-위험관리프로세스-대응전략",
-    period: "1교시",
+    period: "2교시",
     question: "리스크_이슈비교_위험관리프로세스_대응전략",
     exam: "정리 답안 (드라이브 00. PM)",
     topicTitles: ["프로젝트 위험관리", "위험 대응"],
@@ -2535,7 +2535,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-db-데이터-생명주기-문서개방방식-lod",
-    period: "1교시",
+    period: "2교시",
     question: "데이터 생명주기, 문서개방방식, LOD",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: [],
@@ -2591,7 +2591,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-db-마이데이터-개념-제공-공유-주요기술-기대효과-활성화-방안",
-    period: "1교시",
+    period: "2교시",
     question: "마이데이터 개념, 제공,공유 주요기술, 기대효과, 활성화 방안",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: ["데이터 상호 운용성 & 데이터 이동권"],
@@ -2603,7 +2603,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-db-빅데이터-분석과정-절차-결측치-이상치-처리",
-    period: "1교시",
+    period: "2교시",
     question: "빅데이터 분석과정 절차, 결측치, 이상치 처리",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: ["결측치(Missing Value)", "이상치(Outlier)"],
@@ -2616,7 +2616,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-db-마이데이터",
-    period: "1교시",
+    period: "2교시",
     question: "마이데이터",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: ["데이터 상호 운용성 & 데이터 이동권"],
@@ -2629,7 +2629,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-db-동적sql-개념-장단점",
-    period: "1교시",
+    period: "2교시",
     question: "동적SQL 개념, 장단점",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: ["SQL(Structured Query Language)"],
@@ -2654,7 +2654,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-db-트랜잭션-개념-acid-고립성레벨",
-    period: "1교시",
+    period: "2교시",
     question: "트랜잭션 개념, ACID, 고립성레벨",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: ["트랜잭션"],
@@ -2667,7 +2667,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-db-데이터-인프라-구축방안-보안대첵-디지털-경제",
-    period: "1교시",
+    period: "2교시",
     question: "데이터 인프라 구축방안, 보안대첵, 디지털 경제",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: [],
@@ -2690,7 +2690,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-db-파티셔닝",
-    period: "1교시",
+    period: "2교시",
     question: "파티셔닝",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: ["데이터베이스 파티셔닝(Partitioning)"],
@@ -2770,7 +2770,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-db-회복기법",
-    period: "1교시",
+    period: "2교시",
     question: "회복기법",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: ["DB 회복기법"],
@@ -2782,7 +2782,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-db-in-memory-computing",
-    period: "1교시",
+    period: "2교시",
     question: "In memory computing",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: ["In Memory Computing"],
@@ -2818,7 +2818,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-db-병행수행-제어-해결방안",
-    period: "1교시",
+    period: "2교시",
     question: "병행수행 제어,해결방안",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: ["트랜잭션", "DB 동시성제어"],
@@ -2864,7 +2864,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-db-cap이론-한계-pacelc-이론",
-    period: "1교시",
+    period: "2교시",
     question: "CAP이론, 한계, PACELC 이론",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: ["CAP 이론과 BASE 이론", "PACELC"],
@@ -2888,7 +2888,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-db-병렬-분산db",
-    period: "1교시",
+    period: "2교시",
     question: "병렬, 분산DB",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: ["분산 DB"],
@@ -2900,7 +2900,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-db-sql-join-유형-성능향상-기법",
-    period: "1교시",
+    period: "2교시",
     question: "SQL Join 유형, 성능향상 기법",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: ["SQL(Structured Query Language)", "조인(Join)"],
@@ -2924,7 +2924,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-db-데이터생명주기-문서개방방식-lod",
-    period: "1교시",
+    period: "2교시",
     question: "데이터생명주기_문서개방방식_LOD",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: [],
@@ -2936,7 +2936,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-db-ldw",
-    period: "1교시",
+    period: "2교시",
     question: "LDW",
     exam: "정리 답안 (드라이브 06. DB)",
     topicTitles: ["LDW(Logical Data Warehouse)"],
@@ -3001,7 +3001,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sec-암호화-블록-암호화-양자-암호화",
-    period: "1교시",
+    period: "2교시",
     question: "암호화, 블록 암호화, 양자 암호화",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["양자 암호(Quantum Cryptography)", "블록 암호화(Block Cipher)", "암호화(Encryption)"],
@@ -3014,7 +3014,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sec-보안의-특징-암호화원리-aaa-암호학적-해시",
-    period: "1교시",
+    period: "2교시",
     question: "보안의 특징, 암호화원리, AAA, 암호학적 해시",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["암호화(Encryption)"],
@@ -3027,7 +3027,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sec-ipsec-ssl-vpn-mpls-vpn-ssl-handshaking",
-    period: "1교시",
+    period: "2교시",
     question: "IPSEC, SSL VPN, MPLS VPN, SSL handshaking",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["VPN(Virtual Private Network)", "IPSec"],
@@ -3039,7 +3039,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sec-디지털-포렌식-필요성-절차-활용-기술",
-    period: "1교시",
+    period: "2교시",
     question: "디지털 포렌식 필요성, 절차, 활용 기술",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["디지털 포렌식(Digital Forensic)"],
@@ -3073,7 +3073,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sec-스마트시티-보안",
-    period: "1교시",
+    period: "2교시",
     question: "스마트시티 보안",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["스마트시티 보안취약점 및 대응방안"],
@@ -3107,7 +3107,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sec-스니핑-스푸핑-하이재킹",
-    period: "1교시",
+    period: "2교시",
     question: "스니핑, 스푸핑, 하이재킹",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["스니핑(Sniffing) & 스푸핑(Spoofing)"],
@@ -3130,7 +3130,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sec-pia-개념-법적근거-의무대상-절차",
-    period: "1교시",
+    period: "2교시",
     question: "PIA 개념, 법적근거, 의무대상, 절차",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["개인정보 영향평가(Privacy Impact Assessment)"],
@@ -3142,7 +3142,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sec-사설인증서의-종류-전자서명-발전방향",
-    period: "1교시",
+    period: "2교시",
     question: "사설인증서의 종류, 전자서명 발전방향",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: [],
@@ -3177,7 +3177,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sec-fido",
-    period: "1교시",
+    period: "2교시",
     question: "FIDO",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["패스키(Passkey)"],
@@ -3201,7 +3201,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sec-정보보안-3가지-목적-위협-공격-방법",
-    period: "1교시",
+    period: "2교시",
     question: "정보보안 3가지 목적, 위협 공격 방법",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: [],
@@ -3213,7 +3213,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sec-암호학적해시-mac-dac-rainbow-table",
-    period: "1교시",
+    period: "2교시",
     question: "암호학적해시, MAC,DAC, Rainbow Table",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["해시 솔트(Salt)와 키 스트레칭(Key Stretching)", "접근 제어/접근 통제(Access Control)"],
@@ -3270,7 +3270,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sec-디피헬만-알고리즘-비밀키의-개념-rsa-bb84프로토콜-양자암호통신기술",
-    period: "1교시",
+    period: "2교시",
     question: "디피헬만 알고리즘, 비밀키의 개념, RSA, BB84프로토콜, 양자암호통신기술",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["디피-헬만 알고리즘(Diffie-Hellman Algorithm)", "양자 암호(Quantum Cryptography)"],
@@ -3293,7 +3293,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sec-사용자-인증-필요성-절차-요소기술",
-    period: "1교시",
+    period: "2교시",
     question: "사용자 인증 필요성, 절차, 요소기술",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: [],
@@ -3316,7 +3316,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sec-블록체인-플랫폼-구축-성능-보안",
-    period: "1교시",
+    period: "2교시",
     question: "블록체인 플랫폼 구축 성능, 보안",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["블록체인 암호기술 가이드라인"],
@@ -3340,7 +3340,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sec-망분리-구축-장단점-관점-비교-규제-샌드박스",
-    period: "1교시",
+    period: "2교시",
     question: "망분리 구축 장단점, 관점 비교, 규제 샌드박스",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["규제 샌드박스"],
@@ -3398,7 +3398,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sec-접근제어-유형-접근-모델-설명",
-    period: "1교시",
+    period: "2교시",
     question: "접근제어 유형, 접근 모델 설명",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["접근 제어/접근 통제(Access Control)", "접근 통제 모델"],
@@ -3410,7 +3410,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sec-대칭-비대칭-블록-암호화-유형-양자-암호화",
-    period: "1교시",
+    period: "2교시",
     question: "대칭, 비대칭, 블록 암호화 유형, 양자 암호화",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["양자 암호(Quantum Cryptography)", "블록 암호화(Block Cipher)", "암호화(Encryption)"],
@@ -3424,7 +3424,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sec-개인정보-비식별조치-가이드라인",
-    period: "1교시",
+    period: "2교시",
     question: "개인정보 비식별조치 가이드라인",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["개인정보 보호기술", "가명처리(Pseudonymization) 기법"],
@@ -3482,7 +3482,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sec-blp-biba-clark-wilson",
-    period: "1교시",
+    period: "2교시",
     question: "BLP, BIBA, Clark Wilson",
     exam: "정리 답안 (드라이브 05. 보안)",
     topicTitles: ["접근 통제 모델"],
@@ -3637,7 +3637,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   // ── 드라이브 「2025년 하반기 › 01. CA / 02. OS」 정리 답안 ──
   {
     id: "peer-h25-파이프라인",
-    period: "1교시",
+    period: "2교시",
     question: "파이프라인",
     exam: "정리 답안 (드라이브 2025년 하반기)",
     topicTitles: ["Pipeline(파이프라인)"],
@@ -3705,7 +3705,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-h25-ipc-설명",
-    period: "1교시",
+    period: "2교시",
     question: "IPC 설명",
     exam: "정리 답안 (드라이브 2025년 하반기)",
     topicTitles: ["프로세스간 통신(IPC)"],
@@ -3741,7 +3741,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-h25-ipc",
-    period: "1교시",
+    period: "2교시",
     question: "IPC",
     exam: "정리 답안 (드라이브 2025년 하반기)",
     topicTitles: ["프로세스간 통신(IPC)"],
@@ -3764,7 +3764,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-h25-우선순위-역전3",
-    period: "1교시",
+    period: "2교시",
     question: "우선순위 역전3",
     exam: "정리 답안 (드라이브 2025년 하반기)",
     topicTitles: ["우선순위 역전(Priority Inversion) 현상"],
@@ -3776,7 +3776,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-h25-우선순위-역전2",
-    period: "1교시",
+    period: "2교시",
     question: "우선순위 역전2",
     exam: "정리 답안 (드라이브 2025년 하반기)",
     topicTitles: ["우선순위 역전(Priority Inversion) 현상"],
@@ -3788,7 +3788,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-h25-선점형-스케줄링",
-    period: "1교시",
+    period: "2교시",
     question: "선점형 스케줄링",
     exam: "정리 답안 (드라이브 2025년 하반기)",
     topicTitles: ["CPU 스케줄링(CPU Scheduling)", "스케줄러(Scheduler)"],
@@ -3868,7 +3868,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-h25-상호배제2",
-    period: "1교시",
+    period: "2교시",
     question: "상호배제2",
     exam: "정리 답안 (드라이브 2025년 하반기)",
     topicTitles: ["경쟁조건(Race Condition) 해결 방안", "세마포어(Semaphore)"],
@@ -3881,7 +3881,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-h25-상호배제",
-    period: "1교시",
+    period: "2교시",
     question: "상호배제",
     exam: "정리 답안 (드라이브 2025년 하반기)",
     topicTitles: ["경쟁조건(Race Condition) 해결 방안", "세마포어(Semaphore)"],
@@ -4123,7 +4123,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sw25h-sw-안전성-분석-기법",
-    period: "1교시",
+    period: "2교시",
     no: "5",
     question: "SW 안전성 분석 기법",
     exam: "2025년 하반기 정리",
@@ -4801,7 +4801,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-ai25h-ai-기본법-1교시형-1",
-    period: "1교시",
+    period: "2교시",
     no: "6",
     question: "① AI 기본법 주요 내용 ② AI 기본법 고려 사항",
     exam: "2025년 하반기 정리",
@@ -4829,7 +4829,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-ai25h-ai-기본법-1교시형-3",
-    period: "1교시",
+    period: "2교시",
     no: "6",
     question:
       "① AI 기본법 개요 ② AI 기본법 주요내용 ③ AI 기본법 고려사항 ④ AI 기본법 효과",
@@ -5101,7 +5101,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-ai25h-ai-기본법-2교시형-1",
-    period: "2교시",
+    period: "1교시",
     no: "4",
     question: "AI 기본법",
     exam: "2025년 하반기 정리",
@@ -6990,7 +6990,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
   },
   {
     id: "peer-sv-maas",
-    period: "1교시",
+    period: "2교시",
     no: "9",
     question: "MaaS(Mobility as a Service), 필요기술",
     exam: "정리 답안 (드라이브 03. 서비스) · 합숙 2020.5 (미기출)",
@@ -24654,7 +24654,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
   },
   {
     id: "peer-a24i-위성-저궤도-위성-3",
-    period: "2교시",
+    period: "1교시",
     question: "저궤도 위성",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 05. NW)",
     topicTitles: ["비지상네트워크(NTN, Non-Terrestrial Networks)"],
