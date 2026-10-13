@@ -17321,7 +17321,7 @@ export const SUBNOTES: TextbookSubnote[] = [
       "Media, Syntax, Fat-Finger와 같은 문제로 장애 발생 시 회복기법을 이용하여 일관성, 무결성, 가용성을 확보 및 보장 수행하는 기법",
     defShort: "장애 발생 시 회복기법으로 일관성·무결성·가용성 확보하는 기법",
     lead: "장애 시 DB 일관성 확보, DB 회복기법",
-    features: ["로그 복구", "트랜잭션", "검사점 단축"],
+    features: ["REDO·UNDO", "즉시·지연갱신", "체크포인트"],
     keywords: ["REDO", "UNDO", "즉시갱신", "지연갱신", "체크포인트", "그림자페이지"],
     tables: [
       {
