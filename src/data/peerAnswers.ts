@@ -60117,7 +60117,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     id: "peer-kpc-kpc-59회-시스템응용-모의고사-모범답안-1교시-11번",
     period: "1교시",
     no: "11",
-    question: "기능점수(『400000 『0104에서 어플리케이션 경계에 대하여 설명하시오",
+    question: "기능점수(Function Point)에서 어플리케이션 경계에 대하여 설명하시오",
     exam: "제59회 KPC 기술사 IMPACT 실전모의고사",
     topicTitles: ["SW 규모산정"],
     pages: [
@@ -60341,9 +60341,10 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     id: "peer-kpc-kpc-58회-정보관리-모의고사-모범답안-4교시-6번",
     period: "4교시",
     no: "6",
-    question: "연관분석과 40000알고리즘에 대해 다음 질문에 답하시오",
+    question: "연관분석과 Apriori 알고리즘에 대해 다음 질문에 답하시오. 가. Apriori 알고리즘의 개념과 선험적 규칙을 설명하시오. 나. 연관분석을 위한 3가지 척도를 설명하시오. 다. 다음 data를 이용해 3가지 척도를 계산하시오. (2개 항목으로 구성된 후보 항목집합을 대상으로 최소지지도 50% 적용)",
     exam: "제58회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["Apriori 알고리즘", "연관성 분석(association analysis) - 데이터마이닝"],
+    questionIds: ["m02405"],
     pages: [
       { src: "/answers/KPC모의고사/58회/kpc-kpc-58회-정보관리-모의고사-모범답안-4교시-8.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/58회/kpc-kpc-58회-정보관리-모의고사-모범답안-4교시-9.jpg", label: "2쪽" },
@@ -71539,7 +71540,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "1",
     question: "두 제품 또는 사건 사이의 연관성 발견을 위해 데이터 마이닝을 실무에서 활용하고 있다. 다음에 대하여 설명하시오. 가. 연관규칙의 특징과 도출 과정 나. 연관정도를 측정하기 위한 3 가지 기준 다. 아래 데이터를 참조하여 ‘기저귀→맥주’의 지지도, 신뢰도, 향상도 도출 거래번호 구매한 상품 1003 기저귀, 맥주, 빵 1056 기저귀, 맥주 1071 기저귀, 빵, 음료수 2005 빵, 음료수, 커피",
     exam: "제119회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["데이터 마이닝 방법론", "연관성 분석(association analysis) - 데이터마이닝"],
+    topicTitles: ["데이터 마이닝 방법론", "연관성 분석(association analysis) - 데이터마이닝", "Apriori 알고리즘"],
     questionIds: ["k119-201"],
     pages: [
       { src: "/answers/기출해설집/정보관리/119회/itpe119-2-01-1.webp", label: "1쪽" },
