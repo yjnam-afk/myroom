@@ -195,6 +195,8 @@ const TRAP: Record<string, RegExp> = {
   확률분포: /조건부확률분포/,
   drm: /범정부drm|drmdatareferencemodel/,
   owasptop10: /owasptop10(?:for)?(?:llm|대형언어|대규모언어)/,
+  // DB 옵티마이저(RBO·CBO) 문항은 머신러닝 옵티마이저가 아니다 — 15문항이 걸려 있었다(2026-10-17).
+  optimizer: /^[\s\S]*(?:rbo|cbo|rulebased|costbased|데이터베이스|database|dbms|관계형db)[\s\S]*$/,
 };
 
 function trapped(entry: { sq: string }, key: string): boolean {

@@ -37177,7 +37177,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "데이터베이스 튜닝 3단계",
     exam: "심화반 NS10 7주차",
-    topicTitles: [],
+    topicTitles: ["튜닝 절차", "Tuning / DB 성능 개선 방안"],
     pages: [
       { src: "/answers/심화반/NS10/7주차/w22-db-튜닝-데이터베이스-튜닝-3단계-ns10-07-1-1.jpg", label: "1쪽" },
       { src: "/answers/심화반/NS10/7주차/w22-db-튜닝-데이터베이스-튜닝-3단계-ns10-07-1-2.jpg", label: "2쪽" },
@@ -47067,7 +47067,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "데이터베이스 튜닝",
     exam: "실전심화반 TOP반 FR 2일차 모의고사",
-    topicTitles: [],
+    topicTitles: ["Tuning / DB 성능 개선 방안"],
     pages: [
       { src: "/answers/실전심화반/TOP반/cls-top반-fr2일차-2교시-전대성pe-1.jpg", label: "1쪽" },
       { src: "/answers/실전심화반/TOP반/cls-top반-fr2일차-2교시-전대성pe-2.jpg", label: "2쪽" },
@@ -47251,7 +47251,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "데이터베이스 튜닝 개념·목적, 설계 튜닝 기법, Hint 유형",
     exam: "실전심화반 TOP반 FR 2일차 모의고사",
-    topicTitles: [],
+    topicTitles: ["Tuning / DB 성능 개선 방안"],
     pages: [
       { src: "/answers/실전심화반/TOP반/cls-top반-fr2일차-2교시-오유리pe-7.jpg", label: "7쪽" },
       { src: "/answers/실전심화반/TOP반/cls-top반-fr2일차-2교시-오유리pe-8.jpg", label: "8쪽" },
@@ -50947,7 +50947,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "5",
     question: "데이터베이스 성능 개선을 위한 튜닝에 대하여 다음을 설명하시오. 가. 분석, 이행, 평가의 3단계를 설명하시오. 나. 설계, Application, Server, System 단계로 진행되는 튜닝 절차에 대하여 설명하시오.",
     exam: "제68회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["튜닝 절차", "Tuning / DB 성능 개선 방안"],
     questionIds: ["m02062"],
     pages: [
       { src: "/answers/KPC모의고사/68회/kpc-68회-kpc기술사모의고사-정보관리-모범답안-2교시-12.jpg", label: "1쪽" },
@@ -56633,7 +56633,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     period: "2교시",
     question: "가. SQL 처리 과정의 소프트 DHA 과 하드 Wh! (Hard Parsing), 나. CBO(Cost Based Optimizer) 기반 SQL 최적화 수행 과정",
     exam: "제89회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["머신러닝 옵티마이저(Optimizer)", "SQL(Structured Query Language)"],
+    topicTitles: ["SQL(Structured Query Language)"],
     pages: [
       { src: "/answers/KPC모의고사/89회/kpc-89회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-2교시-1.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/89회/kpc-89회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-2교시-2.jpg", label: "2쪽" },
@@ -62625,7 +62625,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "2",
     question: "데이터 무결성 제약조건에 대해 설명하시오",
     exam: "제61회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["데이터베이스 무결성"],
     pages: [
       { src: "/answers/KPC모의고사/61회/kpc-kpc-61회-정보관리-모의고사-모범답안-4교시-6.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/61회/kpc-kpc-61회-정보관리-모의고사-모범답안-4교시-7.jpg", label: "2쪽" },
@@ -62805,7 +62805,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "5",
     question: "관계형 08에서 SE] OFO| A (Optimizer) 에 대하여 아래 SES 설명하시오",
     exam: "제64회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["머신러닝 옵티마이저(Optimizer)"],
+    topicTitles: ["SQL(Structured Query Language)"],
     pages: [
       { src: "/answers/KPC모의고사/64회/kpc-kpc-64회-시스템응용-모의고사-모범답안-2교시-11.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/64회/kpc-kpc-64회-시스템응용-모의고사-모범답안-2교시-12.jpg", label: "2쪽" },
@@ -63213,7 +63213,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "2",
     question: "정규화의 기본원칙과 유형에 대해 설명하고 다음 테이블에 대하여 1,2,3차 정규화를 수행하여 표현하시오.",
     exam: "제60회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["데이터베이스 정규화(Normalization)"],
     questionIds: ["m02337"],
     pages: [
       { src: "/answers/KPC모의고사/60회/kpc-kpc-60회-정보관리-모의고사-모범답안-3교시-7.jpg", label: "1쪽" },
@@ -63344,7 +63344,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "1",
     question: "연결함정과 4 차 및 5 차 정규화를 설명하시오.",
     exam: "제56회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["연결함정(Connection Trap)"],
+    topicTitles: ["연결함정(Connection Trap)", "데이터베이스 정규화(Normalization)"],
     questionIds: ["m02465"],
     pages: [
       { src: "/answers/KPC모의고사/56회/kpc-kpc-56회-시스템응용-모의고사-모범답안-4교시-2.jpg", label: "1쪽" },
@@ -64361,7 +64361,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "6",
     question: "관계형 08에서 SE] OfO| A{ (Optimizer) H| 대하여 아래 BES 설명하시오",
     exam: "제64회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["머신러닝 옵티마이저(Optimizer)"],
+    topicTitles: ["SQL(Structured Query Language)"],
     pages: [
       { src: "/answers/KPC모의고사/64회/kpc-kpc-64회-정보관리-모의고사-모범답안-2교시-8.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/64회/kpc-kpc-64회-정보관리-모의고사-모범답안-2교시-9.jpg", label: "2쪽" },
@@ -65107,7 +65107,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "2",
     question: "다음은 어떤 하나의 제품에 대해 여러 개의 주문서가 접수된 내용을 보여주는 주문내역에 대한 최초 테이블이다. 다음에 대해서 설명하시오 가. 1 차 정규화된 테이블과 E-R 다이어그램 나. 2 차 정규화된 테이블과 E-R 다이어그램 다. 정규화의 목적, 효과, 문제점에 대하여 설명",
     exam: "제67회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["데이터베이스 정규화(Normalization)"],
     questionIds: ["m02129"],
     pages: [
       { src: "/answers/KPC모의고사/67회/kpc-kpc-67회-정보관리-모의고사-모범답안-4교시-4.jpg", label: "1쪽" },
@@ -67452,7 +67452,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "2교시",
     question: "4차 정규화",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["데이터베이스 정규화(Normalization)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-4차-정규화-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-4차-정규화-1-2.jpg", label: "2쪽" },
@@ -67586,7 +67586,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "1교시",
     question: "튜닝3단계",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["튜닝 절차", "Tuning / DB 성능 개선 방안"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-튜닝3단계-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-튜닝3단계-2.jpg", label: "2쪽" },
@@ -67726,7 +67726,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "2교시",
     question: "DB성능지표, 개선절차, 튜닝",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["Tuning / DB 성능 개선 방안"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-db성능지표-개선절차-튜닝-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-db성능지표-개선절차-튜닝-1-2.jpg", label: "2쪽" },
@@ -68033,7 +68033,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "1교시",
     question: "4차 정규화",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["데이터베이스 정규화(Normalization)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-4차-정규화-2-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-4차-정규화-2-2.jpg", label: "2쪽" },
@@ -68769,7 +68769,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "1교시",
     question: "4차 정규화",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["데이터베이스 정규화(Normalization)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-4차-정규화-3-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-4차-정규화-3-2.jpg", label: "2쪽" },
@@ -77246,7 +77246,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "3",
     question: "데이터 용량이 증가할수록 데이터베이스 튜닝(Tuning)의 필요성이 증가하고 있다. 데이터베이스 튜닝에 대한 아래의 사항을 설명하시오. 가. 데이터베이스 튜닝의 개념과 목적 나. 데이터베이스 설계 단계 튜닝 기법 다. 힌트(Hint)의 유형",
     exam: "제127회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 이상헌 기술사)",
-    topicTitles: ["데이터베이스의 개념"],
+    topicTitles: ["데이터베이스의 개념", "Tuning / DB 성능 개선 방안"],
     questionIds: ["k127-203"],
     pages: [
       { src: "/answers/기출해설집/정보관리/127회/itpe127-2-03-1.webp", label: "1쪽" },
@@ -77349,7 +77349,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "4",
     question: "데이터베이스 옵티마이저(Optimizer)에 대한 아래의 사항을 설명하시오. 가. 옵티마이저의 개념 나. RBO(Rule Based Optimizer)와 CBO(Cost Based Optimizer) 비교 다. 옵티마이저의 적용 시 고려사항",
     exam: "제127회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 이상헌 기술사)",
-    topicTitles: ["머신러닝 옵티마이저(Optimizer)"],
+    topicTitles: ["SQL(Structured Query Language)"],
     questionIds: ["k127-304"],
     pages: [
       { src: "/answers/기출해설집/정보관리/127회/itpe127-3-04-1.webp", label: "1쪽" },
@@ -77819,7 +77819,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "6",
     question: "관계 데이터 모델이 가지고 있는 개체 무결성(Entity Integrity)과 참조 무결성(Referential Integrity) 에 대하여 설명하시오.",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["엔티티(Entity)"],
+    topicTitles: ["엔티티(Entity)", "데이터베이스 무결성"],
     questionIds: ["c128-306"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-3-06-1.webp", label: "1쪽" },
@@ -82643,7 +82643,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "2",
     question: "릴레이션 무결성 제약의 유형과 사례를 제시하고, 구현 방법에 대하여 설명하시오.",
     exam: "제135회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 이상헌 기술사)",
-    topicTitles: ["릴레이션(Relation)"],
+    topicTitles: ["릴레이션(Relation)", "데이터베이스 무결성"],
     questionIds: ["k135-402"],
     pages: [
       { src: "/answers/기출해설집/정보관리/135회/itpe135-4-02-1.webp", label: "1쪽" },
@@ -82753,7 +82753,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "4",
     question: "4차 정규화",
     exam: "제136회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 정상 기술사)",
-    topicTitles: ["4차 정규화"],
+    topicTitles: ["4차 정규화", "데이터베이스 정규화(Normalization)"],
     questionIds: ["k136-104"],
     pages: [
       { src: "/answers/기출해설집/정보관리/136회/itpe136-1-04-1.webp", label: "1쪽" },
@@ -84072,7 +84072,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "9",
     question: "정보모델링의 참조 무결성",
     exam: "제138회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반반 백현 기술사)",
-    topicTitles: ["참조무결성", "DB 모델 측면(모델링)"],
+    topicTitles: ["참조무결성", "DB 모델 측면(모델링)", "데이터베이스 무결성"],
     questionIds: ["k138-109"],
     pages: [
       { src: "/answers/기출해설집/정보관리/138회/itpe138-1-09-1.webp", label: "1쪽" },

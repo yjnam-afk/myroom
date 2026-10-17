@@ -168,4 +168,6 @@ export const TOPIC_ALIASES: Record<string, string[]> = {
   "위협 모델링(Threat Modeling)": ["위협 모델링", "위협모델링", "Threat Model", "STRIDE"],
   "기밀컴퓨팅(Confidential Computing)": ["기밀 컴퓨팅", "기밀컴퓨팅", "Confidential Computing", "Trusted Execution"],
   "AI Agent 보안위협": ["에이전트 보안", "Agent 보안", "AI Agent 보안", "에이전트의 보안"],
+  "데이터베이스 무결성": ["무결성 제약", "무결성제약", "Integrity Constraint", "개체 무결성", "참조 무결성"],
+  "데이터베이스 정규화(Normalization)": ["1차 정규화", "2차 정규화", "3차 정규화", "4차 정규화", "5차 정규화", "제3정규형", "제4정규형", "BCNF"],
 };
