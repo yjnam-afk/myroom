@@ -46899,7 +46899,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "CSAP",
     exam: "정리 답안 (드라이브 05. 모범답안)",
-    topicTitles: ["CSAP(Cloud Security Assurance Program)"],
+    topicTitles: ["CSAP(Cloud Security Assurance Program)", "클라우드 보안인증 등급제(CSAP)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/cls-보안-csap-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/cls-보안-csap-2.jpg", label: "2쪽" },
@@ -78111,7 +78111,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "2",
     question: "공공부문에서 민간 클라우드 서비스를 활용하여 운영하고자 한다. 다음 사항들에 대하여 설명하시오. 가. 서비스 활용 절차에 따른 주요 태스크와 클라우드의 기본설계과정 나. 클라우드의 4가지 활용구조 및 클라우드 서비스 보안인증(CSAP) 절차 다. 클라우드 서비스유형(SaaS/PaaS/IaaS) 및 유형별 평가기준",
     exam: "제128회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
-    topicTitles: ["클라우드 전환"],
+    topicTitles: ["클라우드 전환", "클라우드 보안인증 등급제(CSAP)"],
     questionIds: ["k128-202"],
     pages: [
       { src: "/answers/기출해설집/정보관리/128회/itpe128-2-02-1.webp", label: "1쪽" },
@@ -78373,7 +78373,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "2",
     question: "CSAP(Cloud Security Assurance Program)",
     exam: "제129회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 소민호 기술사)",
-    topicTitles: ["CSAP(Cloud Security Assurance Program)"],
+    topicTitles: ["CSAP(Cloud Security Assurance Program)", "클라우드 보안인증 등급제(CSAP)"],
     questionIds: ["c129-102"],
     pages: [
       { src: "/answers/기출해설집/컴시응/129회/itpe129cs-1-02-1.webp", label: "1쪽" },

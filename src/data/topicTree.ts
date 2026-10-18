@@ -1172,7 +1172,9 @@ export const TOPIC_TREE: Record<string, TreeArea[]> = {
       ] },
       { name: "양자 시대 암호", items: [
         "양자 암호(Quantum Cryptography)",
-        "포스트 양자 암호(Post-Quantum Cryptography)",
+        { t: "포스트 양자 암호(Post-Quantum Cryptography)", kids: [
+          { t: "HNDL(Harvest Now Decrypt Later) 공격", rel: "문제·해결", why: "양자 해독 대비 선수집 위협" },
+        ] },
       ] },
     ] },
     { name: "인증·접근 통제", groups: [
@@ -1234,6 +1236,7 @@ export const TOPIC_TREE: Record<string, TreeArea[]> = {
         "위협 모델링(Threat Modeling)",
         "시큐어 코딩(Secure Coding)",
         "DevSecOps",
+        "오픈소스 SW 보안위협",
         "Secure Software Development Framework(SSDF)",
       ] },
       { name: "SW·콘텐츠 보호", items: [
@@ -1244,6 +1247,7 @@ export const TOPIC_TREE: Record<string, TreeArea[]> = {
       ] },
       { name: "AI 보안", items: [
         "OWASP Top 10 for LLM Application 2025",
+        "오펜시브 AI(Offensive AI)",
         "AI Agent 보안위협",
         "OWASP Agentic AI 위협 및 대응방안(Agentic AI Threats and Mitigations)",
       ] },
@@ -1263,6 +1267,7 @@ export const TOPIC_TREE: Record<string, TreeArea[]> = {
         "클라우드 컴퓨팅 취약점, 대응기술",
         "ISO 27017",
         "ISO 27018",
+        "클라우드 보안인증 등급제(CSAP)",
         "SECaaS(Security as a Service)",
         "CWPP(Cloud Workload Protection Platform) & CSPM(Cloud Security Posture Management)",
         "SASE(Secure Access Service Edge)",
@@ -1286,7 +1291,9 @@ export const TOPIC_TREE: Record<string, TreeArea[]> = {
         ] },
       ] },
       { name: "선제적 위협 대응", items: [
-        "공격 표면 관리(Attack Surface Management)",
+        { t: "공격 표면 관리(Attack Surface Management)", kids: [
+          { t: "지속적인 위협 노출 관리(CTEM)", rel: "확장·발전", why: "노출 관리 전 주기로 확장" },
+        ] },
         "위협 헌팅(Threat Hunting)",
         "사이버 디셉션(Cyber Deception)",
         "사이버 게놈(Cyber genome)",
