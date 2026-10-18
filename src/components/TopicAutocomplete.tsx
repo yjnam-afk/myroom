@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { loadExplainIndex } from "@/lib/explainIndexClient";
 import type { SearchEntry as Entry, TopicOption as T } from "@/lib/explainData";
+import ClearButton from "@/components/ClearButton";
 
 /**
  * 토픽/키워드 직접 입력 시, 비슷한 토픽을 드롭다운으로 노출해 빠르게 선택.
@@ -119,8 +120,9 @@ export default function TopicAutocomplete({
           }
         }}
         placeholder={placeholder}
-        className="w-full rounded-lg border border-slate-300 p-3 text-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+        className="w-full rounded-lg border border-slate-300 p-3 pr-10 text-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
       />
+      <ClearButton value={value} onClear={() => onChange("")} className="top-3" />
       {open && matches.length > 0 && (
         <ul className="absolute z-20 mt-1 max-h-72 w-full overflow-auto rounded-lg border border-slate-200 bg-white shadow-lg">
           <li className="px-3 py-1.5 text-[10px] text-slate-400">

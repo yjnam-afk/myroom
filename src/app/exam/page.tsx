@@ -12,6 +12,7 @@ import { relatedTopics } from "@/lib/relatedTopics";
 import { canonicalAnswerId, getModelAnswer } from "@/lib/modelAnswers";
 import { matchSubnoteTitle } from "@/lib/matchSubnote";
 import genAnswers from "@/data/genAnswers.json";
+import ClearButton from "@/components/ClearButton";
 
 type Q = {
   id: string;
@@ -193,13 +194,14 @@ export default function ExamPage() {
       <PageHeader title="📜 문제 풀이" desc={KIND_DESC[kind]} />
 
       {/* 기출문제 검색 — 지문·과목·회차 어디로든. 입력 중엔 아래 필터를 무시하고 전체에서 찾는다. */}
-      <div className="mb-4">
+      <div className="relative mb-4">
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="🔍 기출문제 검색 — 지문·과목·회차 (예: 암호화, 데이터베이스, 139회)"
-          className="w-full rounded-xl border border-slate-300 bg-white p-3 text-sm shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+          className="w-full rounded-xl border border-slate-300 bg-white p-3 pr-10 text-sm shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
         />
+        <ClearButton value={query} onClear={() => setQuery("")} className="top-3" />
         {nq && (
           <p className="mt-1.5 text-[11px] text-slate-400">
             기출·셀테·모의고사·NS모의 전체({ALL.length}문제)에서 검색 중 — 아래 구분·회차·교시

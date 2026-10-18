@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/ui";
 import PeerAnswers from "@/components/PeerAnswers";
 import type { AnswerRow } from "@/lib/answerIndex";
 import { DOMAINS } from "@/lib/domains";
+import ClearButton from "@/components/ClearButton";
 
 const PERIODS = ["전체", "1교시", "2교시", "3교시", "4교시"];
 const UNSORTED = "미분류";
@@ -101,12 +102,15 @@ export default function AnswersClient({ rows: all }: { rows: AnswerRow[] }) {
             </button>
           ))}
         </div>
-        <input
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          placeholder="검색 — 토픽명·문제 문구·시험명 아무거나 (예: 테일러링, ATAM, 요구공학)"
-          className="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm outline-none focus:border-brand-400"
-        />
+        <div className="relative">
+          <input
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="검색 — 토픽명·문제 문구·시험명 아무거나 (예: 테일러링, ATAM, 요구공학)"
+            className="w-full rounded-xl border border-slate-300 px-4 py-2.5 pr-10 text-sm outline-none focus:border-brand-400"
+          />
+          <ClearButton value={q} onClear={() => setQ("")} className="top-2" />
+        </div>
         <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
           <div className="flex flex-wrap gap-1">
             {domainChips.map((d) => (

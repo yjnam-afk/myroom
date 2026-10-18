@@ -9,6 +9,7 @@ import ShareButton from "@/components/ShareButton";
 import questions from "@/data/questions.json";
 import topics from "@/data/topics.json";
 import { getModelAnswerByQuestion } from "@/lib/modelAnswers";
+import ClearButton from "@/components/ClearButton";
 
 type Period = "1교시" | "2교시";
 type Hint = {
@@ -172,6 +173,7 @@ export default function AnswerPage() {
         {/* STEP 2 — 문제 */}
         <section>
           <StepLabel n={2} title="문제 입력" />
+          <div className="relative">
           <textarea
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
@@ -181,8 +183,10 @@ export default function AnswerPage() {
                 ? "예) CAP 이론에 대해 설명하시오."
                 : "예) MSA 전환 시 고려사항과 전략을 설명하시오."
             }
-            className="w-full resize-none rounded-lg border border-slate-300 p-3 text-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+            className="w-full resize-none rounded-lg border border-slate-300 p-3 pr-10 text-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
           />
+          <ClearButton value={question} onClear={() => setQuestion("")} confirmOver={60} />
+          </div>
           <div className="mt-2 flex flex-wrap items-center gap-1.5">
             <span className="text-xs text-slate-400">예시·기출:</span>
             {samples.slice(0, 6).map((q) => {
@@ -277,13 +281,16 @@ export default function AnswerPage() {
             <summary className="cursor-pointer text-xs font-medium text-slate-500 hover:text-slate-700">
               📚 교재·참고자료 직접 붙여넣기
             </summary>
-            <textarea
-              value={reference}
-              onChange={(e) => setReference(e.target.value)}
-              rows={5}
-              placeholder="이 문제와 관련된 교재/서브노트 내용을 붙여넣으세요. (관련 부분만)"
-              className="mt-2 w-full resize-y rounded-lg border border-slate-300 p-3 text-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
-            />
+            <div className="relative mt-2">
+              <textarea
+                value={reference}
+                onChange={(e) => setReference(e.target.value)}
+                rows={5}
+                placeholder="이 문제와 관련된 교재/서브노트 내용을 붙여넣으세요. (관련 부분만)"
+                className="w-full resize-y rounded-lg border border-slate-300 p-3 pr-10 text-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+              />
+              <ClearButton value={reference} onClear={() => setReference("")} confirmOver={60} />
+            </div>
             <p className="mt-1 text-xs text-slate-400">
               붙여넣은 내용을 최우선 근거로 사용합니다.
             </p>

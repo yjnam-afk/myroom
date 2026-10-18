@@ -22,6 +22,7 @@ import { loadSession, Session } from "@/lib/auth";
 import { syncNow } from "@/lib/sync";
 import { domainOrder } from "@/lib/domains";
 import { LEVEL_STYLE, LEVEL_HINT, levelOrder } from "@/lib/studyPlan";
+import ClearButton from "@/components/ClearButton";
 
 const STATUS_LABEL: Record<string, string> = {
   todo: "시작 전",
@@ -403,13 +404,14 @@ export default function ReviewPage() {
         </label>
       </div>
 
-      <div className="mb-4">
+      <div className="relative mb-4">
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={`🔎 토픽·분야 검색 (전체 ${topics.length.toLocaleString()}개 중에서 찾기)`}
-          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm shadow-sm outline-none focus:border-brand-400"
+          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 pr-10 text-sm shadow-sm outline-none focus:border-brand-400"
         />
+        <ClearButton value={query} onClear={() => setQuery("")} className="top-2" />
       </div>
 
       {(() => {

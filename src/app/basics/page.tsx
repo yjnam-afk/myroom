@@ -7,6 +7,7 @@ import { PageHeader } from "@/components/ui";
 import { SUBNOTES } from "@/data/textbookSubnotes";
 import { DOMAINS, DOMAIN_LABEL } from "@/lib/domains";
 import { planInfo, LEVEL_STYLE, LEVEL_HINT } from "@/lib/studyPlan";
+import ClearButton from "@/components/ClearButton";
 
 /**
  * 용어 사전 — 두 켜로 구성한다.
@@ -404,17 +405,20 @@ export default function BasicsPage() {
             </button>
           ))}
         </div>
-        <input
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          placeholder={
-            tab === "book"
-              ? "🔍 토픽·정의·키워드 검색 — 예: RAG, 교착상태, 몬테카를로"
-              : "🔍 모르는 낱말 검색 — 예: 오버헤드, 임베딩, p값"
-          }
-          className="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-[15px] outline-none focus:border-brand-400"
-          autoFocus
-        />
+        <div className="relative">
+          <input
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder={
+              tab === "book"
+                ? "🔍 토픽·정의·키워드 검색 — 예: RAG, 교착상태, 몬테카를로"
+                : "🔍 모르는 낱말 검색 — 예: 오버헤드, 임베딩, p값"
+            }
+            className="w-full rounded-xl border border-slate-300 px-4 py-2.5 pr-10 text-[15px] outline-none focus:border-brand-400"
+            autoFocus
+          />
+          <ClearButton value={q} onClear={() => setQ("")} className="top-2.5" />
+        </div>
         <div className="mt-2 flex flex-wrap gap-1.5">
           {tab === "book"
             ? COURSE_KEYS.map((c) => (

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { PageHeader, Spinner, ErrorBox, Button } from "@/components/ui";
 import Markdown from "@/components/Markdown";
 import questions from "@/data/questions.json";
+import ClearButton from "@/components/ClearButton";
 
 type Period = "1교시" | "2교시";
 
@@ -83,6 +84,7 @@ export default function GradePage() {
         <label className="mb-1 block text-xs font-medium text-slate-500">
           문제
         </label>
+        <div className="relative">
         <textarea
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
@@ -92,8 +94,10 @@ export default function GradePage() {
               ? "예) CAP 이론에 대해 설명하시오."
               : "예) MSA 전환 시 고려사항과 전략을 설명하시오."
           }
-          className="w-full resize-none rounded-lg border border-slate-300 p-3 text-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+          className="w-full resize-none rounded-lg border border-slate-300 p-3 pr-10 text-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
         />
+        <ClearButton value={question} onClear={() => setQuestion("")} confirmOver={60} />
+        </div>
 
         <div className="mb-3 mt-2 flex flex-wrap gap-2">
           <span className="self-center text-xs text-slate-400">샘플 문제:</span>
@@ -111,25 +115,31 @@ export default function GradePage() {
         <label className="mb-1 mt-2 block text-xs font-medium text-slate-500">
           내 답안 (마크다운·표 그대로 붙여넣어도 됩니다)
         </label>
-        <textarea
-          value={answer}
-          onChange={(e) => setAnswer(e.target.value)}
-          rows={10}
-          placeholder="여기에 직접 작성한 답안을 붙여넣으세요."
-          className="w-full resize-y rounded-lg border border-slate-300 p-3 text-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
-        />
+        <div className="relative">
+          <textarea
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
+            rows={10}
+            placeholder="여기에 직접 작성한 답안을 붙여넣으세요."
+            className="w-full resize-y rounded-lg border border-slate-300 p-3 pr-10 text-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+          />
+          <ClearButton value={answer} onClear={() => setAnswer("")} confirmOver={60} />
+        </div>
 
         <details className="mt-4 rounded-lg border border-slate-200 bg-slate-50 p-3">
           <summary className="cursor-pointer text-sm font-medium text-slate-600">
             📚 정답 근거(교재·서브노트) 붙여넣기 — 정확도 판단 기준
           </summary>
-          <textarea
-            value={reference}
-            onChange={(e) => setReference(e.target.value)}
-            rows={6}
-            placeholder="이 문제의 정답 근거가 되는 교재 내용을 붙여넣으세요. 이 기준으로 사실 오류·누락을 짚어줍니다."
-            className="mt-2 w-full resize-y rounded-lg border border-slate-300 p-3 text-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
-          />
+          <div className="relative mt-2">
+            <textarea
+              value={reference}
+              onChange={(e) => setReference(e.target.value)}
+              rows={6}
+              placeholder="이 문제의 정답 근거가 되는 교재 내용을 붙여넣으세요. 이 기준으로 사실 오류·누락을 짚어줍니다."
+              className="w-full resize-y rounded-lg border border-slate-300 p-3 pr-10 text-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+            />
+            <ClearButton value={reference} onClear={() => setReference("")} confirmOver={60} />
+          </div>
         </details>
 
         <div className="mt-5">

@@ -25,6 +25,7 @@ import { planInfo, LEVEL_STYLE, LEVEL_HINT, levelOrder } from "@/lib/studyPlan";
 import SourceBadge from "@/components/SourceBadge";
 import { matchSubnoteTitle, findSubnoteByContent } from "@/lib/matchSubnote";
 import { topicForConcept } from "@/lib/relatedTopics";
+import ClearButton from "@/components/ClearButton";
 
 type Topic = {
   id: string;
@@ -341,7 +342,7 @@ export default function MapClient({ stats, chipHits }: { stats: Record<string, T
       </div>
 
       {/* 검색 */}
-      <div className="mb-4">
+      <div className="relative mb-4">
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
@@ -354,8 +355,9 @@ export default function MapClient({ stats, chipHits }: { stats: Record<string, T
                 ? "암기표 검색… (예: 정렬, OSI, 정규형, RAID)"
                 : "토픽·요약·묶음 검색… (예: 정규화, 감리, TCP)"
           }
-          className="w-full rounded-lg border border-slate-300 p-3 text-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+          className="w-full rounded-lg border border-slate-300 p-3 pr-10 text-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
         />
+        <ClearButton value={q} onClear={() => setQ("")} className="top-3" />
       </div>
 
       {view === "map" ? (

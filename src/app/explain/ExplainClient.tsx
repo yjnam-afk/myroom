@@ -17,6 +17,7 @@ import TopicAutocomplete from "@/components/TopicAutocomplete";
 import { DOMAIN_LABEL } from "@/lib/domains";
 import { loadExplainIndex } from "@/lib/explainIndexClient";
 import type { BrowseGroup, BrowseItem, ExplainIndex, ExplainNav, ExplainTopicData } from "@/lib/explainData";
+import ClearButton from "@/components/ClearButton";
 
 /**
  * 토픽 설명 화면(클라이언트).
@@ -257,12 +258,15 @@ function TopicBrowser({
             ({groups.reduce((n, g) => n + g.items.length, 0)}개)
           </span>
         </h3>
-        <input
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-          placeholder="목록 안에서 걸러보기"
-          className="w-44 rounded-lg border border-slate-300 px-3 py-1.5 text-xs focus:border-brand-500 focus:outline-none"
-        />
+        <div className="relative">
+          <input
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+            placeholder="목록 안에서 걸러보기"
+            className="w-44 rounded-lg border border-slate-300 px-3 py-1.5 pr-8 text-xs focus:border-brand-500 focus:outline-none"
+          />
+          <ClearButton value={filter} onClear={() => setFilter("")} className="right-1.5 top-1 h-5 w-5 text-[10px]" />
+        </div>
       </div>
 
       {q ? (
