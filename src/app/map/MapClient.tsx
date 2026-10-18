@@ -15,7 +15,7 @@ import {
 } from "@/data/textbookSubnotes";
 import { DOMAIN_LABEL, DOMAINS, domainLabel, sortDomains } from "@/lib/domains";
 import { COURSE_TOPICS } from "@/data/curriculum";
-import { TOPIC_CLUSTERS } from "@/data/topicClusters";
+import { treePlaces } from "@/data/topicTree";
 import { courseEntries } from "@/lib/courseOrder";
 import { childLinks, parentLink } from "@/data/topicParents";
 import { LEVEL_MAPS, chipKey, chipTopic } from "@/data/levelMaps";
@@ -103,8 +103,9 @@ type MapTopic = {
   summary: string;
   /** 교재 서브노트 — 없으면 CONTENTS 에만 있고 아직 정리 전 */
   sub?: TextbookSubnote;
-  /** 지도 영역(TOPIC_CLUSTERS) */
+  /** 지도 영역 · 분류(topicTree) */
   area: string;
+  group: string;
   /** 전체 지도의 잎(과목의 영역) — 누르면 그 과목 지도로 간다 */
   go?: string;
   /** 전체 지도 잎에 쓰는 이름·숫자·빈도 */
@@ -113,29 +114,26 @@ type MapTopic = {
   heatN?: number;
 };
 const TOPICS_BY_CAT: Record<string, MapTopic[]> = (() => {
-  // 과목 차례는 교재 CONTENTS 기준(lib/courseOrder) — CONTENTS 밖 서브노트는 원래 과목 맨 뒤
+  // 과목 안 자리는 토픽 계층(topicTree) — 영역 → 분류 → 토픽 → 하위 토픽. 계층에 없는 토픽은 맨 뒤.
   const out: Record<string, MapTopic[]> = {};
-  const sq = (x: string) => x.replace(/\s+/g, "").toLowerCase();
   for (const [code, label] of Object.entries(DOMAIN_LABEL)) {
-    const clusters = TOPIC_CLUSTERS[code] ?? [];
-    let ci = -1;
-    out[label] = courseEntries(code).map((e) => {
-      let area = label;
-      if (e.plan) {
-        while (ci + 1 < clusters.length && sq(e.plan.title).startsWith(sq(clusters[ci + 1][1]))) ci++;
-        area = clusters[Math.max(ci, 0)]?.[0] ?? label;
-      } else if (COURSE_TOPICS[code]) area = "다른 교재·CONTENTS 밖";
+    const place = treePlaces(code);
+    const list = courseEntries(code).map((e, i) => {
+      const at = place.get(e.title);
       const p = e.plan ?? (e.sub ? planInfo(e.sub.title, e.sub.topicId) : null);
-      return {
+      const t: MapTopic = {
         title: e.title,
         priority: p?.priority,
         level: p?.level,
         note: p?.note,
         summary: e.sub?.defShort ?? "",
         sub: e.sub,
-        area,
+        area: at?.area ?? "미분류",
+        group: at?.group ?? "",
       };
+      return { t, k: at ? at.i : 100000 + i };
     });
+    out[label] = list.sort((x, y) => x.k - y.k).map((x) => x.t);
   }
   return out;
 })();
@@ -317,7 +315,7 @@ export default function MapClient({ stats, chipHits }: { stats: Record<string, T
     <div>
       <PageHeader
         title="🗺️ 토픽 지도"
-        desc="과목 → 영역 → 토픽 가지로 한눈에 봅니다. 가지는 눌러서 접고 펴고, 색은 중요도나 출제 빈도, 토픽을 누르면 옆 칸에 출제·답안 수와 이어진 토픽이 나옵니다."
+        desc="과목 → 영역 → 분류 → 토픽 → 하위 토픽 가지로 한눈에 봅니다. 가지는 눌러서 접고 펴고, 색은 중요도나 출제 빈도, 토픽을 누르면 옆 칸에 출제·답안 수와 이어진 토픽이 나옵니다."
       />
 
       {/* 뷰 전환 */}
@@ -434,20 +432,38 @@ const areasOf = (items: MapTopic[]): Area[] => {
   return out;
 };
 
+/** 영역 안 분류 — 같은 분류가 이어진 토픽끼리 한 줄로 */
+const groupsIn = (items: MapTopic[]): { name: string; items: MapTopic[] }[] => {
+  const out: { name: string; items: MapTopic[] }[] = [];
+  for (const t of items) {
+    const last = out[out.length - 1];
+    if (last && last.name === t.group) last.items.push(t);
+    else out.push({ name: t.group, items: [t] });
+  }
+  return out;
+};
+
 /** 가지 묶음 — 왼쪽 세로줄에서 자식마다 가로줄을 뻗는다 */
-function Twigs({ color, children }: { color: string; children: ReactNode[] }) {
+function Twigs({ color, children, atTop }: { color: string; children: ReactNode[]; atTop?: boolean }) {
   // 검색으로 걸러진 가지(null)는 줄도 긋지 않는다
   const kids = children.filter(Boolean);
   const n = kids.length;
+  // atTop — 가지가 위에 이름, 아래에 긴 칸인 경우(과목 지도의 영역) 가로줄을 이름 높이(위 0.95rem)에 잇는다
+  const y = atTop ? "0.95rem" : "50%";
   return (
     <div className="flex min-w-0 flex-1 flex-col">
       {kids.map((c, i) => (
         <div key={i} className="relative min-w-0 py-1 pl-5">
-          <span className="absolute left-0 top-1/2 h-0.5 w-5" style={{ background: color }} />
+          <span className="absolute left-0 h-0.5 w-5" style={{ background: color, top: atTop ? `calc(${y} + 0.25rem)` : y }} />
           {n > 1 && (
             <span
               className="absolute left-0 w-0.5"
-              style={{ background: color, top: i === 0 ? "50%" : 0, bottom: i === n - 1 ? "50%" : 0 }}
+              style={{
+                background: color,
+                top: i === 0 ? (atTop ? `calc(${y} + 0.25rem)` : y) : 0,
+                bottom: i === n - 1 ? (atTop ? undefined : "50%") : 0,
+                height: i === n - 1 && atTop ? `calc(${y} + 0.25rem)` : undefined,
+              }}
             />
           )}
           {c}
@@ -579,10 +595,10 @@ function MapView({
     if (query && !hit) return null;
     const top = a.items.filter((t) => t.priority === "상").length;
     return (
-      <div className="flex min-w-0 flex-col sm:flex-row sm:items-center">
+      <div className="flex min-w-0 flex-col">
         <button
           onClick={() => toggle(key, !overview)}
-          className="flex w-full shrink-0 items-center justify-between gap-1 rounded-lg border-2 bg-white px-2.5 py-1 text-left text-[12.5px] font-bold sm:w-44"
+          className="flex w-full shrink-0 items-center justify-between gap-1 rounded-lg border-2 bg-white px-2.5 py-1 text-left text-[12.5px] font-bold sm:w-56"
           style={{ borderColor: color, color }}
         >
           <span className="truncate">{a.name}</span>
@@ -593,28 +609,45 @@ function MapView({
         </button>
         {o && (
           <>
-            <span className="ml-4 h-2 w-0.5 sm:ml-0 sm:h-0.5 sm:w-4" style={{ background: color }} />
+            <span className="ml-4 h-2 w-0.5" style={{ background: color }} />
             <div
-              className="ml-4 flex min-w-0 flex-1 flex-wrap gap-1.5 rounded-xl border border-dashed px-2 py-1.5 sm:ml-0"
+              className="ml-4 flex min-w-0 flex-1 flex-col gap-1.5 rounded-xl border border-dashed px-2 py-1.5"
               style={{ borderColor: color }}
             >
-              {a.items.map((t) => {
-                const up = upHere(t);
-                if (!up) return <Family key={t.title} t={t} color={color} />;
-                // 상위가 같은 영역이면 그 아래에만 그린다. 다른 영역이면 여기엔 자리표만 남긴다
-                // (전부 옮겨 가 영역이 비어 보이던 것 — 회복·동시성 제어 → 트랜잭션 아래)
-                if (a.items.some((x) => x.title === up.parent)) return null;
-                return (
-                  <button
-                    key={t.title}
-                    onClick={() => pick(t)}
-                    title={`${up.rel} · ${up.why}`}
-                    className="rounded-full border border-dashed border-slate-300 px-2.5 py-1 text-[11.5px] leading-tight text-slate-500 hover:bg-slate-50"
-                  >
-                    {short(t.title)} <span className="text-slate-400">↑ {short(up.parent)} 아래</span>
-                  </button>
-                );
-              })}
+              {groupsIn(a.items).map((g) => (
+                <div
+                  key={g.name || "-"}
+                  className="flex w-full min-w-0 flex-col gap-1 border-b border-dashed border-slate-100 pb-1.5 last:border-0 last:pb-0 sm:flex-row sm:items-start"
+                >
+                  {/* 분류 — 영역 아래 2단계. 왼쪽 칸에 이름, 오른쪽에 그 분류의 토픽 */}
+                  {g.name && (
+                    <span
+                      className="mt-0.5 w-fit shrink-0 rounded-md px-1.5 py-0.5 text-[11px] font-bold sm:w-28"
+                      style={{ color, background: `${color}14` }}
+                    >
+                      {g.name}
+                    </span>
+                  )}
+                  <div className="flex min-w-0 flex-1 flex-wrap items-start gap-1.5">
+                    {g.items.map((t) => {
+                      const up = upHere(t);
+                      if (!up) return <Family key={t.title} t={t} color={color} />;
+                      // 상위가 같은 영역이면 그 아래에만 그린다. 다른 영역이면(두 과목에 실린 토픽) 자리표만 남긴다
+                      if (a.items.some((x) => x.title === up.parent)) return null;
+                      return (
+                        <button
+                          key={t.title}
+                          onClick={() => pick(t)}
+                          title={`${up.rel} · ${up.why}`}
+                          className="rounded-full border border-dashed border-slate-300 px-2.5 py-1 text-[11.5px] leading-tight text-slate-500 hover:bg-slate-50"
+                        >
+                          {short(t.title)} <span className="text-slate-400">↑ {short(up.parent)} 아래</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
             </div>
           </>
         )}
@@ -805,13 +838,14 @@ function MapView({
               })}
             </Twigs>
           ) : (
-            <div className="flex min-w-0 flex-col sm:flex-row sm:items-center">
-              <div className="flex shrink-0 items-center justify-center whitespace-nowrap rounded-2xl bg-slate-900 px-4 py-2 text-sm font-bold text-white shadow sm:py-3">
+            <div className="flex min-w-0 flex-col">
+              {/* 과목 → 영역(가지) → 영역 칸 안에 분류 | 토픽. 영역 이름을 칸 위에 두어 토픽 칩이 가로 폭을 다 쓴다 */}
+              <div className="flex w-fit shrink-0 items-center justify-center whitespace-nowrap rounded-2xl bg-slate-900 px-4 py-2 text-sm font-bold text-white shadow">
                 {cat}
               </div>
-              <span className="ml-4 h-2 w-0.5 bg-slate-900 sm:ml-0 sm:h-0.5 sm:w-4" />
-              <div className="ml-4 min-w-0 flex-1 sm:ml-0">
-                <Twigs color="#0f172a">
+              <span className="ml-4 h-2 w-0.5 bg-slate-900" />
+              <div className="ml-4 min-w-0 flex-1">
+                <Twigs color="#0f172a" atTop>
                   {areasOf(list).map((a, i) => (
                     <AreaRow key={a.name} a={a} color={BRANCH[i % BRANCH.length]} dom={cat} />
                   ))}
@@ -841,6 +875,7 @@ function MapView({
               <div className="flex items-start justify-between gap-2">
                 <p className="text-[11px] text-slate-400">
                   {selected.area}
+                  {selected.group && <> › {selected.group}</>}
                   {selected.priority && <> · 중요도 {selected.priority}</>}
                   {selected.level && <> · {selected.level}</>}
                 </p>
