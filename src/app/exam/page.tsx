@@ -99,6 +99,9 @@ function newestRound(k: string): string {
   return rs[0] || "전체";
 }
 
+/** 검색할 때만 보이는 「전체」 탭 — 모든 구분(연습문제 포함)에서 찾는다 */
+const ALL_KIND = "__all";
+
 export default function ExamPage() {
   const [kind, setKind] = useState<string>(KINDS[0] || "기출");
   const [round, setRound] = useState<string>(() => newestRound(KINDS[0] || "기출"));
@@ -119,6 +122,10 @@ export default function ExamPage() {
     [kind],
   );
   useEffect(() => setCohort("전체"), [kind]);
+  // 「전체」 탭은 검색 중에만 — 검색어를 지우면 첫 탭으로
+  useEffect(() => {
+    if (!nq && kind === ALL_KIND) setKind(KINDS[0] || "기출");
+  }, [nq, kind]);
   const inCohort = (q: Q) => cohort === "전체" || q.cohort === cohort;
 
   // 선택 구분에 존재하는 회차/주차만.
@@ -134,7 +141,7 @@ export default function ExamPage() {
   // 선택 구분에 실제 존재하는 교시만 노출(셀테는 3·4교시가 없음).
   const periods = useMemo(() => {
     const have = new Set(
-      EXAMS.filter((q) => kindOf(q) === kind).map((q) => q.period),
+      EXAMS.filter((q) => kind === ALL_KIND || kindOf(q) === kind).map((q) => q.period),
     );
     return [
       "전체",
@@ -144,16 +151,29 @@ export default function ExamPage() {
     ] as (typeof PERIODS)[number][];
   }, [kind]);
 
+  // 검색 — 지금 탭(구분) 안에서 기수·교시 필터와 함께 찾는다. 회차는 검색 중엔 보지 않는다(기본값이 최신 회차라 너무 좁다).
+  // 「전체」 탭(검색할 때만 보임)은 연습문제까지 모든 문제에서 찾는다.
+  const hit = (q: Q) =>
+    q.text.toLowerCase().includes(nq) ||
+    q.category.toLowerCase().includes(nq) ||
+    (q.source || "").toLowerCase().includes(nq) ||
+    roundOf(q).toLowerCase().includes(nq);
+  const searchAll = nq && kind === ALL_KIND;
+  const hitsByKind = useMemo(() => {
+    const m: Record<string, number> = {};
+    if (!nq) return m;
+    for (const q of ALL) if (hit(q)) m[kindOf(q)] = (m[kindOf(q)] ?? 0) + 1;
+    m[ALL_KIND] = Object.values(m).reduce((a, b) => a + b, 0);
+    return m;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nq]);
+
   const list = useMemo(() => {
     if (nq) {
-      // 검색 모드 — 연습문제 포함 전체에서 지문·과목·출처로 찾는다. 최신 회차 먼저.
-      return ALL.filter(
-        (q) =>
-          q.text.toLowerCase().includes(nq) ||
-          q.category.toLowerCase().includes(nq) ||
-          (q.source || "").toLowerCase().includes(nq) ||
-          roundOf(q).toLowerCase().includes(nq),
-      ).sort((a, b) => roundNum(roundOf(b)) - roundNum(roundOf(a)));
+      const pool = searchAll ? ALL : EXAMS.filter((q) => kindOf(q) === kind && inCohort(q));
+      return pool
+        .filter((q) => (period === "전체" || q.period === period) && hit(q))
+        .sort((a, b) => roundNum(roundOf(b)) - roundNum(roundOf(a)));
     }
     return EXAMS.filter(
       (q) =>
@@ -198,27 +218,29 @@ export default function ExamPage() {
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="🔍 기출문제 검색 — 지문·과목·회차 (예: 암호화, 데이터베이스, 139회)"
+          placeholder="🔍 문제 검색 — 지문·과목·회차 (예: 암호화, 데이터베이스, 139회) · 지금 탭 안에서 찾아요"
           className="w-full rounded-xl border border-slate-300 bg-white p-3 pr-10 text-sm shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
         />
         <ClearButton value={query} onClear={() => setQuery("")} className="top-3" />
         {nq && (
           <p className="mt-1.5 text-[11px] text-slate-400">
-            기출·셀테·모의고사·NS모의 전체({ALL.length}문제)에서 검색 중 — 아래 구분·회차·교시
-            필터는 잠시 무시됩니다. 지우면 원래 목록으로 돌아가요.
+            {searchAll
+              ? `모든 구분(연습문제 포함 ${ALL.length}문제)에서 찾는 중`
+              : `「${KIND_LABEL[kind] || kind}」 탭 안에서 찾는 중 — 기수·교시 필터는 그대로, 회차는 전체`}
+            {" "}· 탭 옆 숫자 = 그 탭에서 걸린 문제 수
           </p>
         )}
       </div>
 
       {KINDS.length > 1 && (
         <div className="mb-4 flex flex-wrap gap-1.5 rounded-xl border border-slate-200 bg-white p-1.5 shadow-sm">
-          {KINDS.map((k) => (
+          {(nq ? [...KINDS, ALL_KIND] : KINDS).map((k) => (
             <button
               key={k}
               type="button"
               onClick={() => {
                 setKind(k);
-                setRound(newestRound(k));
+                if (k !== ALL_KIND) setRound(newestRound(k));
                 setPeriod("전체");
               }}
               className={`flex-1 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm font-semibold transition sm:flex-none sm:px-5 ${
@@ -227,7 +249,12 @@ export default function ExamPage() {
                   : "text-slate-600 hover:bg-slate-100 active:bg-slate-200"
               }`}
             >
-              {KIND_LABEL[k] || k}
+              {k === ALL_KIND ? "🔎 전체" : KIND_LABEL[k] || k}
+              {nq && (
+                <span className={`ml-1 text-xs font-normal ${kind === k ? "text-brand-100" : "text-slate-400"}`}>
+                  {hitsByKind[k] ?? 0}
+                </span>
+              )}
             </button>
           ))}
         </div>
@@ -259,7 +286,9 @@ export default function ExamPage() {
             {kind === "셀테" || kind === "NS모의" ? "주차" : "회차"}
           </span>
           <select
-            value={round}
+            value={nq ? "전체" : round}
+            disabled={!!nq}
+            title={nq ? "검색 중엔 모든 회차에서 찾아요" : undefined}
             onChange={(e) => setRound(e.target.value)}
             className="rounded border border-slate-200 bg-white px-2 py-1 text-sm text-slate-700"
           >
