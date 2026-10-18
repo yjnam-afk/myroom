@@ -21883,7 +21883,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     defShort: "특정 대상을 오랜 기간 지속적으로 공격하는 정교한 사이버 공격 기법",
     lead: "표적을 노린 지속 공격, APT",
     features: ["특정 대상 표적", "장기간 지속 공격", "은밀한 거점 구축"],
-    keywords: ["침투", "검색", "수집", "유출", "지능화/지속적"],
+    keywords: ["침투", "탐색", "수집", "제어(유출)", "지능화/지속적"],
     tables: [
       {
         caption: "APT 공격 절차와 기법",
@@ -21909,7 +21909,8 @@ export const SUBNOTES: TextbookSubnote[] = [
       },
     ],
     notes: [
-      "공격 절차: 침투(Incursion) → 검색(Discovery) → 수집(Capture) → 유출(Control) — 정상 계정·제로데이를 이용해 은밀하고 지속적으로 진행",
+      "공격 절차: 침투(Incursion) → 탐색(Discovery) → 수집(Capture) → 제어(Control) — 정상 계정·제로데이를 이용해 은밀하고 지속적으로 진행",
+      "4단계 이름: 공식(시만텍) 마지막 단계는 유출(Exfiltration)이지만 기술사 답안·기출은 「제어(Control)」로 쓴다 — 유출·중단은 제어 단계의 공격기법",
     ],
   },
   {
