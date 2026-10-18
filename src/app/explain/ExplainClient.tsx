@@ -1011,6 +1011,27 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
             먼저 볼 자료다(배점 대비 점수와 빨간 첨삭이 곧 채점 기준). */}
         <PeerAnswers items={data?.peers ?? []} />
 
+        {/* 사실상 같은 토픽 — 과목만 다르고 같은 답을 요구하는 짝(twinTopics)의 답안 */}
+        {data?.twin && (
+          <section className="mb-6 rounded-2xl border-2 border-sky-200 bg-sky-50/40 p-3">
+            <p className="text-sm font-bold text-sky-900">
+              🔗 사실상 같은 토픽 —{" "}
+              <Link href={`/explain?topic=${encodeURIComponent(data.twin.title)}`} className="underline decoration-dotted underline-offset-2">
+                {data.twin.title}
+              </Link>
+            </p>
+            <p className="mt-0.5 text-[12px] leading-5 text-sky-800">{data.twin.note}</p>
+            <p className="mt-0.5 text-[11px] text-sky-700/80">
+              그 토픽 출제 📜 기출 {data.twin.past} · 🛡️ NS {data.twin.ns} · 🏁 모의 {data.twin.mock} · 답안 {data.twin.peers.length}편 — 아래에 같이 보여요
+            </p>
+            {data.twin.peers.length > 0 && (
+              <div className="mt-2">
+                <PeerAnswers items={data.twin.peers} collapsed />
+              </div>
+            )}
+          </section>
+        )}
+
         <ExamHistoryCard hist={data?.hist ?? []} past={data?.past ?? []} mock={data?.mock ?? []} />
 
         {/* 교재 밖 비교표 — 슬라이드에 없는 짝 비교. 교재 표와 섞이지 않게 따로 그린다. */}

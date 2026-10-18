@@ -49,6 +49,7 @@ import { TOPIC_INTROS, type AnswerIntro } from "@/data/topicIntros";
 import { DOMAINS, DOMAIN_LABEL, domainOrder } from "@/lib/domains";
 import { planInfo } from "@/lib/studyPlan";
 import { courseOf, courseSubnotesInOrder } from "@/lib/courseOrder";
+import { twinOf } from "@/data/twinTopics";
 
 type TopicRow = { id: string; title: string; category: string; importance: string; source?: string };
 const TOPICS = topics as TopicRow[];
@@ -142,6 +143,8 @@ export type ExplainTopicData = {
   legacy?: LegacyCard;
   intro?: AnswerIntro;
   peers: PeerAnswer[];
+  /** 사실상 같은 토픽(twinTopics) — 그 토픽의 답안·출제 수를 함께 보여 준다 */
+  twin?: { title: string; note: string; peers: PeerAnswer[]; past: number; ns: number; mock: number };
   hist: ExamAppearance[];
   past: PastAppearance[];
   /** 손글씨 정리 노트에서 잘라 낸 개념도 */
@@ -326,6 +329,18 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
     legacy,
     intro,
     peers: peersFor(title, textbook?.title),
+    twin: (() => {
+      const tw = twinOf(textbook?.title ?? title);
+      if (!tw) return undefined;
+      const mine = new Set(peersFor(title, textbook?.title).map((a) => a.id));
+      return {
+        ...tw,
+        peers: peersFor(tw.title).filter((a) => !mine.has(a.id)),
+        past: pastExams(tw.title).length,
+        ns: examHistory(tw.title).length,
+        mock: mockExams(tw.title).length,
+      };
+    })(),
     hand: handDiagramsFor(textbook?.title ?? title),
     handTables: handTablesFor(textbook?.title ?? title),
     sheet: answerSheetFor(textbook?.title),
