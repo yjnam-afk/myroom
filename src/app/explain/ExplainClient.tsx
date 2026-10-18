@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useMemo, useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import StudyCard from "@/components/StudyCard";
@@ -8,6 +8,7 @@ import PeerAnswers from "@/components/PeerAnswers";
 import { CellLines } from "@/components/TableCell";
 import AnswerTable from "@/components/AnswerTable";
 import AnswerTemplate from "@/components/AnswerTemplate";
+import { askFreq, longFormTexts } from "@/lib/askFreq";
 import TopicMapCard from "@/components/TopicMapCard";
 import { ExamHistoryCard } from "@/components/ExamHistoryCard";
 import Mermaid from "@/components/Mermaid";
@@ -363,6 +364,12 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
   const handTables = data?.handTables ?? [];
   // 답안용 표·개념도(1교시 분량). 있으면 답안지는 이것으로, 교재 표 전체는 아래 접은 칸으로.
   const sheet = data?.sheet;
+  // 2교시형 템플릿 뼈대 — 이 토픽 서술형(2~4교시) 지문이 자주 물은 것 위 3개
+  const asks = useMemo(() => {
+    if (!data) return undefined;
+    const texts = longFormTexts({ hist: data.hist ?? [], past: data.past ?? [], mock: data.mock ?? [] });
+    return { ...askFreq(texts, data.textbook?.title ?? cur), texts };
+  }, [data, cur]);
   const ansTables = sheet?.tables?.length
     ? sheet.tables.map((t) => ({ ...t, nameCol: undefined }))
     : (textbook?.tables ?? []).map((t, i) => ({ ...t, gloss: gloss?.t?.[i] }));
@@ -621,6 +628,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
               diagramGloss={gloss?.d}
               diagramLabel={diagramLabel}
               hasSlide={!!extra?.image}
+              asks={asks}
             />
 
             {/* 손글씨 표 — 정리 노트에서 잘라 온 것. 교재 표를 시험지에 몇 칸으로 줄여 쓰는지 본다. */}

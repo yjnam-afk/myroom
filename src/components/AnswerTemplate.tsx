@@ -10,6 +10,7 @@ import ConclusionList from "@/components/ConclusionList";
 import { conclusionFor, type AnswerConclusion } from "@/data/answerConclusions";
 import { conceptFor, type ConceptSpec } from "@/data/conceptDiagrams";
 import type { TextbookSubnote, SubnoteTable } from "@/data/textbookSubnotes";
+import type { AskFreq, AskItem } from "@/lib/askFreq";
 import {
   cellLimits,
   conclusionOf,
@@ -222,6 +223,81 @@ function pairFromTitle(title: string): string[] {
   return m.length >= 2 ? m.slice(0, 2) : [];
 }
 
+
+/* ── 2교시 빈출 뼈대(2026-10-18) — askFreq 위 3개를 본론 소제목으로 ── */
+const ESC = (x: string) => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+/** 빈출 항목 → 답안 소제목. 괄호 병기·앞머리 토픽 이름·끝 조사를 덜어 낸다 */
+function askHead(it: AskItem, bare: string): string {
+  let h = it.label.replace(/\s*[(（][^)）]*[)）]/g, "").replace(/\s+/g, " ").trim();
+  const b = bare.replace(/\s*[(（][^)）]*[)）]/g, "").trim();
+  if (b) h = h.replace(new RegExp(`^${ESC(b)}\\s*(?:의|에서|에)?\\s*`), "");
+  return h.replace(/(?:을|를|의|에|와|과)$/, "").trim() || it.label;
+}
+/**
+ * 빈출 항목과 맞는 교재 표.
+ * ① 캡션·머리글에 항목 낱말이 나오는 표(아직 안 쓴 것)를 통째로, ② 없으면 1열(또는 행 전체)에
+ * 항목 낱말이 나오는 행만 골라 쓴다 — 교재가 한 표에 기법 여럿을 실은 경우(회복기법 표의
+ * 즉시·지연 갱신·체크포인트·그림자 페이지)에 소제목마다 자기 행만 보이게.
+ */
+function tableForAsk(it: AskItem, tables: Tb[], used: Set<Tb>): Tb | undefined {
+  const words = askHead(it, "")
+    .split(/[\s,·/]+|(?:와|과|및|의|을|를|에서|에)(?=\s|$)/)
+    .map((w) => w.replace(/(?:을|를|의|와|과|에|은|는|기법|방법|방식)$/, ""))
+    .filter((w) => w.length >= 2 && !/^(?:설명|방법|이용한|이용|대한|주요|다음|관련|경우|위한|통한|기법|방식)$/.test(w));
+  if (!words.length) return undefined;
+  let best: Tb | undefined;
+  let bestScore = 0;
+  for (const tb of tables) {
+    if (used.has(tb)) continue;
+    const hay = [tb.caption, ...tb.headers].join(" ");
+    let sc = words.filter((w) => hay.includes(w)).length * 2;
+    if (sc && it.kinds.some((k) => k.table.test(tb.caption) || tb.headers.some((h) => k.table.test(h)))) sc += 1;
+    if (sc > bestScore) {
+      best = tb;
+      bestScore = sc;
+    }
+  }
+  if (best && bestScore >= 2) return best;
+  // 행 고르기 — 1열에 낱말이 있는 행 먼저, 없으면 행 어디든
+  for (const pass of [0, 1]) {
+    for (const tb of tables) {
+      const rows = tb.rows.filter((r) => words.some((w) => (pass === 0 ? r[0] ?? "" : r.join(" ")).includes(w)));
+      if (rows.length && rows.length < tb.rows.length && rows.length <= 5)
+        return { ...tb, rows, gloss: undefined, caption: `${tb.caption} (해당 행)` };
+    }
+  }
+  return undefined;
+}
+/** 표가 없을 때 안내 — 요구 유형에 맞는 표 틀 */
+function askHole(it: AskItem): string {
+  const k = it.kinds[0]?.key;
+  const frame =
+    k === "process" ? "단계 | 활동 | 산출물"
+    : k === "compare" ? "비교 항목 | A | B"
+    : k === "struct" ? "구분 | 구성요소 | 설명"
+    : k === "type" ? "유형 | 특징 | 설명"
+    : k === "issue" || k === "solve" ? "구분 | 문제(위협) | 대응 방안"
+    : k === "metric" ? "지표 | 정의 | 기준"
+    : k === "tech" ? "구분 | 기술요소 | 설명"
+    : k === "adopt" ? "구분 | 고려사항 | 설명"
+    : k === "calc" ? "풀이 과정 — 단계별로 적고 결과 표"
+    : "구분 | 항목 | 설명";
+  return `교재에 맞는 표 없음 — 「${frame}」 3열 표 4행 + 간글`;
+}
+/** 문) 줄 — 빈출 3개를 가장 많이 담은 실제 지문 */
+function askQuestion(texts: string[], top: AskItem[]): string | undefined {
+  let best: string | undefined;
+  let bestN = 0;
+  for (const t of texts) {
+    const n = top.filter((it) => it.variants.some((v) => t.includes(v))).length;
+    if (n > bestN) {
+      best = t;
+      bestN = n;
+    }
+  }
+  return best;
+}
+
 export default function AnswerTemplate({
   period,
   textbook,
@@ -234,6 +310,7 @@ export default function AnswerTemplate({
   diagramGloss,
   diagramLabel,
   hasSlide,
+  asks,
 }: {
   period: 1 | 2;
   textbook: TextbookSubnote;
@@ -247,6 +324,8 @@ export default function AnswerTemplate({
   diagramGloss?: string;
   diagramLabel: string;
   hasSlide: boolean;
+  /** 2교시형 뼈대 — 이 토픽 서술형 지문의 빈출 요구(askFreq) + 지문들 */
+  asks?: AskFreq & { texts: string[] };
 }) {
   const pairs = textbook.defPair?.length ? textbook.defPair : [];
   const pairNames = pairs.length ? pairs.map((p) => p.name.replace(/\s*\([^)]*\)/g, "").trim()) : pairFromTitle(textbook.title);
@@ -446,6 +525,15 @@ export default function AnswerTemplate({
   const s2 = shape2(textbook.title, course, fullTables.map((t) => t.caption));
   const body = fullTables.find((t) => !isReasonTable(t.caption)) ?? fullTables[0];
   const rest = fullTables.filter((t) => t !== body);
+  // 빈출 뼈대 — Ⅱ = 빈출 1, Ⅲ 가·나 = 빈출 2·3, 다 = 지문 추가 요구. 서술형 기록이 없으면 교재 표 순서대로
+  const top = asks?.top ?? [];
+  const used = new Set<Tb>();
+  const secs = top.map((it) => {
+    const tb = tableForAsk(it, fullTables, used);
+    if (tb) used.add(tb);
+    return { it, head: askHead(it, bare), tb };
+  });
+  const qText = top.length ? askQuestion(asks?.texts ?? [], top) : undefined;
   const closeNo = s2.no === 3 ? 11 : s2.no === 1 ? 13 : 12;
   const base = pickConclusion({ title: textbook.title, bare, course, pairs: pairNames, bodyCaption: body?.caption });
   // 2교시 결론은 고정 어휘 4종(2교시 13.2) — 발전 방향·활용 방안·융합 방안·도입 제언
@@ -454,8 +542,20 @@ export default function AnswerTemplate({
 
   return (
     <AnswerPaper target={[66, 77]} pageLines={22}>
+      {top.length > 0 && (
+        <div className="mb-1 rounded-md border border-emerald-200 bg-emerald-50/60 px-2 py-1 text-[11.5px] leading-5 text-emerald-900">
+          <b>📊 2교시 빈출</b> — 이 토픽 서술형 {asks?.total}문항에서 자주 물은 것
+          {secs.map((x, i) => (
+            <span key={i} className="ml-1.5">
+              {"①②③"[i]} {x.head} <b>{x.it.n}회</b>
+            </span>
+          ))}
+          <span className="ml-1.5 text-emerald-700/70">→ Ⅱ·Ⅲ 소제목</span>
+        </div>
+      )}
       <p className="font-bold">
-        문) {textbook.title}에 대하여 설명하시오. <Hole>지문 1~2줄 요약 · 물어본 항목 나열</Hole>
+        문) {qText ? qText.slice(0, 220) + (qText.length > 220 ? "…" : "") : `${textbook.title}에 대하여 설명하시오.`}{" "}
+        {!qText && <Hole>지문 1~2줄 요약 · 물어본 항목 나열</Hole>}
       </p>
 
       {/* Ⅰ. 서론 — 6타입 중 유형별(2교시 §10) */}
@@ -504,44 +604,81 @@ export default function AnswerTemplate({
         </>
       )}
 
-      {/* Ⅱ. 본론 1 — 개념도 + 구성요소(구조형) */}
-      {body && (
+      {secs.length > 0 ? (
         <>
+          {/* Ⅱ. 본론 1 — 빈출 1위 + 개념도 */}
           <p className="mt-7 font-bold">
-            Ⅱ. {bare}의 {diagramLabel}와 {tableSubject(body.headers, body.caption)}
+            Ⅱ. {bare}의 {secs[0].head}
           </p>
           <div className="pl-4">
             <p>가. {bare} {diagramLabel}</p>
             <Figure srcs={figs} lines={6} alt={`${bare} ${diagramLabel}`} spec={specs[0]} />
             <Gloss text={gl()} />
+            <p>나. {secs[0].head}</p>
+            {secs[0].tb ? <TableBlock tb={secs[0].tb} /> : <p><Hole>{askHole(secs[0].it)}</Hole></p>}
+          </div>
+
+          {/* Ⅲ. 본론 2 — 승부처: 빈출 2·3위 + 이번 지문이 더 물은 것 */}
+          <p className="mt-7 font-bold">
+            Ⅲ. {bare}의 {secs.slice(1).map((x) => x.head).join("와 ") || "요구사항"}{" "}
+            <Hole>승부처 — 물어본 지문 그대로</Hole>
+          </p>
+          <div className="pl-4">
+            {secs.slice(1).map((x, i) => (
+              <div key={x.head}>
+                <p>
+                  {NO[i]}. {x.head}
+                </p>
+                {x.tb ? <TableBlock tb={x.tb} /> : <p className="pl-4"><Hole>{askHole(x.it)}</Hole></p>}
+              </div>
+            ))}
             <p>
-              나. {bare} {tableSubject(body.headers, body.caption)}
+              {NO[secs.length - 1]}. <Hole>이번 지문이 더 물은 항목 — 3열 표 4행 + 간글</Hole>
             </p>
-            <TableBlock tb={body} />
           </div>
         </>
-      )}
-
-      {/* Ⅲ. 본론 2 — 승부처: 물어본 것 100%, 표 2~3개 */}
-      <p className="mt-7 font-bold">
-        Ⅲ. {bare}의 {rest[0] ? rest[0].caption.split(" — ")[0] : "요구사항"}
-        {rest.length > 1 ? " 등" : ""} <Hole>승부처 — 물어본 지문 그대로</Hole>
-      </p>
-      <div className="pl-4">
-        {rest.slice(0, 4).map((tb, i) => (
-          <div key={tb.caption}>
-            <p>
-              {NO[i]}. {tb.caption}
+      ) : (
+        <>
+      {/* Ⅱ. 본론 1 — 개념도 + 구성요소(구조형) */}
+        {body && (
+          <>
+            <p className="mt-7 font-bold">
+              Ⅱ. {bare}의 {diagramLabel}와 {tableSubject(body.headers, body.caption)}
             </p>
-            <TableBlock tb={tb} />
-          </div>
-        ))}
-        {Array.from({ length: Math.max(0, 3 - rest.length) }, (_, i) => (
-          <p key={i}>
-            {NO[rest.length + i]}. <Hole>요구 항목 — 3열 표 4행 + 간글(근거형은 「구분 | 묻는 말 | 설명」)</Hole>
-          </p>
-        ))}
-      </div>
+            <div className="pl-4">
+              <p>가. {bare} {diagramLabel}</p>
+              <Figure srcs={figs} lines={6} alt={`${bare} ${diagramLabel}`} spec={specs[0]} />
+              <Gloss text={gl()} />
+              <p>
+                나. {bare} {tableSubject(body.headers, body.caption)}
+              </p>
+              <TableBlock tb={body} />
+            </div>
+          </>
+        )}
+  
+        {/* Ⅲ. 본론 2 — 승부처: 물어본 것 100%, 표 2~3개 */}
+        <p className="mt-7 font-bold">
+          Ⅲ. {bare}의 {rest[0] ? rest[0].caption.split(" — ")[0] : "요구사항"}
+          {rest.length > 1 ? " 등" : ""} <Hole>승부처 — 물어본 지문 그대로</Hole>
+        </p>
+        <div className="pl-4">
+          {rest.slice(0, 4).map((tb, i) => (
+            <div key={tb.caption}>
+              <p>
+                {NO[i]}. {tb.caption}
+              </p>
+              <TableBlock tb={tb} />
+            </div>
+          ))}
+          {Array.from({ length: Math.max(0, 3 - rest.length) }, (_, i) => (
+            <p key={i}>
+              {NO[rest.length + i]}. <Hole>요구 항목 — 3열 표 4행 + 간글(근거형은 「구분 | 묻는 말 | 설명」)</Hole>
+            </p>
+          ))}
+        </div>
+        </>
+      )}
 
       {/* Ⅳ. 결론 — 콘텐츠 카드 표 + 결론 4박스 그림 + 결론 간글 */}
       <p className="mt-7 font-bold">
