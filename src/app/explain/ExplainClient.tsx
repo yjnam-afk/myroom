@@ -1000,6 +1000,55 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
         )}
 
         {/* 학습 카드 — 용어 매핑·옆 토픽만. 줄글 설명·답안 한 줄은 뺐다. 교재 다음에 온다. */}
+        {/* 교재 속 서브 토픽 화면 — 상위 토픽 표 안에만 있던 개념(subTopics). 교재 표 행을 그대로 보여 준다 */}
+        {data?.sub && (
+          <section className="mb-6 overflow-hidden rounded-2xl border-2 border-teal-200 bg-white shadow-sm">
+            <div className="bg-teal-50 px-5 py-3">
+              <p className="text-sm font-bold text-teal-900">
+                🔎 교재 속 서브 토픽 — 상위 토픽{" "}
+                <Link href={`/explain?topic=${encodeURIComponent(data.sub.parent)}`} className="underline decoration-dotted underline-offset-2">
+                  {data.sub.parent}
+                </Link>
+              </p>
+              <p className="mt-0.5 text-[11.5px] text-teal-800">
+                교재엔 따로 쪽이 없고 아래 표 안에 들어 있어요. 다른 표기: {data.sub.aliases.join(" · ")}
+              </p>
+            </div>
+            <div className="space-y-3 p-4">
+              {data.sub.tables.map((tb, i) => (
+                <div key={i}>
+                  <p className="mb-1 text-[12px] font-semibold text-slate-600">
+                    {tb.caption || "교재 표"} <span className="font-normal text-slate-400">— {tb.from}</span>
+                  </p>
+                  <AnswerTable headers={tb.headers} rows={tb.rows} />
+                </div>
+              ))}
+              {!data.sub.tables.length && <p className="text-xs text-slate-400">교재 표에서 이 이름이 든 행을 못 찾았어요.</p>}
+            </div>
+          </section>
+        )}
+
+        {/* 이 토픽 안의 서브 토픽 — 표 속 개념 중 따로 자주 출제되는 것 */}
+        {!!data?.subs?.length && (
+          <section className="mb-6 rounded-2xl border border-teal-200 bg-teal-50/40 px-4 py-3">
+            <p className="text-sm font-bold text-teal-900">🔎 이 토픽 안의 서브 토픽</p>
+            <div className="mt-2 flex flex-wrap gap-1.5">
+              {data.subs.map((st) => (
+                <Link
+                  key={st.name}
+                  href={`/explain?topic=${encodeURIComponent(st.name)}`}
+                  className="rounded-full border border-dashed border-teal-400 bg-white px-2.5 py-1 text-[12.5px] text-teal-900 hover:bg-teal-50"
+                >
+                  {st.name}
+                  <span className="ml-1 text-[10.5px] text-slate-400">
+                    기출 {st.past} · NS {st.ns} · 모의 {st.mock}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
         <StudyCard extra={extra} />
 
         {/* 무엇과 짝인가 — 토픽 지도의 비교 세트·암기표를 이 자리로 끌어온다.
@@ -1070,7 +1119,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
         {data?.nav && <TopicNav nav={data.nav} onGo={goTopic} where="bottom" />}
 
         {/* 어떤 자료도 못 찾은 경우 — AI를 부르지 않고 상황만 안내한다 */}
-        {cur && !textbook && !legacy && !extra?.image && (
+        {cur && !textbook && !legacy && !extra?.image && !data?.sub && (
           <p className="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-500">
             “{cur}” 자료가 아직 없어요. 위 검색창에서 비슷한 토픽을
             찾아보거나, 클로드에게 말해 주시면 교재가 없어도 직접 만들어 넣어요.

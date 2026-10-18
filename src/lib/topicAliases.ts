@@ -12,6 +12,8 @@
  * 넣지 말 것: 다른 토픽에도 참인 넓은 말(「해싱」은 Consistent Hashing·비밀번호 해싱까지,
  * 「Bill of Materials」는 SBOM 까지, 「서비스화」는 아무 서비스 문항까지 끌어온다).
  */
+import { SUB_TOPICS } from "@/data/subTopics";
+
 export const TOPIC_ALIASES: Record<string, string[]> = {
   "결함허용 컴퓨터(FTS)": ["결함허용", "결함 허용", "Fault Tolerant", "Fault-Tolerant"],
   "CPU 처리과정": ["명령어 실행 사이클", "명령어 사이클", "Instruction Cycle", "메이저 상태", "Major State"],
@@ -171,3 +173,6 @@ export const TOPIC_ALIASES: Record<string, string[]> = {
   "데이터베이스 무결성": ["무결성 제약", "무결성제약", "Integrity Constraint", "개체 무결성", "참조 무결성"],
   "데이터베이스 정규화(Normalization)": ["1차 정규화", "2차 정규화", "3차 정규화", "4차 정규화", "5차 정규화", "제3정규형", "제4정규형", "BCNF"],
 };
+
+// 교재 속 서브 토픽(subTopics.ts)의 별칭도 출제 이력 열쇠로 쓴다
+for (const st of SUB_TOPICS) TOPIC_ALIASES[st.name] = [...(TOPIC_ALIASES[st.name] ?? []), ...st.aliases];

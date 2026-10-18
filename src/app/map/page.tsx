@@ -5,6 +5,7 @@ import { examHistory, pastExams, mockExams } from "@/lib/examHistory";
 import { peerAnswersFor } from "@/data/peerAnswers";
 import { isCommentary } from "@/lib/answerKind";
 import { LEVEL_MAPS, chipKey, chipTopic } from "@/data/levelMaps";
+import { SUB_TOPICS } from "@/data/subTopics";
 
 /**
  * 토픽 지도 — 서버 컴포넌트.
@@ -16,6 +17,8 @@ export default function MapPage() {
   const titles = new Set<string>();
   for (const s of SUBNOTES) titles.add(s.title);
   for (const list of Object.values(COURSE_TOPICS)) for (const t of list) titles.add(t.title);
+  // 교재 속 서브 토픽 — 상위 칩 아래 작은 칩의 출제 수
+  for (const st of SUB_TOPICS) titles.add(st.name);
   const stats: Record<string, TopicStat> = {};
   for (const t of Array.from(titles)) {
     const peers = peerAnswersFor(t);

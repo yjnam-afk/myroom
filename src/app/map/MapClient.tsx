@@ -16,6 +16,7 @@ import {
 import { DOMAIN_LABEL, DOMAINS, domainLabel, sortDomains } from "@/lib/domains";
 import { COURSE_TOPICS } from "@/data/curriculum";
 import { treePlaces } from "@/data/topicTree";
+import { subTopicsOf } from "@/data/subTopics";
 import { courseEntries } from "@/lib/courseOrder";
 import { childLinks, parentLink } from "@/data/topicParents";
 import { LEVEL_MAPS, chipKey, chipTopic } from "@/data/levelMaps";
@@ -575,12 +576,29 @@ function MapView({
   // 상위 토픽 + 그 아래 하위 토픽(오른쪽 세로줄 안) — 하위가 또 하위를 가질 수 있다(최대 4단)
   const Family = ({ t, color, depth = 0 }: { t: MapTopic; color: string; depth?: number }) => {
     const kids = depth < 4 ? kidsOf(t.title) : [];
-    if (!kids.length) return <Chip t={t} />;
+    // 교재 속 서브 토픽 — 표 안에만 있던 개념(subTopics). 누르면 그 서브 토픽 화면
+    const subs = subTopicsOf(t.title);
+    if (!kids.length && !subs.length) return <Chip t={t} />;
     // 하위 토픽은 상위 칩 아래 들여쓴 줄에 — 옆으로 붙이면 깊어질수록 칸이 좁아져 글자가 세로로 섰다
     return (
       <div className="w-full min-w-0">
         <Chip t={t} />
         <div className="ml-3 mt-1 flex min-w-0 flex-wrap gap-1.5 border-l-2 pb-0.5 pl-3" style={{ borderColor: color }}>
+          {subs.map((st) => {
+            const s = stats[st.name];
+            const n = mode === "heat" ? s?.past ?? 0 : hits(s);
+            return (
+              <Link
+                key={st.name}
+                href={`/explain?topic=${encodeURIComponent(st.name)}`}
+                title={`교재 속 서브 토픽 — ${short(t.title)} 표 안의 개념${s ? `\n기출 ${s.past} · NS ${s.ns} · 모의 ${s.mock}` : ""}`}
+                className="rounded-full border border-dashed border-teal-400 bg-teal-50 px-2 py-0.5 text-[11.5px] leading-tight text-teal-900 hover:bg-teal-100"
+              >
+                🔎 {short(st.name)}
+                {n > 0 && <sup className="ml-0.5 text-[9px] opacity-70">{n}</sup>}
+              </Link>
+            );
+          })}
           {kids.map((k) => (
             <Family key={k.title} t={k} color={color} depth={depth + 1} />
           ))}
@@ -735,7 +753,7 @@ function MapView({
         <span className="ml-1">
           {overview
             ? `· 영역 칩 숫자 = 토픽 수 · 색 = ${mode === "heat" ? "토픽당 평균 기출" : "상 토픽 3개 이상 상 / 1개 이상 중"} · 영역을 누르면 그 과목 지도`
-            : `· 숫자 = ${mode === "heat" ? "기술사 기출 횟수" : "출제 횟수(기출·NS·모의)"} · ○ = 모범답안·해설 없음 · 점선 = 교재 정리 전 · 세로줄 안 = 하위 토픽(⊂ 종류 ◇ 구성·기법 ⚠ 문제·해결 ↗ 확장·발전)`}
+            : `· 숫자 = ${mode === "heat" ? "기술사 기출 횟수" : "출제 횟수(기출·NS·모의)"} · ○ = 모범답안·해설 없음 · 점선 = 교재 정리 전 · 세로줄 안 = 하위 토픽(⊂ 종류 ◇ 구성·기법 ⚠ 문제·해결 ↗ 확장·발전) · 🔎 = 교재 표 속 서브 토픽`}
         </span>
       </div>
 

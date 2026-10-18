@@ -50,6 +50,9 @@ import { DOMAINS, DOMAIN_LABEL, domainOrder } from "@/lib/domains";
 import { planInfo } from "@/lib/studyPlan";
 import { courseOf, courseSubnotesInOrder } from "@/lib/courseOrder";
 import { twinOf } from "@/data/twinTopics";
+import { SUB_TOPICS, subTopicByName, subTopicsOf, type SubTopic } from "@/data/subTopics";
+const SUB_TOPICS_ALL = () => SUB_TOPICS;
+import { PEER_ANSWERS } from "@/data/peerAnswers";
 
 type TopicRow = { id: string; title: string; category: string; importance: string; source?: string };
 const TOPICS = topics as TopicRow[];
@@ -143,6 +146,10 @@ export type ExplainTopicData = {
   legacy?: LegacyCard;
   intro?: AnswerIntro;
   peers: PeerAnswer[];
+  /** 교재 속 서브 토픽 화면 — 상위 토픽과 이 이름이 나오는 교재 표 행 */
+  sub?: { parent: string; aliases: string[]; tables: { from: string; caption: string; headers: string[]; rows: string[][] }[] };
+  /** 이 토픽 안의 서브 토픽 — 출제 수와 함께 */
+  subs?: { name: string; past: number; ns: number; mock: number }[];
   /** 사실상 같은 토픽(twinTopics) — 그 토픽의 답안·출제 수를 함께 보여 준다 */
   twin?: { title: string; note: string; peers: PeerAnswer[]; past: number; ns: number; mock: number };
   hist: ExamAppearance[];
@@ -304,6 +311,30 @@ function peersFor(title: string, subnote?: string): PeerAnswer[] {
   return [...own, ...peerAnswersFor(subnote).filter((a) => !seen.has(a.id))];
 }
 
+/** 서브 토픽 답안 — 답안 문제 문구에 서브 토픽 이름·별칭이 들어 있는 것 */
+function subPeers(st: SubTopic): PeerAnswer[] {
+  return PEER_ANSWERS.filter((a) => titlesMatching(a.question, [st.name]).length > 0);
+}
+
+/** 서브 토픽이 나오는 교재 표 행 — 상위 토픽 표 먼저, 다른 서브노트는 행만 골라 최대 3개 표 */
+function subRows(st: SubTopic): NonNullable<ExplainTopicData["sub"]> {
+  const has = (x: string) => st.aliases.some((a) => x.includes(a));
+  const out: { from: string; caption: string; headers: string[]; rows: string[][] }[] = [];
+  const parent = subnoteByTitle(st.parent);
+  const others = SUBNOTES.filter((s) => s.title !== st.parent);
+  for (const s of [parent, ...others]) {
+    if (!s) continue;
+    for (const tb of s.tables ?? []) {
+      const rows = tb.rows.filter((r) => r.some(has));
+      if (!rows.length) continue;
+      out.push({ from: s.title, caption: tb.caption || "", headers: tb.headers, rows });
+      if (out.length >= (s === parent ? 6 : 4)) break;
+    }
+    if (out.length >= 4 && s !== parent) break;
+  }
+  return { parent: st.parent, aliases: st.aliases, tables: out };
+}
+
 export function explainTopicData(rawTitle: string): ExplainTopicData {
   const title = rawTitle.trim();
   const t = TOPICS.find((x) => x.title === title);
@@ -328,7 +359,14 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
     gloss: glossFor(textbook),
     legacy,
     intro,
-    peers: peersFor(title, textbook?.title),
+    peers: subTopicByName(title) ? subPeers(subTopicByName(title)!) : peersFor(title, textbook?.title),
+    sub: subTopicByName(title) ? subRows(subTopicByName(title)!) : undefined,
+    subs: subTopicsOf(textbook?.title).map((st) => ({
+      name: st.name,
+      past: pastExams(st.name).length,
+      ns: examHistory(st.name).length,
+      mock: mockExams(st.name).length,
+    })),
     twin: (() => {
       const tw = twinOf(textbook?.title ?? title);
       if (!tw) return undefined;
@@ -498,6 +536,16 @@ function buildSearchEntries(): SearchEntry[] {
       isSubnote: true,
     });
     seen.add(s.title);
+  }
+  // 교재 속 서브 토픽 — 이름·별칭으로 찾고, 상위 토픽을 옆에 적는다
+  for (const st of SUB_TOPICS_ALL()) {
+    list.push({
+      title: st.name,
+      badge: "서브",
+      sub: `${st.parent.replace(/\s*\([^)]*\)/g, "")} 안`,
+      hay: [st.name, ...st.aliases].join(" ").toLowerCase(),
+      isSubnote: false,
+    });
   }
   for (const t of TOPICS) {
     // 제목이 완전히 같지 않아도 교재에 있는 토픽이면 제안하지 않는다
