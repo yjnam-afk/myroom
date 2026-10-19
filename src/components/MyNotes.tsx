@@ -45,6 +45,11 @@ export default function MyNotes({ items }: { items: MyNote[] }) {
                   {n.book} {/^\d+$/.test(n.no) ? `문${n.no}` : n.no}
                 </span>
                 <span className="min-w-0 flex-1 truncate text-sm text-slate-800">{n.title}</span>
+                {n.score && (
+                  <span className="shrink-0 rounded bg-rose-50 px-1.5 py-0.5 text-[11px] font-bold text-rose-700 ring-1 ring-rose-200" title="받은 점수">
+                    {n.score}점
+                  </span>
+                )}
                 <span className="shrink-0 text-xs text-amber-700">{on ? "접기 ▲" : "펼치기 ▼"}</span>
               </button>
               {on && (

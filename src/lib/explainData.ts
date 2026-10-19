@@ -420,6 +420,8 @@ export type BrowseItem = {
   pastLast?: number;
   /** 내가 정리한 토픽(myNotes) — 목록에 「📝 정리」 */
   mine?: boolean;
+  /** 교재 속 서브 토픽(subTopics)이면 상위 토픽 제목 — 목록에서 상위 바로 아래 들여 쓴다 */
+  subOf?: string;
 };
 export type BrowseGroup = { key: string; label: string; badge: string; items: BrowseItem[] };
 /** 검색 한 줄 — 서브노트(답안 템플릿)와 예전 토픽 목록을 합친 통합 후보 */
@@ -472,6 +474,15 @@ function buildBrowseGroups(): BrowseGroup[] {
         ...histStat(s.title),
         ...(hasMyNote(s.title) ? { mine: true } : {}),
       });
+      // 교재 속 서브 토픽 — 상위 토픽 줄 바로 아래(2026-10-20 "토픽 설명에서도 보여야 하지 않나?")
+      for (const st of subTopicsOf(s.title))
+        items.push({
+          title: st.name,
+          src: "서브",
+          subOf: s.title,
+          ...histStat(st.name),
+          ...(hasMyNote(st.name) ? { mine: true } : {}),
+        });
       covered.add(bareT(s.title));
     }
     groups.push({ key: `course:${c}`, label: DOMAIN_LABEL[c] || c, badge: "심화반", items });
@@ -593,7 +604,7 @@ export function explainIndex(): ExplainIndex {
     browseGroups,
     bookTotal: browseGroups
       .filter((g) => g.badge === "심화반")
-      .reduce((n, g) => n + g.items.length, 0),
+      .reduce((n, g) => n + g.items.filter((it) => !it.subOf).length, 0),
     entries: buildSearchEntries(),
   };
   return INDEX;

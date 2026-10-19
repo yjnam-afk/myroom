@@ -89,6 +89,7 @@ const SRC_CHIP: Record<string, string> = {
   심화반: "bg-emerald-100 text-emerald-700",
   기필반: "bg-slate-100 text-slate-500",
   기출: "bg-amber-100 text-amber-700",
+  서브: "bg-teal-100 text-teal-700",
 };
 
 /** 학습계획 줄과 같은 중요도 배지 — 상★★★ 중★★ 하★ */
@@ -171,6 +172,12 @@ function HistChips({ it }: { it: BrowseItem }) {
 }
 
 /** 학습계획 줄 모양의 토픽 한 줄 — 번호·중요도·제목·📖·출제 이력. 누르면 그 토픽을 연다. */
+/** 목록 번호 — 서브 토픽 줄(subOf)은 번호를 먹지 않는다(학습계획 번호와 맞게) */
+function numbered(items: BrowseItem[]): [BrowseItem, number][] {
+  let n = 0;
+  return items.map((it) => [it, it.subOf ? 0 : ++n]);
+}
+
 /** 토픽 목록의 「📝 내가 정리한 토픽」 묶음 키 */
 const MINE = "__mine";
 
@@ -204,11 +211,19 @@ function TopicRow({
         className="flex w-full items-center gap-2 px-4 py-2 text-left transition hover:bg-brand-50/60"
       >
         <span className="w-6 shrink-0 text-right text-[11px] font-bold tabular-nums text-slate-400">
-          {no}
+          {it.subOf ? "" : no}
         </span>
-        <PriorityBadge p={it.imp} />
-        <LevelBadge level={it.lv} />
-        <span className="min-w-0 flex-1 truncate text-sm text-slate-800">
+        {it.subOf ? (
+          <span className="shrink-0 pl-3 text-[12px] text-teal-600" title={`${it.subOf} 교재 표 안의 서브 토픽`}>
+            └ 🔎
+          </span>
+        ) : (
+          <>
+            <PriorityBadge p={it.imp} />
+            <LevelBadge level={it.lv} />
+          </>
+        )}
+        <span className={`min-w-0 flex-1 truncate text-sm ${it.subOf ? "text-teal-800" : "text-slate-800"}`}>
           {it.title}
           {group && <span className="ml-1.5 text-[10px] text-slate-400">{group}</span>}
         </span>
@@ -274,7 +289,7 @@ function TopicBrowser({
         <h3 className="text-sm font-bold text-slate-700">
           📂 도메인별 토픽 목록{" "}
           <span className="font-normal text-slate-400">
-            ({groups.reduce((n, g) => n + g.items.length, 0)}개)
+            ({groups.reduce((n, g) => n + g.items.filter((it) => !it.subOf).length, 0)}개)
           </span>
         </h3>
         <div className="relative">
@@ -325,7 +340,7 @@ function TopicBrowser({
                   <span
                     className={`font-normal ${active ? "text-brand-100" : "text-slate-400"}`}
                   >
-                    {g.items.length}
+                    {g.items.filter((it) => !it.subOf).length}
                   </span>
                 </button>
               );
@@ -373,8 +388,8 @@ function TopicBrowser({
                   카드 안에서 따로 스크롤하지 않는다 — 짧은 창에 목록이 갇혀 한 화면에
                   대여섯 줄만 보였다. 페이지가 길어지는 쪽이 낫다. */}
               <ol className="divide-y divide-slate-100">
-                {selGroup.items.map((it, i) => (
-                  <TopicRow key={it.title} it={it} no={i + 1} onPick={pick} />
+                {numbered(selGroup.items).map(([it, no]) => (
+                  <TopicRow key={it.title} it={it} no={no} onPick={pick} />
                 ))}
               </ol>
             </div>
@@ -506,7 +521,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
           >
             {(idx?.browseGroups ?? []).map((g) => (
               <option key={g.key} value={g.key}>
-                {g.badge === "심화반" ? `${g.label} (${g.items.length})` : `기필반 · ${g.label} (${g.items.length})`}
+                {g.badge === "심화반" ? `${g.label} (${g.items.filter((it) => !it.subOf).length})` : `기필반 · ${g.label} (${g.items.length})`}
               </option>
             ))}
           </select>
@@ -519,9 +534,9 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
             <option value="" disabled>
               토픽 선택… ({recItems.length}개)
             </option>
-            {recItems.map((it, i) => (
+            {numbered(recItems).map(([it, no]) => (
               <option key={it.title} value={it.title}>
-                {i + 1}. [{it.imp ?? "-"}] {it.title}
+                {it.subOf ? `   └ 🔎 ${it.title}` : `${no}. [${it.imp ?? "-"}] ${it.title}`}
                 {it.lv ? ` · ${it.lv}` : ""}
                 {it.past ? ` · 기출${it.past}` : ""}
                 {it.ns ? ` · NS${it.ns}` : ""}

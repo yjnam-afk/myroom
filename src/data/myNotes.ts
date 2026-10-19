@@ -26,6 +26,8 @@ export type MyNote = {
   pages: string[];
   /** 스캔 누락 같은 알림 */
   note?: string;
+  /** 내 답안지에 빨간 펜으로 받은 점수(1교시 10점·2교시 25점 만점) */
+  score?: string;
 };
 
 export const MY_NOTES: MyNote[] = [
@@ -196,6 +198,51 @@ export const MY_NOTES: MyNote[] = [
   { id: "ns19db-33", book: "DB·경영전략", no: "33", title: "HW 용량, 성능 산정 표준, 정보시스템 하드웨어 규모산정", topicTitles: ["정보시스템 하드웨어 규모산정 지침"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-33.webp"] },
   { id: "ns19db-34", book: "DB·경영전략", no: "34", title: "IT 효과의 화폐가치 환산, IT 투자성과 평가", topicTitles: ["IT 투자성과 평가"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-34.webp"] },
   { id: "ns19db-35", book: "DB·경영전략", no: "35", title: "지속가능 경영 3요소, ESG 경영", topicTitles: ["ESG 경영"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-35.webp"] },
+  // ── 내 답안지 — 실제로 써서 첨삭받은 답안(2026-10-20 "지금부터 올리는 거는 내 정리에 올릴 문서들"). 빨간 점수 그대로 ──
+  { id: "ns19ans-a-01", book: "내 답안지 · DB·경영전략 2교시", no: "1", title: "REDO·UNDO 이용한 회복 기법", topicTitles: ["DB 회복기법"], pages: ["/answers/NS19기/내답안지/ns19ans-a-01.webp"], note: "문제와 앞쪽 1~4쪽이 스캔에 없다" },
+  { id: "ns19ans-a-02", book: "내 답안지 · DB·경영전략 2교시", no: "2", title: "비즈니스 연속성 계획(BCP) ① BCP 개념, 수립절차 ② 주요지표 ③ 감사방안", topicTitles: ["BCP (Business Continuity Planning)"], pages: ["/answers/NS19기/내답안지/ns19ans-a-02.webp"], score: "14" },
+  { id: "ns19ans-a-03", book: "내 답안지 · DB·경영전략 2교시", no: "3", title: "DB 트랜잭션 동시성 제어 ① 동시성제어 하지 않는 경우 문제점 ② 동시성 제어 기법(4가지 이상)", topicTitles: ["DB 동시성제어"], pages: ["/answers/NS19기/내답안지/ns19ans-a-03.webp"], score: "14.6" },
+  { id: "ns19ans-b-01", book: "내 답안지 · DB·경영전략 1교시", no: "1", title: "데이터 스페이스(Data Space)", topicTitles: ["데이터 스페이스(Data Space)"], pages: ["/answers/NS19기/내답안지/ns19ans-b-01.webp"], score: "5.7" },
+  { id: "ns19ans-b-02", book: "내 답안지 · DB·경영전략 1교시", no: "2", title: "데이터베이스 튜닝의 3단계", topicTitles: ["튜닝 절차"], pages: ["/answers/NS19기/내답안지/ns19ans-b-02.webp"], score: "5.3" },
+  { id: "ns19ans-b-03", book: "내 답안지 · DB·경영전략 1교시", no: "3", title: "벡터 데이터베이스", topicTitles: ["벡터 데이터베이스(Vector Database)"], pages: ["/answers/NS19기/내답안지/ns19ans-b-03.webp"], score: "5.7" },
+  { id: "ns19ans-b-04", book: "내 답안지 · DB·경영전략 1교시", no: "4", title: "관계 대수, 관계해석", topicTitles: ["관계대수(Relational Algebra)", "관계해석(Relational Calculus)"], pages: ["/answers/NS19기/내답안지/ns19ans-b-04.webp"], score: "5.7" },
+  { id: "ns19ans-b-05", book: "내 답안지 · DB·경영전략 1교시", no: "5", title: "DRS의 기술요소, 지표, DR센터 유형", topicTitles: ["DRS (Disaster Recovery System)"], pages: ["/answers/NS19기/내답안지/ns19ans-b-05.webp"], score: "5.3" },
+  { id: "ns19ans-b-06", book: "내 답안지 · DB·경영전략 1교시", no: "6", title: "Data Warehouse와 Data Lakehouse 비교", topicTitles: ["데이터 레이크하우스(Data Lakehouse)", "데이터(웨어하우스, 레이크, 패브릭, 메시)"], pages: ["/answers/NS19기/내답안지/ns19ans-b-06.webp"], score: "6" },
+  { id: "ns19ans-b-07", book: "내 답안지 · DB·경영전략 1교시", no: "7", title: "분산 데이터베이스 2PC", topicTitles: ["2PC", "분산 DB"], pages: ["/answers/NS19기/내답안지/ns19ans-b-07.webp"], score: "6" },
+  { id: "ns19ans-b-08", book: "내 답안지 · DB·경영전략 1교시", no: "8", title: "4차 정규화", topicTitles: ["데이터베이스 정규화(Normalization)"], pages: ["/answers/NS19기/내답안지/ns19ans-b-08.webp"], score: "4.8" },
+  { id: "ns19ans-b-09", book: "내 답안지 · DB·경영전략 1교시", no: "9", title: "함수적 종속성", topicTitles: ["함수적 종속성(Functional Dependency)"], pages: ["/answers/NS19기/내답안지/ns19ans-b-09.webp"], score: "5.5" },
+  { id: "ns19ans-b-10", book: "내 답안지 · DB·경영전략 1교시", no: "10", title: "IT 거버넌스 프레임워크", topicTitles: ["IT 거버넌스(IT-Governance)"], pages: ["/answers/NS19기/내답안지/ns19ans-b-10.webp"], score: "5.5" },
+  { id: "ns19ans-c-01", book: "내 답안지 · SW공학·PM 2교시", no: "1", title: "① 모놀리식 아키텍처와 MSA 비교 ② MSA의 DDD ③ MSA의 문제점 및 개선방안", topicTitles: ["MSA (Micro Service Architecture)", "DDD (Domain Driven Design)"], pages: ["/answers/NS19기/내답안지/ns19ans-c-01.webp"], score: "14.0" },
+  { id: "ns19ans-c-02", book: "내 답안지 · SW공학·PM 2교시", no: "2", title: "① 요구공학 정의와 목적 ② 개발 프로세스와 주요 단계 ③ 수집 기법", topicTitles: ["요구공학 (Requirements Engineering)"], pages: ["/answers/NS19기/내답안지/ns19ans-c-02.webp"], score: "13" },
+  { id: "ns19ans-c-03", book: "내 답안지 · SW공학·PM 2교시", no: "3", title: "① 정보시스템 감리의 법적 근거 ② PMO 정의·역할 ③ PMO 대상 사업 범위 ④ PMO와 상주 감리 비교", topicTitles: ["감리/PMO 비교표", "정보시스템 감리 의무 대상과 관점별 점검 기준"], pages: ["/answers/NS19기/내답안지/ns19ans-c-03.webp"], score: "13.0" },
+  { id: "ns19ans-c-04", book: "내 답안지 · SW공학·PM 2교시", no: "4", title: "① 소프트웨어 테스트 원리 ② 블랙박스 테스트, 화이트박스 테스트 ③ 명세기반·구조기반·경험기반 테스트기법", topicTitles: ["테스트 원리", "블랙박스 테스트", "화이트박스 테스트", "경험 기반 테스트"], pages: ["/answers/NS19기/내답안지/ns19ans-c-04.webp"], score: "13.7" },
+  { id: "ns19ans-d-01", book: "내 답안지 · 네트워크 1교시", no: "1", title: "FEC와 BEC", topicTitles: ["FEC(Forward Error Correction) / BEC(Backward Error Correction)"], pages: ["/answers/NS19기/내답안지/ns19ans-d-01.webp"], score: "5.0" },
+  { id: "ns19ans-d-02", book: "내 답안지 · 네트워크 1교시", no: "2", title: "VLAN, VPN 비교", topicTitles: ["VPN(Virtual Private Network)", "VLAN(Virtual LAN)"], pages: ["/answers/NS19기/내답안지/ns19ans-d-02.webp"], score: "6.3" },
+  { id: "ns19ans-d-03", book: "내 답안지 · 네트워크 1교시", no: "3", title: "인터넷 프로토콜 3단계 주소체계 필요 이유", topicTitles: ["IPv6"], pages: ["/answers/NS19기/내답안지/ns19ans-d-03.webp"], score: "4.7" },
+  { id: "ns19ans-d-04", book: "내 답안지 · 네트워크 1교시", no: "4", title: "5G NTN(비지상망)", topicTitles: ["비지상네트워크(NTN, Non-Terrestrial Networks)"], pages: ["/answers/NS19기/내답안지/ns19ans-d-04.webp"], score: "5.7" },
+  { id: "ns19ans-d-05", book: "내 답안지 · 네트워크 1교시", no: "5", title: "ISAC", topicTitles: ["ISAC(Integrated Sensing and Communication)"], pages: ["/answers/NS19기/내답안지/ns19ans-d-05.webp"], score: "5.3" },
+  { id: "ns19ans-d-06", book: "내 답안지 · 네트워크 1교시", no: "6", title: "AI-RAN", topicTitles: ["AI-RAN(Radio Access Network)", "O-RAN"], pages: ["/answers/NS19기/내답안지/ns19ans-d-06.webp"], score: "5.3" },
+  { id: "ns19ans-d-07", book: "내 답안지 · 네트워크 1교시", no: "7", title: "거리벡터 라우팅", topicTitles: ["라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)"], pages: ["/answers/NS19기/내답안지/ns19ans-d-07.webp"], score: "5.3" },
+  { id: "ns19ans-d-08", book: "내 답안지 · 네트워크 1교시", no: "8", title: "TCP 혼잡제어 알고리즘 유형", topicTitles: ["TCP 혼잡제어"], pages: ["/answers/NS19기/내답안지/ns19ans-d-08.webp"], score: "5.5" },
+  { id: "ns19ans-d-09", book: "내 답안지 · 네트워크 1교시", no: "9", title: "HTTP 3.0", topicTitles: ["HTTP/3"], pages: ["/answers/NS19기/내답안지/ns19ans-d-09.webp"], score: "5.5" },
+  { id: "ns19ans-d-10", book: "내 답안지 · 네트워크 1교시", no: "10", title: "하이퍼 AI 네트워크 전략의 양대목표 및 추진 방향", topicTitles: ["Hyper-AI 네트워크"], pages: ["/answers/NS19기/내답안지/ns19ans-d-10.webp"], score: "5.3" },
+  { id: "ns19ans-e-01", book: "내 답안지 · 네트워크 2교시", no: "1", title: "캐스팅 모드 4가지 종류, 각 모드 기술", topicTitles: ["Unicast", "Multicast", "Broadcast", "Anycast"], pages: ["/answers/NS19기/내답안지/ns19ans-e-01.webp"], score: "15.0" },
+  { id: "ns19ans-e-02", book: "내 답안지 · 네트워크 2교시", no: "2", title: "① TCP 흐름제어 개념, 유형 ② 슬라이딩 윈도우(Sliding Window) ③ Silly Window Syndrome 및 해결 방안", topicTitles: ["Sliding Window & 네이글(Nagle's) 알고리즘"], pages: ["/answers/NS19기/내답안지/ns19ans-e-02.webp"], score: "14" },
+  { id: "ns19ans-e-03", book: "내 답안지 · 네트워크 2교시", no: "3", title: "최소 신장 트리(MST) 크루스칼과 프림 알고리즘으로 MST 구하는 과정", topicTitles: ["최소 신장 트리(MST, Minimum Spanning Tree)"], pages: ["/answers/NS19기/내답안지/ns19ans-e-03.webp"], score: "14" },
+  { id: "ns19ans-e-04", book: "내 답안지 · 네트워크 2교시", no: "4", title: "OSI 7계층 ① 기능 ② 프로토콜 종류 ③ 데이터 종류 ④ 주요 장비", topicTitles: ["OSI 7 Layer (ISO 7498)"], pages: ["/answers/NS19기/내답안지/ns19ans-e-04.webp"], score: "14.5", note: "뒤쪽(14쪽)이 스캔에 없다" },
+  { id: "ns19ans-f-01", book: "내 답안지 · SW공학·PM 1교시", no: "1", title: "무중단 배포 — 리버스 프록싱과 로드 밸런싱", topicTitles: ["무중단 배포"], pages: ["/answers/NS19기/내답안지/ns19ans-f-01.webp"], note: "문제가 적힌 1쪽이 스캔에 없다" },
+  { id: "ns19ans-f-02", book: "내 답안지 · SW공학·PM 1교시", no: "2", title: "소프트웨어 리팩토링", topicTitles: ["소프트웨어 리팩토링"], pages: ["/answers/NS19기/내답안지/ns19ans-f-02.webp"] },
+  { id: "ns19ans-f-03", book: "내 답안지 · SW공학·PM 1교시", no: "3", title: "CI/CD", topicTitles: ["데브옵스 (DevOps)", "CI, CD"], pages: ["/answers/NS19기/내답안지/ns19ans-f-03.webp"] },
+  { id: "ns19ans-f-04", book: "내 답안지 · SW공학·PM 1교시", no: "4", title: "CBAM의 개념과 절차", topicTitles: ["CBAM(Cost Benefit Analysis Method)", "SW Architecture 평가"], pages: ["/answers/NS19기/내답안지/ns19ans-f-04.webp"] },
+  { id: "ns19ans-f-05", book: "내 답안지 · SW공학·PM 1교시", no: "5", title: "AI-DLC", topicTitles: ["AI-DLC(AI-Driven SDLC)"], pages: ["/answers/NS19기/내답안지/ns19ans-f-05.webp"] },
+  { id: "ns19ans-f-06", book: "내 답안지 · SW공학·PM 1교시", no: "6", title: "프로젝트 위험 관리의 정량적 위험 분석 기법", topicTitles: ["정량적 위험 분석", "프로젝트 위험관리"], pages: ["/answers/NS19기/내답안지/ns19ans-f-06.webp"] },
+  { id: "ns19ans-f-07", book: "내 답안지 · SW공학·PM 1교시", no: "7", title: "테일러링", topicTitles: ["테일러링 (Tailoring)"], pages: ["/answers/NS19기/내답안지/ns19ans-f-07.webp"] },
+  { id: "ns19ans-f-08", book: "내 답안지 · SW공학·PM 1교시", no: "8", title: "탐색적 테스팅", topicTitles: ["탐색적 테스트"], pages: ["/answers/NS19기/내답안지/ns19ans-f-08.webp"] },
+  { id: "ns19ans-f-09", book: "내 답안지 · SW공학·PM 1교시", no: "9", title: "형상관리", topicTitles: ["형상 관리"], pages: ["/answers/NS19기/내답안지/ns19ans-f-09.webp"], note: "13쪽이 스캔에 없다(12쪽 다음 14쪽)" },
+  { id: "ns19ans-g-01", book: "내 답안지 · CA·OS 2교시", no: "1", title: "문맥교환 ① 개념, 유형 및 내용 ② 절차 ③ 오버헤드 해결 방법", topicTitles: ["문맥교환(Context Switching)"], pages: ["/answers/NS19기/내답안지/ns19ans-g-01.webp"] },
+  { id: "ns19ans-g-02", book: "내 답안지 · CA·OS 2교시", no: "2", title: "캐시 메모리 ① 캐시 일관성 개념 ② Write through/Write Back 비교 ③ 캐시 일관성 유지 기법", topicTitles: ["캐시 일관성(Cache Coherence)", "캐시메모리의 쓰기정책(Write Policy)"], pages: ["/answers/NS19기/내답안지/ns19ans-g-02.webp"] },
+  { id: "ns19ans-g-03", book: "내 답안지 · CA·OS 2교시", no: "3", title: "페이지 교체 알고리즘 ① 사용 이유 ② 종류, 동작 과정 ③ FIFO Anomaly와 해결 방안", topicTitles: ["페이지 교체 알고리즘(Paging Replacement Algorithm)", "Belady's Anomaly(FIFO 이상현상)"], pages: ["/answers/NS19기/내답안지/ns19ans-g-03.webp"] },
+  { id: "ns19ans-g-04", book: "내 답안지 · CA·OS 2교시", no: "4", title: "임계 영역 ① 경쟁 조건 ② SW 측면 임계 영역 제어기법 ③ HW 측면 임계 영역 제어 기법", topicTitles: ["경쟁조건(Race Condition) 해결 방안", "세마포어(Semaphore)", "Critical Section(임계영역)"], pages: ["/answers/NS19기/내답안지/ns19ans-g-04.webp"] },
 ];
 
 const BY_TOPIC = new Map<string, MyNote[]>();
