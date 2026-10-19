@@ -6,6 +6,7 @@ import { peerAnswersFor } from "@/data/peerAnswers";
 import { isCommentary } from "@/lib/answerKind";
 import { LEVEL_MAPS, chipKey, chipTopic } from "@/data/levelMaps";
 import { SUB_TOPICS } from "@/data/subTopics";
+import { myNotesFor } from "@/data/myNotes";
 
 /**
  * 토픽 지도 — 서버 컴포넌트.
@@ -29,6 +30,7 @@ export default function MapPage() {
       mock: mockExams(t).length,
       ans: peers.length - commentary,
       com: commentary,
+      mine: myNotesFor(t).length,
     };
   }
   // 레벨 맵 칩 출제 횟수 — 토픽에 걸린 칩은 그 토픽 숫자, 아니면 칩 글자로 문항을 찾는다

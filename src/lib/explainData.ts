@@ -53,6 +53,7 @@ import { twinOf } from "@/data/twinTopics";
 import { SUB_TOPICS, subTopicByName, subTopicsOf, type SubTopic } from "@/data/subTopics";
 const SUB_TOPICS_ALL = () => SUB_TOPICS;
 import { PEER_ANSWERS } from "@/data/peerAnswers";
+import { myNotesFor, hasMyNote, type MyNote } from "@/data/myNotes";
 
 type TopicRow = { id: string; title: string; category: string; importance: string; source?: string };
 const TOPICS = topics as TopicRow[];
@@ -146,6 +147,8 @@ export type ExplainTopicData = {
   legacy?: LegacyCard;
   intro?: AnswerIntro;
   peers: PeerAnswer[];
+  /** 내가 손으로 정리한 노트(myNotes) — 화면 맨 위 「📝 내 정리」 */
+  myNotes: MyNote[];
   /** 교재 속 서브 토픽 화면 — 상위 토픽과 이 이름이 나오는 교재 표 행 */
   sub?: { parent: string; aliases: string[]; tables: { from: string; caption: string; headers: string[]; rows: string[][] }[] };
   /** 이 토픽 안의 서브 토픽 — 출제 수와 함께 */
@@ -360,6 +363,12 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
     legacy,
     intro,
     peers: subTopicByName(title) ? subPeers(subTopicByName(title)!) : peersFor(title, textbook?.title),
+    myNotes: (() => {
+      // 예전 토픽 이름으로 열어도 화면이 보여 주는 교재 서브노트에 붙은 정리를 함께 건다(peersFor 와 같은 이유)
+      const own = myNotesFor(title);
+      const ids = new Set(own.map((n) => n.id));
+      return [...own, ...myNotesFor(textbook?.title).filter((n) => !ids.has(n.id))];
+    })(),
     sub: subTopicByName(title) ? subRows(subTopicByName(title)!) : undefined,
     subs: subTopicsOf(textbook?.title).map((st) => ({
       name: st.name,
@@ -409,6 +418,8 @@ export type BrowseItem = {
   past?: number;
   pastRecent?: number;
   pastLast?: number;
+  /** 내가 정리한 토픽(myNotes) — 목록에 「📝 정리」 */
+  mine?: boolean;
 };
 export type BrowseGroup = { key: string; label: string; badge: string; items: BrowseItem[] };
 /** 검색 한 줄 — 서브노트(답안 템플릿)와 예전 토픽 목록을 합친 통합 후보 */
@@ -459,6 +470,7 @@ function buildBrowseGroups(): BrowseGroup[] {
         lv: planInfo(s.title, s.topicId)?.level,
         src: "심화반",
         ...histStat(s.title),
+        ...(hasMyNote(s.title) ? { mine: true } : {}),
       });
       covered.add(bareT(s.title));
     }
@@ -484,6 +496,7 @@ function buildBrowseGroups(): BrowseGroup[] {
       imp: t.importance,
       // 140회 기출 보고 새로 만든 토픽은 기필반이 아니라 '기출'로 구분한다
       src: t.source === "요청" ? "기출" : "기필반",
+      ...(hasMyNote(t.title) ? { mine: true } : {}),
     });
   }
   // 예전 토픽 묶음도 커리큘럼 순서로 — 교재 묶음과 순서가 어긋나면 눈이 헤맨다.

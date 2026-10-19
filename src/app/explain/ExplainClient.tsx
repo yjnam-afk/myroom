@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import StudyCard from "@/components/StudyCard";
 import PeerAnswers from "@/components/PeerAnswers";
+import MyNotes from "@/components/MyNotes";
 import { CellLines } from "@/components/TableCell";
 import AnswerTable from "@/components/AnswerTable";
 import AnswerTemplate from "@/components/AnswerTemplate";
@@ -170,6 +171,21 @@ function HistChips({ it }: { it: BrowseItem }) {
 }
 
 /** 학습계획 줄 모양의 토픽 한 줄 — 번호·중요도·제목·📖·출제 이력. 누르면 그 토픽을 연다. */
+/** 토픽 목록의 「📝 내가 정리한 토픽」 묶음 키 */
+const MINE = "__mine";
+
+/** 내가 정리한 토픽 표시(myNotes) — 토픽 목록·토픽 머리 */
+function MineChip() {
+  return (
+    <span
+      className="shrink-0 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-800 ring-1 ring-amber-300"
+      title="내가 정리한 토픽 — 토픽 화면 맨 위에 정리 노트가 붙어 있어요"
+    >
+      📝 정리
+    </span>
+  );
+}
+
 function TopicRow({
   it,
   no,
@@ -211,6 +227,7 @@ function TopicRow({
           )
         )}
         <HistChips it={it} />
+        {it.mine && <MineChip />}
         <span className="shrink-0 rounded-md border border-slate-200 bg-white px-2 py-1 text-[11px] font-medium text-slate-600">
           💡
         </span>
@@ -242,7 +259,9 @@ function TopicBrowser({
           .map((it) => ({ ...it, group: g.label })),
       )
     : [];
-  const selGroup = groups.find((g) => g.key === sel);
+  // 📝 내가 정리한 토픽 — 과목을 가로질러 한 판에 모은다
+  const mineItems = groups.flatMap((g) => g.items.filter((it) => it.mine).map((it) => ({ ...it, group: g.label })));
+  const selGroup = sel === MINE ? undefined : groups.find((g) => g.key === sel);
 
   const pick = (t: string) => {
     onPick(t);
@@ -311,6 +330,20 @@ function TopicBrowser({
                 </button>
               );
             })}
+            {mineItems.length > 0 && (
+              <button
+                onClick={() => setSel(sel === MINE ? null : MINE)}
+                title="내가 손으로 정리한 토픽만 모아 봅니다"
+                className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
+                  sel === MINE
+                    ? "border-amber-600 bg-amber-500 text-white"
+                    : "border-amber-300 bg-amber-50 text-amber-800 hover:border-amber-500"
+                }`}
+              >
+                📝 내가 정리한 토픽
+                <span className={`font-normal ${sel === MINE ? "text-amber-100" : "text-amber-500"}`}>{mineItems.length}</span>
+              </button>
+            )}
             {/* 기본은 교재 묶음만. 예전(기필반) 묶음은 회독 진도가 걸려 있어 토글 뒤에 둔다. */}
             <button
               onClick={() => { setLegacy(!legacy); setSel(null); }}
@@ -325,6 +358,15 @@ function TopicBrowser({
             </button>
           </div>
 
+          {sel === MINE && (
+            <div className="border-t border-amber-100">
+              <ol className="divide-y divide-slate-100">
+                {mineItems.map((it, i) => (
+                  <TopicRow key={it.group + it.title} it={it} no={i + 1} group={it.group} onPick={pick} />
+                ))}
+              </ol>
+            </div>
+          )}
           {selGroup && (
             <div className="border-t border-slate-100">
               {/* 학습계획 줄과 같은 모양 — 계획 순서·번호·중요도·📖·📜 기출·🛡️ NS 이력.
@@ -525,6 +567,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
             <PriorityBadge p={data.plan?.priority ?? idx?.browseGroups.flatMap((g) => g.items).find((it) => it.title === cur)?.imp} />
             <LevelBadge level={data.plan?.level} note={data.plan?.note} />
             <HistChips it={{ title: cur, ...data.stat }} />
+            {data.myNotes.length > 0 && <MineChip />}
             {data.stat.past === 0 && data.stat.ns === 0 && (
               <span className="text-[11px] text-slate-400">기출·NS 모의고사 출제 이력 없음</span>
             )}
@@ -559,6 +602,8 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
       </div>
 
       <div className="mt-6">
+        {/* 내 정리 — 손으로 정리한 공책에서 이 토픽 문항을 잘라 붙인 것. 내가 쓴 것이 제일 먼저다(2026-10-19). */}
+        <MyNotes key={cur} items={data?.myNotes ?? []} />
         {/* 교재 슬라이드 원본 — 맨 위. 교재가 항상 먼저고, 아래 템플릿·카드는 그걸 답안으로 옮기는 순서다.
             도식을 다시 그리지 않고 교재 그림 그대로 보여준다. */}
         {extra?.image && (

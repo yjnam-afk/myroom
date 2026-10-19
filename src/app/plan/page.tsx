@@ -19,6 +19,7 @@ import {
 import type { StudyLevel } from "@/data/curriculum";
 import { subnoteByTopicId, subnoteByTitle } from "@/data/textbookSubnotes";
 import { recordPlanRounds } from "@/lib/planRounds";
+import { hasMyNote } from "@/data/myNotes";
 
 const DAY_NAMES = ["월", "화", "수", "목", "금", "토", "일"];
 
@@ -676,6 +677,14 @@ export default function PlanPage() {
                             {/* 출제 이력 — 🛡️NS 주간 모의고사, 📜기출 기술사 기출. 자주·최근이면 붉게. */}
                             <PastExamChip title={t.title} />
                             <ExamHistoryChip title={t.title} />
+                            {hasMyNote(t.title) && (
+                              <span
+                                className="shrink-0 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-800 ring-1 ring-amber-300"
+                                title="내가 정리한 토픽 — 토픽 화면 맨 위에 정리 노트가 붙어 있어요"
+                              >
+                                📝 정리
+                              </span>
+                            )}
                             <Link
                               href={`/explain?topic=${encodeURIComponent(t.title)}`}
                               className="shrink-0 rounded-md border border-slate-200 bg-white px-2 py-1 text-[11px] font-medium text-slate-600 hover:bg-slate-100"

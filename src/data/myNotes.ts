@@ -1,0 +1,202 @@
+/**
+ * 내 정리 노트 — 사용자가 직접 손으로 정리한 노트(NS 19기 과목별 정리 공책)를 문항마다 잘라 둔 것.
+ *
+ * 2026-10-19 "내가 정리를 한 토픽은 토픽 리스트에 정리했다고 표시하고 토픽 화면에 정리한 토픽을 잘라서 붙이고 싶다".
+ * 공책은 「문1) 문2) …」로 문항이 나뉘어 있고, 한 문항은 다음 「문N)」이 나올 때까지(쪽을 넘겨도) 이어진다.
+ * 그 구간을 잘라 한 장(또는 쪽마다 한 장)으로 두고, 화면은 `pages` 를 틈 없이 세로로 이어 그린다.
+ *
+ * 모범답안(남이 제출해 점수를 받은 시험지, peerAnswers.ts)과 다르다 — 그래서 따로 둔다.
+ * 처음 넣은 SW공학·PM·인공지능 노트(2026-10-04)는 peerAnswers 에 「정리 답안」으로 섞여 있다가 여기로 옮겼다.
+ *
+ * 새 공책을 받으면: PDF 를 쪽 그림으로 풀고, 쪽마다 「문N)」 줄의 y 를 적어 그 사이를 잘라 이은 뒤
+ * `public/answers/NS19기/정리노트/{과목}/` 에 두고 여기 한 줄씩 적는다. `topicTitles` 는 교재 서브노트 제목 그대로.
+ * 스캔에 같은 쪽이 두 번 찍혀 한 쪽이 빠진 문항은 `note` 에 적어 둔다.
+ */
+export type MyNote = {
+  id: string;
+  /** 공책(과목) 이름 — 저장 폴더 이름과 같다 */
+  book: string;
+  /** 공책에 적힌 문항 번호 — 숫자면 「문N」으로 그린다(CA·OS 는 「2차 문4」처럼 차수까지 적는다) */
+  no: string;
+  /** 문항 줄에 적힌 제목 그대로 — 「설명, 토픽 이름」 꼴 */
+  title: string;
+  /** 이 정리가 붙을 토픽 — 교재 서브노트 제목과 같게 */
+  topicTitles: string[];
+  /** 잘라 낸 그림(public 기준 경로). 여러 장이면 틈 없이 이어 그린다 */
+  pages: string[];
+  /** 스캔 누락 같은 알림 */
+  note?: string;
+};
+
+export const MY_NOTES: MyNote[] = [
+  // ── SW공학·PM (31문) ──
+  { id: "ns19sw2-01", book: "SW공학·PM", no: "1", title: "개발 절차·산출물 표준화, 소프트웨어 개발 방법론", topicTitles: ["소프트웨어 개발 방법론"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-01-1.webp"] },
+  { id: "ns19sw2-02", book: "SW공학·PM", no: "2", title: "유지보수성 향상 원칙, 객체지향 설계원리(SOLID)", topicTitles: ["객체지향 설계 원리"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-02-1.webp", "/answers/NS19기/정리노트/SW공학·PM/ns19sw2-02-2.webp"] },
+  { id: "ns19sw2-03", book: "SW공학·PM", no: "3", title: "표준 프로세스 맞춤 조정, 테일러링", topicTitles: ["테일러링 (Tailoring)", "개발 방법론 테일러링(Tailoring)"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-03-1.webp", "/answers/NS19기/정리노트/SW공학·PM/ns19sw2-03-2.webp"] },
+  { id: "ns19sw2-04", book: "SW공학·PM", no: "4", title: "요구사항 관리 접근 체계, 요구공학", topicTitles: ["요구공학 (Requirements Engineering)"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-04-1.webp"] },
+  { id: "ns19sw2-05", book: "SW공학·PM", no: "5", title: "상위 구조 설계 지침, SW 아키텍처", topicTitles: ["ISO/IEC/IEEE 42010:2022"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-05-1.webp"] },
+  { id: "ns19sw2-06", book: "SW공학·PM", no: "6", title: "Trade-off 분석, ATAM", topicTitles: ["SW Architecture 평가", "ATAM"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-06-1.webp"] },
+  { id: "ns19sw2-07", book: "SW공학·PM", no: "7", title: "비용 대비 효용 평가, CBAM", topicTitles: ["CBAM(Cost Benefit Analysis Method)", "SW Architecture 평가"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-07-1.webp"] },
+  { id: "ns19sw2-08", book: "SW공학·PM", no: "8", title: "설계 표준 언어, UML", topicTitles: ["UML (정적, 동적 다이어그램)", "UML의 관계(Relationship)"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-08-1.webp", "/answers/NS19기/정리노트/SW공학·PM/ns19sw2-08-2.webp"] },
+  { id: "ns19sw2-09", book: "SW공학·PM", no: "9", title: "서비스 단위 분할 구조, MSA", topicTitles: ["MSA (Micro Service Architecture)"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-09-1.webp"] },
+  { id: "ns19sw2-10", book: "SW공학·PM", no: "10", title: "재사용 설계 일반화, 디자인 패턴", topicTitles: ["디자인 패턴 (Design Pattern)"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-10-1.webp", "/answers/NS19기/정리노트/SW공학·PM/ns19sw2-10-2.webp"] },
+  { id: "ns19sw2-11", book: "SW공학·PM", no: "11", title: "분산 트랜잭션 보상 처리, SAGA 패턴", topicTitles: ["SAGA패턴", "분산 DB"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-11-1.webp"] },
+  { id: "ns19sw2-12", book: "SW공학·PM", no: "12", title: "도메인 중심 설계 방법, DDD", topicTitles: ["DDD (Domain Driven Design)"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-12-1.webp"] },
+  { id: "ns19sw2-13", book: "SW공학·PM", no: "13", title: "개발·운영 통합, 데브옵스", topicTitles: ["데브옵스 (DevOps)"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-13-1.webp", "/answers/NS19기/정리노트/SW공학·PM/ns19sw2-13-2.webp"] },
+  { id: "ns19sw2-14", book: "SW공학·PM", no: "14", title: "운영의 엔지니어링화, SRE", topicTitles: ["SRE (Site Reliability Engineering)"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-14-1.webp", "/answers/NS19기/정리노트/SW공학·PM/ns19sw2-14-2.webp", "/answers/NS19기/정리노트/SW공학·PM/ns19sw2-14-3.webp"] },
+  { id: "ns19sw2-15", book: "SW공학·PM", no: "15", title: "연속성 보장 코드 반영, 무중단 배포", topicTitles: ["무중단 배포"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-15-1.webp", "/answers/NS19기/정리노트/SW공학·PM/ns19sw2-15-2.webp"] },
+  { id: "ns19sw2-16", book: "SW공학·PM", no: "16", title: "명세 기반 테스트, Blackbox Test", topicTitles: ["블랙박스 테스트"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-16-1.webp", "/answers/NS19기/정리노트/SW공학·PM/ns19sw2-16-2.webp"] },
+  { id: "ns19sw2-17", book: "SW공학·PM", no: "17", title: "구조 기반 테스트, 화이트박스 테스트", topicTitles: ["화이트박스 테스트"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-17-1.webp", "/answers/NS19기/정리노트/SW공학·PM/ns19sw2-17-2.webp", "/answers/NS19기/정리노트/SW공학·PM/ns19sw2-17-3.webp"] },
+  { id: "ns19sw2-18", book: "SW공학·PM", no: "18", title: "테스트 수행 범위 정량화, 코드 커버리지", topicTitles: ["코드 커버리지(Code Coverage)"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-18-1.webp"] },
+  { id: "ns19sw2-19", book: "SW공학·PM", no: "19", title: "휴리스틱 테스트, 탐색적 테스트", topicTitles: ["탐색적 테스트"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-19-1.webp"] },
+  { id: "ns19sw2-20", book: "SW공학·PM", no: "20", title: "목표 성능 달성 확인, 성능 테스트", topicTitles: ["성능 테스트"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-20-1.webp", "/answers/NS19기/정리노트/SW공학·PM/ns19sw2-20-2.webp"] },
+  { id: "ns19sw2-21", book: "SW공학·PM", no: "21", title: "동일 입력 결과 비교, Back to Back", topicTitles: ["Back to Back 테스트"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-21-1.webp"] },
+  { id: "ns19sw2-22", book: "SW공학·PM", no: "22", title: "테스팅 국제표준, ISO 29119", topicTitles: ["ISO 29119"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-22-1.webp", "/answers/NS19기/정리노트/SW공학·PM/ns19sw2-22-2.webp"] },
+  { id: "ns19sw2-23", book: "SW공학·PM", no: "23", title: "역공학·재공학·재사용 접근, 3R", topicTitles: ["3R"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-23-1.webp"] },
+  { id: "ns19sw2-24", book: "SW공학·PM", no: "24", title: "리팩토링 — 대상·기법 (머리말 쪽은 스캔에서 빠짐)", topicTitles: ["소프트웨어 리팩토링"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-24-1.webp"] },
+  { id: "ns19sw2-25", book: "SW공학·PM", no: "25", title: "ISO/IEC 25010:2023", topicTitles: ["ISO/IEC 25010:2023"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-25-1.webp", "/answers/NS19기/정리노트/SW공학·PM/ns19sw2-25-2.webp"] },
+  { id: "ns19sw2-26", book: "SW공학·PM", no: "26", title: "PMO", topicTitles: ["감리/PMO 비교표"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-26-1.webp"] },
+  { id: "ns19sw2-27", book: "SW공학·PM", no: "27", title: "CMMI 3.0", topicTitles: ["CMMI 3.0"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-27-1.webp", "/answers/NS19기/정리노트/SW공학·PM/ns19sw2-27-2.webp"] },
+  { id: "ns19sw2-28", book: "SW공학·PM", no: "28", title: "요구사항명세서 SRS", topicTitles: ["요구사항 명세서 SRS"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-28-1.webp", "/answers/NS19기/정리노트/SW공학·PM/ns19sw2-28-2.webp"] },
+  { id: "ns19sw2-29", book: "SW공학·PM", no: "29", title: "인도물 중심 작업 분해, WBS", topicTitles: ["WBS (Work Breakdown Structure)"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-29-1.webp", "/answers/NS19기/정리노트/SW공학·PM/ns19sw2-29-2.webp"] },
+  { id: "ns19sw2-30", book: "SW공학·PM", no: "30", title: "산출물 변경 통제, 형상관리", topicTitles: ["형상 관리", "프로젝트 형상관리"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-30-1.webp", "/answers/NS19기/정리노트/SW공학·PM/ns19sw2-30-2.webp"] },
+  { id: "ns19sw2-31", book: "SW공학·PM", no: "31", title: "위험 식별 대응, 프로젝트 위험 관리", topicTitles: ["프로젝트 위험관리"], pages: ["/answers/NS19기/정리노트/SW공학·PM/ns19sw2-31-1.webp"] },
+  // ── 인공지능·확률통계 (31문 — 문27~29 는 스캔 누락) ──
+  { id: "ns19ai-01", book: "인공지능·확률통계", no: "1", title: "학습된 지식 재활용, 전이학습", topicTitles: ["전이학습(Transfer Learning)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-01-1.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-01-2.webp"] },
+  { id: "ns19ai-02", book: "인공지능·확률통계", no: "2", title: "스스로 만드는 레이블, 자기지도학습", topicTitles: ["자기지도학습(Self-supervised Learning)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-02-1.webp"] },
+  { id: "ns19ai-03", book: "인공지능·확률통계", no: "3", title: "학습된 선택적 삭제, 머신 언러닝", topicTitles: ["머신 언러닝(Machine Unlearning)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-03-1.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-03-2.webp"] },
+  { id: "ns19ai-04", book: "인공지능·확률통계", no: "4", title: "도메인 특화 인공지능, 버티컬 AI", topicTitles: ["버티컬 AI(Vertical AI)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-04-1.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-04-2.webp"] },
+  { id: "ns19ai-05", book: "인공지능·확률통계", no: "5", title: "물리 세계 인식·상호작용, Physical AI", topicTitles: ["Physical AI"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-05-1.webp"] },
+  { id: "ns19ai-06", book: "인공지능·확률통계", no: "6", title: "신경망의 비선형 변환, 활성화 함수", topicTitles: ["활성화함수(Activation Function)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-06-1.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-06-2.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-06-3.webp"] },
+  { id: "ns19ai-07", book: "인공지능·확률통계", no: "7", title: "대립 학습의 생성 모델, GAN", topicTitles: ["GAN(Generative Adversarial Network)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-07-1.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-07-2.webp"] },
+  { id: "ns19ai-08", book: "인공지능·확률통계", no: "8", title: "확률분포 학습의 생성, VAE", topicTitles: ["VAE(Variational Autoencoder)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-08-1.webp"] },
+  { id: "ns19ai-09", book: "인공지능·확률통계", no: "9", title: "연관 부분 집중의 기법, 어텐션 메커니즘", topicTitles: ["어텐션 메커니즘(Attention Mechanism)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-09-1.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-09-2.webp"] },
+  { id: "ns19ai-10", book: "인공지능·확률통계", no: "10", title: "사실 아닌 정보 생성, 할루시네이션", topicTitles: ["할루시네이션(Hallucination)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-10-1.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-10-2.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-10-3.webp"] },
+  { id: "ns19ai-11", book: "인공지능·확률통계", no: "11", title: "외부 지식의 컨텍스트 보강, RAG", topicTitles: ["검색 증강 생성(RAG, Retrieval Augmented Generation)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-11-1.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-11-2.webp"] },
+  { id: "ns19ai-12", book: "인공지능·확률통계", no: "12", title: "적절한 프롬프트 구성 작업, 프롬프트 엔지니어링", topicTitles: ["프롬프트 엔지니어링(Prompt Engineering)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-12-1.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-12-2.webp"] },
+  { id: "ns19ai-13", book: "인공지능·확률통계", no: "13", title: "문맥 설계 최적화, 컨텍스트 엔지니어링", topicTitles: ["컨텍스트 엔지니어링(Context Engineering)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-13-1.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-13-2.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-13-3.webp"] },
+  { id: "ns19ai-14", book: "인공지능·확률통계", no: "14", title: "에이전트를 위한 일관된 환경 설계, 하네스 엔지니어링", topicTitles: ["하네스 엔지니어링"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-14-1.webp"] },
+  { id: "ns19ai-15", book: "인공지능·확률통계", no: "15", title: "사전학습 모델 재조정, 파인튜닝", topicTitles: ["파인 튜닝(Fine-tuning)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-15-1.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-15-2.webp"] },
+  { id: "ns19ai-16", book: "인공지능·확률통계", no: "16", title: "저차원 행렬 분해 기반 파인튜닝, LoRA", topicTitles: ["LoRA(Low-rank adaptation)", "PEFT(Parameter-Efficient Fine-Tuning)", "파인 튜닝(Fine-tuning)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-16-1.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-16-2.webp"] },
+  { id: "ns19ai-17", book: "인공지능·확률통계", no: "17", title: "분류 성능의 시각화, 혼동행렬", topicTitles: ["혼동행렬(Confusion Matrix)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-17-1.webp"] },
+  { id: "ns19ai-18", book: "인공지능·확률통계", no: "18", title: "공정성 이탈, 편향", topicTitles: ["편향"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-18-1.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-18-2.webp"] },
+  { id: "ns19ai-19", book: "인공지능·확률통계", no: "19", title: "AI 모델 오분류 유도, 인공지능 적대적 공격", topicTitles: ["인공지능 적대적 공격"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-19-1.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-19-2.webp"] },
+  { id: "ns19ai-20", book: "인공지능·확률통계", no: "20", title: "프롬프트 조작 공격, 프롬프트 인젝션", topicTitles: ["프롬프트 인젝션(Prompt Injection)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-20-1.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-20-2.webp"] },
+  { id: "ns19ai-21", book: "인공지능·확률통계", no: "21", title: "딥러닝 합성 영상, 딥페이크", topicTitles: ["딥페이크(Deepfake)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-21-1.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-21-2.webp"] },
+  { id: "ns19ai-22", book: "인공지능·확률통계", no: "22", title: "AI 신뢰·위험·보안관리, AI TRiSM", topicTitles: ["AI TRiSM(AI Trust, Risk and Security Management)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-22-1.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-22-2.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-22-3.webp"] },
+  { id: "ns19ai-23", book: "인공지능·확률통계", no: "23", title: "LLM 도구 표준 연결, MCP", topicTitles: ["MCP(Model Context Protocol)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-23-1.webp"] },
+  { id: "ns19ai-24", book: "인공지능·확률통계", no: "24", title: "자연어 지시 코드 생성, 바이브 코딩", topicTitles: ["바이브코딩(Vibe Coding)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-24-1.webp"] },
+  { id: "ns19ai-26", book: "인공지능·확률통계", no: "26", title: "목표 작업의 자율 수행, 에이전틱 AI", topicTitles: ["에이전틱 AI(Agentic AI)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-26-1.webp", "/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-26-2.webp"] },
+  { id: "ns19ai-30", book: "인공지능·확률통계", no: "30", title: "표본 속성의 정량적 요약, 기술 통계", topicTitles: ["기술 통계(Descriptive statistics)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-30-1.webp"] },
+  { id: "ns19ai-31", book: "인공지능·확률통계", no: "31", title: "표본 기반의 모집단 속성 추론, 추론 통계", topicTitles: ["추론 통계(Inferential Statistics)", "기술 통계(Descriptive statistics)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-31-1.webp"] },
+  { id: "ns19ai-32", book: "인공지능·확률통계", no: "32", title: "표본으로 얻는 모수 정보, 추정 이론", topicTitles: ["추정 이론(Estimation Theory)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-32-1.webp"] },
+  { id: "ns19ai-33", book: "인공지능·확률통계", no: "33", title: "영향 관계의 모형화, 회귀분석", topicTitles: ["회귀분석(Regression Analysis)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-33-1.webp"] },
+  { id: "ns19ai-34", book: "인공지능·확률통계", no: "34", title: "가설의 통계적 판정, 통계적 가설 검정", topicTitles: ["통계적 가설검정(Hypothesis Testing)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-34-1.webp"] },
+  { id: "ns19ai-35", book: "인공지능·확률통계", no: "35", title: "세 집단 이상의 평균 비교, ANOVA", topicTitles: ["ANOVA(Analysis of variance)"], pages: ["/answers/NS19기/정리노트/인공지능·확률통계/ns19ai-35-1.webp"] },
+  // ── CA·OS (CA/OS 1~5차) ──
+  { id: "ns19caos1-01", book: "CA·OS", no: "1차 문1", title: "운영체제의 핵심 관리자, 커널", topicTitles: ["커널(Kernel)"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos1-01.webp"] },
+  { id: "ns19caos1-02", book: "CA·OS", no: "1차 문2", title: "실행 권한의 계층적 통제, CPU Ring Level", topicTitles: ["CPU Ring Level"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos1-02.webp"] },
+  { id: "ns19caos1-03", book: "CA·OS", no: "1차 문3", title: "물리 메모리의 논리적 확장, 가상메모리 관리기법", topicTitles: ["가상메모리 관리기법"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos1-03.webp"] },
+  { id: "ns19caos1-04", book: "CA·OS", no: "1차 문4", title: "고정크기 블록 분할 관리, 가상 메모리 페이징", topicTitles: ["가상메모리의 페이징과 세그멘테이션"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos1-04.webp"] },
+  { id: "ns19caos1-05", book: "CA·OS", no: "1차 문5", title: "논리 단위 분할 관리, 가상 메모리 세그멘테이션", topicTitles: ["가상메모리의 페이징과 세그멘테이션"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos1-05.webp"] },
+  { id: "ns19caos1-06", book: "CA·OS", no: "1차 문6", title: "사상표 참조 주소변환, 직접 사상", topicTitles: ["직접 사상과 연관 사상 페이징 기법"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos1-06.webp"] },
+  { id: "ns19caos2-01", book: "CA·OS", no: "2차 문1", title: "병렬검색의 고속 변환, 연관사상", topicTitles: ["직접 사상과 연관 사상 페이징 기법"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos2-01.webp"] },
+  { id: "ns19caos2-02", book: "CA·OS", no: "2차 문2", title: "부재 최소화, 페이지 교체 알고리즘", topicTitles: ["페이지 교체 알고리즘(Paging Replacement Algorithm)"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos2-02.webp"] },
+  { id: "ns19caos2-03", book: "CA·OS", no: "2차 문3", title: "프레임 늘려도 부재 증가, Belady's Anomaly", topicTitles: ["Belady's Anomaly(FIFO 이상현상)"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos2-03.webp"] },
+  { id: "ns19caos2-04", book: "CA·OS", no: "2차 문4", title: "CPU 성능 저하, 스레싱(Thrashing)", topicTitles: ["스레싱(Thrashing)"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos2-04.webp"] },
+  { id: "ns19caos2-05", book: "CA·OS", no: "2차 문5", title: "메모리 낭비 공간, 단편화", topicTitles: ["단편화(Fragmentation)", "메모리 단편화(Fragmentation)"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos2-05.webp"] },
+  { id: "ns19caos2-06", book: "CA·OS", no: "2차 문6", title: "자원 할당 결정자, 스케줄러(Scheduler)", topicTitles: ["스케줄러(Scheduler)"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos2-06.webp"] },
+  { id: "ns19caos3-02", book: "CA·OS", no: "3차 문2", title: "효율적 CPU 이용, CPU 스케줄링", topicTitles: ["CPU 스케줄링(CPU Scheduling)"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos3-02.webp"] },
+  { id: "ns19caos4-01", book: "CA·OS", no: "4차 문1", title: "동기화로 인한 순서 뒤집힘, 우선순위 역전", topicTitles: ["우선순위 역전(Priority Inversion) 현상"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos4-01.webp"] },
+  { id: "ns19caos4-02", book: "CA·OS", no: "4차 문2", title: "프로세스간 데이터 교환, IPC", topicTitles: ["프로세스간 통신(IPC)"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos4-02.webp"] },
+  { id: "ns19caos4-03", book: "CA·OS", no: "4차 문3", title: "자원 점유 무한대기, 교착상태", topicTitles: ["교착상태(Deadlock)"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos4-03.webp"] },
+  { id: "ns19caos4-04", book: "CA·OS", no: "4차 문4", title: "자원 관계 시각화, 자원할당 그래프", topicTitles: ["자원할당 그래프(Resource Allocation Graph)"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos4-04.webp"] },
+  { id: "ns19caos4-05", book: "CA·OS", no: "4차 문5", title: "교착 상태 회피, Banker's 알고리즘", topicTitles: ["Banker's 알고리즘(은행가 알고리즘)"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos4-05.webp"] },
+  { id: "ns19caos4-06", book: "CA·OS", no: "4차 문6", title: "실행 흐름의 강제 전환, 인터럽트", topicTitles: ["인터럽트(Interrupt)"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos4-06.webp"] },
+  { id: "ns19caos5-01", book: "CA·OS", no: "5차 문1", title: "다중 캐시의 데이터 일치, 캐시 일관성", topicTitles: ["캐시 일관성(Cache Coherence)"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos5-01.webp"] },
+  { id: "ns19caos5-02", book: "CA·OS", no: "5차 문2", title: "기억장치 동시 접근 기법, 메모리 인터리빙", topicTitles: ["메모리 인터리빙(Interleaving)"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos5-02.webp"] },
+  { id: "ns19caos5-03", book: "CA·OS", no: "5차 문3", title: "업무연속성 보장, HA(고가용성)", topicTitles: ["HA(High Availability)"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos5-03.webp"] },
+  { id: "ns19caos5-04", book: "CA·OS", no: "5차 문4", title: "결함 속 지속 동작 시스템, FTS(결함허용컴퓨터)", topicTitles: ["결함허용 컴퓨터(FTS)"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos5-04.webp"] },
+  { id: "ns19caos5-05", book: "CA·OS", no: "5차 문5", title: "디스크 성능 향상, RAID", topicTitles: ["RAID (Redundant Array of Independent Disks)"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos5-05.webp"] },
+  { id: "ns19caos5-06", book: "CA·OS", no: "5차 문6", title: "AI 연산 전용 반도체, TPU", topicTitles: ["TPU (Tensor Processing Unit)"], pages: ["/answers/NS19기/정리노트/CA·OS/ns19caos5-06.webp"] },
+  // ── 네트워크·자료구조·알고리즘 ──
+  { id: "ns19nw-01", book: "네트워크·자료구조·알고리즘", no: "1", title: "네트워크 구조 참조모델, OSI 7 Layer(ISO 7498)", topicTitles: ["OSI 7 Layer (ISO 7498)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-01.webp"] },
+  { id: "ns19nw-02", book: "네트워크·자료구조·알고리즘", no: "2", title: "계층간 통신의 기본형, 서비스 프리미티브", topicTitles: ["서비스 프리미티브(Service Primitive)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-02.webp"] },
+  { id: "ns19nw-03", book: "네트워크·자료구조·알고리즘", no: "3", title: "QUIC 기반 웹규약, HTTP/3", topicTitles: ["HTTP/3"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-03.webp"] },
+  { id: "ns19nw-04", book: "네트워크·자료구조·알고리즘", no: "4", title: "트래픽 폭주 억제, TCP 혼잡제어", topicTitles: ["TCP 혼잡제어"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-04.webp"] },
+  { id: "ns19nw-05", book: "네트워크·자료구조·알고리즘", no: "5", title: "흐름의 동적 조절, Sliding Window", topicTitles: ["Sliding Window & 네이글(Nagle's) 알고리즘"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-05.webp"] },
+  { id: "ns19nw-06", book: "네트워크·자료구조·알고리즘", no: "6", title: "작은 패킷 묶음 전송, 네이글 알고리즘", topicTitles: ["Sliding Window & 네이글(Nagle's) 알고리즘"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-06.webp"] },
+  { id: "ns19nw-07", book: "네트워크·자료구조·알고리즘", no: "7", title: "이름, 주소 변환, DNS", topicTitles: ["DNS(Domain Name System)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-07.webp"] },
+  { id: "ns19nw-08", book: "네트워크·자료구조·알고리즘", no: "8", title: "이웃 정보 기반 경로 결정, 거리벡터 라우팅", topicTitles: ["라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-08.webp"] },
+  { id: "ns19nw-09", book: "네트워크·자료구조·알고리즘", no: "9", title: "전체 링크 비용 기반 경로계산, 링크상태 라우팅", topicTitles: ["라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-09.webp"], note: "뒤쪽 한 쪽이 스캔에서 빠졌다(같은 쪽이 두 번 찍힘)" },
+  { id: "ns19nw-10", book: "네트워크·자료구조·알고리즘", no: "10", title: "FEC / BEC", topicTitles: ["FEC(Forward Error Correction) / BEC(Backward Error Correction)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-10.webp"], note: "이 문제 첫 쪽이 스캔에서 빠져 둘째 쪽부터 있다" },
+  { id: "ns19nw-12", book: "네트워크·자료구조·알고리즘", no: "12", title: "검출 넘어 정정까지, 해밍코드", topicTitles: ["해밍코드(Hamming code)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-12.webp"] },
+  { id: "ns19nw-13", book: "네트워크·자료구조·알고리즘", no: "13", title: "다항식 나눗셈 오류 검출, CRC", topicTitles: ["CRC(Cyclic Redundancy Check)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-13.webp"] },
+  { id: "ns19nw-14", book: "네트워크·자료구조·알고리즘", no: "14", title: "종단 간 품질 보장, QoS", topicTitles: ["QoS(Quality of Service)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-14.webp"] },
+  { id: "ns19nw-15", book: "네트워크·자료구조·알고리즘", no: "15", title: "IP 자동 할당 절차, DHCP", topicTitles: ["DHCP(Dynamic Host Configuration Protocol)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-15.webp"] },
+  { id: "ns19nw-16", book: "네트워크·자료구조·알고리즘", no: "16", title: "TCP와 UDP의 절충, SCTP", topicTitles: ["SCTP(Stream Control Transmission Protocol)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-16.webp"] },
+  { id: "ns19nw-17", book: "네트워크·자료구조·알고리즘", no: "17", title: "하나의 전송로, 여러 채널, 다중화", topicTitles: ["다중화(Multiplexing)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-17.webp"] },
+  { id: "ns19nw-18", book: "네트워크·자료구조·알고리즘", no: "18", title: "개방형 무선 접속망, O-RAN", topicTitles: ["O-RAN"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-18.webp"] },
+  { id: "ns19nw-19", book: "네트워크·자료구조·알고리즘", no: "19", title: "논리 분할의 전용망, 네트워크 슬라이싱", topicTitles: ["네트워크 슬라이싱"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-19.webp"] },
+  { id: "ns19nw-20", book: "네트워크·자료구조·알고리즘", no: "20", title: "망 데이터의 AI 분석, NWDAF", topicTitles: ["NWDAF(Network Data Analytics Function)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-20.webp"] },
+  { id: "ns19nw-21", book: "네트워크·자료구조·알고리즘", no: "21", title: "1Tbps 초세대 이동통신, 6G", topicTitles: ["6G"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-21.webp"], note: "뒤쪽 한 쪽이 스캔에서 빠졌다(같은 쪽이 두 번 찍힘)" },
+  { id: "ns19nw-23", book: "네트워크·자료구조·알고리즘", no: "23", title: "지상 밖 5G 확장, 비지상 네트워크", topicTitles: ["비지상네트워크(NTN, Non-Terrestrial Networks)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-23.webp"] },
+  { id: "ns19nw-24", book: "네트워크·자료구조·알고리즘", no: "24", title: "제어와 전송의 분리, SDN", topicTitles: ["SDN(Software Defined Network)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-24.webp"] },
+  { id: "ns19nw-25", book: "네트워크·자료구조·알고리즘", no: "25", title: "SDN의 WAN 확장, SD-WAN", topicTitles: ["SD-WAN(Software Defined-Wide Area Network)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-25.webp"] },
+  { id: "ns19nw-26", book: "네트워크·자료구조·알고리즘", no: "26", title: "가까운 곳에서 콘텐츠를, CDN", topicTitles: ["CDN(Contents Delivery Network)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-26.webp"] },
+  { id: "ns19nw-27", book: "네트워크·자료구조·알고리즘", no: "27", title: "트래픽 동등 처리의 원칙, 망 중립성", topicTitles: ["망 중립성(Network Neutrality)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-27.webp"] },
+  { id: "ns19nw-28", book: "네트워크·자료구조·알고리즘", no: "28", title: "의도만 말하면 되는 망, 인텐트 기반 네트워킹", topicTitles: ["인텐트 기반 네트워킹(Intent-Based Networking)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-28.webp"] },
+  { id: "ns19nw-29", book: "네트워크·자료구조·알고리즘", no: "29", title: "복잡도 함수 상한 표현, 빅오 표기법", topicTitles: ["빅오 표기법(O-Notation)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-29.webp"] },
+  { id: "ns19nw-30", book: "네트워크·자료구조·알고리즘", no: "30", title: "키 기반 즉시 접근, 해시 테이블", topicTitles: ["해시 테이블"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-30.webp"] },
+  { id: "ns19nw-31", book: "네트워크·자료구조·알고리즘", no: "31", title: "빈도 기반 가변 부호화, 허프만 코딩", topicTitles: ["허프만(Huffman) 코딩"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-31.webp"] },
+  { id: "ns19nw-32", book: "네트워크·자료구조·알고리즘", no: "32", title: "최소 비용 전체 연결, 최소 신장 트리", topicTitles: ["최소 신장 트리(MST, Minimum Spanning Tree)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-32.webp"] },
+  { id: "ns19nw-33", book: "네트워크·자료구조·알고리즘", no: "33", title: "포인터 연결의 동적 구조, 링크드 리스트", topicTitles: ["링크드 리스트(Linked List)"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-33.webp"] },
+  { id: "ns19nw-34", book: "네트워크·자료구조·알고리즘", no: "34", title: "후입 선출 자료구조, Stack", topicTitles: ["Stack"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-34.webp"] },
+  { id: "ns19nw-35", book: "네트워크·자료구조·알고리즘", no: "35", title: "선입 선출 자료구조, Queue", topicTitles: ["Queue"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-35.webp"] },
+  { id: "ns19nw-36", book: "네트워크·자료구조·알고리즘", no: "36", title: "높이차 1 이하 자가 균형, AVL 트리", topicTitles: ["AVL 트리"], pages: ["/answers/NS19기/정리노트/네트워크·자료구조·알고리즘/ns19nw-36.webp"] },
+  // ── DB·경영전략 ──
+  { id: "ns19db-01", book: "DB·경영전략", no: "1", title: "DB 작업의 논리적 단위, 트랜잭션", topicTitles: ["트랜잭션"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-01.webp"] },
+  { id: "ns19db-02", book: "DB·경영전략", no: "2", title: "고립성의 데이터 허용 수준, 격리 레벨", topicTitles: ["Isolation Level(격리 레벨)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-02.webp"] },
+  { id: "ns19db-03", book: "DB·경영전략", no: "3", title: "비즈니스 데이터 모델화, 데이터베이스 모델링", topicTitles: ["데이터베이스 모델링"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-03.webp"] },
+  { id: "ns19db-04", book: "DB·경영전략", no: "4", title: "데이터 정확성 유지 규칙, 데이터베이스 무결성", topicTitles: ["데이터베이스 무결성"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-04.webp"] },
+  { id: "ns19db-05", book: "DB·경영전략", no: "5", title: "결정자-종속자 제약조건, 함수적 종속성", topicTitles: ["함수적 종속성(Functional Dependency)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-05.webp"] },
+  { id: "ns19db-06", book: "DB·경영전략", no: "6", title: "함수종속 추론 규칙, 암스트롱 공리", topicTitles: ["암스트롱 공리(Armstrong's Axioms)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-06.webp"] },
+  { id: "ns19db-07", book: "DB·경영전략", no: "7", title: "종속, 중복 제거의 분해, 데이터베이스 정규화", topicTitles: ["데이터베이스 정규화(Normalization)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-07.webp"] },
+  { id: "ns19db-08", book: "DB·경영전략", no: "8", title: "성능 위한 릴레이션 통합, 데이터베이스 반정규화", topicTitles: ["데이터베이스 반정규화(De-Normalization)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-08.webp"] },
+  { id: "ns19db-09", book: "DB·경영전략", no: "9", title: "절차적 질의 언어, 관계대수", topicTitles: ["관계대수(Relational Algebra)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-09.webp"] },
+  { id: "ns19db-10", book: "DB·경영전략", no: "10", title: "장애 시 DB 일관성 확보, DB 회복기법", topicTitles: ["DB 회복기법"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-10.webp"], note: "뒤쪽 한 쪽이 스캔에서 빠졌다(같은 쪽이 두 번 찍힘)" },
+  { id: "ns19db-11", book: "DB·경영전략", no: "11", title: "DB 동시성제어", topicTitles: ["DB 동시성제어"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-11.webp"], note: "이 문제 첫 쪽이 스캔에서 빠져 둘째 쪽부터 있다" },
+  { id: "ns19db-12", book: "DB·경영전략", no: "12", title: "물리 분산의 논리적 단일화, 분산 DB", topicTitles: ["분산 DB"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-12.webp"] },
+  { id: "ns19db-13", book: "DB·경영전략", no: "13", title: "스키마 없는 분산형 DB, NoSQL", topicTitles: ["NoSQL"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-13.webp"] },
+  { id: "ns19db-14", book: "DB·경영전략", no: "14", title: "고차원 벡터 저장·검색, 벡터 데이터베이스", topicTitles: ["벡터 데이터베이스(Vector Database)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-14.webp"] },
+  { id: "ns19db-15", book: "DB·경영전략", no: "15", title: "파티션 키 기준 분할, 데이터베이스 파티셔닝", topicTitles: ["데이터베이스 파티셔닝(Partitioning)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-15.webp"] },
+  { id: "ns19db-16", book: "DB·경영전략", no: "16", title: "샤드 단위 수평 분할 분산, 데이터베이스 샤딩", topicTitles: ["데이터베이스 샤딩(Sharding)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-16.webp"] },
+  { id: "ns19db-17", book: "DB·경영전략", no: "17", title: "전사 데이터 관리 체계, 데이터 거버넌스", topicTitles: ["데이터 거버넌스(Data Governance)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-17.webp"] },
+  { id: "ns19db-18", book: "DB·경영전략", no: "18", title: "마스터 데이터 품질 국제 표준, 데이터 품질관리", topicTitles: ["데이터 품질관리(ISO 8000)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-18.webp"] },
+  { id: "ns19db-19", book: "DB·경영전략", no: "19", title: "정보전달 효과 극대화, 데이터 시각화", topicTitles: ["데이터 시각화"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-19.webp"] },
+  { id: "ns19db-20", book: "DB·경영전략", no: "20", title: "레이크+웨어하우스 결합, 데이터 레이크하우스", topicTitles: ["데이터 레이크하우스(Data Lakehouse)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-20.webp"] },
+  { id: "ns19db-21", book: "DB·경영전략", no: "21", title: "후보생성과 가지치기, Apriori 알고리즘", topicTitles: ["Apriori 알고리즘"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-21.webp"] },
+  { id: "ns19db-22", book: "DB·경영전략", no: "22", title: "데이터를 제품처럼 관리, DaaP", topicTitles: ["DaaP(Data as a product)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-22.webp"] },
+  { id: "ns19db-23", book: "DB·경영전략", no: "23", title: "IT 서비스 관리 모범사례, ITIL 4.0", topicTitles: ["ITIL(IT Infrastructure Library) 4.0"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-23.webp"] },
+  { id: "ns19db-24", book: "DB·경영전략", no: "24", title: "SLA 기반 서비스 관리, ITSM", topicTitles: ["ITSM(Information Technology Service Management)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-24.webp"] },
+  { id: "ns19db-25", book: "DB·경영전략", no: "25", title: "사용자 관점 수준 개선, 서비스 수준 관리(SLM)", topicTitles: ["서비스 수준 관리 (SLM, Service Level Management)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-25.webp"] },
+  { id: "ns19db-26", book: "DB·경영전략", no: "26", title: "무중단 비즈니스 연속성, BCP", topicTitles: ["BCP (Business Continuity Planning)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-26.webp"] },
+  { id: "ns19db-27", book: "DB·경영전략", no: "27", title: "재해 영향과 복구 우선순위, BIA", topicTitles: ["BIA (Business Impact Analysis)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-27.webp"] },
+  { id: "ns19db-28", book: "DB·경영전략", no: "28", title: "업무 연속성 관리 국제표준, ISO 22301", topicTitles: ["ISO 22301"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-28.webp"] },
+  { id: "ns19db-29", book: "DB·경영전략", no: "29", title: "전략·IT 정렬 통제 체계, IT 거버넌스", topicTitles: ["IT 거버넌스(IT-Governance)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-29.webp"] },
+  { id: "ns19db-30", book: "DB·경영전략", no: "30", title: "경영 영향 요인 징후 포착, 환경분석", topicTitles: ["환경분석"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-30.webp"], note: "뒤쪽 한 쪽이 스캔에서 빠졌다(같은 쪽이 두 번 찍힘)" },
+  { id: "ns19db-31", book: "DB·경영전략", no: "31", title: "ISP", topicTitles: ["ISP (Information Strategy Planning)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-31.webp"], note: "이 문제 첫 쪽이 스캔에서 빠져 둘째 쪽부터 있다" },
+  { id: "ns19db-32", book: "DB·경영전략", no: "32", title: "RFP 수준의 상세 계획, ISMP", topicTitles: ["ISMP (Information System Master Plan)"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-32.webp"] },
+  { id: "ns19db-33", book: "DB·경영전략", no: "33", title: "HW 용량, 성능 산정 표준, 정보시스템 하드웨어 규모산정", topicTitles: ["정보시스템 하드웨어 규모산정 지침"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-33.webp"] },
+  { id: "ns19db-34", book: "DB·경영전략", no: "34", title: "IT 효과의 화폐가치 환산, IT 투자성과 평가", topicTitles: ["IT 투자성과 평가"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-34.webp"] },
+  { id: "ns19db-35", book: "DB·경영전략", no: "35", title: "지속가능 경영 3요소, ESG 경영", topicTitles: ["ESG 경영"], pages: ["/answers/NS19기/정리노트/DB·경영전략/ns19db-35.webp"] },
+];
+
+const BY_TOPIC = new Map<string, MyNote[]>();
+for (const n of MY_NOTES)
+  for (const t of n.topicTitles) BY_TOPIC.set(t, [...(BY_TOPIC.get(t) ?? []), n]);
+
+/** 이 토픽에 붙은 내 정리 */
+export const myNotesFor = (title?: string): MyNote[] => (title ? BY_TOPIC.get(title.trim()) ?? [] : []);
+/** 내가 정리한 토픽인가 — 토픽 목록·지도의 「📝」 표시 */
+export const hasMyNote = (title?: string): boolean => !!title && BY_TOPIC.has(title.trim());

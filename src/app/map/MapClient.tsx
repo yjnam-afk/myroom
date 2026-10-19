@@ -255,7 +255,7 @@ const hasAnyData = (name: string, parent?: string): boolean =>
   );
 
 /** 토픽별 출제·답안 수 — 서버(page.tsx)가 센다 */
-export type TopicStat = { past: number; ns: number; mock: number; ans: number; com: number };
+export type TopicStat = { past: number; ns: number; mock: number; ans: number; com: number; /** 내 정리 노트 수(myNotes) */ mine?: number };
 
 export default function MapClient({ stats, chipHits }: { stats: Record<string, TopicStat>; chipHits: Record<string, number> }) {
   const [view, setView] = useState<"map" | "compare" | "tables" | "groups">("map");
@@ -569,6 +569,7 @@ function MapView({
         {short(t.title)}
         {n > 0 && <sup className="ml-0.5 text-[9px] opacity-70">{n}</sup>}
         {t.sub && !s?.ans && !s?.com && <span className="ml-0.5 text-[9px] opacity-60">○</span>}
+        {!!s?.mine && <span className="ml-0.5 text-[10px]" title="내가 정리한 토픽">📝</span>}
       </button>
     );
   };
@@ -914,6 +915,7 @@ function MapView({
                   ["🏁 모의", st?.mock ?? 0],
                   ["✍️ 답안", st?.ans ?? 0],
                   ["📘 해설", st?.com ?? 0],
+                  ["📝 내 정리", st?.mine ?? 0],
                 ].map(([k, v]) => (
                   <div key={k as string} className="rounded-lg bg-slate-50 px-1 py-1">
                     <div className="text-slate-400">{k}</div>
