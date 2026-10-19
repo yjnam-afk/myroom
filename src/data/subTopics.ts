@@ -52,6 +52,38 @@ export const SUB_TOPICS: SubTopic[] = [
   { name: "CSRF(Cross Site Request Forgery)", parent: "시큐어 코딩(Secure Coding)", aliases: ["CSRF", "크로스 사이트 요청 위조", "Cross Site Request Forgery"] },
   { name: "MITM(중간자 공격)", parent: "스니핑(Sniffing) & 스푸핑(Spoofing)", aliases: ["MITM", "중간자 공격", "Man In The Middle", "Man-in-the-Middle"] },
   { name: "허니팟(Honeypot)", parent: "사이버 디셉션(Cyber Deception)", aliases: ["허니팟", "Honeypot", "허니넷"] },
+  // 2026-10-19 기출 검수로 더함 — "기출문제를 보고 토픽 선정하는 게 더 빠를걸?". 어느 토픽에도 안 걸리던 문항(6,951개)의
+  // 주제부를 묶어 세고, 그 이름이 교재 서브노트 표·키워드에 있는 것만 골랐다.
+  { name: "IoC(Indicators of Compromise)", parent: "XDR(eXtended Detection Response)", aliases: ["Indicators of Compromise", "Indicator of Compromise", "침해지표"] },
+  { name: "CVE·CWE", parent: "공격 표면 관리(Attack Surface Management)", aliases: ["CVE", "CWE", "CVSS"] },
+  { name: "FIDO(Fast IDentity Online)", parent: "패스키(Passkey)", aliases: ["FIDO", "Fast IDentity Online", "Fast Identity Online"] },
+  { name: "IDS·IPS", parent: "DoS(Denial of Service)", aliases: ["IDS", "IPS", "침입탐지시스템", "침입방지시스템", "침입 탐지 시스템", "침입 방지 시스템"] },
+  { name: "전자서명(Digital Signature)", parent: "암호화(Encryption)", aliases: ["전자서명", "디지털 서명", "Digital Signature"] },
+  { name: "RSA·ECC", parent: "암호화(Encryption)", aliases: ["RSA", "타원곡선 암호", "타원 곡선 암호", "Elliptic Curve"] },
+  { name: "해시 함수(Hash Function)", parent: "암호화(Encryption)", aliases: ["해시함수", "해시 함수", "해쉬 함수", "해쉬함수", "해시 알고리즘", "해쉬 알고리즘", "Hash Function", "Hash Algorithm"] },
+  { name: "TPM(Trusted Platform Module)", parent: "기밀컴퓨팅(Confidential Computing)", aliases: ["TPM", "Trusted Platform Module"] },
+  { name: "랜섬웨어(Ransomware)", parent: "RaaS(Ransomware as a Service)", aliases: ["랜섬웨어", "Ransomware"] },
+  { name: "SCADA", parent: "IEC 62443", aliases: ["SCADA"] },
+  { name: "JWT(JSON Web Token)", parent: "OAuth(Open Authorize) 2.0", aliases: ["JWT", "JSON Web Token"] },
+  // 소프트웨어공학·경영
+  { name: "MC/DC(Modified Condition/Decision Coverage)", parent: "코드 커버리지(Code Coverage)", aliases: ["MC/DC", "Modified Condition/Decision Coverage", "Modified Condition / Decision Coverage", "변경 조건/결정 커버리지", "변경조건/결정 커버리지"] },
+  { name: "IaC(Infrastructure as Code)", parent: "릴리즈 엔지니어링", aliases: ["IaC", "Infrastructure as Code", "Infrastructure-as-Code", "코드형 인프라"] },
+  { name: "CBD(Component Based Development)", parent: "소프트웨어 개발 방법론", aliases: ["CBD", "Component Based Development", "컴포넌트 기반 개발"] },
+  { name: "오버라이딩·오버로딩", parent: "다형성 (Polymorphism)", aliases: ["오버라이딩", "오버로딩", "Overriding", "Overloading"] },
+  { name: "REST API", parent: "MSA (Micro Service Architecture)", aliases: ["REST API", "RESTful", "REpresentational State Transfer", "Representational State Transfer"] },
+  { name: "EA/ITA(Enterprise Architecture)", parent: "IT 거버넌스(IT-Governance)", aliases: ["EA/ITA", "Enterprise Architecture", "정보기술 아키텍처", "엔터프라이즈 아키텍처"] },
+  { name: "COBIT", parent: "IT 거버넌스(IT-Governance)", aliases: ["COBIT"] },
+  // 데이터베이스
+  { name: "CRUD 매트릭스", parent: "엔티티(Entity)", aliases: ["CRUD"] },
+  // 인공지능·통계
+  { name: "과적합·과소적합(Overfitting·Underfitting)", parent: "Dropout", aliases: ["과적합", "과대적합", "과소적합", "Overfitting", "Underfitting"] },
+  { name: "경사하강법(Gradient Descent)", parent: "머신러닝 옵티마이저(Optimizer)", aliases: ["경사하강법", "경사 하강법", "Gradient Descent"] },
+  { name: "실루엣 계수(Silhouette Coefficient)", parent: "K-평균 알고리즘", aliases: ["실루엣 계수", "실루엣계수", "Silhouette"] },
+  { name: "ROC 곡선·AUC", parent: "K-NN(Nearest Neighbor) Classification", aliases: ["ROC", "Receiver Operating Characteristic", "AUC"] },
+  { name: "MRC(Machine Reading Comprehension)", parent: "자연어처리(NLP, Natural Language Processing)", aliases: ["MRC", "Machine Reading Comprehension", "기계독해", "기계 독해"] },
+  // 운영체제·네트워크
+  { name: "선점형·비선점형 스케줄링", parent: "CPU 스케줄링(CPU Scheduling)", aliases: ["선점형 스케줄링", "비선점형 스케줄링", "선점 스케줄링", "비선점 스케줄링", "Preemptive Scheduling", "Non-Preemptive"] },
+  { name: "SLAM(Simultaneous Localization and Mapping)", parent: "ISAC(Integrated Sensing and Communication)", aliases: ["SLAM", "Simultaneous Localization and Mapping"] },
 ];
 
 const BY_NAME = new Map(SUB_TOPICS.map((s) => [s.name, s]));

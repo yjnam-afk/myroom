@@ -199,6 +199,21 @@ const TRAP: Record<string, RegExp> = {
   // DB 이상현상(서브 토픽)은 FIFO 이상현상(Belady's Anomaly)이 아니다
   이상현상: /fifo이상현상|belady/,
   optimizer: /^[\s\S]*(?:rbo|cbo|rulebased|costbased|데이터베이스|database|dbms|관계형db)[\s\S]*$/,
+  // 2026-10-19 서브 토픽을 더하며 — 실내 측위 IPS(Indoor Positioning System)는 침입방지시스템이 아니고,
+  // 「NFC, MST 비교」의 MST 는 마그네틱 결제(Magnetic Secure Transmission)다. 일정 계산 문항의 활동 이름
+  // 「C B, D」가 붙어 CBD 로 읽혔다.
+  ips: /^[\s\S]*(?:indoorpositioning|실내측위|위치기반)[\s\S]*$/,
+  mst: /^[\s\S]*(?:nfc|magnetic|마그네틱)[\s\S]*$/,
+  cbd: /^[\s\S]*(?:선행작업|주공정|criticalpath)[\s\S]*$/,
+  // 「ISMS-P 인증」은 SP 인증(소프트웨어 프로세스 품질인증)이 아니다
+  sp인증: /ismsp인증/,
+  // 자료구조 해시 테이블·해싱 충돌 문항은 암호 해시 함수(서브 토픽)가 아니다
+  ...Object.fromEntries(
+    ["해시함수", "해쉬함수", "hashfunction", "해시알고리즘", "해쉬알고리즘", "hashalgorithm"].map((k) => [
+      k,
+      /^[\s\S]*(?:해시테이블|해쉬테이블|hashtable|해싱|충돌해결|해시충돌)[\s\S]*$/,
+    ]),
+  ),
 };
 
 function trapped(entry: { sq: string }, key: string): boolean {

@@ -32722,7 +32722,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     no: "8",
     question: "가상자산 사업자 대상 정보보호 관리체계 예비인증",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023상 ITPE모의고사 › 6.보안)",
-    topicTitles: [],
+    topicTitles: ["정보보호 및 개인정보보호 관리체계 인증(ISMS-P)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2023상ITPE모의고사/6.보안/s23i-isms-가상자산-사업자-대상-정보보호-관리체계-예비인증-모고15-1-8-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2023상ITPE모의고사/6.보안/s23i-isms-가상자산-사업자-대상-정보보호-관리체계-예비인증-모고15-1-8-2.jpg", label: "2쪽" },
@@ -33352,7 +33352,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "클라우드컴퓨팅서비스 이용기준 및 안전성 확보 고시 제정 이유,도입시 검토항목, 서비스수준, 안전성 관련사항",
     exam: "ITPE 모의고사 14회",
-    topicTitles: [],
+    topicTitles: ["서비스 수준 관리 (SLM, Service Level Management)"],
     pages: [
       { src: "/answers/ITPE모의고사/14회/u22-sv-클라우드컴퓨팅서비스-이용기준-및-안전성-확보-고시-제정-이유-도입시-1.jpg", label: "1쪽" },
       { src: "/answers/ITPE모의고사/14회/u22-sv-클라우드컴퓨팅서비스-이용기준-및-안전성-확보-고시-제정-이유-도입시-2.jpg", label: "2쪽" },
@@ -41707,7 +41707,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "RAG와 RIG",
     exam: "정리 답안 (드라이브 3.2 단합반 › 5. AI)",
-    topicTitles: ["RIG(Retrieval Interleaved Generation)"],
+    topicTitles: ["RIG(Retrieval Interleaved Generation)", "검색 증강 생성(RAG, Retrieval Augmented Generation)"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/5.AI/dh-ai-rag와-rig-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.2단합반/5.AI/dh-ai-rag와-rig-2.jpg", label: "2쪽" },
@@ -58311,7 +58311,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "2",
     question: "ISMS(Information Security Management System)에 대해 설명하시오.",
     exam: "제49회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["정보보호 및 개인정보보호 관리체계 인증(ISMS-P)"],
     questionIds: ["m02647"],
     pages: [
       { src: "/answers/KPC모의고사/49회/kpc-kpc-49회-모의고사-모범답안-1교시-3.jpg", label: "1쪽" },
@@ -58756,7 +58756,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "6",
     question: "통합형 정보보호 인증제도인 ISMS-에 대하여 설명하시오",
     exam: "제88회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["정보보호 및 개인정보보호 관리체계 인증(ISMS-P)"],
     pages: [
       { src: "/answers/KPC모의고사/88회/kpc-88회-kpc기술사모의고사-모범답안-3교시-14.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/88회/kpc-88회-kpc기술사모의고사-모범답안-3교시-15.jpg", label: "2쪽" },
@@ -59374,7 +59374,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "3",
     question: "ISMS(Information Security Management System)°| 인증 프로세스, 정보보호관리과정(단",
     exam: "제57회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["정보보호 및 개인정보보호 관리체계 인증(ISMS-P)"],
     pages: [
       { src: "/answers/KPC모의고사/57회/kpc-kpc-57회-정보관리-모의고사-모범답안-4교시-4.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/57회/kpc-kpc-57회-정보관리-모의고사-모범답안-4교시-5.jpg", label: "2쪽" },
@@ -63878,7 +63878,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "5",
     question: "정보보호 준비도 평가에 대해 기존의 ISMS 인증제도와 비교 설명하고, 다양한 정보보호와 관련된 인증제도의 향후 방향성에 대해 제시하시오.",
     exam: "제62회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["정보보호 및 개인정보보호 관리체계 인증(ISMS-P)"],
     questionIds: ["m02274"],
     pages: [
       { src: "/answers/KPC모의고사/62회/kpc-kpc-62회-정보관리-모의고사-모범답안-2교시-12.jpg", label: "1쪽" },
@@ -65600,7 +65600,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "2교시",
     question: "도입시 고려사항, OSS거버넌스",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["오픈소스 거버넌스"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-도입시-고려사항-oss거버넌스-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-도입시-고려사항-oss거버넌스-1-2.jpg", label: "2쪽" },
@@ -65612,7 +65612,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "2교시",
     question: "도입시 고려사항, OSS거버넌스",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["오픈소스 거버넌스"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-도입시-고려사항-oss거버넌스-2-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-도입시-고려사항-oss거버넌스-2-2.jpg", label: "2쪽" },
@@ -67641,7 +67641,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "2교시",
     question: "카프카, 빅데이터 모델 평가방법",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["아파치 카프카(Apache Kafka)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-카프카-빅데이터-모델-평가방법-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-카프카-빅데이터-모델-평가방법-1-2.jpg", label: "2쪽" },
@@ -71652,7 +71652,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "3",
     question: "ISMS(Information Security Mamagement System)에 대하여 설명하시오. 가. ISMS 인증 의무대상자 기준(단, 정보통신망법 제47 조 2 항) 나. ISMS-P 인증기준과 주요 개정 사항",
     exam: "제119회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["SP 인증"],
+    topicTitles: ["정보보호 및 개인정보보호 관리체계 인증(ISMS-P)"],
     questionIds: ["k119-303"],
     pages: [
       { src: "/answers/기출해설집/정보관리/119회/itpe119-3-03-1.webp", label: "1쪽" },
@@ -75243,7 +75243,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "4",
     question: "정보보호 관리체계(Information Security Management System)의 개념과 관리과정을 설명하시오.",
     exam: "제124회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 단합반 안경환 기술사)",
-    topicTitles: [],
+    topicTitles: ["정보보호 및 개인정보보호 관리체계 인증(ISMS-P)"],
     questionIds: ["k124-404"],
     pages: [
       { src: "/answers/기출해설집/정보관리/124회/itpe124-4-04-1.webp", label: "1쪽" },
@@ -76219,7 +76219,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "6",
     question: "ISMS-P(Personal Information & Information Security Management System, 정보보호 및 개인정보 보호 관리체계)",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
-    topicTitles: ["개인정보 보호기술"],
+    topicTitles: ["개인정보 보호기술", "정보보호 및 개인정보보호 관리체계 인증(ISMS-P)"],
     questionIds: ["c126-106"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-06-1.webp", label: "1쪽" },
@@ -77802,7 +77802,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "5",
     question: "KS X ISO/IEC/IEEE 29119을 활용하여 다음을 설명하시오. 가. 테스트 설계 및 구현 프로세스 나. 테스트 설계 기법 다. ISO/IEC 25010에서 정의한 테스트 품질 특성과 명세기반 테스트 설계 기법간의 매핑",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["ISO/IEC 25010:2023"],
+    topicTitles: ["ISO/IEC 25010:2023", "ISO 29119"],
     questionIds: ["c128-305"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-3-05-1.webp", label: "1쪽" },
@@ -80067,7 +80067,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "4",
     question: "스마트홈연결표준인매터(Matter)에대하여다음을설명하시오. 가. 매터의개념 나. 기존스마트홈표준의한계점과매터의장점 다. 매터Network Stack",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이제원기술사)",
-    topicTitles: ["Stack"],
+    topicTitles: ["Stack", "IoT Matter"],
     questionIds: ["c131-404"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-4-04-1.webp", label: "1쪽" },
@@ -80439,7 +80439,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "6",
     question: "정보보호 및 개인정보보호 인증제도(ISMS, Information Security Management System)에 대하여 다음을 설명하시오. 가. ISMS와 ISMS-P 차이점 나. ISMS 의무 대상 기준.",
     exam: "제131회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
-    topicTitles: ["개인정보 보호기술"],
+    topicTitles: ["개인정보 보호기술", "정보보호 및 개인정보보호 관리체계 인증(ISMS-P)"],
     questionIds: ["k131-306"],
     pages: [
       { src: "/answers/기출해설집/정보관리/131회/itpe131-3-06-1.webp", label: "1쪽" },
@@ -81180,7 +81180,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "3",
     question: "최근 정보보호 및 개인정보보호 관리체계 인증(ISMS-P)에 대한 간편인증이 발표 되었다. 다음에 대하여 설명하시오. 가. ISMS-P 간편인증 목적 나. ISMS-P 간편인증 대상 다. ISMS-P 간편인증 기준",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 정상 기술사)",
-    topicTitles: ["SP 인증", "개인정보 보호기술", "정보보호 및 개인정보보호 관리체계 인증(ISMS-P)"],
+    topicTitles: ["개인정보 보호기술", "정보보호 및 개인정보보호 관리체계 인증(ISMS-P)"],
     questionIds: ["c134-203"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-2-03-1.webp", label: "1쪽" },
@@ -81338,7 +81338,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "1",
     question: "소프트웨어 프로세스 품질인증 제도의 운영과 활성화를 위하여 \"소프트웨어 프로세스 (SP: Software Process) 품질인중 운영에 관한 지침\"을 시행하고 있다. 다음에 대해서 설명하시오. 가. 소프트웨어 프로세스 품질인증 기준 나. 소프트웨어 프로세스 인증등급 기준",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 전일 기술사)",
-    topicTitles: ["SP (Software Process) 인증"],
+    topicTitles: ["SP (Software Process) 인증", "SP 인증"],
     questionIds: ["c134-401"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-4-01-1.webp", label: "1쪽" },
@@ -83083,7 +83083,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "4",
     question: "공급망 보안(Supply Chain Security)을 설명하고, 제로트러스트(Zero Trust) 기반 공급망 보안 아키 텍처를 설명하시오.",
     exam: "제136회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 강북심화 이제이 기술사)",
-    topicTitles: ["제로 트러스트(Zero Trust) 보안모델"],
+    topicTitles: ["제로 트러스트(Zero Trust) 보안모델", "공급망 공격(Supply Chain Attack)"],
     questionIds: ["k136-404"],
     pages: [
       { src: "/answers/기출해설집/정보관리/136회/itpe136-4-04-1.webp", label: "1쪽" },
@@ -83311,7 +83311,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "2",
     question: "소프트웨어 프로세스(SP, Software Process) 품질인증 제도에 대하여 설명하시오. 가. 소프트웨어 프로세스 품질인증의 개념 나. 소프트웨어 프로세스 품질인증의 인증 기준 및 인증 등급",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강평야 전일 기술사)",
-    topicTitles: ["SP (Software Process) 인증"],
+    topicTitles: ["SP (Software Process) 인증", "SP 인증"],
     questionIds: ["c137-202"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-2-02-1.webp", label: "1쪽" },
@@ -84297,7 +84297,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "6",
     question: "최근 보안과 관련된 사고 및 이슈의 빈번한 발생으로 정보보호를 위한 관리체계에 대한 중요성 이 부각되고 있다. 다음 내용을 설명하시오. 가. 정보보호 관리체계(ISMS)의 인증 영역과 법적 근거 나. 정보보호 관리체계(ISMS)의 관리 과정 다. ISMS-P 간편인증 제도 라. ISMS-P 제도의 강화 방안",
     exam: "제138회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 정상 기술사)",
-    topicTitles: ["SP 인증"],
+    topicTitles: ["정보보호 및 개인정보보호 관리체계 인증(ISMS-P)"],
     questionIds: ["k138-306"],
     pages: [
       { src: "/answers/기출해설집/정보관리/138회/itpe138-3-06-1.webp", label: "1쪽" },
@@ -84588,7 +84588,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "2",
     question: "A기업은 AI 전환(AX, AI Transformation) 추진을 위해 LLM(Large Language Model) 기반 AI 시스 템을 구축하고자 한다. 다음을 설명하시오. 가. 파인튜닝(Fine-Tuning)과 RAG(Retrieval-Augmented Generation)의 개념 및 역할 나. LLM 정렬을 위한 RLHF(Reinforcement Learning from Human Feedback) 기반 학습 파이프라인과 RAFT(Retrieval Augmented Fine-Tuning) 기반 학습 파이프라인 비교",
     exam: "제139회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 단합반 강진우 기술사)",
-    topicTitles: ["초거대 언어 모델(Large Language Model)", "파인 튜닝(Fine-tuning)", "AX(AI Transformation)"],
+    topicTitles: ["초거대 언어 모델(Large Language Model)", "파인 튜닝(Fine-tuning)", "AX(AI Transformation)", "검색 증강 생성(RAG, Retrieval Augmented Generation)"],
     questionIds: ["k139-202"],
     pages: [
       { src: "/answers/기출해설집/정보관리/139회/itpe139-2-02-1.webp", label: "1쪽" },

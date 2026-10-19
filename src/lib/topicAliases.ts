@@ -172,6 +172,21 @@ export const TOPIC_ALIASES: Record<string, string[]> = {
   "AI Agent 보안위협": ["에이전트 보안", "Agent 보안", "AI Agent 보안", "에이전트의 보안"],
   "데이터베이스 무결성": ["무결성 제약", "무결성제약", "Integrity Constraint", "개체 무결성", "참조 무결성"],
   "데이터베이스 정규화(Normalization)": ["1차 정규화", "2차 정규화", "3차 정규화", "4차 정규화", "5차 정규화", "제3정규형", "제4정규형", "BCNF"],
+  // 2026-10-19 기출 검수 — 토픽이 있는데 문항 표기가 달라 0건이던 것(제목 괄호 속에 쉼표가 있으면 약어가 열쇠가 안 된다)
+  "검색 증강 생성(RAG, Retrieval Augmented Generation)": ["RAG", "Retrieval-Augmented Generation", "Retrieval Augmented Generation"],
+  "함수적 종속성(Functional Dependency)": ["함수종속성", "함수 종속성", "함수적종속"],
+  "최소 신장 트리(MST, Minimum Spanning Tree)": ["MST", "Minimum Spanning Tree", "최소신장트리", "최소 비용 신장 트리"],
+  "프로세스간 통신(IPC)": ["IPC", "Inter Process Communication", "Inter-Process Communication", "프로세스 간 통신"],
+  "ITIL(IT Infrastructure Library) 4.0": ["ITIL"],
+  "ISO 29119": ["ISO/IEC/IEEE 29119"],
+  "공급망 공격(Supply Chain Attack)": ["공급망 보안", "Supply Chain Security"],
+  "정보보호 및 개인정보보호 관리체계 인증(ISMS-P)": ["ISMS", "PIMS", "정보보호 관리체계", "개인정보보호 관리체계"],
+  "SP 인증": ["SP 품질인증", "소프트웨어 프로세스 품질인증", "SW 프로세스 품질인증", "Software Process 품질인증"],
+  "서비스 수준 관리 (SLM, Service Level Management)": ["Service Level Management", "서비스 수준 관리", "서비스수준관리"],
+  "IoT Matter": ["매터"],
+  "아파치 카프카(Apache Kafka)": ["카프카", "Kafka"],
+  "차량 사이버 보안 국제 표준(ISO 21434)": ["ISO/SAE 21434", "21434"],
+  "오픈소스 거버넌스": ["OSS 거버넌스", "Open Source Governance", "오픈소스 SW 거버넌스"],
 };
 
 // 교재 속 서브 토픽(subTopics.ts)의 별칭도 출제 이력 열쇠로 쓴다
