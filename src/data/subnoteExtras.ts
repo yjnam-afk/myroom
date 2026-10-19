@@ -62,6 +62,10 @@ export type SubnoteExtra = {
 
 /** topicId 가 없는 교재 전용 토픽의 제목 → 슬러그 (조회 시 정규화해서 비교) */
 const TITLE_SLUG: Record<string, string> = {
+  "지속적인 위협 노출 관리(CTEM)": "sc-ctem",
+  "오펜시브 AI(Offensive AI)": "sc-offensive-ai",
+  "HNDL(Harvest Now Decrypt Later) 공격": "sc-hndl",
+  "클라우드 보안인증 등급제(CSAP)": "sc-csap",
   "데이터 상호운용성과 데이터 이동권": "db-data-interop-portability",
   "한국형 데이터 스페이스(K-Data Space)": "db-k-data-space",
   "데이터 가상화(Data Virtualization)": "db-data-virtualization",
@@ -631,6 +635,10 @@ const TITLE_SLUG: Record<string, string> = {
 };
 
 export const EXTRAS: Record<string, SubnoteExtra> = {
+"sc-ctem": { image: "/concept/book/sc-ctem.png" },
+"sc-offensive-ai": { image: "/concept/book/sc-offensive-ai.png" },
+"sc-hndl": { image: "/concept/book/sc-hndl.png" },
+"sc-csap": { image: "/concept/book/sc-csap.png" },
 "db-data-interop-portability": { image: "/concept/book/db-data-interop-portability.png" },
 "db-k-data-space": { image: "/concept/book/db-k-data-space.png" },
 "db-data-virtualization": { image: "/concept/book/db-data-virtualization.png" },
@@ -1237,7 +1245,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "SBOM", how: "구성요소 가시화로 대응합니다." },
       ],
       exam: "오픈소스 SW 보안위협은 알려진 취약점(CVE)·전이 의존성·악성 패키지·유지보수 중단으로, SCA·SBOM·의존성 검증·오픈소스 거버넌스로 대응하는 공급망 위협이다.",
-    }, image: "/concept/book/oss-security-threat.png", easy: "오픈소스 SW 보안위협은 소스가 공개되어 자유롭게 사용·변경·배포되는 특성에서 생기는 위협과 그 관리방안입니다. 관리적 측면 — 사용(현황 파악 부재, 커뮤니티 코드 맹신·타이포스쿼팅)과 프로세스(점검 절차 부재). 기술적 측면 — 공격(공개 코드의 취약점 악용, Zero Day)과 조치(패치 지연). 관리방안은 사용·프로세스·개발·장비 측면으로 정리 — 오픈소스 현황 목록화(SBOM), 검증 프로세스, 취약점 스캐닝 등입니다. SBOM·오픈소스 거버넌스와 3종 세트로 묶어 외우세요." },
+    }, image: "/concept/book/oss-security-threat.png", images: ["/concept/book/sc-oss-security-threat.png"], imagesLabel: "보안 교재", easy: "오픈소스 SW 보안위협은 소스가 공개되어 자유롭게 사용·변경·배포되는 특성에서 생기는 위협과 그 관리방안입니다. 관리적 측면 — 사용(현황 파악 부재, 커뮤니티 코드 맹신·타이포스쿼팅)과 프로세스(점검 절차 부재). 기술적 측면 — 공격(공개 코드의 취약점 악용, Zero Day)과 조치(패치 지연). 관리방안은 사용·프로세스·개발·장비 측면으로 정리 — 오픈소스 현황 목록화(SBOM), 검증 프로세스, 취약점 스캐닝 등입니다. SBOM·오픈소스 거버넌스와 3종 세트로 묶어 외우세요." },
   "fta": {
     guide: {
       hook: "사고에서 출발해 '왜?'를 거듭 물으며 원인 가지를 그려 내려가는 분석입니다.",
