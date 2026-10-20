@@ -205,6 +205,9 @@ const TRAP: Record<string, RegExp> = {
   ips: /^[\s\S]*(?:indoorpositioning|실내측위|위치기반)[\s\S]*$/,
   mst: /^[\s\S]*(?:nfc|magnetic|마그네틱)[\s\S]*$/,
   cbd: /^[\s\S]*(?:선행작업|주공정|criticalpath)[\s\S]*$/,
+  // 데이터 레이크(서브 토픽)는 데이터 레이크하우스가 아니다
+  데이터레이크: /데이터레이크하우스/,
+  datalake: /datalakehouse/,
   // 「ISMS-P 인증」은 SP 인증(소프트웨어 프로세스 품질인증)이 아니다
   sp인증: /ismsp인증/,
   // 자료구조 해시 테이블·해싱 충돌 문항은 암호 해시 함수(서브 토픽)가 아니다
