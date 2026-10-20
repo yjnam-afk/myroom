@@ -147,7 +147,7 @@ export type ExplainTopicData = {
   legacy?: LegacyCard;
   intro?: AnswerIntro;
   peers: PeerAnswer[];
-  /** 내가 손으로 정리한 노트(myNotes) — 화면 맨 위 「📝 내 정리」 */
+  /** 내가 손으로 정리한 노트(myNotes) — 답안지 템플릿 아래 「📝 내 정리」 */
   myNotes: MyNote[];
   /** 교재 속 서브 토픽 화면 — 상위 토픽과 이 이름이 나오는 교재 표 행 */
   sub?: { parent: string; aliases: string[]; tables: { from: string; caption: string; headers: string[]; rows: string[][] }[] };

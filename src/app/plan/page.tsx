@@ -680,7 +680,7 @@ export default function PlanPage() {
                             {hasMyNote(t.title) && (
                               <span
                                 className="shrink-0 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-800 ring-1 ring-amber-300"
-                                title="내가 정리한 토픽 — 토픽 화면 맨 위에 정리 노트가 붙어 있어요"
+                                title="내가 정리한 토픽 — 토픽 화면 답안지 템플릿 아래에 정리 노트가 붙어 있어요"
                               >
                                 📝 정리
                               </span>

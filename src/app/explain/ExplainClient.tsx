@@ -186,7 +186,7 @@ function MineChip() {
   return (
     <span
       className="shrink-0 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-800 ring-1 ring-amber-300"
-      title="내가 정리한 토픽 — 토픽 화면 맨 위에 정리 노트가 붙어 있어요"
+      title="내가 정리한 토픽 — 토픽 화면 답안지 템플릿 아래에 정리 노트가 붙어 있어요"
     >
       📝 정리
     </span>
@@ -617,8 +617,6 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
       </div>
 
       <div className="mt-6">
-        {/* 내 정리 — 손으로 정리한 공책에서 이 토픽 문항을 잘라 붙인 것. 내가 쓴 것이 제일 먼저다(2026-10-19). */}
-        <MyNotes key={cur} items={data?.myNotes ?? []} />
         {/* 교재 슬라이드 원본 — 맨 위. 교재가 항상 먼저고, 아래 템플릿·카드는 그걸 답안으로 옮기는 순서다.
             도식을 다시 그리지 않고 교재 그림 그대로 보여준다. */}
         {extra?.image && (
@@ -1058,6 +1056,9 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
             </p>
           </section>
         )}
+
+        {/* 내 정리 — 손으로 정리한 공책·내 답안지에서 이 토픽 문항을 잘라 붙인 것. 답안지 템플릿 바로 아래(2026-10-20 "내 정리를 답안지 템플릿 밑으로") */}
+        <MyNotes key={cur} items={data?.myNotes ?? []} />
 
         {/* 학습 카드 — 용어 매핑·옆 토픽만. 줄글 설명·답안 한 줄은 뺐다. 교재 다음에 온다. */}
         {/* 교재 속 서브 토픽 화면 — 상위 토픽 표 안에만 있던 개념(subTopics). 교재 표 행을 그대로 보여 준다 */}
