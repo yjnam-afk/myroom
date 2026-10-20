@@ -367,7 +367,10 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
       // 예전 토픽 이름으로 열어도 화면이 보여 주는 교재 서브노트에 붙은 정리를 함께 건다(peersFor 와 같은 이유)
       const own = myNotesFor(title);
       const ids = new Set(own.map((n) => n.id));
-      return [...own, ...myNotesFor(textbook?.title).filter((n) => !ids.has(n.id))];
+      // 서브 토픽 화면이면 상위 토픽 정리도 붙인다 — 「선점형·비선점형 스케줄링」은 CPU 스케줄링 노트 안에 정리돼 있다
+      // (2026-10-20 "선점형 비선점형 스케줄링 정리 다 되어 있는데")
+      const st = subTopicByName(title);
+      return [...own, ...[...myNotesFor(textbook?.title), ...myNotesFor(st?.parent)].filter((n) => !ids.has(n.id) && (ids.add(n.id), true))];
     })(),
     sub: subTopicByName(title) ? subRows(subTopicByName(title)!) : undefined,
     subs: subTopicsOf(textbook?.title).map((st) => ({
@@ -481,7 +484,7 @@ function buildBrowseGroups(): BrowseGroup[] {
           src: "서브",
           subOf: s.title,
           ...histStat(st.name),
-          ...(hasMyNote(st.name) ? { mine: true } : {}),
+          ...(hasMyNote(st.name) || hasMyNote(s.title) ? { mine: true } : {}),
         });
       covered.add(bareT(s.title));
     }
