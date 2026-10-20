@@ -186,6 +186,7 @@ export const TOPIC_ALIASES: Record<string, string[]> = {
   "IoT Matter": ["매터"],
   "아파치 카프카(Apache Kafka)": ["카프카", "Kafka"],
   "차량 사이버 보안 국제 표준(ISO 21434)": ["ISO/SAE 21434", "21434"],
+  "DMA(Direct Memory Access)": ["입출력 제어 방식", "입출력 제어방식", "I/O 제어 방식", "I/O 장치 제어"],
   "오픈소스 거버넌스": ["OSS 거버넌스", "Open Source Governance", "오픈소스 SW 거버넌스"],
 };
 

@@ -51699,9 +51699,9 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     id: "peer-kpc-69회-kpc기술사모의고사-컴시응-모범답안-4교시-1번",
     period: "4교시",
     no: "1",
-    question: "입출력 제어 방식에 대하여 설명하시오",
+    question: "입출력 제어 방식에 대하여 설명하시오. 가. 중앙처리장치에 의한 제어방식 나. DMA(Direct Memory Access) 제어 방식 다. 채널에 의한 제어방식",
     exam: "제69회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["DMA(Direct Memory Access)"],
     pages: [
       { src: "/answers/KPC모의고사/69회/kpc-69회-kpc기술사모의고사-컴시응-모범답안-4교시-2.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/69회/kpc-69회-kpc기술사모의고사-컴시응-모범답안-4교시-3.jpg", label: "2쪽" },
@@ -65178,9 +65178,9 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     id: "peer-kpc-68회-kpc기술사모의고사-컴시응-모범답안-4교시-1번",
     period: "4교시",
     no: "1",
-    question: "입출력 제어 방식에 대하여 설명하시오",
+    question: "입출력 제어 방식에 대하여 설명하시오. 가. 중앙처리장치에 의한 제어방식 나. DMA(Direct Memory Access) 제어 방식 다. 채널에 의한 제어방식",
     exam: "제68회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["DMA(Direct Memory Access)"],
     pages: [
       { src: "/answers/KPC모의고사/68회/kpc-68회-kpc기술사모의고사-컴시응-모범답안-4교시-2.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/68회/kpc-68회-kpc기술사모의고사-컴시응-모범답안-4교시-3.jpg", label: "2쪽" },
