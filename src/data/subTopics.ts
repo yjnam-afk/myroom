@@ -29,6 +29,9 @@ export const SUB_TOPICS: SubTopic[] = [
   { name: "CDC(Change Data Capture)", parent: "쿼리오프로딩(Query offloading)", aliases: ["CDC", "Change Data Capture"] },
   { name: "다중공선성(Multicollinearity)", parent: "회귀분석(Regression Analysis)", aliases: ["다중공선성", "다중 공선성", "Multicollinearity"] },
   // 운영체제
+  // 2026-10-20 "문맥과 시스템콜, 교재에 없는 거 아냐?" — 교재엔 따로 쪽이 없어 토픽에서 서브 토픽으로 내렸다
+  { name: "문맥(Context)", parent: "문맥교환(Context Switching)", aliases: ["하드웨어 문맥", "시스템 문맥", "사용자 문맥"] },
+  { name: "시스템 콜(System Call)", parent: "커널(Kernel)", aliases: ["시스템 콜", "System Call", "시스템콜"] },
   { name: "Working Set(워킹 셋)", parent: "스레싱(Thrashing)", aliases: ["Working Set", "워킹셋", "워킹 셋", "작업 집합"] },
   // 네트워크
   { name: "RIP·OSPF", parent: "라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)", aliases: ["RIP", "OSPF"] },

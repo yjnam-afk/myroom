@@ -85,16 +85,13 @@ export const TOPIC_TREE: Record<string, TreeArea[]> = {
       ] },
       { name: "커널 진입", items: [
         "인터럽트(Interrupt)",
-        "시스템 콜(System Call)",
       ] },
     ] },
     { name: "프로세스 관리", groups: [
       { name: "프로세스 구조", items: [
         "프로세스 상태 전이도",
         "PCB(Process Control Block)",
-        { t: "문맥교환(Context Switching)", kids: [
-          { t: "문맥(Context)", rel: "구성·기법", why: "저장·복원 대상 정보" },
-        ] },
+        "문맥교환(Context Switching)",
       ] },
       { name: "스레드", items: [
         "프로세스(Process)와 스레드(Thread) 비교",

@@ -205,6 +205,8 @@ const TRAP: Record<string, RegExp> = {
   ips: /^[\s\S]*(?:indoorpositioning|실내측위|위치기반)[\s\S]*$/,
   mst: /^[\s\S]*(?:nfc|magnetic|마그네틱)[\s\S]*$/,
   cbd: /^[\s\S]*(?:선행작업|주공정|criticalpath)[\s\S]*$/,
+  // 문맥(서브 토픽)은 문맥교환이 아니다 — 「문맥교환」만 든 문항은 문맥교환 토픽 몫
+  문맥: /문맥\s*교환|문맥\s*전환/,
   // 데이터 레이크(서브 토픽)는 데이터 레이크하우스가 아니다
   데이터레이크: /데이터레이크하우스/,
   datalake: /datalakehouse/,
