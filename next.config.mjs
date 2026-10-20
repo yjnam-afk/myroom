@@ -22,6 +22,11 @@ const ANSWER_REF = process.env.VERCEL_GIT_COMMIT_SHA || "refs/heads/claude/creat
 
 const nextConfig = {
   reactStrictMode: true,
+  // 2026-10-20 Vercel 에서 「npm run build exited with 1」이 같은 커밋인데 됐다 안 됐다 했다(로컬은 늘 통과).
+  // 정적 페이지(/exam 11MB·/answer 6MB)를 여러 워커가 동시에 그리며 메모리·시간이 한도에 걸리는 것으로 보고
+  // 워커 수를 줄이고 페이지당 시간 한도를 늘린다.
+  staticPageGenerationTimeout: 600,
+  experimental: { cpus: 2 },
   env: {
     NEXT_PUBLIC_BUILD_ID: BUILD_ID,
   },
