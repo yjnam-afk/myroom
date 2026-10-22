@@ -188,6 +188,7 @@ export const TOPIC_ALIASES: Record<string, string[]> = {
   "차량 사이버 보안 국제 표준(ISO 21434)": ["ISO/SAE 21434", "21434"],
   "DMA(Direct Memory Access)": ["입출력 제어 방식", "입출력 제어방식", "I/O 제어 방식", "I/O 장치 제어"],
   "오픈소스 거버넌스": ["OSS 거버넌스", "Open Source Governance", "오픈소스 SW 거버넌스"],
+  "오픈소스 SW 보안위협": ["OSS취약점", "OSS 취약점", "오픈소스 취약점", "오픈소스 소프트웨어 취약점", "오픈소스 보안위협", "오픈소스 보안 위협", "오픈소스 SW 보안"],
 };
 
 // 교재 속 서브 토픽(subTopics.ts)의 별칭도 출제 이력 열쇠로 쓴다

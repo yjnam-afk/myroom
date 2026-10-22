@@ -63,6 +63,12 @@ let freshDocument = true;
  */
 const POS_KEY = "myroom:scrollPos";
 let popped = false;
+/**
+ * 마지막으로 누른 순간의 주소·자리. Next 는 새 화면 머리로 올리는 스크롤을 주소를 바꾸기 전에 해서,
+ * 그 0 이 떠나는 화면(목록) 자리로 적혔다 — 토픽 설명 목록에서 토픽을 열고 뒤로 오면 맨 위였다(2026-10-22).
+ * 주소가 바뀐 직후 이 값으로 다시 덮는다.
+ */
+let lastClick: { url: string; y: number; at: number } | null = null;
 let cancelRestore: (() => void) | null = null;
 
 const hereNow = () => location.pathname + location.search;
@@ -112,7 +118,14 @@ if (typeof window !== "undefined") {
     { passive: true },
   );
   // 링크·버튼을 누른 순간의 자리 — 이동하면서 맨 위로 올라가기 전에 적어 둔다.
-  document.addEventListener("click", () => savePos(hereNow(), window.scrollY), true);
+  document.addEventListener(
+    "click",
+    () => {
+      lastClick = { url: hereNow(), y: window.scrollY, at: Date.now() };
+      savePos(lastClick.url, lastClick.y);
+    },
+    true,
+  );
 }
 
 function restoreScroll(url: string) {
@@ -155,6 +168,9 @@ function Tracker() {
     if (pathname === "/login") return;
     const qs = searchParams.toString();
     const here = qs ? `${pathname}?${qs}` : pathname;
+    // 누르고 10초 안에 다른 주소로 왔으면 이동 중에 적힌 떠난 화면 자리를 누른 순간 값으로 되돌린다
+    if (lastClick && lastClick.url !== hereNow() && Date.now() - lastClick.at < 10000) savePos(lastClick.url, lastClick.y);
+    lastClick = null;
     if (popped) {
       popped = false;
       restoreScroll(hereNow()); // 저장할 때와 같은 표기(location) — searchParams 는 공백을 + 로 바꾼다

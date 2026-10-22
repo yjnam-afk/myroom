@@ -272,7 +272,7 @@ function TopicBrowser({
   onPick,
 }: {
   allGroups: BrowseGroup[];
-  onPick: (title: string) => void;
+  onPick: (title: string, opts?: { scrollTop?: boolean }) => void;
 }) {
   // 처음엔 아무 도메인도 안 펼친다 — 칩 한 줄만 보이는 상태가 시작점.
   // 펼친 도메인·예전 토픽 토글은 이 탭에 적어 둔다(2026-10-22 — "목차로 돌아가기 할 때 목차가 열린 상태로").
@@ -297,10 +297,9 @@ function TopicBrowser({
   const mineItems = groups.flatMap((g) => g.items.filter((it) => it.mine).map((it) => ({ ...it, group: g.label })));
   const selGroup = sel === MINE ? undefined : groups.find((g) => g.key === sel);
 
-  const pick = (t: string) => {
-    onPick(t);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  // 새 토픽 머리로 올리는 건 주소가 바뀐 뒤(router.push scroll)에 한다. 누르자마자 부드럽게 올리면
+  // 아직 목록 주소인 채로 스크롤이 0까지 내려가, 뒤로 왔을 때 보던 자리 대신 맨 위로 돌아왔다(2026-10-22).
+  const pick = (t: string) => onPick(t, { scrollTop: true });
 
   return (
     <section className="mb-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">

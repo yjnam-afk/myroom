@@ -36511,7 +36511,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "OSS취약점 OSS특징, 보안 위협, 관리 방안",
     exam: "심화반 NS10 16주차",
-    topicTitles: [],
+    topicTitles: ["오픈소스 SW 보안위협"],
     pages: [
       { src: "/answers/심화반/NS10/16주차/w22-se-oss취약점-oss특징-보안-위협-관리-방안-ns10-16-2-1.jpg", label: "1쪽" },
       { src: "/answers/심화반/NS10/16주차/w22-se-oss취약점-oss특징-보안-위협-관리-방안-ns10-16-2-2.jpg", label: "2쪽" },
@@ -81719,7 +81719,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "3",
     question: "SBOM(Software Bill of Materials)에 대하여 설명하시오. 가. 오픈소스 소프트웨어 취약점 나. SBOM 기반 오픈소스 소프트웨어 관리 방안",
     exam: "제134회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 멘토 백현 기술사)",
-    topicTitles: ["SBOM"],
+    topicTitles: ["SBOM", "오픈소스 SW 보안위협"],
     questionIds: ["k134-303"],
     pages: [
       { src: "/answers/기출해설집/정보관리/134회/itpe134-3-03-1.webp", label: "1쪽" },
