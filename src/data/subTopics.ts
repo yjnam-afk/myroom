@@ -163,6 +163,19 @@ export const SUB_TOPICS: SubTopic[] = [
   { name: "큐잉 기법(WFQ·PQ)", parent: "QoS(Quality of Service)", aliases: ["WFQ", "큐잉", "Queuing", "Weighted Fair Queuing"] },
   { name: "CPI·SPI(성과 지수)", parent: "EVM(Earned Value Management, 획득 가치 관리)", aliases: ["CPI", "TCPI", "원가성과지수", "일정성과지수"] },
   { name: "CI/CD", parent: "데브옵스 (DevOps)", aliases: ["CI/CD", "지속적 통합", "지속적 배포", "지속적 전달", "Continuous Integration", "Continuous Delivery", "Continuous Deployment"] },
+  // 2026-10-22 "교재의 키워드에 있는 것들은 서브 토픽, 모범답안 연계" — 교재 키워드·표 이름 칸에 있는 개념 이름 중
+  // 따로 출제된 것. 키워드 전체(1,460개)는 「신뢰성·무결성·자동화」 같은 넓은 말이 대부분이라 고유한 이름만 골랐다.
+  { name: "크루스칼·프림 알고리즘", parent: "최소 신장 트리(MST, Minimum Spanning Tree)", aliases: ["크루스칼", "Kruskal", "Kruscal", "프림 알고리즘", "프림(Prim)", "Prim 알고리즘"] },
+  { name: "Cycle Stealing", parent: "DMA(Direct Memory Access)", aliases: ["Cycle Stealing", "사이클 스틸링", "사이클 스틸"] },
+  { name: "경계값 분석·동등 분할", parent: "블랙박스 테스트", aliases: ["경계값 분석", "경계값분석", "동등 분할", "동등분할", "동등 클래스 분할", "동치 분할"] },
+  { name: "Slow Start", parent: "TCP 혼잡제어", aliases: ["Slow Start", "슬로우 스타트"] },
+  { name: "체크포인트(Checkpoint) 회복", parent: "DB 회복기법", aliases: ["체크포인트", "검사점"] },
+  { name: "우선순위 상속(Priority Inheritance)", parent: "우선순위 역전(Priority Inversion) 현상", aliases: ["우선순위 상속", "Priority Inheritance", "우선순위 올림", "Priority Ceiling"] },
+  { name: "Clark-Wilson 모델", parent: "접근 통제 모델", aliases: ["Clark-Wilson", "클락-윌슨", "클락 윌슨", "클라크-윌슨"] },
+  { name: "QKD(양자 키 분배)", parent: "양자 암호(Quantum Cryptography)", aliases: ["QKD", "양자 키 분배", "양자키분배", "양자 키분배"] },
+  { name: "위상 정렬(Topological Sort)", parent: "방향성 비순환 그래프(DAG, Directed Acyclic Graph)", aliases: ["위상 정렬", "위상정렬", "Topological Sort", "Topological Ordering"] },
+  { name: "호위효과(Convoy Effect)", parent: "CPU 스케줄링(CPU Scheduling)", aliases: ["호위효과", "호위 효과", "Convoy Effect"] },
+  { name: "페이지 부재(Page Fault)", parent: "페이지 교체 알고리즘(Paging Replacement Algorithm)", aliases: ["페이지 부재", "Page Fault", "페이지 폴트"] },
 ];
 
 const BY_NAME = new Map(SUB_TOPICS.map((s) => [s.name, s]));

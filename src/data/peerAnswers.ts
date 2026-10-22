@@ -39138,7 +39138,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "객체지향 특징, 오버라이딩과 오버로딩, LSP와 DIP",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022년 상반기 정리)",
-    topicTitles: ["객체지향 프로그래밍 특징", "객체지향 설계 원리"],
+    topicTitles: ["객체지향 프로그래밍 특징", "객체지향 설계 원리", "다형성 (Polymorphism)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022년상반기정리/k22r-sw-객체지향-특징-오버라이딩과-오버로딩-lsp와-dip-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022년상반기정리/k22r-sw-객체지향-특징-오버라이딩과-오버로딩-lsp와-dip-1-2.jpg", label: "2쪽" },
@@ -46921,7 +46921,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "오버로딩_오버라이딩",
     exam: "실전심화반 강평야 모범답안",
-    topicTitles: [],
+    topicTitles: ["다형성 (Polymorphism)"],
     pages: [
       { src: "/answers/실전심화반/강평야/cls-itpe-모범답안-강평야-오버로딩-오버라이딩-1.jpg", label: "1쪽" },
     ],
@@ -71052,7 +71052,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "3",
     question: "오버라이딩(Overriding)으로 함수를 재정의하는 이유",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: [],
+    topicTitles: ["다형성 (Polymorphism)"],
     questionIds: ["c119-103", "k101-107", "m01176"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-03-1.webp", label: "1쪽" },

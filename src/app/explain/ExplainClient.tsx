@@ -251,6 +251,22 @@ function TopicRow({
   );
 }
 
+const BROWSE_KEY = "myroom:explainBrowse";
+function readBrowse(): { sel?: string | null; legacy?: boolean } {
+  try {
+    return JSON.parse(sessionStorage.getItem(BROWSE_KEY) || "{}");
+  } catch {
+    return {};
+  }
+}
+function writeBrowse(v: { sel: string | null; legacy: boolean }) {
+  try {
+    sessionStorage.setItem(BROWSE_KEY, JSON.stringify(v));
+  } catch {
+    // sessionStorage 가 막히면 기억하지 않는다(접힌 채 열림).
+  }
+}
+
 function TopicBrowser({
   allGroups,
   onPick,
@@ -258,11 +274,14 @@ function TopicBrowser({
   allGroups: BrowseGroup[];
   onPick: (title: string) => void;
 }) {
-  // 기본은 아무 도메인도 안 펼친다 — 칩 한 줄만 보이는 상태가 시작점.
-  const [sel, setSel] = useState<string | null>(null);
+  // 처음엔 아무 도메인도 안 펼친다 — 칩 한 줄만 보이는 상태가 시작점.
+  // 펼친 도메인·예전 토픽 토글은 이 탭에 적어 둔다(2026-10-22 — "목차로 돌아가기 할 때 목차가 열린 상태로").
+  // 토픽을 골랐다 뒤로 오면 목록이 새로 그려져 도메인이 접혀 있었다.
+  const [sel, setSel] = useState<string | null>(() => readBrowse().sel ?? null);
   const [filter, setFilter] = useState("");
   // 기본은 교재(심화반) 묶음만. 예전(기필반) 묶음은 토글로 편다.
-  const [legacy, setLegacy] = useState(false);
+  const [legacy, setLegacy] = useState(() => !!readBrowse().legacy);
+  useEffect(() => writeBrowse({ sel, legacy }), [sel, legacy]);
   const groups = legacy ? allGroups : allGroups.filter((g) => g.badge === "심화반");
 
   const q = filter.trim().toLowerCase();
@@ -461,7 +480,9 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
   // 링크·뒤로가기로 ?topic= 이 바뀌면 서버가 새 data 를 준다 — 입력창도 따라간다.
   useEffect(() => {
     setTopic(cur);
-    if (cur) setBrowseOpen(false);
+    // 토픽 없는 주소(뒤로 가기로 목차에 돌아온 경우 포함)면 목록을 편다.
+    // 같은 화면이 다시 그려질 뿐이라 처음 값(!cur)만으로는 접힌 채 남았다.
+    setBrowseOpen(!cur);
     if (data?.textbook) setRecGroup(`course:${data.textbook.course}`);
     else if (data?.category) setRecGroup(`cat:${data.category}`);
   }, [cur, data?.textbook, data?.category]);
@@ -1103,6 +1124,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
                   {st.name}
                   <span className="ml-1 text-[10.5px] text-slate-400">
                     기출 {st.past} · NS {st.ns} · 모의 {st.mock}
+                    {st.peers.length > 0 && ` · 답안 ${st.peers.length}`}
                   </span>
                 </Link>
               ))}
@@ -1120,6 +1142,28 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
         {/* 모범답안 — 실제로 제출해 점수를 받은 시험지 스캔. 이 토픽에서 제일
             먼저 볼 자료다(배점 대비 점수와 빨간 첨삭이 곧 채점 기준). */}
         <PeerAnswers items={data?.peers ?? []} />
+
+        {/* 서브 토픽 답안 — 상위 토픽 답안에 없는 것만(다형성 ← 오버라이딩·오버로딩 답안) */}
+        {(data?.subs ?? []).some((st) => st.peers.length > 0) && (
+          <section className="mb-6 rounded-2xl border-2 border-teal-200 bg-teal-50/40 p-3">
+            <p className="text-sm font-bold text-teal-900">🔎 서브 토픽 답안</p>
+            <p className="mt-0.5 text-[11px] text-teal-800/80">이 토픽 안의 개념만 따로 물은 답안 — 문제 문구에 서브 토픽 이름이 든 것</p>
+            {data!.subs!.filter((st) => st.peers.length > 0).map((st) => (
+              <div key={st.name} className="mt-2">
+                <Link
+                  href={`/explain?topic=${encodeURIComponent(st.name)}`}
+                  className="text-[12.5px] font-semibold text-teal-900 underline decoration-dotted underline-offset-2"
+                >
+                  {st.name}
+                </Link>
+                <span className="ml-1 text-[11px] text-slate-400">{st.peers.length}편</span>
+                <div className="mt-1">
+                  <PeerAnswers items={st.peers} collapsed />
+                </div>
+              </div>
+            ))}
+          </section>
+        )}
 
         {/* 사실상 같은 토픽 — 과목만 다르고 같은 답을 요구하는 짝(twinTopics)의 답안 */}
         {data?.twin && (

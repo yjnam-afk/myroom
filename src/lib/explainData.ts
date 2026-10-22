@@ -152,7 +152,8 @@ export type ExplainTopicData = {
   /** 교재 속 서브 토픽 화면 — 상위 토픽과 이 이름이 나오는 교재 표 행 */
   sub?: { parent: string; aliases: string[]; tables: { from: string; caption: string; headers: string[]; rows: string[][] }[] };
   /** 이 토픽 안의 서브 토픽 — 출제 수와 함께 */
-  subs?: { name: string; past: number; ns: number; mock: number }[];
+  /** 이 토픽 안의 서브 토픽 — peers 는 서브 토픽 답안 중 이 토픽 답안(peers)에 없는 것 */
+  subs?: { name: string; past: number; ns: number; mock: number; peers: PeerAnswer[] }[];
   /** 사실상 같은 토픽(twinTopics) — 그 토픽의 답안·출제 수를 함께 보여 준다 */
   twin?: { title: string; note: string; peers: PeerAnswer[]; past: number; ns: number; mock: number };
   hist: ExamAppearance[];
@@ -373,12 +374,19 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
       return [...own, ...[...myNotesFor(textbook?.title), ...myNotesFor(st?.parent)].filter((n) => !ids.has(n.id) && (ids.add(n.id), true))];
     })(),
     sub: subTopicByName(title) ? subRows(subTopicByName(title)!) : undefined,
-    subs: subTopicsOf(textbook?.title).map((st) => ({
-      name: st.name,
-      past: pastExams(st.name).length,
-      ns: examHistory(st.name).length,
-      mock: mockExams(st.name).length,
-    })),
+    // 서브 토픽 답안도 상위 토픽 화면에 붙인다(2026-10-22 — "다형성 모범답안에는 왜 오버로딩 오버라이딩이 없지?",
+    // "교재의 키워드에 있는 것들은 서브 토픽, 모범답안 연계"). 「오버로딩_오버라이딩」 답안은 서브 토픽 화면에만 있었다.
+    subs: (() => {
+      if (subTopicByName(title)) return [];
+      const own = new Set(peersFor(title, textbook?.title).map((a) => a.id));
+      return subTopicsOf(textbook?.title).map((st) => ({
+        name: st.name,
+        past: pastExams(st.name).length,
+        ns: examHistory(st.name).length,
+        mock: mockExams(st.name).length,
+        peers: subPeers(st).filter((a) => !own.has(a.id) && (own.add(a.id), true)),
+      }));
+    })(),
     twin: (() => {
       const tw = twinOf(textbook?.title ?? title);
       if (!tw) return undefined;
