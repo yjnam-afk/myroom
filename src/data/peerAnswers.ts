@@ -2457,7 +2457,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     period: "2교시",
     question: "위험의 분류, PI, 분석기법(정량), 위험대응전략",
     exam: "정리 답안 (드라이브 00. PM)",
-    topicTitles: ["프로젝트 위험관리", "정량적 위험 분석"],
+    topicTitles: ["프로젝트 위험관리", "정량적 위험 분석", "위험 대응"],
     pages: [
       { src: "/answers/정리답안/00.PM/pm-15-위험의-분류-pi-분석기법-정량-위험대응전략-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/00.PM/pm-15-위험의-분류-pi-분석기법-정량-위험대응전략-2.jpg", label: "2쪽" },
@@ -4294,7 +4294,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     no: "1",
     question: "데이터 패브릭, 메시 비교 / 메시 원칙·구성요소·구축안",
     exam: "2025년 하반기 정리",
-    topicTitles: [],
+    topicTitles: ["데이터패브릭(Data Fabric)", "데이터 메시(Data Mesh)", "데이터(웨어하우스, 레이크, 패브릭, 메시)"],
     score: 15.3,
     maxScore: 25,
     pages: [
@@ -4517,9 +4517,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     no: "5",
     question: "① 데이터 품질 요소 ② 데이터 클렌징 ③ 데이터 프로파일링",
     exam: "2025년 하반기 정리",
-    topicTitles: [
-      "데이터 프로파일링(Data Profiling)",
-    ],
+    topicTitles: ["데이터 프로파일링(Data Profiling)", "데이터 클렌징(Cleansing)"],
     score: 15.5,
     maxScore: 25,
     pages: [
@@ -4535,9 +4533,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     no: "2",
     question: "빅데이터 시각화 인사이트 프로세스와 시각화 프로세스",
     exam: "2025년 하반기 정리",
-    topicTitles: [
-      "데이터 시각화",
-    ],
+    topicTitles: ["데이터 시각화", "빅데이터 시각화(Visualization)"],
     score: 6.7,
     maxScore: 10,
     pages: [
@@ -7812,7 +7808,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     no: "1",
     question: "데이터 클렌징(Data Cleansing)",
     exam: "정리 답안 (드라이브 99. 126회 대비 필수 답안)",
-    topicTitles: ["결측치(Missing Value)", "이상치(Outlier)"],
+    topicTitles: ["결측치(Missing Value)", "이상치(Outlier)", "데이터 클렌징(Cleansing)"],
     pages: [
       { src: "/answers/정리답안/99.126회대비필수답안/ess-data-cleansing-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/99.126회대비필수답안/ess-data-cleansing-2.jpg", label: "2쪽" },
@@ -8805,7 +8801,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     no: "2",
     question: "데이터 품질 국제표준인 ISO 8000에 대하여 다음을 설명하시오.\n가. 데이터 품질관리 프로세스 참조 모델\n나. 마스터 데이터 품질관리 프레임워크",
     exam: "제89회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["데이터 거버넌스(Data Governance)"],
+    topicTitles: ["데이터 거버넌스(Data Governance)", "데이터 품질관리(ISO 8000)"],
     score: 16,
     maxScore: 25,
     pages: [
@@ -10625,7 +10621,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     question:
       "① 데이터 패브릭, 데이터 메시 차이점 ② 데이터 메시 원칙 및 구성요소 ③ 데이터 메시 구축 방안",
     exam: "2025년 하반기 정리",
-    topicTitles: [],
+    topicTitles: ["데이터패브릭(Data Fabric)", "데이터 메시(Data Mesh)", "데이터(웨어하우스, 레이크, 패브릭, 메시)"],
     score: 15,
     maxScore: 25,
     pages: [
@@ -10674,7 +10670,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     question:
       "① 데이터 패브릭, 메시 차이점 ② 데이터 메시 원칙, 구성요소 ③ 데이터 메시 구축방안",
     exam: "2025년 하반기 정리",
-    topicTitles: [],
+    topicTitles: ["데이터패브릭(Data Fabric)", "데이터 메시(Data Mesh)", "데이터(웨어하우스, 레이크, 패브릭, 메시)"],
     score: 15,
     maxScore: 25,
     pages: [
@@ -10776,10 +10772,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     no: "3",
     question: "데이터 전처리 과정, 결측치와 이상치 처리",
     exam: "2025년 하반기 정리",
-    topicTitles: [
-      "결측치(Missing Value)",
-      "이상치(Outlier)",
-    ],
+    topicTitles: ["결측치(Missing Value)", "이상치(Outlier)", "데이터 전처리"],
     score: 6.0,
     maxScore: 10,
     pages: [
@@ -10844,9 +10837,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     no: "6",
     question: "데이터 랭글링",
     exam: "2025년 하반기 정리",
-    topicTitles: [
-      "데이터 프로파일링(Data Profiling)",
-    ],
+    topicTitles: ["데이터 프로파일링(Data Profiling)", "데이터 랭글링(Data Wrangling)"],
     score: 6.0,
     maxScore: 10,
     pages: [
@@ -10891,10 +10882,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     no: "3",
     question: "데이터 전처리 과정 결측치와 이상치 처리방안",
     exam: "2025년 하반기 정리",
-    topicTitles: [
-      "결측치(Missing Value)",
-      "이상치(Outlier)",
-    ],
+    topicTitles: ["결측치(Missing Value)", "이상치(Outlier)", "데이터 전처리"],
     score: 6.0,
     maxScore: 10,
     pages: [
@@ -11063,7 +11051,7 @@ const PEER_ANSWERS_1: PeerAnswer[] = [
     question:
       "가. 기술통계와 추론통계 차이점 나. 표본추출 방법 다. P-value와 1종/2종 오류",
     exam: "2025년 하반기 정리",
-    topicTitles: ["기술 통계(Descriptive statistics)", "추론 통계(Inferential Statistics)", "통계적 가설검정(Hypothesis Testing)"],
+    topicTitles: ["기술 통계(Descriptive statistics)", "추론 통계(Inferential Statistics)", "통계적 가설검정(Hypothesis Testing)", "표본 추출(Sampling)"],
     score: 15,
     maxScore: 25,
     pages: [
@@ -15305,7 +15293,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "1교시",
     question: "암호공격기법",
     exam: "정리 답안 (드라이브 3. 모범답안 › 6. 보안)",
-    topicTitles: [],
+    topicTitles: ["암호 분석 공격(Cryptanalysis Attacks) 기법"],
     pages: [
       { src: "/answers/정리답안/3.모범답안/6.보안/d11-319-암호공격기법-1.jpg", label: "1쪽" },
     ],
@@ -15336,7 +15324,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "DDoS",
     exam: "정리 답안 (드라이브 3. 모범답안 › 6. 보안)",
-    topicTitles: [],
+    topicTitles: ["DoS(Denial of Service)"],
     pages: [
       { src: "/answers/정리답안/3.모범답안/6.보안/d11-038-ddos-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.모범답안/6.보안/d11-038-ddos-2.jpg", label: "2쪽" },
@@ -15777,7 +15765,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "데이터 품질 관리 강화 방안",
     exam: "정리 답안 (드라이브 3. 모범답안 › 7. DB와 데이터분석)",
-    topicTitles: ["데이터 품질 관리"],
+    topicTitles: ["데이터 품질 관리", "데이터 품질관리(ISO 8000)"],
     pages: [
       { src: "/answers/정리답안/3.모범답안/7.DB와데이터분석/d13-155-데이터-품질-관리-강화-위한-방안-3가지-이상-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.모범답안/7.DB와데이터분석/d13-155-데이터-품질-관리-강화-위한-방안-3가지-이상-2.jpg", label: "2쪽" },
@@ -15789,7 +15777,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "Data 품질 강화 위한 방안",
     exam: "정리 답안 (드라이브 3. 모범답안 › 7. DB와 데이터분석)",
-    topicTitles: [],
+    topicTitles: ["데이터 품질관리(ISO 8000)"],
     pages: [
       { src: "/answers/정리답안/3.모범답안/7.DB와데이터분석/d13-155-data-품질강화-위한-방안-3가지-이상-설명-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.모범답안/7.DB와데이터분석/d13-155-data-품질강화-위한-방안-3가지-이상-설명-2.jpg", label: "2쪽" },
@@ -16090,7 +16078,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "1교시",
     question: "데이터 패브릭",
     exam: "정리 답안 (드라이브 3. 모범답안 › 7. DB와 데이터분석)",
-    topicTitles: [],
+    topicTitles: ["데이터패브릭(Data Fabric)", "데이터(웨어하우스, 레이크, 패브릭, 메시)"],
     pages: [
       { src: "/answers/정리답안/3.모범답안/7.DB와데이터분석/d14-기타-데이터-패브릭-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.모범답안/7.DB와데이터분석/d14-기타-데이터-패브릭-2.jpg", label: "2쪽" },
@@ -16125,7 +16113,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "빅데이터 시각화 인사이트, 프로세스",
     exam: "정리 답안 (드라이브 3. 모범답안 › 7. DB와 데이터분석)",
-    topicTitles: ["데이터 시각화"],
+    topicTitles: ["데이터 시각화", "빅데이터 시각화(Visualization)"],
     pages: [
       { src: "/answers/정리답안/3.모범답안/7.DB와데이터분석/d14-113-빅데이터-시각화-인사이트-프로세스-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.모범답안/7.DB와데이터분석/d14-113-빅데이터-시각화-인사이트-프로세스-2.jpg", label: "2쪽" },
@@ -16355,7 +16343,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "스택",
     exam: "정리 답안 (드라이브 3. 모범답안 › 10. 자료구조)",
-    topicTitles: ["스택(Stack)"],
+    topicTitles: ["스택(Stack)", "Stack"],
     pages: [
       { src: "/answers/정리답안/3.모범답안/10.자료구조/d15-4-스택-2-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.모범답안/10.자료구조/d15-4-스택-2-2.jpg", label: "2쪽" },
@@ -16389,7 +16377,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "1교시",
     question: "Mutual Exclusion",
     exam: "정리 답안 (드라이브 3. 모범답안 › 9. OS)",
-    topicTitles: [],
+    topicTitles: ["경쟁조건(Race Condition) 해결 방안"],
     pages: [
       { src: "/answers/정리답안/3.모범답안/9.OS/d15-os-026-mutual-exclusion-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.모범답안/9.OS/d15-os-026-mutual-exclusion-2.jpg", label: "2쪽" },
@@ -17078,7 +17066,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "빅데이터 시각화 프로세스",
     exam: "정리 답안 (드라이브 3. 모범답안 › 7. DB와 데이터분석)",
-    topicTitles: ["데이터 시각화"],
+    topicTitles: ["데이터 시각화", "빅데이터 시각화(Visualization)"],
     pages: [
       { src: "/answers/정리답안/3.모범답안/7.DB와데이터분석/d17-113-빅데이터-시각화-프로세스-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.모범답안/7.DB와데이터분석/d17-113-빅데이터-시각화-프로세스-2.jpg", label: "2쪽" },
@@ -17946,7 +17934,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "1교시",
     question: "암호공격기법 유형",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2025하 › 10. SE)",
-    topicTitles: [],
+    topicTitles: ["암호 분석 공격(Cryptanalysis Attacks) 기법"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2025하/10.SE/h25c-암호공격기법-유형-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2025하/10.SE/h25c-암호공격기법-유형-2.jpg", label: "2쪽" },
@@ -18993,7 +18981,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "PEST 3C SWOT",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2025상 › 01. IT 경영전략)",
-    topicTitles: [],
+    topicTitles: ["환경분석"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2025상/01.IT경영전략/s25b-환경분석-pest-3c-swot-2-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2025상/01.IT경영전략/s25b-환경분석-pest-3c-swot-2-2.jpg", label: "2쪽" },
@@ -19047,7 +19035,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "PEST 3C SWOT",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2025상 › 01. IT 경영전략)",
-    topicTitles: [],
+    topicTitles: ["환경분석"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2025상/01.IT경영전략/s25b-환경분석-pest-3c-swot-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2025상/01.IT경영전략/s25b-환경분석-pest-3c-swot-2.jpg", label: "2쪽" },
@@ -19939,7 +19927,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "배치전략",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2025상 › 09. OS)",
-    topicTitles: [],
+    topicTitles: ["가상메모리 관리기법"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2025상/09.OS/s25d-메모리-배치전략-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2025상/09.OS/s25d-메모리-배치전략-2.jpg", label: "2쪽" },
@@ -20802,7 +20790,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "오류제어",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2025상 › 05. 네트워크)",
-    topicTitles: [],
+    topicTitles: ["FEC(Forward Error Correction) / BEC(Backward Error Correction)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2025상/05.네트워크/s25g-오류제어-오류제어-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2025상/05.네트워크/s25g-오류제어-오류제어-2.jpg", label: "2쪽" },
@@ -20915,7 +20903,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "전처리",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 12. AI)",
-    topicTitles: [],
+    topicTitles: ["데이터 전처리"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024하/12.AI/a24a-데이터-전처리-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024하/12.AI/a24a-데이터-전처리-2.jpg", label: "2쪽" },
@@ -21617,7 +21605,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "1교시",
     question: "데이터 품질관리",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 07. DB)",
-    topicTitles: ["데이터 품질 관리"],
+    topicTitles: ["데이터 품질 관리", "데이터 품질관리(ISO 8000)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024하/07.DB/a24b-품질-데이터-품질관리-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024하/07.DB/a24b-품질-데이터-품질관리-2.jpg", label: "2쪽" },
@@ -21788,7 +21776,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "1교시",
     question: "클렌징",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 07. DB)",
-    topicTitles: [],
+    topicTitles: ["데이터 클렌징(Cleansing)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024하/07.DB/a24c-전처리-클렌징2-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024하/07.DB/a24c-전처리-클렌징2-2.jpg", label: "2쪽" },
@@ -21845,7 +21833,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "1교시",
     question: "데이터 레이크",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 07. DB)",
-    topicTitles: ["데이터 레이크(Data Lake)"],
+    topicTitles: ["데이터 레이크(Data Lake)", "데이터(웨어하우스, 레이크, 패브릭, 메시)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024하/07.DB/a24c-데이터-데이터-레이크-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024하/07.DB/a24c-데이터-데이터-레이크-2.jpg", label: "2쪽" },
@@ -21867,7 +21855,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "1교시",
     question: "클렌징",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 07. DB)",
-    topicTitles: [],
+    topicTitles: ["데이터 클렌징(Cleansing)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024하/07.DB/a24c-전처리-클렌징-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024하/07.DB/a24c-전처리-클렌징-2.jpg", label: "2쪽" },
@@ -21878,7 +21866,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "데이터 패브릭",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 07. DB)",
-    topicTitles: [],
+    topicTitles: ["데이터패브릭(Data Fabric)", "데이터(웨어하우스, 레이크, 패브릭, 메시)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024하/07.DB/a24c-패브릭-데이터-패브릭-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024하/07.DB/a24c-패브릭-데이터-패브릭-2.jpg", label: "2쪽" },
@@ -22926,7 +22914,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "1교시",
     question: "SW 안전 지침",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 02. SW)",
-    topicTitles: [],
+    topicTitles: ["소프트웨어 안전 확보를 위한 지침"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024하/02.SW/a24f-안전-sw-안전-지침-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024하/02.SW/a24f-안전-sw-안전-지침-2.jpg", label: "2쪽" },
@@ -23087,7 +23075,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "1교시",
     question: "SW 안전 지침",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 02. SW)",
-    topicTitles: [],
+    topicTitles: ["소프트웨어 안전 확보를 위한 지침"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024하/02.SW/a24f-안전-sw-안전-지침-2-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024하/02.SW/a24f-안전-sw-안전-지침-2-2.jpg", label: "2쪽" },
@@ -23359,7 +23347,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "MSE MAE RMSE",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 13. 통계)",
-    topicTitles: [],
+    topicTitles: ["손실함수(Loss Function)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024하/13.통계/a24g-에러-mse-mae-rmse-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024하/13.통계/a24g-에러-mse-mae-rmse-2.jpg", label: "2쪽" },
@@ -23951,7 +23939,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "1교시",
     question: "암호 공격 기법 유형",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 06. 보안)",
-    topicTitles: [],
+    topicTitles: ["암호 분석 공격(Cryptanalysis Attacks) 기법"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024하/06.보안/a24h-공격-암호-공격-기법-유형-2-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024하/06.보안/a24h-공격-암호-공격-기법-유형-2-2.jpg", label: "2쪽" },
@@ -23973,7 +23961,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "1교시",
     question: "암호 공격 기법 유형",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 06. 보안)",
-    topicTitles: [],
+    topicTitles: ["암호 분석 공격(Cryptanalysis Attacks) 기법"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024하/06.보안/a24h-공격-암호-공격-기법-유형-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024하/06.보안/a24h-공격-암호-공격-기법-유형-2.jpg", label: "2쪽" },
@@ -24066,7 +24054,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "암호 공격 기법 유형",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 06. 보안)",
-    topicTitles: [],
+    topicTitles: ["암호 분석 공격(Cryptanalysis Attacks) 기법"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024하/06.보안/a24h-공격-암호-공격-기법-유형-3-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024하/06.보안/a24h-공격-암호-공격-기법-유형-3-2.jpg", label: "2쪽" },
@@ -24195,7 +24183,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "1교시",
     question: "병행성 제어",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 09. OS)",
-    topicTitles: [],
+    topicTitles: ["DB 동시성제어"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024하/09.OS/a24g2-제어-병행성-제어-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024하/09.OS/a24g2-제어-병행성-제어-2.jpg", label: "2쪽" },
@@ -24392,7 +24380,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "오류제어",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 05. NW)",
-    topicTitles: [],
+    topicTitles: ["FEC(Forward Error Correction) / BEC(Backward Error Correction)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024하/05.NW/a24i-오류제어-오류제어-3-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024하/05.NW/a24i-오류제어-오류제어-3-2.jpg", label: "2쪽" },
@@ -24461,7 +24449,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "오류제어",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 05. NW)",
-    topicTitles: [],
+    topicTitles: ["FEC(Forward Error Correction) / BEC(Backward Error Correction)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024하/05.NW/a24i-제어-오류-제어2-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024하/05.NW/a24i-제어-오류-제어2-2.jpg", label: "2쪽" },
@@ -24497,7 +24485,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "오류 제어",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 05. NW)",
-    topicTitles: [],
+    topicTitles: ["FEC(Forward Error Correction) / BEC(Backward Error Correction)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024하/05.NW/a24i-제어-오류-제어-2.jpg", label: "2쪽" },
       { src: "/answers/정리답안/05.모범답안/2024하/05.NW/a24i-제어-오류-제어-3.jpg", label: "3쪽" },
@@ -24583,7 +24571,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "DFS BFS",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 11. 알고리즘)",
-    topicTitles: [],
+    topicTitles: ["그래프 순회(Graph Traversal)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024하/11.알고리즘/a24i-dfs-dfs-bfs-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024하/11.알고리즘/a24i-dfs-dfs-bfs-2.jpg", label: "2쪽" },
@@ -24596,7 +24584,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "오류제어",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 05. NW)",
-    topicTitles: [],
+    topicTitles: ["FEC(Forward Error Correction) / BEC(Backward Error Correction)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024하/05.NW/a24i-오류제어-오류제어-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024하/05.NW/a24i-오류제어-오류제어-2.jpg", label: "2쪽" },
@@ -24893,7 +24881,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "오류제어",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024하 › 05. NW)",
-    topicTitles: [],
+    topicTitles: ["FEC(Forward Error Correction) / BEC(Backward Error Correction)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024하/05.NW/a24j-오류제어-오류제어2-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024하/05.NW/a24j-오류제어-오류제어2-2.jpg", label: "2쪽" },
@@ -25589,7 +25577,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "1교시",
     question: "병행제어",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2024상 › 주간모의고사 › 09. OS)",
-    topicTitles: ["병행 제어 (Concurrency control)"],
+    topicTitles: ["병행 제어 (Concurrency control)", "DB 동시성제어"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2024상/주간모의고사/09.OS/w24a-os-병행제어-1교시-병행제어-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2024상/주간모의고사/09.OS/w24a-os-병행제어-1교시-병행제어-2.jpg", label: "2쪽" },
@@ -25907,7 +25895,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
     period: "2교시",
     question: "SAD(Software Architecture Description)",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023하 › 주간모의고사 › 2.소프트웨어공학)",
-    topicTitles: [],
+    topicTitles: ["ISO/IEC/IEEE 42010:2022"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2023하/주간모의고사/2.소프트웨어공학/h23w-sw-sw아키텍처-sad-software-architecture-desc-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2023하/주간모의고사/2.소프트웨어공학/h23w-sw-sw아키텍처-sad-software-architecture-desc-2.jpg", label: "2쪽" },
@@ -26626,7 +26614,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "빅데이터 시각화",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023하 › 주간모의고사 › 7.DB와 데이터 분석)",
-    topicTitles: ["데이터 시각화"],
+    topicTitles: ["데이터 시각화", "빅데이터 시각화(Visualization)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2023하/주간모의고사/7.DB와데이터분석/h23w-db-빅데이터-빅데이터-시각화-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2023하/주간모의고사/7.DB와데이터분석/h23w-db-빅데이터-빅데이터-시각화-2.jpg", label: "2쪽" },
@@ -26870,7 +26858,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "메타데이터",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023하 › 주간모의고사 › 7.DB와 데이터 분석)",
-    topicTitles: [],
+    topicTitles: ["메타 데이터와 데이터 카탈로그"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2023하/주간모의고사/7.DB와데이터분석/h23w-db-데이터-메타데이터-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2023하/주간모의고사/7.DB와데이터분석/h23w-db-데이터-메타데이터-2.jpg", label: "2쪽" },
@@ -26966,7 +26954,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "IntServ DiffServ",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023하 › 주간모의고사 › 5.네트워크)",
-    topicTitles: ["DiffServ", "IntServ"],
+    topicTitles: ["DiffServ", "IntServ", "QoS(Quality of Service)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2023하/주간모의고사/5.네트워크/h23w-nw-qos-intserv-diffserv-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2023하/주간모의고사/5.네트워크/h23w-nw-qos-intserv-diffserv-2.jpg", label: "2쪽" },
@@ -27017,7 +27005,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "Shaping Policing",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023하 › 주간모의고사 › 5.네트워크)",
-    topicTitles: [],
+    topicTitles: ["QoS(Quality of Service)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2023하/주간모의고사/5.네트워크/h23w-nw-qos-shaping-policing-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2023하/주간모의고사/5.네트워크/h23w-nw-qos-shaping-policing-1-2.jpg", label: "2쪽" },
@@ -27127,7 +27115,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "Shaping Policing",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023하 › 주간모의고사 › 5.네트워크)",
-    topicTitles: [],
+    topicTitles: ["QoS(Quality of Service)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2023하/주간모의고사/5.네트워크/h23w-nw-qos-shaping-policing-2-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2023하/주간모의고사/5.네트워크/h23w-nw-qos-shaping-policing-2-2.jpg", label: "2쪽" },
@@ -27209,7 +27197,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "H-ARQ",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023하 › 주간모의고사 › 5.네트워크)",
-    topicTitles: [],
+    topicTitles: ["FEC(Forward Error Correction) / BEC(Backward Error Correction)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2023하/주간모의고사/5.네트워크/h23w-nw-오류제어-h-arq-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2023하/주간모의고사/5.네트워크/h23w-nw-오류제어-h-arq-2.jpg", label: "2쪽" },
@@ -27448,7 +27436,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "데이터 패브릭",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023하 › 주간모의고사 › 4.서비스)",
-    topicTitles: [],
+    topicTitles: ["데이터패브릭(Data Fabric)", "데이터(웨어하우스, 레이크, 패브릭, 메시)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2023하/주간모의고사/4.서비스/h23w-sv-가트너-데이퍼-패브릭-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2023하/주간모의고사/4.서비스/h23w-sv-가트너-데이퍼-패브릭-2.jpg", label: "2쪽" },
@@ -29084,7 +29072,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "AEI(Artificial Emotional Intelligence)",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023하 › ITPE모의고사 › 12.AI)",
-    topicTitles: [],
+    topicTitles: ["정서 인공지능(Affective AI)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2023하/ITPE모의고사/12.AI/h23i-ai-ai지능-aei-artificial-emotional-intelli-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2023하/ITPE모의고사/12.AI/h23i-ai-ai지능-aei-artificial-emotional-intelli-2.jpg", label: "2쪽" },
@@ -29507,7 +29495,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "클라우드환경 보안위협",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023하 › ITPE모의고사 › 6.보안)",
-    topicTitles: [],
+    topicTitles: ["클라우드 컴퓨팅 취약점, 대응기술"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2023하/ITPE모의고사/6.보안/h23i-se-취약점-클라우드환경-보안위협-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2023하/ITPE모의고사/6.보안/h23i-se-취약점-클라우드환경-보안위협-2.jpg", label: "2쪽" },
@@ -29520,7 +29508,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "클라우드환경 보안위협",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023하 › ITPE모의고사 › 6.보안)",
-    topicTitles: [],
+    topicTitles: ["클라우드 컴퓨팅 취약점, 대응기술"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2023하/ITPE모의고사/6.보안/h23i-se-취약점-클라우드환경-보안위협-5.jpg", label: "5쪽" },
       { src: "/answers/정리답안/05.모범답안/2023하/ITPE모의고사/6.보안/h23i-se-취약점-클라우드환경-보안위협-6.jpg", label: "6쪽" },
@@ -29607,7 +29595,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "개인정보 비식별화",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023하 › ITPE모의고사 › 6.보안)",
-    topicTitles: [],
+    topicTitles: ["ISO/IEC 20889"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2023하/ITPE모의고사/6.보안/h23i-se-개인정보보호-개인정보-비식별화-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2023하/ITPE모의고사/6.보안/h23i-se-개인정보보호-개인정보-비식별화-2.jpg", label: "2쪽" },
@@ -30022,7 +30010,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "SW 안전성 분석 개념 및 기법",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023상 주간모의고사 › 2.소프트웨어공학)",
-    topicTitles: [],
+    topicTitles: ["FTA (Fault Tree Analysis)", "FMEA (Failure Mode and Effects Analysis)", "HAZOP (Hazard and Operability Study)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2023상주간모의고사/2.소프트웨어공학/s23w-sw-sw안전성-안전성-분석-개념-및-기법-ns11-12-02-02-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2023상주간모의고사/2.소프트웨어공학/s23w-sw-sw안전성-안전성-분석-개념-및-기법-ns11-12-02-02-2.jpg", label: "2쪽" },
@@ -30147,7 +30135,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "OOP 설계 5원칙",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023상 주간모의고사 › 2.소프트웨어공학)",
-    topicTitles: [],
+    topicTitles: ["객체지향 설계 원리"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2023상주간모의고사/2.소프트웨어공학/s23w-sw-객체지향-oop-설계-5원칙-ns11-03-01-04-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2023상주간모의고사/2.소프트웨어공학/s23w-sw-객체지향-oop-설계-5원칙-ns11-03-01-04-2.jpg", label: "2쪽" },
@@ -30565,7 +30553,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "HARQ",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023상 주간모의고사 › 5.네트워크)",
-    topicTitles: [],
+    topicTitles: ["FEC(Forward Error Correction) / BEC(Backward Error Correction)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2023상주간모의고사/5.네트워크/s23w-nw-harq-harq-ns11-08-01-09-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2023상주간모의고사/5.네트워크/s23w-nw-harq-harq-ns11-08-01-09-2.jpg", label: "2쪽" },
@@ -31302,7 +31290,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "BLP Biba 보안모델",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023상 주간모의고사 › 6.보안)",
-    topicTitles: [],
+    topicTitles: ["접근 통제 모델"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2023상주간모의고사/6.보안/s23w-se-보안모델-blp-biba-ns11-05-01-09-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2023상주간모의고사/6.보안/s23w-se-보안모델-blp-biba-ns11-05-01-09-2.jpg", label: "2쪽" },
@@ -31349,7 +31337,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "DIKW 빅데이터시각화",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2023상 주간모의고사 › 7.DB와 데이터분석)",
-    topicTitles: ["데이터 시각화"],
+    topicTitles: ["데이터 시각화", "빅데이터 시각화(Visualization)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2023상주간모의고사/7.DB와데이터분석/s23w-db-빅데이터-dikw-빅데이터시각화-ns11-09-01-12-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2023상주간모의고사/7.DB와데이터분석/s23w-db-빅데이터-dikw-빅데이터시각화-ns11-09-01-12-2.jpg", label: "2쪽" },
@@ -33955,7 +33943,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "표준 ISO12434",
     exam: "ITPE 모의고사 12회",
-    topicTitles: [],
+    topicTitles: ["차량 사이버 보안 국제 표준(ISO 21434)"],
     pages: [
       { src: "/answers/ITPE모의고사/12회/u22-se-표준-iso12434-itpe-12-1-1.jpg", label: "1쪽" },
       { src: "/answers/ITPE모의고사/12회/u22-se-표준-iso12434-itpe-12-1-2.jpg", label: "2쪽" },
@@ -34688,7 +34676,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "Log4j",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022하 기필반모답 › 2. 소프트웨어공학)",
-    topicTitles: [],
+    topicTitles: ["오픈소스 SW 보안위협"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022하기필반모답/2.소프트웨어공학/g22-251-log4j-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022하기필반모답/2.소프트웨어공학/g22-251-log4j-1-2.jpg", label: "2쪽" },
@@ -34944,7 +34932,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "데이터 패브릭",
     exam: "심화반 NS10 10주차",
-    topicTitles: [],
+    topicTitles: ["데이터패브릭(Data Fabric)", "데이터(웨어하우스, 레이크, 패브릭, 메시)"],
     pages: [
       { src: "/answers/심화반/NS10/10주차/w22-sv-데이터-패브릭-ns10-10-1-1.jpg", label: "1쪽" },
       { src: "/answers/심화반/NS10/10주차/w22-sv-데이터-패브릭-ns10-10-1-2.jpg", label: "2쪽" },
@@ -35222,7 +35210,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "3교시",
     question: "클라우드 공유자원 활용 주요 기술, 보안 문제점 및 대응 방안",
     exam: "심화반 NS9",
-    topicTitles: [],
+    topicTitles: ["클라우드 컴퓨팅 취약점, 대응기술"],
     pages: [
       { src: "/answers/심화반/NS9/w22-sv-클라우드-클라우드-공유자원-활용-주요-기술-보안-문제점-및-대응-방-1.jpg", label: "1쪽" },
       { src: "/answers/심화반/NS9/w22-sv-클라우드-클라우드-공유자원-활용-주요-기술-보안-문제점-및-대응-방-2.jpg", label: "2쪽" },
@@ -35774,7 +35762,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "데이터전처리절차, 이상값발생원인, 이상값검출 및 처리방법",
     exam: "심화반 NS10 6주차",
-    topicTitles: ["이상치(Outlier)"],
+    topicTitles: ["이상치(Outlier)", "데이터 전처리"],
     pages: [
       { src: "/answers/심화반/NS10/6주차/w22-ai-데이터전처리-데이터전처리절차-이상값발생원인-이상값검출-및-처리방법--1.jpg", label: "1쪽" },
       { src: "/answers/심화반/NS10/6주차/w22-ai-데이터전처리-데이터전처리절차-이상값발생원인-이상값검출-및-처리방법--2.jpg", label: "2쪽" },
@@ -35786,7 +35774,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "데이터전처리절차, 이상값발생원인, 이상값검출 및 처리방법",
     exam: "심화반 NS10 6주차",
-    topicTitles: ["이상치(Outlier)"],
+    topicTitles: ["이상치(Outlier)", "데이터 전처리"],
     pages: [
       { src: "/answers/심화반/NS10/6주차/w22-ai-데이터전처리-데이터전처리절차-이상값발생원인-이상값검출-및-처리방법--4.jpg", label: "4쪽" },
       { src: "/answers/심화반/NS10/6주차/w22-ai-데이터전처리-데이터전처리절차-이상값발생원인-이상값검출-및-처리방법--5.jpg", label: "5쪽" },
@@ -36742,7 +36730,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "공격기법 DDoS 개념 및 유형",
     exam: "심화반 NS10 5주차",
-    topicTitles: [],
+    topicTitles: ["DoS(Denial of Service)"],
     pages: [
       { src: "/answers/심화반/NS10/5주차/w22-se-공격기법-ddos-개념-및-유형-ns10-05-1-1.jpg", label: "1쪽" },
       { src: "/answers/심화반/NS10/5주차/w22-se-공격기법-ddos-개념-및-유형-ns10-05-1-2.jpg", label: "2쪽" },
@@ -36897,7 +36885,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "Log4j 취약점",
     exam: "심화반 NS9",
-    topicTitles: [],
+    topicTitles: ["오픈소스 SW 보안위협"],
     pages: [
       { src: "/answers/심화반/NS9/w22-se-취약점-log4j-취약점-ns9-1-1.jpg", label: "1쪽" },
       { src: "/answers/심화반/NS9/w22-se-취약점-log4j-취약점-ns9-1-2.jpg", label: "2쪽" },
@@ -36930,7 +36918,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "마이데이터 개인정보전송권",
     exam: "심화반 NS9",
-    topicTitles: ["마이데이터"],
+    topicTitles: ["마이데이터", "데이터 상호운용성과 데이터 이동권", "데이터 상호 운용성 & 데이터 이동권"],
     pages: [
       { src: "/answers/심화반/NS9/w22-se-마이데이터-개인정보전송권-ns9-1-1.jpg", label: "1쪽" },
       { src: "/answers/심화반/NS9/w22-se-마이데이터-개인정보전송권-ns9-1-2.jpg", label: "2쪽" },
@@ -37188,7 +37176,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "빅데이터 시각화 프로세스",
     exam: "심화반 NS10 7주차",
-    topicTitles: ["데이터 시각화"],
+    topicTitles: ["데이터 시각화", "빅데이터 시각화(Visualization)"],
     pages: [
       { src: "/answers/심화반/NS10/7주차/w22-db-빅데이터-빅데이터-시각화-프로세스-ns10-07-1-1.jpg", label: "1쪽" },
       { src: "/answers/심화반/NS10/7주차/w22-db-빅데이터-빅데이터-시각화-프로세스-ns10-07-1-2.jpg", label: "2쪽" },
@@ -38313,7 +38301,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "SW안전성 분석 기법, 안전 관련 표준",
     exam: "심화반 NS10 9주차",
-    topicTitles: [],
+    topicTitles: ["FTA (Fault Tree Analysis)", "FMEA (Failure Mode and Effects Analysis)", "HAZOP (Hazard and Operability Study)"],
     pages: [
       { src: "/answers/심화반/NS10/9주차/w22-sw-안전성분석기법-sw안전성-분석-기법-안전-관련-표준-ns10-09--1.jpg", label: "1쪽" },
       { src: "/answers/심화반/NS10/9주차/w22-sw-안전성분석기법-sw안전성-분석-기법-안전-관련-표준-ns10-09--2.jpg", label: "2쪽" },
@@ -38911,7 +38899,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "위험관리,이슈관리",
     exam: "제94회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["프로젝트 위험관리"],
     pages: [
       { src: "/answers/KPC모의고사/94회/k22r-pm-위험관리-위험관리-이슈관리-kpc-94-2-1.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/94회/k22r-pm-위험관리-위험관리-이슈관리-kpc-94-2-2.jpg", label: "2쪽" },
@@ -39892,7 +39880,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "빅데이터 Data Lake",
     exam: "제84회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["데이터 레이크(Data Lake)", "빅데이터(3V / 6V)"],
+    topicTitles: ["데이터 레이크(Data Lake)", "빅데이터(3V / 6V)", "데이터(웨어하우스, 레이크, 패브릭, 메시)"],
     pages: [
       { src: "/answers/KPC모의고사/84회/k22r-db-빅데이터-data-lake-kpc-84-1-1.jpg", label: "1쪽" },
     ],
@@ -39941,7 +39929,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "[분류] 선험적 알고리즘",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022년 상반기 정리)",
-    topicTitles: [],
+    topicTitles: ["Apriori 알고리즘"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022년상반기정리/k22r-st-분류-선험적-알고리즘-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022년상반기정리/k22r-st-분류-선험적-알고리즘-1-2.jpg", label: "2쪽" },
@@ -39952,7 +39940,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "[병렬처리_2단계, 4단계 명령어 파이프라인, 파이프라인과 비파이프라인 방식 비교",
     exam: "제83회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["Pipeline(파이프라인)"],
     pages: [
       { src: "/answers/KPC모의고사/83회/k22r-ca-병렬처리-2단계-4단계-명령어-파이프라인-파이프라인과-비파이프라인--1.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/83회/k22r-ca-병렬처리-2단계-4단계-명령어-파이프라인-파이프라인과-비파이프라인--2.jpg", label: "2쪽" },
@@ -39979,7 +39967,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "4교시",
     question: "프로토콜 QUIC 개념,구조,통신과정",
     exam: "제97회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["QUIC"],
+    topicTitles: ["QUIC", "HTTP/3"],
     pages: [
       { src: "/answers/KPC모의고사/97회/k22r-nw-프로토콜-quic-개념-구조-통신과정-kpc-97-4-1.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/97회/k22r-nw-프로토콜-quic-개념-구조-통신과정-kpc-97-4-2.jpg", label: "2쪽" },
@@ -40226,7 +40214,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "오류제어 ARQ",
     exam: "제81회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["FEC(Forward Error Correction) / BEC(Backward Error Correction)"],
     pages: [
       { src: "/answers/KPC모의고사/81회/k22r-nw-오류제어-arq-kpc-81-1-1.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/81회/k22r-nw-오류제어-arq-kpc-81-1-2.jpg", label: "2쪽" },
@@ -40378,7 +40366,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "프로세스 Working Set과 PFF 비교",
     exam: "제84회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["스레싱(Thrashing)"],
     questionIds: ["f01792", "m01595", "ns11w10-112"],
     pages: [
       { src: "/answers/KPC모의고사/84회/k22r-os-프로세스-working-set과-pff-비교-kpc-84-1-1.jpg", label: "1쪽" },
@@ -40400,7 +40388,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "명세기반테스트",
     exam: "제88회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["블랙박스 테스트"],
     pages: [
       { src: "/answers/KPC모의고사/88회/k22r-sw-테스트-명세기반테스트-kpc-88-2-1.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/88회/k22r-sw-테스트-명세기반테스트-kpc-88-2-2.jpg", label: "2쪽" },
@@ -41004,7 +40992,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "원가관리 EVA",
     exam: "제84회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["EVM(Earned Value Management, 획득 가치 관리)"],
     pages: [
       { src: "/answers/KPC모의고사/84회/k22r-pm-원가관리-eva-kpc-84-2-1.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/84회/k22r-pm-원가관리-eva-kpc-84-2-2.jpg", label: "2쪽" },
@@ -41110,7 +41098,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "재해복구시스템",
     exam: "정리 답안 (드라이브 3.2 단합반 › 1. IT경영전략)",
-    topicTitles: [],
+    topicTitles: ["DRS (Disaster Recovery System)"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/1.IT경영전략/dh-재해복구시스템-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.2단합반/1.IT경영전략/dh-재해복구시스템-2.jpg", label: "2쪽" },
@@ -41408,7 +41396,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "하드웨어 규모산정",
     exam: "정리 답안 (드라이브 3.2 단합반 › 3. 소프트웨어 공학)",
-    topicTitles: [],
+    topicTitles: ["정보시스템 하드웨어 규모산정 지침"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/3.소프트웨어공학/dh-하드웨어-규모산정-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.2단합반/3.소프트웨어공학/dh-하드웨어-규모산정-2.jpg", label: "2쪽" },
@@ -41464,7 +41452,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "SW아키텍처분석방법",
     exam: "정리 답안 (드라이브 3.2 단합반 › 3. 소프트웨어 공학)",
-    topicTitles: [],
+    topicTitles: ["SW Architecture 평가"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/3.소프트웨어공학/dh-sw아키텍처분석방법-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.2단합반/3.소프트웨어공학/dh-sw아키텍처분석방법-2.jpg", label: "2쪽" },
@@ -41994,7 +41982,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "대규모 멀티모달 모델",
     exam: "정리 답안 (드라이브 3.2 단합반 › 5. AI)",
-    topicTitles: ["멀티모달(Multi Modal)"],
+    topicTitles: ["멀티모달(Multi Modal)", "멀티모달(Multimodal) AI"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/5.AI/dh-대규모-멀티모달-모델-1.jpg", label: "1쪽" },
     ],
@@ -42014,7 +42002,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "머신러닝 최적화 알고리즘",
     exam: "정리 답안 (드라이브 3.2 단합반 › 5. AI)",
-    topicTitles: [],
+    topicTitles: ["머신러닝 옵티마이저(Optimizer)"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/5.AI/dh-머신러닝-최적화-알고리즘-1.jpg", label: "1쪽" },
     ],
@@ -42110,7 +42098,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "에이전트 유형 4가지",
     exam: "정리 답안 (드라이브 3.2 단합반 › 5. AI)",
-    topicTitles: ["에이전트(Agent)"],
+    topicTitles: ["에이전트(Agent)", "AI Agent"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/5.AI/dh-ai-에이전트-유형-4가지-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.2단합반/5.AI/dh-ai-에이전트-유형-4가지-2.jpg", label: "2쪽" },
@@ -42174,7 +42162,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "제로트러스트 아키텍처",
     exam: "정리 답안 (드라이브 3.2 단합반 › 6. 디지털 보안)",
-    topicTitles: [],
+    topicTitles: ["제로트러스트 가이드라인 2.0"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/6.디지털보안/dh-제로트러스트-아키텍처-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.2단합반/6.디지털보안/dh-제로트러스트-아키텍처-2.jpg", label: "2쪽" },
@@ -42234,7 +42222,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "암호공격기법의 유형",
     exam: "정리 답안 (드라이브 3.2 단합반 › 6. 디지털 보안)",
-    topicTitles: [],
+    topicTitles: ["암호 분석 공격(Cryptanalysis Attacks) 기법"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/6.디지털보안/dh-암호공격기법의-유형-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.2단합반/6.디지털보안/dh-암호공격기법의-유형-2.jpg", label: "2쪽" },
@@ -42266,7 +42254,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "레인보우 테이블",
     exam: "정리 답안 (드라이브 3.2 단합반 › 6. 디지털 보안)",
-    topicTitles: [],
+    topicTitles: ["해시 솔트(Salt)와 키 스트레칭(Key Stretching)"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/6.디지털보안/dh-레인보우-테이블-1.jpg", label: "1쪽" },
     ],
@@ -42320,7 +42308,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "암호학적 해시",
     exam: "정리 답안 (드라이브 3.2 단합반 › 6. 디지털 보안)",
-    topicTitles: [],
+    topicTitles: ["해시 함수의 안전성"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/6.디지털보안/dh-보안-암호학적-해시-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.2단합반/6.디지털보안/dh-보안-암호학적-해시-2.jpg", label: "2쪽" },
@@ -42396,7 +42384,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "ABAC(attribute-based Accress Control)",
     exam: "정리 답안 (드라이브 3.2 단합반 › 6. 디지털 보안)",
-    topicTitles: [],
+    topicTitles: ["접근 통제 모델"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/6.디지털보안/dh-abac-attribute-based-accress-control-2.jpg", label: "2쪽" },
     ],
@@ -42453,7 +42441,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "데이터 품질 관리 기법",
     exam: "정리 답안 (드라이브 3.2 단합반 › 7. DB와 데이터 분석관리)",
-    topicTitles: ["데이터 품질 관리"],
+    topicTitles: ["데이터 품질 관리", "데이터 품질관리(ISO 8000)"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/7.DB와데이터분석관리/dh-db-데이터-품질-관리-기법-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.2단합반/7.DB와데이터분석관리/dh-db-데이터-품질-관리-기법-2.jpg", label: "2쪽" },
@@ -42488,7 +42476,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "빅데이터 시각화 인사이트 프로세스와 시각화 프로세스",
     exam: "정리 답안 (드라이브 3.2 단합반 › 7. DB와 데이터 분석관리)",
-    topicTitles: ["데이터 시각화"],
+    topicTitles: ["데이터 시각화", "빅데이터 시각화(Visualization)"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/7.DB와데이터분석관리/dh-db-빅데이터-시각화-인사이트-프로세스와-시각화-프로세스-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.2단합반/7.DB와데이터분석관리/dh-db-빅데이터-시각화-인사이트-프로세스와-시각화-프로세스-2.jpg", label: "2쪽" },
@@ -42510,7 +42498,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "데이터 전처리 과정 결측치, 이상치 처리 방안",
     exam: "정리 답안 (드라이브 3.2 단합반 › 7. DB와 데이터 분석관리)",
-    topicTitles: ["결측치(Missing Value)", "이상치(Outlier)"],
+    topicTitles: ["결측치(Missing Value)", "이상치(Outlier)", "데이터 전처리"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/7.DB와데이터분석관리/dh-db-데이터-전처리-과정-결측치-이상치-처리-방안-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.2단합반/7.DB와데이터분석관리/dh-db-데이터-전처리-과정-결측치-이상치-처리-방안-2.jpg", label: "2쪽" },
@@ -42599,7 +42587,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "데이터 페브릭, 메시",
     exam: "정리 답안 (드라이브 3.2 단합반 › 7. DB와 데이터 분석관리)",
-    topicTitles: [],
+    topicTitles: ["데이터패브릭(Data Fabric)", "데이터 메시(Data Mesh)", "데이터(웨어하우스, 레이크, 패브릭, 메시)"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/7.DB와데이터분석관리/dh-데이터-페브릭-메시-2.jpg", label: "2쪽" },
       { src: "/answers/정리답안/3.2단합반/7.DB와데이터분석관리/dh-데이터-페브릭-메시-3.jpg", label: "3쪽" },
@@ -42634,7 +42622,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "관계형데이터베이스 설계",
     exam: "정리 답안 (드라이브 3.2 단합반 › 7. DB와 데이터 분석관리)",
-    topicTitles: [],
+    topicTitles: ["데이터베이스 모델링"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/7.DB와데이터분석관리/dh-관계형데이터베이스-설계-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.2단합반/7.DB와데이터분석관리/dh-관계형데이터베이스-설계-2.jpg", label: "2쪽" },
@@ -42657,7 +42645,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "빅데이터 시각화",
     exam: "정리 답안 (드라이브 3.2 단합반 › 7. DB와 데이터 분석관리)",
-    topicTitles: ["데이터 시각화"],
+    topicTitles: ["데이터 시각화", "빅데이터 시각화(Visualization)"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/7.DB와데이터분석관리/dh-빅데이터-시각화-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.2단합반/7.DB와데이터분석관리/dh-빅데이터-시각화-2.jpg", label: "2쪽" },
@@ -42778,7 +42766,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "의도기반 네트워킹",
     exam: "정리 답안 (드라이브 3.2 단합반 › 8. 네트워크)",
-    topicTitles: [],
+    topicTitles: ["인텐트 기반 네트워킹(Intent-Based Networking)"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/8.네트워크/dh-의도기반-네트워킹-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.2단합반/8.네트워크/dh-의도기반-네트워킹-2.jpg", label: "2쪽" },
@@ -42913,7 +42901,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "TCPIP 오류제어기법",
     exam: "정리 답안 (드라이브 3.2 단합반 › 8. 네트워크)",
-    topicTitles: [],
+    topicTitles: ["FEC(Forward Error Correction) / BEC(Backward Error Correction)"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/8.네트워크/dh-tcpip-오류제어기법-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.2단합반/8.네트워크/dh-tcpip-오류제어기법-2.jpg", label: "2쪽" },
@@ -43075,7 +43063,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "HBM, CXL",
     exam: "정리 답안 (드라이브 3.2 단합반 › 10. 운영체제)",
-    topicTitles: ["HBM(High Bandwidth Memory)", "CXL(Compute Express Link)"],
+    topicTitles: ["HBM(High Bandwidth Memory)", "CXL(Compute Express Link)", "CXL(Compute Express Link) 3.0"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/10.운영체제/dh-os-hbm-cxl-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.2단합반/10.운영체제/dh-os-hbm-cxl-2.jpg", label: "2쪽" },
@@ -43233,7 +43221,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "자료구조 큐",
     exam: "정리 답안 (드라이브 3.2 단합반 › 11. 자료구조 알고리즘)",
-    topicTitles: ["자료"],
+    topicTitles: ["자료", "Queue"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/11.자료구조알고리즘/dh-자료구조-큐-2.jpg", label: "2쪽" },
     ],
@@ -43275,7 +43263,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "정렬 알고리즘",
     exam: "정리 답안 (드라이브 3.2 단합반 › 11. 자료구조 알고리즘)",
-    topicTitles: [],
+    topicTitles: ["퀵 정렬(Quick Sort)", "삽입 정렬(Insertion Sort)", "버블 정렬(Bubble Sort)", "병합 정렬(Merge Sort)"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/11.자료구조알고리즘/dh-정렬-알고리즘-2.jpg", label: "2쪽" },
       { src: "/answers/정리답안/3.2단합반/11.자료구조알고리즘/dh-정렬-알고리즘-3.jpg", label: "3쪽" },
@@ -43590,7 +43578,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "Data Link 계층의 오류제어 기법",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 모범답안)",
-    topicTitles: ["Data Link(2)"],
+    topicTitles: ["Data Link(2)", "FEC(Forward Error Correction) / BEC(Backward Error Correction)"],
     pages: [
       { src: "/answers/정리답안/4.모범답안디지털자료/모범답안/d4-셀테-data-link-계층의-오류제어-기법-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/4.모범답안디지털자료/모범답안/d4-셀테-data-link-계층의-오류제어-기법-2.jpg", label: "2쪽" },
@@ -43744,7 +43732,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "웹마이닝(Web Mining)",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 모범답안)",
-    topicTitles: ["Web Mining"],
+    topicTitles: ["Web Mining", "정형/비정형 데이터 마이닝"],
     questionIds: ["f03508"],
     pages: [
       { src: "/answers/정리답안/4.모범답안디지털자료/모범답안/d4-셀테-웹마이닝-web-mining-1.jpg", label: "1쪽" },
@@ -43877,7 +43865,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "빅데이터 시각화",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 모범답안)",
-    topicTitles: ["데이터 시각화"],
+    topicTitles: ["데이터 시각화", "빅데이터 시각화(Visualization)"],
     pages: [
       { src: "/answers/정리답안/4.모범답안디지털자료/모범답안/d4-셀테-빅데이터-시각화-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/4.모범답안디지털자료/모범답안/d4-셀테-빅데이터-시각화-2.jpg", label: "2쪽" },
@@ -43968,7 +43956,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "리스크 기반 테스팅 Risk",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 모범답안)",
-    topicTitles: [],
+    topicTitles: ["위험 기반 테스트"],
     questionIds: ["k92-202"],
     pages: [
       { src: "/answers/정리답안/4.모범답안디지털자료/모범답안/d4-셀테-리스크-기반-테스팅-risk-1.jpg", label: "1쪽" },
@@ -43991,7 +43979,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "라운드로빈과 EDF",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 모범답안)",
-    topicTitles: ["EDF"],
+    topicTitles: ["EDF", "CPU 스케줄링(CPU Scheduling)", "기한부(Deadline) 스케줄링"],
     pages: [
       { src: "/answers/정리답안/4.모범답안디지털자료/모범답안/d4-셀테-라운드로빈과-edf-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/4.모범답안디지털자료/모범답안/d4-셀테-라운드로빈과-edf-2.jpg", label: "2쪽" },
@@ -44413,7 +44401,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "FIDO2.0",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 모범답안)",
-    topicTitles: [],
+    topicTitles: ["패스키(Passkey)"],
     pages: [
       { src: "/answers/정리답안/4.모범답안디지털자료/모범답안/d4-셀테-fido2-0-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/4.모범답안디지털자료/모범답안/d4-셀테-fido2-0-2.jpg", label: "2쪽" },
@@ -44557,7 +44545,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "ARIES 회복 알고리즘",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 모범답안)",
-    topicTitles: ["ARIES"],
+    topicTitles: ["ARIES", "DB 회복기법"],
     pages: [
       { src: "/answers/정리답안/4.모범답안디지털자료/모범답안/d4-셀테-aries-회복-알고리즘-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/4.모범답안디지털자료/모범답안/d4-셀테-aries-회복-알고리즘-2.jpg", label: "2쪽" },
@@ -44843,7 +44831,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "타임스탬프 순서 기법",
     exam: "정리 답안 (드라이브 4. 모범답안 디지털 자료 › 김병권PE)",
-    topicTitles: [],
+    topicTitles: ["DB 동시성제어"],
     pages: [
       { src: "/answers/정리답안/4.모범답안디지털자료/김병권PE/d4-모의고사-1교시-12.jpg", label: "12쪽" },
     ],
@@ -45362,7 +45350,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "RMS, 간트차트",
     exam: "정리 답안 (드라이브 05. 모범답안)",
-    topicTitles: [],
+    topicTitles: ["기한부(Deadline) 스케줄링"],
     questionIds: ["f01841"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/cls-rms-간트차트-권영란-1.jpg", label: "1쪽" },
@@ -45375,7 +45363,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "CPU선점방식",
     exam: "정리 답안 (드라이브 05. 모범답안)",
-    topicTitles: ["선점 방식(선비)", "CPU"],
+    topicTitles: ["선점 방식(선비)", "CPU", "CPU 스케줄링(CPU Scheduling)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/cls-cpu선점방식-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/cls-cpu선점방식-2.jpg", label: "2쪽" },
@@ -45687,7 +45675,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "데이터 구조",
     exam: "실전심화반 정주행반 모범답안",
-    topicTitles: [],
+    topicTitles: ["선형 자료구조와 비선형 자료구조"],
     pages: [
       { src: "/answers/실전심화반/정주행반/cls-itpe-모범답안-정주행반-133합격자-데이터-구조-1.jpg", label: "1쪽" },
       { src: "/answers/실전심화반/정주행반/cls-itpe-모범답안-정주행반-133합격자-데이터-구조-2.jpg", label: "2쪽" },
@@ -46060,7 +46048,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "모델옵스",
     exam: "실전심화반 정상반 모범답안",
-    topicTitles: [],
+    topicTitles: ["MLOps"],
     pages: [
       { src: "/answers/실전심화반/정상반/cls-모범답안-정상반-모델옵스-1.jpg", label: "1쪽" },
       { src: "/answers/실전심화반/정상반/cls-모범답안-정상반-모델옵스-2.jpg", label: "2쪽" },
@@ -46239,7 +46227,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "데이터 메시",
     exam: "실전심화반 소원반 모범답안",
-    topicTitles: [],
+    topicTitles: ["데이터 메시(Data Mesh)", "데이터(웨어하우스, 레이크, 패브릭, 메시)"],
     pages: [
       { src: "/answers/실전심화반/소원반/cls-모범답안-소원반-데이터-메시-1.jpg", label: "1쪽" },
       { src: "/answers/실전심화반/소원반/cls-모범답안-소원반-데이터-메시-2.jpg", label: "2쪽" },
@@ -46382,7 +46370,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "간이법과정통법",
     exam: "정리 답안 (드라이브 05. 모범답안)",
-    topicTitles: [],
+    topicTitles: ["Function Point"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/cls-sw-간이법과정통법-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/cls-sw-간이법과정통법-2.jpg", label: "2쪽" },
@@ -46931,7 +46919,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "chatGPT",
     exam: "정리 답안 (드라이브 05. 모범답안)",
-    topicTitles: ["ChatGPT"],
+    topicTitles: ["ChatGPT", "초거대 언어 모델(Large Language Model)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/cls-인공지능-chatgpt-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/cls-인공지능-chatgpt-2.jpg", label: "2쪽" },
@@ -47004,7 +46992,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "traffic_shaping_policing",
     exam: "실전심화반 강평야 모범답안",
-    topicTitles: ["Traffic Shaping"],
+    topicTitles: ["Traffic Shaping", "QoS(Quality of Service)"],
     pages: [
       { src: "/answers/실전심화반/강평야/cls-itpe-모범답안-강평야-traffic-shaping-policing-1.jpg", label: "1쪽" },
     ],
@@ -47024,7 +47012,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "DataFabric",
     exam: "실전심화반 강평야 모범답안",
-    topicTitles: [],
+    topicTitles: ["데이터패브릭(Data Fabric)"],
     pages: [
       { src: "/answers/실전심화반/강평야/cls-itpe-모범답안-강평야-datafabric-1.jpg", label: "1쪽" },
     ],
@@ -47504,7 +47492,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "IntServ DiffServ",
     exam: "실전심화반 NS반 모범답안",
-    topicTitles: ["DiffServ", "IntServ"],
+    topicTitles: ["DiffServ", "IntServ", "QoS(Quality of Service)"],
     pages: [
       { src: "/answers/실전심화반/NS반/cls-itpe-모범답안-ns반-intserv-diffserv-1.jpg", label: "1쪽" },
       { src: "/answers/실전심화반/NS반/cls-itpe-모범답안-ns반-intserv-diffserv-2.jpg", label: "2쪽" },
@@ -47526,7 +47514,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "1차오류 2차오류",
     exam: "실전심화반 NS반 모범답안",
-    topicTitles: [],
+    topicTitles: ["통계적 가설검정(Hypothesis Testing)"],
     pages: [
       { src: "/answers/실전심화반/NS반/cls-itpe-모범답안-ns반-1차오류-2차오류-1.jpg", label: "1쪽" },
     ],
@@ -47627,7 +47615,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "IMT-2030",
     exam: "정리 답안 (드라이브 05. 모범답안)",
-    topicTitles: [],
+    topicTitles: ["6G"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/cls-imt-2030-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/cls-imt-2030-2.jpg", label: "2쪽" },
@@ -47765,7 +47753,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "Column Family DB",
     exam: "정리 답안 (드라이브 05. 모범답안)",
-    topicTitles: [],
+    topicTitles: ["NoSQL"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/cls-column-family-db-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/cls-column-family-db-2.jpg", label: "2쪽" },
@@ -47956,7 +47944,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "프로젝트 위험관리_대응방안",
     exam: "정리 답안 (드라이브 05. 모범답안)",
-    topicTitles: ["프로젝트 위험관리"],
+    topicTitles: ["프로젝트 위험관리", "위험 대응"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/cls-프로젝트-위험관리-대응방안-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/cls-프로젝트-위험관리-대응방안-2.jpg", label: "2쪽" },
@@ -48518,7 +48506,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "더블 다이아몬드 모델",
     exam: "심화반 16주차 주간모의고사",
-    topicTitles: [],
+    topicTitles: ["디자인 씽킹(Design Thinking)"],
     pages: [
       { src: "/answers/심화반/주간모의고사/cls-16주차-주간모의고사-1교시-caos-6.jpg", label: "6쪽" },
       { src: "/answers/심화반/주간모의고사/cls-16주차-주간모의고사-1교시-caos-7.jpg", label: "7쪽" },
@@ -48554,7 +48542,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "CRISP-DM과 Semma",
     exam: "아지트 정리 답안 (드라이브 3.1/1.IT경영)",
-    topicTitles: ["CRISP-DM", "SEMMA"],
+    topicTitles: ["CRISP-DM", "SEMMA", "데이터 마이닝 방법론"],
     pages: [
       { src: "/answers/정리답안/아지트정리답안/img-crisp-dm과-semma-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/아지트정리답안/img-crisp-dm과-semma-2.jpg", label: "2쪽" },
@@ -48619,7 +48607,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "SOS랩",
     exam: "아지트 정리 답안 (드라이브 3.1/1.IT경영)",
-    topicTitles: ["SOS랩(Solution in Our Society Lab)"],
+    topicTitles: ["SOS랩(Solution in Our Society Lab)", "리빙랩(Living Lab), S.O.S랩"],
     pages: [
       { src: "/answers/정리답안/아지트정리답안/img-sos-랩-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/아지트정리답안/img-sos-랩-2.jpg", label: "2쪽" },
@@ -48747,7 +48735,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "Strategy Pattern",
     exam: "아지트 정리 답안 (드라이브 3.1/3.SW공학)",
-    topicTitles: ["Strategy pattern"],
+    topicTitles: ["Strategy pattern", "디자인 패턴 (Design Pattern)"],
     pages: [
       { src: "/answers/정리답안/아지트정리답안/img-strategy-pattern-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/아지트정리답안/img-strategy-pattern-2.jpg", label: "2쪽" },
@@ -49072,7 +49060,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "1교시",
     question: "Data Lake",
     exam: "아지트 정리 답안 (드라이브 3.1/7.DB)",
-    topicTitles: ["데이터 레이크(Data Lake)"],
+    topicTitles: ["데이터 레이크(Data Lake)", "데이터(웨어하우스, 레이크, 패브릭, 메시)"],
     pages: [
       { src: "/answers/정리답안/아지트정리답안/img-data-lake-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/아지트정리답안/img-data-lake-2.jpg", label: "2쪽" },
@@ -49083,7 +49071,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     period: "2교시",
     question: "Strict 2PL Rigorous 2PL Static2PL",
     exam: "아지트 정리 답안 (드라이브 3.1/7.DB)",
-    topicTitles: [],
+    topicTitles: ["DB 동시성제어"],
     pages: [
       { src: "/answers/정리답안/아지트정리답안/img-strict-2pl-rigorous-2pl-static2pl-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/아지트정리답안/img-strict-2pl-rigorous-2pl-static2pl-2.jpg", label: "2쪽" },
@@ -49802,7 +49790,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     no: "7",
     question: "요구사항명세",
     exam: "제38회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["요구사항 명세서 SRS"],
     pages: [
       { src: "/answers/KPC모의고사/38회/kpc-모범답안-1교시-7-요구사항명세-제38회-12년-6월-kpc기술사impa-1.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/38회/kpc-모범답안-1교시-7-요구사항명세-제38회-12년-6월-kpc기술사impa-2.jpg", label: "2쪽" },
@@ -49814,7 +49802,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     no: "7",
     question: "요구사항명세 (2)",
     exam: "제38회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["요구사항 명세서 SRS"],
     pages: [
       { src: "/answers/KPC모의고사/38회/kpc-모범답안-1교시-7-요구사항명세-2-제38회-12년-6월-kpc기술사im-1.jpg", label: "1쪽" },
     ],
@@ -49947,7 +49935,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     no: "1",
     question: "포렌식",
     exam: "제38회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["디지털 포렌식(Digital Forensic)"],
     pages: [
       { src: "/answers/KPC모의고사/38회/kpc-모범답안-2교시-1-포렌식-제38회-12년-6월-kpc기술사impact실-1.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/38회/kpc-모범답안-2교시-1-포렌식-제38회-12년-6월-kpc기술사impact실-2.jpg", label: "2쪽" },
@@ -50107,7 +50095,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     no: "4",
     question: "GOF패턴 (1)",
     exam: "제37회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["디자인 패턴 (Design Pattern)"],
     pages: [
       { src: "/answers/KPC모의고사/37회/kpc-모범답안-2교시-4-gof패턴-1-제37회-12년-5월-kpc기술사imp-1.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/37회/kpc-모범답안-2교시-4-gof패턴-1-제37회-12년-5월-kpc기술사imp-2.jpg", label: "2쪽" },
@@ -50120,7 +50108,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     no: "4",
     question: "GOF패턴 (2)",
     exam: "제37회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["디자인 패턴 (Design Pattern)"],
     pages: [
       { src: "/answers/KPC모의고사/37회/kpc-모범답안-2교시-4-gof패턴-2-제37회-12년-5월-kpc기술사imp-1.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/37회/kpc-모범답안-2교시-4-gof패턴-2-제37회-12년-5월-kpc기술사imp-2.jpg", label: "2쪽" },
@@ -50418,7 +50406,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     no: "5",
     question: "병렬처리 동기화 상호배타",
     exam: "제38회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["병렬처리(Parallel Processing)"],
+    topicTitles: ["병렬처리(Parallel Processing)", "경쟁조건(Race Condition) 해결 방안"],
     questionIds: ["m03001"],
     pages: [
       { src: "/answers/KPC모의고사/38회/kpc-모범답안-3교시-5-병렬처리-동기화-상호배타-제38회-12년-6월-kpc-1.jpg", label: "1쪽" },
@@ -50472,7 +50460,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     no: "1",
     question: "경계값 분석 기법",
     exam: "제38회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["블랙박스 테스트"],
     questionIds: ["m01819", "m01892"],
     pages: [
       { src: "/answers/KPC모의고사/38회/kpc-모범답안-4교시-1-경계값-분석-기법-제38회-12년-6월-kpc기술사i-1.jpg", label: "1쪽" },
@@ -50485,7 +50473,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     no: "1",
     question: "경계값 분석 기법 (2)",
     exam: "제38회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["블랙박스 테스트"],
     questionIds: ["m01819", "m01892"],
     pages: [
       { src: "/answers/KPC모의고사/38회/kpc-모범답안-4교시-1-경계값-분석-기법-2-제38회-12년-6월-kpc기술-1.jpg", label: "1쪽" },
@@ -50498,7 +50486,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     no: "1",
     question: "경계값 분석 기법 (3)",
     exam: "제38회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["블랙박스 테스트"],
     questionIds: ["m01819", "m01892"],
     pages: [
       { src: "/answers/KPC모의고사/38회/kpc-모범답안-4교시-1-경계값-분석-기법-3-제38회-12년-6월-kpc기술-1.jpg", label: "1쪽" },
@@ -50578,7 +50566,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     no: "3",
     question: "데이터베이스 설계 (1)",
     exam: "제37회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["데이터베이스 모델링"],
     pages: [
       { src: "/answers/KPC모의고사/37회/kpc-모범답안-4교시-3-데이터베이스-설계-1-제37회-12년-5월-kpc기술-1.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/37회/kpc-모범답안-4교시-3-데이터베이스-설계-1-제37회-12년-5월-kpc기술-2.jpg", label: "2쪽" },
@@ -50592,7 +50580,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     no: "3",
     question: "데이터베이스 설계 (2)",
     exam: "제37회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["데이터베이스 모델링"],
     pages: [
       { src: "/answers/KPC모의고사/37회/kpc-모범답안-4교시-3-데이터베이스-설계-2-제37회-12년-5월-kpc기술-1.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/37회/kpc-모범답안-4교시-3-데이터베이스-설계-2-제37회-12년-5월-kpc기술-2.jpg", label: "2쪽" },
@@ -51024,7 +51012,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "6",
     question: "데이터베이스 인덱스 구조의 종류를 나열하시고 설명하시오.",
     exam: "제68회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["RDBMS 인덱스(index)"],
     questionIds: ["k95-106"],
     pages: [
       { src: "/answers/KPC모의고사/68회/kpc-68회-kpc기술사모의고사-컴시응-모범답안-1교시-8.jpg", label: "1쪽" },
@@ -51232,7 +51220,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "1",
     question: "연결지향 프로토콜로 가장 많이 사용하는 TCP(Transmission Control Protocol)에서 다음 질문에 대해 설명하시오. 가. Slow Start, Congestion Avoidance, Fast Retransmit, Fast Recovery 나. TCP-Reno, TCP-NewReno",
     exam: "제68회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["TCP 혼잡제어"],
     questionIds: ["f00952"],
     pages: [
       { src: "/answers/KPC모의고사/68회/kpc-68회-kpc기술사모의고사-컴시응-모범답안-3교시-2.jpg", label: "1쪽" },
@@ -51477,7 +51465,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "4",
     question: "테스트 22} 2 (Test Oracle)에 대하여 설명하시오",
     exam: "제69회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["테스트 오라클"],
     pages: [
       { src: "/answers/KPC모의고사/69회/kpc-69회-kpc기술사모의고사-컴시응-모범답안-1교시-5.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/69회/kpc-69회-kpc기술사모의고사-컴시응-모범답안-1교시-6.jpg", label: "2쪽" },
@@ -51663,7 +51651,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "11",
     question: "데이터베이스의 Checkpoint에 대하여 설명하시오.",
     exam: "제70회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["체크포인트(Checkpoint) 회복기법"],
+    topicTitles: ["체크포인트(Checkpoint) 회복기법", "DB 회복기법"],
     questionIds: ["f03014"],
     pages: [
       { src: "/answers/KPC모의고사/70회/kpc-70회-kpc기술사모의고사-정보관리-모범답안-1교시-8.jpg", label: "1쪽" },
@@ -51775,7 +51763,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "8",
     question: "ZEA O 2 2I (Virtual Memory) 배치기법과 교체기법에 대해 설명하시오",
     exam: "제70회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["가상기억장치(Virtual Memory) 가상메모리"],
+    topicTitles: ["가상기억장치(Virtual Memory) 가상메모리", "가상메모리 관리기법", "페이지 교체 알고리즘(Paging Replacement Algorithm)"],
     questionIds: ["k99-102"],
     pages: [
       { src: "/answers/KPC모의고사/70회/kpc-70회-kpc기술사모의고사-컴시응-모범답안-1교시-4.jpg", label: "1쪽" },
@@ -52072,7 +52060,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "4",
     question: "중앙처리장치(4)의 구조에 대해 설명하고 cisc 와 0156 의 차이점을 설명하시오",
     exam: "제70회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["CISC vs RISC"],
     pages: [
       { src: "/answers/KPC모의고사/70회/kpc-70회-kpc기술사모의고사-컴시응-모범답안-2교시-10.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/70회/kpc-70회-kpc기술사모의고사-컴시응-모범답안-2교시-11.jpg", label: "2쪽" },
@@ -52117,7 +52105,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "2",
     question: "명세기반 테스트 기법 4 가지 이상 설명하시오.",
     exam: "제71회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["블랙박스 테스트"],
     questionIds: ["m01984"],
     pages: [
       { src: "/answers/KPC모의고사/71회/kpc-71회-kpc기술사모의고사-정보관리-모범답안-1교시-2.jpg", label: "1쪽" },
@@ -52179,7 +52167,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "12",
     question: "스마트카의 보안 취약점에 대해 설명하시오.",
     exam: "제71회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["자율주행 자동차 보안취약점 및 대응방안"],
     questionIds: ["m01994"],
     pages: [
       { src: "/answers/KPC모의고사/71회/kpc-71회-kpc기술사모의고사-정보관리-모범답안-1교시-9.jpg", label: "1쪽" },
@@ -52558,7 +52546,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "1",
     question: "004 스케즐링은 시스템의 SHE 달성할 수 있도록 프로세스를 할당하는 일련의 과정이다. 4 AABS?” 시",
     exam: "제71회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["CPU 스케줄링(CPU Scheduling)"],
     pages: [
       { src: "/answers/KPC모의고사/71회/kpc-71회-kpc기술사모의고사-컴시응-모범답안-3교시-2.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/71회/kpc-71회-kpc기술사모의고사-컴시응-모범답안-3교시-3.jpg", label: "2쪽" },
@@ -52789,7 +52777,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "5",
     question: "<수강과목 테이블의 업무규칙>과 <수강과목 테이블>이 다음과 같을 때 발생하는 이상현상에 대해 설명하고, 이상현상이 발생하지 않도록 정규화를 수행하시오. <수강과목 테이블의 업무규칙> * 교수는 한 과목만 담당한다. * 한 과목을 여러 교수가 담당할 수 있다. * 과목별로 학생은 한 교수의 강의만 수강 할 수 있다. <수강과목 테이블>",
     exam: "제72회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["데이터베이스 정규화(Normalization)"],
     questionIds: ["m01975"],
     pages: [
       { src: "/answers/KPC모의고사/72회/kpc-72회-kpc기술사모의고사-정보관리-모범답안-3교시-6.jpg", label: "1쪽" },
@@ -52814,7 +52802,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "4",
     question: "기계학습(Machine Learning)에 대해 설명하시오.",
     exam: "제73회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["머신러닝(Machine Learning) 성능지표"],
+    topicTitles: ["머신러닝(Machine Learning) 성능지표", "머신러닝 학습방법"],
     questionIds: ["m01924"],
     pages: [
       { src: "/answers/KPC모의고사/73회/kpc-73회-kpc기술사모의고사-정보관리-모범답안-1교시-4.jpg", label: "1쪽" },
@@ -52914,7 +52902,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "2",
     question: "ACID 와 BASE 를 비교 설명하시오.",
     exam: "제77회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["트랜잭션", "CAP 이론과 BASE 이론"],
     questionIds: ["m02107"],
     pages: [
       { src: "/answers/KPC모의고사/77회/kpc-77회-kpc기술사모의고사-컴시응-모범답안-1교시-3.jpg", label: "1쪽" },
@@ -52939,7 +52927,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "4",
     question: "ARQ(Auto Repeat Request) ©| 3가지 방식에 대해 설명하시오",
     exam: "제77회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["FEC(Forward Error Correction) / BEC(Backward Error Correction)"],
     pages: [
       { src: "/answers/KPC모의고사/77회/kpc-77회-kpc기술사모의고사-컴시응-모범답안-1교시-6.jpg", label: "1쪽" },
     ],
@@ -52961,7 +52949,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "9",
     question: "파이프라인 헤저드의 유형 및 해결책을 설명하시오",
     exam: "제77회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["Pipeline Hazard"],
     pages: [
       { src: "/answers/KPC모의고사/77회/kpc-77회-kpc기술사모의고사-컴시응-모범답안-1교시-8.jpg", label: "1쪽" },
     ],
@@ -53022,7 +53010,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "6",
     question: "RDB 인덱스 설계 절차와 AAJA] 고려사항을 제시하고, 8-66인덱스와 Bitmap Cl GAS 비교하시오",
     exam: "제72회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["RDBMS 인덱스(index)"],
     pages: [
       { src: "/answers/KPC모의고사/72회/kpc-72회-kpc기술사모의고사-컴시응-모범답안-3교시-8.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/72회/kpc-72회-kpc기술사모의고사-컴시응-모범답안-3교시-9.jpg", label: "2쪽" },
@@ -53309,7 +53297,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "2",
     question: "DB 50.에서 1006「1010과 Outer JoinS 비교하시오",
     exam: "제78회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["조인(Join)"],
     pages: [
       { src: "/answers/KPC모의고사/78회/kpc-78회-kpc기술사모의고사-정보관리-모범답안-1교시-3.jpg", label: "1쪽" },
     ],
@@ -53379,7 +53367,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "9",
     question: "다단계 피드백 큐 (MFQ) 스케쥴링에 대해서 설명하시오",
     exam: "제78회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["CPU 스케줄링(CPU Scheduling)"],
     questionIds: ["m01779"],
     pages: [
       { src: "/answers/KPC모의고사/78회/kpc-78회-kpc기술사모의고사-정보관리-모범답안-1교시-9.jpg", label: "1쪽" },
@@ -53391,7 +53379,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "10",
     question: "라우팅 프로토콜 RIP와 OSPF를 비교하시오",
     exam: "제78회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["라우팅 프로토콜"],
+    topicTitles: ["라우팅 프로토콜", "라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)"],
     questionIds: ["m01780"],
     pages: [
       { src: "/answers/KPC모의고사/78회/kpc-78회-kpc기술사모의고사-정보관리-모범답안-1교시-10.jpg", label: "1쪽" },
@@ -53403,7 +53391,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "11",
     question: "프로젝트 관리에서 Resource Leveling에 대해서 설명하시오",
     exam: "제78회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["자원 최적화"],
     questionIds: ["m01781"],
     pages: [
       { src: "/answers/KPC모의고사/78회/kpc-78회-kpc기술사모의고사-정보관리-모범답안-1교시-11.jpg", label: "1쪽" },
@@ -53462,7 +53450,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "13",
     question: "Kruskal 알고리즘에 대해 설명하시오.",
     exam: "제74회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["최소 신장 트리(MST, Minimum Spanning Tree)"],
     questionIds: ["m02958"],
     pages: [
       { src: "/answers/KPC모의고사/74회/kpc-74회-kpc기술사모의고사-컴시응-모범답안-1교시-5.jpg", label: "1쪽" },
@@ -53694,7 +53682,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "4",
     question: "소프트웨어 아키텍처란 소프트웨어 시스템의 구성을 위한 중대한 결정사항들 이라 할 수 있다. 소프트웨어 아키텍처에 대한 다음 질문에 답하시오. 가. 품질속성 시나리오 나. 아키텍처 설계 전술 다. 아키텍처 스타일",
     exam: "제75회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["소프트웨어 품질 속성 시나리오", "소프트웨어 아키텍처 스타일"],
     questionIds: ["m01883"],
     pages: [
       { src: "/answers/KPC모의고사/75회/kpc-75회-kpc기술사모의고사-정보관리-모범답안-3교시-4.jpg", label: "1쪽" },
@@ -53803,7 +53791,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "2",
     question: "005 혼잡 회피 방식에 대해 설명하시오. —",
     exam: "제77회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["QoS(Quality of Service)"],
     pages: [
       { src: "/answers/KPC모의고사/77회/kpc-77회-kpc기술사모의고사-컴시응-모범답안-4교시-2.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/77회/kpc-77회-kpc기술사모의고사-컴시응-모범답안-4교시-3.jpg", label: "2쪽" },
@@ -54063,7 +54051,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "1",
     question: "ie 케플링 구제 |즘에. 1 다음 질문에 대하여 설명하시오 ※ SLTF : Shortest Latency Time First, SPTF : Shortest Positioning Time First",
     exam: "제77회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["디스크 스케줄링(Disk Scheduling)"],
     pages: [
       { src: "/answers/KPC모의고사/77회/kpc-77회-kpc기술사모의고사-컴시응-모범답안-3교시-2.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/77회/kpc-77회-kpc기술사모의고사-컴시응-모범답안-3교시-3.jpg", label: "2쪽" },
@@ -54077,7 +54065,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "2",
     question: "OWASP(Open Web Application Security Project) 2013에서 제시하는 보안상 크게 영향을 줄 수 있는 상위 10가지 항목에 대해서 나열하고, 주요 취약점 및 대응방안에 대해서 3가지 이상 상술하시오.",
     exam: "제77회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["OWASP Top 10:2021"],
     questionIds: ["m02521"],
     pages: [
       { src: "/answers/KPC모의고사/77회/kpc-77회-kpc기술사모의고사-컴시응-모범답안-3교시-6.jpg", label: "1쪽" },
@@ -54092,7 +54080,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "3",
     question: "네트워크에서 가장 널리 사용되는 오류 AS 기법 SO Parity Che에 대해 설명하시오",
     exam: "제77회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["FEC(Forward Error Correction) / BEC(Backward Error Correction)"],
     pages: [
       { src: "/answers/KPC모의고사/77회/kpc-77회-kpc기술사모의고사-컴시응-모범답안-3교시-10.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/77회/kpc-77회-kpc기술사모의고사-컴시응-모범답안-3교시-11.jpg", label: "2쪽" },
@@ -54140,7 +54128,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "1",
     question: "네트워크에서의 큐잉(Queueing)의 개념과 유형에 대해 설명하시오.",
     exam: "제79회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["QoS(Quality of Service)"],
     questionIds: ["m01740"],
     pages: [
       { src: "/answers/KPC모의고사/79회/kpc-79회-kpc기술사모의고사-정보관리-모범답안-1교시-2.jpg", label: "1쪽" },
@@ -54278,7 +54266,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "1",
     question: "캐쉬 일관성 유지 프로토콜 중 하나인 MES 프로토콜에 대해 설명하고, 2 개의 프로세서가 1 개의 공유메모리를 공유하는 시스템에서 캐쉬",
     exam: "제73회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["MESI", "캐시 일관성(Cache Coherence)"],
     pages: [
       { src: "/answers/KPC모의고사/73회/kpc-73회-kpc기술사모의고사-컴시응-모범답안-3교시-2.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/73회/kpc-73회-kpc기술사모의고사-컴시응-모범답안-3교시-3.jpg", label: "2쪽" },
@@ -54407,7 +54395,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "1",
     question: "가상기억장치에서 페이지 테이블 방식 사용시 문제점을 설명하시오",
     exam: "제78회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["직접 사상과 연관 사상 페이징 기법"],
     pages: [
       { src: "/answers/KPC모의고사/78회/kpc-78회-kpc기술사모의고사-컴시응-모범답안-1교시-2.jpg", label: "1쪽" },
     ],
@@ -54418,7 +54406,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "2",
     question: "005왁보를 위한 ㅠ3『1ㅇ『ㅇ11008 과 ㅠ하16ㅇ59030108에 대하여 설명하시오",
     exam: "제78회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["QoS(Quality of Service)"],
     pages: [
       { src: "/answers/KPC모의고사/78회/kpc-78회-kpc기술사모의고사-컴시응-모범답안-1교시-3.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/78회/kpc-78회-kpc기술사모의고사-컴시응-모범답안-1교시-4.jpg", label: "2쪽" },
@@ -54441,7 +54429,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "8",
     question: "리팩토링에서의 Pull Up Method에 대하여 설명하시오.",
     exam: "제78회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["소프트웨어 리팩토링"],
     questionIds: ["f02915"],
     pages: [
       { src: "/answers/KPC모의고사/78회/kpc-78회-kpc기술사모의고사-컴시응-모범답안-1교시-6.jpg", label: "1쪽" },
@@ -54499,7 +54487,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "2",
     question: "43억개 가량인 현재의 인터넷주소가 거의 고갈돼 국가별로 106로의 전환을 위한 대응이 진행되고 있다. 특히, 11융합시대를 맞아 다양한 유무선",
     exam: "제78회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["IPv4와 IPv6 터널링"],
     pages: [
       { src: "/answers/KPC모의고사/78회/kpc-78회-kpc기술사모의고사-컴시응-모범답안-2교시-2.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/78회/kpc-78회-kpc기술사모의고사-컴시응-모범답안-2교시-3.jpg", label: "2쪽" },
@@ -54591,7 +54579,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "8",
     question: "데이터 무결성(Integrity)에 대해서 설명하시오.",
     exam: "제77회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["데이터베이스 무결성"],
     questionIds: ["m01809"],
     pages: [
       { src: "/answers/KPC모의고사/77회/kpc-77회-kpc기술사모의고사-정보관리-모범답안-1교시-4.jpg", label: "1쪽" },
@@ -54667,7 +54655,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "1",
     question: "최근 지진 SQLS 인한 피해가 늘어나면서 재해복구센터의 중요성이 부각되고 있다. 재해복구 모의훈련의 수준별 유형을 정의하고 모의훈련 절차에 대해",
     exam: "제79회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["DRS (Disaster Recovery System)"],
     pages: [
       { src: "/answers/KPC모의고사/79회/kpc-79회-kpc기술사모의고사-컴시응-모범답안-2교시-2.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/79회/kpc-79회-kpc기술사모의고사-컴시응-모범답안-2교시-3.jpg", label: "2쪽" },
@@ -54789,7 +54777,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "4",
     question: "IPv62| 주요 특징과 164에서 1ㅁ06로의 전환기술을 설명하시오",
     exam: "제79회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["IPv6", "IPv4와 IPv6 터널링"],
     pages: [
       { src: "/answers/KPC모의고사/79회/kpc-79회-kpc기술사모의고사-컴시응-모범답안-4교시-4.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/79회/kpc-79회-kpc기술사모의고사-컴시응-모범답안-4교시-5.jpg", label: "2쪽" },
@@ -54863,7 +54851,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "2",
     question: "정보화시스템 개발 프로젝트에서 고객이 요구하는 수준의 품질을 충족시키는 것은 중요한 활동이다. 프로젝트 수행시 품질관리 프로세스를 설명하고, 품질관리도구 5가지 이상을 설명하시오",
     exam: "제81회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["품질통제도구, QC 7"],
     questionIds: ["m01698"],
     pages: [
       { src: "/answers/KPC모의고사/81회/kpc-81회-kpc기술사모의고사-정보관리-모범답안-3교시-2.jpg", label: "1쪽" },
@@ -54901,7 +54889,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "3",
     question: "RACI 차트에 대하여 [시 정보관리기술사",
     exam: "제81회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["RACI 기법(챠트)"],
+    topicTitles: ["RACI 기법(챠트)", "RACI 매트릭스"],
     pages: [
       { src: "/answers/KPC모의고사/81회/kpc-81회-kpc기술사모의고사-정보관리-모범답안-1교시-6.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/81회/kpc-81회-kpc기술사모의고사-정보관리-모범답안-1교시-7.jpg", label: "2쪽" },
@@ -54962,7 +54950,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "9",
     question: "ARQ(Automatic Repeat Request)에 대하여 설명하시오.",
     exam: "제81회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["FEC(Forward Error Correction) / BEC(Backward Error Correction)"],
     questionIds: ["f01568"],
     pages: [
       { src: "/answers/KPC모의고사/81회/kpc-81회-kpc기술사모의고사-컴시응-모범답안-1교시-6.jpg", label: "1쪽" },
@@ -55246,7 +55234,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "8",
     question: "Risk Based Test ManagementO|| 대해 설명하시오 설명하시오. 정보관리기술사",
     exam: "제83회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["위험 기반 테스트"],
     pages: [
       { src: "/answers/KPC모의고사/83회/kpc-83회-kpc기술사모의고사-정보관리-모범답안-1교시-8.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/83회/kpc-83회-kpc기술사모의고사-정보관리-모범답안-1교시-9.jpg", label: "2쪽" },
@@ -55410,7 +55398,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "5",
     question: "명세기반테스트에 대해 상세히 설명하시오. 컴퓨터시스템응용기술사",
     exam: "제83회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["블랙박스 테스트"],
     pages: [
       { src: "/answers/KPC모의고사/83회/kpc-83회-kpc기술사모의고사-컴시응-모범답안-3교시-6.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/83회/kpc-83회-kpc기술사모의고사-컴시응-모범답안-3교시-7.jpg", label: "2쪽" },
@@ -55422,7 +55410,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "6",
     question: "데이터 | 발견시 0313 Link Ｌ2》@「에서 오류복구 수행절차를 설명하시 컴퓨터시스템응용기술사",
     exam: "제83회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["FEC(Forward Error Correction) / BEC(Backward Error Correction)"],
     pages: [
       { src: "/answers/KPC모의고사/83회/kpc-83회-kpc기술사모의고사-컴시응-모범답안-3교시-8.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/83회/kpc-83회-kpc기술사모의고사-컴시응-모범답안-3교시-9.jpg", label: "2쪽" },
@@ -55471,7 +55459,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "6",
     question: "벨 라파둘라 정보관리기술사",
     exam: "제84회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["접근 통제 모델"],
     pages: [
       { src: "/answers/KPC모의고사/84회/kpc-84회-kpc기술사모의고사-정보관리-모범답안-1교시-8.jpg", label: "1쪽" },
     ],
@@ -55661,7 +55649,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "3",
     question: "인덱스 설계 절차 컴퓨터시스템응용기술사",
     exam: "제84회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["RDBMS 인덱스(index)"],
     pages: [
       { src: "/answers/KPC모의고사/84회/kpc-84회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-1교시-5.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/84회/kpc-84회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-1교시-6.jpg", label: "2쪽" },
@@ -55744,7 +55732,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "2",
     question: "AVL ㅠ66의 정의 및 특징과 균형을 유지하기 위한 Rotation AMS 상세히 설명하시오. 컴퓨터시스템웅용기술사",
     exam: "제84회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["AVL 트리"],
     pages: [
       { src: "/answers/KPC모의고사/84회/kpc-84회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-3교시-2.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/84회/kpc-84회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-3교시-3.jpg", label: "2쪽" },
@@ -55770,7 +55758,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "1",
     question: "리스크기반 테스트에 대하여 설명하시오.",
     exam: "제85회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["위험 기반 테스트"],
     questionIds: ["m03259", "f03559"],
     pages: [
       { src: "/answers/KPC모의고사/85회/kpc-85회-kpc기술사모의고사-정보관리-모범답안-1교시-2.jpg", label: "1쪽" },
@@ -55892,7 +55880,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "3",
     question: "CPUAAISS 기법에 관련하여 아래 물음에 답하시오",
     exam: "제85회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["CPU 스케줄링(CPU Scheduling)"],
     pages: [
       { src: "/answers/KPC모의고사/85회/kpc-85회-kpc기술사모의고사-정보관리-모범답안-2교시-8.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/85회/kpc-85회-kpc기술사모의고사-정보관리-모범답안-2교시-9.jpg", label: "2쪽" },
@@ -55930,7 +55918,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "5",
     question: "CPUS| 스케즐링의 선점/비선점방식을 설명하고, 각각의 알고리즘에 대하여 설명하시 컴퓨터시스템웅용기술사",
     exam: "제84회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["CPU 스케줄링(CPU Scheduling)"],
     pages: [
       { src: "/answers/KPC모의고사/84회/kpc-84회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-4교시-6.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/84회/kpc-84회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-4교시-7.jpg", label: "2쪽" },
@@ -56138,7 +56126,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "1",
     question: "Cost-Benefit &0811515에 대하여 설명하시오",
     exam: "제86회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["경제성 분석 기법"],
     pages: [
       { src: "/answers/KPC모의고사/86회/kpc-86회-kpc기술사모의고사-정보관리-모범답안-1교시-2.jpg", label: "1쪽" },
     ],
@@ -56149,7 +56137,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "2",
     question: "품질 비용과 품 \"| 도구에 대하여 설명하시 정보관리기술사",
     exam: "제86회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["SW 품질비용", "품질통제도구, QC 7"],
     pages: [
       { src: "/answers/KPC모의고사/86회/kpc-86회-kpc기술사모의고사-정보관리-모범답안-1교시-3.jpg", label: "1쪽" },
     ],
@@ -56228,7 +56216,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "1",
     question: "시스템이 제공하고 있는 기능 및 그와 관련된 외부요소를 사용자의 관점에서 표현하는 유스케이스 다이어그램에 대하여 아래의 SSO]",
     exam: "제86회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["유즈케이스 다이어그램"],
     pages: [
       { src: "/answers/KPC모의고사/86회/kpc-86회-kpc기술사모의고사-정보관리-모범답안-3교시-2.jpg", label: "1쪽" },
     ],
@@ -56325,7 +56313,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "9",
     question: "정보시스템 용량 산정에 대하여 설명하시오 가",
     exam: "제86회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["정보시스템 하드웨어 규모산정 지침"],
     pages: [
       { src: "/answers/KPC모의고사/86회/kpc-86회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-1교시-8.jpg", label: "1쪽" },
     ],
@@ -56359,7 +56347,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "5",
     question: "인공지능 서비스 품질에 있어 가장 중요한 AS 데이터를 효율적으로 처리할 수 있는 연산처리 성능과 전력효율입니다. 기존의 서버는 인공지능에서",
     exam: "제86회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["지능형 반도체"],
     pages: [
       { src: "/answers/KPC모의고사/86회/kpc-86회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-2교시-13.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/86회/kpc-86회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-2교시-14.jpg", label: "2쪽" },
@@ -56383,7 +56371,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "6",
     question: "DDoS 의 공격유형에 대해 설명하시오. 정보관리기술사",
     exam: "제87회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["DoS(Denial of Service)"],
     pages: [
       { src: "/answers/KPC모의고사/87회/kpc-87회-kpc기술사모의고사-정보관리-모범답안-1교시-8.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/87회/kpc-87회-kpc기술사모의고사-정보관리-모범답안-1교시-9.jpg", label: "2쪽" },
@@ -56395,7 +56383,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "7",
     question: "EMV 계산하고, 젝 | ta eT ot |오 서녀 | UY | 개 | BHaH ESS | Gane) UH ” 89629 | 정보관리기술사",
     exam: "제87회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["정량적 위험 분석"],
     pages: [
       { src: "/answers/KPC모의고사/87회/kpc-87회-kpc기술사모의고사-정보관리-모범답안-1교시-10.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/87회/kpc-87회-kpc기술사모의고사-정보관리-모범답안-1교시-11.jpg", label: "2쪽" },
@@ -56454,7 +56442,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "5",
     question: "영상 압축에서 사용되는 통계적 압축 기법인 엔트로피 부호화가 있다. 엔트로피 부호화 기법인 허프만 부호화, 산술 부호화, ZW",
     exam: "제86회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["허프만(Huffman) 코딩"],
     pages: [
       { src: "/answers/KPC모의고사/86회/kpc-86회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-4교시-10.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/86회/kpc-86회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-4교시-11.jpg", label: "2쪽" },
@@ -56491,7 +56479,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "6",
     question: "최단경로를 검색하는 01602 알고리즘에 대하여 설명하고, 다음 그래프에서 ㆍ",
     exam: "제87회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["다익스트라(Dijkstra) 알고리즘"],
     pages: [
       { src: "/answers/KPC모의고사/87회/kpc-87회-kpc기술사모의고사-정보관리-모범답안-3교시-12.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/87회/kpc-87회-kpc기술사모의고사-정보관리-모범답안-3교시-13.jpg", label: "2쪽" },
@@ -56558,7 +56546,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "12",
     question: "데이터 무결성에 대하여 설명하시오.",
     exam: "제89회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["데이터베이스 무결성"],
     questionIds: ["m02919"],
     pages: [
       { src: "/answers/KPC모의고사/89회/kpc-89회-kpc기술사모의고사-정보관리-모범답안-1교시-9.jpg", label: "1쪽" },
@@ -56682,7 +56670,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "3",
     question: "혼잡제어에 대해서 다음을 설명하시오",
     exam: "제89회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["혼잡 제어"],
+    topicTitles: ["혼잡 제어", "TCP 혼잡제어"],
     pages: [
       { src: "/answers/KPC모의고사/89회/kpc-89회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-4교시-4.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/89회/kpc-89회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-4교시-5.jpg", label: "2쪽" },
@@ -56743,7 +56731,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "3",
     question: "디피-헬만 키 WSh(Diffie-Hellman Key Exchange) 기법에 대해 설명하시오",
     exam: "제90회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["디피-헬만 알고리즘(Diffie-Hellman Algorithm)"],
     questionIds: ["f01990"],
     pages: [
       { src: "/answers/KPC모의고사/90회/kpc-90회-kpc기술사모의고사-정보관리-모범답안-1교시-6.jpg", label: "1쪽" },
@@ -56756,7 +56744,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "5",
     question: "암스트롱 Se2|에 대해 설명하시오",
     exam: "제90회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["암스트롱 공리(Armstrong's Axioms)"],
     pages: [
       { src: "/answers/KPC모의고사/90회/kpc-90회-kpc기술사모의고사-정보관리-모범답안-1교시-12.jpg", label: "1쪽" },
     ],
@@ -56827,7 +56815,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "6",
     question: "IP에 대하여 다음 SLO] 설명하시오. 가. 106 헤더구조, 나. 106 통신방식인 Unicast, Multicast, Anycast, 다. IPv62",
     exam: "제90회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["IPv6"],
     questionIds: ["ns19w05-202", "f00142", "ns16w09-304", "c117-113"],
     pages: [
       { src: "/answers/KPC모의고사/90회/kpc-90회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-2교시-4.jpg", label: "1쪽" },
@@ -56863,7 +56851,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "5",
     question: "메모리 페이징에 대하여 설명하시오",
     exam: "제90회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["가상메모리의 페이징과 세그멘테이션"],
     pages: [
       { src: "/answers/KPC모의고사/90회/kpc-90회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-1교시-6.jpg", label: "1쪽" },
     ],
@@ -56932,7 +56920,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "12",
     question: "퍼즈 테스트에 대해 설명하시오",
     exam: "제90회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["퍼즈 테스트 (Fuzz Testing) Fuzzing", "퍼즈 테스트"],
+    topicTitles: ["퍼즈 테스트 (Fuzz Testing) Fuzzing", "퍼즈 테스트", "퍼징 테스트 (Fuzzing Test)"],
     pages: [
       { src: "/answers/KPC모의고사/90회/kpc-90회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-1교시-13.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/90회/kpc-90회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-1교시-14.jpg", label: "2쪽" },
@@ -57009,7 +56997,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "2",
     question: "프로세스의 병행성을 보장하는 상호배제를 구현하기 위한 기법을 HW 기법과 SW 기법으로 나누어 설명하고, 그 중 데커(06<60",
     exam: "제90회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["경쟁조건(Race Condition) 해결 방안"],
     pages: [
       { src: "/answers/KPC모의고사/90회/kpc-90회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-3교시-4.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/90회/kpc-90회-kpc기술사모의고사-컴퓨터시스템응용-모범답안-3교시-5.jpg", label: "2쪽" },
@@ -57047,7 +57035,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "1",
     question: "없으면 0 을 리턴해야 St, NVL/MAX/MIN 함수 사용) <6×.주문-테이블> CREATE TABLE 주문(주문순번 NUMBER NOT NULL, 주문일자 DATE NOT NULL, $3° NUMBER, 번호 NUMBER, 본초 au",
     exam: "제94회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["SQL(Structured Query Language)"],
     pages: [
       { src: "/answers/KPC모의고사/94회/kpc-94회-kpc기술사모의고사-정보처리-모범답안-3교시-2.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/94회/kpc-94회-kpc기술사모의고사-정보처리-모범답안-3교시-3.jpg", label: "2쪽" },
@@ -57210,7 +57198,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "4",
     question: "사용성 테스트 수행 절차를 설명하시오.",
     exam: "제53회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["사용성 테스트"],
+    topicTitles: ["사용성 테스트", "사용성 평가"],
     questionIds: ["m02529"],
     pages: [
       { src: "/answers/KPC모의고사/53회/kpc-kpc-53회-정보관리-모의고사-모범답안-1교시-8.jpg", label: "1쪽" },
@@ -57259,7 +57247,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "9",
     question: "버전관리 시스템 SVN와 GIT에 대해 설명하시오.",
     exam: "제53회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["형상 관리"],
     questionIds: ["m02534", "k101-403"],
     pages: [
       { src: "/answers/KPC모의고사/53회/kpc-kpc-53회-정보관리-모의고사-모범답안-1교시-14.jpg", label: "1쪽" },
@@ -57382,7 +57370,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "11",
     question: "XAl(eXplainable 21)에 대해 [시오 정보처리기술사",
     exam: "제93회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["XAI(eXplainable AI) 방법론"],
     pages: [
       { src: "/answers/KPC모의고사/93회/kpc-93회-kpc기술사모의고사-정보처리-모범답안-1교시-8.jpg", label: "1쪽" },
     ],
@@ -57852,7 +57840,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "5",
     question: "데이터를 어떻게 분석 및 활용하느냐가 기업의 경쟁력을 좌우하고 있으며, 기업들은 데이터 분석 수준 진단을 통해 데이터 분석의 도입여부와 활용에 대한 명확한 방향성 등을 결정할 수 있다. 데이터 분석 수준 진단을 위한 분석 준비도(Readiness)와 분석 성숙도(Maturity)에 대하여 설명하시오",
     exam: "제92회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["데이터 분석 준비도와 데이터 분석 성숙도"],
     questionIds: ["m01365"],
     pages: [
       { src: "/answers/KPC모의고사/92회/kpc-92회-kpc기술사모의고사-정보처리-모범답안-2교시-10.jpg", label: "1쪽" },
@@ -58086,7 +58074,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "8",
     question: "개인정보보호법상의 가명정보",
     exam: "제94회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["개인정보보호법"],
+    topicTitles: ["개인정보보호법", "가명정보 처리 가이드라인"],
     questionIds: ["m01293"],
     pages: [
       { src: "/answers/KPC모의고사/94회/kpc-94회-kpc기술사모의고사-정보처리-모범답안-1교시-9.jpg", label: "1쪽" },
@@ -58098,7 +58086,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "11",
     question: "11, Phantom Conflict 에 대하여 설명하시오. 정보처리기술사",
     exam: "제94회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["Phantom Conflict"],
+    topicTitles: ["Phantom Conflict", "Isolation Level(격리 레벨)"],
     pages: [
       { src: "/answers/KPC모의고사/94회/kpc-94회-kpc기술사모의고사-정보처리-모범답안-1교시-12.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/94회/kpc-94회-kpc기술사모의고사-정보처리-모범답안-1교시-13.jpg", label: "2쪽" },
@@ -58298,7 +58286,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "1",
     question: "데이터 링크계층의 오류제어(error control) 기법에 대해 설명하시오.",
     exam: "제49회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["FEC(Forward Error Correction) / BEC(Backward Error Correction)"],
     questionIds: ["m02646"],
     pages: [
       { src: "/answers/KPC모의고사/49회/kpc-kpc-49회-모의고사-모범답안-1교시-2.jpg", label: "1쪽" },
@@ -58524,7 +58512,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "2",
     question: "효율적인 정보화 투자 및 안정적인 정보시스템 운영 등을 위해 정보시스템 도입 시 적정한 하드웨어 규모를 산정하는 것이 매우 중요하다. 하드웨어 용량산정의 개념과 절차에 대해서 설명하고, DB서버를 위한 용량 산정을 위한 기초자료에 대해서 상세히 설명하시오.",
     exam: "제54회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["정보시스템 하드웨어 규모산정 지침"],
     questionIds: ["m02526"],
     pages: [
       { src: "/answers/KPC모의고사/54회/kpc-kpc-54회-시스템응용-모의고사-모범답안-4교시-4.jpg", label: "1쪽" },
@@ -58589,7 +58577,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "4",
     question: "소프트웨어 공학에 린 제조업의 원리를 적용시킨 린 소프트웨어 개발 기법에 대해 설명하시오.",
     exam: "제54회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["린 (Lean) 방법론"],
     questionIds: ["m02785"],
     pages: [
       { src: "/answers/KPC모의고사/54회/kpc-kpc-54회-시스템응용-모의고사-모범답안-3교시-6.jpg", label: "1쪽" },
@@ -58647,7 +58635,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "2",
     question: "링크를 공유하는 Buss 토폴로지는 하나의 링크를 공유하는 시스템에서 두 개 이상의 호스트가 링크를 사용하는",
     exam: "제54회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["CSMA/CD"],
     pages: [
       { src: "/answers/KPC모의고사/54회/kpc-kpc-54회-시스템응용-모의고사-모범답안-2교시-6.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/54회/kpc-kpc-54회-시스템응용-모의고사-모범답안-2교시-7.jpg", label: "2쪽" },
@@ -58663,7 +58651,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "3",
     question: "중앙처리장치가 수행할 SAS 정의하는 2 진수 코드로 명령어 VHS 사용하게 되는데, 프로그램 성능을 고려한 명령어 집합을 설계하기 위해서는",
     exam: "제54회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["CISC vs RISC"],
     pages: [
       { src: "/answers/KPC모의고사/54회/kpc-kpc-54회-시스템응용-모의고사-모범답안-2교시-12.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/54회/kpc-kpc-54회-시스템응용-모의고사-모범답안-2교시-13.jpg", label: "2쪽" },
@@ -58677,7 +58665,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "4",
     question: "SSL(Secure Socket Ｌ3+60)은 웹 프로토콜 안전성 보장 메커니즘으로 필수 불가결한 요소이다. 다음을 답하시오",
     exam: "제54회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["TLS/SSL(Secure Socket Layer)"],
     pages: [
       { src: "/answers/KPC모의고사/54회/kpc-kpc-54회-시스템응용-모의고사-모범답안-2교시-16.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/54회/kpc-kpc-54회-시스템응용-모의고사-모범답안-2교시-17.jpg", label: "2쪽" },
@@ -58718,7 +58706,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "1",
     question: "데이터탐색 및 분석기반 비즈니스 인사이트 도출기술인 빅데이터 시각화에 대해 다음을 설명하시오 가. 시각화 인사이트 프로세스 나. 빅데이터 시각화 프로세스 및 정보시각화 유형",
     exam: "제88회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["데이터 시각화"],
+    topicTitles: ["데이터 시각화", "빅데이터 시각화(Visualization)"],
     questionIds: ["m01457"],
     pages: [
       { src: "/answers/KPC모의고사/88회/kpc-88회-kpc기술사모의고사-모범답안-3교시-2.jpg", label: "1쪽" },
@@ -58781,7 +58769,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "2",
     question: "데이터베이스에서 모델에 대해서 예문을 보고 단계별 ER 다이어그램을 완성하시오",
     exam: "제54회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["데이터베이스 모델링"],
     pages: [
       { src: "/answers/KPC모의고사/54회/kpc-kpc-54회-정보관리-모의고사-모범답안-2교시-4.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/54회/kpc-kpc-54회-정보관리-모의고사-모범답안-2교시-5.jpg", label: "2쪽" },
@@ -58795,7 +58783,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "3",
     question: "다음 모바일 개발에서 이용하는 코드의 예시를 보고 물음에 답하시오. 가. 아래 코드의 보안취약점과 문제점, 예방방법을 상세히 설명하시오. 나. 특정 메소드를 이용하여 안전한 코드로 변환하시오. 1: ..... 2: public void f(Properties request) { 3: ..... 4: String name request.getProperty(\"filename\"); 5: if( name != null) { 6: File file = new File(\"/usr/local/tmp/\" + name); 7: file.delete(); 8: } 9: ..... 10: }",
     exam: "제54회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["시큐어 코딩(Secure Coding)"],
     questionIds: ["m02511"],
     pages: [
       { src: "/answers/KPC모의고사/54회/kpc-kpc-54회-정보관리-모의고사-모범답안-2교시-8.jpg", label: "1쪽" },
@@ -58917,7 +58905,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "2",
     question: "반송파 감지 다중접속 Of] A]",
     exam: "제55회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["CSMA/CD", "CSMA/CA"],
     pages: [
       { src: "/answers/KPC모의고사/55회/kpc-kpc-55회-시스템응용-모의고사-모범답안-4교시-6.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/55회/kpc-kpc-55회-시스템응용-모의고사-모범답안-4교시-7.jpg", label: "2쪽" },
@@ -58959,7 +58947,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "5",
     question: "단계, 4 단계, 6 단계 명령어 파이프라인에 대해 설명하고 036 해저드의 발생 원인과 해결 방안에 대해",
     exam: "제55회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["Pipeline(파이프라인)", "Pipeline Hazard"],
     pages: [
       { src: "/answers/KPC모의고사/55회/kpc-kpc-55회-시스템응용-모의고사-모범답안-4교시-17.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/55회/kpc-kpc-55회-시스템응용-모의고사-모범답안-4교시-18.jpg", label: "2쪽" },
@@ -58987,7 +58975,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "1",
     question: "OWASP(Open Web Application Security Project) 2013에서 제시하는 보안상 크게 영향을 줄 수 있는 상위 10가지 항목에 대해서 나열하고, 주요 취약점 및 대응방안에 대해서 3가지 이상 상술하시오.",
     exam: "제54회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["OWASP Top 10:2021"],
     questionIds: ["m02521"],
     pages: [
       { src: "/answers/KPC모의고사/54회/kpc-kpc-54회-정보관리-모의고사-모범답안-4교시-2.jpg", label: "1쪽" },
@@ -59058,7 +59046,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "6",
     question: "효율적인 정보화 투자 및 안정적인 정보시스템 운영 등을 위해 정보시스템 도입 시 적정한 하드웨어 규모를 산정하는 것이 매우 중요하다. 하드웨어 용량산정의 개념과 절차에 대해서 설명하고, DB서버를 위한 용량 산정을 위한 기초자료에 대해서 상세히 설명하시오.",
     exam: "제54회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["정보시스템 하드웨어 규모산정 지침"],
     questionIds: ["m02526"],
     pages: [
       { src: "/answers/KPC모의고사/54회/kpc-kpc-54회-정보관리-모의고사-모범답안-4교시-18.jpg", label: "1쪽" },
@@ -59273,7 +59261,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "7",
     question: "BCMS(Business Continuity Management 551600)에 대해 설명하시오",
     exam: "제55회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["ISO 22301", "BCP (Business Continuity Planning)"],
     pages: [
       { src: "/answers/KPC모의고사/55회/kpc-kpc-55회-시스템응용-모의고사-모범답안-1교시-14.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/55회/kpc-kpc-55회-시스템응용-모의고사-모범답안-1교시-15.jpg", label: "2쪽" },
@@ -59310,7 +59298,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "10",
     question: "린 소프트웨어 개발 방법에 대해 설명하시오",
     exam: "제55회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["린 (Lean) 방법론"],
     questionIds: ["f02827"],
     pages: [
       { src: "/answers/KPC모의고사/55회/kpc-kpc-55회-시스템응용-모의고사-모범답안-1교시-20.jpg", label: "1쪽" },
@@ -59349,7 +59337,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "13",
     question: "오류제어 방식 중 ARQ(Automatic Repeat reQuest)2| 유형에 대해 설명하시오",
     exam: "제55회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["FEC(Forward Error Correction) / BEC(Backward Error Correction)"],
     pages: [
       { src: "/answers/KPC모의고사/55회/kpc-kpc-55회-시스템응용-모의고사-모범답안-1교시-26.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/55회/kpc-kpc-55회-시스템응용-모의고사-모범답안-1교시-27.jpg", label: "2쪽" },
@@ -59555,7 +59543,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "7",
     question: "정보시스템 감리는 3단계로 수행되는데, 각 단계와 단계별 주요 점검사항에 대하여 설명하시오",
     exam: "제57회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["정보시스템 감리 Framework"],
+    topicTitles: ["정보시스템 감리 Framework", "공통감리 절차"],
     pages: [
       { src: "/answers/KPC모의고사/57회/kpc-kpc-57회-시스템응용-모의고사-모범답안-1교시-8.jpg", label: "1쪽" },
     ],
@@ -59566,7 +59554,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "9",
     question: "퍼즈 테스팅(Fuzz testing)을 설명하시오.",
     exam: "제57회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["퍼즈 테스트 (Fuzz Testing) Fuzzing"],
+    topicTitles: ["퍼즈 테스트 (Fuzz Testing) Fuzzing", "퍼징 테스트 (Fuzzing Test)"],
     questionIds: ["f03044"],
     pages: [
       { src: "/answers/KPC모의고사/57회/kpc-kpc-57회-시스템응용-모의고사-모범답안-1교시-9.jpg", label: "1쪽" },
@@ -59579,7 +59567,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "10",
     question: "NoSQLE 키-값 데이터베이스, 문서 데이터베이스, 칼럼 패밀리 데이터 베이스로 분류하여",
     exam: "제57회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["NoSQL"],
     pages: [
       { src: "/answers/KPC모의고사/57회/kpc-kpc-57회-시스템응용-모의고사-모범답안-1교시-11.jpg", label: "1쪽" },
     ],
@@ -59656,7 +59644,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "7",
     question: "비트맵(Bitmap) 인덱스에 대해서 설명하시오.",
     exam: "제54회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["RDBMS 인덱스(index)"],
     questionIds: ["m02502"],
     pages: [
       { src: "/answers/KPC모의고사/54회/kpc-kpc-54회-정보관리-모의고사-모범답안-1교시-11.jpg", label: "1쪽" },
@@ -59669,7 +59657,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "8",
     question: "너비 우선 탐색(Breadth First Search)과 깊이 우선 탐색(Depth First Search)에 대해서 설명하시오.",
     exam: "제54회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["그래프 순회(Graph Traversal)"],
     questionIds: ["m02503"],
     pages: [
       { src: "/answers/KPC모의고사/54회/kpc-kpc-54회-정보관리-모의고사-모범답안-1교시-13.jpg", label: "1쪽" },
@@ -59862,7 +59850,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "2",
     question: "CPUS| 작업의 효율적인 수행을 위해 다양한 스케줄링 알고리즘을 사용할 수 있다. 4 스케줄링",
     exam: "제58회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["CPU 스케줄링(CPU Scheduling)"],
     pages: [
       { src: "/answers/KPC모의고사/58회/kpc-kpc-58회-시스템응용-모의고사-모범답안-4교시-4.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/58회/kpc-kpc-58회-시스템응용-모의고사-모범답안-4교시-5.jpg", label: "2쪽" },
@@ -59906,7 +59894,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "1",
     question: "해쉬 알고리즘(Hash Algorithm)에 대하여 설명하시오.",
     exam: "제55회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["해시 함수의 안전성"],
     questionIds: ["k116-103"],
     pages: [
       { src: "/answers/KPC모의고사/55회/kpc-kpc-55회-정보관리-모의고사-모범답안-2교시-2.jpg", label: "1쪽" },
@@ -60005,7 +59993,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "3",
     question: "CPU 가 명령을 수행하기 위한 파이프라이닝(Pipelining)의 개념과 파이프라이닝을 방해하는 위험 요소에 대하여 설명하시오.",
     exam: "제57회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["Pipeline(파이프라인)", "Pipeline Hazard"],
     questionIds: ["m02421"],
     pages: [
       { src: "/answers/KPC모의고사/57회/kpc-kpc-57회-정보관리-모의고사-모범답안-2교시-6.jpg", label: "1쪽" },
@@ -60119,7 +60107,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "11",
     question: "기능점수(Function Point)에서 어플리케이션 경계에 대하여 설명하시오",
     exam: "제59회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["SW 규모산정"],
+    topicTitles: ["SW 규모산정", "Function Point"],
     pages: [
       { src: "/answers/KPC모의고사/59회/kpc-kpc-59회-시스템응용-모의고사-모범답안-1교시-14.jpg", label: "1쪽" },
     ],
@@ -60291,7 +60279,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "13",
     question: "코드 가상화와 Anti-Reversing 기술에 대해서 설명하시오.",
     exam: "제58회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["난독화", "SW난독화"],
     questionIds: ["m02387"],
     pages: [
       { src: "/answers/KPC모의고사/58회/kpc-kpc-58회-정보관리-모의고사-모범답안-1교시-22.jpg", label: "1쪽" },
@@ -60330,7 +60318,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "3",
     question: "소프트웨어 테스트에 대해 다음 물음에 답하시오. 가. 명세기반기법(Specification-based Test)에 대해 설명하시오. 나. 경계값 분석 시험과 결정 테이블 테스팅을 비교 설명하시오. 다. 상태전이 테스팅에 대해 설명하시오.",
     exam: "제58회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["블랙박스 테스트"],
     questionIds: ["m02402"],
     pages: [
       { src: "/answers/KPC모의고사/58회/kpc-kpc-58회-정보관리-모의고사-모범답안-4교시-6.jpg", label: "1쪽" },
@@ -60568,7 +60556,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "2",
     question: "지능화되는 공격인 401 공격은 엔드포인트에 유포되는 악성코드의 예방탐지 및",
     exam: "제59회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["APT(Advanced Persistent Threat) 공격", "EDR(Endpoint Detection and Response)"],
     pages: [
       { src: "/answers/KPC모의고사/59회/kpc-kpc-59회-시스템응용-모의고사-모범답안-4교시-4.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/59회/kpc-kpc-59회-시스템응용-모의고사-모범답안-4교시-5.jpg", label: "2쪽" },
@@ -60650,7 +60638,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "3",
     question: "네트워크 라우팅이나 시뮬레이션 게임의 길 찾기에 사용되는 알고리즘에 대한",
     exam: "제59회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["다익스트라(Dijkstra) 알고리즘"],
     pages: [
       { src: "/answers/KPC모의고사/59회/kpc-kpc-59회-시스템응용-모의고사-모범답안-2교시-10.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/59회/kpc-kpc-59회-시스템응용-모의고사-모범답안-2교시-11.jpg", label: "2쪽" },
@@ -60678,7 +60666,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "5",
     question: "라우팅 프로토콜2| 개 념과 RIP(Routing Information",
     exam: "제59회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)"],
     pages: [
       { src: "/answers/KPC모의고사/59회/kpc-kpc-59회-시스템응용-모의고사-모범답안-2교시-18.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/59회/kpc-kpc-59회-시스템응용-모의고사-모범답안-2교시-19.jpg", label: "2쪽" },
@@ -60780,7 +60768,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "7",
     question: "ACID 와 BASE 를 비교 설명하시오.",
     exam: "제59회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["트랜잭션", "CAP 이론과 BASE 이론"],
     questionIds: ["m02107"],
     pages: [
       { src: "/answers/KPC모의고사/59회/kpc-kpc-59회-정보관리-모의고사-모범답안-1교시-11.jpg", label: "1쪽" },
@@ -60793,7 +60781,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "8",
     question: "도메인주도 개발(Domain Driven Development)에 대해 설명하시오.",
     exam: "제59회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["DDD (Domain Driven Design)"],
     questionIds: ["m02353"],
     pages: [
       { src: "/answers/KPC모의고사/59회/kpc-kpc-59회-정보관리-모의고사-모범답안-1교시-13.jpg", label: "1쪽" },
@@ -61110,7 +61098,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "11",
     question: "000[45100과 Diffusion 구현 위한 S-Box, 『-80×에 대하여 설명하시오",
     exam: "제88회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["Shannon의 암호 설계 원칙"],
     pages: [
       { src: "/answers/KPC모의고사/88회/kpc-88회-kpc기술사모의고사-모범답안-1교시-10.jpg", label: "1쪽" },
     ],
@@ -61233,7 +61221,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "4",
     question: "데이터 무결성이란 데이터의 입력이나 변경들을 제한하여 데이터의 안전성을 저해하는 요소를 막는 것을 의미한다. 아래의 질문에 대해 설명하세요. 가. Data 무결성의 유형과 DBMS가 제공하는 무결성 요소를 설명하세요. 나. 데이터 무결성 보장 기법을 DBMS와 Application 관점으로 비교하세요.",
     exam: "제46회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["데이터베이스 무결성"],
     questionIds: ["m02757"],
     pages: [
       { src: "/answers/KPC모의고사/46회/kpc-kpc-46회-모의고사-모범답안-3교시-9.jpg", label: "1쪽" },
@@ -61261,7 +61249,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "1",
     question: "첨단 기술로 융ㆍ복합화된 스마트 시티7} 사이버 공격 등에 의해 보안 사고가 발생할 경우 그 파괴력은 사이버 공간뿐만 아니라 물리적",
     exam: "제94회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["스마트시티 보안취약점 및 대응방안"],
     pages: [
       { src: "/answers/KPC모의고사/94회/kpc-94회-kpc기술사모의고사-정보처리-모범답안-2교시-2.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/94회/kpc-94회-kpc기술사모의고사-정보처리-모범답안-2교시-3.jpg", label: "2쪽" },
@@ -61273,7 +61261,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "3",
     question: "PG BAIYIAIHA SCS) S 사이버 송격프로우더 모오하기 Tet KS 욱가표순이 ALS ACT. ICS SOS 퀴안 국가표순이 ASS 것은 국내 AS. RES 순수하는 섯단으도도 se",
     exam: "제94회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["IEC 62443"],
     pages: [
       { src: "/answers/KPC모의고사/94회/kpc-94회-kpc기술사모의고사-정보처리-모범답안-2교시-10.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/94회/kpc-94회-kpc기술사모의고사-정보처리-모범답안-2교시-11.jpg", label: "2쪽" },
@@ -61511,7 +61499,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "3",
     question: "해밍 SL 에 대해 설명하시우",
     exam: "제61회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["해밍코드(Hamming code)"],
     pages: [
       { src: "/answers/KPC모의고사/61회/kpc-kpc-61회-시스템응용-모의고사-모범답안-1교시-2.jpg", label: "1쪽" },
     ],
@@ -61522,7 +61510,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "5",
     question: "명령어 파이프라인에서 데이터 해저드에 대해 설명하시오",
     exam: "제61회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["Pipeline Hazard"],
     pages: [
       { src: "/answers/KPC모의고사/61회/kpc-kpc-61회-시스템응용-모의고사-모범답안-1교시-3.jpg", label: "1쪽" },
     ],
@@ -61665,7 +61653,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "3",
     question: "2단계 로킹(2 Phase Locking) 에 대해 설명하시오",
     exam: "제63회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["Locking"],
+    topicTitles: ["Locking", "DB 동시성제어"],
     pages: [
       { src: "/answers/KPC모의고사/63회/kpc-kpc-63회-시스템응용-모의고사-모범답안-1교시-4.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/63회/kpc-kpc-63회-시스템응용-모의고사-모범답안-1교시-5.jpg", label: "2쪽" },
@@ -61691,7 +61679,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "5",
     question: "요구 페이징 에 대해 설냉하시오",
     exam: "제63회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["요구페이징(demand paging)"],
+    topicTitles: ["요구페이징(demand paging)", "가상메모리 관리기법"],
     pages: [
       { src: "/answers/KPC모의고사/63회/kpc-kpc-63회-시스템응용-모의고사-모범답안-1교시-9.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/63회/kpc-kpc-63회-시스템응용-모의고사-모범답안-1교시-10.jpg", label: "2쪽" },
@@ -61703,7 +61691,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "6",
     question: "프로세서간 통신방법 중 UDS(Unix Domain Socket) 에 대해 설명하시오",
     exam: "제63회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["프로세스간 통신(IPC)"],
     pages: [
       { src: "/answers/KPC모의고사/63회/kpc-kpc-63회-시스템응용-모의고사-모범답안-1교시-11.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/63회/kpc-kpc-63회-시스템응용-모의고사-모범답안-1교시-12.jpg", label: "2쪽" },
@@ -61760,7 +61748,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "6",
     question: "네트워크 경로예약 프로토콜 인 RSVP에 대해",
     exam: "제60회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["QoS(Quality of Service)"],
     pages: [
       { src: "/answers/KPC모의고사/60회/kpc-kpc-60회-시스템응용-모의고사-모범답안-1교시-5.jpg", label: "1쪽" },
     ],
@@ -61828,7 +61816,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "13",
     question: "리눅스 A 널에 대해 설명하시오",
     exam: "제60회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["커널(Kernel)"],
     pages: [
       { src: "/answers/KPC모의고사/60회/kpc-kpc-60회-시스템응용-모의고사-모범답안-1교시-12.jpg", label: "1쪽" },
     ],
@@ -61879,7 +61867,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "2",
     question: "생체인식기법의 개념 및 구현 기법들의 특징에 대하여 설명하고 얼굴인식",
     exam: "제62회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["생체 인증(텔레바이오 인증)"],
     pages: [
       { src: "/answers/KPC모의고사/62회/kpc-kpc-62회-시스템응용-모의고사-모범답안-2교시-2.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/62회/kpc-kpc-62회-시스템응용-모의고사-모범답안-2교시-3.jpg", label: "2쪽" },
@@ -62015,7 +62003,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "1",
     question: "기억장치 배치기법의 개념을 기술하고, 기법 3가지(최조, 최적, 최악)에 대하여 설명하시오",
     exam: "제61회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["가상메모리 관리기법"],
     pages: [
       { src: "/answers/KPC모의고사/61회/kpc-kpc-61회-시스템응용-모의고사-모범답안-3교시-2.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/61회/kpc-kpc-61회-시스템응용-모의고사-모범답안-3교시-3.jpg", label: "2쪽" },
@@ -62029,7 +62017,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "2",
     question: "최근 다양한 제품의 고객만족을 위하여 사용성에 대한 고려가 충분한지에 대한 품질 이슈가 부각되고 있다. 다음의 질문에 대하여",
     exam: "제61회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["사용성 평가"],
     pages: [
       { src: "/answers/KPC모의고사/61회/kpc-kpc-61회-시스템응용-모의고사-모범답안-3교시-6.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/61회/kpc-kpc-61회-시스템응용-모의고사-모범답안-3교시-7.jpg", label: "2쪽" },
@@ -62082,7 +62070,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "2",
     question: "1투자 성과평가에서 다음을 설명하시오",
     exam: "제63회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["IT 투자성과 평가"],
     pages: [
       { src: "/answers/KPC모의고사/63회/kpc-kpc-63회-정보관리-모의고사-모범답안-2교시-2.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/63회/kpc-kpc-63회-정보관리-모의고사-모범답안-2교시-3.jpg", label: "2쪽" },
@@ -62108,7 +62096,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "5",
     question: "UDP는 프로토콜의 특성상 다양한 기술의 근간으로 사용되고 있다. 가. UDP 프로토콜의 개념을 설명하고, TCP 프로토콜과 비교하시오. 나. Multicast의 개념을 설명하고, Multicast 라우팅 프로토콜의 유형을 설명하시오.",
     exam: "제63회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["TCP 와 UDP 비교"],
     questionIds: ["m02243"],
     pages: [
       { src: "/answers/KPC모의고사/63회/kpc-kpc-63회-정보관리-모의고사-모범답안-2교시-8.jpg", label: "1쪽" },
@@ -62123,7 +62111,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "6",
     question: "프로젝트에서 기능 요구사항을 분석하기 위해 SA Usecase 모델링을 사용한다",
     exam: "제63회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["유즈케이스 다이어그램"],
     pages: [
       { src: "/answers/KPC모의고사/63회/kpc-kpc-63회-정보관리-모의고사-모범답안-2교시-12.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/63회/kpc-kpc-63회-정보관리-모의고사-모범답안-2교시-13.jpg", label: "2쪽" },
@@ -62318,7 +62306,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "4",
     question: "OOP 5 원칙에 대해 설명하시오.",
     exam: "제62회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["객체지향 설계 원리"],
     questionIds: ["m02260"],
     pages: [
       { src: "/answers/KPC모의고사/62회/kpc-kpc-62회-정보관리-모의고사-모범답안-1교시-7.jpg", label: "1쪽" },
@@ -62541,7 +62529,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "2",
     question: "기억장치 관리기법 중 요구페이징에서 발생하는 페이지 대체 알고리즘의 개념 및 종류 (4 가지 이상)에 대하여 기술하시오.",
     exam: "제60회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["페이지 교체 알고리즘(Paging Replacement Algorithm)"],
     questionIds: ["m02331"],
     pages: [
       { src: "/answers/KPC모의고사/60회/kpc-kpc-60회-정보관리-모의고사-모범답안-2교시-6.jpg", label: "1쪽" },
@@ -62637,7 +62625,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "4",
     question: "Process Thinking 을 위한 SWOT(Strength, Weakness, Opportunities, Threats)분석 방법을 설명하시오.",
     exam: "제61회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["환경분석"],
     questionIds: ["m02315"],
     pages: [
       { src: "/answers/KPC모의고사/61회/kpc-kpc-61회-정보관리-모의고사-모범답안-4교시-8.jpg", label: "1쪽" },
@@ -62652,7 +62640,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "5",
     question: "다음 소스코드의 취약점을 제시하고, 안전한 코드로 변경하시오. #include <stdio.h> #include <stdlib.h> #define BUFSIZE 100; void f() { char buf[BUFSIZE]; gets(buf); }",
     exam: "제61회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["시큐어 코딩(Secure Coding)"],
     questionIds: ["m02316"],
     pages: [
       { src: "/answers/KPC모의고사/61회/kpc-kpc-61회-정보관리-모의고사-모범답안-4교시-12.jpg", label: "1쪽" },
@@ -62832,7 +62820,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "2",
     question: "동시성제어 기법의 필요성과 유형을 나열하시오.",
     exam: "제60회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["DB 동시성제어"],
     questionIds: ["m02319"],
     pages: [
       { src: "/answers/KPC모의고사/60회/kpc-kpc-60회-정보관리-모의고사-모범답안-1교시-4.jpg", label: "1쪽" },
@@ -62909,7 +62897,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "9",
     question: "MC/DC(Modified Condition/Decision Coverage)에 대해 설명하시오.",
     exam: "제60회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["코드 커버리지(Code Coverage)"],
     questionIds: ["m02325"],
     pages: [
       { src: "/answers/KPC모의고사/60회/kpc-kpc-60회-정보관리-모의고사-모범답안-1교시-15.jpg", label: "1쪽" },
@@ -62972,7 +62960,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "1",
     question: "소프트웨어 아키텍쳐에 대하여 다음질문에 답하시오. 가. 아키텍처스타일의 유형을 설명하시오. 나. 아키텍처 뷰 타입 중 모듈 뷰 타입(Module View-types), 컴포넌트와 커넥터 뷰 타입(Component and Connector View-types), 할당 뷰 타입(Allocation Viewtypes) 을 설명하시오.",
     exam: "제62회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["소프트웨어 아키텍처 스타일"],
     questionIds: ["m02282"],
     pages: [
       { src: "/answers/KPC모의고사/62회/kpc-kpc-62회-정보관리-모의고사-모범답안-4교시-2.jpg", label: "1쪽" },
@@ -63524,7 +63512,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "2",
     question: "기계학습의 개념, 기법, 구현방법과 응용분야를 기술하시오",
     exam: "제60회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["머신러닝 학습방법"],
     pages: [
       { src: "/answers/KPC모의고사/60회/kpc-kpc-60회-시스템응용-모의고사-모범답안-3교시-6.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/60회/kpc-kpc-60회-시스템응용-모의고사-모범답안-3교시-7.jpg", label: "2쪽" },
@@ -63590,7 +63578,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "3",
     question: "유니캐스트 라우팅 프로토콜 = RIP과 OSPF(Open Shortest",
     exam: "제61회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)"],
     pages: [
       { src: "/answers/KPC모의고사/61회/kpc-kpc-61회-시스템응용-모의고사-모범답안-4교시-6.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/61회/kpc-kpc-61회-시스템응용-모의고사-모범답안-4교시-7.jpg", label: "2쪽" },
@@ -63632,7 +63620,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "6",
     question: "다음 소스코드의 취약점을 제시하고, 안전한 코드로 변경하시오. #include <stdio.h> #include <stdlib.h> #define BUFSIZE 100; void f() { char buf[BUFSIZE]; gets(buf); }",
     exam: "제61회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["시큐어 코딩(Secure Coding)"],
     questionIds: ["m02316"],
     pages: [
       { src: "/answers/KPC모의고사/61회/kpc-kpc-61회-시스템응용-모의고사-모범답안-4교시-17.jpg", label: "1쪽" },
@@ -63665,7 +63653,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "2",
     question: "8트리와 타트리에 관련하여 다음을 설명하시오",
     exam: "제61회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["B-Tree(Balanced Tree)"],
     pages: [
       { src: "/answers/KPC모의고사/61회/kpc-kpc-61회-정보관리-모의고사-모범답안-3교시-8.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/61회/kpc-kpc-61회-정보관리-모의고사-모범답안-3교시-9.jpg", label: "2쪽" },
@@ -63891,7 +63879,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "1",
     question: "IT 투자평가 지표 중 순현재가치법인 NPV(Net Present Value)에 대해 정의하고 아래 예시에 따라 3 년후 NPV 를 계산하고 투자금 회수가능한지 설명하시오. 예시) 초기투자 50 만원, 할인률 10%, 1 년차 예상수익 20 만원, 2 년차 예상수익 20 만원, 3 년차 예상수익",
     exam: "제62회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["경제성 분석 기법"],
     questionIds: ["m02276"],
     pages: [
       { src: "/answers/KPC모의고사/62회/kpc-kpc-62회-정보관리-모의고사-모범답안-3교시-2.jpg", label: "1쪽" },
@@ -63990,7 +63978,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "3",
     question: "유스케이스 시나리오와 User Story 를 비교 설명하시오.",
     exam: "제63회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["유즈케이스 다이어그램"],
     questionIds: ["m02228"],
     pages: [
       { src: "/answers/KPC모의고사/63회/kpc-kpc-63회-정보관리-모의고사-모범답안-1교시-4.jpg", label: "1쪽" },
@@ -64052,7 +64040,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "12",
     question: "DB 장애유형과 복구 알고리즘에 대해 설명하시오.",
     exam: "제63회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["DB 회복기법"],
     questionIds: ["m02237"],
     pages: [
       { src: "/answers/KPC모의고사/63회/kpc-kpc-63회-정보관리-모의고사-모범답안-1교시-11.jpg", label: "1쪽" },
@@ -64116,7 +64104,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "5",
     question: "소프트웨어 개발 프로젝트와 운영 프로젝트의 SAttte2| (Software Configuration Management)O||A] 프로젝트",
     exam: "제63회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["형상 관리"],
     pages: [
       { src: "/answers/KPC모의고사/63회/kpc-kpc-63회-시스템응용-모의고사-모범답안-2교시-14.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/63회/kpc-kpc-63회-시스템응용-모의고사-모범답안-2교시-15.jpg", label: "2쪽" },
@@ -64235,7 +64223,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "2",
     question: "데이터 모델링의 엔터티 자격요건과 유형을 설명하시오.",
     exam: "제64회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["데이터 모델링"],
+    topicTitles: ["데이터 모델링", "엔티티(Entity)"],
     questionIds: ["m02196"],
     pages: [
       { src: "/answers/KPC모의고사/64회/kpc-kpc-64회-정보관리-모의고사-모범답안-1교시-3.jpg", label: "1쪽" },
@@ -64247,7 +64235,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "5",
     question: "명세기반 테스트 기법을 4가지 이상 설명하시오.",
     exam: "제64회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["블랙박스 테스트"],
     questionIds: ["m02199"],
     pages: [
       { src: "/answers/KPC모의고사/64회/kpc-kpc-64회-정보관리-모의고사-모범답안-1교시-4.jpg", label: "1쪽" },
@@ -64272,7 +64260,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "7",
     question: "K-NN과 K-means알고리즘을 비교하여 설명하시오.",
     exam: "제64회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["K-NN(Nearest Neighbor) Classification", "K-평균 알고리즘"],
     questionIds: ["m02201"],
     pages: [
       { src: "/answers/KPC모의고사/64회/kpc-kpc-64회-정보관리-모의고사-모범답안-1교시-7.jpg", label: "1쪽" },
@@ -64440,7 +64428,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "2",
     question: "효과적인 빅데이터 분석을 위해 불필요한 항목을 제거하고 데이터 품질을 향상 시킬 수 있도록 하는 수행하는 데이터 저장 전/후 처리 및 데이터 저장 단계를 설명하고 기술 고려사항에 대해 설명하시오.",
     exam: "제64회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["데이터 전처리"],
     questionIds: ["m02221"],
     pages: [
       { src: "/answers/KPC모의고사/64회/kpc-kpc-64회-정보관리-모의고사-모범답안-4교시-4.jpg", label: "1쪽" },
@@ -64809,7 +64797,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "4",
     question: "DW(Data Warehouse) 2| 구성요소, 구축단계 및 방법에 대해 설명하시오",
     exam: "제67회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["데이터(웨어하우스, 레이크, 패브릭, 메시)"],
     pages: [
       { src: "/answers/KPC모의고사/67회/kpc-kpc-67회-시스템응용-모의고사-모범답안-4교시-7.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/67회/kpc-kpc-67회-시스템응용-모의고사-모범답안-4교시-8.jpg", label: "2쪽" },
@@ -64833,7 +64821,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "1",
     question: "ACID 와 BASE 를 비교 설명하시오.",
     exam: "제67회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["트랜잭션", "CAP 이론과 BASE 이론"],
     questionIds: ["m02107"],
     pages: [
       { src: "/answers/KPC모의고사/67회/kpc-kpc-67회-정보관리-모의고사-모범답안-1교시-2.jpg", label: "1쪽" },
@@ -64972,7 +64960,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     no: "3",
     question: "CPU 의 파이프라인 처리 시에 발생할 수 있는 구조적 해저드와 데이터 해저드, 제어 해저드를 설명하시오.",
     exam: "제67회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["Pipeline Hazard"],
     questionIds: ["m02119"],
     pages: [
       { src: "/answers/KPC모의고사/67회/kpc-kpc-67회-정보관리-모의고사-모범답안-2교시-6.jpg", label: "1쪽" },
@@ -65665,7 +65653,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     question: "확률변수 계산문제",
     exam: "제35회 KPC 기술사 IMPACT 실전모의고사",
     no: "6",
-    topicTitles: [],
+    topicTitles: ["확률분포"],
     pages: [
       { src: "/answers/KPC모의고사/35회/kpcr-모범답안-3교시-6-확률변수-계산문제-1.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/35회/kpcr-모범답안-3교시-6-확률변수-계산문제-2.jpg", label: "2쪽" },
@@ -65690,7 +65678,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     question: "Critical Chain Method",
     exam: "제35회 KPC 기술사 IMPACT 실전모의고사",
     no: "6",
-    topicTitles: [],
+    topicTitles: ["CCM (Critical Chain Management)"],
     pages: [
       { src: "/answers/KPC모의고사/35회/kpcr-모범답안-2교시-6-critical-chain-method-1.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/35회/kpcr-모범답안-2교시-6-critical-chain-method-2.jpg", label: "2쪽" },
@@ -65820,7 +65808,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     question: "합리적,체계적인 시스템용량계획수립",
     exam: "제35회 KPC 기술사 IMPACT 실전모의고사",
     no: "1",
-    topicTitles: [],
+    topicTitles: ["정보시스템 하드웨어 규모산정 지침"],
     pages: [
       { src: "/answers/KPC모의고사/35회/kpcr-모범답안-3교시-1-합리적-체계적인-시스템용량계획수립-1.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/35회/kpcr-모범답안-3교시-1-합리적-체계적인-시스템용량계획수립-2.jpg", label: "2쪽" },
@@ -65833,7 +65821,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "4교시",
     question: "K-Means알고리즘",
     exam: "제35회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["K-평균 알고리즘"],
     pages: [
       { src: "/answers/KPC모의고사/35회/kpcr-모범답안-4교시-k-means알고리즘-1.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/35회/kpcr-모범답안-4교시-k-means알고리즘-2.jpg", label: "2쪽" },
@@ -65857,7 +65845,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     question: "클래스 다이아그램의 관계",
     exam: "제35회 KPC 기술사 IMPACT 실전모의고사",
     no: "4",
-    topicTitles: [],
+    topicTitles: ["클래스 다이어그램 (Class Diagram)"],
     pages: [
       { src: "/answers/KPC모의고사/35회/kpcr-모범답안-3교시-4-클래스-다이아그램의-관계-1.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/35회/kpcr-모범답안-3교시-4-클래스-다이아그램의-관계-2.jpg", label: "2쪽" },
@@ -65983,7 +65971,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "1교시",
     question: "6주차 SW PM 1교시8번 품질비요 항목 4가지 5.3점",
     exam: "정리 답안 (드라이브 3.2 단합반 › ３. 소프트웨어 공학 I II)",
-    topicTitles: [],
+    topicTitles: ["SW 품질비용"],
     pages: [
       { src: "/answers/정리답안/3.2단합반/３.소프트웨어공학III/m32r-6주차-sw-pm-1교시8번-품질비요-항목-4가지-5-3점-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/3.2단합반/３.소프트웨어공학III/m32r-6주차-sw-pm-1교시8번-품질비요-항목-4가지-5-3점-2.jpg", label: "2쪽" },
@@ -66234,7 +66222,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "2교시",
     question: "OOP설계의 원리, 베이스라인, 코드악취, 리팩토링",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["객체지향 설계 원리", "소프트웨어 리팩토링"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-oop설계의-원리-베이스라인-코드악취-리팩토링-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-oop설계의-원리-베이스라인-코드악취-리팩토링-1-2.jpg", label: "2쪽" },
@@ -66281,7 +66269,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "2교시",
     question: "SW사업 수명주기별 사업유형, SW 대가산정 가이드 기준 원가산정",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["SW 사업대가 ('25년 개정판)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-sw사업-수명주기별-사업유형-sw-대가산정-가이드-기준-원가산정-2-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-sw사업-수명주기별-사업유형-sw-대가산정-가이드-기준-원가산정-2-2.jpg", label: "2쪽" },
@@ -66294,7 +66282,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "2교시",
     question: "Agile 4대 가치, 12대 원칙, Spike",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["Agile 선언문과 12개 원칙"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-agile-4대-가치-12대-원칙-spike-2-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-agile-4대-가치-12대-원칙-spike-2-2.jpg", label: "2쪽" },
@@ -66377,7 +66365,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "2교시",
     question: "적대적공격",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["인공지능 적대적 공격"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-적대적공격-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-적대적공격-1-2.jpg", label: "2쪽" },
@@ -66570,7 +66558,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "1교시",
     question: "인공지능활용보안위협",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["오펜시브 AI(Offensive AI)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-인공지능활용보안위협-1.jpg", label: "1쪽" },
     ],
@@ -66580,7 +66568,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "1교시",
     question: "배열을 이용한 큐, 단점, 해결방법",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["Queue"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-배열을-이용한-큐-단점-해결방법-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-배열을-이용한-큐-단점-해결방법-1-2.jpg", label: "2쪽" },
@@ -66603,7 +66591,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "2교시",
     question: "재해복구 시스템 구축 유형",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["DRS (Disaster Recovery System)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-재해복구-시스템-구축-유형-2-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-재해복구-시스템-구축-유형-2-2.jpg", label: "2쪽" },
@@ -66615,7 +66603,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "2교시",
     question: "키워드기반 테스팅",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["Keyword Driven Testing"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-키워드기반-테스팅-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-키워드기반-테스팅-1-2.jpg", label: "2쪽" },
@@ -66714,7 +66702,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "2교시",
     question: "Agile 4대 가치, 12대 원칙, Spike",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["Agile 선언문과 12개 원칙"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-agile-4대-가치-12대-원칙-spike-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-agile-4대-가치-12대-원칙-spike-1-2.jpg", label: "2쪽" },
@@ -66811,7 +66799,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "2교시",
     question: "라우팅 기술 분류",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-라우팅-기술-분류-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-라우팅-기술-분류-1-2.jpg", label: "2쪽" },
@@ -66824,7 +66812,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "2교시",
     question: "SW대가 산정 가이드",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["SW 사업대가 ('25년 개정판)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-sw대가-산정-가이드-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-sw대가-산정-가이드-1-2.jpg", label: "2쪽" },
@@ -66871,7 +66859,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "1교시",
     question: "암호공격 기법 및 공격 결과 분류",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["암호 분석 공격(Cryptanalysis Attacks) 기법"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-암호공격-기법-및-공격-결과-분류-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-암호공격-기법-및-공격-결과-분류-1-2.jpg", label: "2쪽" },
@@ -66974,7 +66962,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "2교시",
     question: "라우팅 기술 분류",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-라우팅-기술-분류-2-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-라우팅-기술-분류-2-2.jpg", label: "2쪽" },
@@ -67105,7 +67093,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "1교시",
     question: "EDA와 CDA",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["탐색적 데이터 분석과 확증적 데이터 분석"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-eda와-cda-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-eda와-cda-1-2.jpg", label: "2쪽" },
@@ -67150,7 +67138,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "1교시",
     question: "해시솔트, 키스트래칭",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["해시 솔트(Salt)와 키 스트레칭(Key Stretching)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-해시솔트-키스트래칭-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-해시솔트-키스트래칭-1-2.jpg", label: "2쪽" },
@@ -67187,7 +67175,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "1교시",
     question: "해시솔트, 키스트래칭",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["해시 솔트(Salt)와 키 스트레칭(Key Stretching)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-해시솔트-키스트래칭-2-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-해시솔트-키스트래칭-2-2.jpg", label: "2쪽" },
@@ -67348,7 +67336,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "2교시",
     question: "클라우드 공유자원 보안 취약점 및 대응방안",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["클라우드 컴퓨팅 취약점, 대응기술"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-클라우드-공유자원-보안-취약점-및-대응방안-2-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-클라우드-공유자원-보안-취약점-및-대응방안-2-2.jpg", label: "2쪽" },
@@ -67512,7 +67500,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "1교시",
     question: "EDA와 CDA 비교",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["탐색적 데이터 분석과 확증적 데이터 분석"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-eda와-cda-비교-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-eda와-cda-비교-1-2.jpg", label: "2쪽" },
@@ -67753,7 +67741,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "1교시",
     question: "재해복구 시스템 구축 유형",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["DRS (Disaster Recovery System)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-재해복구-시스템-구축-유형-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-재해복구-시스템-구축-유형-1-2.jpg", label: "2쪽" },
@@ -67800,7 +67788,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     question: "팬텀충돌",
     exam: "제39회 KPC 기술사 IMPACT 실전모의고사",
     no: "5",
-    topicTitles: [],
+    topicTitles: ["Isolation Level(격리 레벨)"],
     pages: [
       { src: "/answers/KPC모의고사/39회/kpcr-모범답안-1교시-5-팬텀충돌-1.jpg", label: "1쪽" },
     ],
@@ -67833,7 +67821,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "2교시",
     question: "SW대가 산정 가이드",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["SW 사업대가 ('25년 개정판)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-sw대가-산정-가이드-2-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-sw대가-산정-가이드-2-2.jpg", label: "2쪽" },
@@ -67893,7 +67881,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "1교시",
     question: "동시성 제어를 하지않을 경우 문제점",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["DB 동시성제어"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-동시성-제어를-하지않을-경우-문제점-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-동시성-제어를-하지않을-경우-문제점-1-2.jpg", label: "2쪽" },
@@ -67914,7 +67902,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "2교시",
     question: "은항가 알고리즘",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["Banker's 알고리즘(은행가 알고리즘)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-은항가-알고리즘-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-은항가-알고리즘-1-2.jpg", label: "2쪽" },
@@ -67974,7 +67962,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "1교시",
     question: "릴레이션 무결성",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["데이터베이스 무결성"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-릴레이션-무결성-1.jpg", label: "1쪽" },
     ],
@@ -68009,7 +67997,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     question: "kruskal알고리즘",
     exam: "제39회 KPC 기술사 IMPACT 실전모의고사",
     no: "10",
-    topicTitles: [],
+    topicTitles: ["최소 신장 트리(MST, Minimum Spanning Tree)"],
     pages: [
       { src: "/answers/KPC모의고사/39회/kpcr-모범답안-1교시-10-kruskal알고리즘-1.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/39회/kpcr-모범답안-1교시-10-kruskal알고리즘-2.jpg", label: "2쪽" },
@@ -68267,7 +68255,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "1교시",
     question: "감리절차와 이해당사자의 역할",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["공통감리 절차"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-감리절차와-이해당사자의-역할-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-감리절차와-이해당사자의-역할-1-2.jpg", label: "2쪽" },
@@ -68384,7 +68372,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "1교시",
     question: "AES와 암호학적해시",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["블록 암호화(Block Cipher)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-aes와-암호학적해시-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-aes와-암호학적해시-1-2.jpg", label: "2쪽" },
@@ -68512,7 +68500,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "2교시",
     question: "SW사업 수명주기별 사업유형, SW 대가산정 가이드 기준 원가산정",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["SW 사업대가 ('25년 개정판)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-sw사업-수명주기별-사업유형-sw-대가산정-가이드-기준-원가산정-1-1.jpg", label: "1쪽" },
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-sw사업-수명주기별-사업유형-sw-대가산정-가이드-기준-원가산정-1-2.jpg", label: "2쪽" },
@@ -68737,7 +68725,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "1교시",
     question: "인덱스 설계절차,구조",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: [],
+    topicTitles: ["RDBMS 인덱스(index)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-인덱스-설계절차-구조-1.jpg", label: "1쪽" },
     ],
@@ -69041,7 +69029,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "11",
     question: "Process 의 5 가지 상태(State)에 대하여 설명하시오",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["State"],
+    topicTitles: ["State", "프로세스 상태 전이도"],
     questionIds: ["c116-111"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-1-11-1.webp", label: "1쪽" },
@@ -69096,7 +69084,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "2",
     question: "OSI 7 계층 프로토콜에 대하여 각 계층별 기능 및 역할, 관련 국제표준, 관련 장비등을 중심으로 설명하시오.",
     exam: "제116회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: [],
+    topicTitles: ["OSI 7 Layer (ISO 7498)"],
     questionIds: ["c116-202"],
     pages: [
       { src: "/answers/기출해설집/컴시응/116회/itpe116cs-2-02-1.webp", label: "1쪽" },
@@ -69480,7 +69468,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "10",
     question: "F1 Score 에서 정밀도(Precision), 재현율(Recall)",
     exam: "제116회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["정밀도(Precision)", "재현율(Recall)"],
+    topicTitles: ["정밀도(Precision)", "재현율(Recall)", "혼동행렬(Confusion Matrix)"],
     questionIds: ["k116-110"],
     pages: [
       { src: "/answers/기출해설집/정보관리/116회/itpe116-1-10-1.webp", label: "1쪽" },
@@ -69760,7 +69748,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "4",
     question: "아키텍처 모델 중 기능의 분할과 배치 관점에서 데이터 중심형 모델, 클라이언트-서버 모델, 계층 모델 및 MVC(Model View Controller) 모델을 각각 설명하시오..",
     exam: "제116회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["데이터 중심 AI(Data-Centric AI)"],
+    topicTitles: ["데이터 중심 AI(Data-Centric AI)", "소프트웨어 아키텍처 스타일"],
     questionIds: ["k116-404"],
     pages: [
       { src: "/answers/기출해설집/정보관리/116회/itpe116-4-04-1.webp", label: "1쪽" },
@@ -70345,7 +70333,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "2",
     question: "소프트웨어 비용 산정 방법 중 상향식 비용 산정 방법, 하향식 비용 산정 방법에 대하여 설명하시오",
     exam: "제117회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: [],
+    topicTitles: ["SW 규모산정"],
     questionIds: ["k117-202"],
     pages: [
       { src: "/answers/기출해설집/정보관리/117회/itpe117-2-02-1.webp", label: "1쪽" },
@@ -70488,7 +70476,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "6",
     question: "정보시스템 감리 시행 절차의 활동(감리법인 관점)과 산출물을 설명하시오.",
     exam: "제117회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["정보시스템 감리", "정보시스템 감리 Framework"],
+    topicTitles: ["정보시스템 감리", "정보시스템 감리 Framework", "공통감리 절차"],
     questionIds: ["k117-306"],
     pages: [
       { src: "/answers/기출해설집/정보관리/117회/itpe117-3-06-1.webp", label: "1쪽" },
@@ -70665,7 +70653,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "7",
     question: "선형회귀모형의 추론에 대한 가정 4 가지",
     exam: "제118회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: [],
+    topicTitles: ["회귀분석(Regression Analysis)"],
     questionIds: ["k118-107"],
     pages: [
       { src: "/answers/기출해설집/정보관리/118회/itpe118-1-07-1.webp", label: "1쪽" },
@@ -70788,7 +70776,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "3",
     question: "비정형 데이터를 분석할 예정이다. 다음을 설명하시오. 가. 비정형 데이터 마이닝의 개념과 필요성 나. 텍스트 마이닝의 개념, 기능, 기본 분석절차 다. 사회연결망 분석의 개념, 분석 표현방법, 분석기법, 분석절차",
     exam: "제118회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["데이터 마이닝 방법론"],
+    topicTitles: ["데이터 마이닝 방법론", "정형/비정형 데이터 마이닝"],
     questionIds: ["k118-203"],
     pages: [
       { src: "/answers/기출해설집/정보관리/118회/itpe118-2-03-1.webp", label: "1쪽" },
@@ -71078,7 +71066,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "5",
     question: "Biba Integrity Model",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["접근제어 Model(Bell-Lapadula, Biba, Clark & Wilson , Access Matrix)"],
+    topicTitles: ["접근제어 Model(Bell-Lapadula, Biba, Clark & Wilson , Access Matrix)", "접근 통제 모델"],
     questionIds: ["c119-105"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-1-05-1.webp", label: "1쪽" },
@@ -71225,7 +71213,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "3",
     question: "4 차 산업혁명을 주도하고 있는 인공지능 머신러닝 기술은 실제로 적대 적 공격(Adversarial Attack)에 취약한 것으로 알려져 있다. 다음에 대하여 설명하시오. 1) 자율주행자동차에 대한 적대적 공격 2) 적대적 공격을 위한 적대적 샘플(Adversarial Sample) 제작기법 3) 적대적 공격에 대한 방어기법",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["Smart Car(자율주행)"],
+    topicTitles: ["Smart Car(자율주행)", "인공지능 적대적 공격"],
     questionIds: ["c119-203"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-2-03-1.webp", label: "1쪽" },
@@ -71254,7 +71242,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "5",
     question: "ITA 기반으로 정보시스템 H/W 용량을 산정하고자 한다. 1) H/W 규모산정 방법에 대한 개념 및 장·단점 2) 규모산정 대상 3) CPU 및 스토리지의 성능 기준치",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["용량산정(개념, 절차, 산정기준)"],
+    topicTitles: ["용량산정(개념, 절차, 산정기준)", "정보시스템 하드웨어 규모산정 지침"],
     questionIds: ["c119-205"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-2-05-1.webp", label: "1쪽" },
@@ -71284,7 +71272,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "1",
     question: "피보나치 수 Fn 은 다음과 같은 규칙으로 정의된다. F0 =0, F1 =1, …, Fn=𝐹𝐹𝑛𝑛−1+Fn−2. 피보나치 수를 재귀함수를 이용하여 의사코드(Pseudo Code) 또는 임의의 프로그래밍 언어로 구현하고, 재귀함수보다 효율적으로 동작시키기 위한 기법을 제시하시오.",
     exam: "제119회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["피보나치 수"],
+    topicTitles: ["피보나치 수", "동적 계획법(Dynamic Programming)"],
     questionIds: ["c119-301"],
     pages: [
       { src: "/answers/기출해설집/컴시응/119회/itpe119cs-3-01-1.webp", label: "1쪽" },
@@ -71450,7 +71438,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "7",
     question: "Data Lake",
     exam: "제119회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["데이터 레이크(Data Lake)"],
+    topicTitles: ["데이터 레이크(Data Lake)", "데이터(웨어하우스, 레이크, 패브릭, 메시)"],
     questionIds: ["k119-107"],
     pages: [
       { src: "/answers/기출해설집/정보관리/119회/itpe119-1-07-1.webp", label: "1쪽" },
@@ -71463,7 +71451,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "8",
     question: "Database Shard",
     exam: "제119회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: [],
+    topicTitles: ["데이터베이스 샤딩(Sharding)"],
     questionIds: ["k119-108"],
     pages: [
       { src: "/answers/기출해설집/정보관리/119회/itpe119-1-08-1.webp", label: "1쪽" },
@@ -71476,7 +71464,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "9",
     question: "기계학습의 Gradient Descent Algorithm",
     exam: "제119회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["기계 학습"],
+    topicTitles: ["기계 학습", "머신러닝 옵티마이저(Optimizer)"],
     questionIds: ["k119-109"],
     pages: [
       { src: "/answers/기출해설집/정보관리/119회/itpe119-1-09-1.webp", label: "1쪽" },
@@ -72567,7 +72555,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "6",
     question: "클라우드 컴퓨팅서비스에 대한 공공기관의 보안인증제도를 설명",
     exam: "제120회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["클라우드 컴퓨팅"],
+    topicTitles: ["클라우드 컴퓨팅", "클라우드 보안인증 등급제(CSAP)"],
     questionIds: ["k120-306"],
     pages: [
       { src: "/answers/기출해설집/정보관리/120회/itpe120-3-06-1.webp", label: "1쪽" },
@@ -72857,7 +72845,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "2",
     question: "DBMS 병행수행(Concurrency)제어가 되지 않는 경우 발생할 수 있는 3 가지 문제와 그 해결방법에 대하여 예시를 들어 각각 설명하시오.",
     exam: "제121회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["병행 제어 (Concurrency control)"],
+    topicTitles: ["병행 제어 (Concurrency control)", "DB 동시성제어"],
     questionIds: ["k121-202"],
     pages: [
       { src: "/answers/기출해설집/정보관리/121회/itpe121-2-02-1.webp", label: "1쪽" },
@@ -73241,7 +73229,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "11",
     question: "제로 트러스트(Zero Trust) 보안모델",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
-    topicTitles: ["제로 트러스트(Zero Trust) 보안모델"],
+    topicTitles: ["제로 트러스트(Zero Trust) 보안모델", "제로트러스트 가이드라인 2.0"],
     questionIds: ["c122-111"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-11-1.webp", label: "1쪽" },
@@ -73267,7 +73255,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "13",
     question: "기울기 소실 문제(Vanishing Gradient Problem)",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
-    topicTitles: ["기울기소실 문제", "인시던트(Incident) 관리와 문제(Problem) 관리"],
+    topicTitles: ["기울기소실 문제", "인시던트(Incident) 관리와 문제(Problem) 관리", "기울기 소실과 기울기 폭주"],
     questionIds: ["c122-113"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-1-13-1.webp", label: "1쪽" },
@@ -73312,7 +73300,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "3",
     question: "데이터 웨어하우스(Data Warehouse)와 데이터 레이크(Data Lake)의 특징을 비교하고, 빅데이터의 요소기술과 기술영역별 표준화 대상항목을 설명하시오",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상헌 기술사)",
-    topicTitles: ["빅데이터(3V / 6V)"],
+    topicTitles: ["빅데이터(3V / 6V)", "데이터(웨어하우스, 레이크, 패브릭, 메시)"],
     questionIds: ["c122-203"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-2-03-1.webp", label: "1쪽" },
@@ -73441,7 +73429,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "6",
     question: "경사하강법(Gradient Descent)은 인공신경망 학습을 최적화하기 위한 기법이다. 가. 평균제곱오차 비용함수를 가중치에 대해 편미분한 후 학습률을 곱한 값을 기존 가중치에서 차감하여 가중치 갱신을 수행한다고 가정할 때, 가중치 최적해의 좌측 또는 우측 어디에서 시작하든 상관없이 최적해를 향해 진행하는 이유를 수식적으로 설명하시오. 나. 확률적경사하강법, 배치경사하강법, 미니배치경사하강법의 개념과 특징을 비교하여 설명하시오.",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 안경환 기술사)",
-    topicTitles: ["경사하강법"],
+    topicTitles: ["경사하강법", "머신러닝 옵티마이저(Optimizer)"],
     questionIds: ["c122-306"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-3-06-1.webp", label: "1쪽" },
@@ -73483,7 +73471,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "3",
     question: "UDP(User Datagram Protocol)가 제공하는 서비스를 설명하시오.",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정주행 기술사)",
-    topicTitles: ["UDP"],
+    topicTitles: ["UDP", "TCP 와 UDP 비교"],
     questionIds: ["c122-403"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-4-03-1.webp", label: "1쪽" },
@@ -73511,7 +73499,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "5",
     question: "응용시스템 개발과정에서 적용할 테스트 기법을 결정하는데 고려해야 할 사항과 단위 테스트를 종료하는 기준을 설명하시오.",
     exam: "제122회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 안경환 기술사)",
-    topicTitles: [],
+    topicTitles: ["Test Exit Criteria"],
     questionIds: ["c122-405"],
     pages: [
       { src: "/answers/기출해설집/컴시응/122회/itpe122cs-4-05-1.webp", label: "1쪽" },
@@ -73853,7 +73841,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "5",
     question: "IT투자관리와 관련하여 다음을 설명하시오. 가. 개념 및 필요성 나. 추진단계별 주요 활동 다. IT투자 평가 항목 및 내용(정량적, 정성적) 라. 기대효과",
     exam: "제122회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 안응원 기술사)",
-    topicTitles: [],
+    topicTitles: ["정보화 투자관리 가이드", "IT 투자성과 평가"],
     questionIds: ["k122-305"],
     pages: [
       { src: "/answers/기출해설집/정보관리/122회/itpe122-3-05-1.webp", label: "1쪽" },
@@ -73867,7 +73855,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "6",
     question: "아래 시나리오를 기반으로 고객과 점주가 사용하는 주문 시스템에 대한 Use Case Diagram을 작 성하시오. 가. 고객은 주문 시스템을 통해 가격을 조회하고 주문할 수 있다. 나. 고객은 주문 시스템을 통해 주문 상태를 확인하고 주문을 취소할 수 있다. 다. 점주는주문 시스템을 통해 주문 활동을 모니터링 하고 창고를 관리할 수 있다. 라. 회계시스템은 주문 시스템과 연동하여 주문이나 취소 처리할 수 있다.",
     exam: "제122회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 안응원 기술사)",
-    topicTitles: ["Usecase diagram"],
+    topicTitles: ["Usecase diagram", "유즈케이스 다이어그램"],
     questionIds: ["k122-306"],
     pages: [
       { src: "/answers/기출해설집/정보관리/122회/itpe122-3-06-1.webp", label: "1쪽" },
@@ -74199,7 +74187,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "5",
     question: "A라는 회사에서 응용 소프트웨어 패키지(application software package)를 개발하였다. 시장 (market) 출시 전에 SW시험·인증센터에 제3자 시험·인증을 의뢰하고자 한다. 신청부터 소프트웨어 품질인증서를 받기까지의 모든 절차를 설명하시오.",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 권영란 기술사)",
-    topicTitles: ["인증서"],
+    topicTitles: ["인증서", "GS 인증"],
     questionIds: ["c123-205"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-2-05-1.webp", label: "1쪽" },
@@ -74389,7 +74377,7 @@ const PEER_ANSWERS_6: PeerAnswer[] = [
     no: "6",
     question: "공공기관의 정보기술 투자성과에 대한 성과관리를 평가체계 관점에서 설명하시오.",
     exam: "제123회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남훈 기술사)",
-    topicTitles: [],
+    topicTitles: ["IT 투자성과 평가", "정보시스템 운영 성과관리"],
     questionIds: ["c123-406"],
     pages: [
       { src: "/answers/기출해설집/컴시응/123회/itpe123cs-4-06-1.webp", label: "1쪽" },
@@ -74694,7 +74682,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "2",
     question: "데이터 품질관리 프레임워크, 데이터 관리, 데이터 구조관리, 데이터 관리프로세스에 대하여 설 명하시오.",
     exam: "제123회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 김도영 기술사)",
-    topicTitles: ["데이터 품질 관리"],
+    topicTitles: ["데이터 품질 관리", "데이터 품질관리(ISO 8000)"],
     questionIds: ["k123-302"],
     pages: [
       { src: "/answers/기출해설집/정보관리/123회/itpe123-3-02-1.webp", label: "1쪽" },
@@ -74783,7 +74771,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "2",
     question: "A발주기관은 B수행업체에게 IT아웃소싱업무를 위탁하였다. 다음에 대하여 설명하시오. 가. 발주가능한 아웃소싱의 유형 나. SLA(Service Level Agreement)와 OLA(Operational Level Agreement) 다. Penalty/Incentive 관리체계, SIP(Service Improvement Plan), Annual Reset",
     exam: "제123회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 조병선 기술사)",
-    topicTitles: ["SLA(협약서)", "클라우드 서비스별 SLA", "SIP"],
+    topicTitles: ["SLA(협약서)", "클라우드 서비스별 SLA", "SIP", "서비스 수준 관리 (SLM, Service Level Management)"],
     questionIds: ["k123-402"],
     pages: [
       { src: "/answers/기출해설집/정보관리/123회/itpe123-4-02-1.webp", label: "1쪽" },
@@ -74842,7 +74830,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "6",
     question: "다음에 대하여 설명하시오. 가. 최단경로 알고리즘의 유형 4가지 나. 다음 그래프에서 4가지 알고리즘 계산 방법 - A, B, C, D, E 5개 노드로 구성된 그래프(A가 출발지, E가 목적지임) 다. \"나\"의 4가지 알고리즘 계산결과 비교",
     exam: "제123회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 조병선 기술사)",
-    topicTitles: ["그래프"],
+    topicTitles: ["그래프", "다익스트라(Dijkstra) 알고리즘"],
     questionIds: ["k123-406"],
     pages: [
       { src: "/answers/기출해설집/정보관리/123회/itpe123-4-06-1.webp", label: "1쪽" },
@@ -74949,7 +74937,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "8",
     question: "데이터베이스 제5정규형",
     exam: "제124회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 단합반 안경환 기술사)",
-    topicTitles: ["데이터베이스의 개념"],
+    topicTitles: ["데이터베이스의 개념", "데이터베이스 정규화(Normalization)"],
     questionIds: ["k124-108"],
     pages: [
       { src: "/answers/기출해설집/정보관리/124회/itpe124-1-08-1.webp", label: "1쪽" },
@@ -75003,7 +74991,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "12",
     question: "적대적 공격(Adversarial Attack)",
     exam: "제124회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 TOP반 유술사)",
-    topicTitles: [],
+    topicTitles: ["인공지능 적대적 공격"],
     questionIds: ["k124-112"],
     pages: [
       { src: "/answers/기출해설집/정보관리/124회/itpe124-1-12-1.webp", label: "1쪽" },
@@ -75057,7 +75045,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "3",
     question: "사용자 요구사항 도출 기법 4가지 및 요구사항 도출 시 유의사항을 설명하시오.",
     exam: "제124회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
-    topicTitles: ["요구사항"],
+    topicTitles: ["요구사항", "요구사항 수집기법"],
     questionIds: ["k124-203"],
     pages: [
       { src: "/answers/기출해설집/정보관리/124회/itpe124-2-03-1.webp", label: "1쪽" },
@@ -75655,7 +75643,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "3",
     question: "데이터링크 계층은 네트워크에서 오류제어를 담당한다. 다음을 설명하시오. 가. 오류제어방식의 개념과 종류 나. 전진오류수정(FEC)과 검출 후 재전송(ARQ) 방식 비교 다. ARQ 방식 3가지",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 메타반 채명희 기술사)",
-    topicTitles: ["오류제어"],
+    topicTitles: ["오류제어", "FEC(Forward Error Correction) / BEC(Backward Error Correction)"],
     questionIds: ["c125-403"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-4-03-1.webp", label: "1쪽" },
@@ -75669,7 +75657,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "4",
     question: "４. 운영체제 다중 프로그래밍 환경에서 이중 모드(Dual mode) 구조에 대하여 다음을 설명하시 오. 가. 이중모드 개념 나. 이중모드의 구조 다. 이중모드의 종류",
     exam: "제125회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 메타반 채명희 기술사)",
-    topicTitles: ["이중 모드"],
+    topicTitles: ["이중 모드", "CPU Ring Level"],
     questionIds: ["c125-404"],
     pages: [
       { src: "/answers/기출해설집/컴시응/125회/itpe125cs-4-04-1.webp", label: "1쪽" },
@@ -75960,7 +75948,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "6",
     question: "소프트웨어의 시험(Test)에 사용되는 다음의 기법에 대해 설명하시오. 가. 블랙박스(Black Box) 시험 나. 화이트박스(White Box) 시험",
     exam: "제125회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: [],
+    topicTitles: ["블랙박스 테스트", "화이트박스 테스트"],
     questionIds: ["k125-206"],
     pages: [
       { src: "/answers/기출해설집/정보관리/125회/itpe125-2-06-1.webp", label: "1쪽" },
@@ -76122,7 +76110,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "5",
     question: "절차지향 프로그래밍(Procedure Oriented Programming) 방법과 객체지향 프로그래밍(Object Oriented Programming) 방법을 비교 설명하시오.",
     exam: "제125회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 단합반 안경환 기술사)",
-    topicTitles: [],
+    topicTitles: ["객체지향 프로그래밍 특징"],
     questionIds: ["k125-405"],
     pages: [
       { src: "/answers/기출해설집/정보관리/125회/itpe125-4-05-1.webp", label: "1쪽" },
@@ -76293,7 +76281,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "11",
     question: "양자키분배(Quantum Key Distribution) 기술",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상용 기술사)",
-    topicTitles: ["분포(Distribution)"],
+    topicTitles: ["분포(Distribution)", "양자 암호(Quantum Cryptography)"],
     questionIds: ["c126-111", "f00182"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-1-11-1.webp", label: "1쪽" },
@@ -76375,7 +76363,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "4",
     question: "스마트 팩토리(Smart Factory)의 보안위협과 보안 요구사항을 제시하고, 각 보안 요구사항별 보안 대책에 대하여 설명하시오.",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 원선재 기술사)",
-    topicTitles: ["요구사항", "Smart Factory/스마트 팩토리(공장)", "위협(Threat)"],
+    topicTitles: ["요구사항", "Smart Factory/스마트 팩토리(공장)", "위협(Threat)", "스마트팩토리 보안취약점 및 대응방안"],
     questionIds: ["c126-204"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-2-04-1.webp", label: "1쪽" },
@@ -76421,7 +76409,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "1",
     question: "행정안전부에서는 공공기관 등이 정보시스템 사업을 추진할떄 SW보안약점을제거하기위해 사용 하는 \"소프트웨어 개발 보안 가이드\" 개정(2021년 11월) 하였다. 이와 관련하여 다음을 설명하시 오. 가. 소프트웨어 개발 보안의 정의, 대상 범위 나. 소프트웨어 설계 단계 보안 기준 중 \" 보안기능 입력값 검증\"과 \"업로드, 다운로드 파일검증\" 의 개념 및 보안대책",
     exam: "제126회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 남 훈 기술사)",
-    topicTitles: ["소프트웨어 개발 보안 가이드"],
+    topicTitles: ["소프트웨어 개발 보안 가이드", "시큐어 코딩(Secure Coding)"],
     questionIds: ["c126-301"],
     pages: [
       { src: "/answers/기출해설집/컴시응/126회/itpe126cs-3-01-1.webp", label: "1쪽" },
@@ -76671,7 +76659,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "6",
     question: "소프트웨어 품질인증",
     exam: "제126회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 오준식 기술사)",
-    topicTitles: [],
+    topicTitles: ["GS 인증"],
     questionIds: ["k126-106", "f00478"],
     pages: [
       { src: "/answers/기출해설집/정보관리/126회/itpe126-1-06-1.webp", label: "1쪽" },
@@ -76778,7 +76766,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "1",
     question: "소프트웨어 비용 산정 방법에 대하여 설명하고, 각각의 장,단점을 비교하시오.",
     exam: "제126회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 소민호 기술사)",
-    topicTitles: [],
+    topicTitles: ["SW 규모산정"],
     questionIds: ["k126-201"],
     pages: [
       { src: "/answers/기출해설집/정보관리/126회/itpe126-2-01-1.webp", label: "1쪽" },
@@ -77071,7 +77059,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "2",
     question: "모델옵스(ModelOps)",
     exam: "제127회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 안응원 기술사)",
-    topicTitles: ["MLOps(모델옵스)"],
+    topicTitles: ["MLOps(모델옵스)", "MLOps"],
     questionIds: ["k127-102"],
     pages: [
       { src: "/answers/기출해설집/정보관리/127회/itpe127-1-02-1.webp", label: "1쪽" },
@@ -77320,7 +77308,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "2",
     question: "리팩토링(Refactoring)에 대한 아래의 사항을 설명하시오. 가. 정의, 목적, 리팩토링 순서, 리팩토링 주요기법 나. 코드스멜(Code Smell)의 정의와 특징 다. 코드스멜의 종류를 3개이상 기술하고 각각의 리팩토링 방법",
     exam: "제127회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 안응원 기술사)",
-    topicTitles: ["코드 스멜", "Code 유형"],
+    topicTitles: ["코드 스멜", "Code 유형", "소프트웨어 리팩토링"],
     questionIds: ["k127-302"],
     pages: [
       { src: "/answers/기출해설집/정보관리/127회/itpe127-3-02-1.webp", label: "1쪽" },
@@ -77466,7 +77454,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "6",
     question: "블록(Block) 암호 모드에 대한 아래의 사항을 설명하시오. 가. ECB(Electronic CodeBook) 모드 나. CBC(Cipher Block Chaining) 모드 다. CFB(Cipher FeedBack) 모드 라. OFB(Output FeedBack) 모드",
     exam: "제127회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 서경석 기술사)",
-    topicTitles: ["블록체인(blockchain) 기술 / 구조", "블록체인(Block Chain) 플랫폼", "블록체인(Blockchain) 암호기술 가이드라인"],
+    topicTitles: ["블록체인(blockchain) 기술 / 구조", "블록체인(Block Chain) 플랫폼", "블록체인(Blockchain) 암호기술 가이드라인", "블록 암호화(Block Cipher)"],
     questionIds: ["k127-406"],
     pages: [
       { src: "/answers/기출해설집/정보관리/127회/itpe127-4-06-1.webp", label: "1쪽" },
@@ -77758,7 +77746,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "2",
     question: "TCP(Transmission Control Protocol)에 대하여 다음을 설명하시오. 가. TCP 헤더(header) 나. TCP 헤더에 포함된 제어 플래그(Control Flag)의 종류",
     exam: "제128회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["TCP"],
+    topicTitles: ["TCP", "TCP 와 UDP 비교"],
     questionIds: ["c128-302"],
     pages: [
       { src: "/answers/기출해설집/컴시응/128회/itpe128cs-3-02-1.webp", label: "1쪽" },
@@ -77963,7 +77951,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "4",
     question: "기계학습(Machine Learning) 모델링(Modeling)과 모델옵스(ModelOps)에 대하여 설명하시오.",
     exam: "제128회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["기계 학습", "머신러닝(Machine Learning) 성능지표", "MLOps(모델옵스)"],
+    topicTitles: ["기계 학습", "머신러닝(Machine Learning) 성능지표", "MLOps(모델옵스)", "MLOps"],
     questionIds: ["k128-104"],
     pages: [
       { src: "/answers/기출해설집/정보관리/128회/itpe128-1-04-1.webp", label: "1쪽" },
@@ -78331,7 +78319,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "5",
     question: "데이터베이스의 병행제어(Concurrency Control)에 대하여 다음을 설명하시오. 가. 병행제어의 정의 나. 병행제어의 기법의 종류 다. 병행제어의 문제점",
     exam: "제128회 정보관리기술사 기출문제 해설집 (ITPE 기술사회)",
-    topicTitles: ["병행 제어 (Concurrency control)"],
+    topicTitles: ["병행 제어 (Concurrency control)", "DB 동시성제어"],
     questionIds: ["k128-405"],
     pages: [
       { src: "/answers/기출해설집/정보관리/128회/itpe128-4-05-1.webp", label: "1쪽" },
@@ -79096,7 +79084,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "3",
     question: "데이터 마이닝(Data Mining)에 대하여 다음을 설명하시오. 가. 데이터 마이닝과 통계의 차이점 나. 정형 데이터 마이닝과 비정형 데이터 마이닝의 비교 다. 오피니언 마이닝(Opinion Mining) 수행 절차를 설명하고, 텍스트 마이닝(Text Mining)과 비교",
     exam: "제129회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상 기술사)",
-    topicTitles: ["데이터 마이닝 방법론"],
+    topicTitles: ["데이터 마이닝 방법론", "정형/비정형 데이터 마이닝"],
     questionIds: ["k129-303"],
     pages: [
       { src: "/answers/기출해설집/정보관리/129회/itpe129-3-03-1.webp", label: "1쪽" },
@@ -79110,7 +79098,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "4",
     question: "A기관은 데이터 품질관리 역량을 갖추고, 품질 제고 활동을 하기 위해 데이터 품질관리에 관련된 정책 및 제도를 마련하고자 한다. 데이터 품질관리에 포함되어야 할 다음의 사항에 대하여 설명 하시오. 가. 데이터 품질관리 총괄 책임자의 역할 나. 정보 생명주기(Information Life Cycle) 단계별 데이터 품질 관리 활동 다. 데이터 품질 진단 및 개선 절차",
     exam: "제129회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 서경석 기술사)",
-    topicTitles: ["데이터 품질 관리"],
+    topicTitles: ["데이터 품질 관리", "데이터 품질관리(ISO 8000)"],
     questionIds: ["k129-304"],
     pages: [
       { src: "/answers/기출해설집/정보관리/129회/itpe129-3-04-1.webp", label: "1쪽" },
@@ -79216,7 +79204,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "5",
     question: "IT 투자분석의 프로세스, 프레임워크, 분석방법론에 대하여 설명하시오. 가. 프로세스 나. 프레임워크 다. 분석 방법론",
     exam: "제129회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 이상용 기술사)",
-    topicTitles: [],
+    topicTitles: ["IT 투자성과 평가"],
     questionIds: ["k129-405"],
     pages: [
       { src: "/answers/기출해설집/정보관리/129회/itpe129-4-05-1.webp", label: "1쪽" },
@@ -79258,7 +79246,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "2",
     question: "데이터베이스 병행 제어 기법 및 필요성",
     exam: "제130회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 단합반 안경환 기술사)",
-    topicTitles: ["데이터베이스의 개념", "병행 제어 (Concurrency control)"],
+    topicTitles: ["데이터베이스의 개념", "병행 제어 (Concurrency control)", "DB 동시성제어"],
     questionIds: ["k130-102"],
     pages: [
       { src: "/answers/기출해설집/정보관리/130회/itpe130-1-02-1.webp", label: "1쪽" },
@@ -79354,7 +79342,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "9",
     question: "머신러닝 최적화 알고리즘 (Optimization Algorithm) 유형 및 장단점",
     exam: "제130회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 김민재 기술사)",
-    topicTitles: ["Optimization Algorithm"],
+    topicTitles: ["Optimization Algorithm", "머신러닝 옵티마이저(Optimizer)"],
     questionIds: ["k130-109"],
     pages: [
       { src: "/answers/기출해설집/정보관리/130회/itpe130-1-09-1.webp", label: "1쪽" },
@@ -79574,7 +79562,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "5",
     question: "인공지능 등 지능정보 기술에 비현실적인 감리기준을 해결하기 위해 지능정보기술 감리 실무 가 이드(한국지능정보사회진흥원, 2023년)를 발간했다. 그 중 빅데이터 정보화 사업의 분석, 설계 단 계별, 영역별 점검 항목에 대하여 설명하시오",
     exam: "제130회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 김민재 기술사)",
-    topicTitles: ["빅데이터 감리", "빅데이터(3V / 6V)"],
+    topicTitles: ["빅데이터 감리", "빅데이터(3V / 6V)", "지능정보기술 감리 실무 가이드 - 빅데이터 감리"],
     questionIds: ["k130-305"],
     pages: [
       { src: "/answers/기출해설집/정보관리/130회/itpe130-3-05-1.webp", label: "1쪽" },
@@ -79635,7 +79623,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "3",
     question: "최근 다수의 기업들이 클라우드 서비스를 도입하면서 다양한 보안 문제가 대두되고 있다. IT 담당 자 입장에서 클라우드 서비스 도입 시 고려해야 할 보안 요소를 설명하시오.",
     exam: "제130회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 TOP반 김민 기술사)",
-    topicTitles: [],
+    topicTitles: ["클라우드 컴퓨팅 취약점, 대응기술"],
     questionIds: ["k130-403"],
     pages: [
       { src: "/answers/기출해설집/정보관리/130회/itpe130-4-03-1.webp", label: "1쪽" },
@@ -79649,7 +79637,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "4",
     question: "IT프로젝트를 성공적으로 수행하기 위해 요구사항이 체계적인 관리와 문서화가 매우 중요하다. 요구사항에 대하여 다음을 설명하시오. 1) 소프트웨어(SW) 요구사항 품질속성 2) 요구사항 도출기법 3) 요구사항 개발 프로세스",
     exam: "제130회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 TOP반 김민 기술사)",
-    topicTitles: ["요구사항"],
+    topicTitles: ["요구사항", "요구공학 (Requirements Engineering)", "요구사항 수집기법"],
     questionIds: ["k130-404"],
     pages: [
       { src: "/answers/기출해설집/정보관리/130회/itpe130-4-04-1.webp", label: "1쪽" },
@@ -79690,7 +79678,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "1",
     question: "몬테카를로방법(Monte Carlo Method)",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반전일기술사)",
-    topicTitles: ["몬테카를로 방법(Monte Carlo Method)"],
+    topicTitles: ["몬테카를로 방법(Monte Carlo Method)", "몬테카를로 시뮬레이션"],
     questionIds: ["c131-101", "k80-110", "f02410"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-1-01-1.webp", label: "1쪽" },
@@ -79954,7 +79942,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "2",
     question: "개인정보 비식별 처리와 관련하여 다음을 설명하시오. 가. 개인정보 비식별 처리 유형 나. 비식별 개인정보의 위험 요인",
     exam: "제131회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토이상헌기술사)",
-    topicTitles: [],
+    topicTitles: ["ISO/IEC 20889"],
     questionIds: ["c131-302"],
     pages: [
       { src: "/answers/기출해설집/컴시응/131회/itpe131cs-3-02-1.webp", label: "1쪽" },
@@ -80134,7 +80122,7 @@ const PEER_ANSWERS_7: PeerAnswer[] = [
     no: "3",
     question: "폭포수 개발 방법론과 애자일 개발 방법론의 특징 및 장단점 비교",
     exam: "제131회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
-    topicTitles: [],
+    topicTitles: ["소프트웨어 개발 방법론"],
     questionIds: ["k131-103"],
     pages: [
       { src: "/answers/기출해설집/정보관리/131회/itpe131-1-03-1.webp", label: "1쪽" },
@@ -80253,7 +80241,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "12",
     question: "객체지향 방법론에서 캡슐화(Encapsulation)와 정보은닉(Information Hiding)",
     exam: "제131회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정유나 기술사)",
-    topicTitles: ["캡슐화", "정보은닉(Information Hiding)"],
+    topicTitles: ["캡슐화", "정보은닉(Information Hiding)", "객체지향 프로그래밍 특징"],
     questionIds: ["k131-112"],
     pages: [
       { src: "/answers/기출해설집/정보관리/131회/itpe131-1-12-1.webp", label: "1쪽" },
@@ -80323,7 +80311,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "4",
     question: "제로 트러스트 보안 모델의 보안원리, 핵심원칙, 적용분야를 트러스트 보안 모델과 비교 설명.",
     exam: "제131회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 이제원 기술사)",
-    topicTitles: ["제로 트러스트(Zero Trust) 보안모델"],
+    topicTitles: ["제로 트러스트(Zero Trust) 보안모델", "제로트러스트 가이드라인 2.0"],
     questionIds: ["k131-204"],
     pages: [
       { src: "/answers/기출해설집/정보관리/131회/itpe131-2-04-1.webp", label: "1쪽" },
@@ -80369,7 +80357,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "1",
     question: "인공지능 학습용 데이터 허브 구축 과정에서 생성된 학습용 데이터 셋의 품질확보를 위한 주요 활동과 데이터 생애 주기별 품질관리 수행절차에 대하여 설명하시오.",
     exam: "제131회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
-    topicTitles: ["데이터 품질 관리", "인공지능 학습용 데이터 품질관리"],
+    topicTitles: ["데이터 품질 관리", "인공지능 학습용 데이터 품질관리", "인공지능 학습용 데이터 품질관리 가이드라인 v3.1"],
     questionIds: ["k131-301"],
     pages: [
       { src: "/answers/기출해설집/정보관리/131회/itpe131-3-01-1.webp", label: "1쪽" },
@@ -80383,7 +80371,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "2",
     question: "데이터 구조(Data Structure)에 대하여 다음을 설명하시오. 가. 선형 구조(Linear Structure)의 개념 및 유형 나. 비선형 구조(Non-Linear Structure)의 개념 및 유형 다. 선형 구조(Linear Structure)와 비선형 구조(Non-Linear Structure) 비교",
     exam: "제131회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 이상헌 기술사)",
-    topicTitles: [],
+    topicTitles: ["선형 자료구조와 비선형 자료구조"],
     questionIds: ["k131-302"],
     pages: [
       { src: "/answers/기출해설집/정보관리/131회/itpe131-3-02-1.webp", label: "1쪽" },
@@ -80425,7 +80413,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "5",
     question: "운영체제 메모리 관리 기법 중 페이징 기법과 세그멘티이션 기법의 개념을 설명하고, 두 기법에 대하여 비교 설명하시오.",
     exam: "제131회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정유나 기술사)",
-    topicTitles: ["메모리 관리", "OS(운영체제)"],
+    topicTitles: ["메모리 관리", "OS(운영체제)", "가상메모리의 페이징과 세그멘테이션"],
     questionIds: ["k131-305"],
     pages: [
       { src: "/answers/기출해설집/정보관리/131회/itpe131-3-05-1.webp", label: "1쪽" },
@@ -80484,7 +80472,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "3",
     question: "데이터 품질관리에 대하여 다음을 설명하시오. 가. 데이터 품질관리 아키텍처 나. 데이터 품질관리 성숙도 다. 정형 데이터 및 비정형 데이터 품질기준 라. 데이터 품질관리 전략",
     exam: "제131회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 모멘텀 안수현 기술사)",
-    topicTitles: ["데이터 품질 관리"],
+    topicTitles: ["데이터 품질 관리", "데이터 품질관리(ISO 8000)"],
     questionIds: ["k131-403"],
     pages: [
       { src: "/answers/기출해설집/정보관리/131회/itpe131-4-03-1.webp", label: "1쪽" },
@@ -80638,7 +80626,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "8",
     question: "인공지능신뢰성의개념과핵심속성에대하여설명하시오.",
     exam: "제133회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반김민재기술사)",
-    topicTitles: ["인공지능 신뢰성"],
+    topicTitles: ["인공지능 신뢰성", "AI 신뢰성 인증"],
     questionIds: ["k133-108"],
     pages: [
       { src: "/answers/기출해설집/정보관리/133회/itpe133-1-08-1.webp", label: "1쪽" },
@@ -80705,7 +80693,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "13",
     question: "TCP 프로토콜의 3-way handshake와 4-way handshake를 설명하시오.",
     exam: "제133회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 강북심화 이제이 기술사)",
-    topicTitles: ["TCP"],
+    topicTitles: ["TCP", "TCP 연결의 설정 및 해제(Handshaking)"],
     questionIds: ["k133-113"],
     pages: [
       { src: "/answers/기출해설집/정보관리/133회/itpe133-1-13-1.webp", label: "1쪽" },
@@ -80935,7 +80923,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "4",
     question: "RDBMS를적용하기위한데이터모델링에대하여다음을설명하시오. 가. 데이터모델링의개념및모델링단계별수행내용 나. 데이터관계모델링시식별(Identification)과비식별(Non-Identification)에대하여비교 다. 데이터모델링시고려사항",
     exam: "제133회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반김민재기술사)",
-    topicTitles: ["데이터 모델링"],
+    topicTitles: ["데이터 모델링", "데이터베이스 모델링"],
     questionIds: ["k133-404"],
     pages: [
       { src: "/answers/기출해설집/정보관리/133회/itpe133-4-04-1.webp", label: "1쪽" },
@@ -81031,7 +81019,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "5",
     question: "제로 트러스트(Zero Trust)",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 멘토 백현 기술사)",
-    topicTitles: ["제로 트러스트(Zero Trust) 보안모델"],
+    topicTitles: ["제로 트러스트(Zero Trust) 보안모델", "제로트러스트 가이드라인 2.0"],
     questionIds: ["c134-105"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-05-1.webp", label: "1쪽" },
@@ -81124,7 +81112,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "12",
     question: "전자정부 정보시스템 성과 측정지표",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 정주행 조종흥 기술사)",
-    topicTitles: [],
+    topicTitles: ["정보시스템 운영 성과관리"],
     questionIds: ["c134-112"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-1-12-1.webp", label: "1쪽" },
@@ -81266,7 +81254,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "2",
     question: "빅데이터 관련 정보화 사업에 대한 감리 수행 점검항목을 제시하는 \"지능정보기술 감리 실무 가 이드\"에 대해서 다음을 설명하시오. 가. 빅데이터 분석단계 점검항목 나. 클라우드 계획수립 점검항목",
     exam: "제134회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 멘토 백현 기술사)",
-    topicTitles: ["지능정보기술 감리 실무 가이드"],
+    topicTitles: ["지능정보기술 감리 실무 가이드", "지능정보기술 감리 실무 가이드 - 빅데이터 감리", "지능정보기술 감리 실무 가이드 - 클라우드 감리"],
     questionIds: ["c134-302"],
     pages: [
       { src: "/answers/기출해설집/컴시응/134회/itpe134cs-3-02-1.webp", label: "1쪽" },
@@ -81451,7 +81439,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "3",
     question: "머신러닝(Machine Learning) 성능지표",
     exam: "제134회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
-    topicTitles: ["머신러닝(Machine Learning) 성능지표"],
+    topicTitles: ["머신러닝(Machine Learning) 성능지표", "혼동행렬(Confusion Matrix)"],
     questionIds: ["k134-103"],
     pages: [
       { src: "/answers/기출해설집/정보관리/134회/itpe134-1-03-1.webp", label: "1쪽" },
@@ -81515,7 +81503,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "8",
     question: "RIP(Routing Information Protocol)와 OSPF(Open Shortest Path First) 비교",
     exam: "제134회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 정상 기술사)",
-    topicTitles: ["라우팅 프로토콜"],
+    topicTitles: ["라우팅 프로토콜", "라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)"],
     questionIds: ["k134-108"],
     pages: [
       { src: "/answers/기출해설집/정보관리/134회/itpe134-1-08-1.webp", label: "1쪽" },
@@ -81685,7 +81673,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "1",
     question: "실행 중인 애플리케이션에 대한 배포 전략 및 테스트 전략에 대하여 설명하시오.",
     exam: "제134회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
-    topicTitles: [],
+    topicTitles: ["무중단 배포"],
     questionIds: ["k134-301"],
     pages: [
       { src: "/answers/기출해설집/정보관리/134회/itpe134-3-01-1.webp", label: "1쪽" },
@@ -81781,7 +81769,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "1",
     question: "IT 프로젝트 관리에서 리스크 대응에 대하여 설명하시오. 가. 리스크 대응 계획 수립 절차. 나. 위협에 대한 대응 전략 다. 기회에 대한 대응 전략",
     exam: "제134회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 강남평일야간반 전일 기술사)",
-    topicTitles: ["위협(Threat)"],
+    topicTitles: ["위협(Threat)", "위험 대응"],
     questionIds: ["k134-401"],
     pages: [
       { src: "/answers/기출해설집/정보관리/134회/itpe134-4-01-1.webp", label: "1쪽" },
@@ -81838,7 +81826,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "5",
     question: "클라우드 전환 사업의 단계별 감리 방법과 검토 항목에 대하여 설명하시오.",
     exam: "제134회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 BP반 김찬일 기술사)",
-    topicTitles: ["클라우드 전환"],
+    topicTitles: ["클라우드 전환", "지능정보기술 감리 실무 가이드 - 클라우드 감리"],
     questionIds: ["k134-405"],
     pages: [
       { src: "/answers/기출해설집/정보관리/134회/itpe134-4-05-1.webp", label: "1쪽" },
@@ -81971,7 +81959,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "9",
     question: "인공지능 성능 관련 차원의 저주 (Curse of Dimensionality)",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 BP반 김찬일 기술사)",
-    topicTitles: [],
+    topicTitles: ["차원 축소(Dimensionality Reduction)"],
     questionIds: ["c135-109"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-09-1.webp", label: "1쪽" },
@@ -81998,7 +81986,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "11",
     question: "운영제제(Operating System)에서 태스크 우선순위 상속(Priority Inheritance)",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 TOP반 유술사PE)",
-    topicTitles: [],
+    topicTitles: ["우선순위 역전(Priority Inversion) 현상"],
     questionIds: ["c135-111"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-1-11-1.webp", label: "1쪽" },
@@ -82244,7 +82232,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "3",
     question: "서버 이중화 구성 방안에 대하여 아래 사항을 설명하시오. 가. L4스위치 기반 이중화 방안 나. 소프트웨어 기반 이중화 방안 다. L4 스위치 기반 이중화 방안과 소프트웨어 기반 이중화 방안 비교",
     exam: "제135회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 BP반 김찬일 기술사)",
-    topicTitles: ["L4 스위치/이중화"],
+    topicTitles: ["L4 스위치/이중화", "HA(High Availability)"],
     questionIds: ["c135-403"],
     pages: [
       { src: "/answers/기출해설집/컴시응/135회/itpe135cs-4-03-1.webp", label: "1쪽" },
@@ -82301,7 +82289,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "1",
     question: "PR(Precision Recall) 곡선과 ROC(Receiver Operation Characteristic) 곡선 비교",
     exam: "제135회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 정상 기술사)",
-    topicTitles: ["정밀도(Precision)", "재현율(Recall)"],
+    topicTitles: ["정밀도(Precision)", "재현율(Recall)", "혼동행렬(Confusion Matrix)"],
     questionIds: ["k135-101"],
     pages: [
       { src: "/answers/기출해설집/정보관리/135회/itpe135-1-01-1.webp", label: "1쪽" },
@@ -82670,7 +82658,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "4",
     question: "빅데이터 시각화(Visualization)에 대하여 다음을 설명하시오. 가. 개념 및 절차 나. 방법 및 도구",
     exam: "제135회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 BP반 김찬일 기술사)",
-    topicTitles: ["데이터 시각화"],
+    topicTitles: ["데이터 시각화", "빅데이터 시각화(Visualization)"],
     questionIds: ["k135-404"],
     pages: [
       { src: "/answers/기출해설집/정보관리/135회/itpe135-4-04-1.webp", label: "1쪽" },
@@ -82684,7 +82672,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "5",
     question: "인공지능 소프트웨어 품질 보증을 위한 테스트 기법에 대하여 설명하시오. 가. 메타모픽 테스트(Metamorphic Test) 나. 뉴런 커버리지 테스트(Neuron Coverage Test) 다. 안전 변경 최대화 테스트",
     exam: "제135회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 TOP반 유술사PE)",
-    topicTitles: [],
+    topicTitles: ["AI 시스템 테스트"],
     questionIds: ["k135-405"],
     pages: [
       { src: "/answers/기출해설집/정보관리/135회/itpe135-4-05-1.webp", label: "1쪽" },
@@ -82698,7 +82686,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "6",
     question: "경계 기반 보안(Perimeter Security)과 제로 트러스트(Zero Trust) 성숙도모델 2.0에 대하여 비교 설 명하고, 제로 트러스트 아키텍처 도입 시 고려사항에 대하여 설명하시오.",
     exam: "제135회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 백현 기술사)",
-    topicTitles: ["제로 트러스트(Zero Trust) 보안모델"],
+    topicTitles: ["제로 트러스트(Zero Trust) 보안모델", "제로트러스트 가이드라인 2.0"],
     questionIds: ["k135-406"],
     pages: [
       { src: "/answers/기출해설집/정보관리/135회/itpe135-4-06-1.webp", label: "1쪽" },
@@ -82934,7 +82922,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "6",
     question: "인터넷 통신에서 보안성 강화를 위해 활용되는 TLS(Transport Layer Security) 1.2에 대한 취약점이 발견되어 TLS 1.3 사용을 권고하고 있다. 이와 관련하여 다음을 설명하시오 가. TLS 프로토콜 구조와 핸드셰이크(Handshake) 과정 나. TLS 1.2 보안 취약점과 TLS 1.3 개선 사항",
     exam: "제136회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 BP반 찬일 기술사)",
-    topicTitles: ["전송 계층 보안(TLS)"],
+    topicTitles: ["전송 계층 보안(TLS)", "TLS/SSL(Secure Socket Layer)"],
     questionIds: ["k136-206"],
     pages: [
       { src: "/answers/기출해설집/정보관리/136회/itpe136-2-06-1.webp", label: "1쪽" },
@@ -83259,7 +83247,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "11",
     question: "인공지능 시스템의 취약점",
     exam: "제137회 컴퓨터시스템응용기술사 기출문제 해설집 (ITPE 기술사회, 해설 강북심화 이제이 기술사)",
-    topicTitles: [],
+    topicTitles: ["인공지능 적대적 공격"],
     questionIds: ["c137-111"],
     pages: [
       { src: "/answers/기출해설집/컴시응/137회/itpe137cs-1-11-1.webp", label: "1쪽" },
@@ -83558,7 +83546,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "1",
     question: "동적 라우팅 프로토콜인 IGP(Interior Gateway Protocol)와 EGP(Exterior Gateway Protocol)를 설명 하시오",
     exam: "제137회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 남북평일야간반 전일 기술사)",
-    topicTitles: ["라우팅 프로토콜"],
+    topicTitles: ["라우팅 프로토콜", "BGP(Border Gateway Protocol)", "라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)"],
     questionIds: ["k137-101"],
     pages: [
       { src: "/answers/기출해설집/정보관리/137회/itpe137-1-01-1.webp", label: "1쪽" },
@@ -83597,7 +83585,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "4",
     question: "암호문 공격(Ciphertext Attack)을 설명하시오",
     exam: "제137회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상 기술사)",
-    topicTitles: ["암호문 공격 기법"],
+    topicTitles: ["암호문 공격 기법", "암호 분석 공격(Cryptanalysis Attacks) 기법"],
     questionIds: ["k137-104"],
     pages: [
       { src: "/answers/기출해설집/정보관리/137회/itpe137-1-04-1.webp", label: "1쪽" },
@@ -83691,7 +83679,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "11",
     question: "소프트웨어 역공학과 재공학을 설명하시오.",
     exam: "제137회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 강북심화 이제이 기술사)",
-    topicTitles: ["역공학", "재공학"],
+    topicTitles: ["역공학", "재공학", "3R"],
     questionIds: ["k137-111"],
     pages: [
       { src: "/answers/기출해설집/정보관리/137회/itpe137-1-11-1.webp", label: "1쪽" },
@@ -83745,7 +83733,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "2",
     question: "(A)기업은 전자상거래 정보시스템 개발 프로젝트를 완료하고 운영으로 전환하고자 한다. 각 항목 을 설명하시오. 가. SLA(Service Level Agreement) 구성요소와 절차 나. (A)기업의 특성을 고려하여 하드웨어, 소프트웨어, 네트워크 영역별 SLA 평가지표와 측정방 법에 대한 사례",
     exam: "제137회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 전일 기술사)",
-    topicTitles: ["SLA(협약서)", "클라우드 서비스별 SLA"],
+    topicTitles: ["SLA(협약서)", "클라우드 서비스별 SLA", "서비스 수준 관리 (SLM, Service Level Management)"],
     questionIds: ["k137-202"],
     pages: [
       { src: "/answers/기출해설집/정보관리/137회/itpe137-2-02-1.webp", label: "1쪽" },
@@ -83775,7 +83763,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "5",
     question: "소프트웨어 테스트 중 동적 테스트에 대하여 설명하시오. 가. 동적 테스트의 명세 기반 테스트와 구조 기반 테스트 비교 나. 아래의 [프로그램 명세]로 명세 기반 테스트 기법의 동등 분할과 분류 트리 기법의 테스트 케 이스 작성 [프로그램 명세] 이 기능의 입력창은 정수로 입력되며, 입력값이 10 미만이거나 100을 초과하면 \"Fail\", 10이상이고 100이하면 \"Pass\", 정수가 아니면 \"Invalid Input\" 메시지를 출력한다.",
     exam: "제137회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 김민재 기술사)",
-    topicTitles: ["구조기반테스트", "PasS(서비스 분류 3가지)"],
+    topicTitles: ["구조기반테스트", "PasS(서비스 분류 3가지)", "블랙박스 테스트", "화이트박스 테스트"],
     questionIds: ["k137-205"],
     pages: [
       { src: "/answers/기출해설집/정보관리/137회/itpe137-2-05-1.webp", label: "1쪽" },
@@ -83834,7 +83822,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "3",
     question: "다중지역 동시 가동방식(Multi-Region Active-Active) 재해복구시스템에 대하여 다음을 설명하시오 가. 개념 및 특징 나. 주요 기술 요소",
     exam: "제137회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 김민재 기술사)",
-    topicTitles: [],
+    topicTitles: ["DRS (Disaster Recovery System)"],
     questionIds: ["k137-303"],
     pages: [
       { src: "/answers/기출해설집/정보관리/137회/itpe137-3-03-1.webp", label: "1쪽" },
@@ -84045,7 +84033,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "7",
     question: "자기회귀모형(Autoregressive model)과 이동평균모형(Moving Average model)",
     exam: "제138회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정주행 조종흥 기술사)",
-    topicTitles: ["자기회귀모형(Autoregressive model)", "이동평균모형(Moving Average model)"],
+    topicTitles: ["자기회귀모형(Autoregressive model)", "이동평균모형(Moving Average model)", "시계열분석"],
     questionIds: ["k138-107"],
     pages: [
       { src: "/answers/기출해설집/정보관리/138회/itpe138-1-07-1.webp", label: "1쪽" },
@@ -84124,7 +84112,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "13",
     question: "모델 전도 공격(Model Inversion Attack)",
     exam: "제138회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반 정상 기술사)",
-    topicTitles: [],
+    topicTitles: ["인공지능 적대적 공격"],
     questionIds: ["k138-113"],
     pages: [
       { src: "/answers/기출해설집/정보관리/138회/itpe138-1-13-1.webp", label: "1쪽" },
@@ -84356,7 +84344,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "4",
     question: "데이터 통신에서 신뢰성 있는 전송을 보장하기 위한 오류 제어(Error Control) 기술에 대하여 다 음 내용을 설명하시오. 가. 오류 검출(Error Detection)과 오류 정정(Error Correction)의 개념 나. '정지-대기(Stop-and-Wait) ARQ'와 'Go-Back-N ARQ'의 개념 및 수행절차 다. '정지-대기(Stop-and-Wait) ARQ'와 'Go-Back-N ARQ' 비교",
     exam: "제138회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 백현 기술사)",
-    topicTitles: ["오류제어"],
+    topicTitles: ["오류제어", "FEC(Forward Error Correction) / BEC(Backward Error Correction)"],
     questionIds: ["k138-404"],
     pages: [
       { src: "/answers/기출해설집/정보관리/138회/itpe138-4-04-1.webp", label: "1쪽" },
@@ -84602,7 +84590,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "3",
     question: "인공지능 분석 대상 데이터의 대규모 저장소로서 데이터 레이크(Data Lake) 기반 통합 데이터 플 랫폼을 도입하고자 한다. 다음을 설명하시오. 가. 데이터 레이크(Data Lake)의 아키텍처 나. 데이터 스웜프(Data Swamp) 발생 원인과 방지 방안",
     exam: "제139회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 단합반 강진우 기술사)",
-    topicTitles: ["데이터 레이크(Data Lake)"],
+    topicTitles: ["데이터 레이크(Data Lake)", "데이터(웨어하우스, 레이크, 패브릭, 메시)"],
     questionIds: ["k139-203"],
     pages: [
       { src: "/answers/기출해설집/정보관리/139회/itpe139-2-03-1.webp", label: "1쪽" },
@@ -84631,7 +84619,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "5",
     question: "행정·공공기관의 반복적인 전산망 장애를 계기로, 정부는 「전자정부법」 개정을 통해 정보시스템 등급제와 공공 SLA(행정·공공기관 정보시스템 서비스수준협약) 표준을 도입하고, 2027년부터 의무 화를 추진하고 있다. 다음을 설명하시오. 가. 공공 SLA의 개념과 도입 필요성 나. 정보시스템 등급 분류 기준과 등급별 SLA 적용방식 다. 공공 SLA 표준안의 주요 내용(가용률, 장애조치 시간, 위약금 체계)과 적용 시 고려사항",
     exam: "제139회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 백현 기술사)",
-    topicTitles: ["서비스 수준 관리 (SLM, Service Level Management)"],
+    topicTitles: ["서비스 수준 관리 (SLM, Service Level Management)", "정보시스템 등급제"],
     questionIds: ["k139-205"],
     pages: [
       { src: "/answers/기출해설집/정보관리/139회/itpe139-2-05-1.webp", label: "1쪽" },
@@ -84735,7 +84723,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "6",
     question: "AI(인공지능) 데이터 수요 증가에 따라 체계적인 데이터 품질관리가 중요해지고 있다. AI 학습용 데이터 품질관리에 대하여 다음을 설명하시오. 가. AI 학습용 데이터 특성 나. AI 학습용 데이터 품질관리 지표 다. AI 학습용 데이터 품질관리 활동",
     exam: "제139회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 NS반 백현 기술사)",
-    topicTitles: ["데이터 품질 관리", "인공지능 학습용 데이터 품질관리"],
+    topicTitles: ["데이터 품질 관리", "인공지능 학습용 데이터 품질관리", "인공지능 학습용 데이터 품질관리 가이드라인 v3.1"],
     questionIds: ["k139-306"],
     pages: [
       { src: "/answers/기출해설집/정보관리/139회/itpe139-3-06-1.webp", label: "1쪽" },
@@ -84959,7 +84947,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "10",
     question: "차등적 맨체스터(Differential Manchester) 부호화 방법",
     exam: "제140회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정주행반 조종흥 기술사)",
-    topicTitles: ["맨체스터 코딩"],
+    topicTitles: ["맨체스터 코딩", "전송부호화(소스 코딩, 채널 코딩, 라인 코딩)"],
     questionIds: ["k140-110"],
     pages: [
       { src: "/answers/기출해설집/정보관리/140회/itpe140-1-10-1.webp", label: "1쪽" },
@@ -85040,7 +85028,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "3",
     question: "인공지능(AI, Artificial Intelligence) 학습용 데이터 품질관리에 대하여 다음을 설명하시오. 가. 인공지능 학습용 데이터 특성 및 생애주기 나. 인공지능 학습용 데이터 품질관리 원칙 다. 인공지능 학습용 데이터 품질관리 범위 및 활동",
     exam: "제140회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 이상헌 기술사)",
-    topicTitles: [],
+    topicTitles: ["인공지능 학습용 데이터 품질관리 가이드라인 v3.1"],
     questionIds: ["k140-203"],
     pages: [
       { src: "/answers/기출해설집/정보관리/140회/itpe140-2-03-1.webp", label: "1쪽" },
@@ -85101,7 +85089,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "1",
     question: "클라우드 네이티브 환경에서 무중단 아키텍처를 지향하는 시스템을 설계하여도 재해 및 재난 상 황을 대비한 재해복구 전략 수립은 필수적이다. 다음을 설명하시오. 가. RTO (Recovery Time Objective), RPO (Recovery Point Objective) 나. Active-Active, Active-Passive, Pilot Light",
     exam: "제140회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정상반멘토 이상헌 기술사)",
-    topicTitles: ["RTO", "RPO", "클라우드 네이티브"],
+    topicTitles: ["RTO", "RPO", "클라우드 네이티브", "DRS (Disaster Recovery System)"],
     questionIds: ["k140-301"],
     pages: [
       { src: "/answers/기출해설집/정보관리/140회/itpe140-3-01-1.webp", label: "1쪽" },
@@ -85251,7 +85239,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "5",
     question: "국내 다양한 규제에 따른 정보보호 컴플라이언스에 대하여 다음을 설명하시오. 가. 정보보호 컴플라이언스 개념 나. 정보보호 컴플라이언스 필요성 다. 정보보호 컴플라이언스 대응 방안",
     exam: "제140회 정보관리기술사 기출문제 해설집 (ITPE 기술사회, 해설 정주행반 조종흥 기술사)",
-    topicTitles: ["정보보호 컴플라이언스"],
+    topicTitles: ["정보보호 컴플라이언스", "IT-Compliance"],
     questionIds: ["k140-405"],
     pages: [
       { src: "/answers/기출해설집/정보관리/140회/itpe140-4-05-1.webp", label: "1쪽" },
@@ -85855,7 +85843,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "1",
     question: "국내 다양한 규제에 따른 정보보호 컴플라이언스에 대하여 다음을 설명하시오. 가. 정보보호 컴플라이언스 개념 나. 정보보호 컴플라이언스 필요성 다. 정보보호 컴플라이언스 대응 방안",
     exam: "NS 19기 01주차 주간 실전모의고사 해설집 (2026-09-06, ITPE, 해설 정주행반 조종흥 기술사)",
-    topicTitles: ["정보보호 컴플라이언스"],
+    topicTitles: ["정보보호 컴플라이언스", "IT-Compliance"],
     questionIds: ["ns19w01-201"],
     pages: [
       { src: "/answers/NS19기/01주차/해설집/ns19w01-2-01-1.webp", label: "1쪽" },
@@ -86531,7 +86519,7 @@ const PEER_ANSWERS_8: PeerAnswer[] = [
     no: "1",
     question: "국내 다양한 규제에 따른 정보보호 컴플라이언스에 대하여 다음을 설명하시오. 가. 정보보호 컴플라이언스 개념 나. 정보보호 컴플라이언스 필요성 다. 정보보호 컴플라이언스 대응 방안",
     exam: "NS 19기 01주차 주간 실전모의고사 (2026-09-06, ITPE) 답안지",
-    topicTitles: ["정보보호 컴플라이언스"],
+    topicTitles: ["정보보호 컴플라이언스", "IT-Compliance"],
     questionIds: ["ns19w01-201"],
     score: 14.7,
     maxScore: 25,
