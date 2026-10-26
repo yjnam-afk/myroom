@@ -361,7 +361,19 @@ export default function AnswerTemplate({
                 rows={[
                   ["정의", textbook.defShort || textbook.definition.replace(/\*\*/g, "")],
                   ["특징", <Features key="f" f={textbook.features} />],
-                  ...(textbook.subDefs ?? []).map((sd): [string, ReactNode] => [sd.name.replace(/\s*\([^)]*\)/g, ""), sd.def]),
+                  // 하위 개념도 정의 + 특징 줄(2026-10-26 — "혼돈과 확산 각각 정의 특징도 적어줘")
+                  ...(textbook.subDefs ?? []).map((sd): [string, ReactNode] => [
+                    sd.name.replace(/\s*\([^)]*\)/g, ""),
+                    <>
+                      {sd.def}
+                      {sd.features?.length ? (
+                        <>
+                          <br />
+                          특징) <Features f={sd.features} />
+                        </>
+                      ) : null}
+                    </>,
+                  ]),
                 ]}
               />
             </div>
