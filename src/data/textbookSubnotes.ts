@@ -21453,7 +21453,7 @@ export const SUBNOTES: TextbookSubnote[] = [
     course: "SC",
     definition:
       "평문을 일정한 블록 단위로 분할하여 각 블록마다 암호화 과정을 수행하여 고정된 크기의 블록 단위의 암호문을 생성하는 암호화",
-    defShort: "평문을 일정한 블록 단위로 분할해 블록마다 암호화 수행하는 암호화",
+    defShort: "평문을 일정한 블록 단위로 분할해 각 블록마다 암호문 생성하는 암호화",
     lead: "블록 단위 분할의 암호문, 블록 암호화",
     features: ["고정 블록 단위", "혼돈+확산 구조", "운영 모드 선택"],
     keywords: ["ECB", "CBC", "PCBC", "CFB", "OFB", "CTR", "IV(초기화 벡터)"],
