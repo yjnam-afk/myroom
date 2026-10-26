@@ -39135,6 +39135,25 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     ],
   },
   {
+    id: "peer-k22r-se-암호화-s-box-p-box-1",
+    period: "1교시",
+    no: "5",
+    question: "Confusion과 Diffusion 위한 S-Box, P-Box",
+    exam: "정리 답안 (드라이브 05. 모범답안 › 2022년 상반기 정리)",
+    topicTitles: ["Shannon의 암호 설계 원칙"],
+    score: 6.5,
+    maxScore: 10,
+    feedback: [
+      "Ⅰ(S-Box)·Ⅱ(P-Box) 표 옆에 'OK'.",
+      "S-Box 개념의 '문자'·'치환', P-Box 개념의 '확산'·'문자 위치'·'순열 기법', '전치, 순열'에 동그라미.",
+      "Ⅲ SPN 그림의 S-Box·P-Box 에 동그라미.",
+    ],
+    pages: [
+      { src: "/answers/정리답안/05.모범답안/2022년상반기정리/k22r-se-암호화-s-box-p-box-1-1.jpg", label: "5쪽" },
+      { src: "/answers/정리답안/05.모범답안/2022년상반기정리/k22r-se-암호화-s-box-p-box-1-2.jpg", label: "6쪽" },
+    ],
+  },
+  {
     id: "peer-k22r-db-데이터경제-데이터경제-kpc-97-1",
     period: "1교시",
     question: "데이터경제",
@@ -61096,7 +61115,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     id: "peer-kpc-88회-kpc기술사모의고사-모범답안-1교시-11번",
     period: "1교시",
     no: "11",
-    question: "000[45100과 Diffusion 구현 위한 S-Box, 『-80×에 대하여 설명하시오",
+    question: "Confusion과 Diffusion 구현 위한 S-Box, P-Box에 대하여 설명하시오.",
     exam: "제88회 KPC 기술사 IMPACT 실전모의고사",
     topicTitles: ["Shannon의 암호 설계 원칙"],
     pages: [
