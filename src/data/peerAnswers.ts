@@ -68242,7 +68242,7 @@ const PEER_ANSWERS_5: PeerAnswer[] = [
     period: "1교시",
     question: "양자내성암호",
     exam: "정리 답안 (드라이브 05. 모범답안 › 2022상)",
-    topicTitles: ["양자 암호(Quantum Cryptography)"],
+    topicTitles: ["포스트 양자 암호(Post-Quantum Cryptography)"],
     pages: [
       { src: "/answers/정리답안/05.모범답안/2022상/s22r-양자내성암호-1.jpg", label: "1쪽" },
     ],
