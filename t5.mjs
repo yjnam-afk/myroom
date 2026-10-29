@@ -1,0 +1,11 @@
+import { chromium } from "playwright-core";
+const T = process.argv[2];
+const b = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
+const p = await b.newPage({ viewport: { width: 1100, height: 900 } });
+await p.goto("http://localhost:3140/explain?topic=" + encodeURIComponent(T));
+const el = p.locator("text=답. " + T).first();
+await el.scrollIntoViewIfNeeded();
+await p.waitForTimeout(800);
+const box = await el.boundingBox();
+await p.screenshot({ path: "shot.png", clip: { x: 0, y: Math.max(0, box.y - 20), width: 1100, height: 520 } });
+await b.close();

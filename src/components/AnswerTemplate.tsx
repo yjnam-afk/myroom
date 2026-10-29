@@ -578,7 +578,19 @@ export default function AnswerTemplate({
             <p>
               <Hole>필요성 그림 4~5줄 — 억지 정의 금지(서론 Type Ⅲ)</Hole>
             </p>
-            <Gloss text={textbook.defShort} hint="그림 간글 — 정의는 간글 2줄 옵션" />
+            {/* 두 개념 토픽은 합친 한 줄 대신 개념마다 정의(2026-10-29 — CWPP & CSPM "각각 정의도") */}
+            {pairs.length ? (
+              <>
+                <Gloss hint="그림 간글 — 40자 이내" />
+                {pairs.map((p) => (
+                  <p key={p.name}>
+                    - {p.name.replace(/\s*\([^)]*\)/g, "")}: {p.def}
+                  </p>
+                ))}
+              </>
+            ) : (
+              <Gloss text={textbook.defShort} hint="그림 간글 — 정의는 간글 2줄 옵션" />
+            )}
           </div>
         </>
       ) : s2.no === 4 ? (
@@ -589,7 +601,15 @@ export default function AnswerTemplate({
               <Hole>발전 흐름 그림 4~5줄 — 그룹화 + 방향성(서론 Type Ⅵ)</Hole>
             </p>
             <Gloss />
-            <p>정의: {textbook.defShort}</p>
+            {pairs.length ? (
+              pairs.map((p) => (
+                <p key={p.name}>
+                  - {p.name.replace(/\s*\([^)]*\)/g, "")}: {p.def}
+                </p>
+              ))
+            ) : (
+              <p>정의: {textbook.defShort}</p>
+            )}
           </div>
         </>
       ) : (
