@@ -115,6 +115,44 @@ function Features({ f }: { f?: string[] }) {
   return <>{f.map((x, i) => `${i + 1}) ${x}`).join("  ")}</>;
 }
 
+/**
+ * 하위·짝 개념 정의 칸 — 정의 줄 + 「특징) 1) 2) 3)」 줄.
+ * 2026-10-29 "각자를 설명하라고. 특징까지 넣고"(CWPP & CSPM) — 두 개념 토픽도 개념마다 특징을 단다(지침 V37 의 「특징 행 없음」을 사용자 요청으로 바꿈).
+ */
+function DefCell({ def, features }: { def: string; features?: string[] }) {
+  return (
+    <>
+      {def}
+      {features?.length ? (
+        <>
+          <br />
+          특징) <Features f={features} />
+        </>
+      ) : null}
+    </>
+  );
+}
+
+/** 2교시 서론의 개념별 정의·특징 줄 */
+function PairLines({ pairs }: { pairs: { name: string; def: string; features?: string[] }[] }) {
+  return (
+    <>
+      {pairs.map((p) => (
+        <div key={p.name}>
+          <p>
+            - {p.name.replace(/\s*\([^)]*\)/g, "")}: {p.def}
+          </p>
+          {p.features?.length ? (
+            <p className="pl-4">
+              특징) <Features f={p.features} />
+            </p>
+          ) : null}
+        </div>
+      ))}
+    </>
+  );
+}
+
 /** 그래프형 결론 자리 — 축 이름·주제 곡선(강조)·값 라벨은 직접 채운다(지침 V34: 수치는 출처 확인된 것만) */
 function GraphHole() {
   return (
@@ -364,15 +402,7 @@ export default function AnswerTemplate({
                   // 하위 개념도 정의 + 특징 줄(2026-10-26 — "혼돈과 확산 각각 정의 특징도 적어줘")
                   ...(textbook.subDefs ?? []).map((sd): [string, ReactNode] => [
                     sd.name.replace(/\s*\([^)]*\)/g, ""),
-                    <>
-                      {sd.def}
-                      {sd.features?.length ? (
-                        <>
-                          <br />
-                          특징) <Features f={sd.features} />
-                        </>
-                      ) : null}
-                    </>,
+                    <DefCell key={sd.name} def={sd.def} features={sd.features} />,
                   ]),
                 ]}
               />
@@ -414,8 +444,8 @@ export default function AnswerTemplate({
           <>
             <p className="font-bold">1. {lead} 정의</p>
             <div className="pl-4">
-              {/* 두 개념 — 왼쪽에 개념 이름, 오른쪽에 정의 1줄(V37: 특징 행 생략) */}
-              <DefTable rows={pairs.map((p, i): [string, ReactNode] => [pairNames[i] ?? p.name, p.def])} />
+              {/* 두 개념 — 왼쪽에 개념 이름, 오른쪽에 정의 + 특징 줄(2026-10-29 사용자 요청으로 V37 「특징 행 생략」을 바꿈) */}
+              <DefTable rows={pairs.map((p, i): [string, ReactNode] => [pairNames[i] ?? p.name, <DefCell key={p.name} def={p.def} features={p.features} />])} />
             </div>
             {pairs.slice(0, 2).map((p, i) => {
               const tb = ansTables.length >= 2 ? ansTables[i] : i === 0 ? ansTables[0] : undefined;
@@ -483,7 +513,7 @@ export default function AnswerTemplate({
               <DefTable
                 rows={
                   pairs.length
-                    ? pairs.map((p, i): [string, ReactNode] => [pairNames[i] ?? p.name, p.def])
+                    ? pairs.map((p, i): [string, ReactNode] => [pairNames[i] ?? p.name, <DefCell key={p.name} def={p.def} features={p.features} />])
                     : [["정의", textbook.defShort]]
                 }
               />
@@ -582,11 +612,7 @@ export default function AnswerTemplate({
             {pairs.length ? (
               <>
                 <Gloss hint="그림 간글 — 40자 이내" />
-                {pairs.map((p) => (
-                  <p key={p.name}>
-                    - {p.name.replace(/\s*\([^)]*\)/g, "")}: {p.def}
-                  </p>
-                ))}
+                <PairLines pairs={pairs} />
               </>
             ) : (
               <Gloss text={textbook.defShort} hint="그림 간글 — 정의는 간글 2줄 옵션" />
@@ -602,11 +628,7 @@ export default function AnswerTemplate({
             </p>
             <Gloss />
             {pairs.length ? (
-              pairs.map((p) => (
-                <p key={p.name}>
-                  - {p.name.replace(/\s*\([^)]*\)/g, "")}: {p.def}
-                </p>
-              ))
+              <PairLines pairs={pairs} />
             ) : (
               <p>정의: {textbook.defShort}</p>
             )}
@@ -618,11 +640,9 @@ export default function AnswerTemplate({
           <div className="pl-4">
             <p>가. {bare}의 정의</p>
             {pairs.length ? (
-              pairs.map((p) => (
-                <p key={p.name} className="pl-4">
-                  - {p.name}: {p.def}
-                </p>
-              ))
+              <div className="pl-4">
+                <PairLines pairs={pairs} />
+              </div>
             ) : (
               <p className="pl-4">{textbook.defShort}</p>
             )}
