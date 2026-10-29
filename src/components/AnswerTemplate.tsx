@@ -133,6 +133,33 @@ function DefCell({ def, features }: { def: string; features?: string[] }) {
   );
 }
 
+const GANADA = "가나다라마바사";
+
+/**
+ * 두 개념 정의 — 개념마다 리드문 소제목 「가. {lead}, {이름} 정의」 + 정의·특징 표.
+ * 2026-10-29 "리드문도 분리해줄래?" — 토픽 리드문 하나(「클라우드 보안의 두 축」) 아래 두 개념을 한 표에 몰아 두었었다.
+ */
+function PairDefs({ pairs, names, from = 0 }: { pairs: { name: string; def: string; lead?: string; features?: string[] }[]; names: string[]; from?: number }) {
+  return (
+    <>
+      {pairs.map((p, i) => (
+        <div key={p.name}>
+          <p>
+            {GANADA[from + i]}. {p.lead ? `${p.lead}, ` : ""}
+            {names[i] ?? p.name} 정의
+          </p>
+          <DefTable
+            rows={[
+              ["정의", p.def],
+              ["특징", <Features key="f" f={p.features} />],
+            ]}
+          />
+        </div>
+      ))}
+    </>
+  );
+}
+
 /** 2교시 서론의 개념별 정의·특징 줄 */
 function PairLines({ pairs }: { pairs: { name: string; def: string; features?: string[] }[] }) {
   return (
@@ -442,10 +469,10 @@ export default function AnswerTemplate({
 
         {shape === "2항목형" && (
           <>
-            <p className="font-bold">1. {lead} 정의</p>
+            <p className="font-bold">1. {pairNames.join("와 ")}의 정의</p>
             <div className="pl-4">
-              {/* 두 개념 — 왼쪽에 개념 이름, 오른쪽에 정의 + 특징 줄(2026-10-29 사용자 요청으로 V37 「특징 행 생략」을 바꿈) */}
-              <DefTable rows={pairs.map((p, i): [string, ReactNode] => [pairNames[i] ?? p.name, <DefCell key={p.name} def={p.def} features={p.features} />])} />
+              {/* 두 개념 — 개념마다 리드문·정의·특징(2026-10-29 사용자 요청으로 V37 「한 표·특징 행 생략」을 바꿈) */}
+              <PairDefs pairs={pairs} names={pairNames} />
             </div>
             {pairs.slice(0, 2).map((p, i) => {
               const tb = ansTables.length >= 2 ? ansTables[i] : i === 0 ? ansTables[0] : undefined;
@@ -509,15 +536,17 @@ export default function AnswerTemplate({
           <>
             <p className="font-bold">1. {lead}, 개념 비교</p>
             <div className="pl-4">
-              <p>가. {pairNames.join("·") || bare} 정의</p>
-              <DefTable
-                rows={
-                  pairs.length
-                    ? pairs.map((p, i): [string, ReactNode] => [pairNames[i] ?? p.name, <DefCell key={p.name} def={p.def} features={p.features} />])
-                    : [["정의", textbook.defShort]]
-                }
-              />
-              <p>나. {pairNames.join("·") || bare} 개념도</p>
+              {pairs.length ? (
+                <PairDefs pairs={pairs} names={pairNames} />
+              ) : (
+                <>
+                  <p>가. {pairNames.join("·") || bare} 정의</p>
+                  <DefTable rows={[["정의", textbook.defShort]]} />
+                </>
+              )}
+              <p>
+                {GANADA[pairs.length || 1]}. {pairNames.join("·") || bare} 개념도
+              </p>
               <Figure srcs={figs} lines={2} alt={`${bare} 개념도`} spec={specs[0]} />
               <Gloss text={gl()} />
             </div>
