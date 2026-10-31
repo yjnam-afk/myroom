@@ -189,6 +189,11 @@ export const TOPIC_ALIASES: Record<string, string[]> = {
   "오픈소스 거버넌스": ["OSS 거버넌스", "Open Source Governance", "오픈소스 SW 거버넌스"],
   "지능정보기술 감리 실무 가이드 - 빅데이터 감리": ["빅데이터 감리", "빅데이터 정보화 사업", "빅데이터 정보화사업", "빅데이터 관련 정보화 사업"],
   "포스트 양자 암호(Post-Quantum Cryptography)": ["양자내성암호", "양자 내성 암호", "양자내성 암호", "PQC"],
+  // 2026-10-31 NS19 07주차 — 「TLS 1.2 보안 취약점과 TLS 1.3 개선」·「SPN 구조와 AES」·「피지컬 AI 보안」·「제로 트러스트 구현 원칙」이 토픽에 안 걸렸다
+  "TLS/SSL(Secure Socket Layer)": ["TLS 1.3", "TLS 1.2", "TLS1.3", "TLS1.2"],
+  "블록 암호화(Block Cipher)": ["SPN 구조", "SPN과 Feistel", "Feistel 구조"],
+  "Physical AI": ["피지컬 AI", "피지컬AI"],
+  "제로트러스트 가이드라인 2.0": ["제로 트러스트", "제로트러스트", "Zero Trust"],
   "오픈소스 SW 보안위협": ["OSS취약점", "OSS 취약점", "오픈소스 취약점", "오픈소스 소프트웨어 취약점", "오픈소스 보안위협", "오픈소스 보안 위협", "오픈소스 SW 보안"],
 };
 

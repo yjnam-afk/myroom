@@ -210,8 +210,10 @@ const TRAP: Record<string, RegExp> = {
   // 데이터 레이크(서브 토픽)는 데이터 레이크하우스가 아니다
   데이터레이크: /데이터레이크하우스/,
   datalake: /datalakehouse/,
+  // 가명정보 가이드라인의 「대규모 비정형데이터 검수 방식 유형」은 데이터 유형 토픽이 아니다(NS19 07주차)
+  데이터유형: /비정형데이터검수방식유형/,
   // 「ISMS-P 인증」은 SP 인증(소프트웨어 프로세스 품질인증)이 아니다
-  sp인증: /ismsp인증/,
+  sp인증: /ismsp/,
   // 자료구조 해시 테이블·해싱 충돌 문항은 암호 해시 함수(서브 토픽)가 아니다
   ...Object.fromEntries(
     ["해시함수", "해쉬함수", "hashfunction", "해시알고리즘", "해쉬알고리즘", "hashalgorithm"].map((k) => [
@@ -223,8 +225,9 @@ const TRAP: Record<string, RegExp> = {
 
 function trapped(entry: { sq: string }, key: string): boolean {
   const re = TRAP[key];
-  if (!re) return false;
+  if (!re || !re.test(entry.sq)) return false;
   // 덫이 되는 낱말을 지우고도 열쇠가 남아 있으면 진짜로 다룬 문항이다.
+  // (덫 낱말이 없는 문항은 덫에 걸리지 않는다 — 전엔 덫이 있는 열쇠는 띄어 쓴 표기(「데이터의 유형」)로도 못 찾았다.)
   return !entry.sq.replace(new RegExp(re.source, "g"), "").includes(key);
 }
 

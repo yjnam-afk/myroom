@@ -136402,5 +136402,195 @@
   "cohort": "19기",
   "date": "2026-10-18",
   "text": "데이터베이스 성능 최적화의 핵심인 옵티마이저(Optimizer)의 개념을 설명하고, RBO(Rule Based Optimizer)와 CBO(Cost Based Optimizer)를 비교하시오. 또한, CBO가 최적의 실행 계획을 위한 참조 통계 정보와 활용 통계 정보를 설명하시오."
+ },
+ {
+  "id": "ns19w07-101",
+  "period": "1교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "07주차",
+  "cohort": "19기",
+  "date": "2026-11-01",
+  "text": "OWASP TOP 10:2025"
+ },
+ {
+  "id": "ns19w07-102",
+  "period": "1교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "07주차",
+  "cohort": "19기",
+  "date": "2026-11-01",
+  "text": "공격 표면 관리(Attack Surface Management)"
+ },
+ {
+  "id": "ns19w07-103",
+  "period": "1교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "07주차",
+  "cohort": "19기",
+  "date": "2026-11-01",
+  "text": "국가 망 보안체계(N2SF, National Network Security Framework)"
+ },
+ {
+  "id": "ns19w07-104",
+  "period": "1교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "07주차",
+  "cohort": "19기",
+  "date": "2026-11-01",
+  "text": "제로 트러스트(Zero Trust) 구현 핵심 원칙과 접근제어 원리"
+ },
+ {
+  "id": "ns19w07-105",
+  "period": "1교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "07주차",
+  "cohort": "19기",
+  "date": "2026-11-01",
+  "text": "에이전트 재킹(Agent Jacking)"
+ },
+ {
+  "id": "ns19w07-106",
+  "period": "1교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "07주차",
+  "cohort": "19기",
+  "date": "2026-11-01",
+  "text": "HNDL(Harvest Now Decrypt Later) 공격"
+ },
+ {
+  "id": "ns19w07-107",
+  "period": "1교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "07주차",
+  "cohort": "19기",
+  "date": "2026-11-01",
+  "text": "PBD(Privacy By Design) 개념, 원칙, 전략에 대하여 설명하시오."
+ },
+ {
+  "id": "ns19w07-108",
+  "period": "1교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "07주차",
+  "cohort": "19기",
+  "date": "2026-11-01",
+  "text": "SPN 구조와 AES 알고리즘 설명"
+ },
+ {
+  "id": "ns19w07-109",
+  "period": "1교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "07주차",
+  "cohort": "19기",
+  "date": "2026-11-01",
+  "text": "AI Agent 보안위협"
+ },
+ {
+  "id": "ns19w07-110",
+  "period": "1교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "07주차",
+  "cohort": "19기",
+  "date": "2026-11-01",
+  "text": "CSRF(Cross Site Request Forgery)와 SSRF(Server Side Request Forgery) 비교"
+ },
+ {
+  "id": "ns19w07-111",
+  "period": "1교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "07주차",
+  "cohort": "19기",
+  "date": "2026-11-01",
+  "text": "디지털 포렌식의 증거수집 기술과 증거분석 기술"
+ },
+ {
+  "id": "ns19w07-112",
+  "period": "1교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "07주차",
+  "cohort": "19기",
+  "date": "2026-11-01",
+  "text": "TLS 1.2 보안 취약점과 TLS 1.3 개선 사항"
+ },
+ {
+  "id": "ns19w07-113",
+  "period": "1교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "07주차",
+  "cohort": "19기",
+  "date": "2026-11-01",
+  "text": "제로트러스트(Zero Trust) 기반 공급망 보안 아키텍처"
+ },
+ {
+  "id": "ns19w07-201",
+  "period": "2교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "07주차",
+  "cohort": "19기",
+  "date": "2026-11-01",
+  "text": "블록(Block) 암호에 대한 아래의 사항을 설명하시오.\n가. 블록 암호화 알고리즘의 개념과 종류\n나. SPN과 Feistel 구조\n다. 블록암호화 스트림암호화 비교"
+ },
+ {
+  "id": "ns19w07-202",
+  "period": "2교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "07주차",
+  "cohort": "19기",
+  "date": "2026-11-01",
+  "text": "현실 세계와 직접 상호작용하는 피지컬 AI의 도입이 확대됨에 따라, 물리·사이버 융합 관점의 보안위협과 대응체계 수립이 중요해지고 있다. 다음을 설명하시오.\n가. 피지컬 AI의 개념\n나. 피지컬 AI의 주요 보안위협\n다. 피지컬 AI의 보안대책"
+ },
+ {
+  "id": "ns19w07-203",
+  "period": "2교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "07주차",
+  "cohort": "19기",
+  "date": "2026-11-01",
+  "text": "과학기술정보통신부와 한국인터넷진흥원(KISA)은 AI 서비스의 보안 위협에 효과적으로 대응하고 현장의 보안 점검 역량을 강화하기 위해 AI 보안 위협 대응 매뉴얼(2026.7)을 발간하였다. 이와 관련하여 다음을 설명하시오.\n가. AI 보안 위협의 분류 및 진단 방법\n나. 산업별 AI 보안 위협 시나리오\n다. AI 보안 위협별 대응 방안"
+ },
+ {
+  "id": "ns19w07-204",
+  "period": "2교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "07주차",
+  "cohort": "19기",
+  "date": "2026-11-01",
+  "text": "사이버 보안 플랫폼에 대하여 다음을 설명하시오.\n가. SIEM(Security Information and Event Management)의 아키텍처 및 수집로그\n나. SOAR(Security Orchestration, Automation, and Response) 아키텍처 및 기술요소"
+ },
+ {
+  "id": "ns19w07-205",
+  "period": "2교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "07주차",
+  "cohort": "19기",
+  "date": "2026-11-01",
+  "text": "개인정보보호위원회에서 가명정보 처리 가이드라인을 2026년 3월 전면 개정하여 위험도 기반 판단 체계를 확립 및 AI 기술 발전에 맞춰 운영기준을 현실화하였다. 다음을 설명하시오.\n가. 가명처리 절차\n나. 가명정보 처리 위험도 판단 절차\n다. 대규모 비정형데이터 검수 방식 유형"
+ },
+ {
+  "id": "ns19w07-206",
+  "period": "2교시",
+  "category": "보안",
+  "kind": "NS모의",
+  "round": "07주차",
+  "cohort": "19기",
+  "date": "2026-11-01",
+  "text": "전자 상거래에서 보안 및 기밀성 강화를 위해 사용되는 이중서명(Dual Signature)에 대해 다음을 설명하시오.\n가. 이중서명의 개념과 기술요소\n나. 이중서명의 암호화 복호화 과정"
  }
 ]
