@@ -90,21 +90,15 @@ const KIND_LABEL: Record<string, string> = {
   파이널: "🏁 파이널",
 };
 
-// 구분의 가장 최신(숫자 큰) 회차/주차. 기본으로 이것만 렌더 → '전체'로 수백 문제를
-// 한 번에 그려 느려지던 문제 해소(원하면 회차에서 '전체' 선택 가능).
-function newestRound(k: string): string {
-  const rs = Array.from(
-    new Set(EXAMS.filter((q) => kindOf(q) === k).map(roundOf)),
-  ).sort((a, b) => roundNum(b) - roundNum(a));
-  return rs[0] || "전체";
-}
+// 회차 기본값은 「전체」(2026-10-31 — "문제풀이 디폴트가 왜 전체가 아냐"). 예전엔 수백 문제를 한 번에 그려
+// 느려서 최신 회차만 보였는데, 지금은 20문제씩 「더 보기」로 나눠 그린다. 정렬이 최신순이라 맨 위는 최신 회차다.
 
 /** 검색할 때만 보이는 「전체」 탭 — 모든 구분(연습문제 포함)에서 찾는다 */
 const ALL_KIND = "__all";
 
 export default function ExamPage() {
   const [kind, setKind] = useState<string>(KINDS[0] || "기출");
-  const [round, setRound] = useState<string>(() => newestRound(KINDS[0] || "기출"));
+  const [round, setRound] = useState<string>("전체");
   const [period, setPeriod] = useState<(typeof PERIODS)[number]>("전체");
   // 검색어 — 입력하면 구분·회차·교시 필터를 무시하고 전체 문제에서 찾는다.
   const [query, setQuery] = useState("");
@@ -181,7 +175,7 @@ export default function ExamPage() {
         inCohort(q) &&
         (round === "전체" || roundOf(q) === round) &&
         (period === "전체" || q.period === period),
-    );
+    ).sort((a, b) => roundNum(roundOf(b)) - roundNum(roundOf(a)) || (a.period ?? "").localeCompare(b.period ?? ""));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [kind, cohort, round, period, nq]);
 
@@ -240,7 +234,7 @@ export default function ExamPage() {
               type="button"
               onClick={() => {
                 setKind(k);
-                if (k !== ALL_KIND) setRound(newestRound(k));
+                if (k !== ALL_KIND) setRound("전체");
                 setPeriod("전체");
               }}
               className={`flex-1 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm font-semibold transition sm:flex-none sm:px-5 ${
