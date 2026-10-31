@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { PageHeader } from "@/components/ui";
 import Markdown from "@/components/Markdown";
@@ -116,10 +116,19 @@ export default function ExamPage() {
     [kind],
   );
   useEffect(() => setCohort("전체"), [kind]);
-  // 「전체」 탭은 검색 중에만 — 검색어를 지우면 첫 탭으로
+  // 검색을 시작하면 「🔎 전체」 탭에서 찾는다(2026-10-31 — "검색하면 디폴트가 NS 모의고사잖아, 전체가 디폴트여야지").
+  // 다른 탭을 누르면 그 탭 안에서 찾고, 검색어를 지우면 검색 전 탭으로 돌아간다.
+  const beforeSearch = useRef<string | null>(null);
   useEffect(() => {
-    if (!nq && kind === ALL_KIND) setKind(KINDS[0] || "기출");
-  }, [nq, kind]);
+    if (nq && beforeSearch.current === null) {
+      beforeSearch.current = kind;
+      setKind(ALL_KIND);
+    } else if (!nq && beforeSearch.current !== null) {
+      setKind(beforeSearch.current === ALL_KIND ? KINDS[0] || "기출" : beforeSearch.current);
+      beforeSearch.current = null;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nq]);
   const inCohort = (q: Q) => cohort === "전체" || q.cohort === cohort;
 
   // 선택 구분에 존재하는 회차/주차만.
@@ -212,7 +221,7 @@ export default function ExamPage() {
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="🔍 문제 검색 — 지문·과목·회차 (예: 암호화, 데이터베이스, 139회) · 지금 탭 안에서 찾아요"
+          placeholder="🔍 문제 검색 — 지문·과목·회차 (예: 암호화, 데이터베이스, 139회) · 모든 구분에서 찾아요"
           className="w-full rounded-xl border border-slate-300 bg-white p-3 pr-10 text-sm shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
         />
         <ClearButton value={query} onClear={() => setQuery("")} className="top-3" />
@@ -228,7 +237,7 @@ export default function ExamPage() {
 
       {KINDS.length > 1 && (
         <div className="mb-4 flex flex-wrap gap-1.5 rounded-xl border border-slate-200 bg-white p-1.5 shadow-sm">
-          {(nq ? [...KINDS, ALL_KIND] : KINDS).map((k) => (
+          {(nq ? [ALL_KIND, ...KINDS] : KINDS).map((k) => (
             <button
               key={k}
               type="button"
