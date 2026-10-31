@@ -56283,7 +56283,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "1",
     question: "0565알고리즘을 보완하여 AES(Advanced Encryption Standartd) 알고리즘이 등장, 암호화에서 많이 쓰이고 있는 알고리즘이다. AES",
     exam: "제86회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: ["암호화(Encryption)"],
+    topicTitles: ["암호화(Encryption)", "블록 암호화(Block Cipher)"],
     pages: [
       { src: "/answers/KPC모의고사/86회/kpc-86회-kpc기술사모의고사-정보관리-모범답안-4교시-2.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/86회/kpc-86회-kpc기술사모의고사-정보관리-모범답안-4교시-3.jpg", label: "2쪽" },
@@ -58198,7 +58198,7 @@ const PEER_ANSWERS_4: PeerAnswer[] = [
     no: "9",
     question: "SPN(Substitution Permutation Network)2| 암/복호화 절차를 설명하시오",
     exam: "제54회 KPC 기술사 IMPACT 실전모의고사",
-    topicTitles: [],
+    topicTitles: ["블록 암호화(Block Cipher)"],
     pages: [
       { src: "/answers/KPC모의고사/54회/kpc-kpc-54회-시스템응용-모의고사-모범답안-1교시-10.jpg", label: "1쪽" },
       { src: "/answers/KPC모의고사/54회/kpc-kpc-54회-시스템응용-모의고사-모범답안-1교시-11.jpg", label: "2쪽" },
