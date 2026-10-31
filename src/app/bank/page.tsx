@@ -19,6 +19,8 @@ type Q = {
   source?: string;
   kind?: "기출" | "셀테" | "모의고사" | "NS모의" | "파이널";
   round?: string;
+  /** NS 주간 모의고사 기수 — 「07주차」만으론 몇 기인지 모른다 */
+  cohort?: string;
   image?: string;
   imageLabel?: string;
 };
@@ -27,7 +29,10 @@ type Q = {
 const POOL = (questions as Q[]).filter((q) => q.source || q.kind);
 const kindOf = (q: Q): "기출" | "셀테" | "모의고사" | "NS모의" | "파이널" =>
   q.kind || "기출";
-const roundOf = (q: Q) => q.round || (q.source || "").split(" ")[0] || "";
+const roundOf = (q: Q) => {
+  const r = q.round || (q.source || "").split(" ")[0] || "";
+  return q.cohort ? `${q.cohort} ${r}` : r;
+};
 
 // NS 주간 모의고사가 지금 치르는 시험이라 맨 앞.
 // 파이널(ITPE Final Round) 3,665문항이 빠져 있었다(2026-10-11 검수).
