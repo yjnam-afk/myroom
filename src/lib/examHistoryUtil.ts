@@ -26,7 +26,7 @@ export type PastAppearance = {
 export type MockAppearance = {
   id: string;
   kind: string;    // "모의고사" | "파이널" | "셀테"
-  source: string;  // "ITPE_2026.07 1교시", "43회 모의 1교시"
+  source: string;  // "ITPE 2026.07 1교시", "KPC 70회 (2016.06) 1교시", "43회 모의 1교시"
   text: string;
 };
 

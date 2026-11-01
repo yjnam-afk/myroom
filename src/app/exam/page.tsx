@@ -71,6 +71,13 @@ const KIND_DESC: Record<string, string> = {
 
 // 회차 정렬: 숫자(회/주차) 큰 순.
 function roundNum(r: string): number {
+  // 날짜 회차(「ITPE 2026.10」「KPC 70회 (2016.06)」「ITPE FR 2026.08」)는 연·월로 — 2026-11-01 "10월 모의고사 어디갔어":
+  // 예전엔 앞 숫자 2026 만 봐서 2026년 회차끼리 순서가 없어 10월이 2026년 맨 뒤에 묻혔다.
+  const d = r.match(/(20\d\d)\.(\d\d)/);
+  if (d) return parseInt(d[1]) * 100 + parseInt(d[2]);
+  // 명품 모의고사 「41회」~「44회」(2026) — 날짜가 없어 2026년 초 자리에 둔다.
+  const mp = r.match(/^(\d{2})회$/);
+  if (mp && parseInt(mp[1]) < 60) return 202600 + parseInt(mp[1]) / 100;
   // "18기 9주차"처럼 기수가 붙으면 기수 → 주차 순으로(최신 기수의 최신 주차가 맨 앞).
   const c = r.match(/(\d+)\s*기/);
   const w = r.match(/(\d+)\s*(?:주차|회)/);

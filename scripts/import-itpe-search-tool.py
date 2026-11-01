@@ -8,6 +8,8 @@
 #  - 과목(category)은 글자 2-gram 이 가장 비슷한 기존 문항의 과목(유사도 0.3 미만이면 비움).
 import json, math, os, re, sys, collections
 import xlrd
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+label = __import__("round-label").label  # ITPE_2026.10 → ITPE 2026.10, 모의_2016.06 → KPC 70회 (2016.06)
 
 XLS = next(a for a in sys.argv[1:] if not a.startswith("--"))
 WRITE = "--write" in sys.argv
@@ -79,7 +81,7 @@ def add(rec, text):
 sh = b.sheet_by_name("모의고사")
 for r in range(1, sh.nrows):
     rd, tr, ty, tx = (sh.cell_value(r, c) for c in range(4))
-    rd = rnd(rd); tr = str(tr).strip(); per = period_of(ty)
+    rd = label(rnd(rd)); tr = str(tr).strip(); per = period_of(ty)
     if not per: continue
     rec = {"id": None, "period": per, "category": "", "kind": "모의고사", "round": rd, "source": f"{rd} {per}"}
     if tr in APP: rec["track"] = "컴퓨터시스템응용"
@@ -91,7 +93,7 @@ sh = b.sheet_by_name("파이널라운드")
 state = {}
 for r in range(1, sh.nrows):
     rd, tr, ty, tx = (sh.cell_value(r, c) for c in range(4))
-    rd = rnd(rd); tr = str(tr).strip(); ty = str(ty).strip()
+    rd = label(rnd(rd)); tr = str(tr).strip(); ty = str(ty).strip()
     key = (rd, ty, "app" if tr in APP else "main")
     k = num(tx); p, last = state.get(key, (1, 0))
     if k is not None:
