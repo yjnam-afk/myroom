@@ -17,7 +17,9 @@ const s = (v: unknown) => JSON.stringify(v);
 const out: string[] = ["const PEER_ANSWERS_11: PeerAnswer[] = ["];
 let linkedTopic = 0;
 for (const e of rows) {
-  const tt = titlesMatching(e.question, titles).filter((t) => !DROP.has(t));
+  const tt = titlesMatching(e.question, titles).filter(
+    (t) => !DROP.has(t) && !(t.startsWith("SDR(") && /SDRAM/i.test(e.question)), // SDR SDRAM ≠ Software Defined Radio
+  );
   if (tt.length) linkedTopic++;
   const tag = `hs${e.rd}-${e.day}-${e.per}${e.track ? "-" + TRACK[e.track] : ""}-${String(e.no).padStart(2, "0")}`;
   const who = e.who.replace(/\s+/g, " ").trim();
