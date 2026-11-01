@@ -110,6 +110,15 @@ export function sameQuestionText(a: string, b: string): boolean {
     const [w] = [...small.en];
     return w.length >= 3 && isAcronymOf(w, big.words);
   }
+  // 한글 없이 약어 하나 ↔ 「약어 (원어)」·「원어」만 있는 문제 — 「EVM」↔「EVM (Earned Value Management) 에 대해 설명하시오」(2026-11-01)
+  // 원어 말고 다른 낱말이 붙으면(「Agile EVM」「EVM 지표 계산」) 같다고 하지 않는다
+  if (!small.ko && !big.ko && small.en.size === 1) {
+    const [w] = [...small.en];
+    const rest = big.words.filter((x) => x !== w);
+    // 원어 자리 낱말이 그 자체로 약어(대문자)면 원어가 아니다 — 「DNS」↔「DAS/NAS/SAN」
+    const caps = new Set(((a.length > b.length ? a : b).match(/\b[A-Z]{2,}\b/g) ?? []).map((x) => x.toLowerCase()));
+    return w.length >= 3 && rest.length === w.length && !rest.some((x) => caps.has(x)) && isAcronymOf(w, rest);
+  }
   if (pa.ko.length < 4) return false;
   const koSame = pa.ko === pb.ko || (Math.min(pa.ko.length, pb.ko.length) >= 5 && oneJamoOff(pa.ko, pb.ko));
   if (!koSame) return false;

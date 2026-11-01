@@ -15,6 +15,9 @@ const SAME: [string, string][] = [
   ["공격표면관리(ASM)", "공격 표면 관리(Attack Surface Management)"],
   ["블록 암호 운영모드", "블록 암호 운영모드(ECB, CBC, CFB, OFB, CTR)"],
   ["데이터 3법", "데이터 3법에 대해 설명하시오"],
+  ["evm", "EVM (Earned Value Management) 에 대해 설명하시오."],
+  ["EVM", "EVM(Earned Valued Management)"],
+  ["EVM", "Earned Value Management"],
 ];
 const DIFF: [string, string][] = [
   ["TCP와 UDP 비교", "TCP와 IP 비교"],
@@ -24,6 +27,10 @@ const DIFF: [string, string][] = [
   ["ISM", "공격 표면 관리(Attack Surface Management)"],
   ["데이터 마이닝", "텍스트 마이닝"],
   ["SPN", "블록 암호화(Block Cipher)"],
+  ["EVM", "Agile EVM"],
+  ["EVM", "CPM EVM"],
+  ["DNS", "DAS/NAS/SAN 에 대하여 설명하시오."],
+  ["EVM", "EVM의 주요지표인 PV, EV, AC를 설명하시오"],
 ];
 // 앞이 더 최신이어야 한다
 const NEWER: [string, string][] = [
