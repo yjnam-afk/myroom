@@ -31,7 +31,7 @@ function line(a: PeerAnswer): string {
 }
 
 export function saveGroups(groups: Group[]) {
-  const errors = validate(groups).filter((p) => p.level === "error");
+  const errors = validate(groups, { files: existsSync(join(ROOT, "public/answers")) }).filter((p) => p.level === "error");
   if (errors.length) {
     for (const e of errors.slice(0, 30)) console.error("✗", e.id, e.msg);
     throw new Error(`검사 오류 ${errors.length}건 — 저장하지 않았다`);

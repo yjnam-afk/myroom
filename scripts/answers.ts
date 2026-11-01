@@ -10,8 +10,9 @@
  *   npx tsx scripts/answers.ts apply <ops.json>          여러 고침을 한 번에(파이썬 연결 스크립트가 쓴다)
  *     ops: [{op:"set",id,field,value} | {op:"add-qid",id,qid} | {op:"rm-qid",id,qid} | {op:"add",entry,file?} | {op:"rm",id}]
  */
-import { readFileSync } from "node:fs";
-import { loadGroups, saveGroups, validate, findAnswer, type Group } from "./lib/answers-store";
+import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
+import { loadGroups, saveGroups, validate, findAnswer, ROOT, type Group } from "./lib/answers-store";
 import type { PeerAnswer } from "../src/data/peerAnswers";
 
 type Op =
@@ -50,12 +51,15 @@ const [cmd, ...args] = process.argv.slice(2);
 const groups = loadGroups();
 switch (cmd) {
   case "check": {
-    const ps = validate(groups, { files: !args.includes("--no-files") });
+    // Vercel 빌드에는 public/answers 가 없다(.vercelignore) — 거기서 이미지 파일을 찾으면 전부 「이미지 없음」이라 빌드가 멈춘다.
+    // 2026-11-01 이것 때문에 배포가 4번 연달아 실패했다. 이미지 검사는 이미지가 있는 로컬에서만 한다.
+    const files = !args.includes("--no-files") && !process.env.VERCEL && existsSync(join(ROOT, "public/answers"));
+    const ps = validate(groups, { files });
     const errs = ps.filter((p) => p.level === "error");
     const warns = ps.filter((p) => p.level === "warn");
     for (const e of errs.slice(0, 50)) console.error("✗", e.id, e.msg);
     const n = groups.reduce((s, g) => s + g.items.length, 0);
-    console.log(`answers: ${n}편 · 오류 ${errs.length} · 경고 ${warns.length}(모르는 토픽 제목)`);
+    console.log(`answers: ${n}편 · 오류 ${errs.length} · 경고 ${warns.length}(모르는 토픽 제목)${files ? "" : " · 이미지 파일 검사 생략"}`);
     if (args.includes("-v")) for (const w of warns) console.log("·", w.id, w.msg);
     if (errs.length) process.exit(1);
     break;
