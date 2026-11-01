@@ -602,6 +602,11 @@ const TITLE_SLUG: Record<string, string> = {
   "엣지컴퓨팅(Edge Computing)과 포그컴퓨팅(Fog Computing)": "dx-edge-fog",
   "서버리스 아키텍처(Serverless Architecture)": "dx-serverless",
   "서비스형 엣지 머신러닝(Edge Machine Learning as-a-Service)": "dx-edge-mlaas",
+  "클라우드 네이티브(Cloud Native)": "dx-cloud-native",
+  "클라우드 네이티브(Cloud Native) 참조 아키텍처": "dx-cloud-native-ref",
+  "Cloud Native 12-Factor App & 15-Factor": "dx-12factor",
+  "CNAPP(Cloud Native Application Protection Platform)": "dx-cnapp",
+  "클라우드 네이티브 구축운영 상세가이드('26.01)": "dx-cloud-native-guide",
   "깃옵스(GitOps)": "dx-gitops",
   "공공부문 SaaS 이용가이드 라인": "dx-public-saas",
   "소버린 클라우드(Sovereign Cloud)": "dx-sovereign-cloud",
@@ -12297,7 +12302,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   },
   "cloud-audit": { image: "/concept/book/cloud-audit.png", images: ["/concept/diagram/cloud-audit.webp"], imagesLabel: "사업 유형" },
   "bigdata-audit": { image: "/concept/book/bigdata-audit.png" },   // 표뿐이라 잘라낼 그림이 없다
-  // 2026-11-01 디지털서비스 교재 슬라이드(1~10·16~20쪽)
+  // 2026-11-01 디지털서비스 교재 슬라이드(1~20쪽)
   "dx-hypervisor": { image: "/concept/book/dx-hypervisor.png" },
   "dx-lxc": { image: "/concept/book/dx-lxc.png" },
   "dx-docker": { image: "/concept/book/dx-docker.webp" },
@@ -12308,6 +12313,11 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   "dx-edge-fog": { image: "/concept/book/dx-edge-fog.png" },
   "dx-serverless": { image: "/concept/book/dx-serverless.png" },
   "dx-edge-mlaas": { image: "/concept/book/dx-edge-mlaas.webp" },
+  "dx-cloud-native": { image: "/concept/book/dx-cloud-native.webp" },
+  "dx-cloud-native-ref": { image: "/concept/book/dx-cloud-native-ref.png" },
+  "dx-12factor": { image: "/concept/book/dx-12factor.webp" },
+  "dx-cnapp": { image: "/concept/book/dx-cnapp.png" },
+  "dx-cloud-native-guide": { image: "/concept/book/dx-cloud-native-guide.webp" },
   "dx-gitops": { image: "/concept/book/dx-gitops.png" },
   "dx-public-saas": { image: "/concept/book/dx-public-saas.webp" },
   "dx-sovereign-cloud": { image: "/concept/book/dx-sovereign-cloud.png" },
