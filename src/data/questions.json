@@ -158810,6 +158810,33 @@
   "text": "폴락의 법칙(Pollack's Law)"
  },
  {
+  "id": "c132-103",
+  "period": "1교시",
+  "category": "",
+  "round": "컴시응 132회",
+  "source": "132회 1교시",
+  "track": "컴퓨터시스템응용",
+  "text": "Canary Test"
+ },
+ {
+  "id": "c132-104",
+  "period": "1교시",
+  "category": "운영체제",
+  "round": "컴시응 132회",
+  "source": "132회 1교시",
+  "track": "컴퓨터시스템응용",
+  "text": "세마포어(Semaphore)의 개념과 주요 연산(P 연산, V 연산)"
+ },
+ {
+  "id": "c132-105",
+  "period": "1교시",
+  "category": "네트워크",
+  "round": "컴시응 132회",
+  "source": "132회 1교시",
+  "track": "컴퓨터시스템응용",
+  "text": "전송제어프로토콜(TCP, Transmission Control Protocol)의 4-way handshake"
+ },
+ {
   "id": "c132-106",
   "period": "1교시",
   "category": "경영전략",
@@ -158828,6 +158855,24 @@
   "text": "전자정부사업관리 위탁(PMO, Project Management Office)"
  },
  {
+  "id": "c132-108",
+  "period": "1교시",
+  "category": "",
+  "round": "컴시응 132회",
+  "source": "132회 1교시",
+  "track": "컴퓨터시스템응용",
+  "text": "디지털 리터러시(Digital Literacy)"
+ },
+ {
+  "id": "c132-109",
+  "period": "1교시",
+  "category": "",
+  "round": "컴시응 132회",
+  "source": "132회 1교시",
+  "track": "컴퓨터시스템응용",
+  "text": "네트워크 실시간 측위(NRTK, Network RealTime Kinematic)"
+ },
+ {
   "id": "c132-110",
   "period": "1교시",
   "category": "프로젝트관리",
@@ -158844,6 +158889,24 @@
   "source": "132회 1교시",
   "track": "컴퓨터시스템응용",
   "text": "파인튜닝(Fine-tuning)"
+ },
+ {
+  "id": "c132-112",
+  "period": "1교시",
+  "category": "보안",
+  "round": "컴시응 132회",
+  "source": "132회 1교시",
+  "track": "컴퓨터시스템응용",
+  "text": "영지식증명(Zero Knowledge Proof)"
+ },
+ {
+  "id": "c132-113",
+  "period": "1교시",
+  "category": "",
+  "round": "컴시응 132회",
+  "source": "132회 1교시",
+  "track": "컴퓨터시스템응용",
+  "text": "슈퍼앱(Super App)"
  },
  {
   "id": "c132-201",
@@ -158891,6 +158954,15 @@
   "text": "정보시스템 마스터플랜(ISMP, Information System Master Plan)에 대하여 아래사항을 설명하시오.\n가. ISMP 와 EA(Enterprise Architecture), ISP(Information System Planning)에 대하여 설명하고, 상호 비교\n나. 투입공수에 의한 사업대가 산정방식을 적용한 ISMP 수립비 산정 절차, 주요내용, 산출물"
  },
  {
+  "id": "c132-206",
+  "period": "2교시",
+  "category": "네트워크",
+  "round": "컴시응 132회",
+  "source": "132회 2교시",
+  "track": "컴퓨터시스템응용",
+  "text": "개방형 무선 접속망 Open RAN(Open Radio Access Network)은 서로 다른 장비 간 상호 연동을 가능하게 하는 기술이다. 이와 관련하여 아래 사항을 설명하시오.\n가. Open RAN 의 개념\n나. Open RAN 의 구성요소\n다. RAN 과 Open RAN 의 비교"
+ },
+ {
   "id": "c132-301",
   "period": "3교시",
   "category": "디지털서비스",
@@ -158927,6 +158999,24 @@
   "text": "중앙처리장치(CPU) 내에 구성된 제어장치(Control Unit)의 구현 방법과 관련하여 아래 사항을 설명하시오.\n가. micro-programmed 구현방법\n나. hard-wired 구현방법\n다. 구현 방법 간 상호비교"
  },
  {
+  "id": "c132-305",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "round": "컴시응 132회",
+  "source": "132회 3교시",
+  "track": "컴퓨터시스템응용",
+  "text": "객체지향 프로그래밍 기법을 활용한 소프트웨어 설계시 고려해야 할 원칙(일명 SOLID 원칙) 5 가지를 제시하고 설명하시오."
+ },
+ {
+  "id": "c132-306",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "round": "컴시응 132회",
+  "source": "132회 3교시",
+  "track": "컴퓨터시스템응용",
+  "text": "정보통신산업진흥원에서 제시한 소프트웨어사업 영향평가에 대하여 아래 사항을 설명하시오.\n가. 영향평가 대상기관\n나. 소프트웨어사업 영향평가 체계\n다. 평가항목"
+ },
+ {
   "id": "c132-401",
   "period": "4교시",
   "category": "소프트웨어공학",
@@ -158954,6 +159044,15 @@
   "text": "디지털 트윈 기술을 이용한 제조(정보통신단체표준, TTAK.KO-11.0284)에 대하여 아래 사항을 설명하시오.\n가. 제조를 위한 디지털 트윈(digital twin) 기술 개념\n나. 제조 디지털 트윈(digital twin) 프레임워크\n다. 액터(actor) 정보 테이블의 항목 및 항목 값"
  },
  {
+  "id": "c132-404",
+  "period": "4교시",
+  "category": "운영체제",
+  "round": "컴시응 132회",
+  "source": "132회 4교시",
+  "track": "컴퓨터시스템응용",
+  "text": "운영체제에서 발생할 수 있는 deadlock 현상에 대하여 아래 사항을 설명하시오.\n가. deadlock 의 개념\n나. deadlock 과 starvation 의 차이점\n다. deadlock 이 발생하기 위한 조건 4 가지\n라. deadlock 발생 시 처리 방안"
+ },
+ {
   "id": "c132-405",
   "period": "4교시",
   "category": "인공지능",
@@ -158961,6 +159060,15 @@
   "source": "132회 4교시",
   "track": "컴퓨터시스템응용",
   "text": "서포트 벡터 머신(Support Vector Machine)은 기계학습 분야에서 많이 활용되는 학습 모델이다. 아래 사항을 설명하시오.\n가. SVM 의 개념\n나. SVM 의 동작방식\n다. SVM 의 장단점 및 활용사례"
+ },
+ {
+  "id": "c132-406",
+  "period": "4교시",
+  "category": "네트워크",
+  "round": "컴시응 132회",
+  "source": "132회 4교시",
+  "track": "컴퓨터시스템응용",
+  "text": "초저지연 서비스와 부하분산을 위한 모바일 엣지 컴퓨팅(Mobile Edge Computing) 기술이 확대되고 있다. 아래 사항을 설명하시오.\n가. 모바일 엣지 컴퓨팅의 개념\n나. 모바일 엣지 컴퓨팅의 플랫폼 구조 및 구성요소\n다. 모바일 5G 에서 엣지 컴퓨팅 적용 방안"
  },
  {
   "id": "c125-1x819",
