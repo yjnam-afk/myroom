@@ -592,6 +592,11 @@ const TITLE_SLUG: Record<string, string> = {
   // ── 신규 추가 토픽(AI 품질·에이전틱 커머스·데이터·AI 보안) ──
   "OWASP Agentic AI 위협 및 대응방안(Agentic AI Threats and Mitigations)": "sc-owasp-agentic",
   "ISO/IEC 25059:2023(AI 품질모델)": "ai-iso-25059",
+  "하이퍼바이저(Hypervisor)": "dx-hypervisor",
+  "리눅스 컨테이너(Linux Container, LXC)": "dx-lxc",
+  "도커(Docker)": "dx-docker",
+  "쿠버네티스(Kubernetes)": "dx-kubernetes",
+  "오토 스케일링(Auto-Scaling)": "dx-auto-scaling",
   "멀티 클라우드(Multi-Cloud)": "dx-multi-cloud",
   "분산 클라우드(Distributed Cloud)": "dx-distributed-cloud",
   "엣지컴퓨팅(Edge Computing)과 포그컴퓨팅(Fog Computing)": "dx-edge-fog",
@@ -12292,7 +12297,12 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   },
   "cloud-audit": { image: "/concept/book/cloud-audit.png", images: ["/concept/diagram/cloud-audit.webp"], imagesLabel: "사업 유형" },
   "bigdata-audit": { image: "/concept/book/bigdata-audit.png" },   // 표뿐이라 잘라낼 그림이 없다
-  // 2026-11-01 디지털서비스 교재 6~10쪽 슬라이드
+  // 2026-11-01 디지털서비스 교재 슬라이드(1~10·16~20쪽)
+  "dx-hypervisor": { image: "/concept/book/dx-hypervisor.png" },
+  "dx-lxc": { image: "/concept/book/dx-lxc.png" },
+  "dx-docker": { image: "/concept/book/dx-docker.webp" },
+  "dx-kubernetes": { image: "/concept/book/dx-kubernetes.webp" },
+  "dx-auto-scaling": { image: "/concept/book/dx-auto-scaling.webp" },
   "dx-multi-cloud": { image: "/concept/book/dx-multi-cloud.webp" },
   "dx-distributed-cloud": { image: "/concept/book/dx-distributed-cloud.png" },
   "dx-edge-fog": { image: "/concept/book/dx-edge-fog.png" },
