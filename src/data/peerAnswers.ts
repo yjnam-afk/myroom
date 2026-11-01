@@ -92267,6 +92267,18 @@ const PEER_ANSWERS_10: PeerAnswer[] = [
       { src: "/answers/기출해설집/정보관리/132회/itpe132-4-06-3.webp", label: "3쪽" },
     ],
   },
+  {
+    id: "peer-nw163-c-ran",
+    period: "1교시",
+    question: "C-RAN(Centralized-RAN)",
+    exam: "정리 답안 (드라이브 토픽 정리 NW_163)",
+    topicTitles: ["C-RAN(Centralized / Cloud RAN)"],
+    questionIds: ["f02025"],
+    pages: [
+      { src: "/answers/정리답안/토픽정리NW/nw163-c-ran-1.webp", label: "1쪽" },
+      { src: "/answers/정리답안/토픽정리NW/nw163-c-ran-2.webp", label: "2쪽" },
+    ],
+  },
 ];
 
 export const PEER_ANSWERS: PeerAnswer[] = [
