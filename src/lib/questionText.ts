@@ -36,7 +36,7 @@ export function looselyContains(a: string, b: string): boolean {
   return !!x && !!y && (x.includes(y) || y.includes(x));
 }
 
-type Parts = { ko: string; en: Set<string>; words: string[] };
+type Parts = { ko: string; koJ: string; en: Set<string>; words: string[]; outEn: Set<string> };
 const partsCache = new Map<string, Parts>();
 function parts(t: string): Parts {
   const hit = partsCache.get(t);
@@ -46,7 +46,23 @@ function parts(t: string): Parts {
     .replace(/^\s*\d+\s*[.)]\s*/, "")
     .replace(/(에\s*)?(대\s*(해|하여)|관\s*(해|하여))?\s*(다음(을|에)?\s*(대해|대하여)?)?\s*(설명|기술|논|서술|답)\s*(하)?\s*시오\.?\s*$/, "");
   const words = s.match(/[a-z0-9]+/g) ?? [];
-  const p = { ko: s.replace(/[^가-힣]/g, "").replace(/(을|를|에대해|에대하여|의)$/, ""), en: new Set(words), words };
+  const ko = s.replace(/[^가-힣]/g, "").replace(/(을|를|에대해|에대하여|의)$/, "");
+  // 「핵심 원칙과 접근제어 원리」↔「핵심원칙, 접근제어원리」 — 낱말 끝 이음말(과·와·및)은 쉼표와 같다(2026-11-01).
+  // 띄어 쓴 낱말 끝에서만 뗀다(「할당과정」의 과는 그대로). 붙여 쓴 쪽과는 ko 로 비교하므로 둘 다 본다.
+  const koJ = s
+    .replace(/([가-힣)a-z0-9])(과|와)(?=[\s,(]|$)/g, "$1")
+    .replace(/(^|\s)(과|와|및)(?=\s)/g, " ")
+    .replace(/[^가-힣]/g, "")
+    .replace(/(을|를|에대해|에대하여|의)$/, "");
+  // 괄호 밖 영문 — 「모바일신분증과 KYC(…)」의 KYC 처럼 괄호 밖 영문은 따로 묻는 개념이다(괄호 안은 원어 풀이).
+  // 「Vector DB(벡터 데이터베이스)」처럼 괄호 안이 한글 풀이면 괄호 앞 영문이 곧 그 말이라 괄호 밖으로 치지 않는다.
+  const outEn = new Set(
+    s
+      .replace(/[a-z][a-z0-9 .\-]*\(([^)]*[가-힣][^)]*)\)/g, " ")
+      .replace(/\([^)]*\)/g, " ")
+      .match(/[a-z0-9]+/g) ?? [],
+  );
+  const p = { ko, koJ, outEn, en: new Set(words), words };
   if (partsCache.size > 20000) partsCache.clear();
   partsCache.set(t, p);
   return p;
@@ -94,6 +110,8 @@ function oneJamoOff(a: string, b: string): boolean {
  *  3) 「ASM」만 적힌 제목은 상대 원어의 머리글자면 같다.
  *  4) 한글 5자 이상에서 자모 하나 차이는 오타로 본다(공격표면관라). 감리≠관리는 자모 둘 차이라 다르다.
  */
+const QUALIFIER = new Set(["it", "ai", "sw", "hw", "ict", "cpu", "os", "v"]);
+
 export function sameQuestionText(a: string, b: string): boolean {
   const x = questionCore(a);
   const y = questionCore(b);
@@ -119,9 +137,18 @@ export function sameQuestionText(a: string, b: string): boolean {
     const caps = new Set(((a.length > b.length ? a : b).match(/\b[A-Z]{2,}\b/g) ?? []).map((x) => x.toLowerCase()));
     return w.length >= 3 && rest.length === w.length && !rest.some((x) => caps.has(x)) && isAcronymOf(w, rest);
   }
+  // 한글이 같고 영문이 한쪽 약어의 원어만 더 붙은 것 — 「HNDL 공격」↔「HNDL(Harvest Now Decrypt Later) 공격」(2026-11-01)
+  if ((pa.ko === pb.ko || pa.koJ === pb.koJ) && small.en.size >= 1) {
+    const rest = big.words.filter((w) => !small.en.has(w));
+    if ([...small.en].some((w) => w.length >= 3 && rest.length === w.length && isAcronymOf(w, rest))) return true;
+  }
   if (pa.ko.length < 4) return false;
-  const koSame = pa.ko === pb.ko || (Math.min(pa.ko.length, pb.ko.length) >= 5 && oneJamoOff(pa.ko, pb.ko));
+  const koSame = pa.ko === pb.ko || pa.koJ === pb.koJ || (Math.min(pa.ko.length, pb.ko.length) >= 5 && oneJamoOff(pa.ko, pb.ko));
   if (!koSame) return false;
+  // 한쪽에만 괄호 밖 영문이 있으면 다른 개념을 더 묻는 것 — 「범위관리 프로세스」≠「범위관리 프로세스와 WBS」, 「지능형 로봇」≠「지능형로봇과 URC」
+  // 약어의 원어가 상대쪽에 있으면 같은 말이다(「DSLM(Domain-Specific Language Model)」↔「(Domain-Specific Language Model)」).
+  // 「IT·AI·SW·CPU」 같은 분야 머리말은 개념이 아니다(「IT 그로스해킹」=「그로스해킹」, 「선점형 CPU 스케줄링」=「선점형 스케줄링」)
+  if ([...big.outEn].some((w) => !small.en.has(w) && !/^v?\d+$/.test(w) && !QUALIFIER.has(w) && !isAcronymOf(w, small.words))) return false;
   // 한글이 같아도 영문이 한쪽에만 잔뜩 있으면(다른 영문 문제) 같다고 하지 않는다
   return small.en.size > 0 || big.en.size <= 6;
 }
