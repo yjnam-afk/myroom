@@ -597,6 +597,11 @@ const TITLE_SLUG: Record<string, string> = {
   "엣지컴퓨팅(Edge Computing)과 포그컴퓨팅(Fog Computing)": "dx-edge-fog",
   "서버리스 아키텍처(Serverless Architecture)": "dx-serverless",
   "서비스형 엣지 머신러닝(Edge Machine Learning as-a-Service)": "dx-edge-mlaas",
+  "깃옵스(GitOps)": "dx-gitops",
+  "공공부문 SaaS 이용가이드 라인": "dx-public-saas",
+  "소버린 클라우드(Sovereign Cloud)": "dx-sovereign-cloud",
+  "FinOps(Financial Operations)": "dx-finops",
+  "클라우드 마이그레이션(Cloud Migration)": "dx-cloud-migration",
   "AP2(Agent Payment Protocol)": "dx-ap2",
   "UCP(Universal Commerce Protocol)": "dx-ucp",
   "ACP(Agentic Commerce Protocol)": "dx-acp",
@@ -12293,6 +12298,11 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   "dx-edge-fog": { image: "/concept/book/dx-edge-fog.png" },
   "dx-serverless": { image: "/concept/book/dx-serverless.png" },
   "dx-edge-mlaas": { image: "/concept/book/dx-edge-mlaas.webp" },
+  "dx-gitops": { image: "/concept/book/dx-gitops.png" },
+  "dx-public-saas": { image: "/concept/book/dx-public-saas.webp" },
+  "dx-sovereign-cloud": { image: "/concept/book/dx-sovereign-cloud.png" },
+  "dx-finops": { image: "/concept/book/dx-finops.png" },
+  "dx-cloud-migration": { image: "/concept/book/dx-cloud-migration.webp" },
 };
 
 const norm = (s: string) => s.trim().toLowerCase().replace(/[\s()·,\-_/]/g, "");

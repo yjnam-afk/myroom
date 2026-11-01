@@ -108,6 +108,8 @@ const ONE_CONCEPT = new Set([
   "클라우드 컴퓨팅 취약점, 대응기술",
   "디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안",
   "OWASP Agentic AI 위협 및 대응방안(Agentic AI Threats and Mitigations)",
+  // 12-Factor 와 15-Factor 는 한 규칙 묶음(앞 12개 + 3개) — 슬라이드 정의도 하나뿐이다
+  "Cloud Native 12-Factor App & 15-Factor",
 ]);
 const noPair = SUBNOTES.filter((s) => {
   if (s.defPair?.length || s.subDefs?.length || ONE_CONCEPT.has(s.title)) return false;
