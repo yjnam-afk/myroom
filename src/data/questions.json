@@ -102797,7 +102797,7 @@
   "round": "12주차",
   "cohort": "12기",
   "date": "2023-06-18",
-  "text": "웹 해킹 공격을 사전에 예방하기 위하여 시큐어 코딩(Secure Coding)의 중요성이 높아지고 있다.\n가. 분석/설계 단계의 보안 항목\n나. 구현 단계 SW 보안약점 항목\n다. 다음의 C 언어로 작성된 코드에 대해 안전하지 않은 이유를 설명하고 안전한 코드로 변경 하시오. #include <stdio.h> int factorial(int i) { return i * factorial(i - 1); } int main() { int num = 5; int result = factorial(num); printf(\"%d! : %d\\n\", num, result); return 0; }",
+  "text": "웹 해킹 공격을 사전에 예방하기 위하여 시큐어 코딩(Secure Coding)의 중요성이 높아지고 있다.\n가. 분석/설계 단계의 보안 항목\n나. 구현 단계 SW 보안약점 항목\n다. 다음의 C 언어로 작성된 코드에 대해 안전하지 않은 이유를 설명하고 안전한 코드로 변경 하시오.\n#include <stdio.h>\nint factorial(int i) {\n  return i * factorial(i - 1);\n}\nint main() {\n  int num = 5;\n  int result = factorial(num);\n  printf(\"%d! : %d\\n\", num, result);\n  return 0;\n}",
   "keywords": [
    "입력데이터검증및표현",
    "보안기능",
