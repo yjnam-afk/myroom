@@ -30,6 +30,11 @@ rewrite 가 `/answers/…` 를 GitHub 원본(raw.githubusercontent.com, 공개 �
 이미지는 전처럼 `public/answers` 에 커밋하면 된다. `public/` 의 다른 폴더에 파일을 대량으로
 넣을 때는 `find public -type f | wc -l` 이 16,000 에 가깝지 않은지 본다.
 
+**2026-11-01 부터 새 답안 이미지는 별도 공개 저장소 `yjnam-afk/myroom-answers`(main)에 넣는다** — 이 저장소가 3.6GB(이미지 3.4GB)가 되어
+세션마다 새로 받는 데 오래 걸린다. 그 저장소에 `{출처 폴더}/파일.webp` 로 커밋하고 답안 `pages[].src` 는 `/ans2/{출처 폴더}/파일.webp` 로 적는다
+(`next.config.mjs` 의 `/ans2/:path*` rewrite 가 raw.githubusercontent.com 으로 넘긴다. `answers.ts check` 는 `/ans2/` 파일 존재를 보지 않는다).
+기존 `public/answers` 3.4GB 는 그대로 둔다(기록에서 지우려면 히스토리를 다시 써야 해서 사용자가 정할 일).
+
 **답안 이미지는 출처별 폴더에 둔다**(2026-10-05 정리 — 한 폴더에 19,346장이 몰려 GitHub 에서 열리지도
 않았다. GitHub 은 폴더당 1,000개까지만 보여 준다). `기출해설집/{정보관리|컴시응}/{회}회`, `NS19기/{주}주차/{해설집|답안지}`,
 `NS19기/정리노트/…`, `KPC모의고사/{회}회`, `정리답안/{드라이브 경로}`, `ITPE모의고사/…`, `심화반/…`, `실전심화반/{반}`,

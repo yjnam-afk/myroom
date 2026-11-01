@@ -37,6 +37,12 @@ const nextConfig = {
           source: "/answers/:path*",
           destination: `https://raw.githubusercontent.com/yjnam-afk/myroom/${ANSWER_REF}/public/answers/:path*`,
         },
+        // 2026-11-01 부터 새로 넣는 답안 스캔은 별도 공개 저장소 yjnam-afk/myroom-answers 에 둔다(이 저장소가 3.6GB 가 돼서).
+        // 답안 데이터의 pages[].src 를 「/ans2/폴더/파일.webp」로 적으면 그 저장소 main 의 같은 경로에서 받는다.
+        {
+          source: "/ans2/:path*",
+          destination: "https://raw.githubusercontent.com/yjnam-afk/myroom-answers/main/:path*",
+        },
       ],
     };
   },
