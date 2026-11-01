@@ -3,7 +3,7 @@
 #   결과: public/answers/KPC합숙해설집/{회}회/hs{회}-{일차}-{교시}[-트랙]-{번호}-{쪽}.webp
 #         + scratchpad 의 camp-entries.jsonl 에 한 줄씩(문항·쪽·출제자). TS 로 옮기는 건 camp-to-ts.ts.
 # 2026-11-01 "모범답안이 없는 토픽 혹은 기출문제 모범답안 찾아줘" — 드라이브 「합숙 해설」 폴더(104~120회 대비).
-# 해설집 첫 쪽 머리: 「문제 / 도메인 / 출제배경 / 키워드 / 목차예시 / 출제자 / 난이도」 — 「출제배경」이 있는 쪽이 문항 시작.
+# 해설집 첫 쪽 머리: 「문제 / 도메인 / 출제배경(108회 대비는 「출제예상 배경」) / 키워드 / 목차예시 / 출제자 / 난이도」 — 「출제배경」이 있는 쪽이 문항 시작.
 import base64, io, json, os, re, sys, unicodedata
 import pymupdf as fitz
 from PIL import Image
@@ -14,6 +14,7 @@ TRACK = {"관리": "관리", "컴시응": "컴시응", "공통": "공통"}
 
 def fix(t):
     # 드라이브 제목이 EUC-KR 를 latin-1 로 읽은 꼴(「ÇÕ¼÷ÇØ¼³Áý」)이거나 NFD(자모 분리)로 온다
+    t = unicodedata.normalize("NFC", t)  # 「È」가 E + 결합 부호로 갈라져 오면 latin-1 로 못 돌린다
     try: t = t.encode("latin-1").decode("cp949")
     except Exception: pass
     return unicodedata.normalize("NFC", t)
@@ -32,7 +33,7 @@ for path in sys.argv[1:]:
     starts = []
     for i, p in enumerate(doc):
         t = p.get_text()
-        if "출제배경" in t and re.search(r"\n\s*문제\s*\n", t):
+        if re.search(r"출제\S*\s*배경", t) and re.search(r"\n\s*문제\s*\n", t):  # 108회 대비는 「출제예상 배경」
             q = re.search(r"\n\s*문제\s*\n(.*?)\n\s*도메인", t, re.S)
             a = re.search(r"출제자\s*\n(.*?)(?:\(|\n)", t)
             starts.append((i, re.sub(r"\s+", " ", q.group(1)).strip() if q else "", a.group(1).strip() if a else ""))
