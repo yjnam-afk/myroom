@@ -83,5 +83,31 @@ export function isSameQuestion(a: PeerAnswer, text: string, id?: string): boolea
   if (!x || !y) return false;
   if (x === y) return true;
   const [s, l] = x.length <= y.length ? [x, y] : [y, x];
-  return s.length >= 4 && s.length / l.length >= 0.85 && l.includes(s);
+  if (s.length >= 4 && s.length / l.length >= 0.85 && l.includes(s)) return true;
+  return sameByParts(a.question, text);
+}
+
+/**
+ * 한글은 같고 영문·숫자 낱말만 한쪽이 더 많은 경우 — 괄호 원어 병기 차이.
+ * 「국가 망 보안체계(N2SF, National Network Security Framework)」 = 「국가망 보안체계 N2SF」
+ * (2026-11-01 "같은 문제잖아"). 영문·숫자는 한쪽이 다른 쪽을 모두 담아야 같다 —
+ * 「TCP와 UDP 비교」≠「TCP와 IP 비교」, 「OWASP Top 10:2021」≠「…:2025」.
+ */
+function parts(t: string): { ko: string; en: Set<string> } {
+  const s = (t || "")
+    .toLowerCase()
+    .replace(/^\s*\d+\s*[.)]\s*/, "")
+    .replace(/(에\s*)?(대\s*(해|하여)|관\s*(해|하여))?\s*(다음(을|에)?\s*(대해|대하여)?)?\s*(설명|기술|논|서술|답)\s*(하)?\s*시오\.?\s*$/, "");
+  const ko = s.replace(/[^가-힣]/g, "").replace(/(을|를|에대해|에대하여|의)$/, "");
+  const en = new Set(s.match(/[a-z0-9]+/g) ?? []);
+  return { ko, en };
+}
+function sameByParts(a: string, b: string): boolean {
+  const x = parts(a);
+  const y = parts(b);
+  if (x.ko.length < 4 || x.ko !== y.ko) return false;
+  const [small, big] = x.en.size <= y.en.size ? [x.en, y.en] : [y.en, x.en];
+  for (const w of small) if (!big.has(w)) return false;
+  // 한글이 같아도 영문 낱말이 하나도 겹치지 않으면(둘 다 있는데) 다른 문제일 수 있다
+  return small.size > 0 || big.size <= 6;
 }
