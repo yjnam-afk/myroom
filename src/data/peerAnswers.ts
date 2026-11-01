@@ -15809,7 +15809,7 @@ const PEER_ANSWERS_2: PeerAnswer[] = [
   {
     id: "peer-d12-001-데이터베이스",
     period: "2교시",
-    question: "데이터베이스",
+    question: "데이터 수집 기술의 정의, 데이터 수집 절차와 수집 시 고려사항",
     exam: "정리 답안 (드라이브 3. 모범답안 › 7. DB와 데이터분석)",
     topicTitles: [],
     pages: [
@@ -48495,9 +48495,11 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
   {
     id: "peer-cls-7주차-주간모의고사-2교시-db",
     period: "2교시",
-    question: "DB",
+    question: "파티셔닝의 추진 목적, 종류, 분할기준",
     exam: "심화반 7주차 주간모의고사",
-    topicTitles: [],
+    topicTitles: ["데이터베이스 파티셔닝(Partitioning)"],
+    score: 15,
+    maxScore: 25,
     pages: [
       { src: "/answers/심화반/주간모의고사/cls-7주차-주간모의고사-2교시-db-1.jpg", label: "1쪽" },
       { src: "/answers/심화반/주간모의고사/cls-7주차-주간모의고사-2교시-db-2.jpg", label: "2쪽" },
@@ -48534,9 +48536,11 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
   {
     id: "peer-cls-5주차-주간모의고사-2교시-nw",
     period: "2교시",
-    question: "NW",
+    question: "매터(Matter)의 개념, 기존 스마트홈 표준의 한계와 매터의 장점, 매터 Network Stack",
     exam: "심화반 5주차 주간모의고사",
-    topicTitles: [],
+    topicTitles: ["IoT Matter"],
+    score: 15.5,
+    maxScore: 25,
     pages: [
       { src: "/answers/심화반/주간모의고사/cls-5주차-주간모의고사-2교시-nw-1.jpg", label: "1쪽" },
       { src: "/answers/심화반/주간모의고사/cls-5주차-주간모의고사-2교시-nw-2.jpg", label: "2쪽" },
@@ -48680,17 +48684,42 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     ],
   },
   {
-    id: "peer-cls-13주차-주간모의고사-2교시-보안",
-    period: "2교시",
-    question: "보안",
+    id: "peer-cls-13주차-주간모의고사-1교시-iso27017",
+    period: "1교시",
+    question: "ISO/IEC 27017",
     exam: "심화반 13주차 주간모의고사",
-    topicTitles: [],
+    topicTitles: ["ISO 27017"],
+    score: 6,
+    maxScore: 10,
     pages: [
       { src: "/answers/심화반/주간모의고사/cls-13주차-주간모의고사-2교시-보안-1.jpg", label: "1쪽" },
       { src: "/answers/심화반/주간모의고사/cls-13주차-주간모의고사-2교시-보안-2.jpg", label: "2쪽" },
-      { src: "/answers/심화반/주간모의고사/cls-13주차-주간모의고사-2교시-보안-3.jpg", label: "3쪽" },
-      { src: "/answers/심화반/주간모의고사/cls-13주차-주간모의고사-2교시-보안-4.jpg", label: "4쪽" },
-      { src: "/answers/심화반/주간모의고사/cls-13주차-주간모의고사-2교시-보안-5.jpg", label: "5쪽" },
+    ],
+  },
+  {
+    id: "peer-cls-13주차-주간모의고사-1교시-biba",
+    period: "1교시",
+    question: "Biba 무결성 모델(Biba Integrity Model)",
+    exam: "심화반 13주차 주간모의고사",
+    topicTitles: ["접근 통제 모델"],
+    score: 6,
+    maxScore: 10,
+    pages: [
+      { src: "/answers/심화반/주간모의고사/cls-13주차-주간모의고사-2교시-보안-3.jpg", label: "1쪽" },
+      { src: "/answers/심화반/주간모의고사/cls-13주차-주간모의고사-2교시-보안-4a.jpg", label: "2쪽" },
+    ],
+  },
+  {
+    id: "peer-cls-13주차-주간모의고사-1교시-challenge-response",
+    period: "1교시",
+    question: "인증 Challenge-Response",
+    exam: "심화반 13주차 주간모의고사",
+    topicTitles: [],
+    score: 6,
+    maxScore: 10,
+    pages: [
+      { src: "/answers/심화반/주간모의고사/cls-13주차-주간모의고사-2교시-보안-4b.jpg", label: "1쪽" },
+      { src: "/answers/심화반/주간모의고사/cls-13주차-주간모의고사-2교시-보안-5.jpg", label: "2쪽" },
     ],
   },
   {
@@ -48731,9 +48760,9 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
   {
     id: "peer-cls-12주차-주간모의고사-2교시-nw",
     period: "2교시",
-    question: "NW",
+    question: "매터(Matter)의 개념, 기존 표준의 한계와 매터의 장점, 매터 Stack",
     exam: "심화반 12주차 주간모의고사",
-    topicTitles: [],
+    topicTitles: ["IoT Matter"],
     pages: [
       { src: "/answers/심화반/주간모의고사/cls-12주차-주간모의고사-2교시-nw-1.jpg", label: "1쪽" },
       { src: "/answers/심화반/주간모의고사/cls-12주차-주간모의고사-2교시-nw-2.jpg", label: "2쪽" },
@@ -50843,7 +50872,7 @@ const PEER_ANSWERS_3: PeerAnswer[] = [
     id: "peer-kpc-모범답안-3교시-6-알고리즘-제37회-12년-5월-kpc기술사impact",
     period: "3교시",
     no: "6",
-    question: "알고리즘",
+    question: "알고리즘 선택기준과 표현방법 세가지를 설명하시오.",
     exam: "제37회 KPC 기술사 IMPACT 실전모의고사",
     topicTitles: [],
     pages: [
