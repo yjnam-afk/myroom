@@ -13,6 +13,7 @@ import { canonicalAnswerId, getModelAnswer } from "@/lib/modelAnswers";
 import { matchSubnoteTitle } from "@/lib/matchSubnote";
 import genAnswers from "@/data/genAnswers.json";
 import ClearButton from "@/components/ClearButton";
+import { QuestionBadges, QuestionMyNotes } from "@/components/QuestionMeta";
 
 type Q = {
   id: string;
@@ -62,7 +63,7 @@ const KINDS = Array.from(new Set(EXAMS.map(kindOf))).sort(
   (a, b) => (KIND_ORDER[a] ?? 9) - (KIND_ORDER[b] ?? 9),
 );
 const KIND_DESC: Record<string, string> = {
-  기출: "실제 기술사 기출문제입니다 — 정보관리(92~140회)와 컴퓨터시스템응용(「컴시응 ○○회」, 116~137회 중 해설집이 있는 14개 회차). 문제를 골라 바로 답안 '소설'을 연습해 보세요.",
+  기출: "실제 기술사 기출문제입니다 — 정보관리(92~140회)와 컴퓨터시스템응용(「컴시응 ○○회」, 80~140회). 문항마다 토픽 중요도(교재 ★)·빈출·내 정리가 붙어 있어요. 문제를 골라 바로 답안 '소설'을 연습해 보세요.",
   셀테: "주차별 실전 셀프테스트(셀테)입니다. 시험처럼 골라 답안을 연습해 보세요.",
   모의고사: "ITPE 월례 모의고사(「ITPE 모의고사 2026.10」)·KPC 모의고사(「KPC 70회 (2016.06)」)·명품 모의고사(41~44회)입니다. 교시별로 실제 시험처럼 풀어 보세요.",
   NS모의: "ITPE NS·단합반 주간 실전모의고사(11기~19기, 2022~2026). 주차별 실제 출제 문항과 출제일·도메인입니다. 해설집이 있는 주차는 문제 아래 「📘 해설집」으로 붙어 있습니다.",
@@ -384,9 +385,13 @@ export default function ExamPage() {
                       <p className="whitespace-pre-line text-sm leading-relaxed text-slate-800">
                         {q.text}
                       </p>
-                      <span className="mt-1 inline-block rounded bg-slate-50 px-1.5 py-0.5 text-[10px] text-slate-400">
-                        {q.category}
-                      </span>
+                      <div className="mt-1 flex flex-wrap items-center gap-1">
+                        <span className="rounded bg-slate-50 px-1.5 py-0.5 text-[10px] text-slate-400">
+                          {q.category}
+                        </span>
+                        {/* 토픽 중요도(교재 ★)·빈출 — 2026-11-01 "기출문제도 토픽 상중하 표시해줘" */}
+                        <QuestionBadges id={q.id} />
+                      </div>
                     </div>
                   </div>
                   <div className="mt-3 flex flex-wrap gap-2 pl-9">
@@ -462,6 +467,11 @@ export default function ExamPage() {
                       </div>
                     );
                   })()}
+
+                  {/* 📝 내 정리·내 답안지 — 이 문항 토픽에 걸린 것 */}
+                  <div className="pl-9">
+                    <QuestionMyNotes id={q.id} />
+                  </div>
 
                   {/* 남이 쓴 답안 — 같은 문제이거나, 같은 토픽에 걸린 실제 시험지 스캔과 첨삭 */}
                   {(() => {
