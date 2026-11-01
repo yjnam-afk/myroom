@@ -35365,6 +35365,3731 @@
  },
  {
   "id": "sn-633",
+  "title": "C-ITS(Cooperative-Intelligent Transport Systems)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "차량과 차량, 차량과 인프라간 **양방향 통신**으로 **교통 정보**를 **교환** 및 공유하여 오픈 플랫폼 기반에서 서비스를 제공하는 차세대 ITS",
+  "defShort": "차량·인프라간 양방향 통신으로 교통 정보를 교환·공유하는 차세대 ITS",
+  "memo": "시스템 구성도: 도로인프라(돌발상황검지기 · 보행자검지기 · 도로기상정보시스템 · 신호제어기 · WAVE 요금징수) → 지원시스템 → 노변기지국(센터/지원시스템 연계, 단말기 정보수집/제공) ↔ 광통신망 ↔ C-ITS 센터(센터SW운영시스템 · 보안인증관리시스템) ← 교통정보 · GPS보정정보.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "양방향 통신",
+     "V2V",
+     "V2I",
+     "V2R",
+     "V2P",
+     "V2C",
+     "IVN"
+    ]
+   },
+   {
+    "label": "C-ITS 구성요소",
+    "mnemonic": "",
+    "keywords": [
+     "차량 단말기(OBU)",
+     "WAVE, DSRC",
+     "IVN",
+     "DSRC",
+     "WAVE(IEEE 802.11p)",
+     "LTE-V2X, 5G-V2X",
+     "스마트 톨링 시스템",
+     "돌발 상황 검지기",
+     "보행자 검지기",
+     "도로 기상정보 시스템"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "양방향 통신",
+   "V2V",
+   "V2I",
+   "V2R",
+   "V2P",
+   "V2C",
+   "IVN"
+  ]
+ },
+ {
+  "id": "sn-634",
+  "title": "자율주행자동차의 자율주행기술 단계 및 핵심기술",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "**자동차관리법 제2조**(정의)에 따라 **운전자** 또는 승객의 **조작 없이** **자동차 스스로 운행**이 가능한 자동차",
+  "defShort": "자동차관리법 제2조, 운전자 조작 없이 자동차 스스로 운행하는 자동차",
+  "memo": "",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "6단계",
+     "비자동화",
+     "운전자 지원",
+     "부분 자동화",
+     "조건부 자동화",
+     "고도 자율주행",
+     "완전 자율주행",
+     "인지",
+     "판단",
+     "제어",
+     "인터렉션"
+    ]
+   },
+   {
+    "label": "자율주행기술 단계",
+    "mnemonic": "비운부조고완",
+    "keywords": [
+     "레벨0",
+     "레벨1",
+     "레벨2",
+     "레벨3",
+     "레벨4",
+     "레벨5"
+    ]
+   },
+   {
+    "label": "자율주행 핵심기술",
+    "mnemonic": "인판제터",
+    "keywords": [
+     "(교통 상황) 인지",
+     "판단",
+     "(조향 및 제동 등의) 제어",
+     "인터렉션",
+     "도로시설물 정보활용",
+     "교통 상황 관제",
+     "교통 통신 네트워킹"
+    ]
+   }
+  ],
+  "mnemonic": "비운부조고완",
+  "keywords": [
+   "레벨0",
+   "레벨1",
+   "레벨2",
+   "레벨3",
+   "레벨4",
+   "레벨5"
+  ]
+ },
+ {
+  "id": "sn-635",
+  "title": "레이더(RADAR) & 라이다(LiDAR)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "(레이더) **전자기파(무선주파수)**를 **물체**에 **반사**시킨 후 반사결과를 인식하여 물체와의 거리, 방향, 고도를 측정하는 센서 / (라이다) **레이저(광파, Light pulse)**를 **물체**에 **반사**시킨 후 돌아오는 결과를 이용해 3차원 공간의 거리 및 형상 정보를 측정하는 기법",
+  "defShort": "전자기파·레이저를 물체에 반사시켜 거리를 측정하는 레이더·라이다",
+  "memo": "레이더 구조도: Radar Operator ↔ Radar Control Computer ↔ SP(Signal Process) → Beam Steering Controller · Transmitter · Receiver ↔ Antenna.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "전파",
+     "레이저파",
+     "TOF/PS 방식",
+     "CFAR",
+     "DBF",
+     "추적 알고리즘"
+    ]
+   },
+   {
+    "label": "RADAR · LiDAR 비교",
+    "mnemonic": "",
+    "keywords": [
+     "사용 신호",
+     "주행속도 감지",
+     "유효감지 거리",
+     "역할"
+    ]
+   },
+   {
+    "label": "라이다(LiDAR) 동작 방식",
+    "mnemonic": "",
+    "keywords": [
+     "TOF 방식",
+     "PS 방식",
+     "회전 방식",
+     "어레이 방식",
+     "STUD 방식",
+     "Doppler LiDAR",
+     "Imaging LiDAR",
+     "Raman LiDAR"
+    ]
+   },
+   {
+    "label": "레이더(RADAR) 동작 방식",
+    "mnemonic": "",
+    "keywords": [
+     "송신기",
+     "안테나",
+     "수신기",
+     "신호처리기(DSP)",
+     "통제기",
+     "CFAR 알고리즘",
+     "DBF 알고리즘",
+     "추적 알고리즘"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "전파",
+   "레이저파",
+   "TOF/PS 방식",
+   "CFAR",
+   "DBF",
+   "추적 알고리즘"
+  ]
+ },
+ {
+  "id": "sn-636",
+  "title": "LDM(Local Dynamic Map)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "자율주행차의 자율 협력 운행을 위하여 정보 수집 대상 범위 내에 있는 고정 물체, 이동 물체 관한 **정적 · 동적 정보**를 모두 **관리**할 수 있는 **공간 데이터 저장소**(**데이터베이스**)",
+  "defShort": "자율 협력 운행 위해 정적·동적 정보를 모두 관리하는 공간 데이터 저장소",
+  "memo": "LDM 아키텍처: C-ITS Applications ↔ LDM Management ↔ Data Store(Layer 1 · 2 · 3 · 4) ↔ C-ITS Station(Center · Road Side · Car).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "LDM Management",
+     "Data Store",
+     "정적지도",
+     "준정적지도",
+     "준동적지도",
+     "동적지도",
+     "자율 협력 주행"
+    ]
+   },
+   {
+    "label": "LDM(Local Dynamic Map) Architecture 구성 요",
+    "mnemonic": "",
+    "keywords": [
+     "LDM Object",
+     "Subscription",
+     "Information Management",
+     "Information Access",
+     "NF-SAP",
+     "FA-SAP",
+     "SF-SAP"
+    ]
+   },
+   {
+    "label": "LDM(Local Dynamic Map) 구성 Layer",
+    "mnemonic": "",
+    "keywords": [
+     "Layer 1",
+     "Layer 2",
+     "Layer 3",
+     "Layer 4"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "LDM Management",
+   "Data Store",
+   "정적지도",
+   "준정적지도",
+   "준동적지도",
+   "동적지도",
+   "자율 협력 주행"
+  ]
+ },
+ {
+  "id": "sn-637",
+  "title": "소프트웨어 정의 차량(Software-Defined Vehicle)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "**소프트웨어를 기반으로 다양한 기능을 구현**하며 차량에 탑재되는 소프트웨어의 변경, 추가를 포함 기존 소프트웨어의 **재구성을 통해 차량의 기능을 변경**할 수 있는 자동차",
+  "defShort": "SW 기반 다양한 기능 구현, 재구성 통해 차량 기능을 변경하는 자동차",
+  "memo": "네트워크 토폴로지(Topology) 구조: 클라우드 컴퓨팅 센터 – 소프트웨어 정의 네트워크 컨트롤러(SDNC) – 도로변 장치 컨트롤러(RSUC) ×2 – 기지국(BS) · 도로변 장치(RSU) → 포그셀-1 · 2 · 3(차량). I2I 링크 · V2V 링크 · V2I 링크.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "전장(E/E) 아키텍처",
+     "존/도메인 아키텍처",
+     "소프트웨어 플랫폼"
+    ]
+   },
+   {
+    "label": "소프트웨어 정의 차량 구성 기술",
+    "mnemonic": "",
+    "keywords": [
+     "E",
+     "운영체제",
+     "소프트웨어",
+     "컴퓨팅",
+     "반도체",
+     "차량 내부"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "전장(E/E) 아키텍처",
+   "존/도메인 아키텍처",
+   "소프트웨어 플랫폼"
+  ]
+ },
+ {
+  "id": "sn-638",
+  "title": "IEC 61508",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "**전기/전자/프로그램 가능한 전자시스템(E/E/PE)의 기능안전(functional safety) 표준**으로 안전생명주기로 하드웨어, 소프트웨어 **안전성 구현방법** 및 **검증방법** 제시하는 국제표준",
+  "defShort": "E/E/PE 기능안전 표준, 안전성 구현방법 및 검증방법 제시 국제표준",
+  "memo": "ISO/IEC Guide 51 계층도: ISO Standard · IEC Standard ← ISO/IEC Guide 51 → 기본안전규격(ISO 12100 일반설계 · ISO 14121 리스크 평가) → 제품안전규격(ISO 13849-1 시스템안전 표준 · IEC 61508 기능안전 표준) → 제품안전규격(ISO 26262 자동차기능안전 · IEC 61513 원자력안전 · IEC 62279 철도 안전 · IEC 60601 의료 안전 · IEC 61511 프로세스 산업안전 · IEC 62061 산업기계 안전 · DO-178B 항공기안전).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "기능안전 표준",
+     "안전생명주기",
+     "안전무결성(SIL)"
+    ]
+   },
+   {
+    "label": "IEC 61508 표준 구성",
+    "mnemonic": "",
+    "keywords": [
+     "Part 1 IEC 61508-1",
+     "Part 2 IEC 61508-2",
+     "Part 3 IEC 61508-3",
+     "Part 4 IEC 61508-4",
+     "Part 5 IEC 61508-5",
+     "Part 6 IEC 61508-6",
+     "Part 7 IEC 61508-7"
+    ]
+   },
+   {
+    "label": "안전기능 요구사항 도출과정",
+    "mnemonic": "개범위안할명",
+    "keywords": [
+     "개념",
+     "범위정의",
+     "위험원 및 위험 분석",
+     "안전 요구사항 명세",
+     "안전 요구사항 할당",
+     "다른 methods 탐색",
+     "안전 기능별 요구사항 명세"
+    ]
+   },
+   {
+    "label": "안전 무결성 수준(SIL: Safety Integrity Level)",
+    "mnemonic": "",
+    "keywords": [
+     "개념",
+     "유형"
+    ]
+   },
+   {
+    "label": "안전 무결성 수준(SIL)별 고장 기준",
+    "mnemonic": "",
+    "keywords": [
+     "4",
+     "3",
+     "2",
+     "1"
+    ]
+   }
+  ],
+  "mnemonic": "개범위안할명",
+  "keywords": [
+   "개념",
+   "범위정의",
+   "위험원 및 위험 분석",
+   "안전 요구사항 명세",
+   "안전 요구사항 할당",
+   "다른 methods 탐색",
+   "안전 기능별 요구사항 명세"
+  ]
+ },
+ {
+  "id": "sn-639",
+  "title": "ASIL(Automotive Software Integrity Levels)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "전기전자 장치안전 표준(IEC 61508)의 안전성 보전등급(**SIL**)을 **자동차에 맞게 개선 적용**한 **차량 안전성등급**",
+  "defShort": "IEC 61508의 보전등급 SIL을 자동차에 맞게 개선 적용한 차량 안전성등급",
+  "memo": "결정 요소 그림: Exposure(Probability of exposure) + Controllability + Severity(Severity of failure) = ASIL.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "IEC61508",
+     "차량안전성",
+     "잠재적 심각도",
+     "노출 가능성",
+     "통제 가능성"
+    ]
+   },
+   {
+    "label": "차량안전성 보전등급 결정 요소, SEC",
+    "mnemonic": "",
+    "keywords": [
+     "S(Severity)",
+     "E(Exposure)",
+     "C(Controllability)"
+    ]
+   },
+   {
+    "label": "ASIL(Automotive Software Integrity Level",
+    "mnemonic": "",
+    "keywords": [
+     "S0",
+     "S1",
+     "S2",
+     "S3",
+     "E0",
+     "E1",
+     "E2",
+     "E3",
+     "E4",
+     "C0"
+    ]
+   },
+   {
+    "label": "ASIL 평가",
+    "mnemonic": "",
+    "keywords": [
+     "E1",
+     "E2",
+     "E3",
+     "E4",
+     "E1",
+     "E2",
+     "E3",
+     "E4",
+     "E1",
+     "E2"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "IEC61508",
+   "차량안전성",
+   "잠재적 심각도",
+   "노출 가능성",
+   "통제 가능성"
+  ]
+ },
+ {
+  "id": "sn-640",
+  "title": "MaaS(Mobility as a service)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "버스, 철도, O2O, 자전거 등을 연계 · 통합한 **단일 플랫폼**을 통해 사용자 니즈(Needs) 기반의 이동 계획 수립, 이용, 결제를 통해 **Seamless 교통 수단을 제공하는 서비스**",
+  "defShort": "연계·통합한 단일 플랫폼으로 Seamless 교통 수단을 제공하는 서비스",
+  "memo": "MaaS Architecture: MaaS 통합 서비스(생활 서비스 연계 — 레저 활동 · E-commerce / On-Demand 서비스 — 여행사 연계 · 자율 주행 시스템 / 필요 인프라 — 실시간 교통 정보 · 스마트 시티) – MaaS 플랫폼(물류/비용 · 대중교통 · e-Mobility · 항공/해상 운송 → MaaS Platform → MaaS Operator: 데이터, API) – MaaS 연동 수단(공유형 이동 수단 — 공유 차량/자전거 · 크라우드펀딩 물류 / 개인화 서비스 — 맞춤형 여행 계획 · Seamless 연계 / 결제, 편의 서비스 — 마이데이터 · 간편 결제).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "Seamless 교통 수단",
+     "MaaS Service Level(1~4)",
+     "플랫폼",
+     "공유",
+     "연계",
+     "TaaS",
+     "LaaS"
+    ]
+   },
+   {
+    "label": "MaaS(Mobility as a service)의 구조",
+    "mnemonic": "",
+    "keywords": [
+     "MaaS Platform",
+     "Data Provider",
+     "Transport Operator",
+     "MaaS Customer"
+    ]
+   },
+   {
+    "label": "MaaS(Mobility as a service) Level 분류",
+    "mnemonic": "",
+    "keywords": [
+     "4",
+     "3",
+     "2",
+     "1"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "Seamless 교통 수단",
+   "MaaS Service Level(1~4)",
+   "플랫폼",
+   "공유",
+   "연계",
+   "TaaS",
+   "LaaS"
+  ]
+ },
+ {
+  "id": "sn-641",
+  "title": "UAM(Urban Air Mobility)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "전기 동력을 사용하는 수직이착륙(eVTOL) 항공기를 통해 **도심 상공**에서 사람이나 화물을 **운송**할 수 있는 **차세대 교통 체계**",
+  "defShort": "eVTOL 항공기로 도심 상공에서 사람·화물을 운송하는 차세대 교통 체계",
+  "memo": "산업생태계 측면 구성도: UAM 이용자(승객 · 화물) / 버티포트 운영자(충전 · MRO) / 운송사업자(UAM 운영 · UAM 기체) ← 구매·대여 ← UAM 기체 개발 / UAM 교통관리(항공 정보 · PSU N/W) ← 알림 ← 무인기 교통 정보 / 정부(국가 공역관리 시스템 · FIMS) ← 추적정보 ← 공공 치안.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "eVTOL",
+     "PAV",
+     "Vertiport",
+     "MRO",
+     "K-UAM"
+    ]
+   },
+   {
+    "label": "UAM의 기술요소",
+    "mnemonic": "",
+    "keywords": [
+     "UAM 경량화 제작 기술",
+     "UAM 동력 추진 시스템",
+     "eVTOL",
+     "UAM CNS",
+     "UAM 통합관리",
+     "버티포트 시스템",
+     "5G NSA",
+     "MRO",
+     "운항정보 수집분석 기술",
+     "UAM 자율 항법 기술"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "eVTOL",
+   "PAV",
+   "Vertiport",
+   "MRO",
+   "K-UAM"
+  ]
+ },
+ {
+  "id": "sn-642",
+  "title": "디지털 치료제(Digital Therapeutics)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "**약물치료 없이** 질병, 장애를 예방, 관리, 치료하기 위해 **환자**에게 근거 기반의 **치료적 중재**를 **제공**하는 고도화된 모바일 애플리케이션, 게임, 가상현실, 챗봇 인공지능 등의 형태의 **소프트웨어 의료기기**",
+  "defShort": "약물치료 없이 환자에게 치료적 중재를 제공하는 소프트웨어 의료기기",
+  "memo": "개념도: 디지털 헬스케어(핏빗 활동량 측정 웨어러블) ⊃ S/W(런키퍼 달리기 모니터링 앱 · 슬립싸이클 수면 모니터링 앱) ⊃ 의료 인공지능(왓슨 암 환자 진료 보조 · 지브라 메디컬 엑스레이 기흉 등 · IDx 안저 사진 당뇨성 망막병증 · 뷰노 엑스레이 골연령 등 · 루닛 엑스레이 폐결절 등) · 디지털 치료제(슬리피오 불면증 앱 · 페어 중독 치료법 · 알킬리 ADHD 치료용 게임 · 어플라이드VR 진통 효과 VR). 의료기기(엠페티카 뇌전증 발작 측정 웨어러블 · 얼라이브코어 심전도 측정 가젯 · 프로테우스 복약 측정용 먹는 센서 — 하드웨어 기반의 의료기기들 / 엑스레이 기기 · 혈압계 · 체온계)와 S/W 가 겹치는 부분이 SaMD(Software as a Medical Device).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "SaMD",
+     "독립형",
+     "증강형",
+     "보완형",
+     "소프트웨어 의료기기"
+    ]
+   },
+   {
+    "label": "디지털 치료제(Digital Therapeutics)의 종류",
+    "mnemonic": "",
+    "keywords": [
+     "독립형(Standalone)",
+     "증강형(Augment)",
+     "보완형(Complementary)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "SaMD",
+   "독립형",
+   "증강형",
+   "보완형",
+   "소프트웨어 의료기기"
+  ]
+ },
+ {
+  "id": "sn-643",
+  "title": "디지털 리터러시(Digital Literacy)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "**디지털**을 **이해**하고 다룰 줄 아는 디지털 **활용** 능력 뿐 아니라, 디지털 플랫폼을 통해 얻게 되는 정보에 대한 이해, **판단**, **평가**, 활용 등의 **활동을 포괄하는 능력**",
+  "defShort": "디지털 이해·활용 능력과 정보의 판단·평가 등 활동을 포괄하는 능력",
+  "memo": "개념도: ACCESS(접근 — Distribution, Infrastructure, Tools) → USE(사용) → UNDERSTAND(이해) → CREATE(창작). 지붕 DIGITAL LITERACY(ICT INNOVATION(IN ICT / WITH ICT) · CONSTRUCTIVE SOCIAL ACTION · CRITICAL/CREATIVE THINKING), 아래 양옆 OPPORTUNITY · COMPETENCE.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "디지털 이해",
+     "판단",
+     "활용 능력",
+     "디지털 포용"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "디지털 이해",
+   "판단",
+   "활용 능력",
+   "디지털 포용"
+  ]
+ },
+ {
+  "id": "sn-644",
+  "title": "디지털 성숙도(Digital Maturity)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "조직이나 기업이 **디지털 기술**을 **활용**하여 **업무 프로세스, 조직 문화, 고객 경험, 비즈니스 모델**을 혁신적으로 **발전시킨 수준**",
+  "defShort": "디지털 기술 활용해 업무 프로세스·비즈니스 모델 등을 발전시킨 수준",
+  "memo": "평가 단계 그림: Efficiency(효율) · Effectiveness(효과) 축 위 계단 — Nascent(초기) → Emerging(출현) → Connected(연결) → Multi-Moment(다중 확장).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "가트너 2023",
+     "소프트웨어 수명 주기 관리 위한 플랫폼",
+     "Cross Functional Team"
+    ]
+   },
+   {
+    "label": "디지털 성숙도(Digital Maturity) 평가 단계",
+    "mnemonic": "",
+    "keywords": [
+     "Nascent(초기)",
+     "Emerging(출현)",
+     "Connected(연결)",
+     "Multi-Moment(다중 확장)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "가트너 2023",
+   "소프트웨어 수명 주기 관리 위한 플랫폼",
+   "Cross Functional Team"
+  ]
+ },
+ {
+  "id": "sn-645",
+  "title": "디지털 권리장전(The Digital Bill of Rights)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "디지털 심화 시대에 맞는 국가적 차원의 기준과 원칙을 제시하고, 글로벌을 리드할 수 있는 **보편적 디지털 질서 규범의 기본방향을 담은 디지털 사회 인권 헌장**",
+  "defShort": "보편적 디지털 질서 규범의 기본방향을 담은 디지털 사회 인권 헌장",
+  "memo": "5대 원칙 그림 가운데: 디지털 공동번영사회 — 디지털 혁신을 추구하면서도, 그 혜택은 모두가 정의롭고 공정하게 향유하는 사회.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "공동번영사회",
+     "자유와 권리 보장",
+     "공정한 접근과 기회의 균등",
+     "안전과 신뢰의 확보",
+     "디지털 혁신의 촉진",
+     "인류 후생의 증진"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "공동번영사회",
+   "자유와 권리 보장",
+   "공정한 접근과 기회의 균등",
+   "안전과 신뢰의 확보",
+   "디지털 혁신의 촉진",
+   "인류 후생의 증진"
+  ]
+ },
+ {
+  "id": "sn-646",
+  "title": "디지털포용법",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "인공지능 · 디지털 기술의 발전으로 발생하는 **사회 · 경제적 차별**을 **예방 · 해소**하고 **모든 국민**이 **디지털 기술의 혜택**을 누릴 수 있는 기반을 조성하기 위한 법률",
+  "defShort": "사회·경제적 차별 예방·해소, 모든 국민이 디지털 기술 혜택 누리는 법률",
+  "memo": "",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "디지털포용 기본계획",
+     "디지털포용 시행계획",
+     "디지털포용 영향평가",
+     "디지털역량 함양 활동",
+     "지능정보서비스 등에 대한 접근성 보장",
+     "접근성 품질인증",
+     "디지털포용기술 및 서비스의 표준화",
+     "유망 디지털포용기술 및 서비스의 지정"
+    ]
+   },
+   {
+    "label": "제도의 목적",
+    "mnemonic": "",
+    "keywords": [
+     "법적",
+     "정책의 효과적인 수립",
+     "디지털 정보 격차 완화",
+     "민간의 디지털 포용 참여 유도"
+    ]
+   },
+   {
+    "label": "디지털 환경의 주요 문제점",
+    "mnemonic": "",
+    "keywords": [
+     "정보의 불균형 문제",
+     "디지털기기 의존도 증가",
+     "디지털 격차 발생",
+     "디지털 취약계층 발생",
+     "디지털 갈등 발생",
+     "감시사회의 불안감",
+     "고령층, 장애인의 디지털 기기 활용취약",
+     "디지털기술의 사회, 경제적 격차 심화",
+     "디지털 일자리의 고도화",
+     "프라이버시 문제"
+    ]
+   },
+   {
+    "label": "디지털포용법 주요 내용",
+    "mnemonic": "",
+    "keywords": [
+     "제 1조",
+     "제 2조",
+     "제 8조",
+     "제 9조",
+     "제 12조",
+     "제 14조",
+     "제 19조",
+     "제 21조",
+     "제 26조",
+     "제 27조"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "디지털포용 기본계획",
+   "디지털포용 시행계획",
+   "디지털포용 영향평가",
+   "디지털역량 함양 활동",
+   "지능정보서비스 등에 대한 접근성 보장",
+   "접근성 품질인증",
+   "디지털포용기술 및 서비스의 표준화",
+   "유망 디지털포용기술 및 서비스의 지정"
+  ]
+ },
+ {
+  "id": "sn-647",
+  "title": "에듀테크(EduTech)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "**Education**과 **Technology**의 합성어로 **교육분야**에 **ICT**를 접목하여 **학습자 맞춤 교육**을 제공하고 **교사 업무 경감**을 통하여 **교육의 효과와 효율성을 높이는** 교육 **제품과 서비스**",
+  "defShort": "교육분야에 ICT 접목, 학습자 맞춤 교육·교사 업무 경감 제품과 서비스",
+  "memo": "개념도: 에듀테크를 중심으로 AI 교사&챗봇 · 디지털 트윈(학생 아바타) · 온라인 공개수업(MOOC) · VR, AR, MR(칠판, 종이 대체) · 디지털 교과서 스마트 글라스.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "Education + Technology",
+     "디지털 교과서",
+     "이러닝"
+    ]
+   },
+   {
+    "label": "에듀테크(EduTech) 기술 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "인공지능(AI) 교사",
+     "교육 아바타",
+     "MOOC",
+     "K-MOOC",
+     "5G, WiFi 6",
+     "BLE 5.0",
+     "디지털 교과서",
+     "스마트 글라스"
+    ]
+   },
+   {
+    "label": "에듀테크(EduTech)와 이러닝의 비교",
+    "mnemonic": "",
+    "keywords": [
+     "학습형태",
+     "서비스",
+     "활용도구",
+     "학습소통",
+     "시기"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "Education + Technology",
+   "디지털 교과서",
+   "이러닝"
+  ]
+ },
+ {
+  "id": "sn-648",
+  "title": "프롭테크(Proptech)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "**부동산(Property)**과 **기술(Technology)**의 합성어로, 부동산 산업에 정보통신기술(ICT)을 접목한 형태의 서비스",
+  "defShort": "부동산과 기술의 합성어, 부동산 산업에 정보통신기술을 접목한 서비스",
+  "memo": "구성도: 부동산 밸류체인 — 전방 산업(Upstream: 프로젝트 개발 · 투자 및 자금 조달 / 시행 → 시공 → 분양) · 후방 산업(Downstream: 중개 및 임대 · 부동산 관리 / 임대 → 관리 → 유통 → 리폼) 사이가 프롭테크 사업영역. 아래 프롭테크 ICT 영역: VR·AR 공간경험 · 부동산 O2O 플랫폼 · 빅데이터 부동산 분석 · AI 챗봇 중개서비스 · 블록체인 스마트 컨트랙트.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "부동산",
+     "기술",
+     "프로젝트 개발",
+     "투자 및 자금 조달",
+     "중개 및 임대",
+     "부동산 관리"
+    ]
+   },
+   {
+    "label": "프롭테크(Proptech)의 ICT 영역",
+    "mnemonic": "",
+    "keywords": [
+     "가상현실",
+     "플랫폼",
+     "빅데이터",
+     "인공지능",
+     "블록체인"
+    ]
+   },
+   {
+    "label": "프롭테크(Proptech)의 사업 영역",
+    "mnemonic": "",
+    "keywords": [
+     "중개 및 임대",
+     "부동산 관리",
+     "프로젝트 개발",
+     "투자 및 자금 조달"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "부동산",
+   "기술",
+   "프로젝트 개발",
+   "투자 및 자금 조달",
+   "중개 및 임대",
+   "부동산 관리"
+  ]
+ },
+ {
+  "id": "sn-649",
+  "title": "기후테크",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "**기후(Climate)**와 **기술(Technology)**의 합성어로 **수익**을 **창출**하면서 **온실가스 감축**과 **기후적응**에 기여하는 **모든 혁신기술**",
+  "defShort": "수익을 창출하며 온실가스 감축과 기후적응에 기여하는 모든 혁신기술",
+  "memo": "기후테크 5대 분야: 클린테크(재생·대체 에너지 생산 및 분산화 — 재생에너지 · 에너지신산업 · 탈탄소에너지) / 카본테크(공기 중 탄소 포집·저장 및 탄소 감축 기술 개발 — 탄소포집 · 공정혁신 · 모빌리티) / 에코테크(자원순환, 저탄소 원료 및 친환경 제품 개발 — 자원순환 · 폐기물 절감 · 업사이클링) / 푸드테크(식품 생산·소비 및 작물 재배 과정 중 탄소감축 — 대체식품 · 스마트식품 · 애그테크) / 지오테크(탄소관측·모니터링 및 기상정보 활용 사업화 — 우주기상 · AI데이터금융 · 기후 적응).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "클린테크",
+     "카본테크",
+     "에코테크",
+     "푸드테크",
+     "지오테크"
+    ]
+   },
+   {
+    "label": "기후테크 기술",
+    "mnemonic": "",
+    "keywords": [
+     "인공지능",
+     "데이터분석",
+     "블록체인",
+     "API 기술"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "클린테크",
+   "카본테크",
+   "에코테크",
+   "푸드테크",
+   "지오테크"
+  ]
+ },
+ {
+  "id": "sn-650",
+  "title": "에이지테크(AgeTech)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "'**노화(Aging)**'와 '**기술(Technology)**'의 합성어로, 첨단 디지털 기술을 활용해 **고령층의 안전, 건강 관리, 이동 및 독립적인 일상생활**을 **지원**하는 기술",
+  "defShort": "고령층의 안전, 건강 관리, 이동 및 독립적 일상생활을 지원하는 기술",
+  "memo": "개념도: 배경 및 동인(초고령사회 진입) ⇄ 기술 및 서비스 입력 ⇄ 주요 과제(돌봄 인력 부족) → 에이지 테크 — 사용자(고령자(개인) · 가족 · 돌봄 제공자) · 핵심 서비스 및 기술 영역(건강 관리: 예방, 질병 관리 / 안전 지원: 응급 알림, 낙상 감지 / 생활 편의: 이동 지원, 가사 / 사회 참여: 교육, 커뮤니티 / 데이터 및 서비스 연계) · 기술 기반(AI 분석 · IoT 연동 · 클라우드 · 보안) → 가치 창출 및 확산 → 삶의 질 향상 · 자립 생활 지원.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "노화(Aging)",
+     "기술(Technology)",
+     "AI 돌봄 로봇",
+     "안전 모니터링",
+     "고령자 돌봄",
+     "고령자 자립 생활",
+     "실버 경제"
+    ]
+   },
+   {
+    "label": "에이지 테크 (Age Tech) 등장 배경",
+    "mnemonic": "",
+    "keywords": [
+     "인구 구조 변화",
+     "실버경제 소비력 증가",
+     "IT 기술 고도화"
+    ]
+   },
+   {
+    "label": "전통 돌봄과 에이지 테크 (Age Tech) 비교",
+    "mnemonic": "",
+    "keywords": [
+     "제공 방식",
+     "모니터링",
+     "비용",
+     "확장성"
+    ]
+   },
+   {
+    "label": "에이지 테크 (Age Tech) 핵심 기술",
+    "mnemonic": "",
+    "keywords": [
+     "고령자 자립생활 기술",
+     "고령자 돌봄기술",
+     "사람 중심 기술 수용 서비스"
+    ]
+   },
+   {
+    "label": "에이지 테크 (Age Tech) 정책 동향",
+    "mnemonic": "",
+    "keywords": [
+     "연구·기술개발",
+     "국가 전략 산업 육성",
+     "상용화 현장 보급",
+     "산업 활성화"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "노화(Aging)",
+   "기술(Technology)",
+   "AI 돌봄 로봇",
+   "안전 모니터링",
+   "고령자 돌봄",
+   "고령자 자립 생활",
+   "실버 경제"
+  ]
+ },
+ {
+  "id": "sn-651",
+  "title": "GovTech",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "**정부**(Government)와 **기술**(Technology)의 **합성어**로 기술 기업이 **ICT 기술**을 활용하여, **공공서비스와 사회문제 해결**을 위해 제공하는 새로운 방식의 **솔루션 또는 서비스**",
+  "defShort": "ICT 기술로 공공서비스·사회문제 해결을 위한 솔루션 또는 서비스",
+  "memo": "운영 모델 그림: Users(Public at large) —Votes & taxes · Data→ Government, Users —Fees · Data→ GovTech operator. Government ⇄ GovTech operator(Agreement · Capital · Data, Lobbying). Government —Legislation→ Regulator —Regulation→ GovTech operator(Capture). Shareholders(Corporations) —Capital→ GovTech operator —Payback→ Shareholders. Competitors 가 Market contestability 로 GovTech operator 를 견제.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "정부와 기술의 합성어",
+     "공공 문제 해결",
+     "정부",
+     "GovTech 운영자",
+     "사용자",
+     "거버넌스 수립형",
+     "아이디어 공모형",
+     "플랫폼 활용형",
+     "문제 해결-기업 성장 동시 추구형",
+     "혁신 연구형"
+    ]
+   },
+   {
+    "label": "GovTech 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "정부(Government)",
+     "GovTech 운영자(GovTech operator)",
+     "사용자(Users)"
+    ]
+   },
+   {
+    "label": "GovTech의 유형",
+    "mnemonic": "",
+    "keywords": [
+     "거버넌스 수립형",
+     "아이디어 공모형",
+     "플랫폼 활용형",
+     "문제 해결-기업 성장 동시추구형",
+     "혁신 연구형"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "정부와 기술의 합성어",
+   "공공 문제 해결",
+   "정부",
+   "GovTech 운영자",
+   "사용자",
+   "거버넌스 수립형",
+   "아이디어 공모형",
+   "플랫폼 활용형",
+   "문제 해결-기업 성장 동시 추구형",
+   "혁신 연구형"
+  ]
+ },
+ {
+  "id": "sn-652",
+  "title": "블록체인 트릴레마(Trilemma)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "블록체인의 3가지 특성(**확장성**, **보안성**, **탈중앙화**)이 서로 간에 영향을 주어 모두 만족시키기 어려운 문제",
+  "defShort": "블록체인의 확장성·보안성·탈중앙화를 모두 만족시키기 어려운 문제",
+  "memo": "3가지 특성 그림: 세 축 Decentralization(위) · Scalability(왼쪽) · Security(오른쪽), 각 축 Good · Normal · Weak. BitCoin & Ethereum 은 탈중앙화·보안성 Good, 확장성은 Weak 쪽 — Scalability Good 쪽이 개선과제.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "확장성",
+     "보안성",
+     "탈중앙화",
+     "상호운용성",
+     "라이트닝 네트워크",
+     "플랫폼",
+     "레이어1~2"
+    ]
+   },
+   {
+    "label": "블록체인 3가지 특성",
+    "mnemonic": "",
+    "keywords": [
+     "탈중앙화(Decentralization)",
+     "확장성(Scalability)",
+     "보안성(Security)"
+    ]
+   },
+   {
+    "label": "블록체인 트릴레마(Trilemma) 특징",
+    "mnemonic": "",
+    "keywords": [
+     "확장성 미고려",
+     "Trade-off",
+     "Killer App 등장",
+     "가상자산 활성화"
+    ]
+   },
+   {
+    "label": "블록체인 트릴레마(Trilemma) 해소 방안",
+    "mnemonic": "",
+    "keywords": [
+     "상호운용성",
+     "라이트닝 네트워크",
+     "플랫폼",
+     "레이어1",
+     "레이어2"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "확장성",
+   "보안성",
+   "탈중앙화",
+   "상호운용성",
+   "라이트닝 네트워크",
+   "플랫폼",
+   "레이어1~2"
+  ]
+ },
+ {
+  "id": "sn-653",
+  "title": "라이트닝 네트워크(Lightning Network)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "처리속도 해결 위해, **개별 거래**를 **별도 채널**(**off-chain**)에서 처리, **결과만 블록체인에 기록**(on-chain)하는 **프로토콜**",
+  "defShort": "개별 거래를 별도 채널에서 처리, 결과만 블록체인에 기록하는 프로토콜",
+  "memo": "동작 방식 그림 ① 블록체인 안: 두 참여자가 각 1 BTC 를 넣어 Funding Transaction 이라는 거래 기록 생성 — 블록체인에 거래 당사자 간 거래 내용을 직접 기록.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "On-Chain",
+     "Off-Chain",
+     "Funding Transaction",
+     "Payment Channel",
+     "빠른 처리 속도"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "On-Chain",
+   "Off-Chain",
+   "Funding Transaction",
+   "Payment Channel",
+   "빠른 처리 속도"
+  ]
+ },
+ {
+  "id": "sn-654",
+  "title": "블록체인 오라클 문제(Oracle Problem)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "**블록체인 밖의 데이터를 블록체인 안으로 가져올 때** 원 데이터의 **오류** 또는 **위변조**가 발생하여 **블록체인의 신뢰성이 훼손되는 현상**",
+  "defShort": "블록체인 밖 데이터의 오류·위변조로 블록체인 신뢰성이 훼손되는 현상",
+  "memo": "개념도: 인터넷 · 센서(오프체인) → 중간자(오라클 문제) → 블록체인(온체인). 해커 → Oracle → 블록체인 그림(오라클을 거쳐 위변조된 데이터가 들어감).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "하드웨어 오라클 문제",
+     "소프트웨어 오라클 문제",
+     "투표",
+     "중간값",
+     "중간자"
+    ]
+   },
+   {
+    "label": "오라클문제 유형",
+    "mnemonic": "하소",
+    "keywords": [
+     "하드웨어 오라클 문제",
+     "소프트웨어 오라클 문제"
+    ]
+   },
+   {
+    "label": "블록체인 오라클 문제(Oracle Problem) 해결 방안",
+    "mnemonic": "",
+    "keywords": [
+     "투표",
+     "중앙값",
+     "중간자"
+    ]
+   }
+  ],
+  "mnemonic": "하소",
+  "keywords": [
+   "하드웨어 오라클 문제",
+   "소프트웨어 오라클 문제"
+  ]
+ },
+ {
+  "id": "sn-655",
+  "title": "암호화폐 지갑(Cryptocurrency Wallet)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "암호화폐를 주고받을 때 사용하는 **암호화 키**를 **관리**하는 **소프트웨어 클라이언트**",
+  "defShort": "암호화폐 주고받을 때 암호화 키를 관리하는 소프트웨어 클라이언트",
+  "memo": "유형 그림: Transaction 거래생성 → 개인키 서명 → 전송(송금 등). Hot Wallet 은 전 과정 On-Line, Cold Wallet 은 거래생성·개인키 서명이 Off-Line 이고 전송만 On-Line.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "핫월렛(Hot Wallet)",
+     "콜드월렛(Cold Wallet)",
+     "멀티시그월렛(Multi-Signature Wallet)",
+     "On-Line 지갑",
+     "Off-Line 지갑",
+     "Private Key"
+    ]
+   },
+   {
+    "label": "암호화폐 지갑(Cryptocurrency Wallet)의 유형",
+    "mnemonic": "",
+    "keywords": [
+     "인터넷 연결성",
+     "Key 보관방식",
+     "보안성",
+     "Transaction",
+     "사용 편의성",
+     "비용 효율성",
+     "활용 목적",
+     "대표 Wallet"
+    ]
+   },
+   {
+    "label": "멀티시그 월렛의 개념과 구성도",
+    "mnemonic": "",
+    "keywords": [
+     "개념",
+     "Key 보관방식",
+     "구현방식"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "핫월렛(Hot Wallet)",
+   "콜드월렛(Cold Wallet)",
+   "멀티시그월렛(Multi-Signature Wallet)",
+   "On-Line 지갑",
+   "Off-Line 지갑",
+   "Private Key"
+  ]
+ },
+ {
+  "id": "sn-656",
+  "title": "중앙은행 디지털화폐(CBDC: Central Bank Digital Currency)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "**실물 명목화폐(Fiat Money)**를 **대체**하거나 **보완**하기 위해서 중앙은행이 직접 **전자**적 형태로 발행한 **중앙은행 화폐**",
+  "defShort": "실물 명목화폐를 대체·보완하려 전자적 형태로 발행한 중앙은행 화폐",
+  "memo": "단일 원장 그림: 개인 A ⇄ 개인 B ① 재화·서비스 거래 및 대금지급 → ② 거래내역 전달 → 중앙관리기관 → ③ 거래검증 및 원장 업데이트 → 중앙관리기관의 단일원장(개인 A와 B의 계좌잔액 조정). 최초거래시 계좌 개설·발급.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "실물 명목 화폐",
+     "중앙은행",
+     "시중은행",
+     "블록 체인",
+     "단일 원장 방식",
+     "분산 원장 방식",
+     "복원력",
+     "확장성",
+     "보안성",
+     "익명성(기밀성)",
+     "호환성",
+     "이자지급가능성"
+    ]
+   },
+   {
+    "label": "단일 원장(Account Based) 방식(계좌 방식)",
+    "mnemonic": "",
+    "keywords": [
+     "구현 방식",
+     "동작 방식"
+    ]
+   },
+   {
+    "label": "분산 원장(Token Based) 방식",
+    "mnemonic": "",
+    "keywords": [
+     "구현 방식",
+     "동작 방식"
+    ]
+   },
+   {
+    "label": "암호화폐, 스테이블 코인, 중앙은행 디지털화폐(CBDC)",
+    "mnemonic": "",
+    "keywords": [
+     "발행 주체",
+     "감독 방식",
+     "특징",
+     "가치",
+     "사례"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "실물 명목 화폐",
+   "중앙은행",
+   "시중은행",
+   "블록 체인",
+   "단일 원장 방식",
+   "분산 원장 방식",
+   "복원력",
+   "확장성",
+   "보안성",
+   "익명성(기밀성)",
+   "호환성",
+   "이자지급가능성"
+  ]
+ },
+ {
+  "id": "sn-657",
+  "title": "RWA(Real World Asset) 토큰화 프로토콜",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "부동산, 금, 채권, 예술품, 기업 지분 등과 같은 **실물 자산**을 블록체인에서 **디지털 토큰으로 변환**하는 기술적 표준 및 절차",
+  "defShort": "실물 자산을 블록체인에서 디지털 토큰으로 변환하는 기술적 표준 및 절차",
+  "memo": "개념도: Off-chain(Currencies · Commodities · Stocks · Carbon credits · Real estate · Bonds · Art) → Tokenized assets → On-chain(Global trade on the blockchain).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "RWA 토큰",
+     "실물 자산",
+     "스테이블 코인",
+     "De-Fi"
+    ]
+   },
+   {
+    "label": "RWA(Real World Assets) 토큰화 프로토콜 메커니즘",
+    "mnemonic": "",
+    "keywords": [
+     "RWA 토큰화",
+     "RWA 토큰 담보 대출"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "RWA 토큰",
+   "실물 자산",
+   "스테이블 코인",
+   "De-Fi"
+  ]
+ },
+ {
+  "id": "sn-658",
+  "title": "증권형 토큰(STO, Security Token Offering)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "해당 암호화폐를 발행한 회사의 **자산에 대한 소유권**을 가진 **토큰 형태**로 발행하는 **증권**",
+  "defShort": "발행 회사의 자산에 대한 소유권을 가진 토큰 형태로 발행하는 증권",
+  "memo": "개념도: 음식〈증권〉 — 정형적인 증권(지분증권(주식) · 채무증권(채권) · 파생결합증권(ELS) · 증권예탁증권(DR)) · 최근 등장한 비정형적인 증권((비금전 신탁) 수익증권 · 투자계약증권) / 그릇〈발행형태〉 — 실물증권(증서에 기재) · 전자증권(중앙집중식 계좌부에 기재) · 토큰증권(분산원장에 기재). 정형 증권 → 전자증권·토큰증권, 비정형 증권 → 토큰증권(전자증권은 점선). 증권의 디지털화(법제적으로는 전자증권에 해당).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "토큰 증권",
+     "증권거래법",
+     "자본시장법",
+     "자산의 소유권"
+    ]
+   },
+   {
+    "label": "증권형 토큰(STO, 토큰 증권)의 특징과 적용 기술",
+    "mnemonic": "",
+    "keywords": [
+     "혁신성",
+     "안정성",
+     "유동성",
+     "효율성",
+     "블록체인",
+     "스마트 컨트랙트",
+     "KYC",
+     "AML"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "토큰 증권",
+   "증권거래법",
+   "자본시장법",
+   "자산의 소유권"
+  ]
+ },
+ {
+  "id": "sn-659",
+  "title": "디지털 지갑(Digital Wallet)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "개인의 **신원 관련 정보**를 **저장**하고 **온·오프라인 인증**을 위해 사용하고 신뢰된 제3자를 통한 전자서명과 인장을 생성하는데 활용할 수 있는 제품이나 서비스",
+  "defShort": "신원 관련 정보 저장, 온·오프라인 인증에 사용하는 제품이나 서비스",
+  "memo": "디지털 지갑 운영체계 – 사용자 기기 설치형 모델: 디지털 지갑 개발사 —앱, 소프트웨어 배포→ 디지털 지갑 운영 환경(앱, 소프트웨어 설치된 사용자 기기). 발급자 —크리덴셜 발급→ 운영 환경. 운영 환경 —사용자 데이터 송신(4G/5G, NFC, QR 등)→ 서비스 제공자 —서비스 제공→ 운영 환경. 사용자 —물리적 접근→ 운영 환경.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "신원 인증",
+     "전자서명 생성",
+     "금융 서비스",
+     "사용자 기기 설치형 모델",
+     "제3자 위임형 모델"
+    ]
+   },
+   {
+    "label": "디지털 지갑 제공 기능",
+    "mnemonic": "",
+    "keywords": [
+     "신원 인증",
+     "전자서명 생성",
+     "금융 서비스"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "신원 인증",
+   "전자서명 생성",
+   "금융 서비스",
+   "사용자 기기 설치형 모델",
+   "제3자 위임형 모델"
+  ]
+ },
+ {
+  "id": "sn-660",
+  "title": "스마트 팩토리 시스템(Smart Factory System)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "제품의 기획부터 판매까지 모든 **생산과정**을 **ICT**기술로 **통합**해 최소 비용과 시간으로 고객 맞춤형 제품을 생산하는 **사람 중심**의 **첨단 지능형 공장 시스템**",
+  "defShort": "생산과정을 ICT기술로 통합한 사람 중심의 첨단 지능형 공장 시스템",
+  "memo": "구성도: 응용 시스템(S/W — 협력사 ⇄ 공급사슬관리/최적화 ⇄ 협력사(주문, 주문·예측정보, 진척정보), 제품 및 공정개발 —생산품 정보→ 공장운영 ⇄ 기업운영(생산 실적정보 / 주문관리정보)) ⇅ 설계정보 · 제어 명령 · 설비-가동정보 ⇅ 제어 자동화(컨트롤러, 센서 — 공정제어(PLC) · 인터페이스(HMI) · 컴퓨터수치제어(CNC) · 산업용 센서) ⇅ 설비 제어 · 상태·가동 데이터 ⇅ 현장 자동화(로봇, 생산설비). 오른쪽 Cloud 클라우드 플랫폼 · CPPS 가상물리생산 · AI 지능형 기술이 각 계층과 연결.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "4M+1E",
+     "공장자동화",
+     "공장운영",
+     "기업자원",
+     "제품개발",
+     "공급사슬 관리"
+    ]
+   },
+   {
+    "label": "스마트 팩토리 5대 요건",
+    "mnemonic": "",
+    "keywords": [
+     "4M+1E(Man, Machine, Material, Method, En",
+     "지능화(알고리즘, 인공지능)",
+     "정보교류를 위한 수평",
+     "엔지니어링 지식 창출",
+     "스마트 시스템과의 연결"
+    ]
+   },
+   {
+    "label": "스마트 팩토리 시스템 요소기술",
+    "mnemonic": "",
+    "keywords": [
+     "공장",
+     "공장운영 관리",
+     "기업자원 관리",
+     "제품개발 관리",
+     "공급사슬 관리",
+     "공통기술"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "4M+1E",
+   "공장자동화",
+   "공장운영",
+   "기업자원",
+   "제품개발",
+   "공급사슬 관리"
+  ]
+ },
+ {
+  "id": "sn-661",
+  "title": "소프트웨어 정의 제조(SDM, Software Defined Manufacturing)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "**제조**, **서비스**, **공급망**의 핵심 요소를 **소프트웨어에 의해 정의**되고 **제어**되는 시스템",
+  "defShort": "제조·서비스·공급망 핵심 요소가 소프트웨어로 정의·제어되는 시스템",
+  "memo": "개념도: 공장마다 Users · Computation layer · Communication layer · Physical plants 를 따로 두던 구조 → Users - Utilize Cloud Infra · Computation layer on Cloud · Multi Layered Communication system · Physical plants 로 클라우드 위에 묶는다.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "데이터",
+     "데이터스페이스",
+     "제조",
+     "서비스",
+     "공급망",
+     "SDSC",
+     "SDF",
+     "SDS",
+     "SDA",
+     "SDR",
+     "SDN"
+    ]
+   },
+   {
+    "label": "소프트웨어 정의 제조(SDM)의 개념도",
+    "mnemonic": "",
+    "keywords": [
+     "User",
+     "Computation Layer",
+     "Communication Layer",
+     "Physical Plants"
+    ]
+   },
+   {
+    "label": "소프트웨어 정의 제조(SDM)의 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "소프트웨어 정의 공장(SDF)",
+     "소프트웨어 정의 공급망(SDSC)",
+     "소프트웨어 정의 서비스(SDS)"
+    ]
+   },
+   {
+    "label": "소프트웨어 정의 공장(SDF)의 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "SDA(Software Defined Automation)",
+     "SDR(Software Defined Robot)",
+     "SDN(Software Defined Networking)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "데이터",
+   "데이터스페이스",
+   "제조",
+   "서비스",
+   "공급망",
+   "SDSC",
+   "SDF",
+   "SDS",
+   "SDA",
+   "SDR",
+   "SDN"
+  ]
+ },
+ {
+  "id": "sn-662",
+  "title": "AI 예지 보전(Predictive Maintenance, PdM)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "**실시간 센서 데이터**를 기반으로 **설비**의 **이상** 징후를 **사전**에 **감지**하고, 정확한 고장 발생 시기를 도출해 **선제적**인 **유지보수**를 지원하는 **AI 예측 시스템**",
+  "defShort": "실시간 센서 데이터로 설비 이상 사전 감지해 선제적 유지보수 AI 예측 시스템",
+  "memo": "개념도: 1. 데이터 수집 및 통합(Data Collection & Integration — 실시간 센서 데이터, 설비 도메인 지식(Domain Knowledge)) → 2. AI 모델링 및 분석(AI Modeling & Analysis — 결함 패턴 학습 모델링, 결함 패턴 분석) → 3. 실시간 모니터링(Real-time Monitoring — 상태 실시간 모니터링, 이상 징후 감지) → 4. 예지 보전 실행(Predictive Maintenance — 결함 자동 진단, 잔여 수명 예측, 최적 교체 시점 산출).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "멀티모달 센서",
+     "데이터 게이트웨이",
+     "데이터 증강",
+     "이상 탐지",
+     "고장 진단 모델",
+     "잔여 수명(RUL) 예측",
+     "디지털 트윈"
+    ]
+   },
+   {
+    "label": "AI 예지 보전 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "멀티모달 센서",
+     "데이터 게이트웨이",
+     "특징 추출(Feature Eng.)",
+     "데이터 증강(GAN)",
+     "이상 탐지(오토인코더)",
+     "고장 진단 모델",
+     "잔여 수명(RUL, Remaining Useful Life) 예측",
+     "정비 추천 시스템"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "멀티모달 센서",
+   "데이터 게이트웨이",
+   "데이터 증강",
+   "이상 탐지",
+   "고장 진단 모델",
+   "잔여 수명(RUL) 예측",
+   "디지털 트윈"
+  ]
+ },
+ {
+  "id": "sn-663",
+  "title": "지능형 IoT와 자율형 IoT",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "(지능형 IoT) **인공지능(AI)** 기술을 적용하여 **데이터**를 **분석**하고 **의사 결정**을 내릴 수 있는 IoT 시스템 / (자율형 IoT) 인간의 **개입 없이** IoT 기기가 **환경**을 **인식**하여 스스로 **의사 결정**하고 **자율**적으로 **작동**할 수 있는 IoT 시스템",
+  "defShort": "AI로 분석·결정하는 지능형과 개입 없이 자율 작동하는 자율형 IoT",
+  "memo": "지능형 IoT(AIoT, Artificial Intelligence of Things) 개념도: Gateway(알고리즘 연산 실행, IoT 접속) ↔ BigData(연산 데이터 전달) → 데이터 전달 → AIoT = Artificial Intelligence(Deep Learning — 지도·준지도·비지도·강화 학습 / Serving Process — M2M · 클라우드 · Fog컴퓨팅 · Edge컴퓨팅 · 센싱 디바이스) + Internet of Things(Fixed Networks — 2G/3G/4G/5G · 무선랜 · 저전력 무선랜 / The Internet — Internet 2.0 · Mobile · IoT Device).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "(지능형) 지능형 센서 소자/알고리즘",
+     "저전력 기술",
+     "MEC 기술",
+     "TinyML",
+     "연합학습",
+     "음성 인식 기술",
+     "(자율형) 상황인지 기술",
+     "상황 추론",
+     "예측 기술",
+     "최적화 기술",
+     "지능 강화 기술"
+    ]
+   },
+   {
+    "label": "지능형 IoT와 자율형 IoT의 비교",
+    "mnemonic": "",
+    "keywords": [
+     "적용기술",
+     "결정주체",
+     "초점",
+     "물리-가상 상호작용 사이클",
+     "동작위치"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "(지능형) 지능형 센서 소자/알고리즘",
+   "저전력 기술",
+   "MEC 기술",
+   "TinyML",
+   "연합학습",
+   "음성 인식 기술",
+   "(자율형) 상황인지 기술",
+   "상황 추론",
+   "예측 기술",
+   "최적화 기술",
+   "지능 강화 기술"
+  ]
+ },
+ {
+  "id": "sn-664",
+  "title": "엠비언트 IoT(Ambient Internet of Things)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "주변 환경에서 에너지를 수확하여 작동하는 **에너지 하베스팅**(energy harvesting)에 의해 **구동**되는 **IoT**",
+  "defShort": "주변 환경에서 에너지를 수확하는 에너지 하베스팅에 의해 구동되는 IoT",
+  "memo": "토폴로지 구성도는 모두 Ambient IoT data/signaling 화살표로 그린다 — 1: BS ↔ device, 2: BS –Uu(점선)– intermediate node ↔ device, 3a·3b: BS –Uu(점선)– assisting node 와 device, 4: UE ↔ device.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "에너지 하베스팅",
+     "토폴로지1, 2, 3a, 3b, 4",
+     "페이징 전송",
+     "데이터 전송",
+     "추가 데이터 전송"
+    ]
+   },
+   {
+    "label": "엠비언트 IoT(Ambient IoT) 토폴로지(Topology)",
+    "mnemonic": "",
+    "keywords": [
+     "토폴로지 1",
+     "토폴로지 2",
+     "토폴로지 3a",
+     "토폴로지 3b",
+     "토폴로지 4"
+    ]
+   },
+   {
+    "label": "엠비언트 IoT 프로시저",
+    "mnemonic": "",
+    "keywords": [
+     "Step A(페이징 메시지 전송)",
+     "Step B(데이터 전송)",
+     "Step C(추가 데이터 전송)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "에너지 하베스팅",
+   "토폴로지1, 2, 3a, 3b, 4",
+   "페이징 전송",
+   "데이터 전송",
+   "추가 데이터 전송"
+  ]
+ },
+ {
+  "id": "sn-665",
+  "title": "앰비언트 인비저블 인텔리전스(Ambient Invisible Intelligence)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "**주변 환경**(Ambient)에 자연스럽게 **통합**되어, **사용자**가 **인식**하지 **못하는 사이**(Invisible)에 사람의 행동·상태·환경을 인지하고 상황에 맞게 **지능적**으로 **반응·작동**하는 **지능**(Intelligence)",
+  "defShort": "주변 환경에 통합, 사용자 인식 못하는 사이 지능적 반응·작동하는 지능",
+  "memo": "개념도: Cloud 아래 G 노드를 거쳐 Warehouse · Retailer · Logistics · Home 의 제품들이 연결된다.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "통합(ambient)",
+     "초저가 소형 스마트 태그",
+     "센서",
+     "무형적 상호작용",
+     "상황인식",
+     "개인화"
+    ]
+   },
+   {
+    "label": "앰비언트 인비저블 인텔리전스 특징",
+    "mnemonic": "",
+    "keywords": [
+     "무형적 상호작용",
+     "상황 인식",
+     "개인화",
+     "지속적 학습과 적응",
+     "프라이버시 보호"
+    ]
+   },
+   {
+    "label": "앰비언트 인비저블 인텔리전스 주요 기술",
+    "mnemonic": "",
+    "keywords": [
+     "데이터 수집(Sensor & IoT)",
+     "데이터 전송(Network)",
+     "데이터 처리(Computing)",
+     "데이터 분석(AI",
+     "상호작용(Interface)"
+    ]
+   },
+   {
+    "label": "앰비언트 인텔리전스와 앰비언트 인비저블 인텔리전스 비교",
+    "mnemonic": "",
+    "keywords": [
+     "정의",
+     "개념적 특징",
+     "초점",
+     "'Invisible' 의미",
+     "핵심 기술"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "통합(ambient)",
+   "초저가 소형 스마트 태그",
+   "센서",
+   "무형적 상호작용",
+   "상황인식",
+   "개인화"
+  ]
+ },
+ {
+  "id": "sn-666",
+  "title": "SLAM(Simultaneous Localization and Mapping)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "자율주행 이동체에 사용되어 **주변환경지도를 작성**하는 동시에 이동체의 위치를 작성된 **지도안에서 인식**하는 기법",
+  "defShort": "주변환경지도 작성과 동시에 이동체 위치를 지도안에서 인식하는 기법",
+  "memo": "Visual SLAM 구동 방식: Sensor data → Front-end(Visual odometry — Feature extraction · Data association) → Back-end(Optimization — Map estimization) → Mapping, Back-end ↔ Loop closure ↔ Front-end 되먹임.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "Visual SLAM",
+     "LiDAR SLAM",
+     "Sparse/Dense 알고리즘",
+     "ICP",
+     "NDT",
+     "Visual Odometry",
+     "Backend optimization",
+     "Loop Closing",
+     "Reconstruction",
+     "localization",
+     "mapping"
+    ]
+   },
+   {
+    "label": "SLAM 기술 요소",
+    "mnemonic": "",
+    "keywords": [
+     "카메라 및 센서",
+     "Sparse 알고리즘",
+     "Dense 알고리즘",
+     "레이저 및 센서",
+     "ICP(Iterative Closest Point) 알고리즘",
+     "NDT(Normal Distributions Transformation)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "Visual SLAM",
+   "LiDAR SLAM",
+   "Sparse/Dense 알고리즘",
+   "ICP",
+   "NDT",
+   "Visual Odometry",
+   "Backend optimization",
+   "Loop Closing",
+   "Reconstruction",
+   "localization",
+   "mapping"
+  ]
+ },
+ {
+  "id": "sn-667",
+  "title": "위치 측위(Positioning)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "사람, 사물, 장치 등의 **위치**를 **측정**하고 **추적**하는 기술",
+  "defShort": "사람, 사물, 장치 등의 위치를 측정하고 추적하는 기술",
+  "memo": "위치 측위 기술의 분류: 위치 측위 → 위치 측위 기법(Cell ID · ToA · AoA) / 실외 위치 측위 기술(이동 통신 기반 · GPS 기반) / 실내 위치 측위 기술(WLAN 기반 · Bluetooth 기반 · UWB 기반).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "Cell ID",
+     "ToA",
+     "TDoA",
+     "AoA",
+     "Fingerprint",
+     "DGPS",
+     "SBAS",
+     "GBAS",
+     "UWB",
+     "WPS",
+     "RSSI",
+     "SLAM"
+    ]
+   },
+   {
+    "label": "위치 측위 방법",
+    "mnemonic": "",
+    "keywords": [
+     "Cell ID",
+     "ToA",
+     "TDoA",
+     "AoA",
+     "Fingerprint"
+    ]
+   },
+   {
+    "label": "실외 위치 측위 기술",
+    "mnemonic": "",
+    "keywords": [
+     "DGPS(differential GPS)",
+     "SBAS",
+     "GBAS",
+     "이동통신기반"
+    ]
+   },
+   {
+    "label": "실내 위치 측위 기술",
+    "mnemonic": "",
+    "keywords": [
+     "자기장 센서",
+     "관성센서",
+     "RFID",
+     "적외선",
+     "초음파",
+     "WPS",
+     "RSSI",
+     "UWB",
+     "Zigbee",
+     "Bluetooth"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "Cell ID",
+   "ToA",
+   "TDoA",
+   "AoA",
+   "Fingerprint",
+   "DGPS",
+   "SBAS",
+   "GBAS",
+   "UWB",
+   "WPS",
+   "RSSI",
+   "SLAM"
+  ]
+ },
+ {
+  "id": "sn-668",
+  "title": "인터미턴트 컴퓨팅(Intermittent Computing)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "전력 수급이 불안정한 환경에서 **에너지 하베스팅 (Energy Harvesting)**으로 얻은 **전력**으로 신뢰성을 보장하며 **동작**하는 **컴퓨팅**",
+  "defShort": "전력 수급 불안정 환경에서 에너지 하베스팅 전력으로 동작하는 컴퓨팅",
+  "memo": "작동 개념도: 전력(세로) – 시간(가로) 그래프 — 전원 충전 기간에 전력이 올라 전원 On 시점에 이르면 컴퓨터 구동 기간 동안 전력이 내려가 전원 Off 시점에 이르고, 이를 되풀이한다.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "에너지 하베스팅",
+     "메모리 시스템",
+     "인터미턴트 컴퓨팅 실행 모델",
+     "프로그래밍 언어",
+     "런타임 시스템"
+    ]
+   },
+   {
+    "label": "인터미턴트 컴퓨팅 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "초저전력 마이크로 컨트롤러",
+     "에너지 저장장치",
+     "비휘발성 메모리",
+     "비휘발성 프로세서",
+     "체크포인팅 기법",
+     "다중 버전 모델",
+     "Chain 모델",
+     "Alpaca 모델",
+     "Eon"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "에너지 하베스팅",
+   "메모리 시스템",
+   "인터미턴트 컴퓨팅 실행 모델",
+   "프로그래밍 언어",
+   "런타임 시스템"
+  ]
+ },
+ {
+  "id": "sn-669",
+  "title": "에너지 효율적 컴퓨팅(Energy-Efficient Computing)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "**컴퓨터 시스템**이 **동일**한 **성능**을 유지하면서도 **소비 전력**을 **최소화**하는 기술과 방법",
+  "defShort": "컴퓨터 시스템이 동일한 성능 유지하며 소비 전력 최소화하는 기술과 방법",
+  "memo": "기술 요소 표에서 기술마다 첫 행(세부기술 칸 없음)은 그 기술 전체 설명이다.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "고효율 프로세서",
+     "데이터센터의 냉각 시스템 개선",
+     "엣지 컴퓨팅",
+     "에너지 절약형 소프트웨어 설계"
+    ]
+   },
+   {
+    "label": "에너지 효율적 컴퓨팅(Energy-Efficient Computing) ",
+    "mnemonic": "",
+    "keywords": [
+     "저전력 설계",
+     "전압 및 주파수 스케일링",
+     "액체 냉각(Liquid Cooling)",
+     "자연 냉각(Free Cooling)",
+     "수요 예측 및 자원 최적화",
+     "적응형 에너지 관리",
+     "알고리즘 최적화",
+     "데이터 압축 및 관리"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "고효율 프로세서",
+   "데이터센터의 냉각 시스템 개선",
+   "엣지 컴퓨팅",
+   "에너지 절약형 소프트웨어 설계"
+  ]
+ },
+ {
+  "id": "sn-670",
+  "title": "Robot-as-a-Service(RaaS)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "**로봇** 하드웨어와 소프트웨어, 운영 인프라를 **클라우드 기반 서비스 형태**로 제공하여, 사용자가 로봇을 직접 구매하거나 관리하지 않고 필요한 기간과 용도에 따라 **구독**·이용할 수 있는 **서비스 모델**",
+  "defShort": "로봇을 클라우드 기반 서비스 형태로 제공, 구독·이용하는 서비스 모델",
+  "memo": "구성도: Internet/Cloud Infrastructure(Cloud robotics) 에 Teleoperation · Remote sensing · Wireless Communication 을 거쳐 로봇·센서가 연결 — Robot-to-Robot Communication(R2R, 파선), Robot-to-Cloud Communication(R2C, 실선), Robot-to-Sensor/Actuator/Machine Communication(R2S/R2A/R2M, 점선).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "구독",
+     "Pay-per-Use",
+     "클라우드 RaaS 컨트롤 시스템",
+     "RaaS 플랫폼(운영 시스템)"
+    ]
+   },
+   {
+    "label": "RaaS 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "Pay-per-Use",
+     "구독(Subscription)",
+     "클라우드 RaaS 컨트롤 시스템",
+     "RaaS 플랫폼(운영 시스템)",
+     "통합 사이버 물리 시스템(CPS)",
+     "사용자 앱, 웹 서비스",
+     "로봇 장비",
+     "금융, 결제 시스템"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "구독",
+   "Pay-per-Use",
+   "클라우드 RaaS 컨트롤 시스템",
+   "RaaS 플랫폼(운영 시스템)"
+  ]
+ },
+ {
+  "id": "sn-671",
+  "title": "클라우드 로봇 지능(Cloud Robot Intelligence)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "**클라우드**를 통해 **지능**을 **배포**하고 실시간 **학습**과 자율적으로 **최적화** 및 **진화**하는 **로봇**(또는 **지능**)",
+  "defShort": "클라우드로 지능 배포, 실시간 학습과 자율적으로 최적화·진화하는 로봇",
+  "memo": "개념도: 멀티모달 로봇 서비스 맥락이해(풍부한 맥락정보 — 얼굴, 의상, 군집, 행동 등 / 신뢰도 향상 — 모달리티) · 로봇 서비스 개인화 특화(사용자 맞춤 서비스 — 사용자 ↔ 로봇: 서비스, 반응·맥락, 로봇서비스 강화학습) → 적응 진화형 지역 클라우드 로봇 지능 ↔ 지역 지속 적응 학습(지능 적용 — 신뢰도, 정확도 개선 / 지역 획득 데이터 → 온라인 데이터 태깅 · 지역 클라우드 로봇지능 시스템 · 크라우드 소싱 기반 데이터 태깅 시스템) · 전역 최적 지능 적용 학습(지능 증강 — 범위 확장, 성능 향상) ↔ 클라우드 로봇 복합인공지능 시스템(로봇 지능 학습 모델 최적화, 지능 증강과 공유학습) – 인터넷 – 지역 클라우드 1 · 2 · 3(실환경 기술 적용성 검증).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "클라우드 로봇",
+     "서비스 로봇",
+     "전이학습",
+     "도메인",
+     "지식 증류",
+     "멀티모달"
+    ]
+   },
+   {
+    "label": "클라우드 로봇 지능(Cloud Robot Intelligence) 기술",
+    "mnemonic": "",
+    "keywords": [
+     "핵심 지능 정보 요소기술",
+     "학습 데이터",
+     "지식베이스",
+     "시스템과 서비스",
+     "기술검증"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "클라우드 로봇",
+   "서비스 로봇",
+   "전이학습",
+   "도메인",
+   "지식 증류",
+   "멀티모달"
+  ]
+ },
+ {
+  "id": "sn-672",
+  "title": "AMR(Autonomous Mobile Robot)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "기존 **AGV(자율 가이드 차량)**처럼 마그네틱, 마커 등 주행 보조 도구의 설치 없이 유선 전력의 구애를 받지 않고 **독립적**으로 **환경**을 **탐색 및 이해**하고 **이동**할 수 있는 **로봇**",
+  "defShort": "주행 보조 도구 없이 독립적으로 환경을 탐색 및 이해하고 이동하는 로봇",
+  "memo": "Architecture: Localization(Existing Map(Knowledge, database) → Localization(Map Building)) → Cognition(Obstacle Avoidance · Mission Commands · Mechanical Modelling & Control · Path Planning) → Motion Control → MOBILE ROBOT(Actuators) → Real World Environment, Sensors → Raw Data → Perception(Information extraction & interpretation) → Localization.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "AGV",
+     "독립적 환경 탐색 & 이동",
+     "센서",
+     "동작 계획 알고리즘",
+     "환경 모델링",
+     "액추에이터(Actuator)",
+     "엔드 이펙터(End Effector)",
+     "매니퓰레이터(Manipulator)"
+    ]
+   },
+   {
+    "label": "AMR(Autonomous Mobile Robot) 기반 기술",
+    "mnemonic": "",
+    "keywords": [
+     "액추에이터(Actuator)",
+     "제어 시스템(Control System)",
+     "엔드 이펙터(End Effector)",
+     "매니퓰레이터(Manipulator)",
+     "센서(Sensor)",
+     "환경 모델링",
+     "동작 계획 알고리즘"
+    ]
+   },
+   {
+    "label": "로봇(Robot) 유형",
+    "mnemonic": "",
+    "keywords": [
+     "AGV(Automated Guided Vehicle)",
+     "AMR(Autonomous Mobile Robot)",
+     "피킹 로봇(Picking Robot)",
+     "라스트 마일 딜리버리 로봇(Last Mile Delivery Robot)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "AGV",
+   "독립적 환경 탐색 & 이동",
+   "센서",
+   "동작 계획 알고리즘",
+   "환경 모델링",
+   "액추에이터(Actuator)",
+   "엔드 이펙터(End Effector)",
+   "매니퓰레이터(Manipulator)"
+  ]
+ },
+ {
+  "id": "sn-673",
+  "title": "RPA(Robotic Process Automation)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "인간을 대신하여 수행할 수 있도록 **반복**적이고 **규칙**적인 **업무**를 **지능형 자동화**하여 수행하는 소프트웨어",
+  "defShort": "인간 대신 반복적·규칙적 업무를 지능형 자동화해 수행하는 소프트웨어",
+  "memo": "개념도: RPA 도입 전 — 사람이 Start 부터 메일 · 엑셀 · 모니터 업무를 하나씩 거쳐 End 까지 처리(Business / IT) → RPA 도입 후 — 같은 흐름을 로봇이 처리.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "Basic / Intelligent / Cognitive Automation",
+     "워크플로우",
+     "룰엔진",
+     "OCR"
+    ]
+   },
+   {
+    "label": "RPA(Robotic Process Automation) 기술 수준",
+    "mnemonic": "",
+    "keywords": [
+     "Basic Automation",
+     "Intelligent Automation",
+     "Cognitive Automation"
+    ]
+   },
+   {
+    "label": "RPA(Robotic Process Automation) 기반 기술",
+    "mnemonic": "",
+    "keywords": [
+     "워크플로우",
+     "규칙엔진(Rule엔진)",
+     "응용프로그램 작업 라이브러리",
+     "이미지 인식 기술과 OCR"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "Basic / Intelligent / Cognitive Automation",
+   "워크플로우",
+   "룰엔진",
+   "OCR"
+  ]
+ },
+ {
+  "id": "sn-674",
+  "title": "디지털 트윈(Digital Twin)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "물리적 대상과 이를 **모사한 디지털 대상**을 실시간으로 동기화하고, 다양한 목적에 따라 상황을 분석하고 모의결과를 기반으로 예측하여 **물리적 대상을 최적화**하기 위한 지능형 기술 플랫폼",
+  "defShort": "물리적 대상을 모사한 디지털 대상과 동기화해 최적화하는 기술 플랫폼",
+  "memo": "개념도: Data streams · Mathematical models · Data lakes → Digital twin ← Situational parameters → Situational simulation → Decision making.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "가상 모델",
+     "물리적 대상",
+     "연결",
+     "동기화",
+     "시뮬레이션",
+     "데이터 분석",
+     "실시간 모니터링",
+     "최적화",
+     "예측"
+    ]
+   },
+   {
+    "label": "디지털 트윈(Digital Twin) 구성 기술",
+    "mnemonic": "",
+    "keywords": [
+     "가시화&운영기술",
+     "분석기술",
+     "다차원 모델링 & 시뮬레이션기술",
+     "연결기술",
+     "데이터 & 보안기술",
+     "동기화 기술",
+     "연합"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "가상 모델",
+   "물리적 대상",
+   "연결",
+   "동기화",
+   "시뮬레이션",
+   "데이터 분석",
+   "실시간 모니터링",
+   "최적화",
+   "예측"
+  ]
+ },
+ {
+  "id": "sn-675",
+  "title": "디지털 스레드(Digital Thread)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "제품의 설계, 생산, 운영, 폐기에 이르는 전 **생애주기(Lifecycle)** 동안 **생성**되는 모든 **데이터**를, '**하나의 디지털 실(Thread)**'처럼 끊김 없이 **연결**하는 **통합 데이터 흐름**이자 **관리 체계**",
+  "defShort": "생애주기 데이터를 하나의 디지털 실처럼 연결하는 통합 흐름·관리 체계",
+  "memo": "관계도(제품 수명 주기에서 디지털 트윈과 디지털 스레드): Concept → Design → Order → Customization → Make → Operation → Repair → Recycle 각 단계의 데이터가 Digital Thread 로 이어지며 Digital Twin 에 모인다.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "디지털 스레드(실)",
+     "데이터 통합",
+     "데이터 연속성",
+     "데이터 생애 주기",
+     "디지털 트윈"
+    ]
+   },
+   {
+    "label": "디지털 스레드(Digital Thread) 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "데이터 통합",
+     "데이터 연속성",
+     "통합 · 연속성 보장"
+    ]
+   },
+   {
+    "label": "디지털 스레드와 디지털 트윈의 비교",
+    "mnemonic": "",
+    "keywords": [
+     "정의",
+     "목적",
+     "개념적 구성",
+     "상호 관계"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "디지털 스레드(실)",
+   "데이터 통합",
+   "데이터 연속성",
+   "데이터 생애 주기",
+   "디지털 트윈"
+  ]
+ },
+ {
+  "id": "sn-676",
+  "title": "트윈 트랜스포메이션(Twin Transformation)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "**디지털 트랜스포메이션(DT)**과 **ESG**의 **합성어**이며 **디지털 트랜스포메이션(DT)과 ESG**를 **동시**에 **추진**하는 **경영 framework**로, **ESG 경영**의 **목표**를 **달성**하기 위해 **DT**를 **활용**하는 경영 전략",
+  "defShort": "DT와 ESG를 동시에 추진하며 ESG 경영 목표 달성에 DT를 활용하는 경영 전략",
+  "memo": "개념도: CORE BUSINESS — ESG(Environment · Social · Governance) ↔ FUTURE BUSINESS — DIGITAL TRANSFORMATION(Technology · Communication · Data · Internet of things · Automation · AI · Networking) 순환.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "ESG",
+     "Digital Transformation",
+     "지속 가능성 전환"
+    ]
+   },
+   {
+    "label": "DT와 ESG의 비교",
+    "mnemonic": "",
+    "keywords": [
+     "대두 배경",
+     "규제 정도",
+     "적용 대상",
+     "결과물"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "ESG",
+   "Digital Transformation",
+   "지속 가능성 전환"
+  ]
+ },
+ {
+  "id": "sn-677",
+  "title": "DXaaS/DTaaS(Digital Transformation as a Service)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "**디지털 전환**을 위한 **블록체인, 인공지능, 사물인터넷, 보안** 등의 신기술을 **Cloud환경**에서 **SaaS(Software as a Service)** 형태로 제공하는 서비스",
+  "defShort": "디지털 전환 위한 신기술을 Cloud환경에서 SaaS 형태로 제공하는 서비스",
+  "memo": "개념도: 클라우드(Cloud) — Open API · 서비스 · Open API / 빅데이터(BigData: 구조화 데이터 · 비구조화 데이터 NoSQL) · 데이터 애널리틱스(Analytics: 인공지능, 노하우, 지식, 최적화) / 인터넷 · 센싱 기술 · 4G/5G 기술 · 대용량 통신 기술 / 사물인터넷(IoT) · 소셜 플랫폼(스마트폰 · 웨어러블 · 태블릿 · PC) · 인공지능(AI) · 블록체인(Blockchain).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "DevOps",
+     "클라우드 네이티브 애플리케이션",
+     "깃(Git)",
+     "지속적 배포(CD)",
+     "선언형 모델",
+     "선언형 기술서",
+     "자동화 시스템",
+     "SSOT",
+     "Push 방식",
+     "Pull 방식"
+    ]
+   },
+   {
+    "label": "DXaaS/DTaaS 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "빅데이터",
+     "모바일",
+     "IoT",
+     "Cloud",
+     "AI",
+     "Blockchain"
+    ]
+   },
+   {
+    "label": "DT와 DXaaS/DTaaS 비교",
+    "mnemonic": "",
+    "keywords": [
+     "지속적인 거버넌스(Governance)가 필요",
+     "개선 필요 영역의 분리가 어려움",
+     "개별적 컨설팅 접근 방식의 효과 저하"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "DevOps",
+   "클라우드 네이티브 애플리케이션",
+   "깃(Git)",
+   "지속적 배포(CD)",
+   "선언형 모델",
+   "선언형 기술서",
+   "자동화 시스템",
+   "SSOT",
+   "Push 방식",
+   "Pull 방식"
+  ]
+ },
+ {
+  "id": "sn-678",
+  "title": "AMI(Advanced Metering Infrastructure) 2.0",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "수용가에서 소비되는 전력량 측정, 과거 소비량 기반 분석 통한 향후 소비량 예측 등을 위해 개발된 **AMI**에 **IoT 환경 통신** 기술과 **보안** 성능을 강화한 **차세대 지능형 인프라**",
+  "defShort": "AMI에 IoT 환경 통신 기술과 보안 성능을 강화한 차세대 지능형 인프라",
+  "memo": "등장 배경: AMI(HAN · Smart Meter · MDMS) + 요구 사항(보안 강화 · 통신 성능 · IoT) ⇒ AMI 2.0(LWM2M · SNMP v3 · Mbed OS).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "LWM2M",
+     "SNMP v3",
+     "보안 강화형 스마트 전력량계",
+     "CAN",
+     "Wi-SUN",
+     "IoT-PLC",
+     "ESS",
+     "PLC"
+    ]
+   },
+   {
+    "label": "AMI(Advanced Metering Infrastructure) 2.",
+    "mnemonic": "",
+    "keywords": [
+     "스마트 미터",
+     "IHD",
+     "MDMS",
+     "ESS",
+     "IoT-PLC",
+     "LWM2M",
+     "SNMP v3",
+     "Secure DCU"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "LWM2M",
+   "SNMP v3",
+   "보안 강화형 스마트 전력량계",
+   "CAN",
+   "Wi-SUN",
+   "IoT-PLC",
+   "ESS",
+   "PLC"
+  ]
+ },
+ {
+  "id": "sn-679",
+  "title": "VPP(Virtual Power Plant)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "가정용 태양광과 같이 분산되어 있는 소규모 에너지 발전, 축전지, 연료전지 등 **발전 설비**와 **전력 수요**를 **클라우드 기반**으로 소프트웨어적으로 **통합 관리**하는 **가상의 발전소**",
+  "defShort": "분산 발전 설비와 전력 수요를 클라우드 기반 통합 관리하는 가상의 발전소",
+  "memo": "구성도: 가상 발전소(태양광 · ESS · EV · 풍력) ↔ 중개 사업자(분산자원 스케줄링 · 전력 거래 대행 · 발전량 예측 · 자원 모집) ↔ 운영자(계통 운영자 TSO · 망 운영자 DSO). 가상 발전소 ↔ 중개 사업자: 수수료·정산금(금전흐름), 자원정보·급전지시(정보흐름) / 중개 사업자 ↔ 운영자: 정산금·보상금(금전흐름), 발전량·계통제약 검토(정보흐름).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "신재생에너지",
+     "ESS",
+     "분산형 에너지 자원(DER)",
+     "클라우드 서비스",
+     "스마트 그리드",
+     "계통 운영자(TSO)",
+     "망 운영자(DSO)",
+     "에너지 마켓",
+     "에너지 블록체인"
+    ]
+   },
+   {
+    "label": "VPP(Virtual Power Plant) 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "User Access",
+     "User Access",
+     "Applications",
+     "Data Interface"
+    ]
+   },
+   {
+    "label": "VPP(Virtual Power Plant) 유형",
+    "mnemonic": "",
+    "keywords": [
+     "공급형",
+     "수요형",
+     "융합형",
+     "CVPP(Commercial)",
+     "TVPP(Technical)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "신재생에너지",
+   "ESS",
+   "분산형 에너지 자원(DER)",
+   "클라우드 서비스",
+   "스마트 그리드",
+   "계통 운영자(TSO)",
+   "망 운영자(DSO)",
+   "에너지 마켓",
+   "에너지 블록체인"
+  ]
+ },
+ {
+  "id": "sn-680",
+  "title": "스마트 팜(Smart Farm)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "**ICT를 활용**해 원격, 자동으로 **시간과 공간의 제약 없이 작물&축산**의 생육 환경을 관측하고 관리하는 과학 기반의 **농업(농장)**",
+  "defShort": "ICT를 활용해 시간과 공간 제약 없이 작물·축산 생육 환경을 관리하는 농업",
+  "memo": "기술 구성도: 내외부 CCTV(원격탐사, 장치제어, 생장, 침입 영상정보) · 센서(온습도 센서 · 풍향, 풍속 · 강수센서 · 일사량 · CO2 센서) · 구동기(전동개폐기 · 보온커튼 · 배기, 통기 · 냉난방기) · 에너지 제어기/로컬 농작업기 → 센서 노드 · 제어 노드 · 스마트 링크 → 영상 정보 · 센서 정보 · 날씨 정보 · 재배 이력 · 병해충 DB · 작물 DB → 클라우드서비스(인공지능 농업 S/W, DB 관리, 분석 서비스) → 농민(재배패턴 분석·진단, 재배패턴 제시, 영양·질병 진단, 최적정보 제공) → 영농반영. 재배환경 자동제어 · 복합에너지 관제 스마트 농작업.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "가상 모델",
+     "물리적 대상",
+     "연결",
+     "동기화",
+     "시뮬레이션",
+     "데이터 분석",
+     "실시간 모니터링",
+     "최적화",
+     "예측"
+    ]
+   },
+   {
+    "label": "스마트 팜(Smart Farm) 세대별 단계",
+    "mnemonic": "",
+    "keywords": [
+     "상용화 시기",
+     "목표 효과",
+     "주요 기능",
+     "핵심 정보",
+     "핵심 기술",
+     "의사 결정",
+     "대표 예시"
+    ]
+   },
+   {
+    "label": "스마트 팜(Smart Farm) 주요 기술",
+    "mnemonic": "",
+    "keywords": [
+     "상황인지 센서",
+     "생체인식 센서",
+     "WPAN",
+     "RFID",
+     "LPWAN",
+     "모델관리서비스(MMS)",
+     "스마트팜 모니터서비스(FMS)",
+     "스마트팜 제어서비스(FCS)",
+     "스마트팜 운영서비스(FOS)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "가상 모델",
+   "물리적 대상",
+   "연결",
+   "동기화",
+   "시뮬레이션",
+   "데이터 분석",
+   "실시간 모니터링",
+   "최적화",
+   "예측"
+  ]
+ },
+ {
+  "id": "sn-681",
+  "title": "스마트 시티(Smart City)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "**4차 산업혁명 시대**의 **혁신기술**을 활용하여, **시민**들의 **삶의 질을 높이고**, **도시의 지속 가능성**을 제고하며, **새로운 산업**을 **육성**하기 위한 **플랫폼**",
+  "defShort": "시민 삶의 질 높이고 도시 지속 가능성 제고, 새로운 산업 육성 플랫폼",
+  "memo": "개념도: 혁신기술 — 시민의 삶의 질 · 신산업 플랫폼 · 도시의 지속가능성. 비용▼ · 시간▼ · 안전▲ · 자원▼ · 환경▼ · 거버넌스▲, 자율주행 자동차 · 공유경제 · 로봇.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "스마트도시법",
+     "모빌리티",
+     "안전",
+     "빌딩 · 인프라",
+     "에너지 · 환경",
+     "복지 · 행정 · 생활"
+    ]
+   },
+   {
+    "label": "스마트 시티(Smart City) 주요 기술과 서비스",
+    "mnemonic": "",
+    "keywords": [
+     "스마트 안전·치안",
+     "스마트 교통",
+     "스마트 에너지"
+    ]
+   },
+   {
+    "label": "스마트 시티(Smart City) 주요 기술과 서비스",
+    "mnemonic": "",
+    "keywords": [
+     "경제부문",
+     "사회부문",
+     "사회부문",
+     "환경부문"
+    ]
+   },
+   {
+    "label": "스마트 시티(Smart City) 관련 법령 및 지침",
+    "mnemonic": "",
+    "keywords": [
+     "유비쿼터스도시의 건설 등에 관한 법률(2008년 3월 ~ 2017년 8월",
+     "유비쿼터스도시계획수립지침",
+     "유비쿼터스도시건설사업 업무처리지침",
+     "유비쿼터스도시기술 가이드라인",
+     "유비쿼터스도시기반시설 관리운영지침"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "스마트도시법",
+   "모빌리티",
+   "안전",
+   "빌딩 · 인프라",
+   "에너지 · 환경",
+   "복지 · 행정 · 생활"
+  ]
+ },
+ {
+  "id": "sn-682",
+  "title": "스마트시티 데이터 거버넌스(Smart City Data Governance)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "**스마트시티**에서 센서 및 기타 기술을 통해 **수집**한 **데이터**에 대한 **접근 및 사용**과 관련하여 사적 및 공적 이익의 균형을 맞출 수 있는 규제 & 제도",
+  "defShort": "스마트시티 수집 데이터의 접근·사용 관련 이익 균형을 맞추는 규제·제도",
+  "memo": "프레임워크 그림: Organizational level(City governance · Objectives and policies · Procedures) 아래 Data usage · Data publication · Data storage & analysis · Data communication · Data collection 계층과 이를 가로지르는 Data governance(Data privacy · Data security · Data lifecycle · Data quality).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "스마트시티 데이터",
+     "정보 보호",
+     "데이터 보안",
+     "데이터 생명주기",
+     "데이터 품질"
+    ]
+   },
+   {
+    "label": "스마트 시티 데이터 거버넌스 프레임워크 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "데이터 최소화",
+     "보안조치",
+     "데이터 암호화",
+     "접근 제어",
+     "백업 및 복구",
+     "생성 및 저장",
+     "사용 및 공유",
+     "신뢰성",
+     "일관성",
+     "활용성"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "스마트시티 데이터",
+   "정보 보호",
+   "데이터 보안",
+   "데이터 생명주기",
+   "데이터 품질"
+  ]
+ },
+ {
+  "id": "sn-683",
+  "title": "웹3.0(Web 3.0)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "웹 이용자들의 데이터, 개인정보 등이 플랫폼에 종속되지 않고, **데이터 주권**이 **사용자**에게 주어지는 형태의 웹",
+  "defShort": "플랫폼에 종속되지 않고 데이터 주권이 사용자에게 주어지는 형태의 웹",
+  "memo": "그림: Web 1.0 · Web 2.0 — Producers 가 CONTENT 를 만들고 Consumers 가 소비 / Web3 — 참여자 모두가 CONTENT 를 둘러싸고 서로 연결.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "개인 맞춤형",
+     "시맨틱 웹(Semantic Web)",
+     "탈중앙화",
+     "데이터 소유권",
+     "블록 체인",
+     "NFT(대체 불가능 토큰)"
+    ]
+   },
+   {
+    "label": "웹3.0(Web 3.0)의 특징과 기반 기술",
+    "mnemonic": "",
+    "keywords": [
+     "탈중앙화",
+     "데이터 소유권",
+     "보안성",
+     "지능화",
+     "확장된 미디어 인터페이스"
+    ]
+   },
+   {
+    "label": "세대별 웹(Web)의 비교",
+    "mnemonic": "",
+    "keywords": [
+     "특징",
+     "네트워크",
+     "거버넌스",
+     "콘텐츠",
+     "비즈니스",
+     "사용자 참여",
+     "마이 데이터",
+     "기술"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "개인 맞춤형",
+   "시맨틱 웹(Semantic Web)",
+   "탈중앙화",
+   "데이터 소유권",
+   "블록 체인",
+   "NFT(대체 불가능 토큰)"
+  ]
+ },
+ {
+  "id": "sn-684",
+  "title": "웹 어셈블리(Web Assembly; WASM)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "**네이티브 언어**와 **유사**한 수준의 **성능**을 제공할 수 있도록 바이너리 포맷을 기반으로 **웹 브라우저에서 실행**하는 바이트 코드 언어",
+  "defShort": "네이티브 언어와 유사한 성능의 웹 브라우저 실행 바이트 코드 언어",
+  "memo": "개념도: HTML(.html) Inline JS · JavaScript(.js) · WebAssembly(.wasm) → Browser 의 JavaScript Runtime(Parser → Compiler → JIT) ↔ Web APIs(DOM, File Storage etc.).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "WASM Runtime",
+     "WASI",
+     "바이트 코드 기반"
+    ]
+   },
+   {
+    "label": "웹 어셈블리 주요 특징",
+    "mnemonic": "",
+    "keywords": [
+     "바이트 코드 기반",
+     "네이티브 수준 성능",
+     "자바스크립트 보완"
+    ]
+   },
+   {
+    "label": "웹 어셈블리 구성 기술",
+    "mnemonic": "",
+    "keywords": [
+     "입력 소스 (HTML, .js, .wasm)",
+     "입력 소스 (HTML, .js, .wasm)",
+     "Parser (파서)",
+     "Compiler (컴파일러)",
+     "JIT (Just-In-Time Compiler)",
+     "WASM Runtime (WebAssembly 런타임)",
+     "Web APIs (DOM, File Storage 등)",
+     "WASI (WebAssembly System Interface)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "WASM Runtime",
+   "WASI",
+   "바이트 코드 기반"
+  ]
+ },
+ {
+  "id": "sn-685",
+  "title": "헤드리스 커머스(Headless Commerce)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "고객과 대면하는 \"**프론트엔드**\"와 결제, 재고 관리 등의 커머스(commerce) 기능을 담당하는 \"**백엔드**\"를 **분리**하는 이커머스 시스템 기술 또는 애플리케이션 아키텍처",
+  "defShort": "고객 대면 프론트엔드와 커머스 백엔드를 분리하는 이커머스 시스템 기술",
+  "memo": "구조 그림: Headless Commerce — 디바이스 · 웹 · 모바일 · B2B 의 Frontend 가 API 중계를 거쳐 하나의 커머스(상품 · 고객 · 전시 · 주문 · 배송)와 데이터베이스(DB)를 쓴다 / Traditional Commerce — 디바이스 · 웹 · 모바일 · B2B 마다 Frontend 와 커머스플랫폼(상품 · 고객 · 전시 · 주문 · 배송)이 묶여 있고 데이터베이스(DB)를 공유한다.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "프론트엔드 & 백엔드 분리",
+     "API",
+     "옴니 채널",
+     "더 나은 고객 경험"
+    ]
+   },
+   {
+    "label": "헤드리스 플랫폼과 전통적 커머스 플랫폼의 비교",
+    "mnemonic": "",
+    "keywords": [
+     "프론트엔드 개발",
+     "맞춤화 및 개인화",
+     "적용성"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "프론트엔드 & 백엔드 분리",
+   "API",
+   "옴니 채널",
+   "더 나은 고객 경험"
+  ]
+ },
+ {
+  "id": "sn-686",
+  "title": "유니버설디자인(universal design)과 웹접근성",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "(유니버설디자인) 장애, 연령, 성별, 언어 등에 관계없이 **모든 사용자가** 시설물, 제품이나 서비스를 **편리하게 이용할 수 있도록** 하는 건축, 환경, 서비스 등의 디자인 / (웹접근성) 누구든지 신체적·기술적 여건과 관계없이 웹사이트를 통하여 원하는 서비스를 이용할 수 있도록 접근성이 보장되는 웹사이트",
+  "defShort": "모든 사용자가 편리하게 이용하는 디자인과 접근성이 보장되는 웹사이트",
+  "memo": "7원칙 그림: 01 공평한 사용(Equitable Use) · 02 사용상 유연성(Flexibility in Use) · 03 간단하고 직관적 사용(Simple and Intuitive Use) · 04 인지할 수 있는 정보(Perceptible Information) · 05 실수에 대한 관대함(Tolerance for Error) · 06 적은 신체적 노력(Low Physical Effort) · 07 적절한 크기와 공간(Size and Space for Approach and Use).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "공평한 사용",
+     "사용의 융통성",
+     "간단&직관적 사용",
+     "인지할 수 있는 정보",
+     "실수에 대한 관대함",
+     "적은 신체적 노력",
+     "적절한 크기와 공간"
+    ]
+   },
+   {
+    "label": "유니버설디자인(universal design) 7원칙",
+    "mnemonic": "공유직인실적적",
+    "keywords": [
+     "공평한 사용",
+     "사용의 유통성",
+     "간단, 직관적 사용",
+     "인지할 수 있는 정보",
+     "실수에 대한 관대함",
+     "적은 신체적 노력",
+     "적절한 크기와 공간"
+    ]
+   },
+   {
+    "label": "웹접근성",
+    "mnemonic": "",
+    "keywords": [
+     "인식 용이성(Perceivable)",
+     "운용 용이성(Parable)",
+     "이해 용이성(Understandable)",
+     "견고성(Robust)"
+    ]
+   },
+   {
+    "label": "한국형 인터넷 웹 콘텐츠 접근성 지침 2.2(KWCAG 2.2)관련 표준",
+    "mnemonic": "",
+    "keywords": [
+     "WCAG (Web Content Accessibility Guidelin",
+     "KWCAG(Korean WCAG)",
+     "장애인차별금지법",
+     "지능정보화 기본법"
+    ]
+   }
+  ],
+  "mnemonic": "공유직인실적적",
+  "keywords": [
+   "공평한 사용",
+   "사용의 유통성",
+   "간단, 직관적 사용",
+   "인지할 수 있는 정보",
+   "실수에 대한 관대함",
+   "적은 신체적 노력",
+   "적절한 크기와 공간"
+  ]
+ },
+ {
+  "id": "sn-687",
+  "title": "디지털 휴먼(Digital Human)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "사람과 유사하게 움직이고, 말하고 행동할 수 있도록 **디지털 세상**에서 가상으로 구현한 **가상**의 **인물**",
+  "defShort": "사람과 유사하게 말하고 행동하도록 디지털 세상에서 구현한 가상의 인물",
+  "memo": "",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "3D 모델링",
+     "모션 캡처(Motion Capture)",
+     "자연어 처리(NLP)",
+     "감정 인식(Emotion Recognition)",
+     "가상 현실(VR) / 증강 현실(AR)",
+     "윤리 및 개인정보 보호"
+    ]
+   },
+   {
+    "label": "디지털 휴먼(Digital Human) 제작 기술",
+    "mnemonic": "",
+    "keywords": [
+     "리얼타임 렌더링 엔진",
+     "3D 스캔",
+     "마커방식",
+     "마커리스방식",
+     "이미지기반 방식",
+     "Rigging",
+     "GAN",
+     "Unreal Engine",
+     "Soul Machines",
+     "딥브레인AI"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "3D 모델링",
+   "모션 캡처(Motion Capture)",
+   "자연어 처리(NLP)",
+   "감정 인식(Emotion Recognition)",
+   "가상 현실(VR) / 증강 현실(AR)",
+   "윤리 및 개인정보 보호"
+  ]
+ },
+ {
+  "id": "sn-688",
+  "title": "공간 컴퓨팅(Spatial Computing)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "물리적 공간과 디지털 데이터를 통합하여 생성된 디지털 세계와 현실간 연결된 **공간에서 가상세계와 물리적 세계가 상호작용**하며 활동하도록 하는 **컴퓨팅 환경**",
+  "defShort": "연결된 공간에서 가상세계와 물리적 세계가 상호작용하는 컴퓨팅 환경",
+  "memo": "개념도: 공간(물리적 · 디지털) 속 참여자(사람, 사물) — 기계 — 상호작용 — 사용자.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "XR",
+     "IoT",
+     "AI",
+     "이동통신",
+     "디스플레이 기술",
+     "6DoF",
+     "추적기술",
+     "시선 추적",
+     "얼굴 표정 추적 기술",
+     "신체 추적 기술",
+     "공간 오디오"
+    ]
+   },
+   {
+    "label": "공간 컴퓨팅(Spatial Computing) 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "기계",
+     "참여자",
+     "공간"
+    ]
+   },
+   {
+    "label": "공간 컴퓨팅(Spatial Computing) 주요 기술",
+    "mnemonic": "",
+    "keywords": [
+     "핵심 기술",
+     "몰입감 기술"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "XR",
+   "IoT",
+   "AI",
+   "이동통신",
+   "디스플레이 기술",
+   "6DoF",
+   "추적기술",
+   "시선 추적",
+   "얼굴 표정 추적 기술",
+   "신체 추적 기술",
+   "공간 오디오"
+  ]
+ },
+ {
+  "id": "sn-689",
+  "title": "가상융합산업 진흥법",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "다양한 기술·산업과 융합되는 가상융합산업의 특성을 고려하여, 더욱 **체계적인 진흥 정책 추진**과 **신산업 특성을 고려한 자율규제 환경** 조성, 그리고 **선제적인 규제개선을 위한 임시기준 제도** 마련 등을 위한 법률",
+  "defShort": "체계적 진흥 정책 추진, 자율규제 환경 조성, 임시기준 제도 마련 위한 법률",
+  "memo": "기본 구조 그림: 정부·과학정보통신부(역할을 구체적 지정) ↑ 가상융합산업 진흥법(24년 2월 27일 제정, 24년 8월 28일 시행) → 가상융합산업 및 서비스 육성(가상융합산업의 발전 계획 수립) / → 규제의 개선(규제의 기준 제시, 임시 기준 제시) / ↓ 이용자 보호(피해 예방과 구제).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "가상융합산업 진흥을 위한 시책 마련",
+     "가상융합사업자에 대한 지원",
+     "지역별 가상융합산업지원센터 지정·지원",
+     "가상융합사업 영향평가 제도 도입",
+     "민간중심 자율규제 체계 정립",
+     "'임시기준' 제도 신설"
+    ]
+   },
+   {
+    "label": "가상융합산업 진흥법의 주요 법률 내용",
+    "mnemonic": "",
+    "keywords": [
+     "가상융합산업 진흥을 위한 시책 마련",
+     "가상융합사업자에 대한 지원",
+     "지역별 가상융합산업지원센터 지정·지원",
+     "가상융합사업 영향평가 제도 도입",
+     "민간중심 자율규제 체계 정립",
+     "'임시기준' 제도 신설",
+     "이용자 보호와 건전한 가상융합세계 생태계의 조성"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "가상융합산업 진흥을 위한 시책 마련",
+   "가상융합사업자에 대한 지원",
+   "지역별 가상융합산업지원센터 지정·지원",
+   "가상융합사업 영향평가 제도 도입",
+   "민간중심 자율규제 체계 정립",
+   "'임시기준' 제도 신설"
+  ]
+ },
+ {
+  "id": "sn-690",
+  "title": "양자인터넷(Quantum Internet)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "1과 0이 중첩된 임의의 양자 상태인 **큐비트(Qubit)의 양자 정보**를 **전달**하기 위해 **양자 원격전송**기술과 **양자 중계기**를 이용하는 차세대 인터넷",
+  "defShort": "큐비트 정보 전달 위해 양자 원격전송·양자 중계기 이용 차세대 인터넷",
+  "memo": "메커니즘 그림: 송신 양자 컴퓨터 → 큐비트 전송(중간 양자 중계기 — 양자 텔레포테이션) → 수신 양자 컴퓨터. 송신 측 양자 키분배로 암호화, 수신 측 양자 키분배로 복호화(양자 키분배 ↔ 양자 키분배 BB84), 양자 메모리 ↔ 양자 메모리(큐비트 저장, 복원).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "양자 컴퓨터",
+     "양자 센서",
+     "양자 중계기",
+     "양자 텔레포테이션",
+     "양자 메모리",
+     "양자 키분배"
+    ]
+   },
+   {
+    "label": "양자 인터넷의 등장배경",
+    "mnemonic": "",
+    "keywords": [
+     "양자 컴퓨팅 발전",
+     "인터넷 보안 강화"
+    ]
+   },
+   {
+    "label": "양자 인터넷의 기술요소",
+    "mnemonic": "",
+    "keywords": [
+     "양자 컴퓨터",
+     "양자 센서",
+     "양자 중계기",
+     "양자 텔레포테이션",
+     "양자 메모리",
+     "양자 키분배"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "양자 컴퓨터",
+   "양자 센서",
+   "양자 중계기",
+   "양자 텔레포테이션",
+   "양자 메모리",
+   "양자 키분배"
+  ]
+ },
+ {
+  "id": "sn-691",
+  "title": "양자컴퓨터(Quantum Computer)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "**0**과 **1**을 **동시**에 공존시키며(표현하며) **양자 얽힘**, **중첩**, **이동** 등 **양자 역학의 원리**를 **이용**하여 연산을 수행하는 **컴퓨터**",
+  "defShort": "0과 1 동시 공존, 양자 얽힘·중첩·이동 등 양자 역학 원리 이용 컴퓨터",
+  "memo": "개념도: Quantum algorithms ↕ Compiler ↕ Micro architecture ↕ Control/Readout Electronics ↕ Qubits, 옆에 Quantum Error Correction 이 Compiler · Micro architecture · Control/Readout Electronics 와 연결.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "양자 알고리즘",
+     "컴파일러",
+     "마이크로 아키텍처",
+     "양자 오류수정",
+     "제어 관측기기",
+     "양자비트"
+    ]
+   },
+   {
+    "label": "양자 컴퓨터(Quantum Computer) 개념도",
+    "mnemonic": "",
+    "keywords": [
+     "양자 알고리즘(Quantum algorithms)",
+     "컴파일러(Compiler)",
+     "마이크로 아키텍처(Micro architecture)",
+     "양자 오류 수정(Quantum Error Correction)",
+     "제어",
+     "양자 비트(Qubits)"
+    ]
+   },
+   {
+    "label": "기존 컴퓨터와 양자컴퓨터(Quantum Computer)의 비교",
+    "mnemonic": "",
+    "keywords": [
+     "연산 개념",
+     "기본 단위",
+     "연산 방법",
+     "외부 잡음",
+     "n비트의 정보량",
+     "연산 동작 처리량"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "양자 알고리즘",
+   "컴파일러",
+   "마이크로 아키텍처",
+   "양자 오류수정",
+   "제어 관측기기",
+   "양자비트"
+  ]
+ },
+ {
+  "id": "sn-692",
+  "title": "QKDaaS(Quantum Key Distribution as a Service)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "양자암호통신 설비를 구축한 사업자가 **양자 키 분배(QKD)** 기술을 **클라우드 기반 서비스** 형태로 제공하는 보안 서비스",
+  "defShort": "양자 키 분배 기술을 클라우드 기반 서비스 형태로 제공하는 보안 서비스",
+  "memo": "개념도: Site A(Alice — user · QKD server · MUX) · Site B(Bob) · Site C 의 MUX 를 QKD 링크로 연결, user ↔ QKD server 는 McEliece+OTP, QMS 가 각 Site 를 management.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "QKD",
+     "구독형 양자암호통신 서비스",
+     "QMS",
+     "Cloud",
+     "BB84",
+     "Fiber Channel"
+    ]
+   },
+   {
+    "label": "QKDaaS(Quantum Key Distribution as a Ser",
+    "mnemonic": "",
+    "keywords": [
+     "단일광자 생성기",
+     "단일광자 검출기",
+     "난수 발생기",
+     "양자 중계기",
+     "간섭계 안정화",
+     "Optical Link",
+     "QKD Server",
+     "Protocol",
+     "Crypto Algorithm"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "QKD",
+   "구독형 양자암호통신 서비스",
+   "QMS",
+   "Cloud",
+   "BB84",
+   "Fiber Channel"
+  ]
+ },
+ {
+  "id": "sn-693",
+  "title": "마이 데이터(MyData)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "**개인정보 전송요구권**을 가지고 **나의 데이터**를 정보 주체가 원하는 방식으로 **능동적 관리**하고 **활용**하는 서비스",
+  "defShort": "개인정보 전송요구권으로 나의 데이터를 능동적 관리·활용 서비스",
+  "memo": "서비스 기본 모델 그림: 개인 ↔ 개인데이터보유자(제3자 제공동의 및 철회 · 다운로드), 개인 ↔ 마이데이터 서비스 제공자(제3자 제공대리동의·열람위임동의 및 철회 · 직접입력·업로드), 개인데이터보유자 → 마이데이터 서비스 제공자(전송방식 — 예 API/스크래핑), 개인데이터보유자 → 개인 제공내역 알림, 마이데이터 서비스 제공자 → 개인 이용내역 알림.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "통제권",
+     "개인 결정권",
+     "통합 지점 개인",
+     "이식성",
+     "상호운용성",
+     "투명성과 책임",
+     "표준 용어 사전",
+     "전송 유형별 개인정보 전송 규격",
+     "개별 인증",
+     "통합 인증"
+    ]
+   },
+   {
+    "label": "마이 데이터(MyData) 원칙",
+    "mnemonic": "",
+    "keywords": [
+     "데이터 권한",
+     "데이터 제공",
+     "데이터 활용"
+    ]
+   },
+   {
+    "label": "마이 데이터(MyData) 인증 방식",
+    "mnemonic": "",
+    "keywords": [
+     "개별 인증 방식",
+     "통합 인증 방식"
+    ]
+   },
+   {
+    "label": "마이 데이터(MyData) 표준화 방안",
+    "mnemonic": "",
+    "keywords": [
+     "공통 표준 항목 개발",
+     "표준 용어 사전 개발",
+     "전송 유형별 개인정보 전송 규격",
+     "안전한 데이터 이동",
+     "표준화된 데이터 타산업 적용",
+     "민간 수요 우선 선정"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "통제권",
+   "개인 결정권",
+   "통합 지점 개인",
+   "이식성",
+   "상호운용성",
+   "투명성과 책임",
+   "표준 용어 사전",
+   "전송 유형별 개인정보 전송 규격",
+   "개별 인증",
+   "통합 인증"
+  ]
+ },
+ {
+  "id": "sn-694",
+  "title": "개인정보 전송요구권",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "개인정보처리자에게 **제공한 개인정보**를 본인 또는 제3자(다른 개인정보처리자)에게 **이전 요구**하는 **정보주체**의 **권리**",
+  "defShort": "제공한 개인정보를 본인 또는 제3자에게 이전 요구하는 정보주체의 권리",
+  "memo": "운영 체계 그림: 본인에게 전송(개인정보보유기관 ↔ 정보주체) / 다른 처리자에게 전송(개인정보보유기관 → 개인정보수신기관(개인정보처리자, 데이터 사업자), 개인정보보유기관 ↔ 정보주체) / 개인정보관리 전문기관에게 전송(개인정보보유기관들 ↔ 관리전문기관, 개인정보보유기관 → 개인정보처리자, 정보주체 ↔ 관리전문기관 서비스).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "신용정보법 33조의2",
+     "개인신용정보의 전송요구권",
+     "개인정보보호법 35조의2",
+     "개인정보 전송요구권",
+     "개인정보 보유기관",
+     "수신기관",
+     "관리 전문기관",
+     "개인정보처리자"
+    ]
+   },
+   {
+    "label": "개인정보전송요구권 법적 근거",
+    "mnemonic": "",
+    "keywords": [
+     "2020년 신용정보의 이용 및 보호에 관한 법률(신용정보법) 제33조의2",
+     "2023년 2월 개인정보 보호법 제35조의2 개정안 의결"
+    ]
+   },
+   {
+    "label": "개인정보전송요구권 선결 과제",
+    "mnemonic": "",
+    "keywords": [
+     "전송을 위한 데이터 표준화",
+     "전송된 데이터의 위변조 방지",
+     "보안성 확보"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "신용정보법 33조의2",
+   "개인신용정보의 전송요구권",
+   "개인정보보호법 35조의2",
+   "개인정보 전송요구권",
+   "개인정보 보유기관",
+   "수신기관",
+   "관리 전문기관",
+   "개인정보처리자"
+  ]
+ },
+ {
+  "id": "sn-695",
+  "title": "국가 데이터 인프라(Data Infra)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "**데이터 주권**을 확보하고, 데이터의 생성부터 유통·거래까지 **전주기**에 걸쳐 **신뢰 기반의 이용**을 **보장**하는 **기술·제도·거버넌스 기반(Infra)**",
+  "defShort": "데이터 주권 확보, 전주기 신뢰 기반 이용 보장 기술·제도·거버넌스 기반",
+  "memo": "구조도: 데이터 제공(개별정보 시스템 · 클라우드/소셜 데이터 · IoT 데이터 · 공유 데이터 · 데이터 상품/저작물) ↔ 국가데이터인프라(DNI) ↔ 데이터 이용(데이터 분석 · AI 개발 · 실시간 AI 서비스 · 데이터 상품).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "데이터 관리",
+     "데이터 활용",
+     "데이터 주권",
+     "연합형 거버넌스",
+     "기계활용 지향",
+     "만연된 적용"
+    ]
+   },
+   {
+    "label": "국가 데이터 인프라 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "데이터 관리",
+     "데이터 활용",
+     "데이터 주권",
+     "연합형 거버넌스",
+     "기계활용 지향",
+     "만연된 적용"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "데이터 관리",
+   "데이터 활용",
+   "데이터 주권",
+   "연합형 거버넌스",
+   "기계활용 지향",
+   "만연된 적용"
+  ]
+ },
+ {
+  "id": "sn-696",
+  "title": "가트너(Gartner) 2026",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "가트너 그룹이 IT Symposium에서 매년 발표하는 2026년 주요 기술로 떠오를 10가지 IT 전략적 트렌드",
+  "defShort": "가트너가 매년 발표하는 2026년 주요 기술로 떠오를 10가지 전략적 트렌드",
+  "memo": "2024 ~ 2026 전략 트렌드 변화 그림: 2024(AI TRiSM · CTEM · 지속 가능한 기술 · 플랫폼 엔지니어링 · AI 증강 개발 · 산업 클라우드 플랫폼 · 지능형 애플리케이션 · 보편화된 생성형 AI · 증강 연결 인력 · 기계 고객) → 2025(에이전틱 AI · AI 거버넌스 플랫폼 · 허위정보 보안 · 포스트 양자 암호화 · 앰비언트 인비저블 인텔리전스 · 에너지 효율 컴퓨팅 · 하이브리드 컴퓨팅 · 공간 컴퓨팅 · 다기능 로봇 · 신경학적 강화) → 2026(위 10대 트렌드)으로 이어진다.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "AI 네이티브 개발 플랫폼",
+     "AI 슈퍼컴퓨팅 플랫폼",
+     "컨피덴셜 컴퓨팅",
+     "다중 에이전트 시스템",
+     "도메인 특화 언어 모델",
+     "피지컬 AI",
+     "선제적 사이버 보안",
+     "디지털 출처 검증",
+     "AI 보안 플랫폼",
+     "지오패트리에이션"
+    ]
+   },
+   {
+    "label": "가트너(Gartner) 2026 전략 트렌드",
+    "mnemonic": "",
+    "keywords": [
+     "AI 네이티브 개발 플랫폼(AI-Native Development Pla",
+     "AI 슈퍼컴퓨팅 플랫폼(AI Supercomputing Platforms",
+     "컨피덴셜 컴퓨팅(Confidential Computing)",
+     "다중 에이전트 시스템(Multiagent Systems)",
+     "도메인 특화 언어 모델(Domain-Specific Language Mo",
+     "피지컬 AI(Physical AI)",
+     "선제적 사이버 보안(Preemptive Cybersecurity)",
+     "디지털 출처 검증(Digital Provenance)",
+     "AI 보안 플랫폼(AI Security Platforms)",
+     "지오패트리에이션(Geopatriation)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "AI 네이티브 개발 플랫폼",
+   "AI 슈퍼컴퓨팅 플랫폼",
+   "컨피덴셜 컴퓨팅",
+   "다중 에이전트 시스템",
+   "도메인 특화 언어 모델",
+   "피지컬 AI",
+   "선제적 사이버 보안",
+   "디지털 출처 검증",
+   "AI 보안 플랫폼",
+   "지오패트리에이션"
+  ]
+ },
+ {
+  "id": "sn-697",
+  "title": "로우 코드(Low Code)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "**Drag&Drop** UI와 **Workflow 모델링**을 활용하여 **코드를 적게 구현**하고 소프트웨어를 빠르게 완성하는 **SW개발** 방식",
+  "defShort": "Drag&Drop UI와 Workflow 모델링으로 코드를 적게 구현하는 SW개발 방식",
+  "memo": "플랫폼 그림: 사용자(개발자 · 비개발자 — GUI) → 플랫폼(Business → User Stories → Business Analyst → Developer, 애플리케이션: Desktop Web · Mobile Web/App · Wearable, 요소기술: Launchpad · 템플릿 모델링 · MSA · 워크플로우) → 배포(API → 클라우드 서비스, REST API → 온프레미스 서비스).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "적은 코드 구현",
+     "IDE",
+     "Drag & Drop UI",
+     "개발속도 향상",
+     "생산성 향상"
+    ]
+   },
+   {
+    "label": "로우 코드(Low Code) 주요 기술과 장단점",
+    "mnemonic": "",
+    "keywords": [
+     "IDE",
+     "Drag & Drop UI",
+     "템플릿 모델링",
+     "WYSWYG Editor",
+     "RestAPI",
+     "Angular.js",
+     "3rd Party API",
+     "데이터모델링",
+     "개발속도 향상",
+     "생산성 향상"
+    ]
+   },
+   {
+    "label": "기존 SW 개발과 로우코드·노코드 개발의 비교",
+    "mnemonic": "",
+    "keywords": [
+     "목적",
+     "개발시간",
+     "개발범위",
+     "개발도구",
+     "배포",
+     "개발 숙련도"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "적은 코드 구현",
+   "IDE",
+   "Drag & Drop UI",
+   "개발속도 향상",
+   "생산성 향상"
+  ]
+ },
+ {
+  "id": "sn-698",
+  "title": "플랫폼 엔지니어링(Platform Engineering)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "여러 애플리케이션과 서비스를 지원하고 수명 주기를 관리하기 위해 **소프트웨어 플랫폼**을 **설계**하고 **구축**하여 **(내부) 사용자**에게 **제공**하는 엔지니어링 (**공유 인프라 플랫폼**)",
+  "defShort": "소프트웨어 플랫폼 설계·구축해 내부 사용자에게 제공하는 엔지니어링",
+  "memo": "개념도: Product and Service Teams ← X-as-a-Service · Developer Portal ← Digital Platform(Reusable Components · Tools · Platform Services · Knowledge) ← Infrastructure Platform ← Infrastructure Complexity, Platform Team(s) 가 Digital Platform 을 운영.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "가트너 2023",
+     "소프트웨어 수명 주기 관리 위한 플랫폼",
+     "Cross Functional Team",
+     "인프라 자동화",
+     "분산 시스템 설계",
+     "확장성과 성능 최적화",
+     "보안",
+     "모니터링 및 로깅"
+    ]
+   },
+   {
+    "label": "플랫폼 엔지니어링(Platform Engineering) 역할",
+    "mnemonic": "",
+    "keywords": [
+     "인프라 자동화",
+     "분산 시스템 설계",
+     "확장성과 성능 최적화",
+     "모니터링 및 로깅",
+     "보안"
+    ]
+   },
+   {
+    "label": "플랫폼 엔지니어링(Platform Engineering) 등장배경",
+    "mnemonic": "",
+    "keywords": [
+     "소프트웨어 다양성과 복잡성의 증가",
+     "개발 생산성 향상",
+     "일관되고 자동화된 워크로드(workload)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "가트너 2023",
+   "소프트웨어 수명 주기 관리 위한 플랫폼",
+   "Cross Functional Team",
+   "인프라 자동화",
+   "분산 시스템 설계",
+   "확장성과 성능 최적화",
+   "보안",
+   "모니터링 및 로깅"
+  ]
+ },
+ {
+  "id": "sn-699",
+  "title": "민간투자형 SW 사업",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "**공공분야 SW 시스템** 구축 시 **민간의 자본과 기술**을 **활용**하여 공공과 민간이 협력하여 추진하는 SW 사업",
+  "defShort": "공공분야 SW 시스템 구축 시 민간의 자본과 기술을 활용하는 SW 사업",
+  "memo": "사업유형 개발형(교재 원문): 소프트웨어 개발을 포함하는 사업으로, 전체 사업비 중 민간부문의 부담 비율이 100분의 50 이상이며, 전체사업비의 20% 이상을 현금으로 부담.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "소프트웨어 진흥법 제40조",
+     "구매형",
+     "개발형",
+     "임대형",
+     "수익형"
+    ]
+   },
+   {
+    "label": "민간투자형 SW 사업 법적 근거",
+    "mnemonic": "",
+    "keywords": [
+     "소프트웨어 진흥법 제40조",
+     "소프트웨어 진흥법 시행령 제32조",
+     "소프트웨어 진흥법 시행령 제33조"
+    ]
+   },
+   {
+    "label": "민간투자형 SW 사업 요건",
+    "mnemonic": "",
+    "keywords": [
+     "사업유형(두가지 유형 중 하나에 해당)",
+     "협력방안"
+    ]
+   },
+   {
+    "label": "개발형 민간투자형 SW 사업 유형",
+    "mnemonic": "",
+    "keywords": [
+     "정의",
+     "대상사업",
+     "투자비 회수"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "소프트웨어 진흥법 제40조",
+   "구매형",
+   "개발형",
+   "임대형",
+   "수익형"
+  ]
+ },
+ {
+  "id": "sn-700",
+  "title": "디지털서비스 전문 계약제도",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "디지털서비스 산업의 변화에 따라 **공공기관의 클라우드 컴퓨팅 서비스 도입 활성화**를 위해 디지털 서비스를 신속하게 도입할 수 있도록 **디지털서비스**에 **특화**된 **전문계약제도**",
+  "defShort": "공공기관 클라우드 도입 활성화 위해 디지털서비스 특화 전문계약제도",
+  "memo": "전문 계약 체계도(유통 지원 시스템): 디지털서비스 심사신청(제공기업) → 디지털서비스 심사·선정(디지털서비스 심사위원회) → 디지털서비스 등록·관리(디지털서비스 이용지원시스템) → 디지털서비스 이용계약(자체조달 — 자체조달시스템 또는 수기 등에 의한 수의계약 / 중앙조달 — 조달청 디지털서비스몰을 이용한 납품요구). 이용지원시스템과 이용계약 사이에 증명자료 수집(견적요청, 견적서 등) · 카탈로그 계약(조달청 ↔ 제공자).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "공공기관 클라우드 컴퓨팅",
+     "클라우드 컴퓨팅 서비스",
+     "클라우드 지원 서비스",
+     "융합 서비스",
+     "수의계약",
+     "카탈로그 계약",
+     "디지털서비스 전용 쇼핑몰"
+    ]
+   },
+   {
+    "label": "디지털 서비스 전문 계약 대상 서비스 유형과 방식",
+    "mnemonic": "",
+    "keywords": [
+     "클라우드 컴퓨팅 서비스",
+     "클라우드 지원 서비스",
+     "융합서비스",
+     "수의 계약",
+     "카탈로그 계약"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "공공기관 클라우드 컴퓨팅",
+   "클라우드 컴퓨팅 서비스",
+   "클라우드 지원 서비스",
+   "융합 서비스",
+   "수의계약",
+   "카탈로그 계약",
+   "디지털서비스 전용 쇼핑몰"
+  ]
+ },
+ {
+  "id": "sn-701",
+  "title": "유럽 디지털 3법",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "디지털 경제와 시장을 규제하기 위해 제정한 **디지털 서비스법**, **디지털 시장법**, **디지털 네트워크법**의 3가지 법안",
+  "defShort": "디지털 경제·시장 규제 위한 서비스법·시장법·네트워크법의 3가지 법안",
+  "memo": "디지털시장법(DMA)의 정의: EU 단일시장에서 '게이트키퍼' 역할을 하는 온라인 플랫폼 서비스의 반경쟁적/불공정적 행위 규율 위한 법안.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "디지털 시장법",
+     "게이트 키퍼",
+     "디지털 서비스법",
+     "온라인 플랫폼",
+     "콘텐츠 검열",
+     "디지털 네트워크법",
+     "디지털 주권 확립"
+    ]
+   },
+   {
+    "label": "게이트 키퍼 대상",
+    "mnemonic": "",
+    "keywords": [
+     "핵심 플랫폼 서비스 기준(SNS, 검색 엔진 등)",
+     "시장영향력 기준(최근 3년간 75억 유로 이상 연매출, 시가총액 750억",
+     "관문(Gateway) 역할(월 이용자 4천 5백만, 활성 이용 사업자 수",
+     "견고하고 지속가능한 지위 보유(현재 또는 미래 지배력 획득 예상 플랫폼 "
+    ]
+   },
+   {
+    "label": "규제 대상 주요 의무",
+    "mnemonic": "",
+    "keywords": [
+     "필수의무(Art 5)",
+     "부가적 의무(Art 6)"
+    ]
+   },
+   {
+    "label": "디지털 서비스법(DSA)의 규제 대상 주요 의무",
+    "mnemonic": "",
+    "keywords": [
+     "불법 콘텐츠에 대한 책임 강화",
+     "투명하게 밝혀야 되는 의무 부과",
+     "대형 온라인 플랫폼에 대한 규제",
+     "내부 분쟁 조정 시스템",
+     "빈번한 위반자에 대한 조치",
+     "다크 패턴 금지",
+     "추가 보고 의무",
+     "광고 및 추천 시스템에 대한 투명성"
+    ]
+   },
+   {
+    "label": "디지털네트워크법(DNA)법 주요 내용",
+    "mnemonic": "",
+    "keywords": [
+     "범유럽 인프라 사업자 탄생 촉진",
+     "신기술 촉진 규제 프레임 조정",
+     "통신부분 민간자본 투자 유치",
+     "네트워크 보안"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "디지털 시장법",
+   "게이트 키퍼",
+   "디지털 서비스법",
+   "온라인 플랫폼",
+   "콘텐츠 검열",
+   "디지털 네트워크법",
+   "디지털 주권 확립"
+  ]
+ },
+ {
+  "id": "sn-702",
   "title": "도메인 특화 언어 모델(Domain-Specific Language Model)",
   "category": "디지털서비스",
   "importance": "중",
@@ -35408,7 +39133,7 @@
   ]
  },
  {
-  "id": "sn-634",
+  "id": "sn-703",
   "title": "데이터 상호 운용성 & 데이터 이동권",
   "category": "디지털서비스",
   "importance": "중",
@@ -35454,7 +39179,7 @@
   ]
  },
  {
-  "id": "sn-635",
+  "id": "sn-704",
   "title": "AP2(Agent Payment Protocol)",
   "category": "디지털서비스",
   "importance": "중",
@@ -35513,7 +39238,7 @@
   ]
  },
  {
-  "id": "sn-636",
+  "id": "sn-705",
   "title": "UCP(Universal Commerce Protocol)",
   "category": "디지털서비스",
   "importance": "중",
@@ -35562,7 +39287,7 @@
   ]
  },
  {
-  "id": "sn-637",
+  "id": "sn-706",
   "title": "ACP(Agentic Commerce Protocol)",
   "category": "디지털서비스",
   "importance": "중",
@@ -35595,7 +39320,7 @@
   ]
  },
  {
-  "id": "sn-638",
+  "id": "sn-707",
   "title": "스테이블 코인(Stable coin)",
   "category": "디지털서비스",
   "importance": "중",
@@ -35674,7 +39399,7 @@
   ]
  },
  {
-  "id": "sn-639",
+  "id": "sn-708",
   "title": "데이터 스페이스(Data Space)",
   "category": "디지털서비스",
   "importance": "중",
@@ -35739,7 +39464,7 @@
   ]
  },
  {
-  "id": "sn-640",
+  "id": "sn-709",
   "title": "AI OS(Artificial Intelligence Operating System)",
   "category": "디지털서비스",
   "importance": "중",
@@ -39373,37 +43098,6 @@
   ]
  },
  {
-  "id": "gj-126",
-  "title": "디지털 리터러시(Digital Literacy)",
-  "category": "경영전략",
-  "importance": "출제예상",
-  "source": "기필반",
-  "definition": "컴퓨터를 통한 정보의 이해 능력과 소양",
-  "defShort": "컴퓨터와 미디어로 정보를 이해·평가·활용하는 디지털 시대의 기본 소양과 능력",
-  "memo": "기코데미소 (기술·코드·데이터·미디어·소셜미디어)",
-  "sections": [
-   {
-    "label": "세부항목",
-    "mnemonic": "기코데미소",
-    "keywords": [
-     "기술",
-     "코드",
-     "데이터",
-     "미디어",
-     "소셜미디어"
-    ]
-   }
-  ],
-  "mnemonic": "기코데미소",
-  "keywords": [
-   "기술",
-   "코드",
-   "데이터",
-   "미디어",
-   "소셜미디어"
-  ]
- },
- {
   "id": "gj-127",
   "title": "디지털 포용(Digital Inclusion)",
   "category": "경영전략",
@@ -40578,31 +44272,6 @@
   ]
  },
  {
-  "id": "gj-167",
-  "title": "프롭테크",
-  "category": "경영전략",
-  "importance": "출제예상",
-  "source": "기필반",
-  "definition": "부동산(Property)과 기술(Technology)의 합성어로, 2010년대 들어 유럽을 중심으로 모바일 채널과 빅데이터 분석, VR 등 하이테크 기술을 기반으로 등장한 부동산 서비스 기업",
-  "defShort": "부동산에 모바일·빅데이터·VR 등 하이테크 기술을 결합한 부동산 서비스 산업",
-  "memo": "",
-  "sections": [
-   {
-    "label": "정의 키워드",
-    "mnemonic": "",
-    "keywords": [
-     "Property",
-     "Technology"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "Property",
-   "Technology"
-  ]
- },
- {
   "id": "gj-168",
   "title": "밀리테크(MiliTech)",
   "category": "경영전략",
@@ -40681,64 +44350,6 @@
    "사회 전반 복잡성 해결",
    "혁신적 영향 가능성",
    "집약기술 기반 심층기술"
-  ]
- },
- {
-  "id": "gj-171",
-  "title": "기후테크(C-Tech)",
-  "category": "경영전략",
-  "importance": "출제예상",
-  "source": "기필반",
-  "definition": "기후테크(C-Tech) (개념) 기후(Climate)와 기술(Technology)의 합성어로 수익을 창줄하면서 온실가스 감축과 기후적응에 기여하는 모든 혁신 기술",
-  "defShort": "수익을 창출하면서 온실가스 감축과 기후 적응에 기여하는 기후·기술 융합 혁신 기술",
-  "memo": "",
-  "sections": [
-   {
-    "label": "정의 키워드",
-    "mnemonic": "",
-    "keywords": [
-     "C-Tech",
-     "기후테크",
-     "Climate",
-     "Technology"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "C-Tech",
-   "기후테크",
-   "Climate",
-   "Technology"
-  ]
- },
- {
-  "id": "gj-172",
-  "title": "에듀테크",
-  "category": "경영전략",
-  "importance": "하",
-  "source": "기필반",
-  "definition": "교육(Education)과 기술(Technology)의 결합으로 AI·빅데이터·XR 등 ICT를 활용해 학습 경험을 개인화하고 교육 효과를 높이는 차세대 교육 서비스.",
-  "defShort": "AI·빅데이터 등 ICT로 데이터를 분석해 개인 맞춤 학습을 제공하는 교육 서비스",
-  "memo": "'콘플데분' — 콘텐츠를 플랫폼에 올려 데이터를 분석한다. 그대로 문장이 되므로 순서까지 그대로 외운다.",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "콘플데분",
-    "keywords": [
-     "콘텐츠",
-     "플랫폼(LMS·LXP)",
-     "데이터(학습이력)",
-     "분석(학습분석)"
-    ]
-   }
-  ],
-  "mnemonic": "콘플데분",
-  "keywords": [
-   "콘텐츠",
-   "플랫폼(LMS·LXP)",
-   "데이터(학습이력)",
-   "분석(학습분석)"
   ]
  },
  {
@@ -52080,35 +55691,6 @@
   ]
  },
  {
-  "id": "se-293",
-  "title": "민간투자형 SW 사업(PPP, Public Private Partnership)",
-  "category": "소프트웨어공학",
-  "importance": "상",
-  "source": "기필반",
-  "definition": "국민생활의 편익 증진을 위해 민간의 자본과 기술을 활용하여 민간과 공공이 협력해 추진하는 민간투자형 공공SW 사업 방식",
-  "defShort": "민간의 자본과 기술을 활용해 민간과 공공이 협력해 추진하는 공공SW 구축 사업 방식",
-  "memo": "영문 3글자의 가운데·끝만 보면 된다: T(Transfer)가 앞이면 소유권 먼저 넘김(BTL·BTO), O(Operate/Own)가 이어지면 민간이 운영. L은 Lease(임대료=정부지급금), 나머지는 사용료 수익형.",
-  "sections": [
-   {
-    "label": "종류",
-    "mnemonic": "",
-    "keywords": [
-     "BTL(임대형·정부지급금)",
-     "BTO(수익형·사용료)",
-     "BOT(운영 후 이전)",
-     "BOO(소유·운영)"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "BTL(임대형·정부지급금)",
-   "BTO(수익형·사용료)",
-   "BOT(운영 후 이전)",
-   "BOO(소유·운영)"
-  ]
- },
- {
   "id": "se-294",
   "title": "소프트웨어 교육",
   "category": "소프트웨어공학",
@@ -52490,37 +56072,6 @@
    "동적 타이핑",
    "객체지향",
    "플랫폼 독립성"
-  ]
- },
- {
-  "id": "se-308",
-  "title": "로우코드(Low Code)",
-  "category": "소프트웨어공학",
-  "importance": "중",
-  "source": "기필반",
-  "definition": "시각적 모델링과 미리 만들어진 부품을 조합해 최소한의 코딩만으로 애플리케이션을 개발·배포하는 개발 방식 및 플랫폼.",
-  "defShort": "비주얼 개발환경과 사전 제작 부품을 조합해 최소 코딩으로 앱을 신속 개발하는 방식",
-  "memo": "'그리면(비주얼) → 붙이고(템플릿) → 데이터 정의하고 → API 연결해 → 바로 배포'. 이 다섯 단계 순서로 구성요소를 외운다.",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "",
-    "keywords": [
-     "비주얼 개발환경(IDE)",
-     "템플릿·컴포넌트",
-     "데이터 모델링",
-     "연동 커넥터",
-     "배포·운영 관리"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "비주얼 개발환경(IDE)",
-   "템플릿·컴포넌트",
-   "데이터 모델링",
-   "연동 커넥터",
-   "배포·운영 관리"
   ]
  },
  {
@@ -54666,39 +58217,6 @@
   ]
  },
  {
-  "id": "ds-52",
-  "title": "MaaS",
-  "category": "디지털서비스",
-  "importance": "출제예상",
-  "source": "기필반",
-  "definition": "MaaS(Mobility as a Service) 차량공유서비스, 자율주행자동차, 인공지능, 위치인식",
-  "defShort": "다양한 이동수단을 하나의 플랫폼에서 예약·결제까지 제공하는 서비스형 모빌리티",
-  "memo": "",
-  "sections": [
-   {
-    "label": "정의 키워드",
-    "mnemonic": "",
-    "keywords": [
-     "Mobility as a Service",
-     "MaaS",
-     "차량공유서비스",
-     "자율주행자동차",
-     "인공지능",
-     "위치인식"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "Mobility as a Service",
-   "MaaS",
-   "차량공유서비스",
-   "자율주행자동차",
-   "인공지능",
-   "위치인식"
-  ]
- },
- {
   "id": "ds-53",
   "title": "CSP(Cloud Service Provider)",
   "category": "디지털서비스",
@@ -55738,35 +59256,6 @@
   ]
  },
  {
-  "id": "ds-89",
-  "title": "인터미턴트 컴퓨팅",
-  "category": "디지털서비스",
-  "importance": "출제예상",
-  "source": "기필반",
-  "definition": "에너지 하베스팅, 에너지 저장 장치, 비 휘발성 메모리, 다중 버전 모델, NoC, NVP, Chain, Alpaca 전력 수급이 불안정한 환경에서 에너지 하베스팅(Energy Harvesting)으로 얻어진 전력으로 신뢰성을 보장하며 동작하는 컴퓨팅 기술",
-  "defShort": "에너지 하베스팅 전력으로 비휘발성 메모리에 상태를 보존하며 동작하는 신뢰 컴퓨팅",
-  "memo": "하저비휘메프 (에너지 하베스팅·에너지 저장 장치·비 휘발성 메모리·비휘발성 프로세서)",
-  "sections": [
-   {
-    "label": "기술요소",
-    "mnemonic": "하저비휘메프",
-    "keywords": [
-     "에너지 하베스팅",
-     "에너지 저장 장치",
-     "비 휘발성 메모리",
-     "비휘발성 프로세서"
-    ]
-   }
-  ],
-  "mnemonic": "하저비휘메프",
-  "keywords": [
-   "에너지 하베스팅",
-   "에너지 저장 장치",
-   "비 휘발성 메모리",
-   "비휘발성 프로세서"
-  ]
- },
- {
   "id": "ds-90",
   "title": "u-City",
   "category": "디지털서비스",
@@ -55796,44 +59285,6 @@
   ]
  },
  {
-  "id": "ds-91",
-  "title": "Smart City",
-  "category": "디지털서비스",
-  "importance": "중",
-  "source": "기필반",
-  "definition": "도시 인프라에 ICT를 접목해 도시 데이터를 수집·분석하고 교통·에너지·환경·안전 문제를 실시간으로 진단·해결하며 스스로 진화하는 지능형 도시",
-  "defShort": "도시 인프라에 ICT를 접목해 문제를 실시간 진단·해결하며 진화하는 지능형 도시",
-  "memo": "전물교주 = 전력·물·교통·주차 4대 도시문제(수험가 통용).\n주요기술은 데이터 흐름 순서로 수가활 — 수집→가공→활용.",
-  "sections": [
-   {
-    "label": "제공서비스",
-    "mnemonic": "전물교주",
-    "keywords": [
-     "전력난",
-     "물부족",
-     "교통체증",
-     "주차난"
-    ]
-   },
-   {
-    "label": "주요기술",
-    "mnemonic": "수가활",
-    "keywords": [
-     "수집기술(센서·IoT)",
-     "가공기술(빅데이터·AI)",
-     "활용기술(서비스 플랫폼)"
-    ]
-   }
-  ],
-  "mnemonic": "전물교주",
-  "keywords": [
-   "전력난",
-   "물부족",
-   "교통체증",
-   "주차난"
-  ]
- },
- {
   "id": "ds-92",
   "title": "스마트시티 통합플랫폼",
   "category": "디지털서비스",
@@ -55860,35 +59311,6 @@
    "통합운영",
    "통합연계",
    "통합DB"
-  ]
- },
- {
-  "id": "ds-93",
-  "title": "스마트시티 데이터 거버넌스",
-  "category": "디지털서비스",
-  "importance": "하",
-  "source": "기필반",
-  "definition": "스마트시티의 센서·서비스에서 수집되는 도시 데이터의 접근·활용을 두고 사적 이익과 공익의 균형을 맞추기 위한 규제·조직·프로세스·도구 체계.",
-  "defShort": "도시 데이터의 접근·활용에서 사익과 공익의 균형을 맞추는 규제·프로세스 체계",
-  "memo": "'데이터는 정품(正品)이라야 보생(保生)한다' → 정보보호·품질·보안·생명주기.\n보호는 '개인의 권리', 보안은 '기술적 통제'로 구분해 서술하면 감점되지 않는다.",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "정품보생",
-    "keywords": [
-     "정보보호",
-     "데이터 품질",
-     "데이터 보안",
-     "데이터 생명주기"
-    ]
-   }
-  ],
-  "mnemonic": "정품보생",
-  "keywords": [
-   "정보보호",
-   "데이터 품질",
-   "데이터 보안",
-   "데이터 생명주기"
   ]
  },
  {
@@ -58834,46 +62256,6 @@
   ]
  },
  {
-  "id": "ds-190",
-  "title": "C-ITS",
-  "category": "디지털서비스",
-  "importance": "출제예상",
-  "source": "기필반",
-  "definition": "안전성, 이동성, 지속가능성을 목표로 차량과 차량,인프라 등 양방향 통신, 오픈 플랫폼 기반 서비스 제공하는 협력형 ITS",
-  "defShort": "차량·인프라 간 양방향 통신으로 안전 서비스를 제공하는 협력형 지능형 교통체계",
-  "memo": "S서상G (Seamless·서비스 융합·상황능동형·G-V2X)\n안자교약긴 (안전운전·자율주행·교차로통행지원·약자보고·긴급상황지원)",
-  "sections": [
-   {
-    "label": "특징",
-    "mnemonic": "S서상G",
-    "keywords": [
-     "Seamless",
-     "서비스 융합",
-     "상황능동형",
-     "G-V2X"
-    ]
-   },
-   {
-    "label": "기반서비스",
-    "mnemonic": "안자교약긴",
-    "keywords": [
-     "안전운전",
-     "자율주행",
-     "교차로통행지원",
-     "약자보고",
-     "긴급상황지원"
-    ]
-   }
-  ],
-  "mnemonic": "S서상G",
-  "keywords": [
-   "Seamless",
-   "서비스 융합",
-   "상황능동형",
-   "G-V2X"
-  ]
- },
- {
   "id": "ds-191",
   "title": "V2V",
   "category": "디지털서비스",
@@ -59802,35 +63184,6 @@
    "감시",
    "운영",
    "기업"
-  ]
- },
- {
-  "id": "ds-221",
-  "title": "AMR(Autonomous Mobile Robot)",
-  "category": "디지털서비스",
-  "importance": "하",
-  "source": "기필반",
-  "definition": "카메라·라이다·IMU 센서와 AI로 주변을 인식하고 스스로 경로를 생성해 작업장을 자유롭게 이동하며 물류·공정 작업을 수행하는 자율이동로봇.",
-  "defShort": "센서와 AI SLAM으로 환경을 인식하고 경로를 생성해 작업하는 자율이동로봇",
-  "memo": "자율주행 공통 흐름 '인지-판단-제어'에 로봇 여러 대를 묶는 '관제(FMS)'를 더해 인·판·제·관. AGV와의 차이는 '경로를 따라가느냐, 만들어내느냐'.",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "인판제관",
-    "keywords": [
-     "인지",
-     "판단",
-     "제어",
-     "관제"
-    ]
-   }
-  ],
-  "mnemonic": "인판제관",
-  "keywords": [
-   "인지",
-   "판단",
-   "제어",
-   "관제"
   ]
  },
  {
@@ -61513,35 +64866,6 @@
   ]
  },
  {
-  "id": "ds-278",
-  "title": "VPP(Virtual Power Plant)",
-  "category": "디지털서비스",
-  "importance": "하",
-  "source": "기필반",
-  "definition": "지리적으로 분산된 이기종 에너지 자원을 ICT·클라우드로 묶어 하나의 발전소처럼 통합 감시·제어하고 전력시장에 입찰하는 가상 발전 체계",
-  "defShort": "분산된 이기종 에너지 자원을 클라우드로 통합 제어해 전력시장에 입찰하는 발전 체계",
-  "memo": "흩어진 자원(DER)을 통신으로 잇고, 클라우드로 제어해, 시장에 판다 — 자원·통신·클라우드·시장의 4단 흐름.",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "",
-    "keywords": [
-     "분산에너지자원(DER)",
-     "통신 인프라",
-     "클라우드 통합관리 플랫폼",
-     "전력시장 연계"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "분산에너지자원(DER)",
-   "통신 인프라",
-   "클라우드 통합관리 플랫폼",
-   "전력시장 연계"
-  ]
- },
- {
   "id": "ds-279",
   "title": "그리드 패리티(Grid Parity)",
   "category": "디지털서비스",
@@ -61775,48 +65099,6 @@
   ]
  },
  {
-  "id": "ds-286",
-  "title": "디지털 트윈(Digital Twin)",
-  "category": "디지털서비스",
-  "importance": "상",
-  "source": "기필반",
-  "definition": "설비·공장·도시 등 물리 대상을 가상공간에 동일하게 모델링하고 실시간 데이터로 동기화하여 모니터링·분석·시뮬레이션·예측과 제어까지 수행하는 기술 모델이다.",
-  "defShort": "물리 대상을 가상에 동일 모델링하고 실시간 동기화해 분석·예측·제어하는 모델",
-  "memo": "일반 시뮬레이션과의 차별 포인트는 '실시간 동기화'와 '양방향 피드백' — 살아있는 모델이라는 점을 강조하면 고득점. 주간기술동향 1983호 참고.",
-  "sections": [
-   {
-    "label": "특징",
-    "mnemonic": "실디가양",
-    "keywords": [
-     "실시간 동기화",
-     "디지털 스레드",
-     "가상 시뮬레이션",
-     "양방향 제어"
-    ]
-   },
-   {
-    "label": "핵심기술",
-    "mnemonic": "연동다분가연데",
-    "keywords": [
-     "연결",
-     "동기화",
-     "다차원 모델링·시뮬레이션",
-     "분석",
-     "가시화·운영",
-     "연합(Federation)",
-     "데이터·보안"
-    ]
-   }
-  ],
-  "mnemonic": "실디가양",
-  "keywords": [
-   "실시간 동기화",
-   "디지털 스레드",
-   "가상 시뮬레이션",
-   "양방향 제어"
-  ]
- },
- {
   "id": "ds-287",
   "title": "디지털트윈 5단계 모델",
   "category": "디지털서비스",
@@ -61845,44 +65127,6 @@
    "모의(Modeling&Simulation)",
    "연합(Federated)",
    "자율(Autonomous)"
-  ]
- },
- {
-  "id": "ds-288",
-  "title": "RPA",
-  "category": "디지털서비스",
-  "importance": "상",
-  "source": "기필반",
-  "definition": "사람이 PC·모바일 화면에서 수행하는 정형화되고 반복적인 업무를 사람의 조작을 모방하는 SW 로봇이 대신 수행하도록 하는 업무 프로세스 자동화 기술이다.",
-  "defShort": "사람의 반복 업무를 화면 조작을 모방하는 SW 로봇이 대신 수행하는 업무 자동화 기술",
-  "memo": "규칙대로(Basic) → 배워서(Intelligent) → 판단까지(Cognitive) 똑똑해지는 3단계. 계보는 RPA→IPA→CPA, 요즘 답안은 생성형 AI 에이전트 연결로 마무리.",
-  "sections": [
-   {
-    "label": "기술수준 3단계",
-    "mnemonic": "BIC",
-    "keywords": [
-     "Basic Automation",
-     "Intelligent Automation",
-     "Cognitive Automation"
-    ]
-   },
-   {
-    "label": "기반기술",
-    "mnemonic": "데프딜로분",
-    "keywords": [
-     "데이터 처리",
-     "프로세스 처리",
-     "딜리버리 처리",
-     "로보틱스 구현",
-     "분석 처리"
-    ]
-   }
-  ],
-  "mnemonic": "BIC",
-  "keywords": [
-   "Basic Automation",
-   "Intelligent Automation",
-   "Cognitive Automation"
   ]
  },
  {
@@ -62128,33 +65372,6 @@
    "공정성",
    "효율성",
    "개인 정보 보호"
-  ]
- },
- {
-  "id": "ds-296",
-  "title": "플랫폼 엔지니어링(Platform Engineering)",
-  "category": "디지털서비스",
-  "importance": "출제예상",
-  "source": "기필반",
-  "definition": "SW 엔지니어링 조직의 개발, 유지 및 작업 속도 향상위해 워크플로, 도구의 설계, 구축, 유지관리 플랫폼을 개선 프랙티스 (practice built up from DevOps principles that seeks to improve each development",
-  "defShort": "개발 속도와 경험 향상 위해 셀프서비스 내부 개발 플랫폼을 구축·운영하는 프랙티스",
-  "memo": "",
-  "sections": [
-   {
-    "label": "정의 키워드",
-    "mnemonic": "",
-    "keywords": [
-     "워크플로·도구 설계·구축·유지관리",
-     "셀프서비스 내부 개발 플랫폼",
-     "개발 생산성·사용자 경험 향상"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "워크플로·도구 설계·구축·유지관리",
-   "셀프서비스 내부 개발 플랫폼",
-   "개발 생산성·사용자 경험 향상"
   ]
  },
  {
@@ -63488,33 +66705,6 @@
   ]
  },
  {
-  "id": "ds-338",
-  "title": "라이트닝 네트워크(Lightning Network)",
-  "category": "디지털서비스",
-  "importance": "출제예상",
-  "source": "기필반",
-  "definition": "블록체인 외부 결제채널을 두고 대량의 결제를 신속히 처리하는 P2P 기반 외부 거래 채널 기술",
-  "defShort": "블록체인 외부에 결제 채널을 두고 대량 결제를 신속히 처리하는 P2P 오프체인 기술",
-  "memo": "빠확낮 (빠른속도·확장성·낮은 수수료)",
-  "sections": [
-   {
-    "label": "특징",
-    "mnemonic": "빠확낮",
-    "keywords": [
-     "빠른속도",
-     "확장성",
-     "낮은 수수료"
-    ]
-   }
-  ],
-  "mnemonic": "빠확낮",
-  "keywords": [
-   "빠른속도",
-   "확장성",
-   "낮은 수수료"
-  ]
- },
- {
   "id": "ds-339",
   "title": "DAG(Directed Acyclic Graph) 알고리즘",
   "category": "디지털서비스",
@@ -63689,37 +66879,6 @@
    "익명성",
    "확장성",
    "보안성"
-  ]
- },
- {
-  "id": "ds-345",
-  "title": "블록체인 트릴레마",
-  "category": "디지털서비스",
-  "importance": "출제예상",
-  "source": "기필반",
-  "definition": "블록체인에서 트릴레마란 확장성(Scalability), 탈중앙화(Decentralization), 보안성(Security)의 세 가지 문제 충돌 문제.",
-  "defShort": "확장성·탈중앙화·보안성 셋을 동시에 달성하기 어려운 블록체인의 3대 상충 문제",
-  "memo": "",
-  "sections": [
-   {
-    "label": "정의 키워드",
-    "mnemonic": "",
-    "keywords": [
-     "Scalability",
-     "Decentralization",
-     "Security",
-     "블록체인에서 트릴레마란 확장성",
-     "탈중앙화"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "Scalability",
-   "Decentralization",
-   "Security",
-   "블록체인에서 트릴레마란 확장성",
-   "탈중앙화"
   ]
  },
  {
@@ -64077,51 +67236,6 @@
   ]
  },
  {
-  "id": "ds-359",
-  "title": "IEC 61508",
-  "category": "디지털서비스",
-  "importance": "상",
-  "source": "기필반",
-  "definition": "전기·전자·프로그래머블 전자(E/E/PE) 안전 관련 시스템의 기능안전을 위하여 전체 안전생명주기와 HW·SW 안전성 구현·검증 방법, 안전무결성수준(SIL) 결정 방법을 규정한 국제 기본 표준이다.",
-  "defShort": "전기·전자 시스템 기능안전 위해 안전생명주기와 SIL 결정 방법 규정한 국제 표준",
-  "memo": "SIL 수치는 '자주 동작하는 안전장치일수록 4자리 더 엄격'으로 기억: 저요구 PFDavg 10^-5~10^-1, 고요구·연속 PFH 10^-9~10^-5.",
-  "sections": [
-   {
-    "label": "구성(7부)",
-    "mnemonic": "",
-    "keywords": [
-     "일반 요구사항",
-     "E/E/PE 시스템 요구사항",
-     "소프트웨어 요구사항",
-     "정의와 약어",
-     "SIL 결정 방법 사례",
-     "적용 가이드라인",
-     "기술과 기법 개관"
-    ]
-   },
-   {
-    "label": "SW 안전성 평가 기법",
-    "mnemonic": "",
-    "keywords": [
-     "FTA",
-     "FMEA",
-     "HAZOP",
-     "PHA"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "일반 요구사항",
-   "E/E/PE 시스템 요구사항",
-   "소프트웨어 요구사항",
-   "정의와 약어",
-   "SIL 결정 방법 사례",
-   "적용 가이드라인",
-   "기술과 기법 개관"
-  ]
- },
- {
   "id": "ds-360",
   "title": "(각 분야별) 기능안전 표준",
   "category": "디지털서비스",
@@ -64330,33 +67444,6 @@
    "가이드라인",
    "반도체 적용 가이드",
    "모터사이클 적용"
-  ]
- },
- {
-  "id": "ds-367",
-  "title": "ASIL",
-  "category": "디지털서비스",
-  "importance": "상",
-  "source": "기필반",
-  "definition": "ISO 26262에서 차량 기능 오작동 위험을 심각도(S)·노출가능성(E)·통제가능성(C)의 조합으로 평가하여 QM과 A~D 4개 등급으로 부여하는 자동차 안전무결성수준이다.",
-  "defShort": "차량 위험을 S·E·C 조합으로 평가해 A~D 등급을 부여하는 안전무결성 수준",
-  "memo": "D로 갈수록 위험하고 엄격하다. A·B는 걸어가며 보고(워크스루), C는 반쯤 수학(semi-formal), D는 완전 수학(formal)에 MC/DC 100%.",
-  "sections": [
-   {
-    "label": "등급 결정 요소",
-    "mnemonic": "심노통",
-    "keywords": [
-     "심각도(S0~S3)",
-     "노출가능성(E0~E4)",
-     "통제가능성(C0~C3)"
-    ]
-   }
-  ],
-  "mnemonic": "심노통",
-  "keywords": [
-   "심각도(S0~S3)",
-   "노출가능성(E0~E4)",
-   "통제가능성(C0~C3)"
   ]
  },
  {
@@ -64599,44 +67686,6 @@
    "안테나",
    "송신부",
    "수신부",
-   "신호처리부"
-  ]
- },
- {
-  "id": "ds-375",
-  "title": "라이다(LIDAR)",
-  "category": "디지털서비스",
-  "importance": "중",
-  "source": "기필반",
-  "definition": "레이저 펄스를 방사하고 반사되어 돌아오는 시간을 측정해 대상까지의 거리를 계산하고 3차원 점군 데이터를 생성하는 광학 거리측정 센서",
-  "defShort": "레이저 펄스의 왕복 시간으로 거리를 측정해 주변을 3차원 점군으로 표현하는 센서",
-  "memo": "레광검신 - 레이저 쏘고 광학계 거쳐 검출하고 신호처리.\n변구동 - 변조·구성·동작 세 기준으로 유형을 나눈다.",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "레광검신",
-    "keywords": [
-     "레이저 광원",
-     "광학계",
-     "검출기",
-     "신호처리부"
-    ]
-   },
-   {
-    "label": "유형",
-    "mnemonic": "변구동",
-    "keywords": [
-     "변조",
-     "구성",
-     "동작"
-    ]
-   }
-  ],
-  "mnemonic": "레광검신",
-  "keywords": [
-   "레이저 광원",
-   "광학계",
-   "검출기",
    "신호처리부"
   ]
  },
@@ -64982,35 +68031,6 @@
    "보안·프라이버시",
    "운영·검증",
    "제도·사용자"
-  ]
- },
- {
-  "id": "ds-387",
-  "title": "UAM(Urban Air Mobility)",
-  "category": "디지털서비스",
-  "importance": "중",
-  "source": "기필반",
-  "definition": "도심 상공에서 전기 수직이착륙기를 이용해 사람과 화물을 운송하는 3차원 항공 교통체계로, 기체·인프라·항행관리·운항서비스를 포괄하는 도심항공교통",
-  "defShort": "전기 수직이착륙기로 도심 상공에서 사람과 화물을 운송하는 차세대 항공 교통 체계",
-  "memo": "기버항운 — 기체가 버티포트에서 뜨고 항행관리를 받으며 운항서비스로 팔린다. 하드웨어에서 서비스로 가는 순서.",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "기버항운",
-    "keywords": [
-     "기체(eVTOL)",
-     "버티포트",
-     "항행·교통관리",
-     "운항서비스"
-    ]
-   }
-  ],
-  "mnemonic": "기버항운",
-  "keywords": [
-   "기체(eVTOL)",
-   "버티포트",
-   "항행·교통관리",
-   "운항서비스"
   ]
  },
  {
@@ -66566,37 +69586,6 @@
   ]
  },
  {
-  "id": "ds-443",
-  "title": "디지털 권리장전",
-  "category": "디지털서비스",
-  "importance": "중",
-  "source": "기필반",
-  "definition": "디지털 심화 시대에 요구되는 보편적 가치와 원칙을 담아 디지털 공동번영사회 실현을 위한 국가적 기준과 글로벌 규범의 방향을 제시한 헌장",
-  "defShort": "디지털 심화 시대에 지켜야 할 보편적 가치와 원칙을 담아 규범 방향을 제시한 국가 헌장",
-  "memo": "자공안혁인 — 자유롭게, 공정하게, 안전하게, 혁신하며, 인류가 잘 산다. 다섯 원칙이 한 문장으로 이어진다.",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "자공안혁인",
-    "keywords": [
-     "자유와 권리 보장",
-     "공정한 접근과 기회 균등",
-     "안전과 신뢰 확보",
-     "혁신의 촉진",
-     "인류 후생 증진"
-    ]
-   }
-  ],
-  "mnemonic": "자공안혁인",
-  "keywords": [
-   "자유와 권리 보장",
-   "공정한 접근과 기회 균등",
-   "안전과 신뢰 확보",
-   "혁신의 촉진",
-   "인류 후생 증진"
-  ]
- },
- {
   "id": "ds-444",
   "title": "디지털 블랙아웃(Digital BlackOut)",
   "category": "디지털서비스",
@@ -66891,46 +69880,6 @@
   ]
  },
  {
-  "id": "ds-455",
-  "title": "GovTech",
-  "category": "디지털서비스",
-  "importance": "중",
-  "source": "기필반",
-  "definition": "AI·빅데이터 등 ICT를 활용해 공공부문의 대국민 서비스와 지역 현안·사회문제를 새로운 방식으로 해결하는 공공 혁신 솔루션 및 서비스",
-  "defShort": "ICT로 공공서비스를 혁신하고 사회문제를 새 방식으로 해결하는 공공 혁신 모델",
-  "memo": "두음은 억지라 생략. 대신 한 문장으로 — 공공데이터를 디지털 기술로 풀되, 민관이 협력하고 시민이 참여한다. 전자정부(내부 효율)와 대비해 두는 것이 채점 포인트.",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "",
-    "keywords": [
-     "공공데이터",
-     "디지털 기술",
-     "민관협력",
-     "시민참여"
-    ]
-   },
-   {
-    "label": "유형",
-    "mnemonic": "",
-    "keywords": [
-     "시민참여·플랫폼 활용형",
-     "문제해결·기업성장형",
-     "거버넌스 수립형",
-     "아이디어 공모형",
-     "혁신연구형"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "공공데이터",
-   "디지털 기술",
-   "민관협력",
-   "시민참여"
-  ]
- },
- {
   "id": "ds-456",
   "title": "DCAT(Data Catalog Vocabulary) 3.0",
   "category": "디지털서비스",
@@ -67205,46 +70154,6 @@
   "keywords": [
    "IDE",
    "LLM"
-  ]
- },
- {
-  "id": "ds-465",
-  "title": "앰비언트 인비저블 인텔리전스 (Ambient Invisible Intelligence)",
-  "category": "디지털서비스",
-  "importance": "출제예상",
-  "source": "기필반",
-  "definition": "사용자 주변의 Iot 디바이스를 통해 대상의 상태를 추적 및 감지하여 상황을 이해하고 필요한 정보 및 요구를 예측하고 지원하여 적시적으로 제공하는 지능형 기술",
-  "defShort": "주변 IoT 기기로 상태를 추적·감지해 필요 정보를 예측·제공하는 지능형 기술",
-  "memo": "",
-  "sections": [],
-  "mnemonic": "",
-  "keywords": []
- },
- {
-  "id": "ds-466",
-  "title": "디지털 스레드(Digital Thread)",
-  "category": "디지털서비스",
-  "importance": "출제예상",
-  "source": "기필반",
-  "definition": "제품의 설계부터 제조, 운영, 유지보수에 이르기까지 제품 생애주기 전반에 걸쳐 생성되는 데이터와 정보를 하나의 연속된 흐름으로 연결하는 통신 프레임워크",
-  "defShort": "제품 생애주기 전반의 데이터를 하나의 연속된 흐름으로 연결하는 통신 프레임워크",
-  "memo": "",
-  "sections": [
-   {
-    "label": "정의 키워드",
-    "mnemonic": "",
-    "keywords": [
-     "제품 생애주기 전반 데이터",
-     "설계·제조·운영·유지보수 연결",
-     "연속된 데이터 흐름 프레임워크"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "제품 생애주기 전반 데이터",
-   "설계·제조·운영·유지보수 연결",
-   "연속된 데이터 흐름 프레임워크"
   ]
  },
  {
@@ -73645,35 +76554,6 @@
   ]
  },
  {
-  "id": "net-223",
-  "title": "스마트 팜(Smart Farm)",
-  "category": "네트워크",
-  "importance": "중",
-  "source": "기필반",
-  "definition": "온실·축사·노지에 정보통신기술과 인공지능을 접목해 생육 환경을 자동으로 계측·분석·제어함으로써 생산성과 품질을 높인 지능화된 농장",
-  "defShort": "온실·축사에 ICT·AI를 접목해 생육 환경을 자동 제어해 생산성을 높인 농장",
-  "memo": "'센(싱) → 통(신) → 분(석) → 제(어)'가 다시 센싱으로 돌아오는 폐루프다. 스마트팜뿐 아니라 스마트시티·스마트팩토리 답안에도 그대로 재사용할 수 있는 만능 4단계.",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "센통분제",
-    "keywords": [
-     "센싱(환경·생육 계측)",
-     "통신(LPWAN·무선센서네트워크)",
-     "분석(AI·빅데이터 플랫폼)",
-     "제어(구동기 자동제어)"
-    ]
-   }
-  ],
-  "mnemonic": "센통분제",
-  "keywords": [
-   "센싱(환경·생육 계측)",
-   "통신(LPWAN·무선센서네트워크)",
-   "분석(AI·빅데이터 플랫폼)",
-   "제어(구동기 자동제어)"
-  ]
- },
- {
   "id": "net-224",
   "title": "VoIP",
   "category": "네트워크",
@@ -75366,35 +78246,6 @@
    "노드(단말)",
    "라우팅 프로토콜",
    "게이트웨이"
-  ]
- },
- {
-  "id": "net-289",
-  "title": "앰비언트 IoT(Ambient Internet of Things)",
-  "category": "네트워크",
-  "importance": "하",
-  "source": "기필반",
-  "definition": "배터리 없이 전파·빛·열 등 주변 환경 에너지를 수확해 동작하는 초저전력 사물인터넷 디바이스 및 통신 기술.",
-  "defShort": "배터리 없이 전파 빛 열 등 주변 에너지를 수확해 동작하는 초저전력 사물인터넷 기술",
-  "memo": "'에너지 백(back)으로 초(超)저전력 리더' → 에백초리. 스스로 전파를 만들지 않고 남의 전파를 되쏜다(백스캐터)는 점이 핵심.",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "에백초리",
-    "keywords": [
-     "에너지 하베스팅",
-     "백스캐터 통신",
-     "초저전력 디바이스",
-     "리더·게이트웨이"
-    ]
-   }
-  ],
-  "mnemonic": "에백초리",
-  "keywords": [
-   "에너지 하베스팅",
-   "백스캐터 통신",
-   "초저전력 디바이스",
-   "리더·게이트웨이"
   ]
  },
  {
@@ -90952,35 +93803,6 @@
    "관리 용이",
    "선택 가능",
    "효율적"
-  ]
- },
- {
-  "id": "db-164",
-  "title": "마이데이터",
-  "category": "데이터베이스",
-  "importance": "상",
-  "source": "기필반",
-  "definition": "정보주체인 개인에게 자신의 데이터가 어디서·어떻게·어떤 목적으로 활용될지 결정할 수 있는 정보 권리(데이터 주권)를 부여하고, 기관에 흩어진 개인데이터를 본인 주도로 통합·이동·활용하게 하는 제도이자 서비스",
-  "defShort": "개인에게 정보 권리를 부여해 흩어진 개인데이터를 본인 주도로 통합·활용하는 제도",
-  "memo": "'정정마중' — 정보주체·정보제공자·마이데이터 사업자·중계기관이 정정당당하게 내 데이터를 마중 나온다. 흩어진 내 정보를 전송요구권 버튼으로 한곳에 모으는 구조. 금융은 신용정보법, 전 분야 확대는 개인정보 보호법이 근거.",
-  "sections": [
-   {
-    "label": "참여 주체",
-    "mnemonic": "정정마중",
-    "keywords": [
-     "정보주체",
-     "정보제공자",
-     "마이데이터 사업자",
-     "중계기관"
-    ]
-   }
-  ],
-  "mnemonic": "정정마중",
-  "keywords": [
-   "정보주체",
-   "정보제공자",
-   "마이데이터 사업자",
-   "중계기관"
   ]
  },
  {

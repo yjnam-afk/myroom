@@ -110,6 +110,8 @@ const ONE_CONCEPT = new Set([
   "OWASP Agentic AI 위협 및 대응방안(Agentic AI Threats and Mitigations)",
   // 12-Factor 와 15-Factor 는 한 규칙 묶음(앞 12개 + 3개) — 슬라이드 정의도 하나뿐이다
   "Cloud Native 12-Factor App & 15-Factor",
+  // 교재 정의는 「자율주행차」 하나뿐, 단계·핵심기술은 표
+  "자율주행자동차의 자율주행기술 단계 및 핵심기술",
 ]);
 const noPair = SUBNOTES.filter((s) => {
   if (s.defPair?.length || s.subDefs?.length || ONE_CONCEPT.has(s.title)) return false;
