@@ -7,7 +7,7 @@ import Markdown from "@/components/Markdown";
 import CopyButton from "@/components/CopyButton";
 import questions from "@/data/questions.json";
 import PeerAnswers from "@/components/PeerAnswers";
-import { answersForQuestion } from "@/lib/questionAnswers";
+import { isSameQuestion, answersForQuestion } from "@/lib/questionAnswers";
 import { relatedTopics } from "@/lib/relatedTopics";
 import { canonicalAnswerId, getModelAnswer } from "@/lib/modelAnswers";
 import { matchSubnoteTitle } from "@/lib/matchSubnote";
@@ -461,7 +461,7 @@ export default function ExamPage() {
                     const peers = answersForQuestion(q.text, q.id, q.period);
                     return peers.length ? (
                       <div className="mt-3 pl-9">
-                        <PeerAnswers items={peers} want={q.period} collapsed />
+                        <PeerAnswers items={peers} want={q.period} collapsed same={peers.filter((a) => isSameQuestion(a, q.text, q.id)).map((a) => a.id)} />
                       </div>
                     ) : null;
                   })()}

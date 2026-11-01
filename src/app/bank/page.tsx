@@ -8,7 +8,7 @@ import CopyButton from "@/components/CopyButton";
 import questions from "@/data/questions.json";
 import { relatedTopics } from "@/lib/relatedTopics";
 import PeerAnswers from "@/components/PeerAnswers";
-import { answersForQuestion } from "@/lib/questionAnswers";
+import { isSameQuestion, answersForQuestion } from "@/lib/questionAnswers";
 import { matchSubnoteTitle } from "@/lib/matchSubnote";
 
 type Q = {
@@ -290,7 +290,7 @@ export default function BankPage() {
                       if (!found.length) return null;
                       return (
                         <div className="mt-2">
-                          <PeerAnswers items={found} want={q.period} collapsed />
+                          <PeerAnswers items={found} want={q.period} collapsed same={found.filter((a) => isSameQuestion(a, q.text, q.id)).map((a) => a.id)} />
                         </div>
                       );
                     })()}

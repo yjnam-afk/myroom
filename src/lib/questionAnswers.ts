@@ -62,3 +62,26 @@ export function answersForQuestion(text: string, id?: string, period?: string): 
     ...out.filter((a) => periodGroup(a.period) !== want),
   ];
 }
+
+/**
+ * 질문이 이 문항과 같은 답안인가 — 문항 id 로 직접 걸렸거나, 문구가 같거나(「…에 대하여 설명하시오」 꼬리·번호·기호 무시),
+ * 한쪽이 다른 쪽을 85% 이상 품는 것. 2026-11-01 "모범답안 중에서 질문이 완벽히 일치하는 것들을 표시해서 구분해".
+ * 같은 토픽이라 붙은 답안(다른 문제)과 섞여 있어, 어느 게 이 문제의 답안인지 열어 봐야 알았다.
+ */
+function sq(t: string): string {
+  return (t || "")
+    .toLowerCase()
+    .replace(/^\s*\d+\s*[.)]\s*/, "")
+    .replace(/[^0-9a-z가-힣]/g, "")
+    .replace(/(에\s*)?(대(해|하여)|관(해|하여))?(다음(을|에)?(대해|대하여)?)?(설명|기술|논|서술|답)(하)?시오$/, "")
+    .replace(/(을|를|에대해|에대하여)$/, "");
+}
+export function isSameQuestion(a: PeerAnswer, text: string, id?: string): boolean {
+  if (id && a.questionIds?.includes(id)) return true;
+  const x = sq(a.question);
+  const y = sq(text);
+  if (!x || !y) return false;
+  if (x === y) return true;
+  const [s, l] = x.length <= y.length ? [x, y] : [y, x];
+  return s.length >= 4 && s.length / l.length >= 0.85 && l.includes(s);
+}

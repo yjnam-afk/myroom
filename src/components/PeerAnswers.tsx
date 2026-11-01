@@ -25,7 +25,13 @@ import { isCommentary } from "@/lib/answerKind";
  * 손글씨 모범답안과 해설집을 다른 칸으로 나눠 그린다 — 한 칸에 섞여 있으면 지금 보는 게
  * 실제 시험지인지 해설집인지 알 수 없었다(2026-10-04). 모범답안이 먼저다.
  */
-export default function PeerAnswers(props: { items: PeerAnswer[]; want?: string; collapsed?: boolean }) {
+export default function PeerAnswers(props: {
+  items: PeerAnswer[];
+  want?: string;
+  collapsed?: boolean;
+  /** 질문이 이 문항과 같은 답안 id — 🎯 표시를 달고 맨 위로 올린다(isSameQuestion) */
+  same?: string[];
+}) {
   const sheets = props.items.filter((a) => !isCommentary(a));
   const notes = props.items.filter(isCommentary);
   return (
@@ -41,10 +47,12 @@ function AnswerList({
   want,
   collapsed = false,
   kind,
+  same: sameIds,
 }: {
   items: PeerAnswer[];
   kind: "sheet" | "note";
   want?: string;
+  same?: string[];
   /** 문제은행·기출처럼 문항이 죽 나열되는 화면에서는 통째로 접어 둔다 — 문제가 안 보인다. */
   collapsed?: boolean;
 }) {
@@ -76,23 +84,28 @@ function AnswerList({
   // 1교시 → 2교시 → 3교시 → 4교시 순(2026-10-13 "1교시, 2교시 순서대로"). 같은 교시 안에서는 받은 순서 그대로.
   // 문항을 보는 화면(want)이면 그 문항과 같은 묶음(단답/논술)을 먼저 세우고 그 안에서 교시 순.
   const pn = (a: PeerAnswer) => parseInt(a.period, 10) || 9;
+  const same = new Set(sameIds ?? []);
+  const nSame = raw.filter((a) => same.has(a.id)).length;
   const items = raw
     .map((a, i) => ({ a, i }))
     .sort(
       (x, y) =>
+        Number(!same.has(x.a.id)) - Number(!same.has(y.a.id)) ||
         (wantGroup ? Number(periodGroup(x.a.period) !== wantGroup) - Number(periodGroup(y.a.period) !== wantGroup) : 0) ||
         pn(x.a) - pn(y.a) ||
         x.i - y.i,
     )
     .map((x) => x.a);
-  const fit = wantGroup ? items.filter((a) => periodGroup(a.period) === wantGroup).length : items.length;
+  // 같은 문제 다음부터 — 같은 교시 묶음이 끝나는 자리
+  const fit = nSame + (wantGroup ? items.slice(nSame).filter((a) => periodGroup(a.period) === wantGroup).length : items.length - nSame);
 
   const title = (
     <>
       {note ? `📘 해설집 ${items.length}건 — 학원·기술사회 해설(시험지 아님)` : `✍️ 모범답안 ${items.length}건 — 실제 시험지와 첨삭`}
-      {wantGroup && fit > 0 && fit < items.length && (
+      {nSame > 0 && <span className="ml-1 font-bold text-amber-700">🎯 같은 문제 {nSame}건</span>}
+      {wantGroup && fit > nSame && fit < items.length && (
         <span className="ml-1 font-medium text-slate-500">
-          (이 문제와 같은 {wantGroup} {fit}건)
+          (같은 {wantGroup} {fit - nSame}건)
         </span>
       )}
     </>
@@ -105,7 +118,9 @@ function AnswerList({
           const isOpen = open === a.id;
           // 같은 묶음이 끝나는 자리에 줄을 긋는다 — 아래는 교시가 다른 답안이다.
           const edge =
-            wantGroup != null && fit > 0 && idx === fit && items.length > fit;
+            wantGroup != null && fit > nSame && idx === fit && items.length > fit;
+          const sameEdge = nSame > 0 && idx === nSame;
+          const isSame = same.has(a.id);
           return (
             <div
               key={a.id}
@@ -113,6 +128,11 @@ function AnswerList({
                 rows.current.set(a.id, el);
               }}
             >
+              {sameEdge && (
+                <div className="bg-slate-50 px-5 py-1.5 text-[11px] font-semibold text-slate-400">
+                  ↓ 같은 토픽의 다른 문제 답안
+                </div>
+              )}
               {edge && (
                 <div className="bg-slate-50 px-5 py-1.5 text-[11px] font-semibold text-slate-400">
                   ↓ 교시가 다른 답안 — 분량과 구성이 다르니 참고만
@@ -126,6 +146,9 @@ function AnswerList({
                 <span className="mt-0.5 text-slate-400">{isOpen ? "▾" : "▸"}</span>
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2">
+                    {isSame && (
+                      <span className="rounded bg-amber-500 px-1.5 py-0.5 text-[11px] font-bold text-white">🎯 같은 문제</span>
+                    )}
                     <span className="rounded border border-brand-200 bg-brand-50 px-1.5 py-0.5 text-[11px] font-bold text-brand-700">
                       {a.period}
                     </span>
