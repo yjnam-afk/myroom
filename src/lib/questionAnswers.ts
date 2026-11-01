@@ -2,6 +2,7 @@ import { SUBNOTES } from "@/data/textbookSubnotes";
 import { titlesMatching } from "@/lib/examHistory";
 import { relatedTopics } from "@/lib/relatedTopics";
 import { peerAnswersFor, peerAnswersForQuestion, type PeerAnswer } from "@/data/peerAnswers";
+import { sameQuestionText } from "@/lib/questionText";
 
 /**
  * 문항 → 모범답안(남이 쓴 답안지 스캔).
@@ -68,82 +69,7 @@ export function answersForQuestion(text: string, id?: string, period?: string): 
  * 한쪽이 다른 쪽을 85% 이상 품는 것. 2026-11-01 "모범답안 중에서 질문이 완벽히 일치하는 것들을 표시해서 구분해".
  * 같은 토픽이라 붙은 답안(다른 문제)과 섞여 있어, 어느 게 이 문제의 답안인지 열어 봐야 알았다.
  */
-function sq(t: string): string {
-  return (t || "")
-    .toLowerCase()
-    .replace(/^\s*\d+\s*[.)]\s*/, "")
-    .replace(/[^0-9a-z가-힣]/g, "")
-    .replace(/(에\s*)?(대(해|하여)|관(해|하여))?(다음(을|에)?(대해|대하여)?)?(설명|기술|논|서술|답)(하)?시오$/, "")
-    .replace(/(을|를|에대해|에대하여)$/, "");
-}
 export function isSameQuestion(a: PeerAnswer, text: string, id?: string): boolean {
   if (id && a.questionIds?.includes(id)) return true;
-  const x = sq(a.question);
-  const y = sq(text);
-  if (!x || !y) return false;
-  if (x === y) return true;
-  const [s, l] = x.length <= y.length ? [x, y] : [y, x];
-  if (s.length >= 4 && s.length / l.length >= 0.85 && l.includes(s)) return true;
-  return sameByParts(a.question, text);
-}
-
-/**
- * 한글은 같고 영문·숫자 낱말만 한쪽이 더 많은 경우 — 괄호 원어 병기 차이.
- * 「국가 망 보안체계(N2SF, National Network Security Framework)」 = 「국가망 보안체계 N2SF」
- * (2026-11-01 "같은 문제잖아"). 영문·숫자는 한쪽이 다른 쪽을 모두 담아야 같다 —
- * 「TCP와 UDP 비교」≠「TCP와 IP 비교」, 「OWASP Top 10:2021」≠「…:2025」.
- */
-function parts(t: string): { ko: string; en: Set<string> } {
-  const s = (t || "")
-    .toLowerCase()
-    .replace(/^\s*\d+\s*[.)]\s*/, "")
-    .replace(/(에\s*)?(대\s*(해|하여)|관\s*(해|하여))?\s*(다음(을|에)?\s*(대해|대하여)?)?\s*(설명|기술|논|서술|답)\s*(하)?\s*시오\.?\s*$/, "");
-  const ko = s.replace(/[^가-힣]/g, "").replace(/(을|를|에대해|에대하여|의)$/, "");
-  const en = new Set(s.match(/[a-z0-9]+/g) ?? []);
-  return { ko, en };
-}
-/** 「asm」이 「attack surface management」의 머리글자인가 — 원어 순서대로 이어진 낱말의 첫 글자 */
-function isAcronymOf(w: string, words: string[]): boolean {
-  if (w.length < 2 || w.length > 8) return false;
-  for (let i = 0; i + w.length <= words.length; i++) {
-    if (words.slice(i, i + w.length).every((x, k) => x[0] === w[k])) return true;
-  }
-  return false;
-}
-/** 한글 자모 분해 — 「관라」와 「관리」는 모음 하나 차이 */
-function jamo(s: string): string {
-  let out = "";
-  for (const ch of s) {
-    const c = ch.charCodeAt(0) - 0xac00;
-    if (c < 0 || c > 11171) { out += ch; continue; }
-    out += String.fromCharCode(0x1100 + Math.floor(c / 588), 0x1161 + Math.floor((c % 588) / 28)) + (c % 28 ? String.fromCharCode(0x11a7 + (c % 28)) : "");
-  }
-  return out;
-}
-/** 자모 하나만 다른가(바꾸기·넣기·빼기 한 번) — 오타 「공격표면관라」 */
-function oneJamoOff(a: string, b: string): boolean {
-  const x = jamo(a), y = jamo(b);
-  if (Math.abs(x.length - y.length) > 1) return false;
-  let i = 0;
-  while (i < x.length && i < y.length && x[i] === y[i]) i++;
-  const ra = x.slice(i), rb = y.slice(i);
-  return ra.slice(1) === rb.slice(1) || ra.slice(1) === rb || ra === rb.slice(1);
-}
-function sameByParts(a: string, b: string): boolean {
-  const x = parts(a);
-  const y = parts(b);
-  const [small, big] = x.en.size <= y.en.size ? [x, y] : [y, x];
-  const bigWords = (big === x ? a : b).toLowerCase().match(/[a-z0-9]+/g) ?? [];
-  // 영문·숫자: 한쪽이 다른 쪽에 다 있거나, 원어의 머리글자(ASM ↔ Attack Surface Management)
-  for (const w of small.en) if (!big.en.has(w) && !isAcronymOf(w, bigWords)) return false;
-  // 「ASM」만 적힌 제목 — 한글 없이 약어 하나가 상대 원어의 머리글자면 같은 문제
-  if (!small.ko && small.en.size === 1 && big.ko.length >= 2) {
-    const [w] = [...small.en];
-    return w.length >= 3 && isAcronymOf(w, bigWords);
-  }
-  if (x.ko.length < 4) return false;
-  const koSame = x.ko === y.ko || (Math.min(x.ko.length, y.ko.length) >= 5 && oneJamoOff(x.ko, y.ko));
-  if (!koSame) return false;
-  // 한글이 같아도 영문 낱말이 하나도 겹치지 않으면(둘 다 있는데) 다른 문제일 수 있다
-  return small.en.size > 0 || big.en.size <= 6;
+  return sameQuestionText(a.question, text);
 }

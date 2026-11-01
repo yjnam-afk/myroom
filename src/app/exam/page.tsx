@@ -3,17 +3,17 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { PageHeader } from "@/components/ui";
-import Markdown from "@/components/Markdown";
 import CopyButton from "@/components/CopyButton";
 import questions from "@/data/questions.json";
 import PeerAnswers from "@/components/PeerAnswers";
 import { isSameQuestion, answersForQuestion } from "@/lib/questionAnswers";
 import { relatedTopics } from "@/lib/relatedTopics";
-import { canonicalAnswerId, getModelAnswer } from "@/lib/modelAnswers";
+import ClaudeAnswer from "@/components/ClaudeAnswer";
+import answerIndex from "@/data/examAnswerIndex.json";
 import { matchSubnoteTitle } from "@/lib/matchSubnote";
-import genAnswers from "@/data/genAnswers.json";
 import ClearButton from "@/components/ClearButton";
 import { QuestionBadges, QuestionMyNotes } from "@/components/QuestionMeta";
+import { kindOf, roundOf, roundNum } from "@/lib/questionText";
 
 type Q = {
   id: string;
@@ -35,20 +35,15 @@ type Q = {
   imageLabel?: string;
 };
 
+// 클로드 모범답안·조립 답안이 「있는지」만 — 본문은 펼칠 때 /api/exam-answer 로(scripts/build-answer-index.ts)
+const HAND = new Set(answerIndex.hand);
+const GEN = new Set(answerIndex.gen);
+const ALIAS = answerIndex.alias as Record<string, string>;
+
 // source(회차) 또는 kind가 있는 문제(기출·셀테·모의고사·NS모의)를 모은다.
 const EXAMS = (questions as Q[]).filter((q) => q.source || q.kind);
 // 검색은 라벨 없는 연습문제까지 포함해 questions.json 전체에서 한다.
 const ALL = questions as Q[];
-
-function kindOf(q: Q): "기출" | "셀테" | "모의고사" | "NS모의" | "파이널" {
-  return q.kind || "기출";
-}
-// "139회 1교시" → 회차 "139회". round가 있으면 그대로.
-function roundOf(q: Q): string {
-  const r = (q.round || (q.source || "").split(" ")[0] || "기타").replace(/^0+(\d)/, "$1");
-  // 기수가 다르면 같은 "1주차"라도 다른 시험이므로 라벨을 분리한다.
-  return q.cohort ? `${q.cohort} ${r}` : r;
-}
 
 // 데이터에 실제 존재하는 구분만 탭으로. NS모의 → 기출 → 셀테 → 모의고사 순 —
 // 지금 매주 치르는 시험이 NS 주간 모의고사라 맨 앞에 두고 기본 탭으로 연다.
@@ -70,23 +65,6 @@ const KIND_DESC: Record<string, string> = {
   파이널: "ITPE 파이널(Final Round, FR — 「ITPE 파이널 2026.08」)·합숙 문항입니다. 시험 직전 실전 감각을 점검할 때 풀어 보세요.",
 };
 
-// 회차 정렬: 숫자(회/주차) 큰 순.
-function roundNum(r: string): number {
-  // 날짜 회차(「ITPE 모의고사 2026.10」「KPC 70회 (2016.06)」「ITPE 파이널 2026.08」)는 연·월로 — 2026-11-01 "10월 모의고사 어디갔어":
-  // 예전엔 앞 숫자 2026 만 봐서 2026년 회차끼리 순서가 없어 10월이 2026년 맨 뒤에 묻혔다.
-  const d = r.match(/(20\d\d)\.(\d\d)/);
-  if (d) return parseInt(d[1]) * 100 + parseInt(d[2]);
-  // 명품 모의고사 「41회」~「44회」(2026) — 날짜가 없어 2026년 초 자리에 둔다.
-  const mp = r.match(/^(\d{2})회$/);
-  if (mp && parseInt(mp[1]) < 60) return 202600 + parseInt(mp[1]) / 100;
-  // "18기 9주차"처럼 기수가 붙으면 기수 → 주차 순으로(최신 기수의 최신 주차가 맨 앞).
-  const c = r.match(/(\d+)\s*기/);
-  const w = r.match(/(\d+)\s*(?:주차|회)/);
-  if (c && w) return parseInt(c[1]) * 100 + parseInt(w[1]);
-  if (w) return parseInt(w[1]);
-  const m = r.match(/\d+/);
-  return m ? parseInt(m[0]) : 0;
-}
 const PERIODS = ["전체", "1교시", "2교시", "3교시", "4교시"] as const;
 
 
@@ -359,16 +337,11 @@ export default function ExamPage() {
               {qs.map((q, i) => {
                 // 수작업 모범답안 우선, 없으면 교재/토픽 자료 기반 자동 생성본.
                 // 수작업 모범답안과 자동 조립본은 라벨을 구분해 보여준다.
-                const hand = getModelAnswer(q.id);
-                const gen = hand
-                  ? undefined
-                  : (genAnswers as Record<string, { source: string; answer: string }>)[
-                      q.id
-                    ];
-                const ma = hand || gen;
+                const hand = HAND.has(q.id);
+                const gen = !hand && GEN.has(q.id);
                 const tpl = matchSubnoteTitle(q.text);
                 // 같은 문제가 기출·모의고사에 중복 출제되면 답안 페이지를 공유한다.
-                const sharedFrom = canonicalAnswerId(q.id);
+                const sharedFrom = ALIAS[q.id];
                 const sharedLabel = sharedFrom
                   ? ALL.find((x) => x.id === sharedFrom)?.source
                   : undefined;
@@ -483,39 +456,7 @@ export default function ExamPage() {
                     ) : null;
                   })()}
 
-                  {ma && (
-                    <details className="mt-3 pl-9">
-                      <summary
-                        className={`cursor-pointer text-xs font-semibold hover:underline ${
-                          hand ? "text-amber-700" : "text-slate-500"
-                        }`}
-                      >
-                        {hand
-                          ? "📘 클로드 모범답안 보기"
-                          : "🧩 교재 조립 답안 보기 (자동 생성 · 참고용)"}
-                      </summary>
-                      <div
-                        className={`mt-2 rounded-xl border p-4 ${
-                          hand
-                            ? "border-amber-200 bg-amber-50/40"
-                            : "border-slate-200 bg-slate-50/60"
-                        }`}
-                      >
-                        <div
-                          className={`mb-2 rounded-md bg-white px-2.5 py-1 text-[10px] ring-1 ${
-                            hand
-                              ? "text-amber-700 ring-amber-200"
-                              : "text-slate-500 ring-slate-200"
-                          }`}
-                        >
-                          🧾 근거: {ma.source}
-                        </div>
-                        <article className="rounded-lg bg-white p-4">
-                          <Markdown>{ma.answer}</Markdown>
-                        </article>
-                      </div>
-                    </details>
-                  )}
+                  {(hand || gen) && <ClaudeAnswer id={q.id} hand={hand} />}
                 </div>
                 );
               })}

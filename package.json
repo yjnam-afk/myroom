@@ -8,7 +8,7 @@
     "build": "NODE_OPTIONS=--max-old-space-size=4096 next build",
     "start": "next start",
     "lint": "next lint",
-    "prebuild": "tsx scripts/answers.ts check && tsx scripts/build-textbook-map.ts && tsx scripts/build-flashcards.ts && tsx scripts/build-genanswers.ts && tsx scripts/build-question-freq.ts"
+    "prebuild": "tsx scripts/test-question-text.ts && tsx scripts/answers.ts check && tsx scripts/build-textbook-map.ts && tsx scripts/build-flashcards.ts && tsx scripts/build-genanswers.ts && tsx scripts/build-question-freq.ts && tsx scripts/build-answer-index.ts"
   },
   "dependencies": {
     "@breezystack/lamejs": "^1.2.7",

@@ -1,3 +1,4 @@
+import { yearMonth } from "@/lib/questionText";
 import { latinEdgeOk } from "@/lib/latinEdge";
 import { TOPIC_ALIASES } from "@/lib/topicAliases";
 import questions from "@/data/questions.json";
@@ -462,14 +463,10 @@ export function mockExams(title: string): MockAppearance[] {
     out.push({ id, kind: q.kind, source: q.source || q.round || "", text: q.text });
   }
   // 날짜(「ITPE 모의고사 2026.10」「KPC 70회 (2016.06)」)가 있으면 최신 날짜 먼저 — 글자순이면 KPC 가 ITPE 보다 앞선다
-  const ym = (s: string) => {
-    const m = s.match(/(20\d\d)\.(\d\d)/);
-    return m ? parseInt(m[1]) * 100 + parseInt(m[2]) : 0;
-  };
   out.sort(
     (a, b) =>
       KIND_ORDER[a.kind] - KIND_ORDER[b.kind] ||
-      ym(b.source) - ym(a.source) ||
+      yearMonth(b.source) - yearMonth(a.source) ||
       b.source.localeCompare(a.source, "ko", { numeric: true }),
   );
   mockCache.set(t, out);

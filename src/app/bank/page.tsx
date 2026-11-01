@@ -12,6 +12,7 @@ import { isSameQuestion, answersForQuestion } from "@/lib/questionAnswers";
 import { matchSubnoteTitle } from "@/lib/matchSubnote";
 import { TIERS, type Tier, PRIOS, type Prio, freqTier, prioOf, FREQ_DESC, PRIO_STARS } from "@/lib/questionMeta";
 import { QuestionBadges, QuestionMyNotes } from "@/components/QuestionMeta";
+import { kindOf, roundOf } from "@/lib/questionText";
 
 type Q = {
   id: string;
@@ -29,13 +30,6 @@ type Q = {
 
 // 출처(회차/주차)가 있는 문제 = 기출·셀테·모의고사 전부.
 const POOL = (questions as Q[]).filter((q) => q.source || q.kind);
-const kindOf = (q: Q): "기출" | "셀테" | "모의고사" | "NS모의" | "파이널" =>
-  q.kind || "기출";
-const roundOf = (q: Q) => {
-  const r = q.round || (q.source || "").split(" ")[0] || "";
-  return q.cohort ? `${q.cohort} ${r}` : r;
-};
-
 // NS 주간 모의고사가 지금 치르는 시험이라 맨 앞.
 // 파이널(ITPE Final Round) 3,665문항이 빠져 있었다(2026-10-11 검수).
 const KINDS = ["NS모의", "기출", "모의고사", "파이널", "셀테"] as const;

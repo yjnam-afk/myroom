@@ -8,7 +8,6 @@ import Markdown from "@/components/Markdown";
 import ShareButton from "@/components/ShareButton";
 import questions from "@/data/questions.json";
 import topics from "@/data/topics.json";
-import { getModelAnswerByQuestion } from "@/lib/modelAnswers";
 import ClearButton from "@/components/ClearButton";
 
 type Period = "1교시" | "2교시";
@@ -59,7 +58,24 @@ export default function AnswerPage() {
   const [storyLoading, setStoryLoading] = useState(false);
 
   const samples = questions.filter((q) => q.period === period);
-  const modelAnswer = getModelAnswerByQuestion(question);
+  // 클로드 모범답안 — 17MB 를 브라우저에 싣지 않고 문제가 바뀌면 서버에서 받는다(2026-11-01 정리)
+  const [modelAnswer, setModelAnswer] = useState<{ source: string; answer: string } | null>(null);
+  useEffect(() => {
+    const q = question.trim();
+    setModelAnswer(null);
+    if (!q) return;
+    const ctl = new AbortController();
+    const t = setTimeout(() => {
+      fetch(`/api/exam-answer?q=${encodeURIComponent(q)}`, { signal: ctl.signal })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((d) => setModelAnswer(d && d.kind === "hand" ? d : null))
+        .catch(() => {});
+    }, 300);
+    return () => {
+      clearTimeout(t);
+      ctl.abort();
+    };
+  }, [question]);
 
   async function getHint() {
     if (!question.trim()) {

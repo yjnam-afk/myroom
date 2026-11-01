@@ -52,6 +52,7 @@ export type PeerAnswer = {
   pages: PeerAnswerPage[];
 };
 
+import { titleKey } from "@/lib/questionText";
 import g01 from "./peerAnswers/01.json";
 import g02 from "./peerAnswers/02.json";
 import g03 from "./peerAnswers/03.json";
@@ -70,14 +71,7 @@ export const PEER_ANSWERS: PeerAnswer[] = [
   g01, g02, g03, g04, g05, g06, g07, g08, g09, g10, g11
 ].flatMap((g) => g as PeerAnswer[]);
 
-/** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */
-function norm(s: string): string {
-  return (s || "")
-    .trim()
-    .toLowerCase()
-    .replace(/[(（][^)）]*[)）]/g, "")
-    .replace(/[\s()·,\-_/'’]/g, "");
-}
+const norm = titleKey; // 제목 비교 열쇠 — src/lib/questionText.ts
 
 const BY_TOPIC = new Map<string, PeerAnswer[]>();
 for (const a of PEER_ANSWERS) {
