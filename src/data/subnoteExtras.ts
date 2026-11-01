@@ -592,6 +592,11 @@ const TITLE_SLUG: Record<string, string> = {
   // ── 신규 추가 토픽(AI 품질·에이전틱 커머스·데이터·AI 보안) ──
   "OWASP Agentic AI 위협 및 대응방안(Agentic AI Threats and Mitigations)": "sc-owasp-agentic",
   "ISO/IEC 25059:2023(AI 품질모델)": "ai-iso-25059",
+  "멀티 클라우드(Multi-Cloud)": "dx-multi-cloud",
+  "분산 클라우드(Distributed Cloud)": "dx-distributed-cloud",
+  "엣지컴퓨팅(Edge Computing)과 포그컴퓨팅(Fog Computing)": "dx-edge-fog",
+  "서버리스 아키텍처(Serverless Architecture)": "dx-serverless",
+  "서비스형 엣지 머신러닝(Edge Machine Learning as-a-Service)": "dx-edge-mlaas",
   "AP2(Agent Payment Protocol)": "dx-ap2",
   "UCP(Universal Commerce Protocol)": "dx-ucp",
   "ACP(Agentic Commerce Protocol)": "dx-acp",
@@ -12282,6 +12287,12 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   },
   "cloud-audit": { image: "/concept/book/cloud-audit.png", images: ["/concept/diagram/cloud-audit.webp"], imagesLabel: "사업 유형" },
   "bigdata-audit": { image: "/concept/book/bigdata-audit.png" },   // 표뿐이라 잘라낼 그림이 없다
+  // 2026-11-01 디지털서비스 교재 6~10쪽 슬라이드
+  "dx-multi-cloud": { image: "/concept/book/dx-multi-cloud.webp" },
+  "dx-distributed-cloud": { image: "/concept/book/dx-distributed-cloud.png" },
+  "dx-edge-fog": { image: "/concept/book/dx-edge-fog.png" },
+  "dx-serverless": { image: "/concept/book/dx-serverless.png" },
+  "dx-edge-mlaas": { image: "/concept/book/dx-edge-mlaas.webp" },
 };
 
 const norm = (s: string) => s.trim().toLowerCase().replace(/[\s()·,\-_/]/g, "");

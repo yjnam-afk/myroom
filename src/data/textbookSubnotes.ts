@@ -25572,6 +25572,436 @@ export const SUBNOTES: TextbookSubnote[] = [
       "단계 순환: 사이버 위험관리가 ① 범위지정을 Drive, 위협 탐지 조사 및 대응(TDIR)이 ③ 우선순위를 Enrich, ⑤ 동원이 치료 및 보안태세 최적화를 Initiate",
     ],
   },
+  // ── 디지털서비스 교재 CONTENTS 순서(2026-11-01 교재 1~10쪽) ──
+  {
+    title: "하이퍼바이저(Hypervisor)",
+    course: "DX",
+    definition:
+      "단일 **물리적** 머신에서 **하드웨어 자원**을 **가상화**하여 **다수의** 독립적 **가상머신(VM)**을 생성하고 관리하는 소프트웨어",
+    defShort: "물리적 하드웨어 자원을 가상화해 다수의 가상머신을 생성·관리하는 SW",
+    lead: "물리 머신 위 다수 VM, 하이퍼바이저",
+    features: ["하드웨어 자원 가상화", "독립적 VM 생성", "전가상화 성능 저하"],
+    keywords: ["가상 머신", "Type 1(Bare-metal)", "Type 2(Hosted)", "전가상화", "반가상화", "Host OS", "Guest OS"],
+    tables: [
+      {
+        caption: "하이퍼바이저(Hypervisor) 유형",
+        headers: ["분류", "구분", "설명"],
+        nameCol: 1,
+        rows: [
+          ["호스트 타입별", "Bare-metal(native)", "호스트 OS 없어 리소스 할당 불필요\n물리 리소스 관리 비교적 유연\n별도 관리 콘솔·컴퓨터 필요"],
+          ["호스트 타입별", "Hosted", "호스트 OS 실행·운영체제 관리\nGuest OS 종류 제약 적고 도입 쉬움"],
+          ["가상화 방식", "전가상화(Full Virtualization)", "하드웨어 모두 가상화\nCPU VT 사용으로 퍼포먼스 저하\n호스팅 OS 수정 없이 다양한 OS 지원"],
+          ["가상화 방식", "반가상화(Para virtualization)", "하드웨어 완전히 가상화 않음\n하이퍼바이저 통해서만 HW 제어\nGuest OS 커널 일부 수정 필요"],
+        ],
+      },
+    ],
+    notes: [
+      "유형 그림: Type 1(Bare-metal) — Hardware 위 Hypervisor 위 VM(Guest OS) / Type 2(Hosted) — Hardware 위 Host OS 위 Hypervisor 위 VM(Guest OS).",
+      "가상화 방식 그림: 전가상화 — 게스트 OS 1. HW 자원 요구 → 하이퍼바이저 2. HW 제어 요구 → 3. HW 제어(CPU 가상화 지원) / 반가상화 — 수정된 게스트 OS 1. HW 자원 요구 → 하이퍼바이저 2. HW 제어.",
+    ],
+  },
+  {
+    title: "리눅스 컨테이너(Linux Container, LXC)",
+    course: "DX",
+    definition:
+      "**리눅스 커널**을 **공유**하면서 **애플리케이션**과 그 **실행 환경**(라이브러리, 설정 파일 등)을 **격리된 공간**에서 **실행**할 수 있게 해주는 가벼운 **가상화**",
+    defShort: "리눅스 커널 공유, 애플리케이션 실행 환경을 격리된 공간에서 실행하는 가상화",
+    lead: "커널 공유 경량 가상화, 리눅스 컨테이너",
+    features: ["리눅스 커널 공유", "격리된 실행 환경", "가벼운 가상화"],
+    keywords: ["Application 격리된 공간 실행", "Cgroup", "Namespace"],
+    tables: [
+      {
+        caption: "리눅스 컨테이너(LXC) 구성 요소",
+        headers: ["분류", "기술요소", "설명"],
+        nameCol: 1,
+        rows: [
+          ["Cgroup", "System 자원 Isolation", "CPU, Memory, Kernel 등\n하드웨어 자원의 격리된 공간 제공"],
+          ["Cgroup", "Subsystem", "Cgroup 제어 가능 시스템 자원\nfilesystem 내 파일로 사용자 제공"],
+          ["Cgroup", "Cgroup FS", "커널 제공 cgroup 인터페이스\nfile값 write 시 kernel에 반영"],
+          ["Cgroup", "Sub-sys Class", "Subsystem file 값 변경 시\n인지하여 kernel 함수 호출"],
+          ["Cgroup", "Cgroup Kernel처리", "Cgroup 기반 스케줄링\n시스템 자원 등 제어"],
+          ["Namespace", "Application View Isolation", "PID, mount 등\n프로그램의 격리된 공간 제공"],
+          ["Namespace", "PID", "프로세스 공간 분리\n부모 PID container root process\n상위 host OS 접근 불가\n다른 namespace 간 IPC 필요"],
+          ["Namespace", "Mnt", "Host OS 파일 시스템 상관없이\n독립적 파일 시스템 마운트 가능\n(Overlay FS)"],
+          ["Namespace", "Net", "namespace 간 network 충돌방지\n(중복 바인딩 가능)"],
+          ["Namespace", "ipc", "프로세스 간 독립적 통신 통로 할당"],
+          ["Namespace", "Uts/usr", "namespace별 독립적인\nhostname, uid 할당"],
+          ["시스템 관련 구성", "Chroot 기반 파일시스템 분리", "chroot 이용 컨테이너 프로세스\nroot path 변경"],
+          ["시스템 관련 구성", "디바이스 제어 제한", "컨테이너 내 디바이스 write·조작\ndefault로 불가\n필요 디바이스는 kernel에서\nlxc-device-add 필요"],
+        ],
+      },
+      {
+        caption: "리눅스 컨테이너와 하이퍼바이저의 비교",
+        headers: ["구분", "LXC 가상화", "Hypervisor 가상화"],
+        rows: [
+          ["목적", "Application\n실행 환경 가상화", "OS 운용 환경의\n가상화"],
+          ["특징", "실행 환경 격리\n자원 Lib 패키징", "호스트 HW\n가상화"],
+          ["기술", "자원 및 Run-Time\n환경 격리", "CPU, I/O\n가상화"],
+          ["OS 환경", "Linux만 가능", "이종간 multi OS\n구동 가능"],
+        ],
+      },
+    ],
+    notes: ["아키텍처 그림: 컨테이너A(Runtime Env / Cgroup · NameSpace), 컨테이너 B · C … 가 Linux Kernel 하나를 공유한다."],
+  },
+  {
+    title: "도커(Docker)",
+    course: "DX",
+    definition:
+      "운영 체제(OS) 수준의 **격리된 환경**(컨테이너)에서 애플리케이션과 그 종속성을 함께 패키징, 배포하고 실행할 수 있도록 하는 **컨테이너 기반**의 **가상화 플랫폼**",
+    defShort: "OS 수준 격리된 환경에서 애플리케이션을 패키징·실행하는 컨테이너 기반 가상화 플랫폼",
+    lead: "종속성까지 묶어 배포, 도커",
+    features: ["OS 수준 격리", "종속성 함께 패키징", "OS 커널 추상화"],
+    keywords: ["리눅스 컨테이너(LXC)", "컨테이너", "도커 엔진", "도커 허브", "cgroup", "namespace"],
+    tables: [
+      {
+        caption: "Docker 구성 요소",
+        headers: ["구성", "기능", "설명"],
+        rows: [
+          ["도커엔진", "컨테이너 제어", "컨테이너 이미지 제어 수행 데몬\n(Build, Push, Full, Run)"],
+          ["도커엔진", "컨테이너 생성", "LXC 이용 격리된 컨테이너 생성"],
+          ["Host OS(Linux)", "리소스 공유", "Host OS 통해 물리적 자원 공유"],
+          ["Host OS(Linux)", "이미지 설정", "소스코드 레파지토리 이용\n컨테이너 생성 환경 설정"],
+          ["이미지 레파지토리", "패키징", "Program·library·소스코드\n묶어서 빌드"],
+          ["이미지 레파지토리", "허브/배포환경", "이미지를 다른 서버·환경\n사용자에게 배포"],
+          ["컨테이너", "이미지 실행", "이미지를 여러 컨테이너에 이식\n이중화, 무중단 배포 지원"],
+          ["도커허브", "서비스 공유", "SaaS 기반 도커 서비스 생성·공유"],
+        ],
+      },
+      {
+        caption: "Docker 기반 기술",
+        headers: ["구분", "내용"],
+        rows: [
+          ["cgroups", "Control group\n프로세스 그룹 리소스 제한·격리\n모니터링 CPU, memory\nstorage, network I/O"],
+          ["Namespaces", "운영환경 고립\n프로세스 트리, 네트워크\n사용자 ID, 마운트된 파일시스템"],
+          ["Libvirt", "Library + virtualization\ncontainer에게 공통 API 제공\n다양한 가상화 지원 라이브러리"],
+          ["container", "애플리케이션 수행 독립적 공간\nContainer간 내부 볼 수 없음"],
+        ],
+      },
+      {
+        caption: "도커(Docker)와 하이퍼바이저(Hypervisor) 비교",
+        headers: ["비교", "도커", "Hypervisor"],
+        rows: [
+          ["추상화", "OS 커널", "전체 H/W Device\n추상화"],
+          ["OS", "단일 OS상\n다양한 에디션", "여러 OS\n동시 사용"],
+          ["호환성", "Linux 유리\n타 플랫폼 미비", "여러 플랫폼\n지원"],
+          ["성능", "직접 OS Access\n우수", "Guest/Host\nOS Layer로 저하"],
+        ],
+      },
+    ],
+    notes: [
+      "개념도: 가상화(App · bins/libs · Guest OS → Hypervisor → Host Operating System → Infrastructure) ↔ 도커(App · bins/libs → Container Engine → Operating System → Infrastructure).",
+      "Container Engine: 도커 엔진(Docker Engine)이며, Container는 운영체제의 User space 공간으로(Kernel이 아님) low level에서 나머지 시스템과 분리된 프로세스의 집합.",
+      "Docker 기반 기술 그림: Docker → libcontainer · libvirt · LXC · systemd-nspawn → Linux kernel(cgroups · namespaces · SELinux · Netlink · Netfilter · capabilities · AppArmor).",
+    ],
+  },
+  {
+    title: "쿠버네티스(Kubernetes)",
+    course: "DX",
+    definition:
+      "**컨테이너화** 된 워크로드와 **서비스를 관리**하기 위한 이식성과 확장성을 갖춘 오픈소스 **오케스트레이션** 플랫폼",
+    defShort: "컨테이너화된 워크로드와 서비스를 관리하는 오케스트레이션 플랫폼",
+    lead: "컨테이너 자동 운영, 쿠버네티스",
+    features: ["컨테이너 자동 관리", "이식성·확장성", "Pod 단위 배포"],
+    keywords: ["Control Plane(Master Node)", "Node(Worker Node)", "애드온", "Pod", "Kubelet"],
+    tables: [
+      {
+        caption: "쿠버네티스(Kubernetes) 구성 요소",
+        headers: ["구성 요소", "세부 구성 요소", "설명"],
+        nameCol: 1,
+        rows: [
+          ["Control Plane", "Kube-APIServer", "쿠버네티스 API 호출\nNode의 kubelet과 통신"],
+          ["Control Plane", "etcd", "모든 클러스터 데이터 저장소\nKey-Value 형태로 저장"],
+          ["Control Plane", "kube-scheduler", "새로 생성된 Pod 감지\n실행할 노드 선택"],
+          ["Control Plane", "kube-controller-manager", "컨트롤러 구동 마스터 컴포넌트\n클러스터 상태 감시·설정"],
+          ["Control Plane", "cloud-controller-manager", "클러스터를 클라우드 API와 연결"],
+          ["Node", "pod", "배포·관리하는 컨테이너 단위"],
+          ["Node", "kubelet", "클러스터 각 노드에서 실행 Agent\nAPI 서버와 통신, 명령 수행\n노드 상태를 마스터로 전달"],
+          ["Node", "kube-proxy", "각 노드 실행 Network Proxy\n로드 밸런싱 수행"],
+          ["Node", "컨테이너 런타임", "Container 실행 담당 소프트웨어"],
+          ["애드온", "클러스터 DNS", "쿠버네티스 서비스용 DNS Record"],
+          ["애드온", "Web UI(Dashboard)", "웹 기반 UI 클러스터 관리\n애플리케이션 문제 해결 지원"],
+          ["애드온", "컨테이너 리소스 모니터링", "컨테이너 시계열 매트릭스 기록\n데이터 조회 UI 제공"],
+        ],
+      },
+      {
+        caption: "쿠버네티스와 도커스웜의 비교",
+        headers: ["비교 항목", "Kubernetes", "Docker-Swarm"],
+        rows: [
+          ["아키텍처", "애플리케이션\n자동화 관리\n오케스트레이션\n플랫폼", "여러 도커 호스트\n하나처럼 사용\n도구"],
+          ["Node", "Master/Slave", "Manager/Worker"],
+          ["설치/설정", "강력 클러스터링\nDocker 설치 후\nk8s 추가 설치", "느슨 클러스터링\nDocker만 설치"],
+          ["Auto-Scaling", "지원", "미지원"],
+          ["Load Balancing", "수동 부하분산\n설정 필요\nPOD에 의한\n컨테이너 관리", "자동 로드 밸런싱"],
+          ["컨테이너 관리", "POD 기반 관리", "Node 기반 관리"],
+        ],
+      },
+    ],
+    notes: [
+      "아키텍처 그림: Kubernetes master(API · Scheduler · Controller) ↔ Kubernetes node(pod · container · cAdvisor, Docker) — VM Monitor로 Relative/Absolute metrics 수집, infrastructure virtualization layer(e.g. Openstack) 아래 PM.",
+    ],
+  },
+  {
+    title: "오토 스케일링(Auto-Scaling)",
+    course: "DX",
+    definition:
+      "미리 정의한 일정 또는 **시스템 부하율**에 따라 **컴퓨팅 리소스**를 **자동**으로 **증가** 또는 **감소** 시키는 기술",
+    defShort: "일정 또는 시스템 부하율에 따라 컴퓨팅 리소스를 자동 증가·감소시키는 기술",
+    lead: "부하에 맞춘 자원 증감, 오토 스케일링",
+    features: ["부하율 따른 증감", "수직·수평 확장", "임계치 기반 정책"],
+    keywords: ["Vertical", "Horizontal", "Scale Up", "Scale Out", "Scale Down", "Scale In", "Scheduled", "Dynamic", "Simple", "Step"],
+    tables: [
+      {
+        caption: "오토 스케일링(Auto-Scaling)의 유형",
+        headers: ["확장 방식", "유형", "정의", "특징"],
+        rows: [
+          ["수직 확장(Vertical Scaling)", "Scale Up", "서버 성능 증가\n메모리 추가\n디스크 추가", "변경 없이 개선\n비용 빠르게 증가\n물리적 한계"],
+          ["수직 확장(Vertical Scaling)", "Scale Down", "기존 서버\n성능 낮춤", "적은 사용량\n비용 절감\n성능 저하로\n서비스 장애"],
+          ["수평 확장(Horizontal Scaling)", "Scale Out", "서버 개수 증가\n성능 향상", "물리적 한계 없이\n무한 확장 가능\nLoad Balance와\n네트워크 구성"],
+          ["수평 확장(Horizontal Scaling)", "Scale In", "불필요 서버 줄임", "낮은 트래픽\n불필요 비용 절감"],
+        ],
+      },
+      {
+        caption: "오토 스케일링(Auto-Scaling) 정책 종류",
+        headers: ["종류", "설명"],
+        rows: [
+          ["Manual", "수동으로 원하는 값 입력 정책"],
+          ["Scheduled", "지정 시간에 지정 값만큼 스케일링"],
+          ["Dynamic(Simple 방식)", "꿰거시 방식, 임계점 되었을 때\n지정한 하나의 Action 수행"],
+          ["Dynamic(Step 방식)", "임계점 기준 알람 발생\n임계 값 구간 복수 정의\n각기 다른 Action 수행"],
+        ],
+      },
+      {
+        caption: "오토 스케일링(Auto-Scaling) 주요 기능",
+        headers: ["구분", "주요 기능", "세부 내용"],
+        nameCol: 1,
+        rows: [
+          ["서비스 자동화", "Schedule 기반 자동 증/감", "월/일/시/분\nVM 수 자동 조절\n반복 주기 설정"],
+          ["서비스 자동화", "리소스 부하 기반 자동 증/감", "CPU·Memory·Disk·Network\n임계치 VM 증감\nAlarm 해소까지\n지속 조정"],
+          ["서비스 자동화", "서비스 자동 투입", "Load Balancer 자동 연결\n부가 장비 설치\n방화벽 보호 영역\n자동 증설 VM"],
+          ["관리 자동화", "Monitoring", "CPU사용률·트래픽\n다양한 부하 체크\n알람 지원"],
+          ["관리 자동화", "Alarm", "시작·완료 시\nSMS·E-mail 통해\n상태 내용 알림"],
+        ],
+      },
+    ],
+    notes: [
+      "Dynamic을 부하 기반 스케줄링이라고도 칭함.",
+      "개념도: Scale Up(vertical scaling — RAM/CPU/Disk 추가로 단일 자원 용량 증가) ↔ Scale Out(horizontal scaling — 자원 대수 추가).",
+    ],
+  },
+  {
+    title: "멀티 클라우드(Multi-Cloud)",
+    course: "DX",
+    definition:
+      "두 개 이상의 **서로 다른 클라우드 서비스 제공자**들의 **인프라**와 **서비스**를 **동시**에 **사용**하여 IT 인프라, 애플리케이션 및 서비스를 구축하고 관리하는 전략",
+    defShort: "서로 다른 클라우드 서비스 제공자의 인프라·서비스를 동시 사용하는 전략",
+    lead: "여러 제공자 동시 활용, 멀티 클라우드",
+    features: ["중복 배포 장애 대응", "기능·서비스 분산", "벤더 리스크 분산"],
+    keywords: ["클라우드 + 클라우드", "중복형", "분산형", "워크로드 최적화형", "벤더 분산형", "지리적 분산형"],
+    tables: [
+      {
+        caption: "멀티 클라우드(Multi-Cloud) 구성 요소",
+        headers: ["구성요소", "설명"],
+        rows: [
+          ["Public Cloud", "다양한 클라우드 환경에서\n변화하는 가상 장치가 조직과 연결"],
+          ["Private Cloud", "서비스 오케스트레이션과 작동\n분석, SDN 및 운영 관리"],
+          ["End-to-End Connectivity", "sd-wan 라우팅·sd-branch 보안\n안전한 이더넷 코어 스위치\n무선 액세스"],
+          ["Data Center", "Leaf, Spine, Core 및 DCI 라우팅\n스위칭, 보안 및 관리 기반 구축"],
+          ["Campus and branch", "데이터 센터, 공공/사설 클라우드\n라우팅·보안 정책과 원활히 연결\nsd-wan·sd-branch 보안 액세스\n이더넷 코어 스위칭·무선 액세스"],
+        ],
+      },
+      {
+        caption: "멀티 클라우드(Multi-Cloud)의 종류",
+        headers: ["종류", "설명"],
+        rows: [
+          ["중복형 멀티 클라우드(Redundant Multi-Cloud)", "동일 애플리케이션·서비스\n여러 클라우드에 중복 배포\n장애 시 다른 클라우드 운영"],
+          ["분산형 멀티 클라우드(Distributed Multi-Cloud)", "각 클라우드에 서로 다른\n기능/서비스 분산 배치"],
+          ["워크로드 최적화형 멀티 클라우드(Workload-Optimized Multi-Cloud)", "특정 워크로드를 가장 잘\n지원하는 클라우드에 할당"],
+          ["벤더 분산형 멀티 클라우드(Vendor Diversified Multi-Cloud)", "리스크 분산 위해\n다양한 클라우드 사용"],
+          ["지리적 분산형 멀티 클라우드(Geographically Distributed Multi-Cloud)", "지역에 따라 클라우드 달리 사용"],
+        ],
+      },
+      {
+        caption: "멀티 클라우드와 하이브리드 클라우드의 비교",
+        headers: ["구분", "멀티 클라우드", "하이브리드 클라우드"],
+        rows: [
+          ["개념", "데이터센터와\n2개 이상\n클라우드 업체\n조합", "기존 데이터센터\n클라우드 일부\n서비스의 결합"],
+          ["접근방식", "동일 유형\n클라우드\n2개 이상 배포", "여러 배포 유형\n퍼블릭·프라이빗\n통합·오케스트레이션\n특정 방식"],
+          ["장점", "여러 클라우드\n다양한 서비스\n제공", "퍼블릭·프라이빗\n워크로드·리소스\n마이그레이션\n공유 코어 SW"],
+        ],
+      },
+    ],
+    notes: [
+      "개념도: Hybrid Cloud — Public Cloud ↔ Private Cloud(Workloads) → Traditional IT / Multi Cloud — Application 이 여러 Public Cloud 에 Independent Workloads 로 연결.",
+    ],
+  },
+  {
+    title: "분산 클라우드(Distributed Cloud)",
+    course: "DX",
+    definition:
+      "**상황인지 기능**을 활용하여 **지리적, 계층적 분산 자원**으로 **실시간 서비스**를 제공하는 확장된 클라우드 컴퓨팅",
+    defShort: "상황인지 기능으로 지리적·계층적 분산 자원의 실시간 서비스를 제공하는 클라우드",
+    lead: "코어·리저널·엣지 계층 분산, 분산 클라우드",
+    features: ["상황인지 기반", "지리적·계층적 분산", "실시간성·이동성"],
+    keywords: ["EC", "RC", "CC", "고-실시간", "고-이동성", "상황정보 인지", "자율 서비스 배치"],
+    tables: [
+      {
+        caption: "분산 클라우드(Distributed Cloud) 구성 요소",
+        headers: ["계층", "클라우드", "설명"],
+        nameCol: 1,
+        rows: [
+          ["코어 계층(Core)", "코어 클라우드(CC)", "클라우드 서비스와 데이터의\n운영 및 제공 관련 모든 업무"],
+          ["리저널 계층(Regional)", "리저널 클라우드(RC)", "SDN 활용 일정 지역에\n클라우드 서비스 신속 배치·제공\n서비스 이미지·데이터 캐싱\nProxy 기능"],
+          ["에지 계층(Edge)", "에지 클라우드(EC)", "클라우드렛(Cloudlet) 운용 가능\n능동형 원격 노드"],
+          ["에지 계층(Edge)", "클라우드렛(Cloudlet)", "서비스 사용자와 근접 위치\n이동성 강화된 작은 규모\n클라우드 데이터 센터"],
+        ],
+      },
+      {
+        caption: "분산 클라우드(Distributed Cloud) 종류",
+        headers: ["배치 모델", "구성 형태", "설명"],
+        rows: [
+          ["RC-CC", "End Device →\nRegional Cloud →\nCore Cloud", "단말기가 일정 지역 내 이동 시\n이동성 지원"],
+          ["EC-CC", "End Device →\nEdge Cloud →\nCore Cloud", "특정 지역에서 실시간 서비스\n필요할 때 실시간성 지원"],
+          ["EC-RC-CC", "End Device →\nEdge Cloud →\nRegional Cloud →\nCore Cloud", "실시간성·단말기 이동성\n모두 지원 완성형 모델"],
+        ],
+      },
+    ],
+    notes: [
+      "구성도: 코어 계층(on core network — 코어 클라우드 · 상대 노드) – 인터넷 – 리저널 계층(on distribution network — 리저널 클라우드) – 엣지 계층(on access/edge network — 엣지 클라우드) – 접근점(AP) · 단말기기. 협력적 분산 클라우드 운영(Cooperative distributed cloud Management).",
+    ],
+  },
+  {
+    title: "엣지컴퓨팅(Edge Computing)과 포그컴퓨팅(Fog Computing)",
+    course: "DX",
+    definition:
+      "(엣지 컴퓨팅) 데이터를 생성한 **장치**(센서, IoT 기기 등) 근처의 **말단(edge)**에서 **데이터**를 **처리**하고 분석하는 **컴퓨팅** / (포그 컴퓨팅) **엣지** 컴퓨팅과 **클라우드** 사이의 **중간 계층**(infrastructure layer)에서 **데이터 처리**를 수행하는 **분산형 컴퓨팅 아키텍처**",
+    defShort: "말단에서 데이터를 처리하는 엣지와 엣지·클라우드 중간 계층의 포그 컴퓨팅",
+    lead: "말단과 중간 계층 분산 처리, 엣지와 포그 컴퓨팅",
+    features: ["현장 실시간 처리", "중간 계층 분산", "저지연·낮은 대역폭"],
+    defPair: [
+      {
+        name: "엣지 컴퓨팅",
+        lead: "현장 말단 실시간 처리",
+        def: "장치 근처 말단(edge)에서 데이터를 처리하고 분석하는 컴퓨팅",
+        features: ["매우 낮은 저지연", "매우 낮은 대역폭", "높은 Privacy"],
+      },
+      {
+        name: "포그 컴퓨팅",
+        lead: "엣지와 클라우드 사이 계층",
+        def: "엣지·클라우드 중간 계층에서 데이터 처리하는 분산형 컴퓨팅 아키텍처",
+        features: ["근거리 서비스 제공", "응답시간 향상", "LAN상 Fog Node"],
+      },
+    ],
+    keywords: ["데이터 발생한 현장 실시간 처리", "근거리에서 클라우드 서비스 제공", "저지연", "낮은 대역폭"],
+    tables: [
+      {
+        caption: "엣지 컴퓨팅과 포그 컴퓨팅의 비교",
+        headers: ["비교 항목", "엣지 컴퓨팅(Edge Computing)", "포그 컴퓨팅(Fog Computing)"],
+        rows: [
+          ["개념(정의)", "데이터 발생한\n현장·근거리\n실시간 처리\n분석·활용", "발생 지역 선처리\n근거리에서\n클라우드 서비스\n제공"],
+          ["전략", "컴퓨팅 파워를\n중앙집중형\n네트워크에서\n분리", "대역폭 감소\n응답시간 향상\n클라우드 서비스\nEdge Device 제공"],
+          ["Latency", "매우 낮은 저지연", "저지연"],
+          ["Bandwidth", "Edge 자체 발생\n매우 낮은 대역폭", "일부만 Cloud로\n전송\n낮은 대역폭"],
+          ["데이터 처리 위치", "Device 자체", "LAN상 Fog Node"],
+          ["기반 기술", "IoT 센서\nSmart Device", "컴퓨팅 리소스\n가상화\nMSA 컨테이너"],
+          ["구성 기능", "현장 데이터 수집\n명령 수행", "data 분석·실행\ndata filtering"],
+          ["상위 Layer", "포그 컴퓨팅", "클라우드 컴퓨팅"],
+          ["보안성", "높은 Privacy\n해킹 공격\n낮은 가능성", "데이터 공격\n확률 상승"],
+        ],
+      },
+    ],
+    notes: [
+      "계층도: Cloud Level – Fog Level – Edge Level(기지국) – IoT Level(Sensors · Actuators · Mobile phones, tablets · Vehicles · Smart devices).",
+    ],
+  },
+  {
+    title: "서버리스 아키텍처(Serverless Architecture)",
+    course: "DX",
+    definition:
+      "**사전**에 **서버**가 **없이** code **실행**이 **필요할 때** 자동적으로 **자원**을 **할당**하여 수행 후 결과를 제공하는 Architecture",
+    defShort: "사전 서버 없이 code 실행이 필요할 때 자원을 자동 할당하는 Architecture",
+    lead: "서버 관리 없는 이벤트 실행, 서버리스 아키텍처",
+    features: ["사용량만 비용 지불", "서버 관리 불필요", "이벤트 트리거 실행"],
+    keywords: ["Pay per Use", "서버 없이", "이벤트 트리거", "FaaS", "BaaS"],
+    tables: [
+      {
+        caption: "Serverless Architecture 특징",
+        headers: ["특징", "설명"],
+        rows: [
+          ["① Pay per Use", "Server를 항시 소유하지 않고\ncode 실행 시 사용 자원만\n비용 지불"],
+          ["② No Server Management", "클라우드 제공 업체가 Server 관리\n애플리케이션 작성·배포만 집중"],
+        ],
+      },
+      {
+        caption: "서버리스 아키텍처(Serverless Architecture) 동작 방식",
+        headers: ["동작 방식", "설명"],
+        rows: [
+          ["① 애플리케이션 배포", "코드를 서버리스 플랫폼에 배포"],
+          ["② 이벤트 트리거", "사용자 요청 등 이벤트 발생 시\n자동으로 코드 실행 트리거"],
+          ["③ 코드 실행", "컨테이너는 코드 실행 기간만 존재\n코드 완료되면 종료"],
+          ["④ 리소스 프로비저닝", "코드 요구 사항에 따라\n메모리·CPU 자동 프로비저닝"],
+        ],
+      },
+      {
+        caption: "서버리스 아키텍처(Serverless Architecture) 구성 요소",
+        headers: ["구분", "기술요소", "설명"],
+        rows: [
+          ["Front End", "API Gateway", "Event Trigger, Load Balancing"],
+          ["Front End", "RESTFul API", "URL 기반, Custom Code 호출"],
+          ["Function Service", "FaaS", "독립실행 서비스, 기능 단위"],
+          ["Function Service", "Container", "Docker 기반 신속 배포/릴리즈"],
+          ["Back End", "Event Router", "이벤트 전달, 기능 서비스"],
+          ["Back End", "BaaS", "인증, 구매 등 보안 필요 기능"],
+        ],
+      },
+    ],
+    notes: [
+      "아키텍처 그림: Web Client · Mobile Client → API Gateway → Function 1 · 2 · 3 → Database, Authentication Service · External Database 연동.",
+    ],
+  },
+  {
+    title: "서비스형 엣지 머신러닝(Edge Machine Learning as-a-Service)",
+    course: "DX",
+    definition:
+      "**엣지** 디바이스에서 **머신러닝** 모델을 실행하고 **관리**할 수 있도록 제공하는 **클라우드 기반 플랫폼** 또는 **서비스**",
+    defShort: "엣지 머신러닝 모델 실행·관리를 제공하는 클라우드 기반 플랫폼·서비스",
+    lead: "엣지 ML 실행·관리 서비스, 서비스형 엣지 머신러닝",
+    features: ["엣지 ML 실행·관리", "HW 인지형 압축", "클라우드 기반 제공"],
+    keywords: [
+      "엣지",
+      "엣지 머신러닝 프레임워크",
+      "AutoML",
+      "하드웨어 인지형 모델 압축",
+      "엣지 머신러닝 모델 컴파일",
+      "엣지 MLOps",
+      "① Device Info → ② downloading → ③ creating → ④ Installing",
+    ],
+    tables: [
+      {
+        caption: "서비스형 엣지 머신러닝 동작 절차",
+        headers: ["동작 절차", "설명"],
+        rows: [
+          ["① Device Info", "CPU, RAM, 기본 소프트웨어 등\n추론 모델 등 장치 정보 수집"],
+          ["② downloading", "적합한 머신러닝 컴파일러 선택"],
+          ["③ creating", "매개변수 기반 컴파일된\n머신러닝 추론 모듈 생성"],
+          ["④ Installing", "생성된 ML 추론 모듈 다운로드\n지정된 디바이스에 설치"],
+        ],
+      },
+      {
+        caption: "서비스형 엣지 머신러닝 주요 기술",
+        headers: ["주요기술", "설명"],
+        rows: [
+          ["엣지 머신러닝 프레임워크", "TensorFlow, ONNX, PyTorch 기반\n추론엔진 개발\n최적화 알고리즘·라이브러리"],
+          ["AutoML", "데이터 준비, 특징 엔지니어링\n모델 생성·평가 등\n머신러닝 개발 주요 단계 자동화"],
+          ["하드웨어 인지형 모델 압축", "자원제약 HW 고려 모델 압축\n하드웨어 인지형 모델 양자화\n하드웨어 인지형 가지치기\n하드웨어 인지형 NAS"],
+          ["엣지 머신러닝 모델 컴파일", "(컴파일러 방식) 편의성 높음\n독점적 특징\n(인터프리터 방식) 높은 이식성\n최적화, 오버헤드 발생"],
+          ["엣지 MLOps", "엣지 디바이스 ML 모델\n모니터링·유지관리·개선 도구"],
+        ],
+      },
+    ],
+    notes: [
+      "구조도: Cloud Instance(Models' repository — Model 1 · 2 · 3) · 3rd parties' components(ML Compiler, Target AI Chip) → Build Service → OS ready image(TinyMLaaS) → Embedded Devices(Edge ML Application · Edge AI NPU · Battery · Motor Control · Sensors · Comm · Memory · I/O).",
+    ],
+  },
   {
     title: "도메인 특화 언어 모델(Domain-Specific Language Model)",
     course: "DX",

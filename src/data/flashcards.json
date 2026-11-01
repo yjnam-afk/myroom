@@ -34260,6 +34260,581 @@
  },
  {
   "id": "sn-613",
+  "title": "하이퍼바이저(Hypervisor)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "단일 **물리적** 머신에서 **하드웨어 자원**을 **가상화**하여 **다수의** 독립적 **가상머신(VM)**을 생성하고 관리하는 소프트웨어",
+  "defShort": "물리적 하드웨어 자원을 가상화해 다수의 가상머신을 생성·관리하는 SW",
+  "memo": "유형 그림: Type 1(Bare-metal) — Hardware 위 Hypervisor 위 VM(Guest OS) / Type 2(Hosted) — Hardware 위 Host OS 위 Hypervisor 위 VM(Guest OS).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "가상 머신",
+     "Type 1(Bare-metal)",
+     "Type 2(Hosted)",
+     "전가상화",
+     "반가상화",
+     "Host OS",
+     "Guest OS"
+    ]
+   },
+   {
+    "label": "하이퍼바이저(Hypervisor) 유형",
+    "mnemonic": "",
+    "keywords": [
+     "Bare-metal(native)",
+     "Hosted",
+     "전가상화(Full Virtualization)",
+     "반가상화(Para virtualization)"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "가상 머신",
+   "Type 1(Bare-metal)",
+   "Type 2(Hosted)",
+   "전가상화",
+   "반가상화",
+   "Host OS",
+   "Guest OS"
+  ]
+ },
+ {
+  "id": "sn-614",
+  "title": "리눅스 컨테이너(Linux Container, LXC)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "**리눅스 커널**을 **공유**하면서 **애플리케이션**과 그 **실행 환경**(라이브러리, 설정 파일 등)을 **격리된 공간**에서 **실행**할 수 있게 해주는 가벼운 **가상화**",
+  "defShort": "리눅스 커널 공유, 애플리케이션 실행 환경을 격리된 공간에서 실행하는 가상화",
+  "memo": "아키텍처 그림: 컨테이너A(Runtime Env / Cgroup · NameSpace), 컨테이너 B · C … 가 Linux Kernel 하나를 공유한다.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "Application 격리된 공간 실행",
+     "Cgroup",
+     "Namespace"
+    ]
+   },
+   {
+    "label": "리눅스 컨테이너(LXC) 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "System 자원 Isolation",
+     "Subsystem",
+     "Cgroup FS",
+     "Sub-sys Class",
+     "Cgroup Kernel처리",
+     "Application View Isolation",
+     "PID",
+     "Mnt",
+     "Net",
+     "ipc"
+    ]
+   },
+   {
+    "label": "리눅스 컨테이너와 하이퍼바이저의 비교",
+    "mnemonic": "",
+    "keywords": [
+     "목적",
+     "특징",
+     "기술",
+     "OS 환경"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "Application 격리된 공간 실행",
+   "Cgroup",
+   "Namespace"
+  ]
+ },
+ {
+  "id": "sn-615",
+  "title": "도커(Docker)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "운영 체제(OS) 수준의 **격리된 환경**(컨테이너)에서 애플리케이션과 그 종속성을 함께 패키징, 배포하고 실행할 수 있도록 하는 **컨테이너 기반**의 **가상화 플랫폼**",
+  "defShort": "OS 수준 격리된 환경에서 애플리케이션을 패키징·실행하는 컨테이너 기반 가상화 플랫폼",
+  "memo": "개념도: 가상화(App · bins/libs · Guest OS → Hypervisor → Host Operating System → Infrastructure) ↔ 도커(App · bins/libs → Container Engine → Operating System → Infrastructure).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "리눅스 컨테이너(LXC)",
+     "컨테이너",
+     "도커 엔진",
+     "도커 허브",
+     "cgroup",
+     "namespace"
+    ]
+   },
+   {
+    "label": "Docker 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "컨테이너 제어",
+     "컨테이너 생성",
+     "리소스 공유",
+     "이미지 설정",
+     "패키징",
+     "허브",
+     "이미지 실행",
+     "서비스 공유"
+    ]
+   },
+   {
+    "label": "Docker 기반 기술",
+    "mnemonic": "",
+    "keywords": [
+     "cgroups",
+     "Namespaces",
+     "Libvirt",
+     "container"
+    ]
+   },
+   {
+    "label": "도커(Docker)와 하이퍼바이저(Hypervisor) 비교",
+    "mnemonic": "",
+    "keywords": [
+     "추상화",
+     "OS",
+     "호환성",
+     "성능"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "리눅스 컨테이너(LXC)",
+   "컨테이너",
+   "도커 엔진",
+   "도커 허브",
+   "cgroup",
+   "namespace"
+  ]
+ },
+ {
+  "id": "sn-616",
+  "title": "쿠버네티스(Kubernetes)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "**컨테이너화** 된 워크로드와 **서비스를 관리**하기 위한 이식성과 확장성을 갖춘 오픈소스 **오케스트레이션** 플랫폼",
+  "defShort": "컨테이너화된 워크로드와 서비스를 관리하는 오케스트레이션 플랫폼",
+  "memo": "아키텍처 그림: Kubernetes master(API · Scheduler · Controller) ↔ Kubernetes node(pod · container · cAdvisor, Docker) — VM Monitor로 Relative/Absolute metrics 수집, infrastructure virtualization layer(e.g. Openstack) 아래 PM.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "Control Plane(Master Node)",
+     "Node(Worker Node)",
+     "애드온",
+     "Pod",
+     "Kubelet"
+    ]
+   },
+   {
+    "label": "쿠버네티스(Kubernetes) 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "Kube-APIServer",
+     "etcd",
+     "kube-scheduler",
+     "kube-controller-manager",
+     "cloud-controller-manager",
+     "pod",
+     "kubelet",
+     "kube-proxy",
+     "컨테이너 런타임",
+     "클러스터 DNS"
+    ]
+   },
+   {
+    "label": "쿠버네티스와 도커스웜의 비교",
+    "mnemonic": "",
+    "keywords": [
+     "아키텍처",
+     "Node",
+     "설치",
+     "Auto-Scaling",
+     "Load Balancing",
+     "컨테이너 관리"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "Control Plane(Master Node)",
+   "Node(Worker Node)",
+   "애드온",
+   "Pod",
+   "Kubelet"
+  ]
+ },
+ {
+  "id": "sn-617",
+  "title": "오토 스케일링(Auto-Scaling)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "미리 정의한 일정 또는 **시스템 부하율**에 따라 **컴퓨팅 리소스**를 **자동**으로 **증가** 또는 **감소** 시키는 기술",
+  "defShort": "일정 또는 시스템 부하율에 따라 컴퓨팅 리소스를 자동 증가·감소시키는 기술",
+  "memo": "Dynamic을 부하 기반 스케줄링이라고도 칭함.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "Vertical",
+     "Horizontal",
+     "Scale Up",
+     "Scale Out",
+     "Scale Down",
+     "Scale In",
+     "Scheduled",
+     "Dynamic",
+     "Simple",
+     "Step"
+    ]
+   },
+   {
+    "label": "오토 스케일링(Auto-Scaling)의 유형",
+    "mnemonic": "",
+    "keywords": [
+     "Scale Up",
+     "Scale Down",
+     "Scale Out",
+     "Scale In"
+    ]
+   },
+   {
+    "label": "오토 스케일링(Auto-Scaling) 정책 종류",
+    "mnemonic": "",
+    "keywords": [
+     "Manual",
+     "Scheduled",
+     "Dynamic(Simple 방식)",
+     "Dynamic(Step 방식)"
+    ]
+   },
+   {
+    "label": "오토 스케일링(Auto-Scaling) 주요 기능",
+    "mnemonic": "",
+    "keywords": [
+     "Schedule 기반 자동 증",
+     "리소스 부하 기반 자동 증",
+     "서비스 자동 투입",
+     "Monitoring",
+     "Alarm"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "Vertical",
+   "Horizontal",
+   "Scale Up",
+   "Scale Out",
+   "Scale Down",
+   "Scale In",
+   "Scheduled",
+   "Dynamic",
+   "Simple",
+   "Step"
+  ]
+ },
+ {
+  "id": "sn-618",
+  "title": "멀티 클라우드(Multi-Cloud)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "두 개 이상의 **서로 다른 클라우드 서비스 제공자**들의 **인프라**와 **서비스**를 **동시**에 **사용**하여 IT 인프라, 애플리케이션 및 서비스를 구축하고 관리하는 전략",
+  "defShort": "서로 다른 클라우드 서비스 제공자의 인프라·서비스를 동시 사용하는 전략",
+  "memo": "개념도: Hybrid Cloud — Public Cloud ↔ Private Cloud(Workloads) → Traditional IT / Multi Cloud — Application 이 여러 Public Cloud 에 Independent Workloads 로 연결.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "클라우드 + 클라우드",
+     "중복형",
+     "분산형",
+     "워크로드 최적화형",
+     "벤더 분산형",
+     "지리적 분산형"
+    ]
+   },
+   {
+    "label": "멀티 클라우드(Multi-Cloud) 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "Public Cloud",
+     "Private Cloud",
+     "End-to-End Connectivity",
+     "Data Center",
+     "Campus and branch"
+    ]
+   },
+   {
+    "label": "멀티 클라우드(Multi-Cloud)의 종류",
+    "mnemonic": "",
+    "keywords": [
+     "중복형 멀티 클라우드(Redundant Multi-Cloud)",
+     "분산형 멀티 클라우드(Distributed Multi-Cloud)",
+     "워크로드 최적화형 멀티 클라우드(Workload-Optimized Mul",
+     "벤더 분산형 멀티 클라우드(Vendor Diversified Multi-",
+     "지리적 분산형 멀티 클라우드(Geographically Distribut"
+    ]
+   },
+   {
+    "label": "멀티 클라우드와 하이브리드 클라우드의 비교",
+    "mnemonic": "",
+    "keywords": [
+     "개념",
+     "접근방식",
+     "장점"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "클라우드 + 클라우드",
+   "중복형",
+   "분산형",
+   "워크로드 최적화형",
+   "벤더 분산형",
+   "지리적 분산형"
+  ]
+ },
+ {
+  "id": "sn-619",
+  "title": "분산 클라우드(Distributed Cloud)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "**상황인지 기능**을 활용하여 **지리적, 계층적 분산 자원**으로 **실시간 서비스**를 제공하는 확장된 클라우드 컴퓨팅",
+  "defShort": "상황인지 기능으로 지리적·계층적 분산 자원의 실시간 서비스를 제공하는 클라우드",
+  "memo": "구성도: 코어 계층(on core network — 코어 클라우드 · 상대 노드) – 인터넷 – 리저널 계층(on distribution network — 리저널 클라우드) – 엣지 계층(on access/edge network — 엣지 클라우드) – 접근점(AP) · 단말기기. 협력적 분산 클라우드 운영(Cooperative distributed cloud Management).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "EC",
+     "RC",
+     "CC",
+     "고-실시간",
+     "고-이동성",
+     "상황정보 인지",
+     "자율 서비스 배치"
+    ]
+   },
+   {
+    "label": "분산 클라우드(Distributed Cloud) 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "코어 계층(Core)",
+     "리저널 계층(Regional)",
+     "에지 계층(Edge)",
+     "에지 계층(Edge)"
+    ]
+   },
+   {
+    "label": "분산 클라우드(Distributed Cloud) 종류",
+    "mnemonic": "",
+    "keywords": [
+     "RC-CC",
+     "EC-CC",
+     "EC-RC-CC"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "EC",
+   "RC",
+   "CC",
+   "고-실시간",
+   "고-이동성",
+   "상황정보 인지",
+   "자율 서비스 배치"
+  ]
+ },
+ {
+  "id": "sn-620",
+  "title": "엣지컴퓨팅(Edge Computing)과 포그컴퓨팅(Fog Computing)",
+  "category": "디지털서비스",
+  "importance": "중",
+  "source": "심화반",
+  "definition": "(엣지 컴퓨팅) 데이터를 생성한 **장치**(센서, IoT 기기 등) 근처의 **말단(edge)**에서 **데이터**를 **처리**하고 분석하는 **컴퓨팅** / (포그 컴퓨팅) **엣지** 컴퓨팅과 **클라우드** 사이의 **중간 계층**(infrastructure layer)에서 **데이터 처리**를 수행하는 **분산형 컴퓨팅 아키텍처**",
+  "defShort": "말단에서 데이터를 처리하는 엣지와 엣지·클라우드 중간 계층의 포그 컴퓨팅",
+  "memo": "계층도: Cloud Level – Fog Level – Edge Level(기지국) – IoT Level(Sensors · Actuators · Mobile phones, tablets · Vehicles · Smart devices).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "데이터 발생한 현장 실시간 처리",
+     "근거리에서 클라우드 서비스 제공",
+     "저지연",
+     "낮은 대역폭"
+    ]
+   },
+   {
+    "label": "엣지 컴퓨팅과 포그 컴퓨팅의 비교",
+    "mnemonic": "",
+    "keywords": [
+     "개념(정의)",
+     "전략",
+     "Latency",
+     "Bandwidth",
+     "데이터 처리 위치",
+     "기반 기술",
+     "구성 기능",
+     "상위 Layer",
+     "보안성"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "데이터 발생한 현장 실시간 처리",
+   "근거리에서 클라우드 서비스 제공",
+   "저지연",
+   "낮은 대역폭"
+  ]
+ },
+ {
+  "id": "sn-621",
+  "title": "서버리스 아키텍처(Serverless Architecture)",
+  "category": "디지털서비스",
+  "importance": "상",
+  "source": "심화반",
+  "definition": "**사전**에 **서버**가 **없이** code **실행**이 **필요할 때** 자동적으로 **자원**을 **할당**하여 수행 후 결과를 제공하는 Architecture",
+  "defShort": "사전 서버 없이 code 실행이 필요할 때 자원을 자동 할당하는 Architecture",
+  "memo": "아키텍처 그림: Web Client · Mobile Client → API Gateway → Function 1 · 2 · 3 → Database, Authentication Service · External Database 연동.",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "Pay per Use",
+     "서버 없이",
+     "이벤트 트리거",
+     "FaaS",
+     "BaaS"
+    ]
+   },
+   {
+    "label": "Serverless Architecture 특징",
+    "mnemonic": "",
+    "keywords": [
+     "Pay per Use",
+     "No Server Management"
+    ]
+   },
+   {
+    "label": "서버리스 아키텍처(Serverless Architecture) 동작 방식",
+    "mnemonic": "",
+    "keywords": [
+     "애플리케이션 배포",
+     "이벤트 트리거",
+     "코드 실행",
+     "리소스 프로비저닝"
+    ]
+   },
+   {
+    "label": "서버리스 아키텍처(Serverless Architecture) 구성 요소",
+    "mnemonic": "",
+    "keywords": [
+     "API Gateway",
+     "RESTFul API",
+     "FaaS",
+     "Container",
+     "Event Router",
+     "BaaS"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "Pay per Use",
+   "서버 없이",
+   "이벤트 트리거",
+   "FaaS",
+   "BaaS"
+  ]
+ },
+ {
+  "id": "sn-622",
+  "title": "서비스형 엣지 머신러닝(Edge Machine Learning as-a-Service)",
+  "category": "디지털서비스",
+  "importance": "하",
+  "source": "심화반",
+  "definition": "**엣지** 디바이스에서 **머신러닝** 모델을 실행하고 **관리**할 수 있도록 제공하는 **클라우드 기반 플랫폼** 또는 **서비스**",
+  "defShort": "엣지 머신러닝 모델 실행·관리를 제공하는 클라우드 기반 플랫폼·서비스",
+  "memo": "구조도: Cloud Instance(Models' repository — Model 1 · 2 · 3) · 3rd parties' components(ML Compiler, Target AI Chip) → Build Service → OS ready image(TinyMLaaS) → Embedded Devices(Edge ML Application · Edge AI NPU · Battery · Motor Control · Sensors · Comm · Memory · I/O).",
+  "sections": [
+   {
+    "label": "교재 키워드",
+    "mnemonic": "",
+    "keywords": [
+     "엣지",
+     "엣지 머신러닝 프레임워크",
+     "AutoML",
+     "하드웨어 인지형 모델 압축",
+     "엣지 머신러닝 모델 컴파일",
+     "엣지 MLOps",
+     "① Device Info → ② downloading → ③ creating → ④ Installing"
+    ]
+   },
+   {
+    "label": "서비스형 엣지 머신러닝 동작 절차",
+    "mnemonic": "",
+    "keywords": [
+     "Device Info",
+     "downloading",
+     "creating",
+     "Installing"
+    ]
+   },
+   {
+    "label": "서비스형 엣지 머신러닝 주요 기술",
+    "mnemonic": "",
+    "keywords": [
+     "엣지 머신러닝 프레임워크",
+     "AutoML",
+     "하드웨어 인지형 모델 압축",
+     "엣지 머신러닝 모델 컴파일",
+     "엣지 MLOps"
+    ]
+   }
+  ],
+  "mnemonic": "",
+  "keywords": [
+   "엣지",
+   "엣지 머신러닝 프레임워크",
+   "AutoML",
+   "하드웨어 인지형 모델 압축",
+   "엣지 머신러닝 모델 컴파일",
+   "엣지 MLOps",
+   "① Device Info → ② downloading → ③ creating → ④ Installing"
+  ]
+ },
+ {
+  "id": "sn-623",
   "title": "도메인 특화 언어 모델(Domain-Specific Language Model)",
   "category": "디지털서비스",
   "importance": "중",
@@ -34303,7 +34878,7 @@
   ]
  },
  {
-  "id": "sn-614",
+  "id": "sn-624",
   "title": "데이터 상호 운용성 & 데이터 이동권",
   "category": "디지털서비스",
   "importance": "중",
@@ -34349,7 +34924,7 @@
   ]
  },
  {
-  "id": "sn-615",
+  "id": "sn-625",
   "title": "AP2(Agent Payment Protocol)",
   "category": "디지털서비스",
   "importance": "중",
@@ -34408,7 +34983,7 @@
   ]
  },
  {
-  "id": "sn-616",
+  "id": "sn-626",
   "title": "UCP(Universal Commerce Protocol)",
   "category": "디지털서비스",
   "importance": "중",
@@ -34457,7 +35032,7 @@
   ]
  },
  {
-  "id": "sn-617",
+  "id": "sn-627",
   "title": "ACP(Agentic Commerce Protocol)",
   "category": "디지털서비스",
   "importance": "중",
@@ -34490,7 +35065,7 @@
   ]
  },
  {
-  "id": "sn-618",
+  "id": "sn-628",
   "title": "스테이블 코인(Stable coin)",
   "category": "디지털서비스",
   "importance": "중",
@@ -34569,7 +35144,7 @@
   ]
  },
  {
-  "id": "sn-619",
+  "id": "sn-629",
   "title": "데이터 스페이스(Data Space)",
   "category": "디지털서비스",
   "importance": "중",
@@ -34634,7 +35209,7 @@
   ]
  },
  {
-  "id": "sn-620",
+  "id": "sn-630",
   "title": "AI OS(Artificial Intelligence Operating System)",
   "category": "디지털서비스",
   "importance": "중",
@@ -53735,37 +54310,6 @@
   ]
  },
  {
-  "id": "ds-58",
-  "title": "멀티클라우드",
-  "category": "디지털서비스",
-  "importance": "출제예상",
-  "source": "기필반",
-  "definition": "2개 이상의 클라우드를 연결해주는 클라우드 구축 모델",
-  "defShort": "2개 이상의 클라우드를 연결해 종속을 회피하고 가용성을 높이는 클라우드 구축 모델",
-  "memo": "",
-  "sections": [
-   {
-    "label": "핵심 키워드",
-    "mnemonic": "",
-    "keywords": [
-     "Private",
-     "On-premise",
-     "하이브리드 클라우드",
-     "프래그머틱 하이브리드 클라우드",
-     "멀티 퍼블릭 클라우드"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "Private",
-   "On-premise",
-   "하이브리드 클라우드",
-   "프래그머틱 하이브리드 클라우드",
-   "멀티 퍼블릭 클라우드"
-  ]
- },
- {
   "id": "ds-59",
   "title": "파스타(PaaS-TA)",
   "category": "디지털서비스",
@@ -57077,31 +57621,6 @@
   ]
  },
  {
-  "id": "ds-163",
-  "title": "Hypervisor",
-  "category": "디지털서비스",
-  "importance": "상",
-  "source": "기필반",
-  "definition": "하나의 물리 서버 위에서 다수의 게스트 OS(가상머신)를 생성·실행하고 CPU·메모리·I/O 자원을 분배·격리하는 가상머신 관리자(VMM).",
-  "defShort": "한 물리 서버에서 다수 게스트 OS를 생성·실행하고 자원을 분배·격리하는 VMM",
-  "memo": "Type1=Bare-metal(HW 직접, ESXi·KVM, 성능·보안 우수, 데이터센터) / Type2=Hosted(호스트OS 위, VirtualBox, 편의·개발용). VMM=가상머신 모니터. 전가상화/반가상화 방식 구분.",
-  "sections": [
-   {
-    "label": "유형",
-    "mnemonic": "",
-    "keywords": [
-     "Type 1(Native/Bare-metal)",
-     "Type 2(Hosted)"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "Type 1(Native/Bare-metal)",
-   "Type 2(Hosted)"
-  ]
- },
- {
   "id": "ds-164",
   "title": "서버가상화",
   "category": "디지털서비스",
@@ -57360,54 +57879,6 @@
   ]
  },
  {
-  "id": "ds-172",
-  "title": "도커(Docker)",
-  "category": "디지털서비스",
-  "importance": "상",
-  "source": "기필반",
-  "definition": "하이퍼바이저 없이 리눅스 컨테이너(LXC) 기술로 호스트 OS 커널을 공유하며 애플리케이션을 격리된 컨테이너 단위로 패키징·실행하는 오픈소스 컨테이너 가상화 플랫폼.",
-  "defShort": "호스트 OS의 커널을 공유하며 앱을 격리된 컨테이너로 패키징·실행하는 플랫폼",
-  "memo": "공빠이호 = 커널공유·빠름·이식성·호환성. 이미지(읽기전용 템플릿, 정적) ≠ 컨테이너(실행 인스턴스, 동적). 기반=cgroups(자원제한)·Namespace(격리). 실행=Client→Host(Daemon)→Registry. 관리는 Kubernetes.",
-  "sections": [
-   {
-    "label": "특징",
-    "mnemonic": "공빠이호",
-    "keywords": [
-     "호스트 OS 커널 공유",
-     "빠르고 가벼운 가상화",
-     "이식성",
-     "개발/운영 호환성"
-    ]
-   },
-   {
-    "label": "기반 기술",
-    "mnemonic": "",
-    "keywords": [
-     "LXC",
-     "cgroups",
-     "Namespace",
-     "libvirt"
-    ]
-   },
-   {
-    "label": "실행 구조",
-    "mnemonic": "",
-    "keywords": [
-     "Client",
-     "Docker Host(Daemon)",
-     "Registry"
-    ]
-   }
-  ],
-  "mnemonic": "공빠이호",
-  "keywords": [
-   "호스트 OS 커널 공유",
-   "빠르고 가벼운 가상화",
-   "이식성",
-   "개발/운영 호환성"
-  ]
- },
- {
   "id": "ds-173",
   "title": "컨테이너(Container)",
   "category": "디지털서비스",
@@ -57441,37 +57912,6 @@
    "커널 공유(경량)",
    "초 단위 기동",
    "높은 집적도"
-  ]
- },
- {
-  "id": "ds-174",
-  "title": "컨테이너 오케스트레이션/쿠버네티스(Kubernetes)",
-  "category": "디지털서비스",
-  "importance": "출제예상",
-  "source": "기필반",
-  "definition": "컨테이너화된 어플리케이션의 배포, 확장 및 관리를 자동화 위한 오픈소스 플랫폼",
-  "defShort": "컨테이너 앱의 배포·확장·관리를 자동화하는 오픈소스 오케스트레이션 플랫폼",
-  "memo": "컨테이너 vs 가상머신: 가상머신(하이퍼바이저) / 컨테이너(도커·LXC). 키워드: cgroup·libvirt·namespace.",
-  "sections": [
-   {
-    "label": "구성요소",
-    "mnemonic": "마노포컨컨",
-    "keywords": [
-     "마스터",
-     "노드",
-     "포드",
-     "컨테이너 포함",
-     "컨트롤매니저"
-    ]
-   }
-  ],
-  "mnemonic": "마노포컨컨",
-  "keywords": [
-   "마스터",
-   "노드",
-   "포드",
-   "컨테이너 포함",
-   "컨트롤매니저"
   ]
  },
  {
@@ -61386,33 +61826,6 @@
    "처리",
    "통계분석",
    "마이닝"
-  ]
- },
- {
-  "id": "ds-302",
-  "title": "분산클라우드",
-  "category": "디지털서비스",
-  "importance": "출제예상",
-  "source": "기필반",
-  "definition": "클라우드 서비스 사용자와 가까운 클라우드에 클라우드 서비스를 빠르게 프로비저닝하여 신속하게 제공하는 클라우드 모델",
-  "defShort": "사용자 가까운 위치에 클라우드 서비스를 신속히 프로비저닝해 제공하는 배치 모델",
-  "memo": "REE (RC-CC·EC-CC·EC-RC-CC)",
-  "sections": [
-   {
-    "label": "배치모델",
-    "mnemonic": "REE",
-    "keywords": [
-     "RC-CC",
-     "EC-CC",
-     "EC-RC-CC"
-    ]
-   }
-  ],
-  "mnemonic": "REE",
-  "keywords": [
-   "RC-CC",
-   "EC-CC",
-   "EC-RC-CC"
   ]
  },
  {
@@ -82300,46 +82713,6 @@
    "기밀성",
    "무결성",
    "가용성"
-  ]
- },
- {
-  "id": "sec-272",
-  "title": "가상화,하이퍼바이저(Hypervisor)",
-  "category": "보안",
-  "importance": "상",
-  "source": "기필반",
-  "definition": "하나의 물리 서버에서 다수의 VM을 생성·구동하는 하이퍼바이저 계층과 가상화 환경에 내재된 보안 취약점 및 이에 대한 대응 기술",
-  "defShort": "VM 간 사각지대와 VM 탈출 등 가상화 계층 위협을 VMI로 통제하는 보안 대응 체계",
-  "memo": "아파트 비유: 하이퍼바이저는 건물 관리실 — 관리실이 뚫리면(VM Escape) 전 세대가 뚫린다. 세대 간 벽(마이크로세그멘테이션)과 관리실 CCTV(VMI)로 대응한다고 연상.",
-  "sections": [
-   {
-    "label": "보안 이슈",
-    "mnemonic": "",
-    "keywords": [
-     "기존 장비 한계(사각지대)",
-     "멀티테넌시(VM 간 공격)",
-     "VM 관리(감염 VM 이동·복사)",
-     "VM Escape"
-    ]
-   },
-   {
-    "label": "대응기술",
-    "mnemonic": "",
-    "keywords": [
-     "VMI",
-     "Agentless 보안 어플라이언스",
-     "마이크로세그멘테이션",
-     "하이퍼바이저 패치·최소화",
-     "이미지 무결성 검증"
-    ]
-   }
-  ],
-  "mnemonic": "",
-  "keywords": [
-   "기존 장비 한계(사각지대)",
-   "멀티테넌시(VM 간 공격)",
-   "VM 관리(감염 VM 이동·복사)",
-   "VM Escape"
   ]
  },
  {
