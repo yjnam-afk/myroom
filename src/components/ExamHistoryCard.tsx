@@ -137,11 +137,11 @@ export function ExamHistoryCard({
         </>
       )}
 
-      {/* ITPE 모의고사·파이널 — NS·기출에 없는 신기술 토픽은 여기에만 나온다 */}
+      {/* 모의고사(ITPE·KPC·명품)·파이널(ITPE FR·합숙) — NS·기출에 없는 신기술 토픽은 여기에만 나온다 */}
       {mock.length > 0 && (
         <>
           <div className={`px-5 py-3 ${hist.length + past.length > 0 ? "border-t border-slate-100" : ""} bg-amber-50/60`}>
-            <h3 className="text-sm font-bold text-slate-800">🗂️ ITPE 모의고사·파이널 출제 {mock.length}회</h3>
+            <h3 className="text-sm font-bold text-slate-800">🗂️ 모의고사·파이널 출제 {mock.length}회</h3>
             <p className="mt-0.5 text-xs text-slate-500">
               {hist.length + past.length > 0
                 ? "NS·기출 밖에서 나온 문제입니다."
