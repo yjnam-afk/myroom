@@ -40,7 +40,8 @@ rewrite 가 `/answers/…` 를 GitHub 원본(raw.githubusercontent.com, 공개 �
 2026-11-01 까지는 TS 배열 11만 줄(`PEER_ANSWERS_1`~`_11`)이었는데, 파이썬 문자열 치환으로 고치다 빌드가 깨져 JSON 으로 옮겼다.
 **손으로도 문자열 치환으로도 고치지 않는다** — `scripts/answers.ts`(set·add-qid·rm-qid·add·rm·apply)로 고치면
 `scripts/lib/answers-store.ts` 의 검사(id 중복·교시·빈 문제·이미지 파일·문제은행 문항 id·점수)를 통과해야 저장된다.
-같은 검사가 prebuild 맨 앞(`answers.ts check`)에서 돈다. 새 묶음이 필요하면 `12.json` 을 만들고 `peerAnswers.ts` import 에 더한다.
+같은 검사가 prebuild 맨 앞(`answers.ts check`)에서 돈다. 연결·검수·가져오기 스크립트 목록은 `scripts/README.md`.
+「같은 문제」 판정·문구 정규화·회차 정렬은 `src/lib/questionText.ts` 한 곳(시험: `scripts/test-question-text.ts` — 사용자가 짚은 사례를 여기 더한다). 새 묶음이 필요하면 `12.json` 을 만들고 `peerAnswers.ts` import 에 더한다.
 
 ## 모범답안 = 사람이 쓴 시험지 스캔
 
