@@ -27,7 +27,9 @@ npm run build   # prebuild(플래시카드·genAnswers) + next build + 타입검
 하루 넘게 화면에 안 나왔다(로컬 `npm run build` 는 통과하므로 여기서는 안 보인다). 그래서
 답안 스캔(`public/answers`)은 `.vercelignore` 로 배포에서 빼고, `next.config.mjs` 의 fallback
 rewrite 가 `/answers/…` 를 GitHub 원본(raw.githubusercontent.com, 공개 저장소)으로 넘긴다.
-이미지는 전처럼 `public/answers` 에 커밋하면 된다. `public/` 의 다른 폴더에 파일을 대량으로
+이미지는 전처럼 `public/answers` 에 커밋하면 된다.
+**그래서 Vercel 빌드에는 `public/answers` 가 없다** — prebuild 스크립트가 답안 이미지 파일을 읽거나 있는지 따지면 Vercel 에서만 멈춘다
+(2026-11-01 `answers.ts check` 의 이미지 검사 때문에 배포가 4번 연속 실패했다. 로컬 빌드는 통과해서 안 보였다). 푸시 뒤엔 커밋 상태(Vercel)가 success 인지 꼭 본다. `public/` 의 다른 폴더에 파일을 대량으로
 넣을 때는 `find public -type f | wc -l` 이 16,000 에 가깝지 않은지 본다.
 
 **2026-11-01 부터 새 답안 이미지는 별도 공개 저장소 `yjnam-afk/myroom-answers`(main)에 넣는다** — 이 저장소가 3.6GB(이미지 3.4GB)가 되어
