@@ -10,6 +10,7 @@ import { relatedTopics } from "@/lib/relatedTopics";
 import PeerAnswers from "@/components/PeerAnswers";
 import { isSameQuestion, answersForQuestion } from "@/lib/questionAnswers";
 import { matchSubnoteTitle } from "@/lib/matchSubnote";
+import freq from "@/data/questionFreq.json";
 
 type Q = {
   id: string;
@@ -32,6 +33,27 @@ const kindOf = (q: Q): "기출" | "셀테" | "모의고사" | "NS모의" | "파�
 const roundOf = (q: Q) => {
   const r = q.round || (q.source || "").split(" ")[0] || "";
   return q.cohort ? `${q.cohort} ${r}` : r;
+};
+
+// 빈출도 — 그 문항의 토픽이 기출·NS·모의고사·파이널·셀테에 몇 번 나왔나(scripts/build-question-freq.ts).
+// 2026-11-01 "문제은행은 빈도수 높은거 상중하 선택가능하도록"
+const FREQ = freq as { cut: { 상: number; 중: number }; f: Record<string, number> };
+const freqOf = (q: Q) => FREQ.f[q.id] ?? 0;
+const TIERS = ["상", "중", "하"] as const;
+type Tier = (typeof TIERS)[number];
+const tierOf = (q: Q): Tier => {
+  const n = freqOf(q);
+  return n >= FREQ.cut.상 ? "상" : n >= FREQ.cut.중 ? "중" : "하";
+};
+const TIER_DESC: Record<Tier, string> = {
+  상: `토픽 출제 ${FREQ.cut.상}회 이상`,
+  중: `${FREQ.cut.중}~${FREQ.cut.상 - 1}회`,
+  하: `${FREQ.cut.중 - 1}회 이하·교재 밖 토픽`,
+};
+const TIER_BADGE: Record<Tier, string> = {
+  상: "bg-red-100 text-red-700",
+  중: "bg-orange-100 text-orange-700",
+  하: "bg-slate-100 text-slate-500",
 };
 
 // NS 주간 모의고사가 지금 치르는 시험이라 맨 앞.
@@ -70,6 +92,7 @@ export default function BankPage() {
   const [mode, setMode] = useState<(typeof MODES)[number]>(MODES[0]);
   const [count, setCount] = useState<number>(MODES[0].def);
   const [srcs, setSrcs] = useState<Set<string>>(new Set(KINDS));
+  const [tiers, setTiers] = useState<Set<Tier>>(new Set(TIERS));
   const [drawn, setDrawn] = useState<Q[]>([]);
   const [drew, setDrew] = useState(false);
 
@@ -77,9 +100,12 @@ export default function BankPage() {
   const candidates = useMemo(
     () =>
       POOL.filter(
-        (q) => (mode.periods as readonly string[]).includes(q.period) && srcs.has(kindOf(q)),
+        (q) =>
+          (mode.periods as readonly string[]).includes(q.period) &&
+          srcs.has(kindOf(q)) &&
+          tiers.has(tierOf(q)),
       ),
-    [mode, srcs],
+    [mode, srcs, tiers],
   );
 
   function draw() {
@@ -92,6 +118,13 @@ export default function BankPage() {
     next.has(k) ? next.delete(k) : next.add(k);
     if (next.size === 0) return; // 최소 1개 유지
     setSrcs(next);
+  }
+
+  function toggleTier(t: Tier) {
+    const next = new Set(tiers);
+    next.has(t) ? next.delete(t) : next.add(t);
+    if (next.size === 0) return; // 최소 1개 유지
+    setTiers(next);
   }
 
   function pickMode(m: (typeof MODES)[number]) {
@@ -159,6 +192,39 @@ export default function BankPage() {
           </div>
         </div>
 
+        {/* 빈출도 */}
+        <div className="mb-4">
+          <div className="mb-2 text-xs font-semibold text-slate-500">
+            빈출도 <span className="font-normal text-slate-400">· 같은 토픽이 기출·NS·모의고사·파이널에 나온 횟수</span>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {TIERS.map((t) => {
+              const on = tiers.has(t);
+              const n = POOL.filter(
+                (q) =>
+                  (mode.periods as readonly string[]).includes(q.period) &&
+                  srcs.has(kindOf(q)) &&
+                  tierOf(q) === t,
+              ).length;
+              return (
+                <button
+                  key={t}
+                  onClick={() => toggleTier(t)}
+                  className={`rounded-lg border px-3 py-1.5 text-xs font-semibold transition ${
+                    on
+                      ? "border-brand-500 bg-brand-50 text-brand-700"
+                      : "border-slate-200 text-slate-400 hover:bg-slate-50"
+                  }`}
+                >
+                  {on ? "✓ " : ""}
+                  {t} <span className="font-normal opacity-70">{TIER_DESC[t]}</span>{" "}
+                  <span className="opacity-60">({n})</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
         {/* 문항 수 */}
         <div className="mb-5">
           <div className="mb-2 text-xs font-semibold text-slate-500">
@@ -196,7 +262,7 @@ export default function BankPage() {
         </Button>
         {candidates.length === 0 && (
           <p className="mt-2 text-xs text-rose-500">
-            선택한 조건에 해당하는 문제가 없어요. 출처를 더 켜보세요.
+            선택한 조건에 해당하는 문제가 없어요. 출처나 빈출도를 더 켜보세요.
           </p>
         )}
       </div>
@@ -255,6 +321,13 @@ export default function BankPage() {
                       </span>
                       <span className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] text-slate-500">
                         {q.category}
+                      </span>
+                      <span
+                        className={`rounded px-1.5 py-0.5 text-[10px] font-bold ${TIER_BADGE[tierOf(q)]}`}
+                        title="같은 토픽이 기출·NS·모의고사·파이널·셀테에 나온 횟수"
+                      >
+                        빈출 {tierOf(q)}
+                        {freqOf(q) > 0 ? ` · ${freqOf(q)}회` : ""}
                       </span>
                       <CopyButton
                         text={q.text}
