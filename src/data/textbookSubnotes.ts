@@ -26053,10 +26053,17 @@ export function subnoteByAlias(
  * ★정확 일치를 먼저★ — '단편화'와 '메모리 단편화'처럼 포함 관계인 제목이 서로를
  * 잘못 물어가지 않게 한다(느슨한 일치는 정확 일치가 없을 때만).
  */
+/**
+ * 느슨한 포함 매칭을 하지 않는 CONTENTS 제목 — 다른 토픽 서브노트에 잘못 붙는다(2026-11-01 디지털서비스 CONTENTS).
+ * 「디지털 트윈」→「디지털 트윈 네트워크」(NW), 「스마트시티 데이터 거버넌스」→「데이터 거버넌스」(DB).
+ */
+const EXACT_ONLY = new Set(["디지털 트윈(Digital Twin)", "스마트시티 데이터 거버넌스(Smart City Data Governance)"]);
+
 export function subnoteByTitle(title?: string): TextbookSubnote | undefined {
   const raw = title || "";
   const t = norm(raw);
   if (!t) return undefined;
+  if (EXACT_ONLY.has(raw)) return SUBNOTES.find((s) => norm(s.title) === t);
   const tb = bare(raw);
   return (
     SUBNOTES.find((s) => norm(s.title) === t) ||

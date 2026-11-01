@@ -1342,25 +1342,176 @@ export const TOPIC_TREE: Record<string, TreeArea[]> = {
     ] },
   ],
   DX: [
-    { name: "데이터 공유·주권", groups: [
-      { name: "데이터 이동·연계", items: [
-        "데이터 상호 운용성 & 데이터 이동권",
-        "데이터 스페이스(Data Space)",
+    // 2026-11-01 디지털서비스 CONTENTS 89쪽 + CONTENTS 밖 서브노트 7개
+    { name: "클라우드 인프라", groups: [
+      { name: "가상화·컨테이너", items: [
+        "하이퍼바이저(Hypervisor)",
+        { t: "리눅스 컨테이너(Linux Container, LXC)", kids: [
+          { t: "도커(Docker)", rel: "확장·발전", why: "LXC 기반 컨테이너 플랫폼" },
+        ] },
+        "쿠버네티스(Kubernetes)",
+      ] },
+      { name: "클라우드 배치", items: [
+        "멀티 클라우드(Multi-Cloud)",
+        "분산 클라우드(Distributed Cloud)",
+        "소버린 클라우드(Sovereign Cloud)",
+        { t: "엣지컴퓨팅(Edge Computing)과 포그컴퓨팅(Fog Computing)", kids: [
+          { t: "서비스형 엣지 머신러닝(Edge Machine Learning as-a-Service)", rel: "확장·발전", why: "엣지 ML 서비스화" },
+        ] },
+      ] },
+      { name: "클라우드 운영·전환", items: [
+        "오토 스케일링(Auto-Scaling)",
+        "FinOps(Financial Operations)",
+        "클라우드 마이그레이션(Cloud Migration)",
+        "공공부문 SaaS 이용가이드 라인",
       ] },
     ] },
-    { name: "AI 에이전트 기반", groups: [
-      { name: "AI 운영체제", items: [
+    { name: "클라우드 네이티브·플랫폼", groups: [
+      { name: "클라우드 네이티브", items: [
+        { t: "클라우드 네이티브(Cloud Native)", kids: [
+          { t: "클라우드 네이티브(Cloud Native) 참조 아키텍처", rel: "구성·기법", why: "계층별 구성" },
+          { t: "Cloud Native 12-Factor App & 15-Factor", rel: "구성·기법", why: "앱 설계 원칙" },
+          { t: "클라우드 네이티브 구축운영 상세가이드('26.01)", rel: "구성·기법", why: "구축·운영 지침" },
+        ] },
+        "서버리스 아키텍처(Serverless Architecture)",
+        "CNAPP(Cloud Native Application Protection Platform)",
+      ] },
+      { name: "개발·운영 플랫폼", items: [
+        "깃옵스(GitOps)",
+        "플랫폼 엔지니어링(Platform Engineering)",
+        "로우 코드(Low Code)",
         "AI OS(Artificial Intelligence Operating System)",
       ] },
     ] },
-    { name: "에이전틱 커머스", groups: [
-      { name: "상거래 프로토콜", items: [
+    { name: "모빌리티", groups: [
+      { name: "자율주행", items: [
+        { t: "자율주행자동차의 자율주행기술 단계 및 핵심기술", kids: [
+          { t: "레이더(RADAR) & 라이다(LiDAR)", rel: "구성·기법", why: "주변 인지 센서" },
+          { t: "LDM(Local Dynamic Map)", rel: "구성·기법", why: "동적 지도 정보" },
+        ] },
+        "소프트웨어 정의 차량(Software-Defined Vehicle)",
+      ] },
+      { name: "기능 안전", items: [
+        { t: "IEC 61508", kids: [
+          { t: "ASIL(Automotive Software Integrity Levels)", rel: "확장·발전", why: "차량용 안전 등급" },
+        ] },
+      ] },
+      { name: "교통 서비스", items: [
+        "C-ITS(Cooperative-Intelligent Transport Systems)",
+        "MaaS(Mobility as a service)",
+        "UAM(Urban Air Mobility)",
+      ] },
+    ] },
+    { name: "블록체인·디지털 자산", groups: [
+      { name: "블록체인 기술", items: [
+        { t: "블록체인 트릴레마(Trilemma)", kids: [
+          { t: "라이트닝 네트워크(Lightning Network)", rel: "문제·해결", why: "오프체인 확장성" },
+        ] },
+        "블록체인 오라클 문제(Oracle Problem)",
+        "웹3.0(Web 3.0)",
+      ] },
+      { name: "디지털 화폐·자산", items: [
+        "중앙은행 디지털화폐(CBDC: Central Bank Digital Currency)",
+        "스테이블 코인(Stable coin)",
+        "RWA(Real World Asset) 토큰화 프로토콜",
+        "증권형 토큰(STO, Security Token Offering)",
+      ] },
+      { name: "지갑·결제", items: [
+        { t: "디지털 지갑(Digital Wallet)", kids: [
+          { t: "암호화폐 지갑(Cryptocurrency Wallet)", rel: "종류", why: "암호화폐 보관 지갑" },
+        ] },
+        "AP2(Agent Payment Protocol)",
+      ] },
+      { name: "커머스", items: [
         "UCP(Universal Commerce Protocol)",
         "ACP(Agentic Commerce Protocol)",
+        "헤드리스 커머스(Headless Commerce)",
       ] },
-      { name: "결제·디지털 화폐", items: [
-        "AP2(Agent Payment Protocol)",
-        "스테이블 코인(Stable coin)",
+    ] },
+    { name: "제조·IoT·로봇", groups: [
+      { name: "스마트 제조", items: [
+        "스마트 팩토리 시스템(Smart Factory System)",
+        "소프트웨어 정의 제조(SDM, Software Defined Manufacturing)",
+        "AI 예지 보전(Predictive Maintenance, PdM)",
+      ] },
+      { name: "디지털 트윈·전환", items: [
+        { t: "디지털 트윈(Digital Twin)", kids: [
+          { t: "디지털 스레드(Digital Thread)", rel: "확장·발전", why: "생애주기 데이터 연결" },
+          { t: "트윈 트랜스포메이션(Twin Transformation)", rel: "확장·발전", why: "트윈 기반 전환" },
+        ] },
+        "DXaaS/DTaaS(Digital Transformation as a Service)",
+      ] },
+      { name: "IoT·저전력 컴퓨팅", items: [
+        "지능형 IoT와 자율형 IoT",
+        { t: "엠비언트 IoT(Ambient Internet of Things)", kids: [
+          { t: "인터미턴트 컴퓨팅(Intermittent Computing)", rel: "구성·기법", why: "간헐 전원 연산" },
+          { t: "앰비언트 인비저블 인텔리전스(Ambient Invisible Intelligence)", rel: "확장·발전", why: "보이지 않는 지능" },
+        ] },
+        "에너지 효율적 컴퓨팅(Energy-Efficient Computing)",
+      ] },
+      { name: "로봇·자동화", items: [
+        { t: "AMR(Autonomous Mobile Robot)", kids: [
+          { t: "SLAM(Simultaneous Localization and Mapping)", rel: "구성·기법", why: "위치추정·지도작성" },
+        ] },
+        "위치 측위(Positioning)",
+        "클라우드 로봇 지능(Cloud Robot Intelligence)",
+        "Robot-as-a-Service(RaaS)",
+        "RPA(Robotic Process Automation)",
+      ] },
+    ] },
+    { name: "스마트 시티·공간·양자", groups: [
+      { name: "스마트 시티·농업", items: [
+        { t: "스마트 시티(Smart City)", kids: [
+          { t: "스마트시티 데이터 거버넌스(Smart City Data Governance)", rel: "구성·기법", why: "도시 데이터 관리" },
+        ] },
+        "스마트 팜(Smart Farm)",
+      ] },
+      { name: "에너지", items: [
+        "AMI(Advanced Metering Infrastructure) 2.0",
+        "VPP(Virtual Power Plant)",
+      ] },
+      { name: "공간·몰입·웹", items: [
+        "공간 컴퓨팅(Spatial Computing)",
+        "디지털 휴먼(Digital Human)",
+        "웹 어셈블리(Web Assembly; WASM)",
+      ] },
+      { name: "양자", items: [
+        "양자컴퓨터(Quantum Computer)",
+        { t: "양자인터넷(Quantum Internet)", kids: [
+          { t: "QKDaaS(Quantum Key Distribution as a Service)", rel: "확장·발전", why: "양자키분배 서비스화" },
+        ] },
+      ] },
+    ] },
+    { name: "데이터·디지털 사회·제도", groups: [
+      { name: "데이터 주권·이동", items: [
+        { t: "마이 데이터(MyData)", kids: [
+          { t: "개인정보 전송요구권", rel: "구성·기법", why: "정보주체 전송 권리" },
+        ] },
+        "데이터 상호 운용성 & 데이터 이동권",
+        "데이터 스페이스(Data Space)",
+        "국가 데이터 인프라(Data Infra)",
+      ] },
+      { name: "디지털 역량·포용", items: [
+        "디지털 리터러시(Digital Literacy)",
+        "디지털 성숙도(Digital Maturity)",
+        "디지털 권리장전(The Digital Bill of Rights)",
+        "디지털포용법",
+        "유니버설디자인(universal design)과 웹접근성",
+      ] },
+      { name: "산업별 디지털 서비스", items: [
+        "디지털 치료제(Digital Therapeutics)",
+        "에듀테크(EduTech)",
+        "프롭테크(Proptech)",
+        "기후테크",
+        "에이지테크(AgeTech)",
+        "GovTech",
+      ] },
+      { name: "법·제도·동향", items: [
+        "가상융합산업 진흥법",
+        "민간투자형 SW 사업",
+        "디지털서비스 전문 계약제도",
+        "유럽 디지털 3법",
+        "가트너(Gartner) 2026",
       ] },
     ] },
   ],

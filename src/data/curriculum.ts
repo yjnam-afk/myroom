@@ -847,14 +847,111 @@ const SC_ALL: CurriculumTopic[] = [
   { title: "국가 망 보안체계(N2SF)", priority: "상" },
 ];
 
+// 디지털서비스(DX) — 교재 CONTENTS Ⅰ·Ⅱ(89쪽) 순서·Priority 그대로(2026-11-01, 목차 이미지 public/concept/book/dsv-contents-1·2.png).
+const DX_ALL: CurriculumTopic[] = [
+  { title: "하이퍼바이저(Hypervisor)", priority: "하" },
+  { title: "리눅스 컨테이너(Linux Container, LXC)", priority: "중" },
+  { title: "도커(Docker)", priority: "중" },
+  { title: "쿠버네티스(Kubernetes)", priority: "중" },
+  { title: "오토 스케일링(Auto-Scaling)", priority: "중" },
+  { title: "멀티 클라우드(Multi-Cloud)", priority: "중" },
+  { title: "분산 클라우드(Distributed Cloud)", priority: "상" },
+  { title: "엣지컴퓨팅(Edge Computing)과 포그컴퓨팅(Fog Computing)", priority: "중" },
+  { title: "서버리스 아키텍처(Serverless Architecture)", priority: "상" },
+  { title: "서비스형 엣지 머신러닝(Edge Machine Learning as-a-Service)", priority: "하" },
+  { title: "클라우드 네이티브(Cloud Native)", priority: "상" },
+  { title: "클라우드 네이티브(Cloud Native) 참조 아키텍처", priority: "중" },
+  { title: "Cloud Native 12-Factor App & 15-Factor", priority: "하" },
+  { title: "CNAPP(Cloud Native Application Protection Platform)", priority: "중" },
+  { title: "클라우드 네이티브 구축운영 상세가이드('26.01)", priority: "중" },
+  { title: "깃옵스(GitOps)", priority: "중" },
+  { title: "공공부문 SaaS 이용가이드 라인", priority: "중" },
+  { title: "소버린 클라우드(Sovereign Cloud)", priority: "상" },
+  { title: "FinOps(Financial Operations)", priority: "중" },
+  { title: "클라우드 마이그레이션(Cloud Migration)", priority: "상" },
+  { title: "C-ITS(Cooperative-Intelligent Transport Systems)", priority: "중" },
+  { title: "자율주행자동차의 자율주행기술 단계 및 핵심기술", priority: "중" },
+  { title: "레이더(RADAR) & 라이다(LiDAR)", priority: "하" },
+  { title: "LDM(Local Dynamic Map)", priority: "하" },
+  { title: "소프트웨어 정의 차량(Software-Defined Vehicle)", priority: "상" },
+  { title: "IEC 61508", priority: "상" },
+  { title: "ASIL(Automotive Software Integrity Levels)", priority: "상" },
+  { title: "MaaS(Mobility as a service)", priority: "중" },
+  { title: "UAM(Urban Air Mobility)", priority: "상" },
+  { title: "디지털 치료제(Digital Therapeutics)", priority: "하" },
+  { title: "디지털 리터러시(Digital Literacy)", priority: "하" },
+  { title: "디지털 성숙도(Digital Maturity)", priority: "하" },
+  { title: "디지털 권리장전(The Digital Bill of Rights)", priority: "상" },
+  { title: "디지털포용법", priority: "하" },
+  { title: "에듀테크(EduTech)", priority: "중" },
+  { title: "프롭테크(Proptech)", priority: "하" },
+  { title: "기후테크", priority: "중" },
+  { title: "에이지테크(AgeTech)", priority: "중" },
+  { title: "GovTech", priority: "중" },
+  { title: "블록체인 트릴레마(Trilemma)", priority: "하" },
+  { title: "라이트닝 네트워크(Lightning Network)", priority: "하" },
+  { title: "블록체인 오라클 문제(Oracle Problem)", priority: "하" },
+  { title: "암호화폐 지갑(Cryptocurrency Wallet)", priority: "상" },
+  { title: "중앙은행 디지털화폐(CBDC: Central Bank Digital Currency)", priority: "중" },
+  { title: "RWA(Real World Asset) 토큰화 프로토콜", priority: "중" },
+  { title: "증권형 토큰(STO, Security Token Offering)", priority: "하" },
+  { title: "디지털 지갑(Digital Wallet)", priority: "상" },
+  { title: "스마트 팩토리 시스템(Smart Factory System)", priority: "상" },
+  { title: "소프트웨어 정의 제조(SDM, Software Defined Manufacturing)", priority: "상" },
+  { title: "AI 예지 보전(Predictive Maintenance, PdM)", priority: "중" },
+  { title: "지능형 IoT와 자율형 IoT", priority: "하" },
+  { title: "엠비언트 IoT(Ambient Internet of Things)", priority: "상" },
+  { title: "앰비언트 인비저블 인텔리전스(Ambient Invisible Intelligence)", priority: "중" },
+  { title: "SLAM(Simultaneous Localization and Mapping)", priority: "중" },
+  { title: "위치 측위(Positioning)", priority: "상" },
+  { title: "인터미턴트 컴퓨팅(Intermittent Computing)", priority: "하" },
+  { title: "에너지 효율적 컴퓨팅(Energy-Efficient Computing)", priority: "중" },
+  { title: "Robot-as-a-Service(RaaS)", priority: "중" },
+  { title: "클라우드 로봇 지능(Cloud Robot Intelligence)", priority: "상" },
+  { title: "AMR(Autonomous Mobile Robot)", priority: "상" },
+  { title: "RPA(Robotic Process Automation)", priority: "중" },
+  { title: "디지털 트윈(Digital Twin)", priority: "상" },
+  { title: "디지털 스레드(Digital Thread)", priority: "중" },
+  { title: "트윈 트랜스포메이션(Twin Transformation)", priority: "하" },
+  { title: "DXaaS/DTaaS(Digital Transformation as a Service)", priority: "하" },
+  { title: "AMI(Advanced Metering Infrastructure) 2.0", priority: "하" },
+  { title: "VPP(Virtual Power Plant)", priority: "중" },
+  { title: "스마트 팜(Smart Farm)", priority: "하" },
+  { title: "스마트 시티(Smart City)", priority: "상" },
+  { title: "스마트시티 데이터 거버넌스(Smart City Data Governance)", priority: "중" },
+  { title: "웹3.0(Web 3.0)", priority: "상" },
+  { title: "웹 어셈블리(Web Assembly; WASM)", priority: "중" },
+  { title: "헤드리스 커머스(Headless Commerce)", priority: "중" },
+  { title: "유니버설디자인(universal design)과 웹접근성", priority: "하" },
+  { title: "디지털 휴먼(Digital Human)", priority: "중" },
+  { title: "공간 컴퓨팅(Spatial Computing)", priority: "중" },
+  { title: "가상융합산업 진흥법", priority: "상" },
+  { title: "양자인터넷(Quantum Internet)", priority: "중" },
+  { title: "양자컴퓨터(Quantum Computer)", priority: "상" },
+  { title: "QKDaaS(Quantum Key Distribution as a Service)", priority: "하" },
+  { title: "마이 데이터(MyData)", priority: "상" },
+  { title: "개인정보 전송요구권", priority: "중" },
+  { title: "국가 데이터 인프라(Data Infra)", priority: "중" },
+  { title: "가트너(Gartner) 2026", priority: "상" },
+  { title: "로우 코드(Low Code)", priority: "상" },
+  { title: "플랫폼 엔지니어링(Platform Engineering)", priority: "중" },
+  { title: "민간투자형 SW 사업", priority: "상" },
+  { title: "디지털서비스 전문 계약제도", priority: "상" },
+  { title: "유럽 디지털 3법", priority: "중" },
+];
+
 // 6주차 — 보안.
 const WEEK6_DAYS: CurriculumDay[] = studyDays([
   { name: "보안(SC)", topics: SC_ALL },
 ]);
 
+// 7주차 — 디지털서비스.
+const WEEK7_DAYS: CurriculumDay[] = studyDays([
+  { name: "디지털서비스(DX)", topics: DX_ALL },
+]);
+
 /**
  * 과목 코드 → 교재 CONTENTS 순서 토픽. 토픽 지도가 과목별 토픽을 교재 목차 순서로 늘어놓는 데 쓴다.
- * 디지털서비스(DX)는 아직 커리큘럼이 없어 서브노트 순서를 쓴다.
  */
 export const COURSE_TOPICS: Record<string, CurriculumTopic[]> = {
   CA: CA_ALL,
@@ -869,6 +966,7 @@ export const COURSE_TOPICS: Record<string, CurriculumTopic[]> = {
   DB: DB_ALL,
   MG: MG_ALL,
   SC: SC_ALL,
+  DX: DX_ALL,
 };
 
 /**
@@ -988,6 +1086,7 @@ const SPRINT1_TO_W6: CurriculumTopic[] = [
   ...topicsOf(WEEK5_DAYS),
   ...topicsOf(WEEK6_DAYS),
 ];
+const SPRINT1_ALL: CurriculumTopic[] = [...SPRINT1_TO_W6, ...topicsOf(WEEK7_DAYS)];
 
 /**
  * 학원 일정부터 시작한다 — 개강 주(9/6)와 1주차(9/7)부터. 개강 전 선행 학습
@@ -1055,24 +1154,15 @@ export const WEEKS: CurriculumWeek[] = [
     days: reviewWeek("2026-10-26", SPRINT1_TO_W6, "1~6주차 범위"),
   },
   {
-    // 7주차 디지털서비스 — 교재 토픽 목록을 아직 받지 못했다.
     start: "2026-11-02",
     title: "7주차 · 디지털서비스(DX)",
-    days: [
-      { kind: "open", label: "토픽 대기", note: "디지털서비스 토픽 목록을 넣으면 이 주가 채워집니다." },
-      { kind: "open", label: "토픽 대기", note: "디지털서비스 토픽 목록을 넣으면 이 주가 채워집니다." },
-      { kind: "open", label: "토픽 대기", note: "디지털서비스 토픽 목록을 넣으면 이 주가 채워집니다." },
-      { kind: "open", label: "토픽 대기", note: "디지털서비스 토픽 목록을 넣으면 이 주가 채워집니다." },
-      { kind: "open", label: "토픽 대기", note: "디지털서비스 토픽 목록을 넣으면 이 주가 채워집니다." },
-      { kind: "open", label: "토픽 대기", note: "디지털서비스 토픽 목록을 넣으면 이 주가 채워집니다." },
-      { kind: "class", label: "8주차 수업", note: "스프린트1 신토픽 강의 — NS 19기 08주차 주간 실전모의고사를 함께 치릅니다." },
-    ],
+    days: buildWeek("2026-11-02", [...WEEK7_DAYS]),
   },
   {
     // 8주차 신토픽 강의 뒤 한 주 — 스프린트 I 전체를 회독한다.
     start: "2026-11-09",
     title: "회독 주간 · 스프린트 I 전체 되돌리기",
-    days: reviewWeek("2026-11-09", SPRINT1_TO_W6, "스프린트 I 범위"),
+    days: reviewWeek("2026-11-09", SPRINT1_ALL, "스프린트 I 범위"),
   },
 
   // ── 스프린트 II — 로드맵 강의. 새 진도가 아니라 같은 과목을 다시 도는
@@ -1111,7 +1201,7 @@ export const WEEKS: CurriculumWeek[] = [
     // 15주차는 141회 대비 찍기 강의 — 전 과목을 훑는다.
     start: "2026-12-28",
     title: "15주차 · 141회 대비 예상문제 정리",
-    days: reviewWeek("2026-12-28", SPRINT1_TO_W6, "전 과목"),
+    days: reviewWeek("2026-12-28", SPRINT1_ALL, "전 과목"),
   },
   {
     // 16주차 로드맵 디지털서비스 — 토픽 목록을 받으면 채운다.
