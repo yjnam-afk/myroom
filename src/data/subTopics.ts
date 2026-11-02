@@ -132,7 +132,6 @@ export const SUB_TOPICS: SubTopic[] = [
   { name: "Human-in-the-Loop(HITL)", parent: "OWASP Agentic AI 위협 및 대응방안(Agentic AI Threats and Mitigations)", aliases: ["Human-in-the-Loop", "HITL", "휴먼 인 더 루프"] },
   { name: "잊혀질 권리(Right to be Forgotten)", parent: "머신 언러닝(Machine Unlearning)", aliases: ["잊혀질 권리", "잊힐 권리", "Right to be Forgotten"] },
   { name: "LiDAR(라이다)", parent: "Physical AI", aliases: ["LiDAR", "Lidar", "라이다"] },
-  { name: "메타버스(Metaverse)", parent: "Physical AI", aliases: ["메타버스", "Metaverse"] },
   { name: "공간컴퓨팅(Spatial Computing)", parent: "옴니모달(Omni-modal) AI", aliases: ["공간컴퓨팅", "공간 컴퓨팅", "Spatial Computing"] },
   { name: "AI 거버넌스", parent: "ISO/IEC 23894", aliases: ["AI 거버넌스", "인공지능 거버넌스", "AI Governance"] },
   { name: "상관분석·상관계수", parent: "연관성 분석(association analysis) - 기초통계", aliases: ["상관분석", "상관 분석", "상관계수", "상관 계수"] },
@@ -176,6 +175,8 @@ export const SUB_TOPICS: SubTopic[] = [
   { name: "위상 정렬(Topological Sort)", parent: "방향성 비순환 그래프(DAG, Directed Acyclic Graph)", aliases: ["위상 정렬", "위상정렬", "Topological Sort", "Topological Ordering"] },
   { name: "호위효과(Convoy Effect)", parent: "CPU 스케줄링(CPU Scheduling)", aliases: ["호위효과", "호위 효과", "Convoy Effect"] },
   { name: "페이지 부재(Page Fault)", parent: "페이지 교체 알고리즘(Paging Replacement Algorithm)", aliases: ["페이지 부재", "Page Fault", "페이지 폴트"] },
+  // 디지털서비스 — 2026-11-02 메타버스는 교재 「웹3.0」 핵심기술 표에 있다(예전엔 Physical AI 그림의 한 칸 아래에 달려 있었다)
+  { name: "메타버스(Metaverse)", parent: "웹3.0(Web 3.0)", aliases: ["메타버스", "Metaverse"] },
 ];
 
 const BY_NAME = new Map(SUB_TOPICS.map((s) => [s.name, s]));

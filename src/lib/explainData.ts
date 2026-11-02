@@ -95,6 +95,8 @@ const bareT = (s: string) => normT(s.replace(/[(（][^)）]*[)）]/g, ""));
  * (「CI, CD」→ 데브옵스, 「Lean UX」→ 린 방법론) 양쪽에서 서로를 가리킬 때만 같다고 본다.
  */
 const SUB_TITLES: readonly string[] = SUBNOTES.map((s) => s.title);
+/** 서브 토픽 이름·별칭(괄호 뗀 열쇠) — 같은 이름의 기필반 토픽을 감추는 데 쓴다 */
+const SUB_KEYS = new Set(SUB_TOPICS.flatMap((st) => [st.name, ...st.aliases]).map(bareT).filter((k) => k.length >= 2));
 const inTextbookCache = new Map<string, boolean>();
 // 양쪽 열쇠가 맞아도 다른 토픽 — 눈으로 훑어 걸러 낸 것(웹 OWASP ≠ LLM OWASP, HTTP/2 ≠ HTTP/3,
 // DB 옵티마이저 ≠ 머신러닝 옵티마이저).
@@ -507,6 +509,9 @@ function buildBrowseGroups(): BrowseGroup[] {
   for (const t of TOPICS) {
     // 교재에 같은 토픽이 있으면(제목 표기가 달라도) 예전 항목은 감춘다.
     if (covered.has(bareT(t.title)) || subnoteByAlias(t.id, t.title) || inTextbook(t.title)) continue;
+    // 교재 속 서브 토픽과 같은 이름(별칭 포함)이면 감춘다 — 2026-11-02 "교재 없는 메타버스 토픽이 왤케 많냐":
+    // 서브 토픽 「메타버스(Metaverse)」 옆에 기필반 「Metaverse」「메타버스」가 따로 떠 있었다.
+    if (SUB_KEYS.has(bareT(t.title))) continue;
     // 원본 엑셀이 같은 토픽을 여러 과목·묶음에 실어 둔 것(핀테크: 경영전략·디지털서비스) — 한 번만.
     // 괄호까지 비교하므로 PLM(제품수명주기)·PLM(Pre trained Language Model) 같은 동음이의어는 남는다.
     const nt = normT(t.title);
@@ -586,6 +591,8 @@ function buildSearchEntries(): SearchEntry[] {
     // 제목이 완전히 같지 않아도 교재에 있는 토픽이면 제안하지 않는다
     // ("Singleton 패턴" ↔ "싱글턴 패턴 (Singleton pattern)").
     if (seen.has(t.title) || subnoteByAlias(t.id, t.title)) continue;
+    // 서브 토픽과 같은 이름이면 서브 토픽 하나만 제안한다(검색에 「메타버스」가 세 번 뜨던 것)
+    if (SUB_KEYS.has(bareT(t.title))) continue;
     list.push({
       title: t.title,
       badge: t.importance,
