@@ -7177,5 +7177,890 @@ export const LEVEL_MAPS: Record<string, LevelMap[]> = {
       basis:
         "AP2 역할기반 아키텍처·주요 기술요소 표, UCP 구성요소·계층 구조 표, ACP 구성요소, 스테이블 코인 유형·구성요소·발행/소각 절차, AI OS 구성요소·전통적 OS 비교",
     },
+    {
+      no: 2,
+      title: "클라우드 인프라 맵 (가상화 ↔ 배치 ↔ 운영·도입)",
+      sub: "가상화부터 오케스트레이션·배치 모델·엣지·비용 운영·공공 도입까지 인프라 계층마다 기술·유형·관리를 짝지음",
+      rowHead: "인프라 계층",
+      cols: [
+        { name: "핵심 기술·구성", tone: "blue" },
+        { name: "유형·방식", tone: "violet" },
+        { name: "운영·관리", tone: "teal" },
+      ],
+      rows: [
+        {
+          name: "가상화",
+          en: "Virtualization",
+          cells: [
+            [
+              { k: "하이퍼바이저", t: "하이퍼바이저(Hypervisor)" },
+              { k: "LXC", t: "리눅스 컨테이너(Linux Container, LXC)" },
+              { k: "도커", t: "도커(Docker)" },
+              "Cgroup",
+            ],
+            ["Type 1(Bare-metal)", "Type 2(Hosted)", "전가상화", "반가상화"],
+            ["도커 엔진", "도커 허브", "Host OS", "Guest OS"],
+          ],
+        },
+        {
+          name: "오케스트레이션·확장",
+          en: "Orchestration",
+          cells: [
+            [
+              { k: "쿠버네티스", t: "쿠버네티스(Kubernetes)" },
+              "Control Plane",
+              "Pod",
+              "kubelet",
+            ],
+            [
+              { k: "오토 스케일링", t: "오토 스케일링(Auto-Scaling)" },
+              "Scale Up",
+              "Scale Out",
+              "Scheduled",
+            ],
+            ["etcd", "kube-scheduler", "Monitoring", "Alarm"],
+          ],
+        },
+        {
+          name: "배치 모델",
+          en: "Deployment",
+          cells: [
+            [
+              { k: "멀티 클라우드", t: "멀티 클라우드(Multi-Cloud)" },
+              { k: "분산 클라우드", t: "분산 클라우드(Distributed Cloud)" },
+              { k: "소버린 클라우드", t: "소버린 클라우드(Sovereign Cloud)" },
+            ],
+            ["중복형", "벤더 분산형", "EC-RC-CC", "클라우드렛(Cloudlet)"],
+            ["데이터 주권", "현지 법률", "상황정보 인지", "자율 서비스 배치"],
+          ],
+        },
+        {
+          name: "엣지",
+          en: "Edge",
+          cells: [
+            [
+              {
+                k: "엣지·포그 컴퓨팅",
+                t: "엣지컴퓨팅(Edge Computing)과 포그컴퓨팅(Fog Computing)",
+              },
+              "Fog Node",
+              "IoT 센서",
+            ],
+            [
+              {
+                k: "서비스형 엣지 ML",
+                t: "서비스형 엣지 머신러닝(Edge Machine Learning as-a-Service)",
+              },
+              "AutoML",
+              "하드웨어 인지형 모델 압축",
+            ],
+            ["저지연", "낮은 대역폭", "엣지 MLOps"],
+          ],
+        },
+        {
+          name: "비용·전환",
+          en: "FinOps · Migration",
+          cells: [
+            [
+              { k: "FinOps", t: "FinOps(Financial Operations)" },
+              {
+                k: "클라우드 마이그레이션",
+                t: "클라우드 마이그레이션(Cloud Migration)",
+              },
+            ],
+            ["Rehost", "Replatform", "Refactoring", "Rearchitect"],
+            ["Inform", "Optimize", "Operate", "예약 인스턴스 관리"],
+          ],
+        },
+        {
+          name: "공공 도입",
+          en: "Public Sector",
+          cells: [
+            [
+              { k: "공공 SaaS 이용", t: "공공부문 SaaS 이용가이드 라인" },
+              { k: "디지털서비스 전문 계약", t: "디지털서비스 전문 계약제도" },
+              { k: "민간투자형 SW", t: "민간투자형 SW 사업" },
+            ],
+            ["수의 계약", "카탈로그 계약", "임대형", "수익형"],
+            [
+              "클라우드 보안 인증",
+              "과업심의 간소화",
+              "SW 영향평가 생략",
+              "SaaS 이행점검",
+            ],
+          ],
+        },
+      ],
+      all: {
+        name: "공통 (전 계층)",
+        chips: ["Public Cloud", "Private Cloud", "Multitenancy", "Load Balancing"],
+      },
+      basis:
+        "하이퍼바이저 유형, LXC 구성 요소·하이퍼바이저 비교, Docker 구성 요소, 쿠버네티스 구성 요소, 오토 스케일링 유형·정책·주요 기능, 멀티 클라우드 종류, 분산 클라우드 구성 요소·배치 모델, 엣지·포그 비교, 서비스형 엣지 ML 주요 기술, 소버린 클라우드 정의·키워드, FinOps 프로세스·구성 요소, 클라우드 마이그레이션 6R, 공공부문 SaaS 이용 절차·간소화 기능, 디지털서비스 전문 계약 방식, 민간투자형 SW 사업 유형 표를 인프라 계층 × 기술·유형·운영으로 엮음",
+    },
+    {
+      no: 3,
+      title: "클라우드 네이티브 개발·운영 맵 (설계 ↔ 배포 ↔ 보안·운영)",
+      sub: "클라우드 네이티브 앱을 설계 원칙·아키텍처·실행 모델·배포·보안·플랫폼 단계로 나눠 기술 스택과 운영을 이음",
+      rowHead: "개발·운영 단계",
+      cols: [
+        { name: "원칙·구성", tone: "violet" },
+        { name: "기술 스택·도구", tone: "blue" },
+        { name: "운영·확산", tone: "teal" },
+      ],
+      rows: [
+        {
+          name: "설계 원칙",
+          en: "Design",
+          cells: [
+            [
+              { k: "클라우드 네이티브", t: "클라우드 네이티브(Cloud Native)" },
+              {
+                k: "12-Factor App",
+                t: "Cloud Native 12-Factor App & 15-Factor",
+              },
+              "MSA",
+            ],
+            ["무상태 프로세스", "API 우선", "포트 바인딩", "폐기 가능"],
+            ["CNMM 2(Cloud-Optimized)", "CNMM 3(Cloud-Native)", "관측(Telemetry)"],
+          ],
+        },
+        {
+          name: "아키텍처 계층",
+          en: "Reference Architecture",
+          cells: [
+            [
+              {
+                k: "참조 아키텍처",
+                t: "클라우드 네이티브(Cloud Native) 참조 아키텍처",
+              },
+              "Orchestration & Management",
+              "Runtime",
+              "Provisioning",
+            ],
+            ["Service Mesh", "API Gateway", "Container Runtime", "Container Registry"],
+            [
+              "Security & Compliance",
+              "Key Management",
+              "Coordination & Service Discovery",
+            ],
+          ],
+        },
+        {
+          name: "실행 모델",
+          en: "Runtime Model",
+          cells: [
+            [
+              {
+                k: "서버리스",
+                t: "서버리스 아키텍처(Serverless Architecture)",
+              },
+              { k: "웹 어셈블리", t: "웹 어셈블리(Web Assembly; WASM)" },
+              "FaaS",
+              "BaaS",
+            ],
+            ["이벤트 트리거", "Event Router", "WASM Runtime", "WASI"],
+            [
+              "Pay per Use",
+              "No Server Management",
+              "리소스 프로비저닝",
+              "네이티브 수준 성능",
+            ],
+          ],
+        },
+        {
+          name: "배포·전달",
+          en: "Delivery",
+          cells: [
+            [{ k: "깃옵스", t: "깃옵스(GitOps)" }, "선언형 모델", "SSOT", "CI/CD"],
+            ["Push 방식", "Pull 방식", "선언형 기술서", "Config Repository"],
+            [
+              {
+                k: "구축운영 상세가이드",
+                t: "클라우드 네이티브 구축운영 상세가이드('26.01)",
+              },
+              "SAGA 패턴",
+              "Circuit Breaker",
+              "Chaos Engineering",
+            ],
+          ],
+        },
+        {
+          name: "보안",
+          en: "Security",
+          cells: [
+            [
+              {
+                k: "CNAPP",
+                t: "CNAPP(Cloud Native Application Protection Platform)",
+              },
+              "CSPM",
+              "CWPP",
+            ],
+            ["CIEM", "KSPM", "IaC 스캐닝", "아티팩트 스캐닝"],
+            ["DevSecOps", "mTLS 암호화", "인증과 권한", "감사 로그"],
+          ],
+        },
+        {
+          name: "플랫폼·생산성",
+          en: "Platform",
+          cells: [
+            [
+              {
+                k: "플랫폼 엔지니어링",
+                t: "플랫폼 엔지니어링(Platform Engineering)",
+              },
+              { k: "로우 코드", t: "로우 코드(Low Code)" },
+              { k: "헤드리스 커머스", t: "헤드리스 커머스(Headless Commerce)" },
+            ],
+            ["인프라 자동화", "Drag & Drop UI", "프론트엔드 & 백엔드 분리", "옴니 채널"],
+            [
+              {
+                k: "DXaaS",
+                t: "DXaaS/DTaaS(Digital Transformation as a Service)",
+              },
+              { k: "가트너 2026", t: "가트너(Gartner) 2026" },
+              "AI 네이티브 개발 플랫폼",
+              "Citizen Developers",
+            ],
+          ],
+        },
+      ],
+      all: {
+        name: "공통 (전 단계)",
+        chips: ["DevOps", "Agile", "컨테이너", { k: "쿠버네티스", t: "쿠버네티스(Kubernetes)" }],
+      },
+      basis:
+        "클라우드 네이티브 기술 요소·성숙도 단계, 참조 아키텍처 구성 요소, 12-Factor App & 15-Factor, 서버리스 특징·동작 방식·구성 요소, 웹 어셈블리 특징·구성 기술, GitOps 구축 요소·Pipe-Line 구성 방식, 구축·운영 상세 가이드 절차, CNAPP 구성요소, 플랫폼 엔지니어링 역할, 로우 코드 주요 기술·비교, 헤드리스 커머스 키워드, DXaaS 구성 요소, 가트너 2026 전략 트렌드 표를 개발·운영 단계 × 원칙·기술·운영으로 엮음",
+    },
+    {
+      no: 4,
+      title: "모빌리티 맵 (인지 → 판단·제어 → 안전·서비스)",
+      sub: "자율주행 인지·지도·판단 제어에서 차량 SW·기능 안전, V2X 통신, 교통 서비스까지 계층별로 구성·기술·단계를 이음",
+      rowHead: "모빌리티 계층",
+      cols: [
+        { name: "구성요소·센서", tone: "blue" },
+        { name: "핵심 기술·방식", tone: "amber" },
+        { name: "단계·등급·서비스", tone: "green" },
+      ],
+      rows: [
+        {
+          name: "인지",
+          en: "Perception",
+          cells: [
+            [
+              { k: "레이더 & 라이다", t: "레이더(RADAR) & 라이다(LiDAR)" },
+              "HD Vision Camera",
+              "GPS",
+            ],
+            ["TOF 방식", "PS 방식", "CFAR 알고리즘", "DBF 알고리즘"],
+            ["크루즈 컨트롤", "보행자감지", "자동주차 시스템"],
+          ],
+        },
+        {
+          name: "지도·측위",
+          en: "Map · Positioning",
+          cells: [
+            [
+              { k: "LDM", t: "LDM(Local Dynamic Map)" },
+              {
+                k: "SLAM",
+                t: "SLAM(Simultaneous Localization and Mapping)",
+              },
+              { k: "위치 측위", t: "위치 측위(Positioning)" },
+            ],
+            ["Visual SLAM", "LiDAR SLAM", "TDoA", "DGPS"],
+            ["정적지도", "준정적지도", "준동적지도", "동적지도"],
+          ],
+        },
+        {
+          name: "판단·제어",
+          en: "Decision · Control",
+          cells: [
+            [
+              {
+                k: "자율주행 핵심기술",
+                t: "자율주행자동차의 자율주행기술 단계 및 핵심기술",
+              },
+              "인지",
+              "판단",
+              "제어",
+            ],
+            ["LDWS", "AEB", "ACC", "HVI"],
+            ["조건부 자동화", "고도 자율주행", "완전 자율주행"],
+          ],
+        },
+        {
+          name: "차량 SW·기능 안전",
+          en: "SDV · Functional Safety",
+          cells: [
+            [
+              {
+                k: "소프트웨어 정의 차량",
+                t: "소프트웨어 정의 차량(Software-Defined Vehicle)",
+              },
+              "존 전장(E/E) 아키텍처",
+              "차량용 고성능 운영체제",
+            ],
+            [{ k: "IEC 61508", t: "IEC 61508" }, "안전생명주기", "위험원 및 위험 분석"],
+            [
+              { k: "ASIL", t: "ASIL(Automotive Software Integrity Levels)" },
+              "안전무결성(SIL)",
+              "심각도(Severity)",
+              "통제도(Controllability)",
+            ],
+          ],
+        },
+        {
+          name: "통신·도로 인프라",
+          en: "V2X",
+          cells: [
+            [
+              {
+                k: "C-ITS",
+                t: "C-ITS(Cooperative-Intelligent Transport Systems)",
+              },
+              "차량 단말기(OBU)",
+              "노변 기지국(RSU)",
+            ],
+            ["V2X", "WAVE", "DSRC", "IVN"],
+            ["스마트 톨링 시스템", "돌발 상황 검지기", "보행자 검지기"],
+          ],
+        },
+        {
+          name: "교통 서비스",
+          en: "Mobility Service",
+          cells: [
+            [
+              { k: "MaaS", t: "MaaS(Mobility as a service)" },
+              { k: "UAM", t: "UAM(Urban Air Mobility)" },
+              "MaaS Platform",
+            ],
+            ["통합 결제 시스템", "eVTOL", "UAM CNS", "버티포트 시스템"],
+            ["정보의 통합", "정책의 통합", "MRO", "K-UAM"],
+          ],
+        },
+      ],
+      all: {
+        name: "공통 (전 계층)",
+        chips: ["V2V", "V2I", "자율 협력 주행", "Seamless 교통 수단"],
+      },
+      basis:
+        "RADAR·LiDAR 비교·동작 방식, LDM 구성 Layer, SLAM 기술 요소, 위치 측위 방법·실외 측위, 자율주행기술 단계·핵심기술, 소프트웨어 정의 차량 구성 기술, IEC 61508 안전기능 요구사항 도출과정·SIL, ASIL 등급 판정, C-ITS 구성요소, MaaS 구조·Level 분류, UAM 기술요소 표를 모빌리티 계층 × 구성·기술·단계로 엮음",
+    },
+    {
+      no: 5,
+      title: "블록체인·디지털 자산 맵 (문제 → 해결 → 유형·제도)",
+      sub: "블록체인 확장성·외부 데이터 신뢰 문제와 해결 기술, 디지털 화폐·토큰화 자산·지갑·Web 3.0의 유형과 제도를 짝지음",
+      rowHead: "자산·신뢰 계층",
+      cols: [
+        { name: "문제·특성", tone: "red" },
+        { name: "해결 기술·구성", tone: "amber" },
+        { name: "유형·제도", tone: "blue" },
+      ],
+      rows: [
+        {
+          name: "합의·확장성",
+          en: "Scalability",
+          cells: [
+            [
+              { k: "블록체인 트릴레마", t: "블록체인 트릴레마(Trilemma)" },
+              "확장성",
+              "보안성",
+              "탈중앙화",
+            ],
+            [
+              { k: "라이트닝 네트워크", t: "라이트닝 네트워크(Lightning Network)" },
+              "Off-Chain",
+              "Payment Channel",
+              "샤딩",
+            ],
+            ["레이어1", "레이어2", "상호운용성", "사이드체인"],
+          ],
+        },
+        {
+          name: "외부 데이터",
+          en: "Oracle",
+          cells: [
+            [
+              { k: "오라클 문제", t: "블록체인 오라클 문제(Oracle Problem)" },
+              "하드웨어 오라클 문제",
+              "소프트웨어 오라클 문제",
+            ],
+            ["투표", "중앙값", "중간자"],
+            ["체인링크", "메이커 토큰", "아토믹스왑"],
+          ],
+        },
+        {
+          name: "디지털 화폐",
+          en: "Currency",
+          cells: [
+            [
+              {
+                k: "CBDC",
+                t: "중앙은행 디지털화폐(CBDC: Central Bank Digital Currency)",
+              },
+              "실물 명목 화폐",
+              "익명성 제어 가능",
+            ],
+            ["단일 원장 방식", "분산 원장 방식", "복원력", "호환성"],
+            [
+              { k: "스테이블 코인", t: "스테이블 코인(Stable coin)" },
+              "디지털 위안화(DCEP)",
+              "중앙 은행",
+            ],
+          ],
+        },
+        {
+          name: "자산 토큰화",
+          en: "Tokenization",
+          cells: [
+            [
+              { k: "RWA 토큰화", t: "RWA(Real World Asset) 토큰화 프로토콜" },
+              {
+                k: "증권형 토큰",
+                t: "증권형 토큰(STO, Security Token Offering)",
+              },
+              "실물 자산",
+            ],
+            ["RWA 토큰 담보 대출", "스마트 컨트랙트", "De-Fi"],
+            ["자본시장법", "토큰 증권", "KYC", "AML"],
+          ],
+        },
+        {
+          name: "지갑·신원",
+          en: "Wallet",
+          cells: [
+            [
+              { k: "암호화폐 지갑", t: "암호화폐 지갑(Cryptocurrency Wallet)" },
+              { k: "디지털 지갑", t: "디지털 지갑(Digital Wallet)" },
+              "Private Key",
+            ],
+            ["핫월렛", "콜드월렛", "멀티시그월렛", "전자서명 생성"],
+            ["신원 인증", "사용자 기기 설치형 모델", "제3자 위임형 모델"],
+          ],
+        },
+        {
+          name: "탈중앙 웹",
+          en: "Web 3.0",
+          cells: [
+            [{ k: "웹3.0", t: "웹3.0(Web 3.0)" }, "데이터 주권", "데이터 소유권"],
+            ["DAO", "NFT", "Dapp", "시맨틱 웹"],
+            ["Web 1.0", "Web 2.0", "MyData 모델"],
+          ],
+        },
+      ],
+      all: {
+        name: "공통 (전 계층)",
+        chips: ["합의 프로토콜", "PoS", "크로스 체인 솔루션", "블록체인 브릿지"],
+      },
+      basis:
+        "블록체인 3가지 특성·트릴레마 해소 방안, 라이트닝 네트워크 키워드, 오라클 문제 유형·해결 방안, CBDC 단일·분산 원장 방식·암호화폐/스테이블 코인/CBDC 비교, RWA 토큰화 메커니즘, STO 특징과 적용 기술, 암호화폐 지갑 유형·멀티시그, 디지털 지갑 제공 기능, 웹3.0 특징·세대별 비교 표를 자산 계층 × 문제·해결·유형으로 엮음",
+    },
+    {
+      no: 6,
+      title: "스마트 제조·IoT·로봇 맵 (현장 → 데이터·트윈 → 지능·자동화)",
+      sub: "초저전력 디바이스·지능형 IoT에서 공장 운영·디지털 트윈·예지 보전·로봇 자동화까지 구성·기술·서비스 모델을 이음",
+      rowHead: "제조·자동화 계층",
+      cols: [
+        { name: "구성요소·데이터", tone: "blue" },
+        { name: "핵심 기술", tone: "violet" },
+        { name: "운영·서비스 모델", tone: "green" },
+      ],
+      rows: [
+        {
+          name: "초저전력 디바이스",
+          en: "Ambient Device",
+          cells: [
+            [
+              { k: "엠비언트 IoT", t: "엠비언트 IoT(Ambient Internet of Things)" },
+              {
+                k: "인터미턴트 컴퓨팅",
+                t: "인터미턴트 컴퓨팅(Intermittent Computing)",
+              },
+              "에너지 하베스팅",
+            ],
+            ["비휘발성 메모리", "체크포인팅 기법", "페이징 전송"],
+            [
+              {
+                k: "앰비언트 인비저블 인텔리전스",
+                t: "앰비언트 인비저블 인텔리전스(Ambient Invisible Intelligence)",
+              },
+              "무형적 상호작용",
+              "Zero UI",
+            ],
+          ],
+        },
+        {
+          name: "IoT 지능",
+          en: "Intelligent IoT",
+          cells: [
+            [
+              { k: "지능형·자율형 IoT", t: "지능형 IoT와 자율형 IoT" },
+              "상황인지 기술",
+              "MEC 기술",
+            ],
+            ["TinyML", "연합학습", "예측 기술"],
+            ["사물(협업) 지능", "인간 개입 최소화", "지능 강화 기술"],
+          ],
+        },
+        {
+          name: "공장 운영",
+          en: "Smart Factory",
+          cells: [
+            [
+              {
+                k: "스마트 팩토리",
+                t: "스마트 팩토리 시스템(Smart Factory System)",
+              },
+              "4M+1E",
+              "MES",
+              "PLM",
+            ],
+            [
+              {
+                k: "SDM",
+                t: "소프트웨어 정의 제조(SDM, Software Defined Manufacturing)",
+              },
+              "SDF",
+              "SDA",
+              "SDR",
+            ],
+            ["ERP", "SCM", "소프트웨어 정의 공급망(SDSC)"],
+          ],
+        },
+        {
+          name: "디지털 트윈",
+          en: "Digital Twin",
+          cells: [
+            [
+              { k: "디지털 트윈", t: "디지털 트윈(Digital Twin)" },
+              { k: "디지털 스레드", t: "디지털 스레드(Digital Thread)" },
+              "데이터 연속성",
+            ],
+            ["동기화 기술", "연결기술", "시뮬레이션", "CPS"],
+            [
+              {
+                k: "트윈 트랜스포메이션",
+                t: "트윈 트랜스포메이션(Twin Transformation)",
+              },
+              "ESG",
+              "지속 가능성 전환",
+            ],
+          ],
+        },
+        {
+          name: "설비 예측",
+          en: "Predictive Maintenance",
+          cells: [
+            [
+              {
+                k: "AI 예지 보전",
+                t: "AI 예지 보전(Predictive Maintenance, PdM)",
+              },
+              "멀티모달 센서",
+              "데이터 게이트웨이",
+            ],
+            ["이상 탐지(오토인코더)", "데이터 증강(GAN)", "고장 진단 모델"],
+            ["잔여 수명(RUL) 예측", "정비 추천 시스템"],
+          ],
+        },
+        {
+          name: "로봇·자동화",
+          en: "Robot · Automation",
+          cells: [
+            [
+              { k: "AMR", t: "AMR(Autonomous Mobile Robot)" },
+              "AGV",
+              "액추에이터(Actuator)",
+              "매니퓰레이터(Manipulator)",
+            ],
+            [
+              {
+                k: "클라우드 로봇 지능",
+                t: "클라우드 로봇 지능(Cloud Robot Intelligence)",
+              },
+              { k: "RPA", t: "RPA(Robotic Process Automation)" },
+              "동작 계획 알고리즘",
+              "전이학습",
+            ],
+            [
+              { k: "RaaS", t: "Robot-as-a-Service(RaaS)" },
+              "Pay-per-Use",
+              "구독",
+              "Cognitive Automation",
+            ],
+          ],
+        },
+      ],
+      all: {
+        name: "공통 (전 계층)",
+        chips: ["인공지능", "엣지 컴퓨팅", "빅데이터", "5G"],
+      },
+      basis:
+        "엠비언트 IoT 토폴로지·프로시저, 인터미턴트 컴퓨팅 구성 요소, 앰비언트 인비저블 인텔리전스 특징·주요 기술, 지능형·자율형 IoT 비교·키워드, 스마트 팩토리 5대 요건·요소기술, SDM·SDF 구성 요소, 디지털 트윈 구성 기술, 디지털 스레드 구성 요소, 트윈 트랜스포메이션 키워드, AI 예지 보전 구성 요소, AMR 기반 기술·로봇 유형, 클라우드 로봇 지능 키워드, RPA 기술 수준, RaaS 구성 요소 표를 제조 계층 × 구성·기술·서비스로 엮음",
+    },
+    {
+      no: 7,
+      title: "스마트 시티·에너지·공간·양자 맵 (인프라 → 핵심 기술 → 서비스·제도)",
+      sub: "도시·농업·전력 인프라와 그린 컴퓨팅, 가상융합 공간, 양자 컴퓨팅·통신을 인프라·기술·서비스 축으로 정리",
+      rowHead: "도시·신기술 영역",
+      cols: [
+        { name: "인프라·구성", tone: "slate" },
+        { name: "핵심 기술", tone: "sky" },
+        { name: "서비스·관리·제도", tone: "green" },
+      ],
+      rows: [
+        {
+          name: "스마트 시티",
+          en: "Smart City",
+          cells: [
+            [
+              { k: "스마트 시티", t: "스마트 시티(Smart City)" },
+              "스마트 교통",
+              "스마트 안전·치안",
+            ],
+            ["수요응답형 교통체계(DRT)", "컴퓨터비전", "드론"],
+            [
+              {
+                k: "스마트시티 데이터 거버넌스",
+                t: "스마트시티 데이터 거버넌스(Smart City Data Governance)",
+              },
+              "데이터 최소화",
+              "데이터 생명주기",
+              "스마트도시법",
+            ],
+          ],
+        },
+        {
+          name: "스마트 농업",
+          en: "Smart Farm",
+          cells: [
+            [
+              { k: "스마트 팜", t: "스마트 팜(Smart Farm)" },
+              "상황인지 센서",
+              "생체인식 센서",
+            ],
+            ["WPAN", "LPWAN", "RFID/GPS"],
+            ["스마트팜 모니터서비스(FMS)", "스마트팜 제어서비스(FCS)", "지능형 로봇농장"],
+          ],
+        },
+        {
+          name: "전력·에너지",
+          en: "Energy Grid",
+          cells: [
+            [
+              { k: "AMI 2.0", t: "AMI(Advanced Metering Infrastructure) 2.0" },
+              "스마트 미터",
+              "MDMS",
+              "ESS",
+            ],
+            ["IoT-PLC", "LWM2M", "SNMP v3", "Secure DCU"],
+            [
+              { k: "VPP", t: "VPP(Virtual Power Plant)" },
+              "분산형 에너지 자원(DER)",
+              "CVPP(Commercial)",
+              "TVPP(Technical)",
+            ],
+          ],
+        },
+        {
+          name: "컴퓨팅 효율",
+          en: "Green Computing",
+          cells: [
+            [
+              {
+                k: "에너지 효율적 컴퓨팅",
+                t: "에너지 효율적 컴퓨팅(Energy-Efficient Computing)",
+              },
+              "고효율 프로세서",
+              "데이터센터의 냉각 시스템 개선",
+            ],
+            [
+              "전압 및 주파수 스케일링",
+              "액체 냉각(Liquid Cooling)",
+              "자연 냉각(Free Cooling)",
+            ],
+            ["적응형 에너지 관리", "에너지 절약형 소프트웨어 설계", "데이터 압축 및 관리"],
+          ],
+        },
+        {
+          name: "가상융합·공간",
+          en: "Spatial · XR",
+          cells: [
+            [
+              { k: "공간 컴퓨팅", t: "공간 컴퓨팅(Spatial Computing)" },
+              { k: "디지털 휴먼", t: "디지털 휴먼(Digital Human)" },
+              "XR",
+            ],
+            ["6DoF", "시선 추적", "모션 캡처(Motion Capture)", "리얼타임 렌더링 엔진"],
+            [
+              { k: "가상융합산업 진흥법", t: "가상융합산업 진흥법" },
+              "'임시기준' 제도 신설",
+              "민간중심 자율규제 체계 정립",
+            ],
+          ],
+        },
+        {
+          name: "양자",
+          en: "Quantum",
+          cells: [
+            [
+              { k: "양자컴퓨터", t: "양자컴퓨터(Quantum Computer)" },
+              "양자 비트(Qubits)",
+              "양자 오류 수정",
+            ],
+            [
+              { k: "양자인터넷", t: "양자인터넷(Quantum Internet)" },
+              "양자 중계기",
+              "양자 텔레포테이션",
+              "양자 메모리",
+            ],
+            [
+              {
+                k: "QKDaaS",
+                t: "QKDaaS(Quantum Key Distribution as a Service)",
+              },
+              "BB84",
+              "구독형 양자암호통신 서비스",
+            ],
+          ],
+        },
+      ],
+      all: {
+        name: "공통 (전 영역)",
+        chips: ["IoT", "인공지능", "클라우드 서비스", "이동통신망"],
+      },
+      basis:
+        "스마트 시티 주요 기술과 서비스·관련 법령, 스마트시티 데이터 거버넌스 프레임워크, 스마트 팜 세대별 단계·주요 기술, AMI 2.0 구성 요소, VPP 구성 요소·유형, 에너지 효율적 컴퓨팅 기술 요소, 공간 컴퓨팅 주요 기술, 디지털 휴먼 제작 기술, 가상융합산업 진흥법 주요 내용, 양자컴퓨터 개념도, 양자 인터넷 기술요소, QKDaaS 핵심 기술 표를 영역 × 인프라·기술·서비스로 엮음",
+    },
+    {
+      no: 8,
+      title: "데이터·디지털 사회 맵 (원칙 → 기술·구성 → 제도·유형)",
+      sub: "데이터 주권·공유 기반, 디지털 역량·포용, 디지털 질서 규제, 생활·공공 산업 테크를 목적·기술·제도 축으로 정리",
+      rowHead: "디지털 사회 영역",
+      cols: [
+        { name: "목적·원칙", tone: "rose" },
+        { name: "핵심 기술·구성", tone: "blue" },
+        { name: "제도·유형", tone: "orange" },
+      ],
+      rows: [
+        {
+          name: "데이터 주권·이동",
+          en: "Data Portability",
+          cells: [
+            [{ k: "마이 데이터", t: "마이 데이터(MyData)" }, "통제권", "이식성"],
+            [
+              {
+                k: "데이터 상호 운용성 & 이동권",
+                t: "데이터 상호 운용성 & 데이터 이동권",
+              },
+              "구문적 표준화",
+              "의미적 일관성",
+              "온톨로지",
+            ],
+            [
+              { k: "개인정보 전송요구권", t: "개인정보 전송요구권" },
+              "신용정보법 33조의2",
+              "개인정보보호법 35조의2",
+              "통합 인증",
+            ],
+          ],
+        },
+        {
+          name: "데이터 공유 기반",
+          en: "Data Space · Infra",
+          cells: [
+            [
+              { k: "데이터 스페이스", t: "데이터 스페이스(Data Space)" },
+              { k: "국가 데이터 인프라", t: "국가 데이터 인프라(Data Infra)" },
+              "데이터 주권",
+            ],
+            ["연합 카탈로그", "메타데이터 브로커", "클리어링하우스", "데이터 커넥터"],
+            ["연합형 거버넌스", "기계활용 지향", "만연된 적용", "K-Data Space"],
+          ],
+        },
+        {
+          name: "디지털 역량·포용",
+          en: "Literacy · Inclusion",
+          cells: [
+            [
+              { k: "디지털 리터러시", t: "디지털 리터러시(Digital Literacy)" },
+              { k: "디지털 성숙도", t: "디지털 성숙도(Digital Maturity)" },
+              "디지털 격차",
+            ],
+            [
+              {
+                k: "유니버설디자인·웹접근성",
+                t: "유니버설디자인(universal design)과 웹접근성",
+              },
+              "공평한 사용",
+              "인식 용이성",
+              "KWCAG",
+            ],
+            [
+              { k: "디지털포용법", t: "디지털포용법" },
+              "디지털포용 영향평가",
+              "접근성 품질인증",
+              "장애인차별금지법",
+            ],
+          ],
+        },
+        {
+          name: "디지털 질서·규제",
+          en: "Digital Order",
+          cells: [
+            [
+              {
+                k: "디지털 권리장전",
+                t: "디지털 권리장전(The Digital Bill of Rights)",
+              },
+              "자유와 권리 보장",
+              "공정한 접근과 기회의 균등",
+              "안전과 신뢰의 확보",
+            ],
+            ["게이트 키퍼", "온라인 플랫폼", "다크 패턴 금지"],
+            [
+              { k: "유럽 디지털 3법", t: "유럽 디지털 3법" },
+              "디지털 시장법",
+              "디지털 서비스법",
+              "디지털 네트워크법",
+            ],
+          ],
+        },
+        {
+          name: "생활·돌봄 테크",
+          en: "Life Tech",
+          cells: [
+            [
+              { k: "디지털 치료제", t: "디지털 치료제(Digital Therapeutics)" },
+              { k: "에이지테크", t: "에이지테크(AgeTech)" },
+              { k: "에듀테크", t: "에듀테크(EduTech)" },
+            ],
+            ["SaMD", "AI 돌봄 로봇", "안전 모니터링", "디지털 교과서"],
+            ["독립형", "증강형", "보완형", "MOOC"],
+          ],
+        },
+        {
+          name: "공공·산업 테크",
+          en: "Public · Industry Tech",
+          cells: [
+            [
+              { k: "GovTech", t: "GovTech" },
+              { k: "프롭테크", t: "프롭테크(Proptech)" },
+              { k: "기후테크", t: "기후테크" },
+            ],
+            ["GovTech 운영자", "스마트 컨트랙트", "O2O", "탄소배출권 거래"],
+            ["플랫폼 활용형", "아이디어 공모형", "클린테크", "카본테크"],
+          ],
+        },
+      ],
+      all: {
+        name: "공통 (전 영역)",
+        chips: ["상호운용성", "데이터 파편화", "디지털 포용", "투명성 확보"],
+      },
+      basis:
+        "마이 데이터 원칙·인증 방식, 데이터 상호 운용성 핵심요소·데이터 이동권 3요소, 개인정보 전송요구권 법적 근거, 데이터 스페이스 거버넌스 참조모델·구성 요소, 국가 데이터 인프라 구성 요소, 디지털 리터러시·성숙도 정의, 유니버설디자인 7원칙·웹접근성·KWCAG 관련 법령, 디지털포용법 주요 내용, 디지털 권리장전 키워드, 유럽 디지털 3법(DMA 게이트 키퍼·DSA 의무·DNA), 디지털 치료제 종류, 에이지테크 핵심 기술, 에듀테크 기술 구성 요소, GovTech 구성 요소·유형, 프롭테크 ICT 영역, 기후테크 기술 표를 영역 × 원칙·기술·제도로 엮음",
+    }
   ],
 };

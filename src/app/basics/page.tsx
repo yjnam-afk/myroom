@@ -34,7 +34,9 @@ type Term = {
     | "자료구조·알고리즘"
     | "네트워크"
     | "데이터베이스"
-    | "경영전략";
+    | "경영전략"
+    | "보안"
+    | "디지털서비스";
   def: string;
   /** 이 용어가 등장하는 대표 토픽(설명 페이지로 링크) */
   see?: string;
@@ -300,6 +302,66 @@ const TERMS: Term[] = [
   { ko: "KPI", en: "Key Performance Indicator", cat: "경영전략", def: "목표 달성을 재는 핵심 숫자. 매출·가동률·불량률처럼 계기판에 올려 두는 지표.", see: "OKR" },
   { ko: "캐즘", en: "Chasm", cat: "경영전략", def: "신제품이 얼리어답터를 넘어 대중 시장으로 가기 직전 수요가 뚝 끊기는 골짜기.", see: "기술수용 주기(Technology Adoption Life Cycle)" },
   { ko: "페르소나", en: "Persona", cat: "경영전략", def: "대표 사용자를 가상 인물로 구체화한 것. '38세 워킹맘 김OO'처럼 얼굴을 붙여 설계한다.", see: "디자인 씽킹(Design Thinking)" },
+
+  // ── 보안 ─────────────────────────────────────────────────────
+  { ko: "기밀성/무결성/가용성", en: "Confidentiality/Integrity/Availability", cat: "보안", def: "보안이 지키려는 세 가지. 남이 못 보게(기밀성), 몰래 못 고치게(무결성), 필요할 때 쓸 수 있게(가용성).", see: "IEC 62443" },
+  { ko: "평문/암호문", en: "Plaintext/Ciphertext", cat: "보안", def: "누구나 읽을 수 있는 원래 글이 평문, 열쇠 없이는 뜻을 알 수 없게 뒤섞은 글이 암호문이다.", see: "Shannon의 암호 설계 원칙" },
+  { ko: "대칭키/비대칭키", en: "Symmetric/Asymmetric Key", cat: "보안", def: "잠그는 열쇠와 여는 열쇠가 같으면 대칭키, 서로 다른 한 쌍이면 비대칭키. 대칭키는 빠르지만 열쇠를 건네기가 어렵다.", see: "암호화(Encryption)" },
+  { ko: "공개키/개인키", en: "Public/Private Key", cat: "보안", def: "한 쌍의 열쇠. 공개키는 누구에게나 나눠 주는 자물쇠, 개인키는 나만 가진 열쇠라 공개키로 잠근 건 개인키로만 열린다.", see: "암호화(Encryption)" },
+  { ko: "키 교환", en: "Key Exchange", cat: "보안", def: "도청당할 수 있는 길 위에서 둘만 아는 비밀 열쇠를 안전하게 맞추는 절차. 디피-헬만이 대표 방법이다.", see: "디피-헬만 알고리즘(Diffie-Hellman Algorithm)" },
+  { ko: "전자서명", en: "Digital Signature", cat: "보안", def: "개인키로 찍는 디지털 도장. 누가 보냈는지와 중간에 바뀌지 않았는지를 공개키로 누구나 확인할 수 있다.", see: "이중 서명(Dual Signature)" },
+  { ko: "인증서/PKI", en: "Certificate/Public Key Infrastructure", cat: "보안", def: "인증서는 '이 공개키는 진짜 OO 것'이라고 믿을 만한 기관이 보증해 준 신분증. 그 발급·관리 체계 전체가 PKI다.", see: "TLS/SSL(Secure Socket Layer)" },
+  { ko: "부인방지", en: "Non-repudiation", cat: "보안", def: "'나는 안 보냈다', '안 받았다'고 잡아뗄 수 없게 증거를 남기는 것. 전자서명이 그 증거가 된다.", see: "전자봉투(Digital Envelope)" },
+  { ko: "솔트", en: "Salt", cat: "보안", def: "비밀번호를 해시하기 전에 섞는 무작위 양념. 같은 비밀번호라도 결과가 달라져 미리 만든 정답표로 못 푼다.", see: "해시 솔트(Salt)와 키 스트레칭(Key Stretching)" },
+  { ko: "무차별 대입 공격", en: "Brute Force Attack", cat: "보안", def: "가능한 열쇠를 처음부터 끝까지 하나씩 다 넣어 보는 공격. 열쇠가 길수록 시간이 기하급수로 늘어난다.", see: "암호 분석 공격(Cryptanalysis Attacks) 기법" },
+  { ko: "중간자 공격", en: "Man-in-the-Middle", cat: "보안", def: "두 사람 대화 사이에 몰래 끼어 양쪽인 척하며 내용을 엿보거나 바꾸는 공격. 우편배달부가 편지를 뜯어 고치는 꼴이다.", see: "암호 분석 공격(Cryptanalysis Attacks) 기법" },
+  { ko: "인증/인가", en: "Authentication/Authorization", cat: "보안", def: "인증은 '너 누구냐'를 확인하는 것(신분증 검사), 인가는 '그럼 어디까지 들어가도 되나'를 정하는 것(출입 권한).", see: "OAuth(Open Authorize) 2.0" },
+  { ko: "다중 요소 인증", en: "MFA, Multi-Factor Authentication", cat: "보안", def: "아는 것(비밀번호)·가진 것(휴대폰)·나 자신(지문) 중 두 가지 이상을 함께 확인하는 로그인. 하나를 털려도 뚫리지 않는다.", see: "제로트러스트 가이드라인 2.0" },
+  { ko: "접근제어", en: "Access Control", cat: "보안", def: "누가 어떤 자료에 무엇(읽기·쓰기·실행)을 할 수 있는지 정하고 막는 장치. 건물 출입카드의 컴퓨터판이다.", see: "접근 제어/접근 통제(Access Control)" },
+  { ko: "최소 권한", en: "Least Privilege", cat: "보안", def: "일에 꼭 필요한 만큼의 권한만 주는 원칙. 청소 직원에게 금고 열쇠까지 주지 않는 것과 같다.", see: "접근 제어/접근 통제(Access Control)" },
+  { ko: "제로 트러스트", en: "Zero Trust", cat: "보안", def: "'회사 안이니 믿는다'를 버리고 모든 접속을 매번 의심해 확인하는 보안 방식. 사내 출입증이 있어도 방마다 다시 검사한다.", see: "제로트러스트 가이드라인 2.0" },
+  { ko: "방화벽", en: "Firewall", cat: "보안", def: "네트워크 출입구의 경비원. 정해 둔 규칙(주소·포트)에 맞는 통신만 들여보내고 나머지는 막는다.", see: "DoS(Denial of Service)" },
+  { ko: "IDS/IPS", en: "Intrusion Detection/Prevention System", cat: "보안", def: "침입을 알아채 알리는 감시 카메라(IDS)와, 알아채는 즉시 막아서는 경비원(IPS).", see: "DoS(Denial of Service)" },
+  { ko: "취약점", en: "Vulnerability", cat: "보안", def: "공격자가 파고들 수 있는 약한 틈. 잠그는 걸 깜빡한 창문처럼 프로그램 실수나 설정 실수에서 생긴다.", see: "공격 표면 관리(Attack Surface Management)" },
+  { ko: "제로데이", en: "Zero-day", cat: "보안", def: "만든 회사도 아직 모르거나 고칠 패치가 없는 취약점. 방어할 날이 '0일'이라 그만큼 위험하다.", see: "APT(Advanced Persistent Threat) 공격" },
+  { ko: "악성코드", en: "Malware", cat: "보안", def: "몰래 들어와 정보를 훔치거나 시스템을 망가뜨리려고 만든 나쁜 프로그램을 통틀어 부르는 말. 바이러스·웜·트로이 목마 등.", see: "드라이브 바이 다운로드(Drive By Download)" },
+  { ko: "랜섬웨어", en: "Ransomware", cat: "보안", def: "파일을 몰래 암호화해 못 쓰게 만든 뒤 '풀어 줄 테니 돈 내라'고 협박하는 악성코드. 디지털 인질극이다.", see: "RaaS(Ransomware as a Service)" },
+  { ko: "백도어", en: "Backdoor", cat: "보안", def: "정상 출입 절차를 건너뛰고 몰래 드나들 수 있게 만들어 둔 뒷문. 한 번 뚫은 공격자가 다시 오는 통로가 된다.", see: "루트킷(Rootkit)" },
+  { ko: "피싱", en: "Phishing", cat: "보안", def: "은행·택배사 등을 사칭한 가짜 문자·메일·전화로 비밀번호나 돈을 낚아 가는 사기. 낚시(fishing)에서 온 말이다.", see: "딥보이스(Deep Voice) 피싱" },
+  { ko: "샌드박스", en: "Sandbox", cat: "보안", def: "의심스러운 프로그램을 바깥과 격리된 모래놀이터에서 먼저 돌려 보는 방법. 거기서 무슨 짓을 해도 진짜 시스템은 멀쩡하다.", see: "드라이브 바이 다운로드(Drive By Download)" },
+  { ko: "로그", en: "Log", cat: "보안", def: "누가 언제 무엇을 했는지 시스템이 자동으로 적어 두는 일지. 사고가 나면 CCTV 녹화본처럼 되돌려 본다.", see: "차세대 SIEM(Security Information and Event Management)" },
+  { ko: "포렌식", en: "Forensics", cat: "보안", def: "컴퓨터·휴대폰에 남은 흔적을 법정 증거로 쓸 수 있게 모으고 분석하는 디지털 과학수사.", see: "디지털 포렌식(Digital Forensic)" },
+  { ko: "가명/익명 처리", en: "Pseudonymization/Anonymization", cat: "보안", def: "이름을 '사용자A'처럼 바꿔 추가 정보 없이는 누군지 모르게 하는 것이 가명, 어떤 수를 써도 다시 알아낼 수 없게 지우는 것이 익명.", see: "가명처리(Pseudonymization) 기법" },
+
+  // ── 디지털서비스 ─────────────────────────────────────────────
+  { ko: "가상화", en: "Virtualization", cat: "디지털서비스", def: "실제 컴퓨터 한 대를 여러 대인 것처럼 나눠 쓰게 하는 기술. 큰 집을 칸막이로 나눠 여러 세대가 사는 셈이다.", see: "하이퍼바이저(Hypervisor)" },
+  { ko: "가상 머신", en: "VM, Virtual Machine", cat: "디지털서비스", def: "가상화로 만든 '소프트웨어로 된 컴퓨터'. 자기만의 OS까지 통째로 올라가서 무겁지만 서로 완전히 갈라져 있다.", see: "하이퍼바이저(Hypervisor)" },
+  { ko: "컨테이너", en: "Container", cat: "디지털서비스", def: "프로그램과 그 실행에 필요한 것만 한 상자에 담아 어디서든 똑같이 돌게 하는 포장. OS는 함께 써서 가상 머신보다 가볍다.", see: "리눅스 컨테이너(Linux Container, LXC)" },
+  { ko: "컨테이너 이미지", en: "Container Image", cat: "디지털서비스", def: "컨테이너를 찍어 내는 틀(설계도 겸 포장 상자). 이미지 하나로 같은 컨테이너를 몇 개든 띄울 수 있다.", see: "도커(Docker)" },
+  { ko: "오케스트레이션", en: "Orchestration", cat: "디지털서비스", def: "수많은 컨테이너를 지휘자처럼 알아서 배치·재시작·늘리고 줄이는 자동 관리. 쿠버네티스가 대표 도구다.", see: "쿠버네티스(Kubernetes)" },
+  { ko: "IaaS/PaaS/SaaS", en: "Infrastructure/Platform/Software as a Service", cat: "디지털서비스", def: "클라우드를 어디까지 빌리느냐의 차이. 빈 땅·건물(IaaS), 주방 시설까지(PaaS), 완성된 음식(SaaS)을 빌리는 셈이다.", see: "클라우드 마이그레이션(Cloud Migration)" },
+  { ko: "온프레미스", en: "On-Premise", cat: "디지털서비스", def: "서버를 회사 건물 안에 직접 사서 두고 운영하는 방식. 클라우드(빌려 쓰기)의 반대말로 쓴다.", see: "클라우드 네이티브(Cloud Native)" },
+  { ko: "퍼블릭/프라이빗 클라우드", en: "Public/Private Cloud", cat: "디지털서비스", def: "여러 고객이 함께 빌려 쓰는 공용 클라우드와 한 조직만 쓰는 전용 클라우드. 둘을 섞으면 하이브리드다.", see: "멀티 클라우드(Multi-Cloud)" },
+  { ko: "벤더 종속", en: "Vendor Lock-in", cat: "디지털서비스", def: "한 업체 서비스에 너무 깊이 묶여 다른 곳으로 옮기기 어려워진 상태. 가격을 올려도 울며 겨자 먹기로 쓴다.", see: "멀티 클라우드(Multi-Cloud)" },
+  { ko: "스케일 업/아웃", en: "Scale-up/Scale-out", cat: "디지털서비스", def: "일이 늘 때 컴퓨터 한 대를 더 좋은 것으로 바꾸면 스케일 업, 같은 컴퓨터를 여러 대 더 붙이면 스케일 아웃.", see: "오토 스케일링(Auto-Scaling)" },
+  { ko: "마이크로서비스", en: "Microservice", cat: "디지털서비스", def: "큰 프로그램 하나를 주문·결제·배송처럼 작은 서비스 여러 개로 쪼개 따로 만들고 고치는 방식.", see: "MSA (Micro Service Architecture)" },
+  { ko: "API", en: "Application Programming Interface", cat: "디지털서비스", def: "프로그램끼리 일을 주고받는 정해진 주문 창구. 식당 메뉴판처럼 무엇을 어떻게 요청하면 되는지 적혀 있다.", see: "서버리스 아키텍처(Serverless Architecture)" },
+  { ko: "DevOps", en: "Development + Operations", cat: "디지털서비스", def: "만드는 팀(개발)과 돌리는 팀(운영)이 벽 없이 한 몸처럼 일하며 자주·빨리 내보내는 문화와 방식.", see: "클라우드 네이티브(Cloud Native)" },
+  { ko: "CI/CD", en: "Continuous Integration/Delivery", cat: "디지털서비스", def: "코드를 고칠 때마다 자동으로 합쳐 검사하고(CI) 자동으로 내보내는(CD) 컨베이어 벨트.", see: "클라우드 네이티브(Cloud Native)" },
+  { ko: "엣지", en: "Edge", cat: "디지털서비스", def: "멀리 있는 중앙 서버가 아니라 데이터가 생기는 현장 가까이에서 처리하는 자리. 본사 대신 동네 지점에서 바로 처리하는 셈.", see: "엣지컴퓨팅(Edge Computing)과 포그컴퓨팅(Fog Computing)" },
+  { ko: "IoT", en: "Internet of Things", cat: "디지털서비스", def: "냉장고·전등·공장 기계 같은 사물에 통신 기능을 달아 인터넷으로 서로 정보를 주고받게 한 것. 사물인터넷.", see: "지능형 IoT와 자율형 IoT" },
+  { ko: "센서/액추에이터", en: "Sensor/Actuator", cat: "디지털서비스", def: "센서는 온도·거리 같은 바깥 상태를 재는 눈과 귀, 액추에이터는 명령을 받아 실제로 움직이는 손발이다.", see: "AMR(Autonomous Mobile Robot)" },
+  { ko: "디지털 트윈", en: "Digital Twin", cat: "디지털서비스", def: "현실의 공장·도시·기계를 컴퓨터 속에 똑같이 만든 쌍둥이. 쌍둥이로 먼저 실험해 보고 현실에 적용한다.", see: "디지털 트윈(Digital Twin)" },
+  { ko: "디지털 전환", en: "DX, Digital Transformation", cat: "디지털서비스", def: "디지털 기술로 일하는 방식과 사업 모델 자체를 바꾸는 것. 종이를 스캔하는 수준이 아니라 일의 판을 새로 짠다.", see: "DXaaS/DTaaS(Digital Transformation as a Service)" },
+  { ko: "블록체인", en: "Blockchain", cat: "디지털서비스", def: "거래 기록을 블록에 담아 사슬처럼 이어 많은 사람이 똑같이 나눠 갖는 장부. 한 곳만 고쳐서는 위조가 안 된다.", see: "블록체인 트릴레마(Trilemma)" },
+  { ko: "분산원장", en: "Distributed Ledger", cat: "디지털서비스", def: "은행 한 곳이 아니라 참여자 모두가 같은 장부 사본을 나눠 들고 함께 맞춰 가는 기록 방식.", see: "증권형 토큰(STO, Security Token Offering)" },
+  { ko: "합의 알고리즘", en: "Consensus Algorithm", cat: "디지털서비스", def: "주인 없는 장부에서 '어느 기록이 맞나'를 참여자들이 정하는 규칙. 작업증명(PoW)·지분증명(PoS) 등.", see: "블록체인 트릴레마(Trilemma)" },
+  { ko: "탈중앙화", en: "Decentralization", cat: "디지털서비스", def: "가운데서 통제하는 관리자 없이 참여자들이 함께 운영하는 구조. 중간 업체를 거치지 않는 대신 결정이 느리다.", see: "웹3.0(Web 3.0)" },
+  { ko: "스마트 계약", en: "Smart Contract", cat: "디지털서비스", def: "조건이 맞으면 자동으로 실행되도록 블록체인에 올려 둔 계약 프로그램. 돈을 넣으면 물건이 나오는 자판기와 같다.", see: "웹3.0(Web 3.0)" },
+  { ko: "토큰화", en: "Tokenization", cat: "디지털서비스", def: "부동산·채권 같은 실물 자산의 권리를 블록체인 위 디지털 조각(토큰)으로 바꾸는 것. 빌딩을 1만 원 단위로 나눠 살 수 있게 된다.", see: "RWA(Real World Asset) 토큰화 프로토콜" },
+  { ko: "콜드/핫 월렛", en: "Cold/Hot Wallet", cat: "디지털서비스", def: "암호화폐 열쇠를 인터넷에 늘 연결해 두는 지갑(핫, 편하지만 털리기 쉬움)과 끊어 둔 지갑(콜드, 금고처럼 안전).", see: "암호화폐 지갑(Cryptocurrency Wallet)" },
+  { ko: "온체인/오프체인", en: "On-chain/Off-chain", cat: "디지털서비스", def: "블록체인 장부에 직접 적는 처리(온체인)와 장부 밖에서 처리하고 결과만 적는 처리(오프체인). 밖에서 하면 빠르고 싸다.", see: "라이트닝 네트워크(Lightning Network)" },
+  { ko: "상호운용성", en: "Interoperability", cat: "디지털서비스", def: "서로 다른 시스템끼리 데이터를 주고받아 그대로 쓸 수 있는 능력. 어느 회사 충전기로도 충전되는 USB-C처럼.", see: "데이터 상호 운용성 & 데이터 이동권" },
 ];
 
 const CATS = [
@@ -318,6 +380,8 @@ const CATS = [
   "네트워크",
   "데이터베이스",
   "경영전략",
+  "보안",
+  "디지털서비스",
 ] as const;
 
 /** 바닥판 10줄 — 에세이 대신 한 줄씩만. */
