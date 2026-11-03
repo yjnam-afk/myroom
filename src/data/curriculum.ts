@@ -847,7 +847,7 @@ const SC_ALL: CurriculumTopic[] = [
   { title: "국가 망 보안체계(N2SF)", priority: "상" },
 ];
 
-// 디지털서비스(DX) — 교재 CONTENTS Ⅰ·Ⅱ(89쪽) 순서·Priority 그대로(2026-11-01, 목차 이미지 public/concept/book/dsv-contents-1·2.png).
+// 디지털서비스(DX) — 교재 CONTENTS Ⅰ·Ⅱ(89쪽) 순서·Priority 그대로(2026-11-01, 목차 이미지 public/concept/book/DX/dsv-contents-1·2.png).
 const DX_ALL: CurriculumTopic[] = [
   { title: "하이퍼바이저(Hypervisor)", priority: "하" },
   { title: "리눅스 컨테이너(Linux Container, LXC)", priority: "중" },
