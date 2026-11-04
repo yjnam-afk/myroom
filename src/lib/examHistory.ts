@@ -119,6 +119,8 @@ const DROP_ANY: Record<string, string[]> = {
  */
 const KEYS_FIXED: Record<string, Keys> = {
   "데이터(웨어하우스, 레이크, 패브릭, 메시)": { all: [], any: ["데이터웨어하우스", "데이터레이크", "데이터패브릭", "데이터메시"] },
+  // 「RaaS」는 랜섬웨어 RaaS(Ransomware as a Service) 토픽과 겹친다 — 로봇 쪽은 원어·한글 이름으로만 찾는다(2026-11-04)
+  "Robot-as-a-Service(RaaS)": { all: [], any: ["robotasaservice", "서비스형로봇"] },
 };
 
 function keysOf(title: string): Keys {
@@ -215,6 +217,12 @@ const TRAP: Record<string, RegExp> = {
   데이터유형: /비정형데이터검수방식유형/,
   // 「ISMS-P 인증」은 SP 인증(소프트웨어 프로세스 품질인증)이 아니다
   sp인증: /ismsp/,
+  // 2026-11-04 "Robot-as-a-Service(RaaS) 모범답안 잘못 붙었다" — 같은 약어라 랜섬웨어 RaaS 문항 5개가 로봇 토픽에,
+  // 로봇 RaaS 문항 2개가 랜섬웨어 토픽에 걸려 있었다. 로봇 쪽은 KEYS_FIXED 로 열쇠를 바꿨고, 「raas」 열쇠(랜섬웨어 토픽)는 로봇 문항을 뺀다.
+  raas: /^[\s\S]*(?:robot|로봇)[\s\S]*$/,
+  // 「가트너(Gartner) 2026」은 2026년 전략 기술만 — 2016·2020·2022년 10대 기술 문항은 다른 해다
+  가트너: /^(?![\s\S]*2026)[\s\S]*$/,
+  gartner: /^(?![\s\S]*2026)[\s\S]*$/,
   // 자료구조 해시 테이블·해싱 충돌 문항은 암호 해시 함수(서브 토픽)가 아니다
   ...Object.fromEntries(
     ["해시함수", "해쉬함수", "hashfunction", "해시알고리즘", "해쉬알고리즘", "hashalgorithm"].map((k) => [
