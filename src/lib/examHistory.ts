@@ -107,6 +107,10 @@ const DROP_ANY: Record<string, string[]> = {
   "디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안": ["digitaltwin"],
   "캐시(Cache) 메모리의 사상 방식(Mapping Scheme)": ["cache"],
   "문맥(Context)": ["context"],
+  // 괄호 조각을 따로 열쇠로 삼으면서(2026-11-05) 넓은 말이 열쇠가 된 것 — 「View Model」은 4+1 View Model 을,
+  // 「Regression」은 회귀분석(ML) 문항 20개를 끌어왔다.
+  "MVVM (Model, View, View Model)": ["viewmodel"],
+  "리그레이션(회귀, Regression) 테스트": ["regression"],
 };
 
 /**
@@ -163,14 +167,20 @@ function keysOf(title: string): Keys {
     }
   }
   for (const m of title.matchAll(/[(（]([^)）]+)[)）]/g)) {
-    const inner = m[1].trim();
-    if (inner.includes(",") || !isLatin(inner)) continue;
-    const k = squeeze(inner);
-    const words = inner.toLowerCase().split(/\s+/).filter(Boolean);
-    if (words.length === 1) {
-      if (k.length >= 4 && !GENERIC.has(k)) any.push(k);
-    } else if (k.length >= 8) {
-      any.push(k);
+    // 「(SDM, Software Defined Manufacturing)」「(CBDC: Central Bank Digital Currency)」처럼 약어와 원어가 함께 든 괄호는
+    // 조각마다 따로 본다 — 전엔 쉼표가 있으면 통째로 건너뛰어 원어 열쇠가 없었다(2026-11-05 "소프트웨어 정의 제조 모범답안 없어?":
+    // 명품 42회 「SDM(Software Defined Manufacturing)」 문항이 토픽에 안 걸렸다).
+    for (const piece of m[1].split(/[,:;]/)) {
+      const inner = piece.trim();
+      // 「ISO 42001:2023」의 「2023」처럼 숫자만 남은 조각은 열쇠가 아니다 — 2023이 든 문항 41개를 끌어왔다
+      if (!inner || !isLatin(inner) || !/[a-z]/i.test(inner)) continue;
+      const k = squeeze(inner);
+      const words = inner.toLowerCase().split(/\s+/).filter(Boolean);
+      if (words.length === 1) {
+        if (k.length >= 4 && !GENERIC.has(k)) any.push(k);
+      } else if (k.length >= 8) {
+        any.push(k);
+      }
     }
   }
   // 괄호 속 영문이 그 토픽만의 이름이 아니라 넓은 분야 이름인 경우 — 그 말만 든 문항을 다 끌어온다.
