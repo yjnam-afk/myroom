@@ -1239,7 +1239,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "정보시스템 운영/유지보수 감리", how: "운영 품질을 감리로 점검합니다." },
       ],
       exam: "정보시스템 운영 성과관리는 가용성·응답시간·장애복구(MTTR)·SLA 준수율·만족도 등 지표로 운영 수준을 측정·평가·개선하는 활동으로, SLM·IT-BSC와 연계된다.",
-    }, image: "/concept/book/SE/ops-performance.webp", easy: "정보시스템 운영 성과관리는 전자정부법에 따라 운영 중인 시스템의 성과를 측정·평가해 정비 대상을 정하고 업무·비용 성과를 높이는 활동입니다. 추진절차 — 업무성과 계획관리 → 통폐합 대상관리 → 성과측정 대상관리 → 성과측정 및 평가 → 폐기 예외관리 → 정비계획 수립 → 이행관리. 성과측정 지표는 비용지표와 업무지표(업무성과 달성도), 정비 방식 4종 — 폐기, 통폐합, 기능고도화, 전면재개발. '측정 결과에 따라 계속/정비/폐기를 정한다'는 목적과 정비 방식 4종이 답안 핵심입니다." },
+    }, image: "/concept/book/SE/ops-performance.png", easy: "정보시스템 운영 성과관리는 전자정부법에 따라 운영 중인 시스템의 성과를 측정·평가해 정비 대상을 정하고 업무·비용 성과를 높이는 활동입니다. 추진절차 — 업무성과 계획관리 → 통폐합 대상관리 → 성과측정 대상관리 → 성과측정 및 평가 → 폐기 예외관리 → 정비계획 수립 → 이행관리. 성과측정 지표는 비용지표와 업무지표(업무성과 달성도), 정비 방식 4종 — 폐기, 통폐합, 기능고도화, 전면재개발. '측정 결과에 따라 계속/정비/폐기를 정한다'는 목적과 정비 방식 4종이 답안 핵심입니다." },
   "audit-report": {
     guide: {
       hook: "감리 결과를 정리한 공식 문서 — '발견사항과 개선 권고'를 담습니다.",
@@ -1429,7 +1429,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "ISO/IEC 25010:2023", how: "품질 시험의 기준 모델입니다." },
       ],
       exam: "상용소프트웨어 품질성능 평가 시험은 ISO 25051 등 기반으로 상용(COTS) SW의 기능·성능을 시험해 공공 조달 품질을 보증하는 제도로, GS 인증과 연계된다.",
-    }, image: "/concept/book/SE/commercial-sw-quality-test.webp", easy: "상용SW 품질성능 평가 시험(BMT)은 동종 경쟁 제품 간 기능·성능을 비교 평가해 요구를 만족하는 우수 제품을 가려내는 시험입니다(소프트웨어 진흥법 제55조). 평가 대상은 경쟁입찰을 통한 직접구매 대상 상용SW 중 구매금액 1억 원 이상(VAT 포함)으로 대상품목(34종)에 해당하는 제품이고, 시험비용 대비 효과가 낮거나 기존 제품 증설이면 제외될 수 있으며, 정보보호제품 성능평가 결과로 대체도 가능합니다. 절차는 평가시험 대상 검토 → 사전 협의 → 평가시험 설계(요구사항 분석·평가항목 개발) → 조달 발주(제안요청서에 평가항목·배점 반영) → 시험 의뢰 → 실시 → 결과 반영(기술성평가 반영·우선협상대상자 선정) 7단계. '스펙 문서가 아니라 실측으로 비교한다'는 취지와 상용SW 직접구매 제도와의 연계가 포인트입니다." },
+    }, image: "/concept/book/SE/commercial-sw-quality-test.png", easy: "상용SW 품질성능 평가 시험(BMT)은 동종 경쟁 제품 간 기능·성능을 비교 평가해 요구를 만족하는 우수 제품을 가려내는 시험입니다(소프트웨어 진흥법 제55조). 평가 대상은 경쟁입찰을 통한 직접구매 대상 상용SW 중 구매금액 1억 원 이상(VAT 포함)으로 대상품목(34종)에 해당하는 제품이고, 시험비용 대비 효과가 낮거나 기존 제품 증설이면 제외될 수 있으며, 정보보호제품 성능평가 결과로 대체도 가능합니다. 절차는 평가시험 대상 검토 → 사전 협의 → 평가시험 설계(요구사항 분석·평가항목 개발) → 조달 발주(제안요청서에 평가항목·배점 반영) → 시험 의뢰 → 실시 → 결과 반영(기술성평가 반영·우선협상대상자 선정) 7단계. '스펙 문서가 아니라 실측으로 비교한다'는 취지와 상용SW 직접구매 제도와의 연계가 포인트입니다." },
   "function-point": {
     guide: {
       hook: "코드 줄 수 대신 '사용자에게 보이는 기능 개수'로 크기를 재는 자입니다.",
@@ -1562,7 +1562,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "정보시스템 감리 의무 대상과 관점별 점검 기준", how: "공공 사업 관리 제도를 공유합니다." },
       ],
       exam: "SW사업 영향평가는 공공 SW 사업이 민간 상용 SW 시장을 침해·중복하는지 사전 평가해 상용 SW 구매를 유도하는 제도로, 직접구매(분리발주)와 연계된다.",
-    }, image: "/concept/book/SE/sw-impact-assessment.webp", images: ["/concept/diagram/sw-impact-assessment.webp"], imagesLabel: "개념도", easy: "SW사업 영향평가는 국가기관 등이 SW 사업의 예산편성·발주나 SW 배포·서비스 제공을 추진할 때, 민간 SW 시장 침해 여부를 사전 검토·조정하는 제도입니다(SW진흥법 43조). 절차는 예산편성 단계의 자체 평가부터 발주 전 재평가, 이의신청·조정까지 5단계 흐름. 대상은 국가기관 등의 SW 사업이고, 제외 사업도 규정돼 있습니다. '공공이 민간 시장을 침범하지 않게 하는 장치'라는 취지와, 예산 단계와 발주 단계에서 두 번 본다는 구조가 답안 포인트입니다." },
+    }, image: "/concept/book/SE/sw-impact-assessment.png", images: ["/concept/diagram/sw-impact-assessment.webp"], imagesLabel: "개념도", easy: "SW사업 영향평가는 국가기관 등이 SW 사업의 예산편성·발주나 SW 배포·서비스 제공을 추진할 때, 민간 SW 시장 침해 여부를 사전 검토·조정하는 제도입니다(SW진흥법 43조). 절차는 예산편성 단계의 자체 평가부터 발주 전 재평가, 이의신청·조정까지 5단계 흐름. 대상은 국가기관 등의 SW 사업이고, 제외 사업도 규정돼 있습니다. '공공이 민간 시장을 침범하지 않게 하는 장치'라는 취지와, 예산 단계와 발주 단계에서 두 번 본다는 구조가 답안 포인트입니다." },
   "feasibility-study": {
     guide: {
       hook: "큰 다리를 놓기 전에 '정말 놓을 가치가 있나'부터 따지는 사전 조사입니다.",
@@ -1906,7 +1906,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
       exam: "테스트 오라클은 테스트 결과의 정오를 판정하는 기대값 원천으로, AI·복잡 계산처럼 기대값을 알기 어려운 오라클 문제는 변성 테스트·백투백으로 해결한다.",
     }, image: "/concept/book/SE/se-163.png", easy: "테스트 결과가 '맞았는지 틀렸는지'를 판정해 주는 채점 기준입니다 [참샘휴일]. 참 오라클(모든 입력의 정답을 다 앎 — 이상적이나 비쌈), 샘플링(특정 입력 몇 개만 정답 보유 — sin 함수의 0°·90°·180°처럼), 휴리스틱(샘플은 정확히, 나머지는 추정으로 — 샘플링의 개선), 일관성 검사(이전 실행 결과와 같은지 비교 — 회귀 테스트·자동화 도구가 사용). 요즘 단골 연계 — AI 시스템은 확률적이고 재현이 안 돼 참 오라클이 불가능하므로, 백투백·A/B·변성(Metamorphic) 테스트 같은 대안을 씁니다." },
 "memory-fragmentation": {
-    image: "/concept/book/CA/memory-fragmentation.webp", images: ["/concept/extra/fragmentation-hand.webp", "/concept/extra/internal-fragmentation.png", "/concept/extra/external-fragmentation.png"],
+    image: "/concept/book/CA/memory-fragmentation.png", images: ["/concept/extra/fragmentation-hand.webp", "/concept/extra/internal-fragmentation.png", "/concept/extra/external-fragmentation.png"],
     guide: {
       hook: "빈 메모리는 있는데 못 쓰는 낭비 — CA 교재는 '예방 도구'까지 다룹니다.",
       scene: "주차장으로 보세요. 대형차 칸에 경차가 서면 칸 안에 틈이 남고(내부), 빈 칸이 띄엄띄엄이면 버스를 댈 수가 없습니다(외부). 관리인의 대응 — 붙어 있는 빈 칸 합치기(통합), 차들을 한쪽으로 몰아 큰 빈 공간 만들기(압축). 그리고 아예 처음부터 잘 배치하는 도구들이 있습니다.",
@@ -1931,7 +1931,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-25": {
-    image: "/concept/book/CA/ca-25.webp",
+    image: "/concept/book/CA/ca-25.png",
     guide: {
       hook: "CPU 대신 데이터를 옮겨 주는 전담 이삿짐 기사입니다.",
       scene: "사장(CPU)이 서류 상자 1만 개를 직접 나르면 그동안 결재가 전부 멈춥니다. 그래서 기사(DMA 컨트롤러)에게 '여기서 저기로 이만큼'만 시켜 놓고 사장은 결재를 봅니다. 다 옮기면 기사가 벨을 울립니다(인터럽트). 문제는 복도(버스)가 하나 — 기사가 얼마나 차지할지 방식을 정해야 합니다.",
@@ -1955,7 +1955,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-47": {
-    image: "/concept/book/CA/ca-47.webp",
+    image: "/concept/book/CA/ca-47.png",
     guide: {
       hook: "보드 위 칩들끼리 대화하는 두 가지 사내 전화선 규격입니다.",
       scene: "I2C는 전화선 2가닥(시계 SCL, 데이터 SDA)에 여러 칩을 주렁주렁 매다는 방식 — 배선이 싸고 단순하지만, 한 번에 한 방향(반이중)이고 느립니다(표준 100kbps). SPI는 4가닥으로 1:1 직통 — 양방향 동시(전이중)에 빠르지만(수십 MHz), 칩마다 선택선(CS)을 따로 깔아야 해서 배선이 늘어납니다.",
@@ -1977,7 +1977,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-135": {
-    image: "/concept/book/CA/ca-135.webp", images: ["/concept/extra/ha-hand.png", "/concept/extra/ha-types-hand.png"],
+    image: "/concept/book/CA/ca-135.png", images: ["/concept/extra/ha-hand.png", "/concept/extra/ha-types-hand.png"],
     guide: {
       hook: "서버 한 대가 죽어도 장사가 안 끊기게, 두 대 이상을 묶는 세 가지 방법입니다.",
       scene: "가게 운영으로 보면 — ① 대타 직원이 놀면서 대기(Hot Standby): 사고 나면 즉시 교대하지만 평소엔 인건비 낭비. ② 두 직원이 각자 다른 일을 하다, 한 명이 쓰러지면 남은 사람이 둘 다 떠맡기(Mutual Takeover): 안 놀지만 혼자 2인분을 감당할 체력이 필요. ③ 처음부터 같은 일을 나눠 하기(Concurrent Access): 하나가 빠져도 교대 자체가 필요 없음.",
@@ -2000,7 +2000,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-136": {
-    image: "/concept/book/CA/ca-136.webp", images: ["/concept/extra/fts-hand.png"],
+    image: "/concept/book/CA/ca-136.png", images: ["/concept/extra/fts-hand.png"],
     guide: {
       hook: "고장이 나도 완전히 멈추지 않게 만드는 설계 — 흐름은 감·진·통·복입니다.",
       scene: "비행기 설계를 떠올리세요. 엔진 하나가 꺼져도 날 수 있어야 합니다. 하드웨어는 — 같은 계산을 3곳에 시켜 다수결(TMR), 2개 돌려 비교(Duplication), 여분 부품 대기(Stand-by Sparing). 소프트웨어는 — 저장 지점으로 돌아가 다시 하기(체크포인트), 같은 기능의 다른 구현으로 갈아타기(Recovery Block), 독립 개발한 N개 버전을 비교하기(N-version).",
@@ -2024,7 +2024,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-81": {
-    image: "/concept/book/CA/os-81.webp",
+    image: "/concept/book/CA/os-81.png",
     guide: {
       hook: "프로그램이 얼어붙으면 자동으로 재시작시키는 '데드맨 스위치'입니다.",
       scene: "기차 기관사는 일정 시간마다 페달을 밟아 '나 깨어 있음'을 알려야 합니다. 안 밟으면 기차가 스스로 멈춥니다. 임베디드 장비도 똑같습니다 — 프로그램이 주기적으로 타이머를 초기화(Kick)하고, 무한 루프에 빠져 Kick이 끊기면 타이머가 0이 되는 순간(Timeout) 워치독이 MCU를 강제 리셋합니다.",
@@ -2046,7 +2046,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-140": {
-    image: "/concept/book/CA/ca-140.webp", images: ["/concept/extra/raid-hand.png"],
+    image: "/concept/book/CA/ca-140.png", images: ["/concept/extra/raid-hand.png"],
     guide: {
       hook: "디스크 여러 장을 묶어 '빠르게' 또는 '안 죽게' 만드는 조합 레시피입니다.",
       scene: "장부 쓰는 법으로 보세요 — 반씩 나눠 두 명이 동시에 쓰면 빠르지만 한 권만 잃어도 끝(RAID 0). 두 권에 똑같이 쓰면 안전하지만 종이가 2배(RAID 1). 세 권 이상에 나눠 쓰되 복구용 요약(패리티)을 섞어 두면, 한 권을 잃어도 나머지로 계산해 복원(RAID 5). 복사해 둔 쌍을 다시 나눠 쓰면 빠르고 안전(RAID 10).",
@@ -2069,7 +2069,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "erasure-coding": {
-    image: "/concept/book/CA/erasure-coding.webp",
+    image: "/concept/book/CA/erasure-coding.png",
     guide: {
       hook: "데이터를 조각+여분 조각으로 만들어 흩뿌려 두고, 일부를 잃어도 되살리는 기술입니다.",
       scene: "원본을 n조각으로 자르고, 수학적으로 만든 여분 조각 k개를 더해 총 n+k조각을 여러 창고(서버)에 나눠 보관합니다. 창고 몇 개가 불타도, 남은 것 중 아무 n조각만 모으면 원본이 복원됩니다.",
@@ -2091,7 +2091,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "intelligent-semiconductor": {
-    image: "/concept/book/CA/intelligent-semiconductor.webp",
+    image: "/concept/book/CA/intelligent-semiconductor.png",
     guide: {
       hook: "저장하는 칩과 계산하는 칩을 한 몸으로 합쳐, 둘 사이의 병목을 없앤 반도체입니다.",
       scene: "주방(연산)과 창고(메모리)가 다른 건물이라, 재료 나르는 복도(버스)가 늘 막힙니다. 지능형 반도체는 창고 안에 주방을 차린 것 — 나를 필요가 없어집니다. 뇌의 뉴런·시냅스를 흉내 낸 뉴로모픽 칩, 컨트롤러를 품은 지능형 메모리(SSD/UFS), IoT 프로세서가 그 갈래입니다.",
@@ -2114,7 +2114,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-22": {
-    image: "/concept/book/CA/ca-22.webp", images: ["/concept/extra/tpu-hand.webp"],
+    image: "/concept/book/CA/ca-22.png", images: ["/concept/extra/tpu-hand.webp"],
     guide: {
       hook: "구글이 딥러닝의 행렬 곱셈만을 위해 만든 전용 계산 공장입니다.",
       scene: "곱셈기 수만 개를 격자로 깔아 놓고, 데이터가 옆 칸으로 물결처럼 흘러가며 계산됩니다(시스톨릭 어레이). 한 번 들어온 숫자가 칸을 옮겨 다니며 재사용되므로, 창고(메모리)를 다시 다녀올 일이 확 줄고 — 그래서 전력 효율이 높습니다.",
@@ -2138,7 +2138,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-17": {
-    image: "/concept/book/CA/ca-17.webp",
+    image: "/concept/book/CA/ca-17.png",
     guide: {
       hook: "CPU는 '명령 한 줄 가져오기 → 실행하기'를 무한 반복하는 기계입니다.",
       scene: "요리사가 레시피를 처리하는 순서로 보세요. 다음 읽을 줄 번호를 확인하고(PC), 그 줄을 가져와(주소 창구 MAR → 메모리 → 데이터 창구 MBR) 손에 든 메모지(IR)에 옮깁니다. 줄 번호는 +1. 그다음 메모를 해석해 재료를 가져다 조리하고(ALU), 결과를 접시(AC)에 담습니다.",
@@ -2162,7 +2162,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-120": {
-    image: "/concept/book/CA/ca-120.webp",
+    image: "/concept/book/CA/ca-120.png",
     guide: {
       hook: "명령어를 '만능 기계 몇 대'로 할까, '단순한 칼 여러 자루'로 할까의 두 철학입니다.",
       scene: "만능 주방기계(CISC)는 버튼 하나로 다지고 볶고 담기까지 하지만 내부가 복잡하고, 크기가 제각각이라 조립라인에 태우기 어렵습니다. 단순 칼 세트(RISC)는 하나로는 썰기만 되지만 크기가 똑같아(32비트 고정) 라인에 착착 태워집니다. 대신 요리사(컴파일러)가 조합을 잘 짜야 합니다.",
@@ -2184,7 +2184,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-102": {
-    image: "/concept/book/CA/ca-102.webp",
+    image: "/concept/book/CA/ca-102.png",
     guide: {
       hook: "명령어 처리를 단계로 쪼개, 세탁기·건조기처럼 겹쳐 돌리는 기술입니다.",
       scene: "빨래 세 통을 '세탁→건조→개기'로 처리할 때, 첫 통이 건조기로 넘어가는 순간 세탁기는 둘째 통을 받습니다. CPU도 인출→해독→실행→저장 단계를 겹쳐 돌립니다. 한 통에 걸리는 시간은 그대로지만, 시간당 처리량이 몇 배로 뜁니다.",
@@ -2208,7 +2208,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-106": {
-    image: "/concept/book/CA/ca-106.webp",
+    image: "/concept/book/CA/ca-106.png",
     guide: {
       hook: "겹쳐 돌리기 때문에 생기는 사고이고, 종류는 딱 셋입니다(구·데·제).",
       scene: "조립라인에서 나는 사고 세 가지 — ① 드라이버가 하나뿐인데 두 공정이 동시에 잡으려 함(구조적). ② 앞 공정이 부품을 아직 다 조이지도 않았는데 뒤 공정이 그걸 가져다 씀(데이터). ③ '검사 결과에 따라 A라인/B라인'인데, 결과가 나오기도 전에 B라인 부품을 미리 채워 놨다가 A로 판정 나면 전부 폐기(제어).",
@@ -2253,7 +2253,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-78": {
-    image: "/concept/book/CA/ca-78.webp",
+    image: "/concept/book/CA/ca-78.png",
     guide: {
       hook: "메모리 블록을 캐시의 어느 자리에 앉힐지 정하는 좌석 규칙 세 가지입니다.",
       scene: "극장 좌석으로 보세요 — ① 지정석(직접 사상): 회원번호 끝자리로 자리가 정해져 있어 확인은 한 곳만 하면 되지만, 끝자리가 같은 회원끼리 서로 밀어냅니다. ② 자유석(완전 연관): 아무 데나 앉아 적중률은 최고지만, 찾을 때 전 좌석을 뒤져야 합니다. ③ 구역 지정석(집합 연관): 구역까지만 정하고 구역 안은 자유 — 실제 CPU의 절충안입니다.",
@@ -2276,7 +2276,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-77": {
-    image: "/concept/book/CA/ca-77.webp", images: ["/concept/extra/cache-coherence-hand.png"],
+    image: "/concept/book/CA/ca-77.png", images: ["/concept/extra/cache-coherence-hand.png"],
     guide: {
       hook: "코어마다 수첩(캐시)에 베껴 적다 보면, 서로 다른 값을 들고 있게 되는 문제입니다.",
       scene: "팀원 넷이 화이트보드(메모리)의 값을 각자 수첩에 베껴 놓고 일합니다. 한 명이 자기 수첩만 고치면 나머지 셋은 낡은 값으로 일하게 됩니다. 해결책은 둘 — '누가 어느 값을 베꼈는지' 명부를 두고 관리하거나(디렉토리), 모두가 서로의 말을 엿듣다가 누가 고치면 자기 수첩을 지우거나 갱신하거나(스누피).",
@@ -2300,7 +2300,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-83": {
-    image: "/concept/book/CA/ca-83.webp",
+    image: "/concept/book/CA/ca-83.png",
     guide: {
       hook: "Clean은 '옮겨 적고 표시 지우기', Flush는 '그냥 찢어 버리기' — 반대 같은 이름의 한 쌍입니다.",
       scene: "수첩(캐시)에 고쳐 적은 내용이 있습니다. Clean: 화이트보드(메모리)에 옮겨 적고 '고침' 표시(더티 비트)를 지웁니다 — 수첩 내용은 남습니다. Flush: 수첩 페이지를 찢어 무효로 만듭니다 — 화이트보드에 옮기지 않습니다.",
@@ -2347,7 +2347,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-81": {
-    image: "/concept/book/CA/ca-81.webp",
+    image: "/concept/book/CA/ca-81.png",
     guide: {
       hook: "캐시 한 줄마다 붙이는 상태 딱지 4종 세트입니다.",
       scene: "수첩의 각 페이지에 딱지를 붙입니다 — M(나만 있고 내가 고침, 화이트보드와 다름), E(나만 있고 화이트보드와 같음), S(다른 팀원도 베껴 감), I(찢어진 페이지). 그리고 사건마다 딱지가 바뀝니다 — E 상태에서 내가 쓰면 M으로, 남이 그 주소를 읽으면 S로, 남이 쓰면 내 것은 I로.",
@@ -2371,7 +2371,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-56": {
-    image: "/concept/book/CA/ca-56.webp", images: ["/concept/extra/interleaving-hand.png", "/concept/extra/interleaving-types-hand.png"],
+    image: "/concept/book/CA/ca-56.png", images: ["/concept/extra/interleaving-hand.png", "/concept/extra/interleaving-types-hand.png"],
     guide: {
       hook: "메모리를 여러 창구로 쪼개 번갈아 접근하게 해서, 줄 서는 시간을 없애는 기법입니다.",
       scene: "은행 창구가 하나면 손님이 줄을 섭니다. 창구를 4개로 늘리고 번호표 '끝자리'로 창구를 배정하면(하위 인터리빙) 1·2·3·4번 손님이 각각 다른 창구로 흩어져 동시에 처리됩니다. '앞자리'로 배정하면(상위) 연속 번호 손님이 같은 창구에 몰립니다.",
@@ -2395,7 +2395,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-53": {
-    image: "/concept/book/OS/os-53.webp",
+    image: "/concept/book/OS/os-53.png",
     guide: {
       hook: "프로세스는 '가게 하나', 스레드는 '그 가게 안의 직원'입니다.",
       scene: "가게(프로세스)마다 주방·창고·금고(코드·데이터·힙)를 따로 갖고, 남의 가게 것은 못 씁니다. 한 가게 안의 직원들(스레드)은 주방과 창고를 같이 쓰고, 각자 자기 앞치마 주머니(스택)만 따로 챙깁니다.",
@@ -2419,7 +2419,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-54": {
-    image: "/concept/book/OS/os-54.webp",
+    image: "/concept/book/OS/os-54.png",
     guide: {
       hook: "직원(스레드) 여럿을 어떻게 굴릴지의 네 가지 방식이고, 뒤로 갈수록 CPU가 덜 놉니다.",
       scene: "직원이 하나면 재료 배달을 기다리는 동안 주방이 놉니다. 그래서 — 매 순간 번갈아 일 시키고(IMT), 막힌 직원이 생기면 그때만 교대시키고(BMT), 아예 한 화구에서 두 직원이 동시에 일하게 하고(SMT), 화구 자체를 늘립니다(CMP).",
@@ -2443,7 +2443,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-45": {
-    image: "/concept/book/OS/os-45.webp",
+    image: "/concept/book/OS/os-45.png",
     images: ["/concept/extra/race-condition-hand.webp"],
     guide: {
       hook: "둘이 같은 장부에 동시에 쓰면, 실행 순서에 따라 결과가 달라지는 사고입니다.",
@@ -2469,7 +2469,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-32": {
-    image: "/concept/book/OS/os-32.webp",
+    image: "/concept/book/OS/os-32.png",
     images: ["/concept/extra/semaphore-hand.png"],
     guide: {
       hook: "공용 자원의 '열쇠 개수'를 숫자 하나로 관리하는 장치입니다.",
@@ -2497,7 +2497,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-34": {
-    image: "/concept/book/OS/os-34.webp",
+    image: "/concept/book/OS/os-34.png",
     images: ["/concept/extra/priority-inversion-hand.webp"],
     guide: {
       hook: "급한 작업이, 한가한 작업 때문에 밀리는 역전 사고입니다.",
@@ -2521,7 +2521,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-59": {
-    image: "/concept/book/OS/os-59.webp",
+    image: "/concept/book/OS/os-59.png",
     images: ["/concept/extra/ipc-hand.webp", "/concept/extra/ipc-shared-vs-message-hand.webp", "/concept/extra/ipc-shared-memory-hand.webp", "/concept/extra/ipc-message-passing-hand.webp"],
     guide: {
       hook: "떨어져 있는 프로세스끼리 데이터를 주고받는 길은 딱 두 갈래입니다.",
@@ -2547,7 +2547,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-36": {
-    image: "/concept/book/OS/os-36.webp",
+    image: "/concept/book/OS/os-36.png",
     images: ["/concept/extra/deadlock-hand.png"],
     guide: {
       hook: "서로 상대가 쥔 것을 기다리며 전원이 영원히 멈춘 상태입니다.",
@@ -2573,7 +2573,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-39": {
-    image: "/concept/book/OS/os-39.webp",
+    image: "/concept/book/OS/os-39.png",
     images: ["/concept/extra/rag-hand.webp"],
     guide: {
       hook: "교착이 났는지 그림 한 장으로 판별하는 도구입니다.",
@@ -2597,7 +2597,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-41": {
-    image: "/concept/book/OS/os-41.webp",
+    image: "/concept/book/OS/os-41.png",
     images: ["/concept/extra/bankers-hand.png"],
     guide: {
       hook: "'빌려줘도 모두가 끝까지 갚을 수 있나'를 먼저 계산해 보고 빌려주는 은행원의 규칙입니다.",
@@ -2622,7 +2622,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-38": {
-    image: "/concept/book/OS/os-38.webp",
+    image: "/concept/book/OS/os-38.png",
     guide: {
       hook: "나이(타임스탬프)로 다툼을 정리해 교착을 막는 두 규칙 — 이름 그대로 읽으면 됩니다.",
       scene: "자원을 쥔 쪽과 원하는 쪽이 부딪히면, 먼저 시작한 쪽(늙음)을 우대합니다. Wait-Die: 늙은 쪽은 기다리고(Wait), 젊은 쪽은 죽었다가 재시작(Die). Wound-Wait: 늙은 쪽은 젊은 쪽을 찔러 뺏고(Wound), 젊은 쪽은 기다립니다(Wait).",
@@ -2668,7 +2668,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-58": {
-    image: "/concept/book/OS/os-58.webp",
+    image: "/concept/book/OS/os-58.png",
     guide: {
       hook: "디스크 한 파티션을 도서관처럼 네 구역으로 나눠 쓰는 구조입니다.",
       scene: "입구 안내판(부트 블록 — 부팅 코드), 도서관 전체 현황판(슈퍼 블록 — 총 서가 수·빈 서가 목록), 책마다의 정보 카드 서랍(i-node 리스트), 실제 서가(데이터 블록). 책을 찾으려면 '제목→카드번호' 색인(디렉토리)에서 번호를 얻고, 카드에서 서가 위치를 읽어 찾아갑니다.",
@@ -2692,7 +2692,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-57": {
-    image: "/concept/book/OS/os-57.webp",
+    image: "/concept/book/OS/os-57.png",
     guide: {
       hook: "파일 한 개마다 붙는 정보 카드 — 위엔 속성, 아래엔 위치가 적혀 있습니다.",
       scene: "카드 위쪽엔 소유자·권한·크기·시각(Attribute)이 적혀 있습니다. 아래쪽(index)엔 책이 꽂힌 서가 번호가 있는데 — 작은 책은 번호를 바로 적고(직접 블록), 큰 책은 '번호 목록이 적힌 종이'의 위치를 적습니다(단일 간접). 그 종이가 또 종이를 가리키면 이중·삼중 간접입니다.",
@@ -2716,7 +2716,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-23": {
-    image: "/concept/book/OS/os-23.webp",
+    image: "/concept/book/OS/os-23.png",
     images: ["/concept/extra/scheduler-hand.webp"],
     guide: {
       hook: "누가 다음으로 일할지 정하는 순서 결정자이고, 시간 단위에 따라 세 명입니다.",
@@ -2741,7 +2741,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "process-state-transition": {
-    image: "/concept/book/OS/process-state-transition.webp",
+    image: "/concept/book/OS/process-state-transition.png",
     images: ["/concept/extra/process-state-hand.png"],
     // 토픽 자체가 다이어그램 — 2번 항목을 "개념도"가 아니라 "다이어그램"으로 부른다
     imagesLabel: "다이어그램",
@@ -2769,7 +2769,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "cpu-scheduling": {
-    image: "/concept/book/OS/cpu-scheduling.webp",
+    image: "/concept/book/OS/cpu-scheduling.png",
     images: ["/concept/extra/cpu-scheduling-scan-1.jpg", "/concept/extra/cpu-scheduling-scan-2.jpg", "/concept/extra/cpu-scheduling-scan-3.jpg", "/concept/extra/cpu-scheduling-scan-4.jpg", "/concept/extra/cpu-scheduling-scan-5.jpg"],
     guide: {
       hook: "대기줄에서 다음 주문을 어떤 규칙으로 고를지의 문제 — 하던 걸 뺏을 수 있느냐로 두 갈래입니다.",
@@ -2795,7 +2795,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "deadline-scheduling": {
-    image: "/concept/book/OS/deadline-scheduling.webp",
+    image: "/concept/book/OS/deadline-scheduling.png",
     guide: {
       hook: "'맛있게'보다 '제시간에'가 목숨인 주방의 규칙입니다.",
       scene: "기내식 주방입니다. 이륙 전까지 못 실으면 그 요리는 가치가 0입니다. 이런 곳은 두 규칙을 씁니다 — 매일 반복되는 주문은 '자주 나가는 것일수록 우선'으로 미리 서열을 박아 두거나(RM), 그때그때 '마감이 제일 급한 것부터' 처리합니다(EDF).",
@@ -2818,7 +2818,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-47": {
-    image: "/concept/book/OS/os-47.webp", images: ["/concept/extra/context-switch-hand.webp", "/concept/extra/context-switch-pcb.png"],
+    image: "/concept/book/OS/os-47.png", images: ["/concept/extra/context-switch-hand.webp", "/concept/extra/context-switch-pcb.png"],
     guide: {
       hook: "요리사가 주문 A를 내려놓고 B로 갈아타는 동작 — 그 시간엔 요리가 한 개도 안 됩니다.",
       scene: "갈아타려면 A가 어디까지 됐는지(불 세기·남은 시간)를 A의 관리 카드(PCB)에 적고, B의 카드를 읽어 그 상태를 복원해야 합니다. 적고 읽는 동안 손은 완전히 멈춰 있습니다.",
@@ -2842,7 +2842,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-37": {
-    image: "/concept/book/OS/os-37.webp",
+    image: "/concept/book/OS/os-37.png",
     images: ["/concept/extra/starvation-hand.png"],
     guide: {
       hook: "줄은 서 있는데 내 차례가 영원히 안 오는 것입니다.",
@@ -2867,7 +2867,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-63": {
-    image: "/concept/book/OS/os-63.webp",
+    image: "/concept/book/OS/os-63.png",
     images: ["/concept/extra/interrupt-hand.png"],
     guide: {
       hook: "하던 일을 잠깐 멈추게 하는 끼어들기 신호와, 그것을 처리하는 정해진 절차입니다.",
@@ -2893,7 +2893,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-48": {
-    image: "/concept/book/OS/os-48.webp",
+    image: "/concept/book/OS/os-48.png",
     guide: {
       hook: "프로세스 한 명당 한 장씩 만들어지는 신상명세서입니다.",
       scene: "주문서마다 붙는 관리 카드를 떠올리세요 — 주문번호, 지금 상태(조리 중/대기), 어디까지 진행됐는지, 쓰던 화구, 결제 정보까지. 요리사가 주문을 내려놓을 때 이 카드에 적고, 다시 잡을 때 이 카드부터 읽습니다.",
@@ -3222,7 +3222,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
       exam: "MVVM은 Model·View·ViewModel로 UI를 분리하고 View와 ViewModel을 데이터 바인딩으로 자동 동기화하는 패턴으로, ViewModel이 View를 몰라 테스트가 용이하다.",
     }, image: "/concept/book/SE/mvvm.png", easy: "화면(View)과 데이터(Model) 사이에 View Model을 두고, View와 View Model을 Data Binding으로 자동 동기화하는 패턴입니다. 흐름은 — 사용자 Action이 View로 들어오면 → Command로 View Model에 전달 → View Model이 Model에 데이터 요청·응답받아 가공 → Data Binding이 알아서 화면 갱신. 핵심 이득은 View와 View Model이 서로를 직접 모른다는 것(독립) — 그래서 화면 없이도 View Model을 테스트할 수 있습니다. View:ViewModel = n:1 입니다." },
 "os-2": {
-    image: "/concept/book/OS/os-2.webp", images: ["/concept/extra/kernel-hand.webp"], imagesLabel: "구조(Architecture)",
+    image: "/concept/book/OS/os-2.png", images: ["/concept/extra/kernel-hand.webp"], imagesLabel: "구조(Architecture)",
     guide: {
       hook: "컴퓨터의 자원을 누구에게 얼마나 줄지 정하는, 운영체제의 알맹이입니다.",
       scene:
@@ -3250,7 +3250,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "cpu-ring-level": {
-    image: "/concept/book/OS/cpu-ring-level.webp", images: ["/concept/extra/cpu-ring-level-hand.webp"],
+    image: "/concept/book/OS/cpu-ring-level.png", images: ["/concept/extra/cpu-ring-level-hand.webp"],
     guide: {
       hook: "'이 코드에 어디까지 허락할까'를 CPU가 등급으로 관리하는 구조입니다.",
       scene:
@@ -3276,7 +3276,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-51": {
-    image: "/concept/book/OS/ca-51.webp",
+    image: "/concept/book/OS/ca-51.png",
     guide: {
       hook: "빠른 저장장치는 비싸고 작아서, 계단처럼 쌓아 씁니다.",
       scene:
@@ -3304,7 +3304,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-74": {
-    image: "/concept/book/OS/os-74.webp",
+    image: "/concept/book/OS/os-74.png",
     guide: {
       hook: "프로그램은 메모리를 골고루 쓰지 않고, 쓰던 데만 계속 씁니다.",
       scene:
@@ -3330,7 +3330,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-55": {
-    image: "/concept/book/OS/ca-55.webp", images: ["/concept/extra/virtual-memory-hand.webp"],
+    image: "/concept/book/OS/ca-55.png", images: ["/concept/extra/virtual-memory-hand.webp"],
     guide: {
       hook: "메모리가 부족해도 프로그램을 돌릴 수 있게, 디스크를 메모리인 척 빌려 쓰는 기술입니다.",
       scene:
@@ -3357,7 +3357,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "paging-segmentation": {
-    image: "/concept/book/OS/paging-segmentation.webp", images: ["/concept/extra/paging-hand.webp", "/concept/extra/segmentation-hand.webp", "/concept/extra/paging-mmu.png", "/concept/extra/segmentation-mmu.png"],
+    image: "/concept/book/OS/paging-segmentation.png", images: ["/concept/extra/paging-hand.webp", "/concept/extra/segmentation-hand.webp", "/concept/extra/paging-mmu.png", "/concept/extra/segmentation-mmu.png"],
     guide: {
       hook: "프로그램을 메모리에 올리려고 자를 때, 자로 자르느냐 의미로 자르느냐입니다.",
       scene:
@@ -3383,7 +3383,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-58": {
-    image: "/concept/book/OS/ca-58.webp", images: ["/concept/extra/fragmentation-hand.webp", "/concept/extra/internal-fragmentation.png", "/concept/extra/external-fragmentation.png"],
+    image: "/concept/book/OS/ca-58.png", images: ["/concept/extra/fragmentation-hand.webp", "/concept/extra/internal-fragmentation.png", "/concept/extra/external-fragmentation.png"],
     guide: {
       hook: "빈 공간은 분명히 있는데, 쓸 수가 없는 상태입니다.",
       scene:
@@ -3409,7 +3409,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-87": {
-    image: "/concept/book/OS/ca-87.webp", images: ["/concept/extra/direct-mapping-hand.webp", "/concept/extra/associative-mapping-hand.webp"],
+    image: "/concept/book/OS/ca-87.png", images: ["/concept/extra/direct-mapping-hand.webp", "/concept/extra/associative-mapping-hand.webp"],
     guide: {
       hook: "프로그램이 부르는 가짜 주소를, 진짜 메모리 주소로 바꿔 찾아가는 방법입니다.",
       scene:
@@ -3436,7 +3436,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-84": {
-    image: "/concept/book/OS/ca-84.webp",
+    image: "/concept/book/OS/ca-84.png",
     images: ["/concept/extra/page-replacement-hand.webp", "/concept/extra/page-replacement-kinds-hand.webp", "/concept/extra/page-replacement-scr-belady-hand.webp"],
     guide: {
       hook: "메모리가 꽉 찼을 때, 누구를 내보낼지 정하는 규칙입니다.",
@@ -3465,7 +3465,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "ca-90": {
-    image: "/concept/book/OS/ca-90.webp",
+    image: "/concept/book/OS/ca-90.png",
     images: ["/concept/extra/belady-anomaly-hand.webp"],
     guide: {
       hook: "책상을 넓혔는데 오히려 책을 더 자주 나르게 되는, 말도 안 되는 현상입니다.",
@@ -3492,7 +3492,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     },
   },
 "os-75": {
-    image: "/concept/book/OS/os-75.webp",
+    image: "/concept/book/OS/os-75.png",
     images: ["/concept/extra/thrashing-hand.webp"],
     guide: {
       hook: "일은 안 하고 메모리에 넣었다 뺐다만 하다가 하루가 끝나는 상태입니다.",
@@ -3537,7 +3537,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "Agile 선언문과 12개 원칙", how: "애자일 방법론의 철학입니다." },
       ],
       exam: "SW 개발 방법론은 구조적(프로세스)→정보공학(데이터)→객체지향(객체)→CBD(컴포넌트)→애자일(반복)로 발전했으며, 절차·산출물·기법으로 구성돼 테일러링해 적용한다.",
-    }, image: "/concept/book/SE/sw-methodology.webp", easy: "개발을 '그때그때 알아서'가 아니라 표준으로 못 박아 둔 것이 방법론입니다. 구성요소 6개 [절방산관기도] — 절차(단계별 순서), 방법(누가 무엇을 어떻게), 산출물(무엇을 남기나), 관리(계획·일정·품질), 기법(ERD·DFD 같은 기술), 도구(CASE·UML Tool). 유형은 시대순으로 흘러갑니다 [구정객CAP] — 구조적(70s, 프로세스 중심) → 정보공학(80s, 데이터모델 중심) → 객체지향(90s, 객체 중심, White Box 재사용) → CBD(2000s, 컴포넌트 중심, Black Box 재사용) → Agile(2010s, 적시성). Product Line은 공통 기능을 미리 뽑아 두고 제품마다 조립하는 방식입니다." },
+    }, image: "/concept/book/SE/sw-methodology.png", easy: "개발을 '그때그때 알아서'가 아니라 표준으로 못 박아 둔 것이 방법론입니다. 구성요소 6개 [절방산관기도] — 절차(단계별 순서), 방법(누가 무엇을 어떻게), 산출물(무엇을 남기나), 관리(계획·일정·품질), 기법(ERD·DFD 같은 기술), 도구(CASE·UML Tool). 유형은 시대순으로 흘러갑니다 [구정객CAP] — 구조적(70s, 프로세스 중심) → 정보공학(80s, 데이터모델 중심) → 객체지향(90s, 객체 중심, White Box 재사용) → CBD(2000s, 컴포넌트 중심, Black Box 재사용) → Agile(2010s, 적시성). Product Line은 공통 기능을 미리 뽑아 두고 제품마다 조립하는 방식입니다." },
 "sw-design-principle": {
     guide: {
       hook: "잘 나누고, 속을 감추고, 비슷한 것끼리 묶는 이삿짐 정리의 기술입니다.",
@@ -3556,9 +3556,9 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "소프트웨어 리팩토링", how: "결합도↓·응집도↑로 개선합니다." },
       ],
       exam: "SW 설계 원리는 추상화·정보 은닉·모듈화로 복잡성을 다스리며, 모듈은 높은 응집도(기능적 최상)와 낮은 결합도(자료 최상)를 지향해 유지보수·재사용성을 높인다.",
-    }, image: "/concept/book/SE/sw-design-principle.webp", images: ["/concept/diagram/sw-design-principle.webp"], imagesLabel: "원리", easy: "복잡한 걸 다루는 방법은 결국 둘 — 뭉뚱그리거나(일반화) 잘게 쪼개거나(구체화)입니다. 일반화 쪽에 추상화(필요한 것만 남기고 나머지는 생략)와 정보은닉(모듈 속을 안 보이게)이 있고, 구체화 쪽에 분할과 정복(큰 걸 서브시스템으로 쪼개 아래부터 완성), 단계적 분해(위에서 아래로 점점 잘게, 하향식), 모듈화(실제 개발 가능한 단위로 나눔)가 있습니다. 설계는 상위 설계(아키텍처·데이터·인터페이스·UI)와 하위 설계(모듈·자료구조·알고리즘)로 나뉩니다." },
+    }, image: "/concept/book/SE/sw-design-principle.png", images: ["/concept/diagram/sw-design-principle.webp"], imagesLabel: "원리", easy: "복잡한 걸 다루는 방법은 결국 둘 — 뭉뚱그리거나(일반화) 잘게 쪼개거나(구체화)입니다. 일반화 쪽에 추상화(필요한 것만 남기고 나머지는 생략)와 정보은닉(모듈 속을 안 보이게)이 있고, 구체화 쪽에 분할과 정복(큰 걸 서브시스템으로 쪼개 아래부터 완성), 단계적 분해(위에서 아래로 점점 잘게, 하향식), 모듈화(실제 개발 가능한 단위로 나눔)가 있습니다. 설계는 상위 설계(아키텍처·데이터·인터페이스·UI)와 하위 설계(모듈·자료구조·알고리즘)로 나뉩니다." },
 "se-18": {
-  image: "/concept/book/SE/se-18.webp",
+  image: "/concept/book/SE/se-18.png",
   guide: {
     hook: "프로그램을 '작업 순서'가 아니라 '사물(객체)'들의 협업으로 짜는 방식 — 그 객체가 가진 다섯 가지 성질입니다.",
     scene: "커피머신을 떠올려 보세요. 겉에는 버튼 몇 개만 노출되어 있고, 내부의 배관·회로·물탱크는 케이스 안에 감춰져 있습니다. 우리는 '아메리카노' 버튼만 누르면 되고 속에서 어떻게 만드는지는 몰라도 됩니다. 신모델은 구모델의 설계도를 물려받아 '라떼 버튼' 하나만 더 얹었고, 똑같은 '추출' 버튼인데 에스프레소 모델과 드립 모델은 서로 다르게 동작합니다. 그리고 이 기계들 전부를 우리는 그냥 '커피머신'이라는 하나의 이름으로 부릅니다.",
@@ -3598,7 +3598,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "디자인 패턴 (Design Pattern)", how: "다형성이 패턴의 기반입니다." },
       ],
       exam: "다형성은 같은 메시지에 객체마다 다르게 반응하는 객체지향 특성으로, 정적 오버로딩과 동적 오버라이딩(동적 바인딩)이 있으며 개방-폐쇄 원칙(OCP)을 뒷받침한다.",
-    }, image: "/concept/book/SE/polymorphism.webp", easy: "같은 이름의 메소드를 여러 개 두는 것인데, 두 방식의 규칙이 정반대라 표로 외웁니다. 오버로딩은 **같은 클래스 안**에서 이름은 같고 파라미터를 다르게 — 파라미터 개수나 자료형이 반드시 달라야 하고, 리턴 타입은 상관없으며, 상위 클래스에 같은 이름이 없어야 합니다. 오버라이딩은 **상속 관계**에서 하위 클래스가 상위 메소드를 덮어쓰는 것 — 이름·파라미터·리턴 타입이 전부 같아야 하고, 상위 클래스에 그 메소드가 반드시 있어야 합니다. 한 줄: 오버로딩=수평(같은 클래스), 오버라이딩=수직(상속)." },
+    }, image: "/concept/book/SE/polymorphism.png", easy: "같은 이름의 메소드를 여러 개 두는 것인데, 두 방식의 규칙이 정반대라 표로 외웁니다. 오버로딩은 **같은 클래스 안**에서 이름은 같고 파라미터를 다르게 — 파라미터 개수나 자료형이 반드시 달라야 하고, 리턴 타입은 상관없으며, 상위 클래스에 같은 이름이 없어야 합니다. 오버라이딩은 **상속 관계**에서 하위 클래스가 상위 메소드를 덮어쓰는 것 — 이름·파라미터·리턴 타입이 전부 같아야 하고, 상위 클래스에 그 메소드가 반드시 있어야 합니다. 한 줄: 오버로딩=수평(같은 클래스), 오버라이딩=수직(상속)." },
 "ood-principles": {
     guide: {
       hook: "유지보수하기 좋은 객체지향 설계의 5원칙 — SOLID입니다.",
@@ -3617,7 +3617,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "Clean Architecture", how: "DIP·경계가 클린 아키텍처의 기초입니다." },
       ],
       exam: "객체지향 설계 원리 SOLID는 단일 책임(SRP)·개방폐쇄(OCP)·리스코프 치환(LSP)·인터페이스 분리(ISP)·의존성 역전(DIP)으로, 결합도를 낮추고 확장성을 높인다.",
-    }, image: "/concept/book/SE/ood-principles.webp", easy: "객체지향 설계에서 유지보수성과 확장성을 높이기 위해 따르는 5대 원칙, SOLID입니다. SRP — 클래스·메소드는 역할 하나만(Person에 DB 책임과 비즈니스 책임이 섞여 있으면 쪼갠다). OCP — 기능을 더할 때는 열려 있고, 기존 코드 수정에는 닫혀 있어야(도형이 늘어도 client 코드는 안 고침). LSP — 자식이 부모 자리를 대신할 수 있어야(자식이 부모의 약속을 깨면 위반). ISP — 인터페이스도 역할 하나만(뚱뚱한 인터페이스를 client별로 쪼갠다). DIP — 고차원 모듈이 저차원 모듈에 의존하지 말고, 둘 다 추상(인터페이스)에 의존해야." },
+    }, image: "/concept/book/SE/ood-principles.png", easy: "객체지향 설계에서 유지보수성과 확장성을 높이기 위해 따르는 5대 원칙, SOLID입니다. SRP — 클래스·메소드는 역할 하나만(Person에 DB 책임과 비즈니스 책임이 섞여 있으면 쪼갠다). OCP — 기능을 더할 때는 열려 있고, 기존 코드 수정에는 닫혀 있어야(도형이 늘어도 client 코드는 안 고침). LSP — 자식이 부모 자리를 대신할 수 있어야(자식이 부모의 약속을 깨면 위반). ISP — 인터페이스도 역할 하나만(뚱뚱한 인터페이스를 client별로 쪼갠다). DIP — 고차원 모듈이 저차원 모듈에 의존하지 말고, 둘 다 추상(인터페이스)에 의존해야." },
 "law-of-demeter": {
     guide: {
       hook: "'직접 아는 친구에게만 말하라' — 객체 간 결합을 줄이는 최소 지식 원칙입니다.",
@@ -3636,7 +3636,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "소프트웨어 설계의 원리", how: "낮은 결합도 원리의 구체화입니다." },
       ],
       exam: "데메테르의 법칙은 객체가 직접 관계된 대상(자신·매개변수·생성·멤버 객체)에게만 메시지를 보내는 최소 지식 원칙으로, 기차 충돌을 피해 결합도를 낮춘다.",
-    }, image: "/concept/book/SE/law-of-demeter.webp", images: ["/concept/diagram/law-of-demeter.webp"], imagesLabel: "개념도", easy: "객체가 직접 아는 대상하고만 대화하고, 남을 거쳐 그 내부까지 파고들지 말라는 설계 원칙입니다('최소 지식의 원칙'). A가 B를 아는 건 괜찮지만, B를 거쳐 C까지 파고드는 건(a.getB().getC().doSomething()) 하지 말라는 것입니다 — 친구의 친구는 남이니까요. 호출해도 되는 대상은 딱 다섯 — ① 객체 자신(this.method()), ② 메소드 파라미터로 받은 객체, ③ 메소드 안에서 직접 만든 객체, ④ 객체가 필드로 직접 갖고 있는 컴포넌트, ⑤ 접근 가능한 전역 변수. 이걸 지키면 결합도가 낮아져(loose coupling) 한쪽을 고쳐도 다른 쪽이 안 깨집니다." },
+    }, image: "/concept/book/SE/law-of-demeter.png", images: ["/concept/diagram/law-of-demeter.webp"], imagesLabel: "개념도", easy: "객체가 직접 아는 대상하고만 대화하고, 남을 거쳐 그 내부까지 파고들지 말라는 설계 원칙입니다('최소 지식의 원칙'). A가 B를 아는 건 괜찮지만, B를 거쳐 C까지 파고드는 건(a.getB().getC().doSomething()) 하지 말라는 것입니다 — 친구의 친구는 남이니까요. 호출해도 되는 대상은 딱 다섯 — ① 객체 자신(this.method()), ② 메소드 파라미터로 받은 객체, ③ 메소드 안에서 직접 만든 객체, ④ 객체가 필드로 직접 갖고 있는 컴포넌트, ⑤ 접근 가능한 전역 변수. 이걸 지키면 결합도가 낮아져(loose coupling) 한쪽을 고쳐도 다른 쪽이 안 깨집니다." },
 "se-28": {
     guide: {
       hook: "차대 하나로 여러 차종을 뽑아내듯, 공통 부품으로 제품군을 찍어 내는 방식입니다.",
@@ -3655,7 +3655,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "서비타이제이션(Servitization)", how: "제품군 대량 맞춤과 연결됩니다." },
       ],
       exam: "소프트웨어 제품 라인은 공통성과 가변성을 분석해 코어 자산을 개발하고 제품별 가변점을 조합해 유사 제품군을 대량 생산하는 재사용 기반 방식이다.",
-    }, image: "/concept/book/SE/se-28.webp", images: ["/concept/diagram/se-28.webp"], imagesLabel: "구성도", easy: "제품을 하나씩 따로 만들지 않고, 공통 부품(Core Asset)을 먼저 만들어 두고 제품마다 조립해 내는 생산 체계입니다. 두 축으로 굴러갑니다 — Domain Engineering은 '이 도메인 제품들의 공통점과 차이점'을 분석해 핵심자산(아키텍처·컴포넌트)을 만들고 Repository에 쌓습니다. Application Engineering은 그 핵심자산을 개별 제품 요구에 맞게 Instance화해서 실제 제품을 만듭니다. 자동차 플랫폼 하나로 여러 차종을 뽑는 것과 같습니다." },
+    }, image: "/concept/book/SE/se-28.png", images: ["/concept/diagram/se-28.webp"], imagesLabel: "구성도", easy: "제품을 하나씩 따로 만들지 않고, 공통 부품(Core Asset)을 먼저 만들어 두고 제품마다 조립해 내는 생산 체계입니다. 두 축으로 굴러갑니다 — Domain Engineering은 '이 도메인 제품들의 공통점과 차이점'을 분석해 핵심자산(아키텍처·컴포넌트)을 만들고 Repository에 쌓습니다. Application Engineering은 그 핵심자산을 개별 제품 요구에 맞게 Instance화해서 실제 제품을 만듭니다. 자동차 플랫폼 하나로 여러 차종을 뽑는 것과 같습니다." },
 "aop": {
     guide: {
       hook: "로깅·보안처럼 '여러 곳에 흩어지는 공통 관심사'를 한 곳에 모으는 프로그래밍 패러다임입니다.",
@@ -3674,7 +3674,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "디자인 패턴 (Design Pattern)", how: "관심사 분리를 공유합니다." },
       ],
       exam: "AOP는 로깅·보안 같은 횡단 관심사를 Aspect로 분리해 Pointcut이 지정한 지점에 Advice를 Weaving하는 패러다임으로, 핵심 로직과 공통 기능을 분리해 OOP를 보완한다.",
-    }, image: "/concept/book/SE/aop.webp", easy: "AOP는 여러 모듈에 공통으로 흩어져 들어가는 부가 기능(횡단 관심사 — 로깅·보안·트랜잭션)을 핵심 로직에서 분리해 두고, 필요한 지점에 자동으로 끼워 넣는 프로그래밍 기법입니다. 용어가 헷갈리는데 짝지어 보면 쉽습니다 — Joint Point는 '끼울 수 있는 모든 지점'(Where), Pointcut은 '그중 실제로 끼울 곳을 고르는 조건'(When), Advice는 '끼워 넣을 실제 코드'(What), Weaving은 '실제로 끼우는 행위'(컴파일·클래스로딩·런타임 시점), Aspect는 'Pointcut + Advice를 묶은 클래스', Target은 'Advice를 받는 클래스'입니다." },
+    }, image: "/concept/book/SE/aop.png", easy: "AOP는 여러 모듈에 공통으로 흩어져 들어가는 부가 기능(횡단 관심사 — 로깅·보안·트랜잭션)을 핵심 로직에서 분리해 두고, 필요한 지점에 자동으로 끼워 넣는 프로그래밍 기법입니다. 용어가 헷갈리는데 짝지어 보면 쉽습니다 — Joint Point는 '끼울 수 있는 모든 지점'(Where), Pointcut은 '그중 실제로 끼울 곳을 고르는 조건'(When), Advice는 '끼워 넣을 실제 코드'(What), Weaving은 '실제로 끼우는 행위'(컴파일·클래스로딩·런타임 시점), Aspect는 'Pointcut + Advice를 묶은 클래스', Target은 'Advice를 받는 클래스'입니다." },
 "tailoring": {
     guide: {
       hook: "기성복을 몸에 맞게 줄이고 늘리듯, 표준 절차를 프로젝트에 맞게 고치는 일입니다.",
@@ -3693,7 +3693,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "PMBOK 8개 성과 영역 및 프로젝트 관리 12원칙(PMBOK 7판)", how: "7판이 테일러링을 강조합니다." },
       ],
       exam: "테일러링은 표준 방법론·프로세스를 프로젝트 규모·기간·복잡도 등에 맞게 추가·삭제·수정해 재단하는 활동으로, 획일 적용의 비효율을 막는다.",
-    }, image: "/concept/book/SE/tailoring.webp", images: ["/concept/diagram/tailoring.webp"], imagesLabel: "절차", easy: "테일러링은 조직 표준 프로세스를 프로젝트의 특성(규모·기간·위험)에 맞게 조정해 적용하는 활동입니다. 표준을 그대로 쓰면 소규모엔 과하고 대규모엔 모자라기 때문입니다. 절차 5단계 [특선상세문] — 프로젝트 특징 정의(프로파일 작성) → 표준 프로세스 선정 및 검증 → 상위 수준 커스터마이징(생명주기·WBS) → 세부 커스터마이징(테일러링 매트릭스·산출물 구성도·스케줄) → 문서화(적용 근거 결과서). 고려사항은 프로젝트 측면(규모·기간·조직원 경험·위험수준)과 기술적 측면(기술혁신·데이터전환·시스템연계·분산시스템)으로 나뉩니다." },
+    }, image: "/concept/book/SE/tailoring.png", images: ["/concept/diagram/tailoring.webp"], imagesLabel: "절차", easy: "테일러링은 조직 표준 프로세스를 프로젝트의 특성(규모·기간·위험)에 맞게 조정해 적용하는 활동입니다. 표준을 그대로 쓰면 소규모엔 과하고 대규모엔 모자라기 때문입니다. 절차 5단계 [특선상세문] — 프로젝트 특징 정의(프로파일 작성) → 표준 프로세스 선정 및 검증 → 상위 수준 커스터마이징(생명주기·WBS) → 세부 커스터마이징(테일러링 매트릭스·산출물 구성도·스케줄) → 문서화(적용 근거 결과서). 고려사항은 프로젝트 측면(규모·기간·조직원 경험·위험수준)과 기술적 측면(기술혁신·데이터전환·시스템연계·분산시스템)으로 나뉩니다." },
 "req-engineering": {
     guide: {
       hook: "요구사항을 '도출→분석→명세→확인'하는 체계적 공학 절차입니다.",
@@ -3712,7 +3712,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "요구사항 명세서 SRS", how: "명세 단계의 산출물입니다." },
       ],
       exam: "요구공학은 요구를 도출·분석·명세(SRS)·확인하는 체계적 절차로, 요구 변경 관리와 추적성(RTM)으로 완전·일관·검증가능한 요구를 확보한다.",
-    }, image: "/concept/book/SE/req-engineering.webp", images: ["/concept/diagram/req-engineering.webp"], imagesLabel: "절차", easy: "요구사항을 다루는 전 과정을 체계로 묶은 것입니다. 크게 둘 — 요구사항 개발(CMMi L3) = 추출 → 분석 → 명세 → 검증 [추분명검], 요구사항 변경관리(CMMi L2) = 협상 → 기준선 → 변경관리 → 확인 및 검증 [협기변검]. 여기서 기준선(Baseline)이 핵심인데, 공식 합의된 명세서를 못 박아 두고 이후 모든 변경을 그 기준선 대비로 통제합니다. 좋은 요구사항의 조건 9개는 [정명완검일수추리해] — 정확성·명확성·완전성·검증성·일관성·수정성·추적성·이해성·해석성." },
+    }, image: "/concept/book/SE/req-engineering.png", images: ["/concept/diagram/req-engineering.webp"], imagesLabel: "절차", easy: "요구사항을 다루는 전 과정을 체계로 묶은 것입니다. 크게 둘 — 요구사항 개발(CMMi L3) = 추출 → 분석 → 명세 → 검증 [추분명검], 요구사항 변경관리(CMMi L2) = 협상 → 기준선 → 변경관리 → 확인 및 검증 [협기변검]. 여기서 기준선(Baseline)이 핵심인데, 공식 합의된 명세서를 못 박아 두고 이후 모든 변경을 그 기준선 대비로 통제합니다. 좋은 요구사항의 조건 9개는 [정명완검일수추리해] — 정확성·명확성·완전성·검증성·일관성·수정성·추적성·이해성·해석성." },
 "se-34": {
     guide: {
       hook: "'가상의 대표 사용자'를 구체적 인물로 만들어 사용자 중심 설계를 돕는 기법입니다.",
@@ -3731,7 +3731,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "요구공학 (Requirements Engineering)", how: "요구 도출·우선순위에 활용됩니다." },
       ],
       exam: "페르소나는 실 사용자 조사 기반의 구체적 가상 사용자로 목표·행동·불편을 담아, 요구 우선순위 판단과 팀 공감대 형성에 쓰이는 UX·디자인 씽킹 도구다.",
-    }, image: "/concept/book/SE/se-34.webp", images: ["/concept/diagram/se-34.webp"], imagesLabel: "개념도", easy: "'사용자'라고 뭉뚱그리면 설계 결정을 못 내리니, 실제 있을 법한 가상 인물 한 명을 구체적으로 만들어 놓고 그 사람 기준으로 판단하는 기법입니다. 이름·나이·직업·목표(Goals)·불만(Frustrations)까지 적습니다. 만드는 순서는 사용자 범주 파악 → 단서 분류 → 세부 범주·기간구조 → 평가·우선순위 → 페르소나 작성 → 평가 → 설문으로 프로파일 확정. 사용자 분석 기법에는 페르소나 말고도 인지(어떻게 인지하나), 역할(사용 행태), 사회기술(조직 특성) 모형이 있습니다." },
+    }, image: "/concept/book/SE/se-34.png", images: ["/concept/diagram/se-34.webp"], imagesLabel: "개념도", easy: "'사용자'라고 뭉뚱그리면 설계 결정을 못 내리니, 실제 있을 법한 가상 인물 한 명을 구체적으로 만들어 놓고 그 사람 기준으로 판단하는 기법입니다. 이름·나이·직업·목표(Goals)·불만(Frustrations)까지 적습니다. 만드는 순서는 사용자 범주 파악 → 단서 분류 → 세부 범주·기간구조 → 평가·우선순위 → 페르소나 작성 → 평가 → 설문으로 프로파일 확정. 사용자 분석 기법에는 페르소나 말고도 인지(어떻게 인지하나), 역할(사용 행태), 사회기술(조직 특성) 모형이 있습니다." },
 "iso-42010": {
     guide: {
       hook: "건축 도면을 '누구를 위해 어떤 규칙으로 그릴지' 정한 국제 규격입니다.",
@@ -3750,7 +3750,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "SW Architecture 구축 절차", how: "아키텍처 기술의 절차와 연계됩니다." },
       ],
       exam: "ISO/IEC/IEEE 42010은 이해관계자의 관심사를 관점(Viewpoint)에 따라 뷰(View)로 기술하는 아키텍처 문서화 표준으로, 4+1 뷰 모델이 그 구체적 적용이다.",
-    }, image: "/concept/book/SE/iso-42010.webp", images: ["/concept/diagram/iso-42010.webp"], imagesLabel: "구성도", easy: "'아키텍처 문서에 무엇을 어떻게 적을 것인가'를 표준화한 메타모델입니다. 핵심 연결고리만 잡으면 됩니다 — 이해관계자(Stakeholder)에게는 관심사(Concern)가 있고, 그 관심사를 다루는 규칙이 관점(Viewpoint), 그 관점으로 실제 그려낸 것이 뷰(View)이며, 뷰들을 모은 것이 아키텍처 기술서(Architecture Description)입니다. 왜 그렇게 설계했는지는 Rationale에 남기고, 뷰들 사이의 일관성은 Correspondence로 표현합니다. 2022년판에서 Entity of Interest, Stakeholder Perspective, Architecture Aspect가 추가됐습니다." },
+    }, image: "/concept/book/SE/iso-42010.png", images: ["/concept/diagram/iso-42010.webp"], imagesLabel: "구성도", easy: "'아키텍처 문서에 무엇을 어떻게 적을 것인가'를 표준화한 메타모델입니다. 핵심 연결고리만 잡으면 됩니다 — 이해관계자(Stakeholder)에게는 관심사(Concern)가 있고, 그 관심사를 다루는 규칙이 관점(Viewpoint), 그 관점으로 실제 그려낸 것이 뷰(View)이며, 뷰들을 모은 것이 아키텍처 기술서(Architecture Description)입니다. 왜 그렇게 설계했는지는 Rationale에 남기고, 뷰들 사이의 일관성은 Correspondence로 표현합니다. 2022년판에서 Entity of Interest, Stakeholder Perspective, Architecture Aspect가 추가됐습니다." },
 "sw-arch-process": {
     guide: {
       hook: "요구 듣기→설계→도면→검증으로 이어지는, 건축 설계 같은 절차입니다.",
@@ -3769,7 +3769,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "SW Architecture 평가", how: "구축 후 검증 단계입니다." },
       ],
       exam: "SW 아키텍처 구축 절차는 드라이버(품질 요구) 도출→속성 주도 설계(ADD)→4+1 뷰 문서화→ATAM/CBAM 평가의 반복 과정으로, 품질 속성을 아키텍처로 실현한다.",
-    }, image: "/concept/book/SE/sw-arch-process.webp", easy: "요구사항에서 출발해 아키텍처를 설계하고 검증·승인하는 표준 절차 4단계입니다. ① 요구사항 분석 — 기능/비기능 요구를 식별·명세·검증. ② 아키텍처 분석 — 품질속성을 식별하고 우선순위를 매김(여기가 아키텍처의 진짜 출발점). ③ 아키텍처 설계 — 이해관계자별 관점(view) 정의 → 아키텍처 스타일 선택(pipe-filter, mvc, layer 등 혼용) → 후보 아키텍처 도출(배경도·관점별 다이어그램·SAD 작성). ④ 검증 및 승인 — 아키텍처 평가(요구 만족도·품질속성 간 관계) → 상세화 반복 → 최종 승인. 설계와 평가를 반복하는 게 포인트입니다." },
+    }, image: "/concept/book/SE/sw-arch-process.png", easy: "요구사항에서 출발해 아키텍처를 설계하고 검증·승인하는 표준 절차 4단계입니다. ① 요구사항 분석 — 기능/비기능 요구를 식별·명세·검증. ② 아키텍처 분석 — 품질속성을 식별하고 우선순위를 매김(여기가 아키텍처의 진짜 출발점). ③ 아키텍처 설계 — 이해관계자별 관점(view) 정의 → 아키텍처 스타일 선택(pipe-filter, mvc, layer 등 혼용) → 후보 아키텍처 도출(배경도·관점별 다이어그램·SAD 작성). ④ 검증 및 승인 — 아키텍처 평가(요구 만족도·품질속성 간 관계) → 상세화 반복 → 최종 승인. 설계와 평가를 반복하는 게 포인트입니다." },
 "se-67": {
     guide: {
       hook: "가장 안 바뀌는 것을 가장 안쪽 방에 모시는 동심원 구조입니다.",
@@ -3788,7 +3788,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "DDD (Domain Driven Design)", how: "도메인 중심 설계와 결합됩니다." },
       ],
       exam: "클린 아키텍처는 엔티티·유스케이스·어댑터·프레임워크 동심원 계층에서 의존성이 항상 안쪽(핵심 규칙)을 향하게 해, DB·프레임워크·UI를 교체·테스트하기 쉽게 만든다.",
-    }, image: "/concept/book/SE/se-67.webp", images: ["/concept/diagram/se-67.webp"], imagesLabel: "개념도", easy: "업무 규칙을 중심에 두고 의존성이 바깥에서 안쪽으로만 향하게 하는 동심원 4겹 구조의 아키텍처입니다. 가운데부터 Entity(핵심 업무 규칙) → Use Case(응용 업무 규칙) → Interface Adapter(Presenter·View·Controller, 도메인과 인프라 사이의 번역기) → External Interface(UI·DB·프레임워크·장치). 규칙은 딱 하나 — **의존성은 항상 바깥에서 안쪽으로만 향한다.** 그래서 DB를 바꾸거나 웹 프레임워크를 갈아치워도 안쪽 업무 규칙은 그대로입니다. 가장 자주 바뀌는 것(프레임워크)을 가장 바깥에 두고, 가장 안 바뀌는 것(업무 규칙)을 한가운데 둔 구조입니다." },
+    }, image: "/concept/book/SE/se-67.png", images: ["/concept/diagram/se-67.webp"], imagesLabel: "개념도", easy: "업무 규칙을 중심에 두고 의존성이 바깥에서 안쪽으로만 향하게 하는 동심원 4겹 구조의 아키텍처입니다. 가운데부터 Entity(핵심 업무 규칙) → Use Case(응용 업무 규칙) → Interface Adapter(Presenter·View·Controller, 도메인과 인프라 사이의 번역기) → External Interface(UI·DB·프레임워크·장치). 규칙은 딱 하나 — **의존성은 항상 바깥에서 안쪽으로만 향한다.** 그래서 DB를 바꾸거나 웹 프레임워크를 갈아치워도 안쪽 업무 규칙은 그대로입니다. 가장 자주 바뀌는 것(프레임워크)을 가장 바깥에 두고, 가장 안 바뀌는 것(업무 규칙)을 한가운데 둔 구조입니다." },
 "sw-arch-driver": {
     guide: {
       hook: "수백 가지 주문 중 '집의 뼈대를 결정하는' 몇 가지 핵심 요구입니다.",
@@ -3807,7 +3807,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "소프트웨어 품질 속성 시나리오", how: "품질 속성을 구체화합니다." },
       ],
       exam: "아키텍처 드라이버는 핵심 기능·품질 속성·제약·아키텍처 관심사로 구성된 설계 견인 요구로, 특히 품질 속성이 스타일·패턴·전술 선택을 좌우한다.",
-    }, image: "/concept/book/SE/sw-arch-driver.webp", images: ["/concept/diagram/sw-arch-driver.webp"], imagesLabel: "개념도", easy: "아키텍처 드라이버는 수많은 요구사항 중 아키텍처 결정에 실제로 영향을 주는 핵심 요구만 골라낸 것입니다. 요구가 수백 개라도 아키텍처를 좌우하는 건 이 몇 개뿐입니다. 세 종류 — 기능 요구사항(시스템이 해야 할 기본 기능), 품질 요구사항(1분 간격으로 10만 명에게처럼 도달해야 할 목표 수준), 제약사항(J2EE로 개발하라처럼 시스템과 무관하게 주어진 조건). 비기능 제약은 다시 기술적 제약(레거시·신기술), 비즈니스 제약(거버넌스·전략, 대부분 타협 불가), 품질 제약(확장성·가용성·이식성 등)으로 나뉩니다. 적정 개수는 10개 미만입니다." },
+    }, image: "/concept/book/SE/sw-arch-driver.png", images: ["/concept/diagram/sw-arch-driver.webp"], imagesLabel: "개념도", easy: "아키텍처 드라이버는 수많은 요구사항 중 아키텍처 결정에 실제로 영향을 주는 핵심 요구만 골라낸 것입니다. 요구가 수백 개라도 아키텍처를 좌우하는 건 이 몇 개뿐입니다. 세 종류 — 기능 요구사항(시스템이 해야 할 기본 기능), 품질 요구사항(1분 간격으로 10만 명에게처럼 도달해야 할 목표 수준), 제약사항(J2EE로 개발하라처럼 시스템과 무관하게 주어진 조건). 비기능 제약은 다시 기술적 제약(레거시·신기술), 비즈니스 제약(거버넌스·전략, 대부분 타협 불가), 품질 제약(확장성·가용성·이식성 등)으로 나뉩니다. 적정 개수는 10개 미만입니다." },
 "utility-tree": {
     guide: {
       hook: "막연한 바람을 가지치기해 구체 소원으로 만들고 순위를 매기는 나무입니다.",
@@ -3826,7 +3826,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "SW Architecture 평가", how: "ATAM에서 유틸리티 트리를 씁니다." },
       ],
       exam: "유틸리티 트리는 품질 속성을 유틸리티→속성→시나리오로 구조화하고 중요도·난이도로 우선순위를 매기는 도구로, ATAM 평가에서 대상 시나리오 선정에 쓰인다.",
-    }, image: "/concept/book/SE/utility-tree.webp", images: ["/concept/diagram/utility-tree.webp"], imagesLabel: "구성도", easy: "품질 요구를 나무 모양으로 잘게 쪼개 시나리오까지 내려가는 도구입니다. 순서는 ①유틸리티 → ②품질속성(성능·확장성·신뢰성) → ③세분화된 품질속성(메시지 전달 속도, 동시 연결) → ④시나리오(Data 지연 5sec 이내, 동시 사용 최대 100명). 즉 추상적인 '빨라야 한다'를 측정 가능한 문장으로 바꾸는 과정입니다. 브레인스토밍과 비교하면 — 유틸리티 트리는 아키텍트 2~3명이 품질속성에서 시나리오를 뽑는 Bottom Up 방식, 브레인스토밍은 이해관계자 5~10명이 시나리오에서 품질속성을 뽑는 Top-Down 방식입니다." },
+    }, image: "/concept/book/SE/utility-tree.png", images: ["/concept/diagram/utility-tree.webp"], imagesLabel: "구성도", easy: "품질 요구를 나무 모양으로 잘게 쪼개 시나리오까지 내려가는 도구입니다. 순서는 ①유틸리티 → ②품질속성(성능·확장성·신뢰성) → ③세분화된 품질속성(메시지 전달 속도, 동시 연결) → ④시나리오(Data 지연 5sec 이내, 동시 사용 최대 100명). 즉 추상적인 '빨라야 한다'를 측정 가능한 문장으로 바꾸는 과정입니다. 브레인스토밍과 비교하면 — 유틸리티 트리는 아키텍트 2~3명이 품질속성에서 시나리오를 뽑는 Bottom Up 방식, 브레인스토밍은 이해관계자 5~10명이 시나리오에서 품질속성을 뽑는 Top-Down 방식입니다." },
 "quality-attribute-scenario": {
     guide: {
       hook: "품질 요구를 '측정 가능한 시나리오'로 구체화한 6요소 틀입니다.",
@@ -3845,7 +3845,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "소프트웨어 아키텍처 드라이버 (SW Architecture Driver)", how: "품질 속성을 구체화합니다." },
       ],
       exam: "품질 속성 시나리오는 자극원·자극·환경·대상·응답·응답측정 6요소로 품질 요구를 측정 가능하게 구체화한 틀로, 아키텍처 평가·테스트의 기준이 된다.",
-    }, image: "/concept/book/SE/quality-attribute-scenario.webp", images: ["/concept/diagram/quality-attribute-scenario.webp"], imagesLabel: "구성도", easy: "품질 요구를 검증 가능하도록 6개 항목으로 구조화해 적는 명세 방법입니다. '가용성이 높아야 한다' 같은 말은 검증할 수 없으니 이렇게 쪼갭니다 — 자극 유발원(누가), 자극(무엇이 일어나서), 환경(어떤 상황에서), 대상(무엇에게), 응답(시스템이 어떻게 반응하고), 응답 측정(그걸 어떻게 숫자로 확인하나). 예를 들어 가용성이라면 '외부에서(유발원) 예기치 못한 메시지가 와서(자극) 정상 운영 중(환경) 프로세스에(대상) 운영자에게 통지 후 계속 수행하며(응답) 정지 시간 0(응답 측정)'. 마지막 응답 측정이 있어야 나중에 검증이 됩니다." },
+    }, image: "/concept/book/SE/quality-attribute-scenario.png", images: ["/concept/diagram/quality-attribute-scenario.webp"], imagesLabel: "구성도", easy: "품질 요구를 검증 가능하도록 6개 항목으로 구조화해 적는 명세 방법입니다. '가용성이 높아야 한다' 같은 말은 검증할 수 없으니 이렇게 쪼갭니다 — 자극 유발원(누가), 자극(무엇이 일어나서), 환경(어떤 상황에서), 대상(무엇에게), 응답(시스템이 어떻게 반응하고), 응답 측정(그걸 어떻게 숫자로 확인하나). 예를 들어 가용성이라면 '외부에서(유발원) 예기치 못한 메시지가 와서(자극) 정상 운영 중(환경) 프로세스에(대상) 운영자에게 통지 후 계속 수행하며(응답) 정지 시간 0(응답 측정)'. 마지막 응답 측정이 있어야 나중에 검증이 됩니다." },
 "sw-arch-style": {
     guide: {
       hook: "검증된 설계 구조의 '전형적 틀'(아키텍처 스타일) — 계층형·MSA·이벤트 등입니다.",
@@ -3864,7 +3864,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "Event Driven Architecture", how: "이벤트 기반 스타일입니다." },
       ],
       exam: "SW 아키텍처 스타일은 계층형·클라이언트서버·파이프필터·이벤트 기반·MSA 등 검증된 구조 틀로, 품질 속성 드라이버에 맞춰 선택하며 스타일마다 트레이드오프가 있다.",
-    }, image: "/concept/book/SE/sw-arch-style.webp", easy: "설계할 때 반복해서 나오는 문제의 정답지 모음입니다. 무엇을 중심에 두느냐로 묶으면 외워집니다 — 데이터 중심(칠판형·저장소형: 공유 데이터가 주인공), 데이터 흐름(일괄 순차형·파이프 필터형: 데이터가 흘러가며 변형됨), 가상 머신(번역기형·규칙기반: 이식성과 시뮬레이션), 호출과 리턴(주프로그램-서브루틴·원격 프로시저 호출·Layered·Client-Server: 누가 누구를 부르나), 분산 구조(Master-Slave·MSA), 중계(Event-bus·Broker: 중간에 전달자를 둠). 교재 두음이 [칠저일파 번규주원래클 마슬마서 이브]입니다." },
+    }, image: "/concept/book/SE/sw-arch-style.png", easy: "설계할 때 반복해서 나오는 문제의 정답지 모음입니다. 무엇을 중심에 두느냐로 묶으면 외워집니다 — 데이터 중심(칠판형·저장소형: 공유 데이터가 주인공), 데이터 흐름(일괄 순차형·파이프 필터형: 데이터가 흘러가며 변형됨), 가상 머신(번역기형·규칙기반: 이식성과 시뮬레이션), 호출과 리턴(주프로그램-서브루틴·원격 프로시저 호출·Layered·Client-Server: 누가 누구를 부르나), 분산 구조(Master-Slave·MSA), 중계(Event-bus·Broker: 중간에 전달자를 둠). 교재 두음이 [칠저일파 번규주원래클 마슬마서 이브]입니다." },
 "se-59": {
     guide: {
       hook: "설계 뼈대(아키텍처)가 '품질 요구를 충족하는지' 이해관계자와 검증하는 활동입니다.",
@@ -3883,7 +3883,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "유틸리티 트리 (Utility Tree)", how: "ATAM의 핵심 도구입니다." },
       ],
       exam: "SW 아키텍처 평가는 ATAM·CBAM·SAAM으로 설계가 품질 요구를 충족하는지 시나리오로 검증하며, 위험·민감점·트레이드오프점을 조기에 발견해 재작업을 줄인다.",
-    }, image: "/concept/book/SE/se-59.webp", easy: "아키텍처가 품질 요구를 만족하는지 검사하는 방법들이며, 계보를 따라가면 정리됩니다. SAAM이 최초(수정 가능성·기능성 중심) → 이를 계승해 ATAM이 나왔고(품질 목표 사이의 Trade-off를 찾는 것이 핵심) → ATAM에 경제성 평가를 보탠 것이 CBAM(비용 대비 편익으로 투자 판단) → Product Line까지 확장한 것이 EATAM. 여기까지가 시나리오 기반입니다. 설계/혼합 기반으로 ADR(구성요소 간 응집도 평가)과 ARID(설계가 일부만 끝났어도 평가 가능, ATAM·SAAM에 설계검토 ARD를 섞음)가 있습니다." },
+    }, image: "/concept/book/SE/se-59.png", easy: "아키텍처가 품질 요구를 만족하는지 검사하는 방법들이며, 계보를 따라가면 정리됩니다. SAAM이 최초(수정 가능성·기능성 중심) → 이를 계승해 ATAM이 나왔고(품질 목표 사이의 Trade-off를 찾는 것이 핵심) → ATAM에 경제성 평가를 보탠 것이 CBAM(비용 대비 편익으로 투자 판단) → Product Line까지 확장한 것이 EATAM. 여기까지가 시나리오 기반입니다. 설계/혼합 기반으로 ADR(구성요소 간 응집도 평가)과 ARID(설계가 일부만 끝났어도 평가 가능, ATAM·SAAM에 설계검토 ARD를 섞음)가 있습니다." },
 "gj-144": {
     guide: {
       hook: "투자할 가치가 있는지 '돈으로' 따지는 타당성 분석 기법들입니다.",
@@ -3902,7 +3902,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "기술 가치 평가", how: "수익법(DCF)이 같은 원리입니다." },
       ],
       exam: "경제성 분석은 회수기간·ROI 같은 비할인법과 NPV·IRR·B/C 같은 할인법으로 투자 타당성을 따지며, 화폐 시간가치를 반영한 할인법이 더 정확하고 NPV를 우선한다.",
-    }, image: "/concept/book/PM/gj-144.webp", easy: "이 프로젝트를 할지 말지를 돈으로 따지는 네 가지 잣대입니다. BCR은 '1원 넣어 몇 원 버나'(수익/비용, 1보다 크면 남는 장사). PP는 '넣은 돈 언제 다 회수하나'(짧을수록 좋지만 회수 이후 수익은 안 봄). NPV는 '미래에 들어올 돈을 오늘 돈 가치로 환산하면 얼마 남나'(0보다 크면 해도 됨). IRR은 'NPV를 딱 0으로 만드는 할인율'로, 이 값이 우리 요구수익률보다 높으면 합니다. BCR·PP는 계산이 쉬운 대신 화폐의 시간가치를 못 보고, NPV·IRR은 시간가치를 반영합니다." },
+    }, image: "/concept/book/PM/gj-144.png", easy: "이 프로젝트를 할지 말지를 돈으로 따지는 네 가지 잣대입니다. BCR은 '1원 넣어 몇 원 버나'(수익/비용, 1보다 크면 남는 장사). PP는 '넣은 돈 언제 다 회수하나'(짧을수록 좋지만 회수 이후 수익은 안 봄). NPV는 '미래에 들어올 돈을 오늘 돈 가치로 환산하면 얼마 남나'(0보다 크면 해도 됨). IRR은 'NPV를 딱 0으로 만드는 할인율'로, 이 값이 우리 요구수익률보다 높으면 합니다. BCR·PP는 계산이 쉬운 대신 화폐의 시간가치를 못 보고, NPV·IRR은 시간가치를 반영합니다." },
 "pm-plan-doc": {
     guide: {
       hook: "프로젝트를 '어떻게 실행·감시·통제할지' 정의한 통합 관리 문서입니다.",
@@ -3921,7 +3921,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "EVM(Earned Value Management, 획득 가치 관리)", how: "관리 계획서의 기준선으로 성과를 측정합니다." },
       ],
       exam: "프로젝트 관리 계획서는 영역별 보조 관리 계획서와 범위·일정·원가 기준선을 담은 통합 문서로, 실행·감시·통제의 기준이 되며 착수 문서인 프로젝트 헌장과 구분된다.",
-    }, image: "/concept/book/PM/pm-plan-doc.webp", easy: "프로젝트 관리 계획서는 프로젝트를 계획·실행·감시통제·종료하는 방법을 명시한 여러 보조 관리 계획서(범위·일정·품질 등)를 하나로 통합한 최상위 문서입니다. 목차 9개를 두음 [개업일인교통품인측]으로 외웁니다 — 개요(전반 설명)·업무 범위(명확한 정의 수립)·일정계획(납기 달성 목표)·인력관리·교육계획(인력·고객 교육)·프로젝트 통제(이슈 모니터링을 통한 예방·통제)·품질활동 계획(정기·비정기 품질활동)·인수 조건(종료 시 인수 조건 설명)·측정 계획(검수용 성과 측정). 즉 '무엇을·언제·누가·어떻게 확인하고 넘길지'를 한 문서에 다 적어 둔 것입니다. 답안에서는 '보조 계획서의 통합 문서'라는 정의와 목차 두음을 쓰면 되고, 인수 조건·측정 계획처럼 '끝맺음' 항목까지 포함한다는 점이 차별화 포인트입니다." },
+    }, image: "/concept/book/PM/pm-plan-doc.png", easy: "프로젝트 관리 계획서는 프로젝트를 계획·실행·감시통제·종료하는 방법을 명시한 여러 보조 관리 계획서(범위·일정·품질 등)를 하나로 통합한 최상위 문서입니다. 목차 9개를 두음 [개업일인교통품인측]으로 외웁니다 — 개요(전반 설명)·업무 범위(명확한 정의 수립)·일정계획(납기 달성 목표)·인력관리·교육계획(인력·고객 교육)·프로젝트 통제(이슈 모니터링을 통한 예방·통제)·품질활동 계획(정기·비정기 품질활동)·인수 조건(종료 시 인수 조건 설명)·측정 계획(검수용 성과 측정). 즉 '무엇을·언제·누가·어떻게 확인하고 넘길지'를 한 문서에 다 적어 둔 것입니다. 답안에서는 '보조 계획서의 통합 문서'라는 정의와 목차 두음을 쓰면 되고, 인수 조건·측정 계획처럼 '끝맺음' 항목까지 포함한다는 점이 차별화 포인트입니다." },
 "pm-24": {
     guide: {
       hook: "'무엇을 하고 무엇을 안 할지'를 정의·통제하는 범위 관리입니다.",
@@ -3940,7 +3940,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "Scope Creep vs Gold-Plating", how: "범위 통제로 이탈을 막습니다." },
       ],
       exam: "범위관리는 요구 수집·범위 정의·WBS·범위 확인(고객 검수)·범위 통제(변경 관리)의 프로세스로 무엇을 할지 정의·통제하며, 제품 범위와 프로젝트 범위를 포함한다.",
-    }, image: "/concept/book/PM/pm-24.webp", images: ["/concept/diagram/pm-24.webp"], imagesLabel: "구성도", easy: "범위관리는 '어디까지가 이 프로젝트 일인가'를 정하고 지키는 지식영역입니다. 6개 프로세스로 흐릅니다 — 범위관리 계획 수립(어떻게 관리할지) → 요구사항 수집(이해관계자가 뭘 원하나) → 범위 정의(범위기술서 작성) → WBS 작성(인도물을 작업으로 분할) → 범위 확인(고객의 공식 승인) → 범위 통제(변경 관리). 앞 4개는 계획 프로세스 그룹, 뒤 2개는 감시·통제 그룹입니다. 범위 확인(Validation)은 '고객이 인도물을 공식 인수'하는 것이라 품질통제의 검사(Verification, 요구사항 충족 확인)와 구분되고, 승인 없이 슬금슬금 범위가 커지는 스코프 크립(Scope Creep)을 막는 것이 범위 통제의 핵심 — 이 두 구분이 시험 포인트입니다." },
+    }, image: "/concept/book/PM/pm-24.png", images: ["/concept/diagram/pm-24.webp"], imagesLabel: "구성도", easy: "범위관리는 '어디까지가 이 프로젝트 일인가'를 정하고 지키는 지식영역입니다. 6개 프로세스로 흐릅니다 — 범위관리 계획 수립(어떻게 관리할지) → 요구사항 수집(이해관계자가 뭘 원하나) → 범위 정의(범위기술서 작성) → WBS 작성(인도물을 작업으로 분할) → 범위 확인(고객의 공식 승인) → 범위 통제(변경 관리). 앞 4개는 계획 프로세스 그룹, 뒤 2개는 감시·통제 그룹입니다. 범위 확인(Validation)은 '고객이 인도물을 공식 인수'하는 것이라 품질통제의 검사(Verification, 요구사항 충족 확인)와 구분되고, 승인 없이 슬금슬금 범위가 커지는 스코프 크립(Scope Creep)을 막는 것이 범위 통제의 핵심 — 이 두 구분이 시험 포인트입니다." },
 "pm-25": {
     guide: {
       hook: "이해관계자로부터 '진짜 필요한 것'을 끌어내는 여러 수집 기법입니다.",
@@ -3959,7 +3959,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "디자인 씽킹(Design Thinking)", how: "사용자 공감·관찰 기법을 공유합니다." },
       ],
       exam: "요구사항 수집기법은 인터뷰·델파이·워크숍·설문·관찰·프로토타이핑 등으로 이해관계자 요구를 도출하는 기법으로, 상황에 맞게 선택해 SRS로 명세화한다.",
-    }, image: "/concept/book/PM/pm-25.webp", easy: "요구사항 수집기법은 이해관계자가 원하는 것을 끌어내 문서화하기 위한 기법 모음입니다. 성격별로 묶으면 [수분표의대프컨] — 데이터 수집(인터뷰·포커스그룹·설문·벤치마킹·브레인스토밍), 데이터 분석(문서 분석), 데이터 표현(마인드매핑·친화도), 의사결정(다기준 의사결정 분석·투표), 대인관계와 팀 기술(명목집단법·관찰·촉진), 프로토타입, 컨텍스트 다이어그램, 전문가 판단입니다. 인터뷰는 깊이 있지만 시간이 들고, 설문은 다수를 빠르게 커버하고, 관찰은 말로 표현 못 하는 암묵적 요구를 잡아내고, 프로토타입은 눈에 보이는 모형으로 피드백을 앞당깁니다 — '기법마다 잡아내는 요구가 다르다'는 게 핵심이고, 상황에 맞는 기법 2~3개를 골라 조합 서술하는 것이 답안 포인트입니다." },
+    }, image: "/concept/book/PM/pm-25.png", easy: "요구사항 수집기법은 이해관계자가 원하는 것을 끌어내 문서화하기 위한 기법 모음입니다. 성격별로 묶으면 [수분표의대프컨] — 데이터 수집(인터뷰·포커스그룹·설문·벤치마킹·브레인스토밍), 데이터 분석(문서 분석), 데이터 표현(마인드매핑·친화도), 의사결정(다기준 의사결정 분석·투표), 대인관계와 팀 기술(명목집단법·관찰·촉진), 프로토타입, 컨텍스트 다이어그램, 전문가 판단입니다. 인터뷰는 깊이 있지만 시간이 들고, 설문은 다수를 빠르게 커버하고, 관찰은 말로 표현 못 하는 암묵적 요구를 잡아내고, 프로토타입은 눈에 보이는 모형으로 피드백을 앞당깁니다 — '기법마다 잡아내는 요구가 다르다'는 게 핵심이고, 상황에 맞는 기법 2~3개를 골라 조합 서술하는 것이 답안 포인트입니다." },
 "srs": {
     guide: {
       hook: "수집한 요구를 '검증 가능하게' 정리한 요구사항 명세서입니다.",
@@ -3978,7 +3978,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "WBS (Work Breakdown Structure)", how: "요구를 작업으로 분해하는 다음 단계입니다." },
       ],
       exam: "SRS는 기능·비기능 요구를 완전·일관·명확·검증가능하게 문서화한 명세서로, IEEE 830/29148을 따르고 요구 추적 매트릭스로 추적성을 확보한다.",
-    }, image: "/concept/book/PM/srs.webp", easy: "요구사항을 공식 문서로 못 박은 것이 SRS이고, 이후 분석·설계·구현·유지보수의 판단 기준이 됩니다. 세 덩어리로 외웁니다. ① 명세 원리 [명완검일수추개] — 명확성(뜻이 하나), 완전성(빠짐없이), 검증가능성(확인 가능하게), 일관성(모순 없이), 수정용이성, 추적성, 개발 후 이용성. ② 작성 시 유의사항 [이상기제테품]. ③ 목차 — 개요(범위·목적·시스템개요·제약), 기능적 요구사항, 기타 요구 및 제약(성능·논리DB·SW속성·HW), 인수 조건." },
+    }, image: "/concept/book/PM/srs.png", easy: "요구사항을 공식 문서로 못 박은 것이 SRS이고, 이후 분석·설계·구현·유지보수의 판단 기준이 됩니다. 세 덩어리로 외웁니다. ① 명세 원리 [명완검일수추개] — 명확성(뜻이 하나), 완전성(빠짐없이), 검증가능성(확인 가능하게), 일관성(모순 없이), 수정용이성, 추적성, 개발 후 이용성. ② 작성 시 유의사항 [이상기제테품]. ③ 목차 — 개요(범위·목적·시스템개요·제약), 기능적 요구사항, 기타 요구 및 제약(성능·논리DB·SW속성·HW), 인수 조건." },
 "pm-27": {
     guide: {
       hook: "프로젝트 범위를 '관리 가능한 작업 단위로 계층 분해'한 구조도입니다.",
@@ -3997,7 +3997,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "EVM(Earned Value Management, 획득 가치 관리)", how: "WBS 기반으로 성과를 측정합니다." },
       ],
       exam: "WBS는 프로젝트 범위를 작업 패키지까지 계층 분해한 구조로, 100% 규칙(상위=하위 합)을 지키며 일정·원가·자원·EVM 관리의 기반이 된다.",
-    }, image: "/concept/book/PM/pm-27.webp", images: ["/concept/diagram/pm-27.webp"], imagesLabel: "개념도", easy: "할 일을 '인도물 중심'으로 계층적으로 쪼갠 그림입니다. 맨 아래 칸이 작업 패키지(Work Package)로, 관리 가능한 크기(보통 80시간 내외)까지 잘게 나눕니다. 핵심 규칙이 100% rule — 각 레벨의 작업량·예산 합이 상위의 100%가 되어야 합니다(빠뜨려도 안 되고 더해도 안 됨). 작업 패키지들을 묶어 원가를 관리하는 단위가 통제 계정(Control Account)이고, 각 항목의 상세 내용은 WBS 사전에, 고유 번호는 Code of Account(1.x.x)에 적습니다." },
+    }, image: "/concept/book/PM/pm-27.png", images: ["/concept/diagram/pm-27.webp"], imagesLabel: "개념도", easy: "할 일을 '인도물 중심'으로 계층적으로 쪼갠 그림입니다. 맨 아래 칸이 작업 패키지(Work Package)로, 관리 가능한 크기(보통 80시간 내외)까지 잘게 나눕니다. 핵심 규칙이 100% rule — 각 레벨의 작업량·예산 합이 상위의 100%가 되어야 합니다(빠뜨려도 안 되고 더해도 안 됨). 작업 패키지들을 묶어 원가를 관리하는 단위가 통제 계정(Control Account)이고, 각 항목의 상세 내용은 WBS 사전에, 고유 번호는 Code of Account(1.x.x)에 적습니다." },
 "pm-30": {
     guide: {
       hook: "범위가 새는 두 방식 — '고객이 슬금슬금 늘리는' 스코프 크립과 '개발자가 과잉 제공하는' 골드 플레이팅.",
@@ -4016,7 +4016,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "프로젝트 위험관리", how: "범위 이탈은 주요 프로젝트 위험입니다." },
       ],
       exam: "Scope Creep은 고객 요구가 통제 없이 추가되는 것, Gold-Plating은 개발자가 요청 없는 기능을 과잉 제공하는 것으로, 각각 변경 통제와 범위 준수로 대응한다.",
-    }, image: "/concept/book/PM/pm-30.webp", easy: "둘 다 범위가 부푸는 현상인데 원인이 정반대입니다. Scope Creep은 '고객이 요구했는데 관리 없이 슬금슬금 들어온' 것 — 원인은 범위관리 실패이고, 변경 요청을 리뷰·승인 절차에 태워서 막습니다. Gold Plating은 '고객이 요구하지도 않았는데 우리가 좋으라고 더 넣은' 것 — 원인은 품질관리·요구사항 확인 실패이고, PM 승인 없는 기능 추가 금지로 막습니다. 한 줄 요약: Creep = 고객발 통제 실패, Gold Plating = 개발자발 과잉 서비스." },
+    }, image: "/concept/book/PM/pm-30.png", easy: "둘 다 범위가 부푸는 현상인데 원인이 정반대입니다. Scope Creep은 '고객이 요구했는데 관리 없이 슬금슬금 들어온' 것 — 원인은 범위관리 실패이고, 변경 요청을 리뷰·승인 절차에 태워서 막습니다. Gold Plating은 '고객이 요구하지도 않았는데 우리가 좋으라고 더 넣은' 것 — 원인은 품질관리·요구사항 확인 실패이고, PM 승인 없는 기능 추가 금지로 막습니다. 한 줄 요약: Creep = 고객발 통제 실패, Gold Plating = 개발자발 과잉 서비스." },
 "duration-estimating": {
     guide: {
       hook: "각 활동이 '얼마나 걸릴지' 추정하는 여러 산정 기법입니다.",
@@ -4035,7 +4035,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "CPM (Critical Path Management)", how: "산정 기간으로 임계경로를 계산합니다." },
       ],
       exam: "활동기간 산정기법은 유사·모수·3점·상향식 산정 등으로 활동 소요 기간을 추정하며, 정확도·비용·불확실성 반영 정도에 따라 상황에 맞게 선택한다.",
-    }, image: "/concept/book/PM/duration-estimating.webp", easy: "활동기간 산정기법은 한정된 자원으로 각 활동을 수행하는 데 걸릴 기간을 추정하는 기법 모음이며, 두음이 [전유모3상데의미]입니다. 전문가 판단(유사 프로젝트 경험자 활용), 유사 산정(과거 유사 프로젝트의 실제 기간 참조 — 상세 정보가 제한적일 때 유용), 모수 산정(과거 실적 데이터로 수학적 함수를 만들어 계산), 3점 산정(낙관치·비관치·평균치 셋으로 계산 — 불확실성 반영), 상향식 산정(WBS 최하위 단위부터 더해 올림 — 가장 정확하지만 오래 걸림), 데이터 분석(대안 분석 + 예비 분석: 불확실성 대비 버퍼를 전체 일정에 포함), 의사결정(Fist to Five 손가락 거수법), 미팅. '유사 산정은 빠르지만 부정확, 상향식은 느리지만 정확, 3점은 위험 반영'이라는 정확도 스펙트럼으로 비교 서술하는 것이 답안 포인트입니다." },
+    }, image: "/concept/book/PM/duration-estimating.png", easy: "활동기간 산정기법은 한정된 자원으로 각 활동을 수행하는 데 걸릴 기간을 추정하는 기법 모음이며, 두음이 [전유모3상데의미]입니다. 전문가 판단(유사 프로젝트 경험자 활용), 유사 산정(과거 유사 프로젝트의 실제 기간 참조 — 상세 정보가 제한적일 때 유용), 모수 산정(과거 실적 데이터로 수학적 함수를 만들어 계산), 3점 산정(낙관치·비관치·평균치 셋으로 계산 — 불확실성 반영), 상향식 산정(WBS 최하위 단위부터 더해 올림 — 가장 정확하지만 오래 걸림), 데이터 분석(대안 분석 + 예비 분석: 불확실성 대비 버퍼를 전체 일정에 포함), 의사결정(Fist to Five 손가락 거수법), 미팅. '유사 산정은 빠르지만 부정확, 상향식은 느리지만 정확, 3점은 위험 반영'이라는 정확도 스펙트럼으로 비교 서술하는 것이 답안 포인트입니다." },
 "pm-35": {
     guide: {
       hook: "'낙관·비관·최빈' 세 값으로 불확실성을 반영해 기간·비용을 추정하는 기법입니다.",
@@ -4054,7 +4054,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "몬테카를로 시뮬레이션", how: "3점 분포를 입력으로 위험을 분석합니다." },
       ],
       exam: "3점 산정은 낙관(O)·비관(P)·최빈(M)으로 PERT 기대값 (O+4M+P)/6과 표준편차 (P−O)/6을 구해 불확실성을 반영하는 기법으로, 몬테카를로의 입력이 된다.",
-    }, image: "/concept/book/PM/pm-35.webp", easy: "3점 산정은 활동 기간을 하나로 못 박지 않고 낙관치(O)·평균치(M)·비관치(P) 세 값으로 잡아 불확실성을 반영하는 기간 산정 기법입니다. 삼각분포는 셋의 단순 평균 (O+M+P)/3, 베타분포(PERT)는 가장 가능성 높은 값에 4배 가중치를 줘서 (O+4M+P)/6입니다. 표준편차는 (P−O)/6이고, ±1σ·2σ·3σ가 각각 신뢰도 68%·95%·99%에 해당합니다. 예를 들어 낙관 4일·평균 5일·비관 12일이면 PERT 기대치는 (4+20+12)/6=6일, 표준편차는 (12−4)/6≈1.3일 → '6±1.3일 안에 끝날 확률 68%'로 읽습니다. 유사 산정(과거 사례 참조)·모수 산정(수식)과 비교하면 3점 산정만 유일하게 '위험(불확실성)'을 계산에 넣는다는 것, 그리고 두 공식의 분모(3과 6) 구분이 시험 포인트입니다." },
+    }, image: "/concept/book/PM/pm-35.png", easy: "3점 산정은 활동 기간을 하나로 못 박지 않고 낙관치(O)·평균치(M)·비관치(P) 세 값으로 잡아 불확실성을 반영하는 기간 산정 기법입니다. 삼각분포는 셋의 단순 평균 (O+M+P)/3, 베타분포(PERT)는 가장 가능성 높은 값에 4배 가중치를 줘서 (O+4M+P)/6입니다. 표준편차는 (P−O)/6이고, ±1σ·2σ·3σ가 각각 신뢰도 68%·95%·99%에 해당합니다. 예를 들어 낙관 4일·평균 5일·비관 12일이면 PERT 기대치는 (4+20+12)/6=6일, 표준편차는 (12−4)/6≈1.3일 → '6±1.3일 안에 끝날 확률 68%'로 읽습니다. 유사 산정(과거 사례 참조)·모수 산정(수식)과 비교하면 3점 산정만 유일하게 '위험(불확실성)'을 계산에 넣는다는 것, 그리고 두 공식의 분모(3과 6) 구분이 시험 포인트입니다." },
 "pm-36": {
     guide: {
       hook: "프로젝트에서 '가장 긴 경로=최소 완료 시간'을 찾아 일정을 관리하는 기법입니다.",
@@ -4073,7 +4073,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "일정단축 기법", how: "임계경로를 대상으로 일정을 줄입니다." },
       ],
       exam: "CPM은 활동 네트워크에서 총여유 0인 가장 긴 경로(임계경로)로 최소 완료 기간을 구하는 기법으로, 전진·후진 계산으로 여유를 산출하고 임계경로를 집중 관리한다.",
-    }, image: "/concept/book/PM/pm-36.webp", easy: "네트워크 다이어그램을 그려서 '이 프로젝트 최소 며칠 걸리나'를 구합니다. 앞에서부터 계산(전진)해 ES·EF를 구하고, 뒤에서부터 계산(후진)해 LS·LF를 구합니다. 그 차이가 여유시간 — TF = LF − EF = LS − ES 입니다. **TF가 0인 활동들을 이은 경로가 임계경로(Critical Path)** 이고, 여기가 하루라도 밀리면 프로젝트 전체가 밀립니다. TF는 '프로젝트 종료일을 안 밀리게 하는 총 여유', FF는 '바로 뒤 활동의 시작을 안 밀리게 하는 여유'로 FF ≤ TF 입니다." },
+    }, image: "/concept/book/PM/pm-36.png", easy: "네트워크 다이어그램을 그려서 '이 프로젝트 최소 며칠 걸리나'를 구합니다. 앞에서부터 계산(전진)해 ES·EF를 구하고, 뒤에서부터 계산(후진)해 LS·LF를 구합니다. 그 차이가 여유시간 — TF = LF − EF = LS − ES 입니다. **TF가 0인 활동들을 이은 경로가 임계경로(Critical Path)** 이고, 여기가 하루라도 밀리면 프로젝트 전체가 밀립니다. TF는 '프로젝트 종료일을 안 밀리게 하는 총 여유', FF는 '바로 뒤 활동의 시작을 안 밀리게 하는 여유'로 FF ≤ TF 입니다." },
 "pm-37": {
     guide: {
       hook: "CPM에 '자원 제약과 버퍼(완충)'를 더해 불확실성에 대응하는 일정 관리 기법입니다.",
@@ -4092,7 +4092,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "자원 최적화", how: "자원 제약 반영과 연결됩니다." },
       ],
       exam: "CCM은 TOC 기반으로 자원 제약을 고려한 임계 사슬을 찾고 개별 안전시간을 프로젝트·피딩·자원 버퍼로 모아 관리하는 기법으로, CPM의 자원 무한 가정을 보완한다.",
-    }, image: "/concept/book/PM/pm-37.webp", images: ["/concept/diagram/pm-37.webp"], imagesLabel: "개념도", easy: "사람들이 각 작업마다 몰래 넣어 둔 여유시간을 다 빼앗아 한곳에 모아 두고, 그 통합 버퍼가 얼마나 줄었는지로 프로젝트를 관리하는 방법입니다. 버퍼는 셋 — 프로젝트 버퍼(임계연쇄 끝에 두는 총 버퍼, 안전/모니터링/행동 영역으로 나눠 관리), 피딩 버퍼(임계연쇄로 합류하는 곁가지 끝에 둬서 본류 착수 지연을 막음), 자원 버퍼(작업 착수 전에 담당 자원에게 미리 알려주는 경보). CPM과 비교하면 CPM은 ES(빨리 시작)·진척율 관리, CCM은 LS(늦게 시작)·버퍼 소진율 관리이고, 자원 제약을 처음부터 계획에 반영합니다." },
+    }, image: "/concept/book/PM/pm-37.png", images: ["/concept/diagram/pm-37.webp"], imagesLabel: "개념도", easy: "사람들이 각 작업마다 몰래 넣어 둔 여유시간을 다 빼앗아 한곳에 모아 두고, 그 통합 버퍼가 얼마나 줄었는지로 프로젝트를 관리하는 방법입니다. 버퍼는 셋 — 프로젝트 버퍼(임계연쇄 끝에 두는 총 버퍼, 안전/모니터링/행동 영역으로 나눠 관리), 피딩 버퍼(임계연쇄로 합류하는 곁가지 끝에 둬서 본류 착수 지연을 막음), 자원 버퍼(작업 착수 전에 담당 자원에게 미리 알려주는 경보). CPM과 비교하면 CPM은 ES(빨리 시작)·진척율 관리, CCM은 LS(늦게 시작)·버퍼 소진율 관리이고, 자원 제약을 처음부터 계획에 반영합니다." },
 "schedule-compression": {
     guide: {
       hook: "품질·범위는 유지하며 '일정을 앞당기는' 두 기법 — 공정 압축과 공정 중첩입니다.",
@@ -4111,7 +4111,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "자원 최적화", how: "자원 조정 기법과 구분됩니다." },
       ],
       exam: "일정단축은 임계경로 활동에 자원을 추가하는 Crashing(비용 증가)과 순차 활동을 병렬화하는 Fast Tracking(재작업 위험)으로 나뉘며, 범위·품질은 유지한다.",
-    }, image: "/concept/book/PM/schedule-compression.webp", images: ["/concept/diagram/schedule-compression.webp"], imagesLabel: "개념도", easy: "범위는 그대로 두고 일정만 당기는 두 가지 방법입니다. Crashing(공정 압축)은 임계경로에 사람·초과근무를 더 넣어 기간을 줄입니다 — 돈이 더 듭니다(10일 500만원 → 8일 800만원). Fast Tracking(공정 중첩)은 원래 순서대로 하던 작업을 겹쳐서 병행합니다 — 돈은 안 들지만 앞 작업이 바뀌면 재작업 위험이 커집니다. 그래서 예산 여유가 있으면 Crashing, 없으면 Fast Tracking입니다. 참고로 Fast Tracking은 임계경로 상의 활동에는 적용할 수 없습니다." },
+    }, image: "/concept/book/PM/schedule-compression.png", images: ["/concept/diagram/schedule-compression.webp"], imagesLabel: "개념도", easy: "범위는 그대로 두고 일정만 당기는 두 가지 방법입니다. Crashing(공정 압축)은 임계경로에 사람·초과근무를 더 넣어 기간을 줄입니다 — 돈이 더 듭니다(10일 500만원 → 8일 800만원). Fast Tracking(공정 중첩)은 원래 순서대로 하던 작업을 겹쳐서 병행합니다 — 돈은 안 들지만 앞 작업이 바뀌면 재작업 위험이 커집니다. 그래서 예산 여유가 있으면 Crashing, 없으면 Fast Tracking입니다. 참고로 Fast Tracking은 임계경로 상의 활동에는 적용할 수 없습니다." },
 "pm-46": {
     guide: {
       hook: "'계획 대비 실제 성과'를 일정·비용 관점에서 정량 측정하는 프로젝트 관리 기법입니다.",
@@ -4130,7 +4130,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "CPM (Critical Path Management)", how: "일정 성과(SV/SPI)와 연계됩니다." },
       ],
       exam: "EVM은 계획가치(PV)·획득가치(EV)·실제원가(AC)로 일정편차(SV)·비용편차(CV)와 SPI·CPI를 산출해 성과를 측정하고 EAC로 완료 원가를 예측하는 기법이다.",
-    }, image: "/concept/book/PM/pm-46.webp", images: ["/concept/diagram/pm-46.webp"], imagesLabel: "개념도", easy: "'지금 일정과 비용이 계획대로인가'를 숫자 하나로 보는 기법입니다. 값 세 개만 알면 됩니다 — PV(오늘까지 하기로 계획한 일의 값), EV(오늘까지 실제로 끝낸 일의 값), AC(오늘까지 실제로 쓴 돈). 여기서 SV = EV − PV(음수면 일정 지연), CV = EV − AC(음수면 예산 초과)가 나오고, 나눗셈으로 SPI = EV/PV, CPI = EV/AC(1보다 작으면 나쁨)가 나옵니다. 헷갈릴 때는 '항상 EV가 앞에 온다'로 기억하면 됩니다. 지연이면 Crashing·Fast Tracking, 예산 초과면 원가 통제로 대응합니다." },
+    }, image: "/concept/book/PM/pm-46.png", images: ["/concept/diagram/pm-46.webp"], imagesLabel: "개념도", easy: "'지금 일정과 비용이 계획대로인가'를 숫자 하나로 보는 기법입니다. 값 세 개만 알면 됩니다 — PV(오늘까지 하기로 계획한 일의 값), EV(오늘까지 실제로 끝낸 일의 값), AC(오늘까지 실제로 쓴 돈). 여기서 SV = EV − PV(음수면 일정 지연), CV = EV − AC(음수면 예산 초과)가 나오고, 나눗셈으로 SPI = EV/PV, CPI = EV/AC(1보다 작으면 나쁨)가 나옵니다. 헷갈릴 때는 '항상 EV가 앞에 온다'로 기억하면 됩니다. 지연이면 Crashing·Fast Tracking, 예산 초과면 원가 통제로 대응합니다." },
 "pm-50": {
     guide: {
       hook: "품질 문제를 데이터로 분석하는 '7가지 기본 도구(QC 7)'입니다.",
@@ -4149,7 +4149,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "데이터 시각화", how: "품질 데이터 시각화 기법을 공유합니다." },
       ],
       exam: "QC 7 도구는 체크시트·히스토그램·파레토도·특성요인도·산점도·관리도·층별로 품질 데이터를 분석하며, 파레토(우선순위)·특성요인도(원인)·관리도(공정 감시)가 핵심이다.",
-    }, image: "/concept/book/PM/pm-50.webp", easy: "품질 문제를 통계로 잡는 고전 도구 7개입니다. 쓰임새로 묶으면 외워집니다 — 현상 파악(체크시트: 빠짐없이 세기 / 파레토차트: 빈도 순으로 세워 중점 문제 찾기 / 히스토그램: 분포 모양 보기), 자료 관리(관리도: 공정이 통계적으로 안정한지 판정), 원인 분석(특성요인도=생선뼈 그림: 결과와 원인의 관계 / 산점도: 두 변수의 상관관계 / 층별: 데이터를 부분집단으로 쪼개 원인 규명). 교재 두음이 현원자 · 체파히 · 특산층 · 관입니다." },
+    }, image: "/concept/book/PM/pm-50.png", easy: "품질 문제를 통계로 잡는 고전 도구 7개입니다. 쓰임새로 묶으면 외워집니다 — 현상 파악(체크시트: 빠짐없이 세기 / 파레토차트: 빈도 순으로 세워 중점 문제 찾기 / 히스토그램: 분포 모양 보기), 자료 관리(관리도: 공정이 통계적으로 안정한지 판정), 원인 분석(특성요인도=생선뼈 그림: 결과와 원인의 관계 / 산점도: 두 변수의 상관관계 / 층별: 데이터를 부분집단으로 쪼개 원인 규명). 교재 두음이 현원자 · 체파히 · 특산층 · 관입니다." },
 "pm-51": {
     guide: {
       hook: "산출물의 '버전·변경을 통제'해 무결성을 유지하는 형상 관리입니다.",
@@ -4168,7 +4168,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "DevSecOps", how: "형상·버전 관리가 파이프라인 기반입니다." },
       ],
       exam: "형상 관리는 형상 식별(베이스라인)·통제(CCB)·상태 기록·감사의 4활동으로 산출물의 버전·변경을 통제해 무결성·추적성을 유지하는 활동이다.",
-    }, image: "/concept/book/PM/pm-51.webp", images: ["/concept/diagram/pm-51.webp"], imagesLabel: "개념도", easy: "개발하다 보면 문서·코드가 계속 바뀌는데, '지금 무엇이 공식 버전인가'를 잃지 않게 관리하는 활동입니다. 절차는 식별 → 통제 → 감사 → 기록입니다. 형상 식별로 관리 대상과 기준선(Baseline)을 정하고, 변경 요청이 오면 CCB(형상관리 통제 위원회)가 심사해 승인한 것만 반영하며, 체크리스트로 감사하고, 결과를 저장소(SVN·Git)에 기록합니다. 기준선도 단계마다 이름이 달라 기능적 → 분배적 → 설계 → 시험 → 제품 → 운용 순으로 갑니다." },
+    }, image: "/concept/book/PM/pm-51.png", images: ["/concept/diagram/pm-51.webp"], imagesLabel: "개념도", easy: "개발하다 보면 문서·코드가 계속 바뀌는데, '지금 무엇이 공식 버전인가'를 잃지 않게 관리하는 활동입니다. 절차는 식별 → 통제 → 감사 → 기록입니다. 형상 식별로 관리 대상과 기준선(Baseline)을 정하고, 변경 요청이 오면 CCB(형상관리 통제 위원회)가 심사해 승인한 것만 반영하며, 체크리스트로 감사하고, 결과를 저장소(SVN·Git)에 기록합니다. 기준선도 단계마다 이름이 달라 기능적 → 분배적 → 설계 → 시험 → 제품 → 운용 순으로 갑니다." },
 "sw-quality-cost": {
     guide: {
       hook: "품질에 드는 돈을 '예방·평가·실패' 비용으로 나눠 관리하는 개념입니다.",
@@ -4187,7 +4187,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "시큐어 코딩(Secure Coding)", how: "예방 투자로 실패 비용을 줄입니다." },
       ],
       exam: "SW 품질비용은 예방·평가·실패(PAF) 비용으로 구성되며, 예방·평가 투자가 실패 비용을 줄이고 결함은 늦게 발견될수록 비용이 급증(1-10-100)한다.",
-    }, image: "/concept/book/PM/sw-quality-cost.webp", easy: "SW 품질비용은 품질을 확보하기 위해 쓰는 비용과 품질 실패로 치르는 비용을 합쳐 네 갈래로 나눠 관리하는 개념입니다. 적합 품질비용은 잘 만들려고 쓰는 돈 — 예방비용(교육·표준·계획)과 평가비용(테스트·리뷰·인스펙션). 부적합 품질비용은 잘못돼서 나가는 돈 — 내부실패비용(고객에게 가기 전에 고쳐서 드는 재작업 비용)과 외부실패비용(고객에게 간 뒤 터져서 드는 하자보수·법적 책임·신용 실추). 핵심 메시지는 '앞의 둘에 돈을 더 써서 뒤의 둘을 줄여라'이고, 특히 외부실패비용이 압도적으로 비쌉니다." },
+    }, image: "/concept/book/PM/sw-quality-cost.png", easy: "SW 품질비용은 품질을 확보하기 위해 쓰는 비용과 품질 실패로 치르는 비용을 합쳐 네 갈래로 나눠 관리하는 개념입니다. 적합 품질비용은 잘 만들려고 쓰는 돈 — 예방비용(교육·표준·계획)과 평가비용(테스트·리뷰·인스펙션). 부적합 품질비용은 잘못돼서 나가는 돈 — 내부실패비용(고객에게 가기 전에 고쳐서 드는 재작업 비용)과 외부실패비용(고객에게 간 뒤 터져서 드는 하자보수·법적 책임·신용 실추). 핵심 메시지는 '앞의 둘에 돈을 더 써서 뒤의 둘을 줄여라'이고, 특히 외부실패비용이 압도적으로 비쌉니다." },
 "pm-53": {
     guide: {
       hook: "작업별로 '누가 책임·실행·자문·통보 대상인지' 한눈에 정리한 책임 배정 매트릭스입니다.",
@@ -4206,7 +4206,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "동기부여 이론", how: "팀·역할 관리와 연계됩니다." },
       ],
       exam: "RACI는 작업별로 실행(R)·최종책임(A)·자문(C)·통보(I) 역할을 배정하는 매트릭스로, 각 작업에 A는 반드시 1명이어야 책임 소재가 명확하다.",
-    }, image: "/concept/book/PM/pm-53.webp", easy: "RACI 차트는 업무(활동)별로 누가 어떤 역할인지 표로 못 박는 책임배정매트릭스(RAM)의 대표 형식입니다. R(Responsible)=실제로 일을 수행하는 사람, A(Accountable)=최종 책임지고 승인하는 사람, C(Consulted)=자문해 주는 사람(양방향 소통), I(Informed)=결과만 통보받는 사람(단방향 통보). 시험에 나오는 규칙 — 한 업무에 A는 반드시 있어야 하고 반드시 한 명이어야 합니다(여럿이면 책임 소재와 의사소통 혼란). 반대로 C와 I는 없어도 되고, R과 A는 한 사람이 겸할 수 있습니다. 자원관리 계획 수립의 도구로, 역할·책임이 흐릿해 서로 미루거나 중복 작업이 생기는 것을 막는 게 목적 — 'A는 단 한 명' 규칙이 최다 출제 포인트입니다." },
+    }, image: "/concept/book/PM/pm-53.png", easy: "RACI 차트는 업무(활동)별로 누가 어떤 역할인지 표로 못 박는 책임배정매트릭스(RAM)의 대표 형식입니다. R(Responsible)=실제로 일을 수행하는 사람, A(Accountable)=최종 책임지고 승인하는 사람, C(Consulted)=자문해 주는 사람(양방향 소통), I(Informed)=결과만 통보받는 사람(단방향 통보). 시험에 나오는 규칙 — 한 업무에 A는 반드시 있어야 하고 반드시 한 명이어야 합니다(여럿이면 책임 소재와 의사소통 혼란). 반대로 C와 I는 없어도 되고, R과 A는 한 사람이 겸할 수 있습니다. 자원관리 계획 수립의 도구로, 역할·책임이 흐릿해 서로 미루거나 중복 작업이 생기는 것을 막는 게 목적 — 'A는 단 한 명' 규칙이 최다 출제 포인트입니다." },
 "pm-40": {
     guide: {
       hook: "한정된 자원을 '무리 없이 배분·조정'하는 두 기법 — 평준화와 평활화입니다.",
@@ -4225,7 +4225,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "일정단축 기법", how: "자원 조정 기법과 구분됩니다." },
       ],
       exam: "자원 최적화는 자원 제약을 우선해 완료일이 바뀔 수 있는 평준화와 여유 범위 내에서만 조정해 완료일을 유지하는 평활화로 나뉜다.",
-    }, image: "/concept/book/PM/pm-40.webp", easy: "한 사람이 같은 기간에 두 개 일에 배정돼 과부하가 걸릴 때 조정하는 기법이며, 둘의 차이는 딱 하나 — 주공정(완료일)을 건드리느냐입니다. Resource Leveling(자원 평준화)은 자원 한계를 지키기 위해 일정을 미뤄서라도 평탄하게 만듭니다 → 주공정이 바뀌고 보통 기간이 늘어납니다. Resource Smoothing(자원 평활화)은 완료일을 지키면서 여유시간(Free/Total Float) 안에서만 조정합니다 → 주공정이 안 바뀝니다. '납기를 포기해도 되면 Leveling, 안 되면 Smoothing'." },
+    }, image: "/concept/book/PM/pm-40.png", easy: "한 사람이 같은 기간에 두 개 일에 배정돼 과부하가 걸릴 때 조정하는 기법이며, 둘의 차이는 딱 하나 — 주공정(완료일)을 건드리느냐입니다. Resource Leveling(자원 평준화)은 자원 한계를 지키기 위해 일정을 미뤄서라도 평탄하게 만듭니다 → 주공정이 바뀌고 보통 기간이 늘어납니다. Resource Smoothing(자원 평활화)은 완료일을 지키면서 여유시간(Free/Total Float) 안에서만 조정합니다 → 주공정이 안 바뀝니다. '납기를 포기해도 되면 Leveling, 안 되면 Smoothing'." },
 "pm-55": {
     guide: {
       hook: "팀원을 '무엇이 움직이게 하는지' 설명하는 고전 동기부여 이론들입니다.",
@@ -4244,7 +4244,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "갈등관리", how: "팀 관리의 다른 축입니다." },
       ],
       exam: "동기부여 이론은 매슬로 욕구 5단계, 허즈버그 2요인(위생·동기), 맥그리거 X-Y, 브룸 기대이론 등으로 팀원의 동기 원천을 설명해 인적자원 관리에 활용된다.",
-    }, image: "/concept/book/PM/pm-55.webp", easy: "사람을 어떻게 움직이게 하느냐에 대한 이론들이며, 관점 3개로 먼저 나눕니다 [내과강] — 내용 이론(무엇이 동기를 주나, What), 과정 이론(어떻게 동기가 생기나, How), 강화 이론(왜 일어나나, Why). 내용 이론에는 매슬로우 욕구 5단계(생·안·사·존·자), 허즈버그 2요인(위생요인은 불만족만 없애고 동기요인이 만족을 만듦), 맥그리거 X·Y이론, 맥클랜드 3욕구(성취·결연·권력)가 있고, 과정 이론에는 기대·목표설정·공정성 이론, 강화 이론에는 스키너가 있습니다." },
+    }, image: "/concept/book/PM/pm-55.png", easy: "사람을 어떻게 움직이게 하느냐에 대한 이론들이며, 관점 3개로 먼저 나눕니다 [내과강] — 내용 이론(무엇이 동기를 주나, What), 과정 이론(어떻게 동기가 생기나, How), 강화 이론(왜 일어나나, Why). 내용 이론에는 매슬로우 욕구 5단계(생·안·사·존·자), 허즈버그 2요인(위생요인은 불만족만 없애고 동기요인이 만족을 만듦), 맥그리거 X·Y이론, 맥클랜드 3욕구(성취·결연·권력)가 있고, 과정 이론에는 기대·목표설정·공정성 이론, 강화 이론에는 스키너가 있습니다." },
 "pm-56": {
     guide: {
       hook: "팀이 '형성→혼란→규범→수행'을 거쳐 성숙하는 5단계 발달 모델입니다.",
@@ -4263,7 +4263,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "갈등관리", how: "Storming 단계 갈등 해결과 연결됩니다." },
       ],
       exam: "터크만 팀 개발 5단계는 형성·혼란·규범·수행·해산으로 팀이 성숙하며, 리더십이 지시→코칭→지원→위임으로 이동하고 혼란 단계의 갈등 관리가 관건이다.",
-    }, image: "/concept/book/PM/pm-56.webp", images: ["/concept/diagram/pm-56.webp"], imagesLabel: "개념도", easy: "팀은 처음부터 잘 굴러가지 않고 다섯 단계를 거칩니다 [형스표수해] — 형성(서로 눈치 보며 탐색), 스토밍(갈등이 터짐, 효과성이 오히려 바닥), 표준화(규칙과 신뢰가 생김), 수행(성과가 나옴), 해산(마무리·Lessons Learned). 시험 포인트는 단계별 리더십입니다 — 형성기는 지시형(Direct), 격동기는 지도형(Coach), 표준화는 참여형(Participate), 수행기는 위임형(Delegate). 그래프가 U자를 그리는 이유는 스토밍에서 효과성이 떨어졌다가 회복되기 때문입니다." },
+    }, image: "/concept/book/PM/pm-56.png", images: ["/concept/diagram/pm-56.webp"], imagesLabel: "개념도", easy: "팀은 처음부터 잘 굴러가지 않고 다섯 단계를 거칩니다 [형스표수해] — 형성(서로 눈치 보며 탐색), 스토밍(갈등이 터짐, 효과성이 오히려 바닥), 표준화(규칙과 신뢰가 생김), 수행(성과가 나옴), 해산(마무리·Lessons Learned). 시험 포인트는 단계별 리더십입니다 — 형성기는 지시형(Direct), 격동기는 지도형(Coach), 표준화는 참여형(Participate), 수행기는 위임형(Delegate). 그래프가 U자를 그리는 이유는 스토밍에서 효과성이 떨어졌다가 회복되기 때문입니다." },
 "conflict-management": {
     guide: {
       hook: "갈등을 다루는 '5가지 방식'을 상황에 맞게 선택하는 기법입니다(토마스-킬만).",
@@ -4282,7 +4282,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "동기부여 이론", how: "팀 관리의 다른 축입니다." },
       ],
       exam: "갈등관리는 자기주장·협력성 2축의 경쟁·수용·회피·타협·협력 5방식으로 나뉘며, 둘 다 만족하는 협력(문제해결)이 최선이나 상황에 맞게 선택한다.",
-    }, image: "/concept/book/PM/conflict-management.webp", images: ["/concept/diagram/conflict-management.webp"], imagesLabel: "개념도", easy: "갈등 해결 방법 5개를 '내 주장을 얼마나 세우나 × 상대와 얼마나 협력하나' 2축으로 놓으면 한 번에 정리됩니다. Withdrawal(회피)=주장 낮음·협력 낮음(사소하거나 이길 가망 없을 때), Smoothing(수용)=주장 낮음·협력 높음(분위기가 더 중요할 때), Compromising(타협)=중간·중간(둘 다 조금씩 양보), Forcing(강요)=주장 높음·협력 낮음(급하거나 꼭 필요한 정책), Problem Solving(문제해결/대면)=주장 높음·협력 높음. **가장 바람직한 것은 Problem Solving, 가장 나쁜 것은 Withdrawal**입니다." },
+    }, image: "/concept/book/PM/conflict-management.png", images: ["/concept/diagram/conflict-management.webp"], imagesLabel: "개념도", easy: "갈등 해결 방법 5개를 '내 주장을 얼마나 세우나 × 상대와 얼마나 협력하나' 2축으로 놓으면 한 번에 정리됩니다. Withdrawal(회피)=주장 낮음·협력 낮음(사소하거나 이길 가망 없을 때), Smoothing(수용)=주장 낮음·협력 높음(분위기가 더 중요할 때), Compromising(타협)=중간·중간(둘 다 조금씩 양보), Forcing(강요)=주장 높음·협력 낮음(급하거나 꼭 필요한 정책), Problem Solving(문제해결/대면)=주장 높음·협력 높음. **가장 바람직한 것은 Problem Solving, 가장 나쁜 것은 Withdrawal**입니다." },
 "pm-59": {
     guide: {
       hook: "프로젝트의 '불확실성을 식별·분석·대응'해 관리하는 전 과정입니다.",
@@ -4301,7 +4301,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "위험 대응", how: "분석 후 대응 전략 수립입니다." },
       ],
       exam: "프로젝트 위험관리는 계획·식별·정성분석·정량분석·대응·감시의 프로세스로 불확실성을 관리하며, 위협뿐 아니라 기회(긍정 위험)도 포함해 대응한다.",
-    }, image: "/concept/book/PM/pm-59.webp", images: ["/concept/diagram/pm-59.webp"], imagesLabel: "절차", easy: "위험을 찾아서 대비하는 7단계 활동입니다. 계획 수립 → 위험 식별(무엇이 위험인가, 산출물은 위험 관리대장) → 정성적 분석(확률·영향으로 우선순위 매기기) → 정량적 분석(숫자로 영향 계산) → 대응 계획 수립(여기까지가 계획) → 대응 실행 → 감시 및 통제. 정성적이 먼저이고 정량적이 나중인 이유는, 다 계산하기엔 비싸니까 우선순위를 먼저 걸러내기 때문입니다. 보헴의 10대 위험 요소(인력 부족, 비현실적 일정·예산, 요구사항 변경 등)도 같이 외웁니다." },
+    }, image: "/concept/book/PM/pm-59.png", images: ["/concept/diagram/pm-59.webp"], imagesLabel: "절차", easy: "위험을 찾아서 대비하는 7단계 활동입니다. 계획 수립 → 위험 식별(무엇이 위험인가, 산출물은 위험 관리대장) → 정성적 분석(확률·영향으로 우선순위 매기기) → 정량적 분석(숫자로 영향 계산) → 대응 계획 수립(여기까지가 계획) → 대응 실행 → 감시 및 통제. 정성적이 먼저이고 정량적이 나중인 이유는, 다 계산하기엔 비싸니까 우선순위를 먼저 걸러내기 때문입니다. 보헴의 10대 위험 요소(인력 부족, 비현실적 일정·예산, 요구사항 변경 등)도 같이 외웁니다." },
 "pm-60": {
     guide: {
       hook: "위험을 '발생확률×영향'으로 평가해 '어디에 집중할지 우선순위'를 정합니다.",
@@ -4320,7 +4320,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "정량적 위험 분석", how: "상위 위험을 수치로 심화 분석합니다." },
       ],
       exam: "정성적 위험 분석은 발생확률과 영향을 척도로 평가해 확률-영향 매트릭스로 위험 우선순위를 정하는 신속·주관적 방법으로, 상위 위험은 정량 분석으로 넘긴다.",
-    }, image: "/concept/book/PM/pm-60.webp", easy: "식별된 위험을 '확률 × 영향'으로 등급 매겨 우선순위를 정하는 단계입니다. 핵심 도구가 P-I Matrix(확률-영향 매트릭스) — 확률과 영향을 곱해 빨강/노랑/초록으로 등급화합니다. 모수를 3개 보고 싶으면 버블차트(계층적 차트)를 쓰는데, 버블 크기가 영향 값이라 클수록 위험합니다. 비슷한 원인끼리 묶을 때는 RBS(Risk Breakdown Structure)를 씁니다. 정량적 분석과 달리 숫자로 계산하지 않고 등급으로 줄 세우는 것이 이 단계입니다." },
+    }, image: "/concept/book/PM/pm-60.png", easy: "식별된 위험을 '확률 × 영향'으로 등급 매겨 우선순위를 정하는 단계입니다. 핵심 도구가 P-I Matrix(확률-영향 매트릭스) — 확률과 영향을 곱해 빨강/노랑/초록으로 등급화합니다. 모수를 3개 보고 싶으면 버블차트(계층적 차트)를 쓰는데, 버블 크기가 영향 값이라 클수록 위험합니다. 비슷한 원인끼리 묶을 때는 RBS(Risk Breakdown Structure)를 씁니다. 정량적 분석과 달리 숫자로 계산하지 않고 등급으로 줄 세우는 것이 이 단계입니다." },
 "pm-62": {
     guide: {
       hook: "위험을 '숫자로' 분석해 프로젝트 목표에 미치는 영향을 정량화합니다.",
@@ -4339,7 +4339,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "몬테카를로 시뮬레이션", how: "정량 분석의 핵심 기법입니다." },
       ],
       exam: "정량적 위험 분석은 EMV·의사결정 트리·몬테카를로·민감도 분석으로 위험을 수치화해 목표 달성 확률과 예비비를 산정하는 방법으로, 정성 분석보다 자원이 든다.",
-    }, image: "/concept/book/PM/pm-62.webp", easy: "정성적으로 걸러낸 위험이 프로젝트 전체에 미치는 영향을 실제 숫자로 계산하는 단계입니다. 도구 4개만 기억하면 됩니다 — 영향도(원인과 결과 관계를 도표로), 민감도 분석(다른 건 고정하고 하나만 흔들어 봄, 결과물이 토네이도 다이어그램), 의사결정 분석(EMV = 확률 × 금액으로 기대값 비교, 의사결정나무), 모의실험(몬테카를로로 수천 번 돌려 분포를 봄). 즉 '뭐가 제일 크게 흔드나(민감도) → 어느 쪽이 이득인가(EMV) → 전체 분포는 어떤가(몬테카를로)' 순입니다." },
+    }, image: "/concept/book/PM/pm-62.png", easy: "정성적으로 걸러낸 위험이 프로젝트 전체에 미치는 영향을 실제 숫자로 계산하는 단계입니다. 도구 4개만 기억하면 됩니다 — 영향도(원인과 결과 관계를 도표로), 민감도 분석(다른 건 고정하고 하나만 흔들어 봄, 결과물이 토네이도 다이어그램), 의사결정 분석(EMV = 확률 × 금액으로 기대값 비교, 의사결정나무), 모의실험(몬테카를로로 수천 번 돌려 분포를 봄). 즉 '뭐가 제일 크게 흔드나(민감도) → 어느 쪽이 이득인가(EMV) → 전체 분포는 어떤가(몬테카를로)' 순입니다." },
 "monte-carlo": {
     guide: {
       hook: "'무작위 표본을 수천 번 뽑아' 결과의 확률 분포를 구하는 시뮬레이션 기법입니다.",
@@ -4358,7 +4358,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "정량적 위험 분석", how: "몬테카를로가 핵심 기법입니다." },
       ],
       exam: "몬테카를로 시뮬레이션은 변수의 확률 분포에서 무작위 표본을 수천 번 추출·계산해 결과의 확률 분포(S-커브)와 목표 달성 확률을 구하는 정량 위험 분석 기법이다.",
-    }, image: "/concept/book/PM/monte-carlo.webp", images: ["/concept/diagram/monte-carlo.webp"], imagesLabel: "개념도", easy: "몬테카를로 시뮬레이션은 불확실한 변수를 확률분포로 모델링하고 반복적인 무작위 샘플링으로 다양한 결과의 발생 가능성을 추정하는 수학적 시뮬레이션 기법입니다. 각 작업 기간이 '5일'처럼 딱 정해진 게 아니라 확률분포로 흩어져 있다고 보고, 주사위를 던지듯 무작위로 값을 뽑아 프로젝트 총 기간을 계산합니다. 이걸 수천~수만 번 반복하면 결과가 분포로 쌓이고, '80% 확률로 며칠 안에 끝난다' 같은 확률적 답을 얻습니다. 절차는 변수 정의(불확실 변수에 확률분포 할당) → 무작위 샘플링(난수 생성) → 시뮬레이션 실행(모델 적용 계산) → 결과 집계(평균·표준편차·신뢰구간 도출) 네 단계. 정량적 위험 분석의 대표 기법으로, 3점 산정이 '한 활동'의 불확실성을 다룬다면 몬테카를로는 '프로젝트 전체'의 불확실성을 확률 분포로 보여준다는 대비가 시험 포인트입니다." },
+    }, image: "/concept/book/PM/monte-carlo.png", images: ["/concept/diagram/monte-carlo.webp"], imagesLabel: "개념도", easy: "몬테카를로 시뮬레이션은 불확실한 변수를 확률분포로 모델링하고 반복적인 무작위 샘플링으로 다양한 결과의 발생 가능성을 추정하는 수학적 시뮬레이션 기법입니다. 각 작업 기간이 '5일'처럼 딱 정해진 게 아니라 확률분포로 흩어져 있다고 보고, 주사위를 던지듯 무작위로 값을 뽑아 프로젝트 총 기간을 계산합니다. 이걸 수천~수만 번 반복하면 결과가 분포로 쌓이고, '80% 확률로 며칠 안에 끝난다' 같은 확률적 답을 얻습니다. 절차는 변수 정의(불확실 변수에 확률분포 할당) → 무작위 샘플링(난수 생성) → 시뮬레이션 실행(모델 적용 계산) → 결과 집계(평균·표준편차·신뢰구간 도출) 네 단계. 정량적 위험 분석의 대표 기법으로, 3점 산정이 '한 활동'의 불확실성을 다룬다면 몬테카를로는 '프로젝트 전체'의 불확실성을 확률 분포로 보여준다는 대비가 시험 포인트입니다." },
 "pm-64": {
     guide: {
       hook: "위험에 대한 '대응 전략'을 위협 4가지·기회 4가지로 나눠 선택합니다.",
@@ -4377,7 +4377,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "정량적 위험 분석", how: "분석 결과로 대응 전략을 정합니다." },
       ],
       exam: "위험 대응은 위협에 회피·전가·완화·수용, 기회에 활용·공유·증대·수용을 대칭으로 적용하며, 대응 후 잔여·2차 위험을 관리하고 예비비를 산정한다.",
-    }, image: "/concept/book/PM/pm-64.webp", easy: "위험을 어떻게 처리할지 정하는 단계이며, 나쁜 위험과 좋은 위험(기회)의 대응이 짝을 이룹니다. 부정적 [EATMA] — 에스컬레이션(내 권한 밖이라 위로 올림), 회피(위험 자체를 없앰: 범위 축소·일정 연기), 전가(보험처럼 남에게 넘김), 완화(발생 확률이나 영향을 낮춤), 수용(그냥 감수). 긍정적 [EESEA] — 에스컬레이션, 활용(반드시 실현되게 함), 공유(합작 투자처럼 남과 나눔), 증대(확률·효과를 키움), 수용. 왼쪽일수록 적극적, 오른쪽일수록 소극적 대응입니다. 수용은 문서만 남기는 수동적 수용과 예비비를 잡아 두는 능동적 수용으로 갈립니다." },
+    }, image: "/concept/book/PM/pm-64.png", easy: "위험을 어떻게 처리할지 정하는 단계이며, 나쁜 위험과 좋은 위험(기회)의 대응이 짝을 이룹니다. 부정적 [EATMA] — 에스컬레이션(내 권한 밖이라 위로 올림), 회피(위험 자체를 없앰: 범위 축소·일정 연기), 전가(보험처럼 남에게 넘김), 완화(발생 확률이나 영향을 낮춤), 수용(그냥 감수). 긍정적 [EESEA] — 에스컬레이션, 활용(반드시 실현되게 함), 공유(합작 투자처럼 남과 나눔), 증대(확률·효과를 키움), 수용. 왼쪽일수록 적극적, 오른쪽일수록 소극적 대응입니다. 수용은 문서만 남기는 수동적 수용과 예비비를 잡아 두는 능동적 수용으로 갈립니다." },
 "pm-14": {
     guide: {
       hook: "PMBOK 7판이 '프로세스에서 원칙·성과 중심'으로 바뀐 핵심 — 12원칙과 8성과영역입니다.",
@@ -4396,7 +4396,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "감리/PMO 비교표", how: "프로젝트 관리 거버넌스와 연계됩니다." },
       ],
       exam: "PMBOK 7판은 프로세스 중심(6판)에서 12개 관리 원칙과 8개 성과영역 중심으로 전환해 예측·애자일·하이브리드를 포괄하며, 가치 인도와 테일러링을 강조한다.",
-    }, image: "/concept/book/PM/pm-14.webp", easy: "PMBOK 7판부터는 '이렇게 해라'(프로세스 중심)에서 '이런 원칙과 성과를 지향해라'로 바뀌었습니다. 8개 성과 영역 [이팀개기 성인측불] — 이해관계자, 팀, 개발방식 및 생애주기, 기획, 성과, 인도, 측정, 불확실성. 12원칙 [스팀이가 시리조품 복위적변] — 스튜어드십, 팀, 이해관계자, 가치, 시스템 사고, 리더십, 조정(Tailoring), 품질, 복잡성, 위험, 적응성과 복원력, 변화. 성과 영역은 '무엇을 잘해야 하나', 원칙은 '어떤 태도로 할 것인가'입니다." },
+    }, image: "/concept/book/PM/pm-14.png", easy: "PMBOK 7판부터는 '이렇게 해라'(프로세스 중심)에서 '이런 원칙과 성과를 지향해라'로 바뀌었습니다. 8개 성과 영역 [이팀개기 성인측불] — 이해관계자, 팀, 개발방식 및 생애주기, 기획, 성과, 인도, 측정, 불확실성. 12원칙 [스팀이가 시리조품 복위적변] — 스튜어드십, 팀, 이해관계자, 가치, 시스템 사고, 리더십, 조정(Tailoring), 품질, 복잡성, 위험, 적응성과 복원력, 변화. 성과 영역은 '무엇을 잘해야 하나', 원칙은 '어떤 태도로 할 것인가'입니다." },
 "pm-90": {
     guide: {
       hook: "'외부에서 검증하는 감리'와 '내부에서 관리하는 PMO'의 역할을 비교합니다.",
@@ -4415,7 +4415,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "IT 거버넌스(IT-Governance)", how: "감리·PMO가 거버넌스 수단입니다." },
       ],
       exam: "감리는 발주자·제3자 관점의 독립적 검증이고 PMO는 조직 내부의 프로젝트 관리 표준·지원으로, 외부 평가와 내부 관리라는 관점 차이로 상호 보완한다.",
-    }, image: "/concept/book/PM/pm-90.webp", easy: "둘 다 프로젝트를 들여다보지만 서 있는 자리가 다릅니다. 감리는 제3자·독립적 관점에서 기술적 품질을 평가합니다 — 전자정부법 57조 1항에 따른 의무사항이고, 5억원 이상이면 의무이며, 감리법인이 수행하고 감리계획서·감리수행결과보고서를 냅니다. PMO는 발주자 관점에서 프로젝트 전 과정에 관리적으로 개입합니다 — 전자정부법 64조의2에 따른 권고사항(2013년부터 공공 정보화 사업에 도입 의무화)이고, 컨설팅업체·회계법인·대형 SI가 수행하며 SRS·아키텍처 정의서 등을 냅니다. 한 줄: 감리=평가·독립, PMO=관리·발주자 편." },
+    }, image: "/concept/book/PM/pm-90.png", easy: "둘 다 프로젝트를 들여다보지만 서 있는 자리가 다릅니다. 감리는 제3자·독립적 관점에서 기술적 품질을 평가합니다 — 전자정부법 57조 1항에 따른 의무사항이고, 5억원 이상이면 의무이며, 감리법인이 수행하고 감리계획서·감리수행결과보고서를 냅니다. PMO는 발주자 관점에서 프로젝트 전 과정에 관리적으로 개입합니다 — 전자정부법 64조의2에 따른 권고사항(2013년부터 공공 정보화 사업에 도입 의무화)이고, 컨설팅업체·회계법인·대형 SI가 수행하며 SRS·아키텍처 정의서 등을 냅니다. 한 줄: 감리=평가·독립, PMO=관리·발주자 편." },
 "agile-manifesto": {
     guide: {
       hook: "'문서보다 작동하는 SW, 계획보다 변화 대응'을 앞세운 애자일의 4가치·12원칙입니다.",
@@ -4434,7 +4434,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "XP (eXtreme Programming)", how: "애자일 실천 방법입니다." },
       ],
       exam: "Agile 선언문은 개인·상호작용, 작동 SW, 고객 협력, 변화 대응을 더 중시하는 4가치와 반복 인도·변화 환영·자기조직 팀 등 12원칙으로, 스크럼·XP의 토대다.",
-    }, image: "/concept/book/PM/agile-manifesto.webp", easy: "애자일 선언문은 '왼쪽도 가치 있지만 오른쪽을 더 중시한다'는 4쌍입니다 — 공정·도구보다 **개인과 상호작용**, 포괄적 문서보다 **작동하는 소프트웨어**, 계약 협상보다 **고객과의 협력**, 계획 준수보다 **변화에 대응**. 주의할 점은 왼쪽을 버리라는 게 아니라 우선순위를 말한 것입니다. 12원칙은 고객만족·요구변경 수용·짧은 배포·일일 의사소통·동기부여·면대면 대화·지속 가능한 개발·작동하는 SW·좋은 기술·단순성·자기조직적 팀·정기적 회고입니다." },
+    }, image: "/concept/book/PM/agile-manifesto.png", easy: "애자일 선언문은 '왼쪽도 가치 있지만 오른쪽을 더 중시한다'는 4쌍입니다 — 공정·도구보다 **개인과 상호작용**, 포괄적 문서보다 **작동하는 소프트웨어**, 계약 협상보다 **고객과의 협력**, 계획 준수보다 **변화에 대응**. 주의할 점은 왼쪽을 버리라는 게 아니라 우선순위를 말한 것입니다. 12원칙은 고객만족·요구변경 수용·짧은 배포·일일 의사소통·동기부여·면대면 대화·지속 가능한 개발·작동하는 SW·좋은 기술·단순성·자기조직적 팀·정기적 회고입니다." },
 "pm-73": {
     guide: {
       hook: "짧은 반복(스프린트)으로 '점진적으로 완성'해 가는 대표적 애자일 틀(프레임워크)입니다.",
@@ -4453,7 +4453,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "번다운차트 (Burn Down Chart)", how: "스프린트 진척 추적 도구입니다." },
       ],
       exam: "스크럼은 2~4주 스프린트를 반복하는 애자일 프레임워크로, 3역할(PO·SM·개발팀)·3산출물(백로그·증분)·5이벤트(스프린트·데일리·리뷰·회고 등)로 구성된다.",
-    }, image: "/concept/book/PM/pm-73.webp", images: ["/concept/diagram/pm-73.webp"], imagesLabel: "절차", easy: "2~4주짜리 짧은 주기(Sprint)를 반복해 조금씩 완성해 가는 애자일 방법론입니다. 흐름은 — 제품 기능 목록(Product Backlog)에 우선순위를 매기고 → 스프린트 계획 회의에서 이번 주기에 할 것(Sprint Backlog)을 뽑고 → 매일 15분 데일리 스크럼으로 진척을 확인하고(번다운차트에 표시) → 끝나면 스프린트 리뷰로 결과물을 검토하고 → 회고(Retrospective)로 개선점을 찾습니다. 사람은 셋 — Product Owner(무엇을 만들지 정함, 운영엔 관여 안 함), Scrum Master(장애물 제거하는 조력자, 관리자가 아님), Scrum Team(실제로 만듦)." },
+    }, image: "/concept/book/PM/pm-73.png", images: ["/concept/diagram/pm-73.webp"], imagesLabel: "절차", easy: "2~4주짜리 짧은 주기(Sprint)를 반복해 조금씩 완성해 가는 애자일 방법론입니다. 흐름은 — 제품 기능 목록(Product Backlog)에 우선순위를 매기고 → 스프린트 계획 회의에서 이번 주기에 할 것(Sprint Backlog)을 뽑고 → 매일 15분 데일리 스크럼으로 진척을 확인하고(번다운차트에 표시) → 끝나면 스프린트 리뷰로 결과물을 검토하고 → 회고(Retrospective)로 개선점을 찾습니다. 사람은 셋 — Product Owner(무엇을 만들지 정함, 운영엔 관여 안 함), Scrum Master(장애물 제거하는 조력자, 관리자가 아님), Scrum Team(실제로 만듦)." },
 "pm-86": {
     guide: {
       hook: "'남은 작업량이 줄어드는 추이'를 그려 스프린트 진척을 한눈에 보는 차트입니다.",
@@ -4472,7 +4472,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "EVM(Earned Value Management, 획득 가치 관리)", how: "예측형 성과 측정과 대비됩니다." },
       ],
       exam: "번다운차트는 남은 작업량이 시간에 따라 줄어드는 추이를 이상선과 비교해 스프린트 진척을 보는 차트로, 완료 작업과 범위를 함께 보는 번업차트와 구분된다.",
-    }, image: "/concept/book/PM/pm-86.webp", images: ["/concept/diagram/pm-86.webp"], imagesLabel: "개념도", easy: "스프린트 안에서 '남은 일'이 얼마나 줄고 있는지를 보는 차트입니다. 가로축은 날짜, 세로축은 남은 작업량(스토리 포인트)이고, 계획선은 오른쪽 아래로 곧게 내려갑니다. 실제선이 계획선 위에 있으면 일정보다 늦은 것, 아래에 있으면 빠른 것입니다. 기울기가 곧 팀의 작업 속도(Velocity)입니다. EVM과 비교하면 — 번다운은 애자일용이고 남은 일을 100에서 0으로 태워 없애는 관점, EVM은 전통 방법론용이고 원가·획득가치 기반의 지표 관점입니다." },
+    }, image: "/concept/book/PM/pm-86.png", images: ["/concept/diagram/pm-86.webp"], imagesLabel: "개념도", easy: "스프린트 안에서 '남은 일'이 얼마나 줄고 있는지를 보는 차트입니다. 가로축은 날짜, 세로축은 남은 작업량(스토리 포인트)이고, 계획선은 오른쪽 아래로 곧게 내려갑니다. 실제선이 계획선 위에 있으면 일정보다 늦은 것, 아래에 있으면 빠른 것입니다. 기울기가 곧 팀의 작업 속도(Velocity)입니다. EVM과 비교하면 — 번다운은 애자일용이고 남은 일을 100에서 0으로 태워 없애는 관점, EVM은 전통 방법론용이고 원가·획득가치 기반의 지표 관점입니다." },
 "pm-74": {
     guide: {
       hook: "'기술적 탁월성'을 극단으로 추구하는 애자일 실천 방법 — 페어 프로그래밍·TDD가 대표입니다.",
@@ -4491,7 +4491,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "DevSecOps", how: "CI·TDD가 파이프라인으로 이어집니다." },
       ],
       exam: "XP는 의사소통·단순성·피드백·용기·존중의 5가치 아래 페어 프로그래밍·TDD·CI·리팩토링·짧은 릴리스 등 공학 실천을 극단 추구하는 애자일 방법으로, 관리 중심 스크럼과 결합된다.",
-    }, image: "/concept/book/PM/pm-74.webp", images: ["/concept/diagram/pm-74.webp"], imagesLabel: "절차", easy: "의사소통과 테스트 주도 개발(TDD)을 축으로 아주 짧은 주기를 반복하는 애자일 방법론입니다. 핵심 가치 5개 [용단커피존] — 용기, 단순성, 커뮤니케이션, 피드백, 존중. 실천 항목 12개 중 시험에 자주 나오는 것은 페어 프로그래밍(둘이 한 대에서 개발), 공동 코드 소유(누구나 수정 가능), 지속적 통합(하루에도 몇 번씩 빌드), 리팩토링(기능은 그대로 두고 구조 개선), 테스트 주도 개발, 작은 릴리스(2주 단위), 주당 40시간 작업, 고객 상주(On-Site Customer)입니다." },
+    }, image: "/concept/book/PM/pm-74.png", images: ["/concept/diagram/pm-74.webp"], imagesLabel: "절차", easy: "의사소통과 테스트 주도 개발(TDD)을 축으로 아주 짧은 주기를 반복하는 애자일 방법론입니다. 핵심 가치 5개 [용단커피존] — 용기, 단순성, 커뮤니케이션, 피드백, 존중. 실천 항목 12개 중 시험에 자주 나오는 것은 페어 프로그래밍(둘이 한 대에서 개발), 공동 코드 소유(누구나 수정 가능), 지속적 통합(하루에도 몇 번씩 빌드), 리팩토링(기능은 그대로 두고 구조 개선), 테스트 주도 개발, 작은 릴리스(2주 단위), 주당 40시간 작업, 고객 상주(On-Site Customer)입니다." },
 "pm-77": {
     guide: {
       hook: "'낭비를 없애고 흐름을 매끄럽게' 만드는 도요타 생산방식에서 온 개발 철학입니다.",
@@ -4510,7 +4510,7 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
         { topic: "AI-DLC(AI-Driven SDLC)와 SDD(Spec Driven Development)", how: "린의 흐름·반복 정신과 연결됩니다." },
       ],
       exam: "린 방법론은 가치 정의·흐름·당김(JIT)·완벽 추구의 5원칙으로 7대 낭비를 제거하는 도요타 기반 철학으로, 칸반·린 스타트업으로 확장된다.",
-    }, image: "/concept/book/PM/pm-77.webp", easy: "도요타 생산방식에서 온 '낭비 제거' 사고를 소프트웨어에 적용한 방법론입니다. 원칙 7개 [나배결빠 위통씨] — 낭비 제거, 배움 증폭, 늦은 결정(정보가 최대한 모일 때까지), 빠른 인도, 팀에 권한 위임, 통합성 구축, 전체를 볼 것. 그리고 없애야 할 낭비 7개 [미가재작 이지결] — 미완성 작업, 가외기능(안 쓰는 기능), 재학습, 작업전환, 이관(핸드오프), 지연, 결함. 파생으로 린 소프트웨어 개발, 린 UX, 린 스타트업(MVP로 빨리 내고 반응 보기), 린 애자일이 있습니다." },
+    }, image: "/concept/book/PM/pm-77.png", easy: "도요타 생산방식에서 온 '낭비 제거' 사고를 소프트웨어에 적용한 방법론입니다. 원칙 7개 [나배결빠 위통씨] — 낭비 제거, 배움 증폭, 늦은 결정(정보가 최대한 모일 때까지), 빠른 인도, 팀에 권한 위임, 통합성 구축, 전체를 볼 것. 그리고 없애야 할 낭비 7개 [미가재작 이지결] — 미완성 작업, 가외기능(안 쓰는 기능), 재학습, 작업전환, 이관(핸드오프), 지연, 결함. 파생으로 린 소프트웨어 개발, 린 UX, 린 스타트업(MVP로 빨리 내고 반응 보기), 린 애자일이 있습니다." },
 
 // ─────────────── 3주차: 인공지능(AI) — 교재 슬라이드 + 쉬운 설명 ───────────────
 "ml-learning-methods": {
@@ -12374,93 +12374,93 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   // 2026-11-01 디지털서비스 교재 슬라이드(1~89쪽)
   "dx-hypervisor": { image: "/concept/book/DX/dx-hypervisor.png" },
   "dx-lxc": { image: "/concept/book/DX/dx-lxc.png" },
-  "dx-docker": { image: "/concept/book/DX/dx-docker.webp" },
-  "dx-kubernetes": { image: "/concept/book/DX/dx-kubernetes.webp" },
-  "dx-auto-scaling": { image: "/concept/book/DX/dx-auto-scaling.webp" },
-  "dx-multi-cloud": { image: "/concept/book/DX/dx-multi-cloud.webp" },
+  "dx-docker": { image: "/concept/book/DX/dx-docker.png" },
+  "dx-kubernetes": { image: "/concept/book/DX/dx-kubernetes.png" },
+  "dx-auto-scaling": { image: "/concept/book/DX/dx-auto-scaling.png" },
+  "dx-multi-cloud": { image: "/concept/book/DX/dx-multi-cloud.png" },
   "dx-distributed-cloud": { image: "/concept/book/DX/dx-distributed-cloud.png" },
   "dx-edge-fog": { image: "/concept/book/DX/dx-edge-fog.png" },
   "dx-serverless": { image: "/concept/book/DX/dx-serverless.png" },
-  "dx-edge-mlaas": { image: "/concept/book/DX/dx-edge-mlaas.webp" },
-  "dx-cloud-native": { image: "/concept/book/DX/dx-cloud-native.webp" },
+  "dx-edge-mlaas": { image: "/concept/book/DX/dx-edge-mlaas.png" },
+  "dx-cloud-native": { image: "/concept/book/DX/dx-cloud-native.png" },
   "dx-cloud-native-ref": { image: "/concept/book/DX/dx-cloud-native-ref.png" },
-  "dx-12factor": { image: "/concept/book/DX/dx-12factor.webp" },
+  "dx-12factor": { image: "/concept/book/DX/dx-12factor.png" },
   "dx-cnapp": { image: "/concept/book/DX/dx-cnapp.png" },
-  "dx-cloud-native-guide": { image: "/concept/book/DX/dx-cloud-native-guide.webp" },
+  "dx-cloud-native-guide": { image: "/concept/book/DX/dx-cloud-native-guide.png" },
   "dx-gitops": { image: "/concept/book/DX/dx-gitops.png" },
   "dx-c-its": { image: "/concept/book/DX/dx-c-its.png" },
   "dx-autonomous-levels": { image: "/concept/book/DX/dx-autonomous-levels.png" },
-  "dx-radar-lidar": { image: "/concept/book/DX/dx-radar-lidar.webp" },
-  "dx-ldm": { image: "/concept/book/DX/dx-ldm.webp" },
-  "dx-sdv": { image: "/concept/book/DX/dx-sdv.webp" },
-  "dx-iec61508": { image: "/concept/book/DX/dx-iec61508.webp" },
+  "dx-radar-lidar": { image: "/concept/book/DX/dx-radar-lidar.png" },
+  "dx-ldm": { image: "/concept/book/DX/dx-ldm.png" },
+  "dx-sdv": { image: "/concept/book/DX/dx-sdv.png" },
+  "dx-iec61508": { image: "/concept/book/DX/dx-iec61508.png" },
   "dx-asil": { image: "/concept/book/DX/dx-asil.png" },
   "dx-maas": { image: "/concept/book/DX/dx-maas.png" },
   "dx-uam": { image: "/concept/book/DX/dx-uam.png" },
-  "dx-digital-therapeutics": { image: "/concept/book/DX/dx-digital-therapeutics.webp" },
-  "dx-digital-literacy": { image: "/concept/book/DX/dx-digital-literacy.webp" },
+  "dx-digital-therapeutics": { image: "/concept/book/DX/dx-digital-therapeutics.png" },
+  "dx-digital-literacy": { image: "/concept/book/DX/dx-digital-literacy.png" },
   "dx-digital-maturity": { image: "/concept/book/DX/dx-digital-maturity.png" },
   "dx-digital-bill-of-rights": { image: "/concept/book/DX/dx-digital-bill-of-rights.png" },
-  "dx-digital-inclusion-act": { image: "/concept/book/DX/dx-digital-inclusion-act.webp" },
-  "dx-edutech": { image: "/concept/book/DX/dx-edutech.webp" },
+  "dx-digital-inclusion-act": { image: "/concept/book/DX/dx-digital-inclusion-act.png" },
+  "dx-edutech": { image: "/concept/book/DX/dx-edutech.png" },
   "dx-proptech": { image: "/concept/book/DX/dx-proptech.png" },
   "dx-climate-tech": { image: "/concept/book/DX/dx-climate-tech.png" },
-  "dx-agetech": { image: "/concept/book/DX/dx-agetech.webp" },
-  "dx-govtech": { image: "/concept/book/DX/dx-govtech.webp" },
-  "dx-trilemma": { image: "/concept/book/DX/dx-trilemma.webp" },
+  "dx-agetech": { image: "/concept/book/DX/dx-agetech.png" },
+  "dx-govtech": { image: "/concept/book/DX/dx-govtech.png" },
+  "dx-trilemma": { image: "/concept/book/DX/dx-trilemma.png" },
   "dx-lightning-network": { image: "/concept/book/DX/dx-lightning-network.png" },
   "dx-oracle-problem": { image: "/concept/book/DX/dx-oracle-problem.png" },
   "dx-crypto-wallet": { image: "/concept/book/DX/dx-crypto-wallet.png" },
-  "dx-cbdc": { image: "/concept/book/DX/dx-cbdc.webp" },
+  "dx-cbdc": { image: "/concept/book/DX/dx-cbdc.png" },
   "dx-rwa": { image: "/concept/book/DX/dx-rwa.png" },
-  "dx-sto": { image: "/concept/book/DX/dx-sto.webp" },
+  "dx-sto": { image: "/concept/book/DX/dx-sto.png" },
   "dx-digital-wallet": { image: "/concept/book/DX/dx-digital-wallet.png" },
-  "dx-smart-factory": { image: "/concept/book/DX/dx-smart-factory.webp" },
-  "dx-sdm": { image: "/concept/book/DX/dx-sdm.webp" },
-  "dx-pdm": { image: "/concept/book/DX/dx-pdm.webp" },
-  "dx-aiot-autonomous-iot": { image: "/concept/book/DX/dx-aiot-autonomous-iot.webp" },
+  "dx-smart-factory": { image: "/concept/book/DX/dx-smart-factory.png" },
+  "dx-sdm": { image: "/concept/book/DX/dx-sdm.png" },
+  "dx-pdm": { image: "/concept/book/DX/dx-pdm.png" },
+  "dx-aiot-autonomous-iot": { image: "/concept/book/DX/dx-aiot-autonomous-iot.png" },
   "dx-ambient-iot": { image: "/concept/book/DX/dx-ambient-iot.png" },
-  "dx-ambient-invisible": { image: "/concept/book/DX/dx-ambient-invisible.webp" },
+  "dx-ambient-invisible": { image: "/concept/book/DX/dx-ambient-invisible.png" },
   "dx-slam": { image: "/concept/book/DX/dx-slam.png" },
-  "dx-positioning": { image: "/concept/book/DX/dx-positioning.webp" },
+  "dx-positioning": { image: "/concept/book/DX/dx-positioning.png" },
   "dx-intermittent": { image: "/concept/book/DX/dx-intermittent.png" },
   "dx-energy-efficient": { image: "/concept/book/DX/dx-energy-efficient.png" },
   "dx-raas": { image: "/concept/book/DX/dx-raas.png" },
-  "dx-cloud-robot": { image: "/concept/book/DX/dx-cloud-robot.webp" },
-  "dx-amr": { image: "/concept/book/DX/dx-amr.webp" },
+  "dx-cloud-robot": { image: "/concept/book/DX/dx-cloud-robot.png" },
+  "dx-amr": { image: "/concept/book/DX/dx-amr.png" },
   "dx-rpa": { image: "/concept/book/DX/dx-rpa.png" },
-  "dx-digital-twin": { image: "/concept/book/DX/dx-digital-twin.webp" },
+  "dx-digital-twin": { image: "/concept/book/DX/dx-digital-twin.png" },
   "dx-digital-thread": { image: "/concept/book/DX/dx-digital-thread.png" },
-  "dx-twin-transformation": { image: "/concept/book/DX/dx-twin-transformation.webp" },
+  "dx-twin-transformation": { image: "/concept/book/DX/dx-twin-transformation.png" },
   "dx-dxaas": { image: "/concept/book/DX/dx-dxaas.png" },
   "dx-ami2": { image: "/concept/book/DX/dx-ami2.png" },
   "dx-vpp": { image: "/concept/book/DX/dx-vpp.png" },
-  "dx-smart-farm": { image: "/concept/book/DX/dx-smart-farm.webp" },
-  "dx-smart-city": { image: "/concept/book/DX/dx-smart-city.webp" },
+  "dx-smart-farm": { image: "/concept/book/DX/dx-smart-farm.png" },
+  "dx-smart-city": { image: "/concept/book/DX/dx-smart-city.png" },
   "dx-smart-city-data-gov": { image: "/concept/book/DX/dx-smart-city-data-gov.png" },
   "dx-web3": { image: "/concept/book/DX/dx-web3.png" },
   "dx-wasm": { image: "/concept/book/DX/dx-wasm.png" },
   "dx-headless-commerce": { image: "/concept/book/DX/dx-headless-commerce.png" },
-  "dx-universal-design": { image: "/concept/book/DX/dx-universal-design.webp" },
+  "dx-universal-design": { image: "/concept/book/DX/dx-universal-design.png" },
   "dx-digital-human": { image: "/concept/book/DX/dx-digital-human.png" },
-  "dx-spatial-computing": { image: "/concept/book/DX/dx-spatial-computing.webp" },
+  "dx-spatial-computing": { image: "/concept/book/DX/dx-spatial-computing.png" },
   "dx-virtual-convergence-act": { image: "/concept/book/DX/dx-virtual-convergence-act.png" },
   "dx-quantum-internet": { image: "/concept/book/DX/dx-quantum-internet.png" },
   "dx-quantum-computer": { image: "/concept/book/DX/dx-quantum-computer.png" },
   "dx-qkdaas": { image: "/concept/book/DX/dx-qkdaas.png" },
-  "dx-mydata": { image: "/concept/book/DX/dx-mydata.webp" },
+  "dx-mydata": { image: "/concept/book/DX/dx-mydata.png" },
   "dx-data-transfer-right": { image: "/concept/book/DX/dx-data-transfer-right.png" },
-  "dx-data-infra": { image: "/concept/book/DX/dx-data-infra.webp" },
-  "dx-gartner-2026": { image: "/concept/book/DX/dx-gartner-2026.webp" },
-  "dx-low-code": { image: "/concept/book/DX/dx-low-code.webp" },
+  "dx-data-infra": { image: "/concept/book/DX/dx-data-infra.png" },
+  "dx-gartner-2026": { image: "/concept/book/DX/dx-gartner-2026.png" },
+  "dx-low-code": { image: "/concept/book/DX/dx-low-code.png" },
   "dx-platform-engineering": { image: "/concept/book/DX/dx-platform-engineering.png" },
   "dx-private-invest-sw": { image: "/concept/book/DX/dx-private-invest-sw.png" },
   "dx-digital-service-contract": { image: "/concept/book/DX/dx-digital-service-contract.png" },
-  "dx-eu-digital-3acts": { image: "/concept/book/DX/dx-eu-digital-3acts.webp" },
-  "dx-public-saas": { image: "/concept/book/DX/dx-public-saas.webp" },
+  "dx-eu-digital-3acts": { image: "/concept/book/DX/dx-eu-digital-3acts.png" },
+  "dx-public-saas": { image: "/concept/book/DX/dx-public-saas.png" },
   "dx-sovereign-cloud": { image: "/concept/book/DX/dx-sovereign-cloud.png" },
   "dx-finops": { image: "/concept/book/DX/dx-finops.png" },
-  "dx-cloud-migration": { image: "/concept/book/DX/dx-cloud-migration.webp" },
+  "dx-cloud-migration": { image: "/concept/book/DX/dx-cloud-migration.png" },
 };
 
 const norm = (s: string) => s.trim().toLowerCase().replace(/[\s()·,\-_/]/g, "");
