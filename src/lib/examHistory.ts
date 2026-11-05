@@ -51,10 +51,11 @@ function entryOf(text: string): Entry {
     sqs: squeeze(text.replace(/[(（][^)）]*[)）]/g, " ")),
     low: text.toLowerCase(),
     lows: text.replace(/[(（][^)）]*[)）]/g, " ").toLowerCase(),
+    // 붙임표로 이어진 영문(「C-ITS」「Wi-Fi」)은 이어 붙인 꼴(cits·wifi)도 낱말로 둔다 — 짧은 약어 열쇠는 낱말 단위로만
+    // 맞추는데 「C-ITS」가 c·its 로 쪼개져 열쇠 「cits」를 못 찾았다(2026-11-05 "C-ITS 모범답안 없어?" — 답안 17편이 안 걸림)
     tokens: new Set(
-      text
-        .toLowerCase()
-        .split(/[^a-z0-9+#]+/)
+      [text.toLowerCase(), text.toLowerCase().replace(/(?<=[a-z0-9])-(?=[a-z0-9])/g, "")]
+        .flatMap((t) => t.split(/[^a-z0-9+#]+/))
         .filter(Boolean),
     ),
   };

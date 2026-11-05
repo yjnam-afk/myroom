@@ -49,6 +49,8 @@ export const TOPIC_ALIASES: Record<string, string[]> = {
   "테스트 타임 컴퓨팅(Test-Time Compute)": ["Test-Time Compute", "테스트 타임 컴퓨팅"],
   "테스트 타임 스케일링(Test-Time Scaling, TTS)": ["Test-Time Scaling", "테스트 타임 스케일링"],
   MLPerf: ["MLPerf"],
+  // 제목이 「AI 예지 보전」이라 열쇠가 「ai예지보전」이 되어 「예지보전」「예지정비」 문항·답안을 못 찾았다(2026-11-05)
+  "AI 예지 보전(Predictive Maintenance, PdM)": ["예지 보전", "예지보전", "예지 정비", "예지정비", "Predictive Maintenance"],
   "Diffusion 모델": ["Diffusion Model", "확산 모델", "Stable Diffusion", "스테이블 디퓨전", "디퓨전 모델"],
   "멀티모달 데이터의 품질검증 방법": ["멀티모달 데이터의 품질검증", "멀티모달 데이터 품질"],
   "모델 드리프트(Model Drift) — 컨셉 드리프트 & 데이터 드리프트": ["컨셉 드리프트", "Concept Drift", "데이터 드리프트", "Data Drift", "모델 드리프트", "Model Drift"],
