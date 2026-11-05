@@ -29582,7 +29582,18 @@ export function subnoteByAlias(
  * 느슨한 포함 매칭을 하지 않는 CONTENTS 제목 — 다른 토픽 서브노트에 잘못 붙는다(2026-11-01 디지털서비스 CONTENTS).
  * 「디지털 트윈」→「디지털 트윈 네트워크」(NW), 「스마트시티 데이터 거버넌스」→「데이터 거버넌스」(DB).
  */
-const EXACT_ONLY = new Set(["디지털 트윈(Digital Twin)", "스마트시티 데이터 거버넌스(Smart City Data Governance)"]);
+const EXACT_ONLY = new Set([
+  "디지털 트윈(Digital Twin)",
+  "스마트시티 데이터 거버넌스(Smart City Data Governance)",
+  // 짧은 기필반 제목이 느슨한 포함으로 엉뚱한 서브노트에 붙던 것(2026-11-05 "스마트팩토리시스템 모범답안 잘못됐어" —
+  // 「SMART」(목표 설정 기법)가 스마트 팩토리 시스템으로 풀려 스마트 시티·스마트 계약 답안이 거기 붙었다)
+  "SMART",
+  "DaaS(서비스 분류)", // → QKDaaS
+  "SRv6(Segment Routing over IPv6)", // → IPv6
+  "MLQ(Multi-level Queue)", // → Queue
+  "MLFQ(Multi-level Feedback Queue)", // → Queue
+  "Array", // → RAID
+]);
 
 export function subnoteByTitle(title?: string): TextbookSubnote | undefined {
   const raw = title || "";
