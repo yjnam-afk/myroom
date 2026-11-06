@@ -51,6 +51,7 @@ export const TOPIC_ALIASES: Record<string, string[]> = {
   MLPerf: ["MLPerf"],
   // 제목이 「AI 예지 보전」이라 열쇠가 「ai예지보전」이 되어 「예지보전」「예지정비」 문항·답안을 못 찾았다(2026-11-05)
   "AI 예지 보전(Predictive Maintenance, PdM)": ["예지 보전", "예지보전", "예지 정비", "예지정비", "Predictive Maintenance"],
+  "AMR(Autonomous Mobile Robot)": ["물류로봇", "물류 로봇", "자율이동로봇", "자율 이동 로봇"],
   "Diffusion 모델": ["Diffusion Model", "확산 모델", "Stable Diffusion", "스테이블 디퓨전", "디퓨전 모델"],
   "멀티모달 데이터의 품질검증 방법": ["멀티모달 데이터의 품질검증", "멀티모달 데이터 품질"],
   "모델 드리프트(Model Drift) — 컨셉 드리프트 & 데이터 드리프트": ["컨셉 드리프트", "Concept Drift", "데이터 드리프트", "Data Drift", "모델 드리프트", "Model Drift"],
