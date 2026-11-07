@@ -24,6 +24,8 @@ export function questionCore(t: string): string {
   return (t || "")
     .toLowerCase()
     .replace(/^\s*\d+\s*[.)]\s*/, "")
+    // 소문항 머리 — 「가. 나.」「(1) (2)」「1) 2)」「① ②」는 회차마다 표기가 달라 같은 문제로 못 잡았다(2026-11-07 양자 컴퓨터 — 컴시응 129회 (1)(2) ↔ NS 가.나.)
+    .replace(/(^|\n)\s*(?:[가-하]\.|\(\d{1,2}\)|\d{1,2}\)|[①-⑳])\s*/g, "$1")
     .replace(/[^0-9a-z가-힣]/g, "")
     .replace(TAIL, "")
     .replace(/(을|를|에대해|에대하여)$/, "");
@@ -112,6 +114,13 @@ function oneJamoOff(a: string, b: string): boolean {
  */
 const QUALIFIER = new Set(["it", "ai", "sw", "hw", "ict", "cpu", "os", "v"]);
 
+const SUB_HEAD = /^\s*(?:[가-하]\.|\(\d{1,2}\)|\d{1,2}\)|[①-⑳])\s*/;
+/** 「…다음을 설명하시오. / 가. A / 나. B」의 소문항만 쉼표로 이은 문구(둘 이상일 때) — 정리 답안 제목이 지문 없이 「A, B」로 적힌 것과 견준다 */
+function subItemsOf(t: string): string | null {
+  const items = (t || "").split("\n").filter((l) => SUB_HEAD.test(l)).map((l) => l.replace(SUB_HEAD, "").trim());
+  return items.length >= 2 ? items.join(", ") : null;
+}
+
 export function sameQuestionText(a: string, b: string): boolean {
   const x = questionCore(a);
   const y = questionCore(b);
@@ -119,6 +128,12 @@ export function sameQuestionText(a: string, b: string): boolean {
   if (x === y) return true;
   const [s, l] = x.length <= y.length ? [x, y] : [y, x];
   if (s.length >= 4 && s.length / l.length >= 0.85 && l.includes(s)) return true;
+  // 지문 없이 소문항만 이어 적은 제목 — 「기존 SW 개발, 로우코드 노코드 개발 방식 비교, 로우코드 노코드 도입시 고려 사항」(2026-11-07)
+  // 약어만 적힌 제목(「DMA」)은 소문항 머리글자와 맞아도 안 된다 — 한글 4자 이상인 제목만
+  const subA = subItemsOf(a);
+  const subB = subItemsOf(b);
+  if (subA && !subB && parts(b).ko.length >= 4 && sameQuestionText(subA, b)) return true;
+  if (subB && !subA && parts(a).ko.length >= 4 && sameQuestionText(a, subB)) return true;
 
   const pa = parts(a);
   const pb = parts(b);

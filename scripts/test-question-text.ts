@@ -19,6 +19,12 @@ const SAME: [string, string][] = [
   ["EVM", "EVM(Earned Valued Management)"],
   ["EVM", "Earned Value Management"],
   ["STO", "증권형 토큰(STO, Security Token Offering)"],
+  // 2026-11-07 "이것도 일치하는 모범답안이 있는데" — 지문 없이 소문항만 이어 적은 정리 답안 제목
+  ["기존 SW 개발, 로우코드 노코드 개발 방식 비교, 로우코드 노코드 도입시 고려 사항",
+   "디지털전환을 촉진하기 위한 새로운 접근법으로 로우코드·노코드 기술에 관심이 높아지고 있다. 다음을 설명하시오.\n가. 기존 SW 개발과 로우코드·노코드 개발 방식 비교\n나. 로우코드·노코드 도입 시 고려사항"],
+  // 2026-11-07 "해설지도 있네" — 소문항 머리 표기만 다른 같은 문제
+  ["양자 컴퓨터(Quantum Computer)와 관련하여 다음을 설명하시오.\n(1) 양자비트(Qubit, 큐비트), 양자 우월성(Quantum Supermacy), 양자 결잃음(Quantum Decoherence)\n(2) 양자 컴퓨터 구현 방법",
+   "양자 컴퓨터(Quantum Computer)와 관련하여 다음을 설명하시오.\n가. 양자비트(Qubit, 큐비트), 양자 우월성(Quantum Supermacy), 양자 결잃음(Quantum Decoherence)\n나. 양자 컴퓨터 구현 방법"],
   ["제로 트러스트(Zero Trust) 구현 핵심 원칙과 접근제어 원리", "제로 트러스트 구현 핵심원칙, 접근제어원리"],
   ["HNDL(Harvest Now Decrypt Later) 공격", "HNDL 공격"],
   ["관계대수(Relational Algebra)와 관계해석(Relational Calculus)", "관계대수와 관계해석"],
@@ -29,6 +35,9 @@ const SAME: [string, string][] = [
 ];
 const DIFF: [string, string][] = [
   ["TCP와 UDP 비교", "TCP와 IP 비교"],
+  ["DMA", "캐시메모리 사상기법 3가지에 대해서 설명하시오.\n1) 직접 사상기법(Direct mapping)\n2) 연관 사상기법(Associative mapping)\n3) 집합 연관 사상기법(Set Associative mapping)"],
+  // 소문항 하나만 적은 제목은 전체 문제가 아니다
+  ["로우코드·노코드 도입 시 고려사항", "디지털전환을 촉진하기 위한 새로운 접근법으로 로우코드·노코드 기술에 관심이 높아지고 있다. 다음을 설명하시오.\n가. 기존 SW 개발과 로우코드·노코드 개발 방식 비교\n나. 로우코드·노코드 도입 시 고려사항"],
   // 2026-11-07 "똑같은 문제 없는데" — 「STO」만 적힌 답안이 비교 문제에 같은 문제로 붙었다
   ["STO", "RWA(Real World Assets)와 STO(Security Token Offering) 비교"],
   ["증권형 토큰 (STO)", "RWA(Real World Assets)와 STO(Security Token Offering) 비교"],
