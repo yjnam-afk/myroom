@@ -18,6 +18,7 @@ const SAME: [string, string][] = [
   ["evm", "EVM (Earned Value Management) 에 대해 설명하시오."],
   ["EVM", "EVM(Earned Valued Management)"],
   ["EVM", "Earned Value Management"],
+  ["STO", "증권형 토큰(STO, Security Token Offering)"],
   ["제로 트러스트(Zero Trust) 구현 핵심 원칙과 접근제어 원리", "제로 트러스트 구현 핵심원칙, 접근제어원리"],
   ["HNDL(Harvest Now Decrypt Later) 공격", "HNDL 공격"],
   ["관계대수(Relational Algebra)와 관계해석(Relational Calculus)", "관계대수와 관계해석"],
@@ -28,6 +29,9 @@ const SAME: [string, string][] = [
 ];
 const DIFF: [string, string][] = [
   ["TCP와 UDP 비교", "TCP와 IP 비교"],
+  // 2026-11-07 "똑같은 문제 없는데" — 「STO」만 적힌 답안이 비교 문제에 같은 문제로 붙었다
+  ["STO", "RWA(Real World Assets)와 STO(Security Token Offering) 비교"],
+  ["증권형 토큰 (STO)", "RWA(Real World Assets)와 STO(Security Token Offering) 비교"],
   ["OWASP Top 10:2021", "OWASP Top 10:2025"],
   ["가상 메모리", "가상 메모리 관리 기법"],
   ["정보시스템 감리", "정보시스템 관리"],

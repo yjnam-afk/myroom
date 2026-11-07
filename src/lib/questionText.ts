@@ -126,7 +126,9 @@ export function sameQuestionText(a: string, b: string): boolean {
   for (const w of small.en) if (!big.en.has(w) && !isAcronymOf(w, big.words)) return false;
   if (!small.ko && small.en.size === 1 && big.ko.length >= 2) {
     const [w] = [...small.en];
-    return w.length >= 3 && isAcronymOf(w, big.words);
+    // 상대가 괄호 밖에 다른 영문 개념을 더 묻고 있으면(「RWA와 STO 비교」) 「STO」만 적힌 답안은 그 문제가 아니다(2026-11-07)
+    const others = [...big.outEn].filter((x) => x !== w && !/^v?\d+$/.test(x) && !QUALIFIER.has(x) && !isAcronymOf(x, small.words));
+    return w.length >= 3 && others.length === 0 && isAcronymOf(w, big.words);
   }
   // 한글 없이 약어 하나 ↔ 「약어 (원어)」·「원어」만 있는 문제 — 「EVM」↔「EVM (Earned Value Management) 에 대해 설명하시오」(2026-11-01)
   // 원어 말고 다른 낱말이 붙으면(「Agile EVM」「EVM 지표 계산」) 같다고 하지 않는다
