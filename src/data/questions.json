@@ -165261,5 +165261,195 @@
   "source": "80회 4교시",
   "track": "컴퓨터시스템응용",
   "text": "소프트웨어 아키텍처 평가모델인 ATAM(Architecture Tradeoff Analysis method) 과 CBAM(Cost Benefit Analysis Method)에 대해 프로세스를 중심으로 논하시오."
+ },
+ {
+  "id": "ns19w08-101",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "kind": "NS모의",
+  "round": "08주차",
+  "cohort": "19기",
+  "date": "2026-11-08",
+  "text": "네오클라우드(Neocloud)"
+ },
+ {
+  "id": "ns19w08-102",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "kind": "NS모의",
+  "round": "08주차",
+  "cohort": "19기",
+  "date": "2026-11-08",
+  "text": "UAM(Urban Air Mobility)"
+ },
+ {
+  "id": "ns19w08-103",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "kind": "NS모의",
+  "round": "08주차",
+  "cohort": "19기",
+  "date": "2026-11-08",
+  "text": "엣지 컴퓨팅(Edge Computing)"
+ },
+ {
+  "id": "ns19w08-104",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "kind": "NS모의",
+  "round": "08주차",
+  "cohort": "19기",
+  "date": "2026-11-08",
+  "text": "멀티클라우드(Multicloud)"
+ },
+ {
+  "id": "ns19w08-105",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "kind": "NS모의",
+  "round": "08주차",
+  "cohort": "19기",
+  "date": "2026-11-08",
+  "text": "가상머신(Virtual Machine)과 컨테이너(Container) 비교"
+ },
+ {
+  "id": "ns19w08-106",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "kind": "NS모의",
+  "round": "08주차",
+  "cohort": "19기",
+  "date": "2026-11-08",
+  "text": "에이지 테크 (Age Tech)를 설명하시오."
+ },
+ {
+  "id": "ns19w08-107",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "kind": "NS모의",
+  "round": "08주차",
+  "cohort": "19기",
+  "date": "2026-11-08",
+  "text": "RWA(Real World Assets)와 STO(Security Token Offering) 비교"
+ },
+ {
+  "id": "ns19w08-108",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "kind": "NS모의",
+  "round": "08주차",
+  "cohort": "19기",
+  "date": "2026-11-08",
+  "text": "RaaS(Robot-as-a-Service)"
+ },
+ {
+  "id": "ns19w08-109",
+  "period": "1교시",
+  "category": "인공지능",
+  "kind": "NS모의",
+  "round": "08주차",
+  "cohort": "19기",
+  "date": "2026-11-08",
+  "text": "Physical AI 관점에서 Sim2Real(Simulation-to-Reality)"
+ },
+ {
+  "id": "ns19w08-110",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "kind": "NS모의",
+  "round": "08주차",
+  "cohort": "19기",
+  "date": "2026-11-08",
+  "text": "클라우드 네이티브(Cloud Native)"
+ },
+ {
+  "id": "ns19w08-111",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "kind": "NS모의",
+  "round": "08주차",
+  "cohort": "19기",
+  "date": "2026-11-08",
+  "text": "앰비언트 인비저블 인텔리전스 (Ambient Invisible Intelligence)"
+ },
+ {
+  "id": "ns19w08-112",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "kind": "NS모의",
+  "round": "08주차",
+  "cohort": "19기",
+  "date": "2026-11-08",
+  "text": "소버린 클라우드(Sovereign Cloud)"
+ },
+ {
+  "id": "ns19w08-113",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "kind": "NS모의",
+  "round": "08주차",
+  "cohort": "19기",
+  "date": "2026-11-08",
+  "text": "CBDC(Central Bank Digital Currency)와 스테이블코인(Stablecoin)"
+ },
+ {
+  "id": "ns19w08-201",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "kind": "NS모의",
+  "round": "08주차",
+  "cohort": "19기",
+  "date": "2026-11-08",
+  "text": "양자 컴퓨터(Quantum Computer)와 관련하여 다음을 설명하시오.\n가. 양자비트(Qubit, 큐비트), 양자 우월성(Quantum Supermacy), 양자 결잃음(Quantum Decoherence)\n나. 양자 컴퓨터 구현 방법"
+ },
+ {
+  "id": "ns19w08-202",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "kind": "NS모의",
+  "round": "08주차",
+  "cohort": "19기",
+  "date": "2026-11-08",
+  "text": "디지털전환을 촉진하기 위한 새로운 접근법으로 로우코드·노코드 기술에 관심이 높아지고 있다. 다음을 설명하시오.\n가. 기존 SW 개발과 로우코드·노코드 개발 방식 비교\n나. 로우코드·노코드 도입 시 고려사항"
+ },
+ {
+  "id": "ns19w08-203",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "kind": "NS모의",
+  "round": "08주차",
+  "cohort": "19기",
+  "date": "2026-11-08",
+  "text": "C-ITS 와 관련하여 다음을 설명하시오.\n가. C-ITS 의 개념\n나. C-ITS 의 주요 서비스\n다. C-ITS 의 도입 전략"
+ },
+ {
+  "id": "ns19w08-204",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "kind": "NS모의",
+  "round": "08주차",
+  "cohort": "19기",
+  "date": "2026-11-08",
+  "text": "4 차 산업혁명(Industry 4.0)의 도래와 함께 제조업은 전통적인 자동화 단계를 넘어 데이터 기반의 지능형 생산 체계인 '스마트팩토리'로 진화하고 있다. 이와 관련하여 스마트팩토리 구현을 위한 핵심 요소 기술 및 운영 시스템에 대해 다음 사항을 설명하시오.\n가. 스마트팩토리\n나. AI 예지보전(Predictive Maintenance)\n다. 디지털트윈"
+ },
+ {
+  "id": "ns19w08-205",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "kind": "NS모의",
+  "round": "08주차",
+  "cohort": "19기",
+  "date": "2026-11-08",
+  "text": "최근 로봇 산업은 하드웨어 종속적 구조에서 소프트웨어 중심의 가치 창출 및 지능화 구조로 패러다임이 전환됨에 따라 '소프트웨어 정의 로봇(SDR, Software Defined Robot)'이 부각되고 있다. SDR 의 개념 및 기존 하드웨어 중심 로봇과 비교한 후 SDR 의 계층별 참조 아키텍처 및 핵심 구성요소 제시하시오."
+ },
+ {
+  "id": "ns19w08-206",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "kind": "NS모의",
+  "round": "08주차",
+  "cohort": "19기",
+  "date": "2026-11-08",
+  "text": "데이터 주권 확보를 위한 데이터 스페이스(Data Space) 도입 논의가 확대되고 있다. 데이터 공유·활용 패러다임 전환을 위한 데이터 스페이스의 개념과 필요성을 설명하고, 지역·산업 간 데이터 교환·활용과 상호운용성 확보를 위한 한국형 데이터 스페이스(K-Data Space) 참조모델을 제시하시오. 또한 초기 실증ㆍ표준화에서 민간 중심 확산으로 이어지는 추진전략을 수립하시오."
  }
 ]

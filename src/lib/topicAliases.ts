@@ -52,6 +52,8 @@ export const TOPIC_ALIASES: Record<string, string[]> = {
   // 제목이 「AI 예지 보전」이라 열쇠가 「ai예지보전」이 되어 「예지보전」「예지정비」 문항·답안을 못 찾았다(2026-11-05)
   "AI 예지 보전(Predictive Maintenance, PdM)": ["예지 보전", "예지보전", "예지 정비", "예지정비", "Predictive Maintenance"],
   "AMR(Autonomous Mobile Robot)": ["물류로봇", "물류 로봇", "자율이동로봇", "자율 이동 로봇"],
+  // 교재 LXC 표 「리눅스 컨테이너와 하이퍼바이저의 비교」 — 「가상머신과 컨테이너 비교」 문항(120회·컴시응 119·128회·NS)이 어느 토픽에도 안 걸렸다(2026-11-07)
+  "리눅스 컨테이너(Linux Container, LXC)": ["컨테이너(Container)", "컨테이너 가상화", "가상머신과 컨테이너", "VM(Virtual Machine)과 Container"],
   "Diffusion 모델": ["Diffusion Model", "확산 모델", "Stable Diffusion", "스테이블 디퓨전", "디퓨전 모델"],
   "멀티모달 데이터의 품질검증 방법": ["멀티모달 데이터의 품질검증", "멀티모달 데이터 품질"],
   "모델 드리프트(Model Drift) — 컨셉 드리프트 & 데이터 드리프트": ["컨셉 드리프트", "Concept Drift", "데이터 드리프트", "Data Drift", "모델 드리프트", "Model Drift"],
@@ -135,6 +137,8 @@ export const TOPIC_ALIASES: Record<string, string[]> = {
   "사이버 게놈(Cyber genome)": ["사이버 게놈", "Cyber Genome"],
   "스마트시티 보안취약점 및 대응방안": ["스마트시티 보안", "스마트 시티 보안"],
   "스마트팩토리 보안취약점 및 대응방안": ["스마트팩토리 보안", "스마트 팩토리 보안", "스마트공장 보안", "제어시스템 보안"],
+  // 제목에 「시스템」이 붙어 「스마트팩토리」만 적힌 문항(120회·NS19 8주차 …)을 못 잡았다 — 보안 문항은 examHistory TRAP 으로 뺀다(2026-11-07)
+  "스마트 팩토리 시스템(Smart Factory System)": ["스마트팩토리", "스마트 팩토리", "스마트공장", "스마트 공장", "Smart Factory"],
   "클라우드 컴퓨팅 취약점, 대응기술": ["클라우드 취약점", "클라우드 컴퓨팅 취약점", "클라우드 컴퓨팅 보안", "클라우드 보안 위협", "클라우드 보안위협"],
   "ISO/IEC 25059:2023(AI 품질모델)": ["25059"],
   "AP2(Agent Payment Protocol)": ["AP2", "Agent Payment", "Agent Payments"],
