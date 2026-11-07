@@ -356,6 +356,21 @@ function hit(entry: Entry, keys: Keys): boolean {
  */
 const KEYS = new Map<string, Keys>();
 
+/**
+ * 이 문항이 제목 열쇠로는 걸리지만 TRAP 때문에 빠진 토픽인가 — 다른 경로(relatedTopics 의 약어 낱말 일치)로
+ * 끌려오는 것을 막는 데 쓴다. 「소프트웨어 정의 로봇(SDR)」 문항이 SDR(Software Defined Radio) 답안을 받았다(2026-11-07).
+ */
+export function trappedTitle(text: string, title: string): boolean {
+  const entry = entryOf((text || "").trim());
+  let k = KEYS.get(title);
+  if (!k) {
+    k = keysOf(title);
+    KEYS.set(title, k);
+  }
+  if (hit(entry, k)) return false;
+  return [...k.all, ...k.any].some((key) => has(entry, key) && trapped(entry, key));
+}
+
 export function titlesMatching(text: string, titles: readonly string[]): string[] {
   const t = (text || "").trim();
   if (!t) return [];

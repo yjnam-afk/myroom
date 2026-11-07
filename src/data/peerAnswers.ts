@@ -108,7 +108,10 @@ export function peerAnswersForQuestion(question?: string, questionId?: string): 
   for (const a of PEER_ANSWERS) {
     if (out.includes(a)) continue;
     const mine = norm(a.question);
-    if (q.includes(mine) || mine.includes(q)) out.push(a);
+    // 짧은 제목(「SDR」「로봇」)은 긴 지문 가운데 낱말로 들어도 그 문제가 아니다 — 문항 문구가 짧거나(단답형) 머리에 있을 때만
+    // (2026-11-07 소프트웨어 정의 로봇 2교시 문항에 SDR 라디오·로봇 답안이 붙었다)
+    const ok = mine.length < 6 ? q.startsWith(mine) || (q.length <= 40 && q.includes(mine)) : q.includes(mine);
+    if (ok || mine.includes(q)) out.push(a);
   }
   return out;
 }

@@ -1,5 +1,5 @@
 import { SUBNOTES } from "@/data/textbookSubnotes";
-import { titlesMatching } from "@/lib/examHistory";
+import { titlesMatching, trappedTitle } from "@/lib/examHistory";
 import { relatedTopics } from "@/lib/relatedTopics";
 import { peerAnswersFor, peerAnswersForQuestion, type PeerAnswer } from "@/data/peerAnswers";
 import { sameQuestionText } from "@/lib/questionText";
@@ -29,7 +29,8 @@ export function topicsForQuestion(text: string): string[] {
   // ("은행가 알고리즘" → 「Banker's 알고리즘」, "회귀시험" → 「리그레이션 테스트」)은
   // 관련 토픽 매칭(괄호 속 원어·동의어까지 본다)으로 한 번 더 건진다.
   const out = titlesMatching(text, TITLES);
-  for (const t of relatedTopics(text, 4)) if (BOOK.has(t) && !out.includes(t)) out.push(t);
+  // examHistory 가 TRAP 으로 뺀 토픽은 관련 토픽 매칭으로도 넣지 않는다(SDR 로봇 ↔ SDR 라디오)
+  for (const t of relatedTopics(text, 4)) if (BOOK.has(t) && !out.includes(t) && !trappedTitle(text, t)) out.push(t);
   cache.set(text, out);
   return out;
 }
