@@ -14,6 +14,7 @@ import { matchSubnoteTitle } from "@/lib/matchSubnote";
 import ClearButton from "@/components/ClearButton";
 import { QuestionBadges, QuestionMyNotes } from "@/components/QuestionMeta";
 import { kindOf, roundOf, roundNum } from "@/lib/questionText";
+import { DOMAINS } from "@/lib/domains";
 
 type Q = {
   id: string;
@@ -86,6 +87,9 @@ export default function ExamPage() {
   const [kind, setKind] = useState<string>(KINDS[0] || "기출");
   const [round, setRound] = useState<string>("전체");
   const [period, setPeriod] = useState<(typeof PERIODS)[number]>("전체");
+  // 과목(도메인) — 2026-11-09 "기출문제를 도메인별로도 분류해줘". 구분·회차·교시와 함께 거른다. 과목이 비어 있는 문항은 「미분류」.
+  const [domain, setDomain] = useState<string>("전체");
+  const inDomain = (q: Q) => domain === "전체" || (domain === "미분류" ? !q.category : q.category === domain);
   // 검색어 — 입력하면 구분·회차·교시 필터를 무시하고 전체 문제에서 찾는다.
   const [query, setQuery] = useState("");
   const nq = query.trim().toLowerCase();
@@ -161,7 +165,7 @@ export default function ExamPage() {
     if (nq) {
       const pool = searchAll ? ALL : EXAMS.filter((q) => kindOf(q) === kind && inCohort(q));
       return pool
-        .filter((q) => (period === "전체" || q.period === period) && hit(q))
+        .filter((q) => (period === "전체" || q.period === period) && inDomain(q) && hit(q))
         .sort((a, b) => roundNum(roundOf(b)) - roundNum(roundOf(a)));
     }
     return EXAMS.filter(
@@ -169,15 +173,30 @@ export default function ExamPage() {
         kindOf(q) === kind &&
         inCohort(q) &&
         (round === "전체" || roundOf(q) === round) &&
-        (period === "전체" || q.period === period),
+        (period === "전체" || q.period === period) &&
+        inDomain(q),
     ).sort((a, b) => roundNum(roundOf(b)) - roundNum(roundOf(a)) || (a.period ?? "").localeCompare(b.period ?? ""));
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [kind, cohort, round, period, nq, domain]);
+
+  // 과목 칩 — 지금 구분·기수·회차·교시(과목 빼고)에서 과목마다 몇 문항인지. 0건인 과목은 안 보인다.
+  const domainCounts = useMemo(() => {
+    const pool = nq
+      ? (searchAll ? ALL : EXAMS.filter((q) => kindOf(q) === kind && inCohort(q))).filter((q) => (period === "전체" || q.period === period) && hit(q))
+      : EXAMS.filter((q) => kindOf(q) === kind && inCohort(q) && (round === "전체" || roundOf(q) === round) && (period === "전체" || q.period === period));
+    const m: Record<string, number> = {};
+    for (const q of pool) { const k = q.category || "미분류"; m[k] = (m[k] ?? 0) + 1; }
+    return m;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [kind, cohort, round, period, nq]);
+  const domainChips = [...DOMAINS.map((d) => d.label).filter((l) => domainCounts[l]), ...(domainCounts["미분류"] ? ["미분류"] : [])];
+  // 지금 조건에 그 과목이 없으면 「전체」로 돌아간다
+  useEffect(() => { if (domain !== "전체" && !domainCounts[domain]) setDomain("전체"); }, [domainCounts, domain]);
 
   // 페이지네이션 — 처음엔 일부만 렌더(수백 문제를 한 번에 그리지 않게). 필터가 바뀌면 리셋.
   const PAGE = 20;
   const [visible, setVisible] = useState(PAGE);
-  useEffect(() => setVisible(PAGE), [kind, cohort, round, period, nq]);
+  useEffect(() => setVisible(PAGE), [kind, cohort, round, period, nq, domain]);
   const capped = useMemo(() => list.slice(0, visible), [list, visible]);
 
   // 교시별 그룹(현재 렌더 대상 capped 기준) — 검색 모드에선 구분 라벨까지 붙인다.
@@ -308,6 +327,30 @@ export default function ExamPage() {
           {nq ? "🔍 검색결과 " : ""}
           {Math.min(visible, list.length)}/{list.length}문제
         </span>
+        {domainChips.length > 1 && (
+          <div className="flex w-full flex-wrap items-center gap-1.5 border-t border-slate-100 pt-3">
+            <span className="mr-1 text-xs text-slate-400">과목</span>
+            {["전체", ...domainChips].map((d) => (
+              <button
+                key={d}
+                type="button"
+                onClick={() => setDomain(d)}
+                className={`rounded-full border px-2.5 py-1 text-xs transition ${
+                  domain === d
+                    ? "border-brand-600 bg-brand-600 text-white"
+                    : d === "미분류"
+                      ? "border-dashed border-slate-300 text-slate-400 hover:bg-slate-50"
+                      : "border-slate-200 text-slate-600 hover:border-brand-300 hover:bg-brand-50"
+                }`}
+              >
+                {d}
+                <span className={`ml-1 text-[10px] ${domain === d ? "text-brand-100" : "text-slate-400"}`}>
+                  {d === "전체" ? Object.values(domainCounts).reduce((a, b) => a + b, 0) : domainCounts[d]}
+                </span>
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {groups.length === 0 && (

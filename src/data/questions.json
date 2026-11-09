@@ -9315,7 +9315,7 @@
  {
   "id": "k114-101",
   "period": "1교시",
-  "category": "신기술",
+  "category": "자료구조",
   "source": "114회 1교시",
   "text": "다중연결리스트(Multi-Linked List)"
  },
@@ -9385,7 +9385,7 @@
  {
   "id": "k114-111",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "114회 1교시",
   "text": "재공학(Re-engineering), 역공학(Reverse Engineering)"
  },
@@ -9490,7 +9490,7 @@
  {
   "id": "k114-401",
   "period": "4교시",
-  "category": "신기술",
+  "category": "네트워크",
   "source": "114회 4교시",
   "text": "4차 산업혁명시대의 망 중립성 정책내용, 쟁점 및 정책 이슈에 대하여 설명하시오."
  },
@@ -9539,14 +9539,14 @@
  {
   "id": "k113-103",
   "period": "1교시",
-  "category": "신기술",
+  "category": "인공지능",
   "source": "113회 1교시",
   "text": "MCTS(Monte Carlo Tree Search)"
  },
  {
   "id": "k113-104",
   "period": "1교시",
-  "category": "신기술",
+  "category": "보안",
   "source": "113회 1교시",
   "text": "FIDO(Fast Identity Online) 2.0"
  },
@@ -9560,7 +9560,7 @@
  {
   "id": "k113-106",
   "period": "1교시",
-  "category": "신기술",
+  "category": "확률·통계",
   "source": "113회 1교시",
   "text": "로지스틱 회귀분석(logistic regression)에서의 로짓 변환(logit transformation)"
  },
@@ -9581,14 +9581,14 @@
  {
   "id": "k113-109",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "113회 1교시",
   "text": "CPS(Cyber-physical System)"
  },
  {
   "id": "k113-110",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "113회 1교시",
   "text": "HCE(Host Card Emulation)"
  },
@@ -9686,14 +9686,14 @@
  {
   "id": "k113-305",
   "period": "3교시",
-  "category": "신기술",
+  "category": "인공지능",
   "source": "113회 3교시",
   "text": "유전 알고리즘(Genetic algorithm)을 정의하고, 그 알고리즘의 흐름을 설명한 후, 이 알고리즘에서 사용되는 기법인 룰렛 휠 선택(roulette wheel selection)의 역할에 대하여 설명하시오."
  },
  {
   "id": "k113-306",
   "period": "3교시",
-  "category": "신기술",
+  "category": "보안",
   "source": "113회 3교시",
   "text": "기업 내부 사용자의 시스템 접근을 더욱 체계적으로 관리하기 위하여 별도의 비밀번호 관리시스템을 구축하고자 한다. 별도의 비밀번호관리시스템을 구축하는 경우의 장단점을 설명하고, 시스템 개념 구성도 및 처리 절차 등에 대하여 설명하시오."
  },
@@ -9728,7 +9728,7 @@
  {
   "id": "k113-405",
   "period": "4교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "source": "113회 4교시",
   "text": "오픈 데이터(Open Data)를 정의하고(특히 오픈의 의미를 구체적으로 설명), 그 데이터의 등급을 5단계로 나누어 설명하시오."
  },
@@ -9742,7 +9742,7 @@
  {
   "id": "k111-101",
   "period": "1교시",
-  "category": "신기술",
+  "category": "확률·통계",
   "source": "111회 1교시",
   "text": "통계적 가설 검정(Statistical hypothesis Test)과 p-value"
  },
@@ -9798,14 +9798,14 @@
  {
   "id": "k111-109",
   "period": "1교시",
-  "category": "신기술",
+  "category": "보안",
   "source": "111회 1교시",
   "text": "엘가엘(EIGamal)"
  },
  {
   "id": "k111-110",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "111회 1교시",
   "text": "Open Adoption Software"
  },
@@ -9819,14 +9819,14 @@
  {
   "id": "k111-112",
   "period": "1교시",
-  "category": "신기술",
+  "category": "경영전략",
   "source": "111회 1교시",
   "text": "바이모달(bimodal) IT"
  },
  {
   "id": "k111-113",
   "period": "1교시",
-  "category": "신기술",
+  "category": "인공지능",
   "source": "111회 1교시",
   "text": "은닉 마르코프 모델(HMM: Hidden Markov Model)"
  },
@@ -9875,14 +9875,14 @@
  {
   "id": "k111-301",
   "period": "3교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "111회 3교시",
   "text": "제조 공장에서 제품 계측에 활용되는 가상계측(Virtual Metrology) 에 대하여 설명하시오"
  },
  {
   "id": "k111-302",
   "period": "3교시",
-  "category": "신기술",
+  "category": "확률·통계",
   "source": "111회 3교시",
   "text": "동일한 규격의 제품이 B공장에서 생산될 때 보다 A공장에서 생산될 때 제품의 무게가 더 적다고 주장하고 있다. 이를 확인하기 위하여 아래 표와 같이 제품을 랜덤하게 뽑아 조사하였다. A와 B 공장의 제품 무게는 모두 정규 분포로 가정하고 A공장 제품이 B공장 제품에 비하여 무게가 적다고 할 수 있는지 가설을 설정하고 검정하시오.(단, 유의수준 5%)"
  },
@@ -9966,7 +9966,7 @@
  {
   "id": "k110-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "source": "110회 1교시",
   "text": "LPWA(Low Power Wide Area)에 대해 설명하시오."
  },
@@ -10001,7 +10001,7 @@
  {
   "id": "k110-107",
   "period": "1교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "source": "110회 1교시",
   "text": "패스트 데이터(Fast Data)에 대해 설명하시오."
  },
@@ -10078,7 +10078,7 @@
  {
   "id": "k110-205",
   "period": "2교시",
-  "category": "신기술",
+  "category": "운영체제",
   "source": "110회 2교시",
   "text": "동기화 기법인 스핀 락(Read/Write Spin Lock)의 개념을 기술하고 스핀 락을 활용하는 방법을 사례를\n들어 설명하시오."
  },
@@ -10106,7 +10106,7 @@
  {
   "id": "k110-303",
   "period": "3교시",
-  "category": "신기술",
+  "category": "네트워크",
   "source": "110회 3교시",
   "text": "CRC(Cyclic Redundancy Check)의 원리를 기술하고, CRC-8 = x8 + x2 + x + 1이 고 데이터워드가 01101011일때 \n코드워드를 계산하는 과정을 설명하고, 그 결과가 옳음을 검증하시오."
  },
@@ -10127,7 +10127,7 @@
  {
   "id": "k110-306",
   "period": "3교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "110회 3교시",
   "text": "최근 미국에서 자율자동차의 사고로 인하여 인명 피해가 발생하였다. 이로 인해 자율 시스템에 포함된 소프트ㅞ어의 기능 안전 문제가 크게 대두되고 있는 데 모든 산업에 적용가능한 기능 안전기준을 제시한 IEC61508 시리즈와 전체 프레임워크를 도식화 하여 설명하시오."
  },
@@ -10232,7 +10232,7 @@
  {
   "id": "k108-109",
   "period": "1교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "source": "108회 1교시",
   "text": "단어 구름(Word Cloud)와 코워드 분석(Co-Word Analysis)에 대하여 설명하시오.\n[개념] 태그 구름 ( 영어: tag cloud ) 또는 단어 구름 (word cloud)은 메타 데이터에서 얻어진 태그들을 분석하여 중요도나 인기도 등을 고려하여 시각적으로 늘어 놓아 웹 사이트에 표시하는 방법"
  },
@@ -10246,14 +10246,14 @@
  {
   "id": "k108-111",
   "period": "1교시",
-  "category": "신기술",
+  "category": "보안",
   "source": "108회 1교시",
   "text": "탈린 매뉴얼(Tallinn Manual)에 대하여 설명하시오.\n[개념] 사이버 전쟁에서 적용되는 국제법을 담은 지침서.\n탈린 매뉴얼에서는 사이버 공격을 국가간 무력 분쟁의 한가지로 규정하고 있으며, 사이버 공격을 받았을 경우 이에 대한 대응 조치로 사이버 공격을 하는 것은 원칙적으로 가능하지만 실제적이고 물리적인 무력을 사용한 공격은 사이버 공격으로 인해 실제 사망자나 부상자가 발생하였을 경우에만 허용할 수 있는 것으로 명시."
  },
  {
   "id": "k108-112",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "108회 1교시",
   "text": "OGC(Open GIS Consortium)의 OGC Web Service(OWS)와 Web Map Service(WMS)에 대하여 설명하시오.\nOGC= 공간정보 분야의 국제표준화 기구, 1994년 설립된 기구\nOGC Web Service(OWS) = http://live.osgeo.org/ko/standards/standards.html 참조"
  },
@@ -10309,7 +10309,7 @@
  {
   "id": "k108-301",
   "period": "3교시",
-  "category": "신기술",
+  "category": "알고리즘",
   "source": "108회 3교시",
   "text": "그리디(Greedy) 알고리즘에 대하여 다음 질문에 답하시오. 230원어치를 구매함, 손님이 이때\n가. 지폐 1000원을 받고 동전으로 770원을 돌려 줄 때 최소 동전수를 찾는 그리디 알고리즘을 설명하시오.\n     (단, 동전의 액면은 500원, 100원, 50원, 10원임)\n나. 위 알고리즘을 C 또는 Java 언어로 구현하시오."
  },
@@ -10414,7 +10414,7 @@
  {
   "id": "k107-104",
   "period": "1교시",
-  "category": "신기술",
+  "category": "운영체제",
   "source": "107회 1교시",
   "text": "모바일 OS(Operating System) 주요기술과 발전전망에 대하여 설명하시오."
  },
@@ -10428,7 +10428,7 @@
  {
   "id": "k107-106",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "source": "107회 1교시",
   "text": "아날로그 정보를 디지털 데이터로 변환하기 위한 PCM(Pulse Code Modulation)의 동작원리를 설명하시오."
  },
@@ -10498,21 +10498,21 @@
  {
   "id": "k107-203",
   "period": "2교시",
-  "category": "신기술",
+  "category": "네트워크",
   "source": "107회 2교시",
   "text": "Project loon과 Internet.org를 비교하고 그 의미를 설명하시오."
  },
  {
   "id": "k107-204",
   "period": "2교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "107회 2교시",
   "text": "국내 Beacon 서비스의 주요 응용분야를 제시하고, 활성화에 대한 한계요인을 설명하시오."
  },
  {
   "id": "k107-205",
   "period": "2교시",
-  "category": "신기술",
+  "category": "인공지능",
   "source": "107회 2교시",
   "text": "새로운 Fingerprint를 기존의 클러스터에 매칭하기 위해서 사용되는  KNN(K-Nears Neighbor) 알고리즘의 동작원리를 설명하고\n   장단점을 논하시오."
  },
@@ -10540,7 +10540,7 @@
  {
   "id": "k107-303",
   "period": "3교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "107회 3교시",
   "text": "O2O(Online-to-Offline/Offline-to-Online)를 정의하고 소비자와 기업관점에서 장점을 제시하시오."
  },
@@ -10617,7 +10617,7 @@
  {
   "id": "k105-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "인공지능",
   "source": "105회 1교시",
   "text": "기계학습(Machine Learning)을 정의하고 알고리즘 유형을 설명하시오"
  },
@@ -10638,14 +10638,14 @@
  {
   "id": "k105-105",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "105회 1교시",
   "text": "반복점증적 개발방법과 폭포수형 개발방법을 비교하여 설명하시오"
  },
  {
   "id": "k105-106",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "105회 1교시",
   "text": "소프트웨어의 회귀시험(Regression Test)에 대하여 설명하시오"
  },
@@ -10673,7 +10673,7 @@
  {
   "id": "k105-110",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "105회 1교시",
   "text": "DOI(Digital Object Identifier)에 대하여 설명하시오"
  },
@@ -10715,14 +10715,14 @@
  {
   "id": "k105-203",
   "period": "2교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "source": "105회 2교시",
   "text": "학사관리시스템에서 아래 스키마(Schema)를 이용할 때 키(Key of Candidate Key), 주키(Primary Key), 외부키(Foreign Key), 슈퍼키(Super Key)를 정의하고 추출하는 과정 및 방법을 설명하시오\n\"학생\"스키마 (학번, 주민등록번호, 이름, 전공, 성별, 학과번호)\n\"학과\"스키마(학과번호, 학과명, 설립연도)"
  },
  {
   "id": "k105-204",
   "period": "2교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "105회 2교시",
   "text": "자동차에 탑재되는 소프트웨어의 기능안전 국제규격인 ISO26262에 대한 정의,배경,규격 및 기술기준을 설명하시오"
  },
@@ -10750,7 +10750,7 @@
  {
   "id": "k105-302",
   "period": "3교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "105회 3교시",
   "text": "귀하는 자세대시스템 구축팀의 아키텍트(Architect)로서 상세화단계(Elaboration Phase)에서 작성해야하는 SAD(Software Architeture Document) 문서의 목차를 작성하시오"
  },
@@ -10785,7 +10785,7 @@
  {
   "id": "k105-401",
   "period": "4교시",
-  "category": "신기술",
+  "category": "확률·통계",
   "source": "105회 4교시",
   "text": "충분한 데이터가 확보되지 않은 상황에서 데이터 분석을 수행할 경우 통계적 신뢰도 높이기 위하여 사용하는 \nCross Validation 방법을 3가지 이상 예를 들어 설명하시오"
  },
@@ -10834,7 +10834,7 @@
  {
   "id": "k104-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "source": "104회 1교시",
   "text": "V2V(Vehicle to Vehicle)의 개념과 적용시 고려사항에 대해 설명하시오."
  },
@@ -10981,7 +10981,7 @@
  {
   "id": "k104-304",
   "period": "3교시",
-  "category": "신기술",
+  "category": "보안",
   "source": "104회 3교시",
   "text": "디지털봉투(Digital Envelopes) 출현 배경을 설명하고, 디지털봉투를 생성하고 개봉하는 과정을 그림을 이용하여 구체적으로 설명하시오."
  },
@@ -10995,7 +10995,7 @@
  {
   "id": "k104-306",
   "period": "3교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "104회 3교시",
   "text": "사용자경험(User Experience) 패러다임의 진화를 4세대로 나누어 각 세대별 특징 및 내용을 설명하고, 주요 이슈를 제시하시오."
  },
@@ -11023,7 +11023,7 @@
  {
   "id": "k104-404",
   "period": "4교시",
-  "category": "신기술",
+  "category": "자료구조",
   "source": "104회 4교시",
   "text": "정적해싱(Static Hashing) 과정에서 발생하는 오버플로우(Overflow)를 처리하기 위한 전형적인 기법 2가지를 제시하고, \n성능 관점에서 비교하여 설명하시오."
  },
@@ -11065,7 +11065,7 @@
  {
   "id": "k102-104",
   "period": "1교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "source": "102회 1교시",
   "text": "대용량 데이터 처리를 위한 Sharding에 대하여 설명하시오"
  },
@@ -11086,7 +11086,7 @@
  {
   "id": "k102-107",
   "period": "1교시",
-  "category": "신기술",
+  "category": "확률·통계",
   "source": "102회 1교시",
   "text": "통계처리시 결측치(Missing Value) 처리 방안에 대하여 3개 이상 설명하시오"
  },
@@ -11100,7 +11100,7 @@
  {
   "id": "k102-109",
   "period": "1교시",
-  "category": "신기술",
+  "category": "인공지능",
   "source": "102회 1교시",
   "text": "ROC(Receiver Operationg Characteristic) Curve에 대하여 설명하시오."
  },
@@ -11114,7 +11114,7 @@
  {
   "id": "k102-111",
   "period": "1교시",
-  "category": "신기술",
+  "category": "확률·통계",
   "source": "102회 1교시",
   "text": "모집단에서 표본을 추출하여 모수를 추정하는 Estimation Theory에 대하여 설명하시오"
  },
@@ -11177,7 +11177,7 @@
  {
   "id": "k102-301",
   "period": "3교시",
-  "category": "신기술",
+  "category": "경영전략",
   "source": "102회 3교시",
   "text": "공공정보화 부문 사업의 예비 타당성 조사 수행 체계에 대하여 설명하시오"
  },
@@ -11191,7 +11191,7 @@
  {
   "id": "k102-303",
   "period": "3교시",
-  "category": "신기술",
+  "category": "확률·통계",
   "source": "102회 3교시",
   "text": "Percentile을 이용하여 Outlier를 찾는 방법을 설명하시오."
  },
@@ -11219,14 +11219,14 @@
  {
   "id": "k102-401",
   "period": "4교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "source": "102회 4교시",
   "text": "Business Intelligence와 Business Analytics를 비교하여 설명하시오."
  },
  {
   "id": "k102-402",
   "period": "4교시",
-  "category": "신기술",
+  "category": "확률·통계",
   "source": "102회 4교시",
   "text": "통계적 가설 검정을 p-value로 설명하고, 1종 오류와 2종 오류를 설명하시오."
  },
@@ -11275,7 +11275,7 @@
  {
   "id": "k101-103",
   "period": "1교시",
-  "category": "신기술",
+  "category": "운영체제",
   "source": "101회 1교시",
   "text": "디바이스 리디렉션(Device Redirection)의 개념과 기술동향에 대하여 설명하시오."
  },
@@ -11303,7 +11303,7 @@
  {
   "id": "k101-107",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "101회 1교시",
   "text": "오버라이딩(Overriding)과 오버로딩(Overloading)을 예를 들어 설명하시오."
  },
@@ -11338,7 +11338,7 @@
  {
   "id": "k101-112",
   "period": "1교시",
-  "category": "신기술",
+  "category": "경영전략",
   "source": "101회 1교시",
   "text": "인시던트(Incident) 관리와 문제(Problem) 관리에 대하여 설명하시오."
  },
@@ -11415,7 +11415,7 @@
  {
   "id": "k101-304",
   "period": "3교시",
-  "category": "신기술",
+  "category": "자료구조",
   "source": "101회 3교시",
   "text": "B트리와 B+트리와 관련하여 다음을 설명하시오. \n1) B트리와 B+트리의 정의와 차이점\n2) B트리의 삽입 알고리즘\n3) B트리의 삭제 알고리즘 \n4) 26, 57, 5, 33, 72, 45를 순서대로 삽입하고, 72, 33, 45를 순서대로 삭제하는 모든 과정의 B트리를 그리시오. (단, 차수는 3)"
  },
@@ -11478,28 +11478,28 @@
  {
   "id": "k99-101",
   "period": "1교시",
-  "category": "신기술",
+  "category": "자료구조",
   "source": "99회 1교시",
   "text": "이진 탐색 트리(Binary search tree)의 데이터 삽입 과정에 대하여 설명하시오."
  },
  {
   "id": "k99-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "운영체제",
   "source": "99회 1교시",
   "text": "가상기억장치(Virtual Memory System)관리기법 중 페이징(Paging)주소 변환에 대하여 설명하시오."
  },
  {
   "id": "k99-103",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "99회 1교시",
   "text": "안드로이드 시스템에서 JDK(Java Development Kits)를 사용하는 경우와 NDK(Native Development Kits)를 사용하는 경우의 장단점에 대하여 설명하시오."
  },
  {
   "id": "k99-104",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "source": "99회 1교시",
   "text": "NFC(Near Field Communication)의 개념과 모드별 응용 영역에 대하여 설명하시오."
  },
@@ -11513,7 +11513,7 @@
  {
   "id": "k99-106",
   "period": "1교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "source": "99회 1교시",
   "text": "데이터 과학자(Data scientist)에 대하여 설명하시오."
  },
@@ -11541,7 +11541,7 @@
  {
   "id": "k99-110",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "source": "99회 1교시",
   "text": "ARP 스푸핑(Addredd Resolution Protocol spoofing)의 개념과 대처방안에 대하여 설명하시오."
  },
@@ -11555,7 +11555,7 @@
  {
   "id": "k99-112",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "99회 1교시",
   "text": "자바 바이트코드(Java bytecode)에 대하여 설명하시오."
  },
@@ -11611,7 +11611,7 @@
  {
   "id": "k99-301",
   "period": "3교시",
-  "category": "신기술",
+  "category": "운영체제",
   "source": "99회 3교시",
   "text": "아래에 주어진 프로그램이 수행하는 기능에 대하여 설명하시오. 또한 , 버퍼 크기(BUFSIZE)가 성능(Performance)에 미치는 영향에 대하여 설명하시오."
  },
@@ -11625,7 +11625,7 @@
  {
   "id": "k99-303",
   "period": "3교시",
-  "category": "신기술",
+  "category": "운영체제",
   "source": "99회 3교시",
   "text": "정보자원의 효율적 이용과 비용 절감을 위해 VDI(Virtual Desktop Infrastructure)도입을 검토하는 기업이 늘고 있다. 이 기술 도입시 고려사항과 위험요소에 대하여 설명하시오."
  },
@@ -11646,7 +11646,7 @@
  {
   "id": "k99-306",
   "period": "3교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "source": "99회 3교시",
   "text": "아파치 하둡(Apache Hadoop)의 구조와 작동 개요를 맵리듀스 엔진(MapReduce engine)중심으로 설명하시오."
  },
@@ -11667,7 +11667,7 @@
  {
   "id": "k99-403",
   "period": "4교시",
-  "category": "신기술",
+  "category": "경영전략",
   "source": "99회 4교시",
   "text": "소프트웨어 산업 생태계 조성을 위해 필요한 소프트웨어 엔지니어 육성 방안과 정보기술 융합 정책에 대하여 기술하시오."
  },
@@ -11702,7 +11702,7 @@
  {
   "id": "k98-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "98회 1교시",
   "text": "Digital Signage의 정의 및 주요기술에 대해 설명하시오."
  },
@@ -11758,14 +11758,14 @@
  {
   "id": "k98-110",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "source": "98회 1교시",
   "text": "망 중립성(Net Neutrality)에 대한 논쟁이 대두되고 있다. 이를 다각적인 입장에서 설명하시오."
  },
  {
   "id": "k98-111",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "98회 1교시",
   "text": "소프트웨어 개발 방법론 Agile Methodology의 정의, 특성, 장단점을 설명하시오."
  },
@@ -11779,7 +11779,7 @@
  {
   "id": "k98-113",
   "period": "1교시",
-  "category": "신기술",
+  "category": "인공지능",
   "source": "98회 1교시",
   "text": "지식정보시스템 개발을 위하여 지식표현 방법들의 장단점을 비교하여 설명하시오."
  },
@@ -11814,7 +11814,7 @@
  {
   "id": "k98-205",
   "period": "2교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "source": "98회 2교시",
   "text": "기업정보시스템의 분석 정보는 추세, 매출액, 제품 통계, 미래 성장률 등이다. 분석 정보 처리를 위한 왓-이프 분석(What-If Analysis), 민감도 분석(Sensitivity Analysis), 목표 탐색 분석(Goal-Seeking Analysis), 최적화 분석(Optimization Analysis)에 대해 설명하시오."
  },
@@ -11835,7 +11835,7 @@
  {
   "id": "k98-302",
   "period": "3교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "source": "98회 3교시",
   "text": "데이터의 폭증으로 대표되는  Big Data가 최근 다양한 분야에 활용되고, Big Data 처리 및 분석능력이 기업의 경쟁력으로 인식되고 있다. 다음에 대해 설명하시오.\n가. Big Data 3대 요소(3V)\n나. Big Data 분석 기법\n다. Big Data 활용 분야"
  },
@@ -11856,14 +11856,14 @@
  {
   "id": "k98-305",
   "period": "3교시",
-  "category": "신기술",
+  "category": "보안",
   "source": "98회 3교시",
   "text": "정보 기술 모니터링(Information Technology monitoring)은 키 입력수, 실수율, 거래처리 건수 같은 수단을 이용해서 사람들의 행동을 추적하는 것이다. 일반적인 모니터링기술(예, Key Logger Software, Spyware 등)을 설명하시오."
  },
  {
   "id": "k98-306",
   "period": "3교시",
-  "category": "신기술",
+  "category": "컴퓨터구조",
   "source": "98회 3교시",
   "text": "영상정보 응용시스템의 개발 시 필요한 Culling 기법의 정의 및 다음 3가지 종류에 대해 설명하시오.\n가. Back Face Culling\n나. View Frustum Culling\n다. Hidden Surface Culling"
  },
@@ -11919,7 +11919,7 @@
  {
   "id": "k96-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "보안",
   "source": "96회 1교시",
   "text": "클라우딩 컴퓨팅 환경에서 데이터 정보 보호에 대하여 설명하시오."
  },
@@ -11968,7 +11968,7 @@
  {
   "id": "k96-109",
   "period": "1교시",
-  "category": "신기술",
+  "category": "인공지능",
   "source": "96회 1교시",
   "text": "복잡한 현상의 분석에 사용하는 대리인 기반 모델(ABM:Agnet-Based Model)에 대하여 설명하시오."
  },
@@ -12010,7 +12010,7 @@
  {
   "id": "k96-202",
   "period": "2교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "96회 2교시",
   "text": "Java 프로그램을 작성하고 실행시키는 일련의 과정을 JVM(Java Virtual Machine) 중심으로 설명하시오."
  },
@@ -12045,7 +12045,7 @@
  {
   "id": "k96-301",
   "period": "3교시",
-  "category": "신기술",
+  "category": "운영체제",
   "source": "96회 3교시",
   "text": "안드로이드 시스템 구조에 대하여 설명하시오."
  },
@@ -12066,7 +12066,7 @@
  {
   "id": "k96-304",
   "period": "3교시",
-  "category": "신기술",
+  "category": "보안",
   "source": "96회 3교시",
   "text": "APT(Advanced Persistent Threat) 공격기법과 대응방법에 대하여 설명하시오."
  },
@@ -12094,7 +12094,7 @@
  {
   "id": "k96-402",
   "period": "4교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "96회 4교시",
   "text": "2-D(Dimensional) 바코드 시스템에서 데이터를 읽는 과정에 대하여 설명하시오."
  },
@@ -12115,7 +12115,7 @@
  {
   "id": "k96-405",
   "period": "4교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "96회 4교시",
   "text": "소프트웨어 테스팅의 주요 이슈들을 제시하고, 이 중 비기능적 테스팅(Non-functional testing)과 \n동적 테스팅(Dynamic testing)을 구체적으로 설명하시오."
  },
@@ -12129,21 +12129,21 @@
  {
   "id": "k95-101",
   "period": "1교시",
-  "category": "신기술",
+  "category": "경영전략",
   "source": "95회 1교시",
   "text": "표준특허의 정의 및 특징을 설명하시오."
  },
  {
   "id": "k95-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "95회 1교시",
   "text": "ISO/IEC 14598을 설명하시오."
  },
  {
   "id": "k95-103",
   "period": "1교시",
-  "category": "신기술",
+  "category": "경영전략",
   "source": "95회 1교시",
   "text": "트리즈(TRIZ)를 설명하시오."
  },
@@ -12171,7 +12171,7 @@
  {
   "id": "k95-107",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "95회 1교시",
   "text": "CPS(Cyber Physical System)의 태동배경 및 주요기술에 대하여 설명하시오."
  },
@@ -12185,7 +12185,7 @@
  {
   "id": "k95-109",
   "period": "1교시",
-  "category": "신기술",
+  "category": "운영체제",
   "source": "95회 1교시",
   "text": "OVF(Open Virtualization Format) 표준의 개념 및 구성 내용에 대하여 설명하시오."
  },
@@ -12213,7 +12213,7 @@
  {
   "id": "k95-113",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "95회 1교시",
   "text": "소프트웨어 역공학(Reverse Engineering)과 코드 난독화(Code Obfuscation)의 관계에 대하여 설명하시오."
  },
@@ -12248,7 +12248,7 @@
  {
   "id": "k95-205",
   "period": "2교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "95회 2교시",
   "text": "N스크린 기술에 대하여 다음 질문에 답하시오.\n(1) N스크린 서비스의 개념 및 제공 서비스에 대하여 설명하시오.\n(2) N스크린 관련 개발 기술의 종류 및 내용에 대하여 설명하시오.\n(3) N스크린 시장 관련 사용자 및 정책 관점의 이슈에 대하여 설명하시오."
  },
@@ -12318,7 +12318,7 @@
  {
   "id": "k95-403",
   "period": "4교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "source": "95회 4교시",
   "text": "DB Refactoring에 대하여 다음 질문에 답하시오.\n(1) DB Smell에 대하여 설명하시오.\n(2) DB Refactoring 유형 및 절차에 대하여 설명하시오."
  },
@@ -12353,14 +12353,14 @@
  {
   "id": "k93-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "보안",
   "source": "93회 1교시",
   "text": "DDOS(Distributed Denial of Service) 공격의 유형을 설명하시오"
  },
  {
   "id": "k93-103",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "93회 1교시",
   "text": "이벤트 기반의 시스템 테스팅을 위한 record and replay기법을 설명하시오"
  },
@@ -12465,7 +12465,7 @@
  {
   "id": "k93-205",
   "period": "2교시",
-  "category": "신기술",
+  "category": "인공지능",
   "source": "93회 2교시",
   "text": "신경회로망은 어떠한 방법에 의하여 학습하는지 설명하시오"
  },
@@ -12521,7 +12521,7 @@
  {
   "id": "k93-401",
   "period": "4교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "93회 4교시",
   "text": "모바일 증강 현실(Mobile Augmented Reality System)을 설명하고 이 기술을 활용한 응용 내용을 설명하시오"
  },
@@ -12563,21 +12563,21 @@
  {
   "id": "k92-101",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "92회 1교시",
   "text": "모바일태그(Mobie Tag)를 설명하시오"
  },
  {
   "id": "k92-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "92회 1교시",
   "text": "그린코드(Green Code)를 설명하시오."
  },
  {
   "id": "k92-103",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "92회 1교시",
   "text": "2D 바코드의 종류 및 특징에 대하여 설명하시오."
  },
@@ -12591,21 +12591,21 @@
  {
   "id": "k92-105",
   "period": "1교시",
-  "category": "신기술",
+  "category": "보안",
   "source": "92회 1교시",
   "text": "SSL(Secure Socket Layer)의 작동원리에 대하여 설명하시오."
  },
  {
   "id": "k92-106",
   "period": "1교시",
-  "category": "신기술",
+  "category": "보안",
   "source": "92회 1교시",
   "text": "RPD(Recurrent Pattern Detection) 기술의 목적 및 작동방법에 대하여 설명하시오."
  },
  {
   "id": "k92-107",
   "period": "1교시",
-  "category": "신기술",
+  "category": "경영전략",
   "source": "92회 1교시",
   "text": "GITAMS(Government Information Technology Architecture Management System)의 운영 목적 및 구성내역을 설명하시오."
  },
@@ -12626,14 +12626,14 @@
  {
   "id": "k92-110",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "92회 1교시",
   "text": "마이크로 블로그(Micro BLOG)의 요소기술과 기업의 도입방안을 설명하시오."
  },
  {
   "id": "k92-111",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "source": "92회 1교시",
   "text": "LAS(Location Aware System) 기술의 종류 및 위치측정방식에 대하여 설명하시오."
  },
@@ -12661,7 +12661,7 @@
  {
   "id": "k92-202",
   "period": "2교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "92회 2교시",
   "text": "리스크 기반 테스팅을 설명하시오."
  },
@@ -12675,7 +12675,7 @@
  {
   "id": "k92-204",
   "period": "2교시",
-  "category": "신기술",
+  "category": "인공지능",
   "source": "92회 2교시",
   "text": "생체인식의 한 분야인 얼굴 인식시스템에 대하여 다음 질문에 답하시오.\n(1) 얼굴인식 시스템의 특징 및 인식 절차를 설명하시오.\n(2) 얼굴인식 알고리즘의 종류를 나열하고 비교분석 하시오."
  },
@@ -12773,14 +12773,14 @@
  {
   "id": "k92-406",
   "period": "4교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "source": "92회 4교시",
   "text": "아래와 같은 도서주문 시스템의 가상 시나리오에 대하여 다음 질문에 답하시오.\n(1) 위 시나리오의 ERD를 작성하시오.\n(2) 위 시나리오의 기능분해도를 작성하시오."
  },
  {
   "id": "k90-101",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "source": "90회 1교시",
   "text": "FMC(Fixed Mobile Convergence)에 대해 설명하시오."
  },
@@ -12808,14 +12808,14 @@
  {
   "id": "k90-105",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "source": "90회 1교시",
   "text": "풀 브라우징(Full Browsing)과 웹뷰어(Web Viewer)를 이용한 브라우징의 동작원리를 비교하여 설명하시오"
  },
  {
   "id": "k90-106",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "90회 1교시",
   "text": "DOM(Document Object Model)과 SAX(Simple API for XML)을 비교하여 설명하시오."
  },
@@ -12829,7 +12829,7 @@
  {
   "id": "k90-108",
   "period": "1교시",
-  "category": "신기술",
+  "category": "알고리즘",
   "source": "90회 1교시",
   "text": "“Factorial n\"을 구하는 재귀(Recursive) 알고리즘을 작성하시오.\n   (단, 프로그래밍 언어에는 제한이 없음, Factorial n(n!): n * (n-1) * (n-2) * ... * 1)"
  },
@@ -12878,7 +12878,7 @@
  {
   "id": "k90-202",
   "period": "2교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "90회 2교시",
   "text": "모바일 오픈마켓을 정의하고 여러 모바일 오픈마켓(애플의 앱스토어, 구글의 안드로이드 마켓 등)의 특징을 마켓 참여자의 관점에서 설명하시오."
  },
@@ -12913,7 +12913,7 @@
  {
   "id": "k90-301",
   "period": "3교시",
-  "category": "신기술",
+  "category": "보안",
   "source": "90회 3교시",
   "text": "디지털 콘텐츠 보호기술에 대하여 설명하시오."
  },
@@ -12983,14 +12983,14 @@
  {
   "id": "k90-405",
   "period": "4교시",
-  "category": "신기술",
+  "category": "알고리즘",
   "source": "90회 4교시",
   "text": "어느 기업이 의자와 탁자를 생산하는데 의자는 개당 7만원 이익이 발생하고 탁자는 개당 5만원의 이익이 발생한다. 목수는 총 2,400시간 이내로 일해야 하며 탁자를 만드는데 3시간, 의자를 만드는 데에는 4시간이 소요된다. 또한 페인트 전문가는 총 1,000시간 이내로 일해야 하는데 탁자를 칭하는 데에는 개당 2시간, 의자는 개당 1시간이 소요된다. 또한 의자는 450개 이하로 만들어야 하며, 탁자는 100개 이상 만들어야 한다. \n(1) 상기를 표현하는 LP(Linear Programming) 수식을 작성하시오\n(2) 상기를 좌표 도형으로 표현하고 가능영역(Feasible Region)을 도출하시오.\n(3) 최대이익을 산출하고 이때의 의자 개수, 탁자 개수를 산출하시오."
  },
  {
   "id": "k90-406",
   "period": "4교시",
-  "category": "신기술",
+  "category": "경영전략",
   "source": "90회 4교시",
   "text": "가상기업의 개념과 가상기업을 위한 정보기술을 설명하시오."
  },
@@ -13004,21 +13004,21 @@
  {
   "id": "k89-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "자료구조",
   "source": "89회 1교시",
   "text": "B-tree의 장점과 단점에 대해 설명하시오."
  },
  {
   "id": "k89-103",
   "period": "1교시",
-  "category": "신기술",
+  "category": "보안",
   "source": "89회 1교시",
   "text": "공개키 기반 구조(PKI)에 대해 설명하시오."
  },
  {
   "id": "k89-104",
   "period": "1교시",
-  "category": "신기술",
+  "category": "보안",
   "source": "89회 1교시",
   "text": "전자ID지갑 시스템에 대해 설명하시오."
  },
@@ -13032,28 +13032,28 @@
  {
   "id": "k89-106",
   "period": "1교시",
-  "category": "신기술",
+  "category": "알고리즘",
   "source": "89회 1교시",
   "text": "데이터를 압축할 경우의 장점과 단점에 대해 설명하시오."
  },
  {
   "id": "k89-107",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "source": "89회 1교시",
   "text": "인터넷 주소로 사용하는 ENUM(tElephone NUmber Mapping)에 대해 설명하시오."
  },
  {
   "id": "k89-108",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "89회 1교시",
   "text": "CCL(Creative Commons License)을 설명하시오."
  },
  {
   "id": "k89-109",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "89회 1교시",
   "text": "SaaS 에스크로우(Software as a Service Escrow)에 대해 설명하시오."
  },
@@ -13095,7 +13095,7 @@
  {
   "id": "k89-202",
   "period": "2교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "89회 2교시",
   "text": "OSS(0pen Source Software)에 대해 설명하시오."
  },
@@ -13109,7 +13109,7 @@
  {
   "id": "k89-204",
   "period": "2교시",
-  "category": "신기술",
+  "category": "운영체제",
   "source": "89회 2교시",
   "text": "데이터 Read, Write시에 블록(Block) 단위로 입출력을 하게 된다. 이 블록의 크기가 프로그램에 미치는 \n    영향에 대해 설명하시오."
  },
@@ -13144,7 +13144,7 @@
  {
   "id": "k89-303",
   "period": "3교시",
-  "category": "신기술",
+  "category": "경영전략",
   "source": "89회 3교시",
   "text": "그린(Green) IT 2.0에 대해 설명하시오."
  },
@@ -13158,7 +13158,7 @@
  {
   "id": "k89-305",
   "period": "3교시",
-  "category": "신기술",
+  "category": "경영전략",
   "source": "89회 3교시",
   "text": "우리나라 소프트웨어 산업구조를 시장구조, 기업역량 기업간 거래구조 측면에서 현황 및 문제점을 분석하고, \n    소프트웨어 산업구조의 선진화 방향에 대해 설명하시오."
  },
@@ -13193,7 +13193,7 @@
  {
   "id": "k89-404",
   "period": "4교시",
-  "category": "신기술",
+  "category": "보안",
   "source": "89회 4교시",
   "text": "최근 DDoS(Distributed Denial of Service) 공격으로 국가적인 혼란에 직면하였는데, 이런 DDoS 공격에 \n    대한 전용 방법 장비의 종류(두가지 방식)와 중가기적인 대첵에 대해 설명하시오."
  },
@@ -13221,14 +13221,14 @@
  {
   "id": "k87-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "알고리즘",
   "source": "87회 1교시",
   "text": "휴리스틱 알고리즘인 A*에 대해 설명하시오."
  },
  {
   "id": "k87-103",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "87회 1교시",
   "text": "PSP(Personal Software Process)에 대해 설명하시오."
  },
@@ -13249,7 +13249,7 @@
  {
   "id": "k87-106",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "87회 1교시",
   "text": "3D GIS(Geographic Information System)을 설명하시오."
  },
@@ -13270,14 +13270,14 @@
  {
   "id": "k87-109",
   "period": "1교시",
-  "category": "신기술",
+  "category": "경영전략",
   "source": "87회 1교시",
   "text": "COSO(Committee of Sponsoring Organization) 프레임워크에 대해 설명하시오."
  },
  {
   "id": "k87-110",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "87회 1교시",
   "text": "텔레매틱스 기반 컨버젼스 서비스의 요인 및 필요성을 소비자, 산업, 정책, 그리고\n기술로 구분하여 설명하시오."
  },
@@ -13291,7 +13291,7 @@
  {
   "id": "k87-112",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "87회 1교시",
   "text": "CPC(Cost Per Click)의 개념, 출현 배경과 향후 전망에 대해 설명하시오."
  },
@@ -13305,7 +13305,7 @@
  {
   "id": "k87-201",
   "period": "2교시",
-  "category": "신기술",
+  "category": "운영체제",
   "source": "87회 2교시",
   "text": "프로그램 병행성에 대해 다음 물음에 답하시오."
  },
@@ -13340,7 +13340,7 @@
  {
   "id": "k87-206",
   "period": "2교시",
-  "category": "신기술",
+  "category": "확률·통계",
   "source": "87회 2교시",
   "text": "다음 이산 확률 분포에 대해 물음에 답하시오."
  },
@@ -13375,7 +13375,7 @@
  {
   "id": "k87-305",
   "period": "3교시",
-  "category": "신기술",
+  "category": "알고리즘",
   "source": "87회 3교시",
   "text": "수치 해석 방법 중에서 수치미적분 해법에 대해 다음 물음에 답하시오."
  },
@@ -13389,7 +13389,7 @@
  {
   "id": "k87-401",
   "period": "4교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "87회 4교시",
   "text": "소프트웨어 시험에 대해 다음 물음에 답하시오.\n(1) 소프트웨어 시험의 개념을 기술하고 철저한 시험이 왜 어려운 지를\n      설명하시오.\n(2) 자료 흐름 시험과 구조적 시험과의 차이점을 설명하시오."
  },
@@ -13403,7 +13403,7 @@
  {
   "id": "k87-403",
   "period": "4교시",
-  "category": "신기술",
+  "category": "경영전략",
   "source": "87회 4교시",
   "text": "데이터를 관리, 운용하는 데 중요한 데이터 참조 모델에 대해 설명하시오."
  },
@@ -13417,7 +13417,7 @@
  {
   "id": "k87-405",
   "period": "4교시",
-  "category": "신기술",
+  "category": "경영전략",
   "source": "87회 4교시",
   "text": "그린 IT는 환경을 의미하는 녹색(Green)과 정보기술(IT)의 합성어로 신성장 산업으\n로 이슈가 되고 있다. 다음 물음에 답하시오.\n(1) 그린 IT의 개념과 범위, 이슈에 대해 설명하시오.\n(2) 그린 IT 도입 및 활성화를 위한 방안을 설명하시오."
  },
@@ -13459,7 +13459,7 @@
  {
   "id": "k86-105",
   "period": "1교시",
-  "category": "신기술",
+  "category": "컴퓨터구조",
   "source": "86회 1교시",
   "text": "USB(Universal Serial Bus) 3.0에 대해 설명하시오."
  },
@@ -13515,7 +13515,7 @@
  {
   "id": "k86-113",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "86회 1교시",
   "text": "1차원 Bar-Code의 심볼(Symbol)과 심볼로지(Symbology)를 설명하시오."
  },
@@ -13529,7 +13529,7 @@
  {
   "id": "k86-301",
   "period": "3교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "86회 3교시",
   "text": "소프트웨어 정형기술 검토(Formal Technical Review)의 중요성을 결함증폭모형을 예로 하여 설명하시오."
  },
@@ -13585,7 +13585,7 @@
  {
   "id": "k86-305",
   "period": "3교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "86회 3교시",
   "text": "소프트웨어 구조와 관련된 모듈성(Modularity)이란 무엇이며, 그것과 소프트웨어 개발 비용(Cost)과의 관계를 설명하시오."
  },
@@ -13648,7 +13648,7 @@
  {
   "id": "k84-101",
   "period": "1교시",
-  "category": "신기술",
+  "category": "보안",
   "source": "84회 1교시",
   "text": "1 허니팟(Honeypot)에 대하여 설명하시오."
  },
@@ -13662,14 +13662,14 @@
  {
   "id": "k84-103",
   "period": "1교시",
-  "category": "신기술",
+  "category": "보안",
   "source": "84회 1교시",
   "text": "3 아날로그컨텐츠 보호를 위한 Watermarking과 Fingerprinting기법을 비교 설명하시오."
  },
  {
   "id": "k84-104",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "source": "84회 1교시",
   "text": "4 버티컬포털(Vertical Portal)에 대하여 설명하시오."
  },
@@ -13725,7 +13725,7 @@
  {
   "id": "k84-112",
   "period": "1교시",
-  "category": "신기술",
+  "category": "컴퓨터구조",
   "source": "84회 1교시",
   "text": "12 SATA(Serial Advanced Technology Attachment)에 대하여 설명하시오."
  },
@@ -13739,7 +13739,7 @@
  {
   "id": "k84-201",
   "period": "2교시",
-  "category": "신기술",
+  "category": "컴퓨터구조",
   "source": "84회 2교시",
   "text": "1. 한 면에 읽기/쓰기가 가능한 2개의 디스크로 구성된 하드디스크의 물리적 구조를 제시하고, \n하드디스크에서 데이터를 읽고 쓰는 과정의 동작특성을 설명하시오."
  },
@@ -13809,7 +13809,7 @@
  {
   "id": "k84-305",
   "period": "3교시",
-  "category": "신기술",
+  "category": "알고리즘",
   "source": "84회 3교시",
   "text": "5. 다음 그래프에 Dijkstra가 제안한 최소비용(least-cost)경로설정 알고리즘이 적용되는 과정을 제시하시오. (그래프의 에지옆 숫자는 비용을 의미함)"
  },
@@ -13858,7 +13858,7 @@
  {
   "id": "k84-406",
   "period": "4교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "84회 4교시",
   "text": "6. 귀하는 차세대시스템 구축팀의 아키텍트다. SAD(Software Architecture Document)문서는 상세화단계(Elaboration Phase)까지는 골격이 갖추어져야 된다.  \n이 때 SAD문서에 포함되어야 할 항목들을 목차의 형태로 기술하시오."
  },
@@ -13879,7 +13879,7 @@
  {
   "id": "k83-103",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "83회 1교시",
   "text": "SaaS(Software as a Servive)의 개념을 설명하시오.\n   - 기출문제 중복"
  },
@@ -13900,7 +13900,7 @@
  {
   "id": "k83-106",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "83회 1교시",
   "text": "이벤트 기반의 시스템 테스팅을 위한 Record and Replay 기법에 대하여 설명하시오."
  },
@@ -13921,7 +13921,7 @@
  {
   "id": "k83-109",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "83회 1교시",
   "text": "Use Case Realization-Analysis에 대하여 설명하시오.\n   - 유스케이스(Use Case)와 유스케이스 실체화(Use Case Realization), 분석 기술.\n   - 액터와 시스템간의 관계를 서술함으로 실체화를 진행함\n   - Association: 관계\n   - Dependency: 수용 및 편입 \n   - Generation: 상속관계"
  },
@@ -13942,14 +13942,14 @@
  {
   "id": "k83-112",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "source": "83회 1교시",
   "text": "ISM(Industrial Science Medical)band 정의, 특징 및 활용분야 등에 대해서 설명하시오.\n- 주파수대역: 산업, 과학 및 의료용으로 할당된 대역."
  },
  {
   "id": "k83-113",
   "period": "1교시",
-  "category": "신기술",
+  "category": "보안",
   "source": "83회 1교시",
   "text": "I-PIN(Internet Personal Identification Number) 정의, 등장배경, 특징 및 활용분야에 대해서 설명하시오."
  },
@@ -14075,7 +14075,7 @@
  {
   "id": "k81-101",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "81회 1교시",
   "text": "공개소프트웨어(OSS)의 라이센스 모델 중 대표적인 GPL과 BSD의 개념을 비교 설명 하시오."
  },
@@ -14124,7 +14124,7 @@
  {
   "id": "k81-108",
   "period": "1교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "source": "81회 1교시",
   "text": "DBA(DataBase Administrator)의\n1) 정의,\n2) 주요 직무,\n3) 필요 기술,\n4) 주요 역할에 대하여 \n설명하시오"
  },
@@ -14285,7 +14285,7 @@
  {
   "id": "k81-406",
   "period": "4교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "81회 4교시",
   "text": "SaaS에 대하여 다음 질문에 답하시오.\n가. SaaS 의 개념을 설명하시오.\n나. SaaS 모델의 국내외 현황을 설명하시오.\n다. SaaS 를 적용하고 있는 대표적인 국내외 기업을 제시하고 설명하시오."
  },
@@ -14299,7 +14299,7 @@
  {
   "id": "k80-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "경영전략",
   "source": "80회 1교시",
   "text": "TRM/SP(Technical Reference Model/Standard Profile)."
  },
@@ -14313,7 +14313,7 @@
  {
   "id": "k80-104",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "source": "80회 1교시",
   "text": "DMB의 개념과 서비스"
  },
@@ -14341,28 +14341,28 @@
  {
   "id": "k80-108",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "80회 1교시",
   "text": "Software Metric"
  },
  {
   "id": "k80-109",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "source": "80회 1교시",
   "text": "소프트웨어 프로덕트라인에서 프로덕트라인공학의 개념과 장점"
  },
  {
   "id": "k80-110",
   "period": "1교시",
-  "category": "신기술",
+  "category": "확률·통계",
   "source": "80회 1교시",
   "text": "Monte Carlo Method"
  },
  {
   "id": "k80-111",
   "period": "1교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "source": "80회 1교시",
   "text": "중복투명성(Replication Transparency)."
  },
@@ -14397,7 +14397,7 @@
  {
   "id": "k80-204",
   "period": "2교시",
-  "category": "신기술",
+  "category": "알고리즘",
   "source": "80회 2교시",
   "text": "비선형방정식의 수치해법에 관해서 다음 물음에 답하시오.\n가. 비선형방정식의 수치해법의 의의를 기술하시오.\n나. 비선형방정식의 수치해법 중 Newton-Raphson 방법의 특징을 기술하시오.\n다. 초기값 X0=1 일때 ƒ(X) = X3 + 2X - 1 의 해를 Newton-Raphson방식으로 X1, X2 \n를 구하는 절차를 기술하시오."
  },
@@ -14418,14 +14418,14 @@
  {
   "id": "k80-301",
   "period": "3교시",
-  "category": "신기술",
+  "category": "컴퓨터구조",
   "source": "80회 3교시",
   "text": "두 개의 입력신호 A,B대소를 비교하여 결과를 출력하는 논리회로를 다음 질의에 \n따라서 기술하시오.\n가. 입력신호 A,B에 대해서 대소 비교(A>B)하여 출력 Z로 하는 진리표와 논리회로\n를 작성하는 절차를 기술하시오.(10점)\n나. 입력신호 A,B에 대해서 대소비교(A≥B)하여 출력 Z로 하는 진리표와 논리회로\n를 작성하는 절차를 기술하시오.(15점)"
  },
  {
   "id": "k80-302",
   "period": "3교시",
-  "category": "신기술",
+  "category": "경영전략",
   "source": "80회 3교시",
   "text": "기업내에서 운영중인 업무처리시스템(IBM의 메인프레임)을 유닉스(Unix) 시스템으\n로 전환을 검토하고 있다.\n가. 검토목적 및 필요성을 기술하시오.\n나. 주요기술적 검토사항을 기술하시오.\n다. 핵심성공요인(CSF: Critical Success Factor)에 대하여 실무적 관점에서 기 술\n하시오."
  },
@@ -14453,7 +14453,7 @@
  {
   "id": "k80-306",
   "period": "3교시",
-  "category": "신기술",
+  "category": "인공지능",
   "source": "80회 3교시",
   "text": "유전자(Genetic) 알고리즘의 특징, 절차,활용방법에 관해서 기술하시오."
  },
@@ -14520,7 +14520,7 @@
  {
   "id": "c116-103",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "116회 1교시",
   "round": "컴시응 116회",
   "track": "컴퓨터시스템응용",
@@ -14529,7 +14529,7 @@
  {
   "id": "c116-104",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "116회 1교시",
   "round": "컴시응 116회",
   "track": "컴퓨터시스템응용",
@@ -14547,7 +14547,7 @@
  {
   "id": "c116-106",
   "period": "1교시",
-  "category": "",
+  "category": "경영전략",
   "source": "116회 1교시",
   "round": "컴시응 116회",
   "track": "컴퓨터시스템응용",
@@ -14556,7 +14556,7 @@
  {
   "id": "c116-107",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "116회 1교시",
   "round": "컴시응 116회",
   "track": "컴퓨터시스템응용",
@@ -14574,7 +14574,7 @@
  {
   "id": "c116-109",
   "period": "1교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "source": "116회 1교시",
   "round": "컴시응 116회",
   "track": "컴퓨터시스템응용",
@@ -14592,7 +14592,7 @@
  {
   "id": "c116-111",
   "period": "1교시",
-  "category": "",
+  "category": "운영체제",
   "source": "116회 1교시",
   "round": "컴시응 116회",
   "track": "컴퓨터시스템응용",
@@ -14619,7 +14619,7 @@
  {
   "id": "c116-201",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "116회 2교시",
   "round": "컴시응 116회",
   "track": "컴퓨터시스템응용",
@@ -14637,7 +14637,7 @@
  {
   "id": "c116-203",
   "period": "2교시",
-  "category": "",
+  "category": "네트워크",
   "source": "116회 2교시",
   "round": "컴시응 116회",
   "track": "컴퓨터시스템응용",
@@ -14673,7 +14673,7 @@
  {
   "id": "c116-301",
   "period": "3교시",
-  "category": "",
+  "category": "네트워크",
   "source": "116회 3교시",
   "round": "컴시응 116회",
   "track": "컴퓨터시스템응용",
@@ -14682,7 +14682,7 @@
  {
   "id": "c116-302",
   "period": "3교시",
-  "category": "",
+  "category": "네트워크",
   "source": "116회 3교시",
   "round": "컴시응 116회",
   "track": "컴퓨터시스템응용",
@@ -14691,7 +14691,7 @@
  {
   "id": "c116-303",
   "period": "3교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "116회 3교시",
   "round": "컴시응 116회",
   "track": "컴퓨터시스템응용",
@@ -14700,7 +14700,7 @@
  {
   "id": "c116-304",
   "period": "3교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "116회 3교시",
   "round": "컴시응 116회",
   "track": "컴퓨터시스템응용",
@@ -14718,7 +14718,7 @@
  {
   "id": "c116-306",
   "period": "3교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "116회 3교시",
   "round": "컴시응 116회",
   "track": "컴퓨터시스템응용",
@@ -14754,7 +14754,7 @@
  {
   "id": "c116-404",
   "period": "4교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "116회 4교시",
   "round": "컴시응 116회",
   "track": "컴퓨터시스템응용",
@@ -14763,7 +14763,7 @@
  {
   "id": "c116-405",
   "period": "4교시",
-  "category": "",
+  "category": "네트워크",
   "source": "116회 4교시",
   "round": "컴시응 116회",
   "track": "컴퓨터시스템응용",
@@ -14772,7 +14772,7 @@
  {
   "id": "c116-406",
   "period": "4교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "116회 4교시",
   "round": "컴시응 116회",
   "track": "컴퓨터시스템응용",
@@ -14781,7 +14781,7 @@
  {
   "id": "c117-101",
   "period": "1교시",
-  "category": "",
+  "category": "경영전략",
   "source": "117회 1교시",
   "round": "컴시응 117회",
   "track": "컴퓨터시스템응용",
@@ -14790,7 +14790,7 @@
  {
   "id": "c117-102",
   "period": "1교시",
-  "category": "",
+  "category": "네트워크",
   "source": "117회 1교시",
   "round": "컴시응 117회",
   "track": "컴퓨터시스템응용",
@@ -14799,7 +14799,7 @@
  {
   "id": "c117-103",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "117회 1교시",
   "round": "컴시응 117회",
   "track": "컴퓨터시스템응용",
@@ -14808,7 +14808,7 @@
  {
   "id": "c117-104",
   "period": "1교시",
-  "category": "",
+  "category": "프로젝트관리",
   "source": "117회 1교시",
   "round": "컴시응 117회",
   "track": "컴퓨터시스템응용",
@@ -14817,7 +14817,7 @@
  {
   "id": "c117-105",
   "period": "1교시",
-  "category": "",
+  "category": "네트워크",
   "source": "117회 1교시",
   "round": "컴시응 117회",
   "track": "컴퓨터시스템응용",
@@ -14844,7 +14844,7 @@
  {
   "id": "c117-108",
   "period": "1교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "source": "117회 1교시",
   "round": "컴시응 117회",
   "track": "컴퓨터시스템응용",
@@ -14916,7 +14916,7 @@
  {
   "id": "c117-203",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "117회 2교시",
   "round": "컴시응 117회",
   "track": "컴퓨터시스템응용",
@@ -14925,7 +14925,7 @@
  {
   "id": "c117-204",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "117회 2교시",
   "round": "컴시응 117회",
   "track": "컴퓨터시스템응용",
@@ -14943,7 +14943,7 @@
  {
   "id": "c117-206",
   "period": "2교시",
-  "category": "",
+  "category": "보안",
   "source": "117회 2교시",
   "round": "컴시응 117회",
   "track": "컴퓨터시스템응용",
@@ -14952,7 +14952,7 @@
  {
   "id": "c117-301",
   "period": "3교시",
-  "category": "",
+  "category": "경영전략",
   "source": "117회 3교시",
   "round": "컴시응 117회",
   "track": "컴퓨터시스템응용",
@@ -14961,7 +14961,7 @@
  {
   "id": "c117-302",
   "period": "3교시",
-  "category": "",
+  "category": "보안",
   "source": "117회 3교시",
   "round": "컴시응 117회",
   "track": "컴퓨터시스템응용",
@@ -14970,7 +14970,7 @@
  {
   "id": "c117-303",
   "period": "3교시",
-  "category": "",
+  "category": "인공지능",
   "source": "117회 3교시",
   "round": "컴시응 117회",
   "track": "컴퓨터시스템응용",
@@ -14979,7 +14979,7 @@
  {
   "id": "c117-304",
   "period": "3교시",
-  "category": "",
+  "category": "네트워크",
   "source": "117회 3교시",
   "round": "컴시응 117회",
   "track": "컴퓨터시스템응용",
@@ -14988,7 +14988,7 @@
  {
   "id": "c117-305",
   "period": "3교시",
-  "category": "",
+  "category": "네트워크",
   "source": "117회 3교시",
   "round": "컴시응 117회",
   "track": "컴퓨터시스템응용",
@@ -15024,7 +15024,7 @@
  {
   "id": "c119-103",
   "period": "1교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "source": "119회 1교시",
   "round": "컴시응 119회",
   "track": "컴퓨터시스템응용",
@@ -15042,7 +15042,7 @@
  {
   "id": "c119-105",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "119회 1교시",
   "round": "컴시응 119회",
   "track": "컴퓨터시스템응용",
@@ -15051,7 +15051,7 @@
  {
   "id": "c119-106",
   "period": "1교시",
-  "category": "",
+  "category": "운영체제",
   "source": "119회 1교시",
   "round": "컴시응 119회",
   "track": "컴퓨터시스템응용",
@@ -15078,7 +15078,7 @@
  {
   "id": "c119-109",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "119회 1교시",
   "round": "컴시응 119회",
   "track": "컴퓨터시스템응용",
@@ -15087,7 +15087,7 @@
  {
   "id": "c119-110",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "119회 1교시",
   "round": "컴시응 119회",
   "track": "컴퓨터시스템응용",
@@ -15096,7 +15096,7 @@
  {
   "id": "c119-111",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "119회 1교시",
   "round": "컴시응 119회",
   "track": "컴퓨터시스템응용",
@@ -15114,7 +15114,7 @@
  {
   "id": "c119-113",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "119회 1교시",
   "round": "컴시응 119회",
   "track": "컴퓨터시스템응용",
@@ -15123,7 +15123,7 @@
  {
   "id": "c119-201",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "119회 2교시",
   "round": "컴시응 119회",
   "track": "컴퓨터시스템응용",
@@ -15141,7 +15141,7 @@
  {
   "id": "c119-203",
   "period": "2교시",
-  "category": "",
+  "category": "인공지능",
   "source": "119회 2교시",
   "round": "컴시응 119회",
   "track": "컴퓨터시스템응용",
@@ -15159,7 +15159,7 @@
  {
   "id": "c119-205",
   "period": "2교시",
-  "category": "",
+  "category": "경영전략",
   "source": "119회 2교시",
   "round": "컴시응 119회",
   "track": "컴퓨터시스템응용",
@@ -15168,7 +15168,7 @@
  {
   "id": "c119-206",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "119회 2교시",
   "round": "컴시응 119회",
   "track": "컴퓨터시스템응용",
@@ -15177,7 +15177,7 @@
  {
   "id": "c119-301",
   "period": "3교시",
-  "category": "",
+  "category": "알고리즘",
   "source": "119회 3교시",
   "round": "컴시응 119회",
   "track": "컴퓨터시스템응용",
@@ -15195,7 +15195,7 @@
  {
   "id": "c119-303",
   "period": "3교시",
-  "category": "",
+  "category": "보안",
   "source": "119회 3교시",
   "round": "컴시응 119회",
   "track": "컴퓨터시스템응용",
@@ -15204,7 +15204,7 @@
  {
   "id": "c119-304",
   "period": "3교시",
-  "category": "",
+  "category": "경영전략",
   "source": "119회 3교시",
   "round": "컴시응 119회",
   "track": "컴퓨터시스템응용",
@@ -15222,7 +15222,7 @@
  {
   "id": "c119-306",
   "period": "3교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "source": "119회 3교시",
   "round": "컴시응 119회",
   "track": "컴퓨터시스템응용",
@@ -15231,7 +15231,7 @@
  {
   "id": "c120-101",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "120회 1교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15240,7 +15240,7 @@
  {
   "id": "c120-102",
   "period": "1교시",
-  "category": "",
+  "category": "인공지능",
   "source": "120회 1교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15249,7 +15249,7 @@
  {
   "id": "c120-103",
   "period": "1교시",
-  "category": "",
+  "category": "네트워크",
   "source": "120회 1교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15258,7 +15258,7 @@
  {
   "id": "c120-104",
   "period": "1교시",
-  "category": "",
+  "category": "데이터베이스",
   "source": "120회 1교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15267,7 +15267,7 @@
  {
   "id": "c120-105",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "120회 1교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15276,7 +15276,7 @@
  {
   "id": "c120-106",
   "period": "1교시",
-  "category": "",
+  "category": "네트워크",
   "source": "120회 1교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15294,7 +15294,7 @@
  {
   "id": "c120-108",
   "period": "1교시",
-  "category": "",
+  "category": "네트워크",
   "source": "120회 1교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15303,7 +15303,7 @@
  {
   "id": "c120-109",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "120회 1교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15312,7 +15312,7 @@
  {
   "id": "c120-110",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "120회 1교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15339,7 +15339,7 @@
  {
   "id": "c120-113",
   "period": "1교시",
-  "category": "",
+  "category": "네트워크",
   "source": "120회 1교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15357,7 +15357,7 @@
  {
   "id": "c120-202",
   "period": "2교시",
-  "category": "",
+  "category": "데이터베이스",
   "source": "120회 2교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15366,7 +15366,7 @@
  {
   "id": "c120-203",
   "period": "2교시",
-  "category": "",
+  "category": "보안",
   "source": "120회 2교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15411,7 +15411,7 @@
  {
   "id": "c120-302",
   "period": "3교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "120회 3교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15420,7 +15420,7 @@
  {
   "id": "c120-303",
   "period": "3교시",
-  "category": "",
+  "category": "네트워크",
   "source": "120회 3교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15438,7 +15438,7 @@
  {
   "id": "c120-305",
   "period": "3교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "120회 3교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15447,7 +15447,7 @@
  {
   "id": "c120-306",
   "period": "3교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "120회 3교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15456,7 +15456,7 @@
  {
   "id": "c120-401",
   "period": "4교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "120회 4교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15474,7 +15474,7 @@
  {
   "id": "c120-403",
   "period": "4교시",
-  "category": "",
+  "category": "보안",
   "source": "120회 4교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15483,7 +15483,7 @@
  {
   "id": "c120-404",
   "period": "4교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "source": "120회 4교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15492,7 +15492,7 @@
  {
   "id": "c120-405",
   "period": "4교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "120회 4교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15501,7 +15501,7 @@
  {
   "id": "c120-406",
   "period": "4교시",
-  "category": "",
+  "category": "네트워크",
   "source": "120회 4교시",
   "round": "컴시응 120회",
   "track": "컴퓨터시스템응용",
@@ -15510,7 +15510,7 @@
  {
   "id": "c122-101",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "122회 1교시",
   "round": "컴시응 122회",
   "track": "컴퓨터시스템응용",
@@ -15537,7 +15537,7 @@
  {
   "id": "c122-104",
   "period": "1교시",
-  "category": "",
+  "category": "네트워크",
   "source": "122회 1교시",
   "round": "컴시응 122회",
   "track": "컴퓨터시스템응용",
@@ -15555,7 +15555,7 @@
  {
   "id": "c122-106",
   "period": "1교시",
-  "category": "",
+  "category": "데이터베이스",
   "source": "122회 1교시",
   "round": "컴시응 122회",
   "track": "컴퓨터시스템응용",
@@ -15564,7 +15564,7 @@
  {
   "id": "c122-107",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "122회 1교시",
   "round": "컴시응 122회",
   "track": "컴퓨터시스템응용",
@@ -15573,7 +15573,7 @@
  {
   "id": "c122-108",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "122회 1교시",
   "round": "컴시응 122회",
   "track": "컴퓨터시스템응용",
@@ -15591,7 +15591,7 @@
  {
   "id": "c122-110",
   "period": "1교시",
-  "category": "",
+  "category": "인공지능",
   "source": "122회 1교시",
   "round": "컴시응 122회",
   "track": "컴퓨터시스템응용",
@@ -15618,7 +15618,7 @@
  {
   "id": "c122-113",
   "period": "1교시",
-  "category": "",
+  "category": "인공지능",
   "source": "122회 1교시",
   "round": "컴시응 122회",
   "track": "컴퓨터시스템응용",
@@ -15627,7 +15627,7 @@
  {
   "id": "c122-201",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "122회 2교시",
   "round": "컴시응 122회",
   "track": "컴퓨터시스템응용",
@@ -15645,7 +15645,7 @@
  {
   "id": "c122-203",
   "period": "2교시",
-  "category": "",
+  "category": "데이터베이스",
   "source": "122회 2교시",
   "round": "컴시응 122회",
   "track": "컴퓨터시스템응용",
@@ -15654,7 +15654,7 @@
  {
   "id": "c122-204",
   "period": "2교시",
-  "category": "",
+  "category": "데이터베이스",
   "source": "122회 2교시",
   "round": "컴시응 122회",
   "track": "컴퓨터시스템응용",
@@ -15672,7 +15672,7 @@
  {
   "id": "c122-206",
   "period": "2교시",
-  "category": "",
+  "category": "인공지능",
   "source": "122회 2교시",
   "round": "컴시응 122회",
   "track": "컴퓨터시스템응용",
@@ -15681,7 +15681,7 @@
  {
   "id": "c122-301",
   "period": "3교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "source": "122회 3교시",
   "round": "컴시응 122회",
   "track": "컴퓨터시스템응용",
@@ -15690,7 +15690,7 @@
  {
   "id": "c122-302",
   "period": "3교시",
-  "category": "",
+  "category": "보안",
   "source": "122회 3교시",
   "round": "컴시응 122회",
   "track": "컴퓨터시스템응용",
@@ -15726,7 +15726,7 @@
  {
   "id": "c122-306",
   "period": "3교시",
-  "category": "",
+  "category": "인공지능",
   "source": "122회 3교시",
   "round": "컴시응 122회",
   "track": "컴퓨터시스템응용",
@@ -15753,7 +15753,7 @@
  {
   "id": "c122-403",
   "period": "4교시",
-  "category": "",
+  "category": "네트워크",
   "source": "122회 4교시",
   "round": "컴시응 122회",
   "track": "컴퓨터시스템응용",
@@ -15762,7 +15762,7 @@
  {
   "id": "c122-404",
   "period": "4교시",
-  "category": "",
+  "category": "보안",
   "source": "122회 4교시",
   "round": "컴시응 122회",
   "track": "컴퓨터시스템응용",
@@ -15789,7 +15789,7 @@
  {
   "id": "c123-101",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "123회 1교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -15798,7 +15798,7 @@
  {
   "id": "c123-102",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "123회 1교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -15807,7 +15807,7 @@
  {
   "id": "c123-103",
   "period": "1교시",
-  "category": "",
+  "category": "운영체제",
   "source": "123회 1교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -15816,7 +15816,7 @@
  {
   "id": "c123-104",
   "period": "1교시",
-  "category": "",
+  "category": "인공지능",
   "source": "123회 1교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -15825,7 +15825,7 @@
  {
   "id": "c123-105",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "123회 1교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -15852,7 +15852,7 @@
  {
   "id": "c123-108",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "123회 1교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -15870,7 +15870,7 @@
  {
   "id": "c123-110",
   "period": "1교시",
-  "category": "",
+  "category": "경영전략",
   "source": "123회 1교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -15888,7 +15888,7 @@
  {
   "id": "c123-112",
   "period": "1교시",
-  "category": "",
+  "category": "경영전략",
   "source": "123회 1교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -15897,7 +15897,7 @@
  {
   "id": "c123-113",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "123회 1교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -15915,7 +15915,7 @@
  {
   "id": "c123-202",
   "period": "2교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "123회 2교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -15924,7 +15924,7 @@
  {
   "id": "c123-203",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "123회 2교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -15933,7 +15933,7 @@
  {
   "id": "c123-204",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "123회 2교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -15942,7 +15942,7 @@
  {
   "id": "c123-205",
   "period": "2교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "source": "123회 2교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -15951,7 +15951,7 @@
  {
   "id": "c123-206",
   "period": "2교시",
-  "category": "",
+  "category": "경영전략",
   "source": "123회 2교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -15978,7 +15978,7 @@
  {
   "id": "c123-303",
   "period": "3교시",
-  "category": "",
+  "category": "네트워크",
   "source": "123회 3교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -15987,7 +15987,7 @@
  {
   "id": "c123-304",
   "period": "3교시",
-  "category": "",
+  "category": "네트워크",
   "source": "123회 3교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -15996,7 +15996,7 @@
  {
   "id": "c123-305",
   "period": "3교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "source": "123회 3교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -16005,7 +16005,7 @@
  {
   "id": "c123-306",
   "period": "3교시",
-  "category": "",
+  "category": "경영전략",
   "source": "123회 3교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -16023,7 +16023,7 @@
  {
   "id": "c123-402",
   "period": "4교시",
-  "category": "",
+  "category": "보안",
   "source": "123회 4교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -16032,7 +16032,7 @@
  {
   "id": "c123-403",
   "period": "4교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "123회 4교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -16041,7 +16041,7 @@
  {
   "id": "c123-404",
   "period": "4교시",
-  "category": "",
+  "category": "보안",
   "source": "123회 4교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -16059,7 +16059,7 @@
  {
   "id": "c123-406",
   "period": "4교시",
-  "category": "",
+  "category": "경영전략",
   "source": "123회 4교시",
   "round": "컴시응 123회",
   "track": "컴퓨터시스템응용",
@@ -16086,7 +16086,7 @@
  {
   "id": "c125-103",
   "period": "1교시",
-  "category": "",
+  "category": "운영체제",
   "source": "125회 1교시",
   "round": "컴시응 125회",
   "track": "컴퓨터시스템응용",
@@ -16095,7 +16095,7 @@
  {
   "id": "c125-104",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "125회 1교시",
   "round": "컴시응 125회",
   "track": "컴퓨터시스템응용",
@@ -16104,7 +16104,7 @@
  {
   "id": "c125-105",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "125회 1교시",
   "round": "컴시응 125회",
   "track": "컴퓨터시스템응용",
@@ -16131,7 +16131,7 @@
  {
   "id": "c125-108",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "125회 1교시",
   "round": "컴시응 125회",
   "track": "컴퓨터시스템응용",
@@ -16140,7 +16140,7 @@
  {
   "id": "c125-109",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "125회 1교시",
   "round": "컴시응 125회",
   "track": "컴퓨터시스템응용",
@@ -16176,7 +16176,7 @@
  {
   "id": "c125-113",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "125회 1교시",
   "round": "컴시응 125회",
   "track": "컴퓨터시스템응용",
@@ -16266,7 +16266,7 @@
  {
   "id": "c125-304",
   "period": "3교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "125회 3교시",
   "round": "컴시응 125회",
   "track": "컴퓨터시스템응용",
@@ -16302,7 +16302,7 @@
  {
   "id": "c125-402",
   "period": "4교시",
-  "category": "",
+  "category": "네트워크",
   "source": "125회 4교시",
   "round": "컴시응 125회",
   "track": "컴퓨터시스템응용",
@@ -16320,7 +16320,7 @@
  {
   "id": "c125-404",
   "period": "4교시",
-  "category": "",
+  "category": "운영체제",
   "source": "125회 4교시",
   "round": "컴시응 125회",
   "track": "컴퓨터시스템응용",
@@ -16338,7 +16338,7 @@
  {
   "id": "c125-406",
   "period": "4교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "125회 4교시",
   "round": "컴시응 125회",
   "track": "컴퓨터시스템응용",
@@ -16347,7 +16347,7 @@
  {
   "id": "c126-101",
   "period": "1교시",
-  "category": "",
+  "category": "네트워크",
   "source": "126회 1교시",
   "round": "컴시응 126회",
   "track": "컴퓨터시스템응용",
@@ -16365,7 +16365,7 @@
  {
   "id": "c126-103",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "126회 1교시",
   "round": "컴시응 126회",
   "track": "컴퓨터시스템응용",
@@ -16374,7 +16374,7 @@
  {
   "id": "c126-104",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "126회 1교시",
   "round": "컴시응 126회",
   "track": "컴퓨터시스템응용",
@@ -16410,7 +16410,7 @@
  {
   "id": "c126-108",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "126회 1교시",
   "round": "컴시응 126회",
   "track": "컴퓨터시스템응용",
@@ -16437,7 +16437,7 @@
  {
   "id": "c126-111",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "126회 1교시",
   "round": "컴시응 126회",
   "track": "컴퓨터시스템응용",
@@ -16446,7 +16446,7 @@
  {
   "id": "c126-112",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "126회 1교시",
   "round": "컴시응 126회",
   "track": "컴퓨터시스템응용",
@@ -16464,7 +16464,7 @@
  {
   "id": "c126-201",
   "period": "2교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "126회 2교시",
   "round": "컴시응 126회",
   "track": "컴퓨터시스템응용",
@@ -16473,7 +16473,7 @@
  {
   "id": "c126-202",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "126회 2교시",
   "round": "컴시응 126회",
   "track": "컴퓨터시스템응용",
@@ -16482,7 +16482,7 @@
  {
   "id": "c126-203",
   "period": "2교시",
-  "category": "",
+  "category": "인공지능",
   "source": "126회 2교시",
   "round": "컴시응 126회",
   "track": "컴퓨터시스템응용",
@@ -16500,7 +16500,7 @@
  {
   "id": "c126-205",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "126회 2교시",
   "round": "컴시응 126회",
   "track": "컴퓨터시스템응용",
@@ -16518,7 +16518,7 @@
  {
   "id": "c126-301",
   "period": "3교시",
-  "category": "",
+  "category": "보안",
   "source": "126회 3교시",
   "round": "컴시응 126회",
   "track": "컴퓨터시스템응용",
@@ -16545,7 +16545,7 @@
  {
   "id": "c126-304",
   "period": "3교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "126회 3교시",
   "round": "컴시응 126회",
   "track": "컴퓨터시스템응용",
@@ -16581,7 +16581,7 @@
  {
   "id": "c126-402",
   "period": "4교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "126회 4교시",
   "round": "컴시응 126회",
   "track": "컴퓨터시스템응용",
@@ -16590,7 +16590,7 @@
  {
   "id": "c126-403",
   "period": "4교시",
-  "category": "",
+  "category": "경영전략",
   "source": "126회 4교시",
   "round": "컴시응 126회",
   "track": "컴퓨터시스템응용",
@@ -16608,7 +16608,7 @@
  {
   "id": "c126-405",
   "period": "4교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "126회 4교시",
   "round": "컴시응 126회",
   "track": "컴퓨터시스템응용",
@@ -16626,7 +16626,7 @@
  {
   "id": "c128-101",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "128회 1교시",
   "round": "컴시응 128회",
   "track": "컴퓨터시스템응용",
@@ -16635,7 +16635,7 @@
  {
   "id": "c128-102",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "128회 1교시",
   "round": "컴시응 128회",
   "track": "컴퓨터시스템응용",
@@ -16644,7 +16644,7 @@
  {
   "id": "c128-103",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "128회 1교시",
   "round": "컴시응 128회",
   "track": "컴퓨터시스템응용",
@@ -16653,7 +16653,7 @@
  {
   "id": "c128-104",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "128회 1교시",
   "round": "컴시응 128회",
   "track": "컴퓨터시스템응용",
@@ -16662,7 +16662,7 @@
  {
   "id": "c128-105",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "128회 1교시",
   "round": "컴시응 128회",
   "track": "컴퓨터시스템응용",
@@ -16689,7 +16689,7 @@
  {
   "id": "c128-108",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "128회 1교시",
   "round": "컴시응 128회",
   "track": "컴퓨터시스템응용",
@@ -16716,7 +16716,7 @@
  {
   "id": "c128-111",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "128회 1교시",
   "round": "컴시응 128회",
   "track": "컴퓨터시스템응용",
@@ -16752,7 +16752,7 @@
  {
   "id": "c128-202",
   "period": "2교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "128회 2교시",
   "round": "컴시응 128회",
   "track": "컴퓨터시스템응용",
@@ -16761,7 +16761,7 @@
  {
   "id": "c128-203",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "128회 2교시",
   "round": "컴시응 128회",
   "track": "컴퓨터시스템응용",
@@ -16779,7 +16779,7 @@
  {
   "id": "c128-205",
   "period": "2교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "source": "128회 2교시",
   "round": "컴시응 128회",
   "track": "컴퓨터시스템응용",
@@ -16806,7 +16806,7 @@
  {
   "id": "c128-302",
   "period": "3교시",
-  "category": "",
+  "category": "네트워크",
   "source": "128회 3교시",
   "round": "컴시응 128회",
   "track": "컴퓨터시스템응용",
@@ -16824,7 +16824,7 @@
  {
   "id": "c128-304",
   "period": "3교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "128회 3교시",
   "round": "컴시응 128회",
   "track": "컴퓨터시스템응용",
@@ -16878,7 +16878,7 @@
  {
   "id": "c128-404",
   "period": "4교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "source": "128회 4교시",
   "round": "컴시응 128회",
   "track": "컴퓨터시스템응용",
@@ -16887,7 +16887,7 @@
  {
   "id": "c128-405",
   "period": "4교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "128회 4교시",
   "round": "컴시응 128회",
   "track": "컴퓨터시스템응용",
@@ -16896,7 +16896,7 @@
  {
   "id": "c128-406",
   "period": "4교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "128회 4교시",
   "round": "컴시응 128회",
   "track": "컴퓨터시스템응용",
@@ -16905,7 +16905,7 @@
  {
   "id": "c129-101",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "129회 1교시",
   "round": "컴시응 129회",
   "track": "컴퓨터시스템응용",
@@ -16914,7 +16914,7 @@
  {
   "id": "c129-102",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "129회 1교시",
   "round": "컴시응 129회",
   "track": "컴퓨터시스템응용",
@@ -16923,7 +16923,7 @@
  {
   "id": "c129-103",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "129회 1교시",
   "round": "컴시응 129회",
   "track": "컴퓨터시스템응용",
@@ -16932,7 +16932,7 @@
  {
   "id": "c129-104",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "129회 1교시",
   "round": "컴시응 129회",
   "track": "컴퓨터시스템응용",
@@ -16941,7 +16941,7 @@
  {
   "id": "c129-105",
   "period": "1교시",
-  "category": "",
+  "category": "프로젝트관리",
   "source": "129회 1교시",
   "round": "컴시응 129회",
   "track": "컴퓨터시스템응용",
@@ -16950,7 +16950,7 @@
  {
   "id": "c129-106",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "129회 1교시",
   "round": "컴시응 129회",
   "track": "컴퓨터시스템응용",
@@ -16986,7 +16986,7 @@
  {
   "id": "c129-110",
   "period": "1교시",
-  "category": "",
+  "category": "네트워크",
   "source": "129회 1교시",
   "round": "컴시응 129회",
   "track": "컴퓨터시스템응용",
@@ -17031,7 +17031,7 @@
  {
   "id": "c129-202",
   "period": "2교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "129회 2교시",
   "round": "컴시응 129회",
   "track": "컴퓨터시스템응용",
@@ -17040,7 +17040,7 @@
  {
   "id": "c129-203",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "129회 2교시",
   "round": "컴시응 129회",
   "track": "컴퓨터시스템응용",
@@ -17112,7 +17112,7 @@
  {
   "id": "c129-305",
   "period": "3교시",
-  "category": "",
+  "category": "네트워크",
   "source": "129회 3교시",
   "round": "컴시응 129회",
   "track": "컴퓨터시스템응용",
@@ -17121,7 +17121,7 @@
  {
   "id": "c129-306",
   "period": "3교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "129회 3교시",
   "round": "컴시응 129회",
   "track": "컴퓨터시스템응용",
@@ -17139,7 +17139,7 @@
  {
   "id": "c129-402",
   "period": "4교시",
-  "category": "",
+  "category": "네트워크",
   "source": "129회 4교시",
   "round": "컴시응 129회",
   "track": "컴퓨터시스템응용",
@@ -17148,7 +17148,7 @@
  {
   "id": "c129-403",
   "period": "4교시",
-  "category": "",
+  "category": "보안",
   "source": "129회 4교시",
   "round": "컴시응 129회",
   "track": "컴퓨터시스템응용",
@@ -17166,7 +17166,7 @@
  {
   "id": "c129-405",
   "period": "4교시",
-  "category": "",
+  "category": "경영전략",
   "source": "129회 4교시",
   "round": "컴시응 129회",
   "track": "컴퓨터시스템응용",
@@ -17184,7 +17184,7 @@
  {
   "id": "c131-101",
   "period": "1교시",
-  "category": "",
+  "category": "확률·통계",
   "source": "131회 1교시",
   "round": "컴시응 131회",
   "track": "컴퓨터시스템응용",
@@ -17193,7 +17193,7 @@
  {
   "id": "c131-102",
   "period": "1교시",
-  "category": "",
+  "category": "네트워크",
   "source": "131회 1교시",
   "round": "컴시응 131회",
   "track": "컴퓨터시스템응용",
@@ -17202,7 +17202,7 @@
  {
   "id": "c131-103",
   "period": "1교시",
-  "category": "",
+  "category": "인공지능",
   "source": "131회 1교시",
   "round": "컴시응 131회",
   "track": "컴퓨터시스템응용",
@@ -17229,7 +17229,7 @@
  {
   "id": "c131-106",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "131회 1교시",
   "round": "컴시응 131회",
   "track": "컴퓨터시스템응용",
@@ -17274,7 +17274,7 @@
  {
   "id": "c131-111",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "131회 1교시",
   "round": "컴시응 131회",
   "track": "컴퓨터시스템응용",
@@ -17283,7 +17283,7 @@
  {
   "id": "c131-112",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "131회 1교시",
   "round": "컴시응 131회",
   "track": "컴퓨터시스템응용",
@@ -17292,7 +17292,7 @@
  {
   "id": "c131-113",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "131회 1교시",
   "round": "컴시응 131회",
   "track": "컴퓨터시스템응용",
@@ -17319,7 +17319,7 @@
  {
   "id": "c131-203",
   "period": "2교시",
-  "category": "",
+  "category": "데이터베이스",
   "source": "131회 2교시",
   "round": "컴시응 131회",
   "track": "컴퓨터시스템응용",
@@ -17337,7 +17337,7 @@
  {
   "id": "c131-205",
   "period": "2교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "131회 2교시",
   "round": "컴시응 131회",
   "track": "컴퓨터시스템응용",
@@ -17346,7 +17346,7 @@
  {
   "id": "c131-206",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "131회 2교시",
   "round": "컴시응 131회",
   "track": "컴퓨터시스템응용",
@@ -17364,7 +17364,7 @@
  {
   "id": "c131-302",
   "period": "3교시",
-  "category": "",
+  "category": "보안",
   "source": "131회 3교시",
   "round": "컴시응 131회",
   "track": "컴퓨터시스템응용",
@@ -17391,7 +17391,7 @@
  {
   "id": "c131-305",
   "period": "3교시",
-  "category": "",
+  "category": "보안",
   "source": "131회 3교시",
   "round": "컴시응 131회",
   "track": "컴퓨터시스템응용",
@@ -17409,7 +17409,7 @@
  {
   "id": "c131-401",
   "period": "4교시",
-  "category": "",
+  "category": "인공지능",
   "source": "131회 4교시",
   "round": "컴시응 131회",
   "track": "컴퓨터시스템응용",
@@ -17418,7 +17418,7 @@
  {
   "id": "c131-402",
   "period": "4교시",
-  "category": "",
+  "category": "경영전략",
   "source": "131회 4교시",
   "round": "컴시응 131회",
   "track": "컴퓨터시스템응용",
@@ -17472,7 +17472,7 @@
  {
   "id": "c134-102",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "134회 1교시",
   "round": "컴시응 134회",
   "track": "컴퓨터시스템응용",
@@ -17490,7 +17490,7 @@
  {
   "id": "c134-104",
   "period": "1교시",
-  "category": "",
+  "category": "네트워크",
   "source": "134회 1교시",
   "round": "컴시응 134회",
   "track": "컴퓨터시스템응용",
@@ -17508,7 +17508,7 @@
  {
   "id": "c134-106",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "134회 1교시",
   "round": "컴시응 134회",
   "track": "컴퓨터시스템응용",
@@ -17526,7 +17526,7 @@
  {
   "id": "c134-108",
   "period": "1교시",
-  "category": "",
+  "category": "인공지능",
   "source": "134회 1교시",
   "round": "컴시응 134회",
   "track": "컴퓨터시스템응용",
@@ -17544,7 +17544,7 @@
  {
   "id": "c134-110",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "134회 1교시",
   "round": "컴시응 134회",
   "track": "컴퓨터시스템응용",
@@ -17553,7 +17553,7 @@
  {
   "id": "c134-111",
   "period": "1교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "source": "134회 1교시",
   "round": "컴시응 134회",
   "track": "컴퓨터시스템응용",
@@ -17562,7 +17562,7 @@
  {
   "id": "c134-112",
   "period": "1교시",
-  "category": "",
+  "category": "경영전략",
   "source": "134회 1교시",
   "round": "컴시응 134회",
   "track": "컴퓨터시스템응용",
@@ -17580,7 +17580,7 @@
  {
   "id": "c134-201",
   "period": "2교시",
-  "category": "",
+  "category": "네트워크",
   "source": "134회 2교시",
   "round": "컴시응 134회",
   "track": "컴퓨터시스템응용",
@@ -17652,7 +17652,7 @@
  {
   "id": "c134-303",
   "period": "3교시",
-  "category": "",
+  "category": "네트워크",
   "source": "134회 3교시",
   "round": "컴시응 134회",
   "track": "컴퓨터시스템응용",
@@ -17679,7 +17679,7 @@
  {
   "id": "c134-306",
   "period": "3교시",
-  "category": "",
+  "category": "보안",
   "source": "134회 3교시",
   "round": "컴시응 134회",
   "track": "컴퓨터시스템응용",
@@ -17706,7 +17706,7 @@
  {
   "id": "c134-403",
   "period": "4교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "134회 4교시",
   "round": "컴시응 134회",
   "track": "컴퓨터시스템응용",
@@ -17724,7 +17724,7 @@
  {
   "id": "c134-405",
   "period": "4교시",
-  "category": "",
+  "category": "네트워크",
   "source": "134회 4교시",
   "round": "컴시응 134회",
   "track": "컴퓨터시스템응용",
@@ -17751,7 +17751,7 @@
  {
   "id": "c135-102",
   "period": "1교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "source": "135회 1교시",
   "round": "컴시응 135회",
   "track": "컴퓨터시스템응용",
@@ -17769,7 +17769,7 @@
  {
   "id": "c135-104",
   "period": "1교시",
-  "category": "",
+  "category": "인공지능",
   "source": "135회 1교시",
   "round": "컴시응 135회",
   "track": "컴퓨터시스템응용",
@@ -17796,7 +17796,7 @@
  {
   "id": "c135-107",
   "period": "1교시",
-  "category": "",
+  "category": "네트워크",
   "source": "135회 1교시",
   "round": "컴시응 135회",
   "track": "컴퓨터시스템응용",
@@ -17850,7 +17850,7 @@
  {
   "id": "c135-113",
   "period": "1교시",
-  "category": "",
+  "category": "네트워크",
   "source": "135회 1교시",
   "round": "컴시응 135회",
   "track": "컴퓨터시스템응용",
@@ -17868,7 +17868,7 @@
  {
   "id": "c135-202",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "135회 2교시",
   "round": "컴시응 135회",
   "track": "컴퓨터시스템응용",
@@ -17913,7 +17913,7 @@
  {
   "id": "c135-301",
   "period": "3교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "135회 3교시",
   "round": "컴시응 135회",
   "track": "컴퓨터시스템응용",
@@ -17922,7 +17922,7 @@
  {
   "id": "c135-302",
   "period": "3교시",
-  "category": "",
+  "category": "보안",
   "source": "135회 3교시",
   "round": "컴시응 135회",
   "track": "컴퓨터시스템응용",
@@ -17949,7 +17949,7 @@
  {
   "id": "c135-305",
   "period": "3교시",
-  "category": "",
+  "category": "보안",
   "source": "135회 3교시",
   "round": "컴시응 135회",
   "track": "컴퓨터시스템응용",
@@ -18021,7 +18021,7 @@
  {
   "id": "c137-101",
   "period": "1교시",
-  "category": "",
+  "category": "네트워크",
   "source": "137회 1교시",
   "round": "컴시응 137회",
   "track": "컴퓨터시스템응용",
@@ -18039,7 +18039,7 @@
  {
   "id": "c137-103",
   "period": "1교시",
-  "category": "",
+  "category": "네트워크",
   "source": "137회 1교시",
   "round": "컴시응 137회",
   "track": "컴퓨터시스템응용",
@@ -18048,7 +18048,7 @@
  {
   "id": "c137-104",
   "period": "1교시",
-  "category": "",
+  "category": "경영전략",
   "source": "137회 1교시",
   "round": "컴시응 137회",
   "track": "컴퓨터시스템응용",
@@ -18057,7 +18057,7 @@
  {
   "id": "c137-105",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "137회 1교시",
   "round": "컴시응 137회",
   "track": "컴퓨터시스템응용",
@@ -18066,7 +18066,7 @@
  {
   "id": "c137-106",
   "period": "1교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "source": "137회 1교시",
   "round": "컴시응 137회",
   "track": "컴퓨터시스템응용",
@@ -18102,7 +18102,7 @@
  {
   "id": "c137-110",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "137회 1교시",
   "round": "컴시응 137회",
   "track": "컴퓨터시스템응용",
@@ -18111,7 +18111,7 @@
  {
   "id": "c137-111",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "source": "137회 1교시",
   "round": "컴시응 137회",
   "track": "컴퓨터시스템응용",
@@ -18129,7 +18129,7 @@
  {
   "id": "c137-113",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "137회 1교시",
   "round": "컴시응 137회",
   "track": "컴퓨터시스템응용",
@@ -18138,7 +18138,7 @@
  {
   "id": "c137-201",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "137회 2교시",
   "round": "컴시응 137회",
   "track": "컴퓨터시스템응용",
@@ -18192,7 +18192,7 @@
  {
   "id": "c137-301",
   "period": "3교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "137회 3교시",
   "round": "컴시응 137회",
   "track": "컴퓨터시스템응용",
@@ -18210,7 +18210,7 @@
  {
   "id": "c137-303",
   "period": "3교시",
-  "category": "",
+  "category": "네트워크",
   "source": "137회 3교시",
   "round": "컴시응 137회",
   "track": "컴퓨터시스템응용",
@@ -18237,7 +18237,7 @@
  {
   "id": "c137-306",
   "period": "3교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "source": "137회 3교시",
   "round": "컴시응 137회",
   "track": "컴퓨터시스템응용",
@@ -18246,7 +18246,7 @@
  {
   "id": "c137-401",
   "period": "4교시",
-  "category": "",
+  "category": "알고리즘",
   "source": "137회 4교시",
   "round": "컴시응 137회",
   "track": "컴퓨터시스템응용",
@@ -18255,7 +18255,7 @@
  {
   "id": "c137-402",
   "period": "4교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "137회 4교시",
   "round": "컴시응 137회",
   "track": "컴퓨터시스템응용",
@@ -18291,7 +18291,7 @@
  {
   "id": "c137-406",
   "period": "4교시",
-  "category": "",
+  "category": "디지털서비스",
   "source": "137회 4교시",
   "round": "컴시응 137회",
   "track": "컴퓨터시스템응용",
@@ -158353,7 +158353,7 @@
  {
   "id": "c140-105",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "round": "컴시응 140회",
   "source": "140회 1교시",
   "track": "컴퓨터시스템응용",
@@ -158362,7 +158362,7 @@
  {
   "id": "c140-106",
   "period": "1교시",
-  "category": "클라우드/인프라",
+  "category": "디지털서비스",
   "round": "컴시응 140회",
   "source": "140회 1교시",
   "track": "컴퓨터시스템응용",
@@ -158416,7 +158416,7 @@
  {
   "id": "c140-202",
   "period": "2교시",
-  "category": "",
+  "category": "자료구조",
   "round": "컴시응 140회",
   "source": "140회 2교시",
   "track": "컴퓨터시스템응용",
@@ -158443,7 +158443,7 @@
  {
   "id": "c140-206",
   "period": "2교시",
-  "category": "신기술",
+  "category": "보안",
   "round": "컴시응 140회",
   "source": "140회 2교시",
   "track": "컴퓨터시스템응용",
@@ -158506,7 +158506,7 @@
  {
   "id": "c140-402",
   "period": "4교시",
-  "category": "",
+  "category": "보안",
   "round": "컴시응 140회",
   "source": "140회 4교시",
   "track": "컴퓨터시스템응용",
@@ -158515,7 +158515,7 @@
  {
   "id": "c140-403",
   "period": "4교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 140회",
   "source": "140회 4교시",
   "track": "컴퓨터시스템응용",
@@ -158542,7 +158542,7 @@
  {
   "id": "c140-406",
   "period": "4교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 140회",
   "source": "140회 4교시",
   "track": "컴퓨터시스템응용",
@@ -158560,7 +158560,7 @@
  {
   "id": "c138-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 138회",
   "source": "138회 1교시",
   "track": "컴퓨터시스템응용",
@@ -158569,7 +158569,7 @@
  {
   "id": "c138-104",
   "period": "1교시",
-  "category": "신기술",
+  "category": "보안",
   "round": "컴시응 138회",
   "source": "138회 1교시",
   "track": "컴퓨터시스템응용",
@@ -158578,7 +158578,7 @@
  {
   "id": "c138-105",
   "period": "1교시",
-  "category": "신기술",
+  "category": "인공지능",
   "round": "컴시응 138회",
   "source": "138회 1교시",
   "track": "컴퓨터시스템응용",
@@ -158686,7 +158686,7 @@
  {
   "id": "c138-206",
   "period": "2교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 138회",
   "source": "138회 2교시",
   "track": "컴퓨터시스템응용",
@@ -158695,7 +158695,7 @@
  {
   "id": "c138-301",
   "period": "3교시",
-  "category": "",
+  "category": "보안",
   "round": "컴시응 138회",
   "source": "138회 3교시",
   "track": "컴퓨터시스템응용",
@@ -158722,7 +158722,7 @@
  {
   "id": "c138-304",
   "period": "3교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 138회",
   "source": "138회 3교시",
   "track": "컴퓨터시스템응용",
@@ -158758,7 +158758,7 @@
  {
   "id": "c138-403",
   "period": "4교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 138회",
   "source": "138회 4교시",
   "track": "컴퓨터시스템응용",
@@ -158776,7 +158776,7 @@
  {
   "id": "c138-405",
   "period": "4교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 138회",
   "source": "138회 4교시",
   "track": "컴퓨터시스템응용",
@@ -158785,7 +158785,7 @@
  {
   "id": "c138-406",
   "period": "4교시",
-  "category": "",
+  "category": "경영전략",
   "round": "컴시응 138회",
   "source": "138회 4교시",
   "track": "컴퓨터시스템응용",
@@ -158794,7 +158794,7 @@
  {
   "id": "c132-101",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 132회",
   "source": "132회 1교시",
   "track": "컴퓨터시스템응용",
@@ -158803,7 +158803,7 @@
  {
   "id": "c132-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "컴퓨터구조",
   "round": "컴시응 132회",
   "source": "132회 1교시",
   "track": "컴퓨터시스템응용",
@@ -158812,7 +158812,7 @@
  {
   "id": "c132-103",
   "period": "1교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 132회",
   "source": "132회 1교시",
   "track": "컴퓨터시스템응용",
@@ -158857,7 +158857,7 @@
  {
   "id": "c132-108",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 132회",
   "source": "132회 1교시",
   "track": "컴퓨터시스템응용",
@@ -158866,7 +158866,7 @@
  {
   "id": "c132-109",
   "period": "1교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 132회",
   "source": "132회 1교시",
   "track": "컴퓨터시스템응용",
@@ -158902,7 +158902,7 @@
  {
   "id": "c132-113",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 132회",
   "source": "132회 1교시",
   "track": "컴퓨터시스템응용",
@@ -158938,7 +158938,7 @@
  {
   "id": "c132-204",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 132회",
   "source": "132회 2교시",
   "track": "컴퓨터시스템응용",
@@ -158983,7 +158983,7 @@
  {
   "id": "c132-303",
   "period": "3교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 132회",
   "source": "132회 3교시",
   "track": "컴퓨터시스템응용",
@@ -158992,7 +158992,7 @@
  {
   "id": "c132-304",
   "period": "3교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 132회",
   "source": "132회 3교시",
   "track": "컴퓨터시스템응용",
@@ -159037,7 +159037,7 @@
  {
   "id": "c132-403",
   "period": "4교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 132회",
   "source": "132회 4교시",
   "track": "컴퓨터시스템응용",
@@ -159100,7 +159100,7 @@
  {
   "id": "c125-4x835",
   "period": "4교시",
-  "category": "",
+  "category": "운영체제",
   "round": "컴시응 125회",
   "source": "125회 4교시",
   "track": "컴퓨터시스템응용",
@@ -159109,7 +159109,7 @@
  {
   "id": "c125-4x837",
   "period": "4교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 125회",
   "source": "125회 4교시",
   "track": "컴퓨터시스템응용",
@@ -159127,7 +159127,7 @@
  {
   "id": "c119-402",
   "period": "4교시",
-  "category": "",
+  "category": "데이터베이스",
   "round": "컴시응 119회",
   "source": "119회 4교시",
   "track": "컴퓨터시스템응용",
@@ -159172,7 +159172,7 @@
  {
   "id": "c117-403",
   "period": "4교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 117회",
   "source": "117회 4교시",
   "track": "컴퓨터시스템응용",
@@ -159181,7 +159181,7 @@
  {
   "id": "c117-404",
   "period": "4교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 117회",
   "source": "117회 4교시",
   "track": "컴퓨터시스템응용",
@@ -159190,7 +159190,7 @@
  {
   "id": "c117-405",
   "period": "4교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 117회",
   "source": "117회 4교시",
   "track": "컴퓨터시스템응용",
@@ -159244,7 +159244,7 @@
  {
   "id": "c114-105",
   "period": "1교시",
-  "category": "신기술",
+  "category": "보안",
   "round": "컴시응 114회",
   "source": "114회 1교시",
   "track": "컴퓨터시스템응용",
@@ -159262,7 +159262,7 @@
  {
   "id": "c114-107",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 114회",
   "source": "114회 1교시",
   "track": "컴퓨터시스템응용",
@@ -159280,7 +159280,7 @@
  {
   "id": "c114-110",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 114회",
   "source": "114회 1교시",
   "track": "컴퓨터시스템응용",
@@ -159325,7 +159325,7 @@
  {
   "id": "c114-204",
   "period": "2교시",
-  "category": "",
+  "category": "보안",
   "round": "컴시응 114회",
   "source": "114회 2교시",
   "track": "컴퓨터시스템응용",
@@ -159334,7 +159334,7 @@
  {
   "id": "c114-205",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 114회",
   "source": "114회 2교시",
   "track": "컴퓨터시스템응용",
@@ -159352,7 +159352,7 @@
  {
   "id": "c114-301",
   "period": "3교시",
-  "category": "신기술",
+  "category": "컴퓨터구조",
   "round": "컴시응 114회",
   "source": "114회 3교시",
   "track": "컴퓨터시스템응용",
@@ -159379,7 +159379,7 @@
  {
   "id": "c114-304",
   "period": "3교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 114회",
   "source": "114회 3교시",
   "track": "컴퓨터시스템응용",
@@ -159460,7 +159460,7 @@
  {
   "id": "c113-101",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 113회",
   "source": "113회 1교시",
   "track": "컴퓨터시스템응용",
@@ -159505,7 +159505,7 @@
  {
   "id": "c113-106",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 113회",
   "source": "113회 1교시",
   "track": "컴퓨터시스템응용",
@@ -159523,7 +159523,7 @@
  {
   "id": "c113-108",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 113회",
   "source": "113회 1교시",
   "track": "컴퓨터시스템응용",
@@ -159532,7 +159532,7 @@
  {
   "id": "c113-109",
   "period": "1교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "round": "컴시응 113회",
   "source": "113회 1교시",
   "track": "컴퓨터시스템응용",
@@ -159550,7 +159550,7 @@
  {
   "id": "c113-111",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 113회",
   "source": "113회 1교시",
   "track": "컴퓨터시스템응용",
@@ -159559,7 +159559,7 @@
  {
   "id": "c113-112",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 113회",
   "source": "113회 1교시",
   "track": "컴퓨터시스템응용",
@@ -159586,7 +159586,7 @@
  {
   "id": "c113-204",
   "period": "2교시",
-  "category": "",
+  "category": "보안",
   "round": "컴시응 113회",
   "source": "113회 2교시",
   "track": "컴퓨터시스템응용",
@@ -159613,7 +159613,7 @@
  {
   "id": "c113-301",
   "period": "3교시",
-  "category": "",
+  "category": "경영전략",
   "round": "컴시응 113회",
   "source": "113회 3교시",
   "track": "컴퓨터시스템응용",
@@ -159649,7 +159649,7 @@
  {
   "id": "c113-305",
   "period": "3교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 113회",
   "source": "113회 3교시",
   "track": "컴퓨터시스템응용",
@@ -159658,7 +159658,7 @@
  {
   "id": "c113-306",
   "period": "3교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 113회",
   "source": "113회 3교시",
   "track": "컴퓨터시스템응용",
@@ -159685,7 +159685,7 @@
  {
   "id": "c113-403",
   "period": "4교시",
-  "category": "",
+  "category": "보안",
   "round": "컴시응 113회",
   "source": "113회 4교시",
   "track": "컴퓨터시스템응용",
@@ -159775,7 +159775,7 @@
  {
   "id": "c111-108",
   "period": "1교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 111회",
   "source": "111회 1교시",
   "track": "컴퓨터시스템응용",
@@ -159802,7 +159802,7 @@
  {
   "id": "c111-113",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "round": "컴시응 111회",
   "source": "111회 1교시",
   "track": "컴퓨터시스템응용",
@@ -159838,7 +159838,7 @@
  {
   "id": "c111-204",
   "period": "2교시",
-  "category": "",
+  "category": "프로젝트관리",
   "round": "컴시응 111회",
   "source": "111회 2교시",
   "track": "컴퓨터시스템응용",
@@ -159856,7 +159856,7 @@
  {
   "id": "c111-206",
   "period": "2교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 111회",
   "source": "111회 2교시",
   "track": "컴퓨터시스템응용",
@@ -159874,7 +159874,7 @@
  {
   "id": "c111-302",
   "period": "3교시",
-  "category": "",
+  "category": "프로젝트관리",
   "round": "컴시응 111회",
   "source": "111회 3교시",
   "track": "컴퓨터시스템응용",
@@ -159919,7 +159919,7 @@
  {
   "id": "c111-402",
   "period": "4교시",
-  "category": "신기술",
+  "category": "보안",
   "round": "컴시응 111회",
   "source": "111회 4교시",
   "track": "컴퓨터시스템응용",
@@ -159937,7 +159937,7 @@
  {
   "id": "c111-404",
   "period": "4교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 111회",
   "source": "111회 4교시",
   "track": "컴퓨터시스템응용",
@@ -159973,7 +159973,7 @@
  {
   "id": "c110-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "컴퓨터구조",
   "round": "컴시응 110회",
   "source": "110회 1교시",
   "track": "컴퓨터시스템응용",
@@ -159991,7 +159991,7 @@
  {
   "id": "c110-104",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 110회",
   "source": "110회 1교시",
   "track": "컴퓨터시스템응용",
@@ -160027,7 +160027,7 @@
  {
   "id": "c110-109",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 110회",
   "source": "110회 1교시",
   "track": "컴퓨터시스템응용",
@@ -160090,7 +160090,7 @@
  {
   "id": "c110-203",
   "period": "2교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 110회",
   "source": "110회 2교시",
   "track": "컴퓨터시스템응용",
@@ -160099,7 +160099,7 @@
  {
   "id": "c110-204",
   "period": "2교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 110회",
   "source": "110회 2교시",
   "track": "컴퓨터시스템응용",
@@ -160135,7 +160135,7 @@
  {
   "id": "c110-302",
   "period": "3교시",
-  "category": "신기술",
+  "category": "컴퓨터구조",
   "round": "컴시응 110회",
   "source": "110회 3교시",
   "track": "컴퓨터시스템응용",
@@ -160198,7 +160198,7 @@
  {
   "id": "c110-404",
   "period": "4교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 110회",
   "source": "110회 4교시",
   "track": "컴퓨터시스템응용",
@@ -160252,7 +160252,7 @@
  {
   "id": "c108-104",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 108회",
   "source": "108회 1교시",
   "track": "컴퓨터시스템응용",
@@ -160261,7 +160261,7 @@
  {
   "id": "c108-105",
   "period": "1교시",
-  "category": "",
+  "category": "운영체제",
   "round": "컴시응 108회",
   "source": "108회 1교시",
   "track": "컴퓨터시스템응용",
@@ -160279,7 +160279,7 @@
  {
   "id": "c108-107",
   "period": "1교시",
-  "category": "신기술",
+  "category": "인공지능",
   "round": "컴시응 108회",
   "source": "108회 1교시",
   "track": "컴퓨터시스템응용",
@@ -160324,7 +160324,7 @@
  {
   "id": "c108-112",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 108회",
   "source": "108회 1교시",
   "track": "컴퓨터시스템응용",
@@ -160360,7 +160360,7 @@
  {
   "id": "c108-203",
   "period": "2교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 108회",
   "source": "108회 2교시",
   "track": "컴퓨터시스템응용",
@@ -160378,7 +160378,7 @@
  {
   "id": "c108-205",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 108회",
   "source": "108회 2교시",
   "track": "컴퓨터시스템응용",
@@ -160405,7 +160405,7 @@
  {
   "id": "c108-302",
   "period": "3교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 108회",
   "source": "108회 3교시",
   "track": "컴퓨터시스템응용",
@@ -160414,7 +160414,7 @@
  {
   "id": "c108-303",
   "period": "3교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 108회",
   "source": "108회 3교시",
   "track": "컴퓨터시스템응용",
@@ -160450,7 +160450,7 @@
  {
   "id": "c108-401",
   "period": "4교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 108회",
   "source": "108회 4교시",
   "track": "컴퓨터시스템응용",
@@ -160459,7 +160459,7 @@
  {
   "id": "c108-402",
   "period": "4교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 108회",
   "source": "108회 4교시",
   "track": "컴퓨터시스템응용",
@@ -160495,7 +160495,7 @@
  {
   "id": "c107-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 107회",
   "source": "107회 1교시",
   "track": "컴퓨터시스템응용",
@@ -160513,7 +160513,7 @@
  {
   "id": "c107-104",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 107회",
   "source": "107회 1교시",
   "track": "컴퓨터시스템응용",
@@ -160531,7 +160531,7 @@
  {
   "id": "c107-106",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 107회",
   "source": "107회 1교시",
   "track": "컴퓨터시스템응용",
@@ -160558,7 +160558,7 @@
  {
   "id": "c107-109",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "round": "컴시응 107회",
   "source": "107회 1교시",
   "track": "컴퓨터시스템응용",
@@ -160576,7 +160576,7 @@
  {
   "id": "c107-111",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "round": "컴시응 107회",
   "source": "107회 1교시",
   "track": "컴퓨터시스템응용",
@@ -160594,7 +160594,7 @@
  {
   "id": "c107-113",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 107회",
   "source": "107회 1교시",
   "track": "컴퓨터시스템응용",
@@ -160612,7 +160612,7 @@
  {
   "id": "c107-202",
   "period": "2교시",
-  "category": "",
+  "category": "보안",
   "round": "컴시응 107회",
   "source": "107회 2교시",
   "track": "컴퓨터시스템응용",
@@ -160630,7 +160630,7 @@
  {
   "id": "c107-204",
   "period": "2교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 107회",
   "source": "107회 2교시",
   "track": "컴퓨터시스템응용",
@@ -160657,7 +160657,7 @@
  {
   "id": "c107-301",
   "period": "3교시",
-  "category": "",
+  "category": "보안",
   "round": "컴시응 107회",
   "source": "107회 3교시",
   "track": "컴퓨터시스템응용",
@@ -160666,7 +160666,7 @@
  {
   "id": "c107-302",
   "period": "3교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 107회",
   "source": "107회 3교시",
   "track": "컴퓨터시스템응용",
@@ -160693,7 +160693,7 @@
  {
   "id": "c107-305",
   "period": "3교시",
-  "category": "신기술",
+  "category": "경영전략",
   "round": "컴시응 107회",
   "source": "107회 3교시",
   "track": "컴퓨터시스템응용",
@@ -160747,7 +160747,7 @@
  {
   "id": "c105-101",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 105회",
   "source": "105회 1교시",
   "track": "컴퓨터시스템응용",
@@ -160765,7 +160765,7 @@
  {
   "id": "c105-1x1708",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "round": "컴시응 105회",
   "source": "105회 1교시",
   "track": "컴퓨터시스템응용",
@@ -160783,7 +160783,7 @@
  {
   "id": "c105-1x1710",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "round": "컴시응 105회",
   "source": "105회 1교시",
   "track": "컴퓨터시스템응용",
@@ -160819,7 +160819,7 @@
  {
   "id": "c105-1x1714",
   "period": "1교시",
-  "category": "신기술",
+  "category": "컴퓨터구조",
   "round": "컴시응 105회",
   "source": "105회 1교시",
   "track": "컴퓨터시스템응용",
@@ -160828,7 +160828,7 @@
  {
   "id": "c105-1x1715",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 105회",
   "source": "105회 1교시",
   "track": "컴퓨터시스템응용",
@@ -160837,7 +160837,7 @@
  {
   "id": "c105-1x1716",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 105회",
   "source": "105회 1교시",
   "track": "컴퓨터시스템응용",
@@ -160864,7 +160864,7 @@
  {
   "id": "c105-2x1720",
   "period": "2교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 105회",
   "source": "105회 2교시",
   "track": "컴퓨터시스템응용",
@@ -160882,7 +160882,7 @@
  {
   "id": "c105-2x1722",
   "period": "2교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 105회",
   "source": "105회 2교시",
   "track": "컴퓨터시스템응용",
@@ -160909,7 +160909,7 @@
  {
   "id": "c105-301",
   "period": "3교시",
-  "category": "클라우드/인프라",
+  "category": "디지털서비스",
   "round": "컴시응 105회",
   "source": "105회 3교시",
   "track": "컴퓨터시스템응용",
@@ -160954,7 +160954,7 @@
  {
   "id": "c105-306",
   "period": "3교시",
-  "category": "",
+  "category": "경영전략",
   "round": "컴시응 105회",
   "source": "105회 3교시",
   "track": "컴퓨터시스템응용",
@@ -160972,7 +160972,7 @@
  {
   "id": "c105-4x1732",
   "period": "4교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 105회",
   "source": "105회 4교시",
   "track": "컴퓨터시스템응용",
@@ -161035,7 +161035,7 @@
  {
   "id": "c104-104",
   "period": "1교시",
-  "category": "신기술",
+  "category": "보안",
   "round": "컴시응 104회",
   "source": "104회 1교시",
   "track": "컴퓨터시스템응용",
@@ -161044,7 +161044,7 @@
  {
   "id": "c104-105",
   "period": "1교시",
-  "category": "신기술",
+  "category": "운영체제",
   "round": "컴시응 104회",
   "source": "104회 1교시",
   "track": "컴퓨터시스템응용",
@@ -161134,7 +161134,7 @@
  {
   "id": "c104-204",
   "period": "2교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 104회",
   "source": "104회 2교시",
   "track": "컴퓨터시스템응용",
@@ -161170,7 +161170,7 @@
  {
   "id": "c104-304",
   "period": "3교시",
-  "category": "",
+  "category": "운영체제",
   "round": "컴시응 104회",
   "source": "104회 3교시",
   "track": "컴퓨터시스템응용",
@@ -161179,7 +161179,7 @@
  {
   "id": "c104-305",
   "period": "3교시",
-  "category": "",
+  "category": "경영전략",
   "round": "컴시응 104회",
   "source": "104회 3교시",
   "track": "컴퓨터시스템응용",
@@ -161206,7 +161206,7 @@
  {
   "id": "c104-402",
   "period": "4교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 104회",
   "source": "104회 4교시",
   "track": "컴퓨터시스템응용",
@@ -161224,7 +161224,7 @@
  {
   "id": "c104-404",
   "period": "4교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 104회",
   "source": "104회 4교시",
   "track": "컴퓨터시스템응용",
@@ -161233,7 +161233,7 @@
  {
   "id": "c104-405",
   "period": "4교시",
-  "category": "",
+  "category": "운영체제",
   "round": "컴시응 104회",
   "source": "104회 4교시",
   "track": "컴퓨터시스템응용",
@@ -161242,7 +161242,7 @@
  {
   "id": "c104-406",
   "period": "4교시",
-  "category": "",
+  "category": "보안",
   "round": "컴시응 104회",
   "source": "104회 4교시",
   "track": "컴퓨터시스템응용",
@@ -161323,7 +161323,7 @@
  {
   "id": "c102-1x1838",
   "period": "1교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "round": "컴시응 102회",
   "source": "102회 1교시",
   "track": "컴퓨터시스템응용",
@@ -161368,7 +161368,7 @@
  {
   "id": "c102-2x1844",
   "period": "2교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 102회",
   "source": "102회 2교시",
   "track": "컴퓨터시스템응용",
@@ -161467,7 +161467,7 @@
  {
   "id": "c102-4x1855",
   "period": "4교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 102회",
   "source": "102회 4교시",
   "track": "컴퓨터시스템응용",
@@ -161485,7 +161485,7 @@
  {
   "id": "c102-4x1857",
   "period": "4교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 102회",
   "source": "102회 4교시",
   "track": "컴퓨터시스템응용",
@@ -161530,7 +161530,7 @@
  {
   "id": "c101-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 101회",
   "source": "101회 1교시",
   "track": "컴퓨터시스템응용",
@@ -161548,7 +161548,7 @@
  {
   "id": "c101-104",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 101회",
   "source": "101회 1교시",
   "track": "컴퓨터시스템응용",
@@ -161575,7 +161575,7 @@
  {
   "id": "c101-107",
   "period": "1교시",
-  "category": "신기술",
+  "category": "운영체제",
   "round": "컴시응 101회",
   "source": "101회 1교시",
   "track": "컴퓨터시스템응용",
@@ -161602,7 +161602,7 @@
  {
   "id": "c101-111",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 101회",
   "source": "101회 1교시",
   "track": "컴퓨터시스템응용",
@@ -161674,7 +161674,7 @@
  {
   "id": "c101-206",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 101회",
   "source": "101회 2교시",
   "track": "컴퓨터시스템응용",
@@ -161692,7 +161692,7 @@
  {
   "id": "c101-302",
   "period": "3교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 101회",
   "source": "101회 3교시",
   "track": "컴퓨터시스템응용",
@@ -161719,7 +161719,7 @@
  {
   "id": "c101-305",
   "period": "3교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 101회",
   "source": "101회 3교시",
   "track": "컴퓨터시스템응용",
@@ -161782,7 +161782,7 @@
  {
   "id": "c99-101",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 99회",
   "source": "99회 1교시",
   "track": "컴퓨터시스템응용",
@@ -161863,7 +161863,7 @@
  {
   "id": "c99-111",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "round": "컴시응 99회",
   "source": "99회 1교시",
   "track": "컴퓨터시스템응용",
@@ -161872,7 +161872,7 @@
  {
   "id": "c99-112",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 99회",
   "source": "99회 1교시",
   "track": "컴퓨터시스템응용",
@@ -161917,7 +161917,7 @@
  {
   "id": "c99-204",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 99회",
   "source": "99회 2교시",
   "track": "컴퓨터시스템응용",
@@ -161926,7 +161926,7 @@
  {
   "id": "c99-205",
   "period": "2교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 99회",
   "source": "99회 2교시",
   "track": "컴퓨터시스템응용",
@@ -161944,7 +161944,7 @@
  {
   "id": "c99-301",
   "period": "3교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 99회",
   "source": "99회 3교시",
   "track": "컴퓨터시스템응용",
@@ -161971,7 +161971,7 @@
  {
   "id": "c99-304",
   "period": "3교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 99회",
   "source": "99회 3교시",
   "track": "컴퓨터시스템응용",
@@ -161989,7 +161989,7 @@
  {
   "id": "c99-402",
   "period": "4교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 99회",
   "source": "99회 4교시",
   "track": "컴퓨터시스템응용",
@@ -162007,7 +162007,7 @@
  {
   "id": "c99-404",
   "period": "4교시",
-  "category": "신기술",
+  "category": "보안",
   "round": "컴시응 99회",
   "source": "99회 4교시",
   "track": "컴퓨터시스템응용",
@@ -162025,7 +162025,7 @@
  {
   "id": "c99-406",
   "period": "4교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 99회",
   "source": "99회 4교시",
   "track": "컴퓨터시스템응용",
@@ -162070,7 +162070,7 @@
  {
   "id": "c98-106",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 98회",
   "source": "98회 1교시",
   "track": "컴퓨터시스템응용",
@@ -162124,7 +162124,7 @@
  {
   "id": "c98-201",
   "period": "2교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 98회",
   "source": "98회 2교시",
   "track": "컴퓨터시스템응용",
@@ -162133,7 +162133,7 @@
  {
   "id": "c98-202",
   "period": "2교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "round": "컴시응 98회",
   "source": "98회 2교시",
   "track": "컴퓨터시스템응용",
@@ -162160,7 +162160,7 @@
  {
   "id": "c98-205",
   "period": "2교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "round": "컴시응 98회",
   "source": "98회 2교시",
   "track": "컴퓨터시스템응용",
@@ -162205,7 +162205,7 @@
  {
   "id": "c98-305",
   "period": "3교시",
-  "category": "신기술",
+  "category": "보안",
   "round": "컴시응 98회",
   "source": "98회 3교시",
   "track": "컴퓨터시스템응용",
@@ -162214,7 +162214,7 @@
  {
   "id": "c98-306",
   "period": "3교시",
-  "category": "",
+  "category": "데이터베이스",
   "round": "컴시응 98회",
   "source": "98회 3교시",
   "track": "컴퓨터시스템응용",
@@ -162232,7 +162232,7 @@
  {
   "id": "c98-402",
   "period": "4교시",
-  "category": "",
+  "category": "알고리즘",
   "round": "컴시응 98회",
   "source": "98회 4교시",
   "track": "컴퓨터시스템응용",
@@ -162259,7 +162259,7 @@
  {
   "id": "c98-406",
   "period": "4교시",
-  "category": "",
+  "category": "인공지능",
   "round": "컴시응 98회",
   "source": "98회 4교시",
   "track": "컴퓨터시스템응용",
@@ -162277,7 +162277,7 @@
  {
   "id": "c96-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "컴퓨터구조",
   "round": "컴시응 96회",
   "source": "96회 1교시",
   "track": "컴퓨터시스템응용",
@@ -162286,7 +162286,7 @@
  {
   "id": "c96-103",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 96회",
   "source": "96회 1교시",
   "track": "컴퓨터시스템응용",
@@ -162304,7 +162304,7 @@
  {
   "id": "c96-105",
   "period": "1교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 96회",
   "source": "96회 1교시",
   "track": "컴퓨터시스템응용",
@@ -162331,7 +162331,7 @@
  {
   "id": "c96-108",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 96회",
   "source": "96회 1교시",
   "track": "컴퓨터시스템응용",
@@ -162340,7 +162340,7 @@
  {
   "id": "c96-109",
   "period": "1교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "round": "컴시응 96회",
   "source": "96회 1교시",
   "track": "컴퓨터시스템응용",
@@ -162403,7 +162403,7 @@
  {
   "id": "c96-203",
   "period": "2교시",
-  "category": "",
+  "category": "운영체제",
   "round": "컴시응 96회",
   "source": "96회 2교시",
   "track": "컴퓨터시스템응용",
@@ -162439,7 +162439,7 @@
  {
   "id": "c96-301",
   "period": "3교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 96회",
   "source": "96회 3교시",
   "track": "컴퓨터시스템응용",
@@ -162475,7 +162475,7 @@
  {
   "id": "c96-305",
   "period": "3교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 96회",
   "source": "96회 3교시",
   "track": "컴퓨터시스템응용",
@@ -162538,7 +162538,7 @@
  {
   "id": "c95-101",
   "period": "1교시",
-  "category": "신기술",
+  "category": "경영전략",
   "round": "컴시응 95회",
   "source": "95회 1교시",
   "track": "컴퓨터시스템응용",
@@ -162592,7 +162592,7 @@
  {
   "id": "c95-108",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 95회",
   "source": "95회 1교시",
   "track": "컴퓨터시스템응용",
@@ -162628,7 +162628,7 @@
  {
   "id": "c95-112",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 95회",
   "source": "95회 1교시",
   "track": "컴퓨터시스템응용",
@@ -162637,7 +162637,7 @@
  {
   "id": "c95-113",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 95회",
   "source": "95회 1교시",
   "track": "컴퓨터시스템응용",
@@ -162664,7 +162664,7 @@
  {
   "id": "c95-203",
   "period": "2교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 95회",
   "source": "95회 2교시",
   "track": "컴퓨터시스템응용",
@@ -162673,7 +162673,7 @@
  {
   "id": "c95-204",
   "period": "2교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "round": "컴시응 95회",
   "source": "95회 2교시",
   "track": "컴퓨터시스템응용",
@@ -162682,7 +162682,7 @@
  {
   "id": "c95-205",
   "period": "2교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 95회",
   "source": "95회 2교시",
   "track": "컴퓨터시스템응용",
@@ -162709,7 +162709,7 @@
  {
   "id": "c95-302",
   "period": "3교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 95회",
   "source": "95회 3교시",
   "track": "컴퓨터시스템응용",
@@ -162727,7 +162727,7 @@
  {
   "id": "c95-304",
   "period": "3교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 95회",
   "source": "95회 3교시",
   "track": "컴퓨터시스템응용",
@@ -162736,7 +162736,7 @@
  {
   "id": "c95-305",
   "period": "3교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 95회",
   "source": "95회 3교시",
   "track": "컴퓨터시스템응용",
@@ -162745,7 +162745,7 @@
  {
   "id": "c95-306",
   "period": "3교시",
-  "category": "",
+  "category": "데이터베이스",
   "round": "컴시응 95회",
   "source": "95회 3교시",
   "track": "컴퓨터시스템응용",
@@ -162754,7 +162754,7 @@
  {
   "id": "c95-401",
   "period": "4교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 95회",
   "source": "95회 4교시",
   "track": "컴퓨터시스템응용",
@@ -162763,7 +162763,7 @@
  {
   "id": "c95-402",
   "period": "4교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 95회",
   "source": "95회 4교시",
   "track": "컴퓨터시스템응용",
@@ -162772,7 +162772,7 @@
  {
   "id": "c95-403",
   "period": "4교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 95회",
   "source": "95회 4교시",
   "track": "컴퓨터시스템응용",
@@ -162790,7 +162790,7 @@
  {
   "id": "c95-405",
   "period": "4교시",
-  "category": "신기술",
+  "category": "경영전략",
   "round": "컴시응 95회",
   "source": "95회 4교시",
   "track": "컴퓨터시스템응용",
@@ -162799,7 +162799,7 @@
  {
   "id": "c95-406",
   "period": "4교시",
-  "category": "",
+  "category": "데이터베이스",
   "round": "컴시응 95회",
   "source": "95회 4교시",
   "track": "컴퓨터시스템응용",
@@ -162826,7 +162826,7 @@
  {
   "id": "c93-104",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 93회",
   "source": "93회 1교시",
   "track": "컴퓨터시스템응용",
@@ -162844,7 +162844,7 @@
  {
   "id": "c93-106",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 93회",
   "source": "93회 1교시",
   "track": "컴퓨터시스템응용",
@@ -162925,7 +162925,7 @@
  {
   "id": "c93-202",
   "period": "2교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 93회",
   "source": "93회 2교시",
   "track": "컴퓨터시스템응용",
@@ -162934,7 +162934,7 @@
  {
   "id": "c93-203",
   "period": "2교시",
-  "category": "",
+  "category": "보안",
   "round": "컴시응 93회",
   "source": "93회 2교시",
   "track": "컴퓨터시스템응용",
@@ -162952,7 +162952,7 @@
  {
   "id": "c93-205",
   "period": "2교시",
-  "category": "",
+  "category": "운영체제",
   "round": "컴시응 93회",
   "source": "93회 2교시",
   "track": "컴퓨터시스템응용",
@@ -162979,7 +162979,7 @@
  {
   "id": "c93-302",
   "period": "3교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 93회",
   "source": "93회 3교시",
   "track": "컴퓨터시스템응용",
@@ -162988,7 +162988,7 @@
  {
   "id": "c93-303",
   "period": "3교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 93회",
   "source": "93회 3교시",
   "track": "컴퓨터시스템응용",
@@ -163006,7 +163006,7 @@
  {
   "id": "c93-305",
   "period": "3교시",
-  "category": "",
+  "category": "경영전략",
   "round": "컴시응 93회",
   "source": "93회 3교시",
   "track": "컴퓨터시스템응용",
@@ -163024,7 +163024,7 @@
  {
   "id": "c93-401",
   "period": "4교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 93회",
   "source": "93회 4교시",
   "track": "컴퓨터시스템응용",
@@ -163033,7 +163033,7 @@
  {
   "id": "c93-402",
   "period": "4교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 93회",
   "source": "93회 4교시",
   "track": "컴퓨터시스템응용",
@@ -163060,7 +163060,7 @@
  {
   "id": "c93-405",
   "period": "4교시",
-  "category": "",
+  "category": "보안",
   "round": "컴시응 93회",
   "source": "93회 4교시",
   "track": "컴퓨터시스템응용",
@@ -163069,7 +163069,7 @@
  {
   "id": "c93-406",
   "period": "4교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 93회",
   "source": "93회 4교시",
   "track": "컴퓨터시스템응용",
@@ -163096,7 +163096,7 @@
  {
   "id": "c92-103",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 92회",
   "source": "92회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163114,7 +163114,7 @@
  {
   "id": "c92-105",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 92회",
   "source": "92회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163123,7 +163123,7 @@
  {
   "id": "c92-106",
   "period": "1교시",
-  "category": "신기술",
+  "category": "운영체제",
   "round": "컴시응 92회",
   "source": "92회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163177,7 +163177,7 @@
  {
   "id": "c92-112",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "round": "컴시응 92회",
   "source": "92회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163204,7 +163204,7 @@
  {
   "id": "c92-202",
   "period": "2교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 92회",
   "source": "92회 2교시",
   "track": "컴퓨터시스템응용",
@@ -163249,7 +163249,7 @@
  {
   "id": "c92-301",
   "period": "3교시",
-  "category": "신기술",
+  "category": "경영전략",
   "round": "컴시응 92회",
   "source": "92회 3교시",
   "track": "컴퓨터시스템응용",
@@ -163312,7 +163312,7 @@
  {
   "id": "c92-403",
   "period": "4교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 92회",
   "source": "92회 4교시",
   "track": "컴퓨터시스템응용",
@@ -163321,7 +163321,7 @@
  {
   "id": "c92-404",
   "period": "4교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 92회",
   "source": "92회 4교시",
   "track": "컴퓨터시스템응용",
@@ -163357,7 +163357,7 @@
  {
   "id": "c90-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 90회",
   "source": "90회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163366,7 +163366,7 @@
  {
   "id": "c90-103",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 90회",
   "source": "90회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163402,7 +163402,7 @@
  {
   "id": "c90-107",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 90회",
   "source": "90회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163411,7 +163411,7 @@
  {
   "id": "c90-108",
   "period": "1교시",
-  "category": "",
+  "category": "운영체제",
   "round": "컴시응 90회",
   "source": "90회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163420,7 +163420,7 @@
  {
   "id": "c90-110",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "round": "컴시응 90회",
   "source": "90회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163447,7 +163447,7 @@
  {
   "id": "c90-113",
   "period": "1교시",
-  "category": "신기술",
+  "category": "보안",
   "round": "컴시응 90회",
   "source": "90회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163456,7 +163456,7 @@
  {
   "id": "c90-201",
   "period": "2교시",
-  "category": "",
+  "category": "경영전략",
   "round": "컴시응 90회",
   "source": "90회 2교시",
   "track": "컴퓨터시스템응용",
@@ -163501,7 +163501,7 @@
  {
   "id": "c90-206",
   "period": "2교시",
-  "category": "",
+  "category": "운영체제",
   "round": "컴시응 90회",
   "source": "90회 2교시",
   "track": "컴퓨터시스템응용",
@@ -163510,7 +163510,7 @@
  {
   "id": "c90-301",
   "period": "3교시",
-  "category": "",
+  "category": "경영전략",
   "round": "컴시응 90회",
   "source": "90회 3교시",
   "track": "컴퓨터시스템응용",
@@ -163519,7 +163519,7 @@
  {
   "id": "c90-302",
   "period": "3교시",
-  "category": "",
+  "category": "경영전략",
   "round": "컴시응 90회",
   "source": "90회 3교시",
   "track": "컴퓨터시스템응용",
@@ -163555,7 +163555,7 @@
  {
   "id": "c90-306",
   "period": "3교시",
-  "category": "신기술",
+  "category": "컴퓨터구조",
   "round": "컴시응 90회",
   "source": "90회 3교시",
   "track": "컴퓨터시스템응용",
@@ -163564,7 +163564,7 @@
  {
   "id": "c90-401",
   "period": "4교시",
-  "category": "",
+  "category": "경영전략",
   "round": "컴시응 90회",
   "source": "90회 4교시",
   "track": "컴퓨터시스템응용",
@@ -163573,7 +163573,7 @@
  {
   "id": "c90-402",
   "period": "4교시",
-  "category": "",
+  "category": "경영전략",
   "round": "컴시응 90회",
   "source": "90회 4교시",
   "track": "컴퓨터시스템응용",
@@ -163600,7 +163600,7 @@
  {
   "id": "c90-405",
   "period": "4교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 90회",
   "source": "90회 4교시",
   "track": "컴퓨터시스템응용",
@@ -163618,7 +163618,7 @@
  {
   "id": "c89-101",
   "period": "1교시",
-  "category": "신기술",
+  "category": "보안",
   "round": "컴시응 89회",
   "source": "89회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163636,7 +163636,7 @@
  {
   "id": "c89-103",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 89회",
   "source": "89회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163663,7 +163663,7 @@
  {
   "id": "c89-106",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 89회",
   "source": "89회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163681,7 +163681,7 @@
  {
   "id": "c89-108",
   "period": "1교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 89회",
   "source": "89회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163708,7 +163708,7 @@
  {
   "id": "c89-111",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 89회",
   "source": "89회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163717,7 +163717,7 @@
  {
   "id": "c89-112",
   "period": "1교시",
-  "category": "신기술",
+  "category": "경영전략",
   "round": "컴시응 89회",
   "source": "89회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163735,7 +163735,7 @@
  {
   "id": "c89-201",
   "period": "2교시",
-  "category": "",
+  "category": "운영체제",
   "round": "컴시응 89회",
   "source": "89회 2교시",
   "track": "컴퓨터시스템응용",
@@ -163753,7 +163753,7 @@
  {
   "id": "c89-203",
   "period": "2교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 89회",
   "source": "89회 2교시",
   "track": "컴퓨터시스템응용",
@@ -163789,7 +163789,7 @@
  {
   "id": "c89-302",
   "period": "3교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 89회",
   "source": "89회 3교시",
   "track": "컴퓨터시스템응용",
@@ -163825,7 +163825,7 @@
  {
   "id": "c89-402",
   "period": "4교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "round": "컴시응 89회",
   "source": "89회 4교시",
   "track": "컴퓨터시스템응용",
@@ -163852,7 +163852,7 @@
  {
   "id": "c89-405",
   "period": "4교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 89회",
   "source": "89회 4교시",
   "track": "컴퓨터시스템응용",
@@ -163870,7 +163870,7 @@
  {
   "id": "c87-101",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 87회",
   "source": "87회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163879,7 +163879,7 @@
  {
   "id": "c87-102",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 87회",
   "source": "87회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163924,7 +163924,7 @@
  {
   "id": "c87-107",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 87회",
   "source": "87회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163960,7 +163960,7 @@
  {
   "id": "c87-111",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 87회",
   "source": "87회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163969,7 +163969,7 @@
  {
   "id": "c87-112",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 87회",
   "source": "87회 1교시",
   "track": "컴퓨터시스템응용",
@@ -163987,7 +163987,7 @@
  {
   "id": "c87-201",
   "period": "2교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "round": "컴시응 87회",
   "source": "87회 2교시",
   "track": "컴퓨터시스템응용",
@@ -164005,7 +164005,7 @@
  {
   "id": "c87-203",
   "period": "2교시",
-  "category": "신기술",
+  "category": "보안",
   "round": "컴시응 87회",
   "source": "87회 2교시",
   "track": "컴퓨터시스템응용",
@@ -164014,7 +164014,7 @@
  {
   "id": "c87-204",
   "period": "2교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 87회",
   "source": "87회 2교시",
   "track": "컴퓨터시스템응용",
@@ -164023,7 +164023,7 @@
  {
   "id": "c87-205",
   "period": "2교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "round": "컴시응 87회",
   "source": "87회 2교시",
   "track": "컴퓨터시스템응용",
@@ -164041,7 +164041,7 @@
  {
   "id": "c87-301",
   "period": "3교시",
-  "category": "",
+  "category": "운영체제",
   "round": "컴시응 87회",
   "source": "87회 3교시",
   "track": "컴퓨터시스템응용",
@@ -164077,7 +164077,7 @@
  {
   "id": "c87-305",
   "period": "3교시",
-  "category": "",
+  "category": "데이터베이스",
   "round": "컴시응 87회",
   "source": "87회 3교시",
   "track": "컴퓨터시스템응용",
@@ -164122,7 +164122,7 @@
  {
   "id": "c87-404",
   "period": "4교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 87회",
   "source": "87회 4교시",
   "track": "컴퓨터시스템응용",
@@ -164149,7 +164149,7 @@
  {
   "id": "c86-101",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "round": "컴시응 86회",
   "source": "86회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164158,7 +164158,7 @@
  {
   "id": "c86-102",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 86회",
   "source": "86회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164167,7 +164167,7 @@
  {
   "id": "c86-103",
   "period": "1교시",
-  "category": "",
+  "category": "운영체제",
   "round": "컴시응 86회",
   "source": "86회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164194,7 +164194,7 @@
  {
   "id": "c86-106",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "round": "컴시응 86회",
   "source": "86회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164212,7 +164212,7 @@
  {
   "id": "c86-108",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 86회",
   "source": "86회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164221,7 +164221,7 @@
  {
   "id": "c86-109",
   "period": "1교시",
-  "category": "신기술",
+  "category": "보안",
   "round": "컴시응 86회",
   "source": "86회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164230,7 +164230,7 @@
  {
   "id": "c86-110",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "round": "컴시응 86회",
   "source": "86회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164257,7 +164257,7 @@
  {
   "id": "c86-113",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 86회",
   "source": "86회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164275,7 +164275,7 @@
  {
   "id": "c86-202",
   "period": "2교시",
-  "category": "",
+  "category": "운영체제",
   "round": "컴시응 86회",
   "source": "86회 2교시",
   "track": "컴퓨터시스템응용",
@@ -164302,7 +164302,7 @@
  {
   "id": "c86-205",
   "period": "2교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "round": "컴시응 86회",
   "source": "86회 2교시",
   "track": "컴퓨터시스템응용",
@@ -164311,7 +164311,7 @@
  {
   "id": "c86-206",
   "period": "2교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 86회",
   "source": "86회 2교시",
   "track": "컴퓨터시스템응용",
@@ -164320,7 +164320,7 @@
  {
   "id": "c86-301",
   "period": "3교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 86회",
   "source": "86회 3교시",
   "track": "컴퓨터시스템응용",
@@ -164338,7 +164338,7 @@
  {
   "id": "c86-303",
   "period": "3교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 86회",
   "source": "86회 3교시",
   "track": "컴퓨터시스템응용",
@@ -164347,7 +164347,7 @@
  {
   "id": "c86-304",
   "period": "3교시",
-  "category": "",
+  "category": "경영전략",
   "round": "컴시응 86회",
   "source": "86회 3교시",
   "track": "컴퓨터시스템응용",
@@ -164365,7 +164365,7 @@
  {
   "id": "c86-306",
   "period": "3교시",
-  "category": "",
+  "category": "경영전략",
   "round": "컴시응 86회",
   "source": "86회 3교시",
   "track": "컴퓨터시스템응용",
@@ -164374,7 +164374,7 @@
  {
   "id": "c86-401",
   "period": "4교시",
-  "category": "",
+  "category": "보안",
   "round": "컴시응 86회",
   "source": "86회 4교시",
   "track": "컴퓨터시스템응용",
@@ -164383,7 +164383,7 @@
  {
   "id": "c86-402",
   "period": "4교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 86회",
   "source": "86회 4교시",
   "track": "컴퓨터시스템응용",
@@ -164392,7 +164392,7 @@
  {
   "id": "c86-403",
   "period": "4교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 86회",
   "source": "86회 4교시",
   "track": "컴퓨터시스템응용",
@@ -164437,7 +164437,7 @@
  {
   "id": "c84-202",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 84회",
   "source": "84회 2교시",
   "track": "컴퓨터시스템응용",
@@ -164473,7 +164473,7 @@
  {
   "id": "c83-102",
   "period": "1교시",
-  "category": "",
+  "category": "보안",
   "round": "컴시응 83회",
   "source": "83회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164482,7 +164482,7 @@
  {
   "id": "c83-103",
   "period": "1교시",
-  "category": "신기술",
+  "category": "경영전략",
   "round": "컴시응 83회",
   "source": "83회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164491,7 +164491,7 @@
  {
   "id": "c83-105",
   "period": "1교시",
-  "category": "신기술",
+  "category": "컴퓨터구조",
   "round": "컴시응 83회",
   "source": "83회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164500,7 +164500,7 @@
  {
   "id": "c83-106",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 83회",
   "source": "83회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164509,7 +164509,7 @@
  {
   "id": "c83-107",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 83회",
   "source": "83회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164518,7 +164518,7 @@
  {
   "id": "c83-108",
   "period": "1교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "round": "컴시응 83회",
   "source": "83회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164527,7 +164527,7 @@
  {
   "id": "c83-109",
   "period": "1교시",
-  "category": "",
+  "category": "데이터베이스",
   "round": "컴시응 83회",
   "source": "83회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164536,7 +164536,7 @@
  {
   "id": "c83-110",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 83회",
   "source": "83회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164545,7 +164545,7 @@
  {
   "id": "c83-111",
   "period": "1교시",
-  "category": "",
+  "category": "데이터베이스",
   "round": "컴시응 83회",
   "source": "83회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164554,7 +164554,7 @@
  {
   "id": "c83-112",
   "period": "1교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "round": "컴시응 83회",
   "source": "83회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164563,7 +164563,7 @@
  {
   "id": "c83-113",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 83회",
   "source": "83회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164590,7 +164590,7 @@
  {
   "id": "c83-203",
   "period": "2교시",
-  "category": "",
+  "category": "보안",
   "round": "컴시응 83회",
   "source": "83회 2교시",
   "track": "컴퓨터시스템응용",
@@ -164599,7 +164599,7 @@
  {
   "id": "c83-404",
   "period": "4교시",
-  "category": "",
+  "category": "프로젝트관리",
   "round": "컴시응 83회",
   "source": "83회 4교시",
   "track": "컴퓨터시스템응용",
@@ -164617,7 +164617,7 @@
  {
   "id": "c83-301",
   "period": "3교시",
-  "category": "",
+  "category": "경영전략",
   "round": "컴시응 83회",
   "source": "83회 3교시",
   "track": "컴퓨터시스템응용",
@@ -164671,7 +164671,7 @@
  {
   "id": "c83-401",
   "period": "4교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 83회",
   "source": "83회 4교시",
   "track": "컴퓨터시스템응용",
@@ -164680,7 +164680,7 @@
  {
   "id": "c83-402",
   "period": "4교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 83회",
   "source": "83회 4교시",
   "track": "컴퓨터시스템응용",
@@ -164689,7 +164689,7 @@
  {
   "id": "c83-403",
   "period": "4교시",
-  "category": "",
+  "category": "보안",
   "round": "컴시응 83회",
   "source": "83회 4교시",
   "track": "컴퓨터시스템응용",
@@ -164734,7 +164734,7 @@
  {
   "id": "c81-101",
   "period": "1교시",
-  "category": "",
+  "category": "프로젝트관리",
   "round": "컴시응 81회",
   "source": "81회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164797,7 +164797,7 @@
  {
   "id": "c81-109",
   "period": "1교시",
-  "category": "신기술",
+  "category": "보안",
   "round": "컴시응 81회",
   "source": "81회 1교시",
   "track": "컴퓨터시스템응용",
@@ -164815,7 +164815,7 @@
  {
   "id": "c81-2x2698",
   "period": "2교시",
-  "category": "신기술",
+  "category": "데이터베이스",
   "round": "컴시응 81회",
   "source": "81회 2교시",
   "track": "컴퓨터시스템응용",
@@ -164842,7 +164842,7 @@
  {
   "id": "c81-2x2701",
   "period": "2교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 81회",
   "source": "81회 2교시",
   "track": "컴퓨터시스템응용",
@@ -164851,7 +164851,7 @@
  {
   "id": "c81-2x2702",
   "period": "2교시",
-  "category": "",
+  "category": "경영전략",
   "round": "컴시응 81회",
   "source": "81회 2교시",
   "track": "컴퓨터시스템응용",
@@ -164869,7 +164869,7 @@
  {
   "id": "c81-204",
   "period": "2교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 81회",
   "source": "81회 2교시",
   "track": "컴퓨터시스템응용",
@@ -164887,7 +164887,7 @@
  {
   "id": "c81-2x2706",
   "period": "2교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 81회",
   "source": "81회 2교시",
   "track": "컴퓨터시스템응용",
@@ -164905,7 +164905,7 @@
  {
   "id": "c81-3x2720",
   "period": "3교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 81회",
   "source": "81회 3교시",
   "track": "컴퓨터시스템응용",
@@ -164959,7 +164959,7 @@
  {
   "id": "c81-4x2726",
   "period": "4교시",
-  "category": "신기술",
+  "category": "소프트웨어공학",
   "round": "컴시응 81회",
   "source": "81회 4교시",
   "track": "컴퓨터시스템응용",
@@ -165022,7 +165022,7 @@
  {
   "id": "c80-1x2748",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "round": "컴시응 80회",
   "source": "80회 1교시",
   "track": "컴퓨터시스템응용",
@@ -165031,7 +165031,7 @@
  {
   "id": "c80-1x2749",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 80회",
   "source": "80회 1교시",
   "track": "컴퓨터시스템응용",
@@ -165049,7 +165049,7 @@
  {
   "id": "c80-1x2751",
   "period": "1교시",
-  "category": "신기술",
+  "category": "디지털서비스",
   "round": "컴시응 80회",
   "source": "80회 1교시",
   "track": "컴퓨터시스템응용",
@@ -165058,7 +165058,7 @@
  {
   "id": "c80-1x2752",
   "period": "1교시",
-  "category": "신기술",
+  "category": "네트워크",
   "round": "컴시응 80회",
   "source": "80회 1교시",
   "track": "컴퓨터시스템응용",
@@ -165076,7 +165076,7 @@
  {
   "id": "c80-1x2754",
   "period": "1교시",
-  "category": "",
+  "category": "디지털서비스",
   "round": "컴시응 80회",
   "source": "80회 1교시",
   "track": "컴퓨터시스템응용",
@@ -165112,7 +165112,7 @@
  {
   "id": "c80-2x2764",
   "period": "2교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 80회",
   "source": "80회 2교시",
   "track": "컴퓨터시스템응용",
@@ -165130,7 +165130,7 @@
  {
   "id": "c80-201",
   "period": "2교시",
-  "category": "",
+  "category": "경영전략",
   "round": "컴시응 80회",
   "source": "80회 2교시",
   "track": "컴퓨터시스템응용",
@@ -165139,7 +165139,7 @@
  {
   "id": "c80-202",
   "period": "2교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 80회",
   "source": "80회 2교시",
   "track": "컴퓨터시스템응용",
@@ -165157,7 +165157,7 @@
  {
   "id": "c80-3x2775",
   "period": "3교시",
-  "category": "",
+  "category": "운영체제",
   "round": "컴시응 80회",
   "source": "80회 3교시",
   "track": "컴퓨터시스템응용",
@@ -165175,7 +165175,7 @@
  {
   "id": "c80-3x2777",
   "period": "3교시",
-  "category": "",
+  "category": "데이터베이스",
   "round": "컴시응 80회",
   "source": "80회 3교시",
   "track": "컴퓨터시스템응용",
@@ -165202,7 +165202,7 @@
  {
   "id": "c80-3x2780",
   "period": "3교시",
-  "category": "",
+  "category": "보안",
   "round": "컴시응 80회",
   "source": "80회 3교시",
   "track": "컴퓨터시스템응용",
@@ -165220,7 +165220,7 @@
  {
   "id": "c80-406",
   "period": "4교시",
-  "category": "",
+  "category": "네트워크",
   "round": "컴시응 80회",
   "source": "80회 4교시",
   "track": "컴퓨터시스템응용",
@@ -165229,7 +165229,7 @@
  {
   "id": "c80-4x2789",
   "period": "4교시",
-  "category": "",
+  "category": "경영전략",
   "round": "컴시응 80회",
   "source": "80회 4교시",
   "track": "컴퓨터시스템응용",
@@ -165247,7 +165247,7 @@
  {
   "id": "c80-403",
   "period": "4교시",
-  "category": "",
+  "category": "소프트웨어공학",
   "round": "컴시응 80회",
   "source": "80회 4교시",
   "track": "컴퓨터시스템응용",
