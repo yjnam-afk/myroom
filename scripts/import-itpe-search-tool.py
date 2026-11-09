@@ -115,9 +115,18 @@ for r in range(1, sh.nrows):
     rd = rnd(rd).replace("회", ""); per = period_of(ty); k = num(tx)
     if not per: continue
     base = f"c{rd}-{per[0]}{k:02d}" if k else f"c{rd}-{per[0]}x{r}"
-    # 같은 회·교시·번호가 이미 있으면(해설집에서 넣은 14개 회차) 같은 시험이다 — 표기만 다를 뿐이라 건너뛴다
-    if base in ids: continue
-    cid = base
+    # 같은 회·교시·번호가 이미 있으면(해설집에서 넣은 14개 회차) 같은 시험이다 — 표기만 다를 뿐이라 건너뛴다.
+    # 다만 그 자리의 문장이 다르면(84회는 엑셀 번호가 전부 「1.」) 같은 교시의 빈 번호를 준다(2026-11-09)
+    text0 = clean(tx)
+    if base in ids:
+        # 해설집으로 31문항이 다 들어온 회차는 번호가 같으면 같은 문항(표기 차이)이라 건너뛴다. 덜 들어온 회차(84회)만 빈 번호를 준다
+        full = sum(1 for q in Q if q["id"].startswith(f"c{rd}-")) >= 31
+        same = next((q for q in Q if q["id"] == base), None)
+        if full or same is None or norm(same["text"]) == norm(text0) or norm(text0) in have: continue
+        cid = next((f"c{rd}-{per[0]}{n:02d}" for n in range(1, 40) if f"c{rd}-{per[0]}{n:02d}" not in ids), None)
+        if not cid: continue
+    else:
+        cid = base
     rec = {"id": cid, "period": per, "category": "", "source": f"{rd}회 {per}", "round": f"컴시응 {rd}회", "track": "컴퓨터시스템응용"}
     # 기출은 문장이 같아도 넣는다 — 정보관리와 같은 문장인 컴시응 문항(140회 7문항 등 90여 개)을 「같은 문장」 규칙이 버렸다(2026-11-09 "컴시응 기출문제 사이트에 안 올렸어?")
     # 번호가 없는 행(125회처럼 「x」 id)은 같은 회차에 같은 문장이 있으면 그 문항이다 — 그때만 문장으로 거른다

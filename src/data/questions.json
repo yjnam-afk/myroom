@@ -164432,34 +164432,34 @@
   "round": "컴시응 84회",
   "source": "84회 1교시",
   "track": "컴퓨터시스템응용",
-  "text": "1. Mobile IPTV"
+  "text": "Mobile IPTV"
  },
  {
-  "id": "c84-202",
+  "id": "c84-201",
   "period": "2교시",
   "category": "디지털서비스",
   "round": "컴시응 84회",
   "source": "84회 2교시",
   "track": "컴퓨터시스템응용",
-  "text": "1. 리치미디어 이론(media richness theory)의 정의와 최근에 웹을\n이용한 광고와의 관련성에 대해 설명하시오."
+  "text": "리치미디어 이론(media richness theory)의 정의와 최근에 웹을\n이용한 광고와의 관련성에 대해 설명하시오."
  },
  {
-  "id": "c84-303",
+  "id": "c84-301",
   "period": "3교시",
   "category": "소프트웨어공학",
   "round": "컴시응 84회",
   "source": "84회 3교시",
   "track": "컴퓨터시스템응용",
-  "text": "1. 차세대 저장장치인\n가. SSD(Solid State Disk)\n나. MEMS(Micro Electro Mechanical System)\n다. H-HDD(Hybrid Hard Disk Drive)에 대해 기술하시오."
+  "text": "차세대 저장장치인\n가. SSD(Solid State Disk)\n나. MEMS(Micro Electro Mechanical System)\n다. H-HDD(Hybrid Hard Disk Drive)에 대해 기술하시오."
  },
  {
-  "id": "c84-404",
+  "id": "c84-401",
   "period": "4교시",
   "category": "소프트웨어공학",
   "round": "컴시응 84회",
   "source": "84회 4교시",
   "track": "컴퓨터시스템응용",
-  "text": "1. Function Point의 특징 및 요구분석 단계 이후의 Function Point를 이용한 소프트웨어\n비용산정 절차와 활성화 방안에 대해 기술하시오."
+  "text": "Function Point의 특징 및 요구분석 단계 이후의 Function Point를 이용한 소프트웨어\n비용산정 절차와 활성화 방안에 대해 기술하시오."
  },
  {
   "id": "c83-101",
@@ -165946,5 +165946,257 @@
   "round": "컴시응 81회",
   "track": "컴퓨터시스템응용",
   "text": "네트워크의 QoS(Quality of Service)"
+ },
+ {
+  "id": "c101-404",
+  "period": "4교시",
+  "category": "디지털서비스",
+  "source": "101회 4교시",
+  "round": "컴시응 101회",
+  "track": "컴퓨터시스템응용",
+  "text": "최근 대두되고 있는 모바일 콘텐츠의 개념을 기술하고, 모바일 환경에서의 모바일 기기 활용 형태를 분류하여 설명하시오. 또한 모바일 콘텐츠 산업의 특성에 대하여 설명하시오."
+ },
+ {
+  "id": "c84-102",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "84회 1교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "Web Mining"
+ },
+ {
+  "id": "c84-103",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "84회 1교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "Search 2.0"
+ },
+ {
+  "id": "c84-104",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "84회 1교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "CMMI의 Continuous Model & Staged Model"
+ },
+ {
+  "id": "c84-105",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "84회 1교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "지능형 홈네트워킹 미들웨어"
+ },
+ {
+  "id": "c84-106",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "84회 1교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "SRU(Search & Retrieval via URL)"
+ },
+ {
+  "id": "c84-107",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "84회 1교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "RDF(Resource Description Framework)"
+ },
+ {
+  "id": "c84-108",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "84회 1교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "Portlet"
+ },
+ {
+  "id": "c84-109",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "84회 1교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "TPEG(Transport Protocol Expert Group)"
+ },
+ {
+  "id": "c84-110",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "84회 1교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "Logger"
+ },
+ {
+  "id": "c84-112",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "84회 1교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "TPS(Triple Play Service)"
+ },
+ {
+  "id": "c84-113",
+  "period": "1교시",
+  "category": "보안",
+  "source": "84회 1교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "DDoS(Distributed Denial-of-Service attack)"
+ },
+ {
+  "id": "c84-202",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "84회 2교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "SaaS(Software as a Service)의 장점 및 위험요소,\n구성요소, 활성화를 위한 해결과제에 대해 기술하시오."
+ },
+ {
+  "id": "c84-203",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "source": "84회 2교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "텔레매틱스를 기반으로 한 컨버전스 모델,\n서비스 분야 및 활성화 방안에 대해 기술하시오."
+ },
+ {
+  "id": "c84-204",
+  "period": "2교시",
+  "category": "데이터베이스",
+  "source": "84회 2교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "Web과 DB의 연동방식을 기술하고, 인터넷 기업에서\n신규로 구축하는 Web 서버가 내부의 DB와 연동하고자 할 경우 고려사항 및 해결과제에 대해 서술하시오."
+ },
+ {
+  "id": "c84-205",
+  "period": "2교시",
+  "category": "디지털서비스",
+  "source": "84회 2교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "방송통신융합의 의의와 정보통신분야에 미치는 영향을 기술하시오."
+ },
+ {
+  "id": "c84-206",
+  "period": "2교시",
+  "category": "경영전략",
+  "source": "84회 2교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "DRS(Disaster Recovery System) 구축과 관련하여\n  가) 구축방식 및 구축을 위한 요건\n  나) 구축절차, 구축시 고려사항\n  다) 대량의 Transaction을 처리해야 하는 시스템의 가동센터와\n DR센터 간의 거리가  100km 이상되는 환경에서 실시간 Transaction의 정합성을 보장하기 위한\nDRS구축방안에 대해 기술하시오."
+ },
+ {
+  "id": "c84-302",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "84회 3교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "V-Model 기반의 Water Fall Model 테스트에 대하여 설명하시오."
+ },
+ {
+  "id": "c84-303",
+  "period": "3교시",
+  "category": "네트워크",
+  "source": "84회 3교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "P-to-P 방식을 설명하고, Client/Server 모델과의 차이점을 비교하시오."
+ },
+ {
+  "id": "c84-304",
+  "period": "3교시",
+  "category": "컴퓨터구조",
+  "source": "84회 3교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "시스템 (SMP서버 및 저장장치)의 대대적인 증설을 하고자 한다. 성능 및 용량산정에 대한 고려사항을 기술하시오."
+ },
+ {
+  "id": "c84-305",
+  "period": "3교시",
+  "category": "보안",
+  "source": "84회 3교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "디지털 저작권 관리 기술의 등장 배경을 쓰고, 현재 활용되고 있는\nDRM(Digital Rights Management : 디지털 저작권 관리) 시스템의 구성요소와 그 세부 기능에 대해 설명하시오."
+ },
+ {
+  "id": "c84-306",
+  "period": "3교시",
+  "category": "디지털서비스",
+  "source": "84회 3교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "Web 2.0에 대하여\n   가. Web 2.0의 개념 및 적용기술\n   나. 유사기술(Web 1.0, SOA, Semantic Web)과의 특징비교\n   다. Web 2.0 서비스 및 기업에서 도입시 고려사항에 대해 기술하시오."
+ },
+ {
+  "id": "c84-402",
+  "period": "4교시",
+  "category": "데이터베이스",
+  "source": "84회 4교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "온톨로지의 개념을 설명하고 이와 관련된 객체지향 설계언어인 UML의 장점에 대해 설명하시오."
+ },
+ {
+  "id": "c84-403",
+  "period": "4교시",
+  "category": "알고리즘",
+  "source": "84회 4교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "범죄단체 추적을 위한 전화통화 분석시스템의 알고리즘을 설계하시오.\n   가. 메타데이터 : 전화번호, 상대전화번호, 통화시각, 통화시간\n   나. Data건수 : 수백만건\n   다. 시작 Point : 의심가는 전화번호"
+ },
+ {
+  "id": "c84-404",
+  "period": "4교시",
+  "category": "데이터베이스",
+  "source": "84회 4교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "In-Memory Data Grid에 대하여 설명하시오."
+ },
+ {
+  "id": "c84-405",
+  "period": "4교시",
+  "category": "디지털서비스",
+  "source": "84회 4교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "U지능화 사회에 대비한 IT/BT/NT의 융합기술 사례 및 서비스 분야별 융합기술, 활성화 방안에 대해 기술하시오."
+ },
+ {
+  "id": "c84-406",
+  "period": "4교시",
+  "category": "경영전략",
+  "source": "84회 4교시",
+  "round": "컴시응 84회",
+  "track": "컴퓨터시스템응용",
+  "text": "대량의 온라인 거래가 발생하는 기업에서 메인프레임 기반의 운영시스템을 오픈시스템으로 전환하는\n      차세대시스템을 구축하고자 한다.\n오픈시스템으로 전환시 고려 사항 및 극복전략을 구성환경(시스템 환경, 개발환경, 운영환경)별로 설명하시오."
+ },
+ {
+  "id": "c83-407",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "83회 4교시",
+  "round": "컴시응 83회",
+  "track": "컴퓨터시스템응용",
+  "text": "정보시스템 획득과 사용자 관점에서의 각종 품질요소에 대해 그들 간의 연관 관계에 대해 설명하시오"
  }
 ]
