@@ -27,6 +27,8 @@ import SourceBadge from "@/components/SourceBadge";
 import { matchSubnoteTitle, findSubnoteByContent } from "@/lib/matchSubnote";
 import { topicForConcept } from "@/lib/relatedTopics";
 import ClearButton from "@/components/ClearButton";
+import { FRAME_GROUPS, FRAME_BY_CODE, frameOf, familiesOf } from "@/data/answerFrames";
+import FrameCard from "@/components/FrameCard";
 
 type Topic = {
   id: string;
@@ -488,7 +490,8 @@ function MapView({
   const doms = sortDomains(Object.keys(TOPICS_BY_CAT).filter((c) => TOPICS_BY_CAT[c].length > 0));
   const cats = ["전체", ...doms];
   const [cat, setCat] = useState("전체");
-  const [mode, setMode] = useState<"priority" | "heat">("priority");
+  // 「답안 틀」 보기 — 칩 색 = 개념도 그룹(돌려막기 시트, 2026-11-09)
+  const [mode, setMode] = useState<"priority" | "heat" | "frame">("priority");
   const [sel, setSel] = useState<string | null>(null);
   const [showTables, setShowTables] = useState(false);
   // 펼친 가지 — 과목 지도는 영역을 다 편 채로, 전체 지도는 과목만 보이게 시작한다
@@ -547,7 +550,15 @@ function MapView({
     const s = stats[t.title];
     const up = upHere(t);
     const n = mode === "heat" ? s?.past ?? 0 : hits(s);
-    const color = mode === "heat" ? heatCls(n) : PRI_CHIP[t.priority ?? "하"] ?? PRI_CHIP.하;
+    const fr = mode === "frame" ? frameOf(t.title) : undefined;
+    const color =
+      mode === "frame"
+        ? fr
+          ? FRAME_BY_CODE[fr.group].cls
+          : "border-slate-200 bg-white text-slate-400"
+        : mode === "heat"
+          ? heatCls(n)
+          : PRI_CHIP[t.priority ?? "하"] ?? PRI_CHIP.하;
     const isSel = sel === t.title;
     return (
       <button
@@ -723,6 +734,7 @@ function MapView({
             {[
               { k: "priority" as const, label: "중요도" },
               { k: "heat" as const, label: "출제 빈도" },
+              { k: "frame" as const, label: "🧩 답안 틀" },
             ].map((m) => (
               <button
                 key={m.k}
@@ -744,6 +756,12 @@ function MapView({
             <span className={`rounded-full border px-2 py-0.5 ${PRI_CHIP.중}`}>중 ★★</span>
             <span className={`rounded-full border px-2 py-0.5 ${PRI_CHIP.하}`}>하 ★</span>
           </>
+        ) : mode === "frame" ? (
+          FRAME_GROUPS.map((g) => (
+            <span key={g.code} className={`rounded-full border px-2 py-0.5 ${g.cls}`}>
+              {g.code} {g.name}
+            </span>
+          ))
         ) : (
           HEAT_STEPS.map((h) => (
             <span key={h.label} className={`rounded-full border px-2 py-0.5 ${h.cls}`}>
@@ -753,10 +771,47 @@ function MapView({
         )}
         <span className="ml-1">
           {overview
-            ? `· 영역 칩 숫자 = 토픽 수 · 색 = ${mode === "heat" ? "토픽당 평균 기출" : "상 토픽 3개 이상 상 / 1개 이상 중"} · 영역을 누르면 그 과목 지도`
-            : `· 숫자 = ${mode === "heat" ? "기술사 기출 횟수" : "출제 횟수(기출·NS·모의)"} · ○ = 모범답안·해설 없음 · 점선 = 교재 정리 전 · 세로줄 안 = 하위 토픽(⊂ 종류 ◇ 구성·기법 ⚠ 문제·해결 ↗ 확장·발전) · 🔎 = 교재 표 속 서브 토픽`}
+            ? `· 영역 칩 숫자 = 토픽 수 · 색 = ${mode === "heat" ? "토픽당 평균 기출" : mode === "frame" ? "개념도 그룹" : "상 토픽 3개 이상 상 / 1개 이상 중"} · 영역을 누르면 그 과목 지도`
+            : mode === "frame"
+              ? "· 색 = 개념도 그룹(같은 색 = 같은 2단락 틀) · 토픽을 누르면 돌려막기 묶음·3단락 유형이 오른쪽에 · 흰 칩 = 아직 틀 안 정함"
+              : `· 숫자 = ${mode === "heat" ? "기술사 기출 횟수" : "출제 횟수(기출·NS·모의)"} · ○ = 모범답안·해설 없음 · 점선 = 교재 정리 전 · 세로줄 안 = 하위 토픽(⊂ 종류 ◇ 구성·기법 ⚠ 문제·해결 ↗ 확장·발전) · 🔎 = 교재 표 속 서브 토픽`}
         </span>
       </div>
+
+      {/* 🧩 돌려막기 묶음 — 같은 틀로 이름·항목만 갈아끼우는 토픽끼리(과목 지도에서만) */}
+      {mode === "frame" && !overview && (() => {
+        const code = DOMAINS.find((d) => d.label === cat)?.code;
+        const fams = code ? familiesOf(code) : [];
+        if (!fams.length) return null;
+        return (
+          <div className="mb-3 rounded-xl border border-slate-200 bg-white px-4 py-3">
+            <p className="text-xs font-bold text-slate-800">
+              🔁 돌려막기 묶음 {fams.length}개 <span className="font-normal text-slate-400">· 묶음 안에서는 1단락 정의 틀·2단락 표 틀·3단락 꼴을 그대로 두고 이름·항목만 바꾼다</span>
+            </p>
+            <div className="mt-2 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {fams.map((f) => (
+                <div key={f.name} className="rounded-lg border border-slate-100 bg-slate-50/60 p-2">
+                  <p className="text-[11px] font-semibold text-slate-700">
+                    <span className={`mr-1 rounded-full border px-1.5 py-0.5 text-[10px] ${FRAME_BY_CODE[f.group].cls}`}>{f.group}</span>
+                    {f.name} <span className="font-normal text-slate-400">{f.topics.length}</span>
+                  </p>
+                  <div className="mt-1 flex flex-wrap gap-1">
+                    {f.topics.map((t) => (
+                      <button
+                        key={t}
+                        onClick={() => setSel(t)}
+                        className={`rounded-full border px-2 py-0.5 text-[11px] ${sel === t ? "ring-2 ring-brand-600" : ""} ${FRAME_BY_CODE[f.group].cls}`}
+                      >
+                        {short(t)}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
 
       {/* 과목 지도 → 레벨 맵(토픽 아래 키워드 단계) */}
       {!overview && lmaps.length > 0 && (
@@ -931,6 +986,7 @@ function MapView({
                   토픽 설명 · 답안지 템플릿 →
                 </Link>
               )}
+              <FrameCard title={selected.title} compact />
               {(() => {
                 const up = parentLink(selected.title);
                 const downs = childLinks(selected.title);

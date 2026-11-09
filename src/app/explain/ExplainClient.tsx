@@ -9,6 +9,7 @@ import MyNotes from "@/components/MyNotes";
 import { CellLines } from "@/components/TableCell";
 import AnswerTable from "@/components/AnswerTable";
 import AnswerTemplate from "@/components/AnswerTemplate";
+import FrameCard from "@/components/FrameCard";
 import { askFreq, longFormTexts } from "@/lib/askFreq";
 import TopicMapCard from "@/components/TopicMapCard";
 import { ExamHistoryCard } from "@/components/ExamHistoryCard";
@@ -712,6 +713,9 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
               hasSlide={!!extra?.image}
               asks={asks}
             />
+
+            {/* 🧩 답안 틀 — 개념도 그룹·3단락 유형·돌려막기 묶음(2026-11-09) */}
+            <FrameCard title={textbook.title} />
 
             {/* 손글씨 표 — 정리 노트에서 잘라 온 것. 교재 표를 시험지에 몇 칸으로 줄여 쓰는지 본다. */}
             {handTables.length > 0 && (
