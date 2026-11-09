@@ -1,1 +1,4826 @@
-{}
+{
+ "2PC": {
+  "group": "C8",
+  "type": "문제-해결",
+  "slot": "행위자 Global Coordinator ↔ 지역 노드, ① Prepare ② Vote ③ Commit/Rollback ④ Ack",
+  "target": "조정자 장애 블로킹 → 3PC·Saga·Paxos",
+  "pair": "분산 DB",
+  "family": "",
+  "course": "DB"
+ },
+ "3R": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형: 역공학(Reverse)·재공학(Re-Engineering)·재사용(Re-Use), 중심 레포지토리",
+  "target": "리팩토링·재구조화(Restructuring)",
+  "pair": "소프트웨어 리팩토링",
+  "family": "SW 진화·재공학 계열",
+  "course": "SE"
+ },
+ "5G 특화망": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "유형명 자가구축·On-Premise형·5G Core CP 공유형·5G Core 전체 공유형, 결합 대상 전용 주파수·MEC",
+  "target": "국내 이음5G",
+  "pair": "네트워크 슬라이싱",
+  "family": "",
+  "course": "NW"
+ },
+ "6G": {
+  "group": "C10",
+  "type": "로드맵",
+  "slot": "유형명 초대역·초성능·초공간·초정밀·초지능·초현실 비전, 결합 대상 지원 기술(테라헤르츠·RIS·AI)",
+  "target": "IMT-2030 일정",
+  "pair": "Hyper-AI 네트워크",
+  "family": "",
+  "course": "NW"
+ },
+ "A2A(Agent2Agent) 프로토콜": {
+  "group": "C8",
+  "type": "연계 강화",
+  "slot": "클라이언트 에이전트 ↔ 원격 에이전트, 구성요소(Agent Card·Task·메시지) 번호 교환",
+  "target": "MCP 도구 연동·멀티 에이전트 시스템·LangGraph",
+  "pair": "MCP(Model Context Protocol)",
+  "family": "에이전트 프로토콜 계열",
+  "course": "AI"
+ },
+ "ACP(Agentic Commerce Protocol)": {
+  "group": "C8",
+  "type": "활용 사례",
+  "slot": "① 에이전트 소통 탐색 → ② 범위 제한 토큰 → ③ 결제 위임 → 판매자 처리",
+  "target": "ChatGPT Instant Checkout·Shopify·Etsy",
+  "pair": "UCP(Universal Commerce Protocol)",
+  "family": "에이전틱 커머스 프로토콜 계열",
+  "course": "DX"
+ },
+ "AI Agent": {
+  "group": "C4",
+  "type": "연관 비교",
+  "slot": "인식 → 추론 → 행동 → 학습 고리, 기술요소·유형(세부항목)",
+  "target": "에이전틱 AI·RPA·챗봇",
+  "pair": "에이전틱 AI(Agentic AI)",
+  "family": "AI 에이전트 순환 계열",
+  "course": "AI"
+ },
+ "AI Agent 보안위협": {
+  "group": "C3",
+  "type": "연계 강화",
+  "slot": "의사결정 → 메모리 → 도구 호출 → 인증·권한 → 인간 개입 → 다중 에이전트 흐름 + 단계별 위협",
+  "target": "OWASP Agentic AI·AI 가드레일·HITL",
+  "pair": "OWASP Agentic AI 위협 및 대응방안(Agentic AI Threats and Mitigations)",
+  "family": "AI 에이전트 보안위협 계열",
+  "course": "SC"
+ },
+ "AI BOM(Artificial Intelligence Bill of Materials)": {
+  "group": "C1",
+  "type": "적용 분야",
+  "slot": "구성요소 층(데이터·모델·SW 라이브러리·인프라) + 표준 포맷(CycloneDX·SPDX·모델 카드)",
+  "target": "공공 조달·금융·의료 AI 공급망 관리",
+  "pair": "오픈웨이트(Open-weight) 모델",
+  "family": "",
+  "course": "AI"
+ },
+ "AI OS(Artificial Intelligence Operating System)": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "Access·Tool Manager → LLMScheduler·Context Manager → LLMCore → Memory·Storage",
+  "target": "다중 에이전트 시스템·GPU 가상화",
+  "pair": "",
+  "family": "",
+  "course": "DX"
+ },
+ "AI RMF(AI Risk Management Framework)": {
+  "group": "C6",
+  "type": "적용 분야",
+  "slot": "절차(Govern·MAP·MEASURE·MANAGE) 주요활동·산출물, Trustworthy AI 특징",
+  "target": "금융 신용 평가·의료 진단·공공 고영향 AI 시스템",
+  "pair": "ISO/IEC 23894",
+  "family": "AI 위험관리 프레임워크 계열",
+  "course": "AI"
+ },
+ "AI Ready Data": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "획득 → 정제 → 가공·라벨링 절차(텍스트·음성·이미지 / 영상) 세부 절차, 클래스 라벨",
+  "target": "합성 데이터·자동 라벨링·데이터 레이크",
+  "pair": "합성 데이터(Synthetic Data)",
+  "family": "AI 데이터 품질관리 계열",
+  "course": "AI"
+ },
+ "AI TRiSM(AI Trust, Risk and Security Management)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "4 Pillar(익모모응프: 설명가능성·모델 모니터링·ModelOps·앱 보안·프라이버시) 결합, 기술요소·도구",
+  "target": "제로 트러스트·MLOps 모니터링·AI 레드팀",
+  "pair": "AI 신뢰성 인증",
+  "family": "AI 신뢰성 관리 계열",
+  "course": "AI"
+ },
+ "AI 기본법": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "주요 조항(정의·고영향 AI·생성형 AI·투명성·국가인공지능위원회) 결합 관계",
+  "target": "EU AI Act",
+  "pair": "인공지능 투명성 확보 가이드라인",
+  "family": "AI 법제·가이드라인 계열",
+  "course": "AI"
+ },
+ "AI 네이티브 개발 플랫폼(AI-Native Development Platform)": {
+  "group": "C1",
+  "type": "실무 도구",
+  "slot": "구성요소 계층(Model Studio·AI Gateway·AI Agent·MCP) + 개발절차 단계·핵심기술",
+  "target": "AI 코딩 에이전트·자동 테스트·코드 리뷰 HITL",
+  "pair": "바이브코딩(Vibe Coding)",
+  "family": "AI 풀스택 플랫폼 계열",
+  "course": "AI"
+ },
+ "AI 레드팀(Red team) 테스트": {
+  "group": "C5",
+  "type": "활용 사례",
+  "slot": "레드팀(다양 전문가) ↔ 대상 AI ↔ 평가·대응 구역, 테스트 기법·절차 산출물",
+  "target": "PyRIT·Purple Llama·퍼플티밍",
+  "pair": "AI 시스템 테스트",
+  "family": "",
+  "course": "AI"
+ },
+ "AI 슈퍼컴퓨팅 플랫폼(Supercomputing Platform)": {
+  "group": "C1",
+  "type": "활용 사례",
+  "slot": "플랫폼 아키텍처 계층(AI 가속기·인터커넥트·병렬·분산 SW·서비스)과 계층별 주요기술",
+  "target": "NVIDIA DGX SuperPOD·국가 AI 컴퓨팅센터",
+  "pair": "소버린 AI(Artificial Intelligence)",
+  "family": "AI 풀스택 플랫폼 계열",
+  "course": "AI"
+ },
+ "AI 시스템 테스트": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "블랙박스 테스트 기법(변액(A)백조) / 신경망 화이트박스 커버리지(뉴임부값뿌레안) 유형",
+  "target": "AI 레드팀 테스트·MLOps CI 자동 테스트·AI 신뢰성 인증",
+  "pair": "ISO/IEC 42119-2",
+  "family": "AI 테스트 계열",
+  "course": "AI"
+ },
+ "AI 신뢰성 인증": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "핵심 속성(안설투견공) × 신뢰성 요건(존책안투), 관련 표준(ISO/IEC TR 24028)",
+  "target": "TTA AI 신뢰성 인증·EU AI Act 적합성 평가",
+  "pair": "AI TRiSM(AI Trust, Risk and Security Management)",
+  "family": "AI 신뢰성 관리 계열",
+  "course": "AI"
+ },
+ "AI 예지 보전(Predictive Maintenance, PdM)": {
+  "group": "C2",
+  "type": "적용 분야",
+  "slot": "멀티모달 센서 → 게이트웨이·증강 → 이상 탐지·고장 진단 → RUL 예측",
+  "target": "스마트 팩토리·발전 플랜트·철도 차량 정비",
+  "pair": "디지털 트윈(Digital Twin)",
+  "family": "AI 응용 기술 계열",
+  "course": "DX"
+ },
+ "AI 프라이버시 리스크 관리": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "AI 유형·용례 파악 → 리스크 식별 → 측정 → 경감 단계 + 생애주기별 리스크 하위",
+  "target": "Privacy by Design·PEC·AI 거버넌스",
+  "pair": "개인정보 영향평가(Privacy Impact Assessment)",
+  "family": "프라이버시 리스크 평가 계열",
+  "course": "SC"
+ },
+ "AI-DLC(AI-Driven SDLC)": {
+  "group": "C6",
+  "type": "실무 도구",
+  "slot": "메인: 3단계 절차(AI 계획 수립→AI 코딩→사람 검증) / 하위: 인텐트·유닛·볼트 단위 반복",
+  "target": "Amazon Q Developer·GitHub Copilot 에이전트",
+  "pair": "SDD(Spec-Driven Development)",
+  "family": "AI 주도 개발 방법론 계열",
+  "course": "SE"
+ },
+ "AMI(Advanced Metering Infrastructure) 2.0": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "보안 강화형 스마트 전력량계 → 통신(Wi-SUN·IoT-PLC·LWM2M·SNMP v3) → 운영 시스템",
+  "target": "기존 AMI(1.0)·원격검침",
+  "pair": "VPP(Virtual Power Plant)",
+  "family": "",
+  "course": "DX"
+ },
+ "AMR(Autonomous Mobile Robot)": {
+  "group": "C2",
+  "type": "연관 비교",
+  "slot": "센서 입력 → 환경 모델링 → 동작 계획 알고리즘 → 액추에이터·매니퓰레이터",
+  "target": "AGV",
+  "pair": "SLAM(Simultaneous Localization and Mapping)",
+  "family": "자율 로봇 계열",
+  "course": "DX"
+ },
+ "ANN(Approximate Nearest Neighbor) 알고리즘": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "메인 단계 인덱스 구축→후보 탐색→재순위, 하위 트리·해시·그래프·양자화 인덱싱",
+  "target": "KNN 정확 탐색(Brute Force)",
+  "pair": "벡터 데이터베이스(Vector Database)",
+  "family": "",
+  "course": "DB"
+ },
+ "ANSI/SPARC 모델(3-단계 데이터베이스 구조) / 데이터 독립성": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "층 이름 외부·개념·내부 스키마, 층 사이 화살표 라벨 논리적·물리적 독립성(사상)",
+  "target": "개념·논리·물리 모델링 단계",
+  "pair": "데이터베이스 모델링",
+  "family": "",
+  "course": "DB"
+ },
+ "AOP (Aspect Oriented Programming)": {
+  "group": "C2",
+  "type": "활용 사례",
+  "slot": "입력: 핵심관심·횡단관심 / 모듈: Joint-Point→Point-cut→Aspect→Weaving / 출력: 결합된 실행 프로그램",
+  "target": "Spring AOP 트랜잭션·로깅·보안 처리",
+  "pair": "객체지향 프로그래밍 특징",
+  "family": "",
+  "course": "SE"
+ },
+ "AP2(Agent Payment Protocol)": {
+  "group": "C8",
+  "type": "연계 강화",
+  "slot": "① 사용자 지시 → ② 에이전트 위임장(Mandate) → ③ 판매자 → ④ 결제 제공자 검증",
+  "target": "스테이블 코인·CBDC 결제",
+  "pair": "UCP(Universal Commerce Protocol)",
+  "family": "에이전틱 커머스 프로토콜 계열",
+  "course": "DX"
+ },
+ "API Gateway": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "입력: 요청 API / 모듈: 프록시·보안(인증·로깅)→프로토콜 변환→라우팅 / 출력: 마이크로 서비스 엔드포인트",
+  "target": "서비스 메시(Istio)·BFF",
+  "pair": "MSA (Micro Service Architecture)",
+  "family": "MSA 구성 계열",
+  "course": "SE"
+ },
+ "APT(Advanced Persistent Threat) 공격": {
+  "group": "C6",
+  "type": "활용 사례",
+  "slot": "단계 = 침투 → 탐색 → 수집 → 제어(유출), 하위 = 단계별 공격기법",
+  "target": "스턱스넷·SolarWinds·Lazarus 공격 사례",
+  "pair": "사이버전(Cyber Warfare)",
+  "family": "단계형 사이버 공격 계열",
+  "course": "SC"
+ },
+ "ARP(Address Resolution Protocol)": {
+  "group": "C8",
+  "type": "문제-해결",
+  "slot": "요청 호스트·대상 호스트 사이 MAC 요청(Broadcast)→회신(Unicast) 번호 화살표, ARP 캐시",
+  "target": "ARP 스푸핑·DAI(Dynamic ARP Inspection)",
+  "pair": "RARP(Reverse Address Resolution Protocol)",
+  "family": "주소 해석 프로토콜 계열",
+  "course": "NW"
+ },
+ "ASIL(Automotive Software Integrity Levels)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "심각도(S) × 노출 가능성(E) × 통제 가능성(C) 결합 → ASIL A~D·QM",
+  "target": "SOTIF(ISO 21448)·ISO/SAE 21434 사이버보안",
+  "pair": "IEC 61508",
+  "family": "기능안전 등급 계열",
+  "course": "DX"
+ },
+ "AX(AI Transformation)": {
+  "group": "C6",
+  "type": "성공 전략",
+  "slot": "절차(전파혁교커업) 메인 + 기술요소(서인거: AI 서비스·인프라·거버넌스) 하위",
+  "target": "파일럿 우선 확산·AI 거버넌스·데이터 기반 사업 모델 재설계",
+  "pair": "공공 AX 전략",
+  "family": "AX 전환 전략 계열",
+  "course": "AI"
+ },
+ "Apriori 알고리즘": {
+  "group": "C6",
+  "type": "문제-해결",
+  "slot": "메인 단계 후보 집합 생성→지지도 계산→가지치기→빈발 집합 반복, 핵심 단계 최소 지지도 가지치기",
+  "target": "후보 집합 폭증·반복 스캔 → DHP·FP-Growth",
+  "pair": "FP(Frequent Pattern)-Growth 알고리즘",
+  "family": "연관 규칙 알고리즘 계열",
+  "course": "DB"
+ },
+ "AutoML": {
+  "group": "C6",
+  "type": "활용 사례",
+  "slot": "프로세스(피하신: 피처 엔지니어링·하이퍼파라미터·신경망 구조 탐색)와 주요 기법",
+  "target": "Google AutoML·H2O·AutoKeras",
+  "pair": "MLOps",
+  "family": "AI 운영 자동화 계열",
+  "course": "AI"
+ },
+ "BGP(Border Gateway Protocol)": {
+  "group": "C5",
+  "type": "문제-해결",
+  "slot": "구역 AS(iBGP)↔AS(eBGP) 라우터, 산출물 Path Vector 속성(Local Preference·MED)",
+  "target": "BGP 하이재킹·RPKI·BGPsec",
+  "pair": "라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)",
+  "family": "",
+  "course": "NW"
+ },
+ "BPF(Berkeley Packet Filter) Door": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "단계 = BPF 필터 설치 → 매직 패킷 수신(포트 미개방) → 백도어 → 명령 실행",
+  "target": "루트킷(커널 은닉·후킹과 비교)",
+  "pair": "루트킷(Rootkit)",
+  "family": "단계형 사이버 공격 계열",
+  "course": "SC"
+ },
+ "Back to Back 테스트": {
+  "group": "C6",
+  "type": "적용 분야",
+  "slot": "절차: Testcase 작성→테스트 수행(둘 이상 시스템 동일 입력)→결과값 비교→원인 분석; 모델-코드 비교",
+  "target": "자동차 모델 기반 개발(MBD) 모델-코드 검증·항공기 SW",
+  "pair": "뮤테이션 테스트 (Mutation Test)",
+  "family": "테스트 절차 계열",
+  "course": "SE"
+ },
+ "BrainBody LLM": {
+  "group": "C4",
+  "type": "적용 분야",
+  "slot": "Brain LLM(계획) → Body LLM(실행) → 오류 피드백 → 재계획 고리, 구성요소 라벨",
+  "target": "로봇 제어·자율 운영 시스템·업무 자동화",
+  "pair": "에이전틱 AI(Agentic AI)",
+  "family": "AI 에이전트 순환 계열",
+  "course": "AI"
+ },
+ "C-ITS(Cooperative-Intelligent Transport Systems)": {
+  "group": "C5",
+  "type": "활용 사례",
+  "slot": "차량(OBU·IVN) / 노변(RSU) / 센터 구역, V2V·V2I·V2P·V2C 양방향 화살표",
+  "target": "국내 C-ITS 시범사업·EU C-Roads",
+  "pair": "LDM(Local Dynamic Map)",
+  "family": "교통 관제 체계 계열",
+  "course": "DX"
+ },
+ "C-RAN(Centralized / Cloud RAN)": {
+  "group": "C5",
+  "type": "연관 비교",
+  "slot": "구역 중앙 DU 풀↔분산 RU/RF, 산출물 프런트홀 CPRI·OBSAI·ORI",
+  "target": "O-RAN",
+  "pair": "O-RAN",
+  "family": "",
+  "course": "NW"
+ },
+ "CAP 이론과 BASE 이론": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형명 일관성·가용성·파티션 허용성 택2(CA·CP·AP), 결합 대상 BASE 속성",
+  "target": "ACID 트랜잭션",
+  "pair": "PACELC",
+  "family": "분산 일관성 이론 계열",
+  "course": "DB"
+ },
+ "CBAM(Cost Benefit Analysis Method)": {
+  "group": "C11",
+  "type": "연관 비교",
+  "slot": "축: 응답 수준(가로)×효용(세로) 효용-반응 곡선 / 곡선: 시나리오별 아키텍처 전략 비교, 불확실성 구간",
+  "target": "ATAM·ROI 분석",
+  "pair": "SW Architecture 평가",
+  "family": "",
+  "course": "SE"
+ },
+ "CDN(Contents Delivery Network)": {
+  "group": "C7",
+  "type": "연계 강화",
+  "slot": "공급 원본 서버↔플랫폼(Request Routing·GSLB·Caching·배포·동기화)↔수요 사용자 ISP 노드",
+  "target": "엣지 컴퓨팅",
+  "pair": "",
+  "family": "",
+  "course": "NW"
+ },
+ "CMMI 3.0": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "층: Category→Capability Area→Practice Area→Practices; 성숙도 레벨 1~5",
+  "target": "SP 인증·ISO/IEC 33001(SPICE)",
+  "pair": "SP 인증",
+  "family": "프로세스 성숙도 모델 계열",
+  "course": "SE"
+ },
+ "CNAPP(Cloud Native Application Protection Platform)": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "개발(IaC 스캔) → 배포(CSPM·KSPM) → 런타임(CWPP) → 권한(CIEM) 층, 통합 플랫폼",
+  "target": "AI/ML 이상 탐지·Zero Trust",
+  "pair": "클라우드 네이티브(Cloud Native) 참조 아키텍처",
+  "family": "클라우드 네이티브 플랫폼 계열",
+  "course": "DX"
+ },
+ "COT(Chain of Thought)": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "문제 → 사고 과정 단계 → 최종 답 체인(문사최), 구성요소 라벨",
+  "target": "Tree of Thoughts·ReAct·Self-Consistency",
+  "pair": "테스트 타임 스케일링(Test-Time Scaling, TTS)",
+  "family": "",
+  "course": "AI"
+ },
+ "CRC(Cyclic Redundancy Check)": {
+  "group": "C6",
+  "type": "활용 사례",
+  "slot": "메인 단계 생성 다항식(Divisor) 선택→0 추가→이진 나눗셈→나머지 부가→수신 검산, 하위 나머지 0 판정",
+  "target": "Ethernet FCS·HDLC 프레임 검사·ZIP/PNG 무결성",
+  "pair": "해밍코드(Hamming code)",
+  "family": "오류 검출·정정 부호 계열",
+  "course": "NW"
+ },
+ "CSMA/CA": {
+  "group": "C8",
+  "type": "연관 비교",
+  "slot": "송신국·수신국 사이 DIFS→RTS→SIFS→CTS→데이터→ACK 번호 화살표, NAV",
+  "target": "CSMA/CD",
+  "pair": "CSMA/CD",
+  "family": "",
+  "course": "NW"
+ },
+ "CSMA/CD": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "메인 단계 채널 감시→전송→충돌 감지→Jam 신호→Back-off 재전송, 하위 1-/Non-/P-Persistent",
+  "target": "CSMA/CA",
+  "pair": "CSMA/CA",
+  "family": "",
+  "course": "NW"
+ },
+ "CWPP(Cloud Workload Protection Platform) & CSPM(Cloud Security Posture Management)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형 = CSPM(외부·구성·규정 준수) · CWPP(내부·워크로드 실행), 결합 = 비교 축",
+  "target": "CNAPP 통합·CIEM·KSPM",
+  "pair": "SECaaS(Security as a Service)",
+  "family": "클라우드 보안 서비스 계열",
+  "course": "SC"
+ },
+ "Clean Architecture": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "층: Frameworks & Drivers→Interface Adapters→Use Case→Entities / 화살표: 바깥→안쪽 의존",
+  "target": "헥사고날 아키텍처·계층형(Layered) 아키텍처",
+  "pair": "이벤트 스토밍(Event Storming)과 헥사고날(Hexagonal) 아키텍처",
+  "family": "",
+  "course": "SE"
+ },
+ "Cloud Native 12-Factor App & 15-Factor": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "코종설B 빌무포동 폐환로관 A관인 그룹 축 + ①~⑮ Factor 번호 원",
+  "target": "쿠버네티스 배포·GitOps 선언형 설정",
+  "pair": "클라우드 네이티브(Cloud Native)",
+  "family": "",
+  "course": "DX"
+ },
+ "DB 동시성제어": {
+  "group": "C8",
+  "type": "문제-해결",
+  "slot": "행위자 T1·T2 ↔ 잠금 관리자, ① Lock 요청 ② 허가·대기 ③ 갱신 ④ Unlock(2PL)",
+  "target": "교착상태 → Wait-Die·Wound-Wait·타임아웃",
+  "pair": "DB 회복기법",
+  "family": "동시성 제어 계열",
+  "course": "DB"
+ },
+ "DB 회복기법": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "유형명 로그 기반(즉시·지연 갱신)·체크포인트·그림자 페이징·ARIES, 결합 대상 장애 유형",
+  "target": "ARIES·Oracle Redo 로그·PostgreSQL WAL",
+  "pair": "DB 동시성제어",
+  "family": "",
+  "course": "DB"
+ },
+ "DDD (Domain Driven Design)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명: 설계 유형(도메인·서브도메인·바운디드 컨텍스트·컨텍스트 맵 / 도메인 모델·Entity·Value) / 결합: 유비쿼터스 언어",
+  "target": "MSA 서비스 분해·이벤트 스토밍",
+  "pair": "이벤트 스토밍(Event Storming)과 헥사고날(Hexagonal) 아키텍처",
+  "family": "MSA 설계 패턴 계열",
+  "course": "SE"
+ },
+ "DHCP(Dynamic Host Configuration Protocol)": {
+  "group": "C8",
+  "type": "연계 강화",
+  "slot": "Client·Server 사이 DISCOVER→OFFER→REQUEST→ACK 번호 화살표, 갱신·해제 단계",
+  "target": "DHCP Snooping 보안",
+  "pair": "RARP(Reverse Address Resolution Protocol)",
+  "family": "주소 해석 프로토콜 계열",
+  "course": "NW"
+ },
+ "DHP(Direct Hashing & Pruning) 알고리즘": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "메인 단계 해시 버킷 count→가지치기→후보 집합 축소, 핵심 단계 해시 테이블",
+  "target": "Apriori",
+  "pair": "Apriori 알고리즘",
+  "family": "연관 규칙 알고리즘 계열",
+  "course": "DB"
+ },
+ "DMARC(Domain-based Message Authentication, Reporting and Conformance)": {
+  "group": "C8",
+  "type": "연계 강화",
+  "slot": "송신 메일서버 → 수신 서버 DNS SPF·DKIM 조회 → 정책 적용 → 보고서 발송 순서",
+  "target": "DNSSEC·BIMI·TLS-RPT",
+  "pair": "DNSSEC(Domain Name System Security Extension)",
+  "family": "인증 프로토콜 계열",
+  "course": "SC"
+ },
+ "DNS 싱크홀(Sinkhole)": {
+  "group": "C8",
+  "type": "연계 강화",
+  "slot": "행위자 = 좀비 PC → DNS 서버 → C&C 대신 싱크홀 서버, 단계 = 질의 → 응답 조작 → 차단",
+  "target": "위협 인텔리전스(TI) 연동·DNS RPZ 방화벽·보안관제 SIEM",
+  "pair": "DNSSEC(Domain Name System Security Extension)",
+  "family": "",
+  "course": "SC"
+ },
+ "DNS(Domain Name System)": {
+  "group": "C8",
+  "type": "연계 강화",
+  "slot": "Resolver·Root·TLD·권한 서버 사이 Recursive·Iterative 질의 번호 화살표",
+  "target": "DNSSEC·DoH",
+  "pair": "",
+  "family": "주소 해석 프로토콜 계열",
+  "course": "NW"
+ },
+ "DNSSEC(Domain Name System Security Extension)": {
+  "group": "C2",
+  "type": "문제-해결",
+  "slot": "모듈 = 존 서명(개인키) → DNSKEY·RRSIG → 리졸버 검증(공개키) → 신뢰 체인",
+  "target": "존 열거(NSEC) → NSEC3·응답 증폭 완화·키 롤오버 자동화",
+  "pair": "DNS 싱크홀(Sinkhole)",
+  "family": "보안 프로토콜 계열",
+  "course": "SC"
+ },
+ "DRDoS(Distributed Reflection DoS)": {
+  "group": "C8",
+  "type": "문제-해결",
+  "slot": "행위자 = 공격자 → 반사(경유지) 서버 → 피해자, 단계 = IP 스푸핑 요청 → 반사 → 증폭",
+  "target": "오픈 리졸버·NTP monlist 취약 → BCP38 인그레스 필터링·Rate Limit·서비스 비활성화",
+  "pair": "DoS(Denial of Service)",
+  "family": "경유 서버 악용 공격 계열",
+  "course": "SC"
+ },
+ "DRM(Digital Right Management)": {
+  "group": "C7",
+  "type": "연관 비교",
+  "slot": "공급 = CP, 플랫폼 = 패키저·CD(분배자)·CH(클리어링하우스), 수요 = CC(소비자)",
+  "target": "디지털 워터마킹·포렌식 마크",
+  "pair": "디지털 워터마킹(Digital Watermarking)",
+  "family": "",
+  "course": "SC"
+ },
+ "DXaaS/DTaaS(Digital Transformation as a Service)": {
+  "group": "C7",
+  "type": "적용 분야",
+  "slot": "기술 공급(클라우드 네이티브·DevOps·CD) ↔ DXaaS 플랫폼 ↔ 수요 기업",
+  "target": "중소 제조·공공·금융",
+  "pair": "깃옵스(GitOps)",
+  "family": "XaaS 구독 서비스 계열",
+  "course": "DX"
+ },
+ "DaaP(Data as a product)": {
+  "group": "C2",
+  "type": "연관 비교",
+  "slot": "입력 도메인 소스, 모듈 Data Product(데이터·코드·메타데이터·인프라·API), 출력 소비자",
+  "target": "DaaS(Data as a Service)",
+  "pair": "데이터 메시(Data Mesh)",
+  "family": "",
+  "course": "DB"
+ },
+ "DevSecOps": {
+  "group": "C6",
+  "type": "성공 전략",
+  "slot": "단계 = SDLC 계획·개발·빌드·테스트·배포·운영(CI/CD), 하위 = 단계별 도구·보안 기능",
+  "target": "Shift-Left 우선순위·보안 챔피언·Policy as Code",
+  "pair": "Secure Software Development Framework(SSDF)",
+  "family": "보안 개발 수명주기 계열",
+  "course": "SC"
+ },
+ "Diffusion 모델": {
+  "group": "C2",
+  "type": "활용 사례",
+  "slot": "노이즈 첨가 → U-Net 노이즈 제거 반복 → VAE 복원 흐름, CLIP 텍스트 조건 입력",
+  "target": "Stable Diffusion·DALL-E·Midjourney",
+  "pair": "GAN(Generative Adversarial Network)",
+  "family": "생성 모델 계열",
+  "course": "AI"
+ },
+ "DoS(Denial of Service)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형 = 대역폭 소진·자원 고갈·응용 계층 공격, 결합 = 대응 절차·대응 방안",
+  "target": "클라우드 스크러빙 센터·CDN·Anycast 분산",
+  "pair": "DRDoS(Distributed Reflection DoS)",
+  "family": "공격 기법 유형 계열",
+  "course": "SC"
+ },
+ "Dropout": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "은닉층 노드 무작위 비활성화 강조 층, Dropout 유형·dropout rate",
+  "target": "L1·L2 규제화·조기 종료·데이터 증강",
+  "pair": "정규화, 규제화, 표준화",
+  "family": "신경망 학습 안정화 계열",
+  "course": "AI"
+ },
+ "EDR(Endpoint Detection and Response)": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "엔드포인트 이벤트 입력 → Predict·Prevent·Detect·Response 모듈, IOC·행위 분석 강조",
+  "target": "XDR 확장·MDR 서비스·AI 행위 분석",
+  "pair": "XDR(eXtended Detection Response)",
+  "family": "탐지·대응 솔루션 계열",
+  "course": "SC"
+ },
+ "ETA (Event Tree Analysis)": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "절차: 분석 범위→초기 사건 선정→이벤트 트리 작성(성공·실패 분기)→결과 확률 계산→경로 평가(범위초 트결경)",
+  "target": "FTA 결합 Bow-tie 분석",
+  "pair": "FTA (Fault Tree Analysis)",
+  "family": "위험 분석 기법 계열",
+  "course": "SE"
+ },
+ "Event Driven Architecture": {
+  "group": "C2",
+  "type": "활용 사례",
+  "slot": "입력: 이벤트 프로듀서 / 모듈: 이벤트 채널→이벤트 처리 엔진 / 출력: 다운스트림 이벤트 기반활동",
+  "target": "Apache Kafka 이벤트 스트리밍·Netflix·IoT 실시간 처리",
+  "pair": "SAGA패턴",
+  "family": "MSA 구성 계열",
+  "course": "SE"
+ },
+ "FEC(Forward Error Correction) / BEC(Backward Error Correction)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명 FEC(Parity·Block Sum·CRC)·BEC(Stop and Wait·Go-back-N·Selective-Repeat)",
+  "target": "H-ARQ·LDPC",
+  "pair": "해밍코드(Hamming code)",
+  "family": "",
+  "course": "NW"
+ },
+ "FMEA (Failure Mode and Effects Analysis)": {
+  "group": "C6",
+  "type": "적용 분야",
+  "slot": "단계: 고장 모드 도출→영향 분석→RPN(심각도×발생도×검출도) 산출→우선순위·조치; 유형 설계·공정·시스템 FMEA",
+  "target": "자동차 부품 설계·의료기기·반도체 공정",
+  "pair": "FTA (Fault Tree Analysis)",
+  "family": "위험 분석 기법 계열",
+  "course": "SE"
+ },
+ "FP(Frequent Pattern)-Growth 알고리즘": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "메인 단계 FP-Tree 구축→조건부 패턴 베이스→조건부 FP-Tree 재귀, 핵심 단계 후보 미생성",
+  "target": "Spark 분산 처리·추천 시스템",
+  "pair": "Apriori 알고리즘",
+  "family": "연관 규칙 알고리즘 계열",
+  "course": "DB"
+ },
+ "FTA (Fault Tree Analysis)": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "단계: 정상 사상(Top Event) 정의→고장 트리 작성(AND·OR 게이트)→정성·정량 분석; 표기법 기호",
+  "target": "FMEA(귀납적 Bottom-up)",
+  "pair": "FMEA (Failure Mode and Effects Analysis)",
+  "family": "위험 분석 기법 계열",
+  "course": "SE"
+ },
+ "FinOps(Financial Operations)": {
+  "group": "C4",
+  "type": "연관 비교",
+  "slot": "대상 클라우드 비용, Inform(가시화) → Optimize → Operate 고리, 재무·운영 협업",
+  "target": "DevOps·TBM(Technology Business Management)",
+  "pair": "오토 스케일링(Auto-Scaling)",
+  "family": "클라우드 운영 순환 계열",
+  "course": "DX"
+ },
+ "Function Point": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "절차: 기능 유형 식별(EI·EO·EQ / ILF·EIF)→복잡도 가중치→미조정 FP→조정인자 14개→FP",
+  "target": "SW 사업대가 산정 기준·COSMIC 기능점수",
+  "pair": "SW 규모산정",
+  "family": "",
+  "course": "SE"
+ },
+ "GAN(Generative Adversarial Network)": {
+  "group": "C2",
+  "type": "연관 비교",
+  "slot": "잠재 벡터 → Generator → 가짜 데이터 → Discriminator 판별",
+  "target": "VAE·Diffusion 모델",
+  "pair": "VAE(Variational Autoencoder)",
+  "family": "생성 모델 계열",
+  "course": "AI"
+ },
+ "GS 인증": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "결합: ISO/IEC 25023 측정·25051 요구사항·25041 평가 절차(23측정 51요구 41평가); 품질 특성 8개",
+  "target": "SP 인증(프로세스 인증)·CC 인증",
+  "pair": "SP 인증",
+  "family": "",
+  "course": "SE"
+ },
+ "GovTech": {
+  "group": "C7",
+  "type": "연계 강화",
+  "slot": "민간 기술 기업·GovTech 운영자 ↔ 플랫폼(거버넌스 수립형·아이디어 공모형·플랫폼 활용형) ↔ 정부·사용자",
+  "target": "생성형 AI 민원 챗봇·마이데이터(공공 데이터 개방)",
+  "pair": "",
+  "family": "플랫폼형 서비스 계열",
+  "course": "DX"
+ },
+ "HAZOP (Hazard and Operability Study)": {
+  "group": "C6",
+  "type": "성공 전략",
+  "slot": "절차: 공정변수 선정→가이드워드(없음·증가·감소·반대·부가·부분·기타) 조합→이탈 원인·영향 분석→대책",
+  "target": "전문가 팀 구성 원칙·가이드워드 적용 체크리스트·LOPA 연계",
+  "pair": "FMEA (Failure Mode and Effects Analysis)",
+  "family": "위험 분석 기법 계열",
+  "course": "SE"
+ },
+ "HNDL(Harvest Now Decrypt Later) 공격": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "암호 트래픽 수집 → 장기 보관 → 양자 컴퓨터 등장 → 복호화 체인 + PQC 대응 하위",
+  "target": "하이브리드 PQC·크립토 애질리티·TLS PQC 적용",
+  "pair": "포스트 양자 암호(Post-Quantum Cryptography)",
+  "family": "",
+  "course": "SC"
+ },
+ "HTTP/3": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "층 이름 HTTP/3·QUIC·TLS 1.3·UDP·IP, 강조 층 QUIC, HTTP/2 스택과 나란히",
+  "target": "5G MEC 스트리밍",
+  "pair": "TCP 연결의 설정 및 해제(Handshaking)",
+  "family": "",
+  "course": "NW"
+ },
+ "Hyper-AI 네트워크": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "메인 단계 양대 목표→추진방향→추진과제(As-Is→중간 목표→최종 목표), 하위 6G·AI기지국·백본망",
+  "target": "AI-RAN·NWDAF·디지털 트윈 네트워크",
+  "pair": "6G",
+  "family": "",
+  "course": "NW"
+ },
+ "IEC 61508": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "Part 1~7 표준 구성 결합, SIL 1~4 등급(안전생명주기 [개범위안할명] 산출)",
+  "target": "ISO 26262·IEC 62443",
+  "pair": "ASIL(Automotive Software Integrity Levels)",
+  "family": "기능안전 등급 계열",
+  "course": "DX"
+ },
+ "IEC 62443": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "General → Policy & Procedure → System → Component 4층, 7 FR 라벨",
+  "target": "ISO 21434·ISO 27001",
+  "pair": "차량 사이버 보안 국제 표준(ISO 21434)",
+  "family": "",
+  "course": "SC"
+ },
+ "IPSec": {
+  "group": "C2",
+  "type": "연관 비교",
+  "slot": "모듈 = AH·ESP·IKE·SA/SAD/SPD, 입출력 = IP 패킷(전송·터널 모드)",
+  "target": "TLS/SSL(계층·보호 구간 비교)",
+  "pair": "TLS/SSL(Secure Socket Layer)",
+  "family": "보안 프로토콜 계열",
+  "course": "SC"
+ },
+ "IPv4와 IPv6 터널링": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명 듀얼 스택·터널링·주소 변환, 결합 대상 IPv4 구간 캡슐화 경유",
+  "target": "NAT64/DNS64·SRv6",
+  "pair": "IPv6",
+  "family": "IPv6 전환 계열",
+  "course": "NW"
+ },
+ "IPv6": {
+  "group": "C10",
+  "type": "로드맵",
+  "slot": "유형명 기본 헤더 필드(40B 고정)·확장 헤더, 결합 대상 128bit 주소·16진수 8자리 표기",
+  "target": "국내 IPv6 전환",
+  "pair": "IPv4와 IPv6 터널링",
+  "family": "IPv6 전환 계열",
+  "course": "NW"
+ },
+ "ISAC(Integrated Sensing and Communication)": {
+  "group": "C2",
+  "type": "문제-해결",
+  "slot": "입력 단일 신호→내부 모듈 밀리미터파·서브-테라헤르츠 송수신·RIS·Open FH→출력 통신 데이터·감지(SLAM)",
+  "target": "간섭·위치 노출",
+  "pair": "6G",
+  "family": "",
+  "course": "NW"
+ },
+ "ISO 27017": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "ISO 27001 → 27002 통제 → 27017 클라우드 확장 통제 도메인 층, 공급자·사용자 역할 라벨",
+  "target": "CSAP·ISO 27018",
+  "pair": "클라우드 보안인증 등급제(CSAP)",
+  "family": "ISO 27000 확장 표준 계열",
+  "course": "SC"
+ },
+ "ISO 27018": {
+  "group": "C1",
+  "type": "활용 사례",
+  "slot": "ISO 27001 → 27002 통제 → 27018 PII 확장 통제 층, ISO 29100 원칙 라벨",
+  "target": "AWS·Microsoft Azure·Google Cloud 인증 취득",
+  "pair": "ISO 27017",
+  "family": "ISO 27000 확장 표준 계열",
+  "course": "SC"
+ },
+ "ISO 27701": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "ISO 27001 → 27002 통제 → 27701 PIMS 요구·지침 층, PII 통제자·처리자 라벨",
+  "target": "ISMS-P·GDPR 책임성 입증·Privacy by Design",
+  "pair": "ISO 27018",
+  "family": "ISO 27000 확장 표준 계열",
+  "course": "SC"
+ },
+ "ISO 29119": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "층: 개념·용어(Part1)→프로세스(Part2)→문서(Part3)→테스트 기법(Part4)→키워드 주도(Part5)(개프도테키)",
+  "target": "IEEE 829 문서 표준·ISTQB 체계",
+  "pair": "Test Process",
+  "family": "테스트 표준 계열",
+  "course": "SE"
+ },
+ "ISO 29119-11": {
+  "group": "C1",
+  "type": "적용 분야",
+  "slot": "층: AI 기반 시스템 개요·품질 특성·테스트 과제·블랙박스 테스트 기법, 1~10 파트 연계",
+  "target": "자율주행 AI·의료 영상 AI 시스템 테스트",
+  "pair": "ISO 29119",
+  "family": "테스트 표준 계열",
+  "course": "SE"
+ },
+ "ISO/IEC 11179": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "유형명 Part 1 Framework~Part 6 Registration, 결합 대상 MDR 메타모델·명명·식별",
+  "target": "범정부 MDR·공공데이터 공통표준용어",
+  "pair": "메타 데이터와 데이터 카탈로그",
+  "family": "메타데이터 관리 계열",
+  "course": "DB"
+ },
+ "ISO/IEC 20889": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "통계도구·일반화·해부화·가명화·삭제·암호화·무작위화 기법 분기 + 프라이버시 보호 모델",
+  "target": "가명정보 처리 가이드라인(국내)·GDPR 가명처리",
+  "pair": "가명정보 처리 가이드라인",
+  "family": "개인정보 보호기술 계열",
+  "course": "SC"
+ },
+ "ISO/IEC 23894": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "위험관리 절차(Context → Risk Assessment → Risk Treatment → Monitoring)와 핵심 구성기술",
+  "target": "ISO 31000·ISO/IEC 42001·AI TRiSM",
+  "pair": "AI RMF(AI Risk Management Framework)",
+  "family": "AI 위험관리 프레임워크 계열",
+  "course": "AI"
+ },
+ "ISO/IEC 25010:2023": {
+  "group": "C1",
+  "type": "로드맵",
+  "slot": "층: 주특성 기능적합성·성능효율성·호환성·상호작용 능력·신뢰성·보안성·유지보수성·유연성·안전성→부특성",
+  "target": "ISO/IEC 9126→25010→25010 개정(SQuaRE 25000 시리즈)",
+  "pair": "GS 인증",
+  "family": "",
+  "course": "SE"
+ },
+ "ISO/IEC 25059:2023(AI 품질모델)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "8대 특성(기신사효유이호보) + AI 고유 하위 속성 결합, 모델·항목별 평가 내용",
+  "target": "ISO/IEC 25010 SW 품질모델",
+  "pair": "AI 신뢰성 인증",
+  "family": "AI 신뢰성 관리 계열",
+  "course": "AI"
+ },
+ "ISO/IEC 42119-2": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "품질관리 활동 구성요소(AI 시스템 리스크 식별·테스트 접근법·레벨별) 유형",
+  "target": "ISO/IEC 29119·ISO/IEC 25059",
+  "pair": "AI 시스템 테스트",
+  "family": "AI 테스트 계열",
+  "course": "AI"
+ },
+ "ISO/IEC/IEEE 14764": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "프로세스: 구현→문제·변경 분석→변경 구현→검토·인수→이관→폐기(6단계); 기법 재공학·역공학·재구조화",
+  "target": "ISO/IEC 12207 생명주기 프로세스·ITIL 서비스 운영",
+  "pair": "유지보수",
+  "family": "유지보수 프로세스 계열",
+  "course": "SE"
+ },
+ "ISO/IEC/IEEE 42010:2022": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형명: 이해관계자·관심사(Concern)·뷰포인트·뷰·아키텍처 모델 / 결합: 메타모델 요소 간 관계",
+  "target": "UML의 4+1 View Model·TOGAF",
+  "pair": "UML의 4+1 View Model",
+  "family": "아키텍처 뷰 계열",
+  "course": "SE"
+ },
+ "Interaction overview diagram": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형명: Activity 노드·Sequence 프레임 결합 / 결합: 의사결정 분기·순서적 흐름",
+  "target": "액티비티 다이어그램·커뮤니케이션 다이어그램",
+  "pair": "시퀀스 다이어그램 (Sequence Diagram)",
+  "family": "UML 다이어그램 계열",
+  "course": "SE"
+ },
+ "IoT Matter": {
+  "group": "C9",
+  "type": "연관 비교",
+  "slot": "내부 Matter IP 기반 응용계층 스택, 외부 Wi-Fi·Thread 전송망, 경계 기술 IP·Mesh",
+  "target": "Zigbee·Thread",
+  "pair": "",
+  "family": "",
+  "course": "NW"
+ },
+ "Isolation Level(격리 레벨)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형명 Uncommitted·Committed·Repeatable·Serializable 4수준, 결합 대상 Dirty·Non-Repeatable·Phantom",
+  "target": "MVCC 스냅샷 격리·2PL 잠금",
+  "pair": "MVCC(다중 버전 동시성 제어) 2가지 유형",
+  "family": "",
+  "course": "DB"
+ },
+ "K-NN(Nearest Neighbor) Classification": {
+  "group": "C11",
+  "type": "문제-해결",
+  "slot": "질의점 주변 K개 이웃·다수결 클래스, 거리(유클리드·맨하탄·민코프스키)",
+  "target": "K값 선택·차원의 저주·계산량·교차검증·KD-Tree",
+  "pair": "K-평균 알고리즘",
+  "family": "거리 기반 분류·군집 알고리즘 계열",
+  "course": "AI"
+ },
+ "K-평균 알고리즘": {
+  "group": "C11",
+  "type": "연관 비교",
+  "slot": "K개 중심점·군집 경계, 수행절차(초기화→할당→평균 재조정→수렴)",
+  "target": "DBSCAN·계층적 군집",
+  "pair": "밀도기반 클러스터링(DBSCAN)",
+  "family": "거리 기반 분류·군집 알고리즘 계열",
+  "course": "AI"
+ },
+ "Keyword Driven Testing": {
+  "group": "C2",
+  "type": "연관 비교",
+  "slot": "모듈: 편집기→해석기→데이터 시퀀서→툴 브릿지→실행 엔진→테스트 대상; 라이브러리·데이터 저장소",
+  "target": "데이터 주도 테스트(DDT)·BDD(Cucumber)",
+  "pair": "ISO 29119",
+  "family": "",
+  "course": "SE"
+ },
+ "LAM(Large Action Model)": {
+  "group": "C2",
+  "type": "연관 비교",
+  "slot": "의도분류 → 계층적 작업분해 → 순차 실행, Neuro-symbolic·RLHF 모듈",
+  "target": "LLM·AI Agent",
+  "pair": "VLA(Vision-Language-Action) 모델",
+  "family": "행동 AI 모델 계열",
+  "course": "AI"
+ },
+ "LDA(Linear Discriminant Analysis)": {
+  "group": "C6",
+  "type": "문제-해결",
+  "slot": "전체·클래스 평균 → 산포 행렬 → 고유벡터 → 변환 절차(전산고변)",
+  "target": "클래스 수−1 축소 한계·비선형 분포·커널 LDA",
+  "pair": "PCA(Principal Component Analysis)",
+  "family": "차원 축소 기법 계열",
+  "course": "AI"
+ },
+ "LDM(Local Dynamic Map)": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "정적지도 → 준정적 → 준동적 → 동적지도 Layer(갱신 주기 축), LDM Management·Data Store",
+  "target": "HD맵·정밀측위(RTK-GNSS)",
+  "pair": "C-ITS(Cooperative-Intelligent Transport Systems)",
+  "family": "",
+  "course": "DX"
+ },
+ "LLMOps": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "단계별 구성요소(데이터 수집·모델 개발 / 운영·평가)와 구현 기술",
+  "target": "MLOps·DevOps",
+  "pair": "MLOps",
+  "family": "AI 운영 자동화 계열",
+  "course": "AI"
+ },
+ "LangGraph": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "노드·엣지·상태 그래프 워크플로우, 멀티 에이전트 협업 분기",
+  "target": "MCP 도구 연동·A2A·멀티 에이전트 시스템",
+  "pair": "랭체인(LangChain)",
+  "family": "",
+  "course": "AI"
+ },
+ "Lehman의 Software 변화의 원리": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "System Type: S·P·E-type; 8원리 계속 변경·복잡도 증가·조직 안정·친숙성 보존·지속 성장·품질 감소·피드백",
+  "target": "소프트웨어 리팩토링·데브옵스 지속 배포",
+  "pair": "유지보수",
+  "family": "SW 진화·재공학 계열",
+  "course": "SE"
+ },
+ "LoRA(Low-rank adaptation)": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "Freeze 원본 가중치 W + 저랭크 A·B Layer 병렬 갱신 모듈",
+  "target": "양자화 결합 QLoRA·sLLM 배포",
+  "pair": "PEFT(Parameter-Efficient Fine-Tuning)",
+  "family": "파인튜닝 기법 계열",
+  "course": "AI"
+ },
+ "MAS(Multi Agent System)": {
+  "group": "C5",
+  "type": "활용 사례",
+  "slot": "자율 에이전트 구역(전문화·협력·경쟁) ↔ 환경, 통신 화살표, 유형(대분류·세부 유형)",
+  "target": "AutoGen·CrewAI·LangGraph 멀티 에이전트",
+  "pair": "A2A(Agent2Agent) 프로토콜",
+  "family": "",
+  "course": "AI"
+ },
+ "MCP 보안취약점 및 대응방안": {
+  "group": "C3",
+  "type": "연관 비교",
+  "slot": "호스트↔클라이언트↔서버 흐름 위 Tool Poisoning·Rug Pulls·Cross-Server 위협, 인증·실행 대응",
+  "target": "OWASP LLM Top 10·프롬프트 인젝션",
+  "pair": "프롬프트 인젝션(Prompt Injection)",
+  "family": "AI 보안 위협 계열",
+  "course": "AI"
+ },
+ "MCP(Model Context Protocol)": {
+  "group": "C8",
+  "type": "연관 비교",
+  "slot": "호스트·클라이언트·서버 행위자, 동작절차(초기모도응전) 번호 화살표, JSON-RPC 메시지",
+  "target": "A2A 프로토콜·Function Calling",
+  "pair": "A2A(Agent2Agent) 프로토콜",
+  "family": "에이전트 프로토콜 계열",
+  "course": "AI"
+ },
+ "MLOps": {
+  "group": "C6",
+  "type": "성공 전략",
+  "slot": "파이프라인 단계(도파 데학평배) 메인 + 단계별 설명 하위",
+  "target": "CI/CD 파이프라인·드리프트 모니터링·피처 스토어",
+  "pair": "LLMOps",
+  "family": "AI 운영 자동화 계열",
+  "course": "AI"
+ },
+ "MLPerf": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "평가항목(Training·Inference) × CLOSED·OPEN 방식, 평가지표·구성요소",
+  "target": "MLCommons 제출 결과·GPU 가속기 비교·AI 반도체 검증",
+  "pair": "AI 슈퍼컴퓨팅 플랫폼(Supercomputing Platform)",
+  "family": "AI 평가 지표 계열",
+  "course": "AI"
+ },
+ "MOE(Mixture of Experts)": {
+  "group": "C2",
+  "type": "활용 사례",
+  "slot": "입력 → 라우터(Routing) → 선택된 Expert 일부 활성 → 결합 출력(익라)",
+  "target": "딥시크·Mixtral·Switch Transformer",
+  "pair": "초거대 언어 모델(Large Language Model)",
+  "family": "차세대 LLM 아키텍처 계열",
+  "course": "AI"
+ },
+ "MSA (Micro Service Architecture)": {
+  "group": "C2",
+  "type": "연관 비교",
+  "slot": "입력: 클라이언트 요청 / 모듈: API Gateway→마이크로 서비스(REST API)→서비스별 DB",
+  "target": "SOA·모놀리식 아키텍처",
+  "pair": "API Gateway",
+  "family": "MSA 구성 계열",
+  "course": "SE"
+ },
+ "MVCC(다중 버전 동시성 제어) 2가지 유형": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "유형명 MGA(PostgreSQL)·Rollback Segment(Oracle), 결합 대상 SCN·CR Copy·Undo",
+  "target": "PostgreSQL MGA·Oracle Undo·MySQL InnoDB",
+  "pair": "Isolation Level(격리 레벨)",
+  "family": "",
+  "course": "DB"
+ },
+ "MVVM (Model, View, View Model)": {
+  "group": "C8",
+  "type": "연관 비교",
+  "slot": "행위자: View ↔ View Model ↔ Model / 메시지: Data Binding·변경 통지 ①②③(동작 순번)",
+  "target": "MVC·MVP",
+  "pair": "",
+  "family": "",
+  "course": "SE"
+ },
+ "MaaS(Mobility as a service)": {
+  "group": "C7",
+  "type": "활용 사례",
+  "slot": "교통수단 운영자(TaaS·LaaS) ↔ MaaS 플랫폼(연계·통합 예약·결제) ↔ 이용자, Level 1~4",
+  "target": "Whim(핀란드)·Uber 멀티모달",
+  "pair": "UAM(Urban Air Mobility)",
+  "family": "플랫폼형 서비스 계열",
+  "course": "DX"
+ },
+ "McCabe 회전 복잡도": {
+  "group": "C2",
+  "type": "실무 도구",
+  "slot": "모듈: 소스 코드→제어 흐름 그래프→V(G)=E−N+2 계산→복잡도 판정(5~10 안정 구조)",
+  "target": "SonarQube 정적 분석·코드 리뷰 게이트",
+  "pair": "화이트박스 테스트",
+  "family": "",
+  "course": "SE"
+ },
+ "NWDAF(Network Data Analytics Function)": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "입력 NF 데이터 수집(DCCF)→내부 모듈 MTLF 학습·AnLF 추론·ADRF 저장·MFAF→출력 분석 결과",
+  "target": "5G 코어 SBA·AI-RAN·MLOps",
+  "pair": "네트워크 지능",
+  "family": "",
+  "course": "NW"
+ },
+ "NewSQL": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명 트랜잭션·ACID·SQL·비잠금·노드 고성능·병렬 비공유 기능, 결합 대상 RDBMS·NoSQL",
+  "target": "HTAP 실시간 분석·클라우드 네이티브 DBaaS",
+  "pair": "NoSQL",
+  "family": "NoSQL 계열",
+  "course": "DB"
+ },
+ "NoSQL": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "유형명 Key-Value·Column·Document·Graph, 결합 대상 스키마 리스·분산 처리율",
+  "target": "MongoDB·Cassandra·Redis·Neo4j",
+  "pair": "NewSQL",
+  "family": "NoSQL 계열",
+  "course": "DB"
+ },
+ "NoSQL 데이터모델링 패턴": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형명 기본·확장·계층 데이터모델링 패턴, 결합 대상 Put/Get Query 지원",
+  "target": "RDB 정규화 모델링",
+  "pair": "데이터베이스 모델링",
+  "family": "NoSQL 계열",
+  "course": "DB"
+ },
+ "O-RAN": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "층 이름 O-RU·O-DU·O-CU(가상화 HW/SW 분리), 층 사이 개방 인터페이스 라벨",
+  "target": "C-RAN",
+  "pair": "C-RAN(Centralized / Cloud RAN)",
+  "family": "",
+  "course": "NW"
+ },
+ "OAuth(Open Authorize) 2.0": {
+  "group": "C8",
+  "type": "연관 비교",
+  "slot": "행위자 = 리소스 소유자·클라이언트·인가 서버·리소스 서버, 단계 = 코드 발급 → 토큰 → 접근",
+  "target": "OpenID Connect(인증 vs 인가)·SAML",
+  "pair": "간편인증 인터페이스 가이드라인",
+  "family": "",
+  "course": "SC"
+ },
+ "OSI 7 Layer (ISO 7498)": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "층 이름 물리~응용 7계층, 층 안 박스 프로토콜·데이터 단위·장비",
+  "target": "TCP/IP 4계층",
+  "pair": "서비스 프리미티브(Service Primitive)",
+  "family": "",
+  "course": "NW"
+ },
+ "OWASP Agentic AI 위협 및 대응방안(Agentic AI Threats and Mitigations)": {
+  "group": "C3",
+  "type": "적용 분야",
+  "slot": "에이전트 입력 → 추론·메모리 → 도구 → 다중 에이전트 흐름 + T1~T15 위협 범주 화살표",
+  "target": "금융 자동거래 에이전트·의료 상담 에이전트·공공 민원 에이전트",
+  "pair": "AI Agent 보안위협",
+  "family": "AI 에이전트 보안위협 계열",
+  "course": "SC"
+ },
+ "OWASP Top 10 for LLM Application 2025": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형 = 10대 취약점(프민공데부 과시벡잘무), 결합 = 항목별 대응방안",
+  "target": "LLM 가드레일·프롬프트 방화벽·RAG 접근통제",
+  "pair": "OWASP Top 10:2025",
+  "family": "보안 약점 목록 계열",
+  "course": "SC"
+ },
+ "OWASP Top 10:2021": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형 = 10대 취약점(접근 통제·암호학적 오류·인젝션 …), 결합 = 대응 방안",
+  "target": "OWASP Top 10:2025 변경점",
+  "pair": "OWASP Top 10:2025",
+  "family": "보안 약점 목록 계열",
+  "course": "SC"
+ },
+ "OWASP Top 10:2025": {
+  "group": "C10",
+  "type": "로드맵",
+  "slot": "유형 = 10대 취약점(접근 제어·공급망 실패·암호화 실패 …), 결합 = 주요 키워드·기술",
+  "target": "OWASP Top 10 개정 흐름·OWASP ASVS·API Security Top 10",
+  "pair": "OWASP Top 10:2021",
+  "family": "보안 약점 목록 계열",
+  "course": "SC"
+ },
+ "PACELC": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "유형명 Partition 시 A|C, Else 시 L|C 분기, 결합 대상 PA/EL·PC/EC 조합",
+  "target": "Cassandra·DynamoDB·MongoDB·HBase 분류",
+  "pair": "CAP 이론과 BASE 이론",
+  "family": "분산 일관성 이론 계열",
+  "course": "DB"
+ },
+ "PCA(Principal Component Analysis)": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "표준화 → 공분산 행렬 → 고유값 분해 → 주성분 투영 절차, 주요수식",
+  "target": "LDA·SVD",
+  "pair": "LDA(Linear Discriminant Analysis)",
+  "family": "차원 축소 기법 계열",
+  "course": "AI"
+ },
+ "PCM(Pulse-Code Modulation)": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "메인 단계 송신 표본화→양자화→부호화, 하위 수신 복호화→필터링, 축 라벨 나이퀴스트 fs≥2fm",
+  "target": "DPCM·ADPCM",
+  "pair": "",
+  "family": "디지털 부호화 계열",
+  "course": "NW"
+ },
+ "PEC(Privacy-Enhancing Computation)": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "데이터 변환·소프트웨어 Computation·하드웨어 환경 3영역 분기(재현·동형·MPC·TEE)",
+  "target": "의료 데이터 공유·금융 연합학습·공공 데이터 결합",
+  "pair": "동형 암호(Homomorphic Encryption)",
+  "family": "개인정보 보호기술 계열",
+  "course": "SC"
+ },
+ "PEFT(Parameter-Efficient Fine-Tuning)": {
+  "group": "C2",
+  "type": "적용 분야",
+  "slot": "고정 사전학습 모델 + 일부 모듈(LoRA·Adapter·Prefix) 갱신 강조",
+  "target": "금융·의료·법률 도메인 특화 sLLM",
+  "pair": "LoRA(Low-rank adaptation)",
+  "family": "파인튜닝 기법 계열",
+  "course": "AI"
+ },
+ "Passive WiFi": {
+  "group": "C2",
+  "type": "적용 분야",
+  "slot": "입력 Plugged-In Device 아날로그 RF→내부 후방산란(backscatter)·디지털 장비→출력 수신",
+  "target": "배터리리스 IoT 센서·웨어러블·스마트 홈",
+  "pair": "",
+  "family": "",
+  "course": "NW"
+ },
+ "PbD(Privacy by Design) 인증제도": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형 = 인증영역(기본 요구사항·적법성·보안·프라이버시·조직), 결합 = 8대 전략",
+  "target": "ISMS-P·CC 인증과 비교",
+  "pair": "개인정보보호 중심 설계(Privacy by Design)",
+  "family": "개인정보 보호 설계 계열",
+  "course": "SC"
+ },
+ "Physical AI": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "구성요소 핵심 기술 층: LWM·온디바이스 AI·모델 경량화·휴머노이드",
+  "target": "디지털 트윈·온디바이스 AI·5G MEC",
+  "pair": "VLA(Vision-Language-Action) 모델",
+  "family": "피지컬 AI 계열",
+  "course": "AI"
+ },
+ "Product Line": {
+  "group": "C6",
+  "type": "활용 사례",
+  "slot": "메인: Domain Engineering→Core Asset→Application Engineering / 하위: 공통점 분석·핵심자산 재사용",
+  "target": "Nokia 단말 제품군·HP 프린터·자동차 ECU SW",
+  "pair": "소프트웨어 개발 방법론",
+  "family": "",
+  "course": "SE"
+ },
+ "QAM(Quadrature Amplitude Modulation)": {
+  "group": "C10",
+  "type": "로드맵",
+  "slot": "유형명 16QAM 성상도 사분면 심볼(진폭·위상 조합), 결합 대상 계층적 변조 64QAM",
+  "target": "Wi-Fi 세대별 QAM 차수 확대",
+  "pair": "Wi-Fi 7(IEEE 802.11be)",
+  "family": "",
+  "course": "NW"
+ },
+ "QKDaaS(Quantum Key Distribution as a Service)": {
+  "group": "C7",
+  "type": "연계 강화",
+  "slot": "QKD 장비·Fiber Channel(BB84) ↔ QMS·Cloud 플랫폼 ↔ 구독 기관",
+  "target": "양자내성암호(PQC) 하이브리드",
+  "pair": "양자인터넷(Quantum Internet)",
+  "family": "XaaS 구독 서비스 계열",
+  "course": "DX"
+ },
+ "QoS(Quality of Service)": {
+  "group": "C2",
+  "type": "문제-해결",
+  "slot": "입력 트래픽→내부 모듈 분류(DSCP)·우선순위 큐·자원예약(RSVP)→출력, 지표 대역폭·지연·지터·패킷손실",
+  "target": "혼잡 시 지연·지터",
+  "pair": "네트워크 슬라이싱",
+  "family": "",
+  "course": "NW"
+ },
+ "RAN(Radio Access Network) Sharing": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "유형명 MORAN·MOCN·GWCN, 결합 대상 기지국(RAN)·코어망 공유 범위",
+  "target": "국내 농어촌 5G 공동망·해외 사업자 공동 구축",
+  "pair": "5G 특화망",
+  "family": "",
+  "course": "NW"
+ },
+ "RARP(Reverse Address Resolution Protocol)": {
+  "group": "C8",
+  "type": "연관 비교",
+  "slot": "디스크 없는 호스트·RARP 서버 사이 MAC 제시 요청→IP 응답 번호 화살표",
+  "target": "ARP·BOOTP·DHCP",
+  "pair": "ARP(Address Resolution Protocol)",
+  "family": "주소 해석 프로토콜 계열",
+  "course": "NW"
+ },
+ "RDBMS 인덱스(index)": {
+  "group": "C10",
+  "type": "문제-해결",
+  "slot": "유형명 트리·해시·비트맵·함수·조인·도메인 인덱스, 결합 대상 스캔 방식",
+  "target": "갱신 비용·단편화 → 리빌드·커버링 인덱스·선택도 설계",
+  "pair": "조인(Join)",
+  "family": "DB 성능 설계 계열",
+  "course": "DB"
+ },
+ "RPA(Robotic Process Automation)": {
+  "group": "C1",
+  "type": "적용 분야",
+  "slot": "Basic → Intelligent → Cognitive Automation(워크플로우·룰엔진·OCR)",
+  "target": "금융 백오피스·공공 민원 처리·제조 구매 업무",
+  "pair": "로우 코드(Low Code)",
+  "family": "",
+  "course": "DX"
+ },
+ "RWA(Real World Asset) 토큰화 프로토콜": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "실물 자산 선정 → 토큰화 → 유통·담보 대출(De-Fi) 메인 + 메커니즘 요소·스테이블 코인 결제 하위",
+  "target": "증권형 토큰(STO)",
+  "pair": "증권형 토큰(STO, Security Token Offering)",
+  "family": "자산 토큰화 계열",
+  "course": "DX"
+ },
+ "RaaS(Ransomware as a Service)": {
+  "group": "C7",
+  "type": "활용 사례",
+  "slot": "공급 = 랜섬웨어 개발자, 플랫폼 = 익명 네트워크 서비스 포털, 수요 = 제휴 공격자",
+  "target": "LockBit·Conti·REvil",
+  "pair": "",
+  "family": "",
+  "course": "SC"
+ },
+ "Robot-as-a-Service(RaaS)": {
+  "group": "C7",
+  "type": "활용 사례",
+  "slot": "로봇 공급사 ↔ RaaS 플랫폼(컨트롤 시스템·운영 시스템·Pay-per-Use) ↔ 구독 고객",
+  "target": "물류 피킹 로봇 구독·서빙 로봇 구독·청소 로봇 구독",
+  "pair": "클라우드 로봇 지능(Cloud Robot Intelligence)",
+  "family": "XaaS 구독 서비스 계열",
+  "course": "DX"
+ },
+ "SAGA패턴": {
+  "group": "C10",
+  "type": "문제-해결",
+  "slot": "유형명: Choreography Based SAGA·Orchestration Based SAGA / 결합: 로컬 트랜잭션·보상 이벤트",
+  "target": "격리성 부족·보상 실패 문제·시맨틱 락·멱등성·아웃박스 패턴",
+  "pair": "Event Driven Architecture",
+  "family": "MSA 설계 패턴 계열",
+  "course": "SE"
+ },
+ "SASE(Secure Access Service Edge)": {
+  "group": "C2",
+  "type": "연관 비교",
+  "slot": "모듈 = SD-WAN(NaaS) + SWG·CASB·ZTNA·FWaaS, 입출력 = 사용자·지사 ↔ SaaS·DC",
+  "target": "VPN·SSE(Security Service Edge)",
+  "pair": "VPN(Virtual Private Network)",
+  "family": "",
+  "course": "SC"
+ },
+ "SBOM": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "모듈: 소스·빌드 입력→구성 요소 식별·메타데이터(Author·Timestamp·Version)·종속성→SPDX·CycloneDX·SWID 출력",
+  "target": "SCA 취약점 스캐닝·CVE/VEX 연계·DevSecOps",
+  "pair": "오픈소스 SW 보안위협",
+  "family": "",
+  "course": "SE"
+ },
+ "SCTP(Stream Control Transmission Protocol)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명 Multi-homing·Multi-streaming·4 way handshaking·SACK & Heartbeat",
+  "target": "SIGTRAN·Diameter·QUIC",
+  "pair": "TCP 와 UDP 비교",
+  "family": "",
+  "course": "NW"
+ },
+ "SD-WAN(Software Defined-Wide Area Network)": {
+  "group": "C9",
+  "type": "연계 강화",
+  "slot": "내부 SD-WAN Controller·Edge, 외부 다중 회선 WAN, 경계 기술 VPN·동적 경로 전환",
+  "target": "SASE",
+  "pair": "SDN(Software Defined Network)",
+  "family": "",
+  "course": "NW"
+ },
+ "SDD(Spec-Driven Development)": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "메인: SDD 절차 정설분구 4단계 / 하위 핵심원칙: Spec First·SSoT·실행 가능한 명세·Failing Test, 명세 재반영",
+  "target": "TDD·바이브 코딩",
+  "pair": "TDD (Test Driven Development)",
+  "family": "AI 주도 개발 방법론 계열",
+  "course": "SE"
+ },
+ "SDN(Software Defined Network)": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "층 이름 응용(OSS·BSS·오픈API)·Control Plane 컨트롤러·Data Plane 장비, 화살표 NBI·SBI",
+  "target": "IBN(AI 의도 기반)",
+  "pair": "오픈플로우(OpenFlow)",
+  "family": "",
+  "course": "NW"
+ },
+ "SDP(Software Defined Perimeter)": {
+  "group": "C5",
+  "type": "활용 사례",
+  "slot": "SDP Agent(사용자) → SDP Controller 선 인증 → SDP Gateway 후 연결 구역",
+  "target": "Google BeyondCorp·CSA SDP 스펙·국내 제로트러스트 실증",
+  "pair": "제로트러스트 가이드라인 2.0",
+  "family": "제로트러스트 접근제어 계열",
+  "course": "SC"
+ },
+ "SDR(Software Defined Radio)": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "입력 광대역 RF→내부 모듈 RF Front-end·디지털 IF·모뎀·기저대역 DSP→출력, 차별 모듈 OTA SW 다운로드",
+  "target": "O-RAN",
+  "pair": "",
+  "family": "",
+  "course": "NW"
+ },
+ "SECaaS(Security as a Service)": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "유형 = CSP 제공·SSP 제공, 결합 = 제공 서비스(IAM·DLP·웹보안·관제)",
+  "target": "중소기업 클라우드 보안관제·공공 클라우드·금융 클라우드",
+  "pair": "CWPP(Cloud Workload Protection Platform) & CSPM(Cloud Security Posture Management)",
+  "family": "클라우드 보안 서비스 계열",
+  "course": "SC"
+ },
+ "SLAM(Simultaneous Localization and Mapping)": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "카메라·LiDAR 입력 → Visual Odometry → Backend 최적화 → Loop Closing",
+  "target": "딥러닝 시맨틱 SLAM·디지털 트윈 공간 맵",
+  "pair": "AMR(Autonomous Mobile Robot)",
+  "family": "자율 로봇 계열",
+  "course": "DX"
+ },
+ "SP 인증": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "영역: 프로젝트 관리·개발·지원·조직 관리·프로세스 개선(평가 항목); 등급 2·3",
+  "target": "GS 인증(제품 인증) 결합·공공 SW사업 평가 가점",
+  "pair": "CMMI 3.0",
+  "family": "프로세스 성숙도 모델 계열",
+  "course": "SE"
+ },
+ "SQL(Structured Query Language)": {
+  "group": "C10",
+  "type": "문제-해결",
+  "slot": "유형명 DDL·DML·DCL·TCL, 결합 대상 구문(CREATE·SELECT·GRANT·COMMIT)",
+  "target": "SQL 인젝션 → Prepared Statement·입력 검증·최소 권한",
+  "pair": "NoSQL",
+  "family": "관계 데이터 언어 계열",
+  "course": "DB"
+ },
+ "SRE (Site Reliability Engineering)": {
+  "group": "C4",
+  "type": "성공 전략",
+  "slot": "순환: SLI 측정→SLO 판단→Error Budget 조치 / 라벨: Toil 관리·카나리 배포·자가치유 자동화",
+  "target": "Error Budget 정책·Toil 자동화·카나리 배포",
+  "pair": "데브옵스 (DevOps)",
+  "family": "데브옵스·운영 안정성 계열",
+  "course": "SE"
+ },
+ "SSRF(Server-Side Request Forgery)": {
+  "group": "C8",
+  "type": "연계 강화",
+  "slot": "행위자 = 공격자 → 신뢰 서버 → 내부 자원, 단계 = 위조 요청 → 내부 스캔·유출(Blind)",
+  "target": "클라우드 IMDSv2·이그레스 제어(제로트러스트)·WAF",
+  "pair": "OWASP Top 10:2021",
+  "family": "경유 서버 악용 공격 계열",
+  "course": "SC"
+ },
+ "STPA (System-Theoretic Process Analysis)": {
+  "group": "C6",
+  "type": "활용 사례",
+  "slot": "절차: 사고·위험 정의→Control Structure 도식화→Unsafe Control Action 도출→원인 시나리오 도출; UCA 4유형",
+  "target": "자율주행차 안전 분석(ISO 26262)·항공 관제 시스템",
+  "pair": "FTA (Fault Tree Analysis)",
+  "family": "위험 분석 기법 계열",
+  "course": "SE"
+ },
+ "SVD(Singular Value Decomposition)": {
+  "group": "C6",
+  "type": "적용 분야",
+  "slot": "행렬 → 분해(U·Σ·V^T) → 특이값 선택 → 재구성 절차(행분선재)",
+  "target": "추천 시스템·잠재 의미 분석 LSA·이미지 압축",
+  "pair": "PCA(Principal Component Analysis)",
+  "family": "차원 축소 기법 계열",
+  "course": "AI"
+ },
+ "SW Architecture 구축 절차": {
+  "group": "C6",
+  "type": "성공 전략",
+  "slot": "메인: 요구사항분석→아키텍처분석→아키텍처설계→검증 및 승인 / 하위: 품질속성 식별·아키텍처 스타일 선택·평가",
+  "target": "ADD(속성 주도 설계)·ATAM 조기 평가",
+  "pair": "SW Architecture 평가",
+  "family": "",
+  "course": "SE"
+ },
+ "SW Architecture 평가": {
+  "group": "C10",
+  "type": "성공 전략",
+  "slot": "유형명: SAAM·ATAM·CBAM·EATAM·ADR·ARID 평가모델 / 결합: SAAM 계승·발전 관계, 모델별 목표",
+  "target": "조기 평가(ATAM)·이해관계자 참여·비용 효용(CBAM) 기반 선정",
+  "pair": "CBAM(Cost Benefit Analysis Method)",
+  "family": "",
+  "course": "SE"
+ },
+ "SW 규모산정": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형: 하향식(전문가 판단·델파이)·상향식(LOC·WBS)·수학적(COCOMO·FP) 산정; 고려사항",
+  "target": "COCOMO·LOC 산정",
+  "pair": "Function Point",
+  "family": "SW 규모·대가 산정 계열",
+  "course": "SE"
+ },
+ "SW 사업대가 ('25년 개정판)": {
+  "group": "C10",
+  "type": "성공 전략",
+  "slot": "유형: 기획단계 ISP·ISMP·EA/ITA·BPR 대가; 구현단계 기능점수 산정 절차(사기전후직소)",
+  "target": "요구사항 명확화·기능점수 간이법·보정계수 적용 원칙",
+  "pair": "SW 규모산정",
+  "family": "SW 규모·대가 산정 계열",
+  "course": "SE"
+ },
+ "SW난독화": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형 = 구획·데이터·집합·제어·예방 난독화, 결합 = 기법별 주요 기술(모드)",
+  "target": "코드 패킹·안티 디버깅",
+  "pair": "",
+  "family": "콘텐츠·SW 보호 기술 계열",
+  "course": "SC"
+ },
+ "Secure Software Development Framework(SSDF)": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "단계 = 조직 준비(PO) → 보안 SW 제작(PW) → SW 보호(PS) → 취약점 대응(RV)",
+  "target": "DevSecOps·MS SDL·OWASP SAMM",
+  "pair": "DevSecOps",
+  "family": "보안 개발 수명주기 계열",
+  "course": "SC"
+ },
+ "Shannon의 암호 설계 원칙": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "유형 = 혼돈(대치)·확산(전치), 결합 = 대치·전치·곱·블록·스트림 기법",
+  "target": "AES S-Box·DES Feistel P-Box·ARIA",
+  "pair": "블록 암호화(Block Cipher)",
+  "family": "암호 안전성 원칙 계열",
+  "course": "SC"
+ },
+ "Sliding Window & 네이글(Nagle's) 알고리즘": {
+  "group": "C8",
+  "type": "연관 비교",
+  "slot": "송신·수신 사이 윈도우 열림·닫힘·축소 단계, Ack 수신 후 축적 데이터 전송 번호 화살표",
+  "target": "Clark 알고리즘·TCP 혼잡제어 윈도우",
+  "pair": "TCP 혼잡제어",
+  "family": "TCP 제어 절차 계열",
+  "course": "NW"
+ },
+ "TCP 연결의 설정 및 해제(Handshaking)": {
+  "group": "C8",
+  "type": "연관 비교",
+  "slot": "Client·Server 사이 SYN→SYN+ACK→ACK, FIN→ACK→FIN→ACK 번호 화살표, 상태 전이 라벨",
+  "target": "QUIC·SCTP 핸드셰이크",
+  "pair": "SCTP(Stream Control Transmission Protocol)",
+  "family": "TCP 제어 절차 계열",
+  "course": "NW"
+ },
+ "TCP 와 UDP 비교": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명 TCP(연결지향)·UDP(비연결), 결합 대상 순서·흐름·혼잡·오류제어, 제어 플래그 6종",
+  "target": "QUIC",
+  "pair": "SCTP(Stream Control Transmission Protocol)",
+  "family": "",
+  "course": "NW"
+ },
+ "TCP 혼잡제어": {
+  "group": "C4",
+  "type": "연관 비교",
+  "slot": "대상 CWND, 고리 Slow Start→Congestion Avoidance→Fast Retransmission→Fast Recovery",
+  "target": "BBR(그래프 비교)",
+  "pair": "Sliding Window & 네이글(Nagle's) 알고리즘",
+  "family": "",
+  "course": "NW"
+ },
+ "TDD (Test Driven Development)": {
+  "group": "C4",
+  "type": "연계 강화",
+  "slot": "순환: 요구→테스트 작성(Red)→구현(Green)→리팩토링(Refactor)(요테구리) / 되돌아감: Simple Code 반복",
+  "target": "BDD·CI 자동 테스트 파이프라인",
+  "pair": "SDD(Spec-Driven Development)",
+  "family": "",
+  "course": "SE"
+ },
+ "TLS/SSL(Secure Socket Layer)": {
+  "group": "C2",
+  "type": "로드맵",
+  "slot": "모듈 = Handshake·Change Cipher Spec·Alert·Record, 입출력 = 응용 데이터 ↔ TCP",
+  "target": "SSL → TLS 1.2 → TLS 1.3 → PQC 하이브리드 TLS(IETF)",
+  "pair": "IPSec",
+  "family": "보안 프로토콜 계열",
+  "course": "SC"
+ },
+ "Test Exit Criteria": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "완료조건: 완전성·목적·기준·커버리지·리스크·스케줄(완목기커리스), 레벨별 기본 원칙",
+  "target": "테스트 진입 조건(Entry Criteria)·애자일 DoD",
+  "pair": "Test Process",
+  "family": "테스트 유형 계열",
+  "course": "SE"
+ },
+ "Test Process": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "단계: 계획→케이스 설계→실행→결과 분석→오류 추적·수정(계케실결오), 세부 단계·산출물",
+  "target": "ISO 29119-2 테스트 프로세스·ISTQB 기본 프로세스",
+  "pair": "ISO 29119",
+  "family": "테스트 절차 계열",
+  "course": "SE"
+ },
+ "UAM(Urban Air Mobility)": {
+  "group": "C5",
+  "type": "로드맵",
+  "slot": "기체(eVTOL·PAV) / 버티포트(Vertiport·MRO) / 교통관리 구역, 이용자",
+  "target": "K-UAM 로드맵(실증 → 초기 → 성장 → 성숙)",
+  "pair": "MaaS(Mobility as a service)",
+  "family": "교통 관제 체계 계열",
+  "course": "DX"
+ },
+ "UCP(Universal Commerce Protocol)": {
+  "group": "C8",
+  "type": "연관 비교",
+  "slot": "① 탐색 → ② 장바구니 → ③ 주문 → ④ 결제(AP2 위임) — 사용자·에이전트·판매자",
+  "target": "ACP·AP2",
+  "pair": "ACP(Agentic Commerce Protocol)",
+  "family": "에이전틱 커머스 프로토콜 계열",
+  "course": "DX"
+ },
+ "UML (정적, 동적 다이어그램)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형명: 정적 다이어그램(Structure)·동적 다이어그램(Behavior) 13개 / 결합: 가시화·구체화·명세화·문서화",
+  "target": "SysML·ERD",
+  "pair": "UML의 4+1 View Model",
+  "family": "UML 다이어그램 계열",
+  "course": "SE"
+ },
+ "UML의 4+1 View Model": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명: Logical·Process·Implementation·Deployment View / 결합 중심: Use Case View",
+  "target": "UML 다이어그램 매핑·RUP",
+  "pair": "ISO/IEC/IEEE 42010:2022",
+  "family": "아키텍처 뷰 계열",
+  "course": "SE"
+ },
+ "VAE(Variational Autoencoder)": {
+  "group": "C2",
+  "type": "적용 분야",
+  "slot": "입력 → 인코더(μ·σ) → 잠재 공간 샘플링 → 디코더 → 생성 데이터",
+  "target": "이상 탐지·신약 분자 설계·이미지 생성",
+  "pair": "GAN(Generative Adversarial Network)",
+  "family": "생성 모델 계열",
+  "course": "AI"
+ },
+ "VLA(Vision-Language-Action) 모델": {
+  "group": "C2",
+  "type": "활용 사례",
+  "slot": "비전·텍스트 토큰 입력 → VLA 정책(인지·행동) → 행동 토큰, 폐루프",
+  "target": "Google RT-2·NVIDIA GR00T·휴머노이드 로봇",
+  "pair": "Physical AI",
+  "family": "행동 AI 모델 계열",
+  "course": "AI"
+ },
+ "VLM(Vision Language Model)": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "이미지 인코더·텍스트 인코더 → 융합(Cross Attention·PrefixLM·Contrastive) → 출력",
+  "target": "VLA 로봇 제어·멀티모달 RAG·AI 에이전트",
+  "pair": "멀티모달(Multimodal) AI",
+  "family": "멀티모달 모델 계열",
+  "course": "AI"
+ },
+ "VPN(Virtual Private Network)": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "모듈 = 터널링·암호화·인증·키 관리, 입출력 = 사설망 ↔ 공중망 터널(SSL·IPSec·MPLS)",
+  "target": "SASE·ZTNA 전환",
+  "pair": "SASE(Secure Access Service Edge)",
+  "family": "보안 프로토콜 계열",
+  "course": "SC"
+ },
+ "VPP(Virtual Power Plant)": {
+  "group": "C7",
+  "type": "활용 사례",
+  "slot": "분산 자원(신재생·ESS·DER) ↔ 클라우드 VPP 플랫폼 ↔ TSO·DSO·에너지 마켓",
+  "target": "전력거래소 소규모 전력중개시장·재생에너지 입찰제도",
+  "pair": "AMI(Advanced Metering Infrastructure) 2.0",
+  "family": "",
+  "course": "DX"
+ },
+ "WAAP(Web Application and API Protection)": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "웹·API 트래픽 입력 → WAF·API 보호·DDoS·Bot 보호 모듈 → 허용/차단",
+  "target": "SASE·API 게이트웨이",
+  "pair": "SASE(Secure Access Service Edge)",
+  "family": "",
+  "course": "SC"
+ },
+ "Wi-Fi 7(IEEE 802.11be)": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "층 이름 PHY(320MHz·4096-QAM)·MAC(HARQ)·응용(초실감 미디어), 강조 층 PHY",
+  "target": "Wi-Fi 6",
+  "pair": "Wi-Fi 8(IEEE 802.11bn)",
+  "family": "Wi-Fi 세대 계열",
+  "course": "NW"
+ },
+ "Wi-Fi 8(IEEE 802.11bn)": {
+  "group": "C1",
+  "type": "로드맵",
+  "slot": "층 이름 PHY(2.4/5/6GHz 대역)·MAC(멀티 AP 협력)·UHR 신뢰성, 강조 층 멀티 AP 협력",
+  "target": "Wi-Fi 6→7→8",
+  "pair": "Wi-Fi 7(IEEE 802.11be)",
+  "family": "Wi-Fi 세대 계열",
+  "course": "NW"
+ },
+ "XAI(eXplainable AI) 방법론": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "방법론 종류(특성 중요도·LIME·SHAP·LRP·탐색적 샘플링)와 국소·전역 축, 한계",
+  "target": "AI TRiSM·AI 기본법 설명 의무·모델 모니터링",
+  "pair": "편향",
+  "family": "",
+  "course": "AI"
+ },
+ "XDR(eXtended Detection Response)": {
+  "group": "C2",
+  "type": "활용 사례",
+  "slot": "엔드포인트·네트워크·클라우드 데이터 통합 → 교차 분석 → 자동 대응 모듈",
+  "target": "Palo Alto Cortex XDR·Microsoft Defender XDR·CrowdStrike Falcon",
+  "pair": "EDR(Endpoint Detection and Response)",
+  "family": "탐지·대응 솔루션 계열",
+  "course": "SC"
+ },
+ "가명정보 처리 가이드라인": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "유형 = 개인정보·가명정보·익명정보 구분, 결합 = 처리 절차 단계·보호조치",
+  "target": "의료 데이터 결합·금융 마이데이터·공공 데이터 개방",
+  "pair": "가명처리(Pseudonymization) 기법",
+  "family": "가명처리 계열",
+  "course": "SC"
+ },
+ "가명처리(Pseudonymization) 기법": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형 = 삭제·통계·일반화·암호화 기법, 결합 = 직접·간접식별자·속성·특이정보",
+  "target": "차분 프라이버시·합성 데이터·연합학습",
+  "pair": "가명정보 처리 가이드라인",
+  "family": "가명처리 계열",
+  "course": "SC"
+ },
+ "가상융합산업 진흥법": {
+  "group": "C5",
+  "type": "연관 비교",
+  "slot": "정부(시책·영향평가) ↔ 지역 지원센터 ↔ 사업자(자율규제·임시기준) ↔ 이용자",
+  "target": "게임산업법·정보통신망법 적용 쟁점",
+  "pair": "공간 컴퓨팅(Spatial Computing)",
+  "family": "",
+  "course": "DX"
+ },
+ "가트너(Gartner) 2026": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "AI(네이티브 개발·슈퍼컴퓨팅·다중 에이전트·DSLM·피지컬) × 보안 × 주권",
+  "target": "가트너 2025 트렌드",
+  "pair": "",
+  "family": "",
+  "course": "DX"
+ },
+ "간편인증 인터페이스 가이드라인": {
+  "group": "C5",
+  "type": "연계 강화",
+  "slot": "구역 = 사용자(PIN·바이오) / 클라이언트(클라이언트 시크릿) / 서버(마스터 시크릿)",
+  "target": "FIDO2·패스키·DID",
+  "pair": "생체 인증(텔레바이오 인증)",
+  "family": "",
+  "course": "SC"
+ },
+ "개인정보 보호기술": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "정책협상·프라이버시 정책·쿠키관리·암호화·익명화 유형 결합 관계, 통신·저장 구역 라벨",
+  "target": "PEC 동형 암호·차분 프라이버시",
+  "pair": "가명처리(Pseudonymization) 기법",
+  "family": "개인정보 보호기술 계열",
+  "course": "SC"
+ },
+ "개인정보 영향평가(Privacy Impact Assessment)": {
+  "group": "C6",
+  "type": "성공 전략",
+  "slot": "사전준비 → 영향평가 수행 → 이행 단계 위 + 자료 수집·위험 분석·개선 하위 절차",
+  "target": "사전준비 충실·평가기관 조기 선정·이행 점검",
+  "pair": "AI 프라이버시 리스크 관리",
+  "family": "프라이버시 리스크 평가 계열",
+  "course": "SC"
+ },
+ "개인정보 전송요구권": {
+  "group": "C5",
+  "type": "로드맵",
+  "slot": "정보주체 ↔ 개인정보 보유기관 ↔ 수신기관·관리 전문기관",
+  "target": "신용정보법 선행 시행 → 개인정보보호법 전송요구권 단계적 시행",
+  "pair": "마이 데이터(MyData)",
+  "family": "개인 데이터 이동권 계열",
+  "course": "DX"
+ },
+ "개인정보 프라이버시 8원칙": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "수집 제한·정확성·목적 명확화·이용 제한·안전성·공개·개인 참가·책임 8원칙 결합 관계",
+  "target": "Privacy by Design·마이데이터·AI 프라이버시 리스크 관리",
+  "pair": "개인정보보호 중심 설계(Privacy by Design)",
+  "family": "",
+  "course": "SC"
+ },
+ "개인정보보호 중심 설계(Privacy by Design)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형 = 7대 기본 원칙(사전대비·기본값 설정 …), 결합 = Design·Coverage·Usability 절차",
+  "target": "개인정보 영향평가(PIA)·PET(차분 프라이버시)·ISO 31700",
+  "pair": "PbD(Privacy by Design) 인증제도",
+  "family": "개인정보 보호 설계 계열",
+  "course": "SC"
+ },
+ "객체지향 설계 원리": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명: SRP·OCP·LSP·ISP·DIP(SOLID) / 결합 축: 응집도 측면(SRP·ISP)·결합도 측면(OCP·LSP·DIP)",
+  "target": "디자인 패턴·Spring DI 프레임워크",
+  "pair": "소프트웨어 설계의 원리",
+  "family": "설계 원리 계열",
+  "course": "SE"
+ },
+ "객체지향 프로그래밍 특징": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형명: 캡슐화·추상화·다형성·정보은닉·상속성(캡추다정상) / 결합: 객체=속성+메소드",
+  "target": "절차지향 프로그래밍·AOP",
+  "pair": "다형성 (Polymorphism)",
+  "family": "설계 원리 계열",
+  "course": "SE"
+ },
+ "거리 공식(Distance Formula)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유클리디안(L2 직선)·맨하탄(L1 직각)·체비쇼프 거리 유형",
+  "target": "코사인·자카드 유사도",
+  "pair": "유사도(Similarity)",
+  "family": "거리·유사도 척도 계열",
+  "course": "AI"
+ },
+ "검색 삽입 생성(RIG, Retrieval Interleaved Generation)": {
+  "group": "C6",
+  "type": "적용 분야",
+  "slot": "초기 생성 → 필요 정보 검색 → 삽입 생성 → 반복(초검생반)",
+  "target": "통계 질의응답·금융 리서치·의료 근거 생성",
+  "pair": "검색 증강 생성(RAG, Retrieval Augmented Generation)",
+  "family": "검색 증강 생성 계열",
+  "course": "AI"
+ },
+ "검색 증강 생성(RAG, Retrieval Augmented Generation)": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "저장(인덱싱·청크·임베딩) → 쿼리 → 정보 검색(벡터 DB) → 답변 생성 → 출력",
+  "target": "GraphRAG·에이전틱 RAG·하이브리드 검색",
+  "pair": "파인 튜닝(Fine-tuning)",
+  "family": "검색 증강 생성 계열",
+  "course": "AI"
+ },
+ "경험 기반 테스트": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "기법: 오류 추정·탐색적 테스팅·체크리스트 기반(유형·설명·고려사항)",
+  "target": "명세 기반 기법·구조 기반 기법",
+  "pair": "탐색적 테스트",
+  "family": "테스트 유형 계열",
+  "course": "SE"
+ },
+ "고영향 인공지능(AI) 판단 가이드라인": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "판단 절차(사업자 자가진단 → 장관 판단·통지) 메인 + 영향평가 법적 근거·항목 하위",
+  "target": "EU AI Act 고위험 AI 분류",
+  "pair": "인공지능 영향평가 가이드라인",
+  "family": "고영향 AI 평가 절차 계열",
+  "course": "AI"
+ },
+ "공간 컴퓨팅(Spatial Computing)": {
+  "group": "C1",
+  "type": "활용 사례",
+  "slot": "디스플레이·6DoF·시선 추적 → 이동통신 → AI·IoT → XR 응용",
+  "target": "Apple Vision Pro·Meta Quest·산업용 XR 정비",
+  "pair": "디지털 휴먼(Digital Human)",
+  "family": "",
+  "course": "DX"
+ },
+ "공격 표면 관리(Attack Surface Management)": {
+  "group": "C4",
+  "type": "연계 강화",
+  "slot": "자산 발견 → 분석 → 지속 모니터링 → 공격 표면 최소화 순환, Outside-In 라벨",
+  "target": "CTEM·위협 인텔리전스(CTI)",
+  "pair": "지속적인 위협 노출 관리(CTEM)",
+  "family": "위협 노출 관리 계열",
+  "course": "SC"
+ },
+ "공공 AX 전략": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "AI Full Stack 도입 방법론 7D 단계 메인 + 3요소(대상·서비스 / 구현 / 운영·거버넌스) 하위",
+  "target": "DX(Digital Transformation)·민간 AX",
+  "pair": "AX(AI Transformation)",
+  "family": "AX 전환 전략 계열",
+  "course": "AI"
+ },
+ "공공기관 데이터베이스 표준화지침(2023년 4월 개정 고시)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형명 표준사전 관리항목(단어·용어·도메인·코드), 결합 대상 산출물 관리항목(DB·엔티티·속성·컬럼 정의서)",
+  "target": "데이터 표준화 활동·표준사전 관리",
+  "pair": "데이터 표준화",
+  "family": "",
+  "course": "DB"
+ },
+ "공공기관 정보화사업 예비타당성": {
+  "group": "C5",
+  "type": "연관 비교",
+  "slot": "구역: 주무부처(사업 요청)·기획재정부(대상 선정)·조사기관(타당성 조사); 기준 사업비 500억·국고 300억 신규(사5지 3신)",
+  "target": "타당성 재조사·정보화전략계획(ISP) 사전 검토",
+  "pair": "소프트웨어사업 영향평가",
+  "family": "공공 SW 제도 계열",
+  "course": "SE"
+ },
+ "공공데이터 예방적 품질관리 진단 가이드": {
+  "group": "C6",
+  "type": "성공 전략",
+  "slot": "메인 단계 계획→발주→설계→개발→완료, 하위 표준·구조·값·관리체계 진단항목",
+  "target": "단계별 진단 체크리스트·표준사전·품질진단 도구",
+  "pair": "공공데이터 품질인증 매뉴얼(2025.07.)",
+  "family": "데이터 품질관리 계열",
+  "course": "DB"
+ },
+ "공공데이터 품질인증 매뉴얼(2025.07.)": {
+  "group": "C5",
+  "type": "연관 비교",
+  "slot": "구역 신청기관 ↔ 인증기관, 산출물 품질관리 체계·DB 품질 심사 → 최우수·우수 등급",
+  "target": "DQ인증(데이터 품질인증 가이드라인)",
+  "pair": "데이터 품질인증 가이드라인 - DQ인증 (2025.02.26)",
+  "family": "데이터 인증·평가 제도 계열",
+  "course": "DB"
+ },
+ "공공부문 SaaS 이용가이드 라인": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "이용기획 → 이용계약 준비 → 이용계약 → 이용 → 이용종료 메인 + 간소화 기능·법령 하위",
+  "target": "디지털서비스 전문계약제도·클라우드 보안인증(CSAP)",
+  "pair": "클라우드 네이티브 구축운영 상세가이드('26.01)",
+  "family": "클라우드 전환 절차 계열",
+  "course": "DX"
+ },
+ "공공부문 초거대AI 도입, 활용 가이드라인 2.0(2025.04)": {
+  "group": "C6",
+  "type": "성공 전략",
+  "slot": "도입절차(보클데서유성) 메인 + 성과지표(투과산결)·AI 기능분류별 Pool 하위",
+  "target": "데이터 보안 등급별 도입 방식·서비스 레벨 목표 계약·성과지표 관리",
+  "pair": "인공지능(AI) 도입 사업비 산정 절차",
+  "family": "공공 AI 도입 절차 계열",
+  "course": "AI"
+ },
+ "공급망 공격(Supply Chain Attack)": {
+  "group": "C3",
+  "type": "활용 사례",
+  "slot": "흐름 = 개발 → 제조공정 → 데이터저장소 → 배포 → 사용자, 위협 = 단계별 공격대상",
+  "target": "SolarWinds·Log4j·XZ Utils 사례",
+  "pair": "Secure Software Development Framework(SSDF)",
+  "family": "",
+  "course": "SC"
+ },
+ "공통감리 절차": {
+  "group": "C6",
+  "type": "성공 전략",
+  "slot": "단계: 예비조사→현장감리→시정조치 확인(예현조), 세부절차·산출물(감리계획서·결과보고서)",
+  "target": "감리 체크리스트 사전 합의·자동화 점검 도구·시정조치 추적",
+  "pair": "정보시스템 감리결과보고서 (구성, 보고사항)",
+  "family": "감리 점검 절차 계열",
+  "course": "SE"
+ },
+ "관계대수(Relational Algebra)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형명 일반 집합 연산자 합·교·차·카티션 곱, 순수 관계 연산자 셀렉트·프로젝트·조인·디비전",
+  "target": "관계해석",
+  "pair": "관계해석(Relational Calculus)",
+  "family": "관계 데이터 언어 계열",
+  "course": "DB"
+ },
+ "관계해석(Relational Calculus)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명 튜플 관계해석·도메인 관계해석, 결합 대상 수식 요소(변수·정량자·조건)",
+  "target": "SQL·QBE 질의어 구현",
+  "pair": "관계대수(Relational Algebra)",
+  "family": "관계 데이터 언어 계열",
+  "course": "DB"
+ },
+ "국가 데이터 인프라(Data Infra)": {
+  "group": "C5",
+  "type": "연관 비교",
+  "slot": "데이터 관리 ↔ 데이터 활용 ↔ 데이터 주권 — 연합형 거버넌스 구역",
+  "target": "데이터 스페이스·EU Gaia-X",
+  "pair": "데이터 스페이스(Data Space)",
+  "family": "연합형 데이터 공유 계열",
+  "course": "DX"
+ },
+ "국가 망 보안체계(N2SF)": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "C(기밀) → S(민감) → O(공개) 등급 층, 등급별 차등 보안대책 화살표 라벨",
+  "target": "제로트러스트·CSAP 클라우드·AI 서비스 도입",
+  "pair": "제로트러스트 가이드라인 2.0",
+  "family": "",
+  "course": "SC"
+ },
+ "기밀컴퓨팅(Confidential Computing)": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "하드웨어 TEE → 시스템 소프트웨어 → 응용 층, 실행증명(Attestation) 화살표 라벨",
+  "target": "클라우드 Confidential VM·동형 암호·AI 모델 보호",
+  "pair": "동형 암호(Homomorphic Encryption)",
+  "family": "",
+  "course": "SC"
+ },
+ "기울기 소실과 기울기 폭주": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "입력층~출력층 스택, 역전파 기울기 화살표, 발생원인·해결방안 층 표시",
+  "target": "ResNet 잔차 연결·LSTM 게이트·배치 정규화",
+  "pair": "활성화함수(Activation Function)",
+  "family": "신경망 학습 안정화 계열",
+  "course": "AI"
+ },
+ "기후테크": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "클린테크·카본테크·에코테크·푸드테크·지오테크 유형 결합 → 온실가스 감축·기후적응",
+  "target": "AI 에너지 최적화·디지털 트윈·탄소배출권 거래",
+  "pair": "",
+  "family": "",
+  "course": "DX"
+ },
+ "깃옵스(GitOps)": {
+  "group": "C8",
+  "type": "실무 도구",
+  "slot": "개발자 ↔ Git 저장소(SSOT·선언형 기술서) ↔ 자동화 시스템 ↔ 클러스터, Push·Pull 방식",
+  "target": "ArgoCD·Flux·Terraform",
+  "pair": "클라우드 네이티브(Cloud Native)",
+  "family": "",
+  "course": "DX"
+ },
+ "낙관적 검증(Validation) 기법": {
+  "group": "C8",
+  "type": "연관 비교",
+  "slot": "행위자 Ti·Tj ↔ 검증기, ① 판독(지역 사본) ② 확인(타임스탬프 조건) ③ 기록",
+  "target": "비관적 잠금 2PL·타임스탬프 순서",
+  "pair": "DB 동시성제어",
+  "family": "동시성 제어 계열",
+  "course": "DB"
+ },
+ "난독화": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형: 구조(Layout)·데이터(Data)·집합·제어(Control)·예방(Preventive) 난독화(구데집제예), 세부분류",
+  "target": "RASP·앱 무결성 검증·코드 서명",
+  "pair": "3R",
+  "family": "",
+  "course": "SE"
+ },
+ "네트워크 슬라이싱": {
+  "group": "C1",
+  "type": "활용 사례",
+  "slot": "층 이름 서비스별 슬라이스 예시·SDN 제어·NFV 가상화·RAN/코어 물리 자원",
+  "target": "5G 특화망",
+  "pair": "5G 특화망",
+  "family": "",
+  "course": "NW"
+ },
+ "네트워크 지능": {
+  "group": "C4",
+  "type": "로드맵",
+  "slot": "대상 박스 SDN/VNF 네트워크, 고리 수집(OAM)→AI/ML 판단→MANO 조치, 지표 피드백 자동 제어",
+  "target": "TM Forum 자율 네트워크 레벨",
+  "pair": "인텐트 기반 네트워킹(Intent-Based Networking)",
+  "family": "자율 네트워크 계열",
+  "course": "NW"
+ },
+ "다중 서명(Multi Signature)": {
+  "group": "C8",
+  "type": "연계 강화",
+  "slot": "행위자 = N명 서명자 ↔ 블록체인, 단계 = 조건설정 → 키생성 → 주소생성 → 거래생성 → 서명요청",
+  "target": "MPC 지갑·임계 서명(TSS)·DAO 거버넌스",
+  "pair": "이중 서명(Dual Signature)",
+  "family": "키 교환·전자서명 계열",
+  "course": "SC"
+ },
+ "다중화(Multiplexing)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명 FDM·TDM·SDM·CDM·WDM, 결합 대상 하나의 전송로 분할 축(주파수·시간·공간·코드·파장)",
+  "target": "OFDMA·NOMA",
+  "pair": "",
+  "family": "",
+  "course": "NW"
+ },
+ "다형성 (Polymorphism)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명: 오버로딩·오버라이딩 / 결합: 수평 확장(같은 이름 복수 정의)·수직 확장(상속 시 재정의)",
+  "target": "디자인 패턴(전략·템플릿 메서드)·제네릭",
+  "pair": "객체지향 프로그래밍 특징",
+  "family": "",
+  "course": "SE"
+ },
+ "대규모 언어 모델(LLM) 성능 향상 기술": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "추론 강화·RAG·모델 병합·효율성·멀티모달 통합 5개 기술 그룹(추R모효멀)",
+  "target": "DeepSeek-R1·OpenAI o1 추론 모델",
+  "pair": "테스트 타임 컴퓨팅(Test-Time Compute)",
+  "family": "LLM 추론 강화 계열",
+  "course": "AI"
+ },
+ "대형개념모델(LCM, Large Concept Models)": {
+  "group": "C2",
+  "type": "연관 비교",
+  "slot": "입력 문장 → SONAR 인코더 → LCM 개념 추론 → SONAR 디코더(소프트포)",
+  "target": "LLM(토큰 단위)·멀티모달 모델",
+  "pair": "초거대 언어 모델(Large Language Model)",
+  "family": "차세대 LLM 아키텍처 계열",
+  "course": "AI"
+ },
+ "데메테르의 법칙 (Law of Demeter)": {
+  "group": "C10",
+  "type": "문제-해결",
+  "slot": "유형명: 호출 가능 메소드(객체 자체·메소드 변수·메소드 안 생성 객체·컴포넌트 객체·전역 변수) / 결합: A→B 허용, A→C 지양",
+  "target": "메소드 체이닝 결합도 증가·위임 메소드·Tell Don't Ask",
+  "pair": "객체지향 설계 원리",
+  "family": "설계 원리 계열",
+  "course": "SE"
+ },
+ "데브옵스 (DevOps)": {
+  "group": "C4",
+  "type": "연계 강화",
+  "slot": "순환: 개발↔운영 고리(CI/CD·프로비저닝) / 축: 품질·프로세스·도구 측면 구성요소",
+  "target": "DevSecOps·MLOps",
+  "pair": "SRE (Site Reliability Engineering)",
+  "family": "데브옵스·운영 안정성 계열",
+  "course": "SE"
+ },
+ "데이터 가상화(Data Virtualization)": {
+  "group": "C1",
+  "type": "활용 사례",
+  "slot": "층 이름 소스→가상화(커넥터·가상 View·캐시)→소비 계층, 강조 층 단일 데이터 액세스",
+  "target": "Denodo·Trino 연합 질의",
+  "pair": "데이터패브릭(Data Fabric)",
+  "family": "데이터 플랫폼 아키텍처 계열",
+  "course": "DB"
+ },
+ "데이터 가치 평가": {
+  "group": "C5",
+  "type": "연관 비교",
+  "slot": "구역 신청기업 ↔ 평가기관 ↔ 가치평가자문단, 산출물 시장·수익·원가 접근법 → 가액·등급",
+  "target": "기술가치평가·무형자산 회계 평가",
+  "pair": "데이터 품질인증 가이드라인 - DQ인증 (2025.02.26)",
+  "family": "데이터 인증·평가 제도 계열",
+  "course": "DB"
+ },
+ "데이터 거버넌스(Data Governance)": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "층 이름 원칙·조직·프로세스, 층 안 박스 품질·메타·주기·보안 관리(품메주보)",
+  "target": "데이터 패브릭 활성 메타데이터·AI 거버넌스",
+  "pair": "데이터 분석 거버넌스(Data Analytics Governance)",
+  "family": "데이터 거버넌스 계열",
+  "course": "DB"
+ },
+ "데이터 랭글링(Data Wrangling)": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "메인 단계 발견→구조화→정제→강화→유효성 검사→출판, 핵심 단계 구조화·정제",
+  "target": "Spark 분산 처리·생성형 AI 보조 변환",
+  "pair": "데이터 전처리",
+  "family": "데이터 전처리 계열",
+  "course": "DB"
+ },
+ "데이터 레이크하우스(Data Lakehouse)": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "층 이름 레이크 스토리지→메타데이터·스키마·ACID 트랜잭션→서빙(배치·스트리밍)",
+  "target": "Delta Lake·Apache Iceberg·AI 학습 파이프라인",
+  "pair": "데이터(웨어하우스, 레이크, 패브릭, 메시)",
+  "family": "데이터 플랫폼 아키텍처 계열",
+  "course": "DB"
+ },
+ "데이터 리니지": {
+  "group": "C6",
+  "type": "적용 분야",
+  "slot": "메인 단계 수집(소스)→ETL/ELT 변환→저장→활용, 하위 메타데이터·자동화·시각화 도구",
+  "target": "금융 규제 보고·공공 데이터 품질 감사·의료",
+  "pair": "메타 데이터와 데이터 카탈로그",
+  "family": "",
+  "course": "DB"
+ },
+ "데이터 마이닝 방법론": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "메인 단계 CRISP-DM 비즈니스 이해→데이터 이해→준비→모델링→평가→전개, 하위 KDD·SEMMA 단계",
+  "target": "MLOps 파이프라인·AutoML",
+  "pair": "정형/비정형 데이터 마이닝",
+  "family": "",
+  "course": "DB"
+ },
+ "데이터 메시(Data Mesh)": {
+  "group": "C5",
+  "type": "연계 강화",
+  "slot": "구역 도메인(Data Product 소유)×Self-Serve Platform, 산출물 Federated Governance",
+  "target": "데이터 패브릭 활성 메타데이터·DataOps 자동화",
+  "pair": "데이터패브릭(Data Fabric)",
+  "family": "",
+  "course": "DB"
+ },
+ "데이터 분석 거버넌스(Data Analytics Governance)": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "층 이름 조직(COA)·프로세스·시스템·데이터·인력, 강조 층 COA 분석조직",
+  "target": "데이터 거버넌스",
+  "pair": "데이터 거버넌스(Data Governance)",
+  "family": "데이터 거버넌스 계열",
+  "course": "DB"
+ },
+ "데이터 분석 준비도와 데이터 분석 성숙도": {
+  "group": "C11",
+  "type": "연관 비교",
+  "slot": "축 이름 준비도(업조기데문인)×성숙도(도입·활용·확산·최적화), 값 라벨 준비형·정착형·도입형·확산형",
+  "target": "CMMI 성숙도 모델",
+  "pair": "데이터 분석 거버넌스(Data Analytics Governance)",
+  "family": "",
+  "course": "DB"
+ },
+ "데이터 상호 운용성 & 데이터 이동권": {
+  "group": "C5",
+  "type": "연계 강화",
+  "slot": "시스템 A ↔ 시스템 B(상호운용성 수단) · 개인 ↔ 사업자(이동권)",
+  "target": "데이터 스페이스 커넥터·표준 API",
+  "pair": "개인정보 전송요구권",
+  "family": "개인 데이터 이동권 계열",
+  "course": "DX"
+ },
+ "데이터 상호운용성과 데이터 이동권": {
+  "group": "C5",
+  "type": "활용 사례",
+  "slot": "구역 정보주체 ↔ 보유기관 ↔ 수신기관, 산출물 MDR·API·JSON/XML 표준 데이터",
+  "target": "금융 마이데이터·의료 마이데이터·EU GDPR 이동권",
+  "pair": "한국형 데이터 스페이스(K-Data Space)",
+  "family": "",
+  "course": "DB"
+ },
+ "데이터 스페이스(Data Space)": {
+  "group": "C5",
+  "type": "활용 사례",
+  "slot": "데이터 제공자 ↔ 커넥터·중개 ↔ 데이터 이용자 — 연합형 거버넌스(주권·상호운용성)",
+  "target": "Gaia-X·Catena-X·IDSA",
+  "pair": "국가 데이터 인프라(Data Infra)",
+  "family": "연합형 데이터 공유 계열",
+  "course": "DX"
+ },
+ "데이터 시각화": {
+  "group": "C6",
+  "type": "실무 도구",
+  "slot": "메인 단계 정보 구조화→시각화→시각 표현, 하위 인사이트 탐색→분석→활용",
+  "target": "Tableau·Power BI·D3.js",
+  "pair": "빅데이터 시각화(Visualization)",
+  "family": "데이터 시각화 계열",
+  "course": "DB"
+ },
+ "데이터 전처리": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "메인 단계 정제→통합→변환→정리, 하위 결측·이상값·정규화·축소 상세 기법",
+  "target": "데이터 랭글링",
+  "pair": "데이터 랭글링(Data Wrangling)",
+  "family": "데이터 전처리 계열",
+  "course": "DB"
+ },
+ "데이터 클렌징(Cleansing)": {
+  "group": "C6",
+  "type": "실무 도구",
+  "slot": "메인 단계 대상→원인→우선순위→유형→제거, 하위 변환·파싱·보강·코드·형식·수정 기법",
+  "target": "OpenRefine·규칙 기반 검증 고리",
+  "pair": "데이터 프로파일링(Data Profiling)",
+  "family": "데이터 전처리 계열",
+  "course": "DB"
+ },
+ "데이터 파운드리(Data Foundry)": {
+  "group": "C2",
+  "type": "적용 분야",
+  "slot": "입력 원천 데이터, 모듈 수집·표준화·라벨링·증강·검증, 출력 AI 학습 데이터(강조 라벨링)",
+  "target": "의료·제조·공공 AI 학습 데이터",
+  "pair": "한국형 데이터 스페이스(K-Data Space)",
+  "family": "",
+  "course": "DB"
+ },
+ "데이터 표준화": {
+  "group": "C1",
+  "type": "성공 전략",
+  "slot": "층 이름 표준 원칙→데이터 표준(단어·도메인·용어·코드)→관리조직→표준화 프로세스",
+  "target": "표준 사전·메타데이터 관리 도구",
+  "pair": "공공기관 데이터베이스 표준화지침(2023년 4월 개정 고시)",
+  "family": "데이터 거버넌스 계열",
+  "course": "DB"
+ },
+ "데이터 품질관리(ISO 8000)": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "메인 단계 품질진단→품질개선, 하위 ISO 8000 시리즈(8000-150 프레임워크)",
+  "target": "ISO/IEC 25012 데이터 품질 모델·ISO/IEC 11179",
+  "pair": "ISO/IEC 11179",
+  "family": "데이터 품질관리 계열",
+  "course": "DB"
+ },
+ "데이터 품질인증 가이드라인 - DQ인증 (2025.02.26)": {
+  "group": "C5",
+  "type": "연계 강화",
+  "slot": "구역 신청기업 ↔ 인증기관, 산출물 데이터 내용·관리체계 인증 → 사후관리",
+  "target": "데이터 가치 평가·데이터 거래소 연계",
+  "pair": "공공데이터 품질인증 매뉴얼(2025.07.)",
+  "family": "데이터 인증·평가 제도 계열",
+  "course": "DB"
+ },
+ "데이터 프로파일링(Data Profiling)": {
+  "group": "C6",
+  "type": "성공 전략",
+  "slot": "메인 단계 수집→대상 선정→수행→리뷰→종료, 하위 기초·컬럼·패턴·유일성·구조 분석",
+  "target": "컬럼·구조·관계 분석 우선순위·프로파일링 도구",
+  "pair": "데이터 클렌징(Cleansing)",
+  "family": "데이터 전처리 계열",
+  "course": "DB"
+ },
+ "데이터(웨어하우스, 레이크, 패브릭, 메시)": {
+  "group": "C10",
+  "type": "로드맵",
+  "slot": "유형명 웨어하우스·레이크·패브릭·메시, 결합 대상 공통 형식·원시·소스 통합·분산 소유",
+  "target": "데이터 웨어하우스→레이크→패브릭→메시 진화",
+  "pair": "데이터 레이크하우스(Data Lakehouse)",
+  "family": "",
+  "course": "DB"
+ },
+ "데이터라벨링과 어노테이션": {
+  "group": "C6",
+  "type": "실무 도구",
+  "slot": "원천데이터 → 라벨링(바운딩박스·폴리곤·텍스트 전사) → 검수 → 학습데이터",
+  "target": "라벨링 도구·자동 라벨링·HITL 검수",
+  "pair": "자기지도학습(Self-supervised Learning)",
+  "family": "",
+  "course": "AI"
+ },
+ "데이터베이스 모델링": {
+  "group": "C6",
+  "type": "성공 전략",
+  "slot": "메인 단계 개념→논리→물리 모델링, 하위 주제영역·엔티티·관계 / 속성·이력 / 반정규화",
+  "target": "모델링 원칙·표준 사전·모델링 도구",
+  "pair": "ANSI/SPARC 모델(3-단계 데이터베이스 구조) / 데이터 독립성",
+  "family": "",
+  "course": "DB"
+ },
+ "데이터베이스 무결성": {
+  "group": "C10",
+  "type": "문제-해결",
+  "slot": "유형명 개체·참조·속성·사용자·키·도메인 무결성, 결합 대상 제약 조건",
+  "target": "참조 무결성 위반 → Cascade·Restrict·Set Null 옵션·트리거",
+  "pair": "릴레이션 키(key)",
+  "family": "관계 모델 요소 계열",
+  "course": "DB"
+ },
+ "데이터베이스 반정규화(De-Normalization)": {
+  "group": "C6",
+  "type": "성공 전략",
+  "slot": "메인 단계 대상 조사→다른 방법 검토→반정규화 적용, 하위 테이블·칼럼·관계 기법",
+  "target": "뷰·인덱스·파티셔닝 대안·조인 비용 절충",
+  "pair": "데이터베이스 정규화(Normalization)",
+  "family": "",
+  "course": "DB"
+ },
+ "데이터베이스 샤딩(Sharding)": {
+  "group": "C2",
+  "type": "문제-해결",
+  "slot": "입력 애플리케이션 요청, 모듈 샤드 키 라우팅(해시·레인지·디렉터리), 출력 샤드 DB 인스턴스",
+  "target": "리샤딩 재분배 → 컨시스턴트 해싱·핫스팟 분산",
+  "pair": "데이터베이스 파티셔닝(Partitioning)",
+  "family": "DB 부하 분산 계열",
+  "course": "DB"
+ },
+ "데이터베이스 정규화(Normalization)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형명 삽입·삭제·갱신 이상, 결합 대상 원인(종속·중복)·원칙 무손실·중복 제거·분해",
+  "target": "반정규화",
+  "pair": "데이터베이스 반정규화(De-Normalization)",
+  "family": "정규화 이론 계열",
+  "course": "DB"
+ },
+ "데이터베이스 파티셔닝(Partitioning)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형명 레인지·리스트·해시·결합·참조 파티셔닝, 결합 대상 글로벌·로컬 인덱스",
+  "target": "샤딩",
+  "pair": "데이터베이스 샤딩(Sharding)",
+  "family": "DB 성능 설계 계열",
+  "course": "DB"
+ },
+ "데이터패브릭(Data Fabric)": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "층 이름 Layer별 데이터 카탈로그·메타데이터·추천 엔진·DataOps, 강조 층 활성 메타데이터",
+  "target": "데이터 메시",
+  "pair": "데이터 메시(Data Mesh)",
+  "family": "데이터 플랫폼 아키텍처 계열",
+  "course": "DB"
+ },
+ "도메인 특화 언어 모델(Domain-Specific Language Model)": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "도메인 데이터·지식 입력 → sLLM 학습 → RAG·프롬프트 → Vertical AI 출력",
+  "target": "AI 에이전트·온디바이스 AI",
+  "pair": "가트너(Gartner) 2026",
+  "family": "AI 응용 기술 계열",
+  "course": "DX"
+ },
+ "도커(Docker)": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "인프라 → Host OS → 도커 엔진 → 컨테이너 층, 도커 허브 연결 화살표",
+  "target": "쿠버네티스 오케스트레이션·DevSecOps 이미지 스캐닝",
+  "pair": "리눅스 컨테이너(Linux Container, LXC)",
+  "family": "서버 가상화 계열",
+  "course": "DX"
+ },
+ "동형 암호(Homomorphic Encryption)": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "유형 = 부분·준·완전 동형, 결합 = 부트스트래핑·스쿼싱 설계원리",
+  "target": "의료 데이터 분석·금융 신용평가·클라우드 위탁 연산",
+  "pair": "가명처리(Pseudonymization) 기법",
+  "family": "암호 알고리즘 유형 계열",
+  "course": "SC"
+ },
+ "드라이브 바이 다운로드(Drive By Download)": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "단계 = Landing Site 유인 → iFrame → Exploit Server → Malware Server·Dropper",
+  "target": "브라우저 격리(RBI)·SWG·EDR",
+  "pair": "APT(Advanced Persistent Threat) 공격",
+  "family": "단계형 사이버 공격 계열",
+  "course": "SC"
+ },
+ "디자인 패턴 (Design Pattern)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "유형명: 생성·구조·행위 패턴(생구행) / 결합: 패턴 형식 요소(문제·해결·결과)",
+  "target": "Spring Framework(Factory·Proxy)·Java Iterator",
+  "pair": "소프트웨어 아키텍처 스타일",
+  "family": "아키텍처 스타일·패턴 분류 계열",
+  "course": "SE"
+ },
+ "디지털 권리장전(The Digital Bill of Rights)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "자유·권리 / 공정 접근·기회 균등 / 안전·신뢰 / 혁신 촉진 / 후생 증진 결합 → 공동번영사회",
+  "target": "EU 디지털 권리와 원칙 선언·AI 기본법",
+  "pair": "디지털포용법",
+  "family": "디지털 포용 정책 계열",
+  "course": "DX"
+ },
+ "디지털 리터러시(Digital Literacy)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "디지털 이해 → 판단·평가 → 활용 → 콘텐츠 생산 역량 결합, 디지털 포용 연결",
+  "target": "AI 리터러시·생성형 AI 활용 교육",
+  "pair": "디지털포용법",
+  "family": "디지털 포용 정책 계열",
+  "course": "DX"
+ },
+ "디지털 면역 시스템(DIS, Digital Immune System)": {
+  "group": "C4",
+  "type": "활용 사례",
+  "slot": "관찰성 → AI 증강 테스팅·카오스 엔지니어링 → 자동 복원·교정 고리, 6가지 조건 라벨",
+  "target": "Netflix Chaos Monkey·Google SRE·AIOps 플랫폼",
+  "pair": "사이버 레질리언스(Cyber Resilience)",
+  "family": "사이버 복원력 계열",
+  "course": "SC"
+ },
+ "디지털 성숙도(Digital Maturity)": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "4단계 메인(효율 → 효과 축) + 데이터 사일로 연결·Cross Functional Team·자동화 하위",
+  "target": "CMMI 성숙도·클라우드 네이티브 성숙도(CNMM)",
+  "pair": "클라우드 네이티브(Cloud Native)",
+  "family": "",
+  "course": "DX"
+ },
+ "디지털 스레드(Digital Thread)": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "메인 생애주기 단계 / 하위 데이터 통합·데이터 연속성·단일 뷰",
+  "target": "PLM·MBSE",
+  "pair": "디지털 트윈(Digital Twin)",
+  "family": "",
+  "course": "DX"
+ },
+ "디지털 워터마킹(Digital Watermarking)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형 = 삽입(공간·주파수 영역) · 검출(공개형·비공개형), 결합 = 공격 기법",
+  "target": "생성형 AI 콘텐츠 워터마크·C2PA 출처 증명",
+  "pair": "핑거프린팅(Fingerprinting)",
+  "family": "콘텐츠·SW 보호 기술 계열",
+  "course": "SC"
+ },
+ "디지털 지갑(Digital Wallet)": {
+  "group": "C5",
+  "type": "활용 사례",
+  "slot": "사용자 기기 설치형 / 제3자 위임형 구역, 사용자·신뢰된 제3자(서명)·검증기관, 온·오프라인 인증",
+  "target": "모바일 신분증·EU 디지털 신원 지갑(EUDI)·Apple Wallet",
+  "pair": "암호화폐 지갑(Cryptocurrency Wallet)",
+  "family": "디지털 지갑 계열",
+  "course": "DX"
+ },
+ "디지털 치료제(Digital Therapeutics)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "독립형·증강형·보완형 유형 결합, SaMD 소프트웨어 의료기기 인증",
+  "target": "reSET·Somryst·국내 1호 Somzz",
+  "pair": "에이지테크(AgeTech)",
+  "family": "",
+  "course": "DX"
+ },
+ "디지털 트윈 네트워크(Digital Twin Network)": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "층 이름 Network Application·Digital Twin·Physical Network Layer, 화살표 실시간 복제·제어",
+  "target": "IBN·NWDAF",
+  "pair": "네트워크 지능",
+  "family": "",
+  "course": "NW"
+ },
+ "디지털 트윈(Digital Twin)": {
+  "group": "C5",
+  "type": "연관 비교",
+  "slot": "물리적 대상 구역 ↔ 연결·동기화 ↔ 가상 모델 구역(시뮬레이션·분석·최적화)",
+  "target": "디지털 스레드·시뮬레이션",
+  "pair": "디지털 스레드(Digital Thread)",
+  "family": "",
+  "course": "DX"
+ },
+ "디지털 트윈(Digital Twin)의 보안 취약점 및 대응방안": {
+  "group": "C3",
+  "type": "문제-해결",
+  "slot": "생성 → 전달 → 종합·분석 → 이해 → 행동 흐름 + 프로세스별 취약점 화살표, 행동 단계 강조",
+  "target": "행동 단계 오작동 명령·무결성 검증·명령 승인 통제",
+  "pair": "스마트팩토리 보안취약점 및 대응방안",
+  "family": "융합 환경 보안위협·대응 계열",
+  "course": "SC"
+ },
+ "디지털 포렌식(Digital Forensic)": {
+  "group": "C6",
+  "type": "실무 도구",
+  "slot": "수사준비 → 증거물 획득 → 보관·이송 → 분석 → 보고 단계, 5대 원칙 라벨",
+  "target": "EnCase·FTK·Autopsy",
+  "pair": "안티 포렌식(Anti-forensic)",
+  "family": "포렌식 계열",
+  "course": "SC"
+ },
+ "디지털 휴먼(Digital Human)": {
+  "group": "C2",
+  "type": "활용 사례",
+  "slot": "3D 모델링 → 모션 캡처 → NLP·감정 인식 → VR/AR 출력(윤리·개인정보)",
+  "target": "로지·이솔·버추얼 아이돌",
+  "pair": "공간 컴퓨팅(Spatial Computing)",
+  "family": "AI 응용 기술 계열",
+  "course": "DX"
+ },
+ "디지털서비스 전문 계약제도": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "클라우드 컴퓨팅·지원·융합 서비스 × 수의계약·카탈로그 계약",
+  "target": "CSAP 보안인증·공공 SaaS",
+  "pair": "민간투자형 SW 사업",
+  "family": "공공 SW 조달 제도 계열",
+  "course": "DX"
+ },
+ "디지털포용법": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "기본계획·시행계획 / 접근성 보장·품질인증 / 역량 함양 / 영향평가 / 표준화 항목 결합",
+  "target": "공공 키오스크 접근성·고령층 디지털 배움터·장애인 웹접근성",
+  "pair": "디지털 리터러시(Digital Literacy)",
+  "family": "디지털 포용 정책 계열",
+  "course": "DX"
+ },
+ "디피-헬만 알고리즘(Diffie-Hellman Algorithm)": {
+  "group": "C8",
+  "type": "문제-해결",
+  "slot": "단계 = g·p 공유 → 비밀값 선택 → g^x mod p 교환 → g^xy mod p 대칭키",
+  "target": "중간자 공격 → 인증된 DH(STS)·ECDHE",
+  "pair": "TLS/SSL(Secure Socket Layer)",
+  "family": "키 교환·전자서명 계열",
+  "course": "SC"
+ },
+ "딥보이스(Deep Voice) 피싱": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "단계 = 음성 수집 → 음성 합성(클로닝·Neural TTS·변환) → 전화 사기",
+  "target": "딥페이크 음성 탐지 AI·STIR/SHAKEN 발신번호 인증·FDS",
+  "pair": "",
+  "family": "단계형 사이버 공격 계열",
+  "course": "SC"
+ },
+ "딥페이크(Deepfake)": {
+  "group": "C2",
+  "type": "연관 비교",
+  "slot": "요소기술 과정(얼굴 추출 → 인코더·디코더 합성 → GAN 생성·식별 반복) + 탐지·대응",
+  "target": "인공지능 생성물 워터마크(사전 표시 vs 사후 탐지)",
+  "pair": "인공지능 생성물 워터마크 적용 기술",
+  "family": "",
+  "course": "AI"
+ },
+ "라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형명 거리벡터(벨만-포드·홉수)·링크상태(다익스트라·링크 비용), 결합 대상 Metric·라우팅 테이블",
+  "target": "DV vs LS·BGP Path Vector",
+  "pair": "BGP(Border Gateway Protocol)",
+  "family": "",
+  "course": "NW"
+ },
+ "라이트닝 네트워크(Lightning Network)": {
+  "group": "C8",
+  "type": "연관 비교",
+  "slot": "지급자 ↔ 수취자 Payment Channel, ① Funding Transaction(On-Chain) → ② Off-Chain 거래 → ③ 결과 기록",
+  "target": "롤업(Optimistic·ZK)·사이드체인",
+  "pair": "블록체인 트릴레마(Trilemma)",
+  "family": "",
+  "course": "DX"
+ },
+ "랭체인(LangChain)": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "Model I/O·Data Connection·Chains·Memory·Agent·Callbacks 층",
+  "target": "LlamaIndex·Semantic Kernel",
+  "pair": "LangGraph",
+  "family": "",
+  "course": "AI"
+ },
+ "레이더(RADAR) & 라이다(LiDAR)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "RADAR(전파·CFAR·DBF) ↔ LiDAR(레이저·TOF/PS) 유형 결합 → 센서 퓨전",
+  "target": "센서 퓨전·4D 이미징 레이더·AI 객체 인식",
+  "pair": "자율주행자동차의 자율주행기술 단계 및 핵심기술",
+  "family": "",
+  "course": "DX"
+ },
+ "로우 코드(Low Code)": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "Drag & Drop UI → Workflow 모델링 → IDE 코드 생성 → 배포",
+  "target": "생성형 AI 코드 생성·AI 네이티브 개발 플랫폼",
+  "pair": "RPA(Robotic Process Automation)",
+  "family": "",
+  "course": "DX"
+ },
+ "루트킷(Rootkit)": {
+  "group": "C6",
+  "type": "문제-해결",
+  "slot": "단계 = 침투 → 권한상승 → 은닉·후킹 → 백도어, 하위 = User·Kernel·부트킷·하이퍼바이저",
+  "target": "탐지 회피 → 무결성 검사(Tripwire)·메모리 포렌식·Secure Boot/TPM",
+  "pair": "BPF(Berkeley Packet Filter) Door",
+  "family": "단계형 사이버 공격 계열",
+  "course": "SC"
+ },
+ "리그레이션(회귀, Regression) 테스트": {
+  "group": "C10",
+  "type": "실무 도구",
+  "slot": "종류: Reset All·Selective·Priority 회귀; 검출 오류 Ripple Effect·Side Effect",
+  "target": "CI 파이프라인 자동 회귀(Jenkins·Selenium)·테스트 영향 분석",
+  "pair": "성능 테스트",
+  "family": "테스트 유형 계열",
+  "course": "SE"
+ },
+ "리눅스 컨테이너(Linux Container, LXC)": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "HW → Host OS 커널(Cgroup·Namespace) → 컨테이너 층, 커널 공유 층 강조",
+  "target": "하이퍼바이저 VM 가상화",
+  "pair": "하이퍼바이저(Hypervisor)",
+  "family": "서버 가상화 계열",
+  "course": "DX"
+ },
+ "리뷰(Review)": {
+  "group": "C6",
+  "type": "실무 도구",
+  "slot": "메인: 계획→시작→사전검토→미팅→재작업→후속(계시사미RF) / 축: 참여자 관중기작검, 형식(비공식·기술·워크쓰루·인스펙션)",
+  "target": "GitHub Pull Request 리뷰·정적 분석 도구·사람 검증",
+  "pair": "",
+  "family": "",
+  "course": "SE"
+ },
+ "릴레이션 키(key)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명 슈퍼키⊃후보키⊃기본키·대체키·외래키 포함 관계, 결합 대상 유일성·최소성",
+  "target": "참조 무결성 제약·인덱스 설계",
+  "pair": "데이터베이스 무결성",
+  "family": "관계 모델 요소 계열",
+  "course": "DB"
+ },
+ "릴리즈 엔지니어링": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "메인: 파이프라인 단계(빌드→테스트→배포→유지보수) / 축: 주요 역할(배포·구현·개선)",
+  "target": "GitOps(ArgoCD)·IaC",
+  "pair": "데브옵스 (DevOps)",
+  "family": "",
+  "course": "SE"
+ },
+ "마이 데이터(MyData)": {
+  "group": "C5",
+  "type": "적용 분야",
+  "slot": "정보주체 ↔ 보유기관 ↔ 마이데이터 사업자(인증 방식·전송 규격)",
+  "target": "금융·의료·공공",
+  "pair": "개인정보 전송요구권",
+  "family": "개인 데이터 이동권 계열",
+  "course": "DX"
+ },
+ "망 중립성(Network Neutrality)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형명 투명성·차단금지·불합리한 차별금지 3대 원칙, 결합 대상 합리적인 트래픽 관리 예외",
+  "target": "제로레이팅",
+  "pair": "",
+  "family": "",
+  "course": "NW"
+ },
+ "머신 언러닝(Machine Unlearning)": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "언러닝 절차 핵심 단계 + 기술 요소·평가 하위 항목",
+  "target": "연합학습·차분 프라이버시·잊혀질 권리 대응",
+  "pair": "연합학습(Federated Learning)",
+  "family": "",
+  "course": "AI"
+ },
+ "머신러닝 옵티마이저(Optimizer)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "경사하강법·SGD·Momentum·NAG·AdaGrad·Adam 유형 결합 관계",
+  "target": "학습률 스케줄링·배치 정규화·조기 종료",
+  "pair": "오류 역전파(Backpropagation)",
+  "family": "신경망 학습 요소 계열",
+  "course": "AI"
+ },
+ "머신러닝 학습방법": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "지도·비지도·준지도·강화·진화학습 유형과 대표 알고리즘",
+  "target": "제조 품질 예측·의료 영상 진단·금융 이상거래 탐지",
+  "pair": "",
+  "family": "학습 패러다임 계열",
+  "course": "AI"
+ },
+ "멀티 클라우드(Multi-Cloud)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "중복형·분산형·워크로드 최적화형·벤더 분산형·지리적 분산형 유형 결합",
+  "target": "하이브리드 클라우드",
+  "pair": "분산 클라우드(Distributed Cloud)",
+  "family": "",
+  "course": "DX"
+ },
+ "멀티모달 데이터의 품질검증 방법": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "품질특성(표현성·변환·정렬) × 이미지(IS·FID)·텍스트(BLEU·ROUGE-N·PPL) 지표·선택방법",
+  "target": "합성 데이터 검증·AI Ready Data·생성형 AI 데이터 품질관리 가이드",
+  "pair": "혼동행렬(Confusion Matrix)",
+  "family": "AI 평가 지표 계열",
+  "course": "AI"
+ },
+ "멀티모달(Multimodal) AI": {
+  "group": "C2",
+  "type": "적용 분야",
+  "slot": "이미지·음성·텍스트 입력 → 처리기술별 요소기술 → 통합 추론 출력",
+  "target": "의료 영상 진단·자율주행·스마트 팩토리 검사",
+  "pair": "옴니모달(Omni-modal) AI",
+  "family": "멀티모달 모델 계열",
+  "course": "AI"
+ },
+ "메타 데이터와 데이터 카탈로그": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명 기술·구조·관리 메타데이터, 결합 대상 카탈로그 수집·검색·협업 기능",
+  "target": "데이터 리니지·AI 자동 태깅",
+  "pair": "데이터 리니지",
+  "family": "메타데이터 관리 계열",
+  "course": "DB"
+ },
+ "모델 드리프트(Model Drift) — 컨셉 드리프트 & 데이터 드리프트": {
+  "group": "C10",
+  "type": "실무 도구",
+  "slot": "컨셉 드리프트(데이터·라벨 관계 변화) vs 데이터 드리프트(입력 분포 변화) 비교 항목",
+  "target": "드리프트 탐지 모니터링·재학습 파이프라인·HITL 검증",
+  "pair": "MLOps",
+  "family": "모델 성능 저하 요인 계열",
+  "course": "AI"
+ },
+ "무선 충전 기술": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "유형명 자기유도·자기공명·전자기파, 결합 대상 거리·효율·주파수 비교 축, 기타 방식",
+  "target": "Qi2 표준",
+  "pair": "",
+  "family": "",
+  "course": "NW"
+ },
+ "무중단 배포": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명: Rolling Update·Blue/Green Deployment·Canary Release / 결합: 장점·단점 축",
+  "target": "Kubernetes 롤링 업데이트·Istio 트래픽 분할",
+  "pair": "릴리즈 엔지니어링",
+  "family": "",
+  "course": "SE"
+ },
+ "뮤테이션 테스트 (Mutation Test)": {
+  "group": "C2",
+  "type": "연관 비교",
+  "slot": "모듈: 정상 코드·뮤턴트(연산자 적용)→테스트 케이스 실행→R1≠R2 비교→뮤턴트 스코어",
+  "target": "코드 커버리지·결함 주입(Fault Injection)",
+  "pair": "코드 커버리지(Code Coverage)",
+  "family": "",
+  "course": "SE"
+ },
+ "민간투자형 SW 사업": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "구매형 / 개발형(임대형·수익형) — SW진흥법 제40조",
+  "target": "SOC 민간투자사업(BTL·BTO)",
+  "pair": "디지털서비스 전문 계약제도",
+  "family": "공공 SW 조달 제도 계열",
+  "course": "DX"
+ },
+ "밀도기반 클러스터링(DBSCAN)": {
+  "group": "C11",
+  "type": "적용 분야",
+  "slot": "Epsilon 반경 원, Core·Border·Noise 점 구분",
+  "target": "이상 탐지·공간 데이터 분석·고객 세분화",
+  "pair": "K-평균 알고리즘",
+  "family": "거리 기반 분류·군집 알고리즘 계열",
+  "course": "AI"
+ },
+ "바이브코딩(Vibe Coding)": {
+  "group": "C8",
+  "type": "문제-해결",
+  "slot": "사용자(자연어 지시) ↔ LLM 코딩 도구 ↔ 코드, 생성 → 검토 → 조정 반복 번호",
+  "target": "AI 의존·검증 부재 약점·코드 리뷰·테스트 자동화·하네스 설계",
+  "pair": "하네스 엔지니어링",
+  "family": "",
+  "course": "AI"
+ },
+ "배치 정규화(Batch Normalization)": {
+  "group": "C1",
+  "type": "문제-해결",
+  "slot": "층 사이 BN Layer 강조, 미니배치 평균·분산 → 정규화 → 스케일·시프트",
+  "target": "작은 배치·RNN 적용 한계·레이어 정규화·그룹 정규화",
+  "pair": "Dropout",
+  "family": "신경망 학습 안정화 계열",
+  "course": "AI"
+ },
+ "버티컬 AI(Vertical AI)": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "버티컬 AI ↔ 수평적 AI 비교 항목(데이터·파인 튜닝·sLLM)",
+  "target": "의료·금융·법률 특화 sLLM",
+  "pair": "초거대 언어 모델(Large Language Model)",
+  "family": "",
+  "course": "AI"
+ },
+ "범용 인공지능 위험관리 프레임워크": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "위험관리 절차(식별 → 분석 → 평가 → 대응) 메인 + 3Ps 원칙(인목가)·3D 위험 매트릭스 하위",
+  "target": "ISO/IEC 23894·AI RMF",
+  "pair": "AI RMF(AI Risk Management Framework)",
+  "family": "AI 위험관리 프레임워크 계열",
+  "course": "AI"
+ },
+ "벡터 데이터베이스(Vector Database)": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "입력 원시 데이터, 모듈 임베딩→인덱싱→유사도 검색, 출력 유사 벡터(강조 인덱싱)",
+  "target": "RAG·LLM 임베딩 검색",
+  "pair": "ANN(Approximate Nearest Neighbor) 알고리즘",
+  "family": "",
+  "course": "DB"
+ },
+ "부채널 공격(Side Channel Attack)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "유형 = 수동·능동 / 단순·차분 부채널, 결합 = 시간·전력·발열·전자파·소리",
+  "target": "Spectre·Meltdown·TEMPEST",
+  "pair": "암호 분석 공격(Cryptanalysis Attacks) 기법",
+  "family": "공격 기법 유형 계열",
+  "course": "SC"
+ },
+ "분산 DB": {
+  "group": "C5",
+  "type": "연계 강화",
+  "slot": "구역 지역 노드(사이트)·분산 DBMS, 산출물 위치·복제·병행·분할·장애 투명성",
+  "target": "클라우드 멀티 리전 복제·CDC",
+  "pair": "2PC",
+  "family": "",
+  "course": "DB"
+ },
+ "분산 클라우드(Distributed Cloud)": {
+  "group": "C1",
+  "type": "활용 사례",
+  "slot": "EC(엣지) → RC(리전) → CC(중앙) 계층, 상황인지·자율 서비스 배치 화살표",
+  "target": "AWS Outposts·Azure Arc·Google Anthos",
+  "pair": "엣지컴퓨팅(Edge Computing)과 포그컴퓨팅(Fog Computing)",
+  "family": "분산·엣지 클라우드 계열",
+  "course": "DX"
+ },
+ "블랙박스 테스트": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형명: 동등분할·경계값분석·의사결정 테이블·상태전이 / 결합: 요구명세서 기반 I/O Driven",
+  "target": "화이트박스 테스트",
+  "pair": "화이트박스 테스트",
+  "family": "테스트 기법 계열",
+  "course": "SE"
+ },
+ "블록 암호화(Block Cipher)": {
+  "group": "C10",
+  "type": "문제-해결",
+  "slot": "유형 = 운영 모드 ECB·CBC·PCBC·CFB·OFB·CTR, 결합 = 구조·적용 알고리즘",
+  "target": "ECB 패턴 노출·IV 재사용·패딩 오라클 → CTR/GCM 인증 암호",
+  "pair": "암호화(Encryption)",
+  "family": "암호 알고리즘 유형 계열",
+  "course": "SC"
+ },
+ "블록체인 암호기술 가이드라인": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "해시·전자서명·PKI·영지식 암호기술 결합 관계, 계정·전송·합의·원장 구역 라벨",
+  "target": "비트코인 ECDSA·이더리움 Keccak·zk-Rollup",
+  "pair": "영지식증명(Zero Knowledge Proof)",
+  "family": "",
+  "course": "SC"
+ },
+ "블록체인 오라클 문제(Oracle Problem)": {
+  "group": "C3",
+  "type": "연계 강화",
+  "slot": "외부 데이터(하드웨어·소프트웨어 오라클) → 중간자 → 스마트 컨트랙트 흐름, 위협 위변조·중간자 신뢰",
+  "target": "TEE(Intel SGX)·영지식 증명",
+  "pair": "RWA(Real World Asset) 토큰화 프로토콜",
+  "family": "",
+  "course": "DX"
+ },
+ "블록체인 트릴레마(Trilemma)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "확장성·보안성·탈중앙화 삼각 상충 결합, 해소 레이어1·레이어2·상호운용성",
+  "target": "이더리움 PoS 전환·솔라나·폴리곤",
+  "pair": "라이트닝 네트워크(Lightning Network)",
+  "family": "",
+  "course": "DX"
+ },
+ "비지상네트워크(NTN, Non-Terrestrial Networks)": {
+  "group": "C9",
+  "type": "활용 사례",
+  "slot": "내부 지상 5G 코어·게이트웨이, 외부 GEO·LEO·고고도 플랫폼·드론, 경계 기술 서비스 링크·피더 링크·위성간 링크",
+  "target": "Starlink 위성 직접통신·재난 음영 지역 해소",
+  "pair": "6G",
+  "family": "",
+  "course": "NW"
+ },
+ "빅데이터 시각화(Visualization)": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "메인 단계 정보 구조화→특성 정의→표현, 하위 시간·분포·관계·비교·공간 시각화 기법",
+  "target": "증강 분석·생성형 AI 자동 시각화",
+  "pair": "데이터 시각화",
+  "family": "데이터 시각화 계열",
+  "course": "DB"
+ },
+ "사용성 평가": {
+  "group": "C6",
+  "type": "실무 도구",
+  "slot": "절차: 평가 계획→참가자 과업 수행 관찰→SUS 설문·분석→보고, 산출물; 유형 탐구형·평가형",
+  "target": "SUS 설문·아이트래킹·A/B 테스트",
+  "pair": "페르소나 (Persona)",
+  "family": "",
+  "course": "SE"
+ },
+ "사이버 게놈(Cyber genome)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "아티팩트·케이스·휴먼 센트릭 분석 기법 분기, API Sequence 추출·서열 정렬·유사도 라벨",
+  "target": "AI 기반 악성코드 분류·EDR IOC 연동",
+  "pair": "APT(Advanced Persistent Threat) 공격",
+  "family": "",
+  "course": "SC"
+ },
+ "사이버 디셉션(Cyber Deception)": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "공격자 접근 입력 → 미끼(Decoy)·함정(Traps)·허니팟 모듈 → 탐지·분석 출력",
+  "target": "MITRE Engage·위협 헌팅·SIEM 연동",
+  "pair": "위협 헌팅(Threat Hunting)",
+  "family": "",
+  "course": "SC"
+ },
+ "사이버 레질리언스(Cyber Resilience)": {
+  "group": "C4",
+  "type": "성공 전략",
+  "slot": "위협 감지 → 비즈니스 영향 분석 → 보안 정책 통제 → 사이버 복구 계획 고리, 성과 전달 강조",
+  "target": "BIA 우선·종합 테스트 정례화·매니지드 보안 도구",
+  "pair": "디지털 면역 시스템(DIS, Digital Immune System)",
+  "family": "사이버 복원력 계열",
+  "course": "SC"
+ },
+ "사이버 보안 성숙도 모델 인증(CMMC, Cybersecurity Maturity Model Certification)": {
+  "group": "C5",
+  "type": "연계 강화",
+  "slot": "국방 계약자 → 평가 주체(자체·제3자·정부) → DoD 구역, FOUNDATIONAL·ADVANCED·EXPERT 라벨",
+  "target": "NIST SP 800-171·공급망 보안·Zero Trust",
+  "pair": "정보보호 및 개인정보보호 관리체계 인증(ISMS-P)",
+  "family": "정보보호 인증·공시 제도 계열",
+  "course": "SC"
+ },
+ "사이버전(Cyber Warfare)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "유형 = 방어·분석·공격 기술 영역, 결합 = 고비도 암호·밀리터리 포렌식·역추적",
+  "target": "스턱스넷·에스토니아 사이버 공격·우크라이나 전력망 공격",
+  "pair": "APT(Advanced Persistent Threat) 공격",
+  "family": "",
+  "course": "SC"
+ },
+ "상용 소프트웨어 직접구매 제도": {
+  "group": "C5",
+  "type": "활용 사례",
+  "slot": "구역: 발주기관(상용SW 별도 발주)·조달청·상용SW 기업; 대상 3억 이상 사업·5천만원 이상 제품, 제외 기준",
+  "target": "조달청 나라장터 종합쇼핑몰 등록·GS 인증 제품 우선구매",
+  "pair": "상용소프트웨어 품질성능 평가 시험",
+  "family": "공공 SW 제도 계열",
+  "course": "SE"
+ },
+ "상용소프트웨어 품질성능 평가 시험": {
+  "group": "C5",
+  "type": "연계 강화",
+  "slot": "구역: 발주기관(평가 요청)·시험기관(기능·성능 비교 평가)·공급기업(평가대상 제품), 절차",
+  "target": "상용SW 직접구매·GS 인증 연계",
+  "pair": "상용 소프트웨어 직접구매 제도",
+  "family": "공공 SW 제도 계열",
+  "course": "SE"
+ },
+ "상태 다이어그램 (State Diagram)": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "유형명: 상태·전이·이벤트·전이조건 / 결합: 시작·종료 상태, 사건→전이 화살표",
+  "target": "임베디드 제어·통신 프로토콜 상태 관리",
+  "pair": "시퀀스 다이어그램 (Sequence Diagram)",
+  "family": "UML 다이어그램 계열",
+  "course": "SE"
+ },
+ "생성형 AI 서비스 이용자 보호 가이드라인(2025.02.28)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "기본원칙(인설안공비) × 실행방안(이용자 권익 이결다입 / 콘텐츠 책임 책건) 결합",
+  "target": "AI 기본법 투명성 의무·개인정보 보호법",
+  "pair": "생성형 인공지능 서비스 이용자 보호 가이드라인",
+  "family": "AI 법제·가이드라인 계열",
+  "course": "AI"
+ },
+ "생성형 인공지능 서비스 이용자 보호 가이드라인": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "기본원칙(인설안공비) × 실행방안(이용자 권익 이결다입 / 콘텐츠 책임 책건) 결합",
+  "target": "챗봇 상담·교육 서비스·공공 민원 서비스",
+  "pair": "생성형 AI 서비스 이용자 보호 가이드라인(2025.02.28)",
+  "family": "AI 법제·가이드라인 계열",
+  "course": "AI"
+ },
+ "생성형AI 데이터 품질관리 가이드 v2.0": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "품질관리 활동 단계(구축계획 → 획득 → 정제 → 가공 → 학습 → 운영) + 편향·안전성 품질지표",
+  "target": "인공지능 학습용 데이터 품질관리 가이드라인(학습용 vs 생성형)",
+  "pair": "인공지능 학습용 데이터 품질관리 가이드라인 v3.1",
+  "family": "AI 데이터 품질관리 계열",
+  "course": "AI"
+ },
+ "생체 인증(텔레바이오 인증)": {
+  "group": "C10",
+  "type": "문제-해결",
+  "slot": "유형 = 신체적(지문·열상·홍채·정맥) · 행동적(음성·걸음·행동·서명), 결합 = FAR·FRR",
+  "target": "위조(스푸핑) → 라이브니스 탐지·템플릿 보호(Cancelable Biometrics)·다중 생체",
+  "pair": "생체정보 보호 안내서(24.12)",
+  "family": "",
+  "course": "SC"
+ },
+ "생체정보 보호 안내서(24.12)": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "유형 = 개인정보 ⊃ 생체정보 ⊃ 생체인식정보(원본·특징정보), 결합 = 6대 원칙",
+  "target": "금융 비대면 실명확인·공항 출입국 심사·근태 출입통제",
+  "pair": "생체 인증(텔레바이오 인증)",
+  "family": "개인정보 보호 설계 계열",
+  "course": "SC"
+ },
+ "서버리스 아키텍처(Serverless Architecture)": {
+  "group": "C2",
+  "type": "활용 사례",
+  "slot": "이벤트 트리거 입력 → [API G/W → FaaS 함수 → BaaS] → 응답, Pay per Use",
+  "target": "AWS Lambda·Azure Functions·Google Cloud Functions",
+  "pair": "오토 스케일링(Auto-Scaling)",
+  "family": "",
+  "course": "DX"
+ },
+ "서비스 프리미티브(Service Primitive)": {
+  "group": "C8",
+  "type": "연관 비교",
+  "slot": "요구(Request)→지시(Indication)→응답(Response)→확인(Confirm) 번호 화살표",
+  "target": "SAP·PDU/SDU 캡슐화",
+  "pair": "OSI 7 Layer (ISO 7498)",
+  "family": "",
+  "course": "NW"
+ },
+ "서비스형 엣지 머신러닝(Edge Machine Learning as-a-Service)": {
+  "group": "C8",
+  "type": "연계 강화",
+  "slot": "엣지 디바이스 ↔ 클라우드 플랫폼, ① Device Info → ② downloading → ③ creating → ④ Installing",
+  "target": "TinyML·5G MEC·연합학습",
+  "pair": "엣지컴퓨팅(Edge Computing)과 포그컴퓨팅(Fog Computing)",
+  "family": "",
+  "course": "DX"
+ },
+ "서포트 벡터 머신 SVM(Support Vector Machine)": {
+  "group": "C11",
+  "type": "연계 강화",
+  "slot": "2차원 축 위 초평면·Margin·Support Vector 표시",
+  "target": "커널 트릭·One-class SVM 이상 탐지",
+  "pair": "K-NN(Nearest Neighbor) Classification",
+  "family": "거리 기반 분류·군집 알고리즘 계열",
+  "course": "AI"
+ },
+ "성능 테스트": {
+  "group": "C6",
+  "type": "실무 도구",
+  "slot": "단계: 계획→스크립트→부하 인가→측정(TPS·응답시간)→분석; 유형 부하·스파이크 테스트",
+  "target": "JMeter·nGrinder 부하 생성·APM 모니터링 검증",
+  "pair": "리그레이션(회귀, Regression) 테스트",
+  "family": "테스트 절차 계열",
+  "course": "SE"
+ },
+ "소버린 AI(Artificial Intelligence)": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "기술요소 층(자체 인프라·데이터 주권·독립 운영 모델·자국 규제) 스택, 사례",
+  "target": "오픈웨이트 모델·소버린 클라우드",
+  "pair": "오픈웨이트(Open-weight) 모델",
+  "family": "AI 풀스택 플랫폼 계열",
+  "course": "AI"
+ },
+ "소버린 클라우드(Sovereign Cloud)": {
+  "group": "C5",
+  "type": "활용 사례",
+  "slot": "현지 규제기관(법률·정책) / 소버린 CSP(데이터·운영 주권) / 이용기관 구역, 반출 금지 경계",
+  "target": "GAIA-X·공공 클라우드 보안인증(CSAP)",
+  "pair": "멀티 클라우드(Multi-Cloud)",
+  "family": "",
+  "course": "DX"
+ },
+ "소프트웨어 개발 방법론": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명: 구조적·정보공학·객체지향·CBD·Agile·Product Line(구정객CAP) / 결합: 구성요소 절방산관기도",
+  "target": "AI-DLC·DevOps 연계",
+  "pair": "AI-DLC(AI-Driven SDLC)",
+  "family": "",
+  "course": "SE"
+ },
+ "소프트웨어 리팩토링": {
+  "group": "C10",
+  "type": "실무 도구",
+  "slot": "대상: 중복 코드·긴 메소드·큰 클래스·긴 매개변수·산탄총 수술(중긴큰긴산); 기법 Move·Extract·Push Down·Pull Up",
+  "target": "SonarQube 코드 스멜 탐지·IDE 자동 리팩토링·회귀 테스트 검증",
+  "pair": "3R",
+  "family": "SW 진화·재공학 계열",
+  "course": "SE"
+ },
+ "소프트웨어 설계의 원리": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명: 추상화·정보은닉·분할과 정복·단계적 분해·모듈화 / 결합: 설계 유형(상위·하위 설계)",
+  "target": "MSA 서비스 분할·DDD 바운디드 컨텍스트",
+  "pair": "객체지향 설계 원리",
+  "family": "설계 원리 계열",
+  "course": "SE"
+ },
+ "소프트웨어 아키텍처 드라이버 (SW Architecture Driver)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명: 기능 요구·비기능 요구·품질 요구·제약 사항 / 결합: 비기능 요구사항 영역별 특징",
+  "target": "품질 속성 시나리오·ADD 설계",
+  "pair": "소프트웨어 품질 속성 시나리오",
+  "family": "",
+  "course": "SE"
+ },
+ "소프트웨어 아키텍처 스타일": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형명: 데이터 중심·데이터 흐름(파이프 필터)·호출 반환(계층·클라이언트 서버)·독립 컴포넌트(이벤트·브로커) / 서브타입",
+  "target": "디자인 패턴·MSA 스타일 선택",
+  "pair": "디자인 패턴 (Design Pattern)",
+  "family": "아키텍처 스타일·패턴 분류 계열",
+  "course": "SE"
+ },
+ "소프트웨어 안전 확보를 위한 지침": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "단계: 총괄 담당자 지정→관리 대상 SW 지정→개발단계 안전확보→운영단계 안전확보, 장·조 조항",
+  "target": "IEC 61508·ISO 26262 기능안전 표준",
+  "pair": "STPA (System-Theoretic Process Analysis)",
+  "family": "",
+  "course": "SE"
+ },
+ "소프트웨어 정의 제조(SDM, Software Defined Manufacturing)": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "데이터스페이스 → SDF(공장)·SDS(서비스)·SDSC(공급망) → 제조 전 생애주기 층",
+  "target": "스마트 팩토리·소프트웨어 정의 차량(SDV)",
+  "pair": "스마트 팩토리 시스템(Smart Factory System)",
+  "family": "스마트 제조 계열",
+  "course": "DX"
+ },
+ "소프트웨어 정의 차량(Software-Defined Vehicle)": {
+  "group": "C1",
+  "type": "활용 사례",
+  "slot": "HW(존/도메인 E/E) → HW 추상화 → SW 플랫폼(OS·미들웨어) → 서비스 앱 층, OTA",
+  "target": "Rivian·현대차 Pleos·UN R156(OTA 규정)",
+  "pair": "자율주행자동차의 자율주행기술 단계 및 핵심기술",
+  "family": "",
+  "course": "DX"
+ },
+ "소프트웨어 품질 속성 시나리오": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "입력: 자극유발원·자극 / 모듈: 환경 속 대상 시스템 / 출력: 응답·응답측정",
+  "target": "ATAM 평가·유틸리티 트리 우선순위",
+  "pair": "유틸리티 트리 (Utility Tree)",
+  "family": "",
+  "course": "SE"
+ },
+ "소프트웨어사업 영향평가": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "단계: 발주기관 자체 영향평가→과기정통부 검토·의견→사업 조정→SW사업자 재평가 요청; 법적 근거·대상·제외",
+  "target": "공공기관 정보화사업 예비타당성·SW사업 분리발주",
+  "pair": "공공기관 정보화사업 예비타당성",
+  "family": "",
+  "course": "SE"
+ },
+ "손실함수(Loss Function)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "회귀(MSE·RMSE·MAE) / 분류(BCE·CCE·SCCE) 유형과 짝 활성화함수",
+  "target": "출력층 활성화함수 짝(소프트맥스·시그모이드)",
+  "pair": "활성화함수(Activation Function)",
+  "family": "신경망 학습 요소 계열",
+  "course": "AI"
+ },
+ "스니핑(Sniffing) & 스푸핑(Spoofing)": {
+  "group": "C10",
+  "type": "문제-해결",
+  "slot": "유형 = 스니핑(수동)·스푸핑(능동), 결합 = ARP 캐시 변조·MAC 오버플로우·MITM",
+  "target": "ARP·DNS 무인증 → DAI(Dynamic ARP Inspection)·DNSSEC·TLS 암호화",
+  "pair": "DoS(Denial of Service)",
+  "family": "공격 기법 유형 계열",
+  "course": "SC"
+ },
+ "스마트 시티(Smart City)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "모빌리티·안전·빌딩/인프라·에너지/환경·복지/행정/생활 서비스 결합",
+  "target": "디지털 트윈·데이터 허브",
+  "pair": "스마트시티 데이터 거버넌스(Smart City Data Governance)",
+  "family": "스마트 X 도메인 서비스 계열",
+  "course": "DX"
+ },
+ "스마트 팜(Smart Farm)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "1세대 → 2세대 → 3세대 단계 비교 × 주요 기술(핵심 기술 표)",
+  "target": "스마트팜 혁신밸리·수직농장",
+  "pair": "스마트 시티(Smart City)",
+  "family": "스마트 X 도메인 서비스 계열",
+  "course": "DX"
+ },
+ "스마트 팩토리 시스템(Smart Factory System)": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "현장 4M+1E → 공장자동화 → 공장운영 → 기업자원 층, 수평 제품개발·공급사슬 관리",
+  "target": "5G 특화망·디지털 트윈",
+  "pair": "소프트웨어 정의 제조(SDM, Software Defined Manufacturing)",
+  "family": "스마트 제조 계열",
+  "course": "DX"
+ },
+ "스마트시티 데이터 거버넌스(Smart City Data Governance)": {
+  "group": "C4",
+  "type": "성공 전략",
+  "slot": "데이터 생명주기 가운데 → 정보 보호·데이터 보안·품질 감시 → 규제 조치 고리",
+  "target": "데이터 최소화 원칙·DPO 지정·데이터 품질 지표",
+  "pair": "스마트 시티(Smart City)",
+  "family": "",
+  "course": "DX"
+ },
+ "스마트시티 보안취약점 및 대응방안": {
+  "group": "C3",
+  "type": "연계 강화",
+  "slot": "인프라 → 플랫폼 → 서비스 계층 흐름 + 센서 신호 방해·데이터 위변조 위협 화살표",
+  "target": "디지털 트윈 위협 시뮬레이션·AI 이상 탐지·Zero Trust IoT",
+  "pair": "스마트팩토리 보안취약점 및 대응방안",
+  "family": "융합 환경 보안위협·대응 계열",
+  "course": "SC"
+ },
+ "스마트팩토리 보안취약점 및 대응방안": {
+  "group": "C3",
+  "type": "성공 전략",
+  "slot": "센서·PLC → HMI·MES → ERP·업무PC 흐름 + 구성요소별 취약점 화살표, IT-OT 경계 강조",
+  "target": "IT-OT 망 분리 우선·OT 자산 식별·패치 창 운영",
+  "pair": "스마트시티 보안취약점 및 대응방안",
+  "family": "융합 환경 보안위협·대응 계열",
+  "course": "SC"
+ },
+ "스테이블 코인(Stable coin)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "법정화폐 담보형 / 암호화폐 담보형 / 무담보 알고리즘형 — 발행(Mint)·소각(Burn)",
+  "target": "CBDC",
+  "pair": "중앙은행 디지털화폐(CBDC: Central Bank Digital Currency)",
+  "family": "디지털 화폐·토큰 계열",
+  "course": "DX"
+ },
+ "시퀀스 다이어그램 (Sequence Diagram)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명: 액터·활성 객체·생명선·제어사각형·메시지 / 결합: 프레임·연산자(loop·opt·par)",
+  "target": "MSA 서비스 간 호출·SAGA 흐름 표현",
+  "pair": "상태 다이어그램 (State Diagram)",
+  "family": "UML 다이어그램 계열",
+  "course": "SE"
+ },
+ "시큐어 코딩(Secure Coding)": {
+  "group": "C10",
+  "type": "실무 도구",
+  "slot": "유형 = 7대 항목(입보시에코캡A), 결합 = 항목별 대표 약점",
+  "target": "SAST·SCA → 코드 리뷰 검증(HITL)",
+  "pair": "OWASP Top 10:2021",
+  "family": "보안 약점 목록 계열",
+  "course": "SC"
+ },
+ "싱글턴 패턴 (Singleton pattern)": {
+  "group": "C8",
+  "type": "문제-해결",
+  "slot": "행위자: 클라이언트 A·B / 시스템: Private 생성자·Static 인스턴스·Public 정적 메서드 / ①②③ 유일 인스턴스 반환",
+  "target": "멀티스레드 중복 생성 문제·DCL·Enum·Holder 기법",
+  "pair": "디자인 패턴 (Design Pattern)",
+  "family": "",
+  "course": "SE"
+ },
+ "아파치 카프카(Apache Kafka)": {
+  "group": "C7",
+  "type": "연계 강화",
+  "slot": "공급 Producer ↔ 플랫폼 Broker(Topic·Partition·ZooKeeper) ↔ 수요 Consumer Group",
+  "target": "Spark Streaming·Flink·CDC 실시간 처리",
+  "pair": "",
+  "family": "",
+  "course": "DB"
+ },
+ "안티 포렌식(Anti-forensic)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "데이터 삭제(디가우징·와이핑)·은닉·변조(스테가노그래피·슬랙공간·암호화) 유형 결합 관계",
+  "target": "AI 기반 스테가노그래피 탐지·불변 로그(WORM)·블록체인 증거 체인",
+  "pair": "디지털 포렌식(Digital Forensic)",
+  "family": "",
+  "course": "SC"
+ },
+ "암스트롱 공리(Armstrong's Axioms)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명 기본규칙 재귀·부가·이행 + 부가규칙 분해·합집합·의사이행, 결합 대상 폐포 F+",
+  "target": "폐포 계산·후보키 도출·정규화 판단",
+  "pair": "함수적 종속성(Functional Dependency)",
+  "family": "정규화 이론 계열",
+  "course": "DB"
+ },
+ "암호 분석 공격(Cryptanalysis Attacks) 기법": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형 = COA·KPA·CPA·CCA, 결합 = 보유 정보·방어 기법",
+  "target": "부채널 공격(구현 계층 공격)",
+  "pair": "부채널 공격(Side Channel Attack)",
+  "family": "공격 기법 유형 계열",
+  "course": "SC"
+ },
+ "암호학적 보안 강도(Security Strength)": {
+  "group": "C10",
+  "type": "로드맵",
+  "slot": "유형 = 키 길이·해시 출력 길이·운용 모드·IV/논스, 결합 = 암호 방식별 기준",
+  "target": "NIST 키 길이 전환 권고·KISA 암호 알고리즘 및 키 길이 이용 안내서·SHA-1 폐기",
+  "pair": "암호화(Encryption)",
+  "family": "암호 안전성 원칙 계열",
+  "course": "SC"
+ },
+ "암호화(Encryption)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형 = 대칭키·비대칭키 / 스트림·블록 암호화, 결합 = 기밀성·인증·무결성·부인방지",
+  "target": "양자내성 암호(PQC) 전환·크립토 애질리티",
+  "pair": "블록 암호화(Block Cipher)",
+  "family": "암호 알고리즘 유형 계열",
+  "course": "SC"
+ },
+ "암호화폐 지갑(Cryptocurrency Wallet)": {
+  "group": "C5",
+  "type": "연계 강화",
+  "slot": "On-Line(핫월렛) / Off-Line(콜드월렛) 구역, 사용자·거래소·블록체인, Private Key·멀티시그 서명",
+  "target": "MPC 지갑·HSM·FIDO 생체인증",
+  "pair": "디지털 지갑(Digital Wallet)",
+  "family": "디지털 지갑 계열",
+  "course": "DX"
+ },
+ "앙상블 학습(Ensemble Learning)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "보팅·배깅·부스팅·스태킹 4대 기법 결합 관계",
+  "target": "랜덤 포레스트·XGBoost·LightGBM",
+  "pair": "",
+  "family": "",
+  "course": "AI"
+ },
+ "앰비언트 인비저블 인텔리전스(Ambient Invisible Intelligence)": {
+  "group": "C2",
+  "type": "활용 사례",
+  "slot": "스마트 태그·센서 입력 → 상황인식 → 개인화 반응(무형적 상호작용)",
+  "target": "Amazon Just Walk Out·스마트 태그 매장·스마트 병동",
+  "pair": "엠비언트 IoT(Ambient Internet of Things)",
+  "family": "",
+  "course": "DX"
+ },
+ "양자 암호(Quantum Cryptography)": {
+  "group": "C8",
+  "type": "활용 사례",
+  "slot": "단계 = BB84 광자 송신 → 기저 측정 → 기저 공개 → 키 선별 → 도청 검출",
+  "target": "통신사 QKD 상용망·위성 QKD·국가 양자암호통신 시범망",
+  "pair": "포스트 양자 암호(Post-Quantum Cryptography)",
+  "family": "",
+  "course": "SC"
+ },
+ "양자인터넷(Quantum Internet)": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "양자 메모리·중계기 → 양자 텔레포테이션·QKD → 양자 컴퓨터·양자 센서 응용",
+  "target": "기존 인터넷·QKD 전용망",
+  "pair": "양자컴퓨터(Quantum Computer)",
+  "family": "양자 기술 계열",
+  "course": "DX"
+ },
+ "양자컴퓨터(Quantum Computer)": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "양자비트 → 제어 관측기기 → 마이크로 아키텍처 → 컴파일러 → 양자 알고리즘(강조: 오류수정)",
+  "target": "하이브리드 양자-고전 컴퓨팅·양자내성암호(PQC)",
+  "pair": "양자인터넷(Quantum Internet)",
+  "family": "양자 기술 계열",
+  "course": "DX"
+ },
+ "어텐션 메커니즘(Attention Mechanism)": {
+  "group": "C6",
+  "type": "문제-해결",
+  "slot": "Q·K 유사도 → Attention Score → Distribution → Value 가중합",
+  "target": "긴 시퀀스 계산량·플래시 어텐션·희소 어텐션",
+  "pair": "트랜스포머(Transformer)",
+  "family": "",
+  "course": "AI"
+ },
+ "에너지 효율적 컴퓨팅(Energy-Efficient Computing)": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "고효율 프로세서 → 데이터센터 냉각 → 엣지 컴퓨팅 → 에너지 절약형 SW 설계",
+  "target": "AI 기반 데이터센터 전력·냉각 최적화·액침 냉각",
+  "pair": "인터미턴트 컴퓨팅(Intermittent Computing)",
+  "family": "저전력 컴퓨팅 계열",
+  "course": "DX"
+ },
+ "에듀테크(EduTech)": {
+  "group": "C9",
+  "type": "연계 강화",
+  "slot": "내부 핵심 기술 스택(구분별) / 외부 학습자·교사·디지털 교과서, 경계 양방향 학습소통",
+  "target": "생성형 AI 튜터·메타버스 교실",
+  "pair": "",
+  "family": "산업 융합 테크 계열",
+  "course": "DX"
+ },
+ "에이전틱 AI(Agentic AI)": {
+  "group": "C4",
+  "type": "연계 강화",
+  "slot": "프로세스(인추행학) 고리 + 메모리·계획·도구 활용·데이터 플라이휠 기술요소",
+  "target": "MCP·A2A 프로토콜·멀티 에이전트 시스템",
+  "pair": "AI Agent",
+  "family": "AI 에이전트 순환 계열",
+  "course": "AI"
+ },
+ "에이지테크(AgeTech)": {
+  "group": "C9",
+  "type": "연계 강화",
+  "slot": "내부 AI 돌봄 로봇·안전 모니터링·건강관리 기술 / 외부 고령자·보호자·의료기관·실버 경제",
+  "target": "디지털 치료제·비대면 진료(원격의료)",
+  "pair": "디지털 치료제(Digital Therapeutics)",
+  "family": "산업 융합 테크 계열",
+  "course": "DX"
+ },
+ "엔티티(Entity)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형명 유형·개념·사건 / 기본·중심·행위 엔티티, 결합 대상 자격 요건 6개",
+  "target": "속성·관계(ERD 구성요소)",
+  "pair": "릴레이션 키(key)",
+  "family": "관계 모델 요소 계열",
+  "course": "DB"
+ },
+ "엠비언트 IoT(Ambient Internet of Things)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "토폴로지 1·2·3a·3b·4 — 리더·중간 노드·보조 노드 결합",
+  "target": "RFID·NB-IoT",
+  "pair": "앰비언트 인비저블 인텔리전스(Ambient Invisible Intelligence)",
+  "family": "IoT 진화 계열",
+  "course": "DX"
+ },
+ "엣지컴퓨팅(Edge Computing)과 포그컴퓨팅(Fog Computing)": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "단말·엣지(현장 실시간 처리) → 포그(중간 계층) → 클라우드 층, 저지연 구간 강조",
+  "target": "5G MEC·온디바이스 AI 추론",
+  "pair": "분산 클라우드(Distributed Cloud)",
+  "family": "분산·엣지 클라우드 계열",
+  "course": "DX"
+ },
+ "연결함정(Connection Trap)": {
+  "group": "C10",
+  "type": "문제-해결",
+  "slot": "유형명 부채꼴 함정·균열 함정, 결합 대상 모호한 관계 → 새 관계 추가",
+  "target": "관계 모호성 → 관계 재배치·새 관계 추가·정규화",
+  "pair": "엔티티(Entity)",
+  "family": "관계 모델 요소 계열",
+  "course": "DB"
+ },
+ "연관성 분석(association analysis) - 데이터마이닝": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "유형명 빈발규칙·비빈발규칙, 결합 대상 지지도·신뢰도·향상도 지표",
+  "target": "장바구니 분석·추천 시스템·웹 로그 분석",
+  "pair": "Apriori 알고리즘",
+  "family": "",
+  "course": "DB"
+ },
+ "연합학습(Federated Learning)": {
+  "group": "C5",
+  "type": "문제-해결",
+  "slot": "로컬 기기(지역모델) ↔ 중앙 서버(전역모델), 전송·지역학습·취합·갱신",
+  "target": "Non-IID 데이터·통신 비용·차분 프라이버시·보안 집계",
+  "pair": "머신 언러닝(Machine Unlearning)",
+  "family": "",
+  "course": "AI"
+ },
+ "영지식증명(Zero Knowledge Proof)": {
+  "group": "C8",
+  "type": "활용 사례",
+  "slot": "증명자(Prover) ↔ 검증자(Verifier) 질의·응답 번호 순서, 완전·건전·영지식 라벨",
+  "target": "Zcash zk-SNARK·이더리움 zk-Rollup·DID 자격증명",
+  "pair": "블록체인 암호기술 가이드라인",
+  "family": "",
+  "course": "SC"
+ },
+ "오류 역전파(Backpropagation)": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "순전파 → 오차 계산 → 역전파(Chain Rule·Delta Rule) → 가중치 갱신",
+  "target": "경사하강법 옵티마이저·자동 미분 프레임워크",
+  "pair": "머신러닝 옵티마이저(Optimizer)",
+  "family": "",
+  "course": "AI"
+ },
+ "오토 스케일링(Auto-Scaling)": {
+  "group": "C4",
+  "type": "성공 전략",
+  "slot": "대상 컴퓨팅 리소스, 지표 부하율·임계치·Scheduled, 조치 Scale Out·In·Up·Down",
+  "target": "AWS 예측 스케일링·Kubernetes HPA·Target Tracking",
+  "pair": "서버리스 아키텍처(Serverless Architecture)",
+  "family": "클라우드 운영 순환 계열",
+  "course": "DX"
+ },
+ "오펜시브 AI(Offensive AI)": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "자율형 사이버 공격 단계(Phase) 쉐브론 + 단계별 핵심 기술 키워드 하위, 공격 자동화 강조",
+  "target": "Defensive AI·CTEM",
+  "pair": "지속적인 위협 노출 관리(CTEM)",
+  "family": "",
+  "course": "SC"
+ },
+ "오픈소스 SW 보안위협": {
+  "group": "C3",
+  "type": "활용 사례",
+  "slot": "흐름: 획득→적용→배포 위에 관리적 위협(라이선스·거버넌스 부재)·기술적 위협(Zero Day·패치 지연)",
+  "target": "Log4j(Log4Shell)·Heartbleed·XZ Utils 백도어",
+  "pair": "오픈소스 거버넌스",
+  "family": "",
+  "course": "SE"
+ },
+ "오픈소스 거버넌스": {
+  "group": "C6",
+  "type": "성공 전략",
+  "slot": "단계: 정책수립→획득→적용→운영 및 유지→관리 및 개선(정획적운관), 활동요소",
+  "target": "OSPO 조직·라이선스 검증 도구(FOSSology·Black Duck)",
+  "pair": "오픈소스 SW 보안위협",
+  "family": "",
+  "course": "SE"
+ },
+ "오픈웨이트(Open-weight) 모델": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "공개 범위 축(가중치·학습 데이터·소스 코드·라이선스) 오픈소스 vs 오픈웨이트",
+  "target": "Llama·Mistral·Gemma·DeepSeek",
+  "pair": "소버린 AI(Artificial Intelligence)",
+  "family": "",
+  "course": "AI"
+ },
+ "오픈플로우(OpenFlow)": {
+  "group": "C8",
+  "type": "연관 비교",
+  "slot": "Controller·Switch 사이 OpenFlow Channel 메시지, Flow Table·Group Table Pipelining",
+  "target": "P4",
+  "pair": "SDN(Software Defined Network)",
+  "family": "",
+  "course": "NW"
+ },
+ "온디바이스 AI": {
+  "group": "C9",
+  "type": "연관 비교",
+  "slot": "내부 단말 기술 스택(경량화·전력 관리) ↔ 외부 클라우드, 하이브리드 AI 경계",
+  "target": "클라우드 AI·하이브리드 AI",
+  "pair": "지식 증류(Knowledge Distillation)",
+  "family": "",
+  "course": "AI"
+ },
+ "옴니모달(Omni-modal) AI": {
+  "group": "C2",
+  "type": "연관 비교",
+  "slot": "토큰화 → 공유 잠재공간 → 통합 추론 → Any-to-Any 생성 단계",
+  "target": "멀티모달 AI·VLM",
+  "pair": "멀티모달(Multimodal) AI",
+  "family": "멀티모달 모델 계열",
+  "course": "AI"
+ },
+ "요구공학 (Requirements Engineering)": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "메인: 요구사항 개발(추분명검)→요구사항 관리(협기변검) / 하위: 기준선, 평가 지표 정명완검일수추리해",
+  "target": "생성형 AI 요구 도출·요구추적 매트릭스(RTM)",
+  "pair": "페르소나 (Persona)",
+  "family": "요구공학 계열",
+  "course": "SE"
+ },
+ "월드 파운데이션 모델(World Foundation Model)": {
+  "group": "C1",
+  "type": "활용 사례",
+  "slot": "동작 메커니즘·구성요소 계층(시공간 모델링·물리 법칙·인과 인지)",
+  "target": "NVIDIA Cosmos·DeepMind Genie·자율주행 시뮬레이션",
+  "pair": "Physical AI",
+  "family": "피지컬 AI 계열",
+  "course": "AI"
+ },
+ "웹 어셈블리(Web Assembly; WASM)": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "소스 언어 → 컴파일 → 바이트 코드 → WASM Runtime → 브라우저 / WASI",
+  "target": "JavaScript·asm.js",
+  "pair": "",
+  "family": "웹 아키텍처 계열",
+  "course": "DX"
+ },
+ "웹3.0(Web 3.0)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "시맨틱 웹·탈중앙화·데이터 소유권·블록체인·NFT 결합(Web 1.0→2.0→3.0)",
+  "target": "DID 분산신원·AI 에이전트",
+  "pair": "",
+  "family": "",
+  "course": "DX"
+ },
+ "위치 측위(Positioning)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "Cell ID·ToA·TDoA·AoA·Fingerprint / 실외 DGPS·SBAS·GBAS / 실내 기술",
+  "target": "UWB 디지털 키·실내 내비게이션·물류 자산 추적",
+  "pair": "SLAM(Simultaneous Localization and Mapping)",
+  "family": "",
+  "course": "DX"
+ },
+ "위험 기반 테스트": {
+  "group": "C6",
+  "type": "성공 전략",
+  "slot": "절차: 위험 식별→위험 분석(가능성×영향)→우선순위 결정→테스트 자원 배분; 위험 수준 영역",
+  "target": "FMEA 기반 위험 식별·테스트 관리 도구(Jira·TestRail) 우선순위",
+  "pair": "경험 기반 테스트",
+  "family": "테스트 절차 계열",
+  "course": "SE"
+ },
+ "위험분석 방법론 (ISO/IEC 1335-1, 위험분석 전략/평가)": {
+  "group": "C10",
+  "type": "성공 전략",
+  "slot": "베이스라인·비정형·상세·복합 접근법 분기, 정성·정량 평가 결합 라벨",
+  "target": "복합 접근법 우선·고위험 자산 상세 분석·정량 지표 도구",
+  "pair": "위협 모델링(Threat Modeling)",
+  "family": "위험 분석 기법 계열",
+  "course": "SC"
+ },
+ "위협 모델링(Threat Modeling)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "STRIDE·DREAD·PASTA 기법 분기 + DFD 요소·신뢰 경계 미니 도식",
+  "target": "Microsoft SDL STRIDE·OWASP Threat Dragon",
+  "pair": "위험분석 방법론 (ISO/IEC 1335-1, 위험분석 전략/평가)",
+  "family": "위험 분석 기법 계열",
+  "course": "SC"
+ },
+ "위협 헌팅(Threat Hunting)": {
+  "group": "C4",
+  "type": "연관 비교",
+  "slot": "수집 → 가설 수립 → 헌팅 → 탐지자 개발 → 위협 탐지 → 조사·대응 고리",
+  "target": "차세대 SIEM 탐지·EDR 경보 대응",
+  "pair": "차세대 SIEM(Security Information and Event Management)",
+  "family": "위협 노출 관리 계열",
+  "course": "SC"
+ },
+ "유니버설디자인(universal design)과 웹접근성": {
+  "group": "C10",
+  "type": "실무 도구",
+  "slot": "UD 7원칙(공유직인실적적) ↔ 웹접근성 4원리(인운이견) 결합",
+  "target": "OpenWAX·WAVE 자동 진단 + 전문가 수동 검증",
+  "pair": "",
+  "family": "",
+  "course": "DX"
+ },
+ "유럽 디지털 3법": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "디지털 시장법(게이트 키퍼) × 디지털 서비스법(온라인 플랫폼) × 디지털 네트워크법",
+  "target": "국내 온라인 플랫폼 규제 입법·공정거래법",
+  "pair": "",
+  "family": "",
+  "course": "DX"
+ },
+ "유사도(Similarity)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "코사인·자카드·해밍 유사도 측정법·공식·특징",
+  "target": "RAG 벡터 DB 유사도 검색·임베딩·추천 시스템",
+  "pair": "거리 공식(Distance Formula)",
+  "family": "거리·유사도 척도 계열",
+  "course": "AI"
+ },
+ "유전 알고리즘(Genetic Algorithm)": {
+  "group": "C4",
+  "type": "적용 분야",
+  "slot": "선택 → 교차 → 변이 → 대치 → 반복 고리, 적합도 평가 라벨",
+  "target": "작업 스케줄링·경로 최적화·신경망 하이퍼파라미터 탐색",
+  "pair": "",
+  "family": "",
+  "course": "AI"
+ },
+ "유즈케이스 다이어그램": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형명: 액터·유즈케이스·시스템 / 결합 라벨: 연관·확장·포함·일반화·그룹화, 작성 절차",
+  "target": "사용자 스토리(Agile)·요구사항 명세서",
+  "pair": "시퀀스 다이어그램 (Sequence Diagram)",
+  "family": "UML 다이어그램 계열",
+  "course": "SE"
+ },
+ "유지보수": {
+  "group": "C6",
+  "type": "성공 전략",
+  "slot": "절차: 변경 요청→승인→실행(수정·테스트)→완료 보고, 담당자; 유형 수정·적응·완전·예방(수완예적)",
+  "target": "예방 유지보수 우선·형상관리·ITSM 도구",
+  "pair": "ISO/IEC/IEEE 14764",
+  "family": "유지보수 프로세스 계열",
+  "course": "SE"
+ },
+ "유틸리티 트리 (Utility Tree)": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "층: 유틸리티→품질속성→세분화된 품질 속성→시나리오(우선순위) / 화살표: 부분→전체 Bottom Up",
+  "target": "브레인 스토밍·품질 속성 워크숍(QAW)",
+  "pair": "소프트웨어 품질 속성 시나리오",
+  "family": "",
+  "course": "SE"
+ },
+ "이벤트 스토밍(Event Storming)과 헥사고날(Hexagonal) 아키텍처": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "메인: 도메인 이벤트→커맨드·액터→외부시스템→에그리게이트→정책·핫스팟 / 축: 항목별 포스트잇, 헥사고날 포트·어댑터",
+  "target": "Clean Architecture·계층형 아키텍처",
+  "pair": "Clean Architecture",
+  "family": "",
+  "course": "SE"
+ },
+ "이중 서명(Dual Signature)": {
+  "group": "C8",
+  "type": "활용 사례",
+  "slot": "행위자 = 구매자 → 판매자·금융기관, 단계 = 구매·지불 정보 해시 → 연접 해시 → 개인키 서명",
+  "target": "SET 전자결제·3-D Secure",
+  "pair": "전자봉투(Digital Envelope)",
+  "family": "키 교환·전자서명 계열",
+  "course": "SC"
+ },
+ "인공지능 경영시스템(ISO 42001:2023)": {
+  "group": "C4",
+  "type": "연관 비교",
+  "slot": "PDCA 고리에 표준 구성(조리기지운성개) 매핑, 요구사항(목리윤투책) 라벨",
+  "target": "ISO/IEC 27001·ISO/IEC 23894",
+  "pair": "ISO/IEC 23894",
+  "family": "",
+  "course": "AI"
+ },
+ "인공지능 생성물 워터마크 적용 기술": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "인지 불가능 워터마크 분류(공간·변환·학습 기반) × 이미지·동영상 / 오디오·텍스트 적용 기술",
+  "target": "C2PA 콘텐츠 출처 인증·딥페이크 탐지·AI 기본법 표시 의무",
+  "pair": "딥페이크(Deepfake)",
+  "family": "",
+  "course": "AI"
+ },
+ "인공지능 영향평가 가이드라인": {
+  "group": "C6",
+  "type": "성공 전략",
+  "slot": "수행 절차(사전준비 → 본평가 수행 → 사후관리) 메인 + 상세 절차·기법·산출물 하위",
+  "target": "이해관계자 참여·위험 시나리오 우선순위·완화 후 재평가",
+  "pair": "고영향 인공지능(AI) 판단 가이드라인",
+  "family": "고영향 AI 평가 절차 계열",
+  "course": "AI"
+ },
+ "인공지능 적대적 공격": {
+  "group": "C3",
+  "type": "연계 강화",
+  "slot": "학습→추론 흐름 위 공격 기법(오회전추: Poisoning·Evasion·Inversion·Extraction)과 방어 기법(적갠쿼결탐)",
+  "target": "AI 레드팀 테스트·AI TRiSM·적대적 학습",
+  "pair": "프롬프트 인젝션(Prompt Injection)",
+  "family": "AI 보안 위협 계열",
+  "course": "AI"
+ },
+ "인공지능 투명성 확보 가이드라인": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "제31조 의무 유형(사전 고지·표시·딥페이크 고지) × 적용 범위(서비스 내·외부 반출)·방법",
+  "target": "인공지능 생성물 워터마크·딥페이크 탐지 기술",
+  "pair": "AI 기본법",
+  "family": "AI 법제·가이드라인 계열",
+  "course": "AI"
+ },
+ "인공지능 학습용 데이터 품질관리 가이드라인 v3.1": {
+  "group": "C6",
+  "type": "성공 전략",
+  "slot": "품질관리 프로세스(구획정가학운) 메인 + 품질관리 지표(준완유기기통구의알유) 하위",
+  "target": "공정별 품질 자가점검·구문·의미 정확성 검수·품질관리 조직 구성",
+  "pair": "생성형AI 데이터 품질관리 가이드 v2.0",
+  "family": "AI 데이터 품질관리 계열",
+  "course": "AI"
+ },
+ "인공지능(AI) 도입 사업비 산정 절차": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "상세절차(사서커구사) 메인 + 사업유형(단기데모시) 하위, 도입비 = 이커구 산출물",
+  "target": "SW사업 대가산정 가이드·기능점수 산정",
+  "pair": "공공부문 초거대AI 도입, 활용 가이드라인 2.0(2025.04)",
+  "family": "공공 AI 도입 절차 계열",
+  "course": "AI"
+ },
+ "인터미턴트 컴퓨팅(Intermittent Computing)": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "에너지 하베스팅 → 메모리 시스템 → 실행 모델 → 프로그래밍 언어 → 런타임",
+  "target": "에너지 효율적 컴퓨팅·엠비언트 IoT",
+  "pair": "에너지 효율적 컴퓨팅(Energy-Efficient Computing)",
+  "family": "저전력 컴퓨팅 계열",
+  "course": "DX"
+ },
+ "인텐트 기반 네트워킹(Intent-Based Networking)": {
+  "group": "C4",
+  "type": "실무 도구",
+  "slot": "대상 박스 유·무선망, 고리 의도 입력→변환과 검증→자동 수행→상황 인식 피드백, 라벨 동적인 최적화",
+  "target": "LLM 의도 입력",
+  "pair": "SDN(Software Defined Network)",
+  "family": "자율 네트워크 계열",
+  "course": "NW"
+ },
+ "자기지도학습(Self-supervised Learning)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "프리텍스트 태스크 → 다운스트림 태스크, 유형별 기법",
+  "target": "BERT 마스크 언어모델·대조학습·파운데이션 모델",
+  "pair": "전이학습(Transfer Learning)",
+  "family": "학습 패러다임 계열",
+  "course": "AI"
+ },
+ "자연어처리(NLP, Natural Language Processing)": {
+  "group": "C6",
+  "type": "적용 분야",
+  "slot": "형태소 → 구문 → 의미 → 담화 분석 체인, NLU·NLG 축",
+  "target": "기계 번역·챗봇 상담·감성 분석",
+  "pair": "트랜스포머(Transformer)",
+  "family": "",
+  "course": "AI"
+ },
+ "자율주행 자동차 보안취약점 및 대응방안": {
+  "group": "C3",
+  "type": "활용 사례",
+  "slot": "차량 내부(ECU·CAN) → 통신(V2X) → 백엔드 구간 흐름 + 구간별 위협 화살표",
+  "target": "Jeep Cherokee 원격 해킹·Tesla 키 릴레이·Pwn2Own Automotive",
+  "pair": "차량 사이버 보안 국제 표준(ISO 21434)",
+  "family": "융합 환경 보안위협·대응 계열",
+  "course": "SC"
+ },
+ "자율주행자동차의 자율주행기술 단계 및 핵심기술": {
+  "group": "C6",
+  "type": "활용 사례",
+  "slot": "Lv0 비자동화 → Lv5 완전 자율주행 [비운부조고완] 메인 + 인지·판단·제어·통신 [인판제터] 하위",
+  "target": "Waymo 로보택시·Tesla FSD",
+  "pair": "소프트웨어 정의 차량(Software-Defined Vehicle)",
+  "family": "",
+  "course": "DX"
+ },
+ "전송부호화(소스 코딩, 채널 코딩, 라인 코딩)": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "메인 단계 소스 코딩→채널 코딩→라인 코딩, 하위 압축·오류제어·bipolar/unipolar/polar",
+  "target": "5G NR LDPC·Polar 부호",
+  "pair": "",
+  "family": "디지털 부호화 계열",
+  "course": "NW"
+ },
+ "전이학습(Transfer Learning)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "Inductive·Transductive·Unsupervised 유형, 미세조정·도메인 전이",
+  "target": "파인 튜닝·도메인 적응",
+  "pair": "파인 튜닝(Fine-tuning)",
+  "family": "학습 패러다임 계열",
+  "course": "AI"
+ },
+ "전자봉투(Digital Envelope)": {
+  "group": "C8",
+  "type": "연관 비교",
+  "slot": "행위자 = 송신자 ↔ 수신자, 단계 = 메시지 비밀키 암호화 → 비밀키 공개키 암호화 → 복호화",
+  "target": "전자서명·PGP/S-MIME",
+  "pair": "이중 서명(Dual Signature)",
+  "family": "키 교환·전자서명 계열",
+  "course": "SC"
+ },
+ "전자증거개시제도(e-Discovery)": {
+  "group": "C6",
+  "type": "적용 분야",
+  "slot": "정보관리 → 식별 → 보존·수집 → 처리·검토·분석 → 산출 EDRM 단계, ESI 하위 활동",
+  "target": "금융 규제 조사·제조 특허 소송·공공 감사",
+  "pair": "디지털 포렌식(Digital Forensic)",
+  "family": "포렌식 계열",
+  "course": "SC"
+ },
+ "접근 제어/접근 통제(Access Control)": {
+  "group": "C5",
+  "type": "적용 분야",
+  "slot": "주체 → 정책·메커니즘(식별·인증·인가) → 객체 구역, MAC·DAC·RBAC·ABAC 라벨",
+  "target": "클라우드 IAM·의료 EMR·금융 내부통제",
+  "pair": "접근 통제 모델",
+  "family": "제로트러스트 접근제어 계열",
+  "course": "SC"
+ },
+ "접근 통제 모델": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "Bell-LaPadula·BIBA·Clark-Wilson·만리장성 모델 분기, Read·Write 방향 라벨",
+  "target": "SELinux MLS·Windows 무결성 수준·금융 이해상충 통제",
+  "pair": "접근 제어/접근 통제(Access Control)",
+  "family": "",
+  "course": "SC"
+ },
+ "정규화, 규제화, 표준화": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "표준화(Z-score)·정규화(Min-Max)·규제화(L1·L2) 비교 축",
+  "target": "배치 정규화·Dropout·조기 종료",
+  "pair": "배치 정규화(Batch Normalization)",
+  "family": "",
+  "course": "AI"
+ },
+ "정보보호 공시제도": {
+  "group": "C5",
+  "type": "활용 사례",
+  "slot": "의무 기업 → 공시 포털 제출 → 일반 공개 구역, 투자·인력·인증·활동 항목 라벨",
+  "target": "정보보호 공시 종합포털·기간통신사업자 공시·종합병원 공시",
+  "pair": "정보보호 및 개인정보보호 관리체계 인증(ISMS-P)",
+  "family": "정보보호 인증·공시 제도 계열",
+  "course": "SC"
+ },
+ "정보보호 및 개인정보보호 관리체계 인증(ISMS-P)": {
+  "group": "C5",
+  "type": "성공 전략",
+  "slot": "신청기관 → 심사기관 → 인증기관·인증위원회 구역, 인증기준 3영역 라벨",
+  "target": "경영진 참여·범위 설정·위험관리 선행",
+  "pair": "정보보호제품 평가·인증(CC 평가·인증) 제도",
+  "family": "정보보호 인증·공시 제도 계열",
+  "course": "SC"
+ },
+ "정보보호제품 평가·인증(CC 평가·인증) 제도": {
+  "group": "C5",
+  "type": "로드맵",
+  "slot": "개발자(ST·TOE) → 평가기관 → 인증기관 구역, PP·EAL 산출물 라벨",
+  "target": "CC v3.1→CC:2022·CCRA 상호인정 전환",
+  "pair": "정보보호 및 개인정보보호 관리체계 인증(ISMS-P)",
+  "family": "정보보호 인증·공시 제도 계열",
+  "course": "SC"
+ },
+ "정보시스템 감리 의무 대상과 관점별 점검 기준": {
+  "group": "C5",
+  "type": "연관 비교",
+  "slot": "구역: 발주기관·피감리인·감리법인(제3자), 관점 성과·산출물·절차(성산절); 의무대상 5억 이상·대국민 서비스",
+  "target": "PMO 제도·CMMI 프로세스 평가",
+  "pair": "공통감리 절차",
+  "family": "감리 주체·제도 계열",
+  "course": "SE"
+ },
+ "정보시스템 감리결과보고서 (구성, 보고사항)": {
+  "group": "C5",
+  "type": "연계 강화",
+  "slot": "구역: 감리법인→발주기관·피감리인 제출, 산출물 종합의견·영역별 점검결과·별첨; 개선권고 필수·협의·권고/장기·단기",
+  "target": "시정조치 확인 감리·정보시스템 운영 성과관리 연계",
+  "pair": "공통감리 절차",
+  "family": "감리 주체·제도 계열",
+  "course": "SE"
+ },
+ "정보시스템 운영 성과관리": {
+  "group": "C4",
+  "type": "성공 전략",
+  "slot": "순환: 성과 측정(운영 적정성·유지 용이성·비용 효율성·기능 활용도·업무성과 달성도)→평가→정비 방식 결정→재측정",
+  "target": "정비 대상 우선순위·지표 측정 자동화·범정부 EA 연계",
+  "pair": "정보시스템 운영/유지보수 감리",
+  "family": "",
+  "course": "SE"
+ },
+ "정보시스템 운영/유지보수 감리": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "메인: 감리대상 개발SW·상용SW·인프라, 하위: 배포관리·장애관리·보안·성능·패치 점검분야",
+  "target": "구축 감리(3단계 감리)·ITIL 운영 관리",
+  "pair": "정보시스템 감리 의무 대상과 관점별 점검 기준",
+  "family": "감리 점검 절차 계열",
+  "course": "SE"
+ },
+ "정서 인공지능(Affective AI)": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "생리신호·표정 입력 → 감성인식 → 감성생성 → 감성증강 기술요소",
+  "target": "멀티모달 AI·디지털 휴먼·휴머노이드",
+  "pair": "멀티모달(Multimodal) AI",
+  "family": "",
+  "course": "AI"
+ },
+ "정형/비정형 데이터 마이닝": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "유형명 정형 분류·군집·연관 / 비정형 텍스트·사회연결망·웹 마이닝, 결합 대상 머신 러닝",
+  "target": "스마트 팩토리 예지 정비·금융 사기 탐지·의료 진단",
+  "pair": "연관성 분석(association analysis) - 데이터마이닝",
+  "family": "",
+  "course": "DB"
+ },
+ "제로트러스트 가이드라인 2.0": {
+  "group": "C5",
+  "type": "연계 강화",
+  "slot": "주체(사용자·기기) → PDP 정책 결정 → PEP 집행 → 자원 구역, 지속적 검증 라벨",
+  "target": "SASE·SDP·AI 기반 지속 검증",
+  "pair": "SDP(Software Defined Perimeter)",
+  "family": "제로트러스트 접근제어 계열",
+  "course": "SC"
+ },
+ "조인(Join)": {
+  "group": "C10",
+  "type": "실무 도구",
+  "slot": "유형명 Equi·Natural·Outer·Semi 조인, 결합 대상 Nested Loop·Sort Merge·Hash 메커니즘",
+  "target": "실행계획 EXPLAIN·옵티마이저 힌트",
+  "pair": "RDBMS 인덱스(index)",
+  "family": "DB 성능 설계 계열",
+  "course": "DB"
+ },
+ "중앙은행 디지털화폐(CBDC: Central Bank Digital Currency)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "암호화폐·스테이블 코인·CBDC 유형 결합, 단일 원장·분산 원장 방식, 중앙은행·시중은행",
+  "target": "중국 e-CNY·바하마 Sand Dollar·한국은행 CBDC 모의실험",
+  "pair": "",
+  "family": "디지털 화폐 계열",
+  "course": "DX"
+ },
+ "증권형 토큰(STO, Security Token Offering)": {
+  "group": "C6",
+  "type": "활용 사례",
+  "slot": "발행사 자산 → 토큰 증권 발행 → 유통·조각거래 메인 + 적용 기술 요소·자본시장법 하위",
+  "target": "뮤직카우·카사 조각투자·Securitize",
+  "pair": "RWA(Real World Asset) 토큰화 프로토콜",
+  "family": "자산 토큰화 계열",
+  "course": "DX"
+ },
+ "지능정보기술 감리 실무 가이드 - 빅데이터 감리": {
+  "group": "C6",
+  "type": "적용 분야",
+  "slot": "단계: 분석→설계→구현(구축)→운영 단계별 영역·핵심 점검항목(데이터 확보·거버넌스)",
+  "target": "공공 빅데이터 플랫폼·의료 데이터 분석 사업",
+  "pair": "지능정보기술 감리 실무 가이드 - 클라우드 감리",
+  "family": "감리 점검 절차 계열",
+  "course": "SE"
+ },
+ "지능정보기술 감리 실무 가이드 - 클라우드 감리": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "단계: 클라우드 계획수립·서비스 활용사업·전환사업 유형별 점검 단계→하위영역; 취약점 고려",
+  "target": "CSAP 클라우드 보안인증·클라우드 네이티브 전환 점검",
+  "pair": "지능정보기술 감리 실무 가이드 - 빅데이터 감리",
+  "family": "감리 점검 절차 계열",
+  "course": "SE"
+ },
+ "지능형 IoT와 자율형 IoT": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "연결형 → 지능형(TinyML·연합학습·MEC) → 자율형(상황인지·추론)",
+  "target": "스마트 팩토리·스마트 홈·자율주행",
+  "pair": "엠비언트 IoT(Ambient Internet of Things)",
+  "family": "IoT 진화 계열",
+  "course": "DX"
+ },
+ "지속적인 위협 노출 관리(CTEM)": {
+  "group": "C4",
+  "type": "성공 전략",
+  "slot": "범위지정 → 발견 → 우선순위 → 확인 → 동원 순환, MTTD·MTTR 지표 라벨",
+  "target": "범위 우선 설정·확인 자동화·대응 동원 체계",
+  "pair": "공격 표면 관리(Attack Surface Management)",
+  "family": "위협 노출 관리 계열",
+  "course": "SC"
+ },
+ "지식 증류(Knowledge Distillation)": {
+  "group": "C6",
+  "type": "활용 사례",
+  "slot": "Teacher → 소프트 타겟·Distillation Loss → Student 절차",
+  "target": "온디바이스 AI·버티컬 AI·sLLM",
+  "pair": "온디바이스 AI",
+  "family": "",
+  "course": "AI"
+ },
+ "차량 사이버 보안 국제 표준(ISO 21434)": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "조직·프로젝트 사이버 보안 관리 위 단계 + 개념·개발·생산·운영 하위 단계, TARA 강조",
+  "target": "UNECE WP.29 R155 CSMS·SDV OTA 업데이트",
+  "pair": "IEC 62443",
+  "family": "",
+  "course": "SC"
+ },
+ "차세대 SIEM(Security Information and Event Management)": {
+  "group": "C2",
+  "type": "연관 비교",
+  "slot": "수집 Log → AI·UEBA 분석 → SOAR 자동 대응 모듈, Unknown 위협 탐지 강조",
+  "target": "XDR·SOAR",
+  "pair": "XDR(eXtended Detection Response)",
+  "family": "탐지·대응 솔루션 계열",
+  "course": "SC"
+ },
+ "차원 축소(Dimensionality Reduction)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "선형(PCA·LDA) / 비선형(ISOMAP·LLE) 유형, 차원의 저주 목적",
+  "target": "t-SNE·UMAP 시각화·오토인코더",
+  "pair": "PCA(Principal Component Analysis)",
+  "family": "",
+  "course": "AI"
+ },
+ "초거대 언어 모델(Large Language Model)": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "컴퓨팅 파워 → 데이터 → 모델 알고리즘(트랜스포머) 3층 구성도(컴데모)",
+  "target": "sLLM·버티컬 AI·온디바이스 AI",
+  "pair": "버티컬 AI(Vertical AI)",
+  "family": "",
+  "course": "AI"
+ },
+ "카오스 엔지니어링 (Chaos Engineering)": {
+  "group": "C4",
+  "type": "활용 사례",
+  "slot": "순환: Hypothesis→Fault Injection→Measuring→Verify / 대상: 운영 시스템 취약 부분 보강",
+  "target": "Netflix Chaos Monkey·AWS Fault Injection Simulator",
+  "pair": "SRE (Site Reliability Engineering)",
+  "family": "데브옵스·운영 안정성 계열",
+  "course": "SE"
+ },
+ "카오스 테스트 (Chaos Test)": {
+  "group": "C6",
+  "type": "활용 사례",
+  "slot": "절차: 정상 상태 정의→가설→실험(혼돈 주입)→결과 검증→문서화(정가실결문), 사례 열",
+  "target": "Netflix Chaos Monkey·AWS Fault Injection Service",
+  "pair": "카오스 엔지니어링 (Chaos Engineering)",
+  "family": "테스트 절차 계열",
+  "course": "SE"
+ },
+ "컨텍스트 엔지니어링(Context Engineering)": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "문맥 정형화·토큰 압축·작업별 분리 구성요소 → 컨텍스트 창 → LLM",
+  "target": "RAG·에이전트 메모리·MCP",
+  "pair": "프롬프트 엔지니어링(Prompt Engineering)",
+  "family": "프롬프트·컨텍스트 설계 계열",
+  "course": "AI"
+ },
+ "코드 커버리지(Code Coverage)": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "유형명: SC⊂DC⊂C/DC⊂MC/DC⊂MCC⊂경로 포함 관계 / 결합: 단계별 Test Case 수",
+  "target": "항공 DO-178C·자동차 ISO 26262 안전필수 SW",
+  "pair": "화이트박스 테스트",
+  "family": "테스트 기법 계열",
+  "course": "SE"
+ },
+ "쿠버네티스(Kubernetes)": {
+  "group": "C5",
+  "type": "연관 비교",
+  "slot": "Control Plane(API Server·etcd·Scheduler) / Node(Kubelet·Pod) 구역, kubectl 사용자",
+  "target": "Docker Swarm",
+  "pair": "도커(Docker)",
+  "family": "",
+  "course": "DX"
+ },
+ "쿼리오프로딩(Query offloading)": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "입력 Update 트랜잭션, 모듈 Master DB→CDC→Staging→Slave DB, 출력 Read 트랜잭션",
+  "target": "클라우드 Read Replica·Redis 캐시 계층",
+  "pair": "데이터베이스 샤딩(Sharding)",
+  "family": "DB 부하 분산 계열",
+  "course": "DB"
+ },
+ "클라우드 네이티브 구축운영 상세가이드('26.01)": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "기획 → 구축 → 운영 메인 단계 + 상세 절차(활동)·기술적 검토 요소 하위",
+  "target": "GitOps·플랫폼 엔지니어링·MSA 전환",
+  "pair": "공공부문 SaaS 이용가이드 라인",
+  "family": "클라우드 전환 절차 계열",
+  "course": "DX"
+ },
+ "클라우드 네이티브(Cloud Native)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "Microservice·Container·CI/CD·DevOps 기술요소 결합, 성숙도 CNMM0~3",
+  "target": "Netflix MSA 전환·CNCF 프로젝트(Kubernetes·Prometheus)",
+  "pair": "클라우드 네이티브(Cloud Native) 참조 아키텍처",
+  "family": "",
+  "course": "DX"
+ },
+ "클라우드 네이티브(Cloud Native) 참조 아키텍처": {
+  "group": "C1",
+  "type": "연관 비교",
+  "slot": "인프라(IaaS·PaaS) → 컨테이너·DB → API G/W → CI/CD·모니터링 기술 스택 층",
+  "target": "모놀리식 N-Tier 아키텍처",
+  "pair": "클라우드 네이티브(Cloud Native)",
+  "family": "클라우드 네이티브 플랫폼 계열",
+  "course": "DX"
+ },
+ "클라우드 로봇 지능(Cloud Robot Intelligence)": {
+  "group": "C9",
+  "type": "연계 강화",
+  "slot": "내부 로봇(센서·구동) | 경계 연결 | 외부 클라우드(전이학습·지식 증류·멀티모달)",
+  "target": "5G·MEC 저지연 제어·연합학습",
+  "pair": "AMR(Autonomous Mobile Robot)",
+  "family": "",
+  "course": "DX"
+ },
+ "클라우드 마이그레이션(Cloud Migration)": {
+  "group": "C6",
+  "type": "성공 전략",
+  "slot": "Assessment → 전략 선택 → 이행 → 검증 메인 + 6R(Retain·Retire·Rehost·Replatform·Refactor·Rearchitect) 하위",
+  "target": "AWS Migration Hub·Azure Migrate·파일럿 검증",
+  "pair": "클라우드 네이티브 구축운영 상세가이드('26.01)",
+  "family": "클라우드 전환 절차 계열",
+  "course": "DX"
+ },
+ "클라우드 보안인증 등급제(CSAP)": {
+  "group": "C5",
+  "type": "연관 비교",
+  "slot": "클라우드 사업자 신청 → 평가기관 → 인증 구역, IaaS·SaaS·DaaS 유형·상중하 등급 라벨",
+  "target": "ISO 27017·ISMS-P",
+  "pair": "ISO 27017",
+  "family": "정보보호 인증·공시 제도 계열",
+  "course": "SC"
+ },
+ "클라우드 컴퓨팅 취약점, 대응기술": {
+  "group": "C3",
+  "type": "연관 비교",
+  "slot": "이용자 → 하이퍼바이저·가상머신 → 멀티테넌시 스토리지 흐름 + 기술·기술 외 위협 화살표",
+  "target": "온프레미스 보안·클라우드 공동 책임 모델",
+  "pair": "CWPP(Cloud Workload Protection Platform) & CSPM(Cloud Security Posture Management)",
+  "family": "융합 환경 보안위협·대응 계열",
+  "course": "SC"
+ },
+ "클라우드 포렌식(Cloud Forensic)": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "식별 → 수집(CSP 협조) → 시그니처 분석 → 보고 단계, 사법관할권·국제 공조 라벨",
+  "target": "CASB·CSPM 로그·블록체인 증거 무결성",
+  "pair": "디지털 포렌식(Digital Forensic)",
+  "family": "포렌식 계열",
+  "course": "SC"
+ },
+ "클래스 다이어그램 (Class Diagram)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명: 관계(연관·직접연관·집합연관·복합연관·의존·일반화·실체화) / 박스: 이름·Attribute·Operation·접근제어자",
+  "target": "디자인 패턴 구조 표현·DDD 도메인 모델",
+  "pair": "UML (정적, 동적 다이어그램)",
+  "family": "UML 다이어그램 계열",
+  "course": "SE"
+ },
+ "클래스 불균형(Class Imbalance)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "해결방법 유형: 과대 표집(렌아스블디)·과소 표집(랜토이발)·임곗값 이동",
+  "target": "앙상블 학습·비용 민감 학습·이상 탐지",
+  "pair": "혼동행렬(Confusion Matrix)",
+  "family": "모델 성능 저하 요인 계열",
+  "course": "AI"
+ },
+ "탐색적 데이터 분석과 확증적 데이터 분석": {
+  "group": "C10",
+  "type": "실무 도구",
+  "slot": "유형명 EDA(데이터→모형 탐색)·CDA(모형→데이터 검증), 결합 대상 인사이트·가설 검증",
+  "target": "Python·R 시각화 라이브러리·통계 검정 도구",
+  "pair": "데이터 시각화",
+  "family": "",
+  "course": "DB"
+ },
+ "탐색적 테스트": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "메인: 세션·차터·노트·요약(세차노요) / 하위: Time-boxing, Debriefing PROOF",
+  "target": "스크립트 기반 테스트·애드혹 테스트",
+  "pair": "테스트 원리",
+  "family": "",
+  "course": "SE"
+ },
+ "테스트 오라클": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형: 참·샘플링·휴리스틱·일관성 오라클(참샘휴일), AI 시스템 오라클 불가 이유",
+  "target": "AI 시스템 테스트·메타모픽 테스팅",
+  "pair": "ISO 29119-11",
+  "family": "테스트 유형 계열",
+  "course": "SE"
+ },
+ "테스트 원리": {
+  "group": "C10",
+  "type": "문제-해결",
+  "slot": "유형명: 결함발견·완벽 테스팅 불가·초기 시작·결함 집중·살충제 패러독스·정황의존·오류부재 궤변(7원리) / 결합: 원인·목적",
+  "target": "살충제 패러독스·오류부재 궤변 개선방안",
+  "pair": "탐색적 테스트",
+  "family": "",
+  "course": "SE"
+ },
+ "테스트 타임 스케일링(Test-Time Scaling, TTS)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "대표 기법 분류(베빔체몬)와 핵심 아이디어, 사전학습 vs TTS 비교 축",
+  "target": "추론 서빙 최적화·KV 캐시·sLLM",
+  "pair": "테스트 타임 컴퓨팅(Test-Time Compute)",
+  "family": "LLM 추론 강화 계열",
+  "course": "AI"
+ },
+ "테스트 타임 컴퓨팅(Test-Time Compute)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "TTA(TENT·프롬프트 적응) / TTR(CoT·Best-of-N) 유형",
+  "target": "사전학습 스케일링(Train-Time Compute)·CoT",
+  "pair": "대규모 언어 모델(LLM) 성능 향상 기술",
+  "family": "LLM 추론 강화 계열",
+  "course": "AI"
+ },
+ "테일러링 (Tailoring)": {
+  "group": "C6",
+  "type": "성공 전략",
+  "slot": "메인: 프로젝트 특징 정의→표준 프로세스 선정·검증→상위/하위 커스터마이징→문서화(특선상세문) / 축: 목적·필요성",
+  "target": "ISO/IEC 12207·CMMI 표준 프로세스 기반 맞춤",
+  "pair": "소프트웨어 개발 방법론",
+  "family": "",
+  "course": "SE"
+ },
+ "튜링 테스트": {
+  "group": "C8",
+  "type": "연관 비교",
+  "slot": "행위자: 심사위원·인간·기계, 문자 대화 질문→응답→판정 순서; 활용 사례",
+  "target": "CAPTCHA 역튜링 테스트·중국어 방 논증",
+  "pair": "",
+  "family": "",
+  "course": "SE"
+ },
+ "트랜스포머(Transformer)": {
+  "group": "C1",
+  "type": "활용 사례",
+  "slot": "입력 임베딩·포지셔널 인코딩 → 인코더(어텐션·FFN) / 디코더(마스크 어텐션) → 출력",
+  "target": "BERT·GPT·ViT",
+  "pair": "어텐션 메커니즘(Attention Mechanism)",
+  "family": "",
+  "course": "AI"
+ },
+ "트랜잭션": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명 원자성·일관성·고립성·영속성, 결합 대상 활동→부분완료→완료/실패→철회 상태",
+  "target": "분산 트랜잭션 2PC·Saga 패턴",
+  "pair": "Isolation Level(격리 레벨)",
+  "family": "",
+  "course": "DB"
+ },
+ "트윈 트랜스포메이션(Twin Transformation)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "DT 축 × ESG 축 결합 — 지속 가능성 전환",
+  "target": "디지털 트윈 기반 탄소 관리·AI 에너지 최적화",
+  "pair": "DXaaS/DTaaS(Digital Transformation as a Service)",
+  "family": "",
+  "course": "DX"
+ },
+ "파운데이션 모델(Foundation Model)": {
+  "group": "C1",
+  "type": "활용 사례",
+  "slot": "기반기술 층(대규모 데이터·자기지도학습·트랜스포머·adaptation) + 특징(창균전)·FMOps",
+  "target": "GPT·BERT·CLIP·Stable Diffusion",
+  "pair": "초거대 언어 모델(Large Language Model)",
+  "family": "",
+  "course": "AI"
+ },
+ "파인 튜닝(Fine-tuning)": {
+  "group": "C2",
+  "type": "연관 비교",
+  "slot": "사전학습 가중치 → 새 데이터셋 추가 학습(사조학최) → 작업 특화 모델",
+  "target": "RAG·전이학습",
+  "pair": "검색 증강 생성(RAG, Retrieval Augmented Generation)",
+  "family": "파인튜닝 기법 계열",
+  "course": "AI"
+ },
+ "패스키(Passkey)": {
+  "group": "C8",
+  "type": "활용 사례",
+  "slot": "Authenticator ↔ Client Application ↔ Relying Party 등록·인증 메시지 순서",
+  "target": "Apple·Google·Microsoft 패스키 도입·FIDO 얼라이언스",
+  "pair": "생체 인증(텔레바이오 인증)",
+  "family": "인증 프로토콜 계열",
+  "course": "SC"
+ },
+ "퍼징 테스트 (Fuzzing Test)": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "절차: 대상 식별→퍼징 데이터 생성→입력·실행→예외·오류 분석; 유형 Valid·Invalid Case Fuzzing",
+  "target": "DevSecOps 파이프라인·SAST/DAST 결합·AI 기반 입력 생성",
+  "pair": "뮤테이션 테스트 (Mutation Test)",
+  "family": "테스트 절차 계열",
+  "course": "SE"
+ },
+ "페르소나 (Persona)": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "메인: 사용자 분석→사용자 범주 파악→기간구조 잡기→페르소나 평가→프로파일 작성 / 축: 사용자 분석 기법",
+  "target": "사용자 스토리·고객 여정 지도",
+  "pair": "요구공학 (Requirements Engineering)",
+  "family": "요구공학 계열",
+  "course": "SE"
+ },
+ "페이지드 어텐션(Paged Attention)": {
+  "group": "C2",
+  "type": "활용 사례",
+  "slot": "KV 캐시 논리 블록 → 블록 테이블 → 비연속 물리 블록 할당",
+  "target": "vLLM 추론 서빙·KV 캐시 공유 빔 서치",
+  "pair": "어텐션 메커니즘(Attention Mechanism)",
+  "family": "",
+  "course": "AI"
+ },
+ "편향": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "편향 유형(인숨데롱고: 인간·숨겨진·데이터 표본·롱테일·고의적) → XAI 해결",
+  "target": "채용 심사·금융 신용 평가·의료 진단 공정성",
+  "pair": "XAI(eXplainable AI) 방법론",
+  "family": "모델 성능 저하 요인 계열",
+  "course": "AI"
+ },
+ "포스트 양자 암호(Post-Quantum Cryptography)": {
+  "group": "C10",
+  "type": "로드맵",
+  "slot": "유형 = 격자·코드·다변수·아이소제니·해시기반 서명, 결합 = 유형별 알고리즘",
+  "target": "NIST PQC 표준(ML-KEM·ML-DSA·SLH-DSA)·KpqC 공모·하이브리드 TLS 전환",
+  "pair": "양자 암호(Quantum Cryptography)",
+  "family": "암호 알고리즘 유형 계열",
+  "course": "SC"
+ },
+ "프롬프트 엔지니어링(Prompt Engineering)": {
+  "group": "C2",
+  "type": "연관 비교",
+  "slot": "Task Description·Input/Output Indicator·Context → LLM → 결과물",
+  "target": "컨텍스트 엔지니어링·프롬프트 튜닝",
+  "pair": "컨텍스트 엔지니어링(Context Engineering)",
+  "family": "프롬프트·컨텍스트 설계 계열",
+  "course": "AI"
+ },
+ "프롬프트 인젝션(Prompt Injection)": {
+  "group": "C3",
+  "type": "문제-해결",
+  "slot": "공격절차(입력 조작 → 경계 우회 → 유출) 위 유형(직접·간접·탈옥) 지점, 대응방안",
+  "target": "명령·데이터 구분 불가 약점·입력 검증·권한 분리·가드레일",
+  "pair": "MCP 보안취약점 및 대응방안",
+  "family": "AI 보안 위협 계열",
+  "course": "AI"
+ },
+ "프롬프트 튜닝(Prompt Tuning)": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "고정 모델 파라미터 + 학습 가능한 소프트 프롬프트 입력 갱신",
+  "target": "Prefix Tuning·P-Tuning·인컨텍스트 러닝",
+  "pair": "파인 튜닝(Fine-tuning)",
+  "family": "파인튜닝 기법 계열",
+  "course": "AI"
+ },
+ "프롭테크(Proptech)": {
+  "group": "C9",
+  "type": "활용 사례",
+  "slot": "내부 ICT 영역 기반 기술 / 외부 프로젝트 개발·투자 자금조달·중개 임대·부동산 관리, 경계 O2O",
+  "target": "직방·Zillow·WeWork",
+  "pair": "",
+  "family": "산업 융합 테크 계열",
+  "course": "DX"
+ },
+ "플랫폼 엔지니어링(Platform Engineering)": {
+  "group": "C7",
+  "type": "연관 비교",
+  "slot": "인프라(자동화·보안·모니터링) ↔ 내부 개발자 플랫폼 ↔ 개발팀(Cross Functional)",
+  "target": "DevOps·SRE",
+  "pair": "깃옵스(GitOps)",
+  "family": "",
+  "course": "DX"
+ },
+ "핑거프린팅(Fingerprinting)": {
+  "group": "C10",
+  "type": "문제-해결",
+  "slot": "유형 = 대칭형·비대칭형, 결합 = Watermarking 비교 축·공모 공격 유형",
+  "target": "공모 공격 → 공모 보안 코드·비대칭 핑거프린팅·추적 코드 설계",
+  "pair": "디지털 워터마킹(Digital Watermarking)",
+  "family": "콘텐츠·SW 보호 기술 계열",
+  "course": "SC"
+ },
+ "하네스 엔지니어링": {
+  "group": "C2",
+  "type": "실무 도구",
+  "slot": "입력 컨텍스트 → 하네스(가드레일·제약·피드백 루프) → 에이전트 실행 → 검증·재주입",
+  "target": "가드레일 도구·평가 하네스·HITL 검증 고리",
+  "pair": "컨텍스트 엔지니어링(Context Engineering)",
+  "family": "프롬프트·컨텍스트 설계 계열",
+  "course": "AI"
+ },
+ "하이퍼바이저(Hypervisor)": {
+  "group": "C1",
+  "type": "성공 전략",
+  "slot": "HW → 하이퍼바이저 → Guest OS 층, Type 1·Type 2 / 전·반가상화 강조",
+  "target": "Intel VT-x·Firecracker·VM 모니터링(VMI)",
+  "pair": "리눅스 컨테이너(Linux Container, LXC)",
+  "family": "서버 가상화 계열",
+  "course": "DX"
+ },
+ "한국형 데이터 스페이스(K-Data Space)": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "층 이름 거버넌스→비즈니스→기술 계층, 강조 층 신뢰 기반 교환(데이터 주권·연합형)",
+  "target": "마이데이터·소버린 클라우드·데이터 거래소",
+  "pair": "데이터 상호운용성과 데이터 이동권",
+  "family": "",
+  "course": "DB"
+ },
+ "할루시네이션(Hallucination)": {
+  "group": "C3",
+  "type": "실무 도구",
+  "slot": "데이터→학습→추론→생성 흐름 위 원인 화살표(불완전 데이터·과적합·맥락 부족)",
+  "target": "출력 검증 가드레일·팩트체크·HITL 검수",
+  "pair": "검색 증강 생성(RAG, Retrieval Augmented Generation)",
+  "family": "",
+  "course": "AI"
+ },
+ "함수적 종속성(Functional Dependency)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형명 완전·부분·이행·결정자·다치·조인 종속, 결합 대상 단계별 제거",
+  "target": "암스트롱 공리·정규화 단계",
+  "pair": "암스트롱 공리(Armstrong's Axioms)",
+  "family": "정규화 이론 계열",
+  "course": "DB"
+ },
+ "합성 데이터(Synthetic Data)": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "종류(완부복) × 생성방법(통계·베이지안·기계학습 모형) + 유용성·안전성 검증지표",
+  "target": "의료 데이터·금융 사기 탐지·자율주행 시뮬레이션",
+  "pair": "AI Ready Data",
+  "family": "",
+  "course": "AI"
+ },
+ "해밍코드(Hamming code)": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "메인 단계 패리티 위치 지정(2^p)→짝수 패리티 계산→전송→검사→오류 비트 반전, 하위 2^p ≥ d+p+1",
+  "target": "CRC",
+  "pair": "CRC(Cyclic Redundancy Check)",
+  "family": "오류 검출·정정 부호 계열",
+  "course": "NW"
+ },
+ "해시 솔트(Salt)와 키 스트레칭(Key Stretching)": {
+  "group": "C6",
+  "type": "활용 사례",
+  "slot": "단계 = Salt 추가 → 해시 → 반복 실행(Iteration Count) → 다이제스트",
+  "target": "PBKDF2·bcrypt·Argon2",
+  "pair": "해시 함수의 안전성",
+  "family": "",
+  "course": "SC"
+ },
+ "해시 함수의 안전성": {
+  "group": "C10",
+  "type": "문제-해결",
+  "slot": "유형 = 역상·제2역상·충돌 저항성, 결합 = 제1·제2 역상 공격",
+  "target": "MD5·SHA-1 충돌 공격 → SHA-2/SHA-3 전환",
+  "pair": "해시 솔트(Salt)와 키 스트레칭(Key Stretching)",
+  "family": "암호 안전성 원칙 계열",
+  "course": "SC"
+ },
+ "헤드리스 커머스(Headless Commerce)": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "프론트엔드(옴니 채널) 층 → API 층 → 커머스 백엔드 층(강조: API 분리 경계)",
+  "target": "MSA·CDN 엣지 렌더링",
+  "pair": "",
+  "family": "웹 아키텍처 계열",
+  "course": "DX"
+ },
+ "혼동행렬(Confusion Matrix)": {
+  "group": "C10",
+  "type": "문제-해결",
+  "slot": "실제 × 예측 2×2(TP·FP·FN·TN)와 평가 지표(Precision·Recall·F1·Kappa) 산출식",
+  "target": "정확도 역설·클래스 불균형·ROC-AUC 보완",
+  "pair": "클래스 불균형(Class Imbalance)",
+  "family": "AI 평가 지표 계열",
+  "course": "AI"
+ },
+ "화이트박스 테스트": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형명: 제어구조 테스트(구문·결정·조건)·루프 테스트 / 결합: 코드 커버리지 지표, 논리 흐름",
+  "target": "정적 분석 도구(SAST)·CI 커버리지 자동 측정",
+  "pair": "블랙박스 테스트",
+  "family": "테스트 기법 계열",
+  "course": "SE"
+ },
+ "활성화함수(Activation Function)": {
+  "group": "C10",
+  "type": "문제-해결",
+  "slot": "단극성(계단·시그모이드·ReLU) / 양극성(tanh·Leaky ReLU·PReLU) 유형",
+  "target": "기울기 소실·ReLU·Leaky ReLU·배치 정규화",
+  "pair": "손실함수(Loss Function)",
+  "family": "신경망 학습 요소 계열",
+  "course": "AI"
+ }
+}

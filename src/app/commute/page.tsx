@@ -8,6 +8,8 @@ import SourceBadge from "@/components/SourceBadge";
 import { loadReview, saveReview, markReviewed, getItem } from "@/lib/storage";
 import { domainLabel, domainOrder } from "@/lib/domains";
 import { planInfo, LEVEL_STYLE, LEVEL_HINT, levelOrder } from "@/lib/studyPlan";
+import { handDiagramsFor } from "@/data/handDiagrams";
+import { FRAME_BY_CODE, PARA_BY_NAME, frameOf, familyOf } from "@/data/answerFrames";
 
 type Card = {
   id: string;
@@ -209,7 +211,7 @@ export default function CommutePage() {
 
             {!flipped ? (
               <p className="mt-8 text-center text-sm text-slate-400">
-                👆 탭해서 정의·두음·키워드 확인
+                👆 탭해서 1 정의 → 2 개념도 → 2' 목차 → 3 돌려막기
               </p>
             ) : (
               <div className="mt-5">
@@ -238,8 +240,31 @@ export default function CommutePage() {
                     </p>
                   </div>
                 )}
-                {/* 교재 구획별 두음 — 두음신공 카드와 동일한 데이터 */}
-                {(card.sections || []).map((s, si) => {
+                {/* 교재 키워드 두음 — 정의 바로 아래 한 줄 */}
+                {card.mnemonic && (
+                  <div className="mb-4 flex items-center gap-2 rounded-2xl bg-gradient-to-br from-brand-50 to-slate-50 px-4 py-2.5">
+                    <span className="text-xs font-medium text-brand-500">교재 두음</span>
+                    <span className="text-2xl font-extrabold tracking-wide text-brand-700">{card.mnemonic}</span>
+                    <span className="truncate text-[11px] text-slate-500">{card.keywords.join(" · ")}</span>
+                  </div>
+                )}
+                {/* 2. 개념도 — 손글씨 개념도가 있으면(정리 노트에서 잘라 둔 것) */}
+                {handDiagramsFor(card.title).length > 0 && (
+                  <div className="mb-4">
+                    <div className="text-xs font-semibold text-slate-500">✏️ 2. 개념도 — 내 정리</div>
+                    <div className="mt-1 flex flex-wrap gap-2">
+                      {handDiagramsFor(card.title).map((src) => (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img key={src} src={src} alt={`${card.title} 손글씨 개념도`} className="max-h-48 rounded-xl border border-slate-200 bg-white object-contain" />
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {/* 2'. 목차 — 교재 표 캡션별 1열 항목(두음이 있으면 크게). 교재 키워드 묶음은 위 두음 줄로 대신한다 */}
+                {(card.sections || []).filter((s) => s.label !== "교재 키워드" && s.keywords.length > 0).length > 0 && (
+                  <div className="mb-1 text-xs font-semibold text-slate-500">📑 2&apos;. 목차 — 답안지에서 잘 쓰이는 차례</div>
+                )}
+                {(card.sections || []).filter((s) => s.label !== "교재 키워드" && s.keywords.length > 0).map((s, si) => {
                   const letters = [...(s.mnemonic || "").replace(/\s/g, "")];
                   const aligned = letters.length === s.keywords.length;
                   return (
@@ -283,6 +308,41 @@ export default function CommutePage() {
                     </p>
                   </div>
                 )}
+                {/* 3. 돌려막기 — 같은 틀로 3단락까지 같이 쓰는 묶음 토픽, 3단락 유형·대상·짝(answerFrames) */}
+                {(() => {
+                  const f = frameOf(card.title);
+                  if (!f) return null;
+                  const g = FRAME_BY_CODE[f.group];
+                  const fam = familyOf(card.title);
+                  return (
+                    <div className="mt-4 rounded-2xl border border-slate-200 p-3">
+                      <div className="flex flex-wrap items-center gap-1.5 text-xs font-semibold text-slate-500">
+                        🧩 3. 돌려막기
+                        <span className={`rounded-full border px-2 py-0.5 text-[11px] ${g.cls}`}>{g.code} {g.name}</span>
+                        <span className="rounded-full border border-slate-300 bg-slate-50 px-2 py-0.5 text-[11px] text-slate-700">3단락 · {f.type}</span>
+                      </div>
+                      <p className="mt-1.5 text-sm text-slate-800">
+                        <span className="text-slate-400">{PARA_BY_NAME[f.type]?.title ?? ""} → </span>
+                        <b>{f.target || "—"}</b>
+                      </p>
+                      {f.pair && (
+                        <p className="mt-1 text-[12px] text-slate-600">
+                          짝·충돌 <Link href={`/explain?topic=${encodeURIComponent(f.pair)}`} onClick={(e) => e.stopPropagation()} className="rounded-full border border-indigo-200 bg-indigo-50 px-2 py-0.5 text-indigo-700">{f.pair.replace(/\s*[(（][^)）]*[)）]\s*$/, "")}</Link>
+                        </p>
+                      )}
+                      {fam.length > 0 && (
+                        <div className="mt-1.5 flex flex-wrap items-center gap-1 text-[12px]">
+                          <span className="text-slate-400">🔁 {f.family}</span>
+                          {fam.map((t) => (
+                            <Link key={t} href={`/explain?topic=${encodeURIComponent(t)}`} onClick={(e) => e.stopPropagation()} className={`rounded-full border px-2 py-0.5 ${g.cls}`}>
+                              {t.replace(/\s*[(（][^)）]*[)）]\s*$/, "")}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })()}
               </div>
             )}
           </div>

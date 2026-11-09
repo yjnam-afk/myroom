@@ -43,6 +43,7 @@ import allQuestions from "@/data/questions.json";
 import { compareSetsFor, memoryTablesFor, type MapLink } from "@/lib/topicMapLinks";
 import type { MemoryTable } from "@/data/memoryTables";
 import topics from "@/data/topics.json";
+import { memoCardFor, type MemoCard } from "@/lib/memoCard";
 import flashcards from "@/data/flashcards.json";
 import answerExtras from "@/data/answerExtras.json";
 import { TOPIC_INTROS, type AnswerIntro } from "@/data/topicIntros";
@@ -648,6 +649,8 @@ export type SheetRow = {
   past: number;
   /** 가장 최근 출제 표기(예: 19기 2주차 1교시 5번) */
   last?: string;
+  /** 암기 카드 — 두음·손글씨 개념도·빈출 차례·돌려막기(정리표 압축 보기, 2026-11-09) */
+  memo: MemoCard;
 };
 export type SheetGroup = { code: string; label: string; week: number; rows: SheetRow[] };
 
@@ -684,6 +687,7 @@ export function buildSheet(): SheetGroup[] {
         : past.length
           ? `${Math.max(...past.map((p) => p.round))}회`
           : undefined,
+      memo: memoCardFor(s.title),
     };
     const c = courseOf(s);
     if (!byCourse.has(c)) byCourse.set(c, []);
