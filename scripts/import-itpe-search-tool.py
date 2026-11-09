@@ -122,7 +122,8 @@ for r in range(1, sh.nrows):
         # 해설집으로 31문항이 다 들어온 회차는 번호가 같으면 같은 문항(표기 차이)이라 건너뛴다. 덜 들어온 회차(84회)만 빈 번호를 준다
         full = sum(1 for q in Q if q["id"].startswith(f"c{rd}-")) >= 31
         same = next((q for q in Q if q["id"] == base), None)
-        if full or same is None or norm(same["text"]) == norm(text0) or norm(text0) in have: continue
+        have_rd = {norm(q["text"]) for q in Q if q["id"].startswith(f"c{rd}-")}
+        if full or same is None or norm(same["text"]) == norm(text0) or norm(text0) in have_rd: continue
         cid = next((f"c{rd}-{per[0]}{n:02d}" for n in range(1, 40) if f"c{rd}-{per[0]}{n:02d}" not in ids), None)
         if not cid: continue
     else:
