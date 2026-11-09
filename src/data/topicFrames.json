@@ -197,6 +197,15 @@
   "family": "AI 주도 개발 방법론 계열",
   "course": "SE"
  },
+ "AIC(Akaike information Criterion) & BIC(Bayesian information Criterion)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "AIC(2p 패널티) ↔ BIC(log(n)p 패널티), 적합도·복잡도 축",
+  "target": "교차 검증·정규화 회귀(Ridge·Lasso) 모델 선택",
+  "pair": "회귀분석(Regression Analysis)",
+  "family": "",
+  "course": "ST"
+ },
  "AMI(Advanced Metering Infrastructure) 2.0": {
   "group": "C1",
   "type": "연관 비교",
@@ -223,6 +232,15 @@
   "pair": "벡터 데이터베이스(Vector Database)",
   "family": "",
   "course": "DB"
+ },
+ "ANOVA(Analysis of variance)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "조건 정규·등분산·독립 [정등독] / F검정 / 유형 단일변량·다변량·독립·종속변수",
+  "target": "t-검정·카이제곱 검정",
+  "pair": "통계적 가설검정(Hypothesis Testing)",
+  "family": "추론 검정 기법 계열",
+  "course": "ST"
  },
  "ANSI/SPARC 모델(3-단계 데이터베이스 구조) / 데이터 독립성": {
   "group": "C1",
@@ -287,6 +305,15 @@
   "family": "기능안전 등급 계열",
   "course": "DX"
  },
+ "AVL 트리": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "회전 타입 LL·RR·LR·RL, Balance factor",
+  "target": "Red-Black 트리",
+  "pair": "이진 탐색 트리(Binary Search Tree)",
+  "family": "탐색 트리 계열",
+  "course": "DS"
+ },
  "AX(AI Transformation)": {
   "group": "C6",
   "type": "성공 전략",
@@ -314,6 +341,15 @@
   "family": "AI 운영 자동화 계열",
   "course": "AI"
  },
+ "B-Tree(Balanced Tree)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "구조 항목 m/2·분할·균형 유지, 삽입·삭제 연산",
+  "target": "DBMS 인덱스(B+Tree)·파일시스템",
+  "pair": "AVL 트리",
+  "family": "탐색 트리 계열",
+  "course": "DS"
+ },
  "BGP(Border Gateway Protocol)": {
   "group": "C5",
   "type": "문제-해결",
@@ -340,6 +376,24 @@
   "pair": "뮤테이션 테스트 (Mutation Test)",
   "family": "테스트 절차 계열",
   "course": "SE"
+ },
+ "Banker's 알고리즘(은행가 알고리즘)": {
+  "group": "C2",
+  "type": "문제-해결",
+  "slot": "입력 Request → Available·Max·Need·Allocation 안정상태 검사 → 할당·대기",
+  "target": "최대 요구량 사전 고지·프로세스 수 고정 한계 → 탐지·복구 병행",
+  "pair": "자원할당 그래프(Resource Allocation Graph)",
+  "family": "",
+  "course": "OS"
+ },
+ "Belady's Anomaly(FIFO 이상현상)": {
+  "group": "C11",
+  "type": "연관 비교",
+  "slot": "축 페이지 프레임 수 × page fault 수, FIFO 곡선 역증가 구간",
+  "target": "스택 알고리즘(LRU·OPT)과 FIFO",
+  "pair": "페이지 교체 알고리즘(Paging Replacement Algorithm)",
+  "family": "가상메모리 이상현상 계열",
+  "course": "OS"
  },
  "BrainBody LLM": {
   "group": "C4",
@@ -395,6 +449,15 @@
   "family": "",
   "course": "NW"
  },
+ "CISC vs RISC": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "CISC(마이크로 프로그램·가변 길이) ↔ RISC(하드와이어드·고정 길이)",
+  "target": "x86 서버·ARM 모바일·RISC-V 오픈 ISA",
+  "pair": "CPU 처리과정",
+  "family": "",
+  "course": "CA"
+ },
  "CMMI 3.0": {
   "group": "C1",
   "type": "연관 비교",
@@ -421,6 +484,33 @@
   "pair": "테스트 타임 스케일링(Test-Time Scaling, TTS)",
   "family": "",
   "course": "AI"
+ },
+ "CPU Ring Level": {
+  "group": "C1",
+  "type": "활용 사례",
+  "slot": "층 Ring 0(Kernel)·Ring 1·Ring 2·Ring 3(User), 시스템 호출 전환 화살표",
+  "target": "x86 보호 모드·하이퍼바이저 Ring -1·드라이버 권한 분리",
+  "pair": "커널(Kernel)",
+  "family": "커널·권한 계층 계열",
+  "course": "OS"
+ },
+ "CPU 스케줄링(CPU Scheduling)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "선점 RR·SRT·MLQ·MLFQ / 비선점 Priority·FCFS·SJF·HRN, 호위효과·기아",
+  "target": "Linux CFS·Windows MLFQ·RTOS",
+  "pair": "기한부(Deadline) 스케줄링",
+  "family": "스케줄링 알고리즘 계열",
+  "course": "OS"
+ },
+ "CPU 처리과정": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "메인 인출 사이클→실행 사이클, 하위 MAR·MBR·PC·IR 마이크로 연산",
+  "target": "파이프라인 중첩 실행·분기 예측",
+  "pair": "Pipeline(파이프라인)",
+  "family": "",
+  "course": "CA"
  },
  "CRC(Cyclic Redundancy Check)": {
   "group": "C6",
@@ -457,6 +547,15 @@
   "pair": "SECaaS(Security as a Service)",
   "family": "클라우드 보안 서비스 계열",
   "course": "SC"
+ },
+ "CXL(Compute Express Link) 3.0": {
+  "group": "C5",
+  "type": "연계 강화",
+  "slot": "호스트 ↔ CXL Fabric 스위치 ↔ Device, 메모리 Pooling·Sharing",
+  "target": "AI 가속기 메모리 공유·NUMA 확장",
+  "pair": "캐시 일관성(Cache Coherence)",
+  "family": "",
+  "course": "CA"
  },
  "Clean Architecture": {
   "group": "C1",
@@ -520,6 +619,15 @@
   "pair": "Apriori 알고리즘",
   "family": "연관 규칙 알고리즘 계열",
   "course": "DB"
+ },
+ "DMA(Direct Memory Access)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "연결 방식 단일버스분리식·통합형·입출력버스 / Burst·Cycle Stealing·Interleaved",
+  "target": "IOMMU·RDMA",
+  "pair": "캐시 플러시(Cache Flush)",
+  "family": "",
+  "course": "CA"
  },
  "DMARC(Domain-based Message Authentication, Reporting and Conformance)": {
   "group": "C8",
@@ -737,6 +845,15 @@
   "family": "플랫폼형 서비스 계열",
   "course": "DX"
  },
+ "HA(High Availability)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "구성 유형 Hot Standby·Mutual Takeover·Concurrent Access + Heart-beat",
+  "target": "Oracle RAC·Pacemaker·클라우드 가용영역 이중화",
+  "pair": "결함허용 컴퓨터(FTS)",
+  "family": "이중화·고가용성 계열",
+  "course": "CA"
+ },
  "HAZOP (Hazard and Operability Study)": {
   "group": "C6",
   "type": "성공 전략",
@@ -772,6 +889,15 @@
   "pair": "6G",
   "family": "",
   "course": "NW"
+ },
+ "I2C(Inter Integrated Circuit)와 SPI(Serial Peripheral Interface)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "I2C(SCL·SDA 공유 버스) ↔ SPI(CS·SCLK·MOSI·MISO 1:1)",
+  "target": "센서·EEPROM(I2C)·플래시·디스플레이(SPI)",
+  "pair": "DMA(Direct Memory Access)",
+  "family": "",
+  "course": "CA"
  },
  "IEC 61508": {
   "group": "C10",
@@ -1088,6 +1214,15 @@
   "family": "에이전트 프로토콜 계열",
   "course": "AI"
  },
+ "MESI": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "상태 Modified·Exclusive·Shared·Invalid 전이",
+  "target": "MOESI·MSI 프로토콜",
+  "pair": "캐시 일관성(Cache Coherence)",
+  "family": "캐시 메모리 계열",
+  "course": "CA"
+ },
  "MLOps": {
   "group": "C6",
   "type": "성공 전략",
@@ -1105,6 +1240,15 @@
   "pair": "AI 슈퍼컴퓨팅 플랫폼(Supercomputing Platform)",
   "family": "AI 평가 지표 계열",
   "course": "AI"
+ },
+ "MMU(Memory Management Unit)": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "입력 가상 주소 → TTB·페이지 테이블 검색 → 출력 물리 주소",
+  "target": "TLB·IOMMU·다단계 페이지 테이블",
+  "pair": "캐시(Cache) 메모리의 사상 방식(Mapping Scheme)",
+  "family": "",
+  "course": "CA"
  },
  "MOE(Mixture of Experts)": {
   "group": "C2",
@@ -1277,6 +1421,15 @@
   "family": "차원 축소 기법 계열",
   "course": "AI"
  },
+ "PCB(Process Control Block)": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "구성 PID·상태·PC·레지스터·스케줄링·계정·입출력·메모리(식상카레스계입메)",
+  "target": "프로세스 체크포인트·복원(CRIU)·마이그레이션",
+  "pair": "문맥교환(Context Switching)",
+  "family": "",
+  "course": "OS"
+ },
  "PCM(Pulse-Code Modulation)": {
   "group": "C6",
   "type": "연관 비교",
@@ -1331,6 +1484,24 @@
   "family": "피지컬 AI 계열",
   "course": "AI"
  },
+ "Pipeline Hazard": {
+  "group": "C10",
+  "type": "문제-해결",
+  "slot": "유형 구조적·데이터·제어 해저드(구데제) / 유형별 해결방안",
+  "target": "데이터·제어 해저드 → 레지스터 리네이밍·비순차 실행·분기 예측 버퍼",
+  "pair": "Pipeline(파이프라인)",
+  "family": "파이프라인 계열",
+  "course": "CA"
+ },
+ "Pipeline(파이프라인)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형 단일 파이프라인·슈퍼 파이프라인·슈퍼스칼라·VLIW 결합",
+  "target": "멀티코어·GPU SIMT 병렬 처리",
+  "pair": "Pipeline Hazard",
+  "family": "파이프라인 계열",
+  "course": "CA"
+ },
  "Product Line": {
   "group": "C6",
   "type": "활용 사례",
@@ -1366,6 +1537,24 @@
   "pair": "네트워크 슬라이싱",
   "family": "",
   "course": "NW"
+ },
+ "Queue": {
+  "group": "C2",
+  "type": "적용 분야",
+  "slot": "구성 Front·Rear, 유형 선형큐·순환큐·링크드리스트큐·덱(선순링덱)",
+  "target": "OS 프로세스 스케줄링·프린터 스풀링·네트워크 버퍼",
+  "pair": "Stack",
+  "family": "선형 자료구조 계열",
+  "course": "DS"
+ },
+ "RAID (Redundant Array of Independent Disks)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "종류 스트라이핑·미러링·해밍·패리티·분산 패리티·0+1·1+0",
+  "target": "이레이저 코딩(n+k)",
+  "pair": "이레이저 코딩(erasure coding)",
+  "family": "이중화·고가용성 계열",
+  "course": "CA"
  },
  "RAN(Radio Access Network) Sharing": {
   "group": "C10",
@@ -1655,6 +1844,15 @@
   "family": "TCP 제어 절차 계열",
   "course": "NW"
  },
+ "Stack": {
+  "group": "C2",
+  "type": "활용 사례",
+  "slot": "구성 Top·bottom, 연산 Push·Pop, Overflow",
+  "target": "함수 호출 스택·수식 괄호 검사·브라우저 뒤로가기",
+  "pair": "Queue",
+  "family": "선형 자료구조 계열",
+  "course": "DS"
+ },
  "TCP 연결의 설정 및 해제(Handshaking)": {
   "group": "C8",
   "type": "연관 비교",
@@ -1691,6 +1889,15 @@
   "family": "",
   "course": "SE"
  },
+ "TF-IDF(Term Frequency - Inverse Document Frequency)": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "메인 TF→IDF→TF×IDF→NORM→내적·코사인 거리, 하위 TDM",
+  "target": "BM25·워드 임베딩·RAG 검색",
+  "pair": "",
+  "family": "",
+  "course": "AL"
+ },
  "TLS/SSL(Secure Socket Layer)": {
   "group": "C2",
   "type": "로드맵",
@@ -1699,6 +1906,15 @@
   "pair": "IPSec",
   "family": "보안 프로토콜 계열",
   "course": "SC"
+ },
+ "TPU (Tensor Processing Unit)": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "입력 텐서 → MXU 승산 누적 연산 → 출력 / 구성요소",
+  "target": "HBM 고대역 메모리·LLM 학습 클러스터",
+  "pair": "지능형 반도체",
+  "family": "",
+  "course": "CA"
  },
  "Test Exit Criteria": {
   "group": "C10",
@@ -1808,6 +2024,15 @@
   "family": "",
   "course": "SC"
  },
+ "Wait-Die와 Wound-Wait": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "Wait-Die(Old 대기·Young 롤백) ↔ Wound-Wait(Old 선점·Young 대기)",
+  "target": "분산 DBMS 트랜잭션·분산 락 관리자",
+  "pair": "Banker's 알고리즘(은행가 알고리즘)",
+  "family": "교착상태 계열",
+  "course": "OS"
+ },
  "Wi-Fi 7(IEEE 802.11be)": {
   "group": "C1",
   "type": "연관 비교",
@@ -1861,6 +2086,24 @@
   "pair": "가명정보 처리 가이드라인",
   "family": "가명처리 계열",
   "course": "SC"
+ },
+ "가상메모리 관리기법": {
+  "group": "C10",
+  "type": "문제-해결",
+  "slot": "유형 할당(단일·다중)·배치(First·Best·Next·Worst)·호출(Demand·Pre)·교체",
+  "target": "스레싱 → Working Set·PFF·다중 프로그래밍 조절",
+  "pair": "가상메모리의 페이징과 세그멘테이션",
+  "family": "가상메모리 관리 계열",
+  "course": "OS"
+ },
+ "가상메모리의 페이징과 세그멘테이션": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "페이징(일정 크기·페이지 맵핑 테이블·내부 단편화) ↔ 세그멘테이션(가변·외부)",
+  "target": "페이지드 세그멘테이션·TLB",
+  "pair": "직접 사상과 연관 사상 페이징 기법",
+  "family": "가상메모리 관리 계열",
+  "course": "OS"
  },
  "가상융합산업 진흥법": {
   "group": "C5",
@@ -1978,6 +2221,33 @@
   "pair": "파인 튜닝(Fine-tuning)",
   "family": "검색 증강 생성 계열",
   "course": "AI"
+ },
+ "결측치(Missing Value)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "유형 결측 발생 양상 / 제거 방법 삭제·대체",
+  "target": "설문 무응답 처리·센서 결측 보간·의료 기록",
+  "pair": "이상치(Outlier)",
+  "family": "",
+  "course": "ST"
+ },
+ "결함허용 컴퓨터(FTS)": {
+  "group": "C6",
+  "type": "적용 분야",
+  "slot": "메인 결함 감지→진단→통제→복구(감진통복), 하위 HW·SW 관점별 기법",
+  "target": "항공우주 제어·의료기기·금융 거래 시스템",
+  "pair": "HA(High Availability)",
+  "family": "",
+  "course": "CA"
+ },
+ "경쟁조건(Race Condition) 해결 방안": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "SW 데커·피터슨·램포트 / HW Test&Set·CAS·인터럽트 금지·Spin Lock·Mutex",
+  "target": "Lock-free 자료구조·트랜잭셔널 메모리",
+  "pair": "세마포어(Semaphore)",
+  "family": "동기화 문제 계열",
+  "course": "OS"
  },
  "경험 기반 테스트": {
   "group": "C10",
@@ -2114,6 +2384,15 @@
   "family": "관계 데이터 언어 계열",
   "course": "DB"
  },
+ "교착상태(Deadlock)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "조건 상호배제·점유 대기·비선점·환형 대기(상점비환) / 예방·회피·발견·복구",
+  "target": "DBMS 락 교착 탐지·JVM 스레드 덤프",
+  "pair": "기아(Starvation)",
+  "family": "교착상태 계열",
+  "course": "OS"
+ },
  "국가 데이터 인프라(Data Infra)": {
   "group": "C5",
   "type": "연관 비교",
@@ -2132,6 +2411,24 @@
   "family": "",
   "course": "SC"
  },
+ "그래프 순회(Graph Traversal)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "BFS(큐·최단 경로) ↔ DFS(스택·재귀) 비교 축, BFS 동작 예",
+  "target": "다익스트라·위상 정렬·A* 확장",
+  "pair": "트리 순회(Tree Traversal)",
+  "family": "순회 계열",
+  "course": "AL"
+ },
+ "그리디(탐욕) 알고리즘": {
+  "group": "C6",
+  "type": "활용 사례",
+  "slot": "메인 해 선택→적정성 검사→해 검사 [해적검], 하위 거스름돈 예",
+  "target": "허프만 코딩·다익스트라·MST(프림·크루스칼)",
+  "pair": "동적 계획법(Dynamic Programming)",
+  "family": "탐욕 탐색 계열",
+  "course": "AL"
+ },
  "기밀컴퓨팅(Confidential Computing)": {
   "group": "C1",
   "type": "연계 강화",
@@ -2141,6 +2438,33 @@
   "family": "",
   "course": "SC"
  },
+ "기술 통계(Descriptive statistics)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "요약 중심경향값·변산도·분포 / 시각화 히스토그램·상자수염그림·산점도",
+  "target": "EDA 대시보드·품질 관리도·성적 분포 보고",
+  "pair": "추론 통계(Inferential Statistics)",
+  "family": "통계 분석 계열",
+  "course": "ST"
+ },
+ "기아(Starvation)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "원인 고순위 지속 진입·무한대기 / 해결 Aging·HRN·MLFQ",
+  "target": "교착상태·우선순위 역전",
+  "pair": "교착상태(Deadlock)",
+  "family": "동기화 문제 계열",
+  "course": "OS"
+ },
+ "기억장치 계층 구조 (Memory Hierarchy)": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "층 보조기억장치→주기억장치→캐시→CPU, 비용·속도·용량 축",
+  "target": "CXL 메모리 풀링·HBM·SSD 캐시 티어링",
+  "pair": "지역성(Locality)",
+  "family": "",
+  "course": "OS"
+ },
  "기울기 소실과 기울기 폭주": {
   "group": "C1",
   "type": "연계 강화",
@@ -2149,6 +2473,15 @@
   "pair": "활성화함수(Activation Function)",
   "family": "신경망 학습 안정화 계열",
   "course": "AI"
+ },
+ "기한부(Deadline) 스케줄링": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "실시간 System 경성·연성 / RM(주기 기반) ↔ EDF(마감 기한 기반)",
+  "target": "자동차 ECU·항공 제어·산업용 로봇 RTOS",
+  "pair": "CPU 스케줄링(CPU Scheduling)",
+  "family": "스케줄링 알고리즘 계열",
+  "course": "OS"
  },
  "기후테크": {
   "group": "C10",
@@ -2204,6 +2537,15 @@
   "family": "자율 네트워크 계열",
   "course": "NW"
  },
+ "다익스트라(Dijkstra) 알고리즘": {
+  "group": "C6",
+  "type": "문제-해결",
+  "slot": "메인 ∞ 설정→시작 정점 추가→인접 탐색→추가탐색, 하위 S·Q 집합",
+  "target": "음수 가중치 불가 → 벨만-포드·A* 휴리스틱",
+  "pair": "최소 신장 트리(MST, Minimum Spanning Tree)",
+  "family": "그래프 최적화 계열",
+  "course": "AL"
+ },
  "다중 서명(Multi Signature)": {
   "group": "C8",
   "type": "연계 강화",
@@ -2230,6 +2572,15 @@
   "pair": "객체지향 프로그래밍 특징",
   "family": "",
   "course": "SE"
+ },
+ "단편화(Fragmentation)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형 내부·외부 단편화 / 통합(Coalescing)·집약(Compaction) / 할당자",
+  "target": "JVM GC 압축·메모리 풀 할당",
+  "pair": "가상메모리의 페이징과 세그멘테이션",
+  "family": "",
+  "course": "OS"
  },
  "대규모 언어 모델(LLM) 성능 향상 기술": {
   "group": "C10",
@@ -2393,6 +2744,15 @@
   "family": "데이터 시각화 계열",
   "course": "DB"
  },
+ "데이터 유형": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형 범주(명목·순서)·수치(등간·비율) [명순등비] / 시간 횡단·시계열",
+  "target": "척도별 분석 기법 선택(카이제곱·상관·회귀)",
+  "pair": "연관성 분석(association analysis) - 기초통계",
+  "family": "",
+  "course": "ST"
+ },
  "데이터 전처리": {
   "group": "C6",
   "type": "연관 비교",
@@ -2555,6 +2915,15 @@
   "family": "서버 가상화 계열",
   "course": "DX"
  },
+ "동적 계획법(Dynamic Programming)": {
+  "group": "C2",
+  "type": "연관 비교",
+  "slot": "입력 부분 문제 → 점화식·해 저장(메모이제이션·타뷸레이션) → 최적해",
+  "target": "그리디·분할 정복",
+  "pair": "그리디(탐욕) 알고리즘",
+  "family": "",
+  "course": "AL"
+ },
  "동형 암호(Homomorphic Encryption)": {
   "group": "C10",
   "type": "적용 분야",
@@ -2572,6 +2941,15 @@
   "pair": "APT(Advanced Persistent Threat) 공격",
   "family": "단계형 사이버 공격 계열",
   "course": "SC"
+ },
+ "디스크 스케줄링(Disk Scheduling)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "기법 FCFS·SSTF·SCAN·N-Step SCAN·C-SCAN·LOOK·C-LOOK·SLTF, 장·단점",
+  "target": "SSD NCQ·NVMe 다중 큐 I/O 스케줄러",
+  "pair": "CPU 스케줄링(CPU Scheduling)",
+  "family": "스케줄링 알고리즘 계열",
+  "course": "OS"
  },
  "디자인 패턴 (Design Pattern)": {
   "group": "C10",
@@ -2771,6 +3149,15 @@
   "family": "",
   "course": "AI"
  },
+ "런랭스(Run Length) 코딩": {
+  "group": "C6",
+  "type": "활용 사례",
+  "slot": "메인 연속 구간 스캔→반복 횟수(LENGTH)+값(RUN) 출력, 하위 예제",
+  "target": "팩스·BMP/TIFF 이미지·바코드",
+  "pair": "허프만(Huffman) 코딩",
+  "family": "무손실 압축 계열",
+  "course": "AL"
+ },
  "레이더(RADAR) & 라이다(LiDAR)": {
   "group": "C10",
   "type": "연계 강화",
@@ -2843,6 +3230,15 @@
   "family": "",
   "course": "SE"
  },
+ "링크드 리스트(Linked List)": {
+  "group": "C2",
+  "type": "연관 비교",
+  "slot": "구성 노드(데이터+포인터)·Head, 삽입·삭제 포인터 수정 / Singly·Doubly·Circular",
+  "target": "배열(Array)",
+  "pair": "Stack",
+  "family": "선형 자료구조 계열",
+  "course": "DS"
+ },
  "마이 데이터(MyData)": {
   "group": "C5",
   "type": "적용 분야",
@@ -2888,6 +3284,15 @@
   "family": "학습 패러다임 계열",
   "course": "AI"
  },
+ "멀티 쓰레드(Multi-Thread)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형 Single Thread·IMT·BMT·SMT·CMP",
+  "target": "코루틴·경량 스레드(Go 고루틴)·GPU SIMT",
+  "pair": "프로세스(Process)와 스레드(Thread) 비교",
+  "family": "",
+  "course": "OS"
+ },
  "멀티 클라우드(Multi-Cloud)": {
   "group": "C10",
   "type": "연관 비교",
@@ -2914,6 +3319,24 @@
   "pair": "옴니모달(Omni-modal) AI",
   "family": "멀티모달 모델 계열",
   "course": "AI"
+ },
+ "메모리 단편화(Fragmentation)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형 내부·외부 단편화 / 해결 통합·압축·메모리 풀·버디·슬랩",
+  "target": "페이징(내부)·세그멘테이션(외부) 단편화 비교",
+  "pair": "메모리 인터리빙(Interleaving)",
+  "family": "",
+  "course": "CA"
+ },
+ "메모리 인터리빙(Interleaving)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형 상위·하위·혼합 인터리빙 / 접근 C-Access·S-Access",
+  "target": "DDR 멀티채널·HBM 뱅크 병렬",
+  "pair": "메모리 단편화(Fragmentation)",
+  "family": "",
+  "course": "CA"
  },
  "메타 데이터와 데이터 카탈로그": {
   "group": "C10",
@@ -2951,6 +3374,15 @@
   "family": "",
   "course": "SE"
  },
+ "문맥교환(Context Switching)": {
+  "group": "C8",
+  "type": "문제-해결",
+  "slot": "행위자 프로세스 P0·OS·P1, ①인터럽트 ②PCB 저장 ③PCB 복원 ④실행",
+  "target": "전환 오버헤드 → 스레드 경량화·TLB 태깅(ASID)·CPU 친화도",
+  "pair": "PCB(Process Control Block)",
+  "family": "",
+  "course": "OS"
+ },
  "뮤테이션 테스트 (Mutation Test)": {
   "group": "C2",
   "type": "연관 비교",
@@ -2987,6 +3419,15 @@
   "family": "",
   "course": "AI"
  },
+ "방향성 비순환 그래프(DAG, Directed Acyclic Graph)": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "메인 진입차수 0 큐 삽입→제거→차수 감소 반복, 하위 위상 정렬 결과",
+  "target": "PERT/CPM 일정 계산·블록체인 DAG",
+  "pair": "",
+  "family": "",
+  "course": "DS"
+ },
  "배치 정규화(Batch Normalization)": {
   "group": "C1",
   "type": "문제-해결",
@@ -2995,6 +3436,15 @@
   "pair": "Dropout",
   "family": "신경망 학습 안정화 계열",
   "course": "AI"
+ },
+ "버블 정렬(Bubble Sort)": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "메인 인접 비교→교환→큰 값 확정 회차, 하위 단계별 결과",
+  "target": "선택 정렬·삽입 정렬",
+  "pair": "삽입 정렬(Insertion Sort)",
+  "family": "정렬 알고리즘 계열",
+  "course": "AL"
  },
  "버티컬 AI(Vertical AI)": {
   "group": "C10",
@@ -3014,6 +3464,15 @@
   "family": "AI 위험관리 프레임워크 계열",
   "course": "AI"
  },
+ "베이즈 정리(Bayes's theorem)": {
+  "group": "C6",
+  "type": "활용 사례",
+  "slot": "메인 사전확률→우도→사후확률 [전우후], 하위 조건부·곱셈·전확률 [조곱전베]",
+  "target": "스팸 필터(나이브 베이즈)·의료 진단 검사",
+  "pair": "통계적 가설검정(Hypothesis Testing)",
+  "family": "",
+  "course": "ST"
+ },
  "벡터 데이터베이스(Vector Database)": {
   "group": "C2",
   "type": "연계 강화",
@@ -3022,6 +3481,15 @@
   "pair": "ANN(Approximate Nearest Neighbor) 알고리즘",
   "family": "",
   "course": "DB"
+ },
+ "병합 정렬(Merge Sort)": {
+  "group": "C6",
+  "type": "활용 사례",
+  "slot": "메인 분할 반복→병합 반복, 하위 단계별 과정",
+  "target": "외부 정렬·Java/Python TimSort·병렬 정렬",
+  "pair": "퀵 정렬(Quick Sort)",
+  "family": "정렬 알고리즘 계열",
+  "course": "AL"
  },
  "부채널 공격(Side Channel Attack)": {
   "group": "C10",
@@ -3113,6 +3581,24 @@
   "family": "데이터 시각화 계열",
   "course": "DB"
  },
+ "빅오 표기법(O-Notation)": {
+  "group": "C11",
+  "type": "연관 비교",
+  "slot": "축 입력 N × 연산 시간, 곡선 O(1)·O(log n)·O(n)·O(n log n)·O(n²)·O(2ⁿ)",
+  "target": "빅오메가·빅세타 표기",
+  "pair": "알고리즘 성능평가",
+  "family": "",
+  "course": "AL"
+ },
+ "빔 탐색(Beam Search)": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "메인 후보 생성→Beam size K 선택→나머지 삭제 반복, 하위 자연어 예",
+  "target": "LLM 디코딩·Transformer 기계 번역",
+  "pair": "그리디(탐욕) 알고리즘",
+  "family": "탐욕 탐색 계열",
+  "course": "AL"
+ },
  "사용성 평가": {
   "group": "C6",
   "type": "실무 도구",
@@ -3166,6 +3652,15 @@
   "pair": "APT(Advanced Persistent Threat) 공격",
   "family": "",
   "course": "SC"
+ },
+ "삽입 정렬(Insertion Sort)": {
+  "group": "C6",
+  "type": "연계 강화",
+  "slot": "메인 정렬된 부분 비교→Shift→삽입, 하위 단계별 데이터",
+  "target": "셸 정렬·TimSort 보조 정렬",
+  "pair": "버블 정렬(Bubble Sort)",
+  "family": "정렬 알고리즘 계열",
+  "course": "AL"
  },
  "상용 소프트웨어 직접구매 제도": {
   "group": "C5",
@@ -3275,6 +3770,15 @@
   "family": "거리 기반 분류·군집 알고리즘 계열",
   "course": "AI"
  },
+ "선형 자료구조와 비선형 자료구조": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "선형 Array·Linked List·스택(LIFO)·큐(FIFO) / 비선형 트리·그래프",
+  "target": "컴파일러·OS 스케줄링·DB 인덱스·네트워크 경로",
+  "pair": "링크드 리스트(Linked List)",
+  "family": "",
+  "course": "DS"
+ },
  "성능 테스트": {
   "group": "C6",
   "type": "실무 도구",
@@ -3283,6 +3787,15 @@
   "pair": "리그레이션(회귀, Regression) 테스트",
   "family": "테스트 절차 계열",
   "course": "SE"
+ },
+ "세마포어(Semaphore)": {
+  "group": "C8",
+  "type": "연관 비교",
+  "slot": "행위자 P1·P2 ↔ 세마포어 S, ①P(S) ②임계영역 ③V(S) ④대기 큐 깨움",
+  "target": "뮤텍스·모니터",
+  "pair": "경쟁조건(Race Condition) 해결 방안",
+  "family": "",
+  "course": "OS"
  },
  "소버린 AI(Artificial Intelligence)": {
   "group": "C1",
@@ -3410,6 +3923,15 @@
   "family": "공격 기법 유형 계열",
   "course": "SC"
  },
+ "스레싱(Thrashing)": {
+  "group": "C11",
+  "type": "연계 강화",
+  "slot": "축 다중 프로그래밍 정도 × CPU 이용율, 급락 구간 / Working Set·PFF",
+  "target": "컨테이너 메모리 제한(cgroup)·클라우드 오토스케일링",
+  "pair": "지역성(Locality)",
+  "family": "가상메모리 이상현상 계열",
+  "course": "OS"
+ },
  "스마트 시티(Smart City)": {
   "group": "C10",
   "type": "연계 강화",
@@ -3464,6 +3986,15 @@
   "family": "융합 환경 보안위협·대응 계열",
   "course": "SC"
  },
+ "스케줄러(Scheduler)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "유형 장기·중기·단기 스케줄러, 결합 프로세스 상태(생성·준비·실행·대기)",
+  "target": "Linux 스왑 아웃(중기)·배치 작업 큐(장기)·K8s 스케줄러",
+  "pair": "프로세스 상태 전이도",
+  "family": "프로세스 상태 전이 계열",
+  "course": "OS"
+ },
  "스테이블 코인(Stable coin)": {
   "group": "C10",
   "type": "연관 비교",
@@ -3472,6 +4003,15 @@
   "pair": "중앙은행 디지털화폐(CBDC: Central Bank Digital Currency)",
   "family": "디지털 화폐·토큰 계열",
   "course": "DX"
+ },
+ "시계열분석": {
+  "group": "C11",
+  "type": "활용 사례",
+  "slot": "축 시간 × 관측값, 추세·순환·계절·불규칙 [추순계불] / AR·MA·ARMA·ARIMA",
+  "target": "수요 예측·주가 분석·트래픽 예측",
+  "pair": "회귀분석(Regression Analysis)",
+  "family": "예측 모형 계열",
+  "course": "ST"
  },
  "시퀀스 다이어그램 (Sequence Diagram)": {
   "group": "C10",
@@ -3517,6 +4057,15 @@
   "pair": "디지털 포렌식(Digital Forensic)",
   "family": "",
   "course": "SC"
+ },
+ "알고리즘 성능평가": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "유형 시간복잡도·공간복잡도 / 점근 표기 O·Ω·Θ / 사례",
+  "target": "정렬·탐색 알고리즘 선택·DB 인덱스 설계",
+  "pair": "빅오 표기법(O-Notation)",
+  "family": "",
+  "course": "AL"
  },
  "암스트롱 공리(Armstrong's Axioms)": {
   "group": "C10",
@@ -3689,6 +4238,15 @@
   "family": "관계 모델 요소 계열",
   "course": "DB"
  },
+ "연관성 분석(association analysis) - 기초통계": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "유형 교차 분석(카이제곱·명목 척도) / 상관 분석(상관계수·수치 척도)",
+  "target": "설문 교차분석·품질 불량 요인 분석·마케팅 상관 분석",
+  "pair": "회귀분석(Regression Analysis)",
+  "family": "추론 검정 기법 계열",
+  "course": "ST"
+ },
  "연관성 분석(association analysis) - 데이터마이닝": {
   "group": "C10",
   "type": "활용 사례",
@@ -3797,6 +4355,15 @@
   "family": "멀티모달 모델 계열",
   "course": "AI"
  },
+ "왜도(Skewness) & 첨도(Kurtosis)": {
+  "group": "C11",
+  "type": "문제-해결",
+  "slot": "축 X × 밀도, 왜도 양·음 비대칭 곡선 / 첨도 뾰족·완만 곡선",
+  "target": "비정규 분포 → 로그·Box-Cox 변환·비모수 검정",
+  "pair": "정규분포(Normal Distribution)",
+  "family": "확률분포 계열",
+  "course": "ST"
+ },
  "요구공학 (Requirements Engineering)": {
   "group": "C6",
   "type": "연계 강화",
@@ -3805,6 +4372,24 @@
   "pair": "페르소나 (Persona)",
   "family": "요구공학 계열",
   "course": "SE"
+ },
+ "우선순위 역전(Priority Inversion) 현상": {
+  "group": "C8",
+  "type": "활용 사례",
+  "slot": "행위자 H·M·L 프로세스 + 자원, ①L 점유 ②H 대기 ③M 선점 번호 순",
+  "target": "화성 탐사선 Pathfinder 사례·RTOS 우선순위 상속",
+  "pair": "세마포어(Semaphore)",
+  "family": "",
+  "course": "OS"
+ },
+ "워치독 타이머(WDT, Watchdog timer)": {
+  "group": "C4",
+  "type": "활용 사례",
+  "slot": "대상 프로세서, 고리 Kick 감시→Time out 판단→Reset 조치",
+  "target": "자동차 ECU·IoT 센서 노드·서버 BMC",
+  "pair": "결함허용 컴퓨터(FTS)",
+  "family": "",
+  "course": "CA"
  },
  "월드 파운데이션 모델(World Foundation Model)": {
   "group": "C1",
@@ -3887,6 +4472,15 @@
   "family": "",
   "course": "DX"
  },
+ "유닉스의 inode": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "구성 소유 정보·number·state·owner·TimeStamp·size·Direct Block",
+  "target": "저널링 파일시스템·ext4 extent 매핑",
+  "pair": "파일 시스템(유닉스 파일시스템)",
+  "family": "",
+  "course": "OS"
+ },
  "유럽 디지털 3법": {
   "group": "C10",
   "type": "연관 비교",
@@ -3941,6 +4535,15 @@
   "family": "",
   "course": "SE"
  },
+ "이레이저 코딩(erasure coding)": {
+  "group": "C6",
+  "type": "활용 사례",
+  "slot": "메인 분할→인코딩(n+k)→분산 저장→디코딩, 하위 Reed-Solomon·Weaver",
+  "target": "Ceph·HDFS·클라우드 객체 스토리지",
+  "pair": "RAID (Redundant Array of Independent Disks)",
+  "family": "",
+  "course": "CA"
+ },
  "이벤트 스토밍(Event Storming)과 헥사고날(Hexagonal) 아키텍처": {
   "group": "C6",
   "type": "연관 비교",
@@ -3950,6 +4553,15 @@
   "family": "",
   "course": "SE"
  },
+ "이상치(Outlier)": {
+  "group": "C11",
+  "type": "연계 강화",
+  "slot": "축 사분위수 Q1·Q3·IQR 울타리, 상자수염 밖 값 / Percentile·Density·Clustering",
+  "target": "Isolation Forest·LOF·오토인코더 이상 탐지",
+  "pair": "결측치(Missing Value)",
+  "family": "",
+  "course": "ST"
+ },
  "이중 서명(Dual Signature)": {
   "group": "C8",
   "type": "활용 사례",
@@ -3958,6 +4570,15 @@
   "pair": "전자봉투(Digital Envelope)",
   "family": "키 교환·전자서명 계열",
   "course": "SC"
+ },
+ "이진 탐색 트리(Binary Search Tree)": {
+  "group": "C10",
+  "type": "문제-해결",
+  "slot": "성질 좌측 작고 우측 큼·재귀, 탐색 키 x 비교 순서",
+  "target": "편향 트리 → AVL·Red-Black 균형 트리",
+  "pair": "AVL 트리",
+  "family": "탐색 트리 계열",
+  "course": "DS"
  },
  "인공지능 경영시스템(ISO 42001:2023)": {
   "group": "C4",
@@ -4022,6 +4643,15 @@
   "family": "공공 AI 도입 절차 계열",
   "course": "AI"
  },
+ "인터럽트(Interrupt)": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "메인 요청→상태 저장→벡터 조회→ISR 실행→복귀, 하위 구성 모듈·우선순위",
+  "target": "폴링·트랩(소프트웨어 인터럽트)·DMA",
+  "pair": "문맥교환(Context Switching)",
+  "family": "",
+  "course": "OS"
+ },
  "인터미턴트 컴퓨팅(Intermittent Computing)": {
   "group": "C1",
   "type": "연관 비교",
@@ -4057,6 +4687,15 @@
   "pair": "트랜스포머(Transformer)",
   "family": "",
   "course": "AI"
+ },
+ "자원할당 그래프(Resource Allocation Graph)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "정점 프로세스·자원, 간선 요청·할당, 사이클 탐지",
+  "target": "Wait-for 그래프·DBMS 교착 탐지",
+  "pair": "Banker's 알고리즘(은행가 알고리즘)",
+  "family": "교착상태 계열",
+  "course": "OS"
  },
  "자율주행 자동차 보안취약점 및 대응방안": {
   "group": "C3",
@@ -4129,6 +4768,15 @@
   "pair": "접근 제어/접근 통제(Access Control)",
   "family": "",
   "course": "SC"
+ },
+ "정규분포(Normal Distribution)": {
+  "group": "C11",
+  "type": "활용 사례",
+  "slot": "축 X × f(x), 평균 중심 종모양 곡선, 표준편차 구간·Z값",
+  "target": "품질관리 6시그마·신뢰구간 추정·측정 오차 분석",
+  "pair": "중심극한정리",
+  "family": "확률분포 계열",
+  "course": "ST"
  },
  "정규화, 규제화, 표준화": {
   "group": "C10",
@@ -4238,6 +4886,15 @@
   "family": "DB 성능 설계 계열",
   "course": "DB"
  },
+ "중심극한정리": {
+  "group": "C11",
+  "type": "연관 비교",
+  "slot": "축 표본평균 × 밀도, 모집단 임의 분포 → 표본평균 정규 곡선, σ/√n",
+  "target": "대수의 법칙",
+  "pair": "정규분포(Normal Distribution)",
+  "family": "확률분포 계열",
+  "course": "ST"
+ },
  "중앙은행 디지털화폐(CBDC: Central Bank Digital Currency)": {
   "group": "C10",
   "type": "활용 사례",
@@ -4283,6 +4940,15 @@
   "family": "IoT 진화 계열",
   "course": "DX"
  },
+ "지능형 반도체": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "핵심 기술 스마트 인지·제어 / 스마트 통신 / 초고속 컴퓨팅 반도체",
+  "target": "자율주행·스마트 팩토리·엣지 디바이스",
+  "pair": "TPU (Tensor Processing Unit)",
+  "family": "",
+  "course": "CA"
+ },
  "지속적인 위협 노출 관리(CTEM)": {
   "group": "C4",
   "type": "성공 전략",
@@ -4300,6 +4966,24 @@
   "pair": "온디바이스 AI",
   "family": "",
   "course": "AI"
+ },
+ "지역성(Locality)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형 시간적·공간적·순차적 지역성 / 사례",
+  "target": "캐시 사상·프리페칭·Working Set",
+  "pair": "스레싱(Thrashing)",
+  "family": "",
+  "course": "OS"
+ },
+ "직접 사상과 연관 사상 페이징 기법": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "입력 가상 주소(페이지·변위) → 페이지 사상표·TLB → 출력 실주소",
+  "target": "다단계 페이지 테이블·MMU 하드웨어 변환",
+  "pair": "가상메모리의 페이징과 세그멘테이션",
+  "family": "",
+  "course": "OS"
  },
  "차량 사이버 보안 국제 표준(ISO 21434)": {
   "group": "C6",
@@ -4337,6 +5021,33 @@
   "family": "",
   "course": "AI"
  },
+ "최소 신장 트리(MST, Minimum Spanning Tree)": {
+  "group": "C6",
+  "type": "활용 사례",
+  "slot": "메인 프림(정점 확장) / 크루스칼(간선 오름차순·사이클 검사) 절차",
+  "target": "통신망 설계·클러스터링·회로 배선",
+  "pair": "다익스트라(Dijkstra) 알고리즘",
+  "family": "그래프 최적화 계열",
+  "course": "AL"
+ },
+ "추론 통계(Inferential Statistics)": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "기술 ↔ 추론 비교 / 방법 추정·가설 검정, 모수·비모수",
+  "target": "임상시험·품질관리·마케팅 A/B 테스트",
+  "pair": "기술 통계(Descriptive statistics)",
+  "family": "통계 분석 계열",
+  "course": "ST"
+ },
+ "추정 이론(Estimation Theory)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "방법 점 추정·구간 추정 [점구] / 추정량 조건 불편·효율·일치·충족 [불효일충]",
+  "target": "부트스트랩 재표집·베이즈 추정",
+  "pair": "통계적 가설검정(Hypothesis Testing)",
+  "family": "추론 검정 기법 계열",
+  "course": "ST"
+ },
  "카오스 엔지니어링 (Chaos Engineering)": {
   "group": "C4",
   "type": "활용 사례",
@@ -4354,6 +5065,51 @@
   "pair": "카오스 엔지니어링 (Chaos Engineering)",
   "family": "테스트 절차 계열",
   "course": "SE"
+ },
+ "캐시 일관성(Cache Coherence)": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "SW 기법 공유 캐시·공유변수 미사용 / HW 기법 디렉토리·스누피",
+  "target": "CXL 메모리 공유·NUMA 디렉토리 일관성",
+  "pair": "MESI",
+  "family": "캐시 메모리 계열",
+  "course": "CA"
+ },
+ "캐시 플러시(Cache Flush)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "캐시 상태 valid·dirty bit / Flush(invalidate) ↔ Clean(반영)",
+  "target": "DMA 전송 전 플러시·문맥교환·펌웨어 갱신",
+  "pair": "캐시메모리의 쓰기정책(Write Policy)",
+  "family": "캐시 메모리 계열",
+  "course": "CA"
+ },
+ "캐시(Cache) 메모리의 사상 방식(Mapping Scheme)": {
+  "group": "C10",
+  "type": "연관 비교",
+  "slot": "유형 직접 사상(태그·라인·단어)·완전 연관·집합 연관(세트)",
+  "target": "가상메모리 페이지 사상(직접·연관)·TLB",
+  "pair": "MMU(Memory Management Unit)",
+  "family": "캐시 메모리 계열",
+  "course": "CA"
+ },
+ "캐시메모리의 쓰기정책(Write Policy)": {
+  "group": "C10",
+  "type": "문제-해결",
+  "slot": "Write Through ↔ Write Back 기록 시점·일관성·성능",
+  "target": "Write Back 불일치 → Dirty bit·Write Buffer·스누핑",
+  "pair": "캐시 플러시(Cache Flush)",
+  "family": "캐시 메모리 계열",
+  "course": "CA"
+ },
+ "커널(Kernel)": {
+  "group": "C1",
+  "type": "연계 강화",
+  "slot": "층 응용·시스템 콜·커널·HW, 커널 층 안 프로세스·메모리·I/O·IPC·파일",
+  "target": "eBPF·컨테이너 격리(cgroup·namespace)",
+  "pair": "CPU Ring Level",
+  "family": "커널·권한 계층 계열",
+  "course": "OS"
  },
  "컨텍스트 엔지니어링(Context Engineering)": {
   "group": "C2",
@@ -4390,6 +5146,15 @@
   "pair": "데이터베이스 샤딩(Sharding)",
   "family": "DB 부하 분산 계열",
   "course": "DB"
+ },
+ "퀵 정렬(Quick Sort)": {
+  "group": "C6",
+  "type": "문제-해결",
+  "slot": "메인 Pivot 선택→분할→재귀 정복, 하위 용어 Pivot·Left·Right",
+  "target": "최악 편향 입력 → 랜덤 Pivot·Median-of-three·IntroSort",
+  "pair": "병합 정렬(Merge Sort)",
+  "family": "정렬 알고리즘 계열",
+  "course": "AL"
  },
  "클라우드 네이티브 구축운영 상세가이드('26.01)": {
   "group": "C6",
@@ -4544,6 +5309,15 @@
   "family": "",
   "course": "SE"
  },
+ "통계적 가설검정(Hypothesis Testing)": {
+  "group": "C6",
+  "type": "문제-해결",
+  "slot": "메인 가설 설정→검정통계량→유의확률→기각역 판정, 하위 용어·1·2종 오류",
+  "target": "p-해킹·다중 비교 → Bonferroni 보정·효과 크기·사전등록",
+  "pair": "추정 이론(Estimation Theory)",
+  "family": "",
+  "course": "ST"
+ },
  "튜링 테스트": {
   "group": "C8",
   "type": "연관 비교",
@@ -4570,6 +5344,15 @@
   "pair": "Isolation Level(격리 레벨)",
   "family": "",
   "course": "DB"
+ },
+ "트리 순회(Tree Traversal)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "유형 전위(Root-L-R)·중위(L-Root-R)·후위(L-R-Root) 비교",
+  "target": "수식 트리 계산·디렉터리 탐색·구문 분석",
+  "pair": "그래프 순회(Graph Traversal)",
+  "family": "순회 계열",
+  "course": "AL"
  },
  "트윈 트랜스포메이션(Twin Transformation)": {
   "group": "C10",
@@ -4598,6 +5381,15 @@
   "family": "파인튜닝 기법 계열",
   "course": "AI"
  },
+ "파일 시스템(유닉스 파일시스템)": {
+  "group": "C1",
+  "type": "활용 사례",
+  "slot": "층 부트 블록·슈퍼 블록·아이노드·데이터 블록, 파일 종류 일반·디렉토리·특수",
+  "target": "ext4 저널링·ZFS·NFS",
+  "pair": "유닉스의 inode",
+  "family": "",
+  "course": "OS"
+ },
  "패스키(Passkey)": {
   "group": "C8",
   "type": "활용 사례",
@@ -4625,6 +5417,15 @@
   "family": "요구공학 계열",
   "course": "SE"
  },
+ "페이지 교체 알고리즘(Paging Replacement Algorithm)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "교체 기법 OPT·Random·FIFO·LRU·LFU·NUR, 교체 대상·제외 페이지",
+  "target": "Linux Clock(LRU 근사)·Redis LFU·CDN 캐시",
+  "pair": "Belady's Anomaly(FIFO 이상현상)",
+  "family": "가상메모리 관리 계열",
+  "course": "OS"
+ },
  "페이지드 어텐션(Paged Attention)": {
   "group": "C2",
   "type": "활용 사례",
@@ -4651,6 +5452,42 @@
   "pair": "양자 암호(Quantum Cryptography)",
   "family": "암호 알고리즘 유형 계열",
   "course": "SC"
+ },
+ "표본 추출(Sampling)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "확률 단순·층화·계통·집락 [단층계집] / 비확률 눈덩이·편의·할당·유의·판단 [눈편할유판]",
+  "target": "여론조사·품질 검사 샘플링·A/B 테스트",
+  "pair": "추정 이론(Estimation Theory)",
+  "family": "",
+  "course": "ST"
+ },
+ "프로세스 상태 전이도": {
+  "group": "C10",
+  "type": "연계 강화",
+  "slot": "유형 생성·준비·실행·대기·종료, 결합 Dispatch·Timeout·I/O 전이 라벨",
+  "target": "Suspended 상태 확장·Java 스레드 상태 모델",
+  "pair": "스케줄러(Scheduler)",
+  "family": "프로세스 상태 전이 계열",
+  "course": "OS"
+ },
+ "프로세스(Process)와 스레드(Thread) 비교": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "프로세스(자원 할당 단위·PCB) ↔ 스레드(실행 단위·TCB) 비교 축",
+  "target": "Nginx 멀티프로세스·Java 멀티스레드·Chrome 탭 격리",
+  "pair": "멀티 쓰레드(Multi-Thread)",
+  "family": "",
+  "course": "OS"
+ },
+ "프로세스간 통신(IPC)": {
+  "group": "C5",
+  "type": "활용 사례",
+  "slot": "주체 프로세스 A·커널·프로세스 B, 구역 공유 메모리(mmap) ↔ 메시지 전달(파이프·큐·소켓)",
+  "target": "Android Binder·Chrome 프로세스 격리·MSA 메시지 큐",
+  "pair": "프로세스(Process)와 스레드(Thread) 비교",
+  "family": "",
+  "course": "OS"
  },
  "프롬프트 엔지니어링(Prompt Engineering)": {
   "group": "C2",
@@ -4778,6 +5615,15 @@
   "family": "",
   "course": "SC"
  },
+ "해시 테이블": {
+  "group": "C2",
+  "type": "연계 강화",
+  "slot": "입력 해시 키 → 해시함수 → 버킷(고정길이) 출력, 충돌·오버플로우",
+  "target": "블룸 필터·분산 해시 테이블(DHT)·Redis",
+  "pair": "해싱과 충돌해결방법",
+  "family": "",
+  "course": "AL"
+ },
  "해시 함수의 안전성": {
   "group": "C10",
   "type": "문제-해결",
@@ -4786,6 +5632,24 @@
   "pair": "해시 솔트(Salt)와 키 스트레칭(Key Stretching)",
   "family": "암호 안전성 원칙 계열",
   "course": "SC"
+ },
+ "해싱과 충돌해결방법": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "해싱 기법 [나폴리는 중세기다] / 충돌 해결 개방 주소(선·이·중·무)·체이닝·버킷",
+  "target": "Java HashMap 체이닝·Python dict 개방 주소법",
+  "pair": "해시 테이블",
+  "family": "",
+  "course": "AL"
+ },
+ "허프만(Huffman) 코딩": {
+  "group": "C6",
+  "type": "연관 비교",
+  "slot": "메인 빈도 계산→최소 빈도 쌍 결합→트리→부호 할당, 하위 사례",
+  "target": "산술 부호화·LZW",
+  "pair": "런랭스(Run Length) 코딩",
+  "family": "무손실 압축 계열",
+  "course": "AL"
  },
  "헤드리스 커머스(Headless Commerce)": {
   "group": "C1",
@@ -4814,6 +5678,24 @@
   "family": "테스트 기법 계열",
   "course": "SE"
  },
+ "확률분포": {
+  "group": "C10",
+  "type": "적용 분야",
+  "slot": "유형 이산(베르누이·이항·포아송)·연속(정규·표준정규·T·카이제곱·F) [이연 베이포 정표T카F]",
+  "target": "품질관리·신뢰성 공학·대기행렬 분석",
+  "pair": "확률분포와 확률 밀도 함수",
+  "family": "",
+  "course": "ST"
+ },
+ "확률분포와 확률 밀도 함수": {
+  "group": "C11",
+  "type": "연계 강화",
+  "slot": "축 확률변수 값 × 확률, PMF 막대 ↔ PDF 곡선 면적",
+  "target": "커널 밀도 추정·몬테카를로 시뮬레이션",
+  "pair": "확률분포",
+  "family": "확률분포 계열",
+  "course": "ST"
+ },
  "활성화함수(Activation Function)": {
   "group": "C10",
   "type": "문제-해결",
@@ -4822,5 +5704,23 @@
   "pair": "손실함수(Loss Function)",
   "family": "신경망 학습 요소 계열",
   "course": "AI"
+ },
+ "회귀분석(Regression Analysis)": {
+  "group": "C11",
+  "type": "문제-해결",
+  "slot": "축 독립변수 X × 종속변수 Y, 산점·최소제곱 회귀선·잔차 / 가정 [선정독등공]",
+  "target": "가정 위반(다중공선성·이분산) → 변수 선택·변환·로버스트 회귀",
+  "pair": "연관성 분석(association analysis) - 기초통계",
+  "family": "예측 모형 계열",
+  "course": "ST"
+ },
+ "힙(Heap)": {
+  "group": "C10",
+  "type": "활용 사례",
+  "slot": "최대 힙 ↔ 최소 힙, 완전 이진 트리·삽입 후 비교·치환",
+  "target": "우선순위 큐·힙 정렬·다익스트라",
+  "pair": "이진 탐색 트리(Binary Search Tree)",
+  "family": "",
+  "course": "DS"
  }
 }
