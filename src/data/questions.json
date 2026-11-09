@@ -165451,5 +165451,500 @@
   "cohort": "19기",
   "date": "2026-11-08",
   "text": "데이터 주권 확보를 위한 데이터 스페이스(Data Space) 도입 논의가 확대되고 있다. 데이터 공유·활용 패러다임 전환을 위한 데이터 스페이스의 개념과 필요성을 설명하고, 지역·산업 간 데이터 교환·활용과 상호운용성 확보를 위한 한국형 데이터 스페이스(K-Data Space) 참조모델을 제시하시오. 또한 초기 실증ㆍ표준화에서 민간 중심 확산으로 이어지는 추진전략을 수립하시오."
+ },
+ {
+  "id": "c140-102",
+  "period": "1교시",
+  "category": "인공지능",
+  "source": "140회 1교시",
+  "round": "컴시응 140회",
+  "track": "컴퓨터시스템응용",
+  "text": "NPU(Neural Processing Unit)"
+ },
+ {
+  "id": "c140-104",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "140회 1교시",
+  "round": "컴시응 140회",
+  "track": "컴퓨터시스템응용",
+  "text": "CI/CD(Continuous Integration/Continuous Delivery, Deployment)"
+ },
+ {
+  "id": "c140-107",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "140회 1교시",
+  "round": "컴시응 140회",
+  "track": "컴퓨터시스템응용",
+  "text": "5세대 이동통신 네트워크 슬라이싱(5G Network Slicing)"
+ },
+ {
+  "id": "c140-109",
+  "period": "1교시",
+  "category": "보안",
+  "source": "140회 1교시",
+  "round": "컴시응 140회",
+  "track": "컴퓨터시스템응용",
+  "text": "국가 망 보안체계(N2SF, National Network Security Framework)"
+ },
+ {
+  "id": "c140-112",
+  "period": "1교시",
+  "category": "보안",
+  "source": "140회 1교시",
+  "round": "컴시응 140회",
+  "track": "컴퓨터시스템응용",
+  "text": "개인정보보호위원회 『가명정보 처리 가이드라인』 상의 가명정보 처리 단계"
+ },
+ {
+  "id": "c140-204",
+  "period": "2교시",
+  "category": "인공지능",
+  "source": "140회 2교시",
+  "round": "컴시응 140회",
+  "track": "컴퓨터시스템응용",
+  "text": "피지컬 AI(Physical AI)에 대한 다음 사항들을 설명하시오.\n가. 피지컬 AI의 개념\n나. 피지컬 AI와 전통적 산업용 로봇의 비교\n다. 피지컬 AI와 소프트웨어 기반 AI의 비교"
+ },
+ {
+  "id": "c140-305",
+  "period": "3교시",
+  "category": "컴퓨터구조",
+  "source": "140회 3교시",
+  "round": "컴시응 140회",
+  "track": "컴퓨터시스템응용",
+  "text": "가용성(Availability) Five Nines(99.999%) 달성을 위한 이중화 아키텍처 구조와 위험요소, 성능 평가 방안을 설명하시오."
+ },
+ {
+  "id": "c138-103",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "138회 1교시",
+  "round": "컴시응 138회",
+  "track": "컴퓨터시스템응용",
+  "text": "MLOps와 DevOps를 비교"
+ },
+ {
+  "id": "c138-202",
+  "period": "2교시",
+  "category": "인공지능",
+  "source": "138회 2교시",
+  "round": "컴시응 138회",
+  "track": "컴퓨터시스템응용",
+  "text": "대규모 언어 모델(LLM)이 서버·클라우드·엣지 환경에 적용되면서 새로운 보안 및 운영 문제가 발생하고 있다. OWASP의 LLM보안 위협을 중심으로 다음 사항을 설명하시오.\n가. LLM이 컴퓨터시스템 자원에 미치는 영향\n나. 주요 위협과 시스템 수준의 발생 원인\n다. LLM 보안 위협에 대한 대응방안"
+ },
+ {
+  "id": "c138-204",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "138회 2교시",
+  "round": "컴시응 138회",
+  "track": "컴퓨터시스템응용",
+  "text": "Benchmark Test, PoC(Proof of Concept), PilotTest의 차이점을 비교하고, 프로젝트 수행 시 통합 적용하는 시나리오를 제시하시오."
+ },
+ {
+  "id": "c138-402",
+  "period": "4교시",
+  "category": "운영체제",
+  "source": "138회 4교시",
+  "round": "컴시응 138회",
+  "track": "컴퓨터시스템응용",
+  "text": "운영체제에서 동기화에 대하여 다음 사항을 설명하시오.\n가. 개념 및 필요성\n나. 주요 기법"
+ },
+ {
+  "id": "c119-403",
+  "period": "4교시",
+  "category": "인공지능",
+  "source": "119회 4교시",
+  "round": "컴시응 119회",
+  "track": "컴퓨터시스템응용",
+  "text": "딥러닝(Deep Learning) 가중치 학습을 위한 경사하강법(Gradient Descent)에 대하여 다음을 설명하시오\n 1) 경사하강법의 개념\n 2) 경사하강법에서 오버슈팅(Overshooting)을 방지하는 방법\n 3) 경사하강법에서 지역 최소점(Local Minimum)에 빠지지 않고 본래의 최소점에 도달하기 위한 기법"
+ },
+ {
+  "id": "c119-404",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "119회 4교시",
+  "round": "컴시응 119회",
+  "track": "컴퓨터시스템응용",
+  "text": "개발단계 소프트웨어의 소스코드 품질평가 및 신뢰도 측정방법에 대해 설명하시오"
+ },
+ {
+  "id": "c114-108",
+  "period": "1교시",
+  "category": "운영체제",
+  "source": "114회 1교시",
+  "round": "컴시응 114회",
+  "track": "컴퓨터시스템응용",
+  "text": "TLB(Translation Lookaside buffer)"
+ },
+ {
+  "id": "c114-111",
+  "period": "1교시",
+  "category": "보안",
+  "source": "114회 1교시",
+  "round": "컴시응 114회",
+  "track": "컴퓨터시스템응용",
+  "text": "DRDoS(Distributed Reflection DoS)"
+ },
+ {
+  "id": "c114-203",
+  "period": "2교시",
+  "category": "경영전략",
+  "source": "114회 2교시",
+  "round": "컴시응 114회",
+  "track": "컴퓨터시스템응용",
+  "text": "아웃소싱에 의해 IT서비스를 제공받고 있는 기업에서 서비스 업무를 제고하기 위한 방안으로 ITSM(IT Service Management)을 구축하고자 한다. 검토될 수 있는 모델의 특징을 기술하고, ITSM을 성공적으로 구축하기 위한 요건들을 설명하시오."
+ },
+ {
+  "id": "c113-113",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "113회 1교시",
+  "round": "컴시응 113회",
+  "track": "컴퓨터시스템응용",
+  "text": "SDDC(Software Defined Data Center)"
+ },
+ {
+  "id": "c113-202",
+  "period": "2교시",
+  "category": "경영전략",
+  "source": "113회 2교시",
+  "round": "컴시응 113회",
+  "track": "컴퓨터시스템응용",
+  "text": "품질관리이론에서 프로세스 관리 관점의 PDCA(Plan Do Check Action) Cycle에 대하여 설명하시오."
+ },
+ {
+  "id": "c111-102",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "111회 1교시",
+  "round": "컴시응 111회",
+  "track": "컴퓨터시스템응용",
+  "text": "FPGA(Field Programmable Gate Array)"
+ },
+ {
+  "id": "c111-111",
+  "period": "1교시",
+  "category": "보안",
+  "source": "111회 1교시",
+  "round": "컴시응 111회",
+  "track": "컴퓨터시스템응용",
+  "text": "디지털 포렌식(Digital Forensic)"
+ },
+ {
+  "id": "c111-112",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "111회 1교시",
+  "round": "컴시응 111회",
+  "track": "컴퓨터시스템응용",
+  "text": "디지털 트윈(Digital Twin)"
+ },
+ {
+  "id": "c111-306",
+  "period": "3교시",
+  "category": "데이터베이스",
+  "source": "111회 3교시",
+  "round": "컴시응 111회",
+  "track": "컴퓨터시스템응용",
+  "text": "다음은 컴퓨터에서 사용되는 제품에 대해 여러 개의 주문서가 접수된 내용을 보여주는\" 주문목록\" 초기 테이블이다. 각각의 물음에 답하시오.\n\n\n\n\n\n\n\n\n\n가. 1차 정규화된 테이블과 E-R 다이어그램을 표현하시오.\n나. 2차 정규화된 테이블과 E-R 다이어그램을 표현하시오.\n다. 3차 정규화된 테이블과 E-R 다이어그램을 표현하시오."
+ },
+ {
+  "id": "c110-107",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "110회 1교시",
+  "round": "컴시응 110회",
+  "track": "컴퓨터시스템응용",
+  "text": "CDC(Change Data Capture)에 대해 설명하시오."
+ },
+ {
+  "id": "c110-402",
+  "period": "4교시",
+  "category": "운영체제",
+  "source": "110회 4교시",
+  "round": "컴시응 110회",
+  "track": "컴퓨터시스템응용",
+  "text": "운영체제에서 문맥(context)의 내용, 문맥교환(context switch)의 과정 및 문맥교환이 발생하는 조건을 설명하시오."
+ },
+ {
+  "id": "c108-404",
+  "period": "4교시",
+  "category": "컴퓨터구조",
+  "source": "108회 4교시",
+  "round": "컴시응 108회",
+  "track": "컴퓨터시스템응용",
+  "text": "CPU의 동작을 감시하는 워치독 타이머(Watchdog timer)에 대하여 기술하고 하드웨어 구현방법을 설명하시오."
+ },
+ {
+  "id": "c108-405",
+  "period": "4교시",
+  "category": "프로젝트관리",
+  "source": "108회 4교시",
+  "round": "컴시응 108회",
+  "track": "컴퓨터시스템응용",
+  "text": "최근 프로젝트의 위험성을 최소화하기 위해 PMO(Project Management Office)활성화에 대한 방안이\n여러 분야에서 논의되고 있다. PMO에 대해서 기술하고, 정보시스템감리 유형 중 상주감리와의 차이점을 설명하시오.\n또한 PMO를 활성화하기 위한 방안에 대해 설명하시오."
+ },
+ {
+  "id": "c107-405",
+  "period": "4교시",
+  "category": "보안",
+  "source": "107회 4교시",
+  "round": "컴시응 107회",
+  "track": "컴퓨터시스템응용",
+  "text": "소프트웨어 시스템을 공격하는 부채널 공격의 유형을 서술하고, 공격에 대한 대응방법을 설명하시오."
+ },
+ {
+  "id": "c107-406",
+  "period": "4교시",
+  "category": "경영전략",
+  "source": "107회 4교시",
+  "round": "컴시응 107회",
+  "track": "컴퓨터시스템응용",
+  "text": "IT포트폴리오의 개념과 유형, 관리활동을 설명하시오."
+ },
+ {
+  "id": "c105-113",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "105회 1교시",
+  "round": "컴시응 105회",
+  "track": "컴퓨터시스템응용",
+  "text": "MC/DC (Modified Condition / Decision Coverage)"
+ },
+ {
+  "id": "c105-404",
+  "period": "4교시",
+  "category": "소프트웨어공학",
+  "source": "105회 4교시",
+  "round": "컴시응 105회",
+  "track": "컴퓨터시스템응용",
+  "text": "하자보증(Warranty)과 유지보수(Maintenance)를 구분하고, 소프트웨어 유지보수 유형\n(긴급 유지보수, 수정 유지보수, 적응 유지보수, 완전 유지보수)과 보고 및 행정 절차에 대하여 설명하시오."
+ },
+ {
+  "id": "c104-111",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "104회 1교시",
+  "round": "컴시응 104회",
+  "track": "컴퓨터시스템응용",
+  "text": "데이터 거래소에 대하여 설명하시오."
+ },
+ {
+  "id": "c104-202",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "source": "104회 2교시",
+  "round": "컴시응 104회",
+  "track": "컴퓨터시스템응용",
+  "text": "공통감리절차 중 시정조치확인 과정에 대하여 설명하시오."
+ },
+ {
+  "id": "c104-301",
+  "period": "3교시",
+  "category": "소프트웨어공학",
+  "source": "104회 3교시",
+  "round": "컴시응 104회",
+  "track": "컴퓨터시스템응용",
+  "text": "소프트웨어개발방법론에 있어서 방법론 테일러링(Tailoring)의 필요성과 테일러링 시 고려사항을 설명하시오."
+ },
+ {
+  "id": "c104-303",
+  "period": "3교시",
+  "category": "컴퓨터구조",
+  "source": "104회 3교시",
+  "round": "컴시응 104회",
+  "track": "컴퓨터시스템응용",
+  "text": "CPU의 파이프라인 처리 시에 발생할 수 있는 구조적 해저드와 데이터 해저드, 제어 해저드를 설명하시오."
+ },
+ {
+  "id": "c101-110",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "101회 1교시",
+  "round": "컴시응 101회",
+  "track": "컴퓨터시스템응용",
+  "text": "AMI(Advanced Metering Infrastructure)에 대하여 설명하시오."
+ },
+ {
+  "id": "c99-110",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "99회 1교시",
+  "round": "컴시응 99회",
+  "track": "컴퓨터시스템응용",
+  "text": "DaaS(Desktop as a Service)"
+ },
+ {
+  "id": "c99-306",
+  "period": "3교시",
+  "category": "보안",
+  "source": "99회 3교시",
+  "round": "컴시응 99회",
+  "track": "컴퓨터시스템응용",
+  "text": "개인정보영향평가(PIA : Privacy Impact Assessment)의 목적, 평가대상, 평가단계 및 평가절차에 대하여 설명하시오."
+ },
+ {
+  "id": "c99-401",
+  "period": "4교시",
+  "category": "운영체제",
+  "source": "99회 4교시",
+  "round": "컴시응 99회",
+  "track": "컴퓨터시스템응용",
+  "text": "실시간 스케줄링(Real Time Scheduling) 문제 중 하나인 우선순위전도(Priority Inversion) 상황 시나리오를 설명하고 이에 대한 해결기법 2가지를 제시하시오."
+ },
+ {
+  "id": "c98-105",
+  "period": "1교시",
+  "category": "디지털서비스",
+  "source": "98회 1교시",
+  "round": "컴시응 98회",
+  "track": "컴퓨터시스템응용",
+  "text": "HTML5에 대하여 설명하시오."
+ },
+ {
+  "id": "c98-111",
+  "period": "1교시",
+  "category": "운영체제",
+  "source": "98회 1교시",
+  "round": "컴시응 98회",
+  "track": "컴퓨터시스템응용",
+  "text": "세마포어(Semaphore)와 모니터(Monitor)의 상호관계를 설명하시오."
+ },
+ {
+  "id": "c98-112",
+  "period": "1교시",
+  "category": "자료구조",
+  "source": "98회 1교시",
+  "round": "컴시응 98회",
+  "track": "컴퓨터시스템응용",
+  "text": "B-tree, B+-Tree를 비교하여 설명하시오."
+ },
+ {
+  "id": "c98-303",
+  "period": "3교시",
+  "category": "운영체제",
+  "source": "98회 3교시",
+  "round": "컴시응 98회",
+  "track": "컴퓨터시스템응용",
+  "text": "운영체제(OS)에서 수행되는 문맥교환(Context Switching)의 개념과 절차,\n문맥교환이 필요한 상황에 대하여 설명하시오."
+ },
+ {
+  "id": "c98-405",
+  "period": "4교시",
+  "category": "데이터베이스",
+  "source": "98회 4교시",
+  "round": "컴시응 98회",
+  "track": "컴퓨터시스템응용",
+  "text": "데이터베이스에서의 무결성(Integrity)개념과 종류, 그리고 무결성을 유지하는 방법에 대하여 설명하시오."
+ },
+ {
+  "id": "c96-401",
+  "period": "4교시",
+  "category": "네트워크",
+  "source": "96회 4교시",
+  "round": "컴시응 96회",
+  "track": "컴퓨터시스템응용",
+  "text": "CPU가 명령을 수행하기 위한 파이프라이닝(Pipelining)의 개념과 파이프라이닝을 방해하는 위험 요소에 대하여 설명하시오."
+ },
+ {
+  "id": "c95-102",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "95회 1교시",
+  "round": "컴시응 95회",
+  "track": "컴퓨터시스템응용",
+  "text": "FMEA (Failure Mode and Effect Analysis)"
+ },
+ {
+  "id": "c93-103",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "source": "93회 1교시",
+  "round": "컴시응 93회",
+  "track": "컴퓨터시스템응용",
+  "text": "ISO 26262"
+ },
+ {
+  "id": "c92-305",
+  "period": "3교시",
+  "category": "네트워크",
+  "source": "92회 3교시",
+  "round": "컴시응 92회",
+  "track": "컴퓨터시스템응용",
+  "text": "모바일컴퓨팅(Mobile Computing) 발전동향 및 기업체의 적용사례를 설명하시오."
+ },
+ {
+  "id": "c90-109",
+  "period": "1교시",
+  "category": "운영체제",
+  "source": "90회 1교시",
+  "round": "컴시응 90회",
+  "track": "컴퓨터시스템응용",
+  "text": "TLB(Translation Look-aside Buffer)"
+ },
+ {
+  "id": "c89-205",
+  "period": "2교시",
+  "category": "컴퓨터구조",
+  "source": "89회 2교시",
+  "round": "컴시응 89회",
+  "track": "컴퓨터시스템응용",
+  "text": "DMA(Direct Memory Access) 동작모드의 종류를 나열하고 DMA Controller와 연관시켜 설명하시오."
+ },
+ {
+  "id": "c89-303",
+  "period": "3교시",
+  "category": "보안",
+  "source": "89회 3교시",
+  "round": "컴시응 89회",
+  "track": "컴퓨터시스템응용",
+  "text": "악성댓글의 특징, 방지방법 및 분류시스템 구축절차에 대하여 설명하시오."
+ },
+ {
+  "id": "c89-305",
+  "period": "3교시",
+  "category": "네트워크",
+  "source": "89회 3교시",
+  "round": "컴시응 89회",
+  "track": "컴퓨터시스템응용",
+  "text": "멀티프로세서 시스템 구성을 위한 3차원 Hypercube 토폴로지를 구성하고 노드번호 부여방법 및 라우팅 방법에 대하여 설명하시오."
+ },
+ {
+  "id": "c83-104",
+  "period": "1교시",
+  "category": "데이터베이스",
+  "source": "83회 1교시",
+  "round": "컴시응 83회",
+  "track": "컴퓨터시스템응용",
+  "text": "MDM(Master Data Management)"
+ },
+ {
+  "id": "c83-206",
+  "period": "2교시",
+  "category": "경영전략",
+  "source": "83회 2교시",
+  "round": "컴시응 83회",
+  "track": "컴퓨터시스템응용",
+  "text": "웹프로그래밍에 있어, OR-Mapping 의 필요성과 구현단계에서 적용되는 기술에 대하여 설명하시오."
+ },
+ {
+  "id": "c81-110",
+  "period": "1교시",
+  "category": "프로젝트관리",
+  "source": "81회 1교시",
+  "round": "컴시응 81회",
+  "track": "컴퓨터시스템응용",
+  "text": "소프트웨어 형상관리"
+ },
+ {
+  "id": "c81-113",
+  "period": "1교시",
+  "category": "네트워크",
+  "source": "81회 1교시",
+  "round": "컴시응 81회",
+  "track": "컴퓨터시스템응용",
+  "text": "네트워크의 QoS(Quality of Service)"
  }
 ]

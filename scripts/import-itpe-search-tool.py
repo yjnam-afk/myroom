@@ -119,7 +119,12 @@ for r in range(1, sh.nrows):
     if base in ids: continue
     cid = base
     rec = {"id": cid, "period": per, "category": "", "source": f"{rd}회 {per}", "round": f"컴시응 {rd}회", "track": "컴퓨터시스템응용"}
-    if add(rec, clean(tx)): ids.add(cid)
+    # 기출은 문장이 같아도 넣는다 — 정보관리와 같은 문장인 컴시응 문항(140회 7문항 등 90여 개)을 「같은 문장」 규칙이 버렸다(2026-11-09 "컴시응 기출문제 사이트에 안 올렸어?")
+    # 번호가 없는 행(125회처럼 「x」 id)은 같은 회차에 같은 문장이 있으면 그 문항이다 — 그때만 문장으로 거른다
+    text = clean(tx)
+    if not norm(text): continue
+    if k is None and norm(text) in have: continue
+    rec["text"] = text; rec["category"] = category(text); new.append(rec); ids.add(cid)
 
 c = collections.Counter((x.get("kind") or "기출", x.get("track", "")) for x in new)
 print(len(new), dict(c))
