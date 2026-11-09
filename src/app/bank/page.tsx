@@ -13,6 +13,7 @@ import { matchSubnoteTitle } from "@/lib/matchSubnote";
 import { TIERS, type Tier, PRIOS, type Prio, freqTier, prioOf, FREQ_DESC, PRIO_STARS } from "@/lib/questionMeta";
 import { QuestionBadges, QuestionMyNotes } from "@/components/QuestionMeta";
 import { kindOf, roundOf } from "@/lib/questionText";
+import { DOMAINS } from "@/lib/domains";
 
 type Q = {
   id: string;
@@ -53,6 +54,11 @@ const MODES = [
   },
 ] as const;
 
+// 과목(도메인) — 13과목 + 모의·파이널에 아직 남은 「신기술」 + 과목이 빈 「미분류」(2026-11-09 "문제은행도 도메인 선택 가능하게 해줘")
+const DOMAIN_LABELS = DOMAINS.map((d) => d.label);
+const DOMAIN_KEYS = [...DOMAIN_LABELS, "신기술", "미분류"] as const;
+const domKey = (q: Q) => (DOMAIN_LABELS.includes(q.category) ? q.category : q.category === "신기술" ? "신기술" : "미분류");
+
 function shuffle<T>(arr: T[]): T[] {
   const a = arr.slice();
   for (let i = a.length - 1; i > 0; i--) {
@@ -68,6 +74,7 @@ export default function BankPage() {
   const [srcs, setSrcs] = useState<Set<string>>(new Set(KINDS));
   const [tiers, setTiers] = useState<Set<Tier>>(new Set(TIERS));
   const [prios, setPrios] = useState<Set<Prio>>(new Set(PRIOS));
+  const [doms, setDoms] = useState<Set<string>>(new Set(DOMAIN_KEYS));
   const [drawn, setDrawn] = useState<Q[]>([]);
   const [drew, setDrew] = useState(false);
 
@@ -79,9 +86,10 @@ export default function BankPage() {
           (mode.periods as readonly string[]).includes(q.period) &&
           srcs.has(kindOf(q)) &&
           tiers.has(freqTier(q.id)) &&
-          prios.has(prioOf(q.id)),
+          prios.has(prioOf(q.id)) &&
+          doms.has(domKey(q)),
       ),
-    [mode, srcs, tiers, prios],
+    [mode, srcs, tiers, prios, doms],
   );
 
   function draw() {
@@ -103,6 +111,15 @@ export default function BankPage() {
     setTiers(next);
   }
 
+  function toggleDom(d: string) {
+    const next = new Set(doms);
+    next.has(d) ? next.delete(d) : next.add(d);
+    if (next.size === 0) return;
+    setDoms(next);
+  }
+  /** 한 과목만 — 칩을 더블클릭하면 그 과목만 켠다 */
+  const onlyDom = (d: string) => setDoms(new Set([d]));
+
   function togglePrio(t: Prio) {
     const next = new Set(prios);
     next.has(t) ? next.delete(t) : next.add(t);
@@ -110,7 +127,7 @@ export default function BankPage() {
     setPrios(next);
   }
 
-  const inScope = (q: Q) => (mode.periods as readonly string[]).includes(q.period) && srcs.has(kindOf(q));
+  const inScope = (q: Q) => (mode.periods as readonly string[]).includes(q.period) && srcs.has(kindOf(q)) && doms.has(domKey(q));
 
   function pickMode(m: (typeof MODES)[number]) {
     setMode(m);
@@ -171,6 +188,45 @@ export default function BankPage() {
                 >
                   {on ? "✓ " : ""}
                   {k} <span className="opacity-60">({n})</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* 과목 — 클릭은 켜고 끄기, 더블클릭은 그 과목만, 「전체」는 다 켜기 */}
+        <div className="mb-4">
+          <div className="mb-2 text-xs font-semibold text-slate-500">
+            과목 <span className="font-normal text-slate-400">· 클릭 = 켜고 끄기 · 더블클릭 = 그 과목만</span>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setDoms(new Set(DOMAIN_KEYS))}
+              className={`rounded-lg border px-3 py-1.5 text-xs font-semibold transition ${
+                doms.size === DOMAIN_KEYS.length ? "border-slate-500 bg-slate-100 text-slate-700" : "border-slate-200 text-slate-400 hover:bg-slate-50"
+              }`}
+            >
+              전체
+            </button>
+            {DOMAIN_KEYS.map((d) => {
+              const on = doms.has(d);
+              const n = POOL.filter(
+                (q) => (mode.periods as readonly string[]).includes(q.period) && srcs.has(kindOf(q)) && tiers.has(freqTier(q.id)) && prios.has(prioOf(q.id)) && domKey(q) === d,
+              ).length;
+              if (!n && (d === "신기술" || d === "미분류")) return null;
+              return (
+                <button
+                  key={d}
+                  onClick={() => toggleDom(d)}
+                  onDoubleClick={() => onlyDom(d)}
+                  className={`rounded-lg border px-3 py-1.5 text-xs font-semibold transition ${
+                    on
+                      ? "border-emerald-500 bg-emerald-50 text-emerald-700"
+                      : "border-slate-200 text-slate-400 hover:bg-slate-50"
+                  } ${d === "미분류" || d === "신기술" ? "border-dashed" : ""}`}
+                >
+                  {on ? "✓ " : ""}
+                  {d} <span className="opacity-60">({n})</span>
                 </button>
               );
             })}
@@ -264,7 +320,7 @@ export default function BankPage() {
         </Button>
         {candidates.length === 0 && (
           <p className="mt-2 text-xs text-rose-500">
-            선택한 조건에 해당하는 문제가 없어요. 출처·중요도·빈출을 더 켜보세요.
+            선택한 조건에 해당하는 문제가 없어요. 출처·과목·중요도·빈출을 더 켜보세요.
           </p>
         )}
       </div>
