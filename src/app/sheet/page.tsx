@@ -2,15 +2,14 @@ import Link from "next/link";
 import { PageHeader } from "@/components/ui";
 import { buildSheet } from "@/lib/explainData";
 import AnswerTable from "@/components/AnswerTable";
-import { FRAME_BY_CODE } from "@/data/answerFrames";
 
 /**
  * 도메인별 토픽 정리표 — 손으로 쓰던 서브노트(엑셀식 정리)를 앱 한 페이지에 옮긴 것.
  *
  * 기본 보기는 「암기 카드」(2026-11-09 "답안지를 암기할만한 모든 수단을 다 활용해야 한다"):
- *   1. 정의(+교재 두음)  2. 개념도(손글씨가 있으면, 없으면 개념도 틀)  2'. 목차 — 답안지에서 가장 잘 쓰이는 차례
- *   (교재 표 캡션 → 1열 항목, 서술형 지문이 자주 요구한 차례가 먼저)  3. 돌려막기 — 3단락 유형·대상·짝·같은 틀 묶음
- *   예) 교착상태: 정의 → 발생 조건(상호배제·점유 대기·비선점·환형 대기) → 해결 방안(예방·회피·발견·회복)
+ *   1. 정의(+교재 두음)  2. 개념도 — 손글씨가 있으면 붙이고 없으면 빈칸(2026-11-10 "개념도 어차피 못 그릴 거 같으니 내가 그때그때 추가할게. 빈칸으로")
+ *   3. 자주 나오는 문제 유형 — 교시별 출제 수와 서술형 지문이 실제로 물은 항목·유형(2026-11-10 "목차는 저게 뭐야. 자주 나오는 문제 유형을 차라리 보여줘라")
+ *   돌려막기 칸은 뺐다("도움도 안 되네") — 토픽 설명의 FrameCard 에서 본다.
  * 「펼친 표」(?full=1)는 예전처럼 본론 3단표 전체를 보여 준다.
  * 자료는 빌드 때 서브노트에서 뽑는다(AI 호출 없음, 정적 페이지).
  */
@@ -24,7 +23,6 @@ const IMP_CHIP: Record<string, string> = {
 };
 
 const topicHref = (t: string) => `/explain?topic=${encodeURIComponent(t)}`;
-const bare = (t: string) => t.replace(/\s*[(（][^)）]*[)）]\s*$/, "");
 
 export default function SheetPage({ searchParams }: { searchParams?: { full?: string } }) {
   const full = searchParams?.full === "1";
@@ -38,7 +36,7 @@ export default function SheetPage({ searchParams }: { searchParams?: { full?: st
         desc={
           full
             ? `심화반 교재 토픽 ${total}개 — 한 줄에 정의·키워드·본론 3단표를 모두 넣은 서브노트식 정리.`
-            : `심화반 교재 토픽 ${total}개 — 암기 카드: 1 정의(두음) · 2 개념도 · 2' 목차(답안지에서 가장 잘 쓰이는 차례) · 3 돌려막기(같은 틀로 3단락까지 같이 쓰는 토픽). 토픽 이름을 누르면 설명으로 갑니다.`
+            : `심화반 교재 토픽 ${total}개 — 암기 카드: 1 정의(두음) · 2 개념도(내 정리, 없으면 빈칸) · 3 자주 나오는 문제 유형(교시별 출제 수, 서술형이 실제로 물은 항목). 토픽 이름을 누르면 설명으로 갑니다.`
         }
       />
 
@@ -88,10 +86,9 @@ export default function SheetPage({ searchParams }: { searchParams?: { full?: st
                   ) : (
                     <tr>
                       <th className="w-[9.5rem] border border-slate-300 px-2 py-1.5">토픽</th>
-                      <th className="w-[15rem] border border-slate-300 px-2 py-1.5">1. 정의 · 두음</th>
-                      <th className="w-[9rem] border border-slate-300 px-2 py-1.5">2. 개념도</th>
-                      <th className="border border-slate-300 px-2 py-1.5">2&apos;. 목차 — 답안지에서 잘 쓰이는 차례</th>
-                      <th className="w-[15rem] border border-slate-300 px-2 py-1.5">3. 돌려막기 · 3단락</th>
+                      <th className="w-[17rem] border border-slate-300 px-2 py-1.5">1. 정의 · 두음</th>
+                      <th className="w-[14rem] border border-slate-300 px-2 py-1.5">2. 개념도 (내 정리)</th>
+                      <th className="border border-slate-300 px-2 py-1.5">3. 자주 나오는 문제 유형</th>
                     </tr>
                   )}
                 </thead>
@@ -182,74 +179,56 @@ export default function SheetPage({ searchParams }: { searchParams?: { full?: st
                             {r.memo.memo && <div className="mt-1 text-[10.5px] text-slate-500">💡 {r.memo.memo}</div>}
                           </td>
 
-                          {/* 2. 개념도 — 손글씨 개념도, 없으면 개념도 틀(그룹·슬롯) */}
+                          {/* 2. 개념도 — 손글씨 개념도가 있으면 붙이고, 없으면 빈칸(사용자가 그때그때 더한다) */}
                           <td className="border border-slate-300 px-2 py-1.5">
-                            {r.memo.hand.length > 0 ? (
+                            {r.memo.hand.length > 0 && (
                               <div className="flex flex-wrap gap-1">
                                 {r.memo.hand.map((src) => (
                                   <a key={src} href={src} target="_blank" rel="noreferrer" title="손글씨 개념도 — 새 탭에서 크게">
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img src={src} alt={`${r.title} 손글씨 개념도`} className="h-20 rounded border border-slate-200 bg-white object-contain" loading="lazy" />
+                                    <img src={src} alt={`${r.title} 손글씨 개념도`} className="h-24 rounded border border-slate-200 bg-white object-contain" loading="lazy" />
                                   </a>
                                 ))}
                               </div>
-                            ) : r.memo.frame ? (
-                              <div className="text-[10.5px] text-slate-600">
-                                <span className={`rounded-full border px-1.5 py-0.5 font-semibold ${FRAME_BY_CODE[r.memo.frame.group].cls}`}>
-                                  {r.memo.frame.group} {r.memo.frame.groupName}
-                                </span>
-                                <div className="mt-1 text-slate-500">{r.memo.frame.slot}</div>
-                              </div>
-                            ) : (
-                              <span className="text-[10px] text-slate-300">—</span>
                             )}
                           </td>
 
-                          {/* 2'. 목차 — 교재 표 캡션 → 1열 항목. 서술형 지문이 자주 요구한 차례가 먼저(빈출 n) */}
+                          {/* 3. 자주 나오는 문제 유형 — 교시별 출제 수, 서술형 지문이 실제로 물은 항목(많은 순)과 요구 유형 */}
                           <td className="border border-slate-300 px-2 py-1.5 text-slate-800">
-                            {r.memo.toc.length === 0 && <span className="text-[10px] text-slate-300">표 없음</span>}
-                            {r.memo.toc.map((t, ti) => (
-                              <div key={ti} className={ti ? "mt-1" : ""}>
-                                <span className={`font-bold ${t.asked > 0 ? "text-slate-900" : "text-slate-600"}`}>{t.label}</span>
-                                {t.asked > 0 && <span className="ml-1 rounded bg-rose-50 px-1 text-[9.5px] font-bold text-rose-600">빈출 {t.asked}</span>}
-                                {t.mnemonic && <span className="ml-1 rounded bg-brand-50 px-1 text-[10px] font-bold text-brand-700">{t.mnemonic}</span>}
-                                <span className="text-slate-400">: </span>
-                                <span>{t.items.join(" · ")}</span>
-                              </div>
-                            ))}
-                          </td>
-
-                          {/* 3. 돌려막기 — 3단락 유형·대상·짝, 같은 틀 묶음 */}
-                          <td className="border border-slate-300 px-2 py-1.5 text-slate-700">
-                            {r.memo.frame ? (
+                            {r.memo.asks.short + r.memo.asks.long === 0 ? (
+                              <span className="text-[10px] text-slate-300">출제 기록 없음</span>
+                            ) : (
                               <>
-                                <div>
-                                  <span className="font-bold text-slate-800">3단락 · {r.memo.frame.type}</span>
-                                  {r.memo.frame.target && <div className="text-slate-600">→ {r.memo.frame.target}</div>}
-                                </div>
-                                {r.memo.frame.pair && (
-                                  <div className="mt-1 text-[10.5px]">
-                                    짝{" "}
-                                    <Link href={topicHref(r.memo.frame.pair)} className="rounded-full border border-indigo-200 bg-indigo-50 px-1.5 py-0.5 text-indigo-700 hover:bg-indigo-100">
-                                      {bare(r.memo.frame.pair)}
-                                    </Link>
-                                  </div>
-                                )}
-                                {r.memo.frame.members.length > 0 && (
-                                  <div className="mt-1 text-[10.5px]">
-                                    <span className="text-slate-400">🔁 {r.memo.frame.family} </span>
-                                    <span className="inline-flex flex-wrap gap-1 align-middle">
-                                      {r.memo.frame.members.map((m) => (
-                                        <Link key={m} href={topicHref(m)} className={`rounded-full border px-1.5 py-0.5 hover:underline ${FRAME_BY_CODE[r.memo.frame!.group].cls}`}>
-                                          {bare(m)}
-                                        </Link>
-                                      ))}
+                                <div className="flex flex-wrap items-center gap-1 text-[10.5px]">
+                                  {r.memo.asks.short > 0 && (
+                                    <span className="rounded bg-slate-100 px-1.5 py-0.5 font-semibold text-slate-600">1교시 {r.memo.asks.short}</span>
+                                  )}
+                                  {r.memo.asks.long > 0 && (
+                                    <span className="rounded bg-rose-50 px-1.5 py-0.5 font-semibold text-rose-700">서술형 {r.memo.asks.long}</span>
+                                  )}
+                                  {r.memo.asks.kinds.map((k) => (
+                                    <span key={k.label} className="rounded-full border border-slate-200 px-1.5 py-0.5 text-slate-500">
+                                      {k.label} {k.n}
                                     </span>
-                                  </div>
+                                  ))}
+                                </div>
+                                {r.memo.asks.items.length > 0 && (
+                                  <ol className="mt-1 space-y-0.5">
+                                    {r.memo.asks.items.map((it, ii) => (
+                                      <li key={ii} className="flex items-baseline gap-1.5">
+                                        <span className={`shrink-0 rounded px-1 text-[9.5px] font-bold ${it.n >= 3 ? "bg-rose-100 text-rose-700" : it.n === 2 ? "bg-amber-100 text-amber-700" : "bg-slate-100 text-slate-500"}`}>
+                                          {it.n}회
+                                        </span>
+                                        <span className={it.n >= 2 ? "font-semibold text-slate-900" : ""}>{it.label}</span>
+                                        {it.variants.length > 0 && <span className="text-[10px] text-slate-400">({it.variants.join(" / ")})</span>}
+                                      </li>
+                                    ))}
+                                  </ol>
+                                )}
+                                {r.memo.asks.long > 0 && r.memo.asks.items.length === 0 && (
+                                  <div className="mt-1 text-[10.5px] text-slate-400">서술형 지문이 토픽 자체(개념·특징)만 물었다</div>
                                 )}
                               </>
-                            ) : (
-                              <span className="text-[10px] text-slate-300">틀 미정</span>
                             )}
                           </td>
                         </>
