@@ -1,19 +1,19 @@
-import { Fragment } from "react";
 import Link from "next/link";
 import { PageHeader } from "@/components/ui";
 import { buildSheet } from "@/lib/explainData";
 import AnswerTable from "@/components/AnswerTable";
+import SheetCards from "./SheetCards";
 
 /**
  * 도메인별 토픽 정리표 — 손으로 쓰던 서브노트(엑셀식 정리)를 앱 한 페이지에 옮긴 것.
  *
- * 기본 보기는 「암기 카드」(2026-11-09 "답안지를 암기할만한 모든 수단을 다 활용해야 한다"):
- *   1. 정의(+교재 두음)  2. 개념도 — 손글씨가 있으면 붙이고 없으면 빈칸(2026-11-10 "개념도 어차피 못 그릴 거 같으니 내가 그때그때 추가할게. 빈칸으로")
- *   3. 자주 나오는 문제 — 실제 출제 지문을 같은 문제끼리 묶어 많이 나온 순(2026-11-10 "목차는 저게 뭐야. 자주 나오는 문제 유형을 차라리 보여줘라" → "문제 자체를 말한건데")
- *   🔗 함께 출제 묶음 — 같은 문항에 2번 이상 같이 나온 토픽끼리 붙여 두고, 머리 줄에 엮이는 짝과 실제로 엮여 나온 문제를 보인다
+ * 기본 보기는 「암기 카드」(SheetCards — 2026-11-09 "답안지를 암기할만한 모든 수단을 다 활용해야 한다"):
+ *   정의(+교재 두음) · 개념도 — 손글씨가 있으면 붙이고 없으면 빈칸(2026-11-10 "개념도 어차피 못 그릴 거 같으니 내가 그때그때 추가할게. 빈칸으로")
+ *   자주 나오는 문제 — 실제 출제 지문을 같은 문제끼리 묶어 많이 나온 순(2026-11-10 "목차는 저게 뭐야. 자주 나오는 문제 유형을 차라리 보여줘라" → "문제 자체를 말한건데")
+ *   🔗 함께 출제 묶음 — 같은 문항에 2번 이상 같이 나온 토픽끼리 한 상자에 두고, 엮이는 짝과 실제로 엮여 나온 문제를 보인다
  *      (2026-11-10 "자주 엮어서 나오는 애들끼리 그루핑" → "어떻게 묶어야 하는지도 제대로 보여줄 수 있나"). 가로 스크롤은 만들지 않는다("스크롤은 하지 말고").
  *   돌려막기 칸은 뺐다("도움도 안 되네") — 토픽 설명의 FrameCard 에서 본다.
- * 「펼친 표」(/sheet/full)는 예전처럼 본론 3단표 전체를 보여 준다.
+ * 「펼친 표」(/sheet/full)는 예전처럼 본론 3단표 전체를 표로 보여 준다.
  * 자료는 빌드 때 서브노트에서 뽑는다(AI 호출 없음, 정적 페이지). 두 보기는 각각 정적 경로다 —
  * 2026-11-10 "정리표 메뉴 안눌려": ?full=1 쿼리 때문에 동적 페이지가 되어 요청마다 710토픽 출제 기록을 다시 세느라(약 18초)
  * Vercel 함수 제한에 걸렸다. 쿼리 대신 경로로 나눠 빌드 때 미리 만든다.
@@ -26,7 +26,6 @@ const IMP_CHIP: Record<string, string> = {
 };
 
 const topicHref = (t: string) => `/explain?topic=${encodeURIComponent(t)}`;
-const bare = (t: string) => t.replace(/\s*[(（][^)）]*[)）]\s*$/, "");
 
 export default function SheetView({ full }: { full: boolean }) {
   const groups = buildSheet();
@@ -39,14 +38,14 @@ export default function SheetView({ full }: { full: boolean }) {
         desc={
           full
             ? `심화반 교재 토픽 ${total}개 — 한 줄에 정의·키워드·본론 3단표를 모두 넣은 서브노트식 정리.`
-            : `심화반 교재 토픽 ${total}개 — 암기 카드: 1 정의(두음) · 2 개념도(내 정리, 없으면 빈칸) · 3 자주 나오는 문제(실제 출제 지문을 같은 문제끼리 묶어 많이 나온 순). 토픽 이름을 누르면 설명으로 갑니다.`
+            : `심화반 교재 토픽 ${total}개 — 정의·두음·개념도 자리와 자주 나오는 문제. 함께 출제되는 토픽은 한 상자에 묶었습니다.`
         }
       />
 
-      {/* 도메인 바로가기 + 보기 전환 — 위에 붙어 다닌다 */}
+      {/* 도메인 바로가기 + 보기 전환 — 위에 붙어 다닌다(줄바꿈, 가로 스크롤 없음) */}
       <nav
         aria-label="도메인 바로가기"
-        className="sticky max-sm:static top-[84px] z-[5] xl:top-[57px] -mx-4 mb-6 flex flex-wrap items-center gap-x-2 gap-y-1 border-b border-slate-200 bg-white/90 px-4 py-2 backdrop-blur"
+        className="sticky top-[84px] z-[5] -mx-4 mb-6 flex flex-wrap items-center gap-x-2 gap-y-1 border-b border-slate-200 bg-white/90 px-4 py-2 backdrop-blur max-sm:static xl:top-[57px]"
       >
         <Link
           href={full ? "/sheet" : "/sheet/full"}
@@ -66,262 +65,91 @@ export default function SheetView({ full }: { full: boolean }) {
         ))}
       </nav>
 
-      <div className="space-y-10">
+      <div className={full ? "space-y-10" : "space-y-14"}>
         {groups.map((g) => (
-          <section key={g.code} id={g.code} className="scroll-mt-28">
-            <div className="mb-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+          <section key={g.code} id={g.code} className="scroll-mt-36">
+            <div className="mb-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
               <h2 className="text-xl font-bold text-slate-900">{g.label}</h2>
               <span className="text-xs text-slate-400">
                 {g.rows.length}개 · 심화반 {g.week}주차
+                {!full && g.clusters.length > 0 && ` · 함께 출제 묶음 ${g.clusters.length}`}
               </span>
             </div>
 
-            <div className={`${full ? "overflow-x-auto" : "overflow-hidden"} rounded-xl border border-slate-300 bg-white`}>
-              {/* 암기 카드는 가로 스크롤 없이 화면 너비에 맞춘다(2026-11-10 "스크롤 안 생기게 해"); 펼친 표만 최소 너비 */}
-              <table className={`w-full border-collapse text-[11.5px] leading-[1.45] ${full ? "min-w-[1100px]" : "table-fixed [overflow-wrap:anywhere] max-sm:block max-sm:[&_thead]:hidden max-sm:[&_tbody]:block max-sm:[&_tr]:block max-sm:[&_td]:block max-sm:[&_td:empty]:hidden"}`}>
-                <thead className="bg-slate-100 text-left text-[10.5px] font-bold text-slate-600">
-                  {full ? (
+            {!full ? (
+              <SheetCards g={g} />
+            ) : (
+              <div className="overflow-x-auto rounded-xl border border-slate-300 bg-white">
+                <table className="w-full min-w-[1100px] border-collapse text-[11.5px] leading-[1.45]">
+                  <thead className="bg-slate-100 text-left text-[10.5px] font-bold text-slate-600">
                     <tr>
                       <th className="w-[10rem] border border-slate-300 px-2 py-1.5">토픽</th>
                       <th className="w-[11rem] border border-slate-300 px-2 py-1.5">키워드</th>
                       <th className="w-[15rem] border border-slate-300 px-2 py-1.5">정의 · 특징</th>
                       <th className="border border-slate-300 px-2 py-1.5">본론 3단표</th>
                     </tr>
-                  ) : (
-                    <tr>
-                      <th className="w-[16%] border border-slate-300 px-2 py-1.5">토픽</th>
-                      <th className="w-[24%] border border-slate-300 px-2 py-1.5">1. 정의 · 두음</th>
-                      <th className="w-[16%] border border-slate-300 px-2 py-1.5">2. 개념도 (내 정리)</th>
-                      <th className="border border-slate-300 px-2 py-1.5">3. 자주 나오는 문제</th>
-                    </tr>
-                  )}
-                </thead>
-                <tbody>
-                  {g.rows.map((r, i) => {
-                    const cl = r.cluster !== undefined ? g.clusters[r.cluster] : undefined;
-                    const first = cl && (i === 0 || g.rows[i - 1].cluster !== r.cluster);
-                    const last = cl && (i === g.rows.length - 1 || g.rows[i + 1].cluster !== r.cluster);
-                    return (
-                    <Fragment key={r.title}>
-                    {first && cl && (
-                      /* 함께 출제 묶음 머리 — 같은 문항에 2번 이상 같이 나온 토픽끼리(2026-11-10 "자주 엮어서 나오는 애들끼리 그루핑") */
-                      <tr className="bg-indigo-50/70">
-                        <td colSpan={4} className="border border-slate-300 border-l-4 border-l-indigo-400 px-2 py-1.5 text-[10.5px] text-indigo-900">
-                          <div>
-                            <span className="font-bold">🔗 함께 출제</span>
-                            <span className="ml-1 text-indigo-600">같은 문항 {cl.shared}개</span>
-                            <span className="ml-2 font-semibold text-indigo-800">{cl.members.map((m) => bare(m)).join(" · ")}</span>
-                          </div>
-                          {/* 엮이는 짝 — 어느 둘이 몇 번 같이 나왔나 */}
-                          {cl.pairs.length > 0 && (
-                            <div className="mt-1 flex flex-wrap items-center gap-1">
-                              <span className="text-indigo-500">엮이는 짝</span>
-                              {cl.pairs.map((p) => (
-                                <span key={`${p.a}|${p.b}`} className="rounded-full border border-indigo-200 bg-white px-1.5 py-[1px] text-indigo-800">
-                                  {bare(p.a)} ↔ {bare(p.b)} <b>{p.n}</b>
-                                </span>
+                  </thead>
+                  <tbody>
+                    {g.rows.map((r, i) => (
+                      <tr key={r.title} className={`align-top ${i % 2 ? "bg-slate-50/40" : "bg-white"}`}>
+                        {/* 토픽 — 중요도·출제 이력까지 한 칸에 */}
+                        <td className="border border-slate-300 px-2 py-1.5">
+                          <span className={`mr-1 inline-block rounded px-1 py-[1px] text-[10px] font-bold ${IMP_CHIP[r.imp] || "bg-slate-100 text-slate-500"}`}>
+                            {r.imp}
+                          </span>
+                          <Link href={topicHref(r.title)} className="font-bold text-slate-900 hover:text-brand-700 hover:underline">
+                            {r.title}
+                          </Link>
+                          {r.ns + r.past > 0 && (
+                            <div className="mt-1 text-[10px] text-slate-500">
+                              <span className={r.ns >= 2 ? "font-bold text-red-600" : ""}>NS {r.ns}</span>
+                              {r.past > 0 && <span> · 기출 {r.past}</span>}
+                              {r.last && <div className="text-slate-400">최근 {r.last}</div>}
+                            </div>
+                          )}
+                        </td>
+                        {/* 키워드 — 교재 '■ 키워드' 그대로, 채점 근거 */}
+                        <td className="border border-slate-300 px-2 py-1.5 text-slate-700">
+                          {r.keywords.map((k, ki) => (
+                            <div key={ki}>· {k}</div>
+                          ))}
+                        </td>
+                        <td className="border border-slate-300 px-2 py-1.5 text-slate-800">
+                          {r.lead && <div className="text-[10.5px] text-slate-500">{r.lead}</div>}
+                          {r.def && <div className="mt-0.5">{r.def}</div>}
+                          {r.pairs.map((p) => (
+                            <div key={p.name} className="mt-1">
+                              <span className="font-bold text-slate-700">{p.name}</span>
+                              <div>{p.def}</div>
+                            </div>
+                          ))}
+                          {r.features.length > 0 && <div className="mt-1 text-slate-500">특징) {r.features.join(", ")}</div>}
+                        </td>
+                        <td className="border border-slate-300 px-2 py-1.5">
+                          {r.tables.map((tb, ti) => (
+                            <div key={ti} className={ti ? "mt-2" : ""}>
+                              <div className="font-bold text-slate-700">
+                                {["가", "나", "다", "라", "마", "바", "사", "아"][ti] ?? "·"}. {tb.caption}
+                              </div>
+                              <div className="mt-0.5">
+                                <AnswerTable headers={tb.headers} rows={tb.rows} dense />
+                              </div>
+                            </div>
+                          ))}
+                          {r.notes.length > 0 && (
+                            <div className="mt-1.5 text-[10.5px] text-slate-500">
+                              {r.notes.map((n, ni) => (
+                                <div key={ni}>+ {n}</div>
                               ))}
                             </div>
                           )}
-                          {/* 어떻게 엮여 나왔나 — 멤버 둘 이상을 함께 물은 실제 문제(2026-11-10 "어떻게 묶어야 하는지도 제대로 보여줄 수 있나") */}
-                          {cl.tied.length > 0 && (
-                            <ol className="mt-1 space-y-1">
-                              {cl.tied.map((q, qi) => (
-                                <li key={qi} className="flex items-start gap-1.5 rounded bg-white/80 px-1.5 py-1 text-slate-800">
-                                  <span
-                                    className={`mt-[1px] shrink-0 rounded px-1 text-[9.5px] font-bold ${
-                                      q.n >= 3 ? "bg-rose-100 text-rose-700" : q.n === 2 ? "bg-amber-100 text-amber-700" : "bg-slate-100 text-slate-500"
-                                    }`}
-                                  >
-                                    {q.n}회
-                                  </span>
-                                  <span className="min-w-0">
-                                    <span className={`whitespace-pre-line ${q.n >= 2 ? "font-semibold text-slate-900" : ""}`}>{q.text}</span>
-                                    <span className="mt-0.5 flex flex-wrap items-center gap-1">
-                                      {q.topics.map((t) => (
-                                        <span key={t} className="rounded-full bg-indigo-100 px-1.5 py-[1px] text-[9.5px] font-semibold text-indigo-800">
-                                          {bare(t)}
-                                        </span>
-                                      ))}
-                                      <span className="text-[10px] text-slate-400">
-                                        {q.where.slice(0, 3).join(" · ")}
-                                        {q.where.length > 3 && ` 외 ${q.where.length - 3}`}
-                                      </span>
-                                    </span>
-                                  </span>
-                                </li>
-                              ))}
-                            </ol>
-                          )}
-                          {cl.more > 0 && <div className="mt-0.5 text-[10px] text-indigo-400">엮여 나온 다른 문제 {cl.more}개 더</div>}
                         </td>
                       </tr>
-                    )}
-                    <tr
-                      className={`align-top ${i % 2 ? "bg-slate-50/40" : "bg-white"} ${cl ? "border-l-4 border-l-indigo-300" : ""} ${last ? "[&>td]:border-b-indigo-300" : ""}`}
-                    >
-                      {/* 토픽 — 중요도·출제 이력·함께 나온 토픽까지 한 칸에 */}
-                      <td className={`border border-slate-300 px-2 py-1.5 ${cl ? "border-l-4 border-l-indigo-400" : ""}`}>
-                        <span
-                          className={`mr-1 inline-block rounded px-1 py-[1px] text-[10px] font-bold ${
-                            IMP_CHIP[r.imp] || "bg-slate-100 text-slate-500"
-                          }`}
-                        >
-                          {r.imp}
-                        </span>
-                        <Link href={topicHref(r.title)} className="font-bold text-slate-900 hover:text-brand-700 hover:underline">
-                          {r.title}
-                        </Link>
-                        {r.ns + r.past > 0 && (
-                          <div className="mt-1 text-[10px] text-slate-500">
-                            <span className={r.ns >= 2 ? "font-bold text-red-600" : ""}>NS {r.ns}</span>
-                            {r.past > 0 && <span> · 기출 {r.past}</span>}
-                            {r.last && <div className="text-slate-400">최근 {r.last}</div>}
-                          </div>
-                        )}
-                        {r.co.length > 0 && (
-                          <div className="mt-1 flex flex-wrap gap-1">
-                            {r.co.map((c) => (
-                              <Link
-                                key={c.title}
-                                href={topicHref(c.title)}
-                                title={`${c.title} — 같은 문항 ${c.n}개${c.same ? "" : " (다른 과목)"}`}
-                                className={`rounded-full border px-1.5 py-[1px] text-[9.5px] leading-tight hover:underline ${
-                                  c.same ? "border-indigo-200 bg-indigo-50 text-indigo-700" : "border-dashed border-slate-300 bg-white text-slate-500"
-                                }`}
-                              >
-                                {bare(c.title)} <b>{c.n}</b>
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </td>
-
-                      {full ? (
-                        <>
-                          {/* 키워드 — 교재 '■ 키워드' 그대로, 채점 근거 */}
-                          <td className="border border-slate-300 px-2 py-1.5 text-slate-700">
-                            {r.keywords.map((k, ki) => (
-                              <div key={ki}>· {k}</div>
-                            ))}
-                          </td>
-                          <td className="border border-slate-300 px-2 py-1.5 text-slate-800">
-                            {r.lead && <div className="text-[10.5px] text-slate-500">{r.lead}</div>}
-                            {r.def && <div className="mt-0.5">{r.def}</div>}
-                            {r.pairs.map((p) => (
-                              <div key={p.name} className="mt-1">
-                                <span className="font-bold text-slate-700">{p.name}</span>
-                                <div>{p.def}</div>
-                              </div>
-                            ))}
-                            {r.features.length > 0 && <div className="mt-1 text-slate-500">특징) {r.features.join(", ")}</div>}
-                          </td>
-                          <td className="border border-slate-300 px-2 py-1.5">
-                            {r.tables.map((tb, ti) => (
-                              <div key={ti} className={ti ? "mt-2" : ""}>
-                                <div className="font-bold text-slate-700">
-                                  {["가", "나", "다", "라", "마", "바", "사", "아"][ti] ?? "·"}. {tb.caption}
-                                </div>
-                                <div className="mt-0.5">
-                                  <AnswerTable headers={tb.headers} rows={tb.rows} dense />
-                                </div>
-                              </div>
-                            ))}
-                            {r.notes.length > 0 && (
-                              <div className="mt-1.5 text-[10.5px] text-slate-500">
-                                {r.notes.map((n, ni) => (
-                                  <div key={ni}>+ {n}</div>
-                                ))}
-                              </div>
-                            )}
-                          </td>
-                        </>
-                      ) : (
-                        <>
-                          {/* 1. 정의 · 두음 — 답안 서론에 그대로 옮겨 적는 부분 + 교재 두음 */}
-                          <td className="border border-slate-300 px-2 py-1.5 text-slate-800">
-                            {r.lead && <div className="text-[10.5px] text-slate-500">{r.lead}</div>}
-                            {r.def && <div className="mt-0.5 font-medium">{r.def}</div>}
-                            {r.pairs.map((p) => (
-                              <div key={p.name} className="mt-1">
-                                <span className="font-bold text-slate-700">{p.name}</span>
-                                <div>{p.def}</div>
-                              </div>
-                            ))}
-                            {r.features.length > 0 && <div className="mt-1 text-slate-500">특징) {r.features.join(", ")}</div>}
-                            {r.memo.mnemonic && (
-                              <div className="mt-1.5">
-                                <span className="rounded-md bg-brand-100 px-2 py-0.5 text-[12px] font-extrabold tracking-wide text-brand-700">
-                                  {r.memo.mnemonic}
-                                </span>
-                                <span className="ml-1 text-[10px] text-slate-400">교재 두음</span>
-                              </div>
-                            )}
-                            {r.memo.memo && <div className="mt-1 text-[10.5px] text-slate-500">💡 {r.memo.memo}</div>}
-                          </td>
-
-                          {/* 2. 개념도 — 손글씨 개념도가 있으면 붙이고, 없으면 빈칸(사용자가 그때그때 더한다) */}
-                          <td className="border border-slate-300 px-2 py-1.5">
-                            {r.memo.hand.length > 0 && (
-                              <div className="flex flex-wrap gap-1">
-                                {r.memo.hand.map((src) => (
-                                  <a key={src} href={src} target="_blank" rel="noreferrer" title="손글씨 개념도 — 새 탭에서 크게">
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img src={src} alt={`${r.title} 손글씨 개념도`} className="h-24 rounded border border-slate-200 bg-white object-contain" loading="lazy" />
-                                  </a>
-                                ))}
-                              </div>
-                            )}
-                          </td>
-
-                          {/* 3. 자주 나오는 문제 — 실제 출제 지문을 같은 문제끼리 묶어 많이 나온 순(위 5개), 나온 곳은 최근 순 */}
-                          <td className="border border-slate-300 px-2 py-1.5 text-slate-800">
-                            {r.memo.questions.length === 0 ? (
-                              <span className="text-[10px] text-slate-300">출제 기록 없음</span>
-                            ) : (
-                              <>
-                                <div className="mb-1 flex flex-wrap items-center gap-1 text-[10px] text-slate-500">
-                                  {r.memo.short > 0 && <span className="rounded bg-slate-100 px-1.5 py-0.5 font-semibold text-slate-600">1교시 {r.memo.short}</span>}
-                                  {r.memo.long > 0 && <span className="rounded bg-rose-50 px-1.5 py-0.5 font-semibold text-rose-700">서술형 {r.memo.long}</span>}
-                                  <span>서로 다른 문제 {r.memo.questions.length}개</span>
-                                </div>
-                                <ol className="space-y-1">
-                                  {r.memo.questions.slice(0, 5).map((q, qi) => (
-                                    <li key={qi} className="flex items-start gap-1.5">
-                                      <span
-                                        className={`mt-[1px] shrink-0 rounded px-1 text-[9.5px] font-bold ${
-                                          q.n >= 3 ? "bg-rose-100 text-rose-700" : q.n === 2 ? "bg-amber-100 text-amber-700" : "bg-slate-100 text-slate-500"
-                                        }`}
-                                      >
-                                        {q.n}회
-                                      </span>
-                                      <span className="min-w-0">
-                                        <span className={`whitespace-pre-line ${q.n >= 2 ? "font-semibold text-slate-900" : ""}`}>{q.text}</span>
-                                        <span className="ml-1 text-[10px] text-slate-400">
-                                          {q.where.slice(0, 4).join(" · ")}
-                                          {q.where.length > 4 && ` 외 ${q.where.length - 4}`}
-                                        </span>
-                                      </span>
-                                    </li>
-                                  ))}
-                                </ol>
-                                {r.memo.questions.length > 5 && (
-                                  <Link href={topicHref(r.title)} className="mt-1 inline-block text-[10px] text-brand-600 hover:underline">
-                                    나머지 {r.memo.questions.length - 5}개는 토픽 설명에서 →
-                                  </Link>
-                                )}
-                              </>
-                            )}
-                          </td>
-                        </>
-                      )}
-                    </tr>
-                    </Fragment>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
           </section>
         ))}
       </div>
