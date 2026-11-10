@@ -44,7 +44,7 @@ import { compareSetsFor, memoryTablesFor, type MapLink } from "@/lib/topicMapLin
 import type { MemoryTable } from "@/data/memoryTables";
 import topics from "@/data/topics.json";
 import { memoCardFor, type MemoCard } from "@/lib/memoCard";
-import { coTopics, clusterTitles, sharedQuestions } from "@/lib/topicCo";
+import { coTopics, clusterTitles, sharedQuestions, clusterPairs, clusterQuestions, type TiedQuestion } from "@/lib/topicCo";
 import flashcards from "@/data/flashcards.json";
 import answerExtras from "@/data/answerExtras.json";
 import { TOPIC_INTROS, type AnswerIntro } from "@/data/topicIntros";
@@ -658,7 +658,17 @@ export type SheetRow = {
   cluster?: number;
 };
 /** 함께 출제 묶음 — 과목 안에서 2문항 이상 같이 나온 토픽끼리(최대 6개) */
-export type SheetCluster = { id: number; members: string[]; shared: number };
+export type SheetCluster = {
+  id: number;
+  members: string[];
+  shared: number;
+  /** 엮이는 짝(같이 나온 문항 수 많은 순) */
+  pairs: { a: string; b: string; n: number }[];
+  /** 어떻게 엮여 나왔나 — 멤버 둘 이상을 함께 물은 실제 문제(많이 나온 순, 위 4개) */
+  tied: TiedQuestion[];
+  /** tied 에 다 못 실은 나머지 문제 수 */
+  more: number;
+};
 export type SheetGroup = { code: string; label: string; week: number; rows: SheetRow[]; clusters: SheetCluster[] };
 
 export function buildSheet(): SheetGroup[] {
@@ -715,7 +725,10 @@ export function buildSheet(): SheetGroup[] {
       rows.map((r) => r.title),
       2,
       6,
-    ).map((members, i) => ({ id: i, members, shared: sharedQuestions(members) }));
+    ).map((members, i) => {
+      const tied = clusterQuestions(members);
+      return { id: i, members, shared: sharedQuestions(members), pairs: clusterPairs(members).slice(0, 6), tied: tied.slice(0, 4), more: Math.max(0, tied.length - 4) };
+    });
     const byTitle = new Map(rows.map((r) => [r.title, r]));
     const clusterOf = new Map<string, SheetCluster>();
     for (const cl of clusters) for (const m of cl.members) clusterOf.set(m, cl);

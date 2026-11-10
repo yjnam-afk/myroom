@@ -7,7 +7,30 @@
  */
 import "server-only";
 import flashcards from "@/data/flashcards.json";
+import questions from "@/data/questions.json";
 import { questionIdsForTitle } from "@/lib/examHistory";
+import { sameQuestionText, yearMonth } from "@/lib/questionText";
+
+type Q = { id: string; kind?: string; source?: string; cohort?: string; round?: string; date?: string; period?: string; text: string };
+const Q_BY_ID = new Map((questions as Q[]).map((q) => [q.id, q]));
+
+/** 문항이 나온 곳 — 「기출 124회 3교시」「NS 15기 2주차 2교시」「ITPE 모의고사 2021.10 4교시」 */
+function whereOf(q: Q): { where: string; when: number; past: boolean } {
+  const m = /^([kc])(\d+)-/.exec(q.id);
+  if (m) {
+    const round = Number(m[2]);
+    const months = Math.round((round - 140) * 4);
+    const y = 2026 + Math.floor((6 + months) / 12);
+    const mo = (((6 + months) % 12) + 12) % 12 + 1;
+    return { where: `${m[1] === "c" ? "컴시응" : "기출"} ${round}회 ${q.period ?? ""}`.trim(), when: y * 100 + mo, past: true };
+  }
+  if (q.kind === "NS모의") {
+    const when = Number((q.date || "").replace(/-/g, "").slice(0, 6)) || 0;
+    return { where: `NS ${q.cohort ?? ""} ${(q.round ?? "").replace(/^0/, "")} ${q.period ?? ""}`.replace(/\s+/g, " ").trim(), when, past: false };
+  }
+  const src = q.source || q.round || "";
+  return { where: src, when: yearMonth(src) || 0, past: false };
+}
 
 const TITLES: string[] = Array.from(new Set((flashcards as { title: string; source?: string }[]).filter((c) => c.source === "심화반").map((c) => c.title)));
 
@@ -116,4 +139,56 @@ export function sharedQuestions(members: string[]): number {
     if (k >= 2) n++;
   }
   return n;
+}
+
+/** 묶음 안에서 엮이는 짝 — 같이 나온 문항 수 많은 순 */
+export function clusterPairs(members: string[], minN = 2): { a: string; b: string; n: number }[] {
+  build();
+  const out: { a: string; b: string; n: number }[] = [];
+  for (let i = 0; i < members.length; i++)
+    for (let j = i + 1; j < members.length; j++) {
+      const n = CO.get(members[i])?.get(members[j]) ?? 0;
+      if (n >= minN) out.push({ a: members[i], b: members[j], n });
+    }
+  return out.sort((x, y) => y.n - x.n);
+}
+
+/** 엮여 나온 문제 — 묶음 멤버 둘 이상을 함께 물은 실제 지문(같은 문제끼리 묶어 많이 나온 순) */
+export type TiedQuestion = {
+  text: string;
+  n: number;
+  /** 이 문제에 걸린 묶음 멤버(묶음 순서) */
+  topics: string[];
+  /** 나온 곳(기출 먼저·최근 순) */
+  where: string[];
+};
+
+export function clusterQuestions(members: string[]): TiedQuestion[] {
+  build();
+  const set = new Set(members);
+  type App = { text: string; topics: string[]; where: string; when: number; past: boolean };
+  const apps: App[] = [];
+  for (const [id, ts] of BY_Q) {
+    if (ts.length > 8) continue;
+    const mine = ts.filter((t) => set.has(t));
+    if (mine.length < 2) continue;
+    const q = Q_BY_ID.get(id);
+    if (!q) continue;
+    apps.push({ text: q.text, topics: mine, ...whereOf(q) });
+  }
+  const groups: App[][] = [];
+  for (const a of apps) {
+    const g = groups.find((x) => x.some((b) => b.text === a.text || sameQuestionText(a.text, b.text)));
+    if (g) g.push(a);
+    else groups.push([a]);
+  }
+  const spaced = (t: string) => (t.length / ((t.match(/\s/g)?.length ?? 0) + 1) < 12 ? 1 : 0);
+  return groups
+    .map((g) => {
+      const sorted = g.slice().sort((a, b) => Number(b.past) - Number(a.past) || spaced(b.text) - spaced(a.text) || b.when - a.when);
+      const topics = members.filter((m) => g.some((a) => a.topics.includes(m)));
+      return { text: sorted[0].text, n: g.length, topics, where: sorted.map((a) => a.where), past: g.some((a) => a.past), when: Math.max(...g.map((a) => a.when)) };
+    })
+    .sort((a, b) => b.n - a.n || b.topics.length - a.topics.length || Number(b.past) - Number(a.past) || b.when - a.when)
+    .map(({ past: _p, when: _w, ...q }) => q);
 }

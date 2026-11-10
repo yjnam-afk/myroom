@@ -9,7 +9,9 @@ import AnswerTable from "@/components/AnswerTable";
  *
  * 기본 보기는 「암기 카드」(2026-11-09 "답안지를 암기할만한 모든 수단을 다 활용해야 한다"):
  *   1. 정의(+교재 두음)  2. 개념도 — 손글씨가 있으면 붙이고 없으면 빈칸(2026-11-10 "개념도 어차피 못 그릴 거 같으니 내가 그때그때 추가할게. 빈칸으로")
- *   3. 자주 나오는 문제 유형 — 교시별 출제 수와 서술형 지문이 실제로 물은 항목·유형(2026-11-10 "목차는 저게 뭐야. 자주 나오는 문제 유형을 차라리 보여줘라")
+ *   3. 자주 나오는 문제 — 실제 출제 지문을 같은 문제끼리 묶어 많이 나온 순(2026-11-10 "목차는 저게 뭐야. 자주 나오는 문제 유형을 차라리 보여줘라" → "문제 자체를 말한건데")
+ *   🔗 함께 출제 묶음 — 같은 문항에 2번 이상 같이 나온 토픽끼리 붙여 두고, 머리 줄에 엮이는 짝과 실제로 엮여 나온 문제를 보인다
+ *      (2026-11-10 "자주 엮어서 나오는 애들끼리 그루핑" → "어떻게 묶어야 하는지도 제대로 보여줄 수 있나"). 가로 스크롤은 만들지 않는다("스크롤은 하지 말고").
  *   돌려막기 칸은 뺐다("도움도 안 되네") — 토픽 설명의 FrameCard 에서 본다.
  * 「펼친 표」(/sheet/full)는 예전처럼 본론 3단표 전체를 보여 준다.
  * 자료는 빌드 때 서브노트에서 뽑는다(AI 호출 없음, 정적 페이지). 두 보기는 각각 정적 경로다 —
@@ -44,7 +46,7 @@ export default function SheetView({ full }: { full: boolean }) {
       {/* 도메인 바로가기 + 보기 전환 — 위에 붙어 다닌다 */}
       <nav
         aria-label="도메인 바로가기"
-        className="sticky top-[84px] z-[5] xl:top-[57px] -mx-4 mb-6 flex items-center gap-2 overflow-x-auto border-b border-slate-200 bg-white/90 px-4 py-2 backdrop-blur"
+        className="sticky max-sm:static top-[84px] z-[5] xl:top-[57px] -mx-4 mb-6 flex flex-wrap items-center gap-x-2 gap-y-1 border-b border-slate-200 bg-white/90 px-4 py-2 backdrop-blur"
       >
         <Link
           href={full ? "/sheet" : "/sheet/full"}
@@ -74,9 +76,9 @@ export default function SheetView({ full }: { full: boolean }) {
               </span>
             </div>
 
-            <div className="overflow-x-auto rounded-xl border border-slate-300 bg-white">
+            <div className={`${full ? "overflow-x-auto" : "overflow-hidden"} rounded-xl border border-slate-300 bg-white`}>
               {/* 암기 카드는 가로 스크롤 없이 화면 너비에 맞춘다(2026-11-10 "스크롤 안 생기게 해"); 펼친 표만 최소 너비 */}
-              <table className={`w-full border-collapse text-[11.5px] leading-[1.45] ${full ? "min-w-[1100px]" : "table-fixed"}`}>
+              <table className={`w-full border-collapse text-[11.5px] leading-[1.45] ${full ? "min-w-[1100px]" : "table-fixed [overflow-wrap:anywhere] max-sm:block max-sm:[&_thead]:hidden max-sm:[&_tbody]:block max-sm:[&_tr]:block max-sm:[&_td]:block max-sm:[&_td:empty]:hidden"}`}>
                 <thead className="bg-slate-100 text-left text-[10.5px] font-bold text-slate-600">
                   {full ? (
                     <tr>
@@ -104,10 +106,54 @@ export default function SheetView({ full }: { full: boolean }) {
                     {first && cl && (
                       /* 함께 출제 묶음 머리 — 같은 문항에 2번 이상 같이 나온 토픽끼리(2026-11-10 "자주 엮어서 나오는 애들끼리 그루핑") */
                       <tr className="bg-indigo-50/70">
-                        <td colSpan={4} className="border border-slate-300 border-l-4 border-l-indigo-400 px-2 py-1 text-[10.5px] text-indigo-900">
-                          <span className="font-bold">🔗 함께 출제</span>
-                          <span className="ml-1 text-indigo-600">같은 문항 {cl.shared}개</span>
-                          <span className="ml-2 text-indigo-800">{cl.members.map((m) => bare(m)).join(" · ")}</span>
+                        <td colSpan={4} className="border border-slate-300 border-l-4 border-l-indigo-400 px-2 py-1.5 text-[10.5px] text-indigo-900">
+                          <div>
+                            <span className="font-bold">🔗 함께 출제</span>
+                            <span className="ml-1 text-indigo-600">같은 문항 {cl.shared}개</span>
+                            <span className="ml-2 font-semibold text-indigo-800">{cl.members.map((m) => bare(m)).join(" · ")}</span>
+                          </div>
+                          {/* 엮이는 짝 — 어느 둘이 몇 번 같이 나왔나 */}
+                          {cl.pairs.length > 0 && (
+                            <div className="mt-1 flex flex-wrap items-center gap-1">
+                              <span className="text-indigo-500">엮이는 짝</span>
+                              {cl.pairs.map((p) => (
+                                <span key={`${p.a}|${p.b}`} className="rounded-full border border-indigo-200 bg-white px-1.5 py-[1px] text-indigo-800">
+                                  {bare(p.a)} ↔ {bare(p.b)} <b>{p.n}</b>
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                          {/* 어떻게 엮여 나왔나 — 멤버 둘 이상을 함께 물은 실제 문제(2026-11-10 "어떻게 묶어야 하는지도 제대로 보여줄 수 있나") */}
+                          {cl.tied.length > 0 && (
+                            <ol className="mt-1 space-y-1">
+                              {cl.tied.map((q, qi) => (
+                                <li key={qi} className="flex items-start gap-1.5 rounded bg-white/80 px-1.5 py-1 text-slate-800">
+                                  <span
+                                    className={`mt-[1px] shrink-0 rounded px-1 text-[9.5px] font-bold ${
+                                      q.n >= 3 ? "bg-rose-100 text-rose-700" : q.n === 2 ? "bg-amber-100 text-amber-700" : "bg-slate-100 text-slate-500"
+                                    }`}
+                                  >
+                                    {q.n}회
+                                  </span>
+                                  <span className="min-w-0">
+                                    <span className={`whitespace-pre-line ${q.n >= 2 ? "font-semibold text-slate-900" : ""}`}>{q.text}</span>
+                                    <span className="mt-0.5 flex flex-wrap items-center gap-1">
+                                      {q.topics.map((t) => (
+                                        <span key={t} className="rounded-full bg-indigo-100 px-1.5 py-[1px] text-[9.5px] font-semibold text-indigo-800">
+                                          {bare(t)}
+                                        </span>
+                                      ))}
+                                      <span className="text-[10px] text-slate-400">
+                                        {q.where.slice(0, 3).join(" · ")}
+                                        {q.where.length > 3 && ` 외 ${q.where.length - 3}`}
+                                      </span>
+                                    </span>
+                                  </span>
+                                </li>
+                              ))}
+                            </ol>
+                          )}
+                          {cl.more > 0 && <div className="mt-0.5 text-[10px] text-indigo-400">엮여 나온 다른 문제 {cl.more}개 더</div>}
                         </td>
                       </tr>
                     )}
