@@ -44,6 +44,7 @@ import { compareSetsFor, memoryTablesFor, type MapLink } from "@/lib/topicMapLin
 import type { MemoryTable } from "@/data/memoryTables";
 import topics from "@/data/topics.json";
 import { memoCardFor, type MemoCard } from "@/lib/memoCard";
+import { coTopics, clusterTitles, sharedQuestions } from "@/lib/topicCo";
 import flashcards from "@/data/flashcards.json";
 import answerExtras from "@/data/answerExtras.json";
 import { TOPIC_INTROS, type AnswerIntro } from "@/data/topicIntros";
@@ -649,10 +650,16 @@ export type SheetRow = {
   past: number;
   /** 가장 최근 출제 표기(예: 19기 2주차 1교시 5번) */
   last?: string;
-  /** 암기 카드 — 두음·손글씨 개념도·빈출 차례·돌려막기(정리표 압축 보기, 2026-11-09) */
+  /** 암기 카드 — 두음·손글씨 개념도·자주 나오는 문제(정리표 압축 보기, 2026-11-09) */
   memo: MemoCard;
+  /** 같은 문항에 함께 나온 토픽(많은 순, 위 6개). same = 같은 과목 */
+  co: { title: string; n: number; same: boolean }[];
+  /** 함께 출제 묶음 번호(과목 안) — 묶음 멤버는 정리표에서 붙어 나온다 */
+  cluster?: number;
 };
-export type SheetGroup = { code: string; label: string; week: number; rows: SheetRow[] };
+/** 함께 출제 묶음 — 과목 안에서 2문항 이상 같이 나온 토픽끼리(최대 6개) */
+export type SheetCluster = { id: number; members: string[]; shared: number };
+export type SheetGroup = { code: string; label: string; week: number; rows: SheetRow[]; clusters: SheetCluster[] };
 
 export function buildSheet(): SheetGroup[] {
   const impById = new Map<string, string>();
@@ -688,15 +695,47 @@ export function buildSheet(): SheetGroup[] {
           ? `${Math.max(...past.map((p) => p.round))}회`
           : undefined,
       memo: memoCardFor(s.title),
+      co: [],
     };
     const c = courseOf(s);
     if (!byCourse.has(c)) byCourse.set(c, []);
     byCourse.get(c)!.push(row);
   }
-  return DOMAINS.filter((d) => byCourse.has(d.code)).map((d) => ({
-    code: d.code,
-    label: d.label,
-    week: d.week,
-    rows: byCourse.get(d.code)!,
-  }));
+  const courseByTitle = new Map<string, string>();
+  for (const [c, rows] of byCourse) for (const r of rows) courseByTitle.set(r.title, c);
+  return DOMAINS.filter((d) => byCourse.has(d.code)).map((d) => {
+    const rows = byCourse.get(d.code)!;
+    for (const r of rows) {
+      r.co = coTopics(r.title)
+        .slice(0, 6)
+        .map((x) => ({ title: x.title, n: x.n, same: courseByTitle.get(x.title) === d.code }));
+    }
+    // 함께 출제 묶음 — 2문항 이상 같이 나온 짝으로 잇고, 묶음 멤버는 첫 멤버 자리에 붙여 둔다(2026-11-10 "자주 엮어서 나오는 애들끼리 그루핑")
+    const clusters: SheetCluster[] = clusterTitles(
+      rows.map((r) => r.title),
+      2,
+      6,
+    ).map((members, i) => ({ id: i, members, shared: sharedQuestions(members) }));
+    const byTitle = new Map(rows.map((r) => [r.title, r]));
+    const clusterOf = new Map<string, SheetCluster>();
+    for (const cl of clusters) for (const m of cl.members) clusterOf.set(m, cl);
+    const ordered: SheetRow[] = [];
+    const done = new Set<string>();
+    for (const r of rows) {
+      if (done.has(r.title)) continue;
+      const cl = clusterOf.get(r.title);
+      if (!cl) {
+        ordered.push(r);
+        done.add(r.title);
+        continue;
+      }
+      for (const m of cl.members) {
+        const row = byTitle.get(m)!;
+        row.cluster = cl.id;
+        ordered.push(row);
+        done.add(m);
+      }
+    }
+    return { code: d.code, label: d.label, week: d.week, rows: ordered, clusters };
+  });
 }

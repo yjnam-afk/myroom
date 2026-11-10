@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import { PageHeader } from "@/components/ui";
 import { buildSheet } from "@/lib/explainData";
@@ -23,6 +24,7 @@ const IMP_CHIP: Record<string, string> = {
 };
 
 const topicHref = (t: string) => `/explain?topic=${encodeURIComponent(t)}`;
+const bare = (t: string) => t.replace(/\s*[(（][^)）]*[)）]\s*$/, "");
 
 export default function SheetView({ full }: { full: boolean }) {
   const groups = buildSheet();
@@ -93,10 +95,27 @@ export default function SheetView({ full }: { full: boolean }) {
                   )}
                 </thead>
                 <tbody>
-                  {g.rows.map((r, i) => (
-                    <tr key={r.title} className={`align-top ${i % 2 ? "bg-slate-50/40" : "bg-white"}`}>
-                      {/* 토픽 — 중요도·출제 이력까지 한 칸에 */}
-                      <td className="border border-slate-300 px-2 py-1.5">
+                  {g.rows.map((r, i) => {
+                    const cl = r.cluster !== undefined ? g.clusters[r.cluster] : undefined;
+                    const first = cl && (i === 0 || g.rows[i - 1].cluster !== r.cluster);
+                    const last = cl && (i === g.rows.length - 1 || g.rows[i + 1].cluster !== r.cluster);
+                    return (
+                    <Fragment key={r.title}>
+                    {first && cl && (
+                      /* 함께 출제 묶음 머리 — 같은 문항에 2번 이상 같이 나온 토픽끼리(2026-11-10 "자주 엮어서 나오는 애들끼리 그루핑") */
+                      <tr className="bg-indigo-50/70">
+                        <td colSpan={4} className="border border-slate-300 border-l-4 border-l-indigo-400 px-2 py-1 text-[10.5px] text-indigo-900">
+                          <span className="font-bold">🔗 함께 출제</span>
+                          <span className="ml-1 text-indigo-600">같은 문항 {cl.shared}개</span>
+                          <span className="ml-2 text-indigo-800">{cl.members.map((m) => bare(m)).join(" · ")}</span>
+                        </td>
+                      </tr>
+                    )}
+                    <tr
+                      className={`align-top ${i % 2 ? "bg-slate-50/40" : "bg-white"} ${cl ? "border-l-4 border-l-indigo-300" : ""} ${last ? "[&>td]:border-b-indigo-300" : ""}`}
+                    >
+                      {/* 토픽 — 중요도·출제 이력·함께 나온 토픽까지 한 칸에 */}
+                      <td className={`border border-slate-300 px-2 py-1.5 ${cl ? "border-l-4 border-l-indigo-400" : ""}`}>
                         <span
                           className={`mr-1 inline-block rounded px-1 py-[1px] text-[10px] font-bold ${
                             IMP_CHIP[r.imp] || "bg-slate-100 text-slate-500"
@@ -112,6 +131,22 @@ export default function SheetView({ full }: { full: boolean }) {
                             <span className={r.ns >= 2 ? "font-bold text-red-600" : ""}>NS {r.ns}</span>
                             {r.past > 0 && <span> · 기출 {r.past}</span>}
                             {r.last && <div className="text-slate-400">최근 {r.last}</div>}
+                          </div>
+                        )}
+                        {r.co.length > 0 && (
+                          <div className="mt-1 flex flex-wrap gap-1">
+                            {r.co.map((c) => (
+                              <Link
+                                key={c.title}
+                                href={topicHref(c.title)}
+                                title={`${c.title} — 같은 문항 ${c.n}개${c.same ? "" : " (다른 과목)"}`}
+                                className={`rounded-full border px-1.5 py-[1px] text-[9.5px] leading-tight hover:underline ${
+                                  c.same ? "border-indigo-200 bg-indigo-50 text-indigo-700" : "border-dashed border-slate-300 bg-white text-slate-500"
+                                }`}
+                              >
+                                {bare(c.title)} <b>{c.n}</b>
+                              </Link>
+                            ))}
                           </div>
                         )}
                       </td>
@@ -235,7 +270,9 @@ export default function SheetView({ full }: { full: boolean }) {
                         </>
                       )}
                     </tr>
-                  ))}
+                    </Fragment>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
