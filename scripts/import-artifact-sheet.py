@@ -9,6 +9,7 @@
 
 - .sheets 안쪽 마크업만 옮긴다. 허용한 태그·속성만 남기고(script·on*·href·외부 주소 없음) 나머지는 버린다.
 - 머리글(h1)·부제(p)·검증 줄(.verify)은 글자로 따로 저장한다.
+- 이어 쓴 설명 칸은 첫 줄에만 「- 」를 남긴다(one_item) — 그 밖의 글자·그림은 그대로다.
 - 화면은 src/components/CustomSheet.tsx + globals.css 의 .csheet 규칙이 그린다.
 """
 import json
@@ -107,6 +108,30 @@ class Sheet(HTMLParser):
             self.out.append(esc(data).replace(" ", "&nbsp;"))
 
 
+def one_item(html: str) -> tuple[str, int]:
+    """
+    이어 쓴 설명 칸은 첫 줄에만 「- 」를 둔다(2026-11-11 "중간에 하이픈 필요없지 않나?").
+    아티팩트는 한 문장을 칸 너비에 맞춰 줄바꿈하면서 줄 중간에 「- 」를 또 붙인다
+    (「- 할당 자원 / 사용 완료 후 / - 스스로 반환 / 전 회수 불가」) — 두 항목처럼 읽힌다.
+    들여 쓴 이어지는 줄이 있는 칸은 한 문장이므로 둘째부터의 「- 」를 들여쓰기로 바꾼다.
+    줄마다 「- 」로 시작하는 칸(이름 목록)은 그대로 둔다.
+    """
+    n = 0
+
+    def fix(m: re.Match) -> str:
+        nonlocal n
+        lines = m.group(2).split("<br/>")
+        hy = [i for i, l in enumerate(lines) if l.startswith("- ")]
+        if len(hy) < 2 or not any(l.startswith("&nbsp;") for l in lines):
+            return m.group(0)
+        for i in hy[1:]:
+            lines[i] = "&nbsp;&nbsp;" + lines[i][2:]
+        n += 1
+        return m.group(1) + "<br/>".join(lines) + "</div>"
+
+    return re.sub(r'(<div class="c ">)((?:(?!<div|</div>).)*)</div>', fix, html, flags=re.S), n
+
+
 def main():
     if len(sys.argv) < 4:
         sys.exit(__doc__)
@@ -116,6 +141,7 @@ def main():
     p = Sheet()
     p.feed(src.read_text(encoding="utf-8"))
     html = "".join(p.out).strip()
+    html, merged = one_item(html)
     pages = html.count('class="page"')
     if not pages:
         sys.exit("답안지 쪽(.page)을 찾지 못했다 — 아티팩트 꼴이 다른가?")
@@ -131,6 +157,7 @@ def main():
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(f"{title} · {period}교시형 — {pages}쪽, {len(html):,}자 → {OUT.relative_to(ROOT)}")
     print("  머리:", p.text["h1"].strip(), "|", p.text["sub"].strip())
+    print(f"  이어 쓴 설명 칸 {merged}개 — 줄 중간 하이픈을 뺐다")
 
 
 if __name__ == "__main__":
