@@ -7,6 +7,7 @@
 | `test-question-text.ts` | 「같은 문제」 판정·회차 정렬 시험(사용자가 짚은 사례). 실패하면 빌드가 멈춘다 |
 | `answers.ts check` | 답안 데이터 검사(id 중복·교시·빈 문제·이미지 파일·문제은행 id·점수) |
 | `build-textbook-map.ts` · `build-flashcards.ts` · `build-genanswers.ts` | 교재 지도·플래시카드·조립 답안 |
+| `import-artifact-sheet.py` | 아티팩트 답안지(22줄 괘선 HTML) → `customSheets.json` — 토픽 설명의 그 교시 탭이 이 답안지를 그대로 보인다 |
 | `build-question-freq.ts` | 문항 메타 — 빈출·토픽 중요도·내 정리(`questionFreq.json`) |
 | `build-answer-index.ts` | 클로드/조립 답안이 「있는지」 표(`examAnswerIndex.json`) — 본문은 `/api/exam-answer` |
 

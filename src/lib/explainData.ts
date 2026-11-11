@@ -23,6 +23,7 @@ import {
 import { subnoteExtraFor, type SubnoteExtra } from "@/data/subnoteExtras";
 import { handDiagramsFor, handTablesFor } from "@/data/handDiagrams";
 import { answerSheetFor, type AnswerSheet } from "@/data/answerSheets";
+import { customSheetsFor, type CustomSheet } from "@/data/customSheets";
 import { extraComparesFor, type ExtraCompare } from "@/data/extraCompares";
 import glossData from "@/data/gloss.json";
 import { peerAnswersFor, type PeerAnswer } from "@/data/peerAnswers";
@@ -168,6 +169,8 @@ export type ExplainTopicData = {
   handTables: string[];
   /** 답안용 표·개념도(1교시 분량) — 없으면 교재 표 전체로 그린다 */
   sheet?: AnswerSheet;
+  /** 내 답안지(아티팩트에서 가져온 것) — 있으면 그 교시 탭은 자동 템플릿 대신 이것을 보인다 */
+  custom?: Partial<Record<"1" | "2", CustomSheet>>;
   /** NS·기출 밖 문제은행(ITPE 모의고사·파이널·셀테) 출제 */
   mock: MockAppearance[];
   mapSets: MapLink[];
@@ -406,6 +409,7 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
     hand: handDiagramsFor(textbook?.title ?? title),
     handTables: handTablesFor(textbook?.title ?? title),
     sheet: answerSheetFor(textbook?.title),
+    custom: customSheetsFor(textbook?.title),
     hist: examHistory(title),
     past: pastExams(title),
     mock: mockExams(title),

@@ -9,6 +9,7 @@ import MyNotes from "@/components/MyNotes";
 import { CellLines } from "@/components/TableCell";
 import AnswerTable from "@/components/AnswerTable";
 import AnswerTemplate from "@/components/AnswerTemplate";
+import CustomSheet from "@/components/CustomSheet";
 import FrameCard from "@/components/FrameCard";
 import { askFreq, longFormTexts } from "@/lib/askFreq";
 import TopicMapCard from "@/components/TopicMapCard";
@@ -444,6 +445,8 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
   const handTables = data?.handTables ?? [];
   // 답안용 표·개념도(1교시 분량). 있으면 답안지는 이것으로, 교재 표 전체는 아래 접은 칸으로.
   const sheet = data?.sheet;
+  // 내 답안지(아티팩트에서 가져온 것) — 이 교시에 있으면 자동 템플릿 대신 보인다
+  const custom = data?.custom?.[String(period) as "1" | "2"];
   // 2교시형 템플릿 뼈대 — 이 토픽 서술형(2~4교시) 지문이 자주 물은 것 위 3개
   const asks = useMemo(() => {
     if (!data) return undefined;
@@ -689,7 +692,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
                     }`}
                     title={p === 1 ? "1교시 · 26줄 · 1. 정의 / 2. 개념도와 표 / 3. 결론 4박스" : "2교시 · 66~77줄 · Ⅰ 서론 / Ⅱ 본론1 / Ⅲ 본론2(승부처) / Ⅳ 결론"}
                   >
-                    {p}교시형
+                    {p}교시형{data?.custom?.[String(p) as "1" | "2"] ? " ✍️" : ""}
                   </button>
                 ))}
                 <span className="rounded bg-emerald-600 px-2 py-0.5 text-[10px] font-bold text-white">
@@ -699,6 +702,9 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
             </div>
 
             {/* 답안지 — 답안 작성 지침(1교시 V30 26줄 · 2교시 4단락 66~77줄)대로(2026-10-11) */}
+            {custom ? (
+              <CustomSheet sheet={custom} />
+            ) : (
             <AnswerTemplate
               period={period}
               textbook={textbook}
@@ -713,6 +719,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
               hasSlide={!!extra?.image}
               asks={asks}
             />
+            )}
 
             {/* 🧩 답안 틀 — 개념도 그룹·3단락 유형·돌려막기 묶음(2026-11-09) */}
             <FrameCard title={textbook.title} />
