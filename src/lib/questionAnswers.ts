@@ -1,7 +1,8 @@
 import { SUBNOTES } from "@/data/textbookSubnotes";
 import { titlesMatching, trappedTitle } from "@/lib/examHistory";
 import { relatedTopics } from "@/lib/relatedTopics";
-import { peerAnswersFor, peerAnswersForQuestion, type PeerAnswer } from "@/data/peerAnswers";
+import { PEER_ANSWERS, peerAnswersFor, peerAnswersForQuestion, type PeerAnswer } from "@/data/peerAnswers";
+import { SUB_TOPICS } from "@/data/subTopics";
 import { sameQuestionText } from "@/lib/questionText";
 
 /**
@@ -35,6 +36,37 @@ export function topicsForQuestion(text: string): string[] {
   return out;
 }
 
+// ── 서브 토픽 이름으로 찾기 ─────────────────────────────────────────────
+// 2026-11-15 "HRN 알고리즘 … 기아 현상 해소 방안 — 이거 모범답안은 한 개도 안 맞네": 문항이 「기아」 토픽으로만 잡혀 기아 답안 9편만 붙고,
+// HRN 을 다룬 답안 7편(「SJF, HRN, MLQ, MLFQ」「MLFQ와 HRN」 …)은 「CPU 스케줄링」 토픽에만 걸려 있어 안 나왔다.
+// 문항에 서브 토픽의 이름·별칭(HRN)이 있으면, 문제에 그 말이 든 답안을 토픽 답안보다 먼저 붙인다.
+const SUB_NAMES: readonly string[] = SUB_TOPICS.map((s) => s.name);
+const SUB_BY_NAME = new Map(SUB_TOPICS.map((s) => [s.name, s]));
+const byWord = new Map<string, PeerAnswer[]>();
+/** 문제에 이 말(서브 토픽 별칭)이 든 답안 — 처음 물을 때 한 번 훑어 둔다 */
+function answersNaming(word: string): PeerAnswer[] {
+  let hit = byWord.get(word);
+  if (!hit) {
+    // 「블록체인」「랜섬웨어」처럼 흔한 이름은 수십 편이 걸린다 — 문제가 짧은(그 말만 묻는) 답안부터 12편까지만
+    hit = PEER_ANSWERS.filter((a) => titlesMatching(a.question, [word]).length > 0)
+      .sort((a, b) => a.question.length - b.question.length)
+      .slice(0, 12);
+    byWord.set(word, hit);
+  }
+  return hit;
+}
+/** 이 문항에 나온 서브 토픽 별칭들(「HRN」「SJF」 …) */
+function subWordsIn(text: string): string[] {
+  const out: string[] = [];
+  for (const name of titlesMatching(text, SUB_NAMES)) {
+    const st = SUB_BY_NAME.get(name)!;
+    const words = st.aliases.filter((w) => titlesMatching(text, [w]).length > 0);
+    // 별칭으로는 안 잡히고 이름 전체로 잡힌 경우(「이상현상」)는 이름으로
+    for (const w of words.length ? words : [name]) if (!out.includes(w)) out.push(w);
+  }
+  return out;
+}
+
 /**
  * 교시 묶음 — 1교시는 10점 단답(한두 쪽), 2~4교시는 25점 논술(서너 쪽)이다.
  * 같은 주제라도 쓰는 분량과 구성이 아예 달라서, 2교시 문제에 1교시 답안을
@@ -44,7 +76,7 @@ export const periodGroup = (period: string): "단답" | "논술" =>
   period === "1교시" ? "단답" : "논술";
 
 /**
- * 이 문항에 붙일 답안지 — 문항 id 로 직접 연결된 것, 문구가 같은 것, 토픽이 같은 것.
+ * 이 문항에 붙일 답안지 — 문항 id 로 직접 연결된 것, 문구가 같은 것, 문항에 나온 서브 토픽을 다룬 것, 토픽이 같은 것.
  * period 를 주면 같은 교시 묶음(단답/논술)의 답안을 앞에 세운다.
  */
 export function answersForQuestion(text: string, id?: string, period?: string): PeerAnswer[] {
@@ -56,6 +88,8 @@ export function answersForQuestion(text: string, id?: string, period?: string): 
     out.push(a);
   };
   for (const a of peerAnswersForQuestion(text, id)) push(a);
+  // 문항이 콕 집어 묻는 서브 토픽(HRN·2PL·MC/DC …)을 다룬 답안이 토픽 답안보다 먼저
+  for (const w of subWordsIn(text)) for (const a of answersNaming(w)) push(a);
   for (const t of topicsForQuestion(text)) for (const a of peerAnswersFor(t)) push(a);
   if (!period) return out;
   const want = periodGroup(period);
