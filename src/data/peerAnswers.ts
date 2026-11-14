@@ -98,6 +98,35 @@ for (const a of PEER_ANSWERS) {
 }
 
 /**
+ * 영문 약어가 문구 열쇠 안에 「낱말로」 있는 자리(없으면 -1).
+ * 앞이 영문·숫자가 아니고, 뒤는 세대 숫자만 더 붙거나(HBM ↔ HBM4) 영문이 아니어야 한다 —
+ * 「CI」는 「CISC」가 아니고, 「PIM」은 「APIM」「PIMS」가 아니며, 「SQL」은 「NoSQL」「Text2SQL」이 아니다
+ * (2026-11-15 "CISC와 RISC 비교에 왜 CI 해설집이 붙었지? PIM에 왜 PNM이 붙었지?").
+ */
+function wordAt(short: string, key: string): number {
+  let i = -1;
+  while ((i = key.indexOf(short, i + 1)) >= 0) {
+    const before = i === 0 ? "" : key[i - 1];
+    const rest = key.slice(i + short.length).replace(/^\d+/, "");
+    if (!/[a-z0-9]/.test(before) && !/^[a-z]/.test(rest)) return i;
+  }
+  return -1;
+}
+const isLatin = (s: string) => /^[a-z0-9]+$/.test(s);
+/** 영문·숫자 낱말 — 괄호 속 원어 풀이는 뺀다 */
+const latinWords = (s: string) => (s || "").toLowerCase().replace(/[(（][^)）]*[)）]/g, " ").match(/[a-z0-9]+/g) ?? [];
+/** 약어가 문구에 낱말로 있는가 — 열쇠에서 경계가 살아 있거나(「Wi-Fi 7의 특징」), 원문에 따로 선 낱말이다(「RAG, RIG, MCP」「FTS, HA 비교」) */
+function hasWord(short: string, key: string, raw: string): boolean {
+  return wordAt(short, key) >= 0 || latinWords(raw).some((w) => w === short || (w.startsWith(short) && /^\d+$/.test(w.slice(short.length))));
+}
+
+/** 답안 제목이 짧을 때(6자 미만) — 긴 지문 가운데 낱말로 들어 있기만 한 것은 그 문제가 아니다. 문항이 짧거나(단답형) 머리에 있을 때만 */
+function shortTitleHit(mine: string, q: string, raw: string): boolean {
+  if (isLatin(mine) && !hasWord(mine, q, raw)) return false;
+  return q.startsWith(mine) || (q.length <= 40 && q.includes(mine));
+}
+
+/**
  * 문제로 찾는다 — 문제은행·기출에서 같은 문제를 만났을 때.
  * 문항 id 로 직접 연결된 답안(questionIds)을 먼저, 그 다음 문구 부분 일치.
  */
@@ -110,8 +139,11 @@ export function peerAnswersForQuestion(question?: string, questionId?: string): 
     const mine = norm(a.question);
     // 짧은 제목(「SDR」「로봇」)은 긴 지문 가운데 낱말로 들어도 그 문제가 아니다 — 문항 문구가 짧거나(단답형) 머리에 있을 때만
     // (2026-11-07 소프트웨어 정의 로봇 2교시 문항에 SDR 라디오·로봇 답안이 붙었다)
-    const ok = mine.length < 6 ? q.startsWith(mine) || (q.length <= 40 && q.includes(mine)) : q.includes(mine);
-    if (ok || mine.includes(q)) out.push(a);
+    // 짧은 제목(「SDR」「로봇」)은 긴 지문 가운데 낱말로 들어도 그 문제가 아니다(2026-11-07 소프트웨어 정의 로봇 2교시 문항에 SDR 라디오·로봇 답안이 붙었다).
+    // 짧은 쪽이 영문 약어면 어느 방향이든 낱말 단위로만 맞춘다(wordAt)
+    const ok = mine.length < 6 ? shortTitleHit(mine, q, question) : q.includes(mine);
+    const rev = mine.includes(q) && (q.length >= 6 || !isLatin(q) || hasWord(q, mine, a.question));
+    if (ok || rev) out.push(a);
   }
   return out;
 }
