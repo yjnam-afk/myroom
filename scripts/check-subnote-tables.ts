@@ -116,7 +116,8 @@ const ONE_CONCEPT = new Set([
 const noPair = SUBNOTES.filter((s) => {
   if (s.defPair?.length || s.subDefs?.length || ONE_CONCEPT.has(s.title)) return false;
   const t = s.title.replace(/\([^)]*\)/g, "");
-  return / \/ | & |&|와 |과 | 및 |, /.test(t);
+  // 「A vs B」「A와 B 비교」도 두 개념이다(2026-11-15 CISC vs RISC 에 개념별 정의가 없었다)
+  return / \/ | & |&|와 |과 | 및 |, | vs\.? /i.test(t);
 }).map((s) => s.title);
 for (const t of noPair) errs.push(`[개념별 정의 없음] ${t} — defPair/subDefs 로 개념마다 정의·특징을 쓰거나 ONE_CONCEPT 에 적는다`);
 for (const t of noPair) console.log(`[개념별 정의 없음] ${t}`);
