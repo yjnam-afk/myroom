@@ -165453,6 +165453,196 @@
   "text": "데이터 주권 확보를 위한 데이터 스페이스(Data Space) 도입 논의가 확대되고 있다. 데이터 공유·활용 패러다임 전환을 위한 데이터 스페이스의 개념과 필요성을 설명하고, 지역·산업 간 데이터 교환·활용과 상호운용성 확보를 위한 한국형 데이터 스페이스(K-Data Space) 참조모델을 제시하시오. 또한 초기 실증ㆍ표준화에서 민간 중심 확산으로 이어지는 추진전략을 수립하시오."
  },
  {
+  "id": "ns19w09-101",
+  "period": "1교시",
+  "category": "컴퓨터구조",
+  "kind": "NS모의",
+  "round": "09주차",
+  "cohort": "19기",
+  "date": "2026-11-15",
+  "text": "CXL(Compute Express Link)"
+ },
+ {
+  "id": "ns19w09-102",
+  "period": "1교시",
+  "category": "운영체제",
+  "kind": "NS모의",
+  "round": "09주차",
+  "cohort": "19기",
+  "date": "2026-11-15",
+  "text": "실시간 스케줄링 알고리즘인 RM(Rate Monotonic)과 EDF(Earliest Deadline First) 비교"
+ },
+ {
+  "id": "ns19w09-103",
+  "period": "1교시",
+  "category": "컴퓨터구조",
+  "kind": "NS모의",
+  "round": "09주차",
+  "cohort": "19기",
+  "date": "2026-11-15",
+  "text": "메모리 인터리빙(Memory Interleaving)"
+ },
+ {
+  "id": "ns19w09-104",
+  "period": "1교시",
+  "category": "컴퓨터구조",
+  "kind": "NS모의",
+  "round": "09주차",
+  "cohort": "19기",
+  "date": "2026-11-15",
+  "text": "메모리 월(Memory Wall)"
+ },
+ {
+  "id": "ns19w09-105",
+  "period": "1교시",
+  "category": "컴퓨터구조",
+  "kind": "NS모의",
+  "round": "09주차",
+  "cohort": "19기",
+  "date": "2026-11-15",
+  "text": "PIM(Processing in Memory)"
+ },
+ {
+  "id": "ns19w09-106",
+  "period": "1교시",
+  "category": "운영체제",
+  "kind": "NS모의",
+  "round": "09주차",
+  "cohort": "19기",
+  "date": "2026-11-15",
+  "text": "Belady's Anomaly"
+ },
+ {
+  "id": "ns19w09-107",
+  "period": "1교시",
+  "category": "컴퓨터구조",
+  "kind": "NS모의",
+  "round": "09주차",
+  "cohort": "19기",
+  "date": "2026-11-15",
+  "text": "CISC(Complex Instruction Set Computer)와 RISC(Reduced Instruction Set Computer) 비교"
+ },
+ {
+  "id": "ns19w09-108",
+  "period": "1교시",
+  "category": "운영체제",
+  "kind": "NS모의",
+  "round": "09주차",
+  "cohort": "19기",
+  "date": "2026-11-15",
+  "text": "운영체제에서 구역성(Locality)의 유형 설명"
+ },
+ {
+  "id": "ns19w09-109",
+  "period": "1교시",
+  "category": "컴퓨터구조",
+  "kind": "NS모의",
+  "round": "09주차",
+  "cohort": "19기",
+  "date": "2026-11-15",
+  "text": "HBM4(High Bandwidth Memory)와 뉴로모픽 칩(Neuromorphic Chip)"
+ },
+ {
+  "id": "ns19w09-110",
+  "period": "1교시",
+  "category": "운영체제",
+  "kind": "NS모의",
+  "round": "09주차",
+  "cohort": "19기",
+  "date": "2026-11-15",
+  "text": "자원할당 그래프 (Resource Allocation Graph)"
+ },
+ {
+  "id": "ns19w09-111",
+  "period": "1교시",
+  "category": "운영체제",
+  "kind": "NS모의",
+  "round": "09주차",
+  "cohort": "19기",
+  "date": "2026-11-15",
+  "text": "은행가 알고리즘(Banker's Algorithm)의 자료구조"
+ },
+ {
+  "id": "ns19w09-112",
+  "period": "1교시",
+  "category": "운영체제",
+  "kind": "NS모의",
+  "round": "09주차",
+  "cohort": "19기",
+  "date": "2026-11-15",
+  "text": "운영체제 스케줄러(Operating System Scheduler)"
+ },
+ {
+  "id": "ns19w09-113",
+  "period": "1교시",
+  "category": "운영체제",
+  "kind": "NS모의",
+  "round": "09주차",
+  "cohort": "19기",
+  "date": "2026-11-15",
+  "text": "운영체제에서 PCB(Process Control Block) 및 TCB(Thread Control Block)가 스케줄링에 활용되는 방식"
+ },
+ {
+  "id": "ns19w09-201",
+  "period": "2교시",
+  "category": "운영체제",
+  "kind": "NS모의",
+  "round": "09주차",
+  "cohort": "19기",
+  "date": "2026-11-15",
+  "text": "HRN(Highest Response-ratio Next) 알고리즘에 대하여 설명하고 기아 현상(Starvation) 해소 방안을 설명하시오."
+ },
+ {
+  "id": "ns19w09-202",
+  "period": "2교시",
+  "category": "컴퓨터구조",
+  "kind": "NS모의",
+  "round": "09주차",
+  "cohort": "19기",
+  "date": "2026-11-15",
+  "text": "파이프라인 해저드(Pipeline Hazard)에 대하여 아래 사항을 설명하시오.\n가. 유형별 발생 원인\n나. 해결 방법"
+ },
+ {
+  "id": "ns19w09-203",
+  "period": "2교시",
+  "category": "운영체제",
+  "kind": "NS모의",
+  "round": "09주차",
+  "cohort": "19기",
+  "date": "2026-11-15",
+  "text": "운영체제(OS)에서 상호배제(Mutual Exclusion)개념을 설명하고, 다음에 대해 설명하시오.\n가. 상호배제 구현 기법\n나. 세마포어의 개념 및 연산방식\n다. 모니터 (Monitor)"
+ },
+ {
+  "id": "ns19w09-204",
+  "period": "2교시",
+  "category": "운영체제",
+  "kind": "NS모의",
+  "round": "09주차",
+  "cohort": "19기",
+  "date": "2026-11-15",
+  "text": "인터럽트(Interrupt)에 대하여 다음을 설명하시오.\n가. 인터럽트의 개념\n나. 인터럽트의 종류와 우선순위 판별방법\n다. 인터럽트 처리과정"
+ },
+ {
+  "id": "ns19w09-205",
+  "period": "2교시",
+  "category": "운영체제",
+  "kind": "NS모의",
+  "round": "09주차",
+  "cohort": "19기",
+  "date": "2026-11-15",
+  "text": "운영 체제(OS)의 문맥 교환(Context Switching)에 대하여 다음 질문에 답하시오.\n가. 문맥의 개념과 문맥의 유형 및 내용\n나. 문맥 교환 절차\n다. 문맥 교환 시 발생하는 오버헤드 해결 방법"
+ },
+ {
+  "id": "ns19w09-206",
+  "period": "2교시",
+  "category": "운영체제",
+  "kind": "NS모의",
+  "round": "09주차",
+  "cohort": "19기",
+  "date": "2026-11-15",
+  "text": "가상 메모리 관리 기법에 대해 다음을 설명하시오.\n가. 가상 메모리 관리기법\n나. 페이징(Paging) 기법과 세그멘테이션(Segmentation) 기법\n다. 메모리 단편화"
+ },
+ {
   "id": "c140-102",
   "period": "1교시",
   "category": "인공지능",

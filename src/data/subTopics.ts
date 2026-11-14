@@ -40,6 +40,8 @@ export const SUB_TOPICS: SubTopic[] = [
   { name: "NFV(Network Function Virtualization)", parent: "네트워크 슬라이싱", aliases: ["NFV", "네트워크 기능 가상화", "Network Function Virtualization"] },
   // 컴퓨터구조
   { name: "HBM(High Bandwidth Memory)", parent: "TPU (Tensor Processing Unit)", aliases: ["HBM", "고대역폭 메모리", "High Bandwidth Memory"] },
+  // 2026-11-14 NS 19기 9주차 「HBM4와 뉴로모픽 칩」 — 교재 지능형 반도체 표(뉴로모픽 고속 컴퓨팅)·메모(뉴로모픽 반도체)에 있는 이름. PIM·메모리 월은 교재에 이름이 없어 넣지 않았다
+  { name: "뉴로모픽 반도체", parent: "지능형 반도체", aliases: ["뉴로모픽"] },
   // 소프트웨어공학
   { name: "SOLID 원칙", parent: "객체지향 설계 원리", aliases: ["SOLID", "단일 책임 원칙", "개방 폐쇄 원칙", "개방-폐쇄 원칙", "리스코프 치환", "인터페이스 분리 원칙", "의존 역전 원칙", "의존관계 역전"] },
   // 인공지능

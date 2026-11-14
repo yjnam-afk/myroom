@@ -76,7 +76,6 @@ export default function AnswersClient({ rows: all }: { rows: AnswerRow[] }) {
             : `실제로 제출해 점수를 받은 답안지 ${rows.length}건 · 스캔 ${rows.reduce((n, r) => n + r.pages.length, 0)}장 — 배점 대비 점수와 빨간 첨삭이 곧 채점 기준입니다.`
         }
         up={[
-          { href: "/plan", label: "🗓️ 학습 계획" },
           { href: "/explain", label: "💡 토픽 설명" },
           { href: "/exam", label: "📝 기출문제" },
         ]}

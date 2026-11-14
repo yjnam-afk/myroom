@@ -44,7 +44,6 @@ export default function RootLayout({
             </Link>
             <nav className="-mx-1 flex gap-3 overflow-x-auto px-1 pb-1 text-sm font-medium text-slate-600 xl:gap-4 xl:overflow-visible xl:pb-0">
               <Link href="/" className="shrink-0 hover:text-brand-600 xl:hidden">🏠 메인</Link>
-              <Link href="/plan" className="shrink-0 font-semibold text-brand-600 hover:text-brand-700">🗓️ 계획</Link>
               <Link href="/explain" className="shrink-0 hover:text-brand-600">💡 토픽 설명</Link>
               <Link href="/answers" className="shrink-0 hover:text-brand-600">✍️ 모범답안</Link>
               <Link href="/sheet" className="shrink-0 hover:text-brand-600">📋 정리표</Link>

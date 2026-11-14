@@ -21,14 +21,18 @@ export function titleKey(s: string): string {
 
 /** 문제 문구의 알맹이 — 번호·기호·「…에 대하여 설명하시오」 꼬리를 뗀다 */
 export function questionCore(t: string): string {
-  return (t || "")
+  const lines = (t || "")
     .toLowerCase()
     .replace(/^\s*\d+\s*[.)]\s*/, "")
     // 소문항 머리 — 「가. 나.」「(1) (2)」「1) 2)」「① ②」는 회차마다 표기가 달라 같은 문제로 못 잡았다(2026-11-07 양자 컴퓨터 — 컴시응 129회 (1)(2) ↔ NS 가.나.)
     .replace(/(^|\n)\s*(?:[가-하]\.|\(\d{1,2}\)|\d{1,2}\)|[①-⑳])\s*/g, "$1")
-    .replace(/[^0-9a-z가-힣]/g, "")
-    .replace(TAIL, "")
-    .replace(/(을|를|에대해|에대하여)$/, "");
+    .split("\n");
+  // 소문항이 딸린 지문은 꼬리말이 첫 줄 끝에 있다 — 문장 맨 끝에서만 떼면 「…에 대해 다음을 설명하시오」와 「…에 대하여 다음을 설명하시오」가
+  // 가운데에 남아 다른 문제가 됐다(2026-11-14 NS 19기 9주차 가상 메모리 2교시 ↔ 2주차). 지문 줄(소문항 앞줄)마다 꼬리말을 뗀다.
+  const tail = (x: string) => x.replace(TAIL, "").replace(/(을|를|에대해|에대하여)$/, "");
+  const cores = lines.map((l) => l.replace(/[^0-9a-z가-힣]/g, "")).filter(Boolean);
+  if (cores.length <= 1) return tail(cores[0] ?? "");
+  return tail(cores.map((c, i) => (i < cores.length - 1 ? tail(c) : c)).join(""));
 }
 
 /** 느슨한 포함 — 한쪽 알맹이(괄호 뗀)가 다른 쪽에 들어 있다. 답안 후보를 모을 때만 쓴다(같은 문제 판정 아님) */
