@@ -277,6 +277,9 @@ python3 scripts/check-answer-format.py <회차>   # 140, ns1-, yc1-30 …
   Sliding Window & 네이글 때 부탁했는데 FEC/BEC 등 22개가 그대로 남아 있어 2026-10-07 에 다시 지적받았다.
   `check-subnote-tables.ts` 가 제목에 「/ & 와 , 및」이 있는데 둘 다 없으면 오류를 낸다 — 한 개념인
   제목(「HTTP/3」「보안취약점 및 대응방안」)은 그 스크립트의 `ONE_CONCEPT` 에 적는다.
+  **예전(기필반) 토픽도 두 개념이면 개념마다 쓴다**(2026-11-15 "상호배제, 뮤텍스 정의를 각각 써야지" — 「Mutual Exclusion(상호배제) /뮤텍스(Mutex)」 템플릿 1번이 정의 한 줄뿐이었다).
+  `topicIntros` 의 `AnswerIntro` 에 `pairs`(name·lead·def·features)를 더했고, 있으면 예전 토픽 템플릿 1번 단락이 「가. …, A 정의 / 나. …, B 정의」로 그린다.
+  정의·특징은 그 토픽의 기필반 자료(topicDetails)와 교재 표에 있는 말로 쓴다. 두 개념 제목인 예전 토픽이 100개 남짓 더 있다(「ISO/IEC」 같은 한 개념 제목 포함 146개) — 사용자가 짚는 것부터 넣는다.
   **「A vs B」 제목도 두 개념이다**(2026-11-15 "두 개념이 다 들어가야 하는데 안 들어가 있네" — 「CISC vs RISC」 1교시 템플릿 1번 단락에 CISC·RISC 정의가 없었다).
   검사가 「vs」를 안 봐서 빠져 있었다 — 검사에 「vs」를 더하고 CISC vs RISC(교재 표 「정의」 행), Scope Creep vs Gold-Plating(교재 키워드·비교표 말, 슬라이드 그림은 없음)에 defPair 를 넣었다.
 - 서브노트 **특징(`features`) 3개 = 그 개념의 성질을 교재 키워드·내용으로 쓴 명사구**(2026-10-13, 두 번 고침).

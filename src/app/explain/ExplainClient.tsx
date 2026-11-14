@@ -839,6 +839,26 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
                 <p className="text-[13px] font-bold leading-relaxed text-slate-800">
                   1. {intro?.lead ? `${intro.lead}의 정의` : `${legacy.title}의 정의`}
                 </p>
+                {intro?.pairs?.length ? (
+                  // 두 개념 토픽 — 개념마다 정의·특징을 따로(2026-11-15 "상호배제, 뮤텍스 정의를 각각 써야지")
+                  <div className="mt-1 space-y-2 pl-4">
+                    {intro.pairs.map((p, pi) => (
+                      <div key={p.name} className="space-y-1">
+                        <p className="text-[13px] font-semibold leading-relaxed text-slate-800">
+                          {["가", "나", "다", "라"][pi] ?? "·"}. {p.lead ? `${p.lead}, ` : ""}
+                          {p.name} 정의
+                        </p>
+                        <p className="pl-4 text-[13px] leading-relaxed text-slate-800">{p.def}</p>
+                        {!!p.features?.length && (
+                          <p className="pl-4 text-[13px] leading-relaxed text-slate-800">
+                            <span className="mr-1 font-bold text-slate-500">특징)</span>
+                            {p.features.join(", ")}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                ) : (
                 <div className="mt-1 space-y-1.5 pl-4">
                   <p className="text-[13px] leading-relaxed text-slate-800">
                     {intro?.defShort || extra?.guide?.exam || legacy.definition}
@@ -853,6 +873,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
                     </p>
                   )}
                 </div>
+                )}
               </div>
 
               {/* 2. 본론 — 검증된 개념도(conceptMap) + 구획별 키워드를 가/나/다로.

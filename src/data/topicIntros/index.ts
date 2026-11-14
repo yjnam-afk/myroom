@@ -11,6 +11,12 @@ export type AnswerIntro = {
   lead: string;
   defShort: string;
   features: [string, string, string];
+  /**
+   * 두 개념을 묻는 토픽(「상호배제 / 뮤텍스」)의 개념별 정의·특징 — 있으면 템플릿 1번 단락이 defShort 한 줄 대신
+   * 「가. {lead}, A 정의 / 나. {lead}, B 정의」로 개념마다 정의·특징을 보인다(2026-11-15 "상호배제, 뮤텍스 정의를 각각 써야지").
+   * 교재 서브노트의 defPair 와 같은 꼴. 정의·특징은 그 토픽의 기필반 자료(topicDetails)·교재 표에 있는 말로 쓴다.
+   */
+  pairs?: { name: string; lead?: string; def: string; features?: string[] }[];
 };
 
 import { I as i01 } from "./i01";
