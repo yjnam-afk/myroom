@@ -15,17 +15,14 @@ import {
   replaceNotes,
   setStats,
 } from "@/lib/notes";
-import { isLocalSession, type Session } from "@/lib/auth";
+import { isLocalSession, type Session } from "@/lib/session";
+import { isBrowser } from "@/lib/browser";
 
 type ProgressBlob = {
   review: Record<string, ReviewItem>;
   notes: WrongNote[];
   stats: QuizStats;
 };
-
-function isBrowser() {
-  return typeof window !== "undefined";
-}
 
 function gather(): ProgressBlob {
   return { review: loadReview(), notes: loadNotes(), stats: loadStats() };
@@ -99,7 +96,7 @@ async function post(session: Session, data?: ProgressBlob) {
 }
 
 /** 서버 진도를 받아 로컬과 병합해 저장한다. */
-export async function pullAndMerge(session: Session): Promise<void> {
+async function pullAndMerge(session: Session): Promise<void> {
   const { data } = await post(session);
   if (!data) return;
   const local = gather();
@@ -125,7 +122,7 @@ function isEmptyBlob(b: ProgressBlob): boolean {
  * 통째로 덮어써 지우는 사고를 방지). 저장할 게 있으면 항상 서버와 병합한
  * 뒤(pull) 올려, 어떤 경우에도 서버 데이터가 줄어들지 않게 한다.
  */
-export async function pushLocal(session: Session): Promise<void> {
+async function pushLocal(session: Session): Promise<void> {
   if (isEmptyBlob(gather())) return; // 빈 로컬로 서버를 덮어쓰지 않음
   await pullAndMerge(session); // 올리기 전에 서버 최신본과 병합(단조 증가 보장)
   await post(session, gather());
@@ -136,9 +133,4 @@ export async function syncNow(session: Session): Promise<void> {
   await pullAndMerge(session);
   await pushLocal(session);
   if (isBrowser()) window.dispatchEvent(new Event("progress-synced"));
-}
-
-/** 학습 데이터 변경을 알리는 이벤트(저장 함수에서 발행). */
-export function notifyProgressChange() {
-  if (isBrowser()) window.dispatchEvent(new Event("progress-change"));
 }

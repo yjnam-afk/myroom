@@ -54,14 +54,13 @@ import { planInfo } from "@/lib/studyPlan";
 import { courseOf, courseSubnotesInOrder } from "@/lib/courseOrder";
 import { twinOf } from "@/data/twinTopics";
 import { SUB_TOPICS, subTopicByName, subTopicsOf, type SubTopic } from "@/data/subTopics";
+import { IMP_ORDER } from "@/lib/badges";
 const SUB_TOPICS_ALL = () => SUB_TOPICS;
 import { PEER_ANSWERS } from "@/data/peerAnswers";
 import { myNotesFor, hasMyNote, type MyNote } from "@/data/myNotes";
 
 type TopicRow = { id: string; title: string; category: string; importance: string; source?: string };
 const TOPICS = topics as TopicRow[];
-
-const IMP_ORDER: Record<string, number> = { 상: 0, 중: 1, 하: 2, 출제예상: 3 };
 
 // ── 예전 토픽 자료 폴백 — 서브노트가 없을 때 AI 없이 보여줄 지하철 카드 데이터 ──
 export type LegacyCard = {

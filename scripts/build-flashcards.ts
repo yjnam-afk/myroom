@@ -14,6 +14,7 @@ import { DOMAIN_LABEL, domainLabel } from "../src/lib/domains";
 import { bracketMnem, keywordMnem, stripMnemTag } from "../src/lib/mnemonic";
 import { TOPIC_GUIDES } from "../src/data/topicGuides";
 import { TOPIC_INTROS } from "../src/data/topicIntros";
+import { cleanDefinition } from "../src/lib/cleanDefinition";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const topics = JSON.parse(
@@ -32,38 +33,6 @@ function norm(s: string) {
 }
 function bare(s: string) {
   return norm(String(s || "").replace(/[(（][^)）]*[)）]/g, ""));
-}
-
-// ── 예전 토픽 정의 클린업(기존 로직 유지) ────────────────────────────────
-function cleanOne(src: string) {
-  let s = String(src || "").replace(/\r?\n/g, " ").replace(/\s+/g, " ").trim();
-  if (!s) return "";
-  const marker = s.match(/\[[^\]]*정의\s*\]\s*(.+)/);
-  if (marker) s = marker[1].trim();
-  s = s
-    .split(
-      /\s*(?:\[[^\]]{1,24}\]|\(목적\)|\(특징\)|-{3,}|▶|- ?유형|- ?종류|- ?구성|·\s?유형)/,
-    )[0]
-    .trim();
-  s = s.replace(/^[^:：]{1,45}[:：]\s+/, "").trim();
-  s = s.replace(/\s*\((?:cf|참고)[^)]*\)?\s*$/i, "").trim();
-  s = s.replace(/\s*\([^)]*$/, "").trim();
-  s = s.replace(/[\s\-–;,·]+$/, "").trim();
-  if (s.length > 150) {
-    const cut = s.slice(0, 150);
-    const dot = Math.max(cut.lastIndexOf(". "), cut.lastIndexOf("다. "));
-    s = (dot > 60 ? cut.slice(0, dot + 1) : cut).replace(/[\s\-–;,·]+$/, "").trim();
-  }
-  return s;
-}
-const looksIncomplete = (s: string) =>
-  !s || s.length < 16 || /[을를이가은는와과의로도만]$/.test(s);
-function cleanDefinition(detail: string, summary: string) {
-  const fromDetail = cleanOne(detail);
-  if (!looksIncomplete(fromDetail)) return fromDetail;
-  const fromSummary = cleanOne(summary);
-  if (!looksIncomplete(fromSummary)) return fromSummary;
-  return fromDetail || fromSummary;
 }
 
 // ── 교재 서브노트 카드 ───────────────────────────────────────────────────
@@ -86,12 +55,6 @@ const PLAN = (() => {
   return m;
 })();
 
-/**
- * 두음은 교재에 적힌 것만 읽는다(lib/mnemonic). 자동으로 만들지 않는다.
- * 한때 첫 글자를 이어 559장에 두음을 만들어 넣었다가 걷어냈다 — 교재는
- * 두음을 강조하지 않고, 있는 두음은 캡션·키워드에 명시돼 있다.
- */
-const mnemOf = bracketMnem;
 const mnemFor = (texts: string[], _keywords: string[]): string => bracketMnem(texts);
 /** 표 첫 열 값 정리 — "① 사용자 Data 입력" → "사용자 Data 입력" */
 const cellHead = (s: string) =>

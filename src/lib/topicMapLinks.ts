@@ -14,14 +14,7 @@ import { memoryTables } from "@/data/memoryTables";
 import { SUBNOTES } from "@/data/textbookSubnotes";
 import { DOMAIN_LABEL, domainLabel } from "@/lib/domains";
 import legacyTopics from "@/data/topics.json";
-
-function norm(s: string): string {
-  return (s || "")
-    .trim()
-    .toLowerCase()
-    .replace(/[(（][^)）]*[)）]/g, "")
-    .replace(/[\s()·,\-_/'’]/g, "");
-}
+import { normTitle } from "@/lib/titleNorm";
 
 export type MapLink = {
   set: CompareSet;
@@ -35,9 +28,9 @@ const MAX_SETS = 6;
 /** 토픽 제목 → 과목 이름. 같은 낱말이 다른 과목에 있을 때(정규화: DB vs AI) 가르는 데 쓴다. */
 const COURSE_OF = new Map<string, string>();
 for (const t of legacyTopics as { title: string; category: string }[])
-  COURSE_OF.set(norm(t.title), domainLabel(t.category));
+  COURSE_OF.set(normTitle(t.title), domainLabel(t.category));
 // 교재 서브노트가 예전 토픽보다 우선한다(같은 제목이면 교재 과목으로).
-for (const s of SUBNOTES) COURSE_OF.set(norm(s.title), DOMAIN_LABEL[s.course] || s.course);
+for (const s of SUBNOTES) COURSE_OF.set(normTitle(s.title), DOMAIN_LABEL[s.course] || s.course);
 
 /**
  * 이 토픽이 등장하는 비교 세트들.
@@ -51,7 +44,7 @@ for (const s of SUBNOTES) COURSE_OF.set(norm(s.title), DOMAIN_LABEL[s.course] ||
  */
 export function compareSetsFor(title?: string): MapLink[] {
   if (!title) return [];
-  const k = norm(title);
+  const k = normTitle(title);
   if (!k) return [];
   const course = COURSE_OF.get(k);
 
@@ -62,9 +55,9 @@ export function compareSetsFor(title?: string): MapLink[] {
   };
 
   // ① 자기 서브노트의 표
-  for (const set of compareSets) if (set.ref && norm(set.ref) === k) push(set, "title");
+  for (const set of compareSets) if (set.ref && normTitle(set.ref) === k) push(set, "title");
   // ② 항목 이름이 정확히 같음 — 같은 과목 것을 먼저(정규화: DB 페이지에선 DB 세트부터)
-  const exact = compareSets.filter((set) => set.items.some((it) => norm(it.name) === k));
+  const exact = compareSets.filter((set) => set.items.some((it) => normTitle(it.name) === k));
   for (const set of exact) if (!course || set.category === course) push(set, "item");
   for (const set of exact) push(set, "item");
   // ③ 같은 과목 안의 부분 일치
@@ -72,8 +65,8 @@ export function compareSetsFor(title?: string): MapLink[] {
     for (const set of compareSets) {
       if (course && set.category !== course) continue;
       if (has(set)) continue;
-      if (set.items.some((it) => norm(it.name).startsWith(k))) push(set, "item");
-      else if (norm(set.title).includes(k)) push(set, "title");
+      if (set.items.some((it) => normTitle(it.name).startsWith(k))) push(set, "item");
+      else if (normTitle(set.title).includes(k)) push(set, "title");
     }
   }
   return out.slice(0, MAX_SETS);
@@ -88,16 +81,16 @@ export type MemoryTableHit = (typeof memoryTables)[number];
  */
 export function memoryTablesFor(title?: string): MemoryTableHit[] {
   if (!title) return [];
-  const k = norm(title);
+  const k = normTitle(title);
   if (k.length < 2) return [];
   const course = COURSE_OF.get(k);
   // 자기 서브노트에서 뽑은 표가 먼저. 그 다음은 같은 과목 안에서 제목이 품는 것.
-  const own = memoryTables.filter((t) => t.ref && norm(t.ref) === k);
+  const own = memoryTables.filter((t) => t.ref && normTitle(t.ref) === k);
   const rest = memoryTables.filter(
     (t) =>
       !own.includes(t) &&
       (!course || t.category === course) &&
-      (norm(t.title).includes(k) || norm(t.intro).includes(k)),
+      (normTitle(t.title).includes(k) || normTitle(t.intro).includes(k)),
   );
   return [...own, ...rest].slice(0, 8);
 }

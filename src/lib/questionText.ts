@@ -35,13 +35,6 @@ export function questionCore(t: string): string {
   return tail(cores.map((c, i) => (i < cores.length - 1 ? tail(c) : c)).join(""));
 }
 
-/** 느슨한 포함 — 한쪽 알맹이(괄호 뗀)가 다른 쪽에 들어 있다. 답안 후보를 모을 때만 쓴다(같은 문제 판정 아님) */
-export function looselyContains(a: string, b: string): boolean {
-  const x = titleKey(a);
-  const y = titleKey(b);
-  return !!x && !!y && (x.includes(y) || y.includes(x));
-}
-
 type Parts = { ko: string; koJ: string; en: Set<string>; words: string[]; outEn: Set<string> };
 const partsCache = new Map<string, Parts>();
 function parts(t: string): Parts {

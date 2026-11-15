@@ -1,10 +1,11 @@
 /**
- * 브라우저 세션(이름·토큰) 읽기/쓰기 — localStorage 만 만진다.
+ * 브라우저 세션(이름·토큰) 읽기 — localStorage 만 만진다.
  *
- * auth.ts 와 따로 둔 이유: auth.ts 는 랭킹 통계 때문에 회독 토픽(교재 전체)을
- * import 한다. 세션만 필요한 화면(내 도식 등)이 auth.ts 를 물면 교재 자료가
- * 통째로 번들에 딸려온다. 세션만 쓸 때는 이 파일을 import 한다.
+ * 로그인·가입 화면은 없어졌다(2026-11-15 정리 — 호출하는 곳이 없던 auth.ts 의 가입·로그인·랭킹 전송과
+ * 세션 저장·삭제를 지웠다). 예전에 로그인해 둔 브라우저의 세션만 읽어 이름 표시·진도 동기화에 쓴다.
  */
+import { isBrowser } from "@/lib/browser";
+
 export type Session = { name: string; token: string };
 
 const KEY = "info-pe-session-v1";
@@ -38,14 +39,10 @@ function applyRename(s: Session): Session {
  * 서버 계정 없이 이 토큰으로 로컬 세션만 만들어 입장한다.
  * (기록은 이 브라우저의 localStorage에만 저장되고, 랭킹·기기 간 동기화는 꺼진다)
  */
-export const LOCAL_TOKEN = "local-only";
+const LOCAL_TOKEN = "local-only";
 
 export function isLocalSession(s: Session | null): boolean {
   return !!s && s.token === LOCAL_TOKEN;
-}
-
-function isBrowser() {
-  return typeof window !== "undefined";
 }
 
 export function loadSession(): Session | null {
@@ -57,16 +54,4 @@ export function loadSession(): Session | null {
   } catch {
     return null;
   }
-}
-
-export function saveSession(s: Session) {
-  if (!isBrowser()) return;
-  window.localStorage.setItem(KEY, JSON.stringify(s));
-  window.dispatchEvent(new Event("auth-change"));
-}
-
-export function clearSession() {
-  if (!isBrowser()) return;
-  window.localStorage.removeItem(KEY);
-  window.dispatchEvent(new Event("auth-change"));
 }

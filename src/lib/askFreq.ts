@@ -19,7 +19,7 @@ export type AskKind = {
   figure?: boolean;
 };
 
-export const ASK_KINDS: AskKind[] = [
+const ASK_KINDS: AskKind[] = [
   { key: "calc", label: "풀이·작성", re: /계산|구하시오|풀이|산출하|작성하시오|그리시오|도출하시오|수행 ?과정을|적용하여|예시를 들어/, table: /예시|사례|풀이/ },
   { key: "compare", label: "비교", re: /비교|차이|차이점|vs\.?|대비/i, table: /비교|차이|vs/i },
   { key: "proscons", label: "장단점", re: /장단점|장점|단점|장·단점/, table: /장점|단점|장단점/ },
@@ -38,11 +38,8 @@ export const ASK_KINDS: AskKind[] = [
   { key: "concept", label: "개념·필요성", re: /개념|정의|필요성|등장 ?배경|목적|배경|의의|중요성/, table: /개념|정의|필요|배경|목적/ },
 ];
 
-/** 서론(Ⅰ)이 맡는 유형 — 빈출 3개를 고를 때 본론 후보에서 뺀다 */
-export const INTRO_KINDS = new Set(["concept", "feature"]);
-
 /** 지문을 요구 항목으로 끊는다 — 「가. 나. 다.」「1) 2)」「①②」「(1) (2)」. 없으면 지문 전체가 한 항목 */
-export function subAsks(text: string): string[] {
+function subAsks(text: string): string[] {
   // 한 항목이 「A에 대하여 설명하고 B …」처럼 둘을 물으면 둘로 나눈다
   const two = (x: string) => x.split(/(?:에 ?대하여|에 ?대해|을|를)?\s*(?:설명|기술|제시|서술|비교)하고\s+/).map((y) => y.trim()).filter(Boolean);
   return subAsksRaw(text).flatMap(two);
@@ -59,7 +56,7 @@ function subAsksRaw(text: string): string[] {
   return tail.split(/,|및|와 |과 /).map((x) => x.trim()).filter((x) => x.length >= 2);
 }
 
-export function kindsOf(item: string): AskKind[] {
+function kindsOf(item: string): AskKind[] {
   const strong = ASK_KINDS.filter((k) => k.re.test(item));
   return strong.length ? strong : ASK_KINDS.filter((k) => k.weak?.test(item));
 }

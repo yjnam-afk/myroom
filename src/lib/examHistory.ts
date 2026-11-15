@@ -17,7 +17,7 @@ import questions from "@/data/questions.json";
  */
 import type { ExamAppearance, PastAppearance, MockAppearance } from "@/lib/examHistoryUtil";
 export type { ExamAppearance, PastAppearance, MockAppearance } from "@/lib/examHistoryUtil";
-export { ym, weekLabel, isRecent, summarize } from "@/lib/examHistoryUtil";
+export { ym, summarize } from "@/lib/examHistoryUtil";
 
 type Q = {
   id: string;

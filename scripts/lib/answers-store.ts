@@ -8,7 +8,7 @@ import { join } from "node:path";
 import type { PeerAnswer } from "../../src/data/peerAnswers";
 
 export const ROOT = join(__dirname, "..", "..");
-export const DIR = join(ROOT, "src/data/peerAnswers");
+const DIR = join(ROOT, "src/data/peerAnswers");
 const KEYS = ["id", "period", "no", "question", "exam", "topicTitles", "questionIds", "score", "maxScore", "feedback", "memo", "pages"] as const;
 const PERIODS = new Set(["1교시", "2교시", "3교시", "4교시"]);
 

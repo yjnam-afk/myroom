@@ -20,6 +20,8 @@ import type { StudyLevel } from "@/data/curriculum";
 import { subnoteByTopicId, subnoteByTitle } from "@/data/textbookSubnotes";
 import { recordPlanRounds } from "@/lib/planRounds";
 import { hasMyNote } from "@/data/myNotes";
+import { explainHref } from "@/lib/links";
+import PriorityBadge from "@/components/PriorityBadge";
 
 const DAY_NAMES = ["월", "화", "수", "목", "금", "토", "일"];
 
@@ -39,12 +41,6 @@ function ModeBadge({ mode }: { mode: string }) {
     </span>
   );
 }
-
-const PRIORITY_STYLE: Record<Priority, { cls: string; star: string }> = {
-  상: { cls: "bg-red-100 text-red-700 ring-red-200", star: "★★★" },
-  중: { cls: "bg-blue-100 text-blue-700 ring-blue-200", star: "★★" },
-  하: { cls: "bg-slate-100 text-slate-600 ring-slate-200", star: "★" },
-};
 
 /**
  * 출제 대비 강도 — 교재 중요도(상·중·하)와 다른 축이라 색·모양을 따로 준다.
@@ -66,19 +62,6 @@ function LevelBadge({ level, note }: { level: StudyLevel; note?: string }) {
     >
       {level}
       <span className="text-[8px] leading-none">{s.mark}</span>
-    </span>
-  );
-}
-
-function PriorityBadge({ p }: { p: Priority }) {
-  const s = PRIORITY_STYLE[p];
-  return (
-    <span
-      className={`inline-flex shrink-0 items-center gap-1 rounded px-1.5 py-0.5 text-[10px] font-bold ring-1 ${s.cls}`}
-      title={`중요도 ${p}`}
-    >
-      {p}
-      <span className="text-[8px] leading-none">{s.star}</span>
     </span>
   );
 }
@@ -686,7 +669,7 @@ export default function PlanPage() {
                               </span>
                             )}
                             <Link
-                              href={`/explain?topic=${encodeURIComponent(t.title)}`}
+                              href={explainHref(t.title)}
                               className="shrink-0 rounded-md border border-slate-200 bg-white px-2 py-1 text-[11px] font-medium text-slate-600 hover:bg-slate-100"
                             >
                               💡

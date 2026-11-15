@@ -74,12 +74,6 @@ export function coTopics(title: string): CoTopic[] {
     .sort((a, b) => b.n - a.n || a.title.localeCompare(b.title, "ko"));
 }
 
-/** 두 토픽이 같이 나온 문항 수 */
-export function coCount(a: string, b: string): number {
-  build();
-  return CO.get(a)?.get(b) ?? 0;
-}
-
 /**
  * 토픽 목록을 「같이 나온 문항 minN 개 이상」인 짝으로 이어 묶는다(센 짝부터, 묶음 크기 cap 까지).
  * 결과는 입력 순서(첫 멤버 위치)로 정렬, 멤버도 입력 순서.

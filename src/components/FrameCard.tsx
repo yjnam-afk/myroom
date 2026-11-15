@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FRAME_BY_CODE, PARA_BY_NAME, frameOf, familyOf, sameGroup } from "@/data/answerFrames";
+import { explainHref } from "@/lib/links";
 
 /**
  * 🧩 답안 틀(돌려막기) — 토픽 화면 답안지 템플릿 아래.
@@ -13,7 +14,7 @@ export default function FrameCard({ title, compact }: { title: string; compact?:
   const p = PARA_BY_NAME[f.type];
   const fam = familyOf(title);
   const same = sameGroup(title);
-  const href = (t: string) => `/explain?topic=${encodeURIComponent(t)}`;
+  const href = explainHref;
   const chip = (t: string, cls: string) => (
     <Link key={t} href={href(t)} className={`rounded-full border px-2 py-0.5 text-[11px] ${cls}`}>
       {t.replace(/\s*[(（][^)）]*[)）]\s*$/, "")}

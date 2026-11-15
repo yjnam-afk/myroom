@@ -9,6 +9,7 @@ import { loadReview, saveReview, markReviewed, getItem } from "@/lib/storage";
 import { domainLabel, domainOrder } from "@/lib/domains";
 import { planInfo, LEVEL_STYLE, LEVEL_HINT, levelOrder } from "@/lib/studyPlan";
 import { handDiagramsFor } from "@/data/handDiagrams";
+import { explainHref } from "@/lib/links";
 
 type Card = {
   id: string;
@@ -196,7 +197,7 @@ export default function CommutePage() {
             {/* 토픽 설명으로 — 카드를 넘기다 "이게 뭐였지" 싶을 때 바로 간다.
                 카드 전체가 뒤집기 버튼이라 링크는 클릭 전파를 막는다. */}
             <Link
-              href={`/explain?topic=${encodeURIComponent(card.title)}`}
+              href={explainHref(card.title)}
               onClick={(e) => e.stopPropagation()}
               className="mt-1.5 inline-block rounded-md border border-slate-200 px-2 py-0.5 text-xs font-medium text-slate-600 hover:border-brand-400 hover:bg-brand-50 hover:text-brand-700"
             >

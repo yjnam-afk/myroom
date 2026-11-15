@@ -2,6 +2,7 @@
  * 회독(반복 학습) 진도를 브라우저 localStorage 에 저장/관리합니다.
  * 서버 DB 없이 가볍게 동작하도록 클라이언트 측에서만 사용합니다.
  */
+import { isBrowser } from "@/lib/browser";
 
 export type ReviewStatus = "todo" | "learning" | "done";
 
@@ -19,15 +20,11 @@ export type ReviewItem = {
 /** 회독 횟수에 따른 다음 복습까지의 간격(일). 망각곡선 기반(1·3·7·14·30일). */
 const INTERVAL_DAYS = [1, 3, 7, 14, 30];
 
-export function intervalDays(rounds: number): number {
+function intervalDays(rounds: number): number {
   return INTERVAL_DAYS[Math.min(rounds, INTERVAL_DAYS.length) - 1] || 30;
 }
 
 const KEY = "info-pe-review-v1";
-
-function isBrowser() {
-  return typeof window !== "undefined";
-}
 
 export function loadReview(): Record<string, ReviewItem> {
   if (!isBrowser()) return {};

@@ -9,14 +9,6 @@ export const SRC_CHIP: Record<string, string> = {
   요청: "bg-sky-100 text-sky-700",
 };
 
-/** select 의 <option> 처럼 글자만 넣을 수 있는 곳에서 쓰는 짧은 표기 */
-export const SRC_SHORT: Record<string, string> = {
-  심화반: "심화",
-  기필반: "기필",
-  기출: "기출",
-  요청: "요청",
-};
-
 export default function SourceBadge({
   source,
   className = "",

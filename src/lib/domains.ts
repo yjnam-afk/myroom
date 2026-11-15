@@ -49,8 +49,6 @@ export const DOMAIN_LABEL: Record<string, string> = Object.fromEntries(
   DOMAINS.map((d) => [d.code, d.label]),
 );
 
-const BY_LABEL = new Map(DOMAINS.map((d) => [d.label, d]));
-
 /**
  * 데이터에 섞여 있는 옛 이름·줄임말을 정식 이름으로 모은다.
  * 새 표기를 발견하면 여기에만 한 줄 추가하면 전 페이지가 같이 고쳐진다.
@@ -94,33 +92,4 @@ export function sortDomains(names: string[]): string[] {
   return [...names].sort(
     (a, b) => domainOrder(a) - domainOrder(b) || a.localeCompare(b, "ko"),
   );
-}
-
-/** 과목 배지 색 — 페이지마다 다른 색을 쓰지 않도록 여기서 정한다. */
-export const DOMAIN_STYLE: Record<string, string> = {
-  컴퓨터구조: "border-sky-200 bg-sky-50 text-sky-700",
-  운영체제: "border-sky-200 bg-sky-50 text-sky-700",
-  소프트웨어공학: "border-violet-200 bg-violet-50 text-violet-700",
-  프로젝트관리: "border-violet-200 bg-violet-50 text-violet-700",
-  인공지능: "border-emerald-200 bg-emerald-50 text-emerald-700",
-  "확률·통계": "border-emerald-200 bg-emerald-50 text-emerald-700",
-  네트워크: "border-amber-200 bg-amber-50 text-amber-700",
-  알고리즘: "border-amber-200 bg-amber-50 text-amber-700",
-  자료구조: "border-amber-200 bg-amber-50 text-amber-700",
-  데이터베이스: "border-rose-200 bg-rose-50 text-rose-700",
-  경영전략: "border-rose-200 bg-rose-50 text-rose-700",
-  보안: "border-slate-300 bg-slate-100 text-slate-700",
-  디지털서비스: "border-brand-200 bg-brand-50 text-brand-700",
-};
-
-export function domainStyle(nameOrCode: string): string {
-  return (
-    DOMAIN_STYLE[domainLabel(nameOrCode)] ||
-    "border-slate-200 bg-slate-50 text-slate-500"
-  );
-}
-
-/** 과목 이름이 우리가 아는 13과목인지. */
-export function isKnownDomain(nameOrCode: string): boolean {
-  return BY_LABEL.has(domainLabel(nameOrCode));
 }

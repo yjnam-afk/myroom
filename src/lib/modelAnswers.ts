@@ -54,8 +54,3 @@ export function getModelAnswerByQuestion(text?: string): ModelAnswer | null {
   );
   return q ? getModelAnswer(q.id) : null;
 }
-
-/** 모범답안이 존재하는 문제 id 집합. */
-export function hasModelAnswer(id?: string): boolean {
-  return Boolean(getModelAnswer(id));
-}

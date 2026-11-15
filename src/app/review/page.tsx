@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { PageHeader } from "@/components/ui";
 import SourceBadge from "@/components/SourceBadge";
 import {
@@ -18,11 +17,12 @@ import {
   isDue,
   daysUntilDue,
 } from "@/lib/storage";
-import { loadSession, Session } from "@/lib/auth";
+import { loadSession, Session } from "@/lib/session";
 import { syncNow } from "@/lib/sync";
 import { domainOrder } from "@/lib/domains";
 import { LEVEL_STYLE, LEVEL_HINT, levelOrder } from "@/lib/studyPlan";
 import ClearButton from "@/components/ClearButton";
+import { IMP_ORDER } from "@/lib/badges";
 
 const STATUS_LABEL: Record<string, string> = {
   todo: "시작 전",
@@ -35,7 +35,6 @@ const STATUS_STYLE: Record<string, string> = {
   done: "bg-amber-100 text-amber-700",
 };
 
-const IMP_ORDER: Record<string, number> = { 상: 0, 중: 1, 하: 2, 출제예상: 3 };
 const IMP_STYLE: Record<string, string> = {
   상: "bg-red-100 text-red-700",
   중: "bg-amber-100 text-amber-700",

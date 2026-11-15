@@ -8,6 +8,7 @@
 import topics from "@/data/topics.json";
 import { ReviewItem, getItem, isDue } from "@/lib/storage";
 import { WrongNote, QuizStats, dueNotes } from "@/lib/notes";
+import { explainHref } from "@/lib/links";
 
 export type TopicLite = {
   id: string;
@@ -44,17 +45,11 @@ export type CoachPlan = {
 const IMP_ORDER: Record<string, number> = { 상: 0, 출제예상: 1, 중: 2, 하: 3 };
 
 /** 토픽을 설명 화면에 연결해서 여는 링크(암기 훈련장을 없앤 뒤 이쪽으로 보낸다). */
-export function mnemonicLink(
+function mnemonicLink(
   t: { id: string; title: string },
   auto = false,
 ): string {
-  const q = `/explain?topic=${encodeURIComponent(t.title)}`;
-  return auto ? `${q}&auto=1` : q;
-}
-
-/** 토픽을 설명 화면에 바로 연결해서 여는 링크. auto=true면 도착 즉시 생성. */
-export function explainLink(t: { title: string }, auto = false): string {
-  const q = `/explain?topic=${encodeURIComponent(t.title)}`;
+  const q = explainHref(t.title);
   return auto ? `${q}&auto=1` : q;
 }
 
@@ -110,9 +105,6 @@ export function buildPlan(
     })
     .sort((a, b) => a.pct - b.pct);
   const weakestCat = catProgress[0];
-
-  const accuracy =
-    stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : -1;
 
   const tasks: CoachTask[] = [];
 

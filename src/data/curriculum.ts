@@ -1330,7 +1330,7 @@ const iso = (d: Date) =>
   `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 
 /** YYYY-MM-DD 에 배정된 계획을 찾는다. */
-export function planForDate(dateISO: string) {
+function planForDate(dateISO: string) {
   const target = parseDate(dateISO);
   for (const week of WEEKS) {
     const start = parseDate(week.start);
@@ -1374,14 +1374,6 @@ export function monthGrid(ym: string): CalendarCell[] {
 /** 오늘 날짜(YYYY-MM-DD) — 기기 시간대와 무관하게 한국 시간 기준. */
 export function todayISO(now: number = Date.now()): string {
   return todayStrKST(now);
-}
-
-/** 커리큘럼에 들어 있는 모든 학습 토픽(회독 대상). */
-export function allCurriculumTopics(): CurriculumTopic[] {
-  const out: CurriculumTopic[] = [];
-  for (const w of WEEKS)
-    for (const d of w.days) if (d.kind === "study") out.push(...d.topics);
-  return out;
 }
 
 // ── 학습 완료 체크(브라우저 저장) ──────────────────────────────

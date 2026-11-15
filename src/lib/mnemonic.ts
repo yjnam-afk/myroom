@@ -19,7 +19,7 @@ export function bracketMnem(texts: string[]): string {
 }
 
 /** 키워드 목록 끝의 소괄호 두음 — 목록의 다른 항목으로 검증된 것만 */
-export function parenMnem(keywords: string[]): string {
+function parenMnem(keywords: string[]): string {
   const re = /\(([가-힣]{4,10})\)\s*$/;
   for (const k of keywords) {
     const m = String(k || "").match(re);

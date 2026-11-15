@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import StudyCard from "@/components/StudyCard";
 import PeerAnswers from "@/components/PeerAnswers";
 import MyNotes from "@/components/MyNotes";
-import { CellLines } from "@/components/TableCell";
 import AnswerTable from "@/components/AnswerTable";
 import AnswerTemplate from "@/components/AnswerTemplate";
 import CustomSheet from "@/components/CustomSheet";
@@ -14,13 +13,16 @@ import FrameCard from "@/components/FrameCard";
 import { askFreq, longFormTexts } from "@/lib/askFreq";
 import TopicMapCard from "@/components/TopicMapCard";
 import { ExamHistoryCard } from "@/components/ExamHistoryCard";
-import Mermaid from "@/components/Mermaid";
 import { PageHeader } from "@/components/ui";
 import TopicAutocomplete from "@/components/TopicAutocomplete";
-import { DOMAIN_LABEL } from "@/lib/domains";
 import { loadExplainIndex } from "@/lib/explainIndexClient";
-import type { BrowseGroup, BrowseItem, ExplainIndex, ExplainNav, ExplainTopicData } from "@/lib/explainData";
-import ClearButton from "@/components/ClearButton";
+import type { ExplainIndex, ExplainTopicData } from "@/lib/explainData";
+import { explainHref } from "@/lib/links";
+import PriorityBadge from "@/components/PriorityBadge";
+import { TopicNav } from "./TopicNav";
+import { COURSE_LABEL, HANGUL_NO, LevelBadge } from "./explainBits";
+import { HistChips, MineChip, TopicBrowser, numbered } from "./TopicBrowser";
+import { LegacyTemplate } from "./LegacyTemplate";
 
 /**
  * 토픽 설명 화면(클라이언트).
@@ -30,395 +32,6 @@ import ClearButton from "@/components/ClearButton";
  * 예전엔 이 파일이 교재·플래시카드·문제은행·학습카드 전부를 import 해 클라이언트
  * 번들이 압축 전 22 MB 였고, 폰에서는 스크립트가 죽어 빈 화면이 됐다.
  */
-
-const IMP_ORDER: Record<string, number> = { 상: 0, 중: 1, 하: 2, 출제예상: 3 };
-
-/**
- * 이전/다음 토픽 — 같은 과목 안에서 교재 순서대로 넘겨 본다.
- * 검색으로 하나 열고 나면 다음 토픽으로 가려고 목록을 다시 펼쳐야 했다. 위·아래 두 곳에 둔다.
- */
-function TopicNav({
-  nav,
-  onGo,
-  where,
-}: {
-  nav: ExplainNav;
-  onGo: (title: string, opts?: { scrollTop?: boolean }) => void;
-  where: "top" | "bottom";
-}) {
-  const go = (t: string) => onGo(t, { scrollTop: where === "bottom" });
-  return (
-    <nav
-      aria-label="이전·다음 토픽"
-      className={`flex items-stretch gap-2 ${where === "top" ? "mt-4" : "mt-2 mb-6"}`}
-    >
-      <button
-        type="button"
-        disabled={!nav.prev}
-        onClick={() => nav.prev && go(nav.prev)}
-        className="flex min-w-0 flex-1 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-left text-sm hover:border-brand-400 hover:bg-brand-50 disabled:cursor-default disabled:opacity-40 disabled:hover:border-slate-200 disabled:hover:bg-white"
-      >
-        <span className="shrink-0 text-slate-400">←</span>
-        <span className="min-w-0">
-          <span className="block text-[10px] font-bold text-slate-400">이전</span>
-          <span className="block truncate font-medium text-slate-800">{nav.prev ?? "처음 토픽"}</span>
-        </span>
-      </button>
-      <span className="hidden shrink-0 items-center px-1 text-[11px] tabular-nums text-slate-400 sm:flex">
-        {nav.courseLabel} {nav.index}/{nav.total}
-      </span>
-      <button
-        type="button"
-        disabled={!nav.next}
-        onClick={() => nav.next && go(nav.next)}
-        className="flex min-w-0 flex-1 items-center justify-end gap-2 rounded-xl border border-brand-200 bg-brand-50/60 px-3 py-2 text-right text-sm hover:border-brand-400 hover:bg-brand-50 disabled:cursor-default disabled:opacity-40"
-      >
-        <span className="min-w-0">
-          <span className="block text-[10px] font-bold text-brand-600">다음</span>
-          <span className="block truncate font-semibold text-slate-900">{nav.next ?? "마지막 토픽"}</span>
-        </span>
-        <span className="shrink-0 text-brand-500">→</span>
-      </button>
-    </nav>
-  );
-}
-/** 가나다… 소항목 번호 — 정의가 여럿이면 기법 수만큼 붙는다(블랙박스 9개 등) */
-const HANGUL_NO = ["가", "나", "다", "라", "마", "바", "사", "아", "자", "차", "카", "타", "파", "하"];
-
-const COURSE_LABEL = DOMAIN_LABEL;
-
-const SRC_CHIP: Record<string, string> = {
-  심화반: "bg-emerald-100 text-emerald-700",
-  기필반: "bg-slate-100 text-slate-500",
-  기출: "bg-amber-100 text-amber-700",
-  서브: "bg-teal-100 text-teal-700",
-};
-
-/** 학습계획 줄과 같은 중요도 배지 — 상★★★ 중★★ 하★ */
-const PRIORITY_STYLE: Record<string, { cls: string; star: string }> = {
-  상: { cls: "bg-red-100 text-red-700 ring-red-200", star: "★★★" },
-  중: { cls: "bg-blue-100 text-blue-700 ring-blue-200", star: "★★" },
-  하: { cls: "bg-slate-100 text-slate-600 ring-slate-200", star: "★" },
-  출제예상: { cls: "bg-brand-50 text-brand-700 ring-brand-200", star: "◎" },
-};
-function PriorityBadge({ p }: { p?: string }) {
-  const st = (p && PRIORITY_STYLE[p]) || PRIORITY_STYLE.하;
-  return (
-    <span
-      className={`inline-flex shrink-0 items-center gap-1 rounded px-1.5 py-0.5 text-[10px] font-bold ring-1 ${st.cls}`}
-      title={`중요도 ${p ?? "하"}`}
-    >
-      {p ?? "하"}
-      <span className="text-[8px] leading-none">{st.star}</span>
-    </span>
-  );
-}
-
-/** 학습계획의 대비 강도 배지(암기·숙지·점검·참고) — plan 페이지와 같은 색. */
-const LEVEL_STYLE: Record<string, string> = {
-  암기: "border-rose-300 bg-rose-50 text-rose-700",
-  숙지: "border-amber-300 bg-amber-50 text-amber-700",
-  점검: "border-sky-300 bg-sky-50 text-sky-700",
-  참고: "border-slate-200 bg-slate-50 text-slate-400",
-};
-const LEVEL_HINT: Record<string, string> = {
-  암기: "통째로 외운다 — 정의·유형·조건까지 그대로",
-  숙지: "개념과 구조를 이해해 둔다 — 설명할 수 있으면 된다",
-  점검: "출제 공백이 길거나 기억이 흔들려 한 번 훑어야 한다",
-  참고: "당분간 출제 가능성이 낮다 — 시간 남을 때",
-};
-function LevelBadge({ level, note }: { level?: string; note?: string }) {
-  if (!level) return null;
-  return (
-    <span
-      className={`inline-flex shrink-0 items-center rounded border px-1.5 py-0.5 text-[10px] font-bold ${LEVEL_STYLE[level] || LEVEL_STYLE.참고}`}
-      title={note || LEVEL_HINT[level] || level}
-    >
-      {level}
-    </span>
-  );
-}
-
-/**
- * 출제 이력 칩 — 학습계획의 📜기출·🛡️NS 칩과 같은 눈금이지만 정적이다.
- * 이 화면은 문제은행을 받지 않으므로(번들 22 MB 사고) 개수·최근만 서버가 세어 보낸다.
- * 자세한 문항 목록은 토픽을 열면 「출제 이력」 카드에 있다.
- */
-function HistChips({ it }: { it: BrowseItem }) {
-  const tone = (must: boolean, recent: number) =>
-    must ? "bg-rose-100 text-rose-700" : recent > 0 ? "bg-amber-100 text-amber-700" : "bg-slate-100 text-slate-500";
-  const past = it.past ?? 0;
-  const pr = it.pastRecent ?? 0;
-  const ns = it.ns ?? 0;
-  const nr = it.nsRecent ?? 0;
-  return (
-    <>
-      {past > 0 && (
-        <span
-          className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold tabular-nums ${tone(pr >= 2 || past >= 3, pr)}`}
-          title={`기술사 기출 ${past}회 · 최근 ${it.pastLast}회`}
-        >
-          📜기출 {past} · {it.pastLast}회
-        </span>
-      )}
-      {ns > 0 && (
-        <span
-          className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold tabular-nums ${tone(nr >= 2 || ns >= 4, nr)}`}
-          title={`NS 주간 모의고사 출제 ${ns}회 · 최근 ${it.nsLast}`}
-        >
-          🛡️NS {ns} · {it.nsLast ? `${it.nsLast.slice(2, 4)}.${it.nsLast.slice(5, 7)}` : ""}
-        </span>
-      )}
-    </>
-  );
-}
-
-/** 학습계획 줄 모양의 토픽 한 줄 — 번호·중요도·제목·📖·출제 이력. 누르면 그 토픽을 연다. */
-/** 목록 번호 — 서브 토픽 줄(subOf)은 번호를 먹지 않는다(학습계획 번호와 맞게) */
-function numbered(items: BrowseItem[]): [BrowseItem, number][] {
-  let n = 0;
-  return items.map((it) => [it, it.subOf ? 0 : ++n]);
-}
-
-/** 토픽 목록의 「📝 내가 정리한 토픽」 묶음 키 */
-const MINE = "__mine";
-
-/** 내가 정리한 토픽 표시(myNotes) — 토픽 목록·토픽 머리 */
-function MineChip() {
-  return (
-    <span
-      className="shrink-0 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-800 ring-1 ring-amber-300"
-      title="내가 정리한 토픽 — 토픽 화면 답안지 템플릿 아래에 정리 노트가 붙어 있어요"
-    >
-      📝 정리
-    </span>
-  );
-}
-
-function TopicRow({
-  it,
-  no,
-  group,
-  onPick,
-}: {
-  it: BrowseItem;
-  no: number;
-  group?: string;
-  onPick: (t: string) => void;
-}) {
-  return (
-    <li>
-      <button
-        onClick={() => onPick(it.title)}
-        className="flex w-full items-center gap-2 px-4 py-2 text-left transition hover:bg-brand-50/60"
-      >
-        <span className="w-6 shrink-0 text-right text-[11px] font-bold tabular-nums text-slate-400">
-          {it.subOf ? "" : no}
-        </span>
-        {it.subOf ? (
-          <span className="shrink-0 pl-3 text-[12px] text-teal-600" title={`${it.subOf} 교재 표 안의 서브 토픽`}>
-            └ 🔎
-          </span>
-        ) : (
-          <>
-            <PriorityBadge p={it.imp} />
-            <LevelBadge level={it.lv} />
-          </>
-        )}
-        <span className={`min-w-0 flex-1 truncate text-sm ${it.subOf ? "text-teal-800" : "text-slate-800"}`}>
-          {it.title}
-          {group && <span className="ml-1.5 text-[10px] text-slate-400">{group}</span>}
-        </span>
-        {it.src === "심화반" ? (
-          <span
-            className="shrink-0 rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700"
-            title="교재 서브노트 원본 있음"
-          >
-            📖
-          </span>
-        ) : (
-          it.src && (
-            <span className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold ${SRC_CHIP[it.src] || ""}`}>
-              {it.src}
-            </span>
-          )
-        )}
-        <HistChips it={it} />
-        {it.mine && <MineChip />}
-        <span className="shrink-0 rounded-md border border-slate-200 bg-white px-2 py-1 text-[11px] font-medium text-slate-600">
-          💡
-        </span>
-      </button>
-    </li>
-  );
-}
-
-const BROWSE_KEY = "myroom:explainBrowse";
-function readBrowse(): { sel?: string | null; legacy?: boolean } {
-  try {
-    return JSON.parse(sessionStorage.getItem(BROWSE_KEY) || "{}");
-  } catch {
-    return {};
-  }
-}
-function writeBrowse(v: { sel: string | null; legacy: boolean }) {
-  try {
-    sessionStorage.setItem(BROWSE_KEY, JSON.stringify(v));
-  } catch {
-    // sessionStorage 가 막히면 기억하지 않는다(접힌 채 열림).
-  }
-}
-
-function TopicBrowser({
-  allGroups,
-  onPick,
-}: {
-  allGroups: BrowseGroup[];
-  onPick: (title: string, opts?: { scrollTop?: boolean }) => void;
-}) {
-  // 처음엔 아무 도메인도 안 펼친다 — 칩 한 줄만 보이는 상태가 시작점.
-  // 펼친 도메인·예전 토픽 토글은 이 탭에 적어 둔다(2026-10-22 — "목차로 돌아가기 할 때 목차가 열린 상태로").
-  // 토픽을 골랐다 뒤로 오면 목록이 새로 그려져 도메인이 접혀 있었다.
-  const [sel, setSel] = useState<string | null>(() => readBrowse().sel ?? null);
-  const [filter, setFilter] = useState("");
-  // 기본은 교재(심화반) 묶음만. 예전(기필반) 묶음은 토글로 편다.
-  const [legacy, setLegacy] = useState(() => !!readBrowse().legacy);
-  useEffect(() => writeBrowse({ sel, legacy }), [sel, legacy]);
-  const groups = legacy ? allGroups : allGroups.filter((g) => g.badge === "심화반");
-
-  const q = filter.trim().toLowerCase();
-  // 걸러보기 입력 중에는 도메인 무관하게 맞는 토픽만 모아 한 판에 보여준다.
-  const matched = q
-    ? groups.flatMap((g) =>
-        g.items
-          .filter((it) => it.title.toLowerCase().includes(q))
-          .map((it) => ({ ...it, group: g.label })),
-      )
-    : [];
-  // 📝 내가 정리한 토픽 — 과목을 가로질러 한 판에 모은다
-  const mineItems = groups.flatMap((g) => g.items.filter((it) => it.mine).map((it) => ({ ...it, group: g.label })));
-  const selGroup = sel === MINE ? undefined : groups.find((g) => g.key === sel);
-
-  // 새 토픽 머리로 올리는 건 주소가 바뀐 뒤(router.push scroll)에 한다. 누르자마자 부드럽게 올리면
-  // 아직 목록 주소인 채로 스크롤이 0까지 내려가, 뒤로 왔을 때 보던 자리 대신 맨 위로 돌아왔다(2026-10-22).
-  const pick = (t: string) => onPick(t, { scrollTop: true });
-
-  return (
-    <section className="mb-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 bg-slate-50 px-5 py-3">
-        <h3 className="text-sm font-bold text-slate-700">
-          📂 도메인별 토픽 목록{" "}
-          <span className="font-normal text-slate-400">
-            ({groups.reduce((n, g) => n + g.items.filter((it) => !it.subOf).length, 0)}개)
-          </span>
-        </h3>
-        <div className="relative">
-          <input
-            value={filter}
-            onChange={(e) => setFilter(e.target.value)}
-            placeholder="목록 안에서 걸러보기"
-            className="w-44 rounded-lg border border-slate-300 px-3 py-1.5 pr-8 text-xs focus:border-brand-500 focus:outline-none"
-          />
-          <ClearButton value={filter} onClear={() => setFilter("")} className="right-1.5 top-1 h-5 w-5 text-[10px]" />
-        </div>
-      </div>
-
-      {q ? (
-        // 걸러보기 결과 — 도메인 구분 없이 한 판. 카드 안 스크롤 없이 전부 펼친다.
-        <div className="p-4">
-          {matched.length ? (
-            <ol className="divide-y divide-slate-100">
-              {matched.map((m, i) => (
-                <TopicRow key={m.group + m.title} it={m} no={i + 1} group={m.group} onPick={pick} />
-              ))}
-            </ol>
-          ) : (
-            <p className="py-2 text-center text-xs text-slate-400">
-              “{filter}”와 맞는 토픽이 목록에 없어요.
-            </p>
-          )}
-        </div>
-      ) : (
-        <>
-          {/* 도메인 칩 — 여기서 하나를 고르면 그 도메인만 아래에 펼쳐진다. */}
-          <div className="flex flex-wrap gap-1.5 p-4">
-            {groups.map((g) => {
-              const active = sel === g.key;
-              return (
-                <button
-                  key={g.key}
-                  onClick={() => setSel(active ? null : g.key)}
-                  className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
-                    active
-                      ? "border-brand-600 bg-brand-600 text-white"
-                      : g.badge === "심화반"
-                        ? "border-emerald-300 bg-emerald-50 text-emerald-800 hover:border-emerald-500"
-                        : "border-slate-200 bg-white text-slate-500 hover:border-slate-400"
-                  }`}
-                >
-                  {g.label}
-                  <span
-                    className={`font-normal ${active ? "text-brand-100" : "text-slate-400"}`}
-                  >
-                    {g.items.filter((it) => !it.subOf).length}
-                  </span>
-                </button>
-              );
-            })}
-            {mineItems.length > 0 && (
-              <button
-                onClick={() => setSel(sel === MINE ? null : MINE)}
-                title="내가 손으로 정리한 토픽만 모아 봅니다"
-                className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
-                  sel === MINE
-                    ? "border-amber-600 bg-amber-500 text-white"
-                    : "border-amber-300 bg-amber-50 text-amber-800 hover:border-amber-500"
-                }`}
-              >
-                📝 내가 정리한 토픽
-                <span className={`font-normal ${sel === MINE ? "text-amber-100" : "text-amber-500"}`}>{mineItems.length}</span>
-              </button>
-            )}
-            {/* 기본은 교재 묶음만. 예전(기필반) 묶음은 회독 진도가 걸려 있어 토글 뒤에 둔다. */}
-            <button
-              onClick={() => { setLegacy(!legacy); setSel(null); }}
-              title="심화반 교재에 없는 예전(기필반) 토픽 묶음까지 보여줍니다"
-              className={`rounded-full border px-3 py-1.5 text-xs font-medium transition ${
-                legacy
-                  ? "border-slate-500 bg-slate-600 text-white"
-                  : "border-dashed border-slate-300 bg-white text-slate-400 hover:border-slate-400"
-              }`}
-            >
-              {legacy ? "예전 토픽 포함 중" : "+ 예전 토픽 포함"}
-            </button>
-          </div>
-
-          {sel === MINE && (
-            <div className="border-t border-amber-100">
-              <ol className="divide-y divide-slate-100">
-                {mineItems.map((it, i) => (
-                  <TopicRow key={it.group + it.title} it={it} no={i + 1} group={it.group} onPick={pick} />
-                ))}
-              </ol>
-            </div>
-          )}
-          {selGroup && (
-            <div className="border-t border-slate-100">
-              {/* 학습계획 줄과 같은 모양 — 계획 순서·번호·중요도·📖·📜 기출·🛡️ NS 이력.
-                  카드 안에서 따로 스크롤하지 않는다 — 짧은 창에 목록이 갇혀 한 화면에
-                  대여섯 줄만 보였다. 페이지가 길어지는 쪽이 낫다. */}
-              <ol className="divide-y divide-slate-100">
-                {numbered(selGroup.items).map(([it, no]) => (
-                  <TopicRow key={it.title} it={it} no={no} onPick={pick} />
-                ))}
-              </ol>
-            </div>
-          )}
-        </>
-      )}
-    </section>
-  );
-}
 
 export default function ExplainClient({ data }: { data: ExplainTopicData | null }) {
   // 지금 보여 주는 토픽 — 서버가 고른 자료의 제목. 입력창(topic)과는 별개다.
@@ -440,7 +53,6 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
   const legacy = data?.legacy;
   const intro = data?.intro;
   const gloss = data?.gloss;
-  const topicId = data?.topicId;
   const hand = data?.hand ?? [];
   const handTables = data?.handTables ?? [];
   // 답안용 표·개념도(1교시 분량). 있으면 답안지는 이것으로, 교재 표 전체는 아래 접은 칸으로.
@@ -507,7 +119,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
     // 화면 아래쪽 '다음 토픽' 버튼으로 넘어갈 때는 새 토픽의 머리부터 보여 준다.
     if (t)
       startTransition(() =>
-        router.push(`/explain?topic=${encodeURIComponent(t)}`, { scroll: !!opts?.scrollTop }),
+        router.push(explainHref(t), { scroll: !!opts?.scrollTop }),
       );
   };
 
@@ -810,303 +422,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
 
         {/* 예전 토픽 답안지 템플릿 — 교재 서브노트가 없어도 같은 시험지 형식으로 보여준다.
             정의는 커널 카드의 답안 한 줄(guide.exam)을 최우선, 개념도는 검증된 conceptMap 렌더. */}
-        {legacy && (
-          <section className="mb-6 overflow-hidden rounded-2xl border-2 border-indigo-200 bg-white shadow-sm">
-            <div className="flex items-center justify-between gap-2 bg-indigo-50 px-5 py-3">
-              <h3 className="text-sm font-bold text-indigo-800">
-                📝 답안지 템플릿 — {legacy.title}
-              </h3>
-              <span className="rounded bg-indigo-600 px-2 py-0.5 text-[10px] font-bold text-white">
-                {legacy.category}
-              </span>
-            </div>
-
-            {/* 답안지 종이 — 교재 템플릿과 같은 시험지 모양. 이 순서 그대로 옮겨 적는다. */}
-            <div className="relative p-5 pl-10">
-              <div
-                className="pointer-events-none absolute inset-y-4 left-6 w-px bg-rose-200"
-                aria-hidden
-              />
-
-              <p className="text-[13px] font-bold leading-relaxed text-slate-800">
-                문) {legacy.title}에 대하여 설명하시오.
-              </p>
-              <p className="mt-1 text-[13px] font-bold text-slate-400">답)</p>
-
-              {/* 1. 서론 — 교재와 같은 규격: 리드문의 정의 → 29~30자(공백 제외) 압축
-                  정의 → 특징) 3가지. 서론 세트가 없는 토픽만 커널 카드 한 줄로 폴백. */}
-              <div className="mt-2">
-                <p className="text-[13px] font-bold leading-relaxed text-slate-800">
-                  1. {intro?.lead ? `${intro.lead}의 정의` : `${legacy.title}의 정의`}
-                </p>
-                {intro?.pairs?.length ? (
-                  // 두 개념 토픽 — 개념마다 정의·특징을 따로(2026-11-15 "상호배제, 뮤텍스 정의를 각각 써야지")
-                  <div className="mt-1 space-y-2 pl-4">
-                    {intro.pairs.map((p, pi) => (
-                      <div key={p.name} className="space-y-1">
-                        <p className="text-[13px] font-semibold leading-relaxed text-slate-800">
-                          {["가", "나", "다", "라"][pi] ?? "·"}. {p.lead ? `${p.lead}, ` : ""}
-                          {p.name} 정의
-                        </p>
-                        <p className="pl-4 text-[13px] leading-relaxed text-slate-800">{p.def}</p>
-                        {!!p.features?.length && (
-                          <p className="pl-4 text-[13px] leading-relaxed text-slate-800">
-                            <span className="mr-1 font-bold text-slate-500">특징)</span>
-                            {p.features.join(", ")}
-                          </p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                <div className="mt-1 space-y-1.5 pl-4">
-                  <p className="text-[13px] leading-relaxed text-slate-800">
-                    {intro?.defShort || extra?.guide?.exam || legacy.definition}
-                  </p>
-                  {!!(intro?.features?.length || legacy.features?.length) && (
-                    <p className="text-[13px] leading-relaxed text-slate-800">
-                      <span className="mr-1 font-bold text-slate-500">특징)</span>
-                      {(intro?.features?.length
-                        ? intro.features
-                        : legacy.features || []
-                      ).join(", ")}
-                    </p>
-                  )}
-                </div>
-                )}
-              </div>
-
-              {/* 2. 본론 — 검증된 개념도(conceptMap) + 구획별 키워드를 가/나/다로.
-                  구획·개념도가 없는 얇은 토픽은 커널 카드(guide)의 핵심 동작·용어 매핑으로
-                  채우고, 그마저 없으면 2번 자체를 건너뛰어 빈 소제목을 만들지 않는다. */}
-              {(() => {
-                const g = extra?.guide;
-                const hasList = !!legacy.comp?.length || legacy.sections.length > 0;
-                // 3단표가 없으면 커널 학습카드(핵심 동작·핵심 구성요소)로 본론을 채운다.
-                // 키워드 칩만 있는 얇은 토픽도 카드 내용으로 보강해 2번이 비지 않게 한다.
-                const useGuideBody =
-                  !legacy.comp?.length && !!(g?.mechanism || g?.map?.length);
-                const hasBody = !!legacy.conceptMap || hasList || useGuideBody;
-                if (!hasBody) return null;
-                let li = 0;
-                const letter = () => ["가", "나", "다", "라", "마", "바", "사"][li++];
-                return (
-                  <div className="mt-4">
-                    <p className="text-[13px] font-bold leading-relaxed text-slate-800">
-                      2. {legacy.title.replace(/\s*\([^)]*\)/g, "")}의{" "}
-                      {legacy.conceptMapLabel || "개념도"} 및 구성요소
-                    </p>
-                    {legacy.conceptMap && (
-                      <div className="mt-1 pl-4">
-                        <p className="text-[13px] leading-relaxed text-slate-600">
-                          <span className="mr-1 font-bold text-slate-500">
-                            {letter()}. {legacy.conceptMapLabel || "개념도"}
-                          </span>
-                        </p>
-                        <div className="mt-2 overflow-x-auto rounded-lg border border-slate-200 bg-white p-2">
-                          <Mermaid chart={legacy.conceptMap} />
-                        </div>
-                      </div>
-                    )}
-                    {/* 구성요소·유형·절차… — 블록마다 별도 소항목(가/나/다)에 각자 3단표.
-                        구분 열은 두음 글자가 항목 수와 맞으면 그 글자, 아니면 번호를 쓴다. */}
-                    {legacy.comp?.map((c) => {
-                      const mnem = (c.mnemonic || "").replace(/\s/g, "");
-                      const letters = [...mnem];
-                      const aligned = letters.length === c.rows.length;
-                      const hasDesc = c.rows.some((r) => r[1]);
-                      return (
-                        <div key={c.group} className="mt-3 pl-4">
-                          <p className="text-[13px] font-bold leading-relaxed text-slate-700">
-                            {letter()}. {c.group}
-                            {mnem && (
-                              <span className="ml-1.5 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">
-                                두음 {mnem}
-                              </span>
-                            )}
-                          </p>
-                          {/* 설명이 있는 블록만 표로 — 나열뿐인 블록은 표에 빈 칸이 생기므로 한 줄로 */}
-                          {hasDesc ? (
-                            <div className="mt-1.5 overflow-x-auto">
-                              <table className="w-full border-collapse text-xs">
-                                <thead>
-                                  <tr>
-                                    {["구분", "키워드", "설명"].map((h) => (
-                                      <th
-                                        key={h}
-                                        className="border border-slate-300 bg-slate-100 px-2 py-1.5 text-left font-bold text-slate-700"
-                                      >
-                                        {h}
-                                      </th>
-                                    ))}
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  {c.rows.map((r, ri) => (
-                                    <tr key={ri}>
-                                      <td className="w-10 whitespace-nowrap border border-slate-300 bg-slate-50 px-2 py-1.5 text-center align-top font-bold text-slate-600">
-                                        {aligned ? letters[ri] : ri + 1}
-                                      </td>
-                                      <td className="whitespace-nowrap border border-slate-300 px-2 py-1.5 align-top font-semibold text-slate-800">
-                                        {r[0]}
-                                      </td>
-                                      <td className="border border-slate-300 px-2 py-1.5 align-top leading-relaxed text-slate-600">
-                                        {r[1]}
-                                      </td>
-                                    </tr>
-                                  ))}
-                                </tbody>
-                              </table>
-                            </div>
-                          ) : (
-                            !!c.rows.length && (
-                              <p className="mt-1 text-[13px] leading-relaxed text-slate-700">
-                                {c.rows.map((r) => r[0]).join(", ")}
-                              </p>
-                            )
-                          )}
-                          {c.notes?.map((n, ni) => (
-                            <p
-                              key={ni}
-                              className="mt-1 text-[13px] leading-relaxed text-slate-600"
-                            >
-                              {n}
-                            </p>
-                          ))}
-                        </div>
-                      );
-                    })}
-                    {/* 3단표가 없는 토픽만 예전 키워드 칩으로 대체 */}
-                    {!legacy.comp?.length &&
-                      legacy.sections.map((s) => (
-                        <div key={s.label} className="mt-3 pl-4">
-                          <p className="text-[13px] font-bold leading-relaxed text-slate-700">
-                            {letter()}. {s.label}
-                            {s.mnemonic && (
-                              <span className="ml-1.5 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">
-                                두음 {s.mnemonic}
-                              </span>
-                            )}
-                          </p>
-                          <div className="mt-1.5 flex flex-wrap gap-1.5">
-                            {s.keywords.map((k) => (
-                              <span
-                                key={k}
-                                className="rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-indigo-100"
-                              >
-                                {k}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                    {useGuideBody && g?.mechanism && (
-                      <div className="mt-3 pl-4">
-                        <p className="text-[13px] font-bold leading-relaxed text-slate-700">
-                          {letter()}. 핵심 동작·내용
-                        </p>
-                        <p className="mt-1 text-[13px] leading-relaxed text-slate-700">
-                          {g.mechanism}
-                        </p>
-                      </div>
-                    )}
-                    {useGuideBody && !!g?.map?.length && (
-                      <div className="mt-3 pl-4">
-                        <p className="text-[13px] font-bold leading-relaxed text-slate-700">
-                          {letter()}. 핵심 구성요소
-                        </p>
-                        <div className="mt-1.5 flex flex-wrap gap-1.5">
-                          {g.map.map((m) => (
-                            <span
-                              key={m.real + m.as}
-                              className="rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-indigo-100"
-                              title={m.as}
-                            >
-                              {m.real}
-                              {m.note ? ` (${m.note})` : ""}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                );
-              })()}
-
-              {/* 플러스 알파 — 활용·플러스 키워드와 메모로 추가 어필(앞 항목 유무에 따라 번호 조정) */}
-              {(legacy.apply?.length || legacy.plus?.length || legacy.memo) ? (
-                <div className="mt-4">
-                  <p className="text-[13px] font-bold leading-relaxed text-slate-800">
-                    {!!legacy.conceptMap ||
-                    !!legacy.comp?.length ||
-                    legacy.sections.length > 0 ||
-                    !!(extra?.guide?.mechanism || extra?.guide?.map?.length)
-                      ? "3"
-                      : "2"}
-                    . 플러스 알파 — 추가 어필
-                  </p>
-                  <ul className="mt-1 space-y-1 pl-4">
-                    {!!legacy.apply?.length && (
-                      <li className="text-[13px] leading-relaxed text-slate-600">
-                        · 활용: {legacy.apply.join(", ")}
-                      </li>
-                    )}
-                    {!!legacy.plus?.length && (
-                      <li className="text-[13px] leading-relaxed text-slate-600">
-                        · 플러스: {legacy.plus.join(", ")}
-                      </li>
-                    )}
-                    {legacy.memo && (
-                      <li className="text-[13px] leading-relaxed text-slate-600">
-                        · {legacy.memo}
-                      </li>
-                    )}
-                  </ul>
-                </div>
-              ) : null}
-
-              <p className="mt-5 text-right text-[13px] font-bold text-slate-400">
-                ·································· &ldquo;끝&rdquo;
-              </p>
-            </div>
-
-            {/* 채점 근거 — 답안에 키워드가 들어갔는지 마지막에 확인 */}
-            {(() => {
-              const check = Array.from(
-                new Set([
-                  ...(legacy.defKeywords || []),
-                  ...(legacy.features || []),
-                  ...legacy.sections.flatMap((s) => s.keywords),
-                  // 구획이 없는 얇은 토픽 — 커널 카드의 핵심 용어로 채점 근거를 보강
-                  ...(legacy.sections.length
-                    ? []
-                    : (extra?.guide?.map || []).map((m) => m.real)),
-                ]),
-              ).filter(Boolean);
-              return check.length ? (
-                <div className="border-t border-indigo-100 px-5 py-3">
-                  <div className="text-xs font-bold text-slate-500">
-                    ✅ 키워드 체크 — 내 답안에 이 단어들이 들어갔는지 확인
-                  </div>
-                  <div className="mt-1.5 flex flex-wrap gap-1.5">
-                    {check.map((k) => (
-                      <span
-                        key={k}
-                        className="rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-blue-100"
-                      >
-                        {k}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ) : null;
-            })()}
-            <p className="border-t border-indigo-100 bg-indigo-50/50 px-5 py-2 text-[11px] text-indigo-700">
-              교재 서브노트가 아직 없는 예전 토픽이에요. 같은 답안지 순서(정의→특징→개념도→
-              구성요소→플러스 알파)로 재구성했고, AI 없이 항상 열립니다.
-            </p>
-          </section>
-        )}
+        {legacy && <LegacyTemplate legacy={legacy} intro={intro} extra={extra} />}
 
         {/* 내 정리 — 손으로 정리한 공책·내 답안지에서 이 토픽 문항을 잘라 붙인 것. 답안지 템플릿 바로 아래(2026-10-20 "내 정리를 답안지 템플릿 밑으로") */}
         <MyNotes key={cur} items={data?.myNotes ?? []} />
@@ -1118,7 +434,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
             <div className="bg-teal-50 px-5 py-3">
               <p className="text-sm font-bold text-teal-900">
                 🔎 교재 속 서브 토픽 — 상위 토픽{" "}
-                <Link href={`/explain?topic=${encodeURIComponent(data.sub.parent)}`} className="underline decoration-dotted underline-offset-2">
+                <Link href={explainHref(data.sub.parent)} className="underline decoration-dotted underline-offset-2">
                   {data.sub.parent}
                 </Link>
               </p>
@@ -1148,7 +464,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
               {data.subs.map((st) => (
                 <Link
                   key={st.name}
-                  href={`/explain?topic=${encodeURIComponent(st.name)}`}
+                  href={explainHref(st.name)}
                   className="rounded-full border border-dashed border-teal-400 bg-white px-2.5 py-1 text-[12.5px] text-teal-900 hover:bg-teal-50"
                 >
                   {st.name}
@@ -1181,7 +497,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
             {data!.subs!.filter((st) => st.peers.length > 0).map((st) => (
               <div key={st.name} className="mt-2">
                 <Link
-                  href={`/explain?topic=${encodeURIComponent(st.name)}`}
+                  href={explainHref(st.name)}
                   className="text-[12.5px] font-semibold text-teal-900 underline decoration-dotted underline-offset-2"
                 >
                   {st.name}
@@ -1200,7 +516,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
           <section className="mb-6 rounded-2xl border-2 border-sky-200 bg-sky-50/40 p-3">
             <p className="text-sm font-bold text-sky-900">
               🔗 사실상 같은 토픽 —{" "}
-              <Link href={`/explain?topic=${encodeURIComponent(data.twin.title)}`} className="underline decoration-dotted underline-offset-2">
+              <Link href={explainHref(data.twin.title)} className="underline decoration-dotted underline-offset-2">
                 {data.twin.title}
               </Link>
             </p>

@@ -147,5 +147,3 @@ export function peerAnswersForQuestion(question?: string, questionId?: string): 
   }
   return out;
 }
-
-export const PEER_ANSWER_COUNT = PEER_ANSWERS.length;

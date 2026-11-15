@@ -13,20 +13,6 @@ const bare = (s: string) =>
     .trim()
     .toLowerCase();
 
-const INDEX: { title: string; b: string }[] = (() => {
-  const list: { title: string; b: string }[] = [];
-  for (const s of SUBNOTES) {
-    const b = bare(s.title);
-    // 2글자 이하(예: 커널)는 오탐이 많아 제외
-    if (b.length >= 3) list.push({ title: s.title, b });
-    for (const p of s.defPair || []) {
-      const pb = bare(p.name);
-      if (pb.length >= 3) list.push({ title: s.title, b: pb });
-    }
-  }
-  return list;
-})();
-
 /**
  * 지문과 매칭되는 서브노트 제목(없으면 undefined).
  *

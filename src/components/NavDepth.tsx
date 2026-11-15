@@ -40,12 +40,6 @@ export function canGoBack(): boolean {
   return read().length > 1;
 }
 
-/** 뒤로 갔을 때 도착할 앱 안 경로(없으면 null). */
-export function previousPath(): string | null {
-  const s = read();
-  return s.length > 1 ? s[s.length - 2] : null;
-}
-
 /**
  * 이 모듈이 평가된 시점 = 새 문서가 열린 시점.
  * 주소 직접 입력·새로고침·로그인 후 location.replace 처럼 문서가 통째로 다시

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import type { SubnoteExtra } from "@/data/subnoteExtras";
+import { explainHref } from "@/lib/links";
 
 /**
  * 학습 카드 — 쉬운 말↔용어 매핑 → 옆 토픽.
@@ -58,7 +59,7 @@ export default function StudyCard({ extra }: { extra?: SubnoteExtra }) {
             {g.links.map((l, i) => (
               <div key={i} className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-3">
                 <Link
-                  href={`/explain?topic=${encodeURIComponent(l.topic)}`}
+                  href={explainHref(l.topic)}
                   className="text-sm font-bold text-emerald-800 hover:underline"
                 >
                   {l.topic} →

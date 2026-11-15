@@ -3,6 +3,8 @@
 import Link from "next/link";
 import type { MapLink } from "@/lib/topicMapLinks";
 import type { MemoryTable } from "@/data/memoryTables";
+import { explainHref } from "@/lib/links";
+import { normTitle } from "@/lib/titleNorm";
 
 /**
  * 토픽 설명 안에 토픽 지도를 끌어온다.
@@ -29,7 +31,7 @@ export default function TopicMapCard({
   const t = (title || "").trim();
   if (sets.length === 0 && tables.length === 0) return null;
 
-  const key = norm(t);
+  const key = normTitle(t);
 
   return (
     <section className="mb-6 overflow-hidden rounded-2xl border-2 border-sky-200 bg-white shadow-sm">
@@ -69,7 +71,7 @@ export default function TopicMapCard({
             <p className="mb-2 text-xs text-slate-500">기준 — {set.axis}</p>
             <ul className="divide-y divide-slate-100 overflow-hidden rounded-xl border border-slate-200">
               {set.items.map((it) => {
-                const here = norm(it.name) === key;
+                const here = normTitle(it.name) === key;
                 return (
                   <li
                     key={it.name}
@@ -80,7 +82,7 @@ export default function TopicMapCard({
                       <b className="text-sm text-brand-700">{it.name}</b>
                     ) : (
                       <Link
-                        href={`/explain?topic=${encodeURIComponent(it.name)}`}
+                        href={explainHref(it.name)}
                         className="text-sm font-medium text-slate-800 hover:text-brand-600 hover:underline"
                       >
                         {it.name}
@@ -147,13 +149,4 @@ export default function TopicMapCard({
       </div>
     </section>
   );
-}
-
-/** topicMapLinks 와 같은 규칙 — 괄호 병기·공백·기호를 털어낸다. */
-function norm(s: string): string {
-  return (s || "")
-    .trim()
-    .toLowerCase()
-    .replace(/[(（][^)）]*[)）]/g, "")
-    .replace(/[\s()·,\-_/'’]/g, "");
 }

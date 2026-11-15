@@ -162,7 +162,7 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
  *  호출이 함수 전체 시간예산(maxDuration 60s)을 먹어치워 504가 나므로, 개별 호출을
  *  일정 시간에 끊고 다음 제공자로 넘어가게 한다. */
 const PROVIDER_TIMEOUT_MS = Number(process.env.AI_PROVIDER_TIMEOUT_MS) || 22000;
-export async function fetchT(
+async function fetchT(
   url: string,
   opts: RequestInit,
   ms = PROVIDER_TIMEOUT_MS,
@@ -751,7 +751,7 @@ async function generateWithOllama({
  * 모델이 JSON 코드블록(```json ... ```)으로 감싸 응답하는 경우가 많아,
  * 순수 JSON 문자열만 추출해 파싱합니다.
  */
-export function parseJsonFromModel<T>(raw: string): T {
+function parseJsonFromModel<T>(raw: string): T {
   let text = raw.trim();
   const fenced = text.match(/```(?:json)?\s*([\s\S]*?)```/);
   if (fenced) {

@@ -8,6 +8,7 @@ import { SUBNOTES } from "@/data/textbookSubnotes";
 import { DOMAINS, DOMAIN_LABEL } from "@/lib/domains";
 import { planInfo, LEVEL_STYLE, LEVEL_HINT } from "@/lib/studyPlan";
 import ClearButton from "@/components/ClearButton";
+import { explainHref } from "@/lib/links";
 
 /**
  * 용어 사전 — 두 켜로 구성한다.
@@ -550,7 +551,7 @@ export default function BasicsPage() {
                   })()}
                   <span className="ml-auto flex gap-1.5">
                     <Link
-                      href={`/explain?topic=${encodeURIComponent(s.title)}`}
+                      href={explainHref(s.title)}
                       className="rounded-md border border-slate-200 px-2 py-0.5 text-[11px] font-medium text-slate-600 hover:bg-slate-50"
                     >
                       💡 설명
@@ -602,7 +603,7 @@ export default function BasicsPage() {
               </p>
               {t.see && (
                 <Link
-                  href={`/explain?topic=${encodeURIComponent(t.see)}`}
+                  href={explainHref(t.see)}
                   className="mt-1.5 inline-block text-xs font-medium text-brand-600 hover:underline"
                 >
                   📖 관련 토픽: {t.see} →

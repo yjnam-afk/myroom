@@ -2,15 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import topics from "@/data/topics.json";
-import { ReviewItem, loadReview, getItem, isDue } from "@/lib/storage";
-import { QuizStats, loadStats, loadNotes } from "@/lib/notes";
-import { loadSession } from "@/lib/auth";
+import { ReviewItem, loadReview, getItem } from "@/lib/storage";
+import { loadStats, loadNotes } from "@/lib/notes";
+import { loadSession } from "@/lib/session";
 import { CoachPlan, buildPlan } from "@/lib/coach";
 import { recordPlanRounds, reviewTopicIdFor } from "@/lib/planRounds";
-import ShareButton from "@/components/ShareButton";
 import {
-  Priority,
   TodayPlan,
   planForToday,
   loadDone,
@@ -18,26 +15,8 @@ import {
   doneKey,
 } from "@/data/curriculum";
 import { subnoteByTopicId, subnoteByTitle } from "@/data/textbookSubnotes";
-
-/** 교재 Priority 뱃지 — ★★★=상(빨강), ★★=중(파랑), ★=하(회색) */
-const PRIORITY_STYLE: Record<Priority, { cls: string; star: string }> = {
-  상: { cls: "bg-red-100 text-red-700 ring-red-200", star: "★★★" },
-  중: { cls: "bg-blue-100 text-blue-700 ring-blue-200", star: "★★" },
-  하: { cls: "bg-slate-100 text-slate-600 ring-slate-200", star: "★" },
-};
-
-function PriorityBadge({ p }: { p: Priority }) {
-  const s = PRIORITY_STYLE[p];
-  return (
-    <span
-      className={`inline-flex shrink-0 items-center gap-1 rounded px-1.5 py-0.5 text-[10px] font-bold ring-1 ${s.cls}`}
-      title={`중요도 ${p}`}
-    >
-      {p}
-      <span className="text-[8px] leading-none">{s.star}</span>
-    </span>
-  );
-}
+import { explainHref } from "@/lib/links";
+import PriorityBadge from "@/components/PriorityBadge";
 
 const menuGroups = [
   {
@@ -108,12 +87,6 @@ const menuGroups = [
 
 export default function Home() {
   const [review, setReview] = useState<Record<string, ReviewItem>>({});
-  const [stats, setStats] = useState<QuizStats>({
-    total: 0,
-    correct: 0,
-    lastAt: null,
-  });
-  const [notesCount, setNotesCount] = useState(0);
   const [plan, setPlan] = useState<CoachPlan | null>(null);
   const [userName, setUserName] = useState("");
 
@@ -149,8 +122,6 @@ export default function Home() {
       const st = loadStats();
       const notes = loadNotes();
       setReview(rev);
-      setStats(st);
-      setNotesCount(notes.length);
       // 코치는 회독·오답·퀴즈 기록만 보고 오늘 할 일을 추천한다(토픽 자동 배정 없음).
       setPlan(buildPlan(rev, notes, st, Date.now()));
       setUserName(loadSession()?.name || "");
@@ -160,31 +131,6 @@ export default function Home() {
     window.addEventListener("progress-synced", refresh);
     return () => window.removeEventListener("progress-synced", refresh);
   }, []);
-
-  const total = topics.length;
-  const doneCount = topics.filter(
-    (t) => getItem(review, t.id).status === "done",
-  ).length;
-  const learningCount = topics.filter(
-    (t) => getItem(review, t.id).status === "learning",
-  ).length;
-  const totalRounds = topics.reduce(
-    (sum, t) => sum + getItem(review, t.id).rounds,
-    0,
-  );
-  const progress = total ? Math.round((doneCount / total) * 100) : 0;
-  const accuracy =
-    stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0;
-  const dueCount = topics.filter((t) => isDue(getItem(review, t.id))).length;
-
-  const categories = Array.from(new Set(topics.map((t) => t.category)));
-  const byCategory = categories.map((cat) => {
-    const items = topics.filter((t) => t.category === cat);
-    const done = items.filter(
-      (t) => getItem(review, t.id).status === "done",
-    ).length;
-    return { cat, done, total: items.length };
-  });
 
   return (
     <div>
@@ -347,7 +293,7 @@ export default function Home() {
                             프로세스 상태 전이도·CPU 스케줄링처럼 topics.json 에
                             없는 교재 전용 토픽이 학습을 못 하게 된다. */}
                         <Link
-                          href={`/explain?topic=${encodeURIComponent(t.title)}${t.topicId ? `&topicId=${t.topicId}` : ""}`}
+                          href={`${explainHref(t.title)}${t.topicId ? `&topicId=${t.topicId}` : ""}`}
                           className="flex-1 rounded-md border border-slate-200 bg-white px-2.5 py-1.5 text-center text-xs font-medium text-slate-600 hover:bg-slate-100 sm:flex-initial sm:py-1"
                         >
                           💡 설명
@@ -429,27 +375,6 @@ export default function Home() {
           </section>
         ))}
       </div>
-    </div>
-  );
-}
-
-function Stat({
-  label,
-  value,
-  accent,
-}: {
-  label: string;
-  value: string;
-  accent?: boolean;
-}) {
-  return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-4 text-center shadow-sm">
-      <div
-        className={`text-2xl font-bold ${accent ? "text-brand-600" : "text-slate-900"}`}
-      >
-        {value}
-      </div>
-      <div className="mt-1 text-xs text-slate-500">{label}</div>
     </div>
   );
 }

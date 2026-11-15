@@ -9,6 +9,7 @@ import ShareButton from "@/components/ShareButton";
 import questions from "@/data/questions.json";
 import topics from "@/data/topics.json";
 import ClearButton from "@/components/ClearButton";
+import { IMP_ORDER } from "@/lib/badges";
 
 type Period = "1교시" | "2교시";
 type Hint = {
@@ -19,7 +20,6 @@ type Hint = {
 };
 
 const CATS = Array.from(new Set(topics.map((t) => t.category)));
-const IMP_ORDER: Record<string, number> = { 상: 0, 중: 1, 하: 2, 출제예상: 3 };
 
 export default function AnswerPage() {
   const [period, setPeriod] = useState<Period>("1교시");

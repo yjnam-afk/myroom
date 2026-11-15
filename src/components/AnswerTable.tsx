@@ -2,7 +2,7 @@
  * 표 칸 글자 수(1교시 지침 V32) — 공백·하이픈·가운뎃점 빼고, 영문 2자 = 한글 1자,
  * 숫자·기호 묶음(CR≤0.1, 1~9, 24bit)은 1자.
  */
-export function cellLen(s: string): number {
+function cellLen(s: string): number {
   let t = s.replace(/[\s\-·]/g, "");
   let n = 0;
   // 숫자로 시작하는 숫자·기호·단위 묶음은 1자

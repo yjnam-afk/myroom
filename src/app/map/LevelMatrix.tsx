@@ -21,7 +21,7 @@ const TONE: Record<LmTone, { head: string; box: string; hot: string; cold: strin
 const ROW_BG = ["#b45309", "#ea580c", "#16a34a", "#0f766e", "#1d4ed8", "#6d28d9", "#be123c", "#0e7490"];
 
 /** 맵 안 칩 출제 횟수에서 「진한 칩」 기준 — 출제 있는 칩 중 위 30%(최소 2회) */
-export function hotLine(m: LevelMap, n: (c: LmChip) => number) {
+function hotLine(m: LevelMap, n: (c: LmChip) => number) {
   const all = [...m.rows.flatMap((r) => r.cells.flat()), ...(m.all?.chips ?? [])].map(n).filter((x) => x > 0).sort((a, b) => b - a);
   if (!all.length) return Infinity;
   return Math.max(2, all[Math.max(0, Math.ceil(all.length * 0.3) - 1)]);

@@ -242,6 +242,21 @@ KPC 85회 3교시 2번은 스캔이 「P2P 네트워크」인데 제목이 「To
 
 **계획 메뉴를 뺐다**(2026-11-14 "계획 메뉴는 없애자"): 위 메뉴의 「🗓️ 계획」, 메인 화면의 학습 계획 카드·「전체 계획 →」, 토픽 설명·모범답안 머리의 학습 계획 링크. `/plan` 화면 파일과 메인의 오늘 분량 칸은 그대로 있다.
 
+## 코드 정리 (2026-11-15 "기능은 그대로 놔두고 코드 정리 및 리팩토링")
+
+화면·데이터 산출물은 그대로 두고 코드만 정리했다. 확인: 33개 화면(단추 클릭 포함) 스냅숏 455개가 정리 전과 같고, prebuild 산출물(flashcards·genAnswers·questionFreq …)도 그대로.
+- **지운 것**: 호출하는 곳이 없던 `lib/auth.ts`(가입·로그인·랭킹 전송 — 로그인 화면이 없다)·`lib/myDiagrams.ts`·`components/TableCell.tsx`·`scripts/_diag.ts`·`t5.mjs`,
+  안 쓰는 함수 30여 개(오답노트 쓰기 `addNote`·`reviewNote`…, `planOrder`, `flashcardPrompt`·`quizPrompt`, `domainStyle` …), 메인 화면의 안 쓰는 계산(회독 통계·`topics.json` import),
+  안 쓰는 패키지 5개(`@breezystack/lamejs`·`https-proxy-agent`·`playwright-core`·`ws`·`@types/ws`). 세션은 `lib/session.ts` 의 `loadSession` 만 남았다.
+  **API 라우트는 건드리지 않았다** — `/api/auth/*`·`/api/score`·`/api/leaderboard`·`/api/diagrams` 는 이제 앱 안에 부르는 곳이 없다(지울지는 사용자가 정할 일).
+- **한 곳으로 모은 것**: 토픽 설명 주소 `explainHref`(`lib/links.ts`, 24곳), 배지 색·차례 `IMP_ORDER`·`PRIORITY_STYLE`·`LEVEL_STYLE`·`LEVEL_HINT`(`lib/badges.ts`)와 `components/PriorityBadge.tsx`(3곳),
+  `isBrowser`(`lib/browser.ts`), 토픽 이름 열쇠 `normTitle`(`lib/titleNorm.ts`), 예전 토픽 정의 뽑기 `cleanDefinition`(`lib/cleanDefinition.ts` — 화면과 `build-flashcards.ts` 가 같이 쓴다).
+  이 파일들은 자료(JSON·교재)를 import 하지 않는다 — 클라이언트 번들에 자료가 딸려 들어가지 않게 그대로 둔다. 토픽 지도의 `explainHref(name, parent)`(mapData)는 이름을 토픽으로 풀어 주는 다른 함수다.
+- **나눈 것**: `app/map/MapClient.tsx`(1,553줄) → `mapData.ts`(자료·찾기) · `MapView` · `CompareView` · `TablesView` · `GroupsView` + 껍데기 `MapClient`(144줄).
+  `app/explain/ExplainClient.tsx`(1,266줄) → `TopicNav` · `TopicBrowser`(목록) · `LegacyTemplate`(예전 토픽 답안지 템플릿) · `explainBits`(작은 조각) + 본문(582줄).
+- 다시 정리할 때: `npx knip`(안 쓰는 파일·export — scripts 는 진입점이 아니라 「unused」로 나오니 grep 으로 확인), `npx tsc --noEmit --noUnusedLocals --noUnusedParameters`.
+  자료 파일(`src/data/*`)의 export 와 타입 export 는 그대로 두었다.
+
 ## 사용자가 교재 쪽을 이미지로 붙여 줄 때
 
 **작업 중(턴 도중)에 붙인 이미지는 파일로 남지 않는다** — 화면으로만 보이고 `images/` 폴더에 저장되지 않는다.
@@ -341,7 +356,7 @@ python3 scripts/check-answer-format.py <회차>   # 140, ns1-, yc1-30 …
     (데브옵스 구성 요소가 품질 2행·프로세스 4행·도구 3행이어서 품질 2줄·
      프로세스 4줄·도구 3줄로 접었다. 반복이 5회 이상이면 4줄에 안 들어가므로
      그대로 둔다 — 아직 그런 표가 340개 남아 있다.)
-  - 줄 앞에 표시를 붙이지 않는다 (`src/components/TableCell.tsx` 는 줄만 그대로 그린다).
+  - 줄 앞에 표시를 붙이지 않는다(화면은 줄만 그대로 그린다 — 예전 `TableCell.tsx` 는 쓰는 곳이 없어 2026-11-15 정리 때 지웠다).
     한때 `①②③` 을 붙여 2열·3열의 ②끼리 짝이라고 표시했는데, 칸 너비(5~7칸) 때문에
     한 문장이 접힌 줄에도 번호가 붙어 「범위 관리 절차 / 방법 정의」가 두 항목처럼
     읽혔다. 번호가 뜻을 끊었다.

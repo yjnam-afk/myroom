@@ -15,6 +15,7 @@ import ClearButton from "@/components/ClearButton";
 import { QuestionBadges, QuestionMyNotes } from "@/components/QuestionMeta";
 import { kindOf, roundOf, roundNum } from "@/lib/questionText";
 import { DOMAINS } from "@/lib/domains";
+import { explainHref } from "@/lib/links";
 
 type Q = {
   id: string;
@@ -428,7 +429,7 @@ export default function ExamPage() {
                     )}
                     {tpl && (
                       <Link
-                        href={`/explain?topic=${encodeURIComponent(tpl)}`}
+                        href={explainHref(tpl)}
                         className="rounded-md bg-emerald-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-emerald-700"
                       >
                         📝 답안지 템플릿 →
@@ -474,7 +475,7 @@ export default function ExamPage() {
                         {rel.map((t) => (
                           <Link
                             key={t}
-                            href={`/explain?topic=${encodeURIComponent(t)}`}
+                            href={explainHref(t)}
                             className="rounded-full border border-slate-200 bg-white px-2 py-0.5 text-[11px] text-slate-600 hover:border-brand-400 hover:bg-brand-50 hover:text-brand-700"
                           >
                             {t}

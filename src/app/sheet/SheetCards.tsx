@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { SheetGroup, SheetRow, SheetCluster } from "@/lib/explainData";
+import { explainHref } from "@/lib/links";
 
 /**
  * 정리표 암기 카드 보기 — 토픽 하나가 카드 한 장(2026-11-10 "ui가 맘에 안드네").
@@ -16,7 +17,6 @@ const IMP_CHIP: Record<string, string> = {
   출제예상: "bg-brand-50 text-brand-700",
 };
 
-const topicHref = (t: string) => `/explain?topic=${encodeURIComponent(t)}`;
 const bare = (t: string) => t.replace(/\s*[(（][^)）]*[)）]\s*$/, "");
 
 type Qn = { text: string; n: number; where: string[]; topics?: string[] };
@@ -57,7 +57,7 @@ function TopicCard({ r, hide, skipCo }: { r: SheetRow; hide?: Set<string>; skipC
       {/* 왼쪽 — 토픽 · 정의 · 두음 · 개념도 */}
       <div className="min-w-0">
         <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-          <Link href={topicHref(r.title)} className="text-[15px] font-bold leading-snug text-slate-900 hover:text-brand-700 hover:underline">
+          <Link href={explainHref(r.title)} className="text-[15px] font-bold leading-snug text-slate-900 hover:text-brand-700 hover:underline">
             {r.title}
           </Link>
           <span className={`rounded px-1.5 py-px text-[10.5px] font-bold ${IMP_CHIP[r.imp] || "bg-slate-100 text-slate-500"}`}>{r.imp}</span>
@@ -110,7 +110,7 @@ function TopicCard({ r, hide, skipCo }: { r: SheetRow; hide?: Set<string>; skipC
             {co.map((c, i) => (
               <span key={c.title}>
                 {i > 0 && " · "}
-                <Link href={topicHref(c.title)} className="text-slate-600 hover:text-brand-700 hover:underline">
+                <Link href={explainHref(c.title)} className="text-slate-600 hover:text-brand-700 hover:underline">
                   {bare(c.title)}
                 </Link>{" "}
                 {c.n}
@@ -138,7 +138,7 @@ function TopicCard({ r, hide, skipCo }: { r: SheetRow; hide?: Set<string>; skipC
           <>
             <QuestionList items={qs.slice(0, 3)} />
             {(qs.length > 3 || hidden > 0) && (
-              <Link href={topicHref(r.title)} className="mt-2.5 inline-block pl-11 text-[11.5px] text-brand-600 hover:underline">
+              <Link href={explainHref(r.title)} className="mt-2.5 inline-block pl-11 text-[11.5px] text-brand-600 hover:underline">
                 {qs.length > 3 ? `다른 문제 ${qs.length - 3}개 더 보기 →` : "토픽 설명에서 전체 보기 →"}
               </Link>
             )}

@@ -11,22 +11,17 @@
     "prebuild": "tsx scripts/test-question-text.ts && tsx scripts/answers.ts check && tsx scripts/build-textbook-map.ts && tsx scripts/build-flashcards.ts && tsx scripts/build-genanswers.ts && tsx scripts/build-question-freq.ts && tsx scripts/build-answer-index.ts"
   },
   "dependencies": {
-    "@breezystack/lamejs": "^1.2.7",
-    "https-proxy-agent": "^9.1.0",
     "mermaid": "^11.15.0",
     "next": "^14.2.35",
-    "playwright-core": "^1.56.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-markdown": "9.0.1",
-    "remark-gfm": "4.0.0",
-    "ws": "^8.21.0"
+    "remark-gfm": "4.0.0"
   },
   "devDependencies": {
     "@types/node": "20.14.10",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
-    "@types/ws": "^8.18.1",
     "autoprefixer": "10.4.19",
     "postcss": "^8.5.15",
     "tailwindcss": "3.4.6",

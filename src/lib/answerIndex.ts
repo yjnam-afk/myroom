@@ -26,7 +26,7 @@ const HINTS: [RegExp, string][] = [
   [/\(DX\)|\[서비스\]|디지털서비스|\bDS_/i, "디지털서비스"],
 ];
 
-export const UNSORTED_DOMAIN = "미분류";
+const UNSORTED_DOMAIN = "미분류";
 
 function domainOf(a: PeerAnswer): string {
   for (const t of a.topicTitles) {

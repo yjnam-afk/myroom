@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/ui";
 import { buildSheet } from "@/lib/explainData";
 import AnswerTable from "@/components/AnswerTable";
 import SheetCards from "./SheetCards";
+import { explainHref } from "@/lib/links";
 
 /**
  * 도메인별 토픽 정리표 — 손으로 쓰던 서브노트(엑셀식 정리)를 앱 한 페이지에 옮긴 것.
@@ -25,7 +26,6 @@ const IMP_CHIP: Record<string, string> = {
   출제예상: "bg-brand-100 text-brand-700",
 };
 
-const topicHref = (t: string) => `/explain?topic=${encodeURIComponent(t)}`;
 
 export default function SheetView({ full }: { full: boolean }) {
   const groups = buildSheet();
@@ -97,7 +97,7 @@ export default function SheetView({ full }: { full: boolean }) {
                           <span className={`mr-1 inline-block rounded px-1 py-[1px] text-[10px] font-bold ${IMP_CHIP[r.imp] || "bg-slate-100 text-slate-500"}`}>
                             {r.imp}
                           </span>
-                          <Link href={topicHref(r.title)} className="font-bold text-slate-900 hover:text-brand-700 hover:underline">
+                          <Link href={explainHref(r.title)} className="font-bold text-slate-900 hover:text-brand-700 hover:underline">
                             {r.title}
                           </Link>
                           {r.ns + r.past > 0 && (

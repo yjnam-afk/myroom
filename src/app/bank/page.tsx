@@ -14,6 +14,7 @@ import { TIERS, type Tier, PRIOS, type Prio, freqTier, prioOf, FREQ_DESC, PRIO_S
 import { QuestionBadges, QuestionMyNotes } from "@/components/QuestionMeta";
 import { kindOf, roundOf } from "@/lib/questionText";
 import { DOMAINS } from "@/lib/domains";
+import { explainHref } from "@/lib/links";
 
 type Q = {
   id: string;
@@ -387,7 +388,7 @@ export default function BankPage() {
                       />
                       {matchSubnoteTitle(q.text) && (
                         <Link
-                          href={`/explain?topic=${encodeURIComponent(matchSubnoteTitle(q.text)!)}`}
+                          href={explainHref(matchSubnoteTitle(q.text)!)}
                           className="rounded-md bg-emerald-600 px-2.5 py-1 text-xs font-medium text-white hover:bg-emerald-700"
                         >
                           📝 답안지 템플릿 →
@@ -435,7 +436,7 @@ export default function BankPage() {
                           {rel.map((t) => (
                             <Link
                               key={t}
-                              href={`/explain?topic=${encodeURIComponent(t)}`}
+                              href={explainHref(t)}
                               className="rounded-full border border-slate-200 bg-white px-2 py-0.5 text-[11px] text-slate-600 hover:border-brand-400 hover:bg-brand-50 hover:text-brand-700"
                             >
                               {t}
