@@ -118,6 +118,8 @@ function mdTable(tb: any): string {
 }
 
 const GA = "가나다라마바사아".split("");
+// 서브노트 notes 중 「교재 표기 그대로 — 통상 정의와 다름」 꼴은 교재 대조 메모다(2026-11-15) — 답안의 결론·플러스 알파 줄로 쓰지 않는다.
+const EDITORIAL_NOTE = /교재 표기 그대로/;
 
 /** 절차형 표에서 흐름 한 줄(A → B → C) 뽑기 — 발전단계 서론용 */
 function flowLine(tables: any[]): string {
@@ -218,10 +220,11 @@ function buildFromSubnote(q: any, sn: any): string {
       parts.push(mdTable(tb));
       pushTableGloss(parts, sn, tb);
     });
-    if (sn.notes?.length) {
+    const pNotes = (sn.notes || []).filter((n: string) => !EDITORIAL_NOTE.test(n));
+    if (pNotes.length) {
       parts.push("");
       parts.push("## 3. 플러스 알파 — 추가 어필");
-      for (const n of sn.notes) parts.push(`- ${n}`);
+      for (const n of pNotes) parts.push(`- ${n}`);
     }
     parts.push("");
     parts.push("**(끝)**");
@@ -320,7 +323,7 @@ function buildFromSubnote(q: any, sn: any): string {
   }
 
   // 결론(+α) — 개념도 묘사용 비고는 결론에 어울리지 않으므로 제외
-  const cNotes = (sn.notes || []).filter((n: string) => !/^개념도/.test(n));
+  const cNotes = (sn.notes || []).filter((n: string) => !/^개념도/.test(n) && !EDITORIAL_NOTE.test(n));
   if (cNotes.length) {
     parts.push(`## ${no++}. 결론 — 차별화(+α)`);
     for (const n of cNotes) parts.push(`- ${n}`);

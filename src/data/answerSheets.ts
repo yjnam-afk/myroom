@@ -4532,7 +4532,7 @@ export const ANSWER_SHEETS: Record<string, AnswerSheet> = {
           [
             "평문",
             "AAAABBBBBCC\nCCCCCCDEEEE",
-            "ABCDDDDDDDD\nEEEEEEEE"
+            "ABCDDDDDDDD\nEEEEEEEEE"
           ],
           [
             "압축",

@@ -1109,7 +1109,7 @@ export const CONCEPT_DIAGRAMS: Record<string, ConceptSpec | ConceptSpec[]> = {
     layers: [
       {
         name: "평문",
-        items: ["AAAABBBBBCCCCCCCCDEEEE", "ABCDDDDDDDDEEEEEEEE"],
+        items: ["AAAABBBBBCCCCCCCCDEEEE", "ABCDDDDDDDDEEEEEEEEE"],
       },
       { name: "압축", items: ["4A5B8C1D5E", "ABC*8D*9E"] },
       {

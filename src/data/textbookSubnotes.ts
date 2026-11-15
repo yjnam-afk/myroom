@@ -5429,6 +5429,8 @@ export const SUBNOTES: TextbookSubnote[] = [
         ],
       },
     ],
+    // 2026-11-15 슬라이드 대조: 교재 시퀀스 다이어그램 쪽 「정의」가 유즈케이스 다이어그램 쪽과 같은 문장으로 인쇄돼 있다(옮기다 틀린 것이 아님) — 정의·defShort 는 그대로 둔다.
+    notes: ["정의는 교재 표기 그대로 — 교재가 유즈케이스 다이어그램과 같은 문장으로 적었다(통상 정의는 객체 간 메시지 교환을 시간 순서로 표현하는 동적 다이어그램)"],
   },
   {
     topicId: "se-94",
@@ -6305,11 +6307,15 @@ export const SUBNOTES: TextbookSubnote[] = [
           ["CC 조건", "Condition", "분기문 내부 조건\n모든 조건 참거짓\n결과 무관", "TF = F\nFT = F"],
           ["C/DC 조건/결정", "C/DC", "분기문 참거짓\n내부 조건 참거짓", "TT = T\nFF = F"],
           ["MC/DC 변경조건", "Modified C/DC", "개별 조건식\n타 조건식 무관\n전체에 독립 영향", "TF = F\nTT = T\nFF = F"],
-          ["MCC 다중조건", "Multi Condition", "모든 경로 검사\n가장 강력\n100% 커버리지", "TT = T\nTF = F\nFT = F\nFF = F"],
+          // 2026-11-15 슬라이드 대조: MCC 칸은 교재가 「TT = T / TF = T / FT = T / FF = F」다 — 「TF = F / FT = F」로 옮겨져 있어 교재대로 되돌렸다. MC/DC 칸(TF·TT·FF)은 교재 그대로였다.
+          ["MCC 다중조건", "Multi Condition", "모든 경로 검사\n가장 강력\n100% 커버리지", "TT = T\nTF = T\nFT = T\nFF = F"],
         ],
       },
     ],
-    notes: ["범위 그림: Statement ⊂ Decision ⊂ Condition/Decision ⊂ MC/DC ⊂ Multiple Condition ⊂ All Path(경로 커버리지)"],
+    notes: [
+      "범위 그림: Statement ⊂ Decision ⊂ Condition/Decision ⊂ MC/DC ⊂ Multiple Condition ⊂ All Path(경로 커버리지)",
+      "Test Case 칸은 교재 표기 그대로 — MC/DC가 TF·TT·FF로 적혀 있다(통상 AND 조건의 MC/DC 조합은 TT·TF·FT). MCC의 TF = T·FT = T도 교재 그대로다(다른 행은 TF = F)",
+    ],
   },
   {
     topicId: "se-160",
@@ -9399,7 +9405,10 @@ export const SUBNOTES: TextbookSubnote[] = [
         ],
       },
     ],
-    notes: ["K-means와 비교: 반달 모양처럼 임의 형태의 데이터에서 K-means는 실패, DBSCAN은 성공 — 밀도 기반이라 군집 모양에 제약이 없다"],
+    notes: [
+      "K-means와 비교: 반달 모양처럼 임의 형태의 데이터에서 K-means는 실패, DBSCAN은 성공 — 밀도 기반이라 군집 모양에 제약이 없다",
+      "동작방식 ②의 「낮은 minPts는 noise point 다수」는 교재 표기 그대로 — 통상은 minPts가 높을수록 noise point가 늘어난다",
+    ],
   },
   {
     title: "거리 공식(Distance Formula)",
@@ -12655,6 +12664,8 @@ export const SUBNOTES: TextbookSubnote[] = [
         ],
       },
     ],
+    // 2026-11-15 슬라이드 대조: 교재 조항 칸이 「인공지능 안정성 확보 의무(제32조)」로 인쇄돼 있다(같은 행 설명 칸은 「안전성 확보를 위해」) — 조항 이름은 그대로 둔다.
+    notes: ["「인공지능 안정성 확보 의무(제32조)」는 교재 표기 그대로 — 법 조문 제목은 「인공지능 안전성 확보 의무」다"],
   },
   {
     title: "인공지능 투명성 확보 가이드라인",
@@ -13803,6 +13814,8 @@ export const SUBNOTES: TextbookSubnote[] = [
         ],
       },
     ],
+    // 2026-11-15 슬라이드 대조: 교재가 「F 검정량이 커질수록 집단내 분산, 설명된 분산이 상대적으로 크다는 뜻이며 이는 그룹 간의 평균 차가 크지 않고 유사함을 의미」로 적었다 — 표는 그대로 둔다.
+    notes: ["F 검정량 설명은 교재 표기 그대로 — 통상은 F 검정량이 클수록 집단 간 분산이 집단 내 분산보다 커서 집단 간 평균 차이가 크다고 본다"],
   },
   {
     title: "선형 자료구조와 비선형 자료구조",
@@ -14635,14 +14648,18 @@ export const SUBNOTES: TextbookSubnote[] = [
         caption: "예제",
         headers: ["구분", "예제 1", "예제 2"],
         rows: [
-          ["평문", "AAAABBBBBCCCCCCCCDEEEE\n(22byte)", "ABCDDDDDDDDEEEEEEEE\n(19byte)"],
+          // 2026-11-15 슬라이드 대조: 예제 2 평문은 교재가 D 8개·E 9개(20자)다 — E 8개로 옮겨져 있어 교재대로 되돌렸다(압축 「*9E」와 맞는다). 「(19byte)」와 예제 1의 「5E」(평문 E 는 4개)는 교재 표기 그대로다.
+          ["평문", "AAAABBBBBCCCCCCCCDEEEE\n(22byte)", "ABCDDDDDDDDEEEEEEEEE\n(19byte)"],
           ["압축", "4A5B8C1D5E\n(10byte)", "ABC*8D*9E\n(9Byte)"],
           ["압축률", "22byte/10byte\n= 2.2%", "19byte/9byte\n= 2.11%"],
           ["적용 방식", "LENGTH, RUN 순서\n변화 잦으면\n압축률 저하", "유일 자료 그대로\n반복 자료만 적용"],
         ],
       },
     ],
-    notes: ["허프만 코딩과 비교: 허프만은 빈도 기반 가변 길이 부호화, 런랭스는 연속 반복 구간을 (횟수+값)으로 축약 — 팩스·BMP·단순 이미지처럼 같은 값이 길게 이어지는 데이터에 효과적"],
+    notes: [
+      "허프만 코딩과 비교: 허프만은 빈도 기반 가변 길이 부호화, 런랭스는 연속 반복 구간을 (횟수+값)으로 축약 — 팩스·BMP·단순 이미지처럼 같은 값이 길게 이어지는 데이터에 효과적",
+      "예제는 교재 표기 그대로 — 예제 1은 평문의 E가 4개인데 압축이 5E이고, 예제 2는 평문이 20자(D 8개·E 9개)인데 19byte로 적혀 있다",
+    ],
   },
   {
     title: "다익스트라(Dijkstra) 알고리즘",
@@ -17268,6 +17285,8 @@ export const SUBNOTES: TextbookSubnote[] = [
         ],
       },
     ],
+    // 2026-11-15 슬라이드 대조: 교재가 「R = {A, B, C, G, H, O}」로 인쇄했고 종속(CG > I)·폐포(ABCGHI)에는 I 를 썼다 — 표는 그대로 둔다.
+    notes: ["폐포 계산 예는 교재 표기 그대로 — 릴레이션 속성을 「G H O」로 적었으나 종속(CG→I)과 폐포(ABCGHI)에는 I를 쓴다(O ↔ I)"],
   },
   {
     title: "데이터베이스 정규화(Normalization)",
