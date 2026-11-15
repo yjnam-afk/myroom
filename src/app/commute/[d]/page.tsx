@@ -32,15 +32,46 @@ function Block({ b, next }: { b: FlowBlock; next?: FlowBlock }) {
         {b.title}
         <PriorityBadge p={b.priority} />
       </h3>
+      {b.basics && b.basics.terms.length > 0 && (
+        <div className="mt-3 rounded-xl bg-slate-50 px-3 py-2">
+          <p className="text-xs font-bold text-slate-500">먼저 알아둘 말</p>
+          <ul className="mt-1 space-y-1">
+            {b.basics.terms.map(([w, m]) => (
+              <li key={w} className="text-[15px] leading-7 text-slate-700">
+                <span className="font-semibold text-slate-900">{w}</span> <span className="text-slate-400">·</span> {m}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
       {b.why && (
-        <p className="mt-3 border-l-4 border-amber-300 pl-3 text-[16px] leading-8 text-slate-800">
-          <span className="mr-1.5 text-xs font-bold text-amber-700">왜 있나</span>
-          {b.why}
-        </p>
+        <div className="mt-4 border-l-4 border-amber-300 pl-3">
+          <p className="text-xs font-bold text-amber-700">왜 있나</p>
+          <p className="text-[16px] leading-8 text-slate-800">{b.why}</p>
+        </div>
+      )}
+      {b.basics && (
+        <div className="mt-4 border-l-4 border-sky-300 pl-3">
+          <p className="text-xs font-bold text-sky-700">어떻게 돌아가나</p>
+          <ol className="mt-0.5 space-y-2">
+            {b.basics.how.map((h, i) => (
+              <li key={i} className="flex gap-2 text-[16px] leading-8 text-slate-800">
+                <span className="mt-[7px] h-[18px] w-[18px] shrink-0 rounded-full bg-sky-100 text-center text-[11px] font-bold leading-[18px] text-sky-700">{i + 1}</span>
+                <span>{h}</span>
+              </li>
+            ))}
+          </ol>
+          {b.basics.ex && (
+            <p className="mt-2 rounded-lg bg-sky-50 px-3 py-2 text-[15px] leading-7 text-slate-700">
+              <span className="mr-1.5 text-xs font-bold text-sky-700">예</span>
+              {b.basics.ex}
+            </p>
+          )}
+        </div>
       )}
       {b.def ? (
-        <p className="mt-3 text-[17px] leading-8 text-slate-800">
-          {b.why && <span className="mr-1.5 text-xs font-bold text-slate-400">정의</span>}
+        <p className="mt-4 text-[17px] leading-8 text-slate-800">
+          {b.why && <span className="mr-1.5 text-xs font-bold text-slate-400">교재 정의</span>}
           <Bold text={b.def} />
         </p>
       ) : (

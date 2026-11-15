@@ -14,8 +14,19 @@
  */
 import CA from "./topicWhy/CA.json";
 import OS from "./topicWhy/OS.json";
+import PM from "./topicWhy/PM.json";
+import SE from "./topicWhy/SE.json";
+import AI from "./topicWhy/AI.json";
+import ST from "./topicWhy/ST.json";
+import DS from "./topicWhy/DS.json";
+import AL from "./topicWhy/AL.json";
+import NW from "./topicWhy/NW.json";
+import DB from "./topicWhy/DB.json";
+import MG from "./topicWhy/MG.json";
+import SC from "./topicWhy/SC.json";
+import DX from "./topicWhy/DX.json";
 
-export const TOPIC_WHY: Record<string, Record<string, string>> = { CA, OS };
+export const TOPIC_WHY: Record<string, Record<string, string>> = { CA, OS, PM, SE, AI, ST, DS, AL, NW, DB, MG, SC, DX };
 
 /** 토픽 제목(+과목 코드) → 「왜 있는가」. 없으면 undefined */
 export function topicWhy(title: string, course?: string): string | undefined {

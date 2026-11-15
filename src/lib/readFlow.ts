@@ -18,6 +18,7 @@ import { coTopics } from "@/lib/topicCo";
 import { commuteHref, flowAnchor } from "@/lib/links";
 import { subDefFor } from "@/lib/subCards";
 import { topicWhy } from "@/data/topicWhy";
+import { topicBasics, type TopicBasics } from "@/data/topicBasics";
 import glossData from "@/data/gloss.json";
 
 /** 간글 — 표(t, 표 순서대로)마다 「이 표가 말하는 것」 한 줄. 답안지 템플릿의 표 아래 간글과 같은 자료다 */
@@ -45,6 +46,8 @@ export type FlowBlock = {
   priority?: string;
   /** 왜 있는가 — 이것이 없을 때의 문제와 그래서 하는 일(topicWhy.ts, 학습 길잡이) */
   why?: string;
+  /** 처음 보는 사람용 풀이 — 먼저 알아둘 말·어떻게 돌아가나·예(topicBasics.ts, 학습 길잡이) */
+  basics?: TopicBasics;
   /** 교재 서브노트가 없으면(CONTENTS 에만 있는 토픽) 제목만 */
   def?: string;
   concepts: { name: string; def: string; features?: string[] }[];
@@ -149,6 +152,7 @@ export function readFlow(code: string): FlowBlock[] {
       from,
       priority: pri.get(title) ?? pri.get(real),
       why: topicWhy(real, s?.course ?? code),
+      basics: topicBasics(real, s?.course ?? code),
       def: s?.definition,
       concepts: s ? conceptsOf(s) : [],
       features: s?.features ?? [],

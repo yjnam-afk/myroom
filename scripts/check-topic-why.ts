@@ -1,5 +1,6 @@
 /**
- * 「왜 있나」(src/data/topicWhy/{과목}.json) 검사 — 빠진 토픽·없는 제목·길이·금지어(비유·시험 요령).
+ * 「왜 있나」(src/data/topicWhy/{과목}.json)와 처음 보는 사람용 풀이(src/data/topicBasics/{과목}.json) 검사 —
+ * 빠진 토픽·없는 제목·길이·금지어(비유·시험 요령).
  *
  *   npx tsx scripts/check-topic-why.ts            # 전체 검사
  *   npx tsx scripts/check-topic-why.ts SE         # 한 과목만
@@ -18,7 +19,7 @@ const only = dump ? args[1] : args[0];
 const COURSES = [...new Set(SUBNOTES.map((s) => s.course))].filter((c) => !only || c === only);
 
 /** 비유·장면·시험 요령 — 쓰지 않기로 한 말 */
-const BAN = /마치|비유|빗대|~?라고 생각하면|같다고 보면|식당|요리사|주방|택배|우체국|도서관 사서|교통경찰|신호등|사장님|비서|이삿짐|출제|시험에|답안|채점|암기|외우|두음/;
+const BAN = /마치 |비유|빗대|~?라고 생각하면|같다고 보면|식당|요리사|주방|택배|우체국|도서관 사서|교통경찰|신호등|사장님|비서|이삿짐|출제|시험에|답안|채점|암기|외우|두음/;
 
 if (dump) {
   const D = details as Record<string, { detail?: string }>;
@@ -59,6 +60,38 @@ for (const c of COURSES) {
     if (/[—–→]/.test(v)) issues.push(`  기호(— →): ${k}`);
   }
   console.log(`${c}: ${Object.keys(o).length}/${titles.length}` + (miss.length ? ` · 빠짐 ${miss.length}` : "") + (unknown.length ? ` · 없는 제목 ${unknown.length}` : "") + (issues.length ? ` · 지적 ${issues.length}` : ""));
+  miss.slice(0, 200).forEach((t) => console.log(`  빠짐: ${t}`));
+  unknown.forEach((t) => console.log(`  없는 제목: ${t}`));
+  issues.forEach((x) => console.log(x));
+  bad += miss.length + unknown.length + issues.length;
+}
+// ── 처음 보는 사람용 풀이(topicBasics) — terms 0~5 · how 3~7문장 · ex 선택
+const BDIR = path.join(__dirname, "../src/data/topicBasics");
+for (const c of COURSES) {
+  const f = path.join(BDIR, `${c}.json`);
+  const titles = SUBNOTES.filter((s) => s.course === c).map((s) => s.title);
+  if (!fs.existsSync(f)) { console.log(`풀이 ${c}: 파일 없음 (${titles.length}개)`); continue; }
+  const o = JSON.parse(fs.readFileSync(f, "utf8")) as Record<string, { terms: string[][]; how: string[]; ex?: string }>;
+  const T = new Set(titles);
+  const miss = titles.filter((t) => !o[t]);
+  const unknown = Object.keys(o).filter((k) => !T.has(k));
+  const issues: string[] = [];
+  for (const [k, v] of Object.entries(o)) {
+    if (!Array.isArray(v.terms) || v.terms.length > 5 || v.terms.some((t) => !Array.isArray(t) || t.length !== 2 || !t[0] || !t[1])) issues.push(`  terms 꼴: ${k}`);
+    if (!Array.isArray(v.how) || v.how.length < 3 || v.how.length > 7) issues.push(`  how ${v.how?.length}문장: ${k}`);
+    const all = [...(v.terms ?? []).map((t) => t.join(" ")), ...(v.how ?? []), v.ex ?? ""];
+    for (const x of v.how ?? []) {
+      if (x.length < 12 || x.length > 190) issues.push(`  how 길이 ${x.length}: ${k}`);
+      if (!/[다)]\.$/.test(x)) issues.push(`  how 끝맺음: ${k} — ${x.slice(-12)}`);
+    }
+    if (v.ex !== undefined && (v.ex.length < 30 || v.ex.length > 260)) issues.push(`  ex 길이 ${v.ex.length}: ${k}`);
+    for (const x of all) {
+      const m = BAN.exec(x);
+      if (m) issues.push(`  금지어 「${m[0]}」: ${k}`);
+      if (/[—–→]/.test(x)) issues.push(`  기호(— →): ${k}`);
+    }
+  }
+  console.log(`풀이 ${c}: ${Object.keys(o).length}/${titles.length}` + (miss.length ? ` · 빠짐 ${miss.length}` : "") + (unknown.length ? ` · 없는 제목 ${unknown.length}` : "") + (issues.length ? ` · 지적 ${issues.length}` : ""));
   miss.slice(0, 200).forEach((t) => console.log(`  빠짐: ${t}`));
   unknown.forEach((t) => console.log(`  없는 제목: ${t}`));
   issues.forEach((x) => console.log(x));
