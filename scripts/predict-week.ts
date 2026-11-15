@@ -126,27 +126,44 @@ function rank(h: Hist, t: Target, method: string): string[] {
 const PRIO = new Map<string, number>();
 for (const list of Object.values(COURSE_TOPICS)) for (const t of list) PRIO.set(t.title, t.priority === "상" ? 2 : t.priority === "중" ? 1 : 0);
 const SUB_PARENT = new Map(SUB_TOPICS.map((s) => [s.name, s.parent]));
-/** 기출·모의·파이널 문항의 연월(YYYYMM) — 기출은 회차로 어림한다(140회 = 2026.08, 회차마다 4개월) */
+/** 기출·모의·파이널 문항의 연월(YYYYMM) — 기출은 회차로(한 해 세 번: 138회 = 2026.02, 139회 = 2026.05, 140회 = 2026.08) */
 const ymOfExt = (q: Q & { source?: string }): number => {
   const m = /^[kc](\d+)-/.exec(q.id);
-  if (m) { const back = (140 - parseInt(m[1])) * 4; const tot = 2026 * 12 + 7 - back; return Math.floor(tot / 12) * 100 + (tot % 12) + 1; }
+  if (m) { const r = parseInt(m[1]); return (2026 - Math.floor((140 - r) / 3)) * 100 + [2, 5, 8][r % 3]; }
   return yearMonth(`${q.round ?? ""} ${q.source ?? ""}`);
 };
-type Ext = { ym: number; past: boolean; topics: string[] };
+const months = (ym: number) => Math.floor(ym / 100) * 12 + (ym % 100);
+type Ext = { ym: number; past: boolean; final: boolean; topics: string[] };
 let EXT: Ext[] | null = null;
 const ext = () => (EXT ??= (questions as (Q & { source?: string })[])
   .filter((q) => q.kind !== "NS모의")
-  .map((q) => ({ ym: ymOfExt(q), past: !q.kind, topics: titlesMatching(q.text, TITLES) }))
+  .map((q) => ({ ym: ymOfExt(q), past: !q.kind, final: q.kind === "파이널", topics: titlesMatching(q.text, TITLES) }))
   .filter((x) => x.ym > 0 && x.topics.length));
-const FEATS = ["NS 출제 시험 수", "최근 가중", "직전 기수 출제", "이번 기수 출제", "같은 회차 출제", "기출 전체", "기출 최근 3년", "모의·파이널 최근 2년", "교재 중요도", "서브 토픽", "NS 미출제"];
+const FEATS = [
+  "NS 출제 시험 수", "최근 가중", "직전 기수 출제", "이번 기수 출제", "같은 회차 출제", "기출 전체", "기출 최근 3년", "모의·파이널 최근 2년", "교재 중요도", "서브 토픽", "NS 미출제",
+  // 2026-11-15 "다음 시험에 나올만한 것들은 계속 모의고사 내는거 같은데" — 다음 본시험 예상 신호
+  "모의 최근 1년", "파이널 최근 1년", "모의·파이널 최근 6개월", "기출 안 나온 햇수", "직전 기출 2회 출제", "기출 미출제",
+];
 function features(group: string, date: string, t: Target, hT: Hist): Map<string, number[]> {
   const ym = parseInt(date.slice(0, 4)) * 100 + parseInt(date.slice(5, 7));
+  const now = months(ym);
   const past = new Map<string, number>(), past3 = new Map<string, number>(), mock2 = new Map<string, number>();
+  const mock1 = new Map<string, number>(), fin1 = new Map<string, number>(), ext6 = new Map<string, number>(), lastPast = new Map<string, number>(), past2r = new Map<string, number>();
+  const inc = (m: Map<string, number>, u: string) => m.set(u, (m.get(u) ?? 0) + 1);
   for (const x of ext()) {
     if (x.ym >= ym) continue;
+    const ago = now - months(x.ym);
     for (const u of x.topics) {
-      if (x.past) { past.set(u, (past.get(u) ?? 0) + 1); if (x.ym >= ym - 300) past3.set(u, (past3.get(u) ?? 0) + 1); }
-      else if (x.ym >= ym - 200) mock2.set(u, (mock2.get(u) ?? 0) + 1);
+      if (x.past) {
+        inc(past, u);
+        if (ago <= 36) inc(past3, u);
+        if (ago <= 8) inc(past2r, u);
+        lastPast.set(u, Math.min(lastPast.get(u) ?? 999, ago));
+      } else {
+        if (ago <= 24) inc(mock2, u);
+        if (ago <= 12) inc(x.final ? fin1 : mock1, u);
+        if (ago <= 6) inc(ext6, u);
+      }
     }
   }
   const out = new Map<string, number[]>();
@@ -166,6 +183,12 @@ function features(group: string, date: string, t: Target, hT: Hist): Map<string,
       PRIO.get(sub ? SUB_PARENT.get(u)! : u) ?? 0,
       sub ? 1 : 0,
       a.length ? 0 : 1,
+      Math.log1p(mock1.get(u) ?? 0),
+      Math.log1p(fin1.get(u) ?? 0),
+      Math.log1p(ext6.get(u) ?? 0),
+      Math.min(10, (lastPast.get(u) ?? 120) / 12) / 10,
+      past2r.has(u) ? 1 : 0,
+      past.has(u) ? 0 : 1,
     ]);
   }
   return out;
@@ -175,7 +198,7 @@ function fit(samples: Sample[]): number[] {
   const n = FEATS.length;
   const w = new Array(n + 1).fill(0);
   const lr = 0.05, l2 = 0.001;
-  for (let ep = 0; ep < 400; ep++) {
+  for (let ep = 0; ep < 800; ep++) {
     const g = new Array(n + 1).fill(0);
     for (const s of samples) {
       let z = w[n];
@@ -241,6 +264,14 @@ if (!args.length) {
     }
   }
   rows.push(...learned.values());
+  // 「다음 본시험에 나올 만한 것을 모의고사가 낸다」 — 직전 ITPE 모의·파이널에 나온 토픽이 NS 에 나올 확률
+  const rate = (f: (x: number[]) => boolean) => {
+    const xs = pool.filter((p) => p.e.cohort >= 13).flatMap((p) => p.samples).filter((s) => f(s.x));
+    return `${xs.length ? ((xs.filter((s) => s.y).length / xs.length) * 100).toFixed(1) : "-"}% (${xs.length})`;
+  };
+  console.log("토픽이 그 주 NS 에 나올 확률 — 전체 " + rate(() => true)
+    + " · 최근 6개월 모의·파이널 출제 " + rate((x) => x[13] > 0) + " · 최근 1년 파이널 출제 " + rate((x) => x[12] > 0) + " · 최근 1년 모의 출제 " + rate((x) => x[11] > 0)
+    + " · 최근 2년 모의·파이널 없음 " + rate((x) => x[7] === 0) + " · 직전 기출 2회 출제 " + rate((x) => x[15] > 0) + " · 기출 5년 넘게 없음 " + rate((x) => x[14] >= 0.5));
   const wAll = fit(pool.flatMap((p) => p.samples));
   console.log("학습 가중치(전체 시험으로 학습): " + FEATS.map((f, i) => `${f} ${wAll[i].toFixed(2)}`).join(" · ") + "\n");
   const pc = (x: number, q: number) => `${((x / q) * 19).toFixed(1)}`;
