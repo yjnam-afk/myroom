@@ -283,6 +283,20 @@ NS 9주차 「PCB 및 TCB가 스케줄링에 활용되는 방식」 문항 맨 �
   예전 토픽도 없는 것: NAT(14문항)·DB 옵티마이저 CBO/RBO(12)·PS-LTE(12)·L4/L7 스위치(13)·클라우드 컴퓨팅 개념(8)·버스 중재(7)·하이퍼오토메이션(7)·통합 테스트 Stub/Driver(6)·UX(6)·교차검증(5)·요구사항 추적표(5)·적응형 AI(5).
   이것들을 메모리 월·PIM 처럼 토픽으로 만들지는 사용자가 정한다(해설집에서 내용을 옮겨야 한다).
 
+**서브 토픽 2차(같은 날 "서브 토픽들 찾아내")** — 이번엔 교재 쪽에서 찾았다: `npx tsx scripts/find-sub-topics.ts [최소 문항 수] [out.json]` 이 교재 표의 이름 칸(1열, 3열 이상이면 2열도)·키워드
+12,219개마다 그 이름을 주제로 물은 문항(「한글(English)」·약어·줄마다 주제부)을 세고, 3문항 이상인데 토픽·서브 토픽으로 안 걸리는 것을 찍는다. 상위 토픽에 걸린 문항 속에 숨은 것도 여기서 나온다.
+- **서브 토픽 73개 추가(258개)**: 모니터·가상머신·TCB·RTOS·LRU·PFF·버디 시스템·TMR·레지스터·소켓 / IntServ·DiffServ·QUIC·ZTNA·LPWAN·L4·L7 스위치·망 분리·로드 밸런싱·Service Mesh·REST API·BaaS·FaaS·DaaS·Scale-Up/Out /
+  REDO·UNDO·DDL·DML·RDF·텍스트 마이닝·MDM·데이터 파이프라인·데이터 사이언티스트·데이터 기본법 / IEEE 829·상태 전이 테스팅·테스트 자동화·BDD·칸반·스토리 포인트·Git·응집도·결합도·SIL·SoW·SPICE·ERP·SCM·CRM·MES·BMT·ROI·EMV·여유시간·디지털 트랜스포메이션 /
+  생성형 AI·sLLM·L1·L2 규제·차원의 저주·오토인코더 / SPN·Feistel·블록 암호 운영 모드·Bell-LaPadula·Biba·사회공학·제로데이·방화벽·IAM·TEE·차분 프라이버시·ISO 27001·ICS·SCADA / VR·AR·XR·스마트 그리드·ESS·DeFi·디지털 교과서·협동 로봇.
+  1차에서 「상위가 억지스럽다」고 뺐던 것 중 교재 키워드·표에 이름이 또렷이 있는 것(VR·AR ← 디지털 휴먼 키워드, ERP·SCM·CRM ← IT 거버넌스 표, L7 스위치 ← DoS 표)은 넣었다. 안 걸리는 문항 6,664 → 6,166, 답안 3,181 → 2,921.
+- **서브 토픽 이름도 열쇠가 된다**: 이름 「디지털 전환(Digital Transformation)」은 「디지털 전환」만 든 문항 62개(AX 문항 포함)를 끌어와 「디지털 트랜스포메이션(…)」으로 바꿨고,
+  이름 「모니터(Monitor)」는 「모니터링」에 걸려 TRAP 으로 막았다. 한글 별칭은 낱말 경계를 안 본다 — 「릿지」가 「아이비 브릿지」에 걸렸다(「릿지 회귀」로).
+- **TRAP 은 덫 낱말을 지우고도 열쇠가 남으면 안 걸린다**: `scm: /storageclassmemory/` 는 「SCM(Storage Class Memory)」에서 `scm` 이 남아 소용없었다. 약어가 딴 뜻으로 풀이된 문항은 지문 전체를 지우는 꼴(`/^[\s\S]*storageclassmemory[\s\S]*$/`)로 쓴다.
+  이번에 막은 것: LoRa(Long Range 통신) ↔ LoRA(미세조정) — 통신 문항 5개·답안 2편이 미세조정 토픽에 걸려 있었다 / TCB(Trusted Computing Base) / SCM(형상관리·Storage Class Memory) / MDM(Mobile Device Management) /
+  DaaS(Data as a Service) / SIL(Software-in-the-Loop) / CBC(Client Based Computing) / SSL(Secure Socket Layer) ↔ 소켓 / JVM ↔ 가상머신 / G-ITS ↔ Git / 일정 계산 문항의 「B, D, D」 ↔ BDD.
+- 같이 넣은 별칭 12줄: 아키텍처 스타일, 아이노드, 가상기억장치, 캐시 메모리, Vector DB, 데이터 카탈로그·메타데이터, STAMP, 컨피덴셜 컴퓨팅, 적대적 공격, ESG, CSPM·CWPP, 애자일 방법론. 답안 41편에 토픽을 더 달았다.
+- 넣지 않은 것: 머신러닝·딥러닝·테스트 케이스(너무 넓다), 교재에 이름이 없는 것(SOA 27문항·폭포수 12·TMMi 8·TCO 7·팬인/팬아웃 7·레드블랙 트리 7·가비지 컬렉션 6·V 모델 7).
+
 ## 코드 정리 (2026-11-15 "기능은 그대로 놔두고 코드 정리 및 리팩토링")
 
 화면·데이터 산출물은 그대로 두고 코드만 정리했다. 확인: 33개 화면(단추 클릭 포함) 스냅숏 455개가 정리 전과 같고, prebuild 산출물(flashcards·genAnswers·questionFreq …)도 그대로.

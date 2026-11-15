@@ -275,7 +275,27 @@ const TRAP: Record<string, RegExp> = {
   edf: /^[\s\S]*(?:선행작업|선행활동|주공정|criticalpath|활동기간)[\s\S]*$/,
   bi: /biba/,
   inspection: /packetinspection/,
-  mvp: /mvp패턴|modelviewpresenter/,
+  mvp: /mvp패턴|^[\s\S]*modelviewpresenter[\s\S]*$/,
+  // 2026-11-15 "서브 토픽들 찾아내" — 통신 LoRa(Long Range·LPWAN)는 LoRA(Low-rank adaptation)가 아니다. 9문항이 미세조정 토픽에 걸려 있었다.
+  // TCB 는 Trusted Computing Base 이기도 하고, SCM 은 형상관리(Software Configuration Management)·Storage Class Memory 이기도 하다.
+  lora: /^[\s\S]*(?:longrange|lorawan|lpwan|nbiot|sigfox|저전력|무선통신|통신기술)[\s\S]*$/,
+  tcb: /^[\s\S]*(?:trustedcomputingbase|신뢰컴퓨팅)[\s\S]*$/,
+  scm: /^[\s\S]*(?:softwareconfigurationmanagement|storageclassmemory)[\s\S]*$/,
+  // 모니터링은 동기화 모니터(Monitor)가 아니고, SSL(Secure Socket Layer)은 소켓 통신이 아니며, JVM 은 가상화의 가상머신이 아니다.
+  // MDM 은 Mobile Device Management 이기도 하고, DaaS 는 Data as a Service 이기도 하고, SIL 은 Software-in-the-Loop 이기도 하다.
+  // 「G-ITS」가 Git 으로, 일정 계산 문항의 활동 이름 「B, D, D」가 BDD 로 읽혔다.
+  모니터: /모니터링/,
+  monitor: /monitoring/,
+  // CBC(Client Based Computing — 망분리 방식)는 블록 암호 운영 모드 CBC 가 아니다
+  cbc: /^[\s\S]*clientbasedcomputing[\s\S]*$/,
+  socket: /securesocketlayer|securesocketslayer/,
+  virtualmachine: /javavirtualmachine/,
+  가상머신: /자바가상머신/,
+  mdm: /^[\s\S]*(?:mobiledevicemanagement|모바일단말|byod)[\s\S]*$/,
+  daas: /^[\s\S]*dataasaservice[\s\S]*$/,
+  sil: /^[\s\S]*softwareintheloop[\s\S]*$/,
+  git: /^[\s\S]*greenintelli[\s\S]*$/,
+  bdd: /^[\s\S]*(?:선행작업|선행활동|주공정|criticalpath|활동기간)[\s\S]*$/,
   // 자료구조 해시 테이블·해싱 충돌 문항은 암호 해시 함수(서브 토픽)가 아니다
   ...Object.fromEntries(
     ["해시함수", "해쉬함수", "hashfunction", "해시알고리즘", "해쉬알고리즘", "hashalgorithm"].map((k) => [
