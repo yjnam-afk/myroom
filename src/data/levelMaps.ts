@@ -195,9 +195,10 @@ export const LEVEL_MAPS: Record<string, LevelMap[]> = {
           name: "AI 가속",
           en: "Accelerator",
           cells: [
-            ["연산 병목", "데이터 병목", "데이터 이동"],
+            ["연산 병목", "데이터 병목", "데이터 이동", { k: "메모리 월", t: "메모리 월(Memory Wall)" }],
             [
               { k: "TPU", t: "TPU (Tensor Processing Unit)" },
+              { k: "PIM", t: "PIM(Processing in Memory)" },
               "시스톨릭 배열",
               "HBM",
               { k: "Memory Pooling", t: "CXL(Compute Express Link) 3.0" },

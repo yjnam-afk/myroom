@@ -6388,5 +6388,23 @@
   "pair": "이진 탐색 트리(Binary Search Tree)",
   "family": "",
   "course": "DS"
+ },
+ "메모리 월(Memory Wall)": {
+  "group": "C11",
+  "type": "문제-해결",
+  "slot": "축 연도 × 연산, CPU 곡선·Memory 곡선 사이 GAP 발생",
+  "target": "대역폭·아키텍처·인터페이스·패키징 → HBM·PIM·CXL·Chiplet",
+  "pair": "PIM(Processing in Memory)",
+  "family": "",
+  "course": "CA"
+ },
+ "PIM(Processing in Memory)": {
+  "group": "C5",
+  "type": "연관 비교",
+  "slot": "구역 3D-packaged DRAM ↔ Logic DIE ↔ Processor DIE",
+  "target": "Processing with·in·near memory 구현 방법",
+  "pair": "메모리 월(Memory Wall)",
+  "family": "",
+  "course": "CA"
  }
 }

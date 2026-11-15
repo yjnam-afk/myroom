@@ -55,6 +55,9 @@ export const TOPIC_TREE: Record<string, TreeArea[]> = {
       { name: "메모리 인터커넥트", items: [
         "CXL(Compute Express Link) 3.0",
       ] },
+      { name: "메모리 병목", items: [
+        "메모리 월(Memory Wall)",
+      ] },
     ] },
     { name: "고가용성·결함허용", groups: [
       { name: "시스템 신뢰성", items: [
@@ -73,6 +76,7 @@ export const TOPIC_TREE: Record<string, TreeArea[]> = {
       { name: "AI 연산 칩", items: [
         { t: "지능형 반도체", kids: [
           { t: "TPU (Tensor Processing Unit)", rel: "종류", why: "AI 행렬연산 전용칩" },
+          { t: "PIM(Processing in Memory)", rel: "종류", why: "메모리 안 연산 반도체" },
         ] },
       ] },
     ] },

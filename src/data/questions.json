@@ -60672,7 +60672,7 @@
  {
   "id": "f01013",
   "period": "1교시",
-  "category": "신기술",
+  "category": "컴퓨터구조",
   "kind": "파이널",
   "round": "ITPE 파이널 2023.01",
   "source": "ITPE 파이널 2023.01 Day-3",
@@ -137155,7 +137155,7 @@
  {
   "id": "m03767",
   "period": "1교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "kind": "모의고사",
   "round": "ITPE 모의고사 2026.01",
   "source": "ITPE 모의고사 2026.01 1교시",
@@ -154554,7 +154554,7 @@
  {
   "id": "f03672",
   "period": "2교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "kind": "파이널",
   "round": "ITPE 파이널 2026.08",
   "source": "ITPE 파이널 2026.08 Day-4",
@@ -155180,7 +155180,7 @@
  {
   "id": "f03735",
   "period": "2교시",
-  "category": "",
+  "category": "컴퓨터구조",
   "kind": "파이널",
   "round": "ITPE 파이널 2023.08",
   "source": "ITPE 파이널 2023.08 Day-5",

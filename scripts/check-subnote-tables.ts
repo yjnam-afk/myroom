@@ -76,7 +76,12 @@ if (warns.length) console.log(`줄 수가 짝이 안 맞는 행 ${warns.length}�
 // 교재 슬라이드 원본이 안 붙은 서브노트 — 슬라이드와 대조한 적이 없다는 뜻이다(2026-10-05: CSMA/CA 가
 // 슬라이드 없이 지어 낸 정의·표로 남아 있었다). 슬라이드를 받아 붙이고 서브노트를 맞춘다.
 // 교재에 없는 토픽(사용자 확인 2026-10-12 — "교재가 없다고") — 슬라이드를 기다리지 않는다
-const NO_BOOK = new Set(["OWASP Agentic AI 위협 및 대응방안(Agentic AI Threats and Mitigations)"]);
+// 메모리 월·PIM 은 NS 19기 9주차 해설집으로 만든 토픽이다(2026-11-15 "메모리월, pim 만들어")
+const NO_BOOK = new Set([
+  "OWASP Agentic AI 위협 및 대응방안(Agentic AI Threats and Mitigations)",
+  "메모리 월(Memory Wall)",
+  "PIM(Processing in Memory)",
+]);
 const noSlide = SUBNOTES.filter((s) => !NO_BOOK.has(s.title) && !subnoteExtraFor(s.topicId, s.title)?.image).map((s) => s.title);
 if (noSlide.length) console.log(`교재 슬라이드 없는 서브노트 ${noSlide.length}개(경고): ${noSlide.join(" / ")}`);
 // 두 개념을 함께 묻는 토픽(「A / B」「A & B」「A와 B」「A, B」)은 답안 서론에서 개념마다 정의·특징을 따로 쓴다

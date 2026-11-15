@@ -1063,6 +1063,116 @@ export const SUBNOTES: TextbookSubnote[] = [
       "개념도: 기존 반도체(중앙처리장치 CPU ↔ 전송회로 BUS ↔ 저장장치 메모리, 병목현상) → 설계·소자·공정·장비·소재 기술 → 뉴로모픽 반도체(뉴런·시냅스·통신 계층, 연산·저장·통신 기능 융합으로 병목현상 없음)",
     ],
   },
+  // ── 교재에 쪽이 없는 토픽 — NS 19기 9주차 해설집(2026-11-15)과 기필반 자료로 만들었다(2026-11-15 "메모리월, pim 만들어").
+  //    커리큘럼(교재 CONTENTS)에는 넣지 않는다 — 문항 중요도는 「교재 밖」으로 보인다.
+  {
+    topicId: "ca-57",
+    title: "메모리 월(Memory Wall)",
+    course: "CA",
+    definition:
+      "프로세서의 연산 속도 발전에 비해 주기억장치의 데이터 전송 속도 발전이 현저히 느려서, 프로세서가 데이터를 기다리느라 연산을 멈추고 대기하게 되는 병목 현상",
+    defShort: "프로세서 연산보다 메모리 전송 속도 발전이 느려 대기하는 병목 현상",
+    lead: "데이터 전송의 병목, 메모리 월",
+    features: ["성능 격차", "전송 병목", "연산 대기"],
+    keywords: ["Processor-Memory Gap", "HBM", "PIM", "CXL", "Latency", "Bandwidth", "Bottleneck"],
+    tables: [
+      {
+        caption: "등장 배경",
+        headers: ["구분", "설명"],
+        rows: [
+          ["물리적 성능 격차", "CPU 매년 약 60% 향상\n메모리 연간 7% 수준"],
+          ["에너지 소모 비대칭", "칩 밖 데이터 이동 에너지 비효율"],
+        ],
+      },
+      {
+        caption: "해결을 위한 기술요소",
+        headers: ["측면", "핵심 기술", "설명"],
+        rows: [
+          ["대역폭", "HBM\nDDR5", "TSV로 데이터 통로 확장\n핀당 전송 속도 높여 효율 개선"],
+          ["아키텍처", "PIM\nPNM", "메모리 내부에 연산 기능 통합\n메모리 칩 근처에 연산기 배치"],
+          ["인터페이스", "CXL\nOptical Interconnect", "장치 간 메모리 공유·확장\n광신호로 지연 시간 최소화"],
+          ["패키징", "Hybrid bonding\nChiplet", "범프 없이 칩 간 구리 연결\n기능별 칩 초단거리 연결"],
+        ],
+      },
+      {
+        caption: "현상 진단 평가지표",
+        headers: ["평가 지표", "측정 항목", "설명"],
+        nameCol: 1,
+        rows: [
+          ["대역폭", "초당 데이터 전송량(GB/s)", "대규모 파라미터 전송 수준 평가"],
+          ["지연 시간", "데이터 요청 후 응답까지의 시간(ns)", "CPU/GPU 가동률·효율성 평가"],
+          ["에너지 효율", "비트 당 전송 에너지", "연산 대비 에너지 효율성 측정"],
+        ],
+      },
+    ],
+    notes: [
+      "출처: NS 19기 9주차 주간 실전모의고사 해설집 1교시 4번(2026-11-15) — 교재에 쪽이 없는 토픽",
+      "개념도: 연도에 따라 CPU 연산 성능과 Memory 성능의 차이가 벌어져 GAP 발생",
+      "「메모리 벽」으로도 출제 — 컴시응 140회 「메모리 벽(Memory Wall) 문제의 발생원인과 CXL 3.0 구조」",
+      "기필반 해결방안: HBM, CXL, PIM, HBS(Hybrid Bonding Solution — D램과 낸드를 하나의 패키지로 결합) 연동 적용",
+    ],
+  },
+  {
+    topicId: "ca-207",
+    title: "PIM(Processing in Memory)",
+    course: "CA",
+    definition:
+      "메모리 벽의 문제 해결을 위해, 프로세싱 유닛이 메모리칩 혹은 메모리 셀과 같이 패키징되어 메모리 반도체와 시스템 반도체의 기능을 합한 지능형 반도체",
+    defShort: "프로세싱 유닛을 패키징해 메모리·시스템 반도체 기능 합한 지능형 반도체",
+    lead: "메모리 안에서 이루어지는 연산, PIM",
+    features: ["AI 가속화", "병렬 프로세싱", "전력 소모 감소"],
+    keywords: [
+      "Logic DIE",
+      "3D-packaged DRAM",
+      "Processor DIE",
+      "Processing with memory",
+      "Processing in memory",
+      "Processing near memory",
+    ],
+    tables: [
+      {
+        caption: "구성요소",
+        headers: ["구분", "구성요소", "설명"],
+        rows: [
+          ["Logic DIE", "TSV Interface", "실리콘 관통 전극 패키징 기술"],
+          ["Logic DIE", "PIM Core", "DDR에 고속 Access 지원"],
+          ["Logic DIE", "DMA", "CPU 개입 없이 데이터 직접 전송"],
+          ["Logic DIE", "BUS", "Data 전송 위한 System Bus"],
+          ["Logic DIE", "DDR PHY", "Uncacheable Memory Space 연계"],
+          ["3D-packaged DRAM", "Memory DIE", "3D 적층 기반 DRAM의 결합"],
+          ["3D-packaged DRAM", "Logic DIE", "PIM 구현 논리단위 처리"],
+          ["Processor DIE", "Memory Controller", "연산 처리 위해 Unit과 연계"],
+          ["Processor DIE", "Unit", "연산 수행 전통적인 Unit"],
+        ],
+      },
+      {
+        caption: "특징",
+        headers: ["특징", "설명"],
+        rows: [
+          ["AI 가속화", "메모리 내부 연산처리 성능 극대화"],
+          ["병렬 프로세싱", "메모리 내부 병렬 프로세싱 구현"],
+          ["전력 소모 감소", "데이터 이동 감소 에너지 효율 향상"],
+          ["활용성/확장성 증가", "기존 LPDDR, GDDR 메모리 적용\nHBM 인터페이스 지원"],
+        ],
+      },
+      {
+        caption: "구현 방법의 분류",
+        headers: ["분류", "상세 설명"],
+        rows: [
+          ["Processing with memory", "메모리 셀과 연산기가 한 몸\nBandwidth 향상, 전송 지연 제거"],
+          ["Processing in memory", "메모리 다이에 Processing Logic\n행렬 이용 좋은 병렬 처리"],
+          ["Processing near memory", "메모리와 Process Logic 근접\n기존 CPU에 적용하기 좋음"],
+        ],
+      },
+    ],
+    notes: [
+      "출처: NS 19기 9주차 주간 실전모의고사 해설집 1교시 5번(2026-11-15) — 교재에 쪽이 없는 토픽",
+      "구조: Memory Package 기술에는 적층 방식·TSV 방식이 있으며 HBM과 TSV 방식으로 발전 — CPU와 메모리 사이 대역폭 제한 문제 해결 구조",
+      "Processing near memory 는 CPU와 PIM 간 메모리에 데이터를 쓰고 지우는 타이밍 충돌 가능",
+      "상용 PIM(HBM-PIM, LPDDR5-PIM, GDDR6-AiM 등)은 DRAM 기반이 주류",
+      "기필반 정의: 메모리 중심 설계로 데이터를 메모리 근처 또는 안에서 처리함으로써 CPU와 메모리 사이 대역폭 제한 감소 및 성능 향상 기술",
+    ],
+  },
   {
     topicId: "os-2",
     title: "커널(Kernel)",

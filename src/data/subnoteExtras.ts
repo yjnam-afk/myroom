@@ -12363,6 +12363,9 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
     image: "/concept/book/AI/ai-native-dev-platform.png",
   },
   // 2026-09-29 나중에 받은 교재 슬라이드 4장 — 서브노트는 먼저 옮겼는데 그림 저장을 빠뜨렸던 것.
+  // 2026-11-15 교재에 쪽이 없는 토픽 — 그림은 NS 19기 9주차 해설집에서 잘랐다(교재 슬라이드가 아니라 image 는 비운다)
+  "ca-57": { images: ["/concept/extra/memory-wall.png"], imagesLabel: "개념도" },
+  "ca-207": { images: ["/concept/extra/pim-structure.png", "/concept/extra/pim-types.png"], imagesLabel: "구조·구현 분류" },
   "cxl-3": { image: "/concept/book/CA/cxl-3.png", images: ["/concept/diagram/cxl-3.webp"], imagesLabel: "개념도" },
   "event-storming-hexagonal": {
     image: "/concept/book/SE/event-storming-hexagonal.png",

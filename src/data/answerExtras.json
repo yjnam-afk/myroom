@@ -138847,27 +138847,6 @@
   "apply": [],
   "plus": []
  },
- "ca-57": {
-  "features": [],
-  "conceptMap": "",
-  "comp": [
-   {
-    "group": "해결방안",
-    "mnemonic": "",
-    "rows": [
-     [
-      "HBM, CXL, PIM, HBS",
-      "Hybrid Bonding Solution: D램과 낸드를 하나의 패키지로 결합하여 온디바이스 AI 기기용 메모리 병목을 해결하려는 기술 · 기"
-     ]
-    ],
-    "notes": []
-   }
-  ],
-  "conceptMapLabel": "",
-  "defKeywords": [],
-  "apply": [],
-  "plus": []
- },
  "ca-59": {
   "features": [],
   "conceptMap": "",
@@ -143933,30 +143912,6 @@
      ]
     ],
     "notes": []
-   }
-  ],
-  "conceptMapLabel": "",
-  "defKeywords": [],
-  "apply": [],
-  "plus": []
- },
- "ca-207": {
-  "features": [],
-  "conceptMap": "",
-  "comp": [
-   {
-    "group": "기술요소",
-    "mnemonic": "",
-    "rows": [
-     [
-      "3D-packaged DRAM",
-      "Memory DIE, Logic DIE"
-     ]
-    ],
-    "notes": [
-     "Logic DIE(TSV Interface, PIM Core, DMA, BUS, DDR PHY)",
-     "Traditional Computing(Memory Controller, Unit)"
-    ]
    }
   ],
   "conceptMapLabel": "",
