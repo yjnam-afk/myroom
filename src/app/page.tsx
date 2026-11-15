@@ -25,8 +25,8 @@ const menuGroups = [
       {
         href: "/commute",
         emoji: "🚇",
-        title: "지하철 모드 (틈새 두음)",
-        desc: "한 손으로 넘기는 두음 카드 · AI 없이 즉시 · 통신 약해도 OK",
+        title: "지하철 모드 (술술 읽기)",
+        desc: "누를 것 없이 내려 읽기 · 토픽이 꼬리에 꼬리를 물고 이어짐 · 통신 약해도 OK",
         color: "from-slate-500 to-gray-600",
       },
     ],
@@ -316,7 +316,7 @@ export default function Home() {
                   href="/commute"
                   className="rounded-lg bg-slate-700 px-3 py-2 text-xs font-semibold text-white hover:bg-slate-800"
                 >
-                  🚇 지하철 모드로 카드 넘기기
+                  🚇 지하철 모드로 술술 읽기
                 </Link>
                 <Link
                   href="/review"

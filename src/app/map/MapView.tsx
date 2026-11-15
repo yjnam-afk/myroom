@@ -11,7 +11,7 @@ import { LEVEL_MAPS, chipKey, chipTopic } from "@/data/levelMaps";
 import LevelMatrix from "./LevelMatrix";
 import { FRAME_GROUPS, FRAME_BY_CODE, frameOf, familiesOf } from "@/data/answerFrames";
 import FrameCard from "@/components/FrameCard";
-import { explainHref as topicHref } from "@/lib/links";
+import { explainHref as topicHref, commuteHref } from "@/lib/links";
 import { ALL_MAP_TOPICS, type MapTopic, TOPICS_BY_CAT, type TopicStat, linksOf } from "./mapData";
 import { TableCard } from "./TablesView";
 
@@ -609,6 +609,14 @@ export function MapView({
                   className="mt-3 block rounded-lg bg-brand-600 px-3 py-2 text-center text-xs font-semibold text-white hover:bg-brand-700"
                 >
                   토픽 설명 · 답안지 템플릿 →
+                </Link>
+              )}
+              {selected.sub && code && (
+                <Link
+                  href={commuteHref(code, selected.title)}
+                  className="mt-2 block rounded-lg border border-slate-300 px-3 py-2 text-center text-xs font-semibold text-slate-700 hover:border-brand-400 hover:text-brand-700"
+                >
+                  🚇 여기서부터 술술 읽기 →
                 </Link>
               )}
               <FrameCard title={selected.title} compact />
