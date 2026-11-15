@@ -34,6 +34,7 @@ npx tsx scripts/suggest-topics.ts <id 또는 문구>           # 교재 토픽 �
 | `audit-links.ts` | **직접 연결(questionIds) 검수** — 답안 문제와 문항이 「같은 요구」인지(낱말 단위). `--ops <f>` 로 끊을 연결을 뽑아 `answers.ts apply`. 연결 스크립트를 돌린 뒤엔 꼭 돌린다 |
 | `ocr-kpc-head.py` | KPC 모범답안 첫 쪽 머리(인쇄된 문제 줄) OCR — 제목이 실제 문제와 같은지 대조(tesseract 필요) |
 | `report-answer-gaps.ts` | 답안 0편 토픽, 같은 문제 답안이 없는 기출, 구분별 비율 |
+| `find-hidden-topics.ts` | **숨은 토픽 찾기** — 어느 토픽에도 안 걸리는 문항의 주제를 세고, 토픽 제목·교재 표·예전 토픽에 있는지 함께 찍는다(별칭·서브 토픽·새 토픽 후보) |
 
 공용: `lib/answers-store.ts`(TS 읽기·검사·쓰기), `lib/answers_py.py`(파이썬 읽기·정규화·후보 찾기·ops 적용).
 

@@ -265,6 +265,24 @@ NS 9주차 「PCB 및 TCB가 스케줄링에 활용되는 방식」 문항 맨 �
   「고가용성」은 넣지 않는다 — 공백을 떼면 「설명하고, 가용성」이 걸린다. 같이 드러난 **딴 뜻 영문 열쇠**는 TRAP·DROP_ANY 로 막았다
   (SOLID↔Solid State Drive 14문항, Validation↔교차검증 18, Stack↔오픈스택·풀스택, Index↔지니 지수·전자정부 발전지수, Entity↔NER·ERD, Normalization↔배치 정규화, Queue↔메시지 큐·대기행렬, Encryption↔동형암호 …).
 
+## 숨은 토픽 찾기 (2026-11-15 "토픽이 더 숨어있는거 같다")
+
+`npx tsx scripts/find-hidden-topics.ts [최소 출제 수] [out.json]` — 어느 토픽·서브 토픽에도 안 걸리는 문항의 주제(「한글(English)」·약어·한 줄 문항의 주제부)를 묶어 세고,
+그 이름이 ① 토픽 제목에 있는지(있는데 안 걸렸다 = 별칭 문제) ② 교재 표·키워드·메모에 낱말로 있는지(서브 토픽 후보) ③ 예전(기필반) 토픽이 있는지를 함께 찍는다.
+문항 15,689개 중 7,302개가 안 걸려 있었고, 고친 뒤 6,664개다(답안은 3,506 → 3,181편).
+- **토픽이 있는데 못 찾던 표기 37줄**(topicAliases): 6자 이하 영문 열쇠는 낱말로만 맞춰서 띄어 쓴 표기를 놓친다 — 「Web 3.0」이 웹3.0에, 「Wi-Fi 7」이 Wi-Fi 7에 안 걸렸다.
+  제목에 없는 줄임 표기도 같다(리팩토링 ↔ 소프트웨어 리팩토링, 서버리스 컴퓨팅 ↔ 서버리스 아키텍처, 병행제어 ↔ DB 동시성제어, AVL Tree ↔ AVL 트리, K-means, 3-way handshake, CCPM, 주공정, Diffie-Hellman …).
+  답안 126편에 토픽을 더 달았다. **새 토픽을 넣으면 「{제목의 한글 부분}에 대하여 설명하시오」「{영문 부분}에 …」가 그 토픽에 걸리는지 본다.**
+- **서브 토픽 45개 추가(185개)**: SLA·ISO 26262·NFC·Web 2.0·시맨틱 웹·NFT·DAO·CPS·IGMP·VLAN·MPLS·V2X·UWB·WPAN·RFID·M2M·BI·하둡·RM·EDF·상호배제·슈퍼스칼라·VLIW·Product Backlog·MVP·
+  고객여정지도·Self-Attention·하이퍼파라미터·GPT·CNN·컴퓨터 비전·AGI·DDoS·버퍼 오버플로우·PKI·I-PIN·CAPTCHA·CISO·KYC·MOOC·BCI·공유경제·오버레이 네트워크·페어와이즈 …
+  교재에 이름이 있어도 **상위 토픽과 뜻이 안 이어지면 넣지 않는다**(HTML5 ← 시빅 해킹, SSD ← 지능형 반도체, OpenStack ← 쿠버네티스 그림 메모, 챗봇, Open API, VR·AR).
+  넓어서 뺀 것: 테스트 케이스·딥러닝·빅데이터·디지털 전환.
+- 같이 막은 딴 뜻(TRAP): 운영체제의 병행성제어 ↔ DB 동시성제어, Rolling Wave Planning ↔ WAVE, 일정 계산 문항의 「E, D, F」 ↔ EDF, Bi-Ba ↔ BI, Packet Inspection ↔ 인스펙션, MVP 패턴 ↔ MVP.
+  「와이파이 8」 별칭은 「기가 와이파이(802.11ac)」에 걸려 뺐다.
+- **교재에 아예 없는 주제는 대부분 예전(기필반) 토픽으로 화면이 있다**(HTML5·SCM·LOD·VDI·SSD·FDS·MQTT·ASPICE·AUTOSAR·슈퍼앱·디지털 카르텔 …). 토픽 지도·교재 토픽 목록에는 안 나온다.
+  예전 토픽도 없는 것: NAT(14문항)·DB 옵티마이저 CBO/RBO(12)·PS-LTE(12)·L4/L7 스위치(13)·클라우드 컴퓨팅 개념(8)·버스 중재(7)·하이퍼오토메이션(7)·통합 테스트 Stub/Driver(6)·UX(6)·교차검증(5)·요구사항 추적표(5)·적응형 AI(5).
+  이것들을 메모리 월·PIM 처럼 토픽으로 만들지는 사용자가 정한다(해설집에서 내용을 옮겨야 한다).
+
 ## 코드 정리 (2026-11-15 "기능은 그대로 놔두고 코드 정리 및 리팩토링")
 
 화면·데이터 산출물은 그대로 두고 코드만 정리했다. 확인: 33개 화면(단추 클릭 포함) 스냅숏 455개가 정리 전과 같고, prebuild 산출물(flashcards·genAnswers·questionFreq …)도 그대로.

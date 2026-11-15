@@ -267,6 +267,15 @@ const TRAP: Record<string, RegExp> = {
   // 「가트너(Gartner) 2026」은 2026년 전략 기술만 — 2016·2020·2022년 10대 기술 문항은 다른 해다
   가트너: /^(?![\s\S]*2026)[\s\S]*$/,
   gartner: /^(?![\s\S]*2026)[\s\S]*$/,
+  // 2026-11-15 "토픽이 더 숨어있는거 같다" — 별칭·서브 토픽을 더하며 걸린 딴 뜻:
+  // 운영체제의 병행성제어는 DB 동시성제어가 아니고, Rolling Wave Planning 은 차량통신 WAVE 가 아니다. 일정 계산 문항의 활동 이름 「E, D, F」가 EDF 로 읽혔다.
+  // Bi-Ba 모델은 BI 가 아니고, DPI·SPI(Packet Inspection)는 인스펙션(리뷰)이 아니며, MVP 패턴(Model-View-Presenter)은 최소 기능 제품이 아니다.
+  concurrencycontrol: /운영체제의병행성제어concurrencycontrol/,
+  wave: /rollingwave/,
+  edf: /^[\s\S]*(?:선행작업|선행활동|주공정|criticalpath|활동기간)[\s\S]*$/,
+  bi: /biba/,
+  inspection: /packetinspection/,
+  mvp: /mvp패턴|modelviewpresenter/,
   // 자료구조 해시 테이블·해싱 충돌 문항은 암호 해시 함수(서브 토픽)가 아니다
   ...Object.fromEntries(
     ["해시함수", "해쉬함수", "hashfunction", "해시알고리즘", "해쉬알고리즘", "hashalgorithm"].map((k) => [
