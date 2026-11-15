@@ -14,10 +14,21 @@
  */
 import CA from "./topicBasics/CA.json";
 import OS from "./topicBasics/OS.json";
+import PM from "./topicBasics/PM.json";
+import SE from "./topicBasics/SE.json";
+import AI from "./topicBasics/AI.json";
+import ST from "./topicBasics/ST.json";
+import DS from "./topicBasics/DS.json";
+import AL from "./topicBasics/AL.json";
+import NW from "./topicBasics/NW.json";
+import DB from "./topicBasics/DB.json";
+import MG from "./topicBasics/MG.json";
+import SC from "./topicBasics/SC.json";
+import DX from "./topicBasics/DX.json";
 
 export type TopicBasics = { terms: string[][]; how: string[]; ex?: string };
 
-export const TOPIC_BASICS: Record<string, Record<string, TopicBasics>> = { CA, OS };
+export const TOPIC_BASICS: Record<string, Record<string, TopicBasics>> = { CA, OS, PM, SE, AI, ST, DS, AL, NW, DB, MG, SC, DX };
 
 export function topicBasics(title: string, course?: string): TopicBasics | undefined {
   if (course) return TOPIC_BASICS[course]?.[title];

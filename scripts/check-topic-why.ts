@@ -19,7 +19,7 @@ const only = dump ? args[1] : args[0];
 const COURSES = [...new Set(SUBNOTES.map((s) => s.course))].filter((c) => !only || c === only);
 
 /** 비유·장면·시험 요령 — 쓰지 않기로 한 말 */
-const BAN = /마치 |비유|빗대|~?라고 생각하면|같다고 보면|식당|요리사|주방|택배|우체국|도서관 사서|교통경찰|신호등|사장님|비서|이삿짐|출제|시험에|답안|채점|암기|외우|두음/;
+const BAN = /마치 |비유(?!형)|빗대|~?라고 생각하면|같다고 보면|식당|요리사|주방|택배|우체국|도서관 사서|교통경찰|신호등|사장님|비서|이삿짐|출제|시험에|답안|채점|암기(?:하|용|법)|외우|두음/;
 
 if (dump) {
   const D = details as Record<string, { detail?: string }>;
