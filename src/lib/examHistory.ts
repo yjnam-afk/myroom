@@ -111,6 +111,8 @@ const DROP_ANY: Record<string, string[]> = {
   // 「Regression」은 회귀분석(ML) 문항 20개를 끌어왔다.
   "MVVM (Model, View, View Model)": ["viewmodel"],
   "리그레이션(회귀, Regression) 테스트": ["regression"],
+  // 2026-11-15 전수 검수 — 「Validation」은 머신러닝 교차검증(Cross Validation) 문항 15개를 낙관적 검증(DB 동시성) 토픽으로 끌어왔다.
+  "낙관적 검증(Validation) 기법": ["validation"],
 };
 
 /**
@@ -200,6 +202,24 @@ function keysOf(title: string): Keys {
  */
 const TRAP: Record<string, RegExp> = {
   암호화: /암호화폐|암호화페/,
+  // 2026-11-15 전수 검수 — 괄호 속 영문 열쇠가 딴 뜻의 낱말에 걸린 것들.
+  // SOLID 원칙 ← SSD(Solid State Drive) 14문항, Stack ← 오픈스택·AI 풀스택·스택 오버플로우, RDBMS 인덱스 ← 지니 지수·전자정부 발전지수,
+  // 엔티티 ← NER·개체 무결성·ERD, DB 정규화 ← 배치 정규화·머신러닝 정규화, ML 옵티마이저 ← DB 옵티마이저, 메모리 단편화 ← 패킷·분산DB 단편화,
+  // Queue ← 메시지 큐·대기행렬·멀티레벨 큐 스케줄링, 린 방법론 ← CALMS·린 스타트업, 암호화 ← 동형암호(따로 토픽이 있다)
+  solid: /solidstate/,
+  stack: /openstack|fullstack|stackoverflow|elkstack/,
+  index: /giniindex|entropyindex|developmentindex/,
+  entity: /namedentity|entityintegrity|entityrelationship/,
+  normalization: /batchnormalization|layernormalization|머신러닝에서정규화normalization/,
+  fragmentation: /패킷단편화fragmentation|horizontalfragmentation|verticalfragmentation|데이터단편화fragmentation/,
+  queue: /messagequeue|queuesystem|levelqueue|singlequeue|multiqueue|큐queue멀티프로세서/,
+  lean: /automationleanmeasure|leanstartup|leanstrartup|leancanvas/,
+  encryption: /homomorphicencryption/,
+  // SW 가시화(Software Visualization)는 빅데이터 시각화가 아니다
+  visualization: /swvisualization|softwarevisualization/,
+  // RAID 수준 비교의 「고장허용 측면·범위」는 결함허용 컴퓨터(FTS) 토픽이 아니고, 생체인식 스푸핑은 네트워크 스푸핑이 아니다
+  고장허용: /고장허용측면|고장허용범위/,
+  스푸핑: /생체인식스푸핑|얼굴스푸핑|안티스푸핑/,
   개인정보보호: /개인정보보호위원회|개인정보보호법|개인정보영향평가/,
   // 「OWASP Top 10:2025」(웹)과 「OWASP Top 10 for LLM」은 다른 토픽이다.
   // 범정부 DRM(Data Reference Model)은 디지털 저작권 관리가 아니다.
@@ -218,7 +238,7 @@ const TRAP: Record<string, RegExp> = {
   // DB 옵티마이저(RBO·CBO) 문항은 머신러닝 옵티마이저가 아니다 — 15문항이 걸려 있었다(2026-10-17).
   // DB 이상현상(서브 토픽)은 FIFO 이상현상(Belady's Anomaly)이 아니다
   이상현상: /fifo이상현상|belady/,
-  optimizer: /^[\s\S]*(?:rbo|cbo|rulebased|costbased|데이터베이스|database|dbms|관계형db)[\s\S]*$/,
+  optimizer: /^[\s\S]*(?:rbo|cbo|rulebased|costbased|데이터베이스|database|dbms|관계형db|dboptimizer|질의최적화)[\s\S]*$/,
   // 2026-10-19 서브 토픽을 더하며 — 실내 측위 IPS(Indoor Positioning System)는 침입방지시스템이 아니고,
   // 「NFC, MST 비교」의 MST 는 마그네틱 결제(Magnetic Secure Transmission)다. 일정 계산 문항의 활동 이름
   // 「C B, D」가 붙어 CBD 로 읽혔다.

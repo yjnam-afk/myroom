@@ -31,6 +31,8 @@ npx tsx scripts/suggest-topics.ts <id 또는 문구>           # 교재 토픽 �
 | `link-similar.py` | 답안 ↔ 모의고사·파이널·셀테 문항을 문구 비슷도로(안전장치: 숫자·약어·뜻 바꾸는 낱말) |
 | `fix-answer-titles.py` | OCR 로 깨진 제목·키워드만 적힌 제목을 문제은행 원문으로 |
 | `audit-answer-links.py` | questionIds 가 다른 문제를 가리키는지 의심 목록(`--fix` 는 신중히 — 키워드 제목은 오탐이 많다) |
+| `audit-links.ts` | **직접 연결(questionIds) 검수** — 답안 문제와 문항이 「같은 요구」인지(낱말 단위). `--ops <f>` 로 끊을 연결을 뽑아 `answers.ts apply`. 연결 스크립트를 돌린 뒤엔 꼭 돌린다 |
+| `ocr-kpc-head.py` | KPC 모범답안 첫 쪽 머리(인쇄된 문제 줄) OCR — 제목이 실제 문제와 같은지 대조(tesseract 필요) |
 | `report-answer-gaps.ts` | 답안 0편 토픽, 같은 문제 답안이 없는 기출, 구분별 비율 |
 
 공용: `lib/answers-store.ts`(TS 읽기·검사·쓰기), `lib/answers_py.py`(파이썬 읽기·정규화·후보 찾기·ops 적용).
