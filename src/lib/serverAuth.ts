@@ -6,24 +6,8 @@ import crypto from "crypto";
 
 const SECRET = process.env.AUTH_SECRET || "dev-insecure-secret-change-me";
 
-/** scrypt 로 비밀번호를 해시합니다. 반환 형식: "salt:hash" */
-export function hashPassword(password: string, salt?: string): string {
-  const s = salt || crypto.randomBytes(16).toString("hex");
-  const hash = crypto.scryptSync(password, s, 64).toString("hex");
-  return `${s}:${hash}`;
-}
-
-export function verifyPassword(password: string, stored: string): boolean {
-  const [s, hash] = (stored || "").split(":");
-  if (!s || !hash) return false;
-  const test = crypto.scryptSync(password, s, 64).toString("hex");
-  const a = Buffer.from(hash, "hex");
-  const b = Buffer.from(test, "hex");
-  return a.length === b.length && crypto.timingSafeEqual(a, b);
-}
-
 /** 이름 기반 세션 토큰(HMAC) 발급 */
-export function makeToken(name: string): string {
+function makeToken(name: string): string {
   return crypto.createHmac("sha256", SECRET).update(name).digest("hex");
 }
 

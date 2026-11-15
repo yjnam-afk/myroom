@@ -268,7 +268,10 @@ NS 9주차 「PCB 및 TCB가 스케줄링에 활용되는 방식」 문항 맨 �
 - **지운 것**: 호출하는 곳이 없던 `lib/auth.ts`(가입·로그인·랭킹 전송 — 로그인 화면이 없다)·`lib/myDiagrams.ts`·`components/TableCell.tsx`·`scripts/_diag.ts`·`t5.mjs`,
   안 쓰는 함수 30여 개(오답노트 쓰기 `addNote`·`reviewNote`…, `planOrder`, `flashcardPrompt`·`quizPrompt`, `domainStyle` …), 메인 화면의 안 쓰는 계산(회독 통계·`topics.json` import),
   안 쓰는 패키지 5개(`@breezystack/lamejs`·`https-proxy-agent`·`playwright-core`·`ws`·`@types/ws`). 세션은 `lib/session.ts` 의 `loadSession` 만 남았다.
-  **API 라우트는 건드리지 않았다** — `/api/auth/*`·`/api/score`·`/api/leaderboard`·`/api/diagrams` 는 이제 앱 안에 부르는 곳이 없다(지울지는 사용자가 정할 일).
+  **안 쓰는 API 라우트도 지웠다**(같은 날 "안쓰는 api 지워"): `/api/auth/{login,register,update}`·`/api/score`·`/api/leaderboard`·`/api/diagrams`·`/api/mnemonic`·`/api/describe`
+  — 앱 안에 부르는 곳이 없었다. 딸린 코드(`serverAuth` 의 비밀번호 해시, `grounding` 의 두음신공 세트, `prompts` 의 두음·설명 프롬프트)도 같이 지웠다.
+  남긴 것: `/api/progress`(예전에 로그인해 둔 브라우저의 진도 동기화 — `lib/sync.ts` 가 부른다), `/api/ai-health`(사람이 주소로 여는 진단, README 에 적혀 있다), `/api/og`(공유 이미지), `/api/version`.
+  Upstash 에 저장된 계정·랭킹·그림 자료는 건드리지 않았다.
 - **한 곳으로 모은 것**: 토픽 설명 주소 `explainHref`(`lib/links.ts`, 24곳), 배지 색·차례 `IMP_ORDER`·`PRIORITY_STYLE`·`LEVEL_STYLE`·`LEVEL_HINT`(`lib/badges.ts`)와 `components/PriorityBadge.tsx`(3곳),
   `isBrowser`(`lib/browser.ts`), 토픽 이름 열쇠 `normTitle`(`lib/titleNorm.ts`), 예전 토픽 정의 뽑기 `cleanDefinition`(`lib/cleanDefinition.ts` — 화면과 `build-flashcards.ts` 가 같이 쓴다).
   이 파일들은 자료(JSON·교재)를 import 하지 않는다 — 클라이언트 번들에 자료가 딸려 들어가지 않게 그대로 둔다. 토픽 지도의 `explainHref(name, parent)`(mapData)는 이름을 토픽으로 풀어 주는 다른 함수다.
