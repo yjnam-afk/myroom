@@ -32,8 +32,15 @@ function Block({ b, next }: { b: FlowBlock; next?: FlowBlock }) {
         {b.title}
         <PriorityBadge p={b.priority} />
       </h3>
+      {b.why && (
+        <p className="mt-3 border-l-4 border-amber-300 pl-3 text-[16px] leading-8 text-slate-800">
+          <span className="mr-1.5 text-xs font-bold text-amber-700">왜 있나</span>
+          {b.why}
+        </p>
+      )}
       {b.def ? (
-        <p className="mt-2 text-[17px] leading-8 text-slate-800">
+        <p className="mt-3 text-[17px] leading-8 text-slate-800">
+          {b.why && <span className="mr-1.5 text-xs font-bold text-slate-400">정의</span>}
           <Bold text={b.def} />
         </p>
       ) : (
@@ -61,6 +68,7 @@ function Block({ b, next }: { b: FlowBlock; next?: FlowBlock }) {
       {b.paras.map((p, i) => (
         <div key={i} className="mt-5">
           <p className="text-[15px] font-bold text-brand-800">{p.caption}</p>
+          {p.gloss && <p className="mt-0.5 text-[15px] leading-7 text-slate-600">{p.gloss}</p>}
           <ul className="mt-1 space-y-1">
             {p.lines.map((l, k) => (
               <li key={k} className="text-[16px] leading-8 text-slate-800">

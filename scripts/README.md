@@ -36,6 +36,7 @@ npx tsx scripts/suggest-topics.ts <id 또는 문구>           # 교재 토픽 �
 | `report-answer-gaps.ts` | 답안 0편 토픽, 같은 문제 답안이 없는 기출, 구분별 비율 |
 | `find-hidden-topics.ts` | **숨은 토픽 찾기** — 어느 토픽에도 안 걸리는 문항의 주제를 세고, 토픽 제목·교재 표·예전 토픽에 있는지 함께 찍는다(별칭·서브 토픽·새 토픽 후보) |
 | `find-sub-topics.ts` | **서브 토픽 후보(교재 쪽에서)** — 교재 표의 이름 칸·키워드마다 그 이름을 주제로 물은 문항을 세고, 토픽·서브 토픽으로 안 걸리는 것을 찍는다 |
+| `check-topic-why.ts` | **「왜 있나」 검사** — `src/data/topicWhy/{과목}.json` 에 빠진 토픽·없는 제목·길이·금지어(비유·시험 요령). `--dump {과목}` 은 쓸 때 볼 자료(정의·특징·표 머리·키워드·등장배경) |
 
 공용: `lib/answers-store.ts`(TS 읽기·검사·쓰기), `lib/answers_py.py`(파이썬 읽기·정규화·후보 찾기·ops 적용).
 

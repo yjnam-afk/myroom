@@ -17,9 +17,19 @@ import { handDiagramsFor } from "@/data/handDiagrams";
 import { coTopics } from "@/lib/topicCo";
 import { commuteHref, flowAnchor } from "@/lib/links";
 import { subDefFor } from "@/lib/subCards";
+import { topicWhy } from "@/data/topicWhy";
+import glossData from "@/data/gloss.json";
+
+/** 간글 — 표(t, 표 순서대로)마다 「이 표가 말하는 것」 한 줄. 답안지 템플릿의 표 아래 간글과 같은 자료다 */
+const GLOSS = glossData as Record<string, { d?: string; t: string[] }>;
 
 /** 한 줄 = 이름 — 설명. 1열로 묶인 행은 이름 아래 항목(items)으로 내려 쓴다 */
-export type FlowPara = { caption: string; lines: { head?: string; body: string; items?: string[] }[] };
+export type FlowPara = {
+  caption: string;
+  lines: { head?: string; body: string; items?: string[] }[];
+  /** 이 표가 말하는 것 한 줄(간글) — 항목을 읽기 전에 무엇을 보라는 표인지 알려 준다 */
+  gloss?: string;
+};
 export type FlowTail = { title: string; why: string; href: string };
 export type FlowBlock = {
   /** 쪽 안 닻(#) */
@@ -33,6 +43,8 @@ export type FlowBlock = {
   /** 상위 토픽에서 이어진 까닭(하위 토픽일 때) */
   from?: { parent: string; rel: TopicRel; why: string };
   priority?: string;
+  /** 왜 있는가 — 이것이 없을 때의 문제와 그래서 하는 일(topicWhy.ts, 학습 길잡이) */
+  why?: string;
   /** 교재 서브노트가 없으면(CONTENTS 에만 있는 토픽) 제목만 */
   def?: string;
   concepts: { name: string; def: string; features?: string[] }[];
@@ -136,11 +148,16 @@ export function readFlow(code: string): FlowBlock[] {
       newGroup: area !== lastArea || group !== lastGroup,
       from,
       priority: pri.get(title) ?? pri.get(real),
+      why: topicWhy(real, s?.course ?? code),
       def: s?.definition,
       concepts: s ? conceptsOf(s) : [],
       features: s?.features ?? [],
       diagrams: handDiagramsFor(real),
-      paras: s ? s.tables.map(paraOf).filter((p) => p.lines.length) : [],
+      paras: s
+        ? s.tables
+            .map((t, i) => ({ ...paraOf(t), gloss: (GLOSS[`${s.title}@${s.course}`] ?? GLOSS[s.title])?.t[i] || undefined }))
+            .filter((p) => p.lines.length)
+        : [],
       subTopics: subTopicsOf(real).map((x) => ({ name: x.name, def: subDefFor(x.name) })),
       tails: [],
     });
