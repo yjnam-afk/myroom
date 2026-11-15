@@ -32,6 +32,15 @@ rewrite 가 `/answers/…` 를 GitHub 원본(raw.githubusercontent.com, 공개 �
 (2026-11-01 `answers.ts check` 의 이미지 검사 때문에 배포가 4번 연속 실패했다. 로컬 빌드는 통과해서 안 보였다). 푸시 뒤엔 커밋 상태(Vercel)가 success 인지 꼭 본다. `public/` 의 다른 폴더에 파일을 대량으로
 넣을 때는 `find public -type f | wc -l` 이 16,000 에 가깝지 않은지 본다.
 
+**Deployment Storage 10GB(2026-11-15 경고 메일 「You're close to your Deployment Storage limit — 75%」)**: Vercel 무료 플랜은 팀 전체에서 **남아 있는 배포들의 결과물(쪽·함수·정적 파일)을 합쳐 10GB**까지 둔다.
+넘으면 오래된 배포(되돌리기용 사본)부터 지워질 뿐, 지금 서비스 중인 배포와 최근 3개는 남는다 — 사이트가 멈추지 않고, 자료를 지울 일도 아니다.
+배포 한 벌이 0.45GB쯤(정적 300MB + 서버 150MB)인데 이날 하루 9번 올려 4GB가 쌓였다. 그래서:
+- **푸시를 모아서 한다.** 한 번 올릴 때마다 한 벌이 쌓인다. 요청 하나에 커밋 여러 개를 따로 올리지 말고, 급하지 않으면 묶어서 한 번에 올린다. 문서만 고친 커밋은 다음 코드 변경과 함께 올린다.
+- 교재 슬라이드 원본(`public/concept/book`, png 712장 · 269MB)을 `.vercelignore` 로 배포에서 빼고 `/concept/book/…` 을 GitHub 원본으로 넘겼다(답안 스캔과 같은 방식). 슬라이드는 전처럼 그 폴더에 커밋한다.
+  **빌드 단계에서 `public/concept/book` 파일을 읽으면 Vercel 에서만 멈춘다**(답안 스캔과 같다).
+- `public/concept` 에서 어디서도 안 쓰는 파일은 1개(0.4MB)뿐이었다 — 지워서 줄일 것이 없다.
+- 이 세션에서는 `vercel.com`·배포 주소(`myroom-alpha.vercel.app`)에 접속이 안 돼 사용량 화면과 실제 화면을 볼 수 없다. 커밋 상태(success)만 확인할 수 있다.
+
 **2026-11-01 부터 새 답안 이미지는 별도 공개 저장소 `yjnam-afk/myroom-answers`(main)에 넣는다** — 이 저장소가 3.6GB(이미지 3.4GB)가 되어
 세션마다 새로 받는 데 오래 걸린다. 그 저장소에 `{출처 폴더}/파일.webp` 로 커밋하고 답안 `pages[].src` 는 `/ans2/{출처 폴더}/파일.webp` 로 적는다
 (`next.config.mjs` 의 `/ans2/:path*` rewrite 가 raw.githubusercontent.com 으로 넘긴다. `answers.ts check` 는 `/ans2/` 파일 존재를 보지 않는다).

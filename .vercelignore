@@ -3,3 +3,9 @@
 # public 이 16,192개가 되자 배포가 통째로 실패했고, 그 뒤 커밋이 화면에 하나도 안 나왔다.
 # 이미지는 next.config.mjs 의 fallback rewrite 로 GitHub 원본(raw.githubusercontent.com)에서 받는다.
 public/answers
+
+# 교재 슬라이드 원본(public/concept/book, png 712장 · 269MB)도 배포에 싣지 않는다(2026-11-15).
+# Vercel 무료 플랜의 Deployment Storage(팀 전체 10GB)는 남아 있는 배포마다 결과물(쪽·함수·정적 파일)을 통째로 센다 —
+# 배포 한 벌이 0.45GB쯤이라 하루 9번 올린 날 75% 경고가 왔다. 슬라이드를 빼면 한 벌이 60%쯤 줄어든다.
+# 화면에서는 next.config.mjs 의 fallback rewrite 가 GitHub 원본에서 받아 온다(답안 스캔과 같은 방식).
+public/concept/book
