@@ -50,13 +50,16 @@ for path in o.pdf:
         if "출제배경" in t:
             break
         head += t
-    head = head[head.find("하시오"):] if "하시오" in head else head
+    # 머리말 「…선택하여 설명 하십시오」 뒤부터가 문항이다. 「하시오」로 자르면 1번 문항 끝(「…설명하시오.」)까지 날아간다(NS 9주차 2교시)
+    cut = re.search(r"하십시오|하시오", head)
+    head = head[cut.start():] if cut else head
     parts = re.split(r"\n\s*(\d{1,2})\s*\.\s", head)
     sheet = [re.sub(r"\s+", " ", re.sub(r"Copyright.*", " ", parts[k + 1])).strip() for k in range(1, len(parts) - 1, 2)]
     starts = []
     for i, p in enumerate(d):
         t = p.get_text()
-        if "도메인" in t and "난이도" in t and re.search(r"출제\S*\s*배경", t):
+        # 머리표에 「난이도」 대신 「도메인」이 두 번 찍힌 쪽도 문항 시작이다(NS 9주차 2교시 5번 — 4번에 붙어 버렸다)
+        if "도메인" in t and ("난이도" in t or t.count("도메인") >= 2) and re.search(r"출제\S*\s*배경", t):
             m = re.search(r"해설자\s*\n?\s*(.*?)\s*\(", t, re.S)
             starts.append((i, re.sub(r"\s+", " ", m.group(1)).strip() if m else ""))
     last = d.page_count - 1
