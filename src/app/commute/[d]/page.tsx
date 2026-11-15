@@ -81,15 +81,17 @@ function Block({ b, next }: { b: FlowBlock; next?: FlowBlock }) {
       ))}
       <div className="mt-5 space-y-1 rounded-2xl bg-slate-50 px-4 py-3 text-sm leading-7 text-slate-600">
         {b.subTopics.length > 0 && (
-          <p>
-            🔎 이 안의 서브 토픽 —{" "}
-            {b.subTopics.map((s, i) => (
-              <span key={s}>
-                {i > 0 && " · "}
-                <Link href={explainHref(s)} className="font-medium text-slate-800 underline decoration-slate-300 underline-offset-2">{s}</Link>
-              </span>
-            ))}
-          </p>
+          <div>
+            <p>🔎 이 안의 서브 토픽</p>
+            <ul className="ml-1 mt-0.5 space-y-1 border-l-2 border-slate-200 pl-3">
+              {b.subTopics.map((s) => (
+                <li key={s.name} className="text-[15px] leading-7 text-slate-700">
+                  <Link href={explainHref(s.name)} className="font-semibold text-slate-900 underline decoration-slate-300 underline-offset-2">{s.name}</Link>
+                  {s.def ? <> — {s.def}</> : null}
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
         {b.tails.length > 0 && (
           <p>

@@ -443,6 +443,24 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
               </p>
             </div>
             <div className="space-y-3 p-4">
+              {/* 설명 — 이름·별칭이 맞는 기필반 카드의 정의. 위 답안지 템플릿으로 그린 카드 말고 더 있는 것(두 개념 서브 토픽) */}
+              {data.sub.cards.map((c) => (
+                <div key={c.title} className="rounded-xl border border-indigo-100 bg-indigo-50/50 px-3 py-2">
+                  <p className="text-[12px] font-bold text-indigo-900">
+                    📖 {c.title} <span className="font-normal text-indigo-400">— 기필반 자료</span>
+                  </p>
+                  <p className="mt-0.5 text-[13.5px] leading-relaxed text-slate-800">{c.definition}</p>
+                  <Link href={explainHref(c.title)} className="text-[11.5px] text-indigo-700 hover:underline">
+                    이 토픽 답안지 템플릿 →
+                  </Link>
+                </div>
+              ))}
+              {!legacy && !data.sub.cards.length && (
+                <p className="rounded-lg bg-amber-50 px-3 py-2 text-[12px] leading-relaxed text-amber-900">
+                  이 서브 토픽은 교재에 쪽이 없고 기필반 자료에도 같은 이름의 토픽이 없어, 정의를 따로 적어 두지 않았어요(지어 넣지 않습니다).
+                  아래 교재 표 행과 해설집·모범답안을 보세요.
+                </p>
+              )}
               {data.sub.tables.map((tb, i) => (
                 <div key={i}>
                   <p className="mb-1 text-[12px] font-semibold text-slate-600">
@@ -475,6 +493,16 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
                 </Link>
               ))}
             </div>
+            {/* 서브 토픽 한 줄 설명 — 기필반 카드 정의가 있는 것만 */}
+            {data.subs.some((st) => st.def) && (
+              <ul className="mt-2 space-y-1">
+                {data.subs.filter((st) => st.def).map((st) => (
+                  <li key={st.name} className="text-[12.5px] leading-relaxed text-slate-700">
+                    <span className="font-semibold text-teal-900">{st.name}</span> — {st.def}
+                  </li>
+                ))}
+              </ul>
+            )}
           </section>
         )}
 

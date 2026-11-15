@@ -16,6 +16,7 @@ import { twinOf } from "@/data/twinTopics";
 import { handDiagramsFor } from "@/data/handDiagrams";
 import { coTopics } from "@/lib/topicCo";
 import { commuteHref, flowAnchor } from "@/lib/links";
+import { subDefFor } from "@/lib/subCards";
 
 /** 한 줄 = 이름 — 설명. 1열로 묶인 행은 이름 아래 항목(items)으로 내려 쓴다 */
 export type FlowPara = { caption: string; lines: { head?: string; body: string; items?: string[] }[] };
@@ -39,7 +40,8 @@ export type FlowBlock = {
   /** 손글씨 개념도(정리 노트에서 잘라 둔 그림) */
   diagrams: string[];
   paras: FlowPara[];
-  subTopics: string[];
+  /** 이 토픽 안의 서브 토픽 — 기필반 카드에 같은 이름이 있으면 정의도 */
+  subTopics: { name: string; def?: string }[];
   tails: FlowTail[];
 };
 
@@ -139,7 +141,7 @@ export function readFlow(code: string): FlowBlock[] {
       features: s?.features ?? [],
       diagrams: handDiagramsFor(real),
       paras: s ? s.tables.map(paraOf).filter((p) => p.lines.length) : [],
-      subTopics: subTopicsOf(real).map((x) => x.name),
+      subTopics: subTopicsOf(real).map((x) => ({ name: x.name, def: subDefFor(x.name) })),
       tails: [],
     });
     lastArea = area;

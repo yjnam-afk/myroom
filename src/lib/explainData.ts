@@ -54,6 +54,7 @@ import { planInfo } from "@/lib/studyPlan";
 import { courseOf, courseSubnotesInOrder } from "@/lib/courseOrder";
 import { twinOf } from "@/data/twinTopics";
 import { SUB_TOPICS, subTopicByName, subTopicsOf, type SubTopic } from "@/data/subTopics";
+import { subCardsFor, subDefFor } from "@/lib/subCards";
 import { IMP_ORDER } from "@/lib/badges";
 const SUB_TOPICS_ALL = () => SUB_TOPICS;
 import { PEER_ANSWERS } from "@/data/peerAnswers";
@@ -120,6 +121,13 @@ for (const c of flashcards as LegacyCard[]) {
   if (!CARD_BY_BARE.has(b)) CARD_BY_BARE.set(b, c);
 }
 const EXTRA_BY_ID = answerExtras as unknown as Record<string, Partial<LegacyCard>>;
+/** 카드 id 로 — 제목이 같은 카드가 둘일 때(MDM = 마스터 데이터 관리 / 모바일 단말 관리) 제목으로는 딴 카드가 나온다 */
+function legacyCardById(id: string): LegacyCard | undefined {
+  const card = (flashcards as LegacyCard[]).find((c) => c.id === id);
+  if (!card) return undefined;
+  const extra = EXTRA_BY_ID[card.id];
+  return extra ? { ...card, ...extra } : card;
+}
 function legacyCardFor(title: string): LegacyCard | undefined {
   const t = title.trim();
   if (!t) return undefined;
@@ -154,10 +162,16 @@ export type ExplainTopicData = {
   /** 내가 손으로 정리한 노트(myNotes) — 답안지 템플릿 아래 「📝 내 정리」 */
   myNotes: MyNote[];
   /** 교재 속 서브 토픽 화면 — 상위 토픽과 이 이름이 나오는 교재 표 행 */
-  sub?: { parent: string; aliases: string[]; tables: { from: string; caption: string; headers: string[]; rows: string[][] }[] };
+  sub?: {
+    parent: string;
+    aliases: string[];
+    tables: { from: string; caption: string; headers: string[]; rows: string[][] }[];
+    /** 이름·별칭이 맞는 기필반 카드의 정의(답안지 템플릿으로 그린 첫 카드는 뺀다) — 「RIP·OSPF」처럼 두 개념이면 개념마다 */
+    cards: { title: string; category: string; definition: string }[];
+  };
   /** 이 토픽 안의 서브 토픽 — 출제 수와 함께 */
   /** 이 토픽 안의 서브 토픽 — peers 는 서브 토픽 답안 중 이 토픽 답안(peers)에 없는 것 */
-  subs?: { name: string; past: number; ns: number; mock: number; peers: PeerAnswer[] }[];
+  subs?: { name: string; past: number; ns: number; mock: number; peers: PeerAnswer[]; def?: string }[];
   /** 사실상 같은 토픽(twinTopics) — 그 토픽의 답안·출제 수를 함께 보여 준다 */
   twin?: { title: string; note: string; peers: PeerAnswer[]; past: number; ns: number; mock: number };
   hist: ExamAppearance[];
@@ -327,7 +341,7 @@ function subPeers(st: SubTopic): PeerAnswer[] {
 }
 
 /** 서브 토픽이 나오는 교재 표 행 — 상위 토픽 표 먼저, 다른 서브노트는 행만 골라 최대 3개 표 */
-function subRows(st: SubTopic): NonNullable<ExplainTopicData["sub"]> {
+function subRows(st: SubTopic): Omit<NonNullable<ExplainTopicData["sub"]>, "cards"> {
   const has = (x: string) => st.aliases.some((a) => x.includes(a));
   const out: { from: string; caption: string; headers: string[]; rows: string[][] }[] = [];
   const parent = subnoteByTitle(st.parent);
@@ -354,8 +368,15 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
     subnoteByTopicId(t?.id) ||
     // 제목 표기만 다른 같은 토픽("Singleton 패턴" ↔ "싱글턴 패턴 (Singleton pattern)")
     subnoteByAlias(t?.id, title);
-  const legacy = !textbook ? legacyCardFor(title) : undefined;
-  const intro = legacy ? TOPIC_INTROS[t?.id || ""] : undefined;
+  // 서브 토픽이면 이름·별칭이 맞는 기필반 카드를 찾아 설명으로 쓴다(2026-11-15 "서브토픽들은 왜 설명이 없어")
+  const subCards = subTopicByName(title) ? subCardsFor(subTopicByName(title)!) : [];
+  // 서브 토픽이면 subCards 가 고른 카드가 먼저다 — 제목만 같은 딴 뜻 카드(NOT 으로 뺀 것)를 피한다
+  const legacy = !textbook
+    ? subTopicByName(title)
+      ? subCards[0] && legacyCardById(subCards[0].id)
+      : legacyCardFor(title)
+    : undefined;
+  const intro = legacy ? TOPIC_INTROS[t?.id || legacy.id] : undefined;
   const pi = planInfo(title, textbook?.topicId || t?.id);
   return {
     plan: pi ? { priority: pi.priority, level: pi.level, note: pi.note } : undefined,
@@ -379,7 +400,15 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
       const st = subTopicByName(title);
       return [...own, ...[...myNotesFor(textbook?.title), ...myNotesFor(st?.parent)].filter((n) => !ids.has(n.id) && (ids.add(n.id), true))];
     })(),
-    sub: subTopicByName(title) ? subRows(subTopicByName(title)!) : undefined,
+    sub: subTopicByName(title)
+      ? {
+          ...subRows(subTopicByName(title)!),
+          cards: subCards
+            .filter((c) => c.id !== legacy?.id)
+            .slice(0, 5)
+            .map((c) => ({ title: c.title, category: c.category, definition: c.definition })),
+        }
+      : undefined,
     // 서브 토픽 답안도 상위 토픽 화면에 붙인다(2026-10-22 — "다형성 모범답안에는 왜 오버로딩 오버라이딩이 없지?",
     // "교재의 키워드에 있는 것들은 서브 토픽, 모범답안 연계"). 「오버로딩_오버라이딩」 답안은 서브 토픽 화면에만 있었다.
     subs: (() => {
@@ -391,6 +420,7 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
         ns: examHistory(st.name).length,
         mock: mockExams(st.name).length,
         peers: subPeers(st).filter((a) => !own.has(a.id) && (own.add(a.id), true)),
+        def: subDefFor(st.name),
       }));
     })(),
     twin: (() => {
