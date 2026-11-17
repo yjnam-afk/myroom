@@ -93,6 +93,8 @@ export const TOPIC_ALIASES: Record<string, string[]> = {
   "RARP(Reverse Address Resolution Protocol)": ["RARP", "Reverse Address"],
   "C-RAN(Centralized / Cloud RAN)": ["C-RAN", "Cloud RAN", "Centralized RAN"],
   "O-RAN": ["O-RAN", "Open RAN", "오픈랜"],
+  // 2026-11-17 "IMT-2030 모범답안이나 해설집 없어?" — 「IMT-2030 프레임워크」 문항이 어느 토픽에도 안 걸려 6G 화면 출제 이력에 없었다(IMT-2030 = ITU 의 6G 이름)
+  "6G": ["IMT-2030"],
   "비지상네트워크(NTN, Non-Terrestrial Networks)": ["NTN", "Non-Terrestrial", "비지상", "저궤도 위성"],
   "SD-WAN(Software Defined-Wide Area Network)": ["SD-WAN", "SDWAN"],
   "Sliding Window & 네이글(Nagle's) 알고리즘": ["Sliding Window", "슬라이딩 윈도우", "Nagle", "네이글"],
