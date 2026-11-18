@@ -215,6 +215,11 @@ const TRAP: Record<string, RegExp> = {
   queue: /messagequeue|queuesystem|levelqueue|singlequeue|multiqueue|큐queue멀티프로세서/,
   lean: /automationleanmeasure|leanstartup|leanstrartup|leancanvas/,
   encryption: /homomorphicencryption/,
+  // 2026-11-18 다중화(Multiplexing) ← 「웹 서버의 다중화」(이중화·로드밸런서)·「다중화 안전 기법」(BCP)·HTTP/2 멀티플랙싱(스트림 다중화 — 전송 다중화 FDM·TDM 이 아니다)
+  다중화: /웹서버의다중화|다중화안전/,
+  multiplexing: /^[\s\S]*http\/?2[\s\S]*$/,
+  멀티플랙싱: /^[\s\S]*http\/?2[\s\S]*$/,
+  멀티플렉싱: /^[\s\S]*http\/?2[\s\S]*$/,
   // SW 가시화(Software Visualization)는 빅데이터 시각화가 아니다
   visualization: /swvisualization|softwarevisualization/,
   // RAID 수준 비교의 「고장허용 측면·범위」는 결함허용 컴퓨터(FTS) 토픽이 아니고, 생체인식 스푸핑은 네트워크 스푸핑이 아니다

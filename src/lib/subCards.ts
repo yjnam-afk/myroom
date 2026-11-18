@@ -25,6 +25,8 @@ const NOT: Record<string, RegExp> = {
   "BaaS·FaaS": /블록체인/,
   "SIL(안전무결성 수준)": /Software-in-the-Loop/i,
   "IDS·IPS": /Indoor Positioning/,
+  // 「캡슐화」 카드는 둘이다(객체지향 se-19 · 네트워크 net-6) — 네트워크 쪽만
+  "캡슐화/역캡슐화": /객체지향|Method/,
 };
 
 /** 이름이 달라 열쇠로는 못 찾는 카드 — 눈으로 정의를 읽어 맞는 것만 적었다(카드 제목 그대로) */
@@ -47,6 +49,7 @@ const EXTRA: Record<string, string[]> = {
   "엣지 컴퓨팅(Edge Computing)": ["지능형 엣지 컴퓨팅", "Mobile Edge Computing"],
   "ROI(투자수익률)": ["IT-ROI 투자 성과평가"],
   "Clark-Wilson 모델": ["접근제어 Model(Bell-Lapadula, Biba, Clark & Wilson , Access Matrix)"],
+  "캡슐화/역캡슐화": ["캡슐화"],
 };
 const BY_TITLE = new Map(CARDS.map((c) => [c.title, c]));
 

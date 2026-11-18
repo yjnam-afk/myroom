@@ -308,6 +308,9 @@ export const SUB_TOPICS: SubTopic[] = [
   { name: "ESS(Energy Storage System)", parent: "VPP(Virtual Power Plant)", aliases: ["ESS", "Energy Storage System", "에너지 저장 장치", "에너지저장장치"] },
   { name: "DeFi(탈중앙화 금융)", parent: "RWA(Real World Asset) 토큰화 프로토콜", aliases: ["De-Fi", "DeFi", "디파이", "탈중앙화 금융", "Decentralized Finance"] },
   { name: "디지털 교과서", parent: "에듀테크(EduTech)", aliases: ["디지털 교과서", "디지털교과서"] },
+  // 2026-11-18 "네트워크 모델에서 활용되는 캡슐화와 역캡슐화, 다중화와 역다중화 … 모범답안이나 해설지 없어?" — 교재 OSI 7 Layer 표의 「캡슐화/역캡슐화」 행.
+  // 별칭은 「역캡슐화」만 — 「캡슐화」는 객체지향·시큐어코딩 문항까지 끌어온다. 이름도 「캡슐화」만으로는 열쇠가 되지 않게 붙여 적는다.
+  { name: "캡슐화/역캡슐화", parent: "OSI 7 Layer (ISO 7498)", aliases: ["역캡슐화"] },
 ];
 
 const BY_NAME = new Map(SUB_TOPICS.map((s) => [s.name, s]));
