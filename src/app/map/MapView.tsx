@@ -5,14 +5,13 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { memoryTables } from "@/data/memoryTables";
 import { DOMAINS, sortDomains } from "@/lib/domains";
-import { subTopicsOf } from "@/data/subTopics";
 import { childLinks, parentLink } from "@/data/topicParents";
 import { LEVEL_MAPS, chipKey, chipTopic } from "@/data/levelMaps";
 import LevelMatrix from "./LevelMatrix";
 import { FRAME_GROUPS, FRAME_BY_CODE, frameOf, familiesOf } from "@/data/answerFrames";
 import FrameCard from "@/components/FrameCard";
 import { explainHref as topicHref, commuteHref } from "@/lib/links";
-import { ALL_MAP_TOPICS, type MapTopic, TOPICS_BY_CAT, type TopicStat, linksOf } from "./mapData";
+import { ALL_MAP_TOPICS, type InnerNode, type MapTopic, TOPICS_BY_CAT, type TopicStat, innerOf, linksOf } from "./mapData";
 import { TableCard } from "./TablesView";
 
 /* ─────────────── 지도 뷰 ─────────────── */
@@ -48,6 +47,10 @@ const short = (t: string) => {
 // 이제 왼쪽에서 오른쪽으로 뻗는 구조도(과목 → 영역 → 토픽 묶음)로 그리고 가지를 접고 편다.
 // 토픽은 영역 옆에 칩으로 모아 한 줄에 여럿 보이게 하고, 고른 토픽 상세는 오른쪽(모바일은 아래) 칸에 둔다.
 const BRANCH = ["#e11d48", "#2563eb", "#059669", "#d97706", "#7c3aed", "#0891b2", "#db2777", "#65a30d", "#ea580c", "#4f46e5", "#0d9488", "#b45309", "#9333ea", "#475569", "#be123c"];
+
+/** 갈래를 접었을 때 — 갈래 속 서브 토픽만 한 줄로 */
+const flatSubs = (nodes: InnerNode[]): InnerNode[] =>
+  nodes.flatMap((n) => [...(n.sub ? [{ ...n, kids: [] }] : []), ...flatSubs(n.kids)]);
 
 type Area = { name: string; items: MapTopic[] };
 /** 종속 관계 표시 — 하위 토픽 칩 앞에 붙는다 */
@@ -119,6 +122,8 @@ export function MapView({
   const [mode, setMode] = useState<"priority" | "heat" | "frame">("priority");
   const [sel, setSel] = useState<string | null>(null);
   const [showTables, setShowTables] = useState(false);
+  // 토픽 안 갈래(교재 표의 종류·구성)를 지도에 펼쳐 둘지 — 접으면 서브 토픽 칩만 남는다
+  const [showInner, setShowInner] = useState(true);
   // 펼친 가지 — 과목 지도는 영역을 다 편 채로, 전체 지도는 과목만 보이게 시작한다
   const [open, setOpen] = useState<Set<string>>(new Set());
   const [closed, setClosed] = useState<Set<string>>(new Set());
@@ -213,31 +218,77 @@ export function MapView({
   // 상위 토픽 + 그 아래 하위 토픽(오른쪽 세로줄 안) — 하위가 또 하위를 가질 수 있다(최대 4단)
   const Family = ({ t, color, depth = 0 }: { t: MapTopic; color: string; depth?: number }) => {
     const kids = depth < 4 ? kidsOf(t.title) : [];
-    // 교재 속 서브 토픽 — 표 안에만 있던 개념(subTopics). 누르면 그 서브 토픽 화면
-    const subs = subTopicsOf(t.title);
-    if (!kids.length && !subs.length) return <Chip t={t} />;
+    // 토픽 안 갈래 — 교재 표의 종류·구성(topicInner)과 서브 토픽(subTopics). 갈래를 접으면 서브 토픽만 남는다
+    const inner = innerOf(t.title);
+    const nodes = showInner ? inner : flatSubs(inner);
+    if (!kids.length && !nodes.length) return <Chip t={t} />;
     // 하위 토픽은 상위 칩 아래 들여쓴 줄에 — 옆으로 붙이면 깊어질수록 칸이 좁아져 글자가 세로로 섰다
     return (
       <div className="w-full min-w-0">
         <Chip t={t} />
-        <div className="ml-3 mt-1 flex min-w-0 flex-wrap gap-1.5 border-l-2 pb-0.5 pl-3" style={{ borderColor: color }}>
-          {subs.map((st) => {
-            const s = stats[st.name];
-            const n = mode === "heat" ? s?.past ?? 0 : hits(s);
-            return (
-              <Link
-                key={st.name}
-                href={topicHref(st.name)}
-                title={`교재 속 서브 토픽 — ${short(t.title)} 표 안의 개념${s ? `\n기출 ${s.past} · NS ${s.ns} · 모의 ${s.mock}` : ""}`}
-                className="rounded-full border border-dashed border-teal-400 bg-teal-50 px-2 py-0.5 text-[11.5px] leading-tight text-teal-900 hover:bg-teal-100"
-              >
-                🔎 {short(st.name)}
-                {n > 0 && <sup className="ml-0.5 text-[9px] opacity-70">{n}</sup>}
-              </Link>
-            );
-          })}
+        <div className="ml-3 mt-1 flex min-w-0 flex-wrap items-center gap-1.5 border-l-2 pb-0.5 pl-3" style={{ borderColor: color }}>
+          {nodes.map((n, i) => (
+            <Branch key={`${n.name}-${i}`} node={n} parent={t.title} />
+          ))}
           {kids.map((k) => (
             <Family key={k.title} t={k} color={color} depth={depth + 1} />
+          ))}
+        </div>
+      </div>
+    );
+  };
+
+  // 갈래 한 마디 — 서브 토픽이면 그 화면으로 가는 칩, 아니면 교재 표 속 이름(글자만)
+  const Leaf = ({ node, parent, head }: { node: InnerNode; parent: string; head?: boolean }) => {
+    if (node.sub) {
+      const s = stats[node.sub.name];
+      const n = mode === "heat" ? s?.past ?? 0 : hits(s);
+      return (
+        <Link
+          href={topicHref(node.sub.name)}
+          title={`교재 속 서브 토픽 — ${short(parent)} 표 안의 개념${s ? `\n기출 ${s.past} · NS ${s.ns} · 모의 ${s.mock}` : ""}`}
+          className="rounded-full border border-dashed border-teal-400 bg-teal-50 px-2 py-0.5 text-[11.5px] leading-tight text-teal-900 hover:bg-teal-100"
+        >
+          🔎 {short(node.sub.name)}
+          {n > 0 && <sup className="ml-0.5 text-[9px] opacity-70">{n}</sup>}
+        </Link>
+      );
+    }
+    return (
+      <span
+        title={`교재 표 속 갈래 — ${short(parent)}`}
+        className={`rounded-md border px-1.5 py-0.5 text-[11px] leading-tight ${
+          head ? "border-slate-300 bg-white font-semibold text-slate-700" : "border-slate-200 bg-slate-50 text-slate-600"
+        }`}
+      >
+        {node.name}
+      </span>
+    );
+  };
+  // 갈래 가지 — 잎만 달린 가지는 한 줄(가지 › 잎 잎 잎), 가지가 또 달리면 세로줄 안에 내려 쓴다
+  const Branch = ({ node, parent }: { node: InnerNode; parent: string }) => {
+    if (!node.kids.length) return <Leaf node={node} parent={parent} />;
+    if (node.kids.some((k) => k.kids.length))
+      return (
+        <div className="w-full min-w-0">
+          <Leaf node={node} parent={parent} head />
+          <div className="ml-2 mt-1 flex min-w-0 flex-wrap items-center gap-1 border-l border-slate-200 pl-2">
+            {node.kids.map((k, i) => (
+              <Branch key={`${k.name}-${i}`} node={k} parent={parent} />
+            ))}
+          </div>
+        </div>
+      );
+    return (
+      <div className="flex w-full min-w-0 flex-wrap items-start gap-1 sm:flex-nowrap">
+        <span className="flex shrink-0 items-center gap-1">
+          <Leaf node={node} parent={parent} head />
+          <span className="text-[10px] text-slate-400">›</span>
+        </span>
+        {/* 넓은 화면은 잎이 가지 이름 오른쪽 칸 안에서 줄을 바꾼다. 좁은 화면은 칸을 풀어 가지 이름과 한 흐름으로 */}
+        <div className="contents min-w-0 flex-1 flex-wrap items-center gap-1 sm:flex">
+          {node.kids.map((k, i) => (
+            <Leaf key={`${k.name}-${i}`} node={k} parent={parent} />
           ))}
         </div>
       </div>
@@ -355,6 +406,15 @@ export function MapView({
               {closed.size ? "모두 펼치기" : "모두 접기"}
             </button>
           )}
+          {!overview && lv == null && (
+            <button
+              onClick={() => setShowInner(!showInner)}
+              title="토픽 아래에 교재 표의 종류·구성을 펼쳐 보인다"
+              className={`rounded-md border px-2 py-1 text-[11px] ${showInner ? "border-slate-700 bg-slate-700 text-white" : "border-slate-200 text-slate-500"}`}
+            >
+              🌿 갈래 {showInner ? "접기" : "펴기"}
+            </button>
+          )}
           <div className="inline-flex rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-[11px]">
             {[
               { k: "priority" as const, label: "중요도" },
@@ -399,7 +459,7 @@ export function MapView({
             ? `· 영역 칩 숫자 = 토픽 수 · 색 = ${mode === "heat" ? "토픽당 평균 기출" : mode === "frame" ? "개념도 그룹" : "상 토픽 3개 이상 상 / 1개 이상 중"} · 영역을 누르면 그 과목 지도`
             : mode === "frame"
               ? "· 색 = 개념도 그룹(같은 색 = 같은 2단락 틀) · 토픽을 누르면 돌려막기 묶음·3단락 유형이 오른쪽에 · 흰 칩 = 아직 틀 안 정함"
-              : `· 숫자 = ${mode === "heat" ? "기술사 기출 횟수" : "출제 횟수(기출·NS·모의)"} · ○ = 모범답안·해설 없음 · 점선 = 교재 정리 전 · 세로줄 안 = 하위 토픽(⊂ 종류 ◇ 구성·기법 ⚠ 문제·해결 ↗ 확장·발전) · 🔎 = 교재 표 속 서브 토픽`}
+              : `· 숫자 = ${mode === "heat" ? "기술사 기출 횟수" : "출제 횟수(기출·NS·모의)"} · ○ = 모범답안·해설 없음 · 점선 = 교재 정리 전 · 세로줄 안 = 하위 토픽(⊂ 종류 ◇ 구성·기법 ⚠ 문제·해결 ↗ 확장·발전) · 🔎 = 교재 표 속 서브 토픽 · 회색 글자 = 교재 표 속 갈래(가지 › 잎)`}
         </span>
       </div>
 

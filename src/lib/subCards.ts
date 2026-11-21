@@ -31,6 +31,9 @@ const NOT: Record<string, RegExp> = {
 /** 이름이 달라 열쇠로는 못 찾는 카드 — 눈으로 정의를 읽어 맞는 것만 적었다(카드 제목 그대로) */
 const EXTRA: Record<string, string[]> = {
   "망 분리": ["논리적 망분리", "물리적 망분리"],
+  "거리벡터 라우팅(Distance Vector Routing)": ["Distance Vector Algorithm"],
+  "링크상태 라우팅(Link State Routing)": ["Link State Algorithm"],
+  "IGP·EGP(Interior·Exterior Gateway Protocol)": ["내/외부 라우팅"],
   "CRUD 매트릭스": ["CRUD 메트릭스(Matrix)"],
   "카이제곱 분포·검정": ["카이제곱분포", "카이제곱검정"],
   "I-PIN(아이핀)": ["i-PIN 1.0, 2.0"],

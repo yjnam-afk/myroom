@@ -34,7 +34,14 @@ export const SUB_TOPICS: SubTopic[] = [
   { name: "시스템 콜(System Call)", parent: "커널(Kernel)", aliases: ["시스템 콜", "System Call", "시스템콜"] },
   { name: "Working Set(워킹 셋)", parent: "스레싱(Thrashing)", aliases: ["Working Set", "워킹셋", "워킹 셋", "작업 집합"] },
   // 네트워크
-  { name: "RIP·OSPF", parent: "라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)", aliases: ["RIP", "OSPF"] },
+  // 2026-11-22 "라우팅에 거리벡터 등등등 하이라키 왤케 빈약하냐" — 「RIP·OSPF」 한 덩어리였던 것을 교재 표의 갈래대로 나눴다
+  // (거리벡터 → RIP, 링크상태 → OSPF. 지도에 놓이는 자리는 topicInner.ts). IGRP·EIGRP·iBGP·eBGP 는 출제가 없어 서브 토픽이 아니라 갈래 글자로만 둔다.
+  { name: "거리벡터 라우팅(Distance Vector Routing)", parent: "라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)", aliases: ["거리벡터 라우팅", "거리벡터", "거리 벡터", "거리 백터", "Distance Vector", "Distance Vectior"] },
+  { name: "링크상태 라우팅(Link State Routing)", parent: "라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)", aliases: ["링크상태 라우팅", "링크상태", "링크 상태 라우팅", "링크스테이트", "Link State"] },
+  { name: "RIP(Routing Information Protocol)", parent: "라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)", aliases: ["RIP", "Routing Information Protocol"] },
+  { name: "OSPF(Open Shortest Path First)", parent: "라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)", aliases: ["OSPF", "Open Shortest Path First"] },
+  // 교재 BGP 정의의 「Exterior Gateway 라우팅 프로토콜」 — 137회 1교시 「IGP와 EGP」가 어느 토픽에도 안 걸렸다
+  { name: "IGP·EGP(Interior·Exterior Gateway Protocol)", parent: "BGP(Border Gateway Protocol)", aliases: ["IGP", "EGP", "Interior Gateway", "Exterior Gateway"] },
   { name: "ARQ(Go-Back-N·Selective Repeat)", parent: "FEC(Forward Error Correction) / BEC(Backward Error Correction)", aliases: ["Go-Back-N", "Selective Repeat", "Selective-Repeat", "Stop and Wait", "Stop-and-Wait", "ARQ"] },
   { name: "MEC(Multi-access Edge Computing)", parent: "5G 특화망", aliases: ["MEC", "Multi-access Edge Computing", "모바일 엣지 컴퓨팅"] },
   { name: "NFV(Network Function Virtualization)", parent: "네트워크 슬라이싱", aliases: ["NFV", "네트워크 기능 가상화", "Network Function Virtualization"] },

@@ -19,6 +19,8 @@ import { matchSubnoteTitle, findSubnoteByContent } from "@/lib/matchSubnote";
 import { topicForConcept } from "@/lib/relatedTopics";
 import { explainHref as topicHref } from "@/lib/links";
 import { IMP_ORDER } from "@/lib/badges";
+import { TOPIC_INNER, type Inner } from "@/data/topicInner";
+import { subTopicsOf, type SubTopic } from "@/data/subTopics";
 
 export type Topic = {
   id: string;
@@ -246,3 +248,36 @@ export const hasAnyData = (name: string, parent?: string): boolean =>
 
 /** 토픽별 출제·답안 수 — 서버(page.tsx)가 센다 */
 export type TopicStat = { past: number; ns: number; mock: number; ans: number; com: number; /** 내 정리 노트 수(myNotes) */ mine?: number };
+
+// ── 토픽 안 갈래 — 토픽 칩 아래에 그리는 교재 속 구조(topicInner.ts) ─────────────────
+export type InnerNode = { name: string; sub?: SubTopic; kids: InnerNode[] };
+const headOf = (s: string) => s.replace(/\s*[(（].*$/, "").trim();
+const innerCache = new Map<string, InnerNode[]>();
+/**
+ * 토픽 아래 갈래. 적어 둔 갈래(TOPIC_INNER)가 있으면 그것, 없으면 교재가 따로 정의한 하위 개념(subDefs).
+ * 이름이 서브 토픽이면 그 서브 토픽을 달고, 갈래에 안 나온 서브 토픽은 뒤에 붙인다(빠지는 것이 없게).
+ */
+export function innerOf(title: string): InnerNode[] {
+  const hit = innerCache.get(title);
+  if (hit) return hit;
+  const subs = subTopicsOf(title);
+  const used = new Set<string>();
+  // 이름(또는 괄호 앞 머리 이름)이 같을 때만 서브 토픽으로 본다 — 별칭까지 보면 「Stop and Wait · Go-Back-N」이 모두 ARQ 칩이 된다
+  // 딴 토픽의 서브 토픽은 이름이 같아도 잇지 않는다(SD-WAN 의 「망 분리」 ≠ 보안의 망 분리)
+  const find = (n: string) => subs.find((st) => st.name === n || headOf(st.name) === n);
+  const build = (x: Inner): InnerNode => {
+    const n = typeof x === "string" ? x : x.n;
+    const sub = find(n);
+    if (sub) used.add(sub.name);
+    return { name: sub?.name ?? n, sub, kids: typeof x === "string" ? [] : x.kids.map(build) };
+  };
+  const written = TOPIC_INNER[title];
+  // 교재 하위 개념 — 이미 서브 토픽이 덮는 것(「선점형·비선점형 스케줄링」↔ 선점형 스케줄링)은 다시 그리지 않는다
+  const concepts = (subnoteByTitle(title)?.subDefs ?? [])
+    .map((d) => d.name)
+    .filter((c) => !subs.some((st) => st.name.includes(headOf(c)) || st.aliases.some((a) => c.includes(a))));
+  const tree = written ? written.map(build) : concepts.map((c) => build(c));
+  const out = [...tree, ...subs.filter((st) => !used.has(st.name)).map((st) => ({ name: st.name, sub: st, kids: [] }))];
+  innerCache.set(title, out);
+  return out;
+}

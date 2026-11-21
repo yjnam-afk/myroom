@@ -6,6 +6,7 @@ import { SUBNOTES, subnoteByTitle } from "@/data/textbookSubnotes";
 import { SUB_TOPICS } from "@/data/subTopics";
 import { examHistory, pastExams, mockExams, titlesMatching } from "@/lib/examHistory";
 import { PEER_ANSWERS } from "@/data/peerAnswers";
+import { TOPIC_INNER, type Inner } from "@/data/topicInner";
 
 let bad = 0;
 const titles = SUBNOTES.map((s) => s.title);
@@ -21,5 +22,31 @@ for (const st of SUB_TOPICS) {
     `${ok ? "✓" : "✗"} ${st.name} ← ${st.parent}${p ? "" : " (상위 서브노트 없음)"} | 교재: ${found.join(", ") || "없음"} | 기출 ${pastExams(st.name).length} · NS ${examHistory(st.name).length} · 모의 ${mockExams(st.name).length} · 답안 ${ans}${clash.length ? ` | 겹치는 토픽: ${clash.join(", ")}` : ""}`,
   );
 }
+
+// 토픽 안 갈래(topicInner.ts) — 상위 토픽이 서브노트로 있고, 갈래 이름이 서브 토픽이거나 그 서브노트에 있는 말인지
+const squeeze = (x: string) => x.replace(/\\n/g, "").replace(/\s/g, "");
+let nodes = 0;
+for (const [title, tree] of Object.entries(TOPIC_INNER)) {
+  const p = subnoteByTitle(title);
+  if (!p) {
+    bad++;
+    console.log(`✗ 갈래: 「${title}」 서브노트 없음`);
+    continue;
+  }
+  const txt = squeeze(JSON.stringify(p));
+  const subs = SUB_TOPICS.filter((st) => st.parent === title);
+  const walk = (x: Inner) => {
+    const n = typeof x === "string" ? x : x.n;
+    nodes++;
+    const isSub = subs.some((st) => st.name === n || st.name.replace(/\s*[(（].*$/, "") === n);
+    if (!isSub && !txt.includes(squeeze(n))) {
+      bad++;
+      console.log(`✗ 갈래: 「${title}」의 「${n}」 — 교재에 없는 말`);
+    }
+    if (typeof x !== "string") x.kids.forEach(walk);
+  };
+  tree.forEach(walk);
+}
+console.log(`갈래 ${Object.keys(TOPIC_INNER).length}개 토픽 · 마디 ${nodes}개`);
 console.log(bad ? `오류 ${bad}건 FAIL` : "PASS");
 process.exit(bad ? 1 : 0);
