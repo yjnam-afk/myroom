@@ -12,6 +12,7 @@ import rawTopics from "@/data/topics.json";
 import { SUBNOTES, subnoteByAlias } from "@/data/textbookSubnotes";
 import { DOMAIN_LABEL, domainLabel } from "@/lib/domains";
 import { planInfo } from "@/lib/studyPlan";
+import { bareKey as normTitle } from "@/lib/titleNorm";
 
 export type ReviewTopic = {
   id: string;
@@ -30,21 +31,8 @@ export type ReviewTopic = {
   levelNote?: string;
 };
 
-/**
- * 과목 이름은 lib/domains 한 곳에서만 정한다.
- * 예전엔 여기서 SE 를 "SW공학"이라 적어, topics.json 의 "소프트웨어공학"과
- * 갈라져 같은 과목이 목록에 두 번 나왔다.
- */
-export const COURSE_LABEL = DOMAIN_LABEL;
+// 과목 이름은 lib/domains 한 곳에서만 정한다 — 예전엔 여기서 SE 를 "SW공학"이라 적어 topics.json 의 "소프트웨어공학"과 갈라져 같은 과목이 목록에 두 번 나왔다.
 
-/** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다. */
-function normTitle(s: string): string {
-  return s
-    .trim()
-    .toLowerCase()
-    .replace(/[(（][^)）]*[)）]/g, "")
-    .replace(/[\s()·,\-_/]/g, "");
-}
 
 /**
  * 교재와 topicId 로 연결된 예전 토픽은 제목이 달라도 같은 토픽이다.
@@ -64,7 +52,7 @@ const BASE: ReviewTopic[] = (rawTopics as ReviewTopic[]).map((t) => {
       levelNote: p?.note,
     };
   }
-  const cat = COURSE_LABEL[s.course] || s.course;
+  const cat = DOMAIN_LABEL[s.course] || s.course;
   return {
     ...t,
     title: s.title,
@@ -91,8 +79,8 @@ for (const s of SUBNOTES) {
   TEXTBOOK_ONLY.push({
     id: `tb-${s.course}-${key}`,
     title: s.title,
-    category: COURSE_LABEL[s.course] || s.course,
-    group: COURSE_LABEL[s.course] || s.course,
+    category: DOMAIN_LABEL[s.course] || s.course,
+    group: DOMAIN_LABEL[s.course] || s.course,
     // 심화반 교재에 실린 토픽은 출제 비중이 높아 기본 중요도를 '상'으로 둔다.
     importance: "상",
     summary: s.defShort || s.definition,

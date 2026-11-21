@@ -40,6 +40,9 @@ rewrite 가 `/answers/…` 를 GitHub 원본(raw.githubusercontent.com, 공개 �
   **빌드 단계에서 `public/concept/book` 파일을 읽으면 Vercel 에서만 멈춘다**(답안 스캔과 같다).
 - `public/concept` 에서 어디서도 안 쓰는 파일은 1개(0.4MB)뿐이었다 — 지워서 줄일 것이 없다.
 - 이 세션에서는 `vercel.com`·배포 주소(`myroom-alpha.vercel.app`)에 접속이 안 돼 사용량 화면과 실제 화면을 볼 수 없다. 커밋 상태(success)만 확인할 수 있다.
+- **2026-11-20 「You've used all of your included Deployment Storage」(100%) 메일**: 사이트는 멈추지 않는다. Vercel 공지대로면 무료 플랜은 한도를 넘는 즉시 옛 배포를 지우고, 서비스 중인 배포 + 최근 프로덕션 3개 + 최근 배포 3개만 남긴다.
+  저장소에서 고칠 것은 없었다(배포 한 벌은 교재 슬라이드를 뺀 뒤 0.2GB쯤 — 미리 만든 화면 84MB 중 `/sheet/full` 24MB · `/answers` 22MB 가 크다). 재발을 막는 것은 사용자가 대시보드에서 하는 일이다:
+  프로젝트 Settings 의 Deployment Retention 을 가장 짧게, 팀 Usage 에서 안 쓰는 프로젝트의 배포 정리. 삭제 뒤에도 수치가 한동안 10GB 근처에 머문다는 사용자 보고가 여럿 있다.
 
 **2026-11-01 부터 새 답안 이미지는 별도 공개 저장소 `yjnam-afk/myroom-answers`(main)에 넣는다** — 이 저장소가 3.6GB(이미지 3.4GB)가 되어
 세션마다 새로 받는 데 오래 걸린다. 그 저장소에 `{출처 폴더}/파일.webp` 로 커밋하고 답안 `pages[].src` 는 `/ans2/{출처 폴더}/파일.webp` 로 적는다
@@ -121,11 +124,11 @@ ITPE 기술사회 **기출문제 해설집**(116~140회 정보관리·컴시응,
 NS·기출 0건이 132개, 답안 0건이 81개였는데 대부분 이 표기 차이였다. 다른 표기는
 `src/lib/topicAliases.ts` 에 사람이 읽는 표기로 적는다. **넓은 말은 넣지 않는다** — 「해싱」「BMT」
 「테스트 절차」「규모산정」은 비밀번호 해싱·VDI 도입 BMT·A/B 테스트 절차·하드웨어 규모산정까지
-끌어왔다. 넣은 뒤엔 걸린 문항을 눈으로 훑고, 딴 토픽이 섞이면 `TRAP`(같은 파일)으로 막는다
+끌어왔다. 넣은 뒤엔 걸린 문항을 눈으로 훑고, 딴 토픽이 섞이면 `TRAP`(`src/lib/topicRules.ts`)으로 막는다
 (범정부 DRM(Data Reference Model), 결함허용 양자컴퓨팅, 교착상태 회복기법).
 제목 괄호 속 영문이 넓은 분야 이름이면(「소버린 AI(Artificial Intelligence)」「RAN(Radio Access Network) Sharing」)
 그 말만 든 문항을 다 끌어온다 — 소버린 AI 가 XAI·AIoT·생성형 AI 문항 39개를 이력·답안으로 삼고 있었다(2026-10-10).
-그런 영문 열쇠는 `examHistory.ts` 의 `DROP_ANY` 에 적어 뺀다.
+그런 영문 열쇠는 `topicRules.ts` 의 `DROP_ANY` 에 적어 뺀다(사람이 고치는 규칙 `DROP_ANY`·`KEYS_FIXED`·`TRAP`·`EXTRA_ANY` 는 2026-11-20 에 `examHistory.ts` 에서 `topicRules.ts` 로 옮겼다 — 엔진은 `examHistory.ts`).
 별칭을 더하면 답안지 `topicTitles` 도 다시 붙여야 토픽 화면에 뜬다(토픽 화면은 `topicTitles` 만 본다).
 
 **전체 검수(2026-10-25 — "다형성·오픈소스 보안위협 모범답안이 왜 이것밖에" 뒤 "전체 검수")**: 교재 토픽에 안 걸린 답안
@@ -146,7 +149,7 @@ AI 신기술 토픽은 대개 거기에만 나온다. 남은 답안 0건 토픽(
 
 **토픽 설명의 「기필반」 묶음**(topics.json 의 예전 토픽 2,376개)은 교재 서브노트와 같은 개념이면 감춘다.
 원본 엑셀이 같은 토픽을 여러 과목에 실어 두고(핀테크: 경영전략·디지털서비스), 교재와 표기만 다른 것
-(「요구사항명세서」↔「요구사항 명세서 SRS」)이 많아 중복으로 보였다(2026-10-11). `explainData.ts` 의
+(「요구사항명세서」↔「요구사항 명세서 SRS」)이 많아 중복으로 보였다(2026-10-11). `explainShared.ts` 의
 `inTextbook`(양쪽 열쇠가 서로를 가리킬 때만)과 같은 제목 한 번만 보이기로 거른다. 틀리게 걸리는 것은 `NOT_SAME` 에 적는다.
 
 **사실상 같은 토픽**(`src/data/twinTopics.ts`, 2026-10-18 — "사이버 레질리언스는 BCP 와 사실상 같다")은 과목이 달라 따로 있지만
@@ -341,7 +344,7 @@ NS 9주차 「PCB 및 TCB가 스케줄링에 활용되는 방식」 문항 맨 �
 - 넣지 않은 것: 머신러닝·딥러닝·테스트 케이스(너무 넓다), 교재에 이름이 없는 것(SOA 27문항·폭포수 12·TMMi 8·TCO 7·팬인/팬아웃 7·레드블랙 트리 7·가비지 컬렉션 6·V 모델 7).
 
 **서브 토픽 설명 = 기필반 카드**(같은 날 "서브토픽들은 왜 설명이 없어"): 서브 토픽 화면은 교재 표에서 그 이름이 든 행만 보여 줬고(정의를 지어 넣지 않으려고),
-같은 이름의 기필반 토픽은 목록에서 감춰지기까지 해서(`explainData` 의 `SUB_KEYS`) **서브 토픽으로 만들자 있던 설명이 안 보이게 됐다.**
+같은 이름의 기필반 토픽은 목록에서 감춰지기까지 해서(`explainShared` 의 `SUB_KEYS`) **서브 토픽으로 만들자 있던 설명이 안 보이게 됐다.**
 `src/lib/subCards.ts` 가 서브 토픽 이름·괄호 속 영문·별칭으로 기필반 카드(flashcards.json 의 심화반 아닌 카드)를 찾는다 — 제목·조각(「/ , ( )」로 나눈 것)이 같거나 흔한 꼬리말(공격·기법·모델 …)만 붙은 것.
 - 서브 토픽 화면: 첫 카드를 답안지 템플릿(`LegacyTemplate`)으로, 나머지(「RIP·OSPF」의 둘째 개념 등)는 「📖 … — 기필반 자료」 정의 칸으로 그린다. 상위 토픽 화면 「🔎 이 토픽 안의 서브 토픽」과 지하철 읽기에도 한 줄 정의가 붙는다.
 - 258개 중 191개에 설명이 붙었다. 이름이 달라 못 찾는 것 18개는 정의를 읽어 `EXTRA` 에 적었고(망 분리 ← 논리적·물리적 망분리, COBIT ← COBIT 2019·COBIT5 …),
@@ -407,6 +410,21 @@ NS 9주차 「PCB 및 TCB가 스케줄링에 활용되는 방식」 문항 맨 �
   `app/explain/ExplainClient.tsx`(1,266줄) → `TopicNav` · `TopicBrowser`(목록) · `LegacyTemplate`(예전 토픽 답안지 템플릿) · `explainBits`(작은 조각) + 본문(582줄).
 - 다시 정리할 때: `npx knip`(안 쓰는 파일·export — scripts 는 진입점이 아니라 「unused」로 나오니 grep 으로 확인), `npx tsc --noEmit --noUnusedLocals --noUnusedParameters`.
   자료 파일(`src/data/*`)의 export 와 타입 export 는 그대로 두었다.
+
+**두 번째 정리(2026-11-20 "자 이제 기능은 그대로 놔두고 코드 정리, 리팩토링")**: 안 쓰는 코드는 거의 없어서(`startOfToday`·`ChatMessage`·저장소 뿌리의 `shot.png` 뿐) 이번에는 큰 파일을 나누고 복사된 조각을 모았다.
+확인: 정리 전 코드를 **같은 날 다시 빌드해** 37개 화면 스냅숏 479개와 견줬다 — 전부 같다(늦게 그려지는 두 곳은 다시 떠서 같음을 확인). prebuild 산출물 차이 0, 스크립트 5개(출제 예상·백테스트·재출제 측정·숨은 토픽·서브 토픽 찾기) 출력도 바이트까지 같다.
+- **스냅숏 기준은 같은 날 빌드로 뜬다.** 처음엔 이틀 전 빌드를 기준으로 삼았다가 「최근 1년 출제」 숫자가 달라 보였다 — 그 사이 10주차 시험일(11-21)이 「미래」에서 「지난 날」이 됐기 때문이다. 화면에 오늘 날짜를 쓰는 계산이 있다.
+  비교 전에 예전 서버 프로세스(`next-server`)가 꺼졌는지 본다 — `npx next start` 를 띄운 껍데기만 끄면 서버가 남아 새 빌드 파일을 옛 프로세스가 내보낸다(전부 다르게 나온다).
+- **나눈 것**:
+  `lib/explainData.ts`(787줄) → 토픽 한 개 자료 `explainData.ts` · 검색·목록 인덱스 `explainIndex.ts` · 정리표 `sheetData.ts` · 셋이 같이 쓰는 조각 `explainShared.ts`(예전 토픽 목록 `TOPICS`, `histStat`, `impOf`·`importanceMaps`, `SUB_KEYS`, `inTextbook`).
+  `lib/examHistory.ts`(575줄) → 엔진 `examHistory.ts` + 사람이 고치는 규칙 `topicRules.ts`(DROP_ANY·KEYS_FIXED·TRAP·EXTRA_ANY).
+  `lib/ai.ts`(812줄) → 폴백 체인·진단·JSON `ai.ts` · 제공자별 호출 `aiProviders.ts` · 바탕 `aiCore.ts`(옮긴 줄이 빠짐없이 있는지 줄 단위로 대조 — AI 키가 없어 실제 호출은 못 해 봤다).
+  `components/AnswerTemplate.tsx`(788줄) → 틀 `AnswerTemplate.tsx` · 조각 `answerTemplateParts.tsx` · 2교시 소제목 고르기 `lib/askTemplate.ts`.
+  `app/basics/page.tsx` 에 박혀 있던 왕초보 용어·바닥판 10줄 → `data/basicsTerms.ts`.
+- **모은 것**: 제목 열쇠 `looseKey`·`bareKey`(`lib/titleNorm.ts` — subCards·explainData·reviewTopics·planRounds·subnoteExtras 에 같은 식이 5벌 있었다. `normTitle` 은 작은따옴표까지 떼는 다른 식이라 그대로 둔다),
+  간글 찾기 `glossFor`(`lib/gloss.ts`), 문항 id → 문항 `QUESTION_BY_ID`(`examHistory.ts` — 3벌), 기출 회차 → 연월 `pastRoundYm`(`questionText.ts`), 과목 이름은 `DOMAIN_LABEL` 하나(`COURSE_LABEL` 별칭 3개 삭제),
+  스크립트의 NS 시험 묶기·과목 묶음 `scripts/lib/ns-exams.ts`(predict-week · measure-ext-repeat).
+- 그대로 둔 것: `squeeze`(파일마다 떼는 기호가 달라 같은 함수가 아니다), 괄호 떼기 `bare` 6벌(끝 괄호만 떼는 것·전부 떼는 것이 섞여 있다), `/plan` 화면(713줄 — 메뉴에서 뺀 화면이라 손대지 않았다).
 
 ## 사용자가 교재 쪽을 이미지로 붙여 줄 때
 

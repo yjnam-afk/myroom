@@ -40,7 +40,7 @@ npx tsx scripts/suggest-topics.ts <id 또는 문구>           # 교재 토픽 �
 | `predict-week.ts` | **NS 주간 모의고사 출제 예상** — 인자 없이 돌리면 13~19기 시험 73개 백테스트(방식별 적중 문항 수), `19기 10 SE` 처럼 주면 그 주 토픽 40 · 다시 나올 문장 40 |
 | `measure-ext-repeat.ts` | NS 주간 모의고사 문항이 **최근 12·24개월 기출·모의·파이널과 같은 문장**인 비율(시험별 · 후보 수 · NS 에 없던 문장 수) |
 
-공용: `lib/answers-store.ts`(TS 읽기·검사·쓰기), `lib/answers_py.py`(파이썬 읽기·정규화·후보 찾기·ops 적용).
+공용: `lib/answers-store.ts`(TS 읽기·검사·쓰기), `lib/answers_py.py`(파이썬 읽기·정규화·후보 찾기·ops 적용). `lib/ns-exams.ts`(NS 문항을 시험 단위로 묶기 · 과목 묶음 · 기출·모의 연월 — predict-week · measure-ext-repeat 공용).
 
 ## 문제은행 — `src/data/questions.json`
 

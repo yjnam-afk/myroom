@@ -1,25 +1,8 @@
-import questions from "@/data/questions.json";
-import { SUBNOTES } from "@/data/textbookSubnotes";
-import { SUB_TOPICS } from "@/data/subTopics";
 import { titlesMatching } from "@/lib/examHistory";
-import { questionCore, yearMonth } from "@/lib/questionText";
-type Q = { id: string; text: string; period?: string; category?: string; kind?: string; round?: string; cohort?: string; date?: string; source?: string };
-const GROUP: Record<string, string> = { 컴퓨터구조: "CA", 운영체제: "CA", 소프트웨어공학: "SE", 프로젝트관리: "SE", 인공지능: "AI", "확률·통계": "AI", 네트워크: "NW", 알고리즘: "NW", 자료구조: "NW", 데이터베이스: "DB", 경영전략: "DB", 보안: "SC", 디지털서비스: "DX" };
-const COURSE_GROUP: Record<string, string> = { CA: "CA", OS: "CA", SE: "SE", PM: "SE", AI: "AI", ST: "AI", NW: "NW", AL: "NW", DS: "NW", DB: "DB", MG: "DB", SC: "SC", DX: "DX" };
-const all = questions as Q[];
-const NS = all.filter((q) => q.kind === "NS모의" && q.cohort && q.round && q.date);
-type Exam = { key: string; cohort: number; date: string; qs: Q[]; group?: string; pass?: number };
-const exams = new Map<string, Exam>();
-for (const q of NS) { const key = `${q.cohort} ${q.round}`; let e = exams.get(key); if (!e) exams.set(key, (e = { key, cohort: parseInt(q.cohort!), date: q.date!, qs: [] })); e.qs.push(q); }
-const EXAMS = [...exams.values()].sort((a, b) => a.date.localeCompare(b.date));
-for (const e of EXAMS) { const c = new Map<string, number>(); for (const q of e.qs) { const g = GROUP[q.category ?? ""]; if (g) c.set(g, (c.get(g) ?? 0) + 1); } const top = [...c.entries()].sort((a, b) => b[1] - a[1])[0]; if (top && top[1] / e.qs.length >= 0.6) e.group = top[0]; }
-for (const e of EXAMS) if (e.group) e.pass = EXAMS.filter((x) => x.cohort === e.cohort && x.group === e.group && x.date <= e.date).length;
-const TITLE_GROUP = new Map<string, string>();
-for (const s of SUBNOTES) TITLE_GROUP.set(s.title, COURSE_GROUP[s.course]);
-for (const s of SUB_TOPICS) { const p = SUBNOTES.find((x) => x.title === s.parent); if (p) TITLE_GROUP.set(s.name, COURSE_GROUP[p.course]); }
+import { questionCore } from "@/lib/questionText";
+import { ALL_QUESTIONS as all, NS, EXAMS, GROUP, TITLE_GROUP, ymOfExt as ymOf, months, type Q } from "./lib/ns-exams";
+
 const TITLES = [...TITLE_GROUP.keys()];
-const ymOf = (q: Q): number => { const m = /^[kc](\d+)-/.exec(q.id); if (m) { const r = parseInt(m[1]); return (2026 - Math.floor((140 - r) / 3)) * 100 + [2, 5, 8][r % 3]; } return yearMonth(`${q.round ?? ""} ${q.source ?? ""}`); };
-const months = (ym: number) => Math.floor(ym / 100) * 12 + (ym % 100);
 // 바깥 문항(기출·모의·파이널·합숙 …) — 2020년 이후만
 const EXTQ = all.filter((q) => q.kind !== "NS모의").map((q) => ({ q, ym: ymOf(q), core: questionCore(q.text) })).filter((x) => x.ym >= 202001 && x.core);
 const groupsOf = (q: Q): Set<string> => { const g = GROUP[q.category ?? ""]; if (g) return new Set([g]); return new Set(titlesMatching(q.text, TITLES).map((t) => TITLE_GROUP.get(t)!).filter(Boolean)); };

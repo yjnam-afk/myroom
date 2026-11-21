@@ -8,7 +8,7 @@
 import flashcards from "@/data/flashcards.json";
 import { handDiagramsFor } from "@/data/handDiagrams";
 import { examHistory, pastExams, mockExams } from "@/lib/examHistory";
-import { sameQuestionText, yearMonth } from "@/lib/questionText";
+import { sameQuestionText, yearMonth, pastRoundYm } from "@/lib/questionText";
 
 type Card = {
   title: string;
@@ -60,11 +60,7 @@ export function memoCardFor(title: string): MemoCard {
   const c = CARD.get(title);
   const apps: App[] = [];
   for (const p of pastExams(title)) {
-    // 회차 → 대략 연·월(140회 = 2026.07, 한 해 3회) — 모의·NS 날짜와 같은 자로 최근 순을 매긴다
-    const months = Math.round((p.round - 140) * 4);
-    const y = 2026 + Math.floor((6 + months) / 12);
-    const mo = ((6 + months) % 12 + 12) % 12 + 1;
-    apps.push({ text: p.text, where: `${p.track === "컴시응" ? "컴시응 " : "기출 "}${p.round}회 ${p.period}`, long: isLong(p.period), past: true, when: y * 100 + mo });
+    apps.push({ text: p.text, where: `${p.track === "컴시응" ? "컴시응 " : "기출 "}${p.round}회 ${p.period}`, long: isLong(p.period), past: true, when: pastRoundYm(p.round) });
   }
   for (const h of examHistory(title)) {
     const when = Number((h.date || "").replace(/-/g, "").slice(0, 6)) || 0;

@@ -16,11 +16,13 @@ import { ExamHistoryCard } from "@/components/ExamHistoryCard";
 import { PageHeader } from "@/components/ui";
 import TopicAutocomplete from "@/components/TopicAutocomplete";
 import { loadExplainIndex } from "@/lib/explainIndexClient";
-import type { ExplainIndex, ExplainTopicData } from "@/lib/explainData";
+import type { ExplainTopicData } from "@/lib/explainData";
+import type { ExplainIndex } from "@/lib/explainIndex";
 import { explainHref } from "@/lib/links";
+import { DOMAIN_LABEL } from "@/lib/domains";
 import PriorityBadge from "@/components/PriorityBadge";
 import { TopicNav } from "./TopicNav";
-import { COURSE_LABEL, HANGUL_NO, LevelBadge } from "./explainBits";
+import { HANGUL_NO, LevelBadge } from "./explainBits";
 import { HistChips, MineChip, TopicBrowser, numbered } from "./TopicBrowser";
 import { LegacyTemplate } from "./LegacyTemplate";
 
@@ -187,7 +189,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
               href={`/sheet#${textbook.course}`}
               className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100"
             >
-              📋 {COURSE_LABEL[textbook.course] || textbook.course} 정리표 →
+              📋 {DOMAIN_LABEL[textbook.course] || textbook.course} 정리표 →
             </Link>
           )}
         </div>
@@ -202,7 +204,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
             </h2>
             {textbook ? (
               <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-bold text-emerald-700">
-                심화반 {COURSE_LABEL[textbook.course] || textbook.course}
+                심화반 {DOMAIN_LABEL[textbook.course] || textbook.course}
               </span>
             ) : legacy ? (
               <span className="rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-bold text-indigo-700">
@@ -307,7 +309,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
                   </button>
                 ))}
                 <span className="rounded bg-emerald-600 px-2 py-0.5 text-[10px] font-bold text-white">
-                  심화반 {COURSE_LABEL[textbook.course] || textbook.course}
+                  심화반 {DOMAIN_LABEL[textbook.course] || textbook.course}
                 </span>
               </div>
             </div>

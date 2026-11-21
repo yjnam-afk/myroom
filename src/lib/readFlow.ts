@@ -19,10 +19,9 @@ import { commuteHref, flowAnchor } from "@/lib/links";
 import { subDefFor } from "@/lib/subCards";
 import { topicWhy } from "@/data/topicWhy";
 import { topicBasics, type TopicBasics } from "@/data/topicBasics";
-import glossData from "@/data/gloss.json";
+import { glossFor } from "@/lib/gloss";
 
 /** 간글 — 표(t, 표 순서대로)마다 「이 표가 말하는 것」 한 줄. 답안지 템플릿의 표 아래 간글과 같은 자료다 */
-const GLOSS = glossData as Record<string, { d?: string; t: string[] }>;
 
 /** 한 줄 = 이름 — 설명. 1열로 묶인 행은 이름 아래 항목(items)으로 내려 쓴다 */
 export type FlowPara = {
@@ -159,7 +158,7 @@ export function readFlow(code: string): FlowBlock[] {
       diagrams: handDiagramsFor(real),
       paras: s
         ? s.tables
-            .map((t, i) => ({ ...paraOf(t), gloss: (GLOSS[`${s.title}@${s.course}`] ?? GLOSS[s.title])?.t[i] || undefined }))
+            .map((t, i) => ({ ...paraOf(t), gloss: glossFor(s)?.t[i] || undefined }))
             .filter((p) => p.lines.length)
         : [],
       subTopics: subTopicsOf(real).map((x) => ({ name: x.name, def: subDefFor(x.name) })),

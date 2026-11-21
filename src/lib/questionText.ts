@@ -203,3 +203,11 @@ export function yearMonth(s: string): number {
   const m = s.match(/(20\d\d)\.(\d\d)/);
   return m ? parseInt(m[1]) * 100 + parseInt(m[2]) : 0;
 }
+
+/** 기출 회차 → 대략 연·월(YYYYMM) — 140회 = 2026.07, 한 해 3회. 모의·NS 날짜와 같은 자로 최근 순을 매길 때 쓴다 */
+export function pastRoundYm(round: number): number {
+  const months = Math.round((round - 140) * 4);
+  const y = 2026 + Math.floor((6 + months) / 12);
+  const mo = ((((6 + months) % 12) + 12) % 12) + 1;
+  return y * 100 + mo;
+}

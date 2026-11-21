@@ -10,6 +10,7 @@
 
 import { subnoteByTitle } from "./textbookSubnotes";
 import { TOPIC_GUIDES } from "./topicGuides";
+import { looseKey as norm } from "@/lib/titleNorm";
 
 /**
  * 처음 보는 사람이 ★이해하고 → 기억하고 → 꺼내 쓰게★ 만드는 학습 카드.
@@ -12466,7 +12467,6 @@ export const EXTRAS: Record<string, SubnoteExtra> = {
   "dx-cloud-migration": { image: "/concept/book/DX/dx-cloud-migration.png" },
 };
 
-const norm = (s: string) => s.trim().toLowerCase().replace(/[\s()·,\-_/]/g, "");
 
 /** 제목 → TITLE_SLUG 조회(정규화 비교) */
 function slugByTitle(title: string): string | undefined {

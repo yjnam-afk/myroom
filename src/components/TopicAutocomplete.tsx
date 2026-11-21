@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { loadExplainIndex } from "@/lib/explainIndexClient";
-import type { SearchEntry as Entry, TopicOption as T } from "@/lib/explainData";
+import type { SearchEntry as Entry, TopicOption as T } from "@/lib/explainIndex";
 import ClearButton from "@/components/ClearButton";
 
 /**

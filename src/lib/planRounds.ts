@@ -15,18 +15,11 @@
  */
 import { REVIEW_TOPICS } from "@/data/reviewTopics";
 import { loadReview, saveReview, markReviewed } from "@/lib/storage";
+import { bareKey as normTitle } from "@/lib/titleNorm";
 
 /** 이미 회독으로 센 체크 키 모음 */
 const RECORDED_KEY = "info-pe-plan-rounds-v1";
 
-/** 제목 비교용 정규화 — 괄호 병기·공백·기호를 털어낸다(reviewTopics 와 같은 규칙). */
-function normTitle(s: string): string {
-  return s
-    .trim()
-    .toLowerCase()
-    .replace(/[(（][^)）]*[)）]/g, "")
-    .replace(/[\s()·,\-_/]/g, "");
-}
 
 const ID_BY_TOPIC_ID = new Map<string, string>();
 const ID_BY_TITLE = new Map<string, string>();

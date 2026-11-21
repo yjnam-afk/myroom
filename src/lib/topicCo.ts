@@ -7,22 +7,16 @@
  */
 import "server-only";
 import flashcards from "@/data/flashcards.json";
-import questions from "@/data/questions.json";
-import { questionIdsForTitle } from "@/lib/examHistory";
-import { sameQuestionText, yearMonth } from "@/lib/questionText";
+import { questionIdsForTitle, QUESTION_BY_ID as Q_BY_ID, type BankQuestion as Q } from "@/lib/examHistory";
+import { sameQuestionText, yearMonth, pastRoundYm } from "@/lib/questionText";
 
-type Q = { id: string; kind?: string; source?: string; cohort?: string; round?: string; date?: string; period?: string; text: string };
-const Q_BY_ID = new Map((questions as Q[]).map((q) => [q.id, q]));
 
 /** 문항이 나온 곳 — 「기출 124회 3교시」「NS 15기 2주차 2교시」「ITPE 모의고사 2021.10 4교시」 */
 function whereOf(q: Q): { where: string; when: number; past: boolean } {
   const m = /^([kc])(\d+)-/.exec(q.id);
   if (m) {
     const round = Number(m[2]);
-    const months = Math.round((round - 140) * 4);
-    const y = 2026 + Math.floor((6 + months) / 12);
-    const mo = (((6 + months) % 12) + 12) % 12 + 1;
-    return { where: `${m[1] === "c" ? "컴시응" : "기출"} ${round}회 ${q.period ?? ""}`.trim(), when: y * 100 + mo, past: true };
+    return { where: `${m[1] === "c" ? "컴시응" : "기출"} ${round}회 ${q.period ?? ""}`.trim(), when: pastRoundYm(round), past: true };
   }
   if (q.kind === "NS모의") {
     const when = Number((q.date || "").replace(/-/g, "").slice(0, 6)) || 0;

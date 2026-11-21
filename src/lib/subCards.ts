@@ -8,12 +8,11 @@
  */
 import flashcards from "@/data/flashcards.json";
 import { SUB_TOPICS, type SubTopic } from "@/data/subTopics";
+import { looseKey as normT, bareKey as bareT } from "@/lib/titleNorm";
 
 type Card = { id: string; title: string; category: string; source?: string; definition?: string; defShort?: string };
 const CARDS = (flashcards as Card[]).filter((c) => c.source !== "심화반" && (c.definition || "").trim());
 
-const normT = (s: string) => s.trim().toLowerCase().replace(/[\s()·,\-_/]/g, "");
-const bareT = (s: string) => normT(s.replace(/[(（][^)）]*[)）]/g, ""));
 /** 이름 뒤에 붙어도 같은 토픽인 흔한 꼬리말 — 「DDoS 공격」「체크포인트 회복기법」 */
 const SUF = /^(?:공격|기법|알고리즘|모델|이론|분석|문제|구조|원칙|개념|기술|시스템|프로토콜|테스트|테스팅|학습|방식|제도|인증|검정|분포|현상|관리|아키텍처|패턴|매트릭스|곡선|표준|서비스|정책|보안|개요|방법론|방법|유형|종류|회복기법|취약점)$/;
 const segs = (t: string) => t.split(/[/,()（）:;]|\s-\s/).map((x) => x.trim()).filter(Boolean);

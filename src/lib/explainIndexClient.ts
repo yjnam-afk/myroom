@@ -2,7 +2,7 @@
  * /api/explain-index 를 한 번만 받아 두는 클라이언트 캐시.
  * 토픽 설명(목록·카테고리 선택)과 자동완성이 같이 쓴다.
  */
-import type { ExplainIndex } from "@/lib/explainData";
+import type { ExplainIndex } from "@/lib/explainIndex";
 
 let promise: Promise<ExplainIndex> | undefined;
 

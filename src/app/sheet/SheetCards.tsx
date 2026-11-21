@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { SheetGroup, SheetRow, SheetCluster } from "@/lib/explainData";
+import type { SheetGroup, SheetRow, SheetCluster } from "@/lib/sheetData";
 import { explainHref } from "@/lib/links";
 
 /**

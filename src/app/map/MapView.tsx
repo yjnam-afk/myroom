@@ -32,7 +32,7 @@ const HEAT_STEPS: { min: number; cls: string; label: string }[] = [
   { min: 0, cls: "border-slate-200 bg-white text-slate-500", label: "기출 없음" },
 ];
 /** 출제 횟수 — 기술사 기출 + NS 주간 모의고사 + ITPE 모의·파이널 */
-export const hits = (s?: TopicStat) => (s ? s.past + s.ns + s.mock : 0);
+const hits = (s?: TopicStat) => (s ? s.past + s.ns + s.mock : 0);
 const heatCls = (n: number) => HEAT_STEPS.find((h) => n >= h.min)!.cls;
 /** 칩에 쓰는 짧은 이름 — 괄호 속 원어를 뗀다 */
 const short = (t: string) => {

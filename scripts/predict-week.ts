@@ -13,46 +13,15 @@
  * 묶음: CA(CA·OS) SE(SE·PM) AI(AI·ST) NW(NW·AL·DS) DB(DB·MG) SC DX — NS 강의 한 주의 과목 단위.
  */
 import { writeFileSync } from "node:fs";
-import questions from "@/data/questions.json";
 import { SUBNOTES } from "@/data/textbookSubnotes";
 import { SUB_TOPICS } from "@/data/subTopics";
 import { titlesMatching } from "@/lib/examHistory";
-import { questionCore, yearMonth } from "@/lib/questionText";
+import { questionCore } from "@/lib/questionText";
 import { COURSE_TOPICS } from "@/data/curriculum";
-
-type Q = { id: string; text: string; period?: string; category?: string; kind?: string; round?: string; cohort?: string; date?: string };
-const GROUP: Record<string, string> = {
-  컴퓨터구조: "CA", 운영체제: "CA", 소프트웨어공학: "SE", 프로젝트관리: "SE", 인공지능: "AI", "확률·통계": "AI",
-  네트워크: "NW", 알고리즘: "NW", 자료구조: "NW", 데이터베이스: "DB", 경영전략: "DB", 보안: "SC", 디지털서비스: "DX",
-};
-const COURSE_GROUP: Record<string, string> = { CA: "CA", OS: "CA", SE: "SE", PM: "SE", AI: "AI", ST: "AI", NW: "NW", AL: "NW", DS: "NW", DB: "DB", MG: "DB", SC: "SC", DX: "DX" };
-
-const NS = (questions as Q[]).filter((q) => q.kind === "NS모의" && q.cohort && q.round && q.date);
-const cohortNo = (c: string) => parseInt(c, 10);
-
-// ── 시험(기수·주차) 단위로 묶고, 과목 묶음과 몇 회차인지 붙인다
-type Exam = { key: string; cohort: number; round: string; date: string; qs: Q[]; group?: string; pass?: number };
-const exams = new Map<string, Exam>();
-for (const q of NS) {
-  const key = `${q.cohort} ${q.round}`;
-  let e = exams.get(key);
-  if (!e) exams.set(key, (e = { key, cohort: cohortNo(q.cohort!), round: q.round!, date: q.date!, qs: [] }));
-  e.qs.push(q);
-}
-const EXAMS = [...exams.values()].sort((a, b) => a.date.localeCompare(b.date));
-for (const e of EXAMS) {
-  const cnt = new Map<string, number>();
-  for (const q of e.qs) { const g = GROUP[q.category ?? ""]; if (g) cnt.set(g, (cnt.get(g) ?? 0) + 1); }
-  const top = [...cnt.entries()].sort((a, b) => b[1] - a[1])[0];
-  if (top && top[1] / e.qs.length >= 0.6) e.group = top[0];
-}
-for (const e of EXAMS) if (e.group) e.pass = EXAMS.filter((x) => x.cohort === e.cohort && x.group === e.group && x.date <= e.date).length;
+import { ALL_QUESTIONS as questions, EXAMS, GROUP, TITLE_GROUP, cohortNo, ymOfExt, months, type Q, type Exam } from "./lib/ns-exams";
 
 // ── 문항 → 토픽(교재 토픽 + 서브 토픽)
 const TITLES = [...new Set([...SUBNOTES.map((s) => s.title), ...SUB_TOPICS.map((s) => s.name)])];
-const TITLE_GROUP = new Map<string, string>();
-for (const s of SUBNOTES) TITLE_GROUP.set(s.title, COURSE_GROUP[s.course]);
-for (const s of SUB_TOPICS) { const p = SUBNOTES.find((x) => x.title === s.parent); if (p) TITLE_GROUP.set(s.name, COURSE_GROUP[p.course]); }
 const topicCache = new Map<string, string[]>();
 const topicsOf = (q: Q) => {
   let t = topicCache.get(q.id);
@@ -126,13 +95,6 @@ function rank(h: Hist, t: Target, method: string): string[] {
 const PRIO = new Map<string, number>();
 for (const list of Object.values(COURSE_TOPICS)) for (const t of list) PRIO.set(t.title, t.priority === "상" ? 2 : t.priority === "중" ? 1 : 0);
 const SUB_PARENT = new Map(SUB_TOPICS.map((s) => [s.name, s.parent]));
-/** 기출·모의·파이널 문항의 연월(YYYYMM) — 기출은 회차로(한 해 세 번: 138회 = 2026.02, 139회 = 2026.05, 140회 = 2026.08) */
-const ymOfExt = (q: Q & { source?: string }): number => {
-  const m = /^[kc](\d+)-/.exec(q.id);
-  if (m) { const r = parseInt(m[1]); return (2026 - Math.floor((140 - r) / 3)) * 100 + [2, 5, 8][r % 3]; }
-  return yearMonth(`${q.round ?? ""} ${q.source ?? ""}`);
-};
-const months = (ym: number) => Math.floor(ym / 100) * 12 + (ym % 100);
 type Ext = { ym: number; past: boolean; final: boolean; topics: string[] };
 let EXT: Ext[] | null = null;
 const ext = () => (EXT ??= (questions as (Q & { source?: string })[])

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { explainIndex } from "@/lib/explainData";
+import { explainIndex } from "@/lib/explainIndex";
 
 /**
  * 토픽 설명의 검색·목록 인덱스.

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { PageHeader } from "@/components/ui";
-import { buildSheet } from "@/lib/explainData";
+import { buildSheet } from "@/lib/sheetData";
 import AnswerTable from "@/components/AnswerTable";
 import SheetCards from "./SheetCards";
 import { explainHref } from "@/lib/links";

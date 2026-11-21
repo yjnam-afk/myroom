@@ -1245,10 +1245,6 @@ function todayStrKST(now: number): string {
   }).format(new Date(now));
 }
 
-function startOfToday(now: number): Date {
-  return parseDate(todayStrKST(now));
-}
-
 export type TodayPlan = {
   week: CurriculumWeek;
   /** 0=월 … 6=일 */

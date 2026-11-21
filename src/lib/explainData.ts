@@ -8,7 +8,8 @@
  *
  *  - explainTopicData(title): 한 토픽의 서브노트·부가자료·간글·예전 카드·서론·
  *    남의 답안·출제 이력·토픽 지도 짝 — 서버 컴포넌트 page.tsx 가 props 로 넘긴다.
- *  - explainIndex(): 검색·목록용 인덱스 — /api/explain-index 로 한 번만 받는다.
+ *
+ * 검색·목록 인덱스는 lib/explainIndex.ts, 정리표(/sheet) 자료는 lib/sheetData.ts, 셋이 같이 쓰는 조각은 lib/explainShared.ts.
  *
  * 이 파일은 클라이언트 컴포넌트에서 절대 import 하지 않는다(타입만 import).
  */
@@ -25,43 +26,36 @@ import { handDiagramsFor, handTablesFor } from "@/data/handDiagrams";
 import { answerSheetFor, type AnswerSheet } from "@/data/answerSheets";
 import { customSheetsFor, type CustomSheet } from "@/data/customSheets";
 import { extraComparesFor, type ExtraCompare } from "@/data/extraCompares";
-import glossData from "@/data/gloss.json";
+import { glossFor, type Gloss } from "@/lib/gloss";
 import { peerAnswersFor, type PeerAnswer } from "@/data/peerAnswers";
 import {
   examHistory,
   pastExams,
   mockExams,
   questionIdsForTitle,
-  summarize,
+  QUESTION_BY_ID as Q_BY_ID,
   titlesMatching,
-  LATEST_PAST_ROUND,
   type ExamAppearance,
   type PastAppearance,
   type MockAppearance,
 } from "@/lib/examHistory";
 import { getModelAnswer } from "@/lib/modelAnswers";
-import allQuestions from "@/data/questions.json";
 import { compareSetsFor, memoryTablesFor, type MapLink } from "@/lib/topicMapLinks";
 import type { MemoryTable } from "@/data/memoryTables";
-import topics from "@/data/topics.json";
-import { memoCardFor, type MemoCard } from "@/lib/memoCard";
-import { coTopics, clusterTitles, sharedQuestions, clusterPairs, clusterQuestions, type TiedQuestion } from "@/lib/topicCo";
 import flashcards from "@/data/flashcards.json";
 import answerExtras from "@/data/answerExtras.json";
 import { TOPIC_INTROS, type AnswerIntro } from "@/data/topicIntros";
-import { DOMAINS, DOMAIN_LABEL, domainOrder } from "@/lib/domains";
+import { DOMAIN_LABEL } from "@/lib/domains";
 import { planInfo } from "@/lib/studyPlan";
 import { courseOf, courseSubnotesInOrder } from "@/lib/courseOrder";
 import { twinOf } from "@/data/twinTopics";
-import { SUB_TOPICS, subTopicByName, subTopicsOf, type SubTopic } from "@/data/subTopics";
+import { subTopicByName, subTopicsOf, type SubTopic } from "@/data/subTopics";
 import { subCardsFor, subDefFor } from "@/lib/subCards";
-import { IMP_ORDER } from "@/lib/badges";
-const SUB_TOPICS_ALL = () => SUB_TOPICS;
+import { looseKey as normT, bareKey as bareT } from "@/lib/titleNorm";
+import { TOPICS, histStat, type HistStat, type TopicRow } from "@/lib/explainShared";
 import { PEER_ANSWERS } from "@/data/peerAnswers";
-import { myNotesFor, hasMyNote, type MyNote } from "@/data/myNotes";
+import { myNotesFor, type MyNote } from "@/data/myNotes";
 
-type TopicRow = { id: string; title: string; category: string; importance: string; source?: string };
-const TOPICS = topics as TopicRow[];
 
 // ── 예전 토픽 자료 폴백 — 서브노트가 없을 때 AI 없이 보여줄 지하철 카드 데이터 ──
 export type LegacyCard = {
@@ -88,31 +82,7 @@ export type LegacyCard = {
   plus?: string[];
 };
 
-const normT = (s: string) => s.trim().toLowerCase().replace(/[\s()·,\-_/]/g, "");
-const bareT = (s: string) => normT(s.replace(/[(（][^)）]*[)）]/g, ""));
 
-/**
- * 예전(기필반) 토픽이 교재 서브노트와 같은 개념인가 — 표기가 달라 제목 비교로는 못 거른다
- * (「요구사항명세서」↔「요구사항 명세서 SRS」, 「활동 기간 산정 기법들」↔「활동기간 산정기법」).
- * 2026-10-11 — "기필 토픽 중에 중복이 많은데". 한쪽만 걸리면 넓은 말로 끌려온 것이라
- * (「CI, CD」→ 데브옵스, 「Lean UX」→ 린 방법론) 양쪽에서 서로를 가리킬 때만 같다고 본다.
- */
-const SUB_TITLES: readonly string[] = SUBNOTES.map((s) => s.title);
-/** 서브 토픽 이름·별칭(괄호 뗀 열쇠) — 같은 이름의 기필반 토픽을 감추는 데 쓴다 */
-const SUB_KEYS = new Set(SUB_TOPICS.flatMap((st) => [st.name, ...st.aliases]).map(bareT).filter((k) => k.length >= 2));
-const inTextbookCache = new Map<string, boolean>();
-// 양쪽 열쇠가 맞아도 다른 토픽 — 눈으로 훑어 걸러 낸 것(웹 OWASP ≠ LLM OWASP, HTTP/2 ≠ HTTP/3,
-// DB 옵티마이저 ≠ 머신러닝 옵티마이저).
-const NOT_SAME = new Set(["OWASP LLM Top 10 (2025)", "HTTP/2", "옵티마이저(Optimizer)"]);
-function inTextbook(title: string): boolean {
-  const c = inTextbookCache.get(title);
-  if (c !== undefined) return c;
-  const hit =
-    !NOT_SAME.has(title) &&
-    titlesMatching(title, SUB_TITLES).some((s) => titlesMatching(s, [title]).length > 0);
-  inTextbookCache.set(title, hit);
-  return hit;
-}
 const CARD_BY_NORM = new Map<string, LegacyCard>();
 const CARD_BY_BARE = new Map<string, LegacyCard>();
 for (const c of flashcards as LegacyCard[]) {
@@ -138,14 +108,6 @@ function legacyCardFor(title: string): LegacyCard | undefined {
   return extra ? { ...card, ...extra } : card;
 }
 
-// ── 간글 — 개념도(d)·표(t, 표 순서대로)마다 한 줄 ──
-type Gloss = { d?: string; t: string[] };
-const GLOSS = glossData as Record<string, Gloss>;
-/** 같은 제목의 서브노트가 과목별로 둘일 때(DevSecOps) "제목@과목" 키를 먼저 본다 */
-function glossFor(sn: { title: string; course?: string } | undefined): Gloss | undefined {
-  if (!sn) return undefined;
-  return GLOSS[`${sn.title}@${sn.course ?? ""}`] ?? GLOSS[sn.title];
-}
 
 /** 한 토픽 몫의 자료 — 전부 JSON 으로 직렬화 가능해야 한다(서버→클라이언트 props). */
 export type ExplainTopicData = {
@@ -200,47 +162,6 @@ export type ExplainTopicData = {
   stat: HistStat;
 };
 
-export type HistStat = {
-  ns: number;
-  nsRecent: number;
-  nsLast?: string;
-  past: number;
-  pastRecent: number;
-  pastLast?: number;
-};
-
-function histStat(title: string): HistStat {
-  const hs = summarize(examHistory(title));
-  const past = pastExams(title);
-  return {
-    ns: hs.count,
-    nsRecent: hs.recent,
-    nsLast: hs.latest,
-    past: past.length,
-    pastRecent: past.filter((p) => p.round >= LATEST_PAST_ROUND - 9).length,
-    pastLast: past[0]?.round,
-  };
-}
-
-/**
- * 과목의 서브노트를 ★학습계획 순서★로 늘어놓는다.
- * 교재 배열(SUBNOTES) 순서와 커리큘럼 순서가 다른 과목(인공지능)이 있어, 토픽 설명의
- * 번호·이전/다음이 학습계획 줄과 어긋났다. 계획에 없는 토픽은 교재 순서대로 뒤에 붙인다.
- */
-// 과목 차례는 교재 CONTENTS 기준(lib/courseOrder) — 서브노트 course 가 아니라 CONTENTS 에 실린 과목으로 묶는다.
-function courseSubnotes(course: string): TextbookSubnote[] {
-  return courseSubnotesInOrder(course);
-}
-
-/** 서브노트의 중요도 — 학습계획 → topics.json → '상' 순으로 찾는다(학습계획 줄과 같은 값). */
-function impOf(s: TextbookSubnote, impById: Map<string, string>, impByBare: Map<string, string>): string {
-  return (
-    planInfo(s.title, s.topicId)?.priority ||
-    (s.topicId && impById.get(s.topicId)) ||
-    impByBare.get(bareT(s.title)) ||
-    "상"
-  );
-}
 
 /** 토픽 화면에 거는 모범답안 한 줄. */
 export type TopicAnswer = {
@@ -266,7 +187,7 @@ export type ExplainNav = {
 /** 교재 토픽은 같은 과목의 학습계획 순서, 예전 토픽은 같은 카테고리의 topics.json 순서로 이웃을 찾는다. */
 function navFor(textbook: TextbookSubnote | undefined, t: TopicRow | undefined): ExplainNav | undefined {
   if (textbook) {
-    const list = courseSubnotes(courseOf(textbook));
+    const list = courseSubnotesInOrder(courseOf(textbook));
     const i = list.indexOf(textbook);
     if (i < 0) return undefined;
     return {
@@ -293,12 +214,6 @@ function navFor(textbook: TextbookSubnote | undefined, t: TopicRow | undefined):
  * 토픽 설명에서 "이 토픽 모범답안이 어디 있냐"가 안 보이던 이유다. 여기서 토픽
  * 제목으로 문항을 찾아 답안이 있는 것만 추려 화면에 건다. 교시 순 → 최신 순.
  */
-const Q_BY_ID = new Map(
-  (allQuestions as { id: string; period?: string; kind?: string; text: string; date?: string }[]).map(
-    (q) => [q.id, q],
-  ),
-);
-
 function topicAnswers(title: string): TopicAnswer[] {
   const out: TopicAnswer[] = [];
   const seen = new Set<string>();
@@ -448,340 +363,4 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
     answers: topicAnswers(title),
     nav: navFor(textbook, t),
   };
-}
-
-// ── 검색·목록 인덱스 — 화면이 처음 열릴 때 한 번만 내려받는다 ──
-export type TopicOption = { id: string; title: string; category: string; importance: string };
-export type BrowseItem = {
-  title: string;
-  imp?: string;
-  /** 학습계획의 대비 강도(암기·숙지·점검·참고) — 있을 때만 */
-  lv?: string;
-  src?: string;
-  /** NS 주간 모의고사 출제 이력 — 통산·최근 1년·최근 날짜(학습계획 칩과 같은 눈금) */
-  ns?: number;
-  nsRecent?: number;
-  nsLast?: string;
-  /** 기술사 기출 이력 — 통산·최근 10회·최근 회차 */
-  past?: number;
-  pastRecent?: number;
-  pastLast?: number;
-  /** 내가 정리한 토픽(myNotes) — 목록에 「📝 정리」 */
-  mine?: boolean;
-  /** 교재 속 서브 토픽(subTopics)이면 상위 토픽 제목 — 목록에서 상위 바로 아래 들여 쓴다 */
-  subOf?: string;
-};
-export type BrowseGroup = { key: string; label: string; badge: string; items: BrowseItem[] };
-/** 검색 한 줄 — 서브노트(답안 템플릿)와 예전 토픽 목록을 합친 통합 후보 */
-export type SearchEntry = {
-  title: string;
-  /** 배지: 서브노트면 "답안", 아니면 중요도 */
-  badge: string;
-  /** 오른쪽 보조 표기: 과목 또는 카테고리 */
-  sub: string;
-  /** 검색 대상 문자열(소문자): 제목 + 키워드 + 34자 정의 + 표 내용 */
-  hay: string;
-  /** topics.json 항목이 있으면 연결(토픽 id → 설명 근거) */
-  t?: TopicOption;
-  isSubnote: boolean;
-};
-export type ExplainIndex = {
-  cats: string[];
-  topicOptions: TopicOption[];
-  browseGroups: BrowseGroup[];
-  /** 접힌 버튼에 보여줄 개수 — 교재(심화반) 토픽만 센다. */
-  bookTotal: number;
-  entries: SearchEntry[];
-};
-
-/** 교재 서브노트를 과목별로, 교재에 없는 예전 토픽은 카테고리별로 묶는다. */
-function buildBrowseGroups(): BrowseGroup[] {
-  // 교재 토픽 중요도 — 예전 토픽(topics.json)과 매칭되면 그 상·중·하를 쓰고,
-  // 심화반 교재에만 있는 토픽은 회독 관리와 같은 기준으로 '상'을 기본값으로 둔다.
-  const impById = new Map<string, string>();
-  const impByBare = new Map<string, string>();
-  for (const t of TOPICS) {
-    impById.set(t.id, t.importance);
-    const b = bareT(t.title);
-    if (!impByBare.has(b)) impByBare.set(b, t.importance);
-  }
-  const covered = new Set<string>();
-  const groups: BrowseGroup[] = [];
-  for (const c of DOMAINS.map((d) => d.code)) {
-    // 학습계획 순서 그대로 — 계획·정리표와 같은 줄 순서라야 번호로 찾아진다.
-    const list = courseSubnotes(c);
-    if (!list.length) continue;
-    const items: BrowseItem[] = [];
-    for (const s of list) {
-      // 출제 이력은 여기서 세어 보낸다 — 클라이언트가 문제은행(questions.json)을 받지 않게.
-      items.push({
-        title: s.title,
-        imp: impOf(s, impById, impByBare),
-        lv: planInfo(s.title, s.topicId)?.level,
-        src: "심화반",
-        ...histStat(s.title),
-        ...(hasMyNote(s.title) ? { mine: true } : {}),
-      });
-      // 교재 속 서브 토픽 — 상위 토픽 줄 바로 아래(2026-10-20 "토픽 설명에서도 보여야 하지 않나?")
-      for (const st of subTopicsOf(s.title))
-        items.push({
-          title: st.name,
-          src: "서브",
-          subOf: s.title,
-          ...histStat(st.name),
-          ...(hasMyNote(st.name) || hasMyNote(s.title) ? { mine: true } : {}),
-        });
-      covered.add(bareT(s.title));
-    }
-    groups.push({ key: `course:${c}`, label: DOMAIN_LABEL[c] || c, badge: "심화반", items });
-  }
-  // DOMAINS 에 없는 과목 코드가 교재에 있어도 빠뜨리지 않는다.
-  for (const s of SUBNOTES) covered.add(bareT(s.title));
-  // 교재에 아직 없는 예전 토픽 — 카드 자료로 볼 수 있으므로 같이 노출한다.
-  // 원래 붙어 있던 중요도(상·중·하·출제예상)를 유지하고 상부터 정렬한다.
-  const byCat = new Map<string, BrowseItem[]>();
-  const seenLegacy = new Set<string>();
-  for (const t of TOPICS) {
-    // 교재에 같은 토픽이 있으면(제목 표기가 달라도) 예전 항목은 감춘다.
-    if (covered.has(bareT(t.title)) || subnoteByAlias(t.id, t.title) || inTextbook(t.title)) continue;
-    // 교재 속 서브 토픽과 같은 이름(별칭 포함)이면 감춘다 — 2026-11-02 "교재 없는 메타버스 토픽이 왤케 많냐":
-    // 서브 토픽 「메타버스(Metaverse)」 옆에 기필반 「Metaverse」「메타버스」가 따로 떠 있었다.
-    if (SUB_KEYS.has(bareT(t.title))) continue;
-    // 원본 엑셀이 같은 토픽을 여러 과목·묶음에 실어 둔 것(핀테크: 경영전략·디지털서비스) — 한 번만.
-    // 괄호까지 비교하므로 PLM(제품수명주기)·PLM(Pre trained Language Model) 같은 동음이의어는 남는다.
-    const nt = normT(t.title);
-    if (seenLegacy.has(nt)) continue;
-    seenLegacy.add(nt);
-    if (!byCat.has(t.category)) byCat.set(t.category, []);
-    byCat.get(t.category)!.push({
-      title: t.title,
-      imp: t.importance,
-      // 140회 기출 보고 새로 만든 토픽은 기필반이 아니라 '기출'로 구분한다
-      src: t.source === "요청" ? "기출" : "기필반",
-      ...(hasMyNote(t.title) ? { mine: true } : {}),
-    });
-  }
-  // 예전 토픽 묶음도 커리큘럼 순서로 — 교재 묶음과 순서가 어긋나면 눈이 헤맨다.
-  for (const [cat, list] of Array.from(byCat).sort(
-    (a, b) => domainOrder(a[0]) - domainOrder(b[0]) || b[1].length - a[1].length,
-  )) {
-    groups.push({
-      key: `cat:${cat}`,
-      label: cat,
-      badge: "기필반",
-      items: list
-        .slice()
-        .sort(
-          (a, b) =>
-            (IMP_ORDER[a.imp || ""] ?? 9) - (IMP_ORDER[b.imp || ""] ?? 9) ||
-            a.title.localeCompare(b.title, "ko"),
-        ),
-    });
-  }
-  return groups;
-}
-
-/** 자동완성 인덱스 — 서브노트 우선, topics.json 은 서브노트에 없는 제목만 추가 */
-function buildSearchEntries(): SearchEntry[] {
-  const byTitle = new Map<string, TopicOption>();
-  for (const t of TOPICS) byTitle.set(t.title, slim(t));
-  const list: SearchEntry[] = [];
-  const seen = new Set<string>();
-  for (const s of SUBNOTES) {
-    // 제목·정의·리드문·특징·키워드에 표 내용·비고까지 — 답안 어디에 나온 단어로든 찾을 수 있게
-    const hay = [
-      s.title,
-      s.defShort,
-      s.lead || "",
-      ...(s.features || []),
-      ...(s.keywords || []),
-      ...(s.defPair || []).flatMap((p) => [p.name, p.def, ...(p.features || [])]),
-      ...(s.subDefs || []).flatMap((p) => [p.name, p.def]),
-      ...(s.notes || []),
-      ...s.tables.flatMap((tb) => [tb.caption || "", ...tb.rows.flat()]),
-    ]
-      .join(" ")
-      .toLowerCase();
-    list.push({
-      title: s.title,
-      badge: "답안",
-      sub: DOMAIN_LABEL[courseOf(s)] || courseOf(s),
-      hay,
-      t: byTitle.get(s.title),
-      isSubnote: true,
-    });
-    seen.add(s.title);
-  }
-  // 교재 속 서브 토픽 — 이름·별칭으로 찾고, 상위 토픽을 옆에 적는다
-  for (const st of SUB_TOPICS_ALL()) {
-    list.push({
-      title: st.name,
-      badge: "서브",
-      sub: `${st.parent.replace(/\s*\([^)]*\)/g, "")} 안`,
-      hay: [st.name, ...st.aliases].join(" ").toLowerCase(),
-      isSubnote: false,
-    });
-  }
-  for (const t of TOPICS) {
-    // 제목이 완전히 같지 않아도 교재에 있는 토픽이면 제안하지 않는다
-    // ("Singleton 패턴" ↔ "싱글턴 패턴 (Singleton pattern)").
-    if (seen.has(t.title) || subnoteByAlias(t.id, t.title)) continue;
-    // 서브 토픽과 같은 이름이면 서브 토픽 하나만 제안한다(검색에 「메타버스」가 세 번 뜨던 것)
-    if (SUB_KEYS.has(bareT(t.title))) continue;
-    list.push({
-      title: t.title,
-      badge: t.importance,
-      sub: t.category,
-      hay: t.title.toLowerCase(),
-      t: slim(t),
-      isSubnote: false,
-    });
-  }
-  return list;
-}
-
-const slim = (t: TopicRow): TopicOption => ({
-  id: t.id,
-  title: t.title,
-  category: t.category,
-  importance: t.importance,
-});
-
-let INDEX: ExplainIndex | undefined;
-export function explainIndex(): ExplainIndex {
-  if (INDEX) return INDEX;
-  const browseGroups = buildBrowseGroups();
-  INDEX = {
-    cats: Array.from(new Set(TOPICS.map((t) => t.category))),
-    topicOptions: TOPICS.map(slim),
-    browseGroups,
-    bookTotal: browseGroups
-      .filter((g) => g.badge === "심화반")
-      .reduce((n, g) => n + g.items.filter((it) => !it.subOf).length, 0),
-    entries: buildSearchEntries(),
-  };
-  return INDEX;
-}
-
-// ── 도메인별 토픽 정리표(/sheet) — 엑셀로 정리하던 것을 앱 한 페이지에서 본다 ──
-export type SheetRow = {
-  title: string;
-  /** 상·중·하 — 예전 토픽(topics.json)과 맞으면 그 값, 교재 전용 토픽은 '상' */
-  imp: string;
-  lead?: string;
-  /** 29~30자 정의. 비교 토픽은 pairs 로 대신 채운다 */
-  def?: string;
-  pairs: { name: string; def: string }[];
-  features: string[];
-  keywords: string[];
-  /** 본론 3단표 전체 — 서브노트 표를 그대로(캡션·헤더·행) */
-  tables: { caption: string; headers: string[]; rows: string[][] }[];
-  /** 플러스 알파 메모 */
-  notes: string[];
-  /** NS 모의고사 출제 횟수 / 기술사 기출 횟수 */
-  ns: number;
-  past: number;
-  /** 가장 최근 출제 표기(예: 19기 2주차 1교시 5번) */
-  last?: string;
-  /** 암기 카드 — 두음·손글씨 개념도·자주 나오는 문제(정리표 압축 보기, 2026-11-09) */
-  memo: MemoCard;
-  /** 같은 문항에 함께 나온 토픽(많은 순, 위 6개). same = 같은 과목 */
-  co: { title: string; n: number; same: boolean }[];
-  /** 함께 출제 묶음 번호(과목 안) — 묶음 멤버는 정리표에서 붙어 나온다 */
-  cluster?: number;
-};
-/** 함께 출제 묶음 — 과목 안에서 2문항 이상 같이 나온 토픽끼리(최대 6개) */
-export type SheetCluster = {
-  id: number;
-  members: string[];
-  shared: number;
-  /** 엮이는 짝(같이 나온 문항 수 많은 순) */
-  pairs: { a: string; b: string; n: number }[];
-  /** 어떻게 엮여 나왔나 — 멤버 둘 이상을 함께 물은 실제 문제(많이 나온 순, 위 4개) */
-  tied: TiedQuestion[];
-  /** tied 에 다 못 실은 나머지 문제 수 */
-  more: number;
-};
-export type SheetGroup = { code: string; label: string; week: number; rows: SheetRow[]; clusters: SheetCluster[] };
-
-export function buildSheet(): SheetGroup[] {
-  const impById = new Map<string, string>();
-  const impByBare = new Map<string, string>();
-  for (const t of TOPICS) {
-    impById.set(t.id, t.importance);
-    const b = bareT(t.title);
-    if (!impByBare.has(b)) impByBare.set(b, t.importance);
-  }
-  const byCourse = new Map<string, SheetRow[]>();
-  // 학습계획 순서 — 정리표·토픽 설명·계획이 같은 줄 순서여야 번호로 찾기 쉽다.
-  const ordered = DOMAINS.flatMap((d) => courseSubnotes(d.code));
-  for (const s of ordered) {
-    const hist = examHistory(s.title);
-    const past = pastExams(s.title);
-    const latest = hist.slice().sort((a, b) => (a.date < b.date ? 1 : -1))[0];
-    const row: SheetRow = {
-      title: s.title,
-      imp: impOf(s, impById, impByBare),
-      lead: s.lead,
-      def: s.defPair?.length ? undefined : s.defShort,
-      pairs: [...(s.defPair || []), ...(s.subDefs || [])].map((p) => ({ name: p.name, def: p.def })),
-      features: s.features || [],
-      keywords: s.keywords,
-      // 답안용 표가 있으면 그것(1교시 분량 3단표), 없으면 교재 표 전체 — 2026-10-11 "정리 3단표는 저게 아닌데"
-      tables: (answerSheetFor(s.title)?.tables ?? s.tables).map((t) => ({ caption: t.caption, headers: t.headers, rows: t.rows })),
-      notes: s.notes || [],
-      ns: hist.length,
-      past: past.length,
-      last: latest
-        ? `${latest.cohort} ${latest.round.replace(/^0/, "")} ${latest.period}`
-        : past.length
-          ? `${Math.max(...past.map((p) => p.round))}회`
-          : undefined,
-      memo: memoCardFor(s.title),
-      co: [],
-    };
-    const c = courseOf(s);
-    if (!byCourse.has(c)) byCourse.set(c, []);
-    byCourse.get(c)!.push(row);
-  }
-  const courseByTitle = new Map<string, string>();
-  for (const [c, rows] of byCourse) for (const r of rows) courseByTitle.set(r.title, c);
-  return DOMAINS.filter((d) => byCourse.has(d.code)).map((d) => {
-    const rows = byCourse.get(d.code)!;
-    for (const r of rows) {
-      r.co = coTopics(r.title)
-        .slice(0, 6)
-        .map((x) => ({ title: x.title, n: x.n, same: courseByTitle.get(x.title) === d.code }));
-    }
-    // 함께 출제 묶음 — 2문항 이상 같이 나온 짝으로 잇고, 묶음 멤버는 첫 멤버 자리에 붙여 둔다(2026-11-10 "자주 엮어서 나오는 애들끼리 그루핑")
-    const clusters: SheetCluster[] = clusterTitles(
-      rows.map((r) => r.title),
-      2,
-      6,
-    ).map((members, i) => {
-      const tied = clusterQuestions(members);
-      return { id: i, members, shared: sharedQuestions(members), pairs: clusterPairs(members).slice(0, 6), tied: tied.slice(0, 4), more: Math.max(0, tied.length - 4) };
-    });
-    const byTitle = new Map(rows.map((r) => [r.title, r]));
-    const clusterOf = new Map<string, SheetCluster>();
-    for (const cl of clusters) for (const m of cl.members) clusterOf.set(m, cl);
-    const ordered: SheetRow[] = [];
-    const done = new Set<string>();
-    for (const r of rows) {
-      if (done.has(r.title)) continue;
-      const cl = clusterOf.get(r.title);
-      if (!cl) {
-        ordered.push(r);
-        done.add(r.title);
-        continue;
-      }
-      for (const m of cl.members) {
-        const row = byTitle.get(m)!;
-        row.cluster = cl.id;
-        ordered.push(row);
-        done.add(m);
-      }
-    }
-    return { code: d.code, label: d.label, week: d.week, rows: ordered, clusters };
-  });
 }

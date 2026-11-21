@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { BrowseGroup, BrowseItem } from "@/lib/explainData";
+import type { BrowseGroup, BrowseItem } from "@/lib/explainIndex";
 import ClearButton from "@/components/ClearButton";
 import PriorityBadge from "@/components/PriorityBadge";
 import { LevelBadge, SRC_CHIP } from "./explainBits";
