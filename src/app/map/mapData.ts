@@ -20,6 +20,7 @@ import { topicForConcept } from "@/lib/relatedTopics";
 import { explainHref as topicHref } from "@/lib/links";
 import { IMP_ORDER } from "@/lib/badges";
 import { TOPIC_INNER, type Inner } from "@/data/topicInner";
+import examTopics from "@/data/examTopics.json";
 import { subTopicsOf, type SubTopic } from "@/data/subTopics";
 
 export type Topic = {
@@ -102,6 +103,10 @@ export type MapTopic = {
   /** 지도 영역 · 분류(topicTree) */
   area: string;
   group: string;
+  /** 교재 밖 토픽 — 기출·모의고사에 나오지만 교재에 쪽이 없는 주제(examTopics.json). legacy = 예전(기필반) 토픽 화면이 있다 */
+  exam?: { n: number; past: number; legacy?: boolean };
+  /** 교재 밖 토픽이 딸린 교재 토픽 — 지도에서 그 토픽 아래에 그린다 */
+  under?: { parent: string; rel: string };
   /** 전체 지도의 잎(과목의 영역) — 누르면 그 과목 지도로 간다 */
   go?: string;
   /** 전체 지도 잎에 쓰는 이름·숫자·빈도 */
@@ -109,6 +114,8 @@ export type MapTopic = {
   count?: number;
   heatN?: number;
 };
+/** 교재 밖 토픽 자료 한 줄 — scripts/build-exam-topics.py 가 조사(survey-topics.ts) 결과와 배치표로 만든다 */
+type ExamTopic = { name: string; code: string; area: string; group: string; under?: string; rel?: string; legacy?: boolean; n: number; past: number };
 export const TOPICS_BY_CAT: Record<string, MapTopic[]> = (() => {
   // 과목 안 자리는 토픽 계층(topicTree) — 영역 → 분류 → 토픽 → 하위 토픽. 계층에 없는 토픽은 맨 뒤.
   const out: Record<string, MapTopic[]> = {};
@@ -129,7 +136,33 @@ export const TOPICS_BY_CAT: Record<string, MapTopic[]> = (() => {
       };
       return { t, k: at ? at.i : 100000 + i };
     });
-    out[label] = list.sort((x, y) => x.k - y.k).map((x) => x.t);
+    const topics = list.sort((x, y) => x.k - y.k).map((x) => x.t);
+    // 교재 밖 토픽을 같은 영역·분류의 교재 토픽 뒤에 끼운다(많이 나온 것부터). 분류가 새것이면 그 영역 끝, 영역이 새것이면 맨 뒤.
+    const have = new Set(topics.map((t) => t.title));
+    const extra = (examTopics as ExamTopic[]).filter((e) => e.code === code && !have.has(e.name)).sort((a, b) => b.past - a.past || b.n - a.n);
+    for (const e of extra) {
+      const up = e.under ? topics.find((t) => t.title === e.under) : undefined;
+      const area = up?.area ?? e.area;
+      const group = up?.group ?? e.group;
+      const t: MapTopic = {
+        title: e.name,
+        summary: "",
+        area,
+        group,
+        exam: { n: e.n, past: e.past, legacy: e.legacy },
+        under: up && !up.exam ? { parent: up.title, rel: e.rel ?? "종류" } : undefined,
+      };
+      const last = (f: (x: MapTopic) => boolean) => {
+        for (let i = topics.length - 1; i >= 0; i--) if (f(topics[i])) return i;
+        return -1;
+      };
+      const at = last((x) => x.area === area && x.group === group);
+      const at2 = at >= 0 ? at : last((x) => x.area === area);
+      if (at2 >= 0) topics.splice(at2 + 1, 0, t);
+      else topics.push(t);
+      have.add(e.name);
+    }
+    out[label] = topics;
   }
   return out;
 })();

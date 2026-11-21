@@ -602,8 +602,8 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
         {/* 어떤 자료도 못 찾은 경우 — AI를 부르지 않고 상황만 안내한다 */}
         {cur && !textbook && !legacy && !extra?.image && !data?.sub && (
           <p className="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-500">
-            “{cur}” 자료가 아직 없어요. 위 검색창에서 비슷한 토픽을
-            찾아보거나, 클로드에게 말해 주시면 교재가 없어도 직접 만들어 넣어요.
+            “{cur}” 은 교재에 쪽이 없는 토픽이라 정리한 내용(정의·표·답안지 템플릿)이 아직 없어요. 이 화면에는 이 이름으로 걸리는 출제
+            문항과 모범답안·해설집만 모입니다.
           </p>
         )}
       </div>

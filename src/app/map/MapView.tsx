@@ -16,6 +16,8 @@ import { TableCard } from "./TablesView";
 
 /* ─────────────── 지도 뷰 ─────────────── */
 // 칩 색 — 중요도는 교재 CONTENTS 별 색(★★★ 빨강 · ★★ 파랑 · ★ 검정)을 따른다.
+/** 교재 밖 토픽 칩 — 기출·모의고사에 나오지만 교재에 쪽이 없는 주제. 교재 토픽보다 작고 점선이다 */
+const EXAM_CHIP = "border-amber-400 bg-amber-50/60 text-amber-950";
 const PRI_CHIP: Record<string, string> = {
   상: "border-rose-300 bg-rose-50 text-rose-900",
   중: "border-sky-300 bg-sky-50 text-sky-900",
@@ -124,6 +126,8 @@ export function MapView({
   const [showTables, setShowTables] = useState(false);
   // 토픽 안 갈래(교재 표의 종류·구성)를 지도에 펼쳐 둘지 — 접으면 서브 토픽 칩만 남는다
   const [showInner, setShowInner] = useState(true);
+  // 교재 밖 토픽(기출·모의고사에 나오지만 교재에 없는 주제)을 지도에 함께 보일지
+  const [showExam, setShowExam] = useState(true);
   // 펼친 가지 — 과목 지도는 영역을 다 편 채로, 전체 지도는 과목만 보이게 시작한다
   const [open, setOpen] = useState<Set<string>>(new Set());
   const [closed, setClosed] = useState<Set<string>>(new Set());
@@ -134,7 +138,8 @@ export function MapView({
   const code = DOMAINS.find((d) => d.label === cat)?.code ?? "";
   const lmaps = LEVEL_MAPS[code] ?? [];
   const lmap = lv != null ? lmaps[lv] : undefined;
-  const list = overview ? doms.flatMap((c) => TOPICS_BY_CAT[c]) : TOPICS_BY_CAT[cat] ?? [];
+  const byCat = (c: string) => (showExam ? TOPICS_BY_CAT[c] ?? [] : (TOPICS_BY_CAT[c] ?? []).filter((t) => !t.exam));
+  const list = overview ? doms.flatMap(byCat) : byCat(cat);
   const selected = sel ? ALL_MAP_TOPICS.find((x) => x.t.title === sel)?.t : undefined;
   const linked = new Set(selected ? linksOf(selected.title) : []);
   const match = (t: MapTopic) =>
@@ -166,11 +171,14 @@ export function MapView({
   for (const t of list) if (t.priority) pri[t.priority]++;
   const noAns = list.filter((t) => t.sub && !stats[t.title]?.ans && !stats[t.title]?.com).length;
   const asked = list.filter((t) => (stats[t.title]?.past ?? 0) > 0).length;
+  const nExam = list.filter((t) => t.exam).length;
   const st = selected ? stats[selected.title] : undefined;
   const matchCount = query ? list.filter(match).length : 0;
   // 종속 관계 — 같은 지도에 상위 토픽이 있으면 하위 토픽은 상위 아래로 묶는다(영역이 달라도)
   const inList = new Set(list.map((t) => t.title));
   const upHere = (t: MapTopic) => {
+    // 교재 밖 토픽은 자료에 적힌 상위 토픽 아래로
+    if (t.under) return inList.has(t.under.parent) ? { child: t.title, parent: t.under.parent, rel: t.under.rel as "종류", why: "교재 밖 · 기출·모의 출제" } : undefined;
     const p = parentLink(t.title);
     return p && p.parent !== t.title && inList.has(p.parent) ? p : undefined;
   };
@@ -179,7 +187,8 @@ export function MapView({
   const Chip = ({ t }: { t: MapTopic }) => {
     const s = stats[t.title];
     const up = upHere(t);
-    const n = mode === "heat" ? s?.past ?? 0 : hits(s);
+    // 교재 밖 토픽의 숫자는 조사 때 묶인 문항 수 — 이름 열쇠로 다시 세면 넓은 이름이 딴 문항까지 센다
+    const n = t.exam ? (mode === "heat" ? t.exam.past : t.exam.n) : mode === "heat" ? s?.past ?? 0 : hits(s);
     const fr = mode === "frame" ? frameOf(t.title) : undefined;
     const color =
       mode === "frame"
@@ -188,13 +197,15 @@ export function MapView({
           : "border-slate-200 bg-white text-slate-400"
         : mode === "heat"
           ? heatCls(n)
-          : PRI_CHIP[t.priority ?? "하"] ?? PRI_CHIP.하;
+          : t.exam
+            ? EXAM_CHIP
+            : PRI_CHIP[t.priority ?? "하"] ?? PRI_CHIP.하;
     const isSel = sel === t.title;
     return (
       <button
         onClick={() => pick(t)}
-        title={`${t.title}${up ? `\n${up.rel} ← ${short(up.parent)}: ${up.why}` : ""}${t.summary ? `\n${t.summary}` : ""}`}
-        className={`rounded-full border px-2.5 py-1 text-left text-[12.5px] leading-tight transition hover:shadow ${color} ${
+        title={`${t.title}${t.exam ? `\n교재 밖 토픽 — 기출 ${t.exam.past} · 전체 ${t.exam.n}문항${t.exam.legacy ? " · 예전 토픽 화면 있음" : ""}` : ""}${up ? `\n${up.rel} ← ${short(up.parent)}: ${up.why}` : ""}${t.summary ? `\n${t.summary}` : ""}`}
+        className={`rounded-full border text-left leading-tight transition hover:shadow ${t.exam ? "px-2 py-0.5 text-[11.5px]" : "px-2.5 py-1 text-[12.5px]"} ${color} ${
           t.sub ? "" : "border-dashed"
         } ${t.priority === "상" ? "font-semibold" : ""} ${
           isSel
@@ -209,7 +220,7 @@ export function MapView({
         {up && <span className="mr-0.5 text-[10px] opacity-60">{REL_MARK[up.rel]}</span>}
         {short(t.title)}
         {n > 0 && <sup className="ml-0.5 text-[9px] opacity-70">{n}</sup>}
-        {t.sub && !s?.ans && !s?.com && <span className="ml-0.5 text-[9px] opacity-60">○</span>}
+        {(t.sub || t.exam) && !s?.ans && !s?.com && <span className="ml-0.5 text-[9px] opacity-60">○</span>}
         {!!s?.mine && <span className="ml-0.5 text-[10px]" title="내가 정리한 토픽">📝</span>}
       </button>
     );
@@ -380,7 +391,7 @@ export function MapView({
             >
               {c}{" "}
               <span className={active ? "text-brand-100" : "text-slate-400"}>
-                {c === "전체" ? doms.reduce((n, d) => n + TOPICS_BY_CAT[d].length, 0) : TOPICS_BY_CAT[c].length}
+                {c === "전체" ? doms.reduce((n, d) => n + byCat(d).length, 0) : byCat(c).length}
               </span>
             </button>
           );
@@ -391,6 +402,7 @@ export function MapView({
       <div className="mb-3 flex flex-wrap items-center justify-between gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5">
         <p className="text-xs text-slate-600">
           <b className="text-slate-900">{overview ? "전체 도메인" : cat}</b> · 토픽 {list.length}
+          {nExam > 0 && <span className="text-amber-700"> (교재 {list.length - nExam} + 교재 밖 {nExam})</span>}
           <span className="mx-1.5 text-slate-300">|</span>
           <span className="text-rose-700">상 {pri.상}</span> · <span className="text-sky-700">중 {pri.중}</span> · 하 {pri.하}
           <span className="mx-1.5 text-slate-300">|</span>
@@ -404,6 +416,15 @@ export function MapView({
               className="rounded-md border border-slate-200 px-2 py-1 text-[11px] text-slate-500"
             >
               {closed.size ? "모두 펼치기" : "모두 접기"}
+            </button>
+          )}
+          {lv == null && (
+            <button
+              onClick={() => setShowExam(!showExam)}
+              title="기출·모의고사에 나오지만 교재에 쪽이 없는 주제를 지도에 함께 보인다"
+              className={`rounded-md border px-2 py-1 text-[11px] ${showExam ? "border-amber-500 bg-amber-500 text-white" : "border-slate-200 text-slate-500"}`}
+            >
+              📜 교재 밖 토픽 {showExam ? "감추기" : "보이기"}
             </button>
           )}
           {!overview && lv == null && (
@@ -459,7 +480,7 @@ export function MapView({
             ? `· 영역 칩 숫자 = 토픽 수 · 색 = ${mode === "heat" ? "토픽당 평균 기출" : mode === "frame" ? "개념도 그룹" : "상 토픽 3개 이상 상 / 1개 이상 중"} · 영역을 누르면 그 과목 지도`
             : mode === "frame"
               ? "· 색 = 개념도 그룹(같은 색 = 같은 2단락 틀) · 토픽을 누르면 돌려막기 묶음·3단락 유형이 오른쪽에 · 흰 칩 = 아직 틀 안 정함"
-              : `· 숫자 = ${mode === "heat" ? "기술사 기출 횟수" : "출제 횟수(기출·NS·모의)"} · ○ = 모범답안·해설 없음 · 점선 = 교재 정리 전 · 세로줄 안 = 하위 토픽(⊂ 종류 ◇ 구성·기법 ⚠ 문제·해결 ↗ 확장·발전) · 🔎 = 교재 표 속 서브 토픽 · 회색 글자 = 교재 표 속 갈래(가지 › 잎)`}
+              : `· 숫자 = ${mode === "heat" ? "기술사 기출 횟수" : "출제 횟수(기출·NS·모의)"} · ○ = 모범답안·해설 없음 · 점선 = 교재 정리 전 · 세로줄 안 = 하위 토픽(⊂ 종류 ◇ 구성·기법 ⚠ 문제·해결 ↗ 확장·발전) · 🔎 = 교재 표 속 서브 토픽 · 회색 글자 = 교재 표 속 갈래(가지 › 잎) · 노란 작은 칩 = 교재 밖 토픽(기출·모의고사에만 나옴)`}
         </span>
       </div>
 
@@ -541,10 +562,10 @@ export function MapView({
             <Twigs color="#0f172a">
               {doms.map((c, di) => {
                 const color = BRANCH[di % BRANCH.length];
-                const areas = areasOf(TOPICS_BY_CAT[c]);
-                const hit = query ? TOPICS_BY_CAT[c].filter(match).length : 0;
+                const areas = areasOf(byCat(c));
+                const hit = query ? byCat(c).filter(match).length : 0;
                 if (query && !hit) return null;
-                const top = TOPICS_BY_CAT[c].filter((t) => t.priority === "상").length;
+                const top = byCat(c).filter((t) => t.priority === "상").length;
                 return (
                   <div key={c} className="flex min-w-0 flex-col sm:flex-row sm:items-center">
                     <button
@@ -555,7 +576,7 @@ export function MapView({
                     >
                       <span>{c}</span>
                       <span className="text-[10px] font-normal opacity-90">
-                        {TOPICS_BY_CAT[c].length} · 상{top}
+                        {byCat(c).length} · 상{top}
                         {(() => {
                           const n = LEVEL_MAPS[DOMAINS.find((d) => d.label === c)?.code ?? ""]?.length;
                           return n ? ` · 🧩${n}` : "";
@@ -646,7 +667,9 @@ export function MapView({
               </div>
               <h3 className="mt-0.5 font-bold text-slate-900">{selected.title}</h3>
               <p className="mt-1 text-xs leading-relaxed text-slate-600">
-                {selected.summary || "교재 정리 전 — CONTENTS 에만 있는 토픽"}
+                {selected.exam
+                  ? `교재 밖 토픽 — 교재에 쪽이 없고 기출·모의고사에만 나온 주제입니다(조사 때 기출 ${selected.exam.past} · 전체 ${selected.exam.n}문항).${selected.exam.legacy ? " 예전(기필반) 토픽 화면이 있습니다." : " 아직 정리한 내용이 없어 화면에는 출제 문항과 답안·해설만 모입니다."}`
+                  : selected.summary || "교재 정리 전 — CONTENTS 에만 있는 토픽"}
               </p>
               <div className="mt-2 grid grid-cols-3 gap-1 text-center text-[11px]">
                 {[
@@ -663,6 +686,14 @@ export function MapView({
                   </div>
                 ))}
               </div>
+              {selected.exam && (
+                <Link
+                  href={topicHref(selected.title)}
+                  className="mt-3 block rounded-lg bg-amber-500 px-3 py-2 text-center text-xs font-semibold text-white hover:bg-amber-600"
+                >
+                  {selected.exam.legacy ? "예전 토픽 화면 · 출제 문항 →" : "출제 문항 · 답안·해설 보기 →"}
+                </Link>
+              )}
               {selected.sub && (
                 <Link
                   href={topicHref(selected.title)}

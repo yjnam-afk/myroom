@@ -7,6 +7,7 @@ import { isCommentary } from "@/lib/answerKind";
 import { LEVEL_MAPS, chipKey, chipTopic } from "@/data/levelMaps";
 import { SUB_TOPICS } from "@/data/subTopics";
 import { myNotesFor } from "@/data/myNotes";
+import examTopics from "@/data/examTopics.json";
 
 /**
  * 토픽 지도 — 서버 컴포넌트.
@@ -20,6 +21,8 @@ export default function MapPage() {
   for (const list of Object.values(COURSE_TOPICS)) for (const t of list) titles.add(t.title);
   // 교재 속 서브 토픽 — 상위 칩 아래 작은 칩의 출제 수
   for (const st of SUB_TOPICS) titles.add(st.name);
+  // 교재 밖 토픽(기출·모의고사에만 나오는 주제) — 지도에 작은 칩으로 함께 보인다
+  for (const e of examTopics as { name: string }[]) titles.add(e.name);
   const stats: Record<string, TopicStat> = {};
   for (const t of Array.from(titles)) {
     const peers = peerAnswersFor(t);

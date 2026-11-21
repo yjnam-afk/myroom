@@ -216,7 +216,7 @@ console.log(`  2문항 이상 또는 기출에 나온 것 ${N.filter((x) => x.n 
 if (process.argv[2]) {
   // 화면(/survey)에 싣는 것 — 두 번 이상 나왔거나 기출에 나온 주제만(한 번 나온 모의 문항 주제 1,500여 개는 수만 싣는다)
   const keep = (x: (typeof list)[number]) => x.n >= 2 || x.past > 0;
-  const slim = (x: (typeof list)[number]) => ({ name: x.name, n: x.n, past: x.past, ns: x.ns, cat: x.cat, legacy: x.legacy, com: x.com, ans: x.ans, qs: x.qs.slice(0, 12) });
+  const slim = (x: (typeof list)[number]) => ({ name: x.name, n: x.n, past: x.past, ns: x.ns, cat: x.cat, legacy: x.legacy, com: x.com, ans: x.ans, qs: x.qs.slice(0, 12), ...(process.env.SURVEY_IDS ? { ids: x.ids } : {}) });
   writeFileSync(
     process.argv[2],
     JSON.stringify({
