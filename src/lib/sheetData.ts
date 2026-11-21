@@ -9,6 +9,7 @@ import { coTopics, clusterTitles, sharedQuestions, clusterPairs, clusterQuestion
 import { DOMAINS } from "@/lib/domains";
 import { courseOf, courseSubnotesInOrder } from "@/lib/courseOrder";
 import { importanceMaps, impOf } from "@/lib/explainShared";
+import { treePlaces } from "@/data/topicTree";
 
 // ── 도메인별 토픽 정리표(/sheet) — 엑셀로 정리하던 것을 앱 한 페이지에서 본다 ──
 export type SheetRow = {
@@ -36,6 +37,9 @@ export type SheetRow = {
   co: { title: string; n: number; same: boolean }[];
   /** 함께 출제 묶음 번호(과목 안) — 묶음 멤버는 정리표에서 붙어 나온다 */
   cluster?: number;
+  /** 토픽 지도의 영역·분류(topicTree) — 정리표가 영역 머리로 나눠 보인다. 지도에 없는 토픽은 빈칸 */
+  area?: string;
+  group?: string;
 };
 /** 함께 출제 묶음 — 과목 안에서 2문항 이상 같이 나온 토픽끼리(최대 6개) */
 export type SheetCluster = {
@@ -88,7 +92,18 @@ export function buildSheet(): SheetGroup[] {
   const courseByTitle = new Map<string, string>();
   for (const [c, rows] of byCourse) for (const r of rows) courseByTitle.set(r.title, c);
   return DOMAINS.filter((d) => byCourse.has(d.code)).map((d) => {
-    const rows = byCourse.get(d.code)!;
+    // 줄 차례 = 토픽 지도 차례(영역 → 분류 → 토픽 → 하위 토픽). 2026-11-22 "정리표에 선형구조 비선형구조 나눠서 정리가 안되어있네" —
+    // 예전엔 교재 CONTENTS 차례 한 줄이라 영역이 섞여 나왔다(보안은 7개 영역이 42번 바뀌었다). 지도에 없는 토픽은 교재 차례대로 맨 뒤.
+    const places = treePlaces(d.code);
+    const rows = byCourse
+      .get(d.code)!
+      .map((r, i) => ({ r, i }))
+      .sort((x, y) => (places.get(x.r.title)?.i ?? 1e6 + x.i) - (places.get(y.r.title)?.i ?? 1e6 + y.i))
+      .map((x) => x.r);
+    for (const r of rows) {
+      const p = places.get(r.title);
+      if (p) { r.area = p.area; r.group = p.group; }
+    }
     for (const r of rows) {
       r.co = coTopics(r.title)
         .slice(0, 6)

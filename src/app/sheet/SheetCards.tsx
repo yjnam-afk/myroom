@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import type { SheetGroup, SheetRow, SheetCluster } from "@/lib/sheetData";
 import { explainHref } from "@/lib/links";
@@ -67,6 +68,7 @@ function TopicCard({ r, hide, skipCo }: { r: SheetRow; hide?: Set<string>; skipC
               {r.past > 0 && ` · 기출 ${r.past}`}
             </span>
           )}
+          {r.group && <span className="rounded bg-slate-100 px-1.5 py-px text-[10.5px] text-slate-500">{r.group}</span>}
         </div>
 
         <div className="mt-2 text-[13.5px] leading-[1.65] text-slate-800">
@@ -189,6 +191,16 @@ function Bundle({ cl, rows }: { cl: SheetCluster; rows: SheetRow[] }) {
   );
 }
 
+/** 영역 머리 — 토픽 지도의 영역 이름(학습 길잡이, 교재 용어가 아니다) */
+export function AreaHead({ name, n }: { name: string; n: number }) {
+  return (
+    <h3 className="flex items-baseline gap-2 border-b border-slate-200 px-1 pb-1 pt-3 text-[13px] font-bold text-slate-600 first:pt-0">
+      {name}
+      <span className="text-[11px] font-normal text-slate-400">{n}</span>
+    </h3>
+  );
+}
+
 export default function SheetCards({ g }: { g: SheetGroup }) {
   // 묶음 멤버는 buildSheet 가 이미 붙여 두었다 — 이어지는 같은 묶음 줄을 한 덩어리로 모은다
   const blocks: { cl?: SheetCluster; rows: SheetRow[] }[] = [];
@@ -200,7 +212,17 @@ export default function SheetCards({ g }: { g: SheetGroup }) {
   }
   return (
     <div className="space-y-3 [overflow-wrap:anywhere]">
-      {blocks.map((b) => (b.cl ? <Bundle key={`c${b.cl.id}`} cl={b.cl} rows={b.rows} /> : <TopicCard key={b.rows[0].title} r={b.rows[0]} />))}
+      {blocks.map((b, i) => {
+        // 영역(토픽 지도)이 바뀌는 자리에 머리를 놓는다 — 묶음은 첫 토픽의 영역을 따른다
+        const area = b.rows[0].area;
+        const head = area && area !== blocks[i - 1]?.rows[0].area;
+        return (
+          <Fragment key={b.cl ? `c${b.cl.id}` : b.rows[0].title}>
+            {head && <AreaHead name={area} n={g.rows.filter((r) => r.area === area).length} />}
+            {b.cl ? <Bundle cl={b.cl} rows={b.rows} /> : <TopicCard r={b.rows[0]} />}
+          </Fragment>
+        );
+      })}
     </div>
   );
 }

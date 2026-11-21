@@ -862,32 +862,32 @@ export const TOPIC_TREE: Record<string, TreeArea[]> = {
       ] },
     ] },
   ],
+  // 2026-11-22 "토픽지도나 정리표에 선형구조 비선형구조 나눠서 정리가 안되어있네" — 예전엔 「기초·선형 구조 / 트리 구조 / 그래프 구조」였다.
+  // 교재 「선형 자료구조와 비선형 자료구조」 표의 갈래 그대로 둔다: 선형 = 연결 저장(Linked List)·제한 접근(Stack·Queue), 비선형 = 계층(Tree)·망(Graph).
   DS: [
-    { name: "기초·선형 구조", groups: [
-      { name: "자료구조 분류", items: [
+    { name: "자료구조 분류", groups: [
+      { name: "선형·비선형 구분", items: [
         "선형 자료구조와 비선형 자료구조",
       ] },
-      { name: "연결 리스트", items: [
+    ] },
+    { name: "선형 자료구조", groups: [
+      { name: "연결 저장", items: [
         "링크드 리스트(Linked List)",
       ] },
-      { name: "제한 접근 구조", items: [
+      { name: "제한 접근", items: [
         "Stack",
         "Queue",
       ] },
     ] },
-    { name: "트리 구조", groups: [
-      { name: "탐색 트리", items: [
+    { name: "비선형 자료구조", groups: [
+      { name: "계층 — 트리", items: [
         { t: "이진 탐색 트리(Binary Search Tree)", kids: [
           { t: "AVL 트리", rel: "종류", why: "높이 균형 이진탐색트리" },
           { t: "B-Tree(Balanced Tree)", rel: "확장·발전", why: "다진 균형 탐색 트리" },
         ] },
-      ] },
-      { name: "우선순위 트리", items: [
         "힙(Heap)",
       ] },
-    ] },
-    { name: "그래프 구조", groups: [
-      { name: "방향 그래프", items: [
+      { name: "망 — 그래프", items: [
         "방향성 비순환 그래프(DAG, Directed Acyclic Graph)",
       ] },
     ] },

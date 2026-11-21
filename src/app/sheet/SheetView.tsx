@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import { PageHeader } from "@/components/ui";
 import { buildSheet } from "@/lib/sheetData";
@@ -91,7 +92,16 @@ export default function SheetView({ full }: { full: boolean }) {
                   </thead>
                   <tbody>
                     {g.rows.map((r, i) => (
-                      <tr key={r.title} className={`align-top ${i % 2 ? "bg-slate-50/40" : "bg-white"}`}>
+                      <Fragment key={r.title}>
+                      {/* 영역(토픽 지도)이 바뀌는 자리에 머리 줄 */}
+                      {r.area && r.area !== g.rows[i - 1]?.area && (
+                        <tr className="bg-slate-100">
+                          <td colSpan={4} className="border border-slate-300 px-2 py-1 text-[11px] font-bold text-slate-600">
+                            {r.area}
+                          </td>
+                        </tr>
+                      )}
+                      <tr className={`align-top ${i % 2 ? "bg-slate-50/40" : "bg-white"}`}>
                         {/* 토픽 — 중요도·출제 이력까지 한 칸에 */}
                         <td className="border border-slate-300 px-2 py-1.5">
                           <span className={`mr-1 inline-block rounded px-1 py-[1px] text-[10px] font-bold ${IMP_CHIP[r.imp] || "bg-slate-100 text-slate-500"}`}>
@@ -145,6 +155,7 @@ export default function SheetView({ full }: { full: boolean }) {
                           )}
                         </td>
                       </tr>
+                      </Fragment>
                     ))}
                   </tbody>
                 </table>
