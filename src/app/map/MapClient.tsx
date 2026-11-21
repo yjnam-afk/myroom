@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { useMemo, useState } from "react";
 import { PageHeader } from "@/components/ui";
 import { compareSets } from "@/data/compareSets";
@@ -75,6 +77,12 @@ export default function MapClient({ stats, chipHits }: { stats: Record<string, T
         title="🗺️ 토픽 지도"
         desc="과목 → 영역 → 분류 → 토픽 → 하위 토픽 가지로 한눈에 봅니다. 가지는 눌러서 접고 펴고, 색은 중요도나 출제 빈도, 토픽을 누르면 옆 칸에 출제·답안 수와 이어진 토픽이 나옵니다."
       />
+
+      {/* 토픽 조사 — 문제은행 전체에서 아직 정리 안 된 주제 */}
+      <Link href="/survey" className="mb-3 inline-block rounded-lg border border-rose-200 bg-rose-50 px-3 py-1.5 text-xs font-semibold text-rose-700 hover:bg-rose-100">
+        📋 토픽 조사 — 문제에 나오지만 아직 정리 안 된 주제 →
+      </Link>
+      <br />
 
       {/* 뷰 전환 */}
       <div className="mb-4 flex max-w-full overflow-x-auto rounded-xl border border-slate-200 bg-slate-50 p-1 sm:inline-flex">
