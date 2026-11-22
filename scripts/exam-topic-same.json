@@ -1940,5 +1940,2096 @@
   ],
   "i": 1641,
   "same": "상관분석·상관계수"
+ },
+ {
+  "kind": "none",
+  "name": "선점형CPU 스케쥴링",
+  "cat": "컴퓨터구조",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "ns13w09-112"
+  ],
+  "qs": [
+   "선점형CPU 스케쥴링"
+  ],
+  "i": 0,
+  "same": "선점형·비선점형 스케줄링",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "파이프라인 성능을 저해하는 해저드",
+  "cat": "컴퓨터구조",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f01708"
+  ],
+  "qs": [
+   "파이프라인 성능을 저해하는 해저드에 대해서 기술하고, 이를 해결하는 방안에 대해 설명하시오."
+  ],
+  "i": 4,
+  "same": "Pipeline Hazard",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "칩(Neuromorphic Chip)",
+  "cat": "컴퓨터구조",
+  "n": 1,
+  "past": 0,
+  "legacy": "뉴로모픽칩(Neuromorphic chip)",
+  "ids": [
+   "m04155"
+  ],
+  "qs": [
+   "신경모방 칩(Neuromorphic Chip)에 대하여 설명하시오."
+  ],
+  "i": 15,
+  "same": "뉴로모픽 반도체",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "쓰레드(Thread)",
+  "cat": "운영체제",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m01650"
+  ],
+  "qs": [
+   "프로세스({Process}와 쓰레드(Thread)를 비교 설명하시오"
+  ],
+  "i": 19,
+  "same": "프로세스(Process)와 스레드(Thread) 비교",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "메모리 페이징",
+  "cat": "운영체제",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m03939"
+  ],
+  "qs": [
+   "메모리 페이징"
+  ],
+  "i": 33,
+  "same": "가상메모리의 페이징과 세그멘테이션",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "정보로서 기준정보(Master Data)",
+  "cat": "운영체제",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m04689"
+  ],
+  "qs": [
+   "전사 수준, 정보에 대한 신뢰성 및 정확성을 보장하고 프로세스를 효과적으로 통제하기 위한 핵심 정보로서 기준정보(Master Data)에 대하여 다음을 설명하시오. …"
+  ],
+  "i": 35,
+  "same": "MDM(Master Data Management)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "지능형 네트워크",
+  "cat": "네트워크",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m01573"
+  ],
+  "qs": [
+   "지능형 네트워크의 개념과 중점기술의 표준화 항목, 표준화 전략에 대해 설명하시오"
+  ],
+  "i": 55,
+  "same": "네트워크 지능",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "무선 에너지 전송기술",
+  "cat": "네트워크",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m03291"
+  ],
+  "qs": [
+   "무선 에너지 전송기술에 대해 설명하시오."
+  ],
+  "i": 77,
+  "same": "무선 충전 기술",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "Private 5G 구축방식",
+  "cat": "네트워크",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f01322"
+  ],
+  "qs": [
+   "Private 5G 구축방식"
+  ],
+  "i": 98,
+  "same": "5G 특화망",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "와 NFV(Network Functions Virtualization)",
+  "cat": "네트워크",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f02840"
+  ],
+  "qs": [
+   "Network Functions Virtualization"
+  ],
+  "i": 123,
+  "same": "NFV(Network Function Virtualization)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "NPN(Non-Public Network)",
+  "cat": "네트워크",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f03761"
+  ],
+  "qs": [
+   "NPN(Non-Public Network)"
+  ],
+  "i": 182,
+  "same": "5G 특화망",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "매터(Matter)",
+  "cat": "네트워크",
+  "n": 1,
+  "past": 0,
+  "legacy": "매터(matter)",
+  "ids": [
+   "ns11w06-107"
+  ],
+  "qs": [
+   "Matter 의 개념, 프로토콜 스택, 기술요소"
+  ],
+  "i": 192,
+  "same": "IoT Matter",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "오류 제어(Error Control)",
+  "cat": "네트워크",
+  "n": 1,
+  "past": 0,
+  "legacy": "오류제어",
+  "ids": [
+   "m02646"
+  ],
+  "qs": [
+   "데이터 링크계층의 오류제어(error control) 기법에 대해 설명하시오."
+  ],
+  "i": 197,
+  "same": "FEC(Forward Error Correction) / BEC(Backward Error Correction)",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "라우팅 프로토콜(Routing Protocol)",
+  "cat": "네트워크",
+  "n": 1,
+  "past": 0,
+  "legacy": "라우팅 프로토콜",
+  "ids": [
+   "m05460"
+  ],
+  "qs": [
+   "라우팅 프로토콜"
+  ],
+  "i": 214,
+  "same": "라우팅 알고리즘(Routing Protocol, 거리벡터, 링크상태)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "프트웨어 규모산정",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "ns18w12-201"
+  ],
+  "qs": [
+   "프트웨어 규모산정에 대하여 다음을 설명하시오. …"
+  ],
+  "i": 227,
+  "same": "SW 규모산정",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "SW Test Coverage 유형들",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "s41-34"
+  ],
+  "qs": [
+   "SW Test Coverage 유형들을 설명하시오"
+  ],
+  "i": 234,
+  "same": "코드 커버리지(Code Coverage)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "해시함수 충돌 해결 방안",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m01475"
+  ],
+  "qs": [
+   "해시함수 충돌 해결 방안"
+  ],
+  "i": 251,
+  "same": "해싱과 충돌해결방법",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "명세기반 테스트 기법",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m01767"
+  ],
+  "qs": [
+   "명세기반 테스트 기법에 대하여 아래를 설명하시오 …"
+  ],
+  "i": 259,
+  "same": "블랙박스 테스트",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "도메인주도 개발(Domain Driven Development)",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m02353"
+  ],
+  "qs": [
+   "도메인주도 개발(Domain Driven Development)에 대해 설명하시오."
+  ],
+  "i": 265,
+  "same": "DDD (Domain Driven Design)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "요구사항 추출방법",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m02501"
+  ],
+  "qs": [
+   "요구사항 추출방법에 대해서 설명하시오."
+  ],
+  "i": 267,
+  "same": "요구사항 수집기법",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "사용성 테스트 수행 절차",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m02529"
+  ],
+  "qs": [
+   "사용성 테스트 수행 절차를 설명하시오."
+  ],
+  "i": 269,
+  "same": "사용성 평가",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "나쁜냄새(Bad Smell)",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m03205"
+  ],
+  "qs": [
+   "소프트웨어 코드 품질 향상을 위해서는 올바른 소스 코드 작성이 요구된다. 나쁜냄새(Bad Smell)가 나는 코드를 발견하기 위한 체크리스트를 제시하고 Clean Code 작성을 위한 방법을 설명하"
+  ],
+  "i": 290,
+  "same": "코드 스멜(Code Smell)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "리스크기반 테스트",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m03259"
+  ],
+  "qs": [
+   "리스크기반 테스트에 대하여 설명하시오."
+  ],
+  "i": 292,
+  "same": "위험 기반 테스트",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "정보시스템 감리기준 개정안에 따른 감리절차",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m03603"
+  ],
+  "qs": [
+   "정보시스템 감리기준 개정안(행정안전부 고시 제2010-30호)에 따른 감리절차를 설명하시오."
+  ],
+  "i": 301,
+  "same": "공통감리 절차",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "애자일 SW개발",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f00292"
+  ],
+  "qs": [
+   "애자일 SW개발의 특징과 장단점"
+  ],
+  "i": 311,
+  "same": "Agile 선언문과 12개 원칙",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "애자일 원칙(Agile Principles)",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f00536"
+  ],
+  "qs": [
+   "애자일 원칙(Agile Principles)"
+  ],
+  "i": 315,
+  "same": "Agile 선언문과 12개 원칙",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "SW 아키텍처 설계의 평가방법",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f01606"
+  ],
+  "qs": [
+   "SW 아키텍처 설계의 평가방법"
+  ],
+  "i": 322,
+  "same": "SW Architecture 평가",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "LeanSW 개발방법론",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f01752"
+  ],
+  "qs": [
+   "LeanSW 개발방법론"
+  ],
+  "i": 324,
+  "same": "린 (Lean) 방법론",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "품질 관리를 위한 QC 도구",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f02484"
+  ],
+  "qs": [
+   "품질 관리를 위한 QC 도구에 대해서 설명하시오."
+  ],
+  "i": 332,
+  "same": "품질통제도구, QC 7",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "소프트웨어 아키텍처 설계 절차",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f02976"
+  ],
+  "qs": [
+   "소프트웨어 아키텍처 설계 절차에 대해 설명하시오."
+  ],
+  "i": 351,
+  "same": "SW Architecture 구축 절차",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "Interactive Overview Diagram",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f03162"
+  ],
+  "qs": [
+   "UML2.0에 추가된 Interactive Overview Diagram에 대해서 설명하고, 상품주문에 대한 Interactive Overview Diagram을 작성하시오."
+  ],
+  "i": 358,
+  "same": "Interaction overview diagram",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "운영체제의 메모리 관리 기법 중 다음",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m03914"
+  ],
+  "qs": [
+   "운영체제의 메모리 관리 기법 중 다음에 대하여 설명하시오. …"
+  ],
+  "i": 373,
+  "same": "가상메모리의 페이징과 세그멘테이션",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "명세 기반 테스트(Specification Based Test)",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m04111"
+  ],
+  "qs": [
+   "명세기반테스트에 대해 설명하시오."
+  ],
+  "i": 377,
+  "same": "블랙박스 테스트",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "SW 영향평가제도",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m04292"
+  ],
+  "qs": [
+   "SW 영향평가제도"
+  ],
+  "i": 384,
+  "same": "소프트웨어사업 영향평가",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "하드웨어 규모 산정",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m04305"
+  ],
+  "qs": [
+   "하드웨어 규모 산정에 대해 다음 내용을 설명하시오. …"
+  ],
+  "i": 385,
+  "same": "정보시스템 하드웨어 규모산정 지침",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "구조 기반 테스트(Structure Based Test)",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "구조기반테스트",
+  "ids": [
+   "s41-12"
+  ],
+  "qs": [
+   "구조기반 테스트(Structure-based Test)를 설명하시오."
+  ],
+  "i": 424,
+  "same": "화이트박스 테스트",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "테스팅(KDT)",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "키워드 기반 테스팅",
+  "ids": [
+   "s41-27"
+  ],
+  "qs": [
+   "키워드 기반 테스팅(KDT)에 대해 설명하시오."
+  ],
+  "i": 425,
+  "same": "Keyword Driven Testing",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "테스트 커버리지(Test Coverage)",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "Test Coverage",
+  "ids": [
+   "m02965"
+  ],
+  "qs": [
+   "단위 테스트의 테스트 완료 검증 기준(test coverage)의 종류 대해 설명하고, 다음과 같은 코드의 선택조건(Decision Condition Coverage)를 만족시키는 테스트케이스를 테 …"
+  ],
+  "i": 441,
+  "same": "코드 커버리지(Code Coverage)",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "정보시스템유지관리사업 감리",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "정보시스템유지관리사업 감리",
+  "ids": [
+   "f00288"
+  ],
+  "qs": [
+   "정보시스템유지관리사업 감리"
+  ],
+  "i": 445,
+  "same": "정보시스템 운영/유지보수 감리",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "SW영향평가제",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "SW영향평가제",
+  "ids": [
+   "f02481"
+  ],
+  "qs": [
+   "SW영향평가제에 대해서 설명하시오."
+  ],
+  "i": 454,
+  "same": "소프트웨어사업 영향평가",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "커버리지(CC)",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "CC",
+  "ids": [
+   "f03568"
+  ],
+  "qs": [
+   "스마트카드의 보안위협과 그에 대한 CC보안요구사항에 대해서 설명하시오."
+  ],
+  "i": 457,
+  "same": "정보보호제품 평가·인증(CC 평가·인증) 제도",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "사용성 테스트(Usability Testing)",
+  "cat": "소프트웨어공학",
+  "n": 1,
+  "past": 0,
+  "legacy": "사용성 테스트",
+  "ids": [
+   "m04291"
+  ],
+  "qs": [
+   "사용성 테스트"
+  ],
+  "i": 462,
+  "same": "사용성 평가",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "EVA",
+  "cat": "프로젝트관리",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "s31-34"
+  ],
+  "qs": [
+   "EVA 개념도를 그리고, 설명하시오."
+  ],
+  "i": 467,
+  "same": "EVM(Earned Value Management, 획득 가치 관리)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "PMBOK 6th",
+  "cat": "프로젝트관리",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f01697"
+  ],
+  "qs": [
+   "PMBOK 6th 기반 리스크 관리 프로세스와 대응전략"
+  ],
+  "i": 484,
+  "same": "프로젝트 위험관리",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "PMBOK 7판",
+  "cat": "프로젝트관리",
+  "n": 1,
+  "past": 0,
+  "legacy": "PMBOK 7판",
+  "ids": [
+   "s31-49"
+  ],
+  "qs": [
+   "PMBOK 7판의 개념도와 구성요소의 8개 성과도메인을 설명하시오."
+  ],
+  "i": 499,
+  "same": "PMBOK 8개 성과 영역 및 프로젝트 관리 12원칙(PMBOK 7판)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "데이터베이스의 3단계 구조",
+  "cat": "데이터베이스",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "ns10w13-103"
+  ],
+  "qs": [
+   "데이터베이스의 3단계 구조"
+  ],
+  "i": 505,
+  "same": "ANSI/SPARC 모델(3-단계 데이터베이스 구조) / 데이터 독립성",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "분산 Database",
+  "cat": "데이터베이스",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "s82-10"
+  ],
+  "qs": [
+   "분산 Database 의 개념도, 기술요소, 5가지 투명성 보장 등을 설명하시오."
+  ],
+  "i": 508,
+  "same": "분산 DB",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "HW 용량산정",
+  "cat": "데이터베이스",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m03053"
+  ],
+  "qs": [
+   "HW 용량산정에 대해 다음을 설명하시오. …"
+  ],
+  "i": 532,
+  "same": "정보시스템 하드웨어 규모산정 지침",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "FIFO",
+  "cat": "데이터베이스",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f01638"
+  ],
+  "qs": [
+   "페이지 교체 기법 중 FIFO 페이지 교체 기법에 대해 설명하고 이때 발생하는 FIFO 이상현상(FIFO Anomaly)에 대해 설명하시오"
+  ],
+  "i": 543,
+  "same": "Belady's Anomaly(FIFO 이상현상)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "데이터베이스의 파티션 유형",
+  "cat": "데이터베이스",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f03013"
+  ],
+  "qs": [
+   "데이터베이스의 파티션 유형에 대하여 설명하시오."
+  ],
+  "i": 552,
+  "same": "데이터베이스 파티셔닝(Partitioning)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "정보시스템 용량산정",
+  "cat": "데이터베이스",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m04005"
+  ],
+  "qs": [
+   "정보시스템 용량산정"
+  ],
+  "i": 559,
+  "same": "정보시스템 하드웨어 규모산정 지침",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "DB인덱스",
+  "cat": "데이터베이스",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m04188"
+  ],
+  "qs": [
+   "DB인덱스의 개념, 인덱스 유형에 대해 설명하시오."
+  ],
+  "i": 565,
+  "same": "RDBMS 인덱스(index)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "RDBMS에서의 KEY",
+  "cat": "데이터베이스",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m05415"
+  ],
+  "qs": [
+   "RDBMS에서의 KEY의 종류"
+  ],
+  "i": 576,
+  "same": "릴레이션 키(key)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "AI 파운데이션.",
+  "cat": "인공지능",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m00710"
+  ],
+  "qs": [
+   "AI 파운데이션."
+  ],
+  "i": 609,
+  "same": "파운데이션 모델(Foundation Model)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "AEI",
+  "cat": "인공지능",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m00777"
+  ],
+  "qs": [
+   "인공지능과 감성을 결합한 AEI(Artificial Emotional Intelligence"
+  ],
+  "i": 610,
+  "same": "정서 인공지능(Affective AI)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "인공지능을 활용한 보안위협",
+  "cat": "인공지능",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m01351"
+  ],
+  "qs": [
+   "인공지능을 활용한 보안위협"
+  ],
+  "i": 615,
+  "same": "오펜시브 AI(Offensive AI)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "BMI(Brain-Machine Interface)",
+  "cat": "인공지능",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f02055"
+  ],
+  "qs": [
+   "BMI(Brain-Machine Interface)에 대해서 설명하시오."
+  ],
+  "i": 655,
+  "same": "BCI(Brain Computer Interface)",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "Vertical LLM",
+  "cat": "인공지능",
+  "n": 1,
+  "past": 0,
+  "legacy": "Vertical LLM",
+  "ids": [
+   "f00348"
+  ],
+  "qs": [
+   "Vertical LLM"
+  ],
+  "i": 676,
+  "same": "도메인 특화 언어 모델(Domain-Specific Language Model)",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "OWASP Top 10 for LLM",
+  "cat": "인공지능",
+  "n": 1,
+  "past": 0,
+  "legacy": "OWASP Top 10 for LLM (2025)",
+  "ids": [
+   "f00404"
+  ],
+  "qs": [
+   "OWASP Top 10 for LLM Applications 2025"
+  ],
+  "i": 677,
+  "same": "OWASP Top 10 for LLM Application 2025",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "스마트카의 보안 취약점",
+  "cat": "보안",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m01994"
+  ],
+  "qs": [
+   "스마트카의 보안 취약점에 대해 설명하시오."
+  ],
+  "i": 708,
+  "same": "자율주행 자동차 보안취약점 및 대응방안",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "정보보호제품 평가･인증",
+  "cat": "보안",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f01166"
+  ],
+  "qs": [
+   "정보보호제품 평가･인증"
+  ],
+  "i": 739,
+  "same": "정보보호제품 평가·인증(CC 평가·인증) 제도",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "사이버 보안 오케스트레이션",
+  "cat": "보안",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f01200"
+  ],
+  "qs": [
+   "사이버 보안 오케스트레이션"
+  ],
+  "i": 740,
+  "same": "SOAR",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "자율주행자의 보안위협",
+  "cat": "보안",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f01901"
+  ],
+  "qs": [
+   "자율주행자의 보안위협에 대해 설명하시오"
+  ],
+  "i": 749,
+  "same": "자율주행 자동차 보안취약점 및 대응방안",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "블록 암호 운용 방식",
+  "cat": "보안",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m04693"
+  ],
+  "qs": [
+   "블록 암호 운용 방식의 유형에 대해 설명하시오."
+  ],
+  "i": 780,
+  "same": "블록 암호 운영 모드(ECB·CBC·CTR)",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "다층보안체계(Multi Level Security)",
+  "cat": "보안",
+  "n": 1,
+  "past": 0,
+  "legacy": "다층보안체계(Multi Level Security)",
+  "ids": [
+   "f00454"
+  ],
+  "qs": [
+   "국가 망보안 정책의 다층보안체계(Multi Level Security)"
+  ],
+  "i": 805,
+  "same": "국가 망 보안체계(N2SF)",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "파일 접근제어(Access control)",
+  "cat": "보안",
+  "n": 1,
+  "past": 0,
+  "legacy": "접근제어",
+  "ids": [
+   "m05454"
+  ],
+  "qs": [
+   "접근통제"
+  ],
+  "i": 808,
+  "same": "접근 제어/접근 통제(Access Control)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "지적재산권(Intellectual Property)",
+  "cat": "경영전략",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f03620"
+  ],
+  "qs": [
+   "기업의 핵심 기술유출에 따른 지적재산권의 중요성이 국가적으로 이슈화되고 있다. 지적재산권(IP, Intellectual Property)의 개념과 특허괴물(Patent Troll)의 종류, Busi"
+  ],
+  "i": 877,
+  "same": "지식재산권",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "자율주행 단계(SAE J3016)",
+  "cat": "디지털서비스",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m00836"
+  ],
+  "qs": [
+   "자율주행 단계(SAE J3016)에 대해 설명하시오."
+  ],
+  "i": 916,
+  "same": "자율주행자동차의 자율주행기술 단계 및 핵심기술",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "가상화 기술 컨테이너",
+  "cat": "디지털서비스",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m01417"
+  ],
+  "qs": [
+   "가상화 기술 컨테이너"
+  ],
+  "i": 918,
+  "same": "리눅스 컨테이너(Linux Container, LXC)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "클라우드 컴퓨팅의 서비스 전달방식",
+  "cat": "디지털서비스",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m02739"
+  ],
+  "qs": [
+   "클라우드 컴퓨팅의 서비스 전달방식에 대해서 설명하시오."
+  ],
+  "i": 936,
+  "same": "IaaS·PaaS·SaaS",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "클라우드 기반 기지국",
+  "cat": "디지털서비스",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m03285"
+  ],
+  "qs": [
+   "클라우드 기반 기지국에 대해 설명하시오 ."
+  ],
+  "i": 943,
+  "same": "C-RAN(Centralized / Cloud RAN)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "더불어 AR(Augmented Realization)",
+  "cat": "디지털서비스",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m03492"
+  ],
+  "qs": [
+   "최근 스마트폰의 보급과 더불어 AR(Augmented Realization)이 많은 관심을받고 있다. AR의 개념 및 응용분야와 과제를 기술하고 바람직한 Bussiness 모델을제시하시오."
+  ],
+  "i": 945,
+  "same": "VR·AR·XR(가상·증강·확장현실)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "자율주행자동차",
+  "cat": "디지털서비스",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f02764"
+  ],
+  "qs": [
+   "자율주행자동차에 대하여 설명하시오."
+  ],
+  "i": 982,
+  "same": "자율주행자동차의 자율주행기술 단계 및 핵심기술",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "저전력을 위한 인메모리 컴퓨팅 기술",
+  "cat": "디지털서비스",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m03845"
+  ],
+  "qs": [
+   "저전력을 위한 인메모리 컴퓨팅 기술에 대해 설명하고, 폰노이만 컴퓨팅 구조와 비교하여 설명하시오."
+  ],
+  "i": 1008,
+  "same": "PIM(Processing in Memory)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "k8s",
+  "cat": "디지털서비스",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m03896"
+  ],
+  "qs": [
+   "k8s"
+  ],
+  "i": 1010,
+  "same": "쿠버네티스(Kubernetes)",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "전환(DX)",
+  "cat": "디지털서비스",
+  "n": 1,
+  "past": 0,
+  "legacy": "디지털 전환(DX)",
+  "ids": [
+   "s21-51"
+  ],
+  "qs": [
+   "디지털 전환(DX)을 설명하시오."
+  ],
+  "i": 1041,
+  "same": "디지털 트랜스포메이션(Digital Transformation)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "EDW",
+  "cat": "",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m05424"
+  ],
+  "qs": [
+   "EDW의 구축방법과 활용분야에 대해 설명하시오."
+  ],
+  "i": 1154,
+  "same": "데이터 웨어하우스(Data Warehouse)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "부호화(EnCoding)",
+  "cat": "",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f03872"
+  ],
+  "qs": [
+   "데이터 전송을 위해 데이터 변환에 적용되는 부호화(EnCoding)의 종류를 …"
+  ],
+  "i": 1169,
+  "same": "전송부호화(소스 코딩, 채널 코딩, 라인 코딩)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "ISO/IEC TR 29119-11:2020",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m00658"
+  ],
+  "qs": [
+   "ISO/IEC TR 29119-11:2020를 설명하시오."
+  ],
+  "i": 1225,
+  "same": "ISO 29119-11",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "중심극한의 정리",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m00676"
+  ],
+  "qs": [
+   "중심극한의 정리에 대해서 설명하고, 아래의 사례에 대해 가설을 검증하시오. …"
+  ],
+  "i": 1226,
+  "same": "중심극한정리",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "데이터 분석 성숙도 단계",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m00870"
+  ],
+  "qs": [
+   "데이터 분석 성숙도 단계"
+  ],
+  "i": 1242,
+  "same": "데이터 분석 준비도와 데이터 분석 성숙도",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "로드밸런서(Load Balancer)",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m01144"
+  ],
+  "qs": [
+   "로드밸런서(Load Balancer)에 대해 설명하시오."
+  ],
+  "i": 1256,
+  "same": "로드 밸런싱(Load Balancing)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "소프트웨어 테스팅 원리",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m01357"
+  ],
+  "qs": [
+   "소프트웨어 테스팅 원리"
+  ],
+  "i": 1263,
+  "same": "테스트 원리",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "준비도(Readiness)",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m01365"
+  ],
+  "qs": [
+   "데이터를 어떻게 분석 및 활용하느냐가 기업의 경쟁력을 좌우하고 있으며, 기업들은 데이터 분석 수준 진단을 통해 데이터 분석의 도입여부와 활용에 대한 명확한 방향성 등을 결정할 수 있다. 데이터 분석"
+  ],
+  "i": 1264,
+  "same": "데이터 분석 준비도와 데이터 분석 성숙도",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "Risk Based Test Management",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m01623"
+  ],
+  "qs": [
+   "Risk Based Test Management 에 대해 설명하시오."
+  ],
+  "i": 1277,
+  "same": "위험 기반 테스트",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "ISO 15408",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m01690"
+  ],
+  "qs": [
+   "ISO 15408에 대해서 설명하시오."
+  ],
+  "i": 1281,
+  "same": "정보보호제품 평가·인증(CC 평가·인증) 제도",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "Bayes Rule",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m01754"
+  ],
+  "qs": [
+   "Bayes Rule을 설명하고, 아래 제시된 문제를 풀이하시오. …"
+  ],
+  "i": 1285,
+  "same": "베이즈 정리(Bayes's theorem)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "증강현실(AR)",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m01825"
+  ],
+  "qs": [
+   "AR, VR, MR 개념, 주요 요소 기술 및 활용분야에 대해서 설명하시오."
+  ],
+  "i": 1291,
+  "same": "VR·AR·XR(가상·증강·확장현실)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "병렬정합(Merged Sort)",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m01920"
+  ],
+  "qs": [
+   "병렬정합(Merged Sort)의 개념에 대해 설명하고, 아래 주어진 데이터 셋에 대한 정렬과정을 기술하시오. …"
+  ],
+  "i": 1295,
+  "same": "병합 정렬(Merge Sort)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "OOP 5 원칙",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m02260"
+  ],
+  "qs": [
+   "OOP 5 원칙에 대해 설명하시오."
+  ],
+  "i": 1318,
+  "same": "SOLID 원칙",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "BCG 매트릭스",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m02564"
+  ],
+  "qs": [
+   "BCG 매트릭스"
+  ],
+  "i": 1340,
+  "same": "BCG Matrix",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "소프트웨어 공학에 린 제조업",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m02785"
+  ],
+  "qs": [
+   "소프트웨어 공학에 린 제조업의 원리를 적용시킨 린 소프트웨어 개발 기법에 대해 설명하시오."
+  ],
+  "i": 1353,
+  "same": "린 (Lean) 방법론",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "소프트웨어 대가 산정 가이드",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m02799"
+  ],
+  "qs": [
+   "소프트웨어 대가 산정 가이드에 대해 설명하시오."
+  ],
+  "i": 1354,
+  "same": "SW 사업대가 ('25년 개정판)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "명세기반의 Test 기법",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m03381"
+  ],
+  "qs": [
+   "명세기반의 Test 기법에 대해 설명하시오."
+  ],
+  "i": 1403,
+  "same": "블랙박스 테스트",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "Identity Access Management",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m03683"
+  ],
+  "qs": [
+   "Identity Access Management 에 대해 설명하시오."
+  ],
+  "i": 1430,
+  "same": "IAM(Identity and Access Management)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "월드 모델(World Model)",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f00044"
+  ],
+  "qs": [
+   "월드 모델(World Model)"
+  ],
+  "i": 1435,
+  "same": "월드 파운데이션 모델(World Foundation Model)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "SAGA Pattern",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f00073"
+  ],
+  "qs": [
+   "분산 시스템 환경에서 적용되는 SAGA Pattern의 처리 절차"
+  ],
+  "i": 1437,
+  "same": "SAGA패턴",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "간헐적 컴퓨팅 시스템",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f00272"
+  ],
+  "qs": [
+   "간헐적 컴퓨팅 시스템"
+  ],
+  "i": 1455,
+  "same": "인터미턴트 컴퓨팅(Intermittent Computing)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "DB 모델링 절차",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f00665"
+  ],
+  "qs": [
+   "DB 모델링 절차"
+  ],
+  "i": 1471,
+  "same": "데이터베이스 모델링",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "IEC 15408",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f01574"
+  ],
+  "qs": [
+   "ISO/IEC 15408 설명하시오."
+  ],
+  "i": 1520,
+  "same": "정보보호제품 평가·인증(CC 평가·인증) 제도",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "RMS",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f01841"
+  ],
+  "qs": [
+   "다음 사례를 보고 RMS 적용해 간트 차트를 그리시오(시간은 초로 계산하고, 전체 10초까지만 차트를 그리시오) …"
+  ],
+  "i": 1537,
+  "same": "RM·EDF(실시간 스케줄링)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "Keyword Dirven Testing",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f01919"
+  ],
+  "qs": [
+   "Keyword Dirven Testing"
+  ],
+  "i": 1546,
+  "same": "Keyword Driven Testing",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "시큐어 OS",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f02266"
+  ],
+  "qs": [
+   "시큐어 OS에 대하여 설명하시오."
+  ],
+  "i": 1582,
+  "same": "Secure OS(보안 운영체제)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "마이크로서비스(Microservice)",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f02269"
+  ],
+  "qs": [
+   "마이크로 서비스에 대해 설명하시오."
+  ],
+  "i": 1584,
+  "same": "MSA (Micro Service Architecture)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "CAP 정리",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f02477"
+  ],
+  "qs": [
+   "CAP 정리에 대해서 설명하시오"
+  ],
+  "i": 1604,
+  "same": "CAP 이론과 BASE 이론",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "Fuzz테스팅",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f02494"
+  ],
+  "qs": [
+   "Fuzz테스팅에 대하여 설명하시오.."
+  ],
+  "i": 1606,
+  "same": "퍼징 테스트 (Fuzzing Test)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "마이크로서비스 아키텍쳐",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f02517"
+  ],
+  "qs": [
+   "마이크로서비스 아키텍쳐에 대하여 설명하시오."
+  ],
+  "i": 1608,
+  "same": "MSA (Micro Service Architecture)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "WPT(Wireless Power Transfer)",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f02601"
+  ],
+  "qs": [
+   "WPT(Wireless Power Transfer)에 대해 설명하시오."
+  ],
+  "i": 1615,
+  "same": "무선 충전 기술",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "탐험적 테스팅",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f02672"
+  ],
+  "qs": [
+   "탐험적 테스팅에 대하여 설명하시오"
+  ],
+  "i": 1618,
+  "same": "탐색적 테스트",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "HW규모산정방식",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f02917"
+  ],
+  "qs": [
+   "HW규모산정방식의 개념과 주요 규모산정방식을 비교하시오."
+  ],
+  "i": 1646,
+  "same": "정보시스템 하드웨어 규모산정 지침",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "CI(Continous Integration)",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f03019"
+  ],
+  "qs": [
+   "CI (Continous Integration)에 대하여 설명하시오"
+  ],
+  "i": 1654,
+  "same": "CI/CD",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "리버스 엔지니어링",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f03146"
+  ],
+  "qs": [
+   "리버스 엔지니어링의 개념과 더불어 순기능과 역기능"
+  ],
+  "i": 1670,
+  "same": "재공학·역공학",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "컴플라이언스(Compliance)",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f03169"
+  ],
+  "qs": [
+   "IT 컴플라이언스"
+  ],
+  "i": 1675,
+  "same": "IT-Compliance",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "Hashing Algorithm",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f03285"
+  ],
+  "qs": [
+   "Hashing Algorithm을 설명하시오."
+  ],
+  "i": 1688,
+  "same": "해싱과 충돌해결방법",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "FTS(Fault Tolerrant System)",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m03920"
+  ],
+  "qs": [
+   "FTS(Fault Tolerrant System)"
+  ],
+  "i": 1739,
+  "same": "결함허용 컴퓨터(FTS)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "Project Risk Management",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m04324"
+  ],
+  "qs": [
+   "Project Risk Management"
+  ],
+  "i": 1747,
+  "same": "프로젝트 위험관리",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "ISO/IEC 15408",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m04867"
+  ],
+  "qs": [
+   "ISO/IEC 15408에 대하여 설명하시오."
+  ],
+  "i": 1762,
+  "same": "정보보호제품 평가·인증(CC 평가·인증) 제도",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "DataBase에서 TimeStamp기법",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "m05490"
+  ],
+  "qs": [
+   "DataBase에서 TimeStamp기법을 설명하시오."
+  ],
+  "i": 1793,
+  "same": "타임스탬프 순서 기법(Timestamp Ordering)",
+  "round": 2
+ },
+ {
+  "kind": "none",
+  "name": "HW규모산정",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "",
+  "ids": [
+   "f04017"
+  ],
+  "qs": [
+   "HW규모산정의 개념과 주요 규모산정방식을 비교하여 설명하시오"
+  ],
+  "i": 1803,
+  "same": "정보시스템 하드웨어 규모산정 지침",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "파티셔닝(Partitioning)",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "DB Table Partitioning(파티셔닝)",
+  "ids": [
+   "m02407"
+  ],
+  "qs": [
+   "DB 테이블 파티셔닝의 정의와 기법에 대해 설명하시오."
+  ],
+  "i": 1811,
+  "same": "데이터베이스 파티셔닝(Partitioning)",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "알고리즘",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "빅데이터 분석 기법(알고리즘)",
+  "ids": [
+   "m02900"
+  ],
+  "qs": [
+   "알고리즘과 관련하여 점근적 표기법의 개념과 종류를 설명하시오."
+  ],
+  "i": 1812,
+  "same": "빅오 표기법(O-Notation)",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "혼잡제어(Congestion Control)",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "혼잡 제어",
+  "ids": [
+   "f01376"
+  ],
+  "qs": [
+   "혼잡제어(Congestion Control)"
+  ],
+  "i": 1823,
+  "same": "TCP 혼잡제어",
+  "round": 2
+ },
+ {
+  "kind": "legacy",
+  "name": "퍼즈 테스트(Fuzz Test)",
+  "cat": "신기술",
+  "n": 1,
+  "past": 0,
+  "legacy": "퍼즈 테스트",
+  "ids": [
+   "m03942"
+  ],
+  "qs": [
+   "퍼즈 테스트(Fuzz Test)"
+  ],
+  "i": 1837,
+  "same": "퍼징 테스트 (Fuzzing Test)",
+  "round": 2
  }
 ]

@@ -25,6 +25,7 @@ import { TopicNav } from "./TopicNav";
 import { HANGUL_NO, LevelBadge } from "./explainBits";
 import { HistChips, MineChip, TopicBrowser, numbered } from "./TopicBrowser";
 import { LegacyTemplate } from "./LegacyTemplate";
+import { ExamNoteCard } from "./ExamNoteCard";
 
 /**
  * 토픽 설명 화면(클라이언트).
@@ -425,6 +426,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
         {/* 예전 토픽 답안지 템플릿 — 교재 서브노트가 없어도 같은 시험지 형식으로 보여준다.
             정의는 커널 카드의 답안 한 줄(guide.exam)을 최우선, 개념도는 검증된 conceptMap 렌더. */}
         {legacy && <LegacyTemplate legacy={legacy} intro={intro} extra={extra} />}
+        {data?.examNote && <ExamNoteCard title={cur} note={data.examNote} />}
 
         {/* 내 정리 — 손으로 정리한 공책·내 답안지에서 이 토픽 문항을 잘라 붙인 것. 답안지 템플릿 바로 아래(2026-10-20 "내 정리를 답안지 템플릿 밑으로") */}
         <MyNotes key={cur} items={data?.myNotes ?? []} />
@@ -600,7 +602,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
         {data?.nav && <TopicNav nav={data.nav} onGo={goTopic} where="bottom" />}
 
         {/* 어떤 자료도 못 찾은 경우 — AI를 부르지 않고 상황만 안내한다 */}
-        {cur && !textbook && !legacy && !extra?.image && !data?.sub && (
+        {cur && !textbook && !legacy && !extra?.image && !data?.sub && !data?.examNote && (
           <p className="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-500">
             “{cur}” 은 교재에 쪽이 없는 토픽이라 정리한 내용(정의·표·답안지 템플릿)이 아직 없어요. 이 화면에는 이 이름으로 걸리는 출제
             문항과 모범답안·해설집만 모입니다.

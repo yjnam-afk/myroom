@@ -49,6 +49,7 @@ import { DOMAIN_LABEL } from "@/lib/domains";
 import { planInfo } from "@/lib/studyPlan";
 import { courseOf, courseSubnotesInOrder } from "@/lib/courseOrder";
 import { twinOf } from "@/data/twinTopics";
+import { examNoteFor, type ExamNote } from "@/data/examNotes";
 import { subTopicByName, subTopicsOf, type SubTopic } from "@/data/subTopics";
 import { subCardsFor, subDefFor } from "@/lib/subCards";
 import { looseKey as normT, bareKey as bareT } from "@/lib/titleNorm";
@@ -120,6 +121,8 @@ export type ExplainTopicData = {
   gloss?: Gloss;
   legacy?: LegacyCard;
   intro?: AnswerIntro;
+  /** 교재 밖 토픽 — 해설집에서 옮긴 정리(교재·기필반 자료가 없을 때만) */
+  examNote?: ExamNote;
   peers: PeerAnswer[];
   /** 내가 손으로 정리한 노트(myNotes) — 답안지 템플릿 아래 「📝 내 정리」 */
   myNotes: MyNote[];
@@ -305,6 +308,7 @@ export function explainTopicData(rawTitle: string): ExplainTopicData {
     gloss: glossFor(textbook),
     legacy,
     intro,
+    examNote: !textbook && !subTopicByName(title) ? examNoteFor(title) : undefined,
     peers: subTopicByName(title) ? subPeers(subTopicByName(title)!) : peersFor(title, textbook?.title),
     myNotes: (() => {
       // 예전 토픽 이름으로 열어도 화면이 보여 주는 교재 서브노트에 붙은 정리를 함께 건다(peersFor 와 같은 이유)

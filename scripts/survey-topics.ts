@@ -227,6 +227,8 @@ if (process.argv[2]) {
       counts: { topics: list.length, legacy: L.length, none: N.length, noneOnce: N.filter((x) => !keep(x)).length, legacyOnce: L.filter((x) => !keep(x)).length },
       none: N.filter(keep).map(slim),
       legacy: L.filter(keep).map(slim),
+      // 한 번만 나온 모의 주제 — 지도에 넣을 때만 뽑는다(SURVEY_ONCE=1)
+      ...(process.env.SURVEY_ONCE ? { noneOnce: N.filter((x) => !keep(x)).map(slim), legacyOnce: L.filter((x) => !keep(x)).map(slim) } : {}),
       noName: noName.filter(isPast).map((r) => ({ id: r.q.id, src: r.q.source || r.src, text: r.q.text.split("\n")[0].slice(0, 110) })),
     }),
   );
