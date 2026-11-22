@@ -49,6 +49,7 @@ export default function RootLayout({
               <Link href="/sheet" className="shrink-0 hover:text-brand-600">📋 정리표</Link>
               <Link href="/basics" className="shrink-0 hover:text-brand-600">🧱 용어사전</Link>
               <Link href="/commute" className="shrink-0 hover:text-brand-600">🚇 지하철</Link>
+              <Link href="/drill" className="shrink-0 hover:text-brand-600">✏️ 암기 연습</Link>
               <Link href="/exam" className="shrink-0 hover:text-brand-600">📝 기출문제</Link>
               <Link href="/bank" className="shrink-0 hover:text-brand-600">🏦 문제은행</Link>
               <Link href="/map" className="shrink-0 hover:text-brand-600">🗺️ 토픽지도</Link>
