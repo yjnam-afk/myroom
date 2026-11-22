@@ -38,7 +38,7 @@ export function ExamNoteCard({ title, note }: { title: string; note: ExamNote })
           <div key={i}>
             <p className="mb-1 text-[14px] font-bold text-slate-900">{t.caption}</p>
             <div className="overflow-x-auto rounded-xl border border-slate-200">
-              <table className="w-full min-w-[420px] border-collapse text-left text-[13.5px] leading-6">
+              <table className="w-full border-collapse text-left text-[13.5px] leading-6 sm:min-w-[420px]">
                 <thead className="bg-slate-50 text-slate-600">
                   <tr>
                     {t.headers.map((h, k) => (
@@ -52,7 +52,7 @@ export function ExamNoteCard({ title, note }: { title: string; note: ExamNote })
                   {t.rows.map((r, k) => (
                     <tr key={k} className="border-t border-slate-100 align-top">
                       {r.map((c, m) => (
-                        <td key={m} className={`whitespace-pre-line px-2.5 py-1.5 ${m === 0 ? "font-semibold text-slate-900" : "text-slate-700"}`}>
+                        <td key={m} className={`whitespace-pre-line break-words px-2 py-1.5 sm:px-2.5 ${m === 0 ? "font-semibold text-slate-900" : "text-slate-700"}`}>
                           {c}
                         </td>
                       ))}
