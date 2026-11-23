@@ -3,6 +3,7 @@
  * 2026-11-23 "정리된 토픽 데이터 전체(전 도메인)를 하나의 마크다운 파일로 내보내 줘".
  *
  *   npx tsx scripts/export-topic-db.ts [out.md]
+ *   npx tsx scripts/export-topic-db.ts <폴더> --by-domain   — 도메인마다 토픽DB_{코드}.md, 교재 토픽만(2026-11-23 요청)
  *
  * 토픽마다: 토픽명 · 도메인 · 교재 정의(원문, **굵게** = 교재 강조어) · 정의 핵심 키워드 3개 · 구성요소/프로세스 키워드 ·
  * 출제 이력(기출·NS·모의) · 같이 비교되는 토픽. 데이터에 없는 칸은 「없음」 — 지어 넣지 않는다.
@@ -170,7 +171,17 @@ function compares(t: Topic): string[] {
 // ── 쓰기 ──
 const NONE = "없음";
 const LABEL: Record<string, string> = Object.fromEntries(DOMAINS.map((d) => [d.code, d.label]));
-const lines: string[] = [];
+const HEAD_NOTES = [
+  "- 교재 정의는 서브노트 원문 그대로다. **굵은 글씨**는 교재에서 색으로 강조된 채점 키워드다.",
+  "- 정의 핵심 키워드: 정의 속 굵은 말 → 교재 키워드 중 정의 문장에 그대로 든 말, 차례대로 3개(모자라면 있는 만큼).",
+  "- 구성요소·프로세스: 교재 표(캡션에 구성·요소·절차·단계·유형 등이 든 표)의 이름 칸. 「캡션: 항목, 항목」 꼴.",
+  "- 출제 이력: 사이트 토픽 화면과 같은 제목 매칭. 기출 = 정보관리(회·교시·번호), 「컴시응」 = 컴퓨터시스템응용. NS = 주간 모의고사. 모의 = ITPE·KPC 모의고사·파이널·셀테.",
+  "  제목 열쇠로 찾은 것이라 지문에 토픽 이름이 지나가듯 나온 문항도 들어 있다.",
+  "- 같이 비교되는 토픽: 문제 문장에 「비교·차이·vs」가 든 문항에 함께 걸린 토픽(괄호 = 그런 문항 수), 교재 정의가 개념별로 나뉜 짝, 사실상 같은 토픽.",
+  "- 도메인 안 차례: 기출 횟수 많은 순 → 같으면 전체 출제 횟수 많은 순.",
+];
+let lines: string[] = [];
+const BY_DOMAIN = process.argv.includes("--by-domain");
 const total = (h: Hist) => h.past.length + h.ns.length + h.mock.length;
 const counts = { 교재: 0, "교재 밖": 0 };
 
@@ -178,13 +189,7 @@ lines.push("# 정보관리기술사 전 도메인 토픽 DB");
 lines.push("");
 lines.push(`- 만든 날: ${new Date().toISOString().slice(0, 10)} · 출처: myroom 학습 사이트 데이터(교재 서브노트 · 문제은행 · 해설집 정리 · 토픽 지도)`);
 lines.push("- 교재 토픽 = 심화반 교재 서브노트가 있는 토픽. 교재 밖 토픽 = 기출·모의고사에 나왔지만 교재에 없는 주제(토픽 지도의 노란 칩).");
-lines.push("- 교재 정의는 서브노트 원문 그대로다. **굵은 글씨**는 교재에서 색으로 강조된 채점 키워드다.");
-lines.push("- 정의 핵심 키워드: 정의 속 굵은 말 → 교재 키워드 중 정의 문장에 그대로 든 말, 차례대로 3개(모자라면 있는 만큼).");
-lines.push("- 구성요소·프로세스: 교재 표(캡션에 구성·요소·절차·단계·유형 등이 든 표)의 이름 칸. 「캡션: 항목, 항목」 꼴.");
-lines.push("- 출제 이력: 사이트 토픽 화면과 같은 제목 매칭. 기출 = 정보관리(회·교시·번호), 「컴시응」 = 컴퓨터시스템응용. NS = 주간 모의고사. 모의 = ITPE·KPC 모의고사·파이널·셀테.");
-lines.push("  제목 열쇠로 찾은 것이라 지문에 토픽 이름이 지나가듯 나온 문항도 들어 있다.");
-lines.push("- 같이 비교되는 토픽: 문제 문장에 「비교·차이·vs」가 든 문항에 함께 걸린 토픽(괄호 = 그런 문항 수), 교재 정의가 개념별로 나뉜 짝, 사실상 같은 토픽.");
-lines.push("- 도메인 안 차례: 기출 횟수 많은 순 → 같으면 전체 출제 횟수 많은 순.");
+for (const l of HEAD_NOTES) lines.push(l);
 lines.push("- 데이터에 없는 칸은 「없음」. 교재 밖 토픽의 「참고」 줄은 해설집에서 옮긴 정리나 예전(기필반) 자료이고 출처를 적었다(교재 정의가 아니다).");
 lines.push("");
 
@@ -197,7 +202,19 @@ for (const { d, items } of byDomain) {
 }
 lines.push("");
 
-for (const { d, items } of byDomain) {
+const written: string[] = [];
+for (const { d, items: allItems } of byDomain) {
+  const items = BY_DOMAIN ? allItems.filter((t) => t.kind === "교재") : allItems;
+  if (BY_DOMAIN) {
+    lines = [
+      `# 정보관리기술사 ${d.label}(${d.code}) 토픽 DB — 교재 토픽 ${items.length}개`,
+      "",
+      `- 만든 날: ${new Date().toISOString().slice(0, 10)} · 출처: myroom 학습 사이트 데이터(교재 서브노트 · 문제은행)`,
+      "- 교재 토픽만 담았다(심화반 교재 서브노트가 있는 토픽). 교재 밖 토픽은 기술사_전도메인_토픽DB.md 에 있다.",
+      ...HEAD_NOTES,
+      "",
+    ];
+  }
   items.sort((a, b) => {
     const ha = hist(a.name), hb = hist(b.name);
     return hb.past.length - ha.past.length || total(hb) - total(ha) || (a.kind === "교재" ? -1 : 1) - (b.kind === "교재" ? -1 : 1);
@@ -251,7 +268,17 @@ for (const { d, items } of byDomain) {
     lines.push(`- **같이 비교되는 토픽**: ${c.length ? c.join(" · ") : NONE}`);
     lines.push("");
   }
+  if (BY_DOMAIN) {
+    fs.mkdirSync(OUT, { recursive: true });
+    const f = `${OUT}/토픽DB_${d.code}.md`;
+    fs.writeFileSync(f, lines.join("\n"));
+    written.push(`${f} ${items.length}`);
+  }
 }
 
+if (BY_DOMAIN) {
+  console.log(written.join("\n"));
+  process.exit(0);
+}
 fs.writeFileSync(OUT, lines.join("\n"));
 console.log(`${OUT} — 교재 토픽 ${counts["교재"]} · 교재 밖 토픽 ${counts["교재 밖"]} · ${(fs.statSync(OUT).size / 1e6).toFixed(1)}MB`);
