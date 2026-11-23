@@ -18,6 +18,11 @@ import { FRAME_BY_CODE, frameOf } from "@/data/answerFrames";
 import { conclusionFor } from "@/data/answerConclusions";
 import { readFlow } from "@/lib/readFlow";
 import { memoCardFor } from "@/lib/memoCard";
+import EXTRAS from "@/data/drillExtras.json";
+
+/** 교재에 장단점·적용 사례가 없는 토픽에 해설집에서 옮긴 것(data/drillExtras.json — 해설에 인쇄된 항목만) */
+type DrillExtra = { pros?: Record<string, string[]>; uses?: string[]; source: { answerId: string; exam: string } };
+const EXTRA = EXTRAS as Record<string, DrillExtra>;
 
 export type DrillSlot = { label?: string; items: string[] };
 export type DrillCard = {
@@ -42,6 +47,8 @@ export type DrillCard = {
   pros: DrillSlot[];
   /** 적용 사례 — 교재 표(활용·적용·사례)와 답안 틀의 3단락 대상 */
   uses: DrillSlot[];
+  /** 장단점·적용 사례를 교재가 아니라 해설집에서 옮겼으면 그 해설집 이름 */
+  extraFrom?: string;
   /** 핵심 키워드 5~7개 — 교재 키워드 차례대로 */
   keywords: string[];
   mnemonic: string;
@@ -123,6 +130,18 @@ export function drillCards(code: string): DrillCard[] {
     const fr = frameOf(b.title);
     const g = fr ? FRAME_BY_CODE[fr.group] : undefined;
     const uses = [...s.uses];
+    const pros = [...s.pros];
+    // 교재에 없는 칸만 해설집에서 옮긴 것으로 채운다(교재에 있으면 교재가 먼저다)
+    const ex = EXTRA[b.title];
+    let extraFrom: string | undefined;
+    if (ex?.pros && !pros.length) {
+      for (const [label, items] of Object.entries(ex.pros)) if (items.length) pros.push({ label: `${label}(해설집)`, items });
+      if (pros.length) extraFrom = ex.source.exam;
+    }
+    if (ex?.uses?.length && !uses.length) {
+      uses.push({ label: "해설집", items: ex.uses });
+      extraFrom = ex.source.exam;
+    }
     // 답안 틀의 3단락(차별화) — 유형과 대상. 교재 밖 수치·사례가 아니라 「무엇과 이어 쓸지」의 후보다
     if (fr?.target) uses.push({ label: `3단락 ${fr.type}`, items: fr.target.split(/\s*[·,/]\s*/).filter(Boolean) });
     const conc = conclusionFor(b.title);
@@ -145,8 +164,9 @@ export function drillCards(code: string): DrillCard[] {
       parts: s.parts,
       partsFrom: s.partsFrom,
       features: b.features,
-      pros: s.pros,
+      pros,
       uses,
+      extraFrom,
       keywords: (sub?.keywords ?? []).map(one).filter(Boolean).slice(0, 7),
       mnemonic: memo.mnemonic,
       frame: fr && g ? { code: g.code, name: g.name, fixed: g.fixed, slot: fr.slot } : undefined,

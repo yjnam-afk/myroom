@@ -391,7 +391,7 @@ const SURVEY_ALIASES_2: Record<string, string[]> = {
   "선점형·비선점형 스케줄링": ["선점형CPU 스케쥴링", "선점형 CPU 스케줄링"],
   "Pipeline Hazard": ["파이프라인 성능을 저해하는 해저드", "파이프라인 해저드"],
   "뉴로모픽 반도체": ["Neuromorphic Chip", "신경모방 칩"],
-  "가상메모리의 페이징과 세그멘테이션": ["메모리 페이징"],
+  "가상메모리의 페이징과 세그멘테이션": ["메모리 페이징", "페이징 기법"],
   "MDM(Master Data Management)": ["기준정보(Master Data)", "Master Data"],
   "네트워크 지능": ["지능형 네트워크"],
   "무선 충전 기술": ["무선 에너지 전송", "WPT", "Wireless Power Transfer"],
@@ -470,6 +470,8 @@ const SURVEY_ALIASES_2: Record<string, string[]> = {
   "타임스탬프 순서 기법(Timestamp Ordering)": ["TimeStamp기법", "타임스탬프 기법"],
   "빅오 표기법(O-Notation)": ["점근적 표기법", "점근 표기법"],
   "TCP 혼잡제어": ["Congestion Control"],
+  // 2026-11-22 지도 전수 검수에서 교재 토픽과 같은 개념으로 본 것
+  "GS 인증": ["소프트웨어 품질인증"],
 };
 for (const [t, a] of Object.entries(SURVEY_ALIASES_2)) TOPIC_ALIASES[t] = [...(TOPIC_ALIASES[t] ?? []), ...a];
 

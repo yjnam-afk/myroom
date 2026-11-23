@@ -101,6 +101,7 @@ function Card({ c, code }: { c: DrillCard; code: string }) {
                 </Row>
                 <Row k="적용 사례">
                   <Slots slots={c.uses} />
+                  {c.extraFrom && <p className="text-[11px] text-slate-400">「(해설집)」 표시는 교재에 없어 {c.extraFrom.replace(/\s*\(.*$/, "")}에서 옮긴 것</p>}
                 </Row>
               </div>
             </Step>
