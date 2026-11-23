@@ -4,7 +4,6 @@
  *   npx tsx scripts/export-topic-db.ts <폴더>
  *     → <폴더>/토픽DB_{코드}_{NN}.md   (파일 하나에 토픽 15개 이하 · 40KB 이하, 도메인 안은 기출 많은 순)
  *       <폴더>/토픽DB_{코드}_목차.md    (토픽명 · 기출 횟수 · 들어 있는 파일)
- *       <폴더>/기술사_전도메인_토픽DB.md (위 파일을 모두 이은 것)
  *       <폴더>/요약.json                 (도메인별 파일 수 · 항목별 「교재에 없음」 수)
  *
  * 2026-11-23 두 번째 요청("지난번 토픽DB 는 항목이 모자라고 파일이 커서 끝까지 읽히지 않았다"):
@@ -332,10 +331,6 @@ for (const d of DOMAINS) {
   fs.writeFileSync(`${OUT}/토픽DB_${d.code}_목차.md`, toc.join("\n") + "\n");
   (summary.domains as Record<string, unknown>)[d.code] = { label: d.label, files: files.length, topics: items.length, textbook: items.filter((t) => t.kind === "교재").length, outside: items.filter((t) => t.kind === "교재 밖").length, maxBytes: Math.max(...files.map((f) => bytes(fs.readFileSync(`${OUT}/${f.name}`, "utf8")))) };
 }
-// 전 도메인 한 파일
-const whole = [`# 정보관리기술사 전 도메인 토픽DB`, "", `만든 날 ${new Date().toISOString().slice(0, 10)} · 교재 토픽 ${all.filter((t) => t.kind === "교재").length} · 기출 2회 이상 교재 밖 토픽 ${all.filter((t) => t.kind === "교재 밖").length}`, "", ...LEGEND, ""];
-for (const f of allFiles) whole.push(fs.readFileSync(`${OUT}/${f}`, "utf8").replace(/^# .*\n\n(> .*\n)+\n/, `# ${f.replace(/\.md$/, "")}\n\n`));
-fs.writeFileSync(`${OUT}/기술사_전도메인_토픽DB.md`, whole.join("\n"));
 summary.noneCount = noneCount;
 summary.totals = { textbook: all.filter((t) => t.kind === "교재").length, outside: all.filter((t) => t.kind === "교재 밖").length, files: allFiles.length };
 fs.writeFileSync(`${OUT}/요약.json`, JSON.stringify(summary, null, 1));
