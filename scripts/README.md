@@ -38,7 +38,7 @@ npx tsx scripts/suggest-topics.ts <id 또는 문구>           # 교재 토픽 �
 | `find-sub-topics.ts` | **서브 토픽 후보(교재 쪽에서)** — 교재 표의 이름 칸·키워드마다 그 이름을 주제로 물은 문항을 세고, 토픽·서브 토픽으로 안 걸리는 것을 찍는다 |
 | `survey-topics.ts` | **토픽 조사** — 문제은행 전체를 문항마다 교재 토픽 · 서브 토픽 · 교재 밖(예전 토픽 화면 있음 / 화면 없음 / 주제 이름 없음)으로 나누고, 교재 밖 문항을 첫 줄 주제로 묶는다. `npx tsx scripts/survey-topics.ts src/data/topicSurvey.json` 이 `/survey` 화면 자료를 만든다(빌드 때 안 돌린다) |
 | `check-exam-topics.ts` | **교재 밖 토픽 검사** — `src/data/examTopics.json`(토픽 지도에 놓는 기출·모의 주제)의 과목 코드·상위 토픽·이름 겹침. `--hits` 는 이름으로 걸리는 문항 0건·넓은 이름을 찍는다 |
-| `export-topic-db.ts` | **토픽 DB 내보내기** — 교재 토픽 + 교재 밖 토픽을 마크다운 한 파일로(도메인별, 기출 많은 순). `<폴더> --by-domain` 이면 도메인마다 `토픽DB_{코드}.md`(교재 토픽만): 교재 정의 원문 · 정의 핵심 키워드 3개 · 구성요소·프로세스 · 출제 이력 · 같이 비교되는 토픽. `npx tsx scripts/export-topic-db.ts <out.md>`. 정의 키워드 보충은 `export-topic-db.defkeys.json`(정의 속 글자 그대로인 말만 쓴다) |
+| `export-topic-db.ts` | **토픽 DB 내보내기**(2026-11-23 두 번째 판) — 교재 토픽 712 + 기출 2회 이상 교재 밖 토픽을 `npx tsx scripts/export-topic-db.ts <폴더>` 로 `토픽DB_{코드}_{NN}.md`(토픽 15개·40KB 이하, 기출 많은 순) · `토픽DB_{코드}_목차.md` · `기술사_전도메인_토픽DB.md` · `요약.json` 으로. 토픽마다 14개 항목 + 기타 교재 표. 서브노트 칸을 빼지 않고 표 칸은 줄이지 않는다. 보조 자료: `export-topic-db.defkeys.json`(정의 속 글자 그대로인 1~4어절 키워드), `export-topic-db.figures.json`(교재 슬라이드 그림을 글로 — 줄마다 (교재)/(손글씨 정리)/(해설집)) |
 | `check-topic-why.ts` | **「왜 있나」 검사** — `src/data/topicWhy/{과목}.json` 에 빠진 토픽·없는 제목·길이·금지어(비유·시험 요령). `--dump {과목}` 은 쓸 때 볼 자료(정의·특징·표 머리·키워드·등장배경) |
 | `predict-week.ts` | **NS 주간 모의고사 출제 예상** — 인자 없이 돌리면 13~19기 시험 73개 백테스트(방식별 적중 문항 수), `19기 10 SE` 처럼 주면 그 주 토픽 40 · 다시 나올 문장 40 |
 | `measure-ext-repeat.ts` | NS 주간 모의고사 문항이 **최근 12·24개월 기출·모의·파이널과 같은 문장**인 비율(시험별 · 후보 수 · NS 에 없던 문장 수) |
