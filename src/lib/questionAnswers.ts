@@ -1,3 +1,4 @@
+import { periodGroup } from "./answerKind";
 import { SUBNOTES } from "@/data/textbookSubnotes";
 import { titlesMatching, trappedTitle } from "@/lib/examHistory";
 import { relatedTopics } from "@/lib/relatedTopics";
@@ -67,13 +68,6 @@ function subWordsIn(text: string): string[] {
   return out;
 }
 
-/**
- * 교시 묶음 — 1교시는 10점 단답(한두 쪽), 2~4교시는 25점 논술(서너 쪽)이다.
- * 같은 주제라도 쓰는 분량과 구성이 아예 달라서, 2교시 문제에 1교시 답안을
- * 먼저 보여 주면 눈금이 어긋난다.
- */
-export const periodGroup = (period: string): "단답" | "논술" =>
-  period === "1교시" ? "단답" : "논술";
 
 /**
  * 이 문항에 붙일 답안지 — 문항 id 로 직접 연결된 것, 문구가 같은 것, 문항에 나온 서브 토픽을 다룬 것, 토픽이 같은 것.

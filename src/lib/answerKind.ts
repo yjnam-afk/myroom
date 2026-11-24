@@ -12,3 +12,15 @@ import type { PeerAnswer } from "@/data/peerAnswers";
 export function isCommentary(a: Pick<PeerAnswer, "exam">): boolean {
   return /해설집/.test(a.exam ?? "");
 }
+
+/**
+ * 교시 묶음 — 1교시는 10점 단답(한두 쪽), 2~4교시는 25점 논술(서너 쪽)이다.
+ * 같은 주제라도 쓰는 분량과 구성이 아예 달라서, 2교시 문제에 1교시 답안을
+ * 먼저 보여 주면 눈금이 어긋난다.
+ *
+ * `questionAnswers.ts` 에 있었는데, 답안 목록 화면(`PeerAnswers` — 클라이언트)이 이 한 줄을 가져오느라
+ * 문제은행·모범답안 11묶음·교재 서브노트·예전 토픽이 통째로(약 13MB) 브라우저 묶음에 들어갔다(2026-11-24 "토픽 설명 메뉴 누를 때 꽤 오래 걸려").
+ * 클라이언트 화면에서 쓰는 작은 함수는 자료를 끌어오지 않는 이 파일에 둔다.
+ */
+export const periodGroup = (period: string): "단답" | "논술" =>
+  period === "1교시" ? "단답" : "논술";

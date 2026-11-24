@@ -1,5 +1,6 @@
 "use client";
 
+import { prefetchFor } from "@/lib/links";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { canGoBack } from "@/components/NavDepth";
@@ -39,13 +40,14 @@ export function PageHeader({
         >
           ← 뒤로
         </button>
-        <Link href="/" className="text-slate-400 hover:text-brand-600">
+        <Link href="/" prefetch={false} className="text-slate-400 hover:text-brand-600">
           홈
         </Link>
         {(up ?? []).map((u) => (
           <Link
             key={u.href}
             href={u.href}
+            prefetch={prefetchFor(u.href)}
             className="rounded-full border border-slate-200 px-2 py-[2px] text-xs text-slate-500 hover:border-brand-400 hover:text-brand-700"
           >
             {u.label}

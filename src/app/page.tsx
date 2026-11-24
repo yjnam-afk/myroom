@@ -15,7 +15,7 @@ import {
   doneKey,
 } from "@/data/curriculum";
 import { subnoteByTopicId, subnoteByTitle } from "@/data/textbookSubnotes";
-import { explainHref } from "@/lib/links";
+import { explainHref, prefetchFor } from "@/lib/links";
 import PriorityBadge from "@/components/PriorityBadge";
 
 const menuGroups = [
@@ -320,6 +320,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/review"
+                  prefetch={false}
                   className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50"
                 >
                   🔁 회독 관리
@@ -356,6 +357,7 @@ export default function Home() {
                 <Link
                   key={m.href}
                   href={m.href}
+                  prefetch={prefetchFor(m.href)}
                   className="group flex min-w-0 items-center gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-brand-300 hover:shadow-md"
                 >
                   <div

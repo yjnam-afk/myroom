@@ -164,7 +164,7 @@ export function ExamHistoryCard({
       )}
 
       <div className="flex items-center justify-end border-t border-slate-100 px-4 py-2 text-xs">
-        <Link href="/exam" className="text-slate-400 hover:text-slate-600">
+        <Link href="/exam" prefetch={false} className="text-slate-400 hover:text-slate-600">
           📝 문제 풀이에서 보기 →
         </Link>
       </div>

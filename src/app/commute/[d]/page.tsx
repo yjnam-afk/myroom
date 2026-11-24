@@ -168,7 +168,7 @@ export default function CommuteRead({ params }: { params: { d: string } }) {
         <Link href="/commute" className="text-brand-600 hover:underline">← 과목</Link>
         <h1 className="text-lg font-bold text-slate-900">🚇 {dom.label}</h1>
         <span className="text-xs text-slate-400">{flow.length}토픽 · 토픽 지도 차례</span>
-        <Link href="/map" className="ml-auto text-xs text-slate-500 hover:underline">🗺️ 지도</Link>
+        <Link href="/map" prefetch={false} className="ml-auto text-xs text-slate-500 hover:underline">🗺️ 지도</Link>
       </div>
       <ReadTracker d={dom.code} name={dom.label} items={flow.map((b) => ({ id: b.id, title: b.title.replace(/\s*\(.*$/, "") }))} />
       {flow.map((b, k) => (

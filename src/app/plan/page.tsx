@@ -416,6 +416,7 @@ export default function PlanPage() {
 
       <Link
         href="/basics"
+        prefetch={false}
         className="mb-6 block rounded-2xl border-2 border-amber-300 bg-amber-50 p-4 text-[14.5px] leading-relaxed text-slate-800 hover:bg-amber-100"
       >
         🧱 <b>모르는 용어가 나오면</b> — 용어 사전에서 검색하고 바로

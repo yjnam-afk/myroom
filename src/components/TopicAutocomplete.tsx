@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { loadExplainIndex } from "@/lib/explainIndexClient";
+import { loadExplainSearch } from "@/lib/explainIndexClient";
 import type { SearchEntry as Entry, TopicOption as T } from "@/lib/explainIndex";
 import ClearButton from "@/components/ClearButton";
 
@@ -12,7 +12,7 @@ import ClearButton from "@/components/ClearButton";
  * - onChange: 사용자가 직접 타이핑(데이터 연결 해제)
  * - onSelect: 제안을 선택(토픽 id까지 연결 → 교재 근거 사용)
  *
- * 검색 인덱스(제목·키워드·정의·표 내용)는 /api/explain-index 에서 한 번만 받는다.
+ * 검색 인덱스(제목·키워드·정의·표 내용)는 /api/explain-search 에서 한 번만 받는다(검색창을 처음 건드릴 때).
  * 예전엔 교재 서브노트 전체를 이 컴포넌트가 import 해 번들이 수 MB 로 불었다.
  */
 
@@ -44,9 +44,9 @@ export default function TopicAutocomplete({
   useEffect(() => {
     if (!wanted) return;
     let alive = true;
-    loadExplainIndex()
-      .then((idx) => {
-        if (alive) setEntries(idx.entries);
+    loadExplainSearch()
+      .then((list) => {
+        if (alive) setEntries(list);
       })
       .catch(() => {
         /* 인덱스를 못 받으면 제안 없이 직접 입력만 된다 */

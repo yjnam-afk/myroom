@@ -36,23 +36,24 @@ export default function RootLayout({
             좁으면 아래 줄로 내려가 가로 스크롤한다.
           */}
           <div className="mx-auto flex max-w-5xl flex-col gap-1 px-4 py-2 xl:flex-row xl:items-center xl:justify-between xl:py-3">
-            <Link href="/" className="flex items-center gap-2 whitespace-nowrap font-bold text-slate-900 shrink-0">
+            <Link href="/" prefetch={false} className="flex items-center gap-2 whitespace-nowrap font-bold text-slate-900 shrink-0">
               <span className="grid h-8 w-8 place-items-center rounded-2xl bg-gradient-to-br from-brand-400 to-brand-500 text-base shadow-sm">
                 🏠
               </span>
               나의 공간
             </Link>
+            {/* 무거운 쪽(홈·모범답안·정리표·용어사전·기출문제·문제은행·토픽지도)은 미리 받지 않는다 — lib/links.ts 의 prefetchFor 설명 참고 */}
             <nav className="-mx-1 flex gap-3 overflow-x-auto px-1 pb-1 text-sm font-medium text-slate-600 xl:gap-4 xl:overflow-visible xl:pb-0">
-              <Link href="/" className="shrink-0 hover:text-brand-600 xl:hidden">🏠 메인</Link>
+              <Link href="/" prefetch={false} className="shrink-0 hover:text-brand-600 xl:hidden">🏠 메인</Link>
               <Link href="/explain" className="shrink-0 hover:text-brand-600">💡 토픽 설명</Link>
-              <Link href="/answers" className="shrink-0 hover:text-brand-600">✍️ 모범답안</Link>
-              <Link href="/sheet" className="shrink-0 hover:text-brand-600">📋 정리표</Link>
-              <Link href="/basics" className="shrink-0 hover:text-brand-600">🧱 용어사전</Link>
+              <Link href="/answers" prefetch={false} className="shrink-0 hover:text-brand-600">✍️ 모범답안</Link>
+              <Link href="/sheet" prefetch={false} className="shrink-0 hover:text-brand-600">📋 정리표</Link>
+              <Link href="/basics" prefetch={false} className="shrink-0 hover:text-brand-600">🧱 용어사전</Link>
               <Link href="/commute" className="shrink-0 hover:text-brand-600">🚇 지하철</Link>
               <Link href="/drill" className="shrink-0 hover:text-brand-600">✏️ 암기 연습</Link>
-              <Link href="/exam" className="shrink-0 hover:text-brand-600">📝 기출문제</Link>
-              <Link href="/bank" className="shrink-0 hover:text-brand-600">🏦 문제은행</Link>
-              <Link href="/map" className="shrink-0 hover:text-brand-600">🗺️ 토픽지도</Link>
+              <Link href="/exam" prefetch={false} className="shrink-0 hover:text-brand-600">📝 기출문제</Link>
+              <Link href="/bank" prefetch={false} className="shrink-0 hover:text-brand-600">🏦 문제은행</Link>
+              <Link href="/map" prefetch={false} className="shrink-0 hover:text-brand-600">🗺️ 토픽지도</Link>
             </nav>
           </div>
         </header>

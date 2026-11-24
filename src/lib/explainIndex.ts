@@ -48,13 +48,15 @@ export type SearchEntry = {
   t?: TopicOption;
   isSubnote: boolean;
 };
+/**
+ * 목록 인덱스 — 토픽 설명 첫 화면(과목별 목록·토픽 고르기)이 받는다.
+ * 검색용 자료(`SearchEntry` — 제목·키워드·정의·표 글자 1.9MB)는 따로다(`explainSearchEntries`, /api/explain-search):
+ * 한데 묶여 있을 때는 목록(0.3MB)을 그리려고 2.4MB 를 다 받아야 했다(2026-11-24 "토픽 설명 메뉴 누를 때 꽤 오래 걸려").
+ */
 export type ExplainIndex = {
-  cats: string[];
-  topicOptions: TopicOption[];
   browseGroups: BrowseGroup[];
   /** 접힌 버튼에 보여줄 개수 — 교재(심화반) 토픽만 센다. */
   bookTotal: number;
-  entries: SearchEntry[];
 };
 
 /** 교재 서브노트를 과목별로, 교재에 없는 예전 토픽은 카테고리별로 묶는다. */
@@ -209,13 +211,16 @@ export function explainIndex(): ExplainIndex {
   if (INDEX) return INDEX;
   const browseGroups = buildBrowseGroups();
   INDEX = {
-    cats: Array.from(new Set(TOPICS.map((t) => t.category))),
-    topicOptions: TOPICS.map(slim),
     browseGroups,
     bookTotal: browseGroups
       .filter((g) => g.badge === "심화반")
       .reduce((n, g) => n + g.items.filter((it) => !it.subOf).length, 0),
-    entries: buildSearchEntries(),
   };
   return INDEX;
+}
+
+/** 검색 인덱스 — 검색창을 처음 건드릴 때만 받는다. */
+let ENTRIES: SearchEntry[] | undefined;
+export function explainSearchEntries(): SearchEntry[] {
+  return (ENTRIES ??= buildSearchEntries());
 }

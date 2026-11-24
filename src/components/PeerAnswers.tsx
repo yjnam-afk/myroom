@@ -3,8 +3,7 @@
 import { useRef, useState } from "react";
 import { flushSync } from "react-dom";
 import type { PeerAnswer } from "@/data/peerAnswers";
-import { periodGroup } from "@/lib/questionAnswers";
-import { isCommentary } from "@/lib/answerKind";
+import { isCommentary, periodGroup } from "@/lib/answerKind";
 
 /**
  * 남이 쓴 답안 — 손글씨 시험지 스캔과 강사 첨삭.

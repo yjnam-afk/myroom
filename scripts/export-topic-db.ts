@@ -2,8 +2,8 @@
  * 토픽 DB 내보내기 — 교재 토픽 전부 + 기출 2회 이상 나온 교재 밖 토픽을 마크다운으로.
  *
  *   npx tsx scripts/export-topic-db.ts <폴더>
- *     → <폴더>/토픽DB_{코드}_{NN}.md   (파일 하나에 토픽 15개 이하 · 40KB 이하, 도메인 안은 기출 많은 순)
- *       <폴더>/토픽DB_{코드}_목차.md    (토픽명 · 기출 횟수 · 들어 있는 파일)
+ *     → <폴더>/토픽DB_{코드}_{NN}.md   (파일 하나에 토픽 15개 이하 · 40KB 이하, 도메인 안은 중요도 → 기출+NS+모의 합계 순)
+ *       <폴더>/토픽DB_{코드}_목차.md    (토픽명 · 중요도 · 기출·NS·모의 횟수 · 들어 있는 파일)
  *       <폴더>/요약.json                 (도메인별 파일 수 · 항목별 「교재에 없음」 수)
  *
  * 2026-11-23 두 번째 요청("지난번 토픽DB 는 항목이 모자라고 파일이 커서 끝까지 읽히지 않았다"):
@@ -26,6 +26,8 @@ import flashcards from "../src/data/flashcards.json";
 import { TWIN_TOPICS } from "../src/data/twinTopics";
 import { DOMAINS } from "../src/lib/domains";
 import { pastExams, examHistory, mockExams, questionIdsForTitle, QUESTION_BY_ID } from "../src/lib/examHistory";
+import { planInfo } from "../src/lib/studyPlan";
+import { bareKey } from "../src/lib/titleNorm";
 import defKeyFile from "./export-topic-db.defkeys.json";
 import figureFile from "./export-topic-db.figures.json";
 
@@ -135,6 +137,37 @@ const all: Topic[] = [
   ...(examTopics as Ex[]).filter((e) => pastExams(e.name).length >= 2).map((e) => ({ name: e.name, code: e.code, kind: "교재 밖" as const, ex: e })),
 ];
 
+// ── 중요도(상/중/하) ──
+// 2026-11-24 "모든 토픽에 중요도 항목 추가 — 서브노트 엑셀·사이트에 있는 등급을 그대로, 없으면 등급 없음".
+// 사이트 토픽 화면과 같은 차례로 찾는다: 교재 CONTENTS Priority(★★★=상 · ★★=중 · ★=하, studyPlan) → 예전 토픽 엑셀(topics.json)의 id → 같은 제목.
+// 사이트는 못 찾으면 「상」으로 치지만(impOf) 여기서는 지어 넣지 않고 「등급 없음」으로 둔다.
+const NO_GRADE = "등급 없음";
+const IMP_BY_ID = new Map<string, string>();
+const IMP_BY_BARE = new Map<string, string>();
+for (const t of topics as { id: string; title: string; importance?: string }[]) {
+  if (!t.importance) continue;
+  IMP_BY_ID.set(t.id, t.importance);
+  const k = bareKey(t.title);
+  if (!IMP_BY_BARE.has(k)) IMP_BY_BARE.set(k, t.importance);
+}
+type Grade = { g: string; src: string };
+const gradeCache = new Map<string, Grade>();
+function grade(t: Topic): Grade {
+  let v = gradeCache.get(t.name);
+  if (v) return v;
+  const pr = t.sub ? planInfo(t.sub.title, t.sub.topicId)?.priority : undefined;
+  if (pr) v = { g: pr, src: "교재 CONTENTS Priority" };
+  else {
+    const x = (t.sub?.topicId && IMP_BY_ID.get(t.sub.topicId)) || IMP_BY_BARE.get(bareKey(t.name));
+    v = x ? { g: x, src: "서브노트 엑셀(예전 토픽 목록)" } : { g: NO_GRADE, src: "" };
+  }
+  gradeCache.set(t.name, v);
+  return v;
+}
+const GRADE_ORDER: Record<string, number> = { 상: 0, 중: 1, 하: 2 };
+const gradeRank = (t: Topic) => GRADE_ORDER[grade(t).g] ?? (grade(t).g === NO_GRADE ? 9 : 3);
+const total = (t: Topic) => { const h = hist(t.name); return h.past.length + h.ns.length + h.mock.length; };
+
 // ── 같이 비교되는 토픽(비교·차이·vs 문항에 함께 걸린 토픽) ──
 const COMPARE_Q = /비교|차이|\bvs\b|VS|대비하여/;
 const BY_Q = new Map<string, string[]>();
@@ -172,6 +205,10 @@ function block(t: Topic): string {
   const h = hist(t.name);
   L.push(`## ${t.name}`, "");
   sec(0, [`${t.name} (${t.kind} 토픽)`], false);
+  {
+    const gr = grade(t);
+    L.push(`### 중요도`, gr.src ? `${gr.g} (${gr.src})` : gr.g, "");
+  }
   sec(1, [`${LABEL[t.code] ?? t.code}(${t.code})${t.ex ? ` · 지도 자리 ${t.ex.area} › ${t.ex.group}${t.ex.under ? ` › ${t.ex.under} 아래` : ""}` : ""}`], false);
 
   const byKind: Record<Kind, string[]> = { def: [], fig: [], need: [], feat: [], part: [], proc: [], type: [], pros: [], std: [], cmp: [], etc: [] };
@@ -293,13 +330,14 @@ fs.mkdirSync(OUT, { recursive: true });
 const summary: Record<string, unknown> = { domains: {} as Record<string, { files: number; topics: number; textbook: number; outside: number }> };
 const allFiles: string[] = [];
 const LEGEND = [
-  "> 항목: 1 토픽명 · 2 도메인 · 3 교재 정의 · 4 정의 핵심 키워드 · 5 특징 · 6 필요성·등장배경 · 7 개념도 설명 · 8 구성요소 · 9 절차·프로세스 · 10 유형·종류 · 11 장단점·고려사항·활용 · 12 표준·법령·수치 · 13 출제 이력 · 14 비교 · 15 기타 교재 표·메모",
+  "> 항목: 1 토픽명 · 중요도(상/중/하 — 없으면 등급 없음) · 2 도메인 · 3 교재 정의 · 4 정의 핵심 키워드 · 5 특징 · 6 필요성·등장배경 · 7 개념도 설명 · 8 구성요소 · 9 절차·프로세스 · 10 유형·종류 · 11 장단점·고려사항·활용 · 12 표준·법령·수치 · 13 출제 이력 · 14 비교 · 15 기타 교재 표·메모",
   "> 교재 표는 칸을 줄이지 않고 옮겼다(칸 안 줄바꿈은 「 / 」). 「교재에 없음」 = 교재 서브노트에 그 내용이 없다. 「(참고 · 출처)」 줄은 교재가 아닌 자료다. 출제 이력은 사이트 토픽 화면과 같은 제목 매칭이라 지문에 이름이 지나가듯 나온 문항도 섞여 있다.",
 ];
 for (const d of DOMAINS) {
   const items = all.filter((t) => t.code === d.code).sort((a, b) => {
+    // 중요도(상→중→하→그 밖→등급 없음) 다음 기출+NS+모의 합계 순(2026-11-24 — 그 전엔 기출 횟수 순)
     const ha = hist(a.name), hb = hist(b.name);
-    return hb.past.length - ha.past.length || (hb.ns.length + hb.mock.length) - (ha.ns.length + ha.mock.length) || (a.kind === "교재" ? -1 : 1) - (b.kind === "교재" ? -1 : 1);
+    return gradeRank(a) - gradeRank(b) || total(b) - total(a) || hb.past.length - ha.past.length || (a.kind === "교재" ? -1 : 1) - (b.kind === "교재" ? -1 : 1);
   });
   const files: { name: string; blocks: { t: Topic; md: string }[] }[] = [];
   let cur: { t: Topic; md: string }[] = [];
@@ -315,7 +353,7 @@ for (const d of DOMAINS) {
     cur.push({ t, md });
   }
   if (cur.length) files.push({ name: "", blocks: cur });
-  const toc: string[] = [`# ${d.label}(${d.code}) 토픽DB 목차`, "", `교재 토픽 ${items.filter((t) => t.kind === "교재").length}개 · 기출 2회 이상 교재 밖 토픽 ${items.filter((t) => t.kind === "교재 밖").length}개 · 파일 ${files.length}개. 기출 횟수 많은 순.`, "", "| 순번 | 토픽명 | 구분 | 기출 | NS | 모의 | 파일 |", "|---|---|---|---|---|---|---|"];
+  const toc: string[] = [`# ${d.label}(${d.code}) 토픽DB 목차`, "", `교재 토픽 ${items.filter((t) => t.kind === "교재").length}개 · 기출 2회 이상 교재 밖 토픽 ${items.filter((t) => t.kind === "교재 밖").length}개 · 파일 ${files.length}개. 중요도(상→중→하) 다음 기출+NS+모의 합계가 많은 순.`, "", "| 순번 | 토픽명 | 중요도 | 구분 | 기출 | NS | 모의 | 합계 | 파일 |", "|---|---|---|---|---|---|---|---|---|"];
   let no = 0;
   files.forEach((f, i) => {
     f.name = `토픽DB_${d.code}_${String(i + 1).padStart(2, "0")}.md`;
@@ -325,13 +363,15 @@ for (const d of DOMAINS) {
     if (bytes(body) > MAX_BYTES) console.warn(`! ${f.name} ${bytes(body)}B — 토픽 하나가 40KB 를 넘는다`);
     for (const b of f.blocks) {
       const h = hist(b.t.name);
-      toc.push(`| ${++no} | ${b.t.name.replace(/\|/g, "\\|")} | ${b.t.kind} | ${h.past.length} | ${h.ns.length} | ${h.mock.length} | ${f.name} |`);
+      toc.push(`| ${++no} | ${b.t.name.replace(/\|/g, "\\|")} | ${grade(b.t).g} | ${b.t.kind} | ${h.past.length} | ${h.ns.length} | ${h.mock.length} | ${h.past.length + h.ns.length + h.mock.length} | ${f.name} |`);
     }
   });
   fs.writeFileSync(`${OUT}/토픽DB_${d.code}_목차.md`, toc.join("\n") + "\n");
   (summary.domains as Record<string, unknown>)[d.code] = { label: d.label, files: files.length, topics: items.length, textbook: items.filter((t) => t.kind === "교재").length, outside: items.filter((t) => t.kind === "교재 밖").length, maxBytes: Math.max(...files.map((f) => bytes(fs.readFileSync(`${OUT}/${f.name}`, "utf8")))) };
 }
 summary.noneCount = noneCount;
+summary.grades = { 교재: Object.fromEntries(["상", "중", "하", NO_GRADE].map((g) => [g, all.filter((t) => t.kind === "교재" && grade(t).g === g).length])), "교재 밖": Object.fromEntries([...new Set(all.filter((t) => t.kind === "교재 밖").map((t) => grade(t).g))].map((g) => [g, all.filter((t) => t.kind === "교재 밖" && grade(t).g === g).length])) };
+console.log("중요도", JSON.stringify(summary.grades));
 summary.totals = { textbook: all.filter((t) => t.kind === "교재").length, outside: all.filter((t) => t.kind === "교재 밖").length, files: allFiles.length };
 fs.writeFileSync(`${OUT}/요약.json`, JSON.stringify(summary, null, 1));
 console.log(JSON.stringify(summary.totals), Object.entries(summary.domains as Record<string, { files: number; maxBytes: number }>).map(([k, v]) => `${k}:${v.files}(${Math.round(v.maxBytes / 1000)}KB)`).join(" "));

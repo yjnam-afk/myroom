@@ -48,7 +48,7 @@ export default function SurveyPage({ searchParams }: { searchParams: Record<stri
         <h1 className="text-xl font-bold text-slate-900">📋 토픽 조사</h1>
         <p className="mt-1 text-sm leading-relaxed text-slate-600">
           문제은행 {survey.total.toLocaleString()}문항(기출·NS·모의·파이널·셀테·합숙)이 어느 토픽에 정리돼 있는지 센 것입니다. 조사일 {survey.date}.{" "}
-          <Link href="/map" className="text-brand-600 underline underline-offset-2">
+          <Link href="/map" prefetch={false} className="text-brand-600 underline underline-offset-2">
             토픽 지도 →
           </Link>
         </p>

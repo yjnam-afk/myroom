@@ -31,12 +31,12 @@ import { ExamNoteCard } from "./ExamNoteCard";
  * 토픽 설명 화면(클라이언트).
  *
  * 자료는 서버가 고른다 — page.tsx(서버 컴포넌트)가 ?topic= 을 읽어 그 토픽 몫만
- * props(data)로 넘긴다. 검색·목록 인덱스는 /api/explain-index 로 한 번 받는다.
+ * props(data)로 넘긴다(`ExplainShell` 이 /api/explain-topic 에서 받아 준다). 목록 인덱스는 /api/explain-index 로 한 번 받는다.
  * 예전엔 이 파일이 교재·플래시카드·문제은행·학습카드 전부를 import 해 클라이언트
  * 번들이 압축 전 22 MB 였고, 폰에서는 스크립트가 죽어 빈 화면이 됐다.
  */
 
-export default function ExplainClient({ data }: { data: ExplainTopicData | null }) {
+export default function ExplainClient({ data, loading }: { data: ExplainTopicData | null; loading?: boolean }) {
   // 지금 보여 주는 토픽 — 서버가 고른 자료의 제목. 입력창(topic)과는 별개다.
   const cur = data?.title ?? "";
   const [topic, setTopic] = useState(cur);
@@ -95,7 +95,7 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
     };
   }, []);
 
-  // 링크·뒤로가기로 ?topic= 이 바뀌면 서버가 새 data 를 준다 — 입력창도 따라간다.
+  // 링크·뒤로가기로 ?topic= 이 바뀌면 껍데기(ExplainShell)가 새 data 를 준다 — 입력창도 따라간다.
   useEffect(() => {
     setTopic(cur);
     // 토픽 없는 주소(뒤로 가기로 목차에 돌아온 경우 포함)면 목록을 편다.
@@ -184,10 +184,11 @@ export default function ExplainClient({ data }: { data: ExplainTopicData | null 
         </div>
 
         <div className="mt-5 flex flex-wrap items-center gap-3">
-          {pending && <span className="text-xs text-slate-400">불러오는 중…</span>}
+          {(pending || loading) && <span className="text-xs text-slate-400">불러오는 중…</span>}
           {textbook && (
             <Link
               href={`/sheet#${textbook.course}`}
+              prefetch={false}
               className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100"
             >
               📋 {DOMAIN_LABEL[textbook.course] || textbook.course} 정리표 →

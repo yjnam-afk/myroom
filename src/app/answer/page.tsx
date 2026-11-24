@@ -225,6 +225,7 @@ export default function AnswerPage() {
             })}
             <Link
               href="/exam"
+              prefetch={false}
               className="rounded-full border border-slate-200 px-2.5 py-1 text-xs text-brand-600 hover:bg-slate-50"
             >
               기출 더보기 →
