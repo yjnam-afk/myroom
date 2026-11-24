@@ -39,15 +39,18 @@ export function ExamNoteCard({ title, note }: { title: string; note: ExamNote })
             <p className="mb-1 text-[14px] font-bold text-slate-900">{t.caption}</p>
             <div className="overflow-x-auto rounded-xl border border-slate-200">
               <table className="w-full border-collapse text-left text-[13.5px] leading-6 sm:min-w-[420px]">
-                <thead className="bg-slate-50 text-slate-600">
-                  <tr>
-                    {t.headers.map((h, k) => (
-                      <th key={k} className="border-b border-slate-200 px-2.5 py-1.5 font-semibold">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
+                {/* 해설 표에 머리글 줄이 없으면(전부 빈 칸) 머리 줄을 그리지 않는다 */}
+                {t.headers.some(Boolean) && (
+                  <thead className="bg-slate-50 text-slate-600">
+                    <tr>
+                      {t.headers.map((h, k) => (
+                        <th key={k} className="border-b border-slate-200 px-2.5 py-1.5 font-semibold">
+                          {h}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                )}
                 <tbody>
                   {t.rows.map((r, k) => (
                     <tr key={k} className="border-t border-slate-100 align-top">
