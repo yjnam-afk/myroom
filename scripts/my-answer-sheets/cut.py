@@ -4,7 +4,8 @@ from rect import *
 from run_rect import FH
 from bundles import B
 N=22; P=FH/N
-X0,X1=14,ML+FW+MR-10          # 왼쪽 여백(빨간 첨삭) 포함
+X0,X1=14,ML+FW+118            # 왼쪽 여백(빨간 첨삭)·오른쪽 여백(테두리 밖 「끝」) 포함
+OUTW=1070
 # (id, 시작 쪽, 시작 줄)  — 줄은 점수가 윗줄에 있으면 그 줄
 SPEC={
  'db2': [('a-00',1,0),('a-01',4,7),('a-02',7,7),('a-03',10,12)],
@@ -23,7 +24,8 @@ STOP={'sw1':{'f-09':(12,22)}}      # 이 쪽·줄에서 끝(13쪽이 없어 14�
 _cache={}
 def flat(n):
     if n in _cache: return _cache[n]
-    im=cv2.imread(f'nm/{n}.png').astype(np.float32)
+    im=cv2.imread(f'nmw/{n}.png').astype(np.float32)
+    im[MT+FH+6:, ML+280:ML+720]=im[MT+FH+6:MT+FH+7, ML+240:ML+241].mean()   # 아래 ITPE 글자 지움
     sm=cv2.resize(im,None,fx=0.25,fy=0.25,interpolation=cv2.INTER_AREA).astype(np.uint8)
     bg=cv2.medianBlur(sm,31); bg=cv2.GaussianBlur(bg,(0,0),6)
     bg=cv2.resize(bg,(im.shape[1],im.shape[0]),interpolation=cv2.INTER_LINEAR).astype(np.float32)
@@ -40,7 +42,7 @@ def row_ink(im,r):
 def seg(n,r0,r1,first,last,aid=None):
     im=flat(n)
     y0=int(MT+r0*P)-(8 if r0==0 else 4)
-    y1=int(MT+r1*P)+(8 if r1>=N else 4)
+    y1=int(MT+r1*P)+(30 if r1>=N else 4)
     if first and (aid,'start') in YOVR: y0=YOVR[(aid,'start')]
     if last and (aid,'end') in YOVR: y1=YOVR[(aid,'end')]
     return im[y0:y1, X0:X1]
@@ -70,7 +72,7 @@ def build(key):
             parts.append(seg(n,a,b,p==p0,p==p1,aid))
         W=parts[0].shape[1]
         img=np.vstack(parts)
-        img=cv2.resize(img,(1000,int(round(img.shape[0]*1000/W))),interpolation=cv2.INTER_AREA)
+        img=cv2.resize(img,(OUTW,int(round(img.shape[0]*OUTW/W))),interpolation=cv2.INTER_AREA)
         cv2.imwrite(f'out/ns19ans-{aid}.webp',img,[cv2.IMWRITE_WEBP_QUALITY,78])
         res.append(dict(id=aid,start=[p0,r0],end=[p1,r1],missing=missing,h=img.shape[0],kb=os.path.getsize(f'out/ns19ans-{aid}.webp')//1024))
         print(res[-1])
