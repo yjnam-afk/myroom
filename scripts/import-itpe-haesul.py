@@ -32,6 +32,7 @@ ap.add_argument("--password", default="")
 ap.add_argument("--out", default="/tmp/haesul-entries.json")
 ap.add_argument("--width", type=int, default=1100)
 ap.add_argument("--quality", type=int, default=70)
+ap.add_argument("--q-from-page", action="store_true", help="문제 문구를 문제지 목록이 아니라 해설 첫 쪽 「문제」 칸에서 읽는다(Final Round 해설집 — 관리·컴시응 선택 문항이 번호가 겹친다)")
 o = ap.parse_args()
 
 QB = {q["id"]: q for q in load_questions()}
@@ -59,7 +60,10 @@ for path in o.pdf:
     for i, p in enumerate(d):
         t = p.get_text()
         # 머리표에 「난이도」 대신 「도메인」이 두 번 찍힌 쪽도 문항 시작이다(NS 9주차 2교시 5번 — 4번에 붙어 버렸다)
-        if "도메인" in t and ("난이도" in t or t.count("도메인") >= 2) and re.search(r"출제\S*\s*배경", t):
+        # 머리표 「NN 제목 / 문제 … / 도메인 … 난이도 … / 키워드 …」로 시작하는 쪽이면 「출제배경」이 없어도 문항 시작이다(138회 대비 FR 2일차 1교시 13번 가명처리)
+        body = re.sub(r"\s+", " ", re.sub(r"^.*?reserved\.\s*\d+", "", t, flags=re.S)).strip()
+        head_tbl = re.match(r"\d{2}\s.{2,120}?(예상)?문제\s.+?도메인\s.+?난이도", body)
+        if ("도메인" in t and ("난이도" in t or t.count("도메인") >= 2) and re.search(r"출제\S*\s*배경", t)) or head_tbl:
             m = re.search(r"해설자\s*\n?\s*(.*?)\s*\(", t, re.S)
             starts.append((i, re.sub(r"\s+", " ", m.group(1)).strip() if m else ""))
     last = d.page_count - 1
@@ -77,6 +81,11 @@ for path in o.pdf:
                 os.path.join(ROOT, o.img_dir, fn), "WEBP", quality=o.quality)
             pages.append({"src": f"{web}/{fn}", "label": f"{j}쪽"})
         text = sheet[n - 1] if n <= len(sheet) else ""
+        if o.q_from_page:
+            body = re.sub(r"\s+", " ", re.sub(r"^.*?reserved\.\s*\d+", "", d[s].get_text(), flags=re.S)).strip()
+            m = re.match(r"(\d{2})\s(.{2,120}?)\s(?:예상)?문제\s(.+?)\s도메인\s", body)
+            if m:
+                text = m.group(3).strip()
         qid = f"{o.qid_prefix}-{per}{n:02d}" if o.qid_prefix else ""
         ent = {"id": f"{o.id_prefix}-{per}-{n:02d}", "period": f"{per}교시", "no": str(n), "question": text,
                "exam": o.exam.replace("{해설}", f", 해설 {who}" if who else ""), "topicTitles": [], "pages": pages}

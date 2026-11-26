@@ -25,7 +25,7 @@ npx tsx scripts/suggest-topics.ts <id 또는 문구>           # 교재 토픽 �
 
 | 스크립트 | 하는 일 |
 |---|---|
-| `import-itpe-haesul.py` | ITPE 해설집 PDF → 문항별 webp + 답안 항목(기출·NS 주간, 암호 PDF 도) |
+| `import-itpe-haesul.py` | ITPE 해설집 PDF → 문항별 webp + 답안 항목(기출·NS 주간, 암호 PDF 도) `--q-from-page` 는 문제 문구를 해설 첫 쪽 「문제」 칸에서 읽는다(Final Round 해설집) |
 | `import-kpc-camp.py` → `camp-match.py` → `camp-to-entries.ts` | KPC 합숙훈련 해설집 |
 | `link-kpc-mock.py` | KPC 모의고사 모범답안 ↔ 문제은행 KPC 회차 문항(날짜·교시·번호) |
 | `link-similar.py` | 답안 ↔ 모의고사·파이널·셀테 문항을 문구 비슷도로(안전장치: 숫자·약어·뜻 바꾸는 낱말) |
