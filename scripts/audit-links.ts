@@ -116,6 +116,18 @@ function sameLine(a: string, b: string): boolean {
   return Math.min(kx.length, ky.length) >= 10 && dice(kx, ky) >= 0.85;
 }
 
+/**
+ * 소문항 한 줄 — 한쪽에만 영문 풀이 괄호가 있으면 풀이를 떼고 다시 본다.
+ * 같은 시험 문제가 문제지와 해설집·엑셀에 「가. OT(Operational Technology) 환경 특성」「가. OT 환경 특성」으로 따로 적혀 다른 요구로 나왔다
+ * (명품 41회 2교시 2번, 파이널 2026.08 3일차 2교시 3번). 머리말이 같은 지문의 소문항에만 쓴다 — 단답형에서는 약어의 딴 뜻(CI·SCM)을 못 가린다.
+ */
+const GLOSS = /\(\s*[A-Za-z][A-Za-z0-9 ,.\-\/&]*\)/g;
+function sameSubNoGloss(a: string, b: string): boolean {
+  const ga = a.replace(GLOSS, ""), gb = b.replace(GLOSS, "");
+  if ((ga !== a) === (gb !== b)) return false;
+  return sq(ga) === sq(gb) || sameLine(ga, gb);
+}
+
 type Shape = { stem: string; subs: string[] };
 const cache = new Map<string, Shape>();
 function shape(text: string): Shape {
@@ -137,7 +149,7 @@ export function sameAsk(a: string, b: string): boolean {
   if (!x.subs.length && !y.subs.length) return sameLine(x.stem, y.stem);
   // 소문항 지문 — 소문항 수가 같고 줄마다 같은 요구여야 한다(머리말은 한쪽에 없어도 된다)
   if (x.subs.length !== y.subs.length) return false;
-  if (!x.subs.every((s, i) => sameLine(s, y.subs[i]) || (sq(s).length >= 8 && dice(sq(s), sq(y.subs[i])) >= 0.8))) return false;
+  if (!x.subs.every((s, i) => sameLine(s, y.subs[i]) || (sq(s).length >= 8 && dice(sq(s), sq(y.subs[i])) >= 0.8) || sameSubNoGloss(s, y.subs[i]))) return false;
   if (!x.stem || !y.stem) return true;
   const sx = line(x.stem), sy = line(y.stem);
   return sx.nums === sy.nums && (dice(sx.koCat, sy.koCat) >= 0.5 || (sx.latin.length > 0 && setNear(sx.latin, sy.latin)));
