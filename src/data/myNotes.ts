@@ -271,7 +271,7 @@ export const MY_NOTES: MyNote[] = [
   { id: "ns19ans-i-08", book: "내 답안지 · 인공지능 1교시", no: "11", title: "데이터 차원 축소", topicTitles: ["차원 축소(Dimensionality Reduction)"], pages: ["/ans2/NS19기/내답안지/ns19ans-i-08.webp"], score: "5.5" },
   { id: "ns19ans-i-09", book: "내 답안지 · 인공지능 1교시", no: "12", title: "멀티모달 LLM", topicTitles: ["멀티모달(Multimodal) AI"], pages: ["/ans2/NS19기/내답안지/ns19ans-i-09.webp"], score: "5.8" },
   { id: "ns19ans-i-10", book: "내 답안지 · 인공지능 1교시", no: "13", title: "로봇 파운데이션 모델 핵심 기술", topicTitles: ["파운데이션 모델(Foundation Model)", "Physical AI"], pages: ["/ans2/NS19기/내답안지/ns19ans-i-10.webp"], score: "5" },
-  // CA·OS 1교시 (2주차) — 채점 전 사진, 8쪽까지만
+  // CA·OS 1교시 (2주차) — 채점 전 사진, 8쪽이 끝(맨 아래 「문2) 우선순위 역전 현상」은 문제 줄만 적고 답을 못 썼다 — RAID 그림 끝에 그 줄이 보인다)
   { id: "ns19ans-j-01", book: "내 답안지 · CA·OS 1교시", no: "1", title: "프로세스 스레싱(Thrashing)", topicTitles: ["스레싱(Thrashing)"], pages: ["/ans2/NS19기/내답안지/ns19ans-j-01.webp"] },
   { id: "ns19ans-j-02", book: "내 답안지 · CA·OS 1교시", no: "9", title: "자원할당 그래프(Resource Allocation Graph)", topicTitles: ["자원할당 그래프(Resource Allocation Graph)"], pages: ["/ans2/NS19기/내답안지/ns19ans-j-02.webp"] },
   { id: "ns19ans-j-03", book: "내 답안지 · CA·OS 1교시", no: "4", title: "운영체제에서 페이지 교체 알고리즘", topicTitles: ["페이지 교체 알고리즘(Paging Replacement Algorithm)"], pages: ["/ans2/NS19기/내답안지/ns19ans-j-03.webp"] },
