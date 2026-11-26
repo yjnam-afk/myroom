@@ -240,7 +240,7 @@ export const MY_NOTES: MyNote[] = [
   { id: "ns19ans-e-03", book: "내 답안지 · 네트워크 2교시", no: "4", title: "최소 신장 트리(MST) 크루스칼과 프림 알고리즘으로 MST 구하는 과정", topicTitles: ["최소 신장 트리(MST, Minimum Spanning Tree)"], pages: ["/ans2/NS19기/내답안지/ns19ans-e-03.webp"], score: "14" },
   { id: "ns19ans-e-04", book: "내 답안지 · 네트워크 2교시", no: "5", title: "OSI 7계층 ① 기능 ② 프로토콜 종류 ③ 데이터 종류 ④ 주요 장비", topicTitles: ["OSI 7 Layer (ISO 7498)"], pages: ["/ans2/NS19기/내답안지/ns19ans-e-04.webp"], score: "14.5" },
   // SW공학·PM 1교시 (3주차)
-  { id: "ns19ans-f-01", book: "내 답안지 · SW공학·PM 1교시", no: "1", title: "무중단 배포 — 리버스 프록싱과 로드 밸런싱", topicTitles: ["무중단 배포"], pages: ["/ans2/NS19기/내답안지/ns19ans-f-01.webp"], note: "문제가 적힌 1쪽이 스캔 파일에 없다(2쪽부터 들어 있다)" },
+  { id: "ns19ans-f-01", book: "내 답안지 · SW공학·PM 1교시", no: "1", title: "무중단 배포", topicTitles: ["무중단 배포"], pages: ["/ans2/NS19기/내답안지/ns19ans-f-01.webp"] },
   { id: "ns19ans-f-02", book: "내 답안지 · SW공학·PM 1교시", no: "2", title: "소프트웨어 리팩토링", topicTitles: ["소프트웨어 리팩토링"], pages: ["/ans2/NS19기/내답안지/ns19ans-f-02.webp"] },
   { id: "ns19ans-f-03", book: "내 답안지 · SW공학·PM 1교시", no: "4", title: "CI/CD", topicTitles: ["데브옵스 (DevOps)", "CI, CD"], pages: ["/ans2/NS19기/내답안지/ns19ans-f-03.webp"] },
   { id: "ns19ans-f-04", book: "내 답안지 · SW공학·PM 1교시", no: "5", title: "CBAM의 개념과 절차", topicTitles: ["CBAM(Cost Benefit Analysis Method)", "SW Architecture 평가"], pages: ["/ans2/NS19기/내답안지/ns19ans-f-04.webp"] },
@@ -249,7 +249,7 @@ export const MY_NOTES: MyNote[] = [
   { id: "ns19ans-f-07", book: "내 답안지 · SW공학·PM 1교시", no: "10", title: "테일러링", topicTitles: ["테일러링 (Tailoring)"], pages: ["/ans2/NS19기/내답안지/ns19ans-f-07.webp"] },
   { id: "ns19ans-f-08", book: "내 답안지 · SW공학·PM 1교시", no: "11", title: "탐색적 테스팅", topicTitles: ["탐색적 테스트"], pages: ["/ans2/NS19기/내답안지/ns19ans-f-08.webp"] },
   { id: "ns19ans-f-09", book: "내 답안지 · SW공학·PM 1교시", no: "12", title: "형상관리", topicTitles: ["형상 관리"], pages: ["/ans2/NS19기/내답안지/ns19ans-f-09.webp"] },
-  { id: "ns19ans-f-10", book: "내 답안지 · SW공학·PM 1교시", no: "13", title: "유틸리티 트리", topicTitles: ["유틸리티 트리 (Utility Tree)"], pages: ["/ans2/NS19기/내답안지/ns19ans-f-10.webp"], note: "앞쪽(13쪽)이 스캔 파일에 없다(그 자리에 12쪽이 두 번 들어 있다) — 뒷부분만 있다" },
+  { id: "ns19ans-f-10", book: "내 답안지 · SW공학·PM 1교시", no: "13", title: "유틸리티 트리", topicTitles: ["유틸리티 트리 (Utility Tree)"], pages: ["/ans2/NS19기/내답안지/ns19ans-f-10.webp"] },
   // CA·OS 2교시 (2주차)
   { id: "ns19ans-g-01", book: "내 답안지 · CA·OS 2교시", no: "2", title: "문맥교환 ① 개념, 유형 및 내용 ② 절차 ③ 오버헤드 해결 방법", topicTitles: ["문맥교환(Context Switching)"], pages: ["/ans2/NS19기/내답안지/ns19ans-g-01.webp"] },
   { id: "ns19ans-g-02", book: "내 답안지 · CA·OS 2교시", no: "4", title: "캐시 메모리 ① 캐시 일관성 개념 ② Write through/Write Back 비교 ③ 캐시 일관성 유지 기법", topicTitles: ["캐시 일관성(Cache Coherence)", "캐시메모리의 쓰기정책(Write Policy)"], pages: ["/ans2/NS19기/내답안지/ns19ans-g-02.webp"] },
@@ -259,7 +259,7 @@ export const MY_NOTES: MyNote[] = [
   { id: "ns19ans-h-01", book: "내 답안지 · 인공지능 2교시", no: "1", title: "① Vector DB 기반 RAG와 GraphRAG 비교 ② RAG 평가 프레임워크", topicTitles: ["검색 증강 생성(RAG, Retrieval Augmented Generation)"], pages: ["/ans2/NS19기/내답안지/ns19ans-h-01.webp"], score: "14.3" },
   { id: "ns19ans-h-02", book: "내 답안지 · 인공지능 2교시", no: "2", title: "① 지식 증류 개념, 지식전이 메커니즘 ② 네트워크 가지치기와 양자화 기법 ③ 전이학습과 파라미터 효율적 미세조정", topicTitles: ["지식 증류(Knowledge Distillation)", "전이학습(Transfer Learning)", "PEFT(Parameter-Efficient Fine-Tuning)"], pages: ["/ans2/NS19기/내답안지/ns19ans-h-02.webp"], score: "13.0" },
   { id: "ns19ans-h-03", book: "내 답안지 · 인공지능 2교시", no: "3", title: "① 피지컬 AI 정의, 계층적 아키텍처 ② 피지컬 인텔리전스 위한 파운데이션·VLA 기술 모델 ③ 피지컬 AI 계층형 파이프라인", topicTitles: ["Physical AI", "VLA(Vision-Language-Action) 모델"], pages: ["/ans2/NS19기/내답안지/ns19ans-h-03.webp"], score: "12.7" },
-  { id: "ns19ans-h-04", book: "내 답안지 · 인공지능 2교시", no: "6", title: "① AX가 중요한 이유 ② AX 전략적 추진절차, 고려사항 ③ AX 추진 시 장애 요인 3가지 이상, 대응방안", topicTitles: ["AX(AI Transformation)"], pages: ["/ans2/NS19기/내답안지/ns19ans-h-04.webp"], score: "13.5", note: "14쪽이 스캔 파일에 없다(그 자리에 13쪽이 두 번 들어 있다) — 13쪽까지만 있다" },
+  { id: "ns19ans-h-04", book: "내 답안지 · 인공지능 2교시", no: "6", title: "① AX가 중요한 이유 ② AX 전략적 추진절차, 고려사항 ③ AX 추진 시 장애 요인 3가지 이상, 대응방안", topicTitles: ["AX(AI Transformation)"], pages: ["/ans2/NS19기/내답안지/ns19ans-h-04.webp"], score: "13.5" },
   // 인공지능 1교시 (4주차)
   { id: "ns19ans-i-01", book: "내 답안지 · 인공지능 1교시", no: "1", title: "머신 언러닝(Machine Unlearning)", topicTitles: ["머신 언러닝(Machine Unlearning)"], pages: ["/ans2/NS19기/내답안지/ns19ans-i-01.webp"], score: "6.0" },
   { id: "ns19ans-i-02", book: "내 답안지 · 인공지능 1교시", no: "2", title: "도메인 특화 언어 모델의 개념과 필요성", topicTitles: ["도메인 특화 언어 모델(Domain-Specific Language Model)"], pages: ["/ans2/NS19기/내답안지/ns19ans-i-02.webp"], score: "5.0" },
