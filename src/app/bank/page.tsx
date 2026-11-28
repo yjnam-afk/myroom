@@ -6,9 +6,8 @@ import { PageHeader, Button } from "@/components/ui";
 import ShareButton from "@/components/ShareButton";
 import CopyButton from "@/components/CopyButton";
 import questions from "@/data/questions.json";
-import { relatedTopics } from "@/lib/relatedTopics";
 import PeerAnswers from "@/components/PeerAnswers";
-import { isSameQuestion, answersForQuestion } from "@/lib/questionAnswers";
+import { isSameQuestion, answersForQuestion, topicChips } from "@/lib/questionAnswers";
 import { matchSubnoteTitle } from "@/lib/matchSubnote";
 import { TIERS, type Tier, PRIOS, type Prio, freqTier, prioOf, FREQ_DESC, PRIO_STARS } from "@/lib/questionMeta";
 import { QuestionBadges, QuestionMyNotes } from "@/components/QuestionMeta";
@@ -426,7 +425,7 @@ export default function BankPage() {
 
                     {/* 관련 토픽 — 이 문제로 뭘 공부해야 하는지 바로 연결 */}
                     {(() => {
-                      const rel = relatedTopics(q.text);
+                      const rel = topicChips(q.text);
                       if (!rel.length) return null;
                       return (
                         <div className="mt-1.5 flex flex-wrap items-center gap-1">

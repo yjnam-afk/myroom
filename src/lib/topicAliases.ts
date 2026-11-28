@@ -290,6 +290,10 @@ export const TOPIC_ALIASES: Record<string, string[]> = {
   "지능형 IoT와 자율형 IoT": ["AIoT", "Artificial Intelligence of Things", "지능형 사물인터넷"],
   "디지털포용법": ["디지털 포용", "Digital Inclusion"],
   "리뷰(Review)": ["인스펙션", "Inspection", "워크스루", "Walkthrough", "동료검토", "동료 검토"],
+  // 2026-11-28 「실행 중인 애플리케이션에 대한 배포 전략 및 테스트 전략」(134회 3교시 1번 · NS 19기 11주차)이 어느 토픽에도 안 걸렸다 — 문제은행에 이 문장뿐이다
+  "무중단 배포": ["배포 전략"],
+  // 교재 표 「5 Force 모델 분석」 — 5 Forces 문항(81회 2교시 3번 등 3개)이 환경분석에 안 걸렸다
+  "환경분석": ["5 Forces", "5 Force", "5-Force"],
   "블랙박스 테스트": ["명세기반 기법", "명세 기반 기법", "Specification-based"],
   "CXL(Compute Express Link) 3.0": ["CXL"],
   "로우 코드(Low Code)": ["Low Code", "Low-Code", "로우코드"],

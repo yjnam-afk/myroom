@@ -140,6 +140,8 @@ export function sameQuestionText(a: string, b: string): boolean {
     const [w] = [...small.en];
     // 상대가 괄호 밖에 다른 영문 개념을 더 묻고 있으면(「RWA와 STO 비교」) 「STO」만 적힌 답안은 그 문제가 아니다(2026-11-07)
     const others = [...big.outEn].filter((x) => x !== w && !/^v?\d+$/.test(x) && !QUALIFIER.has(x) && !isAcronymOf(x, small.words));
+    // 소문항(가. 나.)이 딸린 지문은 그 약어의 무엇을 묻는 문제다 — 「MSA」 답안이 「MSA에서 다음을 … 가. 모니터링과 관찰 가능성 …」의 같은 문제로 표시됐다(2026-11-28)
+    if (subA || subB) return false;
     return w.length >= 3 && others.length === 0 && isAcronymOf(w, big.words);
   }
   // 한글 없이 약어 하나 ↔ 「약어 (원어)」·「원어」만 있는 문제 — 「EVM」↔「EVM (Earned Value Management) 에 대해 설명하시오」(2026-11-01)
@@ -167,8 +169,33 @@ export function sameQuestionText(a: string, b: string): boolean {
   return small.en.size > 0 || big.en.size <= 6;
 }
 
-// ── 구분·회차 ──────────────────────────────────────────────────────────
+// ── 배경 문장 ↔ 요구 문장 ─────────────────────────────────────────────
+// 2026-11-28 "여기에 왜 토픽이 스마트팩토리, 스마트카가 붙어있냐? 이거 안정성분석기법이어야 하지":
+// 「최근 자율주행, 의료 기기, 스마트 팩토리 등 … 강조되고 있다. 소프트웨어 안전성 분석 기법에 대하여 설명하시오.」
+// 에서 배경 문장에 지나가듯 나온 말(스마트 팩토리·자율주행)이 토픽·모범답안으로 붙었다. 묻는 것은 요구 문장에 있다.
+const DECLARATIVE = /(다|음|임|함|됨)\.\s*$/;
+const ASK_TAIL = /\s*(에\s*(대하여|대해|대해서|관하여)|을|를)?\s*(각각\s*)?(설명|서술|기술|논술|논|비교|제시|작성|답|구분|나열|정의)[가-힣\s]*(시오|하라)?\.?\s*$/;
+const BACK_REF = /^(이|그|이에|이와|이를|이의|이때|이것|이것은|이러한|이런|이같은|해당|위|위의|상기|본|관련하여|또한|그러나|각|각각|아래|아래의|아래에|아래와|다음|다음의|다음은|다음에|다음과)$/;
 
+/**
+ * 지문 머리의 배경 문장(「…다.」)과 요구 문장(그 뒤 + 가·나·다 줄)을 나눈다. 배경 문장이 없으면 null.
+ * explicit = 요구 문장이 묻는 대상을 스스로 적었다(「소프트웨어 안전성 분석 기법에 대하여 …」).
+ * 「다음을 설명하시오」「이에 대하여 …」처럼 배경 문장을 가리키기만 하면 false.
+ */
+export function askParts(text: string): { bg: string; ask: string; explicit: boolean } | null {
+  const lines = text.split("\n");
+  const sents = lines[0].split(/(?<=[가-힣]\.)\s+(?![가-하]\.)/).filter(Boolean);
+  let i = 0;
+  while (i < sents.length - 1 && DECLARATIVE.test(sents[i])) i++;
+  if (i === 0) return null;
+  const head = sents.slice(i).join(" ");
+  const subject = head.replace(ASK_TAIL, "").replace(/(다음|아래)[^,.]*$/, "").trim();
+  const first = subject.split(/\s+/)[0] ?? "";
+  const explicit = subject.replace(/\s/g, "").length >= 2 && !BACK_REF.test(first);
+  return { bg: sents.slice(0, i).join(" "), ask: [head, ...lines.slice(1)].join("\n"), explicit };
+}
+
+// ── 구분·회차 ──────────────────────────────────────────────────────────
 export type ExamKind = "기출" | "셀테" | "모의고사" | "NS모의" | "파이널";
 type HasRound = { kind?: ExamKind; round?: string; source?: string; cohort?: string };
 

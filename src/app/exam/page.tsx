@@ -6,8 +6,7 @@ import { PageHeader } from "@/components/ui";
 import CopyButton from "@/components/CopyButton";
 import questions from "@/data/questions.json";
 import PeerAnswers from "@/components/PeerAnswers";
-import { isSameQuestion, answersForQuestion } from "@/lib/questionAnswers";
-import { relatedTopics } from "@/lib/relatedTopics";
+import { isSameQuestion, answersForQuestion, topicChips } from "@/lib/questionAnswers";
 import ClaudeAnswer from "@/components/ClaudeAnswer";
 import answerIndex from "@/data/examAnswerIndex.json";
 import { matchSubnoteTitle } from "@/lib/matchSubnote";
@@ -458,7 +457,7 @@ export default function ExamPage() {
 
                   {/* 관련 토픽 — 이 문제로 뭘 공부해야 하는지 바로 연결 */}
                   {(() => {
-                    const rel = relatedTopics(q.text);
+                    const rel = topicChips(q.text);
                     if (!rel.length) return null;
                     return (
                       <div className="mt-2 flex flex-wrap items-center gap-1 pl-9">

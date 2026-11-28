@@ -1,10 +1,10 @@
 import { periodGroup } from "./answerKind";
 import { SUBNOTES } from "@/data/textbookSubnotes";
 import { titlesMatching, trappedTitle } from "@/lib/examHistory";
-import { relatedTopics } from "@/lib/relatedTopics";
+import { focusOf, relatedTopics } from "@/lib/relatedTopics";
 import { PEER_ANSWERS, peerAnswersFor, peerAnswersForQuestion, type PeerAnswer } from "@/data/peerAnswers";
 import { SUB_TOPICS } from "@/data/subTopics";
-import { sameQuestionText } from "@/lib/questionText";
+import { questionCore, sameQuestionText } from "@/lib/questionText";
 
 /**
  * 문항 → 모범답안(남이 쓴 답안지 스캔).
@@ -30,11 +30,25 @@ export function topicsForQuestion(text: string): string[] {
   // examHistory 매칭(제목 열쇠)이 1차다. 제목을 한 글자도 안 쓰는 문항
   // ("은행가 알고리즘" → 「Banker's 알고리즘」, "회귀시험" → 「리그레이션 테스트」)은
   // 관련 토픽 매칭(괄호 속 원어·동의어까지 본다)으로 한 번 더 건진다.
-  const out = titlesMatching(text, TITLES);
+  // 배경 문장에만 나온 토픽은 뺀다(relatedTopics.focusOf) — 「생성형 AI와 AI Agent 확산으로 AI-DLC …」는 AI-DLC 문제다.
+  const out = titlesMatching(focusOf(text), TITLES);
   // examHistory 가 TRAP 으로 뺀 토픽은 관련 토픽 매칭으로도 넣지 않는다(SDR 로봇 ↔ SDR 라디오)
   for (const t of relatedTopics(text, 4)) if (BOOK.has(t) && !out.includes(t) && !trappedTitle(text, t)) out.push(t);
   cache.set(text, out);
   return out;
+}
+
+/**
+ * 문제 아래 「관련 토픽」 칩 — 교재 토픽(제목·별칭으로 걸리는 것까지) 먼저, 그다음 예전 토픽·교재 밖 토픽.
+ * 예전엔 relatedTopics 만 써서 별칭으로만 걸리는 문항(「…원칙(일명 SOLID 원칙)」 → 객체지향 설계 원리)은 답안은 붙는데 칩이 없었다(2026-11-28).
+ */
+export function topicChips(text: string, limit = 4): string[] {
+  // 덫(TRAP)은 교재 토픽에만 본다 — 예전 토픽 제목을 trappedTitle 에 넣으면 엔진의 낱말 사이 틈 규칙(GAP)이 그 제목의 띄어쓰기로 먼저 등록돼
+  // 다른 토픽의 별칭까지 틈을 허용하게 된다(「병행 제어」가 먼저 등록되자 DB 동시성제어의 별칭 「병행제어」가 「운영체제의 병행성제어」에 걸렸다)
+  const rel = relatedTopics(text).filter((t) => !BOOK.has(t) || !trappedTitle(text, t));
+  const book = rel.filter((t) => BOOK.has(t));
+  for (const t of topicsForQuestion(text)) if (!book.includes(t)) book.push(t);
+  return [...book, ...rel.filter((t) => !BOOK.has(t))].slice(0, limit);
 }
 
 // ── 서브 토픽 이름으로 찾기 ─────────────────────────────────────────────
@@ -69,6 +83,38 @@ function subWordsIn(text: string): string[] {
 }
 
 
+// ── 토픽 답안 차례 — 문제 문구와 가까운 것부터 ─────────────────────────────
+// 2026-11-28 "모범답안도 잘못되었고": 토픽으로 붙은 답안이 묶음에 든 차례대로 나와, 「SCRUM을 구성하는 역할과 미팅유형」 맨 위에
+// 「스크럼, 칸반 보드 비교」가 오고 같은 것을 물은 「스크럼 개발방법론의 팀구성과 미팅의 유형」 답안은 그 아래에 있었다.
+// 문제 문구(요구 문장)와 글자 두 개짜리 조각이 많이 겹치는 답안을 앞에 세운다. 같은 문제 판정(●)과는 상관없다 — 차례만 바꾼다.
+const gramCache = new Map<string, Set<string>>();
+function grams(s: string): Set<string> {
+  let g = gramCache.get(s);
+  if (!g) {
+    const k = questionCore(s);
+    g = new Set<string>();
+    for (let i = 0; i + 1 < k.length; i++) g.add(k.slice(i, i + 2));
+    if (gramCache.size > 30000) gramCache.clear();
+    gramCache.set(s, g);
+  }
+  return g;
+}
+function byCloseness(ask: string, list: PeerAnswer[]): PeerAnswer[] {
+  const q = grams(ask);
+  if (!q.size) return list;
+  const score = (a: PeerAnswer) => {
+    const g = grams(a.question);
+    if (!g.size) return 0;
+    let n = 0;
+    for (const x of g) if (q.has(x)) n++;
+    return n / Math.sqrt(g.size * q.size);
+  };
+  return list
+    .map((a, i) => ({ a, i, s: score(a) }))
+    .sort((x, y) => y.s - x.s || x.i - y.i)
+    .map((x) => x.a);
+}
+
 /**
  * 이 문항에 붙일 답안지 — 문항 id 로 직접 연결된 것, 문구가 같은 것, 문항에 나온 서브 토픽을 다룬 것, 토픽이 같은 것.
  * period 를 주면 같은 교시 묶음(단답/논술)의 답안을 앞에 세운다.
@@ -81,10 +127,18 @@ export function answersForQuestion(text: string, id?: string, period?: string): 
     seen.add(a.id);
     out.push(a);
   };
-  for (const a of peerAnswersForQuestion(text, id)) push(a);
+  // 문구·서브 토픽으로 찾을 때도 요구 문장만 본다 — 배경 문장의 「스마트 팩토리」「생성형 AI」 답안이 붙었다(2026-11-28).
+  const ask = focusOf(text);
+  for (const a of peerAnswersForQuestion(ask, id)) push(a);
   // 문항이 콕 집어 묻는 서브 토픽(HRN·2PL·MC/DC …)을 다룬 답안이 토픽 답안보다 먼저
-  for (const w of subWordsIn(text)) for (const a of answersNaming(w)) push(a);
-  for (const t of topicsForQuestion(text)) for (const a of peerAnswersFor(t)) push(a);
+  const named: PeerAnswer[] = [];
+  for (const w of subWordsIn(ask)) for (const a of answersNaming(w)) named.push(a);
+  for (const a of byCloseness(ask, named)) push(a);
+  const topical: PeerAnswer[] = [];
+  for (const t of topicsForQuestion(text)) for (const a of peerAnswersFor(t)) topical.push(a);
+  // 교재 밖 토픽(관련 토픽 칩에 보이는 것)에 걸어 둔 답안 — 「소프트웨어 안전성 분석기법」
+  for (const t of relatedTopics(text)) if (!BOOK.has(t)) for (const a of peerAnswersFor(t)) topical.push(a);
+  for (const a of byCloseness(ask, topical)) push(a);
   if (!period) return out;
   const want = periodGroup(period);
   return [

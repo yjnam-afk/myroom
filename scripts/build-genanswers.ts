@@ -495,7 +495,8 @@ for (const q of questions) {
       continue;
     }
   }
-  const relTp = relatedTopics(q.text, 1)[0];
+  // relatedTopics 는 교재 밖 토픽(examTopics — 자료가 없다)도 돌려주므로 자료가 있는 예전 토픽 가운데 첫 번째를 고른다
+  const relTp = relatedTopics(q.text, 4).find((t) => (topics as any[]).some((x) => x.title === t));
   if (relTp) {
     const t2 = (topics as any[]).find((x) => x.title === relTp);
     const a2 = t2 ? buildFromTopic(q, t2) : "";

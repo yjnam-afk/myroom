@@ -44,7 +44,7 @@ export type Problem = { level: "error" | "warn"; id: string; msg: string };
 let knownTitles: Set<string> | undefined;
 function titles(): Set<string> {
   if (knownTitles) return knownTitles;
-  // 교재 서브노트·서브 토픽·예전 토픽(topics.json) 제목 — 답안 topicTitles 는 이 중 하나여야 화면에 붙는다
+  // 교재 서브노트·서브 토픽·예전 토픽(topics.json)·교재 밖 토픽(examTopics.json) 제목 — 답안 topicTitles 는 이 중 하나여야 화면에 붙는다
   const { SUBNOTES } = require("../../src/data/textbookSubnotes");
   const { SUB_TOPICS } = require("../../src/data/subTopics");
   const topics = JSON.parse(readFileSync(join(ROOT, "src/data/topics.json"), "utf8"));
@@ -52,6 +52,8 @@ function titles(): Set<string> {
     ...SUBNOTES.map((s: { title: string }) => s.title),
     ...SUB_TOPICS.map((s: { name: string }) => s.name),
     ...(Array.isArray(topics) ? topics : Object.values(topics).flat()).map((t: { title?: string }) => t?.title).filter(Boolean),
+    // 교재 밖 토픽에도 답안을 건다(2026-11-28 「소프트웨어 안전성 분석기법」) — 문제 화면이 관련 토픽 칩의 답안을 함께 보인다
+    ...(JSON.parse(readFileSync(join(ROOT, "src/data/examTopics.json"), "utf8")) as { name: string }[]).map((t) => t.name),
   ];
   return (knownTitles = new Set(list));
 }
