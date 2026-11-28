@@ -168,5 +168,5 @@ export const EXTRA_ANY: Record<string, string[]> = {
   // 교재는 "테스트", 문항은 "테스팅".
   "탐색적 테스트": ["탐색적테스팅", "exploratorytesting"],
   // 제목이 "감리/PMO 비교표" 라 PMO 를 다룬 문항을 못 찾았다.
-  "감리/PMO 비교표": ["pmo"],
+  "감리/PMO 비교표": ["pmo", "pmc"],
 };

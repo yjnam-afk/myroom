@@ -334,6 +334,11 @@ AI 신기술 토픽은 대개 거기에만 나온다. 남은 답안 0건 토픽(
 - 교재 토픽에 안 걸리는 문항 4: 요구사항 추적표·프로덕트 백로그 비교, 성능 요구사항의 성능지표, SW 안전성 분석 기법, 배포 전략·테스트 전략(넷 다 같은 문장 문항의 해설은 직접 걸려 있다).
 - **작업 환경이 새로 만들어지면 `/home/user/myroom` 이 없다**(이날 그랬다 — `study` 만 있었다). `git clone --filter=blob:none --no-checkout --depth 1 -b claude/create-my-space-bmiocc …` 뒤 `git sparse-checkout set --no-cone '/*' '!/public/answers/' '!/public/concept/book/'` 로 받으면 150MB 다. `npm ci`, `pip install pymupdf` 를 다시 한다. scratchpad 의 작업 자료(스캔 조각·해설집 PDF)는 없어진다 — 사용자 업로드(`/root/.claude/uploads/…`)는 남는다.
 
+**「감리/PMO 비교표」에 PMC·PMO 정의**(2026-11-28 "감리/pmo 비교표에 pmc, pmi 정의 다 추가해" — pmi 는 PMO 의 오타로 읽었다. 11주차 1교시 4번 「PMC와 PMO 비교」가 이 토픽에 걸린다):
+교재에는 감리와 PMO(전자정부사업관리 위탁 제도) 정의만 있다. 제140회 정보관리 기출 해설집 1교시 4번의 정의 문장에서 조사·수식어만 덜어 `defPair` 에 「PMO(Project Management Office)」(조직 정의)와 「PMC(Project Management Consultancy)」를 더했고(개념 넷),
+해설집의 「PMC와 PMO 비교」 표 10행을 글자 그대로 둘째 표로 넣었다(한 칸 한 구절이라 줄을 안 나누고 `nameCol: [1, 2]`). 정의 원문 두 문장과 출처는 `notes` 에 있다.
+`KEYS_FIXED` 에 `pmc` 를 더해 PMC 만 묻는 문항도 이 토픽에 걸린다. 교재 밖 내용을 교재 토픽에 넣을 때는 이렇게 **출처를 주석과 notes 에 적고 교재 칸(정의·첫 표)은 건드리지 않는다.**
+
 **제138회 대비 ITPE Final Round 해설집**(2026-11-26 "MSA 환경에서 UML 활용의 한계와 보완 방안 — 이거 해설지 있다는데"): 문항(파이널 2026.02 3일차 2교시 4번)에 해설이 하나도 안 붙어 있었다.
 드라이브에 「제138회 대비 ITPE Final Round 해설집_{1~5}일차_{1·2}교시_최종_v1.0.pdf」 10개(각 1.4~2.4MB, 2026-11-18 에 올라온 것)가 있었는데 통째로 안 들어와 있었다 — 한 문항이 아니라 **묶음 전체**가 빠진 것이라 10개를 다 넣었다.
 - 장부: PDF 10개 335쪽 = 해설 104편 295쪽 + 표지·문제지·판권 40쪽. 104편 가운데 **95편(274쪽)**을 묶음 `11.json` 에 넣었다(`peer-fr138-d{일}-{교시}-{번호}`, 이미지 `/ans2/ITPE파이널/138회대비/{일}일차/`).
