@@ -165763,6 +165763,196 @@
   "text": "MST(Minimum Spanning Tree)를 구하는 다음 알고리즘을 설명하시오.\n가. 크루스칼(Kruskal)\n나. 프림(Prim)\n다. 솔린(Sollin)"
  },
  {
+  "id": "ns19w11-101",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "11주차",
+  "cohort": "19기",
+  "date": "2026-11-29",
+  "text": "요구사항 추적표와 프로덕트 백로그(Product Backlog) 비교"
+ },
+ {
+  "id": "ns19w11-102",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "11주차",
+  "cohort": "19기",
+  "date": "2026-11-29",
+  "text": "Fagan의 인스펙션(Inspection)"
+ },
+ {
+  "id": "ns19w11-103",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "11주차",
+  "cohort": "19기",
+  "date": "2026-11-29",
+  "text": "ISO/IEC/IEEE 42010:2022"
+ },
+ {
+  "id": "ns19w11-104",
+  "period": "1교시",
+  "category": "프로젝트관리",
+  "kind": "NS모의",
+  "round": "11주차",
+  "cohort": "19기",
+  "date": "2026-11-29",
+  "text": "PMC(Project Management Consultancy)와 PMO(Project Management Office) 비교"
+ },
+ {
+  "id": "ns19w11-105",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "11주차",
+  "cohort": "19기",
+  "date": "2026-11-29",
+  "text": "디자인 패턴의 오용(Misuse of Design Patterns) 3가지 이상 설명"
+ },
+ {
+  "id": "ns19w11-106",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "11주차",
+  "cohort": "19기",
+  "date": "2026-11-29",
+  "text": "소프트웨어 아키텍처 드라이버(Software Architecture Driver)"
+ },
+ {
+  "id": "ns19w11-107",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "11주차",
+  "cohort": "19기",
+  "date": "2026-11-29",
+  "text": "카오스 테스트(Chaos Test)"
+ },
+ {
+  "id": "ns19w11-108",
+  "period": "1교시",
+  "category": "프로젝트관리",
+  "kind": "NS모의",
+  "round": "11주차",
+  "cohort": "19기",
+  "date": "2026-11-29",
+  "text": "획득가치 관리(Earned Value Management, EVM)"
+ },
+ {
+  "id": "ns19w11-109",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "11주차",
+  "cohort": "19기",
+  "date": "2026-11-29",
+  "text": "SCRUM을 구성하는 역할과 미팅유형"
+ },
+ {
+  "id": "ns19w11-110",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "11주차",
+  "cohort": "19기",
+  "date": "2026-11-29",
+  "text": "정보시스템의 성능 요구사항 작성 시 고려해야 하는 주요 성능지표"
+ },
+ {
+  "id": "ns19w11-111",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "11주차",
+  "cohort": "19기",
+  "date": "2026-11-29",
+  "text": "소프트웨어 기술 부채의 유형과 관리 방법"
+ },
+ {
+  "id": "ns19w11-112",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "11주차",
+  "cohort": "19기",
+  "date": "2026-11-29",
+  "text": "객체 지향 프로그래밍 기법을 활용한 소프트웨어 설계 시 고려해야 할 원칙(일명 SOLID 원칙)"
+ },
+ {
+  "id": "ns19w11-113",
+  "period": "1교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "11주차",
+  "cohort": "19기",
+  "date": "2026-11-29",
+  "text": "SBOM 기반 오픈소스 소프트웨어 관리 방안"
+ },
+ {
+  "id": "ns19w11-201",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "11주차",
+  "cohort": "19기",
+  "date": "2026-11-29",
+  "text": "생성형 AI와 AI Agent 확산으로 AI-DLC(Driven Development Life Cycle) 기반 소프트웨어 개발방식이 주목받고 있다. 다음을 설명하시오.\n가. AI-DLC의 개념 및 주요 특징\n나. AI-DLC 기반 프로젝트의 PM 역할과 전 생애주기 단계별 품질관리 방안"
+ },
+ {
+  "id": "ns19w11-202",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "11주차",
+  "cohort": "19기",
+  "date": "2026-11-29",
+  "text": "차세대 시스템이 마이크로서비스 아키텍처(Microservice Architecture)로 전환되면서 서비스 간 호출 관계가 복잡해졌다. MSA 환경에서 UML(Unified Modeling Language)활용의 한계와 보완 방안을 설명하시오."
+ },
+ {
+  "id": "ns19w11-203",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "11주차",
+  "cohort": "19기",
+  "date": "2026-11-29",
+  "text": "최근 자율주행, 의료 기기, 스마트 팩토리 등 안전이 중요한 시스템에서 소프트웨어의 역할이 증대됨에 따라 소프트웨어 안전성 확보의 중요성이 더욱 강조되고 있다. 소프트웨어 안전성 분석 기법에 대하여 설명하시오."
+ },
+ {
+  "id": "ns19w11-204",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "11주차",
+  "cohort": "19기",
+  "date": "2026-11-29",
+  "text": "모든 프로젝트의 가장 중요한 측면은 요구 사항이 중요하다. 다음 사항에 대하여 설명하시오.\n가. 요구사항 도출의 필요성 및 요구사항의 조건\n나. 요구사항 수집 기법 10가지 이상\n다. 요구사항 명세서(Software Requirements Statement, SRS) 및 추적 매트릭스"
+ },
+ {
+  "id": "ns19w11-205",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "11주차",
+  "cohort": "19기",
+  "date": "2026-11-29",
+  "text": "실행 중인 애플리케이션에 대한 배포 전략 및 테스트 전략에 대하여 설명하시오."
+ },
+ {
+  "id": "ns19w11-206",
+  "period": "2교시",
+  "category": "소프트웨어공학",
+  "kind": "NS모의",
+  "round": "11주차",
+  "cohort": "19기",
+  "date": "2026-11-29",
+  "text": "MSA(Micro Service Architecture)에서 다음 사항들을 설명하시오.\n가. 모니터링(Monitoring)과 관찰 가능성(Observability)의 차이점\n나. 로그(Logs), 메트릭(Metrics), 분산 추적(Traces)이 각각 제공하는 정보와 3개 구성요소를 함께 분석해야 하는 이유"
+ },
+ {
   "id": "c140-102",
   "period": "1교시",
   "category": "인공지능",
